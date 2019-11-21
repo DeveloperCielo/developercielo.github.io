@@ -3126,16 +3126,30 @@ Below we specify any existing differences:</p>
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
-    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2017051109"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w">
     </span><span class="p">{</span><span class="w">  
-        </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Comprador Transferência Eletronica"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Nome do Comprador"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comprador@cielo.com.br"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Address"</span><span class="p">:</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+             </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+             </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+             </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
+             </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+             </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+             </span><span class="nl">"State"</span><span class="p">:</span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+             </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+             </span><span class="nl">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
     </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w">
     </span><span class="p">{</span><span class="w">  
-        </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"EletronicTransfer"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Bradesco"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"EletronicTransfer"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
         </span><span class="nl">"ReturnUrl"</span><span class="p">:</span><span class="s2">"http://www.cielo.com.br"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3149,16 +3163,30 @@ Below we specify any existing differences:</p>
 <span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--data-binary</span>
 <span class="o">{</span>  
-    <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2014111706"</span>,
+    <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2017051109"</span>,
     <span class="s2">"Customer"</span>:
     <span class="o">{</span>  
-        <span class="s2">"Name"</span>:<span class="s2">"Comprador Transferência Eletronica"</span>
-    <span class="o">}</span>,
+        <span class="s2">"Name"</span>:<span class="s2">"Nome do Comprador"</span>,
+        <span class="s2">"Identity"</span>: <span class="s2">"12345678909"</span>,
+        <span class="s2">"IdentityType"</span>: <span class="s2">"CPF"</span>,
+        <span class="s2">"Email"</span>: <span class="s2">"comprador@cielo.com.br"</span>,
+        <span class="s2">"Address"</span>:
+        <span class="o">{</span>
+             <span class="s2">"Street"</span>:<span class="s2">"Alameda Xingu"</span>,
+             <span class="s2">"Number"</span>:<span class="s2">"512"</span>,
+             <span class="s2">"Complement"</span>:<span class="s2">"27 andar"</span>,
+             <span class="s2">"ZipCode"</span>:<span class="s2">"12345987"</span>,
+             <span class="s2">"City"</span>:<span class="s2">"São Paulo"</span>,
+             <span class="s2">"State"</span>:<span class="s2">"SP"</span>,
+             <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
+             <span class="s2">"District"</span>:<span class="s2">"Alphaville"</span>
+         <span class="o">}</span>
+  <span class="o">}</span>,
     <span class="s2">"Payment"</span>:
     <span class="o">{</span>  
-        <span class="s2">"Type"</span>:<span class="s2">"EletronicTransfer"</span>,
-        <span class="s2">"Amount"</span>:15700,
         <span class="s2">"Provider"</span>:<span class="s2">"Bradesco"</span>,
+        <span class="s2">"Type"</span>:<span class="s2">"EletronicTransfer"</span>,
+        <span class="s2">"Amount"</span>:10000,
         <span class="s2">"ReturnUrl"</span>:<span class="s2">"http://www.cielo.com.br"</span>
     <span class="o">}</span>
 <span class="o">}</span>
