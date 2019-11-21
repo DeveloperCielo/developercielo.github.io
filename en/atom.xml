@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-11-21T12:58:08+00:00</updated>
+    <updated>2019-11-21T13:17:13+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -11988,12 +11988,9 @@ is valid for all the eCommerce transactions, whether it is debit, credit or prep
 
 &lt;h2 id=&quot;card-brands-and-issuers-available&quot;&gt;Card Brands and Issuers Available&lt;/h2&gt;
 
-&lt;p&gt;In order to send transactions with request for 3DS 2.0 authentication, it is important that, besides Cielo, the issuer and the card brand are ready with the solution. 
-Currently are available:&lt;/p&gt;
+&lt;p&gt;For transaction sending with 3DS 2.0 authentication request it’s critical that, besides Cielo, the Issuer and Flag are ready with the solution. Among the market flags, Visa and Mastercard are currently available in 3DS 2.0 Cielo. Both have a Stand-In model if the Issuer isn’t yet able to respond to an authentication request using EMV 3DS 2.0. In this scenario, the flag evaluates the submitted data, such as customer behavioral and transactional history, classifying authentication requests as “Low Risk” and “Not Low Risk”. From this information, Issuers will be able to report on protection even if they don’t have their own 3DS 2.0 solution, and will have greater confidence in authenticated transactions. In Stand-In cases, authentication occurs silently (without challenge to the carrier) and once the transaction has been authenticated, liability in case of fraud will be with the Issuer. The decision to authorize the transaction or not is up to the Issuer.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;- Mastercard:&lt;/strong&gt; the brand has a Stand-In model, in case that the issuer is not able yet to respond an authenticated request using 3DS 2.0 EMV. In this scenario, Mastercard evaluates the uploaded data, for example the client’s historical behavioral and transactional classifying authentication requests as “Low Risk” and “No Low Risk” in Stand-In mode. With this information, the Issuers have a protection even if they do not have their own solution of 3DS 2.0, and will have greater confidence in authenticated transactions. In Stand-In cases, Mastercard will respond to the authentication in 100% of cases silently (no challenge to the carrier) and, once the transaction has been authenticated, the liability in case of fraud will remain with the Issuer. The decision to authorize the transaction or not is to the Issuer.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;- Visa:&lt;/strong&gt; the card brand does not has a Stand-In model and just issuers 100% ready with its own solution are able to respond to an authenticated request using the 3DS 2.0 EMV.&lt;/p&gt;
+&lt;p&gt;Coming soon Elo and Amex flags will also be available.&lt;/p&gt;
 
 &lt;table&gt;
   &lt;tbody&gt;
@@ -12039,12 +12036,12 @@ Currently are available:&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Acesso&lt;/td&gt;
-      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Credit&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Banco Neon&lt;/td&gt;
-      &lt;td&gt;Credit&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;Credit&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
