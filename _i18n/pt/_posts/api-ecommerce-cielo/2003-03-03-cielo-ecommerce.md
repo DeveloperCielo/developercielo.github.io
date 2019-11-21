@@ -1650,7 +1650,7 @@ curl
   },
     "Payment":
     {  
-        "Provider":"Bradesco2",
+        "Provider":"Bradesco",
         "Type":"EletronicTransfer",
         "Amount":10000,
         "ReturnUrl":"http://www.cielo.com.br"
