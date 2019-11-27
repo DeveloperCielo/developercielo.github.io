@@ -7722,6 +7722,7 @@ The Cielo Ecommerce API is integrated with:
 | [*VisaCheckout*](https://vaidevisa.visa.com.br/site/visa-checkout) | 
 | [*MasterPass*](https://masterpass.com/pt-br/)                      | 
 | [*Samsung Pay*](https://www.samsung.com.br/samsungpay/)            |
+| [*Google Pay*](https://developercielo.github.io/manual/google-pay) |
 
 <aside class="notice"><strong>Warning:</strong> When the “Wallet” node is sent in the request, the “CreditCard” node becomes optional.</aside>
 
