@@ -7716,13 +7716,13 @@ For more information, we suggest that you contact the technical department of th
 
 The Cielo Ecommerce API is integrated with:
 
-| Wallet                                                          | 
-|--------------------------------------------------------------------|
-| [*Apple Pay*](https://www.apple.com/br/apple-pay/)                 |
-| [*VisaCheckout*](https://vaidevisa.visa.com.br/site/visa-checkout) | 
-| [*MasterPass*](https://masterpass.com/pt-br/)                      | 
-| [*Samsung Pay*](https://www.samsung.com.br/samsungpay/)            |
-| [*Google Pay*](https://developercielo.github.io/manual/google-pay) |
+| Wallet                                                                | 
+|-----------------------------------------------------------------------|
+| [*Apple Pay*](https://www.apple.com/br/apple-pay/)                    |
+| [*VisaCheckout*](https://vaidevisa.visa.com.br/site/visa-checkout)    | 
+| [*MasterPass*](https://masterpass.com/pt-br/)                         | 
+| [*Samsung Pay*](https://www.samsung.com.br/samsungpay/)               |
+| [*Google Pay*](https://developercielo.github.io/en/manual/google-pay) |
 
 <aside class="notice"><strong>Warning:</strong> When the “Wallet” node is sent in the request, the “CreditCard” node becomes optional.</aside>
 
