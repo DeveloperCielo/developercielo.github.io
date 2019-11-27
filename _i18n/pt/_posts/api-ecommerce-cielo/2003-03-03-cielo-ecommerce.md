@@ -7769,7 +7769,8 @@ A API Cielo Ecommerce possui integração com:
 | [*Apple Pay*](https://www.apple.com/br/apple-pay/)                 |
 | [*VisaCheckout*](https://vaidevisa.visa.com.br/site/visa-checkout) | 
 | [*MasterPass*](https://masterpass.com/pt-br/)                      | 
-| [*Samsung Pay*](https://www.samsung.com.br/samsungpay/)            |
+| [*Samsung Pay*](https://www.samsung.com.br/samsungpay/)            | 
+| [*Google Pay*](https://developercielo.github.io/manual/google-pay) |
 
 <aside class="notice"><strong>Atenção:</strong> Quando o nó “Wallet” for enviado na requisição, o nó “CreditCard” passa a ser opcional.</aside>
 
