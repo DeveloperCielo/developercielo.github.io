@@ -2223,3 +2223,16 @@ Request the tables and parameters for the terminal operation
 |`Emv.Type`|Integer int32|---|---|Admits the following values <br><br>0 - CREDIT <br><br>1 – DEBIT|
 |`Emv.RCodeFirst`|String|---|---|---|
 |`Emv.RCodeSecond`|String|---|---|---|
+|`Emv.InvalidateFunctionIfCardIsOnBlacklist`|Boolean|---|---|Invalidates the function if the card is in the blacklist.|
+|`Emv.RequireBINToBeInCardRangeTable`|Boolean|---|---|Forces the BIN to be in Card Range table (type 2B).|
+|`Emv.StoreTransactionsRejectedByTerminalAppAndSendToHost`|Boolean|---|---|Stores and sends to the host the transactions rejected by the terminal application.|
+|`Emv.NatEmvConctactRiskFloorLimit`|Integer int32|---|---|Maximum check value for offline authorization of transactions. Transactions made with EMV Chip reading and above the "Floor limit", must be authorized in online mode.|
+|`Emv.NatEmvConctactRiskMinValue`|Integer int32|---|---|Minimum value for random selection calculation for offline authorization. As per process defined in the EMV Specification.|
+|`Emv.NatEmvConctactRiskMinPercent`|Integer int32|---|---|Minimum percentage for random selection. Use only the content of the last byte.|
+|`Emv.NatEmvConctactRiskMaxPercent`|Integer int32|---|---|Maximum percentage for random selection. Use only the content of the last byte.|
+|`Emv.IntEmvConctactRiskFloorLimit`|Integer int32|---|---|Maximum check value for offline authorization of transactions. Transactions made with EMV Chip reading and above the “floor limit” value must be authorized in online mode.|
+|`Emv.IntEmvConctactRiskMinValue`|Integer int32|---|---|Minimum value for random selection calculation for offline authorization. As per process defined in the EMV Specification.|
+|`Emv.IntEmvConctactRiskMinPercent`|Integer int32|---|---|Minimum percentage for random selection. Use only the content of the last byte.|
+|`Emv.IntEmvConctactRiskMaxPercent`|Integer int32|---|---|Maximum percentage for random selection. Use only the content of the last byte.|
+|`Emv.ProductIds`|Array of integers int32|---|---|Products enabled for this EMV application.|
+|`Parameters.Currency`|String|---|---|---|
