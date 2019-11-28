@@ -1865,8 +1865,6 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 
 # Desfazimento de cancelamento
 
-Desfaz um cancelamento
-
 ## Desfaz um cancelamento
 
 ### Requisição
