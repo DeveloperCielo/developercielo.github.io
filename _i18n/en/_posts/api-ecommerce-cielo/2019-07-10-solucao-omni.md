@@ -2249,3 +2249,14 @@ Request the tables and parameters for the terminal operation
 |`Parameters.RestrictSaleWithDuplicateValueWhenPostdated`|Boolean|---|---|Prevents duplicate value sales for pre-dating.|
 |`Parameters.RestrictSaleWithDuplicateValue`|Boolean|---|---|Prevents sale with duplicate value.|
 |`Parameters.RequiresPassword`|Boolean|---|---|Request password.|
+|`Parameters.InterpretsLastDigitOfSecurityCode`|Booleano|---|---|Interprets the last digit of the service code.|
+|`Parameters.RequiresPasswordExceptForEMVCard`|Booleano|---|---|Request password, except for EMV card.|
+|`Parameters.EnableAdditionalSecurityCodeOptions_Unreadable_NoCode`|Booleano|---|---|Enables "Unreadable/Ilegível" and "Does Not Have/Não Possui" options for Security Code.|
+|`Parameters.RequiresSecurityCodeWhenMagneticTrackIsRead`|Booleano|---|---|Request security code on the track reading.|
+|`Parameters.RequiresSecurityCodeWhenCardNumberIsTyped`|Booleano|---|---|Request security code for card typed.|
+|`Parameters.RequiresTypingLast4Digits`|Booleano|---|---|Request the last 4 digits typed.|
+|`Parameters.CapturesServiceFee`|Booleano|---|---|Service fee capture.|
+|`Parameters.AllowCancellationWithValueGreaterThanTheValueOfTheSale`|Booleano|---|---|Allows cancellation value higher than the original sale value.|
+|`Parameters.CaptureBoardingFee`|Booleano|---|---|Capture of the boarding fee.
+|`Issuers.IssuerId`|integer int32|---|---|Issuer identifier.|
+|`Issuers.IssuerName`|String|---|---|Issuer's name.|
