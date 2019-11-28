@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2019-11-27T12:32:55+00:00</updated>
+    <updated>2019-11-28T12:04:50+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -7842,7 +7842,7 @@ This procedure is also valid for establishments that performed authentication ou
       &lt;td&gt;Integer int16&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-      &lt;td&gt;Status da transação &lt;br /&gt;0 = Not finished &lt;br /&gt;1 = Authorized &lt;br /&gt;2 = Paid &lt;br /&gt;3 = Denied &lt;br /&gt;10 = Canceled&lt;br /&gt;13 = Aborted&lt;/td&gt;
+      &lt;td&gt;Transaction status. &lt;br /&gt;0 = Not finished &lt;br /&gt;1 = Authorized &lt;br /&gt;2 = Paid &lt;br /&gt;3 = Denied &lt;br /&gt;10 = Canceled&lt;br /&gt;13 = Aborted&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ReturnCode&lt;/code&gt;&lt;/td&gt;
@@ -7897,7 +7897,7 @@ This procedure is also valid for establishments that performed authentication ou
       &lt;td&gt;Integer int16&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-      &lt;td&gt;Status da transação &lt;br /&gt;0 = Not finished &lt;br /&gt;1 = Authorized &lt;br /&gt;2 = Paid &lt;br /&gt;3 = Denied &lt;br /&gt;10 = Canceled&lt;br /&gt;13 = Aborted&lt;/td&gt;
+      &lt;td&gt;Transaction status. &lt;br /&gt;0 = Not finished &lt;br /&gt;1 = Authorized &lt;br /&gt;2 = Paid &lt;br /&gt;3 = Denied &lt;br /&gt;10 = Canceled&lt;br /&gt;13 = Aborted&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ReturnCode&lt;/code&gt;&lt;/td&gt;
