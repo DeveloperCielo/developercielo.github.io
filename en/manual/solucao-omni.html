@@ -5498,6 +5498,111 @@
       <td>—</td>
       <td>End of BIN’s range.</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.ProductId</code></td>
+      <td>Integer int32</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Foreign key of the “PRODUCT TABLE”.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.Type</code></td>
+      <td>Integer int32</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Admits the following values <br />0 - SPECIFIC <br />1 – GENERIC.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.AllowFallbackWhenChipReadingFails</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Allows fallback if there is an error reading the chip.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.AllowChargingMoedeiroFromCash</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Allows coin load from from cash money.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.AllowPurchaseWithCompreESaque</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Allows sale with Buy &amp; Withdraw.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.AllowOfflineFunctionExceptForEMVCard</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Allows offline function, except for EMV card.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.AllowTypingCardNumber</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Allows typed card number.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.MaskCardNumberUsingLast4Digits</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Print only the last 4 digits of the card.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.MaskCardNumberUsingFirst6AndLas4Digits</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Print the first 6 and last 4 digits of the card.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.AllowPrintCardHolderBalance</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Allows you to print the balance of the holder.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.AllowDisplayCardHolderBalance</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Allows the holder balance to be displayed.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.AllowPrintingPartialCardNumberInReceipt</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Allows partial printing of card number on transaction receipt.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.RestrictSaleWithDuplicateValueWhenPostdated</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Prevents sale with double value for pre dating.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.RestrictSaleWithDuplicateValueWhenPostdated</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Prevents sale with duplicate value.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.RequiresPassword</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Request password.</td>
+    </tr>
   </tbody>
 </table>
 
