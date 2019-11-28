@@ -2209,3 +2209,17 @@ Request the tables and parameters for the terminal operation
 |`Products.AllowCDCSale`|Boolean|---|---|Allows CDC selling.|
 |`Products.AllowFinancingByStore`|Boolean|---|---|Allows financing by the store|
 |`Products.AllowFinancingByCreditCardCompany`|Boolean|---|---|Allows financing by the Administrator.|
+|`Products.MaximumNumberOfInstallmentsWhenFinancingByCreditCardCompany`|Integer int32|---|---|Maximum number of installments for ADM financing.|
+|`Products.MaximumNumberOfInstallmentsWhenFinancingByStore`|Integer int32|---|---|Maximum number of installments for the store financing.|
+|`Products.MaximumNumberOfinstallmentsForSaleAndCDCQuery`|Integer int32|---|---|Maximum number of installments for sale and CDC consultation.|
+|`Products.MinimumNumberOfInstallmentsWhenFinancingByStore`|Integer int64|---|---|Minimum value of installments for store financing.|
+|`Products.SaleGuaranteeType`|String|---|---|Guarantee type for postdated. <br><br>Admits the following values <br><br>00 – Does not allow guarantee treatment (Guaranteed Sale); <br><br>05 – Allows guaranteed postdated transactions; <br><br>07 – Allows postdated guaranteed and unsecured transactions.|
+|`Products.PostdatedDayCountLimit`|Integer int32|---|---|Maximum limit on days to pre-date from the current date.<br><br>00 – Don't accept. <br><br>XX - Pre dated.|
+|`Products.FirstInstallmentDayCountLimit`|Integer int32|---|---|First installment date limit. <br><br>00 – Don't accept. <br><br>XX - Days limit.|
+|`Emv.Aid`|String|---|---|EMV application identifier.|
+|`Emv.TagsFirst`|String|---|---|Required tag set submitted 1st generate AC.|
+|`Emv.TagsSecond`|String|---|---|Required tag set submitted 1nd generate AC.|
+|`Emv.IdxRecord`|Integer int32|---|---|---|
+|`Emv.Type`|Integer int32|---|---|Admits the following values <br><br>0 - CREDIT <br><br>1 – DEBIT|
+|`Emv.RCodeFirst`|String|---|---|---|
+|`Emv.RCodeSecond`|String|---|---|---|
