@@ -5603,6 +5603,160 @@
       <td>—</td>
       <td>Request password.</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.InterpretsLastDigitOfSecurityCode</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Interprets last digit of the Service Code.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.RequiresPasswordExceptForEMVCard</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Request password, except for EMV card.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.EnableAdditionalSecurityCodeOptions_Unreadable_NoCode</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Enables “Unreadable/Ilegível” and “Does Not Have/Não Possui” options for Security Code.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.RequiresSecurityCodeWhenMagneticTrackIsRead</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Request security code on the track reading.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.RequiresSecurityCodeWhenCardNumberIsTyped</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Solicita Código de Segurança para cartão digitado.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.RequiresTypingLast4Digits</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Request security code for card typed.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.AllowCaptureOfFirstInstallmentValue</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Allows capturing the value of the first installment.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.AllowCaptureOfDownpaymentValue</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Allows capture of the input value.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.AllowGuaranteeHandling</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Allows warranty treatment.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Allows you to pre-date the first installment for sale and CDC consultation.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.AllowPostdating</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Allows pre-dating.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.AllowCDCSale</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Allows CDC selling.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.AllowFinancingByStore</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Allows financing by the store.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.AllowFinancingByCreditCardCompany</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Allows funding by the administrator.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.ValidateCardTrack1</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Check Track 1 of the card.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.DoNotValidateCardModule10</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Do not validate Module 10 of the card.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.CheckExpiryDateWhenCardNumberIsTyped</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Check expiration date of the card typed.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.CheckExpiryDateWhenMagneticTrackIsRead</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Checks the track expiry date.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Bins.IssuerId</code></td>
+      <td>Integer int32</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Foreign key of the “ISSUER TABLE”.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Products.ProductId</code></td>
+      <td>Integer int32</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Product identifier.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Products.ProductName</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Product’s name.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Products.ProductType</code></td>
+      <td>Integer int32</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Admits the following values <br />0 - CREDIT <br />1 – DEBIT</td>
+    </tr>
   </tbody>
 </table>
 
