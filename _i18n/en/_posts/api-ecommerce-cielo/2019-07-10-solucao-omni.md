@@ -1582,7 +1582,7 @@ Must request the depletion through the PaymentId received on the return of payme
 |Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`ConfirmationStatus`|Integer int16|---|---|Confirmation status. <br><br>0 = Pending <br><br>1 = Confirmed <br><br>2 = Undone|
-|`Status`|Integer int16|---|---|Status da transação <br><br>0 = Not finished <br><br>1 = Authorized <br><br>2 = Paid <br><br>3 = Denied <br><br>10 = Canceled<br><br>13 = Aborted|
+|`Status`|Integer int16|---|---|Transaction status. <br><br>0 = Not finished <br><br>1 = Authorized <br><br>2 = Paid <br><br>3 = Denied <br><br>10 = Canceled<br><br>13 = Aborted|
 |`ReturnCode`|String|---|---|Error message/Acquisition transaction response.|
 
 ### Request
@@ -1609,7 +1609,7 @@ Must request the depletion through the PaymentId received on the return of payme
 |Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`ConfirmationStatus`|Integer int16|---|---|Confirmation status. <br><br>0 = Pending <br><br>1 = Confirmed <br><br>2 = Undone|
-|`Status`|Integer int16|---|---|Status da transação <br><br>0 = Not finished <br><br>1 = Authorized <br><br>2 = Paid <br><br>3 = Denied <br><br>10 = Canceled<br><br>13 = Aborted|
+|`Status`|Integer int16|---|---|Transaction status. <br><br>0 = Not finished <br><br>1 = Authorized <br><br>2 = Paid <br><br>3 = Denied <br><br>10 = Canceled<br><br>13 = Aborted|
 |`ReturnCode`|String|---|---|Error message/Acquisition transaction response.|
 
 ## Depletion using EMV card payment
