@@ -5876,6 +5876,104 @@
       <td>—</td>
       <td>Allows financing by the Administrator.</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Products.MaximumNumberOfInstallmentsWhenFinancingByCreditCardCompany</code></td>
+      <td>Integer int32</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Maximum number of installments for ADM financing.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Products.MaximumNumberOfInstallmentsWhenFinancingByStore</code></td>
+      <td>Integer int32</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Maximum number of installments for the store financing.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Products.MaximumNumberOfinstallmentsForSaleAndCDCQuery</code></td>
+      <td>Integer int32</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Maximum number of installments for sale and CDC consultation.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Products.MinimumNumberOfInstallmentsWhenFinancingByStore</code></td>
+      <td>Integer int64</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Minimum value of installments for store financing.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Products.SaleGuaranteeType</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Guarantee type for postdated. <br />Admits the following values <br />00 – Does not allow guarantee treatment (Guaranteed Sale); <br />05 – Allows guaranteed postdated transactions; <br />07 – Allows postdated guaranteed and unsecured transactions.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Products.PostdatedDayCountLimit</code></td>
+      <td>Integer int32</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Maximum limit on days to pre-date from the current date.<br />00 – Don’t accept. <br />XX - Pre dated.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Products.FirstInstallmentDayCountLimit</code></td>
+      <td>Integer int32</td>
+      <td>—</td>
+      <td>—</td>
+      <td>First installment date limit. <br />00 – Don’t accept. <br />XX - Days limit.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Emv.Aid</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>EMV application identifier.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Emv.TagsFirst</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Required tag set submitted 1st generate AC.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Emv.TagsSecond</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Required tag set submitted 1nd generate AC.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Emv.IdxRecord</code></td>
+      <td>Integer int32</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Emv.Type</code></td>
+      <td>Integer int32</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Admits the following values <br />0 - CREDIT <br />1 – DEBIT</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Emv.RCodeFirst</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Emv.RCodeSecond</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
   </tbody>
 </table>
 
