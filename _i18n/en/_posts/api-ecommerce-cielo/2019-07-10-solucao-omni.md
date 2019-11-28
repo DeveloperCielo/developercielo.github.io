@@ -1897,3 +1897,39 @@ To request the depletion it must be informed the MerchantOrderId sent in the pay
 |`Status`|Integer int16|---|---|Transaction status. <br><br>0 = Not finished <br><br>1 = Authorized <br><br>2 = Paid <br><br>3 = Denied <br><br>10 = Canceled <br><br>13 = Aborted|
 |`ReturnCode`|String|---|---|Error code/Acquisition transaction response.|
 |`ReturnMessage`|---|---|---|Error message/Acquisition transaction response.|
+
+## Cancellation Undo
+
+### Request
+
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/merchantVoidId/{MerchantVoidId}</span></aside>
+
+### Response
+
+```json
+{
+  "CancellationStatus": 4,
+  "Status": 2,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde"
+    },
+    {
+      "Method": "POST",
+      "Rel": "void",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde/voids"
+    }
+  ]
+}
+```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|`CancellationStatus`|Integer int16|---|---|Cancellation status. <br><br>0 = Not finished <br><br>1 = Authorized <br><br>2 = Denied <br><br>3 = Confirmed <br><br>4 = Undone|
+|`Status`|Integer int16|---|---|Transaction status. <br><br>0 = Not finished <br><br>1 = Authorized <br><br>2 = Paid <br><br>3 = Denied <br><br>10 = Canceled <br><br>13 = Aborted|
+|`ReturnCode`|String|---|---|Error code/Acquisition transaction response.|
+|`ReturnMessage`|---|---|---|Error message/Acquisition transaction response|
