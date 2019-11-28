@@ -2192,3 +2192,20 @@ Request the tables and parameters for the terminal operation
 |`Products.ProductId`|Integer int32|---|---|Product identifier.|
 |`Products.ProductName`|String|---|---|Product's name.|
 |`Products.ProductType`|Integer int32|---|---|Admits the following values <br><br>0 - CREDIT <br><br>1 – DEBIT|
+|`Products.BrandId`|String|---|---|Card brand identifier.|
+|`Products.AllowTransactionWithContactlessCard`|Boolean|---|---|Allows contactless card transaction.|
+|`Products.IsFinancialProduct`|Boolean|---|---|Financial product.|
+|`Products.AllowOfflineAuthorizationForEMVCard`|Boolean|---|---|Allows EMV offline authorization.|
+|`Products.AllowReprintReceipt`|Boolean|---|---|Allows the receipt reprint.|
+|`Products.AllowPrintReceipt`|Boolean|---|---|Allows the receipt printing.|
+|`Products.AllowOfflineAuthorizationForContactlessCard`|Boolean|---|---|Allows offline authorization for contactless card.|
+|`Products.AllowCancel`|Boolean|---|---|Allow cancellation.|
+|`Products.AllowUndo`|Boolean|---|---|Allow depletion.|
+|`Products.AllowCaptureOfFirstInstallmentValue`|Boolean|---|---|Allows capturing the value of the first installment.|
+|`Products.AllowCaptureOfDownpaymentValue`|Boolean|---|---|Allows capture of the input value.|
+|`Products.AllowGuaranteeHandling`|Boolean|---|---|Allows guarantee treatment.|
+|`Products.AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery`|Boolean|---|---|Allows you to pre-date the first installment for sale and the CDC consultation.|
+|`Products.AllowPostdating`|Boolean|---|---|Allows pre-dating.|
+|`Products.AllowCDCSale`|Boolean|---|---|Allows CDC selling.|
+|`Products.AllowFinancingByStore`|Boolean|---|---|Allows financing by the store|
+|`Products.AllowFinancingByCreditCardCompany`|Boolean|---|---|Allows financing by the Administrator.|
