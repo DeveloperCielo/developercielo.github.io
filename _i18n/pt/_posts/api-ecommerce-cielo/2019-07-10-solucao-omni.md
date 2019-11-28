@@ -2427,8 +2427,6 @@ Faz alteração do merchant pelo seu ID.
 
 ## Terminal
 
-Cria um novo terminal.
-
 ### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals</span></aside>
