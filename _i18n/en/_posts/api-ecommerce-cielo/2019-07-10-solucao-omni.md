@@ -2170,3 +2170,25 @@ Request the tables and parameters for the terminal operation
 |`Bins.RestrictSaleWithDuplicateValueWhenPostdated`|Boolean|---|---|Prevents sale with double value for pre dating.|
 |`Bins.RestrictSaleWithDuplicateValueWhenPostdated`|Boolean|---|---|Prevents sale with duplicate value.|
 |`Bins.RequiresPassword`|Boolean|---|---|Request password.|
+|`Bins.InterpretsLastDigitOfSecurityCode`|Boolean|---|---|Interprets last digit of the Service Code.|
+|`Bins.RequiresPasswordExceptForEMVCard`|Boolean|---|---|Request password, except for EMV card.|
+|`Bins.EnableAdditionalSecurityCodeOptions_Unreadable_NoCode`|Boolean|---|---|Enables "Unreadable/Ilegível" and "Does Not Have/Não Possui" options for Security Code.|
+|`Bins.RequiresSecurityCodeWhenMagneticTrackIsRead`|Boolean|---|---|Request security code on the track reading.|
+|`Bins.RequiresSecurityCodeWhenCardNumberIsTyped`|Boolean|---|---|Solicita Código de Segurança para cartão digitado.|
+|`Bins.RequiresTypingLast4Digits`|Boolean|---|---|Request security code for card typed.|
+|`Bins.AllowCaptureOfFirstInstallmentValue`|Boolean|---|---|Allows capturing the value of the first installment.|
+|`Bins.AllowCaptureOfDownpaymentValue`|Boolean|---|---|Allows capture of the input value.|
+|`Bins.AllowGuaranteeHandling`|Boolean|---|---|Allows warranty treatment.|
+|`Bins.AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery`|Boolean|---|---|Allows you to pre-date the first installment for sale and CDC consultation.|
+|`Bins.AllowPostdating`|Boolean|---|---|Allows pre-dating.|
+|`Bins.AllowCDCSale`|Boolean|---|---|Allows CDC selling.|
+|`Bins.AllowFinancingByStore`|Boolean|---|---|Allows financing by the store.|
+|`Bins.AllowFinancingByCreditCardCompany`|Boolean|---|---|Allows funding by the administrator.|
+|`Bins.ValidateCardTrack1`|Boolean|---|---|Check Track 1 of the card.|
+|`Bins.DoNotValidateCardModule10`|Boolean|---|---|Do not validate Module 10 of the card.|
+|`Bins.CheckExpiryDateWhenCardNumberIsTyped`|Boolean|---|---|Check expiration date of the card typed.|
+|`Bins.CheckExpiryDateWhenMagneticTrackIsRead`|Boolean|---|---|Checks the track expiry date.|
+|`Bins.IssuerId`|Integer int32|---|---|Foreign key of the "ISSUER TABLE".|
+|`Products.ProductId`|Integer int32|---|---|Product identifier.|
+|`Products.ProductName`|String|---|---|Product's name.|
+|`Products.ProductType`|Integer int32|---|---|Admits the following values <br><br>0 - CREDIT <br><br>1 – DEBIT|
