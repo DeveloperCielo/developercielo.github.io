@@ -2138,3 +2138,20 @@ Request the tables and parameters for the terminal operation
   "InitializationVersion": 1558708320029
 }
 ```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|`MerchantId`|String|---|---|Store identifier in Cielo.|
+|`TerminalId`|String|---|---|Terminal tdentifier.|
+|`Acquirer.EnableContaclessCardReader`|Boolean|---|---|Enables contactless card reader.|
+|`Acquirer.LockAppFunctionsExceptInitialization`|Boolean|---|---|Block application functions, except for the boot.|
+|`Acquirer.HasChipReader`|Boolean|---|---|Indicates that has a chip card reader|
+|`Acquirer.HasMagneticTrackReader`|Boolean|---|---|Indicates that has a magnetic track reader|
+|`Acquirer.HasKeyboard`|Boolean|---|---|Indicates that has a keyboard for typing|
+|`Merchant.MerchantId`|String|---|---|PayStore merchant code, defined at the time of the merchant creation.|
+|`Merchant.NetworkName`|String|---|---|Network name of the sub-purchaser registered by the PayStore Manager.|
+|`Merchant.MerchantName`|String|---|---|Merchant's social name, defined at the time of its creation on the PayStore portal.|
+|`Merchant.MerchantAddress`|String|---|---|Merchant address obtained from entering the zip code at the time of its creation on the PayStore portal.
+|`Merchant.NationalId`|String|---|---|CPF or CNPJ, defined at the time of creation of the merchant on the PayStore portal.|
+|`Bins.InitialBin`|String|---|---|Starts of BIN's range.|
+|`Bins.FinalBin`|String|---|---|End of BIN's range.|
