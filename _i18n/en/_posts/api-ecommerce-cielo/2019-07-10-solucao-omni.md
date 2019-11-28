@@ -1933,3 +1933,208 @@ To request the depletion it must be informed the MerchantOrderId sent in the pay
 |`Status`|Integer int16|---|---|Transaction status. <br><br>0 = Not finished <br><br>1 = Authorized <br><br>2 = Paid <br><br>3 = Denied <br><br>10 = Canceled <br><br>13 = Aborted|
 |`ReturnCode`|String|---|---|Error code/Acquisition transaction response.|
 |`ReturnMessage`|---|---|---|Error message/Acquisition transaction response|
+
+# Low of parameters
+
+This operation is required for the business partner/sub-purchaser to receive all usage parameter tables for a capture solution that can be used as registration through the API call. This information will be received through the API and may be installed at BC.
+
+## Initialization of a terminal
+
+Request the tables and parameters for the terminal operation
+
+| SandBox                                             | Production                                    |
+|:---------------------------------------------------:|:---------------------------------------------:|
+| https://parametersdownloadsandbox.cieloecommerce.cielo.com.br/api/v0.1      | https://parametersdownload.cieloecommerce.cielo.com.br/api/v0.1      |
+
+### Request
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/initialization/{TerminalId}</span></aside>
+
+### Response
+
+```json
+{
+  "MerchantId": "string",
+  "TerminalId": "string",
+  "Acquirer": {
+    "EnableContaclessCardReader": true,
+    "LockAppFunctionsExceptInitialization": true,
+    "HasChipReader": true,
+    "HasMagneticTrackReader": true,
+    "HasKeyboard": true
+  },
+  "Merchant": {
+    "MerchantId": "string",
+    "NetworkName": "string",
+    "MerchantName": "string",
+    "MerchantAddress": "string",
+    "NationalId": "string"
+  },
+  "Bins": [
+    {
+      "InitialBin": "string",
+      "FinalBin": "string",
+      "ProductId": 0,
+      "Type": 0,
+      "AllowFallbackWhenChipReadingFails": true,
+      "AllowChargingMoedeiroFromCash": true,
+      "AllowPurchaseWithCompreESaque": true,
+      "AllowOfflineFunctionExceptForEMVCard": true,
+      "AllowTypingCardNumber": true,
+      "MaskCardNumberUsingLast4Digits": true,
+      "MaskCardNumberUsingFirst6AndLas4Digits": true,
+      "AllowPrintCardHolderBalance": true,
+      "AllowDisplayCardHolderBalance": true,
+      "AllowPrintingPartialCardNumberInReceipt": true,
+      "RestrictSaleWithDuplicateValueWhenPostdated": true,
+      "RestrictSaleWithDuplicateValue": true,
+      "RequiresPassword": true,
+      "InterpretsLastDigitOfSecurityCode": true,
+      "RequiresPasswordExceptForEMVCard": true,
+      "EnableAdditionalSecurityCodeOptions_Unreadable_NoCode": true,
+      "RequiresSecurityCodeWhenMagneticTrackIsRead": true,
+      "RequiresSecurityCodeWhenCardNumberIsTyped": true,
+      "RequiresTypingLast4Digits": true,
+      "AllowCaptureOfFirstInstallmentValue": true,
+      "AllowCaptureOfDownpaymentValue": true,
+      "AllowGuaranteeHandling": true,
+      "AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery": true,
+      "AllowPostdating": true,
+      "AllowCDCSale": true,
+      "AllowFinancingByStore": true,
+      "AllowFinancingByCreditCardCompany": true,
+      "ValidateCardTrack1": true,
+      "DoNotValidateCardModule10": true,
+      "CheckExpiryDateWhenCardNumberIsTyped": true,
+      "CheckExpiryDateWhenMagneticTrackIsRead": true,
+      "IssuerId": 0
+    }
+  ],
+  "Products": [
+    {
+      "ProductId": 0,
+      "ProductName": "string",
+      "ProductType": 0,
+      "BrandId": "string",
+      "AllowTransactionWithContactlessCard": true,
+      "IsFinancialProduct": true,
+      "AllowOfflineAuthorizationForEMVCard": true,
+      "AllowReprintReceipt": true,
+      "AllowPrintReceipt": true,
+      "AllowOfflineAuthorizationForContactlessCard": true,
+      "AllowCancel": true,
+      "AllowUndo": true,
+      "AllowCaptureOfFirstInstallmentValue": true,
+      "AllowCaptureOfDownpaymentValue": true,
+      "AllowGuaranteeHandling": true,
+      "AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery": true,
+      "AllowPostdating": true,
+      "AllowCDCSale": true,
+      "AllowFinancingByStore": true,
+      "AllowFinancingByCreditCardCompany": true,
+      "MaximumNumberOfInstallmentsWhenFinancingByCreditCardCompany": 0,
+      "MaximumNumberOfInstallmentsWhenFinancingByStore": 0,
+      "MaximumNumberOfinstallmentsForSaleAndCDCQuery": 0,
+      "MinimumNumberOfInstallmentsWhenFinancingByStore": 0,
+      "SaleGuaranteeType": "string",
+      "PostdatedDayCountLimit": 0,
+      "FirstInstallmentDayCountLimit": 0
+    }
+  ],
+  "Emv": [
+    {
+      "Aid": "string",
+      "TagsFirst": "string",
+      "TagsSecond": "string",
+      "IdxRecord": 0,
+      "Type": 0,
+      "RCodeFirst": "string",
+      "RCodeSecond": "string",
+      "InvalidateFunctionIfCardIsOnBlacklist": true,
+      "RequireBINToBeInCardRangeTable": true,
+      "StoreTransactionsRejectedByTerminalAppAndSendToHost": true,
+      "NatEmvConctactRiskFloorLimit": 0,
+      "NatEmvConctactRiskMinValue": 0,
+      "NatEmvConctactRiskMinPercent": 0,
+      "NatEmvConctactRiskMaxPercent": 0,
+      "IntEmvConctactRiskFloorLimit": 0,
+      "IntEmvConctactRiskMinValue": 0,
+      "IntEmvConctactRiskMinPercent": 0,
+      "IntEmvConctactRiskMaxPercent": 0,
+      "ProductIds": [
+         0
+      ]
+    }
+  ],
+  "Parameters": [
+    {
+      "Currency": "string",
+      "AllowFallbackWhenChipReadingFails": true,
+      "AllowChargingMoedeiroFromCash": true,
+      "AllowPurchaseWithCompreESaque": true,
+      "AllowOfflineFunctionExceptForEMVCard": true,
+      "AllowTypingCardNumber": true,
+      "MaskCardNumberUsingLast4Digits": true,
+      "MaskCardNumberUsingFirst6AndLas4Digits": true,
+      "AllowPrintCardHolderBalance": true,
+      "AllowDisplayCardHolderBalance": true,
+      "AllowPrintingPartialCardNumberInReceipt": true,
+      "RestrictSaleWithDuplicateValueWhenPostdated": true,
+      "RestrictSaleWithDuplicateValue": true,
+      "RequiresPassword": true,
+      "InterpretsLastDigitOfSecurityCode": true,
+      "RequiresPasswordExceptForEMVCard": true,
+      "EnableAdditionalSecurityCodeOptions_Unreadable_NoCode": true,
+      "RequiresSecurityCodeWhenMagneticTrackIsRead": true,
+      "RequiresSecurityCodeWhenCardNumberIsTyped": true,
+      "RequiresTypingLast4Digits": true,
+      "CapturesServiceFee": true,
+      "AllowCancellationWithValueGreaterThanTheValueOfTheSale": true,
+      "CaptureBoardingFee": true
+    }
+  ],
+  "Issuers": [
+    {
+      "IssuerId": 0,
+      "IssuerName": "string",
+      "AllowFallbackWhenChipReadingFails": true,
+      "AllowChargingMoedeiroFromCash": true,
+      "AllowPurchaseWithCompreESaque": true,
+      "AllowOfflineFunctionExceptForEMVCard": true,
+      "AllowTypingCardNumber": true,
+      "MaskCardNumberUsingLast4Digits": true,
+      "MaskCardNumberUsingFirst6AndLas4Digits": true,
+      "AllowPrintCardHolderBalance": true,
+      "AllowDisplayCardHolderBalance": true,
+      "Option03BiAllowPrintingPartialCardNumberInReceipt07": true,
+      "RestrictSaleWithDuplicateValueWhenPostdated": true,
+      "RestrictSaleWithDuplicateValue": true,
+      "RequiresPassword": true,
+      "InterpretsLastDigitOfSecurityCode": true,
+      "RequiresPasswordExceptForEMVCard": true,
+      "EnableAdditionalSecurityCodeOptions_Unreadable_NoCode": true,
+      "RequiresSecurityCodeWhenMagneticTrackIsRead": true,
+      "RequiresSecurityCodeWhenCardNumberIsTyped": true,
+      "RequiresTypingLast4Digits": true,
+      "AllowCaptureOfFirstInstallmentValue": true,
+      "AllowCaptureOfDownpaymentValue": true,
+      "AllowGuaranteeHandling": true,
+      "AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery": true,
+      "AllowPostdating": true,
+      "AllowCDCSale": true,
+      "AllowFinancingByStore": true,
+      "AllowFinancingByCreditCardCompany": true,
+      "RequiresChipReader": true,
+      "RequiresPinpad": true,
+      "LimitDayforReversal": 0,
+      "LimitValueforReversal": "string",
+      "LimitPercentforReversal": 0,
+      "IssuerNameForDisplay": "string",
+      "IssuerNameForPrint": "string"
+    }
+  ],
+  "AidParameters": "string",
+  "PublicKeys": "string",
+  "InitializationVersion": 1558708320029
+}
+```
