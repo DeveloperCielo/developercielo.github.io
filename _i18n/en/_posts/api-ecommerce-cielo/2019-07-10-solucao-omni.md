@@ -2286,3 +2286,15 @@ Request the tables and parameters for the terminal operation
 |`Issuers.AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery`|Boolean|---|---|Allows pre-dating the first installment for sale and CDC consultation.|
 |`Issuers.AllowPostdating`|Boolean|---|---|Allows pre-dating.|
 |`Issuers.AllowCDCSale`|Boolean|---|---|Allows CDC sale.|
+|`Issuers.AllowFinancingByStore`|Boolean|---|---|Allows financing by the store.|
+|`Issuers.AllowFinancingByCreditCardCompany`|Boolean|---|---|Allows financing by the Administrator.|
+|`Issuers.RequiresChipReader`|Boolean|---|---|Requires the existence of the chip reader.|
+|`Issuers.RequiresPinpad`|Boolean|---|---|Requires existence of the PIN-pad.|
+|`Issuers.LimitDayforReversal`|integer int32|---|---|Data limite em dias para permitir Cancelamento.|
+|`Issuers.LimitValueforReversal`|String|---|---|Valor máximo para Cancelamento.|
+|`Issuers.LimitPercentforReversal`|integer int64|---|---|Maximum percentage for cancellation.|
+|`Issuers.IssuerNameForDisplay`|String|---|---|Issuer Name for display.|
+|`Issuers.IssuerNameForPrint`|String|---|---|Issuer name for printing.|
+|`AidParameters`|---|---|---|---|
+|`PublicKeys`|---|---|---|---|
+|`InitializationVersion`|---|---|---|---|
