@@ -5974,6 +5974,97 @@
       <td>—</td>
       <td>—</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Emv.InvalidateFunctionIfCardIsOnBlacklist</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Invalidates the function if the card is in the blacklist.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Emv.RequireBINToBeInCardRangeTable</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Forces the BIN to be in Card Range table (type 2B).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Emv.StoreTransactionsRejectedByTerminalAppAndSendToHost</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Stores and sends to the host the transactions rejected by the terminal application.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Emv.NatEmvConctactRiskFloorLimit</code></td>
+      <td>Integer int32</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Maximum check value for offline authorization of transactions. Transactions made with EMV Chip reading and above the “Floor limit”, must be authorized in online mode.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Emv.NatEmvConctactRiskMinValue</code></td>
+      <td>Integer int32</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Minimum value for random selection calculation for offline authorization. As per process defined in the EMV Specification.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Emv.NatEmvConctactRiskMinPercent</code></td>
+      <td>Integer int32</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Minimum percentage for random selection. Use only the content of the last byte.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Emv.NatEmvConctactRiskMaxPercent</code></td>
+      <td>Integer int32</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Maximum percentage for random selection. Use only the content of the last byte.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Emv.IntEmvConctactRiskFloorLimit</code></td>
+      <td>Integer int32</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Maximum check value for offline authorization of transactions. Transactions made with EMV Chip reading and above the “floor limit” value must be authorized in online mode.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Emv.IntEmvConctactRiskMinValue</code></td>
+      <td>Integer int32</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Minimum value for random selection calculation for offline authorization. As per process defined in the EMV Specification.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Emv.IntEmvConctactRiskMinPercent</code></td>
+      <td>Integer int32</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Minimum percentage for random selection. Use only the content of the last byte.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Emv.IntEmvConctactRiskMaxPercent</code></td>
+      <td>Integer int32</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Maximum percentage for random selection. Use only the content of the last byte.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Emv.ProductIds</code></td>
+      <td>Array of integers int32</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Products enabled for this EMV application.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Parameters.Currency</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
   </tbody>
 </table>
 
