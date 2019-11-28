@@ -2274,3 +2274,15 @@ Request the tables and parameters for the terminal operation
 |`Issuers.RestrictSaleWithDuplicateValueWhenPostdated`|Boolean|---|---|Prevents duplicate value sales for pre-dating.|
 |`Issuers.RestrictSaleWithDuplicateValue`|Boolean|---|---|Prevents sale with duplicate value.|
 |`Issuers.RequiresPassword`|Boolean|---|---|Request password|
+|`Issuers.InterpretsLastDigitOfSecurityCode`|Boolean|---|---|Interprets the last digit of the service code.|
+|`Issuers.RequiresPasswordExceptForEMVCard`|Boolean|---|---|Request password, except for EMV card.|
+|`Issuers.EnableAdditionalSecurityCodeOptions_Unreadable_NoCode`|Boolean|---|---|Enables "Unreadable/Ilegível" and "Does Not Have/Não Possui" options for Security Code.|
+|`Issuers.RequiresSecurityCodeWhenMagneticTrackIsRead`|Boolean|---|---|Request the security code on track reading.|
+|`Issuers.RequiresSecurityCodeWhenCardNumberIsTyped`|Boolean|---|---|Request security code for card typed.|
+|`Issuers.RequiresTypingLast4Digits`|Boolean|---|---|Request the last 4 digits typed.|
+|`Issuers.AllowCaptureOfFirstInstallmentValue`|Boolean|---|---|Allows capturing the value of the first installment.|
+|`Issuers.AllowCaptureOfDownpaymentValue`|Boolean|---|---|Allows capture of the input value.|
+|`Issuers.AllowGuaranteeHandling`|Boolean|---|---|Allows warranty treatment.|
+|`Issuers.AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery`|Boolean|---|---|Allows pre-dating the first installment for sale and CDC consultation.|
+|`Issuers.AllowPostdating`|Boolean|---|---|Allows pre-dating.|
+|`Issuers.AllowCDCSale`|Boolean|---|---|Allows CDC sale.|
