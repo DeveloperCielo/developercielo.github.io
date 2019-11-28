@@ -2236,3 +2236,16 @@ Request the tables and parameters for the terminal operation
 |`Emv.IntEmvConctactRiskMaxPercent`|Integer int32|---|---|Maximum percentage for random selection. Use only the content of the last byte.|
 |`Emv.ProductIds`|Array of integers int32|---|---|Products enabled for this EMV application.|
 |`Parameters.Currency`|String|---|---|---|
+|`Parameters.AllowFallbackWhenChipReadingFails`|Boolean|---|---|Allows fallback if Chip read error.|
+|`Parameters.AllowChargingMoedeiroFromCash`|Boolean|---|---|Allows coin load from cash money.|
+|`Parameters.AllowPurchaseWithCompreESaque`|Boolean|---|---|Allows sale with Buy & Withdraw.|
+|`Parameters.AllowOfflineFunctionExceptForEMVCard`|Boolean|---|---|Allows offline function except EMV card.|
+|`Parameters.AllowTypingCardNumber`|Boolean|---|---|Allows manual entry of card number.|
+|`Parameters.MaskCardNumberUsingLast4Digits`|Boolean|---|---|Print only the last 4 digits of the card.|
+|`Parameters.MaskCardNumberUsingFirst6AndLas4Digits`|Boolean|---|---|Print the first 6 and last 4 digits of the card.|
+|`Parameters.AllowPrintCardHolderBalance`|Boolean|---|---|Allows you to print the balance of the holder.|
+|`Parameters.AllowDisplayCardHolderBalance`|Boolean|---|---|Allows the holder balance to be displayed.|
+|`Parameters.AllowPrintingPartialCardNumberInReceipt`|Boolean|---|---|Allows partial printing of card number on transaction receipt.|
+|`Parameters.RestrictSaleWithDuplicateValueWhenPostdated`|Boolean|---|---|Prevents duplicate value sales for pre-dating.|
+|`Parameters.RestrictSaleWithDuplicateValue`|Boolean|---|---|Prevents sale with duplicate value.|
+|`Parameters.RequiresPassword`|Boolean|---|---|Request password.|
