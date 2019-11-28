@@ -2238,6 +2238,7 @@ Request the tables and parameters for the terminal operation
 |`Parameters.Currency`|String|---|---|---|
 |`Parameters.AllowFallbackWhenChipReadingFails`|Boolean|---|---|Allows fallback if Chip read error.|
 |`Parameters.AllowChargingMoedeiroFromCash`|Boolean|---|---|Allows coin load from cash money.|
+|`Parameters.AllowChargingMoedeiroFromCash`|Boolean|---|---|Allows coin load from cash money.|
 |`Parameters.AllowPurchaseWithCompreESaque`|Boolean|---|---|Allows sale with Buy & Withdraw.|
 |`Parameters.AllowOfflineFunctionExceptForEMVCard`|Boolean|---|---|Allows offline function except EMV card.|
 |`Parameters.AllowTypingCardNumber`|Boolean|---|---|Allows manual entry of card number.|
@@ -2249,27 +2250,27 @@ Request the tables and parameters for the terminal operation
 |`Parameters.RestrictSaleWithDuplicateValueWhenPostdated`|Boolean|---|---|Prevents duplicate value sales for pre-dating.|
 |`Parameters.RestrictSaleWithDuplicateValue`|Boolean|---|---|Prevents sale with duplicate value.|
 |`Parameters.RequiresPassword`|Boolean|---|---|Request password.|
-|`Parameters.InterpretsLastDigitOfSecurityCode`|Booleano|---|---|Interprets the last digit of the service code.|
-|`Parameters.RequiresPasswordExceptForEMVCard`|Booleano|---|---|Request password, except for EMV card.|
-|`Parameters.EnableAdditionalSecurityCodeOptions_Unreadable_NoCode`|Booleano|---|---|Enables "Unreadable/Ilegível" and "Does Not Have/Não Possui" options for Security Code.|
-|`Parameters.RequiresSecurityCodeWhenMagneticTrackIsRead`|Booleano|---|---|Request security code on the track reading.|
-|`Parameters.RequiresSecurityCodeWhenCardNumberIsTyped`|Booleano|---|---|Request security code for card typed.|
-|`Parameters.RequiresTypingLast4Digits`|Booleano|---|---|Request the last 4 digits typed.|
-|`Parameters.CapturesServiceFee`|Booleano|---|---|Service fee capture.|
-|`Parameters.AllowCancellationWithValueGreaterThanTheValueOfTheSale`|Booleano|---|---|Allows cancellation value higher than the original sale value.|
-|`Parameters.CaptureBoardingFee`|Booleano|---|---|Capture of the boarding fee.
+|`Parameters.InterpretsLastDigitOfSecurityCode`|Boolean|---|---|Interprets the last digit of the service code.|
+|`Parameters.RequiresPasswordExceptForEMVCard`|Boolean|---|---|Request password, except for EMV card.|
+|`Parameters.EnableAdditionalSecurityCodeOptions_Unreadable_NoCode`|Boolean|---|---|Enables "Unreadable/Ilegível" and "Does Not Have/Não Possui" options for Security Code.|
+|`Parameters.RequiresSecurityCodeWhenMagneticTrackIsRead`|Boolean|---|---|Request security code on the track reading.|
+|`Parameters.RequiresSecurityCodeWhenCardNumberIsTyped`|Boolean|---|---|Request security code for card typed.|
+|`Parameters.RequiresTypingLast4Digits`|Boolean|---|---|Request the last 4 digits typed.|
+|`Parameters.CapturesServiceFee`|Boolean|---|---|Service fee capture.|
+|`Parameters.AllowCancellationWithValueGreaterThanTheValueOfTheSale`|Boolean|---|---|Allows cancellation value higher than the original sale value.|
+|`Parameters.CaptureBoardingFee`|Boolean|---|---|Capture of the boarding fee.
 |`Issuers.IssuerId`|integer int32|---|---|Issuer identifier.|
 |`Issuers.IssuerName`|String|---|---|Issuer's name.|
-|`Issuers.AllowFallbackWhenChipReadingFails`|Booleano|---|---|Allows fallback if Chip read error.|
-|`Issuers.AllowChargingMoedeiroFromCash`|Booleano|---|---|Allows coin load from cash money.|
-|`Issuers.AllowPurchaseWithCompreESaque`|Booleano|---|---|Allows sale with Buy & Withdraw.|
-|`Issuers.AllowOfflineFunctionExceptForEMVCard`|Booleano|---|---|Allows offline function except EMV card.|
-|`Issuers.AllowTypingCardNumber`|Booleano|---|---|Allows the card number to be typed.|
-|`Issuers.MaskCardNumberUsingLast4Digits`|Booleano|---|---|Print only the last 4 digits of the card.|
-|`Issuers.MaskCardNumberUsingFirst6AndLas4Digits`|Booleano|---|---|Print the first 6 and last 4 digits of the card.|
-|`Issuers.AllowPrintCardHolderBalance`|Booleano|---|---||Allows you to print the balance of the holder.|
-|`Issuers.AllowDisplayCardHolderBalance`|Booleano|---|---|Allows the holder balance to be displayed.|
-|`Issuers.Option03BiAllowPrintingPartialCardNumberInReceipt07`|Booleano|---|---|Allows partial printing of card number on transaction receipt.|
-|`Issuers.RestrictSaleWithDuplicateValueWhenPostdated`|Booleano|---|---|Prevents duplicate value sales for pre-dating.|
-|`Issuers.RestrictSaleWithDuplicateValue`|Booleano|---|---|Prevents sale with duplicate value.|
-|`Issuers.RequiresPassword`|Booleano|---|---|Request password|
+|`Issuers.AllowFallbackWhenChipReadingFails`|Boolean|---|---|Allows fallback if Chip read error.|
+|`Issuers.AllowChargingMoedeiroFromCash`|Boolean|---|---|Allows coin load from cash money.|
+|`Issuers.AllowPurchaseWithCompreESaque`|Boolean|---|---|Allows sale with Buy & Withdraw.|
+|`Issuers.AllowOfflineFunctionExceptForEMVCard`|Boolean|---|---|Allows offline function except EMV card.|
+|`Issuers.AllowTypingCardNumber`|Boolean|---|---|Allows the card number to be typed.|
+|`Issuers.MaskCardNumberUsingLast4Digits`|Boolean|---|---|Print only the last 4 digits of the card.|
+|`Issuers.MaskCardNumberUsingFirst6AndLas4Digits`|Boolean|---|---|Print the first 6 and last 4 digits of the card.|
+|`Issuers.AllowPrintCardHolderBalance`|Boolean|---|---||Allows you to print the balance of the holder.|
+|`Issuers.AllowDisplayCardHolderBalance`|Boolean|---|---|Allows the holder balance to be displayed.|
+|`Issuers.Option03BiAllowPrintingPartialCardNumberInReceipt07`|Boolean|---|---|Allows partial printing of card number on transaction receipt.|
+|`Issuers.RestrictSaleWithDuplicateValueWhenPostdated`|Boolean|---|---|Prevents duplicate value sales for pre-dating.|
+|`Issuers.RestrictSaleWithDuplicateValue`|Boolean|---|---|Prevents sale with duplicate value.|
+|`Issuers.RequiresPassword`|Boolean|---|---|Request password|
