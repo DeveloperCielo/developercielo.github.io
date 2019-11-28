@@ -2155,3 +2155,18 @@ Request the tables and parameters for the terminal operation
 |`Merchant.NationalId`|String|---|---|CPF or CNPJ, defined at the time of creation of the merchant on the PayStore portal.|
 |`Bins.InitialBin`|String|---|---|Starts of BIN's range.|
 |`Bins.FinalBin`|String|---|---|End of BIN's range.|
+|`Bins.ProductId`|Integer int32|---|---|Foreign key of the “PRODUCT TABLE”.|
+|`Bins.Type`|Integer int32|---|---|Admits the following values <br><br>0 - SPECIFIC <br><br>1 – GENERIC.|
+|`Bins.AllowFallbackWhenChipReadingFails`|Boolean|---|---|Allows fallback if there is an error reading the chip.|
+|`Bins.AllowChargingMoedeiroFromCash`|Boolean|---|---|Allows coin load from from cash money.|
+|`Bins.AllowPurchaseWithCompreESaque`|Boolean|---|---|Allows sale with Buy & Withdraw.|
+|`Bins.AllowOfflineFunctionExceptForEMVCard`|Boolean|---|---|Allows offline function, except for EMV card.|
+|`Bins.AllowTypingCardNumber`|Boolean|---|---|Allows typed card number.|
+|`Bins.MaskCardNumberUsingLast4Digits`|Boolean|---|---|Print only the last 4 digits of the card.|
+|`Bins.MaskCardNumberUsingFirst6AndLas4Digits`|Boolean|---|---|Print the first 6 and last 4 digits of the card.|
+|`Bins.AllowPrintCardHolderBalance`|Boolean|---|---|Allows you to print the balance of the holder.|
+|`Bins.AllowDisplayCardHolderBalance`|Boolean|---|---|Allows the holder balance to be displayed.|
+|`Bins.AllowPrintingPartialCardNumberInReceipt`|Boolean|---|---|Allows partial printing of card number on transaction receipt.|
+|`Bins.RestrictSaleWithDuplicateValueWhenPostdated`|Boolean|---|---|Prevents sale with double value for pre dating.|
+|`Bins.RestrictSaleWithDuplicateValueWhenPostdated`|Boolean|---|---|Prevents sale with duplicate value.|
+|`Bins.RequiresPassword`|Boolean|---|---|Request password.|
