@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-11-28T16:48:01+00:00</updated>
+    <updated>2019-11-28T16:52:46+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -10096,8 +10096,6 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
 &lt;/table&gt;
 
 &lt;h2 id=&quot;terminal&quot;&gt;Terminal&lt;/h2&gt;
-
-&lt;p&gt;Cria um novo terminal.&lt;/p&gt;
 
 &lt;h3 id=&quot;requisição-21&quot;&gt;Requisição&lt;/h3&gt;
 
