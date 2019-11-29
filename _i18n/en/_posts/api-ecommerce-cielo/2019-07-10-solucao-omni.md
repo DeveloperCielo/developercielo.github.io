@@ -2298,3 +2298,175 @@ Request the tables and parameters for the terminal operation
 |`AidParameters`|---|---|---|---|
 |`PublicKeys`|---|---|---|---|
 |`InitializationVersion`|---|---|---|---|
+
+# Stores
+
+This operation allows the registration of stores and terminals, enabling business models where the facilitator needs to segment its operation.
+
+## Merchant
+
+### POST Merchant - Request
+
+Create a new merchant.
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/merchants</span></aside>
+
+```json
+{
+  "Address": {
+    "ZipCode": "string",
+    "Street": "string",
+    "Number": "string",
+    "Complement": "string"
+  },
+  "TradeName": "string",
+  "CompanyName": "string",
+  "Email": "string",
+  "PhoneNumber": "string",
+  "Mcc": 0,
+  "DocumentNumber": "string",
+  "DocumentType": "Cpf",
+  "Owner": {
+    "Name": "string",
+    "Email": "string",
+    "PhoneNumber": "string",
+    "MessengerPhone": "string",
+    "Gender": "Other"
+  }
+}
+```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|`Address.ZipCode`|String|---|---|---|
+|`Address.Street`|String|---|---|---|
+|`Address.Number`|String|---|---|---|
+|`Address.Number`|String|---|---|---|
+|`TradeName`|String|---|---|---|
+|`CompanyName`|String|---|---|---|
+|`Email`|String|---|---|---|
+|`PhoneNumber`|String|---|---|---|
+|`Mcc`|String|---|---|---|
+|`DocumentNumber`|String|---|---|---|
+|`DocumentType`|String|---|---|Enum: `Cpf` `Cnpj`|
+|`Owner.Name`|String|---|---|---|
+|`Owner.Email`|String|---|---|---|
+|`Owner.PhoneNumber`|String|---|---|---|
+|`Owner.MessengerPhone`|String|---|---|---|
+|`Owner.Gender`|String|---|---|Enum: `Other` `Male` `Female`|
+
+### GET Merchant - Response
+
+Search the merchant for their ID.
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/merchants/{subordinatedMerchantId}</span></aside>
+
+```json
+{
+  "Merchant": {
+    "SubordinatedMerchantId": "string",
+    "Owner": {
+      "Name": "string",
+      "Email": "string",
+      "PhoneNumber": "string",
+      "MessengerPhone": "string",
+      "Gender": "Other"
+    }
+  }
+}
+```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|`SubordinatedMerchantId`|---|---|---|---|
+|`Owner.Name`|String|---|---|---|
+|`Owner.Email`|String|---|---|---|
+|`Owner.PhoneNumber`|String|---|---|---|
+|`Owner.MessengerPhone`|String|---|---|---|
+|`Owner.Gender`|String|---|---|Enum: `Other` `Male` `Female`|
+
+### PUT Merchant - Request
+
+Make the merchant change by its ID.
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/merchants/{subordinatedMerchantId}</span></aside>
+
+```json
+{
+  "Address": {
+    "ZipCode": "string",
+    "Street": "string",
+    "Number": "string",
+    "Complement": "string"
+  },
+  "TradeName": "string",
+  "CompanyName": "string",
+  "Email": "string",
+  "PhoneNumber": "string",
+  "Mcc": 0,
+  "DocumentNumber": "string",
+  "DocumentType": "Cpf"
+}
+```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|`Address.ZipCode`|String|---|---|---|
+|`Address.Street`|String|---|---|---|
+|`Address.Number`|String|---|---|---|
+|`Address.Number`|String|---|---|---|
+|`TradeName`|String|---|---|---|
+|`CompanyName`|String|---|---|---|
+|`Email`|String|---|---|---|
+|`PhoneNumber`|String|---|---|---|
+|`Mcc`|String|---|---|---|
+|`DocumentNumber`|String|---|---|---|
+|`DocumentType`|String|---|---|Enum: `Cpf` `Cnpj`|
+
+## Terminal
+
+Create a new terminal.
+
+### Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals</span></aside>
+
+```json
+{
+  "TerminalBaseModel": {
+    "CommunicationType": "string",
+    "EquipmentModel": 0,
+    "EquipmentSerialNumber": "string",
+    "TerminalId": "string"
+  }
+}
+```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|`TerminalBaseModel.CommunicationType`|String|---|---|---|
+|`TerminalBaseModel.EquipmentModel`|Integer|---|---|---|
+|`TerminalBaseModel.EquipmentSerialNumber`|String|---|---|---|
+|`TerminalBaseModel.TerminalId`|String|---|---|---|
+
+### Response
+
+```json
+{
+  "Terminal": {
+    "CommunicationType": "string",
+    "EquipmentModel": 0,
+    "EquipmentSerialNumber": "string",
+    "TerminalId": "string",
+    "SubordinatedMerchantId": "string"
+  }
+}
+```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|`TerminalBaseModel.CommunicationType`|String|---|---|---|
+|`TerminalBaseModel.EquipmentModel`|Integer|---|---|---|
+|`TerminalBaseModel.EquipmentSerialNumber`|String|---|---|---|
+|`TerminalBaseModel.TerminalId`|String|---|---|---|
+|`Terminal.SubordinatedMerchantId`|String uuid|---|---|---|
