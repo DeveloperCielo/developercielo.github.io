@@ -7744,6 +7744,20 @@ c) O script fornecido pela Cielo fornece três eventos para manipulação e trat
 
 * O **PaymentToken** será o token que representará todos os dados de cartão fornecido pelo comprador. O mesmo será utilizado pelo estabelecimento para não haver necessidade de tratar e processar dados de cartão do seu lado.
 
+``` json
+},
+    "Payment": {
+    "Type": "CreditCard",
+    "Amount": 1400,
+    "Installments": 1,
+        "CreditCard": {
+        "PaymentToken": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+        "Brand": "MASTER"
+        }
+    }
+}
+```
+
 **Por questões de segurança esse PaymentToken poderá ser usado apenas para 1 autorização na Cielo 3.0. Após o processamento do mesmo, este será invalidado.**
 
 Exemplo de setup a ser realizado pelo estabelecimento na página de checkout:
