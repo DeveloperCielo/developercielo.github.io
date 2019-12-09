@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-12-06T14:08:50+00:00</updated>
+    <updated>2019-12-09T16:46:24+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -3637,7 +3637,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
       &lt;td&gt;String&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Enum: &lt;code class=&quot;highlighter-rouge&quot;&gt;Typed&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;MagStripe&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Emv&lt;/code&gt; &lt;br /&gt;Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. &lt;br /&gt;“00” – Magnético &lt;br /&gt;“01” - Moedeiro VISA Cash sobre TIBC v1 &lt;br /&gt;“02” - Moedeiro VISA Cash sobre TIBC v3 &lt;br /&gt;“03” – EMV com contato &lt;br /&gt;“04” - Easy-Entry sobre TIBC v1 &lt;br /&gt;“05” - Chip sem contato simulando tarja “06” - EMV sem contato.&lt;/td&gt;
+      &lt;td&gt;Enum: &lt;code class=&quot;highlighter-rouge&quot;&gt;Typed&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;MagStripe&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Emv&lt;/code&gt; &lt;br /&gt;Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. &lt;br /&gt;“00” – Magnético &lt;br /&gt;“01” - Moedeiro VISA Cash sobre TIBC v1 &lt;br /&gt;“02” - Moedeiro VISA Cash sobre TIBC v3 &lt;br /&gt;“03” – EMV com contato &lt;br /&gt;“04” - Easy-Entry sobre TIBC v1 &lt;br /&gt;“05” - Chip sem contato simulando tarja &lt;br /&gt; “06” - EMV sem contato.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.AuthenticationMethod&lt;/code&gt;&lt;/td&gt;
@@ -3857,7 +3857,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
       &lt;td&gt;String&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Enum: &lt;code class=&quot;highlighter-rouge&quot;&gt;Typed&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;MagStripe&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Emv&lt;/code&gt; &lt;br /&gt;Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. &lt;br /&gt;“00” – Magnético &lt;br /&gt;“01” - Moedeiro VISA Cash sobre TIBC v1 &lt;br /&gt;“02” - Moedeiro VISA Cash sobre TIBC v3 &lt;br /&gt;“03” – EMV com contato &lt;br /&gt;“04” - Easy-Entry sobre TIBC v1 &lt;br /&gt;“05” - Chip sem contato simulando tarja “06” - EMV sem contato.&lt;/td&gt;
+      &lt;td&gt;Enum: &lt;code class=&quot;highlighter-rouge&quot;&gt;Typed&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;MagStripe&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Emv&lt;/code&gt; &lt;br /&gt;Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. &lt;br /&gt;“00” – Magnético &lt;br /&gt;“01” - Moedeiro VISA Cash sobre TIBC v1 &lt;br /&gt;“02” - Moedeiro VISA Cash sobre TIBC v3 &lt;br /&gt;“03” – EMV com contato &lt;br /&gt;“04” - Easy-Entry sobre TIBC v1 &lt;br /&gt;“05” - Chip sem contato simulando tarja &lt;br /&gt; “06” - EMV sem contato.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.AuthenticationMethod&lt;/code&gt;&lt;/td&gt;
@@ -4208,7 +4208,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
       &lt;td&gt;String&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Enum: &lt;code class=&quot;highlighter-rouge&quot;&gt;Typed&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;MagStripe&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Emv&lt;/code&gt; &lt;br /&gt;Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. &lt;br /&gt;“00” – Magnético &lt;br /&gt;“01” - Moedeiro VISA Cash sobre TIBC v1 &lt;br /&gt;“02” - Moedeiro VISA Cash sobre TIBC v3 &lt;br /&gt;“03” – EMV com contato &lt;br /&gt;“04” - Easy-Entry sobre TIBC v1 &lt;br /&gt;“05” - Chip sem contato simulando tarja “06” - EMV sem contato.&lt;/td&gt;
+      &lt;td&gt;Enum: &lt;code class=&quot;highlighter-rouge&quot;&gt;Typed&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;MagStripe&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Emv&lt;/code&gt; &lt;br /&gt;Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. &lt;br /&gt;“00” – Magnético &lt;br /&gt;“01” - Moedeiro VISA Cash sobre TIBC v1 &lt;br /&gt;“02” - Moedeiro VISA Cash sobre TIBC v3 &lt;br /&gt;“03” – EMV com contato &lt;br /&gt;“04” - Easy-Entry sobre TIBC v1 &lt;br /&gt;“05” - Chip sem contato simulando tarja &lt;br /&gt; “06” - EMV sem contato.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.AuthenticationMethod&lt;/code&gt;&lt;/td&gt;
@@ -4463,7 +4463,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
       &lt;td&gt;String&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Enum: &lt;code class=&quot;highlighter-rouge&quot;&gt;Typed&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;MagStripe&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Emv&lt;/code&gt; &lt;br /&gt;Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. &lt;br /&gt;“00” – Magnético &lt;br /&gt;“01” - Moedeiro VISA Cash sobre TIBC v1 &lt;br /&gt;“02” - Moedeiro VISA Cash sobre TIBC v3 &lt;br /&gt;“03” – EMV com contato &lt;br /&gt;“04” - Easy-Entry sobre TIBC v1 &lt;br /&gt;“05” - Chip sem contato simulando tarja “06” - EMV sem contato.&lt;/td&gt;
+      &lt;td&gt;Enum: &lt;code class=&quot;highlighter-rouge&quot;&gt;Typed&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;MagStripe&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Emv&lt;/code&gt; &lt;br /&gt;Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. &lt;br /&gt;“00” – Magnético &lt;br /&gt;“01” - Moedeiro VISA Cash sobre TIBC v1 &lt;br /&gt;“02” - Moedeiro VISA Cash sobre TIBC v3 &lt;br /&gt;“03” – EMV com contato &lt;br /&gt;“04” - Easy-Entry sobre TIBC v1 &lt;br /&gt;“05” - Chip sem contato simulando tarja &lt;br /&gt; “06” - EMV sem contato.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.AuthenticationMethod&lt;/code&gt;&lt;/td&gt;
@@ -5394,7 +5394,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
       &lt;td&gt;String&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Enum: &lt;code class=&quot;highlighter-rouge&quot;&gt;Typed&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;MagStripe&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Emv&lt;/code&gt; &lt;br /&gt;Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. &lt;br /&gt;“00” – Magnético &lt;br /&gt;“01” - Moedeiro VISA Cash sobre TIBC v1 &lt;br /&gt;“02” - Moedeiro VISA Cash sobre TIBC v3 &lt;br /&gt;“03” – EMV com contato &lt;br /&gt;“04” - Easy-Entry sobre TIBC v1 &lt;br /&gt;“05” - Chip sem contato simulando tarja “06” - EMV sem contato.&lt;/td&gt;
+      &lt;td&gt;Enum: &lt;code class=&quot;highlighter-rouge&quot;&gt;Typed&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;MagStripe&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Emv&lt;/code&gt; &lt;br /&gt;Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. &lt;br /&gt;“00” – Magnético &lt;br /&gt;“01” - Moedeiro VISA Cash sobre TIBC v1 &lt;br /&gt;“02” - Moedeiro VISA Cash sobre TIBC v3 &lt;br /&gt;“03” – EMV com contato &lt;br /&gt;“04” - Easy-Entry sobre TIBC v1 &lt;br /&gt;“05” - Chip sem contato simulando tarja &lt;br /&gt; “06” - EMV sem contato.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.AuthenticationMethod&lt;/code&gt;&lt;/td&gt;
@@ -5642,7 +5642,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
       &lt;td&gt;String&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Enum: &lt;code class=&quot;highlighter-rouge&quot;&gt;Typed&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;MagStripe&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Emv&lt;/code&gt; &lt;br /&gt;Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. &lt;br /&gt;“00” – Magnético &lt;br /&gt;“01” - Moedeiro VISA Cash sobre TIBC v1 &lt;br /&gt;“02” - Moedeiro VISA Cash sobre TIBC v3 &lt;br /&gt;“03” – EMV com contato &lt;br /&gt;“04” - Easy-Entry sobre TIBC v1 &lt;br /&gt;“05” - Chip sem contato simulando tarja “06” - EMV sem contato.&lt;/td&gt;
+      &lt;td&gt;Enum: &lt;code class=&quot;highlighter-rouge&quot;&gt;Typed&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;MagStripe&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Emv&lt;/code&gt; &lt;br /&gt;Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. &lt;br /&gt;“00” – Magnético &lt;br /&gt;“01” - Moedeiro VISA Cash sobre TIBC v1 &lt;br /&gt;“02” - Moedeiro VISA Cash sobre TIBC v3 &lt;br /&gt;“03” – EMV com contato &lt;br /&gt;“04” - Easy-Entry sobre TIBC v1 &lt;br /&gt;“05” - Chip sem contato simulando tarja &lt;br /&gt; “06” - EMV sem contato.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.AuthenticationMethod&lt;/code&gt;&lt;/td&gt;
