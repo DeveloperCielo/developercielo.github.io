@@ -7,7 +7,7 @@ translated: true
 categories: manual
 sort_order: 3
 tags:
-  - Autenticação 3DS 2.0 -
+  - Autenticação 3DS 2.0
 ---
 
 # O que é 3DS 2.0?
