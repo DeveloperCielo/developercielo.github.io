@@ -15,7 +15,7 @@ language_tabs:
 
 # O que é 3DS 2.0?
 
-Para maiores detalhes sobre o 3DS 2.0, acesse:[https://developercielo.github.io/manual/emv3ds](https://developercielo.github.io/manual/emv3ds)
+Para maiores detalhes sobre o 3DS 2.0, acesse:[https://developercielo.github.io/manual/3ds](https://developercielo.github.io/manual/3ds)
 
 # Passo 1 - Solicitação de Token de Acesso
 
@@ -89,7 +89,7 @@ curl
 
 Neste passo, é implementado o _script_ e o mapeamento de _classes_ responsáveis pela comunicação com as plataformas de autenticação das bandeiras e emissor. Siga o exemplo abaixo, que demonstra a implementação básica. Recomenda-se que o trecho seja colocado no final do código HTML de seu checkout:
 
-Para baixar o código, [Acesse aqui](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/_i18n/pt/_posts/emv3ds/exemplo.html)
+Para baixar o código, [Acesse aqui](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/_i18n/pt/_posts/3ds/exemplo.html)
 
 ![Fluxo 3DS 2.0]({{ site.baseurl_root }}/images/exemplo-html.jpg)
 
@@ -279,4 +279,4 @@ Veja maiores detalhes em: [https://developercielo.github.io/manual/autorizacao-c
 
 # Últimas atualizações
 
-Para visualizar as últimas atualizações do manual, [clique aqui](https://github.com/DeveloperCielo/developercielo.github.io/commits/docs/_i18n/pt/_posts/emv3ds/2019-09-20-integracao-javascript.md)
+Para visualizar as últimas atualizações do manual, [clique aqui](https://github.com/DeveloperCielo/developercielo.github.io/commits/docs/_i18n/pt/_posts/3ds/2019-09-20-integracao-javascript.md)
