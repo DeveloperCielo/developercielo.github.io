@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-12-10T13:11:12+00:00</updated>
+    <updated>2019-12-10T13:15:39+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -14772,6 +14772,10 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:&lt;/p&
                     &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt; 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Atenção:&lt;/strong&gt; Os dados dos parâmetros EC e EMAIL são apenas exemplos e não deve ser utilizado em sua chamada. Para a utilização do EC na chamada, é necessário uma pré habilitação junto a Cielo, para o recebimento com MULTI-EC.&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
@@ -14949,6 +14953,10 @@ Assim que possuir a instância da Order, utilize o método abaixo passando os pa
                 &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ec&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0000000000000003&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/* Opcional */&lt;/span&gt;
                 &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Atenção:&lt;/strong&gt; O dado do parâmetro EC é apenas um exemplo e não deve ser utilizado em sua chamada. Para a utilização do EC na chamada de cancelamento, é necessário uma pré habilitação junto a Cielo.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;Abaixo é detalhado cada um dos parâmetros enviados no método:&lt;/p&gt;
 
