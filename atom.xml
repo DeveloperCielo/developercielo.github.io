@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-12-10T02:20:13+00:00</updated>
+    <updated>2019-12-10T02:34:32+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -2188,7 +2188,7 @@ Veja maiores detalhes em: &lt;a href=&quot;https://developercielo.github.io/manu
         <id>https://developercielo.github.io/manual/integracao-javascript</id>
         <content type="html">&lt;h1 id=&quot;o-que-é-3ds-20&quot;&gt;O que é 3DS 2.0?&lt;/h1&gt;
 
-&lt;p&gt;Para maiores detalhes sobre o 3DS 2.0, acesse:&lt;a href=&quot;https://developercielo.github.io/manual/emv3ds&quot;&gt;https://developercielo.github.io/manual/emv3ds&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Para maiores detalhes sobre o 3DS 2.0, acesse:&lt;a href=&quot;https://developercielo.github.io/manual/3ds&quot;&gt;https://developercielo.github.io/manual/3ds&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;passo-1---solicitação-de-token-de-acesso&quot;&gt;Passo 1 - Solicitação de Token de Acesso&lt;/h1&gt;
 
@@ -2318,7 +2318,7 @@ Veja maiores detalhes em: &lt;a href=&quot;https://developercielo.github.io/manu
 
 &lt;p&gt;Neste passo, é implementado o &lt;em&gt;script&lt;/em&gt; e o mapeamento de &lt;em&gt;classes&lt;/em&gt; responsáveis pela comunicação com as plataformas de autenticação das bandeiras e emissor. Siga o exemplo abaixo, que demonstra a implementação básica. Recomenda-se que o trecho seja colocado no final do código HTML de seu checkout:&lt;/p&gt;
 
-&lt;p&gt;Para baixar o código, &lt;a href=&quot;https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/_i18n/pt/_posts/emv3ds/exemplo.html&quot;&gt;Acesse aqui&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Para baixar o código, &lt;a href=&quot;https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/_i18n/pt/_posts/3ds/exemplo.html&quot;&gt;Acesse aqui&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/exemplo-html.jpg&quot; alt=&quot;Fluxo 3DS 2.0&quot; /&gt;&lt;/p&gt;
 
@@ -3144,7 +3144,7 @@ Veja maiores detalhes em: &lt;a href=&quot;https://developercielo.github.io/manu
 
 &lt;h1 id=&quot;Últimas-atualizações&quot;&gt;Últimas atualizações&lt;/h1&gt;
 
-&lt;p&gt;Para visualizar as últimas atualizações do manual, &lt;a href=&quot;https://github.com/DeveloperCielo/developercielo.github.io/commits/docs/_i18n/pt/_posts/emv3ds/2019-09-20-integracao-javascript.md&quot;&gt;clique aqui&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Para visualizar as últimas atualizações do manual, &lt;a href=&quot;https://github.com/DeveloperCielo/developercielo.github.io/commits/docs/_i18n/pt/_posts/3ds/2019-09-20-integracao-javascript.md&quot;&gt;clique aqui&lt;/a&gt;&lt;/p&gt;
 </content>
     </entry>
     
