@@ -12,7 +12,7 @@ tags:
 
 # O que é 3DS 2.0?
 
-Para maiores detalhes sobre o 3DS 2.0, acesse:[https://developercielo.github.io/manual/emv3ds](https://developercielo.github.io/manual/emv3ds)
+Para maiores detalhes sobre o 3DS 2.0, acesse: [https://developercielo.github.io/manual/3ds](https://developercielo.github.io/manual/3ds)
 
 # Passo 1 - Solicitação de Token de Acesso
 
@@ -346,4 +346,4 @@ Veja maiores detalhes em: [https://developercielo.github.io/manual/autorizacao-c
 
 # Últimas atualizações
 
-Para visualizar as últimas atualizações do manual, [clique aqui](https://github.com/DeveloperCielo/developercielo.github.io/commits/docs/_i18n/pt/_posts/emv3ds/2019-09-20-integracao-sdk-android.md)
+Para visualizar as últimas atualizações do manual, [clique aqui](https://github.com/DeveloperCielo/developercielo.github.io/commits/docs/_i18n/pt/_posts/3ds/2019-09-20-integracao-sdk-android.md)
