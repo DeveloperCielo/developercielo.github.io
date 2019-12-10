@@ -15,7 +15,7 @@ language_tabs:
 
 # What is 3DS 2.0?
 
-For more details about the 3DS 2.0, see: [https://developercielo.github.io/en/manual/emv3ds](https://developercielo.github.io/en/manual/emv3ds)
+For more details about the 3DS 2.0, see: [https://developercielo.github.io/en/manual/3ds](https://developercielo.github.io/en/manual/3ds)
 
 # STEP 1. Access Token Request
 
@@ -279,4 +279,4 @@ See more details at: [https://developercielo.github.io/en/manual/autorizacao-com
 
 # Last updates
 
-To view the latest manual updates, [click here](https://github.com/DeveloperCielo/developercielo.github.io/commits/docs/_i18n/en/_posts/emv3ds/2019-09-20-integracao-javascript.md)
+To view the latest manual updates, [click here](https://github.com/DeveloperCielo/developercielo.github.io/commits/docs/_i18n/en/_posts/3ds/2019-09-20-integracao-javascript.md)
