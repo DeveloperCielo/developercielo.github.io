@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-12-10T01:12:01+00:00</updated>
+    <updated>2019-12-10T01:15:45+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -11593,6 +11593,215 @@ R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.
         <link href="https://developercielo.github.io/manual/emv3ds"/>
         <updated>2018-09-10T00:00:00+00:00</updated>
         <id>https://developercielo.github.io/manual/emv3ds</id>
+        <content type="html">&lt;h1 id=&quot;autenticação-3ds-20&quot;&gt;Autenticação 3DS 2.0&lt;/h1&gt;
+
+&lt;h2 id=&quot;o-que-é-3ds-20&quot;&gt;O que é 3DS 2.0?&lt;/h2&gt;
+
+&lt;p&gt;Com o objetivo de minimizar o índice de fraude sem prejudicar a taxa de conversão, a indústria de meio de pagamento desenvolveu um novo padrão de autenticação, chamado &lt;strong&gt;EMV 3DS&lt;/strong&gt; , ou também chamado de &lt;strong&gt;3DS 2.0&lt;/strong&gt;. A nova versão é capaz de analisar dezenas de variáveis que são utilizadas como critérios para determinar se um comprador é de fato o portador cartão, permitindo em alguns casos, a autenticação silenciosa do mesmo (autenticação sem desafio), sem prejuízo à questão do &lt;em&gt;Liability Shift&lt;/em&gt; dos estabelecimentos.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Principais benefícios:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Integração facilitada via Java Script;&lt;/li&gt;
+  &lt;li&gt;Interface de autenticação é responsiva para mobile;&lt;/li&gt;
+  &lt;li&gt;Possibilidade de autenticação &quot;silenciosa&quot; (isenção do desafio);&lt;/li&gt;
+  &lt;li&gt;Minimiza transações com fraudes;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Palavras chaves:&lt;/strong&gt; Autenticação de Cartão de Crédito e Débito, EMVCO, 3DS 2.0, Visa, Mastercard, E-Commerce&lt;/p&gt;
+
+&lt;h2 id=&quot;quem-pode-usar-o-3ds-20&quot;&gt;Quem pode usar o 3DS 2.0?&lt;/h2&gt;
+
+&lt;p&gt;Todos os estabelecimentos eCommerce devem se adequar à solução a partir de Maio de 2019 frente ao Release de Bandeiras. O 3DS 2.0 é válido para todas as transações de eCommerce, sejam de débito, crédito ou pré-pago. Aos segmentos que possuem alto índice de chargeback/fraude, a solução tende a ser ainda mais vantajosa frente ao benefício de passar o liability shift ao banco emissor.&lt;/p&gt;
+
+&lt;h2 id=&quot;quais-são-requisitos-para-a-utilização-do-3ds-20&quot;&gt;Quais são requisitos para a utilização do 3DS 2.0?&lt;/h2&gt;
+
+&lt;p&gt;O estabelecimento comercial deve atender aos requisitos abaixo para a utilização do 3DS 2.0:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ter afiliação do Cielo E-Commerce 1.5 ou 3.0;&lt;/li&gt;
+  &lt;li&gt;Ter o cadastro de 3DS 2.0 (solicitar para o Suporte eCommerce);&lt;/li&gt;
+  &lt;li&gt;Concluir a integração técnica do fluxo de autenticação;&lt;/li&gt;
+  &lt;li&gt;Concluir a integração técnica do fluxo de autorização;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;aside class=&quot;notice&quot;&gt;Caso tenha implementado mecanismo de autenticação fora da Cielo (MPI Externo), pule direto para &quot;Etapa de Autorização&quot;&lt;/aside&gt;
+
+&lt;h2 id=&quot;bandeiras-e-emissores-disponíveis&quot;&gt;Bandeiras e Emissores Disponíveis&lt;/h2&gt;
+
+&lt;p&gt;Para envio de transações com pedido de autenticação 3DS 2.0 é fundamental que, além da Cielo, o Emissor e Bandeira estejam prontos com a solução. Dentre as bandeiras do mercado, atualmente estão disponíveis Visa e Mastercard no 3DS 2.0 Cielo. Ambas possuem um modelo de Stand-In, caso o Emissor ainda não esteja apto a responder um pedido de autenticação usando EMV 3DS 2.0. Nesse cenário, a bandeira avalia os dados enviados, como por exemplo o histórico comportamental do cliente e transacional, classificando os pedidos de autenticação como “Baixo Risco” e “Não Baixo Risco”. A partir dessas informações, os Emissores poderão contar com uma proteção mesmo não possuindo uma solução própria de 3DS 2.0, e terão uma maior confiança nas transações autenticadas. Em casos de Stand-In, a autenticação ocorre de forma silenciosa (sem desafio para o portador) e, uma vez que a transação foi autenticada, o liability em caso de fraude ficará com o Emissor. A decisão de autorizar ou não a transação é do Emissor.&lt;/p&gt;
+
+&lt;p&gt;Em breve as bandeiras Elo e Amex também estarão disponíveis.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;BANDEIRAS&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;BANCO EMISSOR&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;MASTERCARD&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;VISA&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Banco do Brasil&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Crédito/Débito&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Caixa Econômica&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Crédito&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Santander&lt;/td&gt;
+      &lt;td&gt;Crédito/Débito&lt;/td&gt;
+      &lt;td&gt;Crédito/Débito&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Itaú&lt;/td&gt;
+      &lt;td&gt;Crédito&lt;/td&gt;
+      &lt;td&gt;Crédito&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Midway&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Crédito&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;PagSeguro&lt;/td&gt;
+      &lt;td&gt;Crédito&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Acesso&lt;/td&gt;
+      &lt;td&gt;Crédito&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Banco Neon&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Crédito&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Realize&lt;/td&gt;
+      &lt;td&gt;Crédito&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;C6&lt;/td&gt;
+      &lt;td&gt;Crédito/Débito&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Porto Seguro&lt;/td&gt;
+      &lt;td&gt;—&lt;/td&gt;
+      &lt;td&gt;Crédito&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;o-que-é-o-data-only--somente-notificação&quot;&gt;O que é o Data Only – Somente Notificação&lt;/h2&gt;
+
+&lt;p&gt;O Data Only é um campo opcional ao lojista que poderá ser utilizado exclusivamente para cartões Mastercard.&lt;/p&gt;
+
+&lt;p&gt;Para utilizá-lo, deverá ser parametrizado o campo &lt;strong&gt;bpmpi_auth_notifyonly&lt;/strong&gt; descrito no item &lt;strong&gt;Etapa de Autenticação – passo 3 – Mapeamento de classes&lt;/strong&gt;. No modelo Data Only, os campos adicionais do 3DS 2.0 são mapeados da mesma forma, e enviados para a Mastercard e Bancos Emissores, porém, sem solicitar a autenticação.&lt;/p&gt;
+
+&lt;p&gt;O benefício do uso do Data Only é enriquecer o banco de dados dos Bancos Emissores e da Mastercard, que passará a receber mais informações sobre os portadores de cada lojista. Esse campo busca aprimorar a autenticação silenciosa e o índice de aprovação dos Emissores, considerando o contexto atual onde o mercado está evoluindo para a integração com o novo protocolo de autenticação 2.0. Além disso, a partir de Maio de 2019, a bandeira Mastercard cobrará um &lt;em&gt;fee&lt;/em&gt; adicional por transação não autenticada do adquirente, que poderá impactar no preço negociado entre a Cielo e o estabelecimento. O Data Only isenta o valor do &lt;em&gt;fee&lt;/em&gt; cobrado.&lt;/p&gt;
+
+&lt;p&gt;Vale destacar que nesse modelo, visto que não há autenticação do Emissor, o risco de chargeback por fraude permanece com o lojista.&lt;/p&gt;
+
+&lt;h2 id=&quot;fluxo-de-pagamento-3ds-20--com-desafio&quot;&gt;Fluxo de Pagamento 3DS 2.0 | Com desafio&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://portal-cielo-hlg.sensedia.com/api-portal/sites/default/files/pagamento-com-desafio-01_0.jpg&quot; alt=&quot;Fluxo com desafio 01&quot; /&gt;
+&lt;img src=&quot;https://portal-cielo-hlg.sensedia.com/api-portal/sites/default/files/pagamento-com-desafio-02.jpg&quot; alt=&quot;Fluxo com desafio 02&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;O Portador preenche os dados do cartão no checkout do estabelecimento.&lt;/li&gt;
+  &lt;li&gt;O Estabelecimento aciona a solução 3DS 2.0 da Cielo via script para autenticação.&lt;/li&gt;
+  &lt;li&gt;A solução 3DS 2.0 da Cielo envia ao MPI (plataforma de autenticação) os dados do comprador.&lt;/li&gt;
+  &lt;li&gt;O MPI se comunica com a Bandeira para processar a autenticação. A Bandeira identifica o emissor do cartão, e envia dos dados do comprador para análise. O emissor identifica o portador como um possível risco, desta forma, exige o desafio  e retorna a URL de Autenticação.&lt;/li&gt;
+  &lt;li&gt;A Bandeira retorna a URL de autenticação ao MPI.&lt;/li&gt;
+  &lt;li&gt;O MPI retorna a URL de autenticação à solução 3DS 2.0.&lt;/li&gt;
+  &lt;li&gt;A solução 3DS 2.0 retorna a URL de Autenticação ao estabelecimento via script.&lt;/li&gt;
+  &lt;li&gt;O script apresenta a tela da autenticação via lightbox.&lt;/li&gt;
+  &lt;li&gt;O portador resolve o desafio na tela do emissor.&lt;/li&gt;
+  &lt;li&gt;O emissor retorna o resultado da autenticação à Bandeira.&lt;/li&gt;
+  &lt;li&gt;A Bandeira retorna o resultado da autenticação ao MPI.&lt;/li&gt;
+  &lt;li&gt;O MPI retorna o resultado da autenticação à solução 3DS 2.0.&lt;/li&gt;
+  &lt;li&gt;A solução 3DS 2.0 retorna o resultado da autenticação ao estabelecimento via script (CAVV, ECI e XID).&lt;/li&gt;
+  &lt;li&gt;O estabelecimento envia uma requisição de autorização com os dados da autentiação à API Cielo 3.0.&lt;/li&gt;
+  &lt;li&gt;A API Cielo 3.0 retorna o resultado da autorização ao estabelecimento.&lt;/li&gt;
+  &lt;li&gt;O estabelecimento informa o resultado do pagamento..&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;fluxo-de-pagamento-3ds-20--sem-desafio&quot;&gt;Fluxo de Pagamento 3DS 2.0 | Sem desafio&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://portal-cielo-hlg.sensedia.com/api-portal/sites/default/files/pagamento-sem-desafio.jpg&quot; alt=&quot;Fluxo se desafio&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;O Portador preenche os dados do cartão no checkout do estabelecimento&lt;/li&gt;
+  &lt;li&gt;O Estabelecimento aciona a solução 3DS 2.0 da Cielo via script para autenticação&lt;/li&gt;
+  &lt;li&gt;A solução 3DS 2.0 da Cielo envia ao MPI (plataforma de autenticação) os dados do comprador&lt;/li&gt;
+  &lt;li&gt;O MPI se comunica com a Bandeira para processar a autenticação. A Bandeira identifica o emissor do cartão, e envia dos dados do comprador para análise. O emissor identifica o portador como um possível risco, desta forma, exige o desafio e retorna a URL de Autenticação&lt;/li&gt;
+  &lt;li&gt;A Bandeira retorna o resultado da autenticação silenciosa (CAVV e ECI)&lt;/li&gt;
+  &lt;li&gt;O MPI retorna o resultado da autenticação silenciosa à solução 3DS 2.0&lt;/li&gt;
+  &lt;li&gt;A solução 3DS 2.0 retorna o resultado da autenticação silenciona ao estabelecimento via script&lt;/li&gt;
+  &lt;li&gt;O estabelecimento envia uma requisição de autorização com os dados da autentiação à API Cielo 3.0&lt;/li&gt;
+  &lt;li&gt;A API Cielo 3.0 retorna o resultado da autorização ao estabelecimento&lt;/li&gt;
+  &lt;li&gt;O estabelecimento informa o resutlado do pagamento&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;como-funciona-a-autorização-com-autenticação-via-3ds-20&quot;&gt;Como funciona a autorização com autenticação via 3DS 2.0?&lt;/h2&gt;
+
+&lt;p&gt;O processo de autorização de cartão autenticada via 3DS 2.0 ocorre em duas etapas:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Etapa 1: Autenticação&lt;/li&gt;
+  &lt;li&gt;Etapa 2: Autorização&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;O fluxo abaixo descreve as etapas em alto nível:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/fluxo-env3ds.jpg&quot; alt=&quot;Fluxo 3DS 2.0&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;O portador escolhe pagar com cartão de crédito ou débito&lt;/li&gt;
+  &lt;li&gt;O estabelecimento solicita a autenticação através da solução Cielo&lt;/li&gt;
+  &lt;li&gt;A plataforma de autenticação poderá seguir um dos dois fluxos: requisitar a autenticação do portador ou realizar a autenticação de forma silenciosa. No primeiro caso, a plataforma retornará a URL de Autenticação ao estabelecimento. No segundo caso, o passo seguinte já é o retorno com o resultado da autenticação.&lt;/li&gt;
+  &lt;li&gt;O estabelecimento apresenta a interface de autenticação no &lt;em&gt;lightbox&lt;/em&gt; (URL de Autenticação do emissor)&lt;/li&gt;
+  &lt;li&gt;O portador se autentica no emissor (processo conhecido como &lt;strong&gt;realizar o desafio&lt;/strong&gt; )&lt;/li&gt;
+  &lt;li&gt;O emissor retorna o resultado da autenticação à plataforma 3DS, que por sua vez repassa para o estabelecimento&lt;/li&gt;
+  &lt;li&gt;O estabelecimento poderá ou não, seguir com o processo de autorização. Quando optar por autorizar deverá submeter o resultado da autenticação no contrato técnico de autorização&lt;/li&gt;
+  &lt;li&gt;A Cielo retorna o resultado da autorização para o estabelecimento, que por sua vez, retorna para o portador&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;autenticação&quot;&gt;Autenticação&lt;/h2&gt;
+
+&lt;p&gt;A solução é composta pelo passo de solicitação de token de acesso via API. 
+Clique em uma das opções abaixo para visualizar o manual mais adequado para sua necessidade:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Autenticação via Java Script: ideal para implementação em &lt;a href=&quot;https://developercielo.github.io/manual/integracao-javascript&quot;&gt;websites&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Autenticação via SDK Android: ideal para implementação in-app Android em &lt;a href=&quot;https://developercielo.github.io/manual/integracao-sdk-android&quot;&gt;websites&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Autenticação via SDK IOS: ideal para implementação em in-app IOS em &lt;a href=&quot;https://developercielo.github.io/manual/integracao-sdk-ios&quot;&gt;websites&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;autorização-com-autenticação&quot;&gt;Autorização com Autenticação&lt;/h2&gt;
+
+&lt;p&gt;Após autenticação ser concluída, submete-se ao processo de autorização, enviando os dados de autenticação no modelo de &quot;autenticação externa&quot; (nó &lt;strong&gt;ExternalAuthentication&lt;/strong&gt; ).
+Veja maiores detalhes em: &lt;a href=&quot;https://developercielo.github.io/manual/autorizacao-com-autenticacao&quot;&gt;https://developercielo.github.io/manual/autorizacao-com-autenticacao&lt;/a&gt;&lt;/p&gt;
+</content>
+    </entry>
+    
+    <entry>
+        <title>1. Introdução a 3DS 2.0</title>
+        <category term="manual" />
+        <link href="https://developercielo.github.io/manual/3ds"/>
+        <updated>2018-09-10T00:00:00+00:00</updated>
+        <id>https://developercielo.github.io/manual/3ds</id>
         <content type="html">&lt;h1 id=&quot;autenticação-3ds-20&quot;&gt;Autenticação 3DS 2.0&lt;/h1&gt;
 
 &lt;h2 id=&quot;o-que-é-3ds-20&quot;&gt;O que é 3DS 2.0?&lt;/h2&gt;
