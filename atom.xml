@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-12-10T02:50:47+00:00</updated>
+    <updated>2019-12-10T13:11:12+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -14905,10 +14905,6 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:&lt;/p&
 
 &lt;p&gt;Abaixo, segue um exemplo do fluxo com as telas exibidas informando o OrderId, o Valor, o código de pagamento, o número de parcelas, o EC e o email
 &lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/pagamento-parcelado.jpg&quot; alt=&quot;fluxo parcial&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Atenção:&lt;/strong&gt; Para a utilização do EC, é necessário uma pré habilitação junto a Cielo, para o recebimento com MULTI-EC&lt;/p&gt;
-&lt;/blockquote&gt;
 
 &lt;h2 id=&quot;cancelamento&quot;&gt;Cancelamento&lt;/h2&gt;
 
