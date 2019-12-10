@@ -15,7 +15,7 @@ language_tabs:
 
 # O que é 3DS 2.0?
 
-Para maiores detalhes sobre o 3DS 2.0, acesse:[https://developercielo.github.io/manual/3ds](https://developercielo.github.io/manual/3ds)
+Para maiores detalhes sobre o 3DS 2.0, acesse: [https://developercielo.github.io/manual/3ds](https://developercielo.github.io/manual/3ds)
 
 # Passo 1 - Solicitação de Token de Acesso
 
