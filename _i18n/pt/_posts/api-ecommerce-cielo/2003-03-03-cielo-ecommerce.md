@@ -3047,8 +3047,7 @@ curl
                 "TryNumber": 1
             }
         ],
-        "Status": 1,
-        "IssuerTransactionId": "009295034362939"
+        "Status": 1
     }
 }
 ```
@@ -3089,8 +3088,7 @@ curl
                 "TryNumber": 1
             }
         ],
-        "Status": 1,
-        "IssuerTransactionId": "009295034362939"
+        "Status": 1
     }
 }
 ```
@@ -3111,9 +3109,6 @@ curl
 |`RecurrentTransactions.TransactionId`|Payment ID da transação gerada na recorrência|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`RecurrentTransactions.PaymentNumber`|Número da Recorrência. A primeira é zero|Número|2|3|
 |`RecurrentTransactions.TryNumber`|Número da tentativa atual na recorrência específica|Número|2|1|
-|`Payment.IssuerTransactionId`|Identificado de autenticação do Emissor para transações de débito recorrentes. Este campo deve ser enviado nas transações subsequentes da primeira transação no modelo de recorrência própria. Já no modelo de recorrência programada, a Cielo será a responsável por enviar o campo nas transações subsequentes.|Texto|15|---|
-
-**Atenção:** O campo `IssuerTransactionId` também pode ser obtido através da consulta da primeira transação da recorrência. Ver detalhes de como fazer uma consulta [**aqui**](https://developercielo.github.io/manual/cielo-ecommerce#consulta-de-transa%C3%A7%C3%B5es).
 
 ## Captura
 
@@ -4604,9 +4599,9 @@ Quando o Velocity está ativo, a resposta da transação trará um nó específi
 
 # Recorrência
 
-Pagamentos recorrentes são transações de cartão de crédito e débito que devem se repetir após um determinado período de tempo. Para as transações recorrentes com cartão de débito, ocorre autenticação com 3DS 2.0 da primeira transação (risco de chargeback por fraude passa a ser do Banco Emissor), e as transações subsequentes não são submetidas para autenticação (risco de chargeback por fraude permanece com o lojista). A solução de recorrência no débito está disponível apenas para cartões Visa. Em breve estará disponível para cartões Mastercard.
+Pagamentos recorrentes são transações de cartão de crédito que devem se repetir após um determinado periodo de tempo.
 
-São pagamentos normalmente encontrados em **assinaturas**, onde o comprador deseja ser cobrado automaticamente, mas não quer informar novamente os dados do cartão.
+São pagamentos normalmente encontrados em **assinaturas**, onde o comprador deseja ser cobrado automaticamente, mas não quer informar novamente os dados do cartão de crédito.
 
 ## Tipos de recorrências
 
@@ -4754,7 +4749,7 @@ Para criar uma venda recorrente cuja o processo de recorrência e intervalo ser�
 
 O paramêtro `Payment.Recurrent`deve ser `true`, caso contrario, a transação será negada.
 
-#### Requisição de crédito
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -4776,10 +4771,7 @@ O paramêtro `Payment.Recurrent`deve ser `true`, caso contrario, a transação s
          "ExpirationDate":"12/2030",
          "SecurityCode":"262",
          "SaveCard":"false",
-         "Brand":"Visa",
-         "CardOnFile":{
-             "Usage": "First"
-         }
+         "Brand":"Visa"
      }
    }
 }
@@ -4810,10 +4802,7 @@ curl
          "ExpirationDate":"12/2030",
          "SecurityCode":"262",
          "SaveCard":"false",
-         "Brand":"Visa",
-         "CardOnFile":{
-            "Usage": "First"
-         }
+         "Brand":"Visa"
      }
    }
 }
@@ -4837,10 +4826,8 @@ curl
 |`CreditCard.ExpirationDate`|Data de validade impresso no cartão.|Texto|7|Sim|
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
-|`CreditCard.CardOnFile.Usage`|**First** se o cartão foi armazenado e é seu primeiro uso.<br>**Used** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação.|Texto|---|Não|
-|`CreditCard.CardOnFile.Reason`|Indica o propósito de armazenamento de cartões, caso o campo `Usage` for `Used`.<br>**Recurring** - Compra recorrente programada (ex. assinaturas).<br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços).<br>**Installments** - Parcelamento através da recorrência.|Texto|---|Condicional|
 
-#### Resposta de crédito
+#### Resposta
 
 ```json
 {
@@ -4986,167 +4973,13 @@ curl
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
 
-#### Requisição de débito
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-```json
-{  
-   "MerchantOrderId":"2014121201",
-   "Customer":{  
-      "Name":"Comprador rec propria"
-   },
-   "Payment":{  
-     "Type":"DebitCard",
-     "Amount":15700,
-     "Provider":"Cielo",
-     "ReturnUrl":"https://clicktime.symantec.com/3TVsxr2DrNxWzL9C7RZ19v97Vc?u=http%3A%2F%2Fwww.google.com.br%2522",
-     "Recurrent": true,
-     "DebitCard":{
-         "CardNumber":"1234123412341231",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"11/2019",
-         "SecurityCode":"123",
-         "Brand":"Visa",
-         "CardOnFile":{
-            "Usage": "First"
-         }
-     },
-     "ExternalAuthentication":{
-         "Cavv":"A901234A5678A0123A567A90120=",
-         "Xid":"A90123A45678A0123A567A90123",
-         "Eci":"5",
-         "Version":"2"
-     }
-   }
-}
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
-|---|---|---|---|---|
-|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|6|Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
-|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`MerchantOrderId`|Numero de identificação do Pedido.|Texto|50|Sim|
-|`Customer.Name`|Nome do Comprador.|Texto|255|Sim|
-|`Payment.Type`|Tipo do Meio de Pagamento.|Texto|100|Sim|
-|`Payment.Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
-|`Provider`|Define comportamento do meio de pagamento|Texto|15|---|
-|`ReturnUrl`|URI para onde o usuário será redirecionado após o fim do pagamento|Texto|1024|---|
-|`Payment.Recurrent`|marcação de uma transação de recorrencia não programada|boolean|5|Não|
-|`DebitCard.CardNumber`|Número do Cartão do Comprador.|Texto|19|Sim|
-|`DebitCard.Holder`|Nome do Comprador impresso no cartão.|Texto|25|Não|
-|`DebitCard.ExpirationDate`|Data de validade impresso no cartão.|Texto|7|Sim|
-|`DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
-|`DebitCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
-|`DebitCard.CardOnFile.Usage`|**First** se o cartão foi armazenado e é seu primeiro uso.<br>**Used** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação.|Texto|---|Não|
-|`DebitCard.CardOnFile.Reason`|Indica o propósito de armazenamento de cartões, caso o campo `Usage` for `Used`.<br>**Recurring** - Compra recorrente programada (ex. assinaturas).<br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços).<br>**Installments** - Parcelamento através da recorrência.|Texto|---|Condicional|
-|`ExternalAuthentication.Cavv`|O valor Cavv é retornado pelo mecanismo de autenticação.|Texto|28|Sim|
-|`ExternalAuthentication.Xid`|O valor Xid é retornado pelo mecanismo de autenticação.|Texto|28|Sim|
-|`ExternalAuthentication.Eci`|O valor Eci é retornado pelo mecanismo de autenticação.|Número|1|Sim|
-|`ExternalAuthentication.Version`|---|---|---|
-
-#### Resposta de débito
-
-Para transações recorrentes com cartão de débito, após enviado o request de uma transação com solicitação de autenticação 3DS 2.0, a informação de Issuer Transaction ID é retornada na primeira transação autenticada. Essa informação deve ser armazenada e enviada nas transações subsequentes, permitindo ao Banco Emissor vincular as transações subsequentes de débito não autenticadas, com a primeira transação de débito autenticada. Esse modelo está disponível apenas para cartões de débito Visa.
-
-```json
-{
-   "MerchantOrderId": "2014121201",
-   "Customer": {
-        "Name": "Comprador rec propria"
-    },
-   "Payment": {
-     "DebitCard": {
-         "CardNumber": "409603******0183",
-         "Holder": "Teste Holder",
-         "ExpirationDate": "11/2019",
-         "SaveCard": false,
-         "Brand": "Visa",
-         "CardOnFile":{
-            "Usage": "First",
-            "Reason": "Conforme documentação"
-         },
-         "PaymentAccountReference":"80215935306245595386112369301"
-     },
-     "Provider": "Cielo",
-     "AuthorizationCode": "149867",
-     "Eci": "5",
-     "Tid": "10069930698EGKISAQCC",
-     "ProofOfSale": "165009",
-     "Authenticate": true,
-     "ExternalAuthentication":{
-         "Cavv": "A901234A5678A0123A567A90120=",
-         "Xid": "A90123A45678A0123A567A90123",
-         "Eci": "5",
-         "Version": "2"
-     },
-     "Recurrent": true,
-     "IssuerTransactionId": "009242668734612",
-     "Amount": 15700,
-     "ReceivedDate": "2019-10-22 16:59:26",
-     "CapturedAmount": 15700,
-     "CapturedDate": "2019-10-22 16:59:27",
-     "ReturnUrl": "https://clicktime.symantec.com/3TVsxr2DrNxWzL9C7RZ19v97Vc?u=http%3A%2F%2Fwww.google.com.br%2522",
-     "Status": 2,
-     "IsSplitted": false,
-     "ReturnMessage": "Transacao capturada com sucesso",
-     "ReturnCode": "00",
-     "PaymentId": "470e8811-14de-41d1-9a52-3ba9a2bfce37",
-     "Type": "DebitCard",
-     "Currency": "BRL",
-     "Country": "BRA",
-     "Links": [
-         {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://clicktime.symantec.com/33u6P2R2ydHsCe3omoVXP9r7Vc?u=https%3A%2F%2Fapiquerysandbox.cieloecommerce.cielo.com.br%2F1%2Fsales%2F470e8811-14de-41d1-9a52-3ba9a2bfce37%2522"
-         }
-     ]
-    }
-}
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
-|---|---|---|---|---|
-|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|6|Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
-|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`MerchantOrderId`|Numero de identificação do Pedido.|Texto|50|Sim|
-|`Customer.Name`|Nome do Comprador.|Texto|255|Não|
-|`DebitCard.CardNumber`|Número do Cartão do Comprador.|Texto|19|Sim|
-|`DebitCard.Holder`|Nome do Comprador impresso no cartão.|Texto|25|Não|
-|`DebitCard.ExpirationDate`|Data de validade impresso no cartão.|Texto|7|Sim|
-|`DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
-|`DebitCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
-|`DebitCard.CardOnFile.Usage`|**First** se o cartão foi armazenado e é seu primeiro uso.<br>**Used** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação.|Texto|---|Não|
-|`DebitCard.CardOnFile.Reason`|Indica o propósito de armazenamento de cartões, caso o campo `Usage` for `Used`.<br>**Recurring** - Compra recorrente programada (ex. assinaturas).<br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços).<br>**Installments** - Parcelamento através da recorrência.|Texto|---|Condicional|
-|`DebitCard.PaymentAccountReference`|O PAR(payment account reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado.|Numérico|29|Não|
-|`Payment.Provider`|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|Texto|15|---|
-|`Payment.AuthorizationCode`|Código de autorização.|Texto|6|---|
-|`Payment.Eci`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|---|
-|`Payment.Tid`|Id da transação na adquirente.|Texto|6|---|
-|`Payment.ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|---|
-|`Payment.Authenticate`|Define se o comprador será direcionado ao Banco emissor para autenticação do cartão|Booleano|---|Não|
-|`ExternalAuthentication.Cavv`|O valor Cavv é retornado pelo mecanismo de autenticação.|Texto|28|Sim|
-|`ExternalAuthentication.Xid`|O valor Xid é retornado pelo mecanismo de autenticação.|Texto|28|Sim|
-|`ExternalAuthentication.Eci`|O valor Eci é retornado pelo mecanismo de autenticação.|Número|1|Sim|
-|`ExternalAuthentication.Version`|---|---|---|
-|`Payment.Recurrent`|marcação de uma transação de recorrencia não programada|boolean|5|Não|
-|`Payment.IssuerTransactionId`|Identificado de autenticação do Emissor para transações de débito recorrentes. Este campo deve ser enviado nas transações subsequentes da primeira transação no modelo de recorrência própria. Já no modelo de recorrência programada, a Cielo será a responsável por enviar o campo nas transações subsequentes.|Texto|15|---|
-|`Payment.Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
-|`Payment.ReturnUrl`|URI para onde o usuário será redirecionado após o fim do pagamento|Texto|1024|Sim|
-|`Payment.Type`|Tipo do Meio de Pagamento.|Texto|100|Sim|
-|`Payment.Currency`|Moeda na qual o pagamento será feito (BRL).|Texto|3|Não|
-|`Payment.Country`|Pais na qual o pagamento será feito.|Texto|3|Não|
-
 ### Criando uma Recorrência Programada
 
 Para criar uma venda recorrente cuja a primeira recorrência é autorizada com a forma de pagamento cartão de crédito, basta fazer um POST conforme o exemplo.
 
 <aside class="notice"><strong>Atenção:</strong> Nessa modalidade de recorrência, a primeira transação deve ser capturada. Todas as transações posteriores serão capturadas automaticamente.</aside>
 
-#### Requisição de crédito
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -5172,10 +5005,7 @@ Para criar uma venda recorrente cuja a primeira recorrência é autorizada com a
          "ExpirationDate":"12/2030",
          "SecurityCode":"262",
          "SaveCard":"false",
-         "Brand":"Visa",
-         "CardOnFile":{
-           "usage":"first"
-         }
+         "Brand":"Visa"
      }
    }
 }
@@ -5210,10 +5040,7 @@ curl
          "ExpirationDate":"12/2030",
          "SecurityCode":"262",
          "SaveCard":"false",
-         "Brand":"Visa",
-         "CardOnFile":{
-           "usage":"first"
-         }
+         "Brand":"Visa"
      }
    }
 }
@@ -5239,10 +5066,8 @@ curl
 |`CreditCard.ExpirationDate`|Data de validade impresso no cartão.|Texto|7|Sim|
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
 |`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
-|`CreditCard.CardOnFile.Usage`|**First** se o cartão foi armazenado e é seu primeiro uso.<br>**Used** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação.|Texto|---|Não|
-|`CreditCard.CardOnFile.Reason`|Indica o propósito de armazenamento de cartões, caso o campo `Usage` for `Used`.<br>**Recurring** - Compra recorrente programada (ex. assinaturas).<br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços).<br>**Installments** - Parcelamento através da recorrência.|Texto|---|Condicional|
 
-#### Resposta de crédito
+#### Resposta
 
 ```json
 {
@@ -5387,275 +5212,6 @@ curl
 |`EndDate`|Data do fim da recorrência.|Texto|7|12/2030 (MM/YYYY)|
 |`Interval`|Intervalo entre as recorrência.|Texto|10|/ Monthly / Bimonthly  / Quarterly  / SemiAnnual / Annual |
 |`AuthorizeNow`|Booleano para saber se a primeira recorrencia já vai ser Autorizada ou não.|Booleano|---|true ou false|
-
-#### Requisição de débito
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-```json
-{  
-   "MerchantOrderId":"2014121201",
-   "Customer":{  
-      "Name":"Comprador rec programada"
-   },
-   "Payment":{  
-     "Type":"DebitCard",
-     "Amount":15700,
-     "Provider":"cielo",
-     "RecurrentPayment":{
-       "AuthorizeNow":"true",
-       "EndDate":"2030-02-27",
-       "Interval":"bimonthly"
-     },
-     "ReturnUrl":"https://clicktime.symantec.com/3TVsxr2DrNxWzL9C7RZ19v97Vc?u=http%3A%2F%2Fwww.google.com.br%2522",
-     "DebitCard":{  
-         "CardNumber":"*****0183",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"11/2019",
-         "SecurityCode":"***",
-         "Brand":"Visa",
-         "CardOnFile":{
-                "usage":"first"
-         }
-     },
-     "ExternalAuthentication":{
-         "Cavv":"a901234a5678a0123a567a90120=",
-         "Xid":"a90123a45678a0123a567a90123",
-         "Eci":"5",
-         "Version":"2"
-     }
-   }
-}
-```
-
-```shell
-curl
---request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-    {  
-   "MerchantOrderId":"2014121201",
-   "Customer":{  
-      "Name":"Comprador rec programada"
-   },
-   "Payment":{  
-     "Type":"DebitCard",
-     "Amount":15700,
-     "Provider":"cielo",
-     "RecurrentPayment":{
-       "AuthorizeNow":"true",
-       "EndDate":"2030-02-27",
-       "Interval":"bimonthly"
-     },
-     "ReturnUrl":"https://clicktime.symantec.com/3TVsxr2DrNxWzL9C7RZ19v97Vc?u=http%3A%2F%2Fwww.google.com.br%2522",
-     "DebitCard":{  
-         "CardNumber":"*****0183",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"11/2019",
-         "SecurityCode":"***",
-         "Brand":"Visa",
-         "CardOnFile":{
-                "usage":"first"
-         }
-     },
-     "ExternalAuthentication":{
-         "Cavv":"a901234a5678a0123a567a90120=",
-         "Xid":"a90123a45678a0123a567a90123",
-         "Eci":"5",
-         "Version":"2"
-     }
-   }
-}
---verbose
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
-|---|---|---|---|---|
-|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|6|Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
-|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`MerchantOrderId`|Numero de identificação do Pedido.|Texto|50|Sim|
-|`Customer.Name`|Nome do Comprador.|Texto|255|Sim|
-|`Payment.Type`|Tipo do Meio de Pagamento.|Texto|100|Sim|
-|`Payment.Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
-|`Payment.Provider`|Define comportamento do meio de pagamento|Texto|15|---|
-|`Payment.RecurrentPayment.EndDate`|Data para termino da recorrência.|Texto|10|Não|
-|`Payment.RecurrentPayment.Interval`|Intervalo da recorrência.<br /><ul><li>Monthly (Default) </li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|Texto|10|Não|
-|`Payment.RecurrentPayment.AuthorizeNow`|Booleano para saber se a primeira recorrência já vai ser Autorizada ou não.|Booleano|---|Sim|
-|`Payment.ReturnUrl`|URI para onde o usuário será redirecionado após o fim do pagamento|Texto|1024|Sim|
-|`DebitCard.CardNumber`|Número do Cartão do Comprador.|Texto|19|Sim|
-|`DebitCard.Holder`|Nome do Comprador impresso no cartão.|Texto|25|Não|
-|`DebitCard.ExpirationDate`|Data de validade impresso no cartão.|Texto|7|Sim|
-|`DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
-|`DebitCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
-|`DebitCard.CardOnFile.Usage`|**First** se o cartão foi armazenado e é seu primeiro uso.<br>**Used** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação.|Texto|---|Não|
-|`DebitCard.CardOnFile.Reason`|Indica o propósito de armazenamento de cartões, caso o campo `Usage` for `Used`.<br>**Recurring** - Compra recorrente programada (ex. assinaturas).<br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços).<br>**Installments** - Parcelamento através da recorrência.|Texto|---|Condicional|
-|`ExternalAuthentication.Cavv`|O valor Cavv é retornado pelo mecanismo de autenticação.|Texto|28|Sim|
-|`ExternalAuthentication.Xid`|O valor Xid é retornado pelo mecanismo de autenticação.|Texto|28|Sim|
-|`ExternalAuthentication.Eci`|O valor Eci é retornado pelo mecanismo de autenticação.|Número|1|Sim|
-|`ExternalAuthentication.Version`|---|---|---|
-
-#### Resposta de débito
-
-Para transações recorrentes com cartão de débito, após enviado o request de uma transação com solicitação de autenticação 3DS 2.0, a informação de Issuer Transaction ID é retornada na primeira transação autenticada. Essa informação será armazenada pela Cielo e enviada nas transações subsequentes, permitindo ao Banco Emissor vincular as transações subsequentes de débito não autenticadas, com a primeira transação de débito autenticada. Esse modelo está disponível apenas para cartões de débito Visa.
-
-```json
-{
-    "MerchantOrderId": "2014121201",
-    "Customer": {
-        "Name": "Comprador rec programada"
-    },
-    "Payment": {
-        "DebitCard": {
-            "CardNumber": "123412******1231",
-            "Holder": "Teste Holder",
-            "ExpirationDate": "12/2030",
-            "SaveCard": false,
-            "Brand": "Visa",
-            "CardOnFile": {
-                "usage":"first"
-            }
-        },
-        "Provider": "cielo",
-        "AuthorizationCode": "603094",
-        "Eci": "5",
-        "Tid": "10069930698dvs6862lc",
-        "ProofOfSale": "139053",
-        "Authenticate": true,
-        "ExternalAuthentication":{
-          "Cavv":"a901234a5678a0123a567a90120=",
-          "Xid":"a90123a45678a0123a567a90123",
-          "Eci":"5",
-          "Version":"2"
-        },
-        "Recurrent": false,
-        "IssuerTransactionId":"009277050978376",
-        "Amount": 15700,
-        "ReceivedDate":"2019-10-04 11:29:49",
-        "CapturedAmount":15700,
-        "CapturedDate":"2019-10-04 11:30:31",
-        "ReturnUrl":"https://clicktime.symantec.com/3TVsxr2DrNxWzL9C7RZ19v97Vc?u=http%3A%2F%2Fwww.google.com.br%2522",
-        "RecurrentPayment": {
-          "ReasonCode": 0,
-          "EndDate": "2030-02-27",
-          "Interval": 2,
-          "AuthorizeNow": true
-        },
-        "Status": 2,
-        "IsSplitted": false,
-        "ReturnMessage": "transacao capturada com sucesso",
-        "ReturnCode": "00",
-        "PaymentId": "a06f448c-ece6-450b-bbee-46fd9f8172bd",
-        "Type": "DebitCard",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://clicktime.symantec.com/3UMBUMs6zhEfkus8rbrmqgi7Vc?u=https%3A%2F%2Fapiquerysandbox.cieloecommerce.cielo.com.br%2F1%2Fsales%2Fa06f448c-ece6-450b-bbee-46fd9f8172bd%2522"
-            }
-        ]
-    }
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "MerchantOrderId": "2014121201",
-    "Customer": {
-        "Name": "Comprador rec programada"
-    },
-    "Payment": {
-        "DebitCard": {
-            "CardNumber": "123412******1231",
-            "Holder": "Teste Holder",
-            "ExpirationDate": "12/2030",
-            "SaveCard": false,
-            "Brand": "Visa",
-            "CardOnFile": {
-                "usage":"first"
-            }
-        },
-        "Provider": "cielo",
-        "AuthorizationCode": "603094",
-        "Eci": "5",
-        "Tid": "10069930698dvs6862lc",
-        "ProofOfSale": "139053",
-        "Authenticate": true,
-        "ExternalAuthentication":{
-          "Cavv":"a901234a5678a0123a567a90120=",
-          "Xid":"a90123a45678a0123a567a90123",
-          "Eci":"5",
-          "Version":"2"
-        },
-        "Recurrent": false,
-        "IssuerTransactionId":"009277050978376",
-        "Amount": 15700,
-        "ReceivedDate":"2019-10-04 11:29:49",
-        "CapturedAmount":15700,
-        "CapturedDate":"2019-10-04 11:30:31",
-        "ReturnUrl":"https://clicktime.symantec.com/3TVsxr2DrNxWzL9C7RZ19v97Vc?u=http%3A%2F%2Fwww.google.com.br%2522",
-        "RecurrentPayment": {
-            "ReasonCode": 0,
-            "EndDate": "2030-02-27",
-            "Interval": 2,
-            "AuthorizeNow": true
-        },
-        "Status": 2,
-        "IsSplitted": false,
-        "ReturnMessage": "transacao capturada com sucesso",
-        "ReturnCode": "00",
-        "PaymentId": "a06f448c-ece6-450b-bbee-46fd9f8172bd",
-        "Type": "DebitCard",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://clicktime.symantec.com/3UMBUMs6zhEfkus8rbrmqgi7Vc?u=https%3A%2F%2Fapiquerysandbox.cieloecommerce.cielo.com.br%2F1%2Fsales%2Fa06f448c-ece6-450b-bbee-46fd9f8172bd%2522"
-            }
-        ]
-    }
-}
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
-|---|---|---|---|---|
-|`DebitCard.CardNumber`|Número do Cartão do Comprador.|Texto|19|Sim|
-|`DebitCard.Holder`|Nome do Comprador impresso no cartão.|Texto|25|Não|
-|`DebitCard.ExpirationDate`|Data de validade impresso no cartão.|Texto|7|Sim|
-|`DebitCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
-|`DebitCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
-|`DebitCard.CardOnFile.Usage`|**First** se o cartão foi armazenado e é seu primeiro uso.<br>**Used** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação.|Texto|---|Não|
-|`DebitCard.CardOnFile.Reason`|Indica o propósito de armazenamento de cartões, caso o campo `Usage` for `Used`.<br>**Recurring** - Compra recorrente programada (ex. assinaturas).<br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços).<br>**Installments** - Parcelamento através da recorrência.|Texto|---|Condicional|
-|`Payment.Provider`|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|Texto|15|---|
-|`Payment.AuthorizationCode`|Código de autorização.|Texto|6|---|
-|`Payment.Eci`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|---|
-|`Payment.Tid`|Id da transação na adquirente.|Texto|6|---|
-|`Payment.ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|---|
-|`Payment.Authenticate`|Define se o comprador será direcionado ao Banco emissor para autenticação do cartão|Booleano|---|Não|
-|`ExternalAuthentication.Cavv`|O valor Cavv é retornado pelo mecanismo de autenticação.|Texto|28|Sim|
-|`ExternalAuthentication.Xid`|O valor Xid é retornado pelo mecanismo de autenticação.|Texto|28|Sim|
-|`ExternalAuthentication.Eci`|O valor Eci é retornado pelo mecanismo de autenticação.|Número|1|Sim|
-|`ExternalAuthentication.Version`|---|---|---|
-|`Payment.Recurrent`|marcação de uma transação de recorrencia não programada|boolean|5|Não|
-|`Payment.IssuerTransactionId`|Identificado de autenticação do Emissor para transações de débito recorrentes. Este campo deve ser enviado nas transações subsequentes da primeira transação no modelo de recorrência própria. Já no modelo de recorrência programada, a Cielo será a responsável por enviar o campo nas transações subsequentes.|Texto|15|---|
-|`Payment.Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
-|`Payment.ReturnUrl`|URI para onde o usuário será redirecionado após o fim do pagamento|Texto|1024|Sim|
-|`Payment.RecurrentPayment.EndDate`|Data para termino da recorrência.|Texto|10|Não|
-|`Payment.RecurrentPayment.Interval`|Intervalo da recorrência.<br /><ul><li>Monthly (Default) </li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|Texto|10|Não|
-|`Payment.RecurrentPayment.AuthorizeNow`|Booleano para saber se a primeira recorrência já vai ser Autorizada ou não.|Booleano|---|Sim|
-|`Payment.Type`|Tipo do Meio de Pagamento.|Texto|100|Sim|
-|`Payment.Currency`|Moeda na qual o pagamento será feito (BRL).|Texto|3|Não|
-|`Payment.Country`|Pais na qual o pagamento será feito.|Texto|3|Não|
 
 ## Agendando uma Recorrência Programada
 
@@ -6820,6 +6376,326 @@ curl
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
 |`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o CardToken.|
 |`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
+
+### Resposta
+
+```json
+{
+    "MerchantOrderId": "2014111706",
+    "Customer": {
+        "Name": "Comprador Teste",
+        "Identity":"11225468954",
+        "IdentityType":"CPF",
+        "Email": "compradorteste@teste.com",
+        "Birthdate": "1991-01-02",
+        "Address": {
+            "Street": "Rua Teste",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA"
+        },
+        "DeliveryAddress": {
+            "Street": "Rua Teste",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA"
+        }
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "CreditCard": {
+            "CardNumber": "455187******0183",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2030",
+            "SaveCard": true,
+            "CardToken": "d37bf475-307d-47be-b50a-8dcc38c5056c",
+            "Brand": "Visa"
+        },
+        "ProofOfSale": "674532",
+        "Tid": "0305020554239",
+        "AuthorizationCode": "123456",
+        "SoftDescriptor":"123456789ABCD",
+        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
+        "Type": "CreditCard",
+        "Amount": 15700,
+        "CapturedAmount": 15700,
+        "Country": "BRA",
+        "ExtraDataCollection": [],
+        "Status": 2,
+        "ReturnCode": "6",
+        "ReturnMessage": "Operation Successful",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            }
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+            }
+        ]
+    }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "MerchantOrderId": "2014111706",
+    "Customer": {
+        "Name": "Comprador Teste",
+        "Identity":"11225468954",
+        "IdentityType":"CPF",
+        "Email": "compradorteste@teste.com",
+        "Birthdate": "1991-01-02",
+        "Address": {
+            "Street": "Rua Teste",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA"
+        },
+        "DeliveryAddress": {
+            "Street": "Rua Teste",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA"
+        }
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "CreditCard": {
+            "CardNumber": "455187******0183",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2030",
+            "SaveCard": true,
+            "CardToken": "d37bf475-307d-47be-b50a-8dcc38c5056c"
+            "Brand": "Visa"
+        },
+        "ProofOfSale": "674532",
+        "Tid": "0305020554239",
+        "AuthorizationCode": "123456",
+        "SoftDescriptor":"123456789ABCD",
+        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
+        "Type": "CreditCard",
+        "Amount": 15700,
+        "CapturedAmount": 15700,
+        "Country": "BRA",
+        "ExtraDataCollection": [],
+        "Status": 2,
+        "ReturnCode": "6",
+        "ReturnMessage": "Operation Successful",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            }
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+            }
+        ]
+    }
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|---|---|---|---|---|
+|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
+|`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
+`SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
+|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
+|`Status`|Status da Transação.|Byte|---|2|
+|`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
+|`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
+|`Cardtoken`|Token de identificação do Cartão.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+
+## Tokenização Bandeira
+
+Clientes que fazem tokenização do cartão junto com as bandeiras poderão enviar as informações para a Cielo no fluxo transacional.
+
+### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+```json
+{  
+   "MerchantOrderId":"2014111701",
+   "Customer":{  
+      "Name":"Comprador Teste",
+      "Email":"compradorteste@teste.com",
+      "Birthdate":"1991-01-02",
+      "Address":{  
+         "Street":"Rua Teste",
+         "Number":"123",
+         "Complement":"AP 123",
+         "ZipCode":"12345987",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BRA"
+      },
+        "DeliveryAddress": {
+            "Street": "Rua Teste",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA"
+        }
+   },
+   "Payment":{  
+     "Type":"CreditCard",
+     "Amount":15700,
+     "Currency":"BRL",
+     "Country":"BRA",
+     "ServiceTaxAmount":0,
+     "Installments":1,
+     "Interest":"ByMerchant",
+     "Capture":true,
+     "Authenticate":false,
+     "SoftDescriptor":"123456789ABCD",
+     "CreditCard":{  
+         "CardNumber":"1234123412341231",
+         "Holder":"Teste Holder",
+		 "Cryptogram":"abcdefghijklmnopqrstuvw==",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"123",
+         "SaveCard":"true",
+         "Brand":"Visa"
+     }
+   }
+}
+```
+
+```shell
+curl
+--request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+   "MerchantOrderId":"2014111701",
+   "Customer":{  
+      "Name":"Comprador Teste",
+      "Identity":"11225468954",
+      "IdentityType":"CPF",
+      "Email":"compradorteste@teste.com",
+      "Birthdate":"1991-01-02",
+      "Address":{  
+         "Street":"Rua Teste",
+         "Number":"123",
+         "Complement":"AP 123",
+         "ZipCode":"12345987",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BRA"
+      },
+        "DeliveryAddress": {
+            "Street": "Rua Teste",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA"
+        }
+   },
+   "Payment":{  
+     "Type":"CreditCard",
+     "Amount":15700,
+     "ServiceTaxAmount":0,
+     "Installments":1,
+     "Interest":"ByMerchant",
+     "Capture":true,
+     "Authenticate":false,
+     "SoftDescriptor":"123456789ABCD",
+     "CreditCard":{  
+         "CardNumber":"4551870000000183",
+         "Holder":"Teste Holder",
+		 "Cryptogram":"abcdefghijklmnopqrstuvw==",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"123",
+         "SaveCard":"true",
+         "Brand":"Visa"
+     }
+   }
+}
+--verbose
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantId`|Guid|36|Sim|Identificador da loja na Cielo.|
+|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Cielo.|
+|`RequestId`|Guid|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
+|`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido.|
+|`Customer.Name`|Texto|255|Não|Nome do Comprador.|
+|`Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja (NEW / EXISTING)|
+|`Customer.Identity`|Texto|14|Não|Número do RG, CPF ou CNPJ do Cliente.|
+|`Customer.IdentityType`|Texto|255|Não|Tipo de documento de identificação do comprador (CFP/CNPJ).|
+|`Customer.Email`|Texto|255|Não|Email do Comprador.|
+|`Customer.Birthdate`|Date|10|Não|Data de nascimento do Comprador.|
+|`Customer.Address.Street`|Texto|255|Não|Endereço do Comprador.|
+|`Customer.Address.Number`|Texto|15|Não|Número do endereço do Comprador.|
+|`Customer.Address.Complement`|Texto|50|Não|Complemento do endereço do Comprador.br|
+|`Customer.Address.ZipCode`|Texto|9|Não|CEP do endereço do Comprador.|
+|`Customer.Address.City`|Texto|50|Não|Cidade do endereço do Comprador.|
+|`Customer.Address.State`|Texto|2|Não|Estado do endereço do Comprador.|
+|`Customer.Address.Country`|Texto|35|Não|Pais do endereço do Comprador.|
+|`Customer.DeliveryAddress.Street`|Texto|255|Não|Endereço do Comprador.|
+|`Customer.Address.Number`|Texto|15|Não|Número do endereço do Comprador.|
+|`Customer.DeliveryAddress.Complement`|Texto|50|Não|Complemento do endereço do Comprador.|
+|`Customer.DeliveryAddress.ZipCode`|Texto|9|Não|CEP do endereço do Comprador.|
+|`Customer.DeliveryAddress.City`|Texto|50|Não|Cidade do endereço do Comprador.|
+|`Customer.DeliveryAddress.State`|Texto|2|Não|Estado do endereço do Comprador.|
+|`Customer.DeliveryAddress.Country`|Texto|35|Não|Pais do endereço do Comprador.|
+|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento.|
+|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
+|`Payment.Currency`|Texto|3|Não|Moeda na qual o pagamento será feito (BRL).|
+|`Payment.Country`|Texto|3|Não|Pais na qual o pagamento será feito.|
+|`Payment.Provider`|Texto|15|---|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|
+|`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
+|`Payment.Interest`|Texto|10|Não|Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer).|
+|`Payment.Capture`|Booleano|---|Não (Default false)|Booleano que identifica que a autorização deve ser com captura automática.|
+|`Payment.Authenticate`|Booleano|---|Não (Default false)|Define se o comprador será direcionado ao Banco emissor para autenticação do cartão|
+|`Payment.ServiceTaxAmount`|Número|15|Não|[Veja Anexo](https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque)|
+|`Payment.CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do Comprador. A indicação de que o CardNumber deve ser preenchido com o DPAN para caso de tokenização de bandeira.|
+|`Payment.CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
+|`Payment.CreditCard.Cryptogram`|Texto|28|Não|Criptograma gerado pela bandeira.|
+|`Payment.CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
+|`Payment.CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
+|`Payment.CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o CardToken.|
+|`Payment.CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
 
 ### Resposta
 
