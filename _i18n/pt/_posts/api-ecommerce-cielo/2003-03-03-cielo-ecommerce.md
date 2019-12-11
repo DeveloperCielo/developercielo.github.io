@@ -6585,7 +6585,7 @@ Clientes que fazem tokenização do cartão junto com as bandeiras poderão envi
      "CreditCard":{  
          "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
-		 "Cryptogram":"abcdefghijklmnopqrstuvw==",
+         "Cryptogram":"abcdefghijklmnopqrstuvw==",
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
          "SaveCard":"true",
@@ -6642,7 +6642,7 @@ curl
      "CreditCard":{  
          "CardNumber":"4551870000000183",
          "Holder":"Teste Holder",
-		 "Cryptogram":"abcdefghijklmnopqrstuvw==",
+         "Cryptogram":"abcdefghijklmnopqrstuvw==",
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
          "SaveCard":"true",
