@@ -2787,6 +2787,493 @@ das transações que pararam após a execução deste processo. A mensagem para 
   </li>
 </ul>
 
+<h3 id="credencial-armazenado---card-on-file">Credencial Armazenado - Card On File</h3>
+
+<p>O portador do cartão poderá permitir que os dados de seu cartão, sejam armazenados de forma segura, para transações futuras no Estabelecimento Comercial.</p>
+
+<p>Abaixo seguem as situações para identificar se é a primeira transação ou subsequente, através da TAG primeira transação:</p>
+
+<ul>
+  <li><strong>Situação 1:</strong> - <strong>HÁ</strong> armazenamento de dados do cartão e <strong>É</strong> primeira transação.</li>
+</ul>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
+<span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.0"</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- ... --&gt;</span>
+  <span class="nt">&lt;gerar-token&gt;</span>true<span class="nt">&lt;/gerar-token&gt;</span>
+<span class="nt">&lt;/requisicao-transacao&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>Situação 2:</strong> - <strong>HÁ</strong> armazenamento de dados do cartão e <strong>NÃO É</strong> primeira transação.</li>
+</ul>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
+<span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.0"</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- ... --&gt;</span>
+  <span class="nt">&lt;gerar-token&gt;</span>true<span class="nt">&lt;/gerar-token&gt;</span>
+<span class="nt">&lt;/requisicao-transacao&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>Situação 3:</strong> - <strong>NÃO HÁ</strong> armazenamento de dados do cartão, o estabelecimento simplesmente não envia esta tag.</li>
+</ul>
+
+<h4 id="requisição">Requisição</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span> <span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;dados-ec&gt;</span>
+    <span class="nt">&lt;numero&gt;</span>2000019700<span class="nt">&lt;/numero&gt;</span>
+    <span class="nt">&lt;chave&gt;</span>65d156641f765861451c7c1270a4c09a617863b031b2e4b0c4a09cd390783c82<span class="nt">&lt;/chave&gt;</span>
+  <span class="nt">&lt;/dados-ec&gt;</span>
+  <span class="nt">&lt;dados-portador&gt;</span>
+    <span class="nt">&lt;numero&gt;</span>4096031111110011<span class="nt">&lt;/numero&gt;</span>
+    <span class="nt">&lt;validade&gt;</span>201712<span class="nt">&lt;/validade&gt;</span>
+    <span class="nt">&lt;indicador&gt;</span>1<span class="nt">&lt;/indicador&gt;</span>
+    <span class="nt">&lt;codigo-seguranca&gt;</span>123<span class="nt">&lt;/codigo-seguranca&gt;</span>
+    <span class="nt">&lt;nome-portador&gt;</span>TESTE CUCUMBER<span class="nt">&lt;/nome-portador&gt;</span>
+  <span class="nt">&lt;/dados-portador&gt;</span>
+  <span class="nt">&lt;dados-pedido&gt;</span>
+    <span class="nt">&lt;numero&gt;</span>77115<span class="nt">&lt;/numero&gt;</span>
+    <span class="nt">&lt;valor&gt;</span>315000<span class="nt">&lt;/valor&gt;</span>
+    <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
+    <span class="nt">&lt;data-hora&gt;</span>2016-02-16T13:45:05<span class="nt">&lt;/data-hora&gt;</span>
+    <span class="nt">&lt;descricao&gt;</span>Compra Online<span class="nt">&lt;/descricao&gt;</span>
+    <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
+    <span class="nt">&lt;soft-descriptor&gt;</span>soft cucumber<span class="nt">&lt;/soft-descriptor&gt;</span>
+  <span class="nt">&lt;/dados-pedido&gt;</span>
+  <span class="nt">&lt;forma-pagamento&gt;</span>
+    <span class="nt">&lt;bandeira&gt;</span>visa<span class="nt">&lt;/bandeira&gt;</span>
+    <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
+    <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
+  <span class="nt">&lt;/forma-pagamento&gt;</span>
+  <span class="nt">&lt;url-retorno&gt;</span>http://www.cielo.com.br<span class="nt">&lt;/url-retorno&gt;</span>
+  <span class="nt">&lt;autorizar&gt;</span>3<span class="nt">&lt;/autorizar&gt;</span>
+  <span class="nt">&lt;capturar&gt;</span>false<span class="nt">&lt;/capturar&gt;</span>
+  <span class="nt">&lt;credencial-armazenada&gt;</span>
+    <span class="nt">&lt;primeira-transacao&gt;</span>S<span class="nt">&lt;/primeira-transacao&gt;</span>
+  <span class="nt">&lt;/credencial-armazenada&gt;</span>
+  <span class="nt">&lt;gerar-token&gt;</span>false<span class="nt">&lt;/gerar-token&gt;</span>
+<span class="nt">&lt;/requisicao-transacao&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Elemento</th>
+      <th>Tipo</th>
+      <th>Obrigatório</th>
+      <th>Tamanho</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>dados-ec.numero</td>
+      <td>Numérico</td>
+      <td>Sim</td>
+      <td>1..20</td>
+      <td>Número da afiliação da loja com a Cielo.</td>
+    </tr>
+    <tr>
+      <td>dados-ec.chave</td>
+      <td>Alfanumérico</td>
+      <td>Sim</td>
+      <td>1..100</td>
+      <td>Chave de acesso da loja atribuída pela Cielo.</td>
+    </tr>
+    <tr>
+      <td>dados-portador.numero</td>
+      <td>Numérico</td>
+      <td>Sim</td>
+      <td>19</td>
+      <td>Número do cartão.</td>
+    </tr>
+    <tr>
+      <td>dados-portador.validade</td>
+      <td>Numérico</td>
+      <td>Sim</td>
+      <td>1</td>
+      <td>Validade do cartão no formato aaaamm. Exemplo: 201212 (dez/2012).</td>
+    </tr>
+    <tr>
+      <td>dados-portador.indicador</td>
+      <td>Numérico</td>
+      <td>Sim</td>
+      <td>1</td>
+      <td>Indicador sobre o envio do Código de segurança: 0 – não informado, 1 – informado, 2 – ilegível, 9 – inexistente</td>
+    </tr>
+    <tr>
+      <td>dados-portador.codigo-seguranca</td>
+      <td>Numérico</td>
+      <td>Condiciona</td>
+      <td>3..4</td>
+      <td>Obrigatório se o indicador for 1</td>
+    </tr>
+    <tr>
+      <td>dados-portador.nome-portador</td>
+      <td>Alfanumérico</td>
+      <td>Opcional</td>
+      <td>0..100</td>
+      <td>Nome como impresso no cartão</td>
+    </tr>
+    <tr>
+      <td>dados-pedido.numero</td>
+      <td>Alfanumérico</td>
+      <td>Sim</td>
+      <td>1..20</td>
+      <td>Número do pedido da loja. Recomenda-se que seja um valor único por pedido.</td>
+    </tr>
+    <tr>
+      <td>dados-pedido.valor</td>
+      <td>Numérico</td>
+      <td>Sim</td>
+      <td>1..12</td>
+      <td>Valor a ser cobrado pelo pedido (já deve incluir valores de frete, embrulho, custos extras, taxa de embarque, etc). Esse valor é o que será debitado do consumidor.</td>
+    </tr>
+    <tr>
+      <td>dados-pedido.moeda</td>
+      <td>Numérico</td>
+      <td>Sim</td>
+      <td>3</td>
+      <td>Código numérico da moeda na norma ISO 4217. Para o Real, o código é 986.</td>
+    </tr>
+    <tr>
+      <td>dados-pedido.data-hora</td>
+      <td>Alfanumérico</td>
+      <td>Sim</td>
+      <td>19</td>
+      <td>Data hora do pedido. Formato: aaaa-MM-ddTHH24:mm:ss</td>
+    </tr>
+    <tr>
+      <td>dados-pedido.descricao</td>
+      <td>Alfanumérico</td>
+      <td>Opcional</td>
+      <td>0..1024</td>
+      <td>Descrição do pedido</td>
+    </tr>
+    <tr>
+      <td>dados-pedido.idioma</td>
+      <td>Alfanumérico</td>
+      <td>Opcional</td>
+      <td>2</td>
+      <td>Idioma do pedido: PT (português), EN (inglês) ou ES (espanhol). Com base nessa informação é definida a língua a ser utilizada nas telas da Cielo. Caso não seja enviado, o sistema assumirá “PT”.</td>
+    </tr>
+    <tr>
+      <td>dados-pedido.soft-descriptor</td>
+      <td>Alfanumérico</td>
+      <td>Opcional</td>
+      <td>0..13</td>
+      <td>Texto de até 13 caracteres que será exibido na fatura do portador, após o nome do Estabelecimento Comercial.</td>
+    </tr>
+    <tr>
+      <td>forma-pagamento.bandeira</td>
+      <td>Alfanumérico</td>
+      <td>Sim</td>
+      <td>n/a</td>
+      <td>Nome da bandeira (minúsculo): “visa”, “mastercard”, “diners”, “discover”, “elo”, “amex”, “jcb”, “aura”, “hipercard”</td>
+    </tr>
+    <tr>
+      <td>forma-pagamento.produto</td>
+      <td>Alfanumérico</td>
+      <td>Sim</td>
+      <td>1</td>
+      <td>Código do produto: 1 – Crédito à Vista, 2 – Parcelado loja, A – Débito.</td>
+    </tr>
+    <tr>
+      <td>forma-pagamento.parcelas</td>
+      <td>Numérico</td>
+      <td>Sim</td>
+      <td>1..2</td>
+      <td>Número de parcelas. Para crédito à vista ou débito, utilizar 1.</td>
+    </tr>
+    <tr>
+      <td>url-retorno</td>
+      <td>Alfanumérico</td>
+      <td>Sim</td>
+      <td>1..1024</td>
+      <td>URL da página de retorno. É para essa página que a Cielo vai direcionar o browser ao fim da autenticação ou da autorização. Não é obrigatório apenas para autorização direta, porém o campo dever ser inserido como null.</td>
+    </tr>
+    <tr>
+      <td>autorizar</td>
+      <td>Alfanumérico</td>
+      <td>Sim</td>
+      <td>1</td>
+      <td>Define se o tipo de autorização da transação e a autenticação.<br />0 - Nao autorizar<br />1 - Autorizar somente se autenticada<br />2 - Autorizar nao-autenticada e autenticada<br />3 - Somente autorizar (nao realizar autenticacao)<br />4 - autorizacao recorrente</td>
+    </tr>
+    <tr>
+      <td>capturar</td>
+      <td>Boolean</td>
+      <td>Sim</td>
+      <td>n/a</td>
+      <td>true ou false. Define se a transação será automaticamente capturada caso seja autorizada.</td>
+    </tr>
+    <tr>
+      <td>credencial-armazenada.primeira-transacao</td>
+      <td>Alfanumérico</td>
+      <td>Opcional</td>
+      <td>1</td>
+      <td>Dados do cartão do portador armazenado.<br />Define se é a primeira transação (S) ou transação subsequente (N).</td>
+    </tr>
+    <tr>
+      <td>gerar-token</td>
+      <td>Boolean</td>
+      <td>Opcional</td>
+      <td>n/a</td>
+      <td>true ou false. Define se a transação atual deve gerar um token associado ao cartão.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta">Resposta</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?&gt;</span>
+<span class="nt">&lt;transacao</span> <span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span> <span class="na">versao=</span><span class="s">"1.3.0"</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;tid&gt;</span>20000197008CTDEP7DHC<span class="nt">&lt;/tid&gt;</span>
+  <span class="nt">&lt;pan&gt;</span>iwcdiV9SLhtb/dsQNXRHT426+tgjcLtMzchw5YggfP8=<span class="nt">&lt;/pan&gt;</span>
+  <span class="nt">&lt;dados-pedido&gt;</span>
+    <span class="nt">&lt;numero&gt;</span>77115<span class="nt">&lt;/numero&gt;</span>
+    <span class="nt">&lt;valor&gt;</span>315000<span class="nt">&lt;/valor&gt;</span>
+    <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
+    <span class="nt">&lt;data-hora&gt;</span>2016-02-16T13:45:05<span class="nt">&lt;/data-hora&gt;</span>
+    <span class="nt">&lt;descricao&gt;</span>Compra Online<span class="nt">&lt;/descricao&gt;</span>
+    <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
+  <span class="nt">&lt;/dados-pedido&gt;</span>
+  <span class="nt">&lt;forma-pagamento&gt;</span>
+    <span class="nt">&lt;bandeira&gt;</span>elo<span class="nt">&lt;/bandeira&gt;</span>
+    <span class="nt">&lt;produto&gt;</span>A<span class="nt">&lt;/produto&gt;</span>
+    <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
+  <span class="nt">&lt;/forma-pagamento&gt;</span>
+  <span class="nt">&lt;status&gt;</span>6<span class="nt">&lt;/status&gt;</span>
+  <span class="nt">&lt;autenticacao&gt;</span>
+    <span class="nt">&lt;codigo&gt;</span>6<span class="nt">&lt;/codigo&gt;</span>
+    <span class="nt">&lt;mensagem&gt;</span>Autenticada com sucesso<span class="nt">&lt;/mensagem&gt;</span>
+    <span class="nt">&lt;data-hora&gt;</span>2019-08-28T13:45:43.959-03:00<span class="nt">&lt;/data-hora&gt;</span>
+    <span class="nt">&lt;valor&gt;</span>315000<span class="nt">&lt;/valor&gt;</span>
+    <span class="nt">&lt;eci&gt;</span>5<span class="nt">&lt;/eci&gt;</span>
+  <span class="nt">&lt;/autenticacao&gt;</span>
+  <span class="nt">&lt;autorizacao&gt;</span>
+    <span class="nt">&lt;codigo&gt;</span>6<span class="nt">&lt;/codigo&gt;</span>
+    <span class="nt">&lt;mensagem&gt;</span>Transacao autorizada<span class="nt">&lt;/mensagem&gt;</span>
+    <span class="nt">&lt;data-hora&gt;</span>2019-08-28T13:45:43.959-03:00<span class="nt">&lt;/data-hora&gt;</span>
+    <span class="nt">&lt;valor&gt;</span>315000<span class="nt">&lt;/valor&gt;</span>
+    <span class="nt">&lt;lr&gt;</span>00<span class="nt">&lt;/lr&gt;</span>
+    <span class="nt">&lt;arp&gt;</span>882114<span class="nt">&lt;/arp&gt;</span>
+    <span class="nt">&lt;nsu&gt;</span>248001<span class="nt">&lt;/nsu&gt;</span>
+  <span class="nt">&lt;/autorizacao&gt;</span>
+  <span class="nt">&lt;captura&gt;</span>
+    <span class="nt">&lt;codigo&gt;</span>6<span class="nt">&lt;/codigo&gt;</span>
+    <span class="nt">&lt;mensagem&gt;</span>Transacao capturada com sucesso<span class="nt">&lt;/mensagem&gt;</span>
+    <span class="nt">&lt;data-hora&gt;</span>2019-08-28T13:45:43.959-03:00<span class="nt">&lt;/data-hora&gt;</span>
+    <span class="nt">&lt;valor&gt;</span>315000<span class="nt">&lt;/valor&gt;</span>
+  <span class="nt">&lt;/captura&gt;</span>
+<span class="nt">&lt;/transacao&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Elemento</th>
+      <th>Tipo</th>
+      <th>Obrigatório</th>
+      <th>Tamanho</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>tid</td>
+      <td>Alfanumérico</td>
+      <td>Sim</td>
+      <td>1..40</td>
+      <td>Identificador da transação.</td>
+    </tr>
+    <tr>
+      <td>pan</td>
+      <td>Alfanumérico</td>
+      <td>Sim</td>
+      <td>n/a</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>dados-pedido.numero</td>
+      <td>Alfanumérico</td>
+      <td>Sim</td>
+      <td>1..20</td>
+      <td>Número do pedido da loja. Recomenda-se que seja um valor único por pedido.</td>
+    </tr>
+    <tr>
+      <td>dados-pedido.valor</td>
+      <td>Numérico</td>
+      <td>Sim</td>
+      <td>1..12</td>
+      <td>Valor a ser cobrado pelo pedido (já deve incluir valoresde frete, embrulho, custos extras, taxa de embarque, etc). Esse valor é o que será debitado do consumidor.</td>
+    </tr>
+    <tr>
+      <td>dados-pedido.moeda</td>
+      <td>Numérico</td>
+      <td>Sim</td>
+      <td>3</td>
+      <td>Código numérico da moeda na norma ISO 4217. Para o Real, o código é 986.</td>
+    </tr>
+    <tr>
+      <td>dados-pedido.data-hora</td>
+      <td>Alfanumérico</td>
+      <td>Sim</td>
+      <td>19</td>
+      <td>Data hora do pedido. Formato: aaaa-MM-ddTHH24:mm:ss</td>
+    </tr>
+    <tr>
+      <td>dados-pedido.descricao</td>
+      <td>Alfanumérico</td>
+      <td>Opcional</td>
+      <td>0..1024</td>
+      <td>Descrição do pedido</td>
+    </tr>
+    <tr>
+      <td>dados-pedido.idioma</td>
+      <td>Alfanumérico</td>
+      <td>Opcional</td>
+      <td>2</td>
+      <td>Idioma do pedido: PT (português), EN (inglês) ou ES (espanhol). Com base nessa informação é definida a língua a ser utilizada nas telas da Cielo. Caso não seja enviado, o sistema assumirá “PT”.</td>
+    </tr>
+    <tr>
+      <td>forma-pagamento.bandeira</td>
+      <td>Alfanumérico</td>
+      <td>Sim</td>
+      <td>n/a</td>
+      <td>Nome da bandeira (minúsculo): “visa”, “mastercard”, “diners”, “discover”, “elo”, “amex”, “jcb”, “aura”, “hipercard”</td>
+    </tr>
+    <tr>
+      <td>forma-pagamento.produto</td>
+      <td>Alfanumérico</td>
+      <td>Sim</td>
+      <td>1</td>
+      <td>Código do produto: 1 – Crédito à Vista, 2 – Parcelado loja, A – Débito.</td>
+    </tr>
+    <tr>
+      <td>forma-pagamento.parcelas</td>
+      <td>Numérico</td>
+      <td>Sim</td>
+      <td>1..2</td>
+      <td>Número de parcelas. Para crédito à vista ou débito, utilizar 1.</td>
+    </tr>
+    <tr>
+      <td>autenticacao.codigo</td>
+      <td>Numérico</td>
+      <td>Sim</td>
+      <td>1.2</td>
+      <td>Código do processamento</td>
+    </tr>
+    <tr>
+      <td>autenticacao.mensagem</td>
+      <td>Alfanumérico</td>
+      <td>Sim</td>
+      <td>1..100</td>
+      <td>Mensagem com a resposta sobre o processamento da transação.</td>
+    </tr>
+    <tr>
+      <td>autenticacao.data-hora</td>
+      <td>Alfanumérico</td>
+      <td>Sim</td>
+      <td>19</td>
+      <td>Data e hora do processamento</td>
+    </tr>
+    <tr>
+      <td>autenticacao.valor</td>
+      <td>Numérico</td>
+      <td>Sim</td>
+      <td>1..12</td>
+      <td>Valor do processamento sem pontuação. Os dois últimos dígitos são os centavos.</td>
+    </tr>
+    <tr>
+      <td>autenticacao.eci</td>
+      <td>Numérico</td>
+      <td>Sim</td>
+      <td>2</td>
+      <td>Nível de segurança.</td>
+    </tr>
+    <tr>
+      <td>autorizacao.codigo</td>
+      <td>Numérico</td>
+      <td>Sim</td>
+      <td>1.2</td>
+      <td>Código do processamento</td>
+    </tr>
+    <tr>
+      <td>autorizacao.mensagem</td>
+      <td>Alfanumérico</td>
+      <td>Sim</td>
+      <td>n/a</td>
+      <td>Mensagem com a resposta sobre o processamento da transação.</td>
+    </tr>
+    <tr>
+      <td>autorizacao.data-hora</td>
+      <td>Alfanumérico</td>
+      <td>Sim</td>
+      <td>19</td>
+      <td>Data e hora do processamento</td>
+    </tr>
+    <tr>
+      <td>autorizacao.valor</td>
+      <td>Numérico</td>
+      <td>Sim</td>
+      <td>1..12</td>
+      <td>Valor do processamento sem pontuação. Os dois últimos dígitos são os centavos.</td>
+    </tr>
+    <tr>
+      <td>autorizacao.lr</td>
+      <td>Alfanumérico</td>
+      <td>Sim</td>
+      <td>4</td>
+      <td>Código da Literal da Autorização.</td>
+    </tr>
+    <tr>
+      <td>autorizacao.arp</td>
+      <td>Alfanumérico</td>
+      <td>Sim</td>
+      <td>6</td>
+      <td>ARP da Autorização.</td>
+    </tr>
+    <tr>
+      <td>autorizacao.nsu</td>
+      <td>Alfanumérico</td>
+      <td>Sim</td>
+      <td>6</td>
+      <td>NSU da Autorização</td>
+    </tr>
+    <tr>
+      <td>captura.codigo</td>
+      <td>Numérico</td>
+      <td>Sim</td>
+      <td>1.2</td>
+      <td>Código do processamento</td>
+    </tr>
+    <tr>
+      <td>captura.mensagem</td>
+      <td>Alfanumérico</td>
+      <td>Sim</td>
+      <td>n/a</td>
+      <td>Mensagem com a resposta sobre o processamento da transação.</td>
+    </tr>
+    <tr>
+      <td>captura.data-hora</td>
+      <td>Alfanumérico</td>
+      <td>Sim</td>
+      <td>19</td>
+      <td>Data e hora do processamento</td>
+    </tr>
+    <tr>
+      <td>captura.valor</td>
+      <td>Numérico</td>
+      <td>Sim</td>
+      <td>1..12</td>
+      <td>Valor do processamento sem pontuação. Os dois últimos dígitos são os centavos.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="funcionalidades-agregadas">Funcionalidades Agregadas</h2>
 
 <h3 id="autenticação-e-transações-com-cartões-de-débito">Autenticação e Transações com Cartões de Débito</h3>
@@ -2994,7 +3481,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
   </li>
 </ul>
 
-<h4 id="requisição">Requisição</h4>
+<h4 id="requisição-1">Requisição</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;requisicao-consulta</span> <span class="na">id=</span><span class="s">"6fcf758e-bc60-4d6a-acf4-496593a40441"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
@@ -3057,7 +3544,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <aside class="notice">INFORMAÇÃO: A consulta por Número do Pedido deve ser usada apenas como contingência à Consulta por TID, pois esta pode não garantir unicidade da transação, tendo em vista que este campo é enviado pela loja virtual e apenas acatado pela Cielo.</aside>
 
-<h4 id="requisição-1">Requisição</h4>
+<h4 id="requisição-2">Requisição</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;requisicao-consulta-chsec</span> <span class="na">id=</span><span class="s">"a51489b1-93d5-437f-bb4f-5b932fade248"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
