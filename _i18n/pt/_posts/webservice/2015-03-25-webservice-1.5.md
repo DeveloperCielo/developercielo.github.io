@@ -1155,6 +1155,171 @@ Essa funcionalidade facilita a identificação de um cartão que tenha sido subs
 * **Regras**
   * Caso um cartão seja submetido mais de uma vez pelo mesmo lojista, o Token gerado será sempre o mesmo.
 
+### Credencial Armazenado - Card On File
+
+O portador do cartão poderá permitir que os dados de seu cartão, sejam armazenados de forma segura, para transações futuras no Estabelecimento Comercial.
+
+Abaixo seguem as situações para identificar se é a primeira transação ou subsequente, através da TAG primeira transação:
+
+* **Situação 1:** - **HÁ** armazenamento de dados do cartão e **É** primeira transação.
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.0">
+  <!-- ... -->
+  <gerar-token>true</gerar-token>
+</requisicao-transacao>
+```
+
+* **Situação 2:** - **HÁ** armazenamento de dados do cartão e **NÃO É** primeira transação.
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.0">
+  <!-- ... -->
+  <gerar-token>true</gerar-token>
+</requisicao-transacao>
+```
+
+* **Situação 3:** - **NÃO HÁ** armazenamento de dados do cartão, o estabelecimento simplesmente não envia esta tag. 
+
+#### Requisição
+``` xml
+<?xml version="1.0"?>
+<requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
+  <dados-ec>
+    <numero>2000019700</numero>
+    <chave>65d156641f765861451c7c1270a4c09a617863b031b2e4b0c4a09cd390783c82</chave>
+  </dados-ec>
+  <dados-portador>
+    <numero>4096031111110011</numero>
+    <validade>201712</validade>
+    <indicador>1</indicador>
+    <codigo-seguranca>123</codigo-seguranca>
+    <nome-portador>TESTE CUCUMBER</nome-portador>
+  </dados-portador>
+  <dados-pedido>
+    <numero>77115</numero>
+    <valor>315000</valor>
+    <moeda>986</moeda>
+    <data-hora>2016-02-16T13:45:05</data-hora>
+    <descricao>Compra Online</descricao>
+    <idioma>PT</idioma>
+    <soft-descriptor>soft cucumber</soft-descriptor>
+  </dados-pedido>
+  <forma-pagamento>
+    <bandeira>visa</bandeira>
+    <produto>1</produto>
+    <parcelas>1</parcelas>
+  </forma-pagamento>
+  <url-retorno>http://www.cielo.com.br</url-retorno>
+  <autorizar>3</autorizar>
+  <capturar>false</capturar>
+  <credencial-armazenada>
+    <primeira-transacao>S</primeira-transacao>
+  </credencial-armazenada>
+  <gerar-token>false</gerar-token>
+</requisicao-transacao>
+```
+
+|Elemento|Tipo|Obrigatório|Tamanho|Descrição|
+|---|---|---|---|---|
+|dados-ec.numero|Numérico|Sim|1..20|Número da afiliação da loja com a Cielo.|
+|dados-ec.chave|Alfanumérico|Sim|1..100|Chave de acesso da loja atribuída pela Cielo.|
+|dados-portador.numero|Numérico|Sim|19|Número do cartão.|
+|dados-portador.validade|Numérico|Sim|1|Validade do cartão no formato aaaamm. Exemplo: 201212 (dez/2012).|
+|dados-portador.indicador|Numérico|Sim|1|Indicador sobre o envio do Código de segurança: 0 – não informado, 1 – informado, 2 – ilegível, 9 – inexistente|
+|dados-portador.codigo-seguranca|Numérico|Condiciona|3..4|Obrigatório se o indicador for 1|
+|dados-portador.nome-portador|Alfanumérico|Opcional|0..100|Nome como impresso no cartão|
+|dados-pedido.numero|Alfanumérico|Sim|1..20|Número do pedido da loja. Recomenda-se que seja um valor único por pedido.|
+|dados-pedido.valor|Numérico|Sim|1..12|Valor a ser cobrado pelo pedido (já deve incluir valores de frete, embrulho, custos extras, taxa de embarque, etc). Esse valor é o que será debitado do consumidor.|
+|dados-pedido.moeda|Numérico|Sim|3|Código numérico da moeda na norma ISO 4217. Para o Real, o código é 986.|
+|dados-pedido.data-hora|Alfanumérico|Sim|19|Data hora do pedido. Formato: aaaa-MM-ddTHH24:mm:ss|
+|dados-pedido.descricao|Alfanumérico|Opcional|0..1024|Descrição do pedido|
+|dados-pedido.idioma|Alfanumérico|Opcional|2|Idioma do pedido: PT (português), EN (inglês) ou ES (espanhol). Com base nessa informação é definida a língua a ser utilizada nas telas da Cielo. Caso não seja enviado, o sistema assumirá “PT”.|
+|dados-pedido.soft-descriptor|Alfanumérico|Opcional|0..13|Texto de até 13 caracteres que será exibido na fatura do portador, após o nome do Estabelecimento Comercial.|
+|forma-pagamento.bandeira|Alfanumérico|Sim|n/a|Nome da bandeira (minúsculo): “visa”, “mastercard”, “diners”, “discover”, “elo”, “amex”, “jcb”, “aura”, “hipercard”|
+|forma-pagamento.produto|Alfanumérico|Sim|1|Código do produto: 1 – Crédito à Vista, 2 – Parcelado loja, A – Débito.|
+|forma-pagamento.parcelas|Numérico|Sim|1..2|Número de parcelas. Para crédito à vista ou débito, utilizar 1.|
+|url-retorno|Alfanumérico|Sim|1..1024|URL da página de retorno. É para essa página que a Cielo vai direcionar o browser ao fim da autenticação ou da autorização. Não é obrigatório apenas para autorização direta, porém o campo dever ser inserido como null.|
+|autorizar|Alfanumérico|Sim|1|Define se o tipo de autorização da transação e a autenticação.<br>0 - Nao autorizar<br>1 - Autorizar somente se autenticada<br>2 - Autorizar nao-autenticada e autenticada<br>3 - Somente autorizar (nao realizar autenticacao)<br>4 - autorizacao recorrente|
+|capturar|Boolean|Sim|n/a|true ou false. Define se a transação será automaticamente capturada caso seja autorizada.|
+|credencial-armazenada.primeira-transacao|Alfanumérico|Opcional|1|Dados do cartão do portador armazenado.<br>Define se é a primeira transação (S) ou transação subsequente (N).|
+|gerar-token|Boolean|Opcional|n/a|true ou false. Define se a transação atual deve gerar um token associado ao cartão.|
+
+#### Resposta
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0" xmlns="http://ecommerce.cbmp.com.br">
+  <tid>20000197008CTDEP7DHC</tid>
+  <pan>iwcdiV9SLhtb/dsQNXRHT426+tgjcLtMzchw5YggfP8=</pan>
+  <dados-pedido>
+    <numero>77115</numero>
+    <valor>315000</valor>
+    <moeda>986</moeda>
+    <data-hora>2016-02-16T13:45:05</data-hora>
+    <descricao>Compra Online</descricao>
+    <idioma>PT</idioma>
+  </dados-pedido>
+  <forma-pagamento>
+    <bandeira>elo</bandeira>
+    <produto>A</produto>
+    <parcelas>1</parcelas>
+  </forma-pagamento>
+  <status>6</status>
+  <autenticacao>
+    <codigo>6</codigo>
+    <mensagem>Autenticada com sucesso</mensagem>
+    <data-hora>2019-08-28T13:45:43.959-03:00</data-hora>
+    <valor>315000</valor>
+    <eci>5</eci>
+  </autenticacao>
+  <autorizacao>
+    <codigo>6</codigo>
+    <mensagem>Transacao autorizada</mensagem>
+    <data-hora>2019-08-28T13:45:43.959-03:00</data-hora>
+    <valor>315000</valor>
+    <lr>00</lr>
+    <arp>882114</arp>
+    <nsu>248001</nsu>
+  </autorizacao>
+  <captura>
+    <codigo>6</codigo>
+    <mensagem>Transacao capturada com sucesso</mensagem>
+    <data-hora>2019-08-28T13:45:43.959-03:00</data-hora>
+    <valor>315000</valor>
+  </captura>
+</transacao>
+```
+
+|Elemento|Tipo|Obrigatório|Tamanho|Descrição|
+|---|---|---|---|---|
+|tid|Alfanumérico|Sim|1..40|Identificador da transação.|
+|pan|Alfanumérico|Sim|n/a|
+|dados-pedido.numero|Alfanumérico|Sim|1..20|Número do pedido da loja. Recomenda-se que seja um valor único por pedido.|
+|dados-pedido.valor|Numérico|Sim|1..12|Valor a ser cobrado pelo pedido (já deve incluir valoresde frete, embrulho, custos extras, taxa de embarque, etc). Esse valor é o que será debitado do consumidor.|
+|dados-pedido.moeda|Numérico|Sim|3|Código numérico da moeda na norma ISO 4217. Para o Real, o código é 986.|
+|dados-pedido.data-hora|Alfanumérico|Sim|19|Data hora do pedido. Formato: aaaa-MM-ddTHH24:mm:ss|
+|dados-pedido.descricao|Alfanumérico|Opcional|0..1024|Descrição do pedido|
+|dados-pedido.idioma|Alfanumérico|Opcional|2|Idioma do pedido: PT (português), EN (inglês) ou ES (espanhol). Com base nessa informação é definida a língua a ser utilizada nas telas da Cielo. Caso não seja enviado, o sistema assumirá “PT”.|
+|forma-pagamento.bandeira|Alfanumérico|Sim|n/a|Nome da bandeira (minúsculo): “visa”, “mastercard”, “diners”, “discover”, “elo”, “amex”, “jcb”, “aura”, “hipercard”|
+|forma-pagamento.produto|Alfanumérico|Sim|1|Código do produto: 1 – Crédito à Vista, 2 – Parcelado loja, A – Débito.|
+|forma-pagamento.parcelas|Numérico|Sim|1..2|Número de parcelas. Para crédito à vista ou débito, utilizar 1.|
+|autenticacao.codigo|Numérico|Sim|1.2|Código do processamento|
+|autenticacao.mensagem|Alfanumérico|Sim|1..100|Mensagem com a resposta sobre o processamento da transação.|
+|autenticacao.data-hora|Alfanumérico|Sim|19|Data e hora do processamento|
+|autenticacao.valor|Numérico|Sim|1..12|Valor do processamento sem pontuação. Os dois últimos dígitos são os centavos.|
+|autenticacao.eci|Numérico|Sim|2|Nível de segurança.|
+|autorizacao.codigo|Numérico|Sim|1.2|Código do processamento|
+|autorizacao.mensagem|Alfanumérico|Sim|n/a|Mensagem com a resposta sobre o processamento da transação.|
+|autorizacao.data-hora|Alfanumérico|Sim|19|Data e hora do processamento|
+|autorizacao.valor|Numérico|Sim|1..12|Valor do processamento sem pontuação. Os dois últimos dígitos são os centavos.|
+|autorizacao.lr|Alfanumérico|Sim|4|Código da Literal da Autorização.|
+|autorizacao.arp|Alfanumérico|Sim|6|ARP da Autorização.|
+|autorizacao.nsu|Alfanumérico|Sim|6|NSU da Autorização|
+|captura.codigo|Numérico|Sim|1.2|Código do processamento|
+|captura.mensagem|Alfanumérico|Sim|n/a|Mensagem com a resposta sobre o processamento da transação.|
+|captura.data-hora|Alfanumérico|Sim|19|Data e hora do processamento|
+|captura.valor|Numérico|Sim|1..12|Valor do processamento sem pontuação. Os dois últimos dígitos são os centavos.|
+
 ## Funcionalidades Agregadas
 
 ### Autenticação e Transações com Cartões de Débito
