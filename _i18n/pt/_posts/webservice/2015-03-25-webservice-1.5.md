@@ -1162,6 +1162,7 @@ O portador do cartão poderá permitir que os dados de seu cartão, sejam armaze
 Abaixo seguem as situações para identificar se é a primeira transação ou subsequente, através da TAG primeira transação:
 
 * **Situação 1:** - **HÁ** armazenamento de dados do cartão e **É** primeira transação.
+
 ``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.0">
@@ -1171,6 +1172,7 @@ Abaixo seguem as situações para identificar se é a primeira transação ou su
 ```
 
 * **Situação 2:** - **HÁ** armazenamento de dados do cartão e **NÃO É** primeira transação.
+
 ``` xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.0">
@@ -1182,6 +1184,7 @@ Abaixo seguem as situações para identificar se é a primeira transação ou su
 * **Situação 3:** - **NÃO HÁ** armazenamento de dados do cartão, o estabelecimento simplesmente não envia esta tag. 
 
 #### Requisição
+
 ``` xml
 <?xml version="1.0"?>
 <requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
@@ -1246,6 +1249,7 @@ Abaixo seguem as situações para identificar se é a primeira transação ou su
 |gerar-token|Boolean|Opcional|n/a|true ou false. Define se a transação atual deve gerar um token associado ao cartão.|
 
 #### Resposta
+
 ``` xml
 <?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
 <transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0" xmlns="http://ecommerce.cbmp.com.br">
