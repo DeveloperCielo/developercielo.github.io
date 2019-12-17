@@ -2797,22 +2797,18 @@ das transações que pararam após a execução deste processo. A mensagem para 
   <li><strong>Situação 1:</strong> - <strong>HÁ</strong> armazenamento de dados do cartão e <strong>É</strong> primeira transação.</li>
 </ul>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.0"</span><span class="nt">&gt;</span>
-  <span class="c">&lt;!-- ... --&gt;</span>
-  <span class="nt">&lt;gerar-token&gt;</span>true<span class="nt">&lt;/gerar-token&gt;</span>
-<span class="nt">&lt;/requisicao-transacao&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;credencial-armazenada&gt;</span>
+  <span class="nt">&lt;primeira-transacao&gt;</span>S<span class="nt">&lt;/primeira-transacao&gt;</span>
+<span class="nt">&lt;/credencial-armazenada&gt;</span>
 </code></pre></div></div>
 
 <ul>
   <li><strong>Situação 2:</strong> - <strong>HÁ</strong> armazenamento de dados do cartão e <strong>NÃO É</strong> primeira transação.</li>
 </ul>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
-<span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.0"</span><span class="nt">&gt;</span>
-  <span class="c">&lt;!-- ... --&gt;</span>
-  <span class="nt">&lt;gerar-token&gt;</span>true<span class="nt">&lt;/gerar-token&gt;</span>
-<span class="nt">&lt;/requisicao-transacao&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;credencial-armazenada&gt;</span>
+  <span class="nt">&lt;primeira-transacao&gt;</span>N<span class="nt">&lt;/primeira-transacao&gt;</span>
+<span class="nt">&lt;/credencial-armazenada&gt;</span>
 </code></pre></div></div>
 
 <ul>
