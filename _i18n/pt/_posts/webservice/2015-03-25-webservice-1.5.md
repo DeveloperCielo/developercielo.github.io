@@ -1164,21 +1164,17 @@ Abaixo seguem as situações para identificar se é a primeira transação ou su
 * **Situação 1:** - **HÁ** armazenamento de dados do cartão e **É** primeira transação.
 
 ``` xml
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.0">
-  <!-- ... -->
-  <gerar-token>true</gerar-token>
-</requisicao-transacao>
+<credencial-armazenada>
+  <primeira-transacao>S</primeira-transacao>
+</credencial-armazenada>
 ```
 
 * **Situação 2:** - **HÁ** armazenamento de dados do cartão e **NÃO É** primeira transação.
 
 ``` xml
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.0">
-  <!-- ... -->
-  <gerar-token>true</gerar-token>
-</requisicao-transacao>
+<credencial-armazenada>
+  <primeira-transacao>N</primeira-transacao>
+</credencial-armazenada>
 ```
 
 * **Situação 3:** - **NÃO HÁ** armazenamento de dados do cartão, o estabelecimento simplesmente não envia esta tag. 
