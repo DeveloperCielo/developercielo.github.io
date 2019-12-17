@@ -2141,7 +2141,7 @@ Request the tables and parameters for the terminal operation
 |Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`MerchantId`|String|---|---|Store identifier in Cielo.|
-|`TerminalId`|String|---|---|Terminal tdentifier.|
+|`TerminalId`|String|---|---|Terminal identifier.|
 |`Acquirer.EnableContaclessCardReader`|Boolean|---|---|Enables contactless card reader.|
 |`Acquirer.LockAppFunctionsExceptInitialization`|Boolean|---|---|Block application functions, except for the boot.|
 |`Acquirer.HasChipReader`|Boolean|---|---|Indicates that has a chip card reader|
@@ -2173,8 +2173,8 @@ Request the tables and parameters for the terminal operation
 |`Bins.RequiresPasswordExceptForEMVCard`|Boolean|---|---|Request password, except for EMV card.|
 |`Bins.EnableAdditionalSecurityCodeOptions_Unreadable_NoCode`|Boolean|---|---|Enables "Unreadable/Ilegível" and "Does Not Have/Não Possui" options for Security Code.|
 |`Bins.RequiresSecurityCodeWhenMagneticTrackIsRead`|Boolean|---|---|Request security code on the track reading.|
-|`Bins.RequiresSecurityCodeWhenCardNumberIsTyped`|Boolean|---|---|Solicita Código de Segurança para cartão digitado.|
-|`Bins.RequiresTypingLast4Digits`|Boolean|---|---|Request security code for card typed.|
+|`Bins.RequiresSecurityCodeWhenCardNumberIsTyped`|Boolean|---|---|Request security code for card typed.|
+|`Bins.RequiresTypingLast4Digits`|Boolean|---|---|Request the last 4 digits typed.|
 |`Bins.AllowCaptureOfFirstInstallmentValue`|Boolean|---|---|Allows capturing the value of the first installment.|
 |`Bins.AllowCaptureOfDownpaymentValue`|Boolean|---|---|Allows capture of the input value.|
 |`Bins.AllowGuaranteeHandling`|Boolean|---|---|Allows warranty treatment.|
@@ -2236,7 +2236,6 @@ Request the tables and parameters for the terminal operation
 |`Emv.ProductIds`|Array of integers int32|---|---|Products enabled for this EMV application.|
 |`Parameters.Currency`|String|---|---|---|
 |`Parameters.AllowFallbackWhenChipReadingFails`|Boolean|---|---|Allows fallback if Chip read error.|
-|`Parameters.AllowChargingMoedeiroFromCash`|Boolean|---|---|Allows coin load from cash money.|
 |`Parameters.AllowChargingMoedeiroFromCash`|Boolean|---|---|Allows coin load from cash money.|
 |`Parameters.AllowPurchaseWithCompreESaque`|Boolean|---|---|Allows sale with Buy & Withdraw.|
 |`Parameters.AllowOfflineFunctionExceptForEMVCard`|Boolean|---|---|Allows offline function except EMV card.|
