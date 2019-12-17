@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-12-17T14:30:57+00:00</updated>
+    <updated>2019-12-17T16:29:03+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -8884,7 +8884,7 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
       &lt;td&gt;Booleano&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
-      &lt;td&gt;olicita Código de Segurança para cartão digitado.&lt;/td&gt;
+      &lt;td&gt;Solicita Código de Segurança para cartão digitado.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Bins.RequiresTypingLast4Digits&lt;/code&gt;&lt;/td&gt;
