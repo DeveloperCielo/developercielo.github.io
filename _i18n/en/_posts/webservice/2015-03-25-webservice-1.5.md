@@ -15,7 +15,7 @@ language_tabs:
 
 The purpose of this documentation is to orientate the developer about how integrate with Cielo Webservice, describing its functionalities, the methods to be used, list information to be sent and received and provide examples.
 
-The integration mechanism with Cielo E-commerce is simple, so that are necessary only an intermediate knowledge in programming language for Web, HTTP/HTTP requisitions and handling XML archive to implant Cielo E-commerce solution with success.
+The integration mechanism with Cielo E-commerce is Yesple, so that are necessary only an intermediate knowledge in programming language for Web, HTTP/HTTP requisitions and handling XML archive to implant Cielo E-commerce solution with success.
 
 Importantly to use this platform, the website must comply with safety rules or use the PCI certification. For questions about web security, please send email to: [Segurança Web](mailto:e-seg@cielo.com.br).
 
@@ -232,7 +232,7 @@ The Webservice solution at Cielo E-commerce platform has been developed based on
 Among others characteristics, the most highlighted attributes of Cielo E-commerce platform are:
 
 * **No proprietary application**: it's not necessary to install application at online store environment in any case.
-* **Simplicity**: the protocol used is purely HTTP, without necessity of using SOAP.
+* **Yesplicity**: the protocol used is purely HTTP, without necessity of using SOAP.
 * **Registering facility**: the customer's credential information (affiliation number and access key) transits in common fields of XML, without necessity of special attributes, as SOAP Header.
 * **Security**: the information exchange always happens between the Store Server and Cielo, in other words, without the buyer’s browser.
 
@@ -250,7 +250,7 @@ Among others characteristics, the most highlighted attributes of Cielo E-commerc
 
 ## Architecture
 
-The integration is realized through the available services as Web Services. The model employed is quite simple: there is an unique URL (endpoint) that receives the POSTs via HTTPs and, depending of XML format sent, a specific operation is realized.
+The integration is realized through the available services as Web Services. The model employed is quite Yesple: there is an unique URL (endpoint) that receives the POSTs via HTTPs and, depending of XML format sent, a specific operation is realized.
 
 The Web Service request is summarized for:
 
@@ -359,12 +359,12 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
 
 |Element|Type|Mandatory|Size|Description|
 |---|---|---|---|---|
-|numero|numeric|Sim|19|Card number|
-|validade|Numénumericrico|Sim|6|Card validity of format: yyyymm. Example: 201212 (dec/2012).|
-|indicador|numeric|Sim|1|Card validity of Secure Code Sending: **0** - Not informed, **1**- informed, **2**-illegible, **9**- Inexistent|
+|numero|numeric|Yes|19|Card number|
+|validade|Numénumericrico|Yes|6|Card validity of format: yyyymm. Example: 201212 (dec/2012).|
+|indicador|numeric|Yes|1|Card validity of Secure Code Sending: **0** - Not informed, **1**- informed, **2**-illegible, **9**- Inexistent|
 |codigo-seguranca|numeric|Condicional|3..4|Security code is required when indicator is **1**|
-|nome-portador|alphanumeric|Opcional|0..50|Holder name|
-|token|Alfanumérico|Conditional|0..100|Token must be used in replacement to card data to direct authorization or recurrent. It's not allowed to send a token with the card information in the same transaction.|
+|nome-portador|alphanumeric|Optional|0..50|Holder name|
+|token|Alfanumeric|Conditional|0..100|Token must be used in replacement to card data to direct authorization or recurrent. It's not allowed to send a token with the card information in the same transaction.|
 
 ### dados-pedido
 
@@ -388,7 +388,7 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
 |---|---|---|---|---|
 |bandeira|Alphanumeric|Yes|n/a|NomeCard issuer's name (minuscule): "visa", "mastercard", "diners", "discover", "elo", "amex", "jcb", "aura", "hipercard".|
 |produto|Alphanumeric|Yes|1|Product code: **1**- Repayable on demand, **2**- Credit card installments on store, **A**- Debt|
-|parcelas|Numeric|Sim|1..2|Installments number. **To repayable on demand or debt, use 1.**|
+|parcelas|Numeric|Yes|1..2|Installments number. **To repayable on demand or debt, use 1.**|
 
 <aside class="warning">The result of order division by installments number don't must be lower than R$ 5,00. Otherwise the transaction will be deny.</aside>
 
@@ -408,9 +408,9 @@ The diagram below makes easier the view of complete flux of browsing:
 
 <aside class="notice">Generally, the URL of return follow this format: https://minhaloja.com.br/pedido?id=12345678. This page must use the order number to internally search TID that was returned by Cielo. With this information, the page must realize a request of Consult via TID to Cielo's Web Service and interpret the result to show to customer.</aside>
 
-In the other hand, when there is no authentication, doesn't exist the context exchange or redirections and the integration is more simple:
+In the other hand, when there is no authentication, doesn't exist the context exchange or redirections and the integration is more Yesple:
 
-![fluxo-simples]({{ site.baseurl_root }}/images/fluxo-simples.png)
+![fluxo-Yesples]({{ site.baseurl_root }}/images/fluxo-Yesples.png)
 
 ## Return types
 
@@ -575,11 +575,11 @@ Just the "node" fields `<autenticacao>` are listed on the table below:
 
 |Elemento|Tipo|Tamanho|Descrição|
 |---|---|---|---|
-|codigo|Numérico|1.2|Código do processamento|
-|mensagem|Alfanumérico|1..100|Detalhe do processamento|
-|data-hora|Alfanumérico|19|Data e hora do processamento|
-|valor|Numérico|1..12|Valor do processamento sem pontuação. Os dois últimos dígitos são os centavos.|
-|eci|Numérico|2|Nível de segurança.|
+|codigo|Numeric|1.2|Código do processamento|
+|mensagem|Alfanumeric|1..100|Detalhe do processamento|
+|data-hora|Alfanumeric|19|Data e hora do processamento|
+|valor|Numeric|1..12|Valor do processamento sem pontuação. Os dois últimos dígitos são os centavos.|
+|eci|Numeric|2|Nível de segurança.|
 
 The ECI field (Eletronic Commerce Indicator) represents how safety is a transaction. This amount must be considered for the retailer to decide about transaction capture.
 
@@ -869,7 +869,7 @@ The direct authorization is characterized for being a transaction without authen
 </requisicao-transacao>
 ```
 
-The recurrent authorization must be done in two ways: sending a token previously registered, or using a card. The recurrent transaction is very similar than traditional transaction, the changes consist on the rules that emitter and card issuer use to authorize or deny a transaction. Another difference is related to "Renova Fácil" (Easy Renew).
+The recurrent authorization must be done in two ways: sending a token previously registered, or using a card. The recurrent transaction is very Yesilar than traditional transaction, the changes consist on the rules that emitter and card issuer use to authorize or deny a transaction. Another difference is related to "Renova Fácil" (Easy Renew).
 
 <aside class="notice">To know if your store is eligible to use a recurrent authorization, check with our service center or Cielo E-commerce Web Support.</aside>
 
@@ -979,12 +979,12 @@ To the establishments that use the authentication process of authentication it's
 
 |Element|Type|Mandatory|Size|Description|
 |---|---|---|---|---|
-|dados-ec.numero|Numérico|Sim|1..20|Store affiliation number with Cielo|
-|dados-ec.chave|Alfanumérico|Sim|1..100|Store access key assigned by Cielo.|
-|daods-portador|n/a|Opcional|n/a|Node with card data|
-|dados-portador.numero|Numérico|Sim|19|Card number|
-|dados-portador.validade|Numérico|Sim|6|Card validity on yyyymm format. Example: 201212 (dec/2012)|
-|dados-portador.nome-portador|Alfanumérico|Opcional|0..50|Name printed as in the card|
+|dados-ec.numero|Numeric|Yes|1..20|Store affiliation number with Cielo|
+|dados-ec.chave|Alfanumeric|Yes|1..100|Store access key assigned by Cielo.|
+|daods-portador|n/a|Optional|n/a|Node with card data|
+|dados-portador.numero|Numeric|Yes|19|Card number|
+|dados-portador.validade|Numeric|Yes|6|Card validity on yyyymm format. Example: 201212 (dec/2012)|
+|dados-portador.nome-portador|Alfanumeric|Optional|0..50|Name printed as in the card|
 
 ### Response
 
@@ -1005,9 +1005,9 @@ The return will be like: <retorno-token> when a request has been concluded with 
 
 |Element|Type|Size|Description|
 |---|---|---|---|
-|codigo-token|Alfanumérico|100|Code of token created|
-|status|Numérico|1|Token Status: 0 – Locked, 1 – Unlocked|
-|numero-cartao-truncado|Alfanumérico|1..16|truncated-card-number|
+|codigo-token|Alfanumeric|100|Code of token created|
+|status|Numeric|1|Token Status: 0 – Locked, 1 – Unlocked|
+|numero-cartao-truncado|Alfanumeric|1..16|truncated-card-number|
 
 ### Direct Authorization via TOKEN
 
@@ -1129,6 +1129,171 @@ This functionality makes easier to identify a card which has been replaced for a
 * **Rules**
   * In case of a card being submitted more than once for the same retailer, the Token created will be the same.
 
+### Card On File
+
+The cardholder may allow his card data to be stored securely for future transactions at the Merchant.
+
+Below are the situations to identify if it's the first or subsequent transaction through the first transaction TAG:
+
+* **Situation 1:** - **THERE IS** card date storage and **IT'S** first transaction.
+
+``` xml
+<credencial-armazenada>
+  <primeira-transacao>S</primeira-transacao>
+</credencial-armazenada>
+```
+
+* **Situation 2:** - **THERE IS** card date storage and  **IT ISN'T** first transaction.
+
+``` xml
+<credencial-armazenada>
+  <primeira-transacao>N</primeira-transacao>
+</credencial-armazenada>
+```
+
+* **Situation 3:** - **THERE ISN'T** storage of card data, the establishment Yesply does not send this tag.
+
+#### Request
+
+``` xml
+<?xml version="1.0"?>
+<requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
+  <dados-ec>
+    <numero>2000019700</numero>
+    <chave>65d156641f765861451c7c1270a4c09a617863b031b2e4b0c4a09cd390783c82</chave>
+  </dados-ec>
+  <dados-portador>
+    <numero>4096031111110011</numero>
+    <validade>201712</validade>
+    <indicador>1</indicador>
+    <codigo-seguranca>123</codigo-seguranca>
+    <nome-portador>TESTE CUCUMBER</nome-portador>
+  </dados-portador>
+  <dados-pedido>
+    <numero>77115</numero>
+    <valor>315000</valor>
+    <moeda>986</moeda>
+    <data-hora>2016-02-16T13:45:05</data-hora>
+    <descricao>Compra Online</descricao>
+    <idioma>PT</idioma>
+    <soft-descriptor>soft cucumber</soft-descriptor>
+  </dados-pedido>
+  <forma-pagamento>
+    <bandeira>visa</bandeira>
+    <produto>1</produto>
+    <parcelas>1</parcelas>
+  </forma-pagamento>
+  <url-retorno>http://www.cielo.com.br</url-retorno>
+  <autorizar>3</autorizar>
+  <capturar>false</capturar>
+  <credencial-armazenada>
+    <primeira-transacao>S</primeira-transacao>
+  </credencial-armazenada>
+  <gerar-token>false</gerar-token>
+</requisicao-transacao>
+```
+
+|Element|Type|Mandatory|Size|Description|
+|---|---|---|---|---|
+|dados-ec.numero|Numeric|Yes|1..20|Store affiliation number with Cielo.|
+|dados-ec.chave|Alfanumeric|Yes|1..100|Store access key assigned by Cielo.|
+|dados-portador.numero|Numeric|Yes|19|Card number.|
+|dados-portador.validade|Numeric|Yes|1|Card validity in aaaamm format. Example: 201212 (dec/2012).|
+|dados-portador.indicador|Numeric|Yes|1|Security Code submission indicator: 0 - not reported, 1 - reported, 2 - unreadable, 9 - nonexistent|
+|dados-portador.codigo-seguranca|Numeric|Conditional|3..4|Required if indicator is 1.|
+|dados-portador.nome-portador|Alfanumeric|Optional|0..100|Name as printed on card.|
+|dados-pedido.numero|Alfanumeric|Yes|1..20|Store order number. It is recommended to be a single value per order.|
+|dados-pedido.valor|Numeric|Yes|1..12|Amount to be charged for the order (must already include freight, wrapping, extra costs, shipping fee, etc.). This amount is what will be charged to the consumer.|
+|dados-pedido.moeda|Numeric|Yes|3|Numeric currency code in ISO 4217. For Real, the code is 986.|
+|dados-pedido.data-hora|Alfanumeric|Yes|19|Date time of order. Format: aaaa-MM-ddTHH24:mm:ss|
+|dados-pedido.descricao|Alfanumeric|Optional|0..1024|Order description|
+|dados-pedido.idioma|Alfanumeric|Optional|2|Order language: PT (Portuguese), EN (English) or ES (Spanish). Based on this information, the language to be used on Cielo's screens is defined. If not sent, the system will assume “PT”.|
+|dados-pedido.soft-descriptor|Alfanumeric|Optional|0..13|Text of up to 13 characters will be displayed on the carrier invoice after the name of the merchant.|
+|forma-pagamento.bandeira|Alfanumeric|Yes|n/a|Flag Name (lowercase): “visa”, “mastercard”, “diners”, “discover”, “link”, “amex”, “jcb”, “aura”, “hypercard”|
+|forma-pagamento.produto|Alfanumeric|Yes|1|Product code: 1 - Cash Credit, 2 - Installment store, A - Debit.|
+|forma-pagamento.parcelas|Numeric|Yes|1..2|Number of installments. For cash credit or debit, use 1.|
+|url-retorno|Alfanumeric|Yes|1..1024|Return page URL. This is where Cielo will direct the browser to end authentication or authorization. It isn't only required for direct authorization, but the field must be entered as null.|
+|autorizar|Alfanumeric|Yes|1|Defines whether the transaction authorization type is authentication. <br> 0 - Do not authorize <br> 1 - Authorize only if authenticated <br> 2 - Authorize unauthenticated and authenticated <br> 3 - Only authorize (do not authenticate) ) <br> 4 - recurring authorization|
+|capturar|Boolean|Yes|n/a|true or false. Defines whether the transaction will be automatically captured if it's authorized.|
+|credencial-armazenada.primeira-transacao|Alfanumeric|Optional|1|Stored cardholder data. <br> Defines whether this is the first transaction (S) or subsequent transaction (N).|
+|gerar-token|Boolean|Optional|n/a|true or false. Defines whether the current transaction should generate a token associated with the card.|
+
+#### Response
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0" xmlns="http://ecommerce.cbmp.com.br">
+  <tid>20000197008CTDEP7DHC</tid>
+  <pan>iwcdiV9SLhtb/dsQNXRHT426+tgjcLtMzchw5YggfP8=</pan>
+  <dados-pedido>
+    <numero>77115</numero>
+    <valor>315000</valor>
+    <moeda>986</moeda>
+    <data-hora>2016-02-16T13:45:05</data-hora>
+    <descricao>Compra Online</descricao>
+    <idioma>PT</idioma>
+  </dados-pedido>
+  <forma-pagamento>
+    <bandeira>elo</bandeira>
+    <produto>A</produto>
+    <parcelas>1</parcelas>
+  </forma-pagamento>
+  <status>6</status>
+  <autenticacao>
+    <codigo>6</codigo>
+    <mensagem>Autenticada com sucesso</mensagem>
+    <data-hora>2019-08-28T13:45:43.959-03:00</data-hora>
+    <valor>315000</valor>
+    <eci>5</eci>
+  </autenticacao>
+  <autorizacao>
+    <codigo>6</codigo>
+    <mensagem>Transacao autorizada</mensagem>
+    <data-hora>2019-08-28T13:45:43.959-03:00</data-hora>
+    <valor>315000</valor>
+    <lr>00</lr>
+    <arp>882114</arp>
+    <nsu>248001</nsu>
+  </autorizacao>
+  <captura>
+    <codigo>6</codigo>
+    <mensagem>Transacao capturada com sucesso</mensagem>
+    <data-hora>2019-08-28T13:45:43.959-03:00</data-hora>
+    <valor>315000</valor>
+  </captura>
+</transacao>
+```
+
+|Element|Type|Mandatory|Size|Description|
+|---|---|---|---|---|
+|tid|Alfanumeric|Yes|1..40|Transaction identifier.|
+|pan|Alfanumeric|Yes|n/a|
+|dados-pedido.numero|Alfanumeric|Yes|1..20|Store order number. It's recommended to be a single value per order.|
+|dados-pedido.valor|Numeric|Yes|1..12|Amount to be charged for the order (must already include freight, wrapping, extra costs, shipping fee, etc.). This amount is what will be charged to the consumer.|
+|dados-pedido.moeda|Numeric|Yes|3|Numeric currency code in ISO 4217. For Real, the code is 986.|
+|dados-pedido.data-hora|Alfanumeric|Yes|19|Date time of order. Format: aaaa-MM-ddTHH24:mm:ss|
+|dados-pedido.descricao|Alfanumeric|Optional|0..1024|Order description|
+|dados-pedido.idioma|Alfanumeric|Optional|2|Order language: PT (Portuguese), EN (English) or ES (Spanish). Based on this information, the language to be used on Cielo's screens is defined. If not sent, the system will assume “PT”.|
+|forma-pagamento.bandeira|Alfanumeric|Yes|n/a|Flag Name (lowercase): “visa”, “mastercard”, “diners”, “discover”, “link”, “amex”, “jcb”, “aura”, “hypercard”|
+|forma-pagamento.produto|Alfanumeric|Yes|1|Product code: 1 - Cash Credit, 2 - Installment store, A - Debit.|
+|forma-pagamento.parcelas|Numeric|Yes|1..2|Number of installments. For cash credit or debit, use 1.|
+|autenticacao.codigo|Numeric|Yes|1.2|Processing code|
+|autenticacao.mensagem|Alfanumeric|Yes|1..100|Message with the response about transaction processing.|
+|autenticacao.data-hora|Alfanumeric|Yes|19|Processing date and time|
+|autenticacao.valor|Numeric|Yes|1..12|Processing value without punctuation. The last two digits are the cents.|
+|autenticacao.eci|Numeric|Yes|2|Security level.|
+|autorizacao.codigo|Numeric|Yes|1.2|Processing code|
+|autorizacao.mensagem|Alfanumeric|Yes|n/a|Message with the response about transaction processing.|
+|autorizacao.data-hora|Alfanumeric|Yes|19|Processing date and time|
+|autorizacao.valor|Numeric|Yes|1..12|Processing value without punctuation. The last two digits are the cents.|
+|autorizacao.lr|Alfanumeric|Yes|4|Literal code of authorization.|
+|autorizacao.arp|Alfanumeric|Yes|6|Authorization ARP.|
+|autorizacao.nsu|Alfanumeric|Yes|6|Authorization NSU|
+|captura.codigo|Numeric|Yes|1.2|Processing code|
+|captura.mensagem|Alfanumeric|Yes|n/a|Message with the response about transaction processing.|
+|captura.data-hora|Alfanumeric|Yes|19|Processing date and time|
+|captura.valor|Numeric|Yes|1..12|Processing value without punctuation. The last two digits are the cents.|
+
 ## Aggregated functionality
 
 ### Authentication and transaction with debit card
@@ -1186,7 +1351,7 @@ The debit product mandatorily requires an authenticated transaction, otherwise, 
 * **Rules**
   * Maximum size: 13 characters
   * Available only for Visa and Mastercard issuers.
-  * Exclusive use of simple characters.
+  * Exclusive use of Yesple characters.
 
 <aside class="notice">To know and/or change the name of store that will be printed on holder's invoice, please, contact our service center.</aside>
 
@@ -1353,11 +1518,11 @@ The field of node `<captura>` are detailed below:
 |Element|Type|Size|Description|
 |---|---|---|---|
 |captura|||Node with capture data in case that it has been passed for this step.|
-|captura.codigo|Numérico|1..2|Processing code|
-|captura.mensagem|Alfanumérico|1..100|Processing details|
-|captura.datahora|Alfanumérico|19|Date and time of processing.|
-|captura.valor|Numérico|1..12|Processing value without points. The last two numbers are “centavos”|
-|captura.taxa-embarque|Numérico|1..9|Montante declarado como taxa de embarque que foi capturado.|
+|captura.codigo|Numeric|1..2|Processing code|
+|captura.mensagem|Alfanumeric|1..100|Processing details|
+|captura.datahora|Alfanumeric|19|Date and time of processing.|
+|captura.valor|Numeric|1..12|Processing value without points. The last two numbers are “centavos”|
+|captura.taxa-embarque|Numeric|1..9|Montante declarado como taxa de embarque que foi capturado.|
 
 ## Cancellation
 
@@ -1395,10 +1560,10 @@ The cancellation is used when the retailer decides for don't effective a purchas
 
 |Element|Type|Mandatory|Size|Description|
 |---|---|---|---|---|
-|tid|Alfanumérico|Sim|1..40|Transaction identifier|
-|dados-ec.numero|Numérico|Sim|1..10|Store credential number|
-|dados-ec.chave|Alfanumérico|Sim|1..100|Store access key assigned by Cielo|
-|valor|Numérico|Opcional|1..12|Value to be cancelled. **If not being informed, it will be a total concellation.**|
+|tid|Alfanumeric|Yes|1..40|Transaction identifier|
+|dados-ec.numero|Numeric|Yes|1..10|Store credential number|
+|dados-ec.chave|Alfanumeric|Yes|1..100|Store access key assigned by Cielo|
+|valor|Numeric|Optional|1..12|Value to be cancelled. **If not being informed, it will be a total concellation.**|
 
 #### Return
 
