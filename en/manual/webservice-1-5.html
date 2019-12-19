@@ -131,7 +131,7 @@
 
 <p>The purpose of this documentation is to orientate the developer about how integrate with Cielo Webservice, describing its functionalities, the methods to be used, list information to be sent and received and provide examples.</p>
 
-<p>The integration mechanism with Cielo E-commerce is simple, so that are necessary only an intermediate knowledge in programming language for Web, HTTP/HTTP requisitions and handling XML archive to implant Cielo E-commerce solution with success.</p>
+<p>The integration mechanism with Cielo E-commerce is Yesple, so that are necessary only an intermediate knowledge in programming language for Web, HTTP/HTTP requisitions and handling XML archive to implant Cielo E-commerce solution with success.</p>
 
 <p>Importantly to use this platform, the website must comply with safety rules or use the PCI certification. For questions about web security, please send email to: <a href="mailto:e-seg@cielo.com.br">Segurança Web</a>.</p>
 
@@ -427,7 +427,7 @@
 
 <ul>
   <li><strong>No proprietary application</strong>: it’s not necessary to install application at online store environment in any case.</li>
-  <li><strong>Simplicity</strong>: the protocol used is purely HTTP, without necessity of using SOAP.</li>
+  <li><strong>Yesplicity</strong>: the protocol used is purely HTTP, without necessity of using SOAP.</li>
   <li><strong>Registering facility</strong>: the customer’s credential information (affiliation number and access key) transits in common fields of XML, without necessity of special attributes, as SOAP Header.</li>
   <li><strong>Security</strong>: the information exchange always happens between the Store Server and Cielo, in other words, without the buyer’s browser.</li>
 </ul>
@@ -448,7 +448,7 @@
 
 <h2 id="architecture">Architecture</h2>
 
-<p>The integration is realized through the available services as Web Services. The model employed is quite simple: there is an unique URL (endpoint) that receives the POSTs via HTTPs and, depending of XML format sent, a specific operation is realized.</p>
+<p>The integration is realized through the available services as Web Services. The model employed is quite Yesple: there is an unique URL (endpoint) that receives the POSTs via HTTPs and, depending of XML format sent, a specific operation is realized.</p>
 
 <p>The Web Service request is summarized for:</p>
 
@@ -663,21 +663,21 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
     <tr>
       <td>numero</td>
       <td>numeric</td>
-      <td>Sim</td>
+      <td>Yes</td>
       <td>19</td>
       <td>Card number</td>
     </tr>
     <tr>
       <td>validade</td>
       <td>Numénumericrico</td>
-      <td>Sim</td>
+      <td>Yes</td>
       <td>6</td>
       <td>Card validity of format: yyyymm. Example: 201212 (dec/2012).</td>
     </tr>
     <tr>
       <td>indicador</td>
       <td>numeric</td>
-      <td>Sim</td>
+      <td>Yes</td>
       <td>1</td>
       <td>Card validity of Secure Code Sending: <strong>0</strong> - Not informed, <strong>1</strong>- informed, <strong>2</strong>-illegible, <strong>9</strong>- Inexistent</td>
     </tr>
@@ -691,13 +691,13 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
     <tr>
       <td>nome-portador</td>
       <td>alphanumeric</td>
-      <td>Opcional</td>
+      <td>Optional</td>
       <td>0..50</td>
       <td>Holder name</td>
     </tr>
     <tr>
       <td>token</td>
-      <td>Alfanumérico</td>
+      <td>Alfanumeric</td>
       <td>Conditional</td>
       <td>0..100</td>
       <td>Token must be used in replacement to card data to direct authorization or recurrent. It’s not allowed to send a token with the card information in the same transaction.</td>
@@ -816,7 +816,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
     <tr>
       <td>parcelas</td>
       <td>Numeric</td>
-      <td>Sim</td>
+      <td>Yes</td>
       <td>1..2</td>
       <td>Installments number. <strong>To repayable on demand or debt, use 1.</strong></td>
     </tr>
@@ -841,9 +841,9 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <aside class="notice">Generally, the URL of return follow this format: https://minhaloja.com.br/pedido?id=12345678. This page must use the order number to internally search TID that was returned by Cielo. With this information, the page must realize a request of Consult via TID to Cielo's Web Service and interpret the result to show to customer.</aside>
 
-<p>In the other hand, when there is no authentication, doesn’t exist the context exchange or redirections and the integration is more simple:</p>
+<p>In the other hand, when there is no authentication, doesn’t exist the context exchange or redirections and the integration is more Yesple:</p>
 
-<p><img src="https://developercielo.github.io/images/fluxo-simples.png" alt="fluxo-simples" /></p>
+<p><img src="https://developercielo.github.io/images/fluxo-Yesples.png" alt="fluxo-Yesples" /></p>
 
 <h2 id="return-types">Return types</h2>
 
@@ -1070,31 +1070,31 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   <tbody>
     <tr>
       <td>codigo</td>
-      <td>Numérico</td>
+      <td>Numeric</td>
       <td>1.2</td>
       <td>Código do processamento</td>
     </tr>
     <tr>
       <td>mensagem</td>
-      <td>Alfanumérico</td>
+      <td>Alfanumeric</td>
       <td>1..100</td>
       <td>Detalhe do processamento</td>
     </tr>
     <tr>
       <td>data-hora</td>
-      <td>Alfanumérico</td>
+      <td>Alfanumeric</td>
       <td>19</td>
       <td>Data e hora do processamento</td>
     </tr>
     <tr>
       <td>valor</td>
-      <td>Numérico</td>
+      <td>Numeric</td>
       <td>1..12</td>
       <td>Valor do processamento sem pontuação. Os dois últimos dígitos são os centavos.</td>
     </tr>
     <tr>
       <td>eci</td>
-      <td>Numérico</td>
+      <td>Numeric</td>
       <td>2</td>
       <td>Nível de segurança.</td>
     </tr>
@@ -2473,7 +2473,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 <span class="nt">&lt;/requisicao-transacao&gt;</span>
 </code></pre></div></div>
 
-<p>The recurrent authorization must be done in two ways: sending a token previously registered, or using a card. The recurrent transaction is very similar than traditional transaction, the changes consist on the rules that emitter and card issuer use to authorize or deny a transaction. Another difference is related to “Renova Fácil” (Easy Renew).</p>
+<p>The recurrent authorization must be done in two ways: sending a token previously registered, or using a card. The recurrent transaction is very Yesilar than traditional transaction, the changes consist on the rules that emitter and card issuer use to authorize or deny a transaction. Another difference is related to “Renova Fácil” (Easy Renew).</p>
 
 <aside class="notice">To know if your store is eligible to use a recurrent authorization, check with our service center or Cielo E-commerce Web Support.</aside>
 
@@ -2632,43 +2632,43 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   <tbody>
     <tr>
       <td>dados-ec.numero</td>
-      <td>Numérico</td>
-      <td>Sim</td>
+      <td>Numeric</td>
+      <td>Yes</td>
       <td>1..20</td>
       <td>Store affiliation number with Cielo</td>
     </tr>
     <tr>
       <td>dados-ec.chave</td>
-      <td>Alfanumérico</td>
-      <td>Sim</td>
+      <td>Alfanumeric</td>
+      <td>Yes</td>
       <td>1..100</td>
       <td>Store access key assigned by Cielo.</td>
     </tr>
     <tr>
       <td>daods-portador</td>
       <td>n/a</td>
-      <td>Opcional</td>
+      <td>Optional</td>
       <td>n/a</td>
       <td>Node with card data</td>
     </tr>
     <tr>
       <td>dados-portador.numero</td>
-      <td>Numérico</td>
-      <td>Sim</td>
+      <td>Numeric</td>
+      <td>Yes</td>
       <td>19</td>
       <td>Card number</td>
     </tr>
     <tr>
       <td>dados-portador.validade</td>
-      <td>Numérico</td>
-      <td>Sim</td>
+      <td>Numeric</td>
+      <td>Yes</td>
       <td>6</td>
       <td>Card validity on yyyymm format. Example: 201212 (dec/2012)</td>
     </tr>
     <tr>
       <td>dados-portador.nome-portador</td>
-      <td>Alfanumérico</td>
-      <td>Opcional</td>
+      <td>Alfanumeric</td>
+      <td>Optional</td>
       <td>0..50</td>
       <td>Name printed as in the card</td>
     </tr>
@@ -2703,19 +2703,19 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   <tbody>
     <tr>
       <td>codigo-token</td>
-      <td>Alfanumérico</td>
+      <td>Alfanumeric</td>
       <td>100</td>
       <td>Code of token created</td>
     </tr>
     <tr>
       <td>status</td>
-      <td>Numérico</td>
+      <td>Numeric</td>
       <td>1</td>
       <td>Token Status: 0 – Locked, 1 – Unlocked</td>
     </tr>
     <tr>
       <td>numero-cartao-truncado</td>
-      <td>Alfanumérico</td>
+      <td>Alfanumeric</td>
       <td>1..16</td>
       <td>truncated-card-number</td>
     </tr>
@@ -2855,6 +2855,489 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   </li>
 </ul>
 
+<h3 id="card-on-file">Card On File</h3>
+
+<p>The cardholder may allow his card data to be stored securely for future transactions at the Merchant.</p>
+
+<p>Below are the situations to identify if it’s the first or subsequent transaction through the first transaction TAG:</p>
+
+<ul>
+  <li><strong>Situation 1:</strong> - <strong>THERE IS</strong> card date storage and <strong>IT’S</strong> first transaction.</li>
+</ul>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;credencial-armazenada&gt;</span>
+  <span class="nt">&lt;primeira-transacao&gt;</span>S<span class="nt">&lt;/primeira-transacao&gt;</span>
+<span class="nt">&lt;/credencial-armazenada&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>Situation 2:</strong> - <strong>THERE IS</strong> card date storage and  <strong>IT ISN’T</strong> first transaction.</li>
+</ul>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;credencial-armazenada&gt;</span>
+  <span class="nt">&lt;primeira-transacao&gt;</span>N<span class="nt">&lt;/primeira-transacao&gt;</span>
+<span class="nt">&lt;/credencial-armazenada&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li><strong>Situation 3:</strong> - <strong>THERE ISN’T</strong> storage of card data, the establishment Yesply does not send this tag.</li>
+</ul>
+
+<h4 id="request">Request</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span> <span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;dados-ec&gt;</span>
+    <span class="nt">&lt;numero&gt;</span>2000019700<span class="nt">&lt;/numero&gt;</span>
+    <span class="nt">&lt;chave&gt;</span>65d156641f765861451c7c1270a4c09a617863b031b2e4b0c4a09cd390783c82<span class="nt">&lt;/chave&gt;</span>
+  <span class="nt">&lt;/dados-ec&gt;</span>
+  <span class="nt">&lt;dados-portador&gt;</span>
+    <span class="nt">&lt;numero&gt;</span>4096031111110011<span class="nt">&lt;/numero&gt;</span>
+    <span class="nt">&lt;validade&gt;</span>201712<span class="nt">&lt;/validade&gt;</span>
+    <span class="nt">&lt;indicador&gt;</span>1<span class="nt">&lt;/indicador&gt;</span>
+    <span class="nt">&lt;codigo-seguranca&gt;</span>123<span class="nt">&lt;/codigo-seguranca&gt;</span>
+    <span class="nt">&lt;nome-portador&gt;</span>TESTE CUCUMBER<span class="nt">&lt;/nome-portador&gt;</span>
+  <span class="nt">&lt;/dados-portador&gt;</span>
+  <span class="nt">&lt;dados-pedido&gt;</span>
+    <span class="nt">&lt;numero&gt;</span>77115<span class="nt">&lt;/numero&gt;</span>
+    <span class="nt">&lt;valor&gt;</span>315000<span class="nt">&lt;/valor&gt;</span>
+    <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
+    <span class="nt">&lt;data-hora&gt;</span>2016-02-16T13:45:05<span class="nt">&lt;/data-hora&gt;</span>
+    <span class="nt">&lt;descricao&gt;</span>Compra Online<span class="nt">&lt;/descricao&gt;</span>
+    <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
+    <span class="nt">&lt;soft-descriptor&gt;</span>soft cucumber<span class="nt">&lt;/soft-descriptor&gt;</span>
+  <span class="nt">&lt;/dados-pedido&gt;</span>
+  <span class="nt">&lt;forma-pagamento&gt;</span>
+    <span class="nt">&lt;bandeira&gt;</span>visa<span class="nt">&lt;/bandeira&gt;</span>
+    <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
+    <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
+  <span class="nt">&lt;/forma-pagamento&gt;</span>
+  <span class="nt">&lt;url-retorno&gt;</span>http://www.cielo.com.br<span class="nt">&lt;/url-retorno&gt;</span>
+  <span class="nt">&lt;autorizar&gt;</span>3<span class="nt">&lt;/autorizar&gt;</span>
+  <span class="nt">&lt;capturar&gt;</span>false<span class="nt">&lt;/capturar&gt;</span>
+  <span class="nt">&lt;credencial-armazenada&gt;</span>
+    <span class="nt">&lt;primeira-transacao&gt;</span>S<span class="nt">&lt;/primeira-transacao&gt;</span>
+  <span class="nt">&lt;/credencial-armazenada&gt;</span>
+  <span class="nt">&lt;gerar-token&gt;</span>false<span class="nt">&lt;/gerar-token&gt;</span>
+<span class="nt">&lt;/requisicao-transacao&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Element</th>
+      <th>Type</th>
+      <th>Mandatory</th>
+      <th>Size</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>dados-ec.numero</td>
+      <td>Numeric</td>
+      <td>Yes</td>
+      <td>1..20</td>
+      <td>Store affiliation number with Cielo.</td>
+    </tr>
+    <tr>
+      <td>dados-ec.chave</td>
+      <td>Alfanumeric</td>
+      <td>Yes</td>
+      <td>1..100</td>
+      <td>Store access key assigned by Cielo.</td>
+    </tr>
+    <tr>
+      <td>dados-portador.numero</td>
+      <td>Numeric</td>
+      <td>Yes</td>
+      <td>19</td>
+      <td>Card number.</td>
+    </tr>
+    <tr>
+      <td>dados-portador.validade</td>
+      <td>Numeric</td>
+      <td>Yes</td>
+      <td>1</td>
+      <td>Card validity in aaaamm format. Example: 201212 (dec/2012).</td>
+    </tr>
+    <tr>
+      <td>dados-portador.indicador</td>
+      <td>Numeric</td>
+      <td>Yes</td>
+      <td>1</td>
+      <td>Security Code submission indicator: 0 - not reported, 1 - reported, 2 - unreadable, 9 - nonexistent</td>
+    </tr>
+    <tr>
+      <td>dados-portador.codigo-seguranca</td>
+      <td>Numeric</td>
+      <td>Conditional</td>
+      <td>3..4</td>
+      <td>Required if indicator is 1.</td>
+    </tr>
+    <tr>
+      <td>dados-portador.nome-portador</td>
+      <td>Alfanumeric</td>
+      <td>Optional</td>
+      <td>0..100</td>
+      <td>Name as printed on card.</td>
+    </tr>
+    <tr>
+      <td>dados-pedido.numero</td>
+      <td>Alfanumeric</td>
+      <td>Yes</td>
+      <td>1..20</td>
+      <td>Store order number. It is recommended to be a single value per order.</td>
+    </tr>
+    <tr>
+      <td>dados-pedido.valor</td>
+      <td>Numeric</td>
+      <td>Yes</td>
+      <td>1..12</td>
+      <td>Amount to be charged for the order (must already include freight, wrapping, extra costs, shipping fee, etc.). This amount is what will be charged to the consumer.</td>
+    </tr>
+    <tr>
+      <td>dados-pedido.moeda</td>
+      <td>Numeric</td>
+      <td>Yes</td>
+      <td>3</td>
+      <td>Numeric currency code in ISO 4217. For Real, the code is 986.</td>
+    </tr>
+    <tr>
+      <td>dados-pedido.data-hora</td>
+      <td>Alfanumeric</td>
+      <td>Yes</td>
+      <td>19</td>
+      <td>Date time of order. Format: aaaa-MM-ddTHH24:mm:ss</td>
+    </tr>
+    <tr>
+      <td>dados-pedido.descricao</td>
+      <td>Alfanumeric</td>
+      <td>Optional</td>
+      <td>0..1024</td>
+      <td>Order description</td>
+    </tr>
+    <tr>
+      <td>dados-pedido.idioma</td>
+      <td>Alfanumeric</td>
+      <td>Optional</td>
+      <td>2</td>
+      <td>Order language: PT (Portuguese), EN (English) or ES (Spanish). Based on this information, the language to be used on Cielo’s screens is defined. If not sent, the system will assume “PT”.</td>
+    </tr>
+    <tr>
+      <td>dados-pedido.soft-descriptor</td>
+      <td>Alfanumeric</td>
+      <td>Optional</td>
+      <td>0..13</td>
+      <td>Text of up to 13 characters will be displayed on the carrier invoice after the name of the merchant.</td>
+    </tr>
+    <tr>
+      <td>forma-pagamento.bandeira</td>
+      <td>Alfanumeric</td>
+      <td>Yes</td>
+      <td>n/a</td>
+      <td>Flag Name (lowercase): “visa”, “mastercard”, “diners”, “discover”, “link”, “amex”, “jcb”, “aura”, “hypercard”</td>
+    </tr>
+    <tr>
+      <td>forma-pagamento.produto</td>
+      <td>Alfanumeric</td>
+      <td>Yes</td>
+      <td>1</td>
+      <td>Product code: 1 - Cash Credit, 2 - Installment store, A - Debit.</td>
+    </tr>
+    <tr>
+      <td>forma-pagamento.parcelas</td>
+      <td>Numeric</td>
+      <td>Yes</td>
+      <td>1..2</td>
+      <td>Number of installments. For cash credit or debit, use 1.</td>
+    </tr>
+    <tr>
+      <td>url-retorno</td>
+      <td>Alfanumeric</td>
+      <td>Yes</td>
+      <td>1..1024</td>
+      <td>Return page URL. This is where Cielo will direct the browser to end authentication or authorization. It isn’t only required for direct authorization, but the field must be entered as null.</td>
+    </tr>
+    <tr>
+      <td>autorizar</td>
+      <td>Alfanumeric</td>
+      <td>Yes</td>
+      <td>1</td>
+      <td>Defines whether the transaction authorization type is authentication. <br /> 0 - Do not authorize <br /> 1 - Authorize only if authenticated <br /> 2 - Authorize unauthenticated and authenticated <br /> 3 - Only authorize (do not authenticate) ) <br /> 4 - recurring authorization</td>
+    </tr>
+    <tr>
+      <td>capturar</td>
+      <td>Boolean</td>
+      <td>Yes</td>
+      <td>n/a</td>
+      <td>true or false. Defines whether the transaction will be automatically captured if it’s authorized.</td>
+    </tr>
+    <tr>
+      <td>credencial-armazenada.primeira-transacao</td>
+      <td>Alfanumeric</td>
+      <td>Optional</td>
+      <td>1</td>
+      <td>Stored cardholder data. <br /> Defines whether this is the first transaction (S) or subsequent transaction (N).</td>
+    </tr>
+    <tr>
+      <td>gerar-token</td>
+      <td>Boolean</td>
+      <td>Optional</td>
+      <td>n/a</td>
+      <td>true or false. Defines whether the current transaction should generate a token associated with the card.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="response-1">Response</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?&gt;</span>
+<span class="nt">&lt;transacao</span> <span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span> <span class="na">versao=</span><span class="s">"1.3.0"</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;tid&gt;</span>20000197008CTDEP7DHC<span class="nt">&lt;/tid&gt;</span>
+  <span class="nt">&lt;pan&gt;</span>iwcdiV9SLhtb/dsQNXRHT426+tgjcLtMzchw5YggfP8=<span class="nt">&lt;/pan&gt;</span>
+  <span class="nt">&lt;dados-pedido&gt;</span>
+    <span class="nt">&lt;numero&gt;</span>77115<span class="nt">&lt;/numero&gt;</span>
+    <span class="nt">&lt;valor&gt;</span>315000<span class="nt">&lt;/valor&gt;</span>
+    <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
+    <span class="nt">&lt;data-hora&gt;</span>2016-02-16T13:45:05<span class="nt">&lt;/data-hora&gt;</span>
+    <span class="nt">&lt;descricao&gt;</span>Compra Online<span class="nt">&lt;/descricao&gt;</span>
+    <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
+  <span class="nt">&lt;/dados-pedido&gt;</span>
+  <span class="nt">&lt;forma-pagamento&gt;</span>
+    <span class="nt">&lt;bandeira&gt;</span>elo<span class="nt">&lt;/bandeira&gt;</span>
+    <span class="nt">&lt;produto&gt;</span>A<span class="nt">&lt;/produto&gt;</span>
+    <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
+  <span class="nt">&lt;/forma-pagamento&gt;</span>
+  <span class="nt">&lt;status&gt;</span>6<span class="nt">&lt;/status&gt;</span>
+  <span class="nt">&lt;autenticacao&gt;</span>
+    <span class="nt">&lt;codigo&gt;</span>6<span class="nt">&lt;/codigo&gt;</span>
+    <span class="nt">&lt;mensagem&gt;</span>Autenticada com sucesso<span class="nt">&lt;/mensagem&gt;</span>
+    <span class="nt">&lt;data-hora&gt;</span>2019-08-28T13:45:43.959-03:00<span class="nt">&lt;/data-hora&gt;</span>
+    <span class="nt">&lt;valor&gt;</span>315000<span class="nt">&lt;/valor&gt;</span>
+    <span class="nt">&lt;eci&gt;</span>5<span class="nt">&lt;/eci&gt;</span>
+  <span class="nt">&lt;/autenticacao&gt;</span>
+  <span class="nt">&lt;autorizacao&gt;</span>
+    <span class="nt">&lt;codigo&gt;</span>6<span class="nt">&lt;/codigo&gt;</span>
+    <span class="nt">&lt;mensagem&gt;</span>Transacao autorizada<span class="nt">&lt;/mensagem&gt;</span>
+    <span class="nt">&lt;data-hora&gt;</span>2019-08-28T13:45:43.959-03:00<span class="nt">&lt;/data-hora&gt;</span>
+    <span class="nt">&lt;valor&gt;</span>315000<span class="nt">&lt;/valor&gt;</span>
+    <span class="nt">&lt;lr&gt;</span>00<span class="nt">&lt;/lr&gt;</span>
+    <span class="nt">&lt;arp&gt;</span>882114<span class="nt">&lt;/arp&gt;</span>
+    <span class="nt">&lt;nsu&gt;</span>248001<span class="nt">&lt;/nsu&gt;</span>
+  <span class="nt">&lt;/autorizacao&gt;</span>
+  <span class="nt">&lt;captura&gt;</span>
+    <span class="nt">&lt;codigo&gt;</span>6<span class="nt">&lt;/codigo&gt;</span>
+    <span class="nt">&lt;mensagem&gt;</span>Transacao capturada com sucesso<span class="nt">&lt;/mensagem&gt;</span>
+    <span class="nt">&lt;data-hora&gt;</span>2019-08-28T13:45:43.959-03:00<span class="nt">&lt;/data-hora&gt;</span>
+    <span class="nt">&lt;valor&gt;</span>315000<span class="nt">&lt;/valor&gt;</span>
+  <span class="nt">&lt;/captura&gt;</span>
+<span class="nt">&lt;/transacao&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Element</th>
+      <th>Type</th>
+      <th>Mandatory</th>
+      <th>Size</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>tid</td>
+      <td>Alfanumeric</td>
+      <td>Yes</td>
+      <td>1..40</td>
+      <td>Transaction identifier.</td>
+    </tr>
+    <tr>
+      <td>pan</td>
+      <td>Alfanumeric</td>
+      <td>Yes</td>
+      <td>n/a</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>dados-pedido.numero</td>
+      <td>Alfanumeric</td>
+      <td>Yes</td>
+      <td>1..20</td>
+      <td>Store order number. It’s recommended to be a single value per order.</td>
+    </tr>
+    <tr>
+      <td>dados-pedido.valor</td>
+      <td>Numeric</td>
+      <td>Yes</td>
+      <td>1..12</td>
+      <td>Amount to be charged for the order (must already include freight, wrapping, extra costs, shipping fee, etc.). This amount is what will be charged to the consumer.</td>
+    </tr>
+    <tr>
+      <td>dados-pedido.moeda</td>
+      <td>Numeric</td>
+      <td>Yes</td>
+      <td>3</td>
+      <td>Numeric currency code in ISO 4217. For Real, the code is 986.</td>
+    </tr>
+    <tr>
+      <td>dados-pedido.data-hora</td>
+      <td>Alfanumeric</td>
+      <td>Yes</td>
+      <td>19</td>
+      <td>Date time of order. Format: aaaa-MM-ddTHH24:mm:ss</td>
+    </tr>
+    <tr>
+      <td>dados-pedido.descricao</td>
+      <td>Alfanumeric</td>
+      <td>Optional</td>
+      <td>0..1024</td>
+      <td>Order description</td>
+    </tr>
+    <tr>
+      <td>dados-pedido.idioma</td>
+      <td>Alfanumeric</td>
+      <td>Optional</td>
+      <td>2</td>
+      <td>Order language: PT (Portuguese), EN (English) or ES (Spanish). Based on this information, the language to be used on Cielo’s screens is defined. If not sent, the system will assume “PT”.</td>
+    </tr>
+    <tr>
+      <td>forma-pagamento.bandeira</td>
+      <td>Alfanumeric</td>
+      <td>Yes</td>
+      <td>n/a</td>
+      <td>Flag Name (lowercase): “visa”, “mastercard”, “diners”, “discover”, “link”, “amex”, “jcb”, “aura”, “hypercard”</td>
+    </tr>
+    <tr>
+      <td>forma-pagamento.produto</td>
+      <td>Alfanumeric</td>
+      <td>Yes</td>
+      <td>1</td>
+      <td>Product code: 1 - Cash Credit, 2 - Installment store, A - Debit.</td>
+    </tr>
+    <tr>
+      <td>forma-pagamento.parcelas</td>
+      <td>Numeric</td>
+      <td>Yes</td>
+      <td>1..2</td>
+      <td>Number of installments. For cash credit or debit, use 1.</td>
+    </tr>
+    <tr>
+      <td>autenticacao.codigo</td>
+      <td>Numeric</td>
+      <td>Yes</td>
+      <td>1.2</td>
+      <td>Processing code</td>
+    </tr>
+    <tr>
+      <td>autenticacao.mensagem</td>
+      <td>Alfanumeric</td>
+      <td>Yes</td>
+      <td>1..100</td>
+      <td>Message with the response about transaction processing.</td>
+    </tr>
+    <tr>
+      <td>autenticacao.data-hora</td>
+      <td>Alfanumeric</td>
+      <td>Yes</td>
+      <td>19</td>
+      <td>Processing date and time</td>
+    </tr>
+    <tr>
+      <td>autenticacao.valor</td>
+      <td>Numeric</td>
+      <td>Yes</td>
+      <td>1..12</td>
+      <td>Processing value without punctuation. The last two digits are the cents.</td>
+    </tr>
+    <tr>
+      <td>autenticacao.eci</td>
+      <td>Numeric</td>
+      <td>Yes</td>
+      <td>2</td>
+      <td>Security level.</td>
+    </tr>
+    <tr>
+      <td>autorizacao.codigo</td>
+      <td>Numeric</td>
+      <td>Yes</td>
+      <td>1.2</td>
+      <td>Processing code</td>
+    </tr>
+    <tr>
+      <td>autorizacao.mensagem</td>
+      <td>Alfanumeric</td>
+      <td>Yes</td>
+      <td>n/a</td>
+      <td>Message with the response about transaction processing.</td>
+    </tr>
+    <tr>
+      <td>autorizacao.data-hora</td>
+      <td>Alfanumeric</td>
+      <td>Yes</td>
+      <td>19</td>
+      <td>Processing date and time</td>
+    </tr>
+    <tr>
+      <td>autorizacao.valor</td>
+      <td>Numeric</td>
+      <td>Yes</td>
+      <td>1..12</td>
+      <td>Processing value without punctuation. The last two digits are the cents.</td>
+    </tr>
+    <tr>
+      <td>autorizacao.lr</td>
+      <td>Alfanumeric</td>
+      <td>Yes</td>
+      <td>4</td>
+      <td>Literal code of authorization.</td>
+    </tr>
+    <tr>
+      <td>autorizacao.arp</td>
+      <td>Alfanumeric</td>
+      <td>Yes</td>
+      <td>6</td>
+      <td>Authorization ARP.</td>
+    </tr>
+    <tr>
+      <td>autorizacao.nsu</td>
+      <td>Alfanumeric</td>
+      <td>Yes</td>
+      <td>6</td>
+      <td>Authorization NSU</td>
+    </tr>
+    <tr>
+      <td>captura.codigo</td>
+      <td>Numeric</td>
+      <td>Yes</td>
+      <td>1.2</td>
+      <td>Processing code</td>
+    </tr>
+    <tr>
+      <td>captura.mensagem</td>
+      <td>Alfanumeric</td>
+      <td>Yes</td>
+      <td>n/a</td>
+      <td>Message with the response about transaction processing.</td>
+    </tr>
+    <tr>
+      <td>captura.data-hora</td>
+      <td>Alfanumeric</td>
+      <td>Yes</td>
+      <td>19</td>
+      <td>Processing date and time</td>
+    </tr>
+    <tr>
+      <td>captura.valor</td>
+      <td>Numeric</td>
+      <td>Yes</td>
+      <td>1..12</td>
+      <td>Processing value without punctuation. The last two digits are the cents.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="aggregated-functionality">Aggregated functionality</h2>
 
 <h3 id="authentication-and-transaction-with-debit-card">Authentication and transaction with debit card</h3>
@@ -2923,7 +3406,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
     <ul>
       <li>Maximum size: 13 characters</li>
       <li>Available only for Visa and Mastercard issuers.</li>
-      <li>Exclusive use of simple characters.</li>
+      <li>Exclusive use of Yesple characters.</li>
     </ul>
   </li>
 </ul>
@@ -3137,31 +3620,31 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
     </tr>
     <tr>
       <td>captura.codigo</td>
-      <td>Numérico</td>
+      <td>Numeric</td>
       <td>1..2</td>
       <td>Processing code</td>
     </tr>
     <tr>
       <td>captura.mensagem</td>
-      <td>Alfanumérico</td>
+      <td>Alfanumeric</td>
       <td>1..100</td>
       <td>Processing details</td>
     </tr>
     <tr>
       <td>captura.datahora</td>
-      <td>Alfanumérico</td>
+      <td>Alfanumeric</td>
       <td>19</td>
       <td>Date and time of processing.</td>
     </tr>
     <tr>
       <td>captura.valor</td>
-      <td>Numérico</td>
+      <td>Numeric</td>
       <td>1..12</td>
       <td>Processing value without points. The last two numbers are “centavos”</td>
     </tr>
     <tr>
       <td>captura.taxa-embarque</td>
-      <td>Numérico</td>
+      <td>Numeric</td>
       <td>1..9</td>
       <td>Montante declarado como taxa de embarque que foi capturado.</td>
     </tr>
@@ -3222,29 +3705,29 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   <tbody>
     <tr>
       <td>tid</td>
-      <td>Alfanumérico</td>
-      <td>Sim</td>
+      <td>Alfanumeric</td>
+      <td>Yes</td>
       <td>1..40</td>
       <td>Transaction identifier</td>
     </tr>
     <tr>
       <td>dados-ec.numero</td>
-      <td>Numérico</td>
-      <td>Sim</td>
+      <td>Numeric</td>
+      <td>Yes</td>
       <td>1..10</td>
       <td>Store credential number</td>
     </tr>
     <tr>
       <td>dados-ec.chave</td>
-      <td>Alfanumérico</td>
-      <td>Sim</td>
+      <td>Alfanumeric</td>
+      <td>Yes</td>
       <td>1..100</td>
       <td>Store access key assigned by Cielo</td>
     </tr>
     <tr>
       <td>valor</td>
-      <td>Numérico</td>
-      <td>Opcional</td>
+      <td>Numeric</td>
+      <td>Optional</td>
       <td>1..12</td>
       <td>Value to be cancelled. <strong>If not being informed, it will be a total concellation.</strong></td>
     </tr>
