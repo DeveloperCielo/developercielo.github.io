@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-12-20T15:19:43+00:00</updated>
+    <updated>2019-12-20T15:40:27+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -14239,15 +14239,15 @@ Adicione essa permissão ao &lt;code class=&quot;highlighter-rouge&quot;&gt;Andr
 &lt;ul&gt;
   &lt;li&gt;
     &lt;p&gt;Client-Id
-Identificação de acesso. Sua geração ocorre no momento da criação pelo painel do desenvolvedor. Seu valor pode ser visualizado na coluna Client ID, dentro do menu &lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/pt-br/myapps&quot;&gt;‘Client ID Cadastrados’&lt;/a&gt;&lt;/p&gt;
+Identificação de acesso. Sua geração ocorre no momento da criação pelo painel do desenvolvedor. Seu valor pode ser visualizado na coluna Client ID, dentro do menu &lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/myapps&quot;&gt;‘Client ID Cadastrados’&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Access-Token
-Identificação do token de acesso, que armazena as regras de acesso permitidas ao Client ID. Sua geração ocorre no momento da criação do Client ID pelo painel do desenvolvedor. Seu valor pode ser visualizado clicando em ‘detalhes’ na coluna ‘Access Tokens’, dentro do menu &lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/pt-br/myapps&quot;&gt;‘Client ID Cadastrados’&lt;/a&gt;&lt;/p&gt;
+Identificação do token de acesso, que armazena as regras de acesso permitidas ao Client ID. Sua geração ocorre no momento da criação do Client ID pelo painel do desenvolvedor. Seu valor pode ser visualizado clicando em ‘detalhes’ na coluna ‘Access Tokens’, dentro do menu &lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/myapps&quot;&gt;‘Client ID Cadastrados’&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/pt-br/myapps/new&quot;&gt;Crie sua Credencial para a API Local&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/myapps/new&quot;&gt;Crie sua Credencial para a API Local&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;criação-e-gerenciamento-de-ordens&quot;&gt;Criação e Gerenciamento de Ordens&lt;/h2&gt;
 
