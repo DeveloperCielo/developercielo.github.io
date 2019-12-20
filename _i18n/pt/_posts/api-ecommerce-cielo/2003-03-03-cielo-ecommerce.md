@@ -2852,17 +2852,6 @@ curl
         },
         "ProofOfSale": "674532",
         "AuthorizationCode": "123456",
-        "Chargebacks": [
-            {
-                "Amount": 10000,
-                "CaseNumber": "123456",
-                "Date": "2017-06-04",
-                "ReasonCode": "104",
-                "ReasonMessage": "Outras Fraudes - Cartao Ausente",
-                "Status": "Received",
-                "RawData": "Client did not participate and did not authorize transaction"
-            }
-        ],
         "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
         "Type": "CreditCard",
         "Amount": 15700,
@@ -2902,14 +2891,6 @@ curl
 |`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento.|
 |`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
 |`Payment.Provider`|Texto|15|---|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|
-|`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
-|`Payment.Chargebacks[n].Amount`|Valor do chargeback|Número|15|10000|
-|`Payment.Chargebacks[n].CaseNumber`|Número do caso relacionado ao chargeback|Texto|16|Texto alfanumérico|
-|`Payment.Chargebacks[n].Date`|Data do chargeback|Date|10|AAAA-MM-DD|
-|`Payment.Chargebacks[n].ReasonCode`|Código de motivo do chargeback|Texto|10|Texto alfanumérico|
-|`Payment.Chargebacks[n].ReasonMessage`|Mensagem de motivo do chargeback|Texto|512|Texto alfanumérico|
-|`Payment.Chargebacks[n].Status`|Status do chargeback <br/> [Lista de Valores - Payment.Chargebacks{n}.Status]({{ site.baseurl_root }}//manual/cielo-ecommerce#lista-de-valores-payment.chargebacks[n].status)|Texto|32|Texto|
-|`Payment.Chargebacks[n].RawData`|Titular do cartão ou outra mensagem|Texto|512|Alphanumeric Text|
 |`CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do Comprador.|
 |`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
@@ -9355,11 +9336,3 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 |24|PaymentMethodIsNotEnabled|
 |98|InvalidRequest|
 |99|InternalError|
-
-## Lista de Valores - Payment.Chargebacks[n].Status
-
-|Valor|Descrição|
-|:-|:-|
-|Received|Chargeback recebido da adquirente|
-|AcceptedByMerchant|Chargeback acatado pelo estabelecimento. Neste caso o estabelecimento entende que sofreu de fato um chargeback e não irá realizar a contestação|
-|ContestedByMerchant|Chargeback contestado pelo estabelecimento. Neste caso o estabelecimento enviou os documentos necessários para tentar reverter o chargeback|
