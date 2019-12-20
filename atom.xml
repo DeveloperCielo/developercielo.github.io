@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-12-19T12:35:52+00:00</updated>
+    <updated>2019-12-20T13:40:38+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31869,17 +31869,6 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
         &lt;span class=&quot;s2&quot;&gt;&quot;ProofOfSale&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;674532&quot;&lt;/span&gt;,
         &lt;span class=&quot;s2&quot;&gt;&quot;AuthorizationCode&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;123456&quot;&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Chargebacks&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;: 10000,
-                &lt;span class=&quot;s2&quot;&gt;&quot;CaseNumber&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;123456&quot;&lt;/span&gt;,
-                &lt;span class=&quot;s2&quot;&gt;&quot;Date&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;2017-06-04&quot;&lt;/span&gt;,
-                &lt;span class=&quot;s2&quot;&gt;&quot;ReasonCode&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;104&quot;&lt;/span&gt;,
-                &lt;span class=&quot;s2&quot;&gt;&quot;ReasonMessage&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Outras Fraudes - Cartao Ausente&quot;&lt;/span&gt;,
-                &lt;span class=&quot;s2&quot;&gt;&quot;Status&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Received&quot;&lt;/span&gt;,
-                &lt;span class=&quot;s2&quot;&gt;&quot;RawData&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;Client did not participate and did not authorize transaction&quot;&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;,
         &lt;span class=&quot;s2&quot;&gt;&quot;PaymentId&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;24bc8366-fc31-4d6c-8555-17049a836a07&quot;&lt;/span&gt;,
         &lt;span class=&quot;s2&quot;&gt;&quot;Type&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;CreditCard&quot;&lt;/span&gt;,
         &lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;: 15700,
@@ -31981,62 +31970,6 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;—&lt;/td&gt;
       &lt;td&gt;Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Installments&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Número&lt;/td&gt;
-      &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt;Sim&lt;/td&gt;
-      &lt;td&gt;Número de Parcelas.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Chargebacks[n].Amount&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Valor do chargeback&lt;/td&gt;
-      &lt;td&gt;Número&lt;/td&gt;
-      &lt;td&gt;15&lt;/td&gt;
-      &lt;td&gt;10000&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Chargebacks[n].CaseNumber&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Número do caso relacionado ao chargeback&lt;/td&gt;
-      &lt;td&gt;Texto&lt;/td&gt;
-      &lt;td&gt;16&lt;/td&gt;
-      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Chargebacks[n].Date&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Data do chargeback&lt;/td&gt;
-      &lt;td&gt;Date&lt;/td&gt;
-      &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;AAAA-MM-DD&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Chargebacks[n].ReasonCode&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Código de motivo do chargeback&lt;/td&gt;
-      &lt;td&gt;Texto&lt;/td&gt;
-      &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Chargebacks[n].ReasonMessage&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Mensagem de motivo do chargeback&lt;/td&gt;
-      &lt;td&gt;Texto&lt;/td&gt;
-      &lt;td&gt;512&lt;/td&gt;
-      &lt;td&gt;Texto alfanumérico&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Chargebacks[n].Status&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Status do chargeback &lt;br /&gt; &lt;a href=&quot;https://developercielo.github.io//manual/cielo-ecommerce#lista-de-valores-payment.chargebacks[n].status&quot;&gt;Lista de Valores - Payment.Chargebacks{n}.Status&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;Texto&lt;/td&gt;
-      &lt;td&gt;32&lt;/td&gt;
-      &lt;td&gt;Texto&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Payment.Chargebacks[n].RawData&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Titular do cartão ou outra mensagem&lt;/td&gt;
-      &lt;td&gt;Texto&lt;/td&gt;
-      &lt;td&gt;512&lt;/td&gt;
-      &lt;td&gt;Alphanumeric Text&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CreditCard.CardNumber&lt;/code&gt;&lt;/td&gt;
@@ -46800,31 +46733,6 @@ Se esse código for exibido, a requisição contem erros (EX: tamanho/condiçõe
     &lt;tr&gt;
       &lt;td&gt;99&lt;/td&gt;
       &lt;td&gt;InternalError&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;lista-de-valores---paymentchargebacksnstatus&quot;&gt;Lista de Valores - Payment.Chargebacks[n].Status&lt;/h2&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Valor&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Descrição&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Received&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Chargeback recebido da adquirente&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;AcceptedByMerchant&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Chargeback acatado pelo estabelecimento. Neste caso o estabelecimento entende que sofreu de fato um chargeback e não irá realizar a contestação&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;ContestedByMerchant&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Chargeback contestado pelo estabelecimento. Neste caso o estabelecimento enviou os documentos necessários para tentar reverter o chargeback&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
