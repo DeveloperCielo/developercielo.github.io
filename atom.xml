@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2019-12-23T16:42:09+00:00</updated>
+    <updated>2020-01-03T16:23:48+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -15871,7 +15871,7 @@ modelos LIO v1 e LIO v2.&lt;/p&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;number&lt;/td&gt;
-      &lt;td&gt;Número&lt;/td&gt;
+      &lt;td&gt;Texto&lt;/td&gt;
       &lt;td&gt;Número Sequencial Único (NSU) da transação.&lt;/td&gt;
       &lt;td&gt;Sim&lt;/td&gt;
     &lt;/tr&gt;
