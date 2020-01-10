@@ -402,7 +402,7 @@ Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) 
 
 <aside class="warning">O valor resultante da divisão do valor do pedido pelo número de parcelas não deve ser inferior a R$ 5,00. Para transações Visa, a autorização será negada. Para transações MasterCard, Elo, Diners, Discover, Aura e JCB, a transação que for aprovada, terá seu plano parcelado alterado para à vista. Para evitar reclamações, permita apenas transações parceladas com a parcela mínima acima de R$ 5,00.</aside>
 
-## Fluxos de integração e redirecionamentos
+### Fluxos de integração e redirecionamentos
 
 Após a transação ter sido criada, o fluxo de navegação pode ser direcionado ao ambiente da Cielo caso o lojista solicite a autenticação na mensagem XML.
 
@@ -422,7 +422,7 @@ Por outro lado, quando não há autenticação, não existe troca de contextos o
 
 ![fluxo-simples]({{ site.baseurl_root }}/images/fluxo-simples.png)
 
-### Tipo de retorno
+## Tipo de retorno
 
 Há três tipos de retorno que podem ser gerados na resposta do Web Service:
 
