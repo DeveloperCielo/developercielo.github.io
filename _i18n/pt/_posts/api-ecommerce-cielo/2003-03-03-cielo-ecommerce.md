@@ -107,6 +107,191 @@ A versão atual do Webservice Cielo possui suporte às seguintes bandeiras e pro
 
 > Cartões emitidos no exterior não possuem permissão de parcelamento.
 
+## Produtos e Bandeiras suportadas 
+
+### Últimas Implementações
+
+#### Facilitadores de Pagamento
+
+Todos os clientes de E-Commerce que são **Facilitadores de Pagamento, por obrigatoriedade das bandeiras e do Banco Central** deverão enviar novos campos na **mensageria transacional**.  A Cielo transmitirá as informações para as bandeiras por meio da mensageria transacional no momento da autorização.
+
+Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos campos deste novo nó, os facilitadores terão também de enviar obrigatoriamente o campo softdescriptor do nó payment. Segue abaixo exemplo do envio e da resposta.
+
+<aside class="warning"><b>Atenção: Reforçamos que as informações não devem ser enviadas antes de 10 de fevereiro de 2020, havendo risco de perda de transações.</b></aside>
+
+##### Requisição
+
+```json
+{
+   "MerchantOrderId":"2222222222",
+   "Customer":{
+      "Name":"Comprador Teste",
+      "Identity":"11225468954",
+      "IdentityType":"CPF",
+      "Email":"compradorteste@teste.com",
+      "Birthdate":"1991-01-02",
+      "Address":{
+         "Street":"Rua Teste",
+         "Number":"123",
+         "Complement":"AP 123",
+         "ZipCode":"12345987",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BRA"
+      },
+      "DeliveryAddress":{
+         "Street":"Rua Teste",
+         "Number":"123",
+         "Complement":"AP 123",
+         "ZipCode":"12345987",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BRA"
+      }
+   },
+   "Payment":{
+      "Type":"CreditCard",
+      "Amount":157000,
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Provider":"Cielo",
+      "ServiceTaxAmount":0,
+      "Installments":1,
+      "Interest":"ByMerchant",
+      "Capture":false,
+      "Authenticate":false,
+      "Recurrent":false,
+      "SoftDescriptor":"123456789ABCD",
+      "CreditCard":{
+         "CardNumber":"4024007197692931",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "SaveCard":"false",
+         "Brand":"Visa"
+      },
+      "PaymentFacilitator":{
+         "EstablishmentCode":"1234",
+         "SubEstablishment":{
+            "EstablishmentCode":"1234",
+            "Mcc":"1234",
+            "Address":"Alameda Grajau, 512",
+            "City":"Barueri",
+            "State":"SP",
+            "PostalCode":"06455914",
+            "PhoneNumber":"1155855585"
+         }
+      }
+   }
+}
+```
+
+##### Resposta
+
+```json
+{
+   "MerchantOrderId":"2014111701",
+   "Customer":{
+      "Name":"Comprador Teste",
+      "Identity":"11225468954",
+      "IdentityType":"CPF",
+      "Email":"compradorteste@teste.com",
+      "Birthdate":"1991-01-02",
+      "Address":{
+         "Street":"Rua Teste",
+         "Number":"123",
+         "Complement":"AP 123",
+         "ZipCode":"12345987",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BRA"
+      },
+      "DeliveryAddress":{
+         "Street":"Rua Teste",
+         "Number":"123",
+         "Complement":"AP 123",
+         "ZipCode":"12345987",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BRA"
+      }
+   },
+   "Payment":{
+      "ServiceTaxAmount":0,
+      "Installments":1,
+      "Interest":0,
+      "Capture":false,
+      "Authenticate":false,
+      "Recurrent":false,
+      "CreditCard":{
+         "CardNumber":"402400******2931",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2021",
+         "SaveCard":false,
+         "Brand":"Visa"
+      },
+      "Tid":"1223092935684",
+      "ProofOfSale":"2935684",
+      "AuthorizationCode":"065158",
+      "SoftDescriptor":"123456789ABCD",
+      "Provider":"Simulado",
+      "IsQrCode":false,
+      "PaymentFacilitator":{
+         "EstablishmentCode":"1234",
+         "SubEstablishment":{
+            "EstablishmentCode":"1234",
+            "Mcc":"1234",
+            "Address":"Alameda Grajau, 512",
+            "City":"Barueri",
+            "State":"SP",
+            "PostalCode":"06455914",
+            "PhoneNumber":"1155855585"
+         }
+      },
+      "Amount":157000,
+      "ReceivedDate":"2019-12-23 09:29:34",
+      "Status":1,
+      "IsSplitted":false,
+      "ReturnMessage":"Operation Successful",
+      "ReturnCode":"4",
+      "PaymentId":"365c3a0d-fd86-480b-9279-4ba3da21333c",
+      "Type":"CreditCard",
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Links":[
+         {
+            "Method":"GET",
+            "Rel":"self",
+            "Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/365c3a0d-fd86-480b-9279-4ba3da21333c"
+         },
+         {
+            "Method":"PUT",
+            "Rel":"capture",
+            "Href":"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/365c3a0d-fd86-480b-9279-4ba3da21333c/capture"
+         },
+         {
+            "Method":"PUT",
+            "Rel":"void",
+            "Href":"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/365c3a0d-fd86-480b-9279-4ba3da21333c/void"
+         }
+      ]
+   }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|PaymentFacilitator.EstablishmentCode|Numérico|11|Obrigatório para facilitadores|Código do estabelecimento do Facilitador.|
+|PaymentFacilitator.SubEstablishment.EstablishmentCode|Numérico|15|Obrigatório para facilitadores|Código do estabelecimento do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.Mcc|Numérico|4|Obrigatório para facilitadores|MCC do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.Address|Alfanumérico|22|Obrigatório para facilitadores|Endereço do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.City|Alfanumérico|13|Obrigatório para facilitadores|Cidade do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.State|Alfanumérico|2|Obrigatório para facilitadores|Estado do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.PostalCode|Numérico|9|Obrigatório para facilitadores|Código postal do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.PhoneNumber|Numérico|13|Obrigatório para facilitadores|
+Número de telefone do sub Merchant.|
+|Payment.Softdescriptor|Texto|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
+
 # Certificados e segurança
 
 ## O que é Certificado SSL?
