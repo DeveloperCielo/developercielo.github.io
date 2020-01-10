@@ -296,10 +296,11 @@ Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos cam
 <aside class="warning">Atenção: Reforçamos que as informações não devem ser enviadas antes de 10 de fevereiro de 2020, havendo risco de perda de transações.</aside>
 
 #### Requisição
+
 ``` xml
 <requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
     <dados-ec>
-        <numero>2000000001</numero>
+      <numero>2000000001</numero>
 	  <chave>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</chave>
         <subcredenciador>
             <numero>12345678901</numero>
