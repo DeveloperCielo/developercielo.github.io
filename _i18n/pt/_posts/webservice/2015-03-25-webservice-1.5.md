@@ -422,7 +422,7 @@ Por outro lado, quando não há autenticação, não existe troca de contextos o
 
 ![fluxo-simples]({{ site.baseurl_root }}/images/fluxo-simples.png)
 
-## Tipos de retorno
+### Tipo de retorno
 
 Há três tipos de retorno que podem ser gerados na resposta do Web Service:
 
