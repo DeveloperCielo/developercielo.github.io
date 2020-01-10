@@ -333,7 +333,7 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
 
 <aside class="notice">All messages must be formatted correctly according to specified on <a href="{{ site.baseurl }}/attachment/ecommerce.xsd">XML Schema ecommerce.xsd</a></aside>
 
-### ROOT Node
+## ROOT Node
 
 |Element|Type|Mandatory|Size|Description|
 |---|---|---|---|---|
@@ -348,14 +348,14 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
 |gerar-token|Boolean|optional|n/a|`true` ou `false`. Define if the current transaction must create an associate token to card.|
 |avs#avs|alphanumeric|optional|n/a|String containing a XML block, encapsulated by CDATA, containing required information to realized a service consult.|
 
-### dados-ec
+## dados-ec
 
 |Element|Type|Mandatory|Size|Description|
 |---|---|---|---|---|
 |numero|numeric|Yes|1..20|Affiliation number of Store with Cielo.|
 |chave|alphanumeric|Yes|1..100|Store's access key attributed by Cielo.|
 
-### dados-portador
+## dados-portador
 
 |Element|Type|Mandatory|Size|Description|
 |---|---|---|---|---|
@@ -366,7 +366,7 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
 |nome-portador|alphanumeric|Optional|0..50|Holder name|
 |token|Alfanumeric|Conditional|0..100|Token must be used in replacement to card data to direct authorization or recurrent. It's not allowed to send a token with the card information in the same transaction.|
 
-### dados-pedido
+## dados-pedido
 
 |Element|Type|Mandatory|Size|Description|
 |---|---|---|---|---|
@@ -382,7 +382,7 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
 
 <aside class="notice">The customer register will be enable to transact only with REAL currency, in case you need more information, contact the service center, commercial manager or Cielo E-commerce Web Support</aside>
 
-### forma-pagamento
+## forma-pagamento
 
 |Element|Type|Mandatory|Size|Description|
 |---|---|---|---|---|
