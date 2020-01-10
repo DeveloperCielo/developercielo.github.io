@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2020-01-10T21:01:57+00:00</updated>
+    <updated>2020-01-10T21:08:41+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -19498,7 +19498,7 @@ mensagem=&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; e
 
 &lt;aside class=&quot;warning&quot;&gt;O valor resultante da divisão do valor do pedido pelo número de parcelas não deve ser inferior a R$ 5,00. Para transações Visa, a autorização será negada. Para transações MasterCard, Elo, Diners, Discover, Aura e JCB, a transação que for aprovada, terá seu plano parcelado alterado para à vista. Para evitar reclamações, permita apenas transações parceladas com a parcela mínima acima de R$ 5,00.&lt;/aside&gt;
 
-&lt;h2 id=&quot;fluxos-de-integração-e-redirecionamentos&quot;&gt;Fluxos de integração e redirecionamentos&lt;/h2&gt;
+&lt;h3 id=&quot;fluxos-de-integração-e-redirecionamentos&quot;&gt;Fluxos de integração e redirecionamentos&lt;/h3&gt;
 
 &lt;p&gt;Após a transação ter sido criada, o fluxo de navegação pode ser direcionado ao ambiente da Cielo caso o lojista solicite a autenticação na mensagem XML.&lt;/p&gt;
 
@@ -19518,7 +19518,7 @@ mensagem=&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; e
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/fluxo-simples.png&quot; alt=&quot;fluxo-simples&quot; /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;tipo-de-retorno&quot;&gt;Tipo de retorno&lt;/h3&gt;
+&lt;h2 id=&quot;tipo-de-retorno&quot;&gt;Tipo de retorno&lt;/h2&gt;
 
 &lt;p&gt;Há três tipos de retorno que podem ser gerados na resposta do Web Service:&lt;/p&gt;
 
