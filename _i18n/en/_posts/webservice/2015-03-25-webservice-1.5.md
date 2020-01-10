@@ -287,6 +287,7 @@ The new fields are contained within the Payment Facilitator node. In addition to
 <aside class="warning"><b>Attention: We emphasize that information shouldn't be submitted before February 10, 2020, as there is a risk of losing transactions.</b></aside>
 
 #### Request
+
 ``` xml
 <requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
     <dados-ec>
