@@ -276,7 +276,7 @@ From transaction creation, it can assume the following status:
 
 The transition of status can be realized through the message exchange between the store and Cielo, or automatically, for example, when an authorized transaction capture deadline expires.
 
-# Atualizações Mandatórias
+# Mandatory Updates
 
 ## Payment Facilitators
 
