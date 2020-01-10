@@ -285,6 +285,124 @@ A partir da criação de uma transação, ela pode assumir os seguintes status:
 
 As transições de status podem ser realizadas através da troca de mensagens entre a loja e a Cielo, ou de forma automática, por exemplo, quando o prazo para a captura de transação autorizada expirar.
 
+## Atualizações Mandatórias
+
+### Facilitadores de Pagamento
+
+Todos os clientes de E-Commerce que são **Facilitadores de Pagamento, por obrigatoriedade das bandeiras e do Banco Central** deverão enviar novos campos na **mensageria transacional**. A Cielo transmitirá as informações para as bandeiras por meio da mensageria transacional no momento da autorização.
+
+Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos campos deste novo nó, os facilitadores terão também de enviar obrigatoriamente o campo softdescriptor do nó payment. Segue abaixo exemplo do envio e da resposta.
+
+<aside class="warning">Atenção: Reforçamos que as informações não devem ser enviadas antes de 10 de fevereiro de 2020, havendo risco de perda de transações.</aside>
+
+#### Requisição
+``` xml
+<requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
+    <dados-ec>
+        <numero>2000000001</numero>
+	  <chave>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</chave>
+        <subcredenciador>
+            <numero>12345678901</numero>
+            <sub-ec>
+                <numero>123456789012   </numero>
+                <mcc>4511</mcc>
+                <endereco>Alameda Xingu, 512</endereco>
+                <cidade>Barueri</cidade>
+                <estado>SP</estado>
+                <codigo-postal>06537085</codigo-postal>
+                <telefone>11978962345</telefone>
+            </sub-ec>
+        </subcredenciador>
+    </dados-ec>
+    <dados-portador>
+        <numero>518605152xxxxxx5923</numero>
+        <validade>aaaamm</validade>
+        <indicador>1</indicador>
+        <codigo-seguranca>xxx</codigo-seguranca>
+        <nome-portador>Jose Luis</nome-portador>
+        <token/>
+    </dados-portador>
+    <dados-pedido>
+        <numero>54583</numero>
+        <valor>10000</valor>
+        <moeda>986</moeda>
+        <data-hora>2016-02-16T13:45:05</data-hora>
+        <descricao>Compra Online</descricao>
+        <idioma>PT</idioma>
+        <soft-descriptor>lojinha</soft-descriptor>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>mastercard</bandeira>
+        <produto>1</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <url-retorno>http://www.cielo.com.br</url-retorno>
+    <autorizar>3</autorizar>
+    <capturar>true</capturar>
+    <gerar-token>false</gerar-token>
+</requisicao-transacao>
+```
+
+#### Resposta
+
+<aside class="notice">Obs: No response do 1.5 não são retornados os dados de facilitador.</aside>
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0" xmlns="http://ecommerce.cbmp.com.br">
+    <tid>2000153601009A0OCH1E</tid>
+    <pan>qM5R3jZDvsXFU7KUAM5fmzKg7dA7ZaG2/gc2rFeFMW0=</pan>
+    <dados-pedido>
+        <numero>54583</numero>
+        <valor>10000</valor>
+        <moeda>986</moeda>
+        <data-hora>2016-02-16T13:45:05</data-hora>
+        <descricao>Compra Online</descricao>
+        <idioma>PT</idioma>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>mastercard</bandeira>
+        <produto>1</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <status>6</status>
+    <autenticacao>
+        <codigo>6</codigo>
+        <mensagem>Transacao sem autenticacao</mensagem>
+        <data-hora>2020-01-10T15:32:45.843-03:00</data-hora>
+        <valor>10000</valor>
+        <eci>0</eci>
+    </autenticacao>
+    <autorizacao>
+        <codigo>6</codigo>
+        <mensagem>Transacao autorizada</mensagem>
+        <data-hora>2020-01-10T15:32:45.844-03:00</data-hora>
+        <valor>10000</valor>
+        <lr>00</lr>
+        <arp>192379</arp>
+        <nsu>094004</nsu>
+    </autorizacao>
+    <captura>
+        <codigo>6</codigo>
+        <mensagem>Transacao capturada com sucesso</mensagem>
+        <data-hora>2020-01-10T15:32:45.844-03:00</data-hora>
+        <valor>10000</valor>
+    </captura>
+</transacao>
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|<subcredenciador><numero>|Numérico|11|Obrigatório para facilitadores|Código do estabelecimento do Facilitador.|
+|<subcredenciador><sub-ec><numero>|Numérico|15|Obrigatório para facilitadores|Código do estabelecimento do sub Merchant.|
+|<subcredenciador><sub-ec><mcc>|Numérico|4|Obrigatório para facilitadores|MCC do sub Merchant.|
+|<subcredenciador><sub-ec><endereco>|Alfanumérico|22|Obrigatório para facilitadores|Endereço do sub Merchant.|
+|<subcredenciador><sub-ec><cidade>|Alfanumérico|13|Obrigatório para facilitadores|Cidade do sub Merchant.|
+|<subcredenciador><sub-ec><estado>|Alfanumérico|2|Obrigatório para facilitadores|Estado do sub Merchant.|
+|<subcredenciador><sub-ec><codigo-postal>|Numérico|9|Obrigatório para facilitadores|Código postal do sub Merchant.|
+|<subcredenciador><sub-ec><telefone>|Numérico|13|Obrigatório para facilitadores|Número de telefone do sub Merchant.|
+|<soft-descriptor>|Texto|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
+
 # Criando transações
 
 Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) ao Web Service da Cielo com uma mensagem XML `<requisicao-transacao>`, cujo conjunto de TAGS determinam as configurações de uma transação.
