@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2020-01-10T11:17:10+00:00</updated>
+    <updated>2020-01-10T11:20:31+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -27000,14 +27000,7 @@ Desta forma, é necessário “chamar” o e-Commerce 3.0 para autorizar a trans
       &lt;td&gt;Numérico&lt;/td&gt;
       &lt;td&gt;13&lt;/td&gt;
       &lt;td&gt;Obrigatório para facilitadores&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
       &lt;td&gt;Número de telefone do sub Merchant.&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Payment.Softdescriptor&lt;/td&gt;
