@@ -276,9 +276,9 @@ From transaction creation, it can assume the following status:
 
 The transition of status can be realized through the message exchange between the store and Cielo, or automatically, for example, when an authorized transaction capture deadline expires.
 
-# Mandatory Updates
+## Mandatory Updates
 
-## Payment Facilitators
+### Payment Facilitators
 
 All E-Commerce customers who are **Payment Facilitators, as required by the flags and Central Bank** must submit new fields in **transactional messaging**. Cielo will transmit the information to the flags through transactional messaging at the time of authorization.
 
