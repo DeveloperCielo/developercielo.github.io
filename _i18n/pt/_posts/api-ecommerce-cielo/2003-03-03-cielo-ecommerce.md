@@ -107,11 +107,9 @@ A versão atual do Webservice Cielo possui suporte às seguintes bandeiras e pro
 
 > Cartões emitidos no exterior não possuem permissão de parcelamento.
 
-## Produtos e Bandeiras suportadas 
+## Últimas Implementações
 
-### Últimas Implementações
-
-#### Facilitadores de Pagamento
+### Facilitadores de Pagamento
 
 Todos os clientes de E-Commerce que são **Facilitadores de Pagamento, por obrigatoriedade das bandeiras e do Banco Central** deverão enviar novos campos na **mensageria transacional**.  A Cielo transmitirá as informações para as bandeiras por meio da mensageria transacional no momento da autorização.
 
@@ -119,7 +117,7 @@ Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos cam
 
 <aside class="warning"><b>Atenção: Reforçamos que as informações não devem ser enviadas antes de 10 de fevereiro de 2020, havendo risco de perda de transações.</b></aside>
 
-##### Requisição
+#### Requisição
 
 ```json
 {
@@ -186,7 +184,7 @@ Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos cam
 }
 ```
 
-##### Resposta
+#### Resposta
 
 ```json
 {
