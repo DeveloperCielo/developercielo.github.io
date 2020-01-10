@@ -475,6 +475,188 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <p>The transition of status can be realized through the message exchange between the store and Cielo, or automatically, for example, when an authorized transaction capture deadline expires.</p>
 
+<h1 id="atualizações-mandatórias">Atualizações Mandatórias</h1>
+
+<h2 id="payment-facilitators">Payment Facilitators</h2>
+
+<p>All E-Commerce customers who are <strong>Payment Facilitators, as required by the flags and Central Bank</strong> must submit new fields in <strong>transactional messaging</strong>. Cielo will transmit the information to the flags through transactional messaging at the time of authorization.</p>
+
+<p>The new fields are contained within the Payment Facilitator node. In addition to the fields of this new node, facilitators will also have to send the softdescriptor field of the payment node. Below is an example of sending and reply.</p>
+
+<aside class="warning">Attention: We emphasize that information shouldn't be submitted before February 10, 2020, as there is a risk of losing transactions.</aside>
+
+<h4 id="request">Request</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span> <span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;dados-ec&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>2000000001<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;chave&gt;</span>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx<span class="nt">&lt;/chave&gt;</span>
+        <span class="nt">&lt;subcredenciador&gt;</span>
+            <span class="nt">&lt;numero&gt;</span>12345678901<span class="nt">&lt;/numero&gt;</span>
+            <span class="nt">&lt;sub-ec&gt;</span>
+                <span class="nt">&lt;numero&gt;</span>123456789012   <span class="nt">&lt;/numero&gt;</span>
+                <span class="nt">&lt;mcc&gt;</span>4511<span class="nt">&lt;/mcc&gt;</span>
+                <span class="nt">&lt;endereco&gt;</span>Alameda Xingu, 512<span class="nt">&lt;/endereco&gt;</span>
+                <span class="nt">&lt;cidade&gt;</span>Barueri<span class="nt">&lt;/cidade&gt;</span>
+                <span class="nt">&lt;estado&gt;</span>SP<span class="nt">&lt;/estado&gt;</span>
+                <span class="nt">&lt;codigo-postal&gt;</span>06537085<span class="nt">&lt;/codigo-postal&gt;</span>
+                <span class="nt">&lt;telefone&gt;</span>11978962345<span class="nt">&lt;/telefone&gt;</span>
+            <span class="nt">&lt;/sub-ec&gt;</span>
+        <span class="nt">&lt;/subcredenciador&gt;</span>
+    <span class="nt">&lt;/dados-ec&gt;</span>
+    <span class="nt">&lt;dados-portador&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>518605152xxxxxx5923<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;validade&gt;</span>aaaamm<span class="nt">&lt;/validade&gt;</span>
+        <span class="nt">&lt;indicador&gt;</span>1<span class="nt">&lt;/indicador&gt;</span>
+        <span class="nt">&lt;codigo-seguranca&gt;</span>xxx<span class="nt">&lt;/codigo-seguranca&gt;</span>
+        <span class="nt">&lt;nome-portador&gt;</span>Jose Luis<span class="nt">&lt;/nome-portador&gt;</span>
+        <span class="nt">&lt;token/&gt;</span>
+    <span class="nt">&lt;/dados-portador&gt;</span>
+    <span class="nt">&lt;dados-pedido&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>54583<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;valor&gt;</span>10000<span class="nt">&lt;/valor&gt;</span>
+        <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
+        <span class="nt">&lt;data-hora&gt;</span>2016-02-16T13:45:05<span class="nt">&lt;/data-hora&gt;</span>
+        <span class="nt">&lt;descricao&gt;</span>Compra Online<span class="nt">&lt;/descricao&gt;</span>
+        <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
+        <span class="nt">&lt;soft-descriptor&gt;</span>lojinha<span class="nt">&lt;/soft-descriptor&gt;</span>
+    <span class="nt">&lt;/dados-pedido&gt;</span>
+    <span class="nt">&lt;forma-pagamento&gt;</span>
+        <span class="nt">&lt;bandeira&gt;</span>mastercard<span class="nt">&lt;/bandeira&gt;</span>
+        <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
+        <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
+    <span class="nt">&lt;/forma-pagamento&gt;</span>
+    <span class="nt">&lt;url-retorno&gt;</span>http://www.cielo.com.br<span class="nt">&lt;/url-retorno&gt;</span>
+    <span class="nt">&lt;autorizar&gt;</span>3<span class="nt">&lt;/autorizar&gt;</span>
+    <span class="nt">&lt;capturar&gt;</span>true<span class="nt">&lt;/capturar&gt;</span>
+    <span class="nt">&lt;gerar-token&gt;</span>false<span class="nt">&lt;/gerar-token&gt;</span>
+<span class="nt">&lt;/requisicao-transacao&gt;</span>
+</code></pre></div></div>
+
+<h4 id="response">Response</h4>
+
+<aside class="notice">Note: In response from 1.5, no facilitator data is returned.</aside>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?&gt;</span>
+<span class="nt">&lt;transacao</span><span class="err"> </span><span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span><span class="err"> </span><span class="na">versao=</span><span class="s">"1.3.0"</span><span class="err"> </span><span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;tid&gt;</span>2000153601009A0OCH1E<span class="nt">&lt;/tid&gt;</span>
+    <span class="nt">&lt;pan&gt;</span>qM5R3jZDvsXFU7KUAM5fmzKg7dA7ZaG2/gc2rFeFMW0=<span class="nt">&lt;/pan&gt;</span>
+    <span class="nt">&lt;dados-pedido&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>54583<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;valor&gt;</span>10000<span class="nt">&lt;/valor&gt;</span>
+        <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
+        <span class="nt">&lt;data-hora&gt;</span>2016-02-16T13:45:05<span class="nt">&lt;/data-hora&gt;</span>
+        <span class="nt">&lt;descricao&gt;</span>Compra Online<span class="nt">&lt;/descricao&gt;</span>
+        <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
+    <span class="nt">&lt;/dados-pedido&gt;</span>
+    <span class="nt">&lt;forma-pagamento&gt;</span>
+        <span class="nt">&lt;bandeira&gt;</span>mastercard<span class="nt">&lt;/bandeira&gt;</span>
+        <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
+        <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
+    <span class="nt">&lt;/forma-pagamento&gt;</span>
+    <span class="nt">&lt;status&gt;</span>6<span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;autenticacao&gt;</span>
+        <span class="nt">&lt;codigo&gt;</span>6<span class="nt">&lt;/codigo&gt;</span>
+        <span class="nt">&lt;mensagem&gt;</span>Transacao sem autenticacao<span class="nt">&lt;/mensagem&gt;</span>
+        <span class="nt">&lt;data-hora&gt;</span>2020-01-10T15:32:45.843-03:00<span class="nt">&lt;/data-hora&gt;</span>
+        <span class="nt">&lt;valor&gt;</span>10000<span class="nt">&lt;/valor&gt;</span>
+        <span class="nt">&lt;eci&gt;</span>0<span class="nt">&lt;/eci&gt;</span>
+    <span class="nt">&lt;/autenticacao&gt;</span>
+    <span class="nt">&lt;autorizacao&gt;</span>
+        <span class="nt">&lt;codigo&gt;</span>6<span class="nt">&lt;/codigo&gt;</span>
+        <span class="nt">&lt;mensagem&gt;</span>Transacao autorizada<span class="nt">&lt;/mensagem&gt;</span>
+        <span class="nt">&lt;data-hora&gt;</span>2020-01-10T15:32:45.844-03:00<span class="nt">&lt;/data-hora&gt;</span>
+        <span class="nt">&lt;valor&gt;</span>10000<span class="nt">&lt;/valor&gt;</span>
+        <span class="nt">&lt;lr&gt;</span>00<span class="nt">&lt;/lr&gt;</span>
+        <span class="nt">&lt;arp&gt;</span>192379<span class="nt">&lt;/arp&gt;</span>
+        <span class="nt">&lt;nsu&gt;</span>094004<span class="nt">&lt;/nsu&gt;</span>
+    <span class="nt">&lt;/autorizacao&gt;</span>
+    <span class="nt">&lt;captura&gt;</span>
+        <span class="nt">&lt;codigo&gt;</span>6<span class="nt">&lt;/codigo&gt;</span>
+        <span class="nt">&lt;mensagem&gt;</span>Transacao capturada com sucesso<span class="nt">&lt;/mensagem&gt;</span>
+        <span class="nt">&lt;data-hora&gt;</span>2020-01-10T15:32:45.844-03:00<span class="nt">&lt;/data-hora&gt;</span>
+        <span class="nt">&lt;valor&gt;</span>10000<span class="nt">&lt;/valor&gt;</span>
+    <span class="nt">&lt;/captura&gt;</span>
+<span class="nt">&lt;/transacao&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>Number</td>
+      <td>11</td>
+      <td>Required for facilitators</td>
+      <td>Facilitator’s establishment code.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Number</td>
+      <td>15</td>
+      <td>Required for facilitators</td>
+      <td>Sub Merchant establishment code.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Number</td>
+      <td>4</td>
+      <td>Required for facilitators</td>
+      <td>MCC do sub Merchant.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Alphanumeric</td>
+      <td>22</td>
+      <td>Required for facilitators</td>
+      <td>Sub Merchant Address.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Alphanumeric</td>
+      <td>13</td>
+      <td>Required for facilitators</td>
+      <td>City of the sub Merchant.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Alphanumeric</td>
+      <td>2</td>
+      <td>Required for facilitators</td>
+      <td>State do sub Merchant.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Number</td>
+      <td>9</td>
+      <td>Required for facilitators</td>
+      <td>Sub Merchant Postcode.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Number</td>
+      <td>13</td>
+      <td>Required for facilitators</td>
+      <td>Sub Merchant Phone Number.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Text</td>
+      <td>13</td>
+      <td>Required for facilitators</td>
+      <td>Text printed on buyer bank invoice. Must be completed according to the data of the sub Merchant.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="creating-transactions">Creating transactions</h1>
 
 <p>Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservice at Cielo with a XML message <code class="highlighter-rouge">&lt;requisicao-transacao&gt;</code>, which group of TAGS defines a transaction configuration:</p>
@@ -2675,7 +2857,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   </tbody>
 </table>
 
-<h3 id="response">Response</h3>
+<h3 id="response-1">Response</h3>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;retorno-token</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"57239017"</span><span class="nt">&gt;</span>
@@ -2883,7 +3065,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   <li><strong>Situation 3:</strong> - <strong>THERE ISN’T</strong> storage of card data, the establishment Yesply does not send this tag.</li>
 </ul>
 
-<h4 id="request">Request</h4>
+<h4 id="request-1">Request</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
 <span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span> <span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
@@ -3090,7 +3272,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   </tbody>
 </table>
 
-<h4 id="response-1">Response</h4>
+<h4 id="response-2">Response</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?&gt;</span>
 <span class="nt">&lt;transacao</span> <span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span> <span class="na">versao=</span><span class="s">"1.3.0"</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
