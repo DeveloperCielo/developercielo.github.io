@@ -286,8 +286,7 @@ Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos cam
 |PaymentFacilitator.SubEstablishment.City|Alfanumérico|13|Obrigatório para facilitadores|Cidade do sub Merchant.|
 |PaymentFacilitator.SubEstablishment.State|Alfanumérico|2|Obrigatório para facilitadores|Estado do sub Merchant.|
 |PaymentFacilitator.SubEstablishment.PostalCode|Numérico|9|Obrigatório para facilitadores|Código postal do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.PhoneNumber|Numérico|13|Obrigatório para facilitadores|
-Número de telefone do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.PhoneNumber|Numérico|13|Obrigatório para facilitadores|Número de telefone do sub Merchant.|
 |Payment.Softdescriptor|Texto|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
 
 # Certificados e segurança
