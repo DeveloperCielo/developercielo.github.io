@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2020-01-10T11:03:28+00:00</updated>
+    <updated>2020-01-10T11:17:10+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -26767,11 +26767,9 @@ Desta forma, é necessário “chamar” o e-Commerce 3.0 para autorizar a trans
   &lt;p&gt;Cartões emitidos no exterior não possuem permissão de parcelamento.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&quot;produtos-e-bandeiras-suportadas-1&quot;&gt;Produtos e Bandeiras suportadas&lt;/h2&gt;
+&lt;h2 id=&quot;Últimas-implementações&quot;&gt;Últimas Implementações&lt;/h2&gt;
 
-&lt;h3 id=&quot;Últimas-implementações&quot;&gt;Últimas Implementações&lt;/h3&gt;
-
-&lt;h4 id=&quot;facilitadores-de-pagamento&quot;&gt;Facilitadores de Pagamento&lt;/h4&gt;
+&lt;h3 id=&quot;facilitadores-de-pagamento&quot;&gt;Facilitadores de Pagamento&lt;/h3&gt;
 
 &lt;p&gt;Todos os clientes de E-Commerce que são &lt;strong&gt;Facilitadores de Pagamento, por obrigatoriedade das bandeiras e do Banco Central&lt;/strong&gt; deverão enviar novos campos na &lt;strong&gt;mensageria transacional&lt;/strong&gt;.  A Cielo transmitirá as informações para as bandeiras por meio da mensageria transacional no momento da autorização.&lt;/p&gt;
 
@@ -26779,7 +26777,7 @@ Desta forma, é necessário “chamar” o e-Commerce 3.0 para autorizar a trans
 
 &lt;aside class=&quot;warning&quot;&gt;Atenção: Reforçamos que as informações não devem ser enviadas antes de 10 de fevereiro de 2020, havendo risco de perda de transações.&lt;/aside&gt;
 
-&lt;h5 id=&quot;requisição&quot;&gt;Requisição&lt;/h5&gt;
+&lt;h4 id=&quot;requisição&quot;&gt;Requisição&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2222222222&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -26845,7 +26843,7 @@ Desta forma, é necessário “chamar” o e-Commerce 3.0 para autorizar a trans
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h5 id=&quot;resposta&quot;&gt;Resposta&lt;/h5&gt;
+&lt;h4 id=&quot;resposta&quot;&gt;Resposta&lt;/h4&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;MerchantOrderId&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2014111701&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -30657,7 +30655,7 @@ Abaixo especificamos qualquer diferença existente:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h3 id=&quot;produtos-e-bandeiras-suportadas-2&quot;&gt;Produtos e Bandeiras suportadas&lt;/h3&gt;
+&lt;h3 id=&quot;produtos-e-bandeiras-suportadas-1&quot;&gt;Produtos e Bandeiras suportadas&lt;/h3&gt;
 
 &lt;p&gt;QR Code de Pagamento possui suporte às seguintes bandeiras e produtos:&lt;/p&gt;
 
