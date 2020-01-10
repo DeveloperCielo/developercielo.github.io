@@ -462,7 +462,7 @@ Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) 
 
 <aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="{{ site.baseurl }}/attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
 
-### raiz
+## raiz
 
 |Elemento|Tipo|Obrigatório|Tamanho|Descrição|
 |---|---|---|---|---|
@@ -477,14 +477,14 @@ Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) 
 |gerar-token|Boolean|Opcional|n/a|`true` ou `false`. Define se a transação atual deve gerar um token associado ao cartão.|
 |avs#avs|Alfanumérico|Opcional|n/a|String contendo um bloco XML, encapsulado pelo `CDATA`, contendo as informações necessárias para realizar a consulta ao serviço.|
 
-### dados-ec
+## dados-ec
 
 |Elemento|Tipo|Obrigatório|Tamanho|Descrição|
 |---|---|---|---|---|
 |numero|Numérico|Sim|1..20|Número de afiliação da loja com a Cielo.|
 |chave|AlfaNumérico|Sim|1..100|Chave de acesso da loja atribuída pela Cielo.|
 
-### dados-portador
+## dados-portador
 
 |Elemento|Tipo|Obrigatório|Tamanho|Descrição|
 |---|---|---|---|---|
@@ -495,7 +495,7 @@ Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) 
 |nome-portador|Alfanumérico|Opcional|0..50|Nome como impresso no cartão|
 |token|Alfanumérico|Condicional|0..100|Token que deve ser utilizado em substituição aos dados do cartão para uma autorização direta ou uma transação recorrente. Não é permitido o envio do token junto com os dados do cartão na mesma transação.|
 
-### dados-pedido
+## dados-pedido
 
 |Elemento|Tipo|Obrigatório|Tamanho|Descrição|
 |---|---|---|---|---|
@@ -511,7 +511,7 @@ Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) 
 
 <aside class="notice">O cadastro do cliente está habilitado para transacionar apenas com a moeda REAL, caso necessite de mais informações, contate a central de relacionamento, seu gerente comercial ou o Suporte Web Cielo eCommerce.</aside>
 
-### forma-pagamento
+## forma-pagamento
 
 |Elemento|Tipo|Obrigatório|Tamanho|Descrição|
 |---|---|---|---|---|
@@ -521,7 +521,7 @@ Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) 
 
 <aside class="warning">O valor resultante da divisão do valor do pedido pelo número de parcelas não deve ser inferior a R$ 5,00. Para transações Visa, a autorização será negada. Para transações MasterCard, Elo, Diners, Discover, Aura e JCB, a transação que for aprovada, terá seu plano parcelado alterado para à vista. Para evitar reclamações, permita apenas transações parceladas com a parcela mínima acima de R$ 5,00.</aside>
 
-### Fluxos de integração e redirecionamentos
+## Fluxos de integração e redirecionamentos
 
 Após a transação ter sido criada, o fluxo de navegação pode ser direcionado ao ambiente da Cielo caso o lojista solicite a autenticação na mensagem XML.
 
