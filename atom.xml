@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/"/>
     <logo>https://developercielo.github.io/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/assets/favicon.ico</icon>
-    <updated>2020-01-10T11:48:00+00:00</updated>
+    <updated>2020-01-10T21:01:57+00:00</updated>
     <id>https://developercielo.github.io/</id>
     <author>
         <name>João Batista Neto</name>
@@ -19518,7 +19518,7 @@ mensagem=&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; e
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/fluxo-simples.png&quot; alt=&quot;fluxo-simples&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;tipos-de-retorno&quot;&gt;Tipos de retorno&lt;/h2&gt;
+&lt;h3 id=&quot;tipo-de-retorno&quot;&gt;Tipo de retorno&lt;/h3&gt;
 
 &lt;p&gt;Há três tipos de retorno que podem ser gerados na resposta do Web Service:&lt;/p&gt;
 
