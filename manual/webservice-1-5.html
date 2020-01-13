@@ -3452,6 +3452,126 @@ das transações que pararam após a execução deste processo. A mensagem para 
   </tbody>
 </table>
 
+<h3 id="tokenização-de-bandeira">Tokenização de Bandeira</h3>
+
+<p>Clientes que fazem tokenização do cartão junto com as bandeiras poderão enviar as informações para a Cielo no fluxo transacional.</p>
+
+<h4 id="requisição-2">Requisição</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span> <span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;dados-ec&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>2000019700<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;chave&gt;</span>65d156641f765861451c7c1270a4c09a617863b031b2e4b0c4a09cd390783c82<span class="nt">&lt;/chave&gt;</span>
+    <span class="nt">&lt;/dados-ec&gt;</span>
+    <span class="nt">&lt;dados-portador&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>4084359300407900<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;validade&gt;</span>201712<span class="nt">&lt;/validade&gt;</span>
+        <span class="nt">&lt;indicador&gt;</span>1<span class="nt">&lt;/indicador&gt;</span>
+        <span class="nt">&lt;codigo-seguranca&gt;</span>123<span class="nt">&lt;/codigo-seguranca&gt;</span>
+        <span class="nt">&lt;nome-portador&gt;</span>TESTE CUCUMBER<span class="nt">&lt;/nome-portador&gt;</span>
+        <span class="nt">&lt;token/&gt;</span>
+        <span class="nt">&lt;carteira&gt;</span>
+            <span class="nt">&lt;tipo&gt;</span>MERCHANT<span class="nt">&lt;/tipo&gt;</span>
+            <span class="nt">&lt;codigo-captura/&gt;</span>
+            <span class="nt">&lt;cavv&gt;</span>A901234A5678A0123A567A90120=<span class="nt">&lt;/cavv&gt;</span>
+            <span class="nt">&lt;eci&gt;</span>4<span class="nt">&lt;/eci&gt;</span>
+        <span class="nt">&lt;/carteira&gt;</span>
+    <span class="nt">&lt;/dados-portador&gt;</span>
+    <span class="nt">&lt;dados-pedido&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>86785<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;valor&gt;</span>315000<span class="nt">&lt;/valor&gt;</span>
+        <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
+        <span class="nt">&lt;data-hora&gt;</span>2016-02-16T13:45:05<span class="nt">&lt;/data-hora&gt;</span>
+        <span class="nt">&lt;descricao&gt;</span>Compra Online<span class="nt">&lt;/descricao&gt;</span>
+        <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
+        <span class="nt">&lt;soft-descriptor&gt;</span>soft cucumber<span class="nt">&lt;/soft-descriptor&gt;</span>
+    <span class="nt">&lt;/dados-pedido&gt;</span>
+    <span class="nt">&lt;forma-pagamento&gt;</span>
+        <span class="nt">&lt;bandeira&gt;</span>visa<span class="nt">&lt;/bandeira&gt;</span>
+        <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
+        <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
+    <span class="nt">&lt;/forma-pagamento&gt;</span>
+    <span class="nt">&lt;url-retorno&gt;</span>http://www.cielo.com.br<span class="nt">&lt;/url-retorno&gt;</span>
+    <span class="nt">&lt;autorizar&gt;</span>3<span class="nt">&lt;/autorizar&gt;</span>
+    <span class="nt">&lt;capturar&gt;</span>false<span class="nt">&lt;/capturar&gt;</span>
+    <span class="nt">&lt;gerar-token&gt;</span>false<span class="nt">&lt;/gerar-token&gt;</span>
+    <span class="nt">&lt;avs&gt;</span>
+        <span class="cp">&lt;![CDATA[&lt;dados-avs&gt;&lt;endereco&gt;Rua Credito&lt;/endereco&gt;&lt;complemento&gt;Apto 504&lt;/complemento&gt;&lt;numero&gt;745&lt;/numero&gt;&lt;bairro&gt;Vila Cucumber&lt;/bairro&gt;&lt;cep&gt;13040-144&lt;/cep&gt;&lt;cpf&gt;30652698501&lt;/cpf&gt;&lt;/dados-avs&gt;]]&gt;</span>
+    <span class="nt">&lt;/avs&gt;</span>
+<span class="nt">&lt;/requisicao-transacao&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>Numérico</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Alfanumérco</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Fixo</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-2">Resposta</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?&gt;</span>
+<span class="nt">&lt;transacao</span> <span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span> <span class="na">versao=</span><span class="s">"1.3.0"</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;tid&gt;</span>2000019700008C730BOC<span class="nt">&lt;/tid&gt;</span>
+    <span class="nt">&lt;pan&gt;</span>Ma7WOe2ciLGucTokmn5mX2mkpeVJGkqVTavqR42Pm5k=<span class="nt">&lt;/pan&gt;</span>
+    <span class="nt">&lt;dados-pedido&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>86785<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;valor&gt;</span>315000<span class="nt">&lt;/valor&gt;</span>
+        <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
+        <span class="nt">&lt;data-hora&gt;</span>2016-02-16T13:45:05<span class="nt">&lt;/data-hora&gt;</span>
+        <span class="nt">&lt;descricao&gt;</span>Compra Online<span class="nt">&lt;/descricao&gt;</span>
+        <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
+    <span class="nt">&lt;/dados-pedido&gt;</span>
+    <span class="nt">&lt;forma-pagamento&gt;</span>
+        <span class="nt">&lt;bandeira&gt;</span>visa<span class="nt">&lt;/bandeira&gt;</span>
+        <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
+        <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
+    <span class="nt">&lt;/forma-pagamento&gt;</span>
+    <span class="nt">&lt;status&gt;</span>4<span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;autenticacao&gt;</span>
+        <span class="nt">&lt;codigo&gt;</span>4<span class="nt">&lt;/codigo&gt;</span>
+        <span class="nt">&lt;mensagem&gt;</span>Nao autenticada<span class="nt">&lt;/mensagem&gt;</span>
+        <span class="nt">&lt;data-hora&gt;</span>2020-01-09T11:28:39.732-03:00<span class="nt">&lt;/data-hora&gt;</span>
+        <span class="nt">&lt;valor&gt;</span>315000<span class="nt">&lt;/valor&gt;</span>
+        <span class="nt">&lt;eci&gt;</span>4<span class="nt">&lt;/eci&gt;</span>
+    <span class="nt">&lt;/autenticacao&gt;</span>
+    <span class="nt">&lt;autorizacao&gt;</span>
+        <span class="nt">&lt;codigo&gt;</span>4<span class="nt">&lt;/codigo&gt;</span>
+        <span class="nt">&lt;mensagem&gt;</span>Transacao autorizada<span class="nt">&lt;/mensagem&gt;</span>
+        <span class="nt">&lt;data-hora&gt;</span>2020-01-09T11:28:39.732-03:00<span class="nt">&lt;/data-hora&gt;</span>
+        <span class="nt">&lt;valor&gt;</span>315000<span class="nt">&lt;/valor&gt;</span>
+        <span class="nt">&lt;lr&gt;</span>00<span class="nt">&lt;/lr&gt;</span>
+        <span class="nt">&lt;arp&gt;</span>144716<span class="nt">&lt;/arp&gt;</span>
+        <span class="nt">&lt;nsu&gt;</span>549201<span class="nt">&lt;/nsu&gt;</span>
+        <span class="nt">&lt;codigo-avs-cep&gt;</span>C<span class="nt">&lt;/codigo-avs-cep&gt;</span>
+        <span class="nt">&lt;mensagem-avs-cep&gt;</span>Confere<span class="nt">&lt;/mensagem-avs-cep&gt;</span>
+        <span class="nt">&lt;codigo-avs-end&gt;</span>C<span class="nt">&lt;/codigo-avs-end&gt;</span>
+        <span class="nt">&lt;mensagem-avs-end&gt;</span>Confere<span class="nt">&lt;/mensagem-avs-end&gt;</span>
+    <span class="nt">&lt;/autorizacao&gt;</span>
+<span class="nt">&lt;/transacao&gt;</span>
+</code></pre></div></div>
+
 <h2 id="funcionalidades-agregadas">Funcionalidades Agregadas</h2>
 
 <h3 id="autenticação-e-transações-com-cartões-de-débito">Autenticação e Transações com Cartões de Débito</h3>
@@ -3659,7 +3779,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
   </li>
 </ul>
 
-<h4 id="requisição-2">Requisição</h4>
+<h4 id="requisição-3">Requisição</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;requisicao-consulta</span> <span class="na">id=</span><span class="s">"6fcf758e-bc60-4d6a-acf4-496593a40441"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
@@ -3722,7 +3842,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <aside class="notice">INFORMAÇÃO: A consulta por Número do Pedido deve ser usada apenas como contingência à Consulta por TID, pois esta pode não garantir unicidade da transação, tendo em vista que este campo é enviado pela loja virtual e apenas acatado pela Cielo.</aside>
 
-<h4 id="requisição-3">Requisição</h4>
+<h4 id="requisição-4">Requisição</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;requisicao-consulta-chsec</span> <span class="na">id=</span><span class="s">"a51489b1-93d5-437f-bb4f-5b932fade248"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
