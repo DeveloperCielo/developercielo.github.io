@@ -1418,6 +1418,7 @@ Below are the situations to identify if it's the first or subsequent transaction
 Customers who card tokenize along with the flags can send the information to Cielo in the transactional flow.
 
 #### Request
+
 ``` xml
 <?xml version="1.0"?>
 <requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
