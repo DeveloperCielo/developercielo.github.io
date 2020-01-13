@@ -1439,6 +1439,107 @@ Abaixo seguem as situações para identificar se é a primeira transação ou su
 |captura.data-hora|Alfanumérico|Sim|19|Data e hora do processamento|
 |captura.valor|Numérico|Sim|1..12|Valor do processamento sem pontuação. Os dois últimos dígitos são os centavos.|
 
+### Tokenização de Bandeira
+
+Clientes que fazem tokenização do cartão junto com as bandeiras poderão enviar as informações para a Cielo no fluxo transacional.
+
+#### Requisição
+
+``` xml
+<?xml version="1.0"?>
+<requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
+    <dados-ec>
+        <numero>2000019700</numero>
+        <chave>65d156641f765861451c7c1270a4c09a617863b031b2e4b0c4a09cd390783c82</chave>
+    </dados-ec>
+    <dados-portador>
+        <numero>4084359300407900</numero>
+        <validade>201712</validade>
+        <indicador>1</indicador>
+        <codigo-seguranca>123</codigo-seguranca>
+        <nome-portador>TESTE CUCUMBER</nome-portador>
+        <token/>
+        <carteira>
+            <tipo>MERCHANT</tipo>
+            <codigo-captura/>
+            <cavv>A901234A5678A0123A567A90120=</cavv>
+            <eci>4</eci>
+        </carteira>
+    </dados-portador>
+    <dados-pedido>
+        <numero>86785</numero>
+        <valor>315000</valor>
+        <moeda>986</moeda>
+        <data-hora>2016-02-16T13:45:05</data-hora>
+        <descricao>Compra Online</descricao>
+        <idioma>PT</idioma>
+        <soft-descriptor>soft cucumber</soft-descriptor>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>visa</bandeira>
+        <produto>1</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <url-retorno>http://www.cielo.com.br</url-retorno>
+    <autorizar>3</autorizar>
+    <capturar>false</capturar>
+    <gerar-token>false</gerar-token>
+    <avs>
+        <![CDATA[<dados-avs><endereco>Rua Credito</endereco><complemento>Apto 504</complemento><numero>745</numero><bairro>Vila Cucumber</bairro><cep>13040-144</cep><cpf>30652698501</cpf></dados-avs>]]>
+    </avs>
+</requisicao-transacao>
+```
+
+|Propriedade|Tipo|Tamanho|
+|---|---|---|
+|<carteira><eci>|Numérico|1|
+|<carteira><cavv>|Alfanumérco|29|
+|<carteira><tipo>|Fixo|4|
+
+#### Resposta
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0" xmlns="http://ecommerce.cbmp.com.br">
+    <tid>2000019700008C730BOC</tid>
+    <pan>Ma7WOe2ciLGucTokmn5mX2mkpeVJGkqVTavqR42Pm5k=</pan>
+    <dados-pedido>
+        <numero>86785</numero>
+        <valor>315000</valor>
+        <moeda>986</moeda>
+        <data-hora>2016-02-16T13:45:05</data-hora>
+        <descricao>Compra Online</descricao>
+        <idioma>PT</idioma>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>visa</bandeira>
+        <produto>1</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <status>4</status>
+    <autenticacao>
+        <codigo>4</codigo>
+        <mensagem>Nao autenticada</mensagem>
+        <data-hora>2020-01-09T11:28:39.732-03:00</data-hora>
+        <valor>315000</valor>
+        <eci>4</eci>
+    </autenticacao>
+    <autorizacao>
+        <codigo>4</codigo>
+        <mensagem>Transacao autorizada</mensagem>
+        <data-hora>2020-01-09T11:28:39.732-03:00</data-hora>
+        <valor>315000</valor>
+        <lr>00</lr>
+        <arp>144716</arp>
+        <nsu>549201</nsu>
+        <codigo-avs-cep>C</codigo-avs-cep>
+        <mensagem-avs-cep>Confere</mensagem-avs-cep>
+        <codigo-avs-end>C</codigo-avs-end>
+        <mensagem-avs-end>Confere</mensagem-avs-end>
+    </autorizacao>
+</transacao>
+```
+
 ## Funcionalidades Agregadas
 
 ### Autenticação e Transações com Cartões de Débito
