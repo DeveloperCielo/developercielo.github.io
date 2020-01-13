@@ -1493,7 +1493,7 @@ Clientes que fazem tokenização do cartão junto com as bandeiras poderão envi
 |Propriedade|Tipo|Tamanho|
 |---|---|---|
 |carteira.eci|Numérico|1|
-|carteira.cavv|Alfanumérco|29|
+|carteira.cavv|Alfanumérico|29|
 |carteira.tipo|Fixo|4|
 
 #### Resposta
