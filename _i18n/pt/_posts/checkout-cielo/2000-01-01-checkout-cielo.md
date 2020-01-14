@@ -1187,6 +1187,7 @@ O Checkout permite apenas um tipo de `Boleto` ou `Débito Online` por lojista, s
 |2|Boleto Bancário|
 |3|Débito Online|
 |4|Cartão de Débito|
+|5|QR Code|
 
 **Payment_method_brand**
 
