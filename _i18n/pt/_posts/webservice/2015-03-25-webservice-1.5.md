@@ -1494,7 +1494,7 @@ Clientes que fazem tokenização do cartão junto com as bandeiras poderão envi
 |---|---|---|
 |carteira.eci|Numérico|1|
 |carteira.cavv|Alfanumérico|29|
-|carteira.tipo|Fixo|4|
+|carteira.tipo|Fixo||
 
 #### Resposta
 
