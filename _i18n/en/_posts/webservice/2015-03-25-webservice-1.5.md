@@ -1468,7 +1468,7 @@ Customers who card tokenize along with the flags can send the information to Cie
 |---|---|---|
 |carteira.eci|Numeric|1|
 |carteira.cavv|Alfanumeric|29|
-|carteira.tipo|Fixed|4|
+|carteira.tipo|Fixed||
 
 #### Response
 
