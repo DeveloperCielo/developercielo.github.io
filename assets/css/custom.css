@@ -183,7 +183,7 @@ td, th {
 }
 
 .toc-footer li a {
-    padding: 10px 15px;
+    padding: 0px 15px;
     transition: .3s ease all;
     position: relative;
     display: block;
