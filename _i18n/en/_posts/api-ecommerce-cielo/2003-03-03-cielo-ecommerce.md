@@ -2390,7 +2390,7 @@ curl
 
 |Property|Description|Type|Size|Format|
 |---|---|---|---|---|
-|`QrCodeBase64Image`|QRCode encoded in 64. For example, the image may be displayed on the page using the HTML code like this:<br><pre lang="html">&lt;img src=&quot;data:image/png;base64,image_code_in_the_64_base}"&quot;&gt;</pre>|Text|variable|Alphanumeric text|
+|`QrCodeBase64Image`|QRCode encoded in 64. For example, the image may be displayed on the page using the HTML code like this:<br><pre lang="html">&lt;img src=&quot;data:image/png;base64,image_code_in_the_64_base&quot;&gt;</pre>|Text|variable|Alphanumeric text|
 |`PaymentId`|Order Identifier Field, required for future operations, such as Query, Capture and Cancellation.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Status`|Transaction Status. In the case of creating a QR Code payment transaction, the initial status is 12 (Pending).|Byte|---|2|
 |`ReturnCode`|Return code of Acquiring.|Texto|32|Alphanumeric text|
