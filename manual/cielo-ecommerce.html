@@ -15182,7 +15182,7 @@ Todas essas etapas exigem que transações sejam realizadas para obter acesso a 
 
 <p>Para realizar a consulta ao Zero Auth, o lojista deverá enviar uma requisição <code class="highlighter-rouge">POST</code> para a API Cielo Ecommerce, simulando uma transação. O <code class="highlighter-rouge">POST</code> deverá ser realizado nas seguintes URL:</p>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://`api`.cieloecommerce.cielo.com.br/1/`zeroauth`</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://api.cieloecommerce.cielo.com.br/1/zeroauth</span></aside>
 
 <p>Cada tipo de validação necessita de um contrato tecnico diferente. Eles resultarão em <em>responses diferenciados</em>.</p>
 
@@ -15196,7 +15196,11 @@ Todas essas etapas exigem que transações sejam realizadas para obter acesso a 
     </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+    </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CardOnFile"</span><span class="p">:{</span><span class="w">
+       </span><span class="nl">"Usage"</span><span class="p">:</span><span class="s2">"First"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"Reason"</span><span class="p">:</span><span class="s2">"Recurring"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -15269,6 +15273,20 @@ Todas essas etapas exigem que transações sejam realizadas para obter acesso a 
       <td>36</td>
       <td style="text-align: center">Condicional</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Usage</code></td>
+      <td><strong>First</strong> se o cartão foi armazenado e é seu primeiro uso.<br /><strong>Used</strong> se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação.</td>
+      <td>Texto</td>
+      <td>—</td>
+      <td style="text-align: center">Não</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Reason</code></td>
+      <td>Indica o propósito de armazenamento de cartões, caso o campo “Usage” for “Used”.<br /><strong>Recurring</strong> - Compra recorrente programada (ex. assinaturas)<br /><strong>Unscheduled</strong> - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br /><strong>Installments</strong> - Parcelamento através da recorrência<br /><a href="https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas">Veja Mais</a>.</td>
+      <td>Texto</td>
+      <td>—</td>
+      <td style="text-align: center">Condicional</td>
+    </tr>
   </tbody>
 </table>
 
@@ -15323,7 +15341,7 @@ Todas essas etapas exigem que transações sejam realizadas para obter acesso a 
       <th>Paramêtro</th>
       <th>Descrição</th>
       <th>Tipo</th>
-      <th style="text-align: center">Tamanho</th>
+      <th>Tamanho</th>
     </tr>
   </thead>
   <tbody>
@@ -15331,19 +15349,25 @@ Todas essas etapas exigem que transações sejam realizadas para obter acesso a 
       <td><code class="highlighter-rouge">Valid</code></td>
       <td>Situação do cartão:<br /> <strong>True</strong> – Cartão válido<br /><strong>False</strong> – Cartão Inválido</td>
       <td>Boolean</td>
-      <td style="text-align: center">—</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
       <td>Código de retorno</td>
-      <td>texto</td>
-      <td style="text-align: center">2</td>
+      <td>Texto</td>
+      <td>2</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnMessage</code></td>
       <td>Mensagem de retorno</td>
-      <td>texto</td>
-      <td style="text-align: center">255</td>
+      <td>Texto</td>
+      <td>255</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">IssuerTransactionId</code></td>
+      <td>Identificado de autenticação do Emissor para transações de débito recorrentes. Este campo deve ser enviado nas transações subsequentes da primeira transação no modelo de recorrência própria. Já no modelo de recorrência programada, a Cielo será a responsável por enviar o campo nas transações subsequentes.</td>
+      <td>Texto</td>
+      <td>15</td>
     </tr>
   </tbody>
 </table>
@@ -15352,8 +15376,9 @@ Todas essas etapas exigem que transações sejam realizadas para obter acesso a 
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="err">“</span><span class="mi">00</span><span class="err">”</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"ReturnMessage"</span><span class="p">,</span><span class="w"> </span><span class="err">“Transacao</span><span class="w"> </span><span class="err">autorizada”</span><span class="w">
+  </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transacao autorizada"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"IssuerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"580027442382078"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -15367,7 +15392,8 @@ O código de retorno <strong>00 representa sucesso no Zero Auth</strong>, os dem
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
        </span><span class="nl">"Valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
        </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57"</span><span class="p">,</span><span class="w">
-       </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autorizacao negada"</span><span class="w">
+       </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autorizacao negada"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"IssuerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"580027442382078"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
