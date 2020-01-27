@@ -15173,7 +15173,7 @@ The problem is that at the end of this period, if the card is invalid, the new r
 
 <p>In order to use Zero Auth, the merchant must send a <code class="highlighter-rouge">POST</code> request to the Cielo Ecommerce API, simulating a transaction. <code class="highlighter-rouge">POST</code> should be done at the following URLs:</p>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://`api`.cieloecommerce.cielo.com.br/1/`zeroauth`</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://api.cieloecommerce.cielo.com.br/1/zeroauth</span></aside>
 
 <p>Each type of validation requires a different technical contract. They will result in differentiated responses</p>
 
@@ -15187,7 +15187,11 @@ The problem is that at the end of this period, if the card is invalid, the new r
     </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+    </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CardOnFile"</span><span class="p">:{</span><span class="w">
+       </span><span class="nl">"Usage"</span><span class="p">:</span><span class="s2">"First"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"Reason"</span><span class="p">:</span><span class="s2">"Recurring"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -15260,6 +15264,20 @@ The problem is that at the end of this period, if the card is invalid, the new r
       <td>36</td>
       <td>Conditional</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Usage</code></td>
+      <td><strong>First</strong> if the credentials have been stored and they will be used for the first time.<br /><strong>Used</strong> if the credentials have been stored and they were previously used.</td>
+      <td>Text</td>
+      <td>—</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Reason</code></td>
+      <td>Indicates the purpose of credential storage, case the value of field “Usage” is “Used” <br /><strong>Recurring</strong> - Scheduled recurring<br /><strong>Unscheduled</strong> - Unscheduled recurring<br /><strong>Installments</strong> - Installments Transaction</td>
+      <td>Text</td>
+      <td>—</td>
+      <td>Conditional</td>
+    </tr>
   </tbody>
 </table>
 
@@ -15327,14 +15345,20 @@ The problem is that at the end of this period, if the card is invalid, the new r
     <tr>
       <td><code class="highlighter-rouge">ReturnCode</code></td>
       <td>Return code</td>
-      <td>text</td>
+      <td>Text</td>
       <td>2</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ReturnMessage</code></td>
       <td>Return message</td>
-      <td>text</td>
+      <td>Text</td>
       <td>255</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">IssuerTransactionId</code></td>
+      <td>Issuer authentication ID for recurring debit transactions. This field must be sent in subsequent transactions of the first transaction in the recurrence model itself. In the scheduled recurrence model, Cielo will be responsible for sending the field in subsequent transactions.</td>
+      <td>Text</td>
+      <td>15</td>
     </tr>
   </tbody>
 </table>
@@ -15344,7 +15368,8 @@ The problem is that at the end of this period, if the card is invalid, the new r
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
         </span><span class="nl">"Valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="err">“</span><span class="mi">00</span><span class="err">”</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ReturnMessage"</span><span class="p">,</span><span class="w"> </span><span class="err">“Transacao</span><span class="w"> </span><span class="err">autorizada”</span><span class="w">
+        </span><span class="s2">"ReturnMessage"</span><span class="p">,</span><span class="w"> </span><span class="err">“Transacao</span><span class="w"> </span><span class="err">autorizada”</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"IssuerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"580027442382078"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -15358,7 +15383,8 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
        </span><span class="nl">"Valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
        </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57"</span><span class="p">,</span><span class="w">
-       </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autorizacao negada"</span><span class="w">
+       </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autorizacao negada"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"IssuerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"580027442382078"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
