@@ -7553,7 +7553,7 @@ O problema é que ao se encerrar esse período, se o cartão for invalido, o nov
 
 Para realizar a consulta ao Zero Auth, o lojista deverá enviar uma requisição `POST` para a API Cielo Ecommerce, simulando uma transação. O `POST` deverá ser realizado nas seguintes URL: 
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://`api`.cieloecommerce.cielo.com.br/1/`zeroauth`</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://api.cieloecommerce.cielo.com.br/1/zeroauth</span></aside>
 
 Cada tipo de validação necessita de um contrato tecnico diferente. Eles resultarão em _responses diferenciados_.
 
@@ -7568,22 +7568,29 @@ Cada tipo de validação necessita de um contrato tecnico diferente. Eles result
     "ExpirationDate":"12/2021",
     "SecurityCode":"123",
     "SaveCard":"false",
-    "Brand":"Visa"
+    "Brand":"Visa",
+	"CardOnFile":{
+	     "Usage":"First",
+		 "Reason":"Recurring"
+	}
 }
 ```
 
 Abaixo, a listagem de campos da Requisição:
 
-| Paramêtro        | Descrição                                                                                                             | Tipo    | Tamanho | Obrigatório |
-|------------------|-----------------------------------------------------------------------------------------------------------------------|---------|---------|:-----------:|
-| `CardType`       | Define o tipo de cartão utilizados:<br><br>*CreditCard*<br>*DebitCard*<br><br>Se não enviado, CreditCard como default | Texto   | 255     | Sim         |
-| `CardNumber`     | Número do Cartão do Comprador                                                                                         | Texto   | 16      | Sim         |
-| `Holder`         | Nome do Comprador impresso no cartão.                                                                                 | Texto   | 25      | Sim         |
-| `ExpirationDate` | Data de e validade impresso no cartão.                                                                                | Texto   | 7       | Sim         |
-| `SecurityCode`   | Código de segurança impresso no verso do cartão.                                                                      | Texto   | 4       | Sim         |
-| `SaveCard`       | Booleano que identifica se o cartão será salvo para gerar o CardToken.                                                | Boolean | ---     | Sim         |
-| `Brand`          | Bandeira do cartão: <br><br>Visa<br>Master<br>| Texto   | 10      | Sim         |
-| `CardToken`      | Token do cartão na 3.0                                                                                                | GUID    | 36      | Condicional |
+| Paramêtro        | Descrição                                                                                                                                                  | Tipo    | Tamanho | Obrigatório |
+|------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|---------|:-----------:|
+| `CardType`       | Define o tipo de cartão utilizados:<br><br>*CreditCard*<br>*DebitCard*<br><br>Se não enviado, CreditCard como default                                                                                                                                                                                                                                                                                     | Texto   | 255     | Sim         |
+| `CardNumber`     | Número do Cartão do Comprador                                                                                                                                                                                                                                                                                                                                                                             | Texto   | 16      | Sim         |
+| `Holder`         | Nome do Comprador impresso no cartão.                                                                                                                                                                                                                                                                                                                                                                     | Texto   | 25      | Sim         |
+| `ExpirationDate` | Data de e validade impresso no cartão.                                                                                                                                                                                                                                                                                                                                                                    | Texto   | 7       | Sim         |
+| `SecurityCode`   | Código de segurança impresso no verso do cartão.                                                                                                                                                                                                                                                                                                                                                          | Texto   | 4       | Sim         |
+| `SaveCard`       | Booleano que identifica se o cartão será salvo para gerar o CardToken.                                                                                                                                                                                                                                                                                                                                    | Boolean | ---     | Sim         |
+| `Brand`          | Bandeira do cartão: <br><br>Visa<br>Master<br>                                                                                                                                                                                                                                                                                                                                                            | Texto   | 10      | Sim         |
+| `CardToken`      | Token do cartão na 3.0                                                                                                                                                                                                                                                                                                                                                                                    | GUID    | 36      | Condicional |
+| `Usage`          | **First** se o cartão foi armazenado e é seu primeiro uso.<br>**Used** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação.                                                                                                                                                                                                                                                | Texto   | ---     | Não         |
+| `Reason`         | Indica o propósito de armazenamento de cartões, caso o campo "Usage" for "Used".<BR>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>**Installments** - Parcelamento através da recorrência<br>[Veja Mais](https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas). | Texto   | ---     | Condicional |
+
 
 #### COM TOKEN
 
@@ -7608,19 +7615,21 @@ A resposta sempre retorna se o cartão pode ser autorizado no momento. Essa info
 
 Abaixo os campos retornados após a validação:
 
-| Paramêtro       | Descrição                                                                       | Tipo    | Tamanho |
-|-----------------|---------------------------------------------------------------------------------|---------|:-------:|
-| `Valid`         | Situação do cartão:<br> **True** – Cartão válido<BR>**False** – Cartão Inválido | Boolean | ---     |
-| `ReturnCode`    | Código de retorno                                                               | texto   | 2       |
-| `ReturnMessage` | Mensagem de retorno                                                             | texto   | 255     |
+| Paramêtro              | Descrição                                                                                                                                                                                                                                                                                                        | Tipo    | Tamanho |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|---------|
+| `Valid`               | Situação do cartão:<br> **True** – Cartão válido<BR>**False** – Cartão Inválido                                                                                                                                                                                                                                   | Boolean | ---     |
+| `ReturnCode`          | Código de retorno                                                                                                                                                                                                                                                                                                 | Texto   | 2       |
+| `ReturnMessage`       | Mensagem de retorno                                                                                                                                                                                                                                                                                               | Texto   | 255     |
+| `IssuerTransactionId` | Identificado de autenticação do Emissor para transações de débito recorrentes. Este campo deve ser enviado nas transações subsequentes da primeira transação no modelo de recorrência própria. Já no modelo de recorrência programada, a Cielo será a responsável por enviar o campo nas transações subsequentes. | Texto   | 15      |
 
 #### POSITIVA - Cartão Válido
 
 ``` json
 {
   "Valid": true,
-  "ReturnCode": “00”,
-  "ReturnMessage", “Transacao autorizada”
+  "ReturnCode": "00",
+  "ReturnMessage": "Transacao autorizada",
+  "IssuerTransactionId": "580027442382078"
 }
 ```
 
@@ -7633,7 +7642,8 @@ Abaixo os campos retornados após a validação:
 {
        "Valid": false,
        "ReturnCode": "57",
-       "ReturnMessage": "Autorizacao negada"
+       "ReturnMessage": "Autorizacao negada",
+       "IssuerTransactionId": "580027442382078"
 }
 ```
 
