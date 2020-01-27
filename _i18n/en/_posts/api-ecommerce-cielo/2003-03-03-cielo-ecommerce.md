@@ -7604,7 +7604,7 @@ Below the fields returned after validation:
         "Valid": true,
         "ReturnCode": “00”,
         "ReturnMessage", “Transacao autorizada”,
-  "IssuerTransactionId": "580027442382078"
+        "IssuerTransactionId": "580027442382078"
 }
 ```
 
@@ -7618,7 +7618,7 @@ Below the fields returned after validation:
        "Valid": false,
        "ReturnCode": "57",
        "ReturnMessage": "Autorizacao negada",
-  "IssuerTransactionId": "580027442382078"
+       "IssuerTransactionId": "580027442382078"
 }
 ```
 
