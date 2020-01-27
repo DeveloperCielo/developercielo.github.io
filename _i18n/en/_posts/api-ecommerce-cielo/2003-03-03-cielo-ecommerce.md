@@ -7529,7 +7529,7 @@ The problem is that at the end of this period, if the card is invalid, the new r
 
 In order to use Zero Auth, the merchant must send a `POST` request to the Cielo Ecommerce API, simulating a transaction. `POST` should be done at the following URLs:
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://`api`.cieloecommerce.cielo.com.br/1/`zeroauth`</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://api.cieloecommerce.cielo.com.br/1/zeroauth</span></aside>
 
 Each type of validation requires a different technical contract. They will result in differentiated responses
 
@@ -7544,22 +7544,28 @@ Each type of validation requires a different technical contract. They will resul
     "ExpirationDate":"12/2021",
     "SecurityCode":"123",
     "SaveCard":"false",
-    "Brand":"Visa"
+    "Brand":"Visa",
+    "CardOnFile":{
+       "Usage":"First",
+       "Reason":"Recurring"
+    }
 }
 ```
 
 Below the fields returned after validation:
 
-| Field              | Description                                                                                                               | Type      | Contact Us | Required       |
-|--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------|------------|----------------|
-| `CardType`         | Defines the type of card used: <br> <br> *CreditCard* <br> *DebitCard* <br> <br> If not sent, CreditCard as default       | Text      | 255        | Yes             |
-| `CardNumber`       | Card Number                                                                                                               | Text      | 16         | Yes            |
-| `Holder`           | Buyer's name, printed on the card.                                                                                        | Text      | 25         | Yes             |
-| `ExpirationDate`   | Expiration date.                                                                                                          | Text      | 7          | Yes            |
-| `SecurityCode`     | Card Security code .                                                                                                      | Text      | 4          | Yes             |
-| `SaveCard`         | Defines if the card must be tokenized                                                                                     | Boolean   | ---        | Yes             |
-| `Brand`            | Card Brand: Visa <br> Master <br> ELO                                                                                     | Text      | 10         | Yes             |
-| `CardToken`      | Card Token 3.0                                                                                               | GUID    | 36      | Conditional |
+| Field              | Description                                                                                                                                                                                                              | Type      | Contact Us | Required       |
+|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|------------|----------------|
+| `CardType`         | Defines the type of card used: <br> <br> *CreditCard* <br> *DebitCard* <br> <br> If not sent, CreditCard as default                                                                                                      | Text      | 255        | Yes            |
+| `CardNumber`       | Card Number                                                                                                                                                                                                              | Text      | 16         | Yes            |
+| `Holder`           | Buyer's name, printed on the card.                                                                                                                                                                                       | Text      | 25         | Yes            |
+| `ExpirationDate`   | Expiration date.                                                                                                                                                                                                         | Text      | 7          | Yes            |
+| `SecurityCode`     | Card Security code .                                                                                                                                                                                                     | Text      | 4          | Yes            |
+| `SaveCard`         | Defines if the card must be tokenized                                                                                                                                                                                    | Boolean   | ---        | Yes            |
+| `Brand`            | Card Brand: Visa <br> Master <br> ELO                                                                                                                                                                                    | Text      | 10         | Yes            |
+| `CardToken`        | Card Token 3.0                                                                                                                                                                                                           | GUID      | 36         | Conditional    |
+| `Usage`            | **First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.                                                   | Text   | ---     | No         |
+| `Reason`           | Indicates the purpose of credential storage, case the value of field "Usage" is "Used" <br>**Recurring** - Scheduled recurring<br>**Unscheduled** - Unscheduled recurring<br>**Installments** - Installments Transaction | Text   | ---     | Conditional |
 
 #### Using CardToken
 
@@ -7584,11 +7590,12 @@ The response always returns if the card can be authorized at the moment. This in
 
 Below the fields returned after validation:
 
-| Field             | Description                                                                        | Type      | Contact Us |
-| ----------------- | ------------------------------- -------------------------------------------------- | --------- | : -------: |
-| `Valid`           | Card Status: <br> **True ** - Valid Card <BR> **False** - Invalid Card             | Boolean   | ---        |
-| `ReturnCode`      | Return code                                                                        | text      | 2          |
-| `ReturnMessage`   | Return message                                                                     | text      | 255        |
+| Field                 | Description                                                                        | Type      | Contact Us |
+| --------------------- | ------------------------------- -------------------------------------------------- | --------- | : -------: |
+| `Valid`               | Card Status: <br> **True ** - Valid Card <BR> **False** - Invalid Card             | Boolean   | ---        |
+| `ReturnCode`          | Return code                                                                        | Text      | 2          |
+| `ReturnMessage`       | Return message                                                                     | Text      | 255        |
+| `IssuerTransactionId` | Issuer authentication ID for recurring debit transactions. This field must be sent in subsequent transactions of the first transaction in the recurrence model itself. In the scheduled recurrence model, Cielo will be responsible for sending the field in subsequent transactions. | Text   | 15      |
 
 #### POSITIVE - Valid Card
 
@@ -7596,7 +7603,8 @@ Below the fields returned after validation:
 {
         "Valid": true,
         "ReturnCode": “00”,
-        "ReturnMessage", “Transacao autorizada”
+        "ReturnMessage", “Transacao autorizada”,
+  "IssuerTransactionId": "580027442382078"
 }
 ```
 
@@ -7609,7 +7617,8 @@ Below the fields returned after validation:
 {
        "Valid": false,
        "ReturnCode": "57",
-       "ReturnMessage": "Autorizacao negada"
+       "ReturnMessage": "Autorizacao negada",
+  "IssuerTransactionId": "580027442382078"
 }
 ```
 
