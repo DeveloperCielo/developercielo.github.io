@@ -7569,10 +7569,10 @@ Cada tipo de validação necessita de um contrato tecnico diferente. Eles result
     "SecurityCode":"123",
     "SaveCard":"false",
     "Brand":"Visa",
-	"CardOnFile":{
-	     "Usage":"First",
-		 "Reason":"Recurring"
-	}
+    "CardOnFile":{
+       "Usage":"First",
+       "Reason":"Recurring"
+    }
 }
 ```
 
@@ -7590,7 +7590,6 @@ Abaixo, a listagem de campos da Requisição:
 | `CardToken`      | Token do cartão na 3.0                                                                                                                                                                                                                                                                                                                                                                                    | GUID    | 36      | Condicional |
 | `Usage`          | **First** se o cartão foi armazenado e é seu primeiro uso.<br>**Used** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação.                                                                                                                                                                                                                                                | Texto   | ---     | Não         |
 | `Reason`         | Indica o propósito de armazenamento de cartões, caso o campo "Usage" for "Used".<BR>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>**Installments** - Parcelamento através da recorrência<br>[Veja Mais](https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas). | Texto   | ---     | Condicional |
-
 
 #### COM TOKEN
 
