@@ -331,7 +331,7 @@ The new fields are contained within the Payment Facilitator node. In addition to
     <url-retorno>http://www.cielo.com.br</url-retorno>
     <autorizar>3</autorizar>
     <capturar>true</capturar>
-    <gerar-token>false</gerar-token>
+    <gerar-token>false</gerar-token> 
 </requisicao-transacao>
 ```
 
@@ -385,15 +385,15 @@ The new fields are contained within the Payment Facilitator node. In addition to
 
 |Property|Type|Size|Required|Description|
 |---|---|---|---|---|
-|<subcredenciador><numero>|Number|11|Required for facilitators|Facilitator's establishment code.|
-|<subcredenciador><sub-ec><numero>|Number|15|Required for facilitators|Sub Merchant establishment code.|
-|<subcredenciador><sub-ec><mcc>|Number|4|Required for facilitators|MCC do sub Merchant.|
-|<subcredenciador><sub-ec><endereco>|Alphanumeric|22|Required for facilitators|Sub Merchant Address.|
-|<subcredenciador><sub-ec><cidade>|Alphanumeric|13|Required for facilitators|City of the sub Merchant.|
-|<subcredenciador><sub-ec><estado>|Alphanumeric|2|Required for facilitators|State do sub Merchant.|
-|<subcredenciador><sub-ec><codigo-postal>|Number|9|Required for facilitators|Sub Merchant Postcode.|
-|<subcredenciador><sub-ec><telefone>|Number|13|Required for facilitators|Sub Merchant Phone Number.|
-|<soft-descriptor>|Text|13|Required for facilitators|Text printed on buyer bank invoice. Must be completed according to the data of the sub Merchant.|
+|PaymentFacilitator.EstablishmentCode|<subcredenciador><numero>|Number|11|Required for facilitators|Facilitator's establishment code.|
+|PaymentFacilitator.SubEstablishment.EstablishmentCode|<subcredenciador><sub-ec><numero>|Number|15|Required for facilitators|Sub Merchant establishment code.|
+|PaymentFacilitator.SubEstablishment.Mcc|<subcredenciador><sub-ec><mcc>|Number|4|Required for facilitators|MCC do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.Address|<subcredenciador><sub-ec><endereco>|Alphanumeric|22|Required for facilitators|Sub Merchant Address.|
+|PaymentFacilitator.SubEstablishment.City|<subcredenciador><sub-ec><cidade>|Alphanumeric|13|Required for facilitators|City of the sub Merchant.|
+|PaymentFacilitator.SubEstablishment.State|<subcredenciador><sub-ec><estado>|Alphanumeric|2|Required for facilitators|State do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.PostalCode|<subcredenciador><sub-ec><codigo-postal>|Number|9|Required for facilitators|Sub Merchant Postcode.|
+|PaymentFacilitator.SubEstablishment.PhoneNumber|<subcredenciador><sub-ec><telefone>|Number|13|Required for facilitators|Sub Merchant Phone Number.|
+|Payment.Softdescriptor|<soft-descriptor>|Text|13|Required for facilitators|Text printed on buyer bank invoice. Must be completed according to the data of the sub Merchant.|
 
 # Creating transactions
 
