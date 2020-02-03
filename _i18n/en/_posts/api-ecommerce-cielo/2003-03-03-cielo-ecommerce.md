@@ -278,8 +278,8 @@ The new fields are contained within the Payment Facilitator node. In addition to
 
 |Property|Type|Size|Required|Description|
 |---|---|---|---|---|
-|PaymentFacilitator.EstablishmentCode|Number|11|Required for facilitators|Facilitator's establishment code.|
-|PaymentFacilitator.SubEstablishment.EstablishmentCode|Number|15|Required for facilitators|Sub Merchant establishment code.|
+|PaymentFacilitator.EstablishmentCode|Number|11|Required for facilitators|Facilitator's establishment code. “Facilitator ID” (Registration of the facilitator with the card brands)|
+|PaymentFacilitator.SubEstablishment.EstablishmentCode|Number|15|Required for facilitators|Sub Merchant establishment code. “Sub-Merchant ID” (Registration of sub-accredited with the facilitator)|
 |PaymentFacilitator.SubEstablishment.Mcc|Number|4|Required for facilitators|MCC do sub Merchant.|
 |PaymentFacilitator.SubEstablishment.Address|Alphanumeric|22|Required for facilitators|Sub Merchant Address.|
 |PaymentFacilitator.SubEstablishment.City|Alphanumeric|13|Required for facilitators|City of the sub Merchant.|
