@@ -394,15 +394,15 @@ Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos cam
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|<subcredenciador><numero>|Numérico|11|Obrigatório para facilitadores|Código do estabelecimento do Facilitador.|
-|<subcredenciador><sub-ec><numero>|Numérico|15|Obrigatório para facilitadores|Código do estabelecimento do sub Merchant.|
-|<subcredenciador><sub-ec><mcc>|Numérico|4|Obrigatório para facilitadores|MCC do sub Merchant.|
-|<subcredenciador><sub-ec><endereco>|Alfanumérico|22|Obrigatório para facilitadores|Endereço do sub Merchant.|
-|<subcredenciador><sub-ec><cidade>|Alfanumérico|13|Obrigatório para facilitadores|Cidade do sub Merchant.|
-|<subcredenciador><sub-ec><estado>|Alfanumérico|2|Obrigatório para facilitadores|Estado do sub Merchant.|
-|<subcredenciador><sub-ec><codigo-postal>|Numérico|9|Obrigatório para facilitadores|Código postal do sub Merchant.|
-|<subcredenciador><sub-ec><telefone>|Numérico|13|Obrigatório para facilitadores|Número de telefone do sub Merchant.|
-|<soft-descriptor>|Texto|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
+|PaymentFacilitator.EstablishmentCode|<subcredenciador><numero>|Numérico|11|Obrigatório para facilitadores|Código do estabelecimento do Facilitador.|
+|PaymentFacilitator.SubEstablishment.EstablishmentCode|<subcredenciador><sub-ec><numero>|Numérico|15|Obrigatório para facilitadores|Código do estabelecimento do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.Mcc|<subcredenciador><sub-ec><mcc>|Numérico|4|Obrigatório para facilitadores|MCC do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.Address|<subcredenciador><sub-ec><endereco>|Alfanumérico|22|Obrigatório para facilitadores|Endereço do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.City|<subcredenciador><sub-ec><cidade>|Alfanumérico|13|Obrigatório para facilitadores|Cidade do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.State|<subcredenciador><sub-ec><estado>|Alfanumérico|2|Obrigatório para facilitadores|Estado do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.PostalCode|<subcredenciador><sub-ec><codigo-postal>|Numérico|9|Obrigatório para facilitadores|Código postal do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.PhoneNumber|<subcredenciador><sub-ec><telefone>|Numérico|13|Obrigatório para facilitadores|Número de telefone do sub Merchant.|
+|Payment.Softdescriptor|<soft-descriptor>|Texto|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
 
 # Criando transações
 
