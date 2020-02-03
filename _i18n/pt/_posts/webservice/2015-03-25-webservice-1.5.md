@@ -394,8 +394,8 @@ Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos cam
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|PaymentFacilitator.EstablishmentCode|<subcredenciador><numero>|Numérico|11|Obrigatório para facilitadores|Código do estabelecimento do Facilitador.|
-|PaymentFacilitator.SubEstablishment.EstablishmentCode|<subcredenciador><sub-ec><numero>|Numérico|15|Obrigatório para facilitadores|Código do estabelecimento do sub Merchant.|
+|PaymentFacilitator.EstablishmentCode|<subcredenciador><numero>|Numérico|11|Obrigatório para facilitadores|Código do estabelecimento do Facilitador. "Facilitator ID” (Cadastro do facilitador com as bandeiras)|
+|PaymentFacilitator.SubEstablishment.EstablishmentCode|<subcredenciador><sub-ec><numero>|Numérico|15|Obrigatório para facilitadores|Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)|
 |PaymentFacilitator.SubEstablishment.Mcc|<subcredenciador><sub-ec><mcc>|Numérico|4|Obrigatório para facilitadores|MCC do sub Merchant.|
 |PaymentFacilitator.SubEstablishment.Address|<subcredenciador><sub-ec><endereco>|Alfanumérico|22|Obrigatório para facilitadores|Endereço do sub Merchant.|
 |PaymentFacilitator.SubEstablishment.City|<subcredenciador><sub-ec><cidade>|Alfanumérico|13|Obrigatório para facilitadores|Cidade do sub Merchant.|
