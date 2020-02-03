@@ -27,7 +27,7 @@ Finally, after the development, to start the operation on production environment
 
 ## Cielo Support
 
-After reading this documentation, if you still have questions (technical or not), you can check Cielo technical support 24 hours per day, 7 days of week, in Portuguese and English, in the following contacts:
+After reading this documentation, if you still have questions (technical or not), you can check Cielo technical support 24 hours per day, 7 days of week, in Portuguese and English, in the following contacts: 
 
 * +55 4002-9700 – *Capitals and Metropolitan regions*
 * +55 0800-570-1700 – *Others localities*
@@ -385,8 +385,8 @@ The new fields are contained within the Payment Facilitator node. In addition to
 
 |Property|Type|Size|Required|Description|
 |---|---|---|---|---|
-|PaymentFacilitator.EstablishmentCode|<subcredenciador><numero>|Number|11|Required for facilitators|Facilitator's establishment code.|
-|PaymentFacilitator.SubEstablishment.EstablishmentCode|<subcredenciador><sub-ec><numero>|Number|15|Required for facilitators|Sub Merchant establishment code.|
+|PaymentFacilitator.EstablishmentCode|<subcredenciador><numero>|Number|11|Required for facilitators|Facilitator's establishment code. “Facilitator ID” (Registration of the facilitator with the card brands)|
+|PaymentFacilitator.SubEstablishment.EstablishmentCode|<subcredenciador><sub-ec><numero>|Number|15|Required for facilitators|Sub Merchant establishment code. “Sub-Merchant ID” (Registration of sub-accredited with the facilitator)|
 |PaymentFacilitator.SubEstablishment.Mcc|<subcredenciador><sub-ec><mcc>|Number|4|Required for facilitators|MCC do sub Merchant.|
 |PaymentFacilitator.SubEstablishment.Address|<subcredenciador><sub-ec><endereco>|Alphanumeric|22|Required for facilitators|Sub Merchant Address.|
 |PaymentFacilitator.SubEstablishment.City|<subcredenciador><sub-ec><cidade>|Alphanumeric|13|Required for facilitators|City of the sub Merchant.|
