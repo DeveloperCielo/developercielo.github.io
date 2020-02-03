@@ -529,7 +529,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
     <span class="nt">&lt;url-retorno&gt;</span>http://www.cielo.com.br<span class="nt">&lt;/url-retorno&gt;</span>
     <span class="nt">&lt;autorizar&gt;</span>3<span class="nt">&lt;/autorizar&gt;</span>
     <span class="nt">&lt;capturar&gt;</span>true<span class="nt">&lt;/capturar&gt;</span>
-    <span class="nt">&lt;gerar-token&gt;</span>false<span class="nt">&lt;/gerar-token&gt;</span>
+    <span class="nt">&lt;gerar-token&gt;</span>false<span class="nt">&lt;/gerar-token&gt;</span> 
 <span class="nt">&lt;/requisicao-transacao&gt;</span>
 </code></pre></div></div>
 
@@ -588,10 +588,12 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
       <th>Size</th>
       <th>Required</th>
       <th>Description</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <td>PaymentFacilitator.EstablishmentCode</td>
       <td> </td>
       <td>Number</td>
       <td>11</td>
@@ -599,6 +601,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
       <td>Facilitator’s establishment code.</td>
     </tr>
     <tr>
+      <td>PaymentFacilitator.SubEstablishment.EstablishmentCode</td>
       <td> </td>
       <td>Number</td>
       <td>15</td>
@@ -606,6 +609,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
       <td>Sub Merchant establishment code.</td>
     </tr>
     <tr>
+      <td>PaymentFacilitator.SubEstablishment.Mcc</td>
       <td> </td>
       <td>Number</td>
       <td>4</td>
@@ -613,6 +617,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
       <td>MCC do sub Merchant.</td>
     </tr>
     <tr>
+      <td>PaymentFacilitator.SubEstablishment.Address</td>
       <td> </td>
       <td>Alphanumeric</td>
       <td>22</td>
@@ -620,6 +625,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
       <td>Sub Merchant Address.</td>
     </tr>
     <tr>
+      <td>PaymentFacilitator.SubEstablishment.City</td>
       <td> </td>
       <td>Alphanumeric</td>
       <td>13</td>
@@ -627,6 +633,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
       <td>City of the sub Merchant.</td>
     </tr>
     <tr>
+      <td>PaymentFacilitator.SubEstablishment.State</td>
       <td> </td>
       <td>Alphanumeric</td>
       <td>2</td>
@@ -634,6 +641,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
       <td>State do sub Merchant.</td>
     </tr>
     <tr>
+      <td>PaymentFacilitator.SubEstablishment.PostalCode</td>
       <td> </td>
       <td>Number</td>
       <td>9</td>
@@ -641,6 +649,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
       <td>Sub Merchant Postcode.</td>
     </tr>
     <tr>
+      <td>PaymentFacilitator.SubEstablishment.PhoneNumber</td>
       <td> </td>
       <td>Number</td>
       <td>13</td>
@@ -648,6 +657,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
       <td>Sub Merchant Phone Number.</td>
     </tr>
     <tr>
+      <td>Payment.Softdescriptor</td>
       <td> </td>
       <td>Text</td>
       <td>13</td>
