@@ -153,3 +153,15 @@ See example below, describing the submission of the Cielo 1.5 API authorization 
 ### Response
 
 See more: [https://developercielo.github.io/en/manual/webservice-1-5#return-types](https://developercielo.github.io/en/manual/webservice-1-5#return-types)
+
+# ECI Table
+
+| **Brand** | **ECI** | **Transaction Meaning** |
+| --- | --- | --- |
+| Visa | 06 | Authenticated by the brand - risk of chargeback is from the issuer |
+| Visa | 05 | Authenticated by the issuer – risk of chargeback is from the issuer |
+| Visa | Different from 05 and 06 | Not authenticated – risk of chargeback remains with the establishment |
+| Mastercard | 01 | Authenticated by the brand - risk of chargeback is from the issuer |
+| Mastercard | 02 | Authenticated by the issuer – risk of chargeback is from the issuer |
+| Mastercard | 04 | Not authenticated, transaction characterized as Data Only - risk of chargeback remains with the establishment |
+| Mastercard | Different from 01, 02 and 04 | Not authenticated – risk of chargeback remains with the establishment |
