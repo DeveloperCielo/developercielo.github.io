@@ -293,7 +293,7 @@ Todos os clientes de E-Commerce que são **Facilitadores de Pagamento, por obrig
 
 Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos campos deste novo nó, os facilitadores terão também de enviar obrigatoriamente o campo softdescriptor do nó payment. Segue abaixo exemplo do envio e da resposta.
 
-<aside class="warning">Atenção: Reforçamos que as informações não devem ser enviadas antes de 10 de fevereiro de 2020, havendo risco de perda de transações.</aside>
+<aside class="warning">Atenção: Reforçamos que as informações não devem ser enviadas antes de 20 de fevereiro de 2020, havendo risco de perda de transações.</aside>
 
 #### Requisição
 
