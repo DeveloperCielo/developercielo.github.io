@@ -154,7 +154,6 @@ Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisiçã
 
 Veja mais: [https://developercielo.github.io/manual/webservice-1-5#tipos-de-retorno](https://developercielo.github.io/manual/webservice-1-5#tipos-de-retorno)
 
-
 # Tabela de ECI
 
 | **Bandeira** | **ECI** | **Significado da Transação** |
