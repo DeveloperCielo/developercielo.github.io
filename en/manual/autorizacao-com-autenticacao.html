@@ -342,6 +342,55 @@ This procedure is also valid for establishments that performed authentication ou
 
 <p>See more: <a href="https://developercielo.github.io/en/manual/webservice-1-5#return-types">https://developercielo.github.io/en/manual/webservice-1-5#return-types</a></p>
 
+<h1 id="eci-table">ECI Table</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Brand</strong></th>
+      <th><strong>ECI</strong></th>
+      <th><strong>Transaction Meaning</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Visa</td>
+      <td>06</td>
+      <td>Authenticated by the brand - risk of chargeback is from the issuer</td>
+    </tr>
+    <tr>
+      <td>Visa</td>
+      <td>05</td>
+      <td>Authenticated by the issuer – risk of chargeback is from the issuer</td>
+    </tr>
+    <tr>
+      <td>Visa</td>
+      <td>Different from 05 and 06</td>
+      <td>Not authenticated – risk of chargeback remains with the establishment</td>
+    </tr>
+    <tr>
+      <td>Mastercard</td>
+      <td>01</td>
+      <td>Authenticated by the brand - risk of chargeback is from the issuer</td>
+    </tr>
+    <tr>
+      <td>Mastercard</td>
+      <td>02</td>
+      <td>Authenticated by the issuer – risk of chargeback is from the issuer</td>
+    </tr>
+    <tr>
+      <td>Mastercard</td>
+      <td>04</td>
+      <td>Not authenticated, transaction characterized as Data Only - risk of chargeback remains with the establishment</td>
+    </tr>
+    <tr>
+      <td>Mastercard</td>
+      <td>Different from 01, 02 and 04</td>
+      <td>Not authenticated – risk of chargeback remains with the establishment</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 
