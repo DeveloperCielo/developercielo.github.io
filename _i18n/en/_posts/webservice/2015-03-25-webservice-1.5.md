@@ -284,7 +284,7 @@ All E-Commerce customers who are **Payment Facilitators, as required by the flag
 
 The new fields are contained within the Payment Facilitator node. In addition to the fields of this new node, facilitators will also have to send the softdescriptor field of the payment node. Below is an example of sending and reply.
 
-<aside class="warning"><b>Attention: We emphasize that information shouldn't be submitted before February 10, 2020, as there is a risk of losing transactions.</b></aside>
+<aside class="warning"><b>Attention: We emphasize that information shouldn't be submitted before February 20, 2020, as there is a risk of losing transactions.</b></aside>
 
 #### Request
 
