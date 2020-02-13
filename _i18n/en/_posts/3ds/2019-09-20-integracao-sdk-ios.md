@@ -167,7 +167,7 @@ For facilitate of use only what the merchant needs to send, The request is separ
 | paymentMethod | Type of card to be authenticated. In the case of a multiple card, you must specify either Credit or Debit | *PaymentMethod* <br><br>CREDIT – Credit Card<br>DEBIT – Debit Card | Yes |
 | installments | Number of transaction quota | Numeric [to 2 characters] | Yes |
 | recurrence | Indicates if it is an order that generates future recurrences | Boolean<br>true<br>false | No |
-| productCode | Purchase Type | *ProductCode*<br><br> HOTEL: Hotel<br>FINANCEACCOUNT: Account financing<br>CHECKACCEPTANCE: Check acceptance<br>DIGITALGOODS: Digital Goods<br>CASHDISPENSER: Cash dispenser<br>FUEL: Fuel<br>RETAIL: Retail<br>LUXURYGOODS: Luxury goods<br>RECHARGE: Recharge<br>GOODSPURCHASE: Purchase of goods<br>QUASIMONEYTRANSACTION: Quasi-money transaction<br>CARRENTAL: Car rental<br>RESTAURANT: Restaurant<br>SERVICES: Services<br>OTHER: Other<br>TURISM: Turism | No |
+| productCode | Product Code | *ProductCode*<br><br>goodsPurchase: Purchase of goods<br>checkAcceptance: Check acceptance<br>financeAccount: Account financing<br>quasiMoneyTransaction: Quasi-money transaction<br>recharge: recharge<br>| Yes |
 | countLast24Hours | Quantity of orders placed by this buyer in the last 24h | Numeric [to 3 characters] | No |
 | countLast6Months | Quantity of orders placed by this buyer in the last 6 months | Numeric [to 4 characters] | No |
 | countLast1Year | Quantity of orders placed by this buyer in the last year | Numeric [to 3 characters] | No |
