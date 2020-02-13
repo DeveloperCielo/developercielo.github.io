@@ -166,7 +166,7 @@ Once the class is mapped to it's given field, the script is able to retrieve the
 | **Order Description Data** | **Description** | **Type** | **Size** | **Mandatory to challenge authentication** | **Mandatory to silent authentication (without challenge)** |
 | --- | --- | --- | --- | --- | ---|
 | bpmpi_order_recurrence | Indicates if it is a recurrency order | Boolean | <br>_true_<br>_false_ | No | Yes |
-| bpmpi_order_productcode | Order type | String | **ACC**: Hotel<br>**ACF**: Account financing<br>**CHA**: Check acceptance<br>**DIG**: Digital Goods<br>**DSP**:Dispensing money<br>**GAS**: Fuel<br>**GEN**: Retail<br>**LUX**: Luxury articles<br>**PAL**: Recharge<br>**PHY**: Purchase Goods <br>**QCT**: Transação quase-dinheiro<br>**REN**: Car rent<br>**RES**: Restaurant<br>**SVC**: Services<br>**TBD**: Other<br>**TRA**: Tourism | No | Yes |
+| bpmpi_order_productcode | Product Type | **PHY**: purchase Goods<br>**CHA**: Check acceptance<br>**ACF**: Account financing<br>**QCT**: Quasi-Cash Transaction <br>**PAL**: Prepaid Activation and Load<br>| Yes |
 | bpmpi_order_countlast24hours | Number of orders placed by same customer in the last 24 hours | Numeric | Max 3 | No | Yes |
 | bpmpi_order_countlast6months | Number of orders placed by same customer in the last 6 months | Numeric |Max 4 | No | Yes |
 | bpmpi_order_countlast1year | Number of orders placed by same customer in the last year | Numeric |Max 3 | No | Yes |
