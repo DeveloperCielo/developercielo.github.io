@@ -3702,6 +3702,28 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<h3 id="notificações-dos-pedidos">Notificações dos pedidos</h3>
+
+<h4 id="política-de-retentativa">Política de retentativa</h4>
+
+<ul>
+  <li>O envio da notificação para um pedido será retentada a cada <strong>15 minutos</strong>, durante um período total de <strong>7 horas</strong>.</li>
+  <li>Em caso de falha em todas as retentativas neste período, as notificações deste mesmo pedido serão bloqueadas.</li>
+  <li>Haverá tentativa de notificação para um pedido, mesmo que as notificações de outro pedido tenham sido bloqueadas.</li>
+</ul>
+
+<h4 id="bloqueio-de-notificações-para-o-ec">Bloqueio de notificações para o EC</h4>
+
+<ul>
+  <li>O EC deixará de receber notificações caso o percentual de pedidos bloqueados seja igual ou superior a <strong>80%</strong> nas últimas <strong>24 horas</strong>.</li>
+</ul>
+
+<h4 id="desbloqueio-de-notificações-para-o-ec">Desbloqueio de notificações para o EC</h4>
+
+<ul>
+  <li><a href="https://devcielo.zendesk.com/hc/pt-br#suporte">Entre em contato conosco</a> para solicitar o desbloqueio, informando o número do EC e o endereço do serviço, caso haja alteração.</li>
+</ul>
+
 <h1 id="cielo-store">Cielo Store</h1>
 
 <h2 id="sobre-2">Sobre</h2>
