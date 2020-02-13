@@ -165,7 +165,7 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 | paymentMethod | Tipo do cartão a ser autenticado. No caso do cartão múltiplo, deverá especificar um dos tipos, Credit ou Debit | *PaymentMethod* <br><br>credit – Cartão de Crédito<br>debit – Cartão de Débito | Sim |
 | installments | Número de parcelas da transação | Numérico [até 2 posições] | Sim |
 | recurrence | Indica se é um pedido que gera recorrências futuras | Booleano<br>true<br>false | Não |
-| productCode | Tipo da compra | *ProductCode*<br><br> hotel: Hotelaria<br>financeAccount: Financiamento de conta<br>checkAcceptance: Check acceptance<br>digitalGoods: Digital Goods<br>cashDispenser: Dispensação de dinheiro<br>fuel: Combustível<br>retail: Varejo geral<br>luxuryGoods: Artigos de luxo<br>recharge: recarga<br>goodsPurchase: compra de mercadorias<br>quasiMoneyTransaction: Transação quase-dinheiro<br>carRental: Alugue de Carros<br>restaurant: Restaurante<br>services: Serviços<br>other: Outros<br>turism: Turismo | Não |
+| productCode | Tipo da compra | *ProductCode*<br><br>goodsPurchase: compra de mercadorias<br>checkAcceptance: Check acceptance<br>financeAccount: Financiamento de conta<br>quasiMoneyTransaction: Transação quase-dinheiro<br>recharge: recarga<br>| Sim |
 | countLast24Hours | Quantidade de pedidos efetuados por este comprador nas últimas 24h | Numérico [até 3 posições] | Não |
 | countLast6Months | Quantidade de pedidos efetuados por este comprador nos últimos 6 meses | Numérico [até 4 posições] | Não |
 | countLast1Year | Quantidade de pedidos efetuados por este comprador no último ano | Numérico [até 3 posições] | Não |
