@@ -451,8 +451,7 @@
       <th><strong>Description</strong></th>
       <th><strong>Type</strong></th>
       <th><strong>Size</strong></th>
-      <th><strong>Mandatory to challenge authentication</strong></th>
-      <th><strong>Mandatory to silent authentication (without challenge)</strong></th>
+      <th><strong>Mandatory</strong></th>
     </tr>
   </thead>
   <tbody>
@@ -462,14 +461,12 @@
       <td>Alphanumeric</td>
       <td>Max 50</td>
       <td>Yes</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_currency</td>
       <td>Currency code</td>
       <td>Fixed "BRL"</td>
       <td>3</td>
-      <td>Yes</td>
       <td>Yes</td>
     </tr>
     <tr>
@@ -478,13 +475,11 @@
       <td>Numeric</td>
       <td>Max 15</td>
       <td>Yes</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_installments</td>
       <td>Number of Installments</td>
       <td>Numeric</td>
-      <td>Yes</td>
       <td>Yes</td>
       <td> </td>
     </tr>
@@ -494,14 +489,12 @@
       <td>String<br />Credit – <em>Credit card</em><br />Debit – <em>Debit card</em></td>
       <td>Max 6</td>
       <td>Yes</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_cardnumber</td>
       <td>Card number</td>
       <td>Numeric</td>
       <td>Max 19</td>
-      <td>Yes</td>
       <td>Yes</td>
     </tr>
     <tr>
@@ -510,14 +503,12 @@
       <td>Numeric</td>
       <td>2</td>
       <td>Yes</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_cardexpirationyear</td>
       <td>Card expiration year</td>
       <td>Numeric</td>
       <td>4</td>
-      <td>Yes</td>
       <td>Yes</td>
     </tr>
     <tr>
@@ -526,7 +517,6 @@
       <td>Alphanumeric</td>
       <td>Max 128</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_default_card</td>
@@ -534,13 +524,11 @@
       <td>Boolean</td>
       <td><br /><em>true</em><br /><em>false</em></td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_recurring_enddate</td>
       <td>End date of recurrency</td>
       <td>Text (AAAA-MM-DD)</td>
-      <td>No</td>
       <td>No</td>
       <td> </td>
     </tr>
@@ -549,14 +537,12 @@
       <td>Frequency of recurrency</td>
       <td>Number<br />1 - Monthy<br />2 - Bimonthly<br />3 - Quarterly<br />4 - Four Monthly<br />6 - Semester<br />12 - Annual</td>
       <td>No</td>
-      <td>No</td>
       <td> </td>
     </tr>
     <tr>
       <td>bpmpi_recurring_originalpurchasedate</td>
       <td>Date of first transaction that orignated the recurrency</td>
       <td>Text (AAAA-MM-DD)</td>
-      <td>No</td>
       <td>No</td>
       <td> </td>
     </tr>
@@ -570,8 +556,7 @@
       <th><strong>Description</strong></th>
       <th><strong>Type</strong></th>
       <th><strong>Size</strong></th>
-      <th><strong>Mandatory to challenge authentication</strong></th>
-      <th><strong>Mandatory to silent authentication (without challenge)</strong></th>
+      <th><strong>Mandatory</strong></th>
     </tr>
   </thead>
   <tbody>
@@ -581,14 +566,12 @@
       <td>Boolean</td>
       <td><br /><em>true</em><br /><em>false</em></td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_order_productcode</td>
       <td>Product Type</td>
       <td><strong>PHY</strong>: purchase Goods<br /><strong>CHA</strong>: Check acceptance<br /><strong>ACF</strong>: Account financing<br /><strong>QCT</strong>: Quasi-Cash Transaction <br /><strong>PAL</strong>: Prepaid Activation and Load<br /></td>
       <td>Yes</td>
-      <td> </td>
       <td> </td>
     </tr>
     <tr>
@@ -597,7 +580,6 @@
       <td>Numeric</td>
       <td>Max 3</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_order_countlast6months</td>
@@ -605,7 +587,6 @@
       <td>Numeric</td>
       <td>Max 4</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_order_countlast1year</td>
@@ -613,7 +594,6 @@
       <td>Numeric</td>
       <td>Max 3</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_order_cardattemptslast24hours</td>
@@ -621,7 +601,6 @@
       <td>Numeric</td>
       <td>Max 3</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_order_marketingoptin</td>
@@ -629,7 +608,6 @@
       <td>Boolean</td>
       <td><br />true<br />false</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_order_marketingsource</td>
@@ -637,14 +615,12 @@
       <td>Alphanumeric</td>
       <td>Max 40</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_transaction_mode</td>
       <td>Identifies the channel from which the transaction originates</td>
       <td>M: MOTO<br />R: Varejo<br />S: E-Commerce<br />P: Mobile<br />T: Tablet</td>
       <td>No</td>
-      <td>Yes</td>
       <td> </td>
     </tr>
     <tr>
@@ -652,7 +628,6 @@
       <td>Address of your company’s web site</td>
       <td>Alphanumeric [100] Ex: http://www.exemplo.com.br</td>
       <td>No</td>
-      <td>Yes</td>
       <td> </td>
     </tr>
   </tbody>
@@ -665,8 +640,7 @@
       <th><strong>Description</strong></th>
       <th><strong>Type</strong></th>
       <th><strong>Size</strong></th>
-      <th><strong>Mandatory to challenge authentication</strong></th>
-      <th><strong>Mandatory to silent authentication (without challenge)</strong></th>
+      <th><strong>Mandatory</strong></th>
     </tr>
   </thead>
   <tbody>
@@ -676,7 +650,6 @@
       <td>Numeric</td>
       <td>Max 15<br /><em>Example: R$ 125,54 = 12554</em></td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_giftcard_currency</td>
@@ -684,7 +657,6 @@
       <td>String</td>
       <td>Fixed "BRL"</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
   </tbody>
 </table>
@@ -696,8 +668,7 @@
       <th><strong>Description</strong></th>
       <th><strong>Type</strong></th>
       <th><strong>Size</strong></th>
-      <th><strong>Mandatory to challenge authentication</strong></th>
-      <th><strong>Mandatory to silent authentication (without challenge)</strong></th>
+      <th><strong>Mandatory</strong></th>
     </tr>
   </thead>
   <tbody>
@@ -706,7 +677,6 @@
       <td>Identifies the CPF/CNPJ of customer</td>
       <td>Numeric [11 to 14]<br />99999999999999</td>
       <td>No</td>
-      <td>Yes</td>
       <td> </td>
     </tr>
     <tr>
@@ -715,7 +685,6 @@
       <td>Alphanumeric</td>
       <td>Max 120</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_billTo_phonenumber</td>
@@ -723,7 +692,6 @@
       <td>Numeric</td>
       <td>Max 15<br /><em>Format: 5511999999999</em></td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_billTo_email</td>
@@ -731,7 +699,6 @@
       <td>Alphanumeric</td>
       <td>Max 255<br /><em>Format: <a href="mailto:nome@exemplo.com">nome@exemplo.com</a></em></td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_billTo_street1</td>
@@ -739,7 +706,6 @@
       <td>Alphanumeric</td>
       <td>Max 60</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_billTo_street2</td>
@@ -747,7 +713,6 @@
       <td>Alphanumeric</td>
       <td>Max 60</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_billTo_city</td>
@@ -755,7 +720,6 @@
       <td>Alphanumeric</td>
       <td>Max 50</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_billTo_state</td>
@@ -763,7 +727,6 @@
       <td>String</td>
       <td>2</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_billto_zipcode</td>
@@ -771,14 +734,12 @@
       <td>Alphanumeric</td>
       <td>Max 8<br /><em>Format: 99999999</em></td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_billto_country</td>
       <td>Billing country for the account</td>
       <td>String [2] Ex. BR</td>
       <td>No</td>
-      <td>Yes</td>
       <td> </td>
     </tr>
   </tbody>
@@ -791,8 +752,7 @@
       <th><strong>Description</strong></th>
       <th><strong>Type</strong></th>
       <th><strong>Size</strong></th>
-      <th><strong>Mandatory to challenge authentication</strong></th>
-      <th><strong>Mandatory to silent authentication (without challenge)</strong></th>
+      <th><strong>Mandatory</strong></th>
     </tr>
   </thead>
   <tbody>
@@ -802,7 +762,6 @@
       <td>Boolean</td>
       <td><br /><em>true<br />false</em></td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_shipTo_addressee</td>
@@ -810,7 +769,6 @@
       <td>Alphanumeric</td>
       <td>Max 60</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_shipTo_phonenumber</td>
@@ -818,7 +776,6 @@
       <td>Numeric</td>
       <td>Max 15<br /><em>Format: 5511999999999</em></td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_shipTo_email</td>
@@ -826,7 +783,6 @@
       <td>Alphanumeric</td>
       <td>Max 255<br /><em>Format <a href="mailto:nome@exemplo.com">nome@exemplo.com</a></em></td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_shipTo_street1</td>
@@ -834,7 +790,6 @@
       <td>Alphanumeric</td>
       <td>Max 60</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_shipTo_street2</td>
@@ -842,7 +797,6 @@
       <td>Alphanumeric</td>
       <td>Max 60</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_shipTo_city</td>
@@ -850,7 +804,6 @@
       <td>Alphanumeric</td>
       <td>Max 50</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_shipTo_state</td>
@@ -858,7 +811,6 @@
       <td>String</td>
       <td>2</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_shipto_zipcode</td>
@@ -866,14 +818,12 @@
       <td>Numeric</td>
       <td>8<br /><em>Format: 99999999</em></td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_shipto_country</td>
       <td>Shipping country for the account</td>
       <td>String [2] Ex. BR</td>
       <td>No</td>
-      <td>Yes</td>
       <td> </td>
     </tr>
     <tr>
@@ -882,7 +832,6 @@
       <td>String</td>
       <td>lowcost<br />sameday<br />oneday<br />twoday<br />threeday<br />pickup<br />other</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_shipto_firstusagedate</td>
@@ -890,7 +839,6 @@
       <td>String</td>
       <td><br /><em>AAAA-MM-DD<br />Creation Date</em></td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
   </tbody>
 </table>
@@ -902,8 +850,7 @@
       <th><strong>Description</strong></th>
       <th><strong>Type</strong></th>
       <th><strong>Size</strong></th>
-      <th><strong>Mandatory to challenge authentication</strong></th>
-      <th><strong>Mandatory to silent authentication (without challenge)</strong></th>
+      <th><strong>Mandatory</strong></th>
     </tr>
   </thead>
   <tbody>
@@ -913,7 +860,6 @@
       <td>Alphanumeric</td>
       <td>Max 255</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_cart_#_name</td>
@@ -921,7 +867,6 @@
       <td>Alphanumeric</td>
       <td>Max 255</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_cart_#_sku</td>
@@ -929,7 +874,6 @@
       <td>Alphanumeric</td>
       <td>Max 255</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_cart_#_quantity</td>
@@ -937,7 +881,6 @@
       <td>Numeric</td>
       <td>Max 10</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_cart_#_unitprice</td>
@@ -945,7 +888,6 @@
       <td>Numeric</td>
       <td>Max 10</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
   </tbody>
 </table>
@@ -957,8 +899,7 @@
       <th><strong>Description</strong></th>
       <th><strong>Type</strong></th>
       <th><strong>Size</strong></th>
-      <th><strong>Mandatory to challenge authentication</strong></th>
-      <th><strong>Mandatory to silent authentication (without challenge)</strong></th>
+      <th><strong>Mandatory</strong></th>
     </tr>
   </thead>
   <tbody>
@@ -968,7 +909,6 @@
       <td>Boolean</td>
       <td><em>true<br />false</em></td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_useraccount_createddate</td>
@@ -976,7 +916,6 @@
       <td>String</td>
       <td><em>AAAA-MM-DD</em></td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_useraccount_changeddate</td>
@@ -984,7 +923,6 @@
       <td>String</td>
       <td><em>AAAA-MM-DD</em></td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_useraccount_passwordchangeddate</td>
@@ -992,7 +930,6 @@
       <td>String</td>
       <td><em>AAAA-MM-DD</em></td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_useraccount_authenticationmethod</td>
@@ -1000,7 +937,6 @@
       <td>String</td>
       <td>01 - <em>No authentication</em><br />02 - <em>Store login</em><br />03 - <em>Login with federated ID</em><br />04 - <em>Login with FIDO authenticator</em></td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_useraccount_authenticationprotocol</td>
@@ -1008,7 +944,6 @@
       <td>Alphanumeric</td>
       <td>Max 2048</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_useraccount_authenticationtimestamp</td>
@@ -1016,14 +951,12 @@
       <td>String</td>
       <td>19<br /><em>YYYY-MM-ddTHH:mm:ss</em></td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_merchant_newcustomer</td>
       <td>Indicates whether the consumer is a new or existing customer with the merchant</td>
       <td>Boolean<br />true – yes<br />false – no</td>
       <td>No</td>
-      <td>Yes</td>
       <td> </td>
     </tr>
   </tbody>
@@ -1036,8 +969,7 @@
       <th><strong>Description</strong></th>
       <th><strong>Type</strong></th>
       <th><strong>Size</strong></th>
-      <th><strong>Mandatory to challenge authentication</strong></th>
-      <th><strong>Mandatory to silent authentication (without challenge)</strong></th>
+      <th><strong>Mandatory</strong></th>
       <th> </th>
     </tr>
   </thead>
@@ -1048,7 +980,6 @@
       <td>Alphanumeric</td>
       <td>Max 45</td>
       <td>No</td>
-      <td>Yes</td>
       <td> </td>
     </tr>
     <tr>
@@ -1057,7 +988,6 @@
       <td>Alphanumeric</td>
       <td>[without limitation]</td>
       <td>No</td>
-      <td>Yes</td>
       <td> </td>
     </tr>
     <tr>
@@ -1067,7 +997,6 @@
       <td>Max 32</td>
       <td><em>cardinal<br />inauth<br />threatmetrix</em></td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
   </tbody>
 </table>
@@ -1079,8 +1008,7 @@
       <th><strong>Description</strong></th>
       <th><strong>Type</strong></th>
       <th><strong>Size</strong></th>
-      <th><strong>Mandatory to challenge authentication</strong></th>
-      <th><strong>Mandatory to silent authentication (without challenge)</strong></th>
+      <th><strong>Mandatory</strong></th>
     </tr>
   </thead>
   <tbody>
@@ -1090,7 +1018,6 @@
       <td>Alphanumeric</td>
       <td>2</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_airline_travelleg_#_departuredate</td>
@@ -1098,7 +1025,6 @@
       <td>String</td>
       <td><em>AAAA-MM-DD</em></td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_airline_travelleg_#_origin</td>
@@ -1106,7 +1032,6 @@
       <td>Alphanumeric</td>
       <td>5</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_airline_travelleg_#_destination</td>
@@ -1114,7 +1039,6 @@
       <td>Alphanumeric</td>
       <td>5</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_airline_passenger_#_name</td>
@@ -1122,7 +1046,6 @@
       <td>Alphanumeric</td>
       <td>Max 60</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_airline_passenger_#_ticketprice</td>
@@ -1130,7 +1053,6 @@
       <td>Numeric</td>
       <td>Max 15<br /><em>Exemple: R$ 125,54 = 12554</em></td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_airline_numberofpassengers</td>
@@ -1138,7 +1060,6 @@
       <td>Numeric</td>
       <td>3</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_airline_billto_passportcountry</td>
@@ -1146,7 +1067,6 @@
       <td>String</td>
       <td>2</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
     <tr>
       <td>bpmpi_airline_billto_passportnumber</td>
@@ -1154,7 +1074,6 @@
       <td>Alphanumeric</td>
       <td>40</td>
       <td>No</td>
-      <td>Yes</td>
     </tr>
   </tbody>
 </table>
@@ -1166,8 +1085,7 @@
       <th><strong>Description</strong></th>
       <th><strong>Type</strong></th>
       <th><strong>Size</strong></th>
-      <th><strong>Mandatory to challenge authentication</strong></th>
-      <th><strong>Mandatory to silent authentication (without challenge)</strong></th>
+      <th><strong>Mandatory</strong></th>
     </tr>
   </thead>
   <tbody>
@@ -1177,14 +1095,12 @@
       <td>Alphanumeric</td>
       <td>Max 255</td>
       <td>No</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>bpmpi_mdd2</td>
       <td>Extra data set by the merchant</td>
       <td>Alphanumeric</td>
       <td>Max 255</td>
-      <td>No</td>
       <td>No</td>
     </tr>
     <tr>
@@ -1193,7 +1109,6 @@
       <td>Alphanumeric</td>
       <td>Max 255</td>
       <td>No</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>bpmpi_mdd4</td>
@@ -1201,14 +1116,12 @@
       <td>Alphanumeric</td>
       <td>Max 255</td>
       <td>No</td>
-      <td>No</td>
     </tr>
     <tr>
       <td>bpmpi_mdd5</td>
       <td>Extra data set by the merchant</td>
       <td>Alphanumeric</td>
       <td>Max 255</td>
-      <td>No</td>
       <td>No</td>
     </tr>
   </tbody>
