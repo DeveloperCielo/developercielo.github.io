@@ -6680,9 +6680,9 @@ curl
 |`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric text|
 |`Cardtoken`|Card identification token.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
-## Flag Tokenization
+## Tokenization by Card Networks
 
-Customers who card tokenize along with the flags can send the information to Cielo in the transactional flow.
+Customers who card tokenize along with the Card Networks can send the information to Cielo in the transactional flow.
 
 ### Request
 
