@@ -122,8 +122,8 @@ Descrição das saídas
 
 | **Saída** | **Descrição** | **Tipo/Tamanho** |
 | --- | --- | --- |
-| Cavv | Dado que representa assinatura da autenticação | Alfanumérico [28 posições] |
-| Xid | ID que representa a requisição da autenticação | Alfanumérico [28 posições] |
+| Cavv | Dado que representa assinatura da autenticação | Texto |
+| Xid | ID que representa a requisição da autenticação | Texto |
 | Eci | Código indicador do e-commerce, que representa o resultado da autenticação | Numérico [até 2 posições] |
 | Version | Versão do 3DS aplicado | Numérico [1 posição]1 – 3DS 1.02 – 3DS 2.0 |
 | ReferenceId | ID que representa a requisição de autenticação | GUID [36 posições] |
