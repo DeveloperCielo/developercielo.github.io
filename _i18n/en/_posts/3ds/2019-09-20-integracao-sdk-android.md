@@ -165,8 +165,8 @@ braspag3dsSdk.authenticate(
 
 | **Output** | **Description** | **Type/Size** |
 | --- | --- | --- |
-| cavv | Data representing authentication signature | Alphanumeric [28 characters] |
-| xid | ID representing authentication request | Alphanumeric [28 characters] |
+| cavv | Data representing authentication signature | Text |
+| xid | ID representing authentication request | Text |
 | eci | E-commerce indicator code, which represents the result of authentication | Numeric [to 2 characters] |
 | version | 3DS version applied | Numeric [1 character]1 – 3DS 1.02 – 3DS 2.0 |
 | referenceID | ID representing the authentication request | GUID [36 characters] |
