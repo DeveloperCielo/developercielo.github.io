@@ -1454,8 +1454,8 @@ curl
 |`Payment.Provider`|Texto|15|---|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|
 |`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
 |`Payment.Authenticate`|Booleano|---|Não (Default false)|Indica se a transação deve ser autenticada (true) ou não (false). Mesmo para transações autenticadas externamente (fornecedor de autenticação de sua escolha), este campo deve ser enviado com valor “True”, e no nó ExternalAuthentication deve-se enviar os dados retornados pelo mecanismo de autenticação externa escolhido (XID, CAVV e ECI).|
-|`Payment.ExternalAuthentication.Cavv`|Texto|28|Sim|O valor Cavv é retornado pelo mecanismo de autenticação.|
-|`Payment.ExternalAuthentication.Xid`|Texto|28|Sim|O valor Xid é retornado pelo mecanismo de autenticação.|
+|`Payment.ExternalAuthentication.Cavv`|Texto|-|Sim|O valor Cavv é retornado pelo mecanismo de autenticação.|
+|`Payment.ExternalAuthentication.Xid`|Texto|-|Sim|O valor Xid é retornado pelo mecanismo de autenticação.|
 |`Payment.ExternalAuthentication.Eci`|Número|1|Sim|O valor Eci é retornado pelo mecanismo de autenticação.|
 |`CreditCard.CardNumber.`|Texto|19|Sim|Número do Cartão do Comprador|
 |`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
