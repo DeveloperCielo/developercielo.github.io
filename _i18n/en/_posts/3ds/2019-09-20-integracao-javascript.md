@@ -122,8 +122,8 @@ Output Description
 
 | **Output** | **Description** | **Type** | **Size** |
 | --- | --- | --- | --- |
-| Cavv | Authentication signature | Alphanumeric | 28 |
-| Xid | Authentication request ID | Alphanumeric | 28 |
+| Cavv | Authentication signature | Text | - |
+| Xid | Authentication request ID | Text | - |
 | Eci | E-commerce indicator code, which represents the authentication result | Numeric | Max 2 |
 | Version | 3DS applied version | Numeric | 1<br> **1.0** = _3DS 1.0;_ <br>**2.0** = _3DS 2.0;_ |
 | ReferenceId | Authentication request ID | GUID |36 |
