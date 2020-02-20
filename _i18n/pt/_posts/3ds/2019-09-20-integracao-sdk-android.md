@@ -163,8 +163,8 @@ braspag3dsSdk.authenticate(
 
 | **Saída** | **Descrição** | **Tipo/Tamanho** |
 | --- | --- | --- |
-| cavv | Dado que representa assinatura da autenticação | Alfanumérico [28 posições] |
-| xid | ID que representa a requisição da autenticação | Alfanumérico [28 posições] |
+| cavv | Dado que representa assinatura da autenticação | Texto |
+| xid | ID que representa a requisição da autenticação | Texto |
 | eci | Código indicador do e-commerce, que representa o resultado da autenticação | Numérico [até 2 posições] |
 | version | Versão do 3DS aplicado | Numérico [1 posição]1 – 3DS 1.02 – 3DS 2.0 |
 | referenceID | ID que representa a requisição de autenticação | GUID [36 posições] |
