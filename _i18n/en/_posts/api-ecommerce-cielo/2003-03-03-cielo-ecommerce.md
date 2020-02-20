@@ -1451,8 +1451,8 @@ curl
 |`Payment.Provider`|Text|15|---|Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.|
 |`Payment.Installments`|Number|2|Yes|Number of Installments.|
 |`Payment.Authenticate`|Boolean|---|No (Default false) | Indicates whether the transaction must be authenticated (true) or not (false). Even for externally authenticated transactions (authentication provider of your choice), this field must be sent with a "True" value, and on the ExternalAuthentication node, you must send the data returned by the chosen external authentication mechanism (XID, CAVV and ECI).|
-|`Payment.ExternalAuthentication.Cavv`|Text|28|Yes|The Cavv value is returned by the authentication mechanism.|
-|`Payment.ExternalAuthentication.Xid`|Text|28|Yes|The Xid value is returned by the authentication mechanism.|
+|`Payment.ExternalAuthentication.Cavv`|Text|-|Yes|The Cavv value is returned by the authentication mechanism.|
+|`Payment.ExternalAuthentication.Xid`|Text|-|Yes|The Xid value is returned by the authentication mechanism.|
 |`Payment.ExternalAuthentication.Eci`|Number|1|Yes|The Eci value is returned by the authentication mechanism.|
 |`CreditCard.CardNumber`|Text|19|Yes|Buyer’s Card Number.|
 |`CreditCard.Holder`|Text|25|No|NBuyer’s name printed on card.|
