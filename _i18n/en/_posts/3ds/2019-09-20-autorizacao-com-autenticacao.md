@@ -96,8 +96,8 @@ curl
 | **Field** | **Description** | **Type/Size** | **Required** |
 | --- | --- | --- | --- |
 | Payment.Authenticate | Boolean which defines whether the buyer will be directed to the issuing Bank for card authentication | Boolean | Yes, for authentication to be performed it is required to send as `true` |
-| Payment.ExternalAuthentication.Cavv | Signature that is returned in authentication success scenarios | Alphanumeric [28 characters] | Yes, when authentication was a success |
-| Payment.ExternalAuthentication.Xid | XID returned in authentication process | Alphanumeric [28 characters] | Yes, when the 3DS version is &quot;1&quot; |
+| Payment.ExternalAuthentication.Cavv | Signature that is returned in authentication success scenarios | Text | Yes, when authentication was a success |
+| Payment.ExternalAuthentication.Xid | XID returned in authentication process | Text | Yes, when the 3DS version is &quot;1&quot; |
 | Payment.ExternalAuthentication.Eci | E-Commerce Indicator returned in authentication process | Numeric [1 character] | Yes |
 | Payment.ExternalAuthentication.Version | 3DS version used in authentication process | Alphanumeric [1 character] | Yes, when the 3DS version is &quot;2&quot; |
 | Payment.ExternalAuthentication.ReferenceId | RequestID returned in authentication process | GUID [36 characters] | Yes, when the 3DS version is &quot;2&quot; |
@@ -144,8 +144,8 @@ See example below, describing the submission of the Cielo 1.5 API authorization 
 
 | **Field** | **Description** | **Type/Size** | **Required** |
 | --- | --- | --- | --- |
-| cavv | Signature that is returned in authentication success scenarios | Alphanumeric [28 characters] | Yes, when authentication was a success |
-| xid | XID returned in authentication process | Alphanumeric [28 characters] | Yes, when the 3DS version is &quot;1&quot; |
+| cavv | Signature that is returned in authentication success scenarios | Text | Yes, when authentication was a success |
+| xid | XID returned in authentication process | Text | Yes, when the 3DS version is &quot;1&quot; |
 | eci | E-Commerce Indicator returned in authentication process | Numeric [1 character] | Yes |
 | versao | 3DS version used in authentication process | Alphanumeric [1 character] | Yes, when the 3DS version is &quot;2&quot; |
 | dstid | RequestID returned in authentication process | GUID [36 characters] | Yes, when the 3DS version is &quot;2&quot; |
