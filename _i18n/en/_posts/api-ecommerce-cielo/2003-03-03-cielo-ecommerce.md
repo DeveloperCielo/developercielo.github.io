@@ -28,7 +28,7 @@ In this manual, you will find the reference on all operations available on API R
 
 To perform an operation, combine the base URL of the environment with the URL of the desired operation and send it using the HTTP verb as described in the operation.
 
-## Solution features
+## Solution features 
 
 The API Cielo eCommerce solution of the Cielo eCommerce platform was developed with REST technology, which is market standard and also independent of the technology used by our customers. In this way, it is possible to integrate using the most varied programming languages, such as: 
 
@@ -909,7 +909,7 @@ curl
 |`Payment.Currency`|Text|3|No|Currency in which payment will be made (BRL).|
 |`Payment.Country`|Text|3|No|Country where payment will be made.|
 |`Payment.Provider`|Text|15|---|Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.|
-|`Payment.ServiceTaxAmount`|Number|15|No|Applicable to airlines companies only. Amount of the authorization value/Montante do valor da autorização that should be allocated to the service fee. Note: This value is not added to the authorization value.|
+|`Payment.ServiceTaxAmount`|Number|15|No|Applicable to airlines companies only. Amount of the authorization value/amount that should be allocated to the service fee. Note: This value is not added to the authorization value.|
 |`Payment.SoftDescriptor`|Text|13|No|Text printed on the buyer's bank invoice - Only available for VISA/MASTER - does not allow special characters - See Annex|
 |`Payment.Installments`|Number|2|Yes|Number of Installments.|
 |`Payment.Interest`|Text|10|No|Type of installment - Store (ByMerchant) or Card (ByIssuer).|
@@ -2656,7 +2656,7 @@ curl
 |`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
 |`PaymentId`|Order Identifier Field.|Guid|36|Yes|
 |`Amount`|Order Amount (to be sent in cents).|Number|15|No|
-|`ServiceTaxAmount`|Applicable to airlines companies only. Amount of the authorization value/Montante do valor da autorização that should be allocated to the service fee. Note: This value is not added to the authorization value.|Number|15|No|
+|`ServiceTaxAmount`|Applicable to airlines companies only. Amount of the authorization value/amount that should be allocated to the service fee. Note: This value is not added to the authorization value.|Number|15|No|
 
 #### Response
 
@@ -3341,7 +3341,7 @@ curl
 |`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
 |`PaymentId`|Order Identifier Field.|Guid|36|Yes|
 |`Amount`|Order Amount (to be sent in cents).|Number|15|No|
-|`ServiceTaxAmount`|Applicable to airlines companies only. Amount of the authorization value/Montante do valor da autorização that should be allocated to the service fee. Note: This value is not added to the authorization value.|Number|15|No|
+|`ServiceTaxAmount`|Applicable to airlines companies only. Amount of the authorization value/amount that should be allocated to the service fee. Note: This value is not added to the authorization value.|Number|15|No|
 
 #### Response
 
@@ -3439,7 +3439,7 @@ curl
 |`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
 |`PaymentId`|Order Identifier Field.|Guid|36|Yes|
 |`Amount`|Order Amount (to be sent in cents).|Number|15|No|
-|`ServiceTaxAmount`|Applicable to airlines companies only. Amount of the authorization value/Montante do valor da autorização that should be allocated to the service fee. Note: This value is not added to the authorization value.|Number|15|No|
+|`ServiceTaxAmount`|Applicable to airlines companies only. Amount of the authorization value/amount that should be allocated to the service fee. Note: This value is not added to the authorization value.|Number|15|No|
 
 #### Response
 
@@ -4069,7 +4069,7 @@ To create a credit card sale and fraud analysis, , it is necessary to do a POST 
 | `Payment.Amount`                              | Number   | 15      | Yes                 | Order Amount (to be sent in cents).                                                                                               |
 | `Payment.Currency`                            | Text     | 3       | No                  | Currency in which payment will be made (BRL).                                                                                     |
 | `Payment.Country`                             | Text     | 3       | No                  | Country where payment will be made.                                                                                               |
-| `Payment.ServiceTaxAmount`                    | Number   | 15      | Yes                 |Applicable to airlines companies only. Amount of the authorization value/Montante do valor da autorização that should be allocated to the service fee. Note: This value is not added to the authorization value.|
+| `Payment.ServiceTaxAmount`                    | Number   | 15      | Yes                 |Applicable to airlines companies only. Amount of the authorization value/amount that should be allocated to the service fee. Note: This value is not added to the authorization value.|
 | `Payment.Installments`                        | Number   | 2       | Yes                 | Number of Installments.                                                                                                           |
 | `Payment.Interest`                            | Text     | 10      | No                  | Type of installment - Store (ByMerchant) or Card (ByIssuer).                                                                      |
 | `Payment.Capture`                             | Boolean  | ---     | No                  | Boolean that identifies that the authorization should be with automatic capture.                                                  |
@@ -6512,7 +6512,7 @@ curl
 |`Payment.Interest`|Text|10|No|Type of installment - Store (ByMerchant) or Card (ByIssuer).|
 |`Payment.Capture`|Boolean|---|No (Default false)|Boolean that identifies that the authorization should be with automatic capture.|
 |`Payment.Authenticate`|Boolean|---|No (Default false)|Defines whether the buyer will be directed to the Issuing bank for card authentication|
-|`Payment.ServiceTaxAmount`|Number|15|No|Applicable to airlines companies only. Amount of the authorization value/Montante do valor da autorização that should be allocated to the service fee. Note: This value is not added to the authorization value.|
+|`Payment.ServiceTaxAmount`|Number|15|No|Applicable to airlines companies only. Amount of the authorization value/amount that should be allocated to the service fee. Note: This value is not added to the authorization value.|
 |`CreditCard.CardNumber`|Text|19|Yes|Buyer's Card Number.|
 |`CreditCard.Holder`|Text|25|No|Buyer's name printed on card.|
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
@@ -6831,7 +6831,7 @@ curl
 |`Payment.Interest`|Text|10|No|Type of installment - Store (ByMerchant) or Card (ByIssuer).|
 |`Payment.Capture`|Boolean|---|No (Default false)|Boolean that identifies that the authorization should be with automatic capture.|
 |`Payment.Authenticate`|Boolean|---|No (Default false)|Defines whether the buyer will be directed to the Issuing bank for card authentication|
-|`Payment.ServiceTaxAmount`|Number|15|No|Applicable to airlines companies only. Amount of the authorization value/Montante do valor da autorização that should be allocated to the service fee. Note: This value is not added to the authorization value.|
+|`Payment.ServiceTaxAmount`|Number|15|No|Applicable to airlines companies only. Amount of the authorization value/amount that should be allocated to the service fee. Note: This value is not added to the authorization value.|
 |`Payment.CreditCard.CardNumber`|Text|19|Yes|Buyer's Card Number. The indication that CardNumber must be completed with DPAN for Card Networks tokenization.|
 |`Payment.CreditCard.Holder`|Text|25|No|Buyer's name printed on card.|
 |`Payment.CreditCard.Cryptogram`|Text|28|No|Cryptogram generated by the Card Networks.|
