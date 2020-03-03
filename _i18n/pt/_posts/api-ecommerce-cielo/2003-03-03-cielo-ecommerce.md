@@ -4542,10 +4542,6 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
 
 #### ProviderAnalysisResult.AfsReply.HotListInfoCode
 
-| Valor         | Descrição                                                                                                                                          | Provider    |
-|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `CON-POSNEG` 	| A ordem disparada bate tanto com a lista positiva e negativa. O resultado da lista positiva sobrescreve a lista negativa                           | Cybersource |
-
 #### ProviderAnalysisResult.AfsReply.VelocityInfoCode
 
 ### Outros
