@@ -4542,6 +4542,11 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
 
 #### ProviderAnalysisResult.AfsReply.HotListInfoCode
 
+|Valor|
+|---|
+|`CON-POSNEG`|
+|`NEG-BA`| 
+
 #### ProviderAnalysisResult.AfsReply.VelocityInfoCode
 
 ### Outros
