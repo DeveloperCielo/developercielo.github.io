@@ -4546,6 +4546,29 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
 |---|---|---|
 |`CON-POSNEG`|A ordem disparada bate tanto com a lista positiva e negativa. O resultado da lista positiva sobrescreve a lista negativa |Cybersource|
 |`NEG-BA`|O endereço de cobrança está na lista negativa |Cybersource|
+|`NEG-BCO`|O país do endereço de cobrança está na lista negativa |Cybersource|
+|`NEG-BIN`|O BIN do cartão de crédito (os seis primeiros dígitos do número do cartão) está na lista negativa |Cybersource|
+|`NEG-BINCO`|O país em que o cartão de crédito foi emitido está na lista negativa |Cybersource|
+|`NEG-BZC`|O código postal do endereço de cobrança está na lista negativa |Cybersource|
+|`NEG-CC`|O número de cartão de crédito está na lista negativa |Cybersource|
+|`NEG-EM`|O endereço de e-mail está na lista negativa |Cybersource|
+|`NEG-EMCO`|O país em que o endereço de e-mail está localizado na lista negativa |Cybersource|
+|`NEG-EMDOM`|O domínio de e-mail (por exemplo, mail.example.com) está na lista negativa |Cybersource|
+|`NEG-FP`|O device fingerprint está na lista negativa |Cybersource|
+|`NEG-HIST`|A transação foi encontrada na lista negativa |Cybersource|
+|`NEG-ID`|Identificador do comprador (CPF ou CNPJ) está na lista negativa |Cybersource|
+|`NEG-IP`|O endereço IP (por exemplo, 10.1.27.63) está na lista negativa |Cybersource|
+|`NEG-IP3`|O endereço IP de rede (por exemplo, 10.1.27.63) está na lista negativa. Um endereço de IP da rede inclui até 256 endereços IP  |Cybersource|
+|`NEG-IPCO`|O país em que o endereço IP está localizado está na lista negativa |Cybersource|
+|`NEG-PEM`|O endereço de e-mail do passageiro está na lista negativa |Cybersource|
+|`NEG-PH`|O número do telefone está na lista negativa |Cybersource|
+|`NEG-PID`|Identificador do passageiro está na lista negativa |Cybersource|
+|`NEG-PPH`|O número do telefone do passageiro está na lista negativa |Cybersource|
+|`NEG-SA`|O endereço de entrega está na lista negativa |Cybersource|
+|`NEG-SCO`|O país do endereço de entrega está na lista negativa |Cybersource|
+|`NEG-SZC`|O código postal do endereço de entrega está na lista negativa |Cybersource|
+|`POS-TEMP`|O comprador está temporariamente na lista positiva |Cybersource|
+|`POS-PERM`|O comprador está permanente na lista positiva|Cybersource|
 
 #### ProviderAnalysisResult.AfsReply.VelocityInfoCode
 
