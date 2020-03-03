@@ -4569,6 +4569,27 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
 |`NEG-SZC`|O código postal do endereço de entrega está na lista negativa |Cybersource|
 |`POS-TEMP`|O comprador está temporariamente na lista positiva |Cybersource|
 |`POS-PERM`|O comprador está permanente na lista positiva|Cybersource|
+|`REV-BA`|O endereço de cobrança esta na lista de revisão |Cybersource|
+|`REV-BCO`|O país do endereço de cobrança está na lista de revisão |Cybersource|
+|`REV-BIN`|O BIN do cartão de crédito (os seis primeiros dígitos do número do cartão) está na lista de revisão |Cybersource|
+|`REV-BINCO`|O país em que o cartão de crédito foi emitido está na lista de revisão |Cybersource|
+|`REV-BZC`|O código postal do endereço de cobrança está na lista de revisão |Cybersource|
+|`REV-CC`|O número do cartão de crédito está na lista de revisão |Cybersource|
+|`REV-EM`|O endereço de e-mail está na lista de revisão |Cybersource|
+|`REV-EMCO`|O país em que o endereço de e-mail está localizado está na lista de revisão |Cybersource |
+|`REV-EMDOM`|O domínio de e-mail (por exemplo, mail.example.com) está na lista de revisão |Cybersource|
+|`REV-FP`|O device fingerprint está na lista de revisão |Cybersource|
+|`REV-ID`|Identificador do comprador (CPF ou CNPJ) está na lista de revisão |Cybersource|
+|`REV-IP`|O endereço IP (por exemplo, 10.1.27.63) está na lista de revisão |Cybersource|
+|`REV-IP3`|O endereço IP de rede (por exemplo, 10.1.27.63) está na lista de revisão. Um endereço de IP da rede inclui até 256 endereços IP  |Cybersource|
+|`REV-IPCO`|O país em que o endereço IP está localizado está na lista de revisão   |Cybersource|
+|`REV-PEM`|O endereço de e-mail do passageiro está na lista de revisão |Cybersource|
+|`REV-PH`|O número do telefone está na lista de revisão |Cybersource|
+|`REV-PID`|Identificador do passageiro está na lista de revisão |Cybersource|
+|`REV-PPH`|O número do telefone do passageiro está na lista de revisão |Cybersource|
+|`REV-SA`|O endereço de entrega está na lista de revisão |Cybersource|
+|`REV-SCO`|O país do endereço de entrega está na lista de revisão |Cybersource|
+|`REV-SZC`|O código postal do endereço de entrega está na lista de revisão |Cybersource|
 
 #### ProviderAnalysisResult.AfsReply.VelocityInfoCode
 
