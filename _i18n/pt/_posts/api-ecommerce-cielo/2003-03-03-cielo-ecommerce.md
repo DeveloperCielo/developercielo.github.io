@@ -4596,31 +4596,6 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
 |Valor|Descrição|Provider|
 |---|---|---|
 |`VEL-ADDR`|Diferente estados dos endereços de cobrança e/ou entrega (EUA e Canadá apenas) têm sido usadas várias vezes com o número do cartão de crédito e/ou endereço de email |Cybersource|
-|`VEL-CC`|Diferentes números de cartões de créditos foram usados várias vezes com o mesmo nome ou endereço de email	|Cybersource|
-|`VEL-NAME`|Diferentes nomes foram usados várias vezes com o mesmo número do cartão de crédito e/ou endereço de email |Cybersource|
-|`VELS-CC`|O número do cartão de crédito tem sido utilizado várias vezes durante um intervalo curto	|Cybersource|
-|`VELI-CC`|O número do cartão de crédito tem sido utilizado várias vezes durante um intervalo médio	|Cybersource|
-|`VELL-CC`|O número do cartão de crédito tem sido utilizado várias vezes durante um intervalo longo	|Cybersource|
-|`VELV-CC`|O número do cartão de crédito tem sido utilizado várias vezes durante um intervalo muito longo |Cybersource|
-|`VELS-EM`|O endereço de e-mail tem sido utilizado várias vezes durante um intervalo curto	|Cybersource|
-|`VELI-EM`|O endereço de e-mail tem sido utilizado várias vezes durante um intervalo médio	|Cybersource|
-|`VELL-EM`|O endereço de e-mail tem sido utilizado várias vezes durante um intervalo longo	|Cybersource|
-|`VELV-EM`|O endereço de e-mail tem sido utilizado várias vezes durante um intervalo muito longo |Cybersource|
-|`VELS-FP`|O device fingerprint tem sido utilizado várias vezes durante um intervalo curto	|Cybersource|
-|`VELI-FP`|O device fingerprint tem sido utilizado várias vezes durante um intervalo médio	|Cybersource|
-|`VELL-FP`|O device fingerprint tem sido utilizado várias vezes durante um intervalo longo	|Cybersource|
-|`VELV-FP`|O device fingerprint tem sido utilizado várias vezes durante um intervalo muito longo |Cybersource|
-|`VELS-IP`|O endereço IP tem sido utilizado várias vezes durante um intervalo curto	|Cybersource|
-|`VELI-IP`|O endereço IP tem sido utilizado várias vezes durante um intervalo médio	|Cybersource|
-|`VELL-IP`|O endereço IP tem sido utilizado várias vezes durante um intervalo longo	|Cybersource|
-|`VELV-IP`|O endereço IP tem sido utilizado várias vezes durante um intervalo muito longo |Cybersource|
-|`VELS-SA`|O endereço de entrega tem sido utilizado várias vezes durante um intervalo curto	|Cybersource|
-|`VELI-SA`|O endereço de entrega tem sido utilizado várias vezes durante um intervalo médio	|Cybersource|
-|`VELL-SA`|O endereço de entrega tem sido utilizado várias vezes durante um intervalo longo	|Cybersource|
-|`VELV-SA`|O endereço de entrega tem sido utilizado várias vezes durante um intervalo muito longo |Cybersource|
-|`VELS-TIP`|O endereço IP verdadeiro tem sido utilizado várias vezes durante um intervalo curto	|Cybersource|
-|`VELI-TIP`|O endereço IP verdadeiro tem sido utilizado várias vezes durante um intervalo médio	|Cybersource|
-|`VELL-TIP`|O endereço IP verdadeiro tem sido utilizado várias vezes durante um intervalo longo	|Cybersource|
 
 ### Outros
 
