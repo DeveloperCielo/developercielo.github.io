@@ -4591,7 +4591,7 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
 |`REV-SCO`|O país do endereço de entrega está na lista de revisão |Cybersource|
 |`REV-SZC`|O código postal do endereço de entrega está na lista de revisão |Cybersource|
 
-### Outros
+### Outros 
 
 | Tipo | Descrição                                                                                                                                                                                                            |
 |------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
