@@ -4597,7 +4597,6 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
 |---|---|---|
 |`VEL-ADDR`|Diferente estados dos endereços de cobrança e/ou entrega (EUA e Canadá apenas) têm sido usadas várias vezes com o número do cartão de crédito e/ou endereço de email |Cybersource|
 |`VEL-CC`|Diferentes números de cartões de créditos foram usados várias vezes com o mesmo nome ou endereço de email	|Cybersource|
-|`VEL-NAME`|Diferentes nomes foram usados várias vezes com o mesmo número do cartão de crédito e/ou endereço de email |Cybersource|
 
 ### Outros
 
