@@ -4540,7 +4540,7 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
 | `W`  | CUIDADO: o endereço está relacionado a uma transação que foi reportada como fraudulenta.                                                                                            |
 | `Z`  | CONFIRME O ENDEREÇO: Os endereços de cobrança e entrega não estão relacionados.                |
 
-### Outros 
+### Outros
 
 | Tipo | Descrição                                                                                                                                                                                                            |
 |------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
