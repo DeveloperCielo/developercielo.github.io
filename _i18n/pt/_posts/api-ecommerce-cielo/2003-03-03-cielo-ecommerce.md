@@ -4589,7 +4589,7 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
 |`REV-PPH`|O número do telefone do passageiro está na lista de revisão |Cybersource|
 |`REV-SA`|O endereço de entrega está na lista de revisão |Cybersource|
 |`REV-SCO`|O país do endereço de entrega está na lista de revisão |Cybersource|
-|`REV-SZC`|O código postal do endereço de entrega está na lista de revisão |Cybersource|
+|`REV-SZC`|O código postal do endereço de entrega está na lista de revisão |Cybersource| 
 
 ### Outros 
 
