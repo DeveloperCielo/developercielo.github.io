@@ -4589,7 +4589,13 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
 |`REV-PPH`|O número do telefone do passageiro está na lista de revisão |Cybersource|
 |`REV-SA`|O endereço de entrega está na lista de revisão |Cybersource|
 |`REV-SCO`|O país do endereço de entrega está na lista de revisão |Cybersource|
-|`REV-SZC`|O código postal do endereço de entrega está na lista de revisão |Cybersource| 
+|`REV-SZC`|O código postal do endereço de entrega está na lista de revisão |Cybersource|
+
+#### ProviderAnalysisResult.AfsReply.VelocityInfoCode
+
+|Valor|Descrição|Provider|
+|---|---|---|
+|`VEL-ADDR`|Diferente estados dos endereços de cobrança e/ou entrega (EUA e Canadá apenas) têm sido usadas várias vezes com o número do cartão de crédito e/ou endereço de email |Cybersource|
 
 ### Outros 
 
