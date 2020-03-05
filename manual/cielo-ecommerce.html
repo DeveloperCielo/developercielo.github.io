@@ -427,7 +427,7 @@
 
 <p>Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos campos deste novo nó, os facilitadores terão também de enviar obrigatoriamente o campo softdescriptor do nó payment. Segue abaixo exemplo do envio e da resposta.</p>
 
-<aside class="warning">Atenção: Reforçamos que as informações não devem ser enviadas antes de 10 de fevereiro de 2020, havendo risco de perda de transações.</aside>
+<aside class="warning">Atenção: Reforçamos que as informações não devem ser enviadas antes de 20 de fevereiro de 2020, havendo risco de perda de transações.</aside>
 
 <h4 id="requisição">Requisição</h4>
 
@@ -603,14 +603,14 @@
       <td>Numérico</td>
       <td>11</td>
       <td>Obrigatório para facilitadores</td>
-      <td>Código do estabelecimento do Facilitador.</td>
+      <td>Código do estabelecimento do Facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras)</td>
     </tr>
     <tr>
       <td>PaymentFacilitator.SubEstablishment.EstablishmentCode</td>
       <td>Numérico</td>
       <td>15</td>
       <td>Obrigatório para facilitadores</td>
-      <td>Código do estabelecimento do sub Merchant.</td>
+      <td>Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)</td>
     </tr>
     <tr>
       <td>PaymentFacilitator.SubEstablishment.Mcc</td>
@@ -1783,7 +1783,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
-      <td><a href="https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque">Veja Anexo</a></td>
+      <td>Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.SoftDescriptor</code></td>
@@ -2795,14 +2795,14 @@ Abaixo especificamos qualquer diferença existente:</p>
     <tr>
       <td><code class="highlighter-rouge">Payment.ExternalAuthentication.Cavv</code></td>
       <td>Texto</td>
-      <td>28</td>
+      <td>-</td>
       <td>Sim</td>
       <td>O valor Cavv é retornado pelo mecanismo de autenticação.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.ExternalAuthentication.Xid</code></td>
       <td>Texto</td>
-      <td>28</td>
+      <td>-</td>
       <td>Sim</td>
       <td>O valor Xid é retornado pelo mecanismo de autenticação.</td>
     </tr>
@@ -5150,7 +5150,7 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ServiceTaxAmount</code></td>
-      <td><a href="https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque">Veja Anexo</a></td>
+      <td>Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
@@ -6372,7 +6372,7 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ServiceTaxAmount</code></td>
-      <td><a href="https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque">Veja Anexo</a></td>
+      <td>Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
@@ -6560,7 +6560,7 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ServiceTaxAmount</code></td>
-      <td><a href="https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque">Veja Anexo</a></td>
+      <td>Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
@@ -7976,7 +7976,7 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
       <td>Número</td>
       <td>15</td>
       <td>Sim</td>
-      <td>Montante do valor da autorização que deve ser destinado à taxa de serviço. Veja Anexo</td>
+      <td>Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Installments</code></td>
@@ -13341,7 +13341,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
-      <td><a href="https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque">Veja Anexo</a></td>
+      <td>Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.CardNumber</code></td>
@@ -13978,7 +13978,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
-      <td><a href="https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque">Veja Anexo</a></td>
+      <td>Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
