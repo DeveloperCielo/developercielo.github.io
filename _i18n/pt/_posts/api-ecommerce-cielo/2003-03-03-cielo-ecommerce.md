@@ -14,7 +14,7 @@ language_tabs:
   shell: cURL
 ---
 
-# Visão geral - API Cielo eCommerce
+# Visão geral - API Cielo eCommerce 
 
 O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a **API Cielo eCommerce da Cielo**, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.
 
@@ -51,7 +51,7 @@ Entre outras características, os atributos que mais se destacam na plataforma C
 * **Segurança**: a troca de informações se dá sempre entre o Servidor da Loja e da Cielo, ou seja, sem o browser do comprador.
 * **Multiplataforma**: a integração é realizada através de Web Service REST.
 
-## Arquitetura
+## Arquitetura 
 
 A integração é realizada através de serviços disponibilizados como Web Services. O modelo empregado é bastante simples: Existem duas URLs (endpoint), uma específica operações que causam efeitos colaterais - como autorização, captura e cancelamento de transações, e uma URL específica para operações que não causam efeitos colaterais, como pesquisa de transações. Essas duas URLs receberão as mensagens HTTP através dos métodos POST, GET ou PUT. Cada tipo de mensagem deve ser enviada para um recurso identificado através do path.
 
@@ -115,7 +115,7 @@ Todos os clientes de E-Commerce que são **Facilitadores de Pagamento, por obrig
 
 Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos campos deste novo nó, os facilitadores terão também de enviar obrigatoriamente o campo softdescriptor do nó payment. Segue abaixo exemplo do envio e da resposta.
 
-<aside class="warning"><b>Atenção: Reforçamos que as informações não devem ser enviadas antes de 10 de fevereiro de 2020, havendo risco de perda de transações.</b></aside>
+<aside class="warning"><b>Atenção: Reforçamos que as informações não devem ser enviadas antes de 20 de fevereiro de 2020, havendo risco de perda de transações.</b></aside>
 
 #### Requisição
 
@@ -279,8 +279,8 @@ Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos cam
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|PaymentFacilitator.EstablishmentCode|Numérico|11|Obrigatório para facilitadores|Código do estabelecimento do Facilitador.|
-|PaymentFacilitator.SubEstablishment.EstablishmentCode|Numérico|15|Obrigatório para facilitadores|Código do estabelecimento do sub Merchant.|
+|PaymentFacilitator.EstablishmentCode|Numérico|11|Obrigatório para facilitadores|Código do estabelecimento do Facilitador. "Facilitator ID” (Cadastro do facilitador com as bandeiras)|
+|PaymentFacilitator.SubEstablishment.EstablishmentCode|Numérico|15|Obrigatório para facilitadores|Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)|
 |PaymentFacilitator.SubEstablishment.Mcc|Numérico|4|Obrigatório para facilitadores|MCC do sub Merchant.|
 |PaymentFacilitator.SubEstablishment.Address|Alfanumérico|22|Obrigatório para facilitadores|Endereço do sub Merchant.|
 |PaymentFacilitator.SubEstablishment.City|Alfanumérico|13|Obrigatório para facilitadores|Cidade do sub Merchant.|
@@ -909,7 +909,7 @@ curl
 |`Payment.Currency`|Texto|3|Não|Moeda na qual o pagamento será feito (BRL).|
 |`Payment.Country`|Texto|3|Não|Pais na qual o pagamento será feito.|
 |`Payment.Provider`|Texto|15|---|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|
-|`Payment.ServiceTaxAmount`|Número|15|Não|[Veja Anexo](https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque)|
+|`Payment.ServiceTaxAmount`|Número|15|Não|Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|
 |`Payment.SoftDescriptor`|Texto|13|Não|Texto impresso na fatura bancaria comprador - Exclusivo para VISA/MASTER - não permite caracteres especiais - Ver Anexo|
 |`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
 |`Payment.Interest`|Texto|10|Não|Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer).|
@@ -1454,8 +1454,8 @@ curl
 |`Payment.Provider`|Texto|15|---|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|
 |`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
 |`Payment.Authenticate`|Booleano|---|Não (Default false)|Indica se a transação deve ser autenticada (true) ou não (false). Mesmo para transações autenticadas externamente (fornecedor de autenticação de sua escolha), este campo deve ser enviado com valor “True”, e no nó ExternalAuthentication deve-se enviar os dados retornados pelo mecanismo de autenticação externa escolhido (XID, CAVV e ECI).|
-|`Payment.ExternalAuthentication.Cavv`|Texto|28|Sim|O valor Cavv é retornado pelo mecanismo de autenticação.|
-|`Payment.ExternalAuthentication.Xid`|Texto|28|Sim|O valor Xid é retornado pelo mecanismo de autenticação.|
+|`Payment.ExternalAuthentication.Cavv`|Texto|-|Sim|O valor Cavv é retornado pelo mecanismo de autenticação.|
+|`Payment.ExternalAuthentication.Xid`|Texto|-|Sim|O valor Xid é retornado pelo mecanismo de autenticação.|
 |`Payment.ExternalAuthentication.Eci`|Número|1|Sim|O valor Eci é retornado pelo mecanismo de autenticação.|
 |`CreditCard.CardNumber.`|Texto|19|Sim|Número do Cartão do Comprador|
 |`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
@@ -2657,7 +2657,7 @@ curl
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|Sim|
 |`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
-|`ServiceTaxAmount`|[Veja Anexo](https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque)|Número|15|Não|
+|`ServiceTaxAmount`|Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|Número|15|Não|
 
 #### Resposta
 
@@ -3318,7 +3318,7 @@ curl
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|Sim|
 |`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
-|`ServiceTaxAmount`|[Veja Anexo](https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque)|Número|15|Não|
+|`ServiceTaxAmount`|Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|Número|15|Não|
 
 #### Resposta
 
@@ -3416,7 +3416,7 @@ curl
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|Sim|
 |`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
-|`ServiceTaxAmount`|[Veja Anexo](https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque)|Número|15|Não|
+|`ServiceTaxAmount`|Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|Número|15|Não|
 
 #### Resposta
 
@@ -4080,7 +4080,7 @@ Para criar uma venda com cartão de crédito e analise de fraude, é necessário
 | `Payment.Amount`                              | Número   | 15      | Sim                 | Valor do Pedido (ser enviado em centavos).                                                                                        |
 | `Payment.Currency`                            | Texto    | 3       | Não                 | Moeda na qual o pagamento será feito (BRL).                |
 | `Payment.Country`                             | Texto    | 3       | Não                 | Pais na qual o pagamento será feito.                                                                                              |
-| `Payment.ServiceTaxAmount`                    | Número   | 15      | Sim                 | Montante do valor da autorização que deve ser destinado à taxa de serviço. Veja Anexo                                             |
+| `Payment.ServiceTaxAmount`                    | Número   | 15      | Sim                 | Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização. |
 | `Payment.Installments`                        | Número   | 2       | Sim                 | Número de Parcelas.                                                                                                               |
 | `Payment.Interest`                            | Texto    | 10      | Não                 | Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer).                                                                    |
 | `Payment.Capture`                             | Booleano | ---     | Não                 | Booleano que identifica que a autorização deve ser com captura automática. (Default false)                                        |
@@ -6532,7 +6532,7 @@ curl
 |`Payment.Interest`|Texto|10|Não|Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer).|
 |`Payment.Capture`|Booleano|---|Não (Default false)|Booleano que identifica que a autorização deve ser com captura automática.|
 |`Payment.Authenticate`|Booleano|---|Não (Default false)|Define se o comprador será direcionado ao Banco emissor para autenticação do cartão|
-|`Payment.ServiceTaxAmount`|Número|15|Não|[Veja Anexo](https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque)|
+|`Payment.ServiceTaxAmount`|Número|15|Não|Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|
 |`CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do Comprador.|
 |`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
@@ -6851,7 +6851,7 @@ curl
 |`Payment.Interest`|Texto|10|Não|Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer).|
 |`Payment.Capture`|Booleano|---|Não (Default false)|Booleano que identifica que a autorização deve ser com captura automática.|
 |`Payment.Authenticate`|Booleano|---|Não (Default false)|Define se o comprador será direcionado ao Banco emissor para autenticação do cartão|
-|`Payment.ServiceTaxAmount`|Número|15|Não|[Veja Anexo](https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque)|
+|`Payment.ServiceTaxAmount`|Número|15|Não|Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|
 |`Payment.CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do Comprador. A indicação de que o CardNumber deve ser preenchido com o DPAN para caso de tokenização de bandeira.|
 |`Payment.CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
 |`Payment.CreditCard.Cryptogram`|Texto|28|Não|Criptograma gerado pela bandeira.|
