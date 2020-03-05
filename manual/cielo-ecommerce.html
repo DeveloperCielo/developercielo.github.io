@@ -427,7 +427,7 @@
 
 <p>Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos campos deste novo nó, os facilitadores terão também de enviar obrigatoriamente o campo softdescriptor do nó payment. Segue abaixo exemplo do envio e da resposta.</p>
 
-<aside class="warning">Atenção: Reforçamos que as informações não devem ser enviadas antes de 20 de fevereiro de 2020, havendo risco de perda de transações.</aside>
+<aside class="warning">Atenção: Reforçamos que as informações não devem ser enviadas antes de 10 de fevereiro de 2020, havendo risco de perda de transações.</aside>
 
 <h4 id="requisição">Requisição</h4>
 
@@ -603,14 +603,14 @@
       <td>Numérico</td>
       <td>11</td>
       <td>Obrigatório para facilitadores</td>
-      <td>Código do estabelecimento do Facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras)</td>
+      <td>Código do estabelecimento do Facilitador.</td>
     </tr>
     <tr>
       <td>PaymentFacilitator.SubEstablishment.EstablishmentCode</td>
       <td>Numérico</td>
       <td>15</td>
       <td>Obrigatório para facilitadores</td>
-      <td>Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)</td>
+      <td>Código do estabelecimento do sub Merchant.</td>
     </tr>
     <tr>
       <td>PaymentFacilitator.SubEstablishment.Mcc</td>
@@ -1783,7 +1783,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
-      <td>Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
+      <td><a href="https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque">Veja Anexo</a></td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.SoftDescriptor</code></td>
@@ -2795,14 +2795,14 @@ Abaixo especificamos qualquer diferença existente:</p>
     <tr>
       <td><code class="highlighter-rouge">Payment.ExternalAuthentication.Cavv</code></td>
       <td>Texto</td>
-      <td>-</td>
+      <td>28</td>
       <td>Sim</td>
       <td>O valor Cavv é retornado pelo mecanismo de autenticação.</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.ExternalAuthentication.Xid</code></td>
       <td>Texto</td>
-      <td>-</td>
+      <td>28</td>
       <td>Sim</td>
       <td>O valor Xid é retornado pelo mecanismo de autenticação.</td>
     </tr>
@@ -5150,7 +5150,7 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ServiceTaxAmount</code></td>
-      <td>Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
+      <td><a href="https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque">Veja Anexo</a></td>
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
@@ -6372,7 +6372,7 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ServiceTaxAmount</code></td>
-      <td>Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
+      <td><a href="https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque">Veja Anexo</a></td>
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
@@ -6560,7 +6560,7 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">ServiceTaxAmount</code></td>
-      <td>Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
+      <td><a href="https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque">Veja Anexo</a></td>
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
@@ -7976,7 +7976,7 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
       <td>Número</td>
       <td>15</td>
       <td>Sim</td>
-      <td>Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
+      <td>Montante do valor da autorização que deve ser destinado à taxa de serviço. Veja Anexo</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Installments</code></td>
@@ -9395,269 +9395,6 @@ Existem 3 tipos de configurações de analise de fraude disponiveis:</p>
     <tr>
       <td><code class="highlighter-rouge">Z</code></td>
       <td>CONFIRME O ENDEREÇO: Os endereços de cobrança e entrega não estão relacionados.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="provideranalysisresultafsreplyhotlistinfocode">ProviderAnalysisResult.AfsReply.HotListInfoCode</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Valor</th>
-      <th>Descrição</th>
-      <th>Provider</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">CON-POSNEG</code></td>
-      <td>A ordem disparada bate tanto com a lista positiva e negativa. O resultado da lista positiva sobrescreve a lista negativa</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">NEG-BA</code></td>
-      <td>O endereço de cobrança está na lista negativa</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">NEG-BCO</code></td>
-      <td>O país do endereço de cobrança está na lista negativa</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">NEG-BIN</code></td>
-      <td>O BIN do cartão de crédito (os seis primeiros dígitos do número do cartão) está na lista negativa</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">NEG-BINCO</code></td>
-      <td>O país em que o cartão de crédito foi emitido está na lista negativa</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">NEG-BZC</code></td>
-      <td>O código postal do endereço de cobrança está na lista negativa</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">NEG-CC</code></td>
-      <td>O número de cartão de crédito está na lista negativa</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">NEG-EM</code></td>
-      <td>O endereço de e-mail está na lista negativa</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">NEG-EMCO</code></td>
-      <td>O país em que o endereço de e-mail está localizado na lista negativa</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">NEG-EMDOM</code></td>
-      <td>O domínio de e-mail (por exemplo, mail.example.com) está na lista negativa</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">NEG-FP</code></td>
-      <td>O device fingerprint está na lista negativa</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">NEG-HIST</code></td>
-      <td>A transação foi encontrada na lista negativa</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">NEG-ID</code></td>
-      <td>Identificador do comprador (CPF ou CNPJ) está na lista negativa</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">NEG-IP</code></td>
-      <td>O endereço IP (por exemplo, 10.1.27.63) está na lista negativa</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">NEG-IP3</code></td>
-      <td>O endereço IP de rede (por exemplo, 10.1.27.63) está na lista negativa. Um endereço de IP da rede inclui até 256 endereços IP</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">NEG-IPCO</code></td>
-      <td>O país em que o endereço IP está localizado está na lista negativa</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">NEG-PEM</code></td>
-      <td>O endereço de e-mail do passageiro está na lista negativa</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">NEG-PH</code></td>
-      <td>O número do telefone está na lista negativa</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">NEG-PID</code></td>
-      <td>Identificador do passageiro está na lista negativa</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">NEG-PPH</code></td>
-      <td>O número do telefone do passageiro está na lista negativa</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">NEG-SA</code></td>
-      <td>O endereço de entrega está na lista negativa</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">NEG-SCO</code></td>
-      <td>O país do endereço de entrega está na lista negativa</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">NEG-SZC</code></td>
-      <td>O código postal do endereço de entrega está na lista negativa</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">POS-TEMP</code></td>
-      <td>O comprador está temporariamente na lista positiva</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">POS-PERM</code></td>
-      <td>O comprador está permanente na lista positiva</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">REV-BA</code></td>
-      <td>O endereço de cobrança esta na lista de revisão</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">REV-BCO</code></td>
-      <td>O país do endereço de cobrança está na lista de revisão</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">REV-BIN</code></td>
-      <td>O BIN do cartão de crédito (os seis primeiros dígitos do número do cartão) está na lista de revisão</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">REV-BINCO</code></td>
-      <td>O país em que o cartão de crédito foi emitido está na lista de revisão</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">REV-BZC</code></td>
-      <td>O código postal do endereço de cobrança está na lista de revisão</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">REV-CC</code></td>
-      <td>O número do cartão de crédito está na lista de revisão</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">REV-EM</code></td>
-      <td>O endereço de e-mail está na lista de revisão</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">REV-EMCO</code></td>
-      <td>O país em que o endereço de e-mail está localizado está na lista de revisão</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">REV-EMDOM</code></td>
-      <td>O domínio de e-mail (por exemplo, mail.example.com) está na lista de revisão</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">REV-FP</code></td>
-      <td>O device fingerprint está na lista de revisão</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">REV-ID</code></td>
-      <td>Identificador do comprador (CPF ou CNPJ) está na lista de revisão</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">REV-IP</code></td>
-      <td>O endereço IP (por exemplo, 10.1.27.63) está na lista de revisão</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">REV-IP3</code></td>
-      <td>O endereço IP de rede (por exemplo, 10.1.27.63) está na lista de revisão. Um endereço de IP da rede inclui até 256 endereços IP</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">REV-IPCO</code></td>
-      <td>O país em que o endereço IP está localizado está na lista de revisão</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">REV-PEM</code></td>
-      <td>O endereço de e-mail do passageiro está na lista de revisão</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">REV-PH</code></td>
-      <td>O número do telefone está na lista de revisão</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">REV-PID</code></td>
-      <td>Identificador do passageiro está na lista de revisão</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">REV-PPH</code></td>
-      <td>O número do telefone do passageiro está na lista de revisão</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">REV-SA</code></td>
-      <td>O endereço de entrega está na lista de revisão</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">REV-SCO</code></td>
-      <td>O país do endereço de entrega está na lista de revisão</td>
-      <td>Cybersource</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">REV-SZC</code></td>
-      <td>O código postal do endereço de entrega está na lista de revisão</td>
-      <td>Cybersource</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="provideranalysisresultafsreplyvelocityinfocode">ProviderAnalysisResult.AfsReply.VelocityInfoCode</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Valor</th>
-      <th>Descrição</th>
-      <th>Provider</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">VEL-ADDR</code></td>
-      <td>Diferente estados dos endereços de cobrança e/ou entrega (EUA e Canadá apenas) têm sido usadas várias vezes com o número do cartão de crédito e/ou endereço de email</td>
-      <td>Cybersource</td>
     </tr>
   </tbody>
 </table>
@@ -13604,7 +13341,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
-      <td>Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
+      <td><a href="https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque">Veja Anexo</a></td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.CardNumber</code></td>
@@ -14241,7 +13978,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
-      <td>Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
+      <td><a href="https://developercielo.github.io/manual/cielo-ecommerce#service-tax-amount-taxa-de-embarque">Veja Anexo</a></td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
@@ -20983,14 +20720,12 @@ Se esse código for exibido, a requisição contem erros (EX: tamanho/condiçõe
             
                 
                     
-                    <li><a href="https://developercielo.github.io/faq/faq-api-3-0" title="Respostas para perguntas frequentes feitas pelos desenvolvedores durante a integração com a API Cielo.">FAQ</a></li>
+                    <li><a href="https://developercielo.github.io/manual/prevencao-fraudes" title="Manual de prevenção contra fraudes e chargebacks">Prevenção contra Fraudes e Chargeback</a></li>
                 
             
                 
                     
-                    <li><a href="https://developercielo.github.io/manual/prevencao-fraudes" title="Manual de prevenção contra fraudes e chargebacks">Prevenção contra Fraudes e Chargeback</a></li>
-                
-            
+                    <li><a href="https://developercielo.github.io/tutorial/postman" title="O Postman é um API Client que facilita aos desenvolvedores criar, compartilhar, testar e documentar APIs.">Postman Cielo</a></li>
                 
             
             </ul>

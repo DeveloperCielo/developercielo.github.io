@@ -1,103 +1,19 @@
-<!DOCTYPE html>
-<html lang="pt">
-    <head>
-    <link href="http://gmpg.org/xfn/11" rel="profile">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="theme-color" content="#00aeef">
-    <meta http-equiv="Content-Language" content="pt">
+<hr />
+<p>layout: faq
+title: FAQ
+description: Respostas para perguntas frequentes feitas pelos desenvolvedores durante a integração com a API Cielo.
+search: true
+toc_footers: true
+categories: faq
+sort_order: 4
+tags:</p>
+<ul>
+  <li>
+    <h2 id="api-pagamento">API Pagamento</h2>
+  </li>
+</ul>
 
-    <!-- Enable responsiveness on mobile devices-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-
-    <title>
-        
-        FAQ &middot; Documentações e tutoriais
-        
-    </title>
-
-    <link rel="shortcut icon" href="https://developercielo.github.io/assets/favicon.ico">
-
-    <!-- CSS -->
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
-    <script async src="https://use.fontawesome.com/3ae06f1030.js"></script>
-
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/bundles/css/bundle.min.css">
-
-    
-        
-            <link rel="alternate" hreflang="pt" href="https://developercielo.github.io/faq/faq-api-3-0" />
-        
-    
-        
-            <link rel="alternate" hreflang="en" href="https://developercielo.github.io/en/faq/faq-api-3-0" />
-        
-    
-
-    <!-- RSS -->
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://developercielo.github.io/atom.xml">
-</head>
-
-    <body>
-        
-        <div class="content-container no-dark-box">
-        
-            <div id="submenu">
-                <div class="submenu-container">
-                    <div class="submenu-row sub-items">
-                        <div class="submenu-itens">
-                            <a href="https://devcielo.zendesk.com/hc/pt-br#suporte" class="help">Ajuda</a>
-
-                            
-                        </div>
-
-                        
-                        <div class="search">
-                            <input type="text" class="search" id="input-search">
-                        </div>
-                    </div>
-                    <div class="submenu-row results">
-                        <div class="search-results-container">
-                            <ul class="search-results"></ul>
-                        </div>
-                    </div>
-                        
-
-                    <div class="submenu-row breads">
-                        <ol class="breadcrumb">
-                            
-                            <li><a href="/">Início</a></li>
-                            
-                            
-                            
-                            
-                                
-                                    
-                                    
-                                    
-                                    
-                                    
-                                        
-                                    
-                                        
-                                    
-                                        
-                                    
-                                
-                            
-                                
-                                    
-                                    <li class="active">&gt; <a href="https://developercielo.github.io/faq/faq-api-3-0">FAQ</a></li>
-                                    
-                                
-                            
-                        </ol>
-                    </div>
-                </div>
-            </div>
-
-            <div class="post">
-  <h1 id="dúvidas-de-negócio">Dúvidas de negócio</h1>
+<h1 id="dúvidas-de-negócio">Dúvidas de negócio</h1>
 
 <h2 id="1-o-que-é-a-api-cielo-ecommerce">1. O que é a API Cielo eCommerce?</h2>
 
@@ -770,8 +686,6 @@ Desta forma, é necessário “chamar” o e-Commerce 3.0 para autorizar a trans
 
 <p>c) <strong>Compra parcelada em transações</strong>: neste tipo de transação, diferente do parcelamento tradicional, não há a pré-autorização do valor total da compra no cartão do cliente. Ao invés de inibir o valor total no cartão do cliente e efetuar a captura parcelada, neste caso cada parcela gera uma nova transação na periodicidade acordada até se chegar ao valor total. Por exemplo, uma academia que vende uma afiliação anual e parcela o pagamento mensalmente. Neste caso o campo reason deve ser preenchido como “<strong>Installments</strong>”.</p>
 
-<p>Obs.: para compras eventuais e/ou pontuais com credenciais armazenadas e inciadas pelo portador do cartão (modelo CIT - Cardholder Initiated Transaction), o campo “Reason” não será utilizado.</p>
-
 <p>Exemplos de integração:</p>
 
 <p>** Modelo CIT (card holder intiated): **</p>
@@ -819,7 +733,8 @@ Desta forma, é necessário “chamar” o e-Commerce 3.0 para autorizar a trans
          </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"***"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"CardOnFile"</span><span class="p">:{</span><span class="w">
-            </span><span class="nl">"Usage"</span><span class="p">:</span><span class="s2">"Used"</span><span class="w">
+            </span><span class="nl">"Usage"</span><span class="p">:</span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Reason"</span><span class="p">:</span><span class="s2">"Unscheduled"</span><span class="w">
          </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
    </span><span class="p">}</span><span class="w">
@@ -907,120 +822,3 @@ Desta forma, é necessário “chamar” o e-Commerce 3.0 para autorizar a trans
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-</div>
-
-
-            <div class="footer-conteudo">
-    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
-            <img src="https://developercielo.github.io/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
-    </div>
-
-    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
-        <h2>Precisa de ajuda?</h2>
-        <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://devcielo.zendesk.com/hc/pt-br#suporte">entre em contato conosco</a>.</p>
-    </div>
-</div>
-
-        </div>
-
-        <div class="sidebar">
-  <div class="sidebar-sticky">
-    <div class="sidebar-about">
-      <a title="Comutar a coluna da esquerda" class="hamburger">
-        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
-      </a>
-      <a href="https://desenvolvedores.cielo.com.br" target="_blank">
-        <img src="https://developercielo.github.io/assets/images/logo.png" alt="Documentações e tutoriais" style="width: 60%; margin-left: 20%">
-      </a>
-      <div></div>
-    </div>
-
-    <div id="toc"></div>
-
-    <div class="fixed-footer">
-        
-        <div class="toc-footer">
-            <h2 class="no-toc toc-footer-title">Materiais complementares</h2>
-            
-
-            
-            
-            
-
-            <ul class="toc-footer">
-            
-                
-                    
-                    <li><a href="https://developercielo.github.io/manual/solucao-omni" title="API para integração de vendas no físico e OnLine">Manual de Integração Solução Omni</a></li>
-                
-            
-                
-                    
-                    <li><a href="https://developercielo.github.io/manual/cielo-ecommerce" title="Manual integração técnica via API">Manual de Integração eCommerce Cielo</a></li>
-                
-            
-                
-                    
-                    <li><a href="https://developercielo.github.io/tutorial/tutoriais-3-0" title="O objetivo deste documento é orientar o lojista sobre como acessar Backoffice da API Cielo Ecommerce. Descrevendo as funcionalidades, os métodos a serem utilizados, listando informações necessárias e provendo exemplos.">Tutoriais</a></li>
-                
-            
-                
-            
-                
-                    
-                    <li><a href="https://developercielo.github.io/manual/prevencao-fraudes" title="Manual de prevenção contra fraudes e chargebacks">Prevenção contra Fraudes e Chargeback</a></li>
-                
-            
-                
-            
-            </ul>
-        </div>
-        
-
-    <div class="toc-contact">
-      <div class="contact">
-        <a title="Contato" href="#">
-          <i class="fa fa-envelope-o" aria-hidden="true"></i>
-          <span>Contato</span>
-        </a>
-      </div>
-      <div class="github">
-        <a title="GitHub" href="https://github.com/developercielo">
-          <i class="fa fa-github" aria-hidden="true"></i>
-          <span>GitHub</span>
-        </a>
-      </div>
-    </div>
-  </div>
-  </div>
-</div>
-
-
-        <script src="https://developercielo.github.io/assets/bundles/js/bundle.min.js"></script>
-        <script>
-            
-            var selectors = 'h1';
-            
-        </script>
-
-        
-        <script src="https://developercielo.github.io/assets/bundles/js/search.min.js"></script>
-        
-
-        
-
-        <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
-<script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:674586,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
-
-    </body>
-</html>
