@@ -107,7 +107,7 @@ Cielo provides an app that emulates the Cielo LIO environment in any Android dev
 
 Emulator download:
 
-> https://s3-sa-east-1.amazonaws.com/cielo-lio-store/apps/lio-emulator/1.0.0/lio-emulator.apk
+> https://s3-sa-east-1.amazonaws.com/cielo-lio-emulator/latest-release/lio-emulator.apk
 
 # Remote Integration questions
 
