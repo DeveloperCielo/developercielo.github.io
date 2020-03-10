@@ -107,7 +107,7 @@ A Cielo disponibiliza um aplicativo que simula o ambiente da Cielo LIO em qualqu
 
 Download do Emulador:
 
-> https://s3-sa-east-1.amazonaws.com/cielo-lio-store/apps/lio-emulator/1.0.0/lio-emulator.apk
+> https://s3-sa-east-1.amazonaws.com/cielo-lio-emulator/latest-release/lio-emulator.apk
 
 # Dúvidas Integração Remota
 
