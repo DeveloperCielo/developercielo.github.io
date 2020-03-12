@@ -1,3 +1,15 @@
+---
+layout: manual
+title: Manual de integração
+description: Integração Técnica via API
+search: true
+translated: true
+categories: manual
+sort_order: 3
+tags:
+  - Cielo LIO
+---
+
 # lio_integration
 
 O objetivo dessa documentação é possibilitar o desenvolvimento hibrido com a Cielo LIO, por meio de Deep Link. Através dessa documentação é possivel desenvolver aplicativos em diferentes linguagens.
@@ -290,7 +302,7 @@ Segue abaixo, alguns exemplos de impressão:
 
 ### Observações:
 
-![fluxo](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/apis.png)
+![Fluxo](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/apis.png)
 
 Disponibilizamos também a lista do campo “paymentCode”:
 
