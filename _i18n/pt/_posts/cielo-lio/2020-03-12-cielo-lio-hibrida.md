@@ -1,13 +1,13 @@
 ---
 layout: manual
-title: Manual de integração
-description: Integração Técnica via API
+title: Manual de Integração Hibrida
+description: Documetação referente a Integração Hibrida
 search: true
-translated: true
-categories: manual
-sort_order: 3
+categories: faq
+sort_order: 2
 tags:
-  - Cielo LIO Integração Hibrida.
+  - Cielo LIO Integração Hibrida
+search: true
 ---
 
 # lio_integration
