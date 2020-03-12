@@ -4,7 +4,7 @@ title: FAQ
 description: Respostas para perguntas frequentes feitas pelos desenvolvedores durante a integração com a Cielo LIO.
 search: true
 categories: faq
-sort_order: 2
+sort_order: 3
 tags:
   - Cielo LIO
 search: true
