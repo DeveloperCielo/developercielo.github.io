@@ -1,15 +1,3 @@
----
-layout: manual
-title: Manual de Integração Hibrida
-description: Documetação referente a Integração Hibrida
-search: true
-categories: faq
-sort_order: 2
-tags:
-  - Cielo LIO Integração Hibrida
-search: true
----
-
 # lio_integration
 
 O objetivo dessa documentação é possibilitar o desenvolvimento hibrido com a Cielo LIO, por meio de Deep Link. Através dessa documentação é possivel desenvolver aplicativos em diferentes linguagens.
@@ -53,6 +41,7 @@ chamada de pagamento, você deve informar os mesmos nomes para receber o callbac
 "value":"10"
 }
 ```
+
 Como explicado anteriormente, é preciso definir o contrato de resposta (host e scheme), aqui será utilizado essa configuração no parâmetro urlCallback. A chamada de pagamento deve ser feita da seguinte forma:
 
 ```java
@@ -69,6 +58,7 @@ startActivity(intent)
 ```
 
 Com o pagamento finalizado a LIO retornará para a uri configurada inicialmente um JSON seguindo o formato exemplificado abaixo: 
+
 ``` json
 {
    "createdAt":"Jun 8, 2018 1:51:58 PM",
@@ -267,6 +257,7 @@ Segue abaixo, alguns exemplos de impressão:
 ]
 }
 ```
+
 #### Multi:
 
 ```json
@@ -299,7 +290,8 @@ Segue abaixo, alguns exemplos de impressão:
 
 ### Observações:
 
-Você pode solicitar as credenciais (client-id/access-token) diretamente via [PORTAL DE DESENVOLVEDORES](https://desenvolvedores.cielo.com.br/api-portal/pt-br/myapps/new)
+Você pode solicitar as credenciais (client-id/access-token) diretamente via [PORTAL DE DESENVOLVEDORES 
+(https://desenvolvedores.cielo.com.br/api-portal/pt-br/myapps/new)
 
 ![fluxo](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/apis.png)
 
