@@ -223,3 +223,11 @@ if (Intent.ACTION_VIEW == responseIntent.action) {
    val json = String(data) 
 }
 ```
+
+# Impressão:
+
+Para realizar a impressão, basta montar uma URL com o seguinte formato:
+
+```java
+lio://print?request=$base64&urlCallback=order://response
+``
