@@ -62,3 +62,5 @@ var intent = Intent(Intent.ACTION_VIEW, Uri.parse(checkoutUri))
 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP) 
 startActivity(intent) 
 ```
+
+Com o pagamento finalizado a LIO retornará para a uri configurada inicialmente um JSON seguindo o formato exemplificado abaixo:
