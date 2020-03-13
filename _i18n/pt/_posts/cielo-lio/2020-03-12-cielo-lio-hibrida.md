@@ -47,3 +47,5 @@ Os nomes “response” e “order” podem ser substituídos pelo que fizer sen
 "value":"10"
 }
 ```
+
+Como explicado anteriormente, é preciso definir o contrato de resposta **(host** e **scheme**), aqui será utilizado essa configuração no parâmetro **urlCallback**. A chamada de pagamento deve ser feita da seguinte forma:
