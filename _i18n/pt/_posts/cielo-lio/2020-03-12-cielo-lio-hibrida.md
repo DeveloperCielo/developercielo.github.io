@@ -64,3 +64,112 @@ startActivity(intent)
 ```
 
 Com o pagamento finalizado a LIO retornará para a uri configurada inicialmente um JSON seguindo o formato exemplificado abaixo:
+
+``` json
+{
+   "createdAt":"Jun 8, 2018 1:51:58 PM",
+   "id":"ba583f85-9252-48b5-8fed-12719ff058b9",
+   "items":[
+      {
+         "description":"",
+         "details":"",
+         "id":"898e7f40-fa21-42d0-94d4-b4e95c4fd615",
+         "name":"cocacola",
+         "quantity":2,
+         "reference":"",
+         "sku":"1234",
+         "unitOfMeasure":"unidade",
+         "unitPrice":250
+      },
+      {
+         "description":"",
+         "details":"",
+         "id":"4baea4c2-5499-4783-accc-0f8904970861",
+         "name":"pepsi",
+         "quantity":2,
+         "reference":"",
+         "sku":"4321",
+         "unitOfMeasure":"unidade",
+         "unitPrice":280
+      }
+   ],
+   "notes":"",
+   "number":"",
+   "paidAmount":1450,
+   "payments":[
+      {
+         "accessKey":"XXXXXXXXXXXXXXX",
+         "amount":1450,
+         "applicationName":"com.ads.lio.uriappclient",
+         "authCode":"140126",
+         "brand":"Visa",
+         "cieloCode":"799871",
+         "description":"",
+         "discountedAmount":0,
+         "externalId":"6d5f6f86-7870-4aed-b79f-0a26d6c61743",
+         "id":"bb9c6305-95e5-4024-8152-503d064c0224",
+         "installments":0,
+         "mask":"424242-4242",
+         "merchantCode":"0000000000000003",
+         "paymentFields":{
+            "isDoubleFontPrintAllowed":"false",
+            "hasPassword":"false",
+            "primaryProductCode":"4",
+            "isExternalCall":"true",
+            "primaryProductName":"CREDITO",
+            "receiptPrintPermission":"1",
+            "isOnlyIntegrationCancelable":"false",
+            "upFrontAmount":"0",
+            "creditAdminTax":"0",
+            "firstQuotaDate":"0",
+            "isFinancialProduct":"true",
+            "hasSignature":"true",
+            "hasPrintedClientReceipt":"false",
+            "hasWarranty":"false",
+            "applicationName":"com.ads.lio.uriappclient",
+            "interestAmount":"0",
+            "changeAmount":"0",
+            "serviceTax":"0",
+            "cityState":"Barueri - SP",
+            "hasSentReference":"false",
+            "v40Code":"4",
+            "secondaryProductName":"A VISTA",
+            "paymentTransactionId":"6d5f6f86-7870-4aed-b79f0a26d6c61743",
+            "avaiableBalance":"0",
+            "pan":"424242-4242",
+            "originalTransactionId":"0",
+            "originalTransactionDate":"08/06/18",
+            "secondaryProductCode":"204",
+            "hasSentMerchantCode":"false",
+            "documentType":"J",
+            "statusCode":"1",
+            "merchantAddress":"Alameda Grajau, 219",
+            "merchantCode":"0000000000000003",
+            "paymentTypeCode":"1",
+            "hasConnectivity":"true",
+            "productName":"CREDITO A VISTA - I",
+            "merchantName":"POSTO ABC",
+            "entranceMode":"141010104080",
+            "firstQuotaAmount":"0",
+            "cardCaptureType":"1",
+            "totalizerCode":"0",
+            "requestDate":"1528476655000",
+            "boardingTax":"0",
+            "applicationId":"cielo.launcher",
+            "numberOfQuotas":"0",
+            "document":"000000000000000"
+         },
+         "primaryCode":"4",
+         "requestDate":"1528476655000",
+         "secondaryCode":"204",
+         "terminal":"69000007"
+      }
+   ],
+"pendingAmount":0,
+"price":1060,
+"reference":"Order",
+"status":"ENTERED",
+"type”:”9”,  
+"updatedAt":"Jun 8, 2018 1:51:58 PM" 
+}
+```
