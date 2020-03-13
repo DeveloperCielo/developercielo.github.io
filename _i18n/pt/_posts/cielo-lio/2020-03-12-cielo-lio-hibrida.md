@@ -1,14 +1,19 @@
 ---
 layout: manual
-title: Manual de integração Hibrida
+title: Manual de integração
 description: Integração Técnica via API
 search: true
 translated: true
 categories: manual
-sort_order: 3
+sort_order: 2
 tags:
-  - Cielo LIO
+  - Cielo LIO Integração Hibrida.
 ---
+
+#  Documentação Integração Hibrida
+
+O objetivo dessa documentação é possibilitar o desenvolvimento hibrido com a Cielo LIO,
+por meio de DEEP LINK. Através dessa documentação é possível desenvolver aplicativos e integrar com os principais recursos da Cielo LIO: **Pagamento, Impressão e Cancelamento**
 
 #  Documentação Integração Hibrida
 
