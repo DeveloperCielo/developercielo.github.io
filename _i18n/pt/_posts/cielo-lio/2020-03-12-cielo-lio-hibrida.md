@@ -25,3 +25,5 @@ O processo de integração híbrida é um pouco diferente da integração com o 
 </intent-filter>
 </activity>
 ```
+
+Os nomes “response” e “order” podem ser substituídos pelo que fizer sentido no seu aplicativo. Lembrando que na hora de fazer a chamada de pagamento, você deve informar os mesmos nomes para receber o callback da LIO. Para realizar o pedido de pagamento é preciso criar um json seguindo o formato definido abaixo e converte-lo para BASE64:
