@@ -54,3 +54,5 @@ Como explicado anteriormente, é preciso definir o contrato de resposta **(host*
 var base64 = getBase64(jsonString) 
 var checkoutUri = "lio://payment?request=$base64&urlCallback=order://response"
 ```
+
+Após preparar a URI basta realizar a chamada de **intent** do android utilizando o comando específico da linguagem híbrida.
