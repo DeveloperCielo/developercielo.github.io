@@ -224,7 +224,7 @@ if (Intent.ACTION_VIEW == responseIntent.action) {
 }
 ```
 
-# Impressão:
+# Impressão
 
 Para realizar a impressão, basta montar uma URL com o seguinte formato:
 
