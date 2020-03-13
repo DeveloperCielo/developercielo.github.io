@@ -189,3 +189,18 @@ if (Intent.ACTION_VIEW == responseIntent.action) {
 ```
 
 Lembrando que o parâmetro “**response**” é o mesmo que foi configurado como resposta na chamada de pagamento.
+
+# Cancelamento na integração híbrida 
+
+Para realizar o cancelamento é preciso criar um json seguindo o formato definido abaixo e converte-lo para BASE64:
+
+```json
+{
+   "id":"id da ordem",
+   "clientID":"seu client ID",
+   "accessToken":"seu access token",
+   "cieloCode":"123",
+   "authCode":"123",
+   "value":1000
+}
+```
