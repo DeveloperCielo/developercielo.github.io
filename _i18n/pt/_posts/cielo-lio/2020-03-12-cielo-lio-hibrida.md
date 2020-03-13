@@ -294,7 +294,7 @@ lio://print?request=$base64&urlCallback=order://response
 }
 ```
 
-# Observações:
+# Observações
 
 ## Credenciais
 
@@ -302,7 +302,7 @@ Você pode solicitar as credenciais (client-id/access-token) diretamente via [PO
 
 ![fluxo](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/apis.png)
 
-## paymentCode
+## Lista de paymentCode
 
 Disponibilizamos também a lista do campo “paymentCode”:
 
