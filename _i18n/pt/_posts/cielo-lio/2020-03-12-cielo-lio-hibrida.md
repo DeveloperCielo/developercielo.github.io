@@ -11,3 +11,5 @@ tags:
 ---
 
 # Integração Híbrida Pagamento 
+
+O processo de integração híbrida é um pouco diferente da integração com o SDK. É necessário definir um contrato de resposta com a LIO para que a mesma possa responder após o fluxo de pagamento/cancelamento/impressão. Esse contrato deve ser definido no manifest.xml da aplicação conforme o exemplo abaixo:
