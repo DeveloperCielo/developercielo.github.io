@@ -248,17 +248,3 @@ lio://print?request=$base64&urlCallback=order://response
 ]
 }
 ```
-#### Imagem
-
-```json
-{
-"operation":"PRINT_IMAGE",
-"styles":[
-{
-}
-],
-"value":[
-"/storage/emulated/0/saved_images/Image-5005.jpg"
-]
-}
-```
