@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Manual de integração
+title: Manual de integração Hibrida
 description: Integração Técnica via API
 search: true
 translated: true
