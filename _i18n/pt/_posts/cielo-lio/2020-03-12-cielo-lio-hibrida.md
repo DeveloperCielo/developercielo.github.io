@@ -230,4 +230,65 @@ Para realizar a impressão, basta montar uma URL com o seguinte formato:
 
 ```java
 lio://print?request=$base64&urlCallback=order://response
-``
+```
+
+## Segue abaixo, alguns exemplos de impressão:
+
+#### Texto:
+
+``` json
+{
+"operation":"PRINT_TEXT",
+"styles":[
+{
+}
+],
+"value":[
+"teste impressão"
+]
+}
+```
+
+#### Imagem:
+
+```json
+{
+"operation":"PRINT_IMAGE",
+"styles":[
+{
+}
+],
+"value":[
+"/storage/emulated/0/saved_images/Image-5005.jpg"
+]
+}
+```
+#### Multi:
+
+```json
+{
+"operation":"PRINT_MULTI_COLUMN_TEXT",
+"styles":[
+{
+"key_attributes_align":1,
+"key_attributes_textsize":30,
+"key_attributes_typeface":0
+},
+{
+"key_attributes_align":0,
+"key_attributes_textsize":20,
+"key_attributes_typeface":1
+},
+{
+"key_attributes_align":2,
+"key_attributes_textsize":15,
+"key_attributes_typeface":2
+}
+],
+"value":[
+"Texto alinhado à esquerda.\n\n\n",
+"Texto centralizado\n\n\n",
+"Texto alinhado à direita\n\n\n"
+]
+}
+```
