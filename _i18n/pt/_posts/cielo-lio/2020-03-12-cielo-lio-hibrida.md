@@ -187,3 +187,5 @@ if (Intent.ACTION_VIEW == responseIntent.action) {
    val json = String(data) 
 }
 ```
+
+Lembrando que o parâmetro “**response**” é o mesmo que foi configurado como resposta na chamada de pagamento.
