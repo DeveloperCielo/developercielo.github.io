@@ -5,7 +5,7 @@ description: Integração Técnica via API
 search: true
 translated: true
 categories: manual
-sort_order: 2
+sort_order: 3
 tags:
   - Cielo LIO Integração Hibrida.
 ---
