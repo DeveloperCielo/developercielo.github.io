@@ -56,3 +56,9 @@ var checkoutUri = "lio://payment?request=$base64&urlCallback=order://response"
 ```
 
 Após preparar a URI basta realizar a chamada de **intent** do android utilizando o comando específico da linguagem híbrida.
+
+```java
+var intent = Intent(Intent.ACTION_VIEW, Uri.parse(checkoutUri)) 
+intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP) 
+startActivity(intent) 
+```
