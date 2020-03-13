@@ -211,3 +211,15 @@ A chamada de cancelamento deve ser feita da seguinte forma. Como explicado anter
 var base64 = getBase64(jsonString) 
 var checkoutUri ="lio://paymentreversal?request=$base64&urlCallback=order://response" 
 ```
+
+Para recuperar os dados basta acessar a intent na activity de resposta e no parâmetro data, acessar a uri, da seguinte forma: 
+
+```java
+val responseIntent = intent 
+if (Intent.ACTION_VIEW == responseIntent.action) { 
+   val uri = responseIntent.data 
+   val response = uri.getQueryParameter("response") 
+   val data = Base64.decode(response, Base64.DEFAULT) 
+   val json = String(data) 
+}
+```
