@@ -27,3 +27,23 @@ O processo de integração híbrida é um pouco diferente da integração com o 
 ```
 
 Os nomes “response” e “order” podem ser substituídos pelo que fizer sentido no seu aplicativo. Lembrando que na hora de fazer a chamada de pagamento, você deve informar os mesmos nomes para receber o callback da LIO. Para realizar o pedido de pagamento é preciso criar um json seguindo o formato definido abaixo e converte-lo para BASE64:
+
+```json
+{
+"accessToken":"Seu Access-token",
+"clientID":"Seu Client-id",
+"email": "emaildocliente@email.com",
+"installments":0,
+"items":[
+{
+"name":"Geral",
+"quantity":1,
+"sku":"10",
+"unitOfMeasure":"unidade",
+"unitPrice":10
+}
+],
+"paymentCode":"DEBITO_AVISTA",
+"value":"10"
+}
+```
