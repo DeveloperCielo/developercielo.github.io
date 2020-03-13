@@ -204,3 +204,10 @@ Para realizar o cancelamento é preciso criar um json seguindo o formato definid
    "value":1000
 }
 ```
+
+A chamada de cancelamento deve ser feita da seguinte forma. Como explicado anteriormente, é preciso definir o contrato de resposta, aqui será utilizado essa configuração no parâmetro **urlCallback**: 
+
+```java
+var base64 = getBase64(jsonString) 
+var checkoutUri ="lio://paymentreversal?request=$base64&urlCallback=order://response" 
+```
