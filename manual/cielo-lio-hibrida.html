@@ -161,6 +161,11 @@
 
 <p>Após preparar a URI basta realizar a chamada de <strong>intent</strong> do android utilizando o comando específico da linguagem híbrida.</p>
 
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">intent</span> <span class="o">=</span> <span class="nc">Intent</span><span class="o">(</span><span class="nc">Intent</span><span class="o">.</span><span class="na">ACTION_VIEW</span><span class="o">,</span> <span class="nc">Uri</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="n">checkoutUri</span><span class="o">))</span> 
+<span class="n">intent</span><span class="o">.</span><span class="na">addFlags</span><span class="o">(</span><span class="nc">Intent</span><span class="o">.</span><span class="na">FLAG_ACTIVITY_CLEAR_TOP</span><span class="o">)</span> 
+<span class="n">startActivity</span><span class="o">(</span><span class="n">intent</span><span class="o">)</span> 
+</code></pre></div></div>
+
 </div>
 
 
