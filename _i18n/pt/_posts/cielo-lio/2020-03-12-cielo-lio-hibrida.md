@@ -293,3 +293,7 @@ lio://print?request=$base64&urlCallback=order://response
 ]
 }
 ```
+
+# Observações:
+
+Você pode solicitar as credenciais (client-id/access-token) diretamente via [PORTAL DE DESENVOLVEDORES](https://desenvolvedores.cielo.com.br/api-portal/pt-br/myapps/new).
