@@ -299,3 +299,16 @@ lio://print?request=$base64&urlCallback=order://response
 Você pode solicitar as credenciais (client-id/access-token) diretamente via [PORTAL DE DESENVOLVEDORES](https://desenvolvedores.cielo.com.br/api-portal/pt-br/myapps/new).
 
 ![fluxo](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/apis.png)
+
+Disponibilizamos também a lista do campo “paymentCode”:
+
+| PaymentCode            |
+|------------------------|
+| DEBITO_AVISTA          |
+| DEBITO_PREDATADO       |
+| CREDITO_AVISTA         |
+| CREDITO_PARCELADO_LOJA |
+| CREDITO_PARCELADO_ADM  |
+| PRE_AUTORIZACAO        |
+| VOUCHER_ALIMENTACAO    |
+| VOUCHER_REFEICAO       |
