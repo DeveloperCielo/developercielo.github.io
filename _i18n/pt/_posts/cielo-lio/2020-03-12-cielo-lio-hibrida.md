@@ -321,4 +321,4 @@ Disponibilizamos também a lista do campo “paymentCode”:
 | VOUCHER_ALIMENTACAO    |
 | VOUCHER_REFEICAO       |
 
-> **Atenção**: Para que seja possível integrar de forma híbrida o nosso time de Suporte  a Desenvolvedores precisa enviar o aplicativo UriAppClient para a LIO. Para isso, [Abra um ticket](https://devcielo.zendesk.com/hc/pt-br/requests/new?ticket_form_id=360000201671) em nossa ferramente de atendimento.
+> **Atenção**: Para que seja possível integrar de forma híbrida o nosso time de Suporte  a Desenvolvedores precisa enviar o aplicativo UriAppClient para a LIO. Para isso, [Abra um ticket](https://devcielo.zendesk.com/hc/pt-br/requests/new?ticket_form_id=360000201671) em nossa ferramenta de atendimento.
