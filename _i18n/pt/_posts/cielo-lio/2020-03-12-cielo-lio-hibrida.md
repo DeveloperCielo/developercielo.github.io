@@ -12,8 +12,7 @@ tags:
 
 #  Documentação Integração Hibrida
 
-O objetivo dessa documentação é possibilitar o desenvolvimento hibrido com a Cielo LIO,
-por meio de DEEP LINK. Através dessa documentação é possível desenvolver aplicativos e integrar com os principais recursos da Cielo LIO: **Pagamento, Impressão e Cancelamento**
+O objetivo dessa documentação é possibilitar o desenvolvimento hibrido com a Cielo LIO, por meio de DEEP LINK. Através dessa documentação é possível desenvolver aplicativos e integrar com os principais recursos da Cielo LIO: **Pagamento, Impressão e Cancelamento**
 
 #  Documentação Integração Hibrida
 
