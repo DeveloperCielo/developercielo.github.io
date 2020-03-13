@@ -173,3 +173,7 @@ Com o pagamento finalizado a LIO retornará para a uri configurada inicialmente 
 "updatedAt":"Jun 8, 2018 1:51:58 PM" 
 }
 ```
+
+# Recuperando dados do pagamento
+
+Para recuperar os dados de pagamento basta acessar a intent na activity de resposta e no parâmetro data, acessar a uri, da seguinte forma: 
