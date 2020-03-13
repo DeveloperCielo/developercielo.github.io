@@ -121,15 +121,13 @@
 
 <p>O processo de integração híbrida é um pouco diferente da integração com o SDK. É necessário definir um contrato de resposta com a LIO para que a mesma possa responder após o fluxo de pagamento/cancelamento/impressão. Esse contrato deve ser definido no manifest.xml da aplicação conforme o exemplo abaixo:</p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">".ResponseActivity"</span><span class="nt">&gt;</span>    
-<span class="nt">&lt;intent-filter&gt;</span>
-   <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"android.intent.action.VIEW"</span> <span class="nt">/&gt;</span>
-   <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">"android.intent.category.DEFAULT"</span> <span class="nt">/&gt;</span>
-   <span class="nt">&lt;data</span>            
-      <span class="na">android:host=</span><span class="s">"response"</span>           
-      <span class="na">android:scheme=</span><span class="s">"order"</span> <span class="nt">/&gt;</span>
-<span class="nt">&lt;/intent-filter&gt;</span>
-<span class="nt">&lt;/activity&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    
+
+   
+   
+   
+
+
 </code></pre></div></div>
 
 <p>Os nomes “response” e “order” podem ser substituídos pelo que fizer sentido no seu aplicativo. Lembrando que na hora de fazer a chamada de pagamento, você deve informar os mesmos nomes para receber o callback da LIO. Para realizar o pedido de pagamento é preciso criar um json seguindo o formato definido abaixo e converte-lo para BASE64:</p>
@@ -321,6 +319,14 @@
    <span class="n">val</span> <span class="n">json</span> <span class="o">=</span> <span class="nc">String</span><span class="o">(</span><span class="n">data</span><span class="o">)</span> 
 <span class="o">}</span>
 </code></pre></div></div>
+
+<h1 id="impressão">Impressão:</h1>
+
+<p>Para realizar a impressão, basta montar uma URL com o seguinte formato:</p>
+
+<p>```java
+lio://print?request=$base64&amp;urlCallback=order://response
+``</p>
 
 </div>
 
