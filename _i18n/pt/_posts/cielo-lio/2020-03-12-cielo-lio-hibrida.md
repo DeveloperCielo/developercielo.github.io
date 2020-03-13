@@ -49,3 +49,8 @@ Os nomes “response” e “order” podem ser substituídos pelo que fizer sen
 ```
 
 Como explicado anteriormente, é preciso definir o contrato de resposta **(host** e **scheme**), aqui será utilizado essa configuração no parâmetro **urlCallback**. A chamada de pagamento deve ser feita da seguinte forma:
+
+```java
+var base64 = getBase64(jsonString) 
+var checkoutUri = "lio://payment?request=$base64&urlCallback=order://response"
+```
