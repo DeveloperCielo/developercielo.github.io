@@ -311,6 +311,17 @@
 <span class="kt">var</span> <span class="n">checkoutUri</span> <span class="o">=</span><span class="s">"lio://paymentreversal?request=$base64&amp;urlCallback=order://response"</span> 
 </code></pre></div></div>
 
+<p>Para recuperar os dados basta acessar a intent na activity de resposta e no parâmetro data, acessar a uri, da seguinte forma:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">val</span> <span class="n">responseIntent</span> <span class="o">=</span> <span class="n">intent</span> 
+<span class="nf">if</span> <span class="o">(</span><span class="nc">Intent</span><span class="o">.</span><span class="na">ACTION_VIEW</span> <span class="o">==</span> <span class="n">responseIntent</span><span class="o">.</span><span class="na">action</span><span class="o">)</span> <span class="o">{</span> 
+   <span class="n">val</span> <span class="n">uri</span> <span class="o">=</span> <span class="n">responseIntent</span><span class="o">.</span><span class="na">data</span> 
+   <span class="n">val</span> <span class="n">response</span> <span class="o">=</span> <span class="n">uri</span><span class="o">.</span><span class="na">getQueryParameter</span><span class="o">(</span><span class="s">"response"</span><span class="o">)</span> 
+   <span class="n">val</span> <span class="n">data</span> <span class="o">=</span> <span class="nc">Base64</span><span class="o">.</span><span class="na">decode</span><span class="o">(</span><span class="n">response</span><span class="o">,</span> <span class="nc">Base64</span><span class="o">.</span><span class="na">DEFAULT</span><span class="o">)</span> 
+   <span class="n">val</span> <span class="n">json</span> <span class="o">=</span> <span class="nc">String</span><span class="o">(</span><span class="n">data</span><span class="o">)</span> 
+<span class="o">}</span>
+</code></pre></div></div>
+
 </div>
 
 
