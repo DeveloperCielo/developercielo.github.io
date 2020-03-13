@@ -134,6 +134,25 @@
 
 <p>Os nomes “response” e “order” podem ser substituídos pelo que fizer sentido no seu aplicativo. Lembrando que na hora de fazer a chamada de pagamento, você deve informar os mesmos nomes para receber o callback da LIO. Para realizar o pedido de pagamento é preciso criar um json seguindo o formato definido abaixo e converte-lo para BASE64:</p>
 
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"accessToken"</span><span class="p">:</span><span class="s2">"Seu Access-token"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"clientID"</span><span class="p">:</span><span class="s2">"Seu Client-id"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emaildocliente@email.com"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"installments"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="nl">"items"</span><span class="p">:[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Geral"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="nl">"sku"</span><span class="p">:</span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"unitOfMeasure"</span><span class="p">:</span><span class="s2">"unidade"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"unitPrice"</span><span class="p">:</span><span class="mi">10</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nl">"paymentCode"</span><span class="p">:</span><span class="s2">"DEBITO_AVISTA"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"value"</span><span class="p">:</span><span class="s2">"10"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
 </div>
 
 
