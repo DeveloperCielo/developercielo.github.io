@@ -291,6 +291,20 @@
 
 <p>Lembrando que o parâmetro “<strong>response</strong>” é o mesmo que foi configurado como resposta na chamada de pagamento.</p>
 
+<h1 id="cancelamento-na-integração-híbrida">Cancelamento na integração híbrida</h1>
+
+<p>Para realizar o cancelamento é preciso criar um json seguindo o formato definido abaixo e converte-lo para BASE64:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"id da ordem"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"clientID"</span><span class="p">:</span><span class="s2">"seu client ID"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"accessToken"</span><span class="p">:</span><span class="s2">"seu access token"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"cieloCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"authCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"value"</span><span class="p">:</span><span class="mi">1000</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
 </div>
 
 
