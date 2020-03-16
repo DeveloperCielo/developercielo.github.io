@@ -4,7 +4,7 @@ title: Manual de Integração Hibrida
 description: Documentação referente a Integração Hibrida da Cielo LIO
 search: true
 categories: manual
-sort_order: 3
+sort_order: 2
 tags:
   - Cielo LIO
 search: true
