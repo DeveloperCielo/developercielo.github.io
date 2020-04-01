@@ -225,18 +225,13 @@
 
 <h1 id="passo-2---utilizando-o-sdk">Passo 2 - Utilizando o SDK</h1>
 
-<p>Para utilizar o SDK é necessário copiar e colar o arquivo Braspag3dsSdk na libs do app:</p>
+<p>Para utilizar o SDK é necessário baixar o arquivo aar da versão mais recente em <a href="https://github.com/DeveloperCielo/3ds-android/releases">releases</a>, após isso, recomendamos adicioná-lo a pasta libs em seu app module</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">braspag3ds-1</span><span class="p">.</span><span class="m">0</span><span class="p">-</span><span class="n">release</span><span class="p">.</span><span class="n">aar</span>
-</code></pre></div></div>
-
-<p>Em seguida alterar no (gradle:app)</p>
+<p>Desta forma, poderá importar adicionando a seguinte dependência ao seu <strong>build.gradle</strong> no app module:</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">dependecies</span><span class="p">{</span>
-
-  <span class="n">implementation</span> <span class="nf">fileTree</span><span class="p">(</span><span class="n">dir</span><span class="p">:</span> <span class="err">'</span><span class="n">libs</span><span class="err">'</span><span class="p">,</span> <span class="n">include</span><span class="p">:</span> <span class="p">[</span><span class="err">'</span><span class="p">*.</span><span class="n">jar</span><span class="err">'</span><span class="p">,</span> <span class="err">'</span><span class="p">*.</span><span class="n">aar</span><span class="err">'</span><span class="p">])</span>
-  
   <span class="o">..</span><span class="p">.</span>
+  <span class="n">implementation</span> <span class="nf">files</span><span class="p">(</span><span class="err">'</span><span class="n">libs</span><span class="p">/</span><span class="n">braspag3ds-1</span><span class="p">.</span><span class="m">1.0</span><span class="p">-</span><span class="n">release</span><span class="p">.</span><span class="n">aar</span><span class="err">'</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
