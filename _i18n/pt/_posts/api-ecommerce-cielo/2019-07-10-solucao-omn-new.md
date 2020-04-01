@@ -58,6 +58,11 @@ A autenticação é uma operação necessária para obtenção do token que ser�
 |Security scheme type:|OAuth2|
 |clientCredentials OAuth Flow|**Token URL:** https://authsandbox.braspag.com.br/oauth2/token<br><br>**Scopes:**<br><br>* `Administrator` - Admin everything<br><br>* `AnalyticsApiOverview` - See the analytics<br><br>* `AdminBackoffice` - Use the backoffice|
 
+| SandBox                                                          |
+|:----------------------------------------------------------------:|
+| https://authsandbox.cieloecommerce.cielo.com.br/oauth2/token     |
+
+
 # Pagamento
 
 Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Payment.Status) na resposta para certificar-se que o pagamento foi gerado com sucesso ou se houve alguma falha.
