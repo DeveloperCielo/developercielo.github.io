@@ -109,7 +109,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantOrderId`|String|---|---| Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal.|
+|`MerchantOrderId`|String|---|---| Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.|
 |`Payment.Type`|String|---|Sim|Value: `PhysicalCreditCard` / Tipo da Transação|
 |`Payment.SoftDescriptor`|String|13|---|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
 |`Payment.PaymentDateTime`|String|date-time|Sim|Data e Hora da captura da transação|
@@ -385,26 +385,26 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantOrderId`|String|---|---| Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal.|
+|`MerchantOrderId`|String|---|---| Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.|
 |`Customer.Name`|String|---|---|---||---|
-|`Customer.Identity`|---|---|---||---|
-|`Customer.IdentityType`|---|---|---||---|
+|`Customer.Identity`|---|---|---|---|
+|`Customer.IdentityType`|---|---|---|---|
 |`Customer.Email`|---|---|---||---|
-|`Customer.Birthday`|---|---|---||---|
-|`Address.Street`|---|---|---||---|
-|`Address.Number`|---|---|---||---|
-|`Address.Complement`---|---|---||---|
-|`Address.ZipCode`|---|---|---||---|
-|`Address.City`|---|---|---||---|
-|`Address.State`|---|---|---||---|
-|`Address.Country`|---|---|---||---|
-|`DeliveryAddress.Street`|---|---|---||---|
-|`DeliveryAddress.Number`|---|---|---||---|
-|`DeliveryAddress.Complement`|---|---|---||---|
-|`DeliveryAddress.ZipCode`|---|---|---||---|
-|`DeliveryAddress.City`|---|---|---||---|
-|`DeliveryAddress.State`|---|---|---||---|
-|`DeliveryAddress.Country`|---|---|---||---|
+|`Customer.Birthday`|---|---|---|---|
+|`Address.Street`|String|---|---|---|
+|`Address.Number`|String|---|---|---|
+|`Address.Complement`|String|---|---|---|
+|`Address.ZipCode`|String|---|---|---|
+|`Address.City`|String|---|---|---|
+|`Address.State`|String|---|---|---|
+|`Address.Country`|String|---|---|---|
+|`DeliveryAddress.Street`|String|---|---|---|
+|`DeliveryAddress.Number`|String|---|---|---|
+|`DeliveryAddress.Complement`|String|---|---|---|
+|`DeliveryAddress.ZipCode`|String|---|---|---|
+|`DeliveryAddress.City`|String|---|---|---|
+|`DeliveryAddress.State`|String|---|---|---|
+|`DeliveryAddress.Country`|String|---|---|---|
 |`Payment.Installments`|Integer|---|---|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
 |`Payment.Interest`|String|---|---|Default: `ByMerchant` <br><br> Enum: `ByMerchant` `ByIssuer` <br><br> Tipo de Parcelamento: <br><br> - Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado. <br><br> - Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.|
 |`Payment.Capture`|Booleano|---|---|Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.|
@@ -418,7 +418,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|String|---|---|---|
 |`PinBlock.KsnIdentification`|String|---|---|---|
-|`CreditCard.PanSequenceNumber`|---|---|---|---|
+|`CreditCard.PanSequenceNumber`|Number|---|---|Número sequencial do cartão, utilizado para identificar a conta corrente do cartão adicional. Mandatório para transações com cartões Chip EMV e que possuam PAN Sequence Number (Tag 5F34).|
 |`CreditCard.SaveCard`|---|---|---|---|
 |`CreditCard.IsFallback`|---|---|---|---|
 |`Payment.PaymentDateTime`|String|date-time|Sim|Data e Hora da captura da transação|
@@ -521,30 +521,30 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantOrderId`|---|---|---|---|
-|`Payment.Type`|---|---|---|---|
-|`Payment.SoftDescriptor`|---|---|---|---|
-|`Payment.PaymentDateTime`|---|---|---|---|
-|`Payment.Amount`|---|---|---|---|
-|`Payment.Installments`|---|---|---|---|
-|`Payment.Capture`|---|---|---|---|
-|`Payment.Interest`|---|---|---|---|
-|`Payment.ProductId`|---|---|---|---|
-|`CreditCard.CardNumber`|---|---|---|---|
-|`CreditCard.ExpirationDate`|---|---|---|---|
-|`CreditCard.SecurityCodeStatus`|---|---|---|---|
-|`CreditCard.SecurityCode`|---|---|---|---|
-|`CreditCard.BrandId`|---|---|---|---|
-|`CreditCard.IssuerId`|---|---|---|---|
-|`CreditCard.InputMode`|---|---|---|---|
-|`CreditCard.AuthenticationMethod`|---|---|---|---|
-|`CreditCard.TruncateCardNumberWhenPrinting`|---|---|---|---|
+|`MerchantOrderId`|String|---|---| Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.|
+|`Payment.Type`|String|---|Sim|Value: `PhysicalCreditCard` / Tipo da Transação|
+|`Payment.SoftDescriptor`|String|13|---|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
+|`Payment.PaymentDateTime`|String|date-time|Sim|Data e Hora da captura da transação|
+|`Payment.Amount`|Integer(int64)|---|Sim|Valor da transação (1079 = R$10,79)|
+|`Payment.Installments`|Integer|---|---|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
+|`Payment.Interest`|String|---|---|Default: `ByMerchant` <br><br> Enum: `ByMerchant` `ByIssuer` <br><br> Tipo de Parcelamento: <br><br> - Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado. <br><br> - Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.|
+|`Payment.Capture`|Booleano|---|---|Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.|
+|`Payment.ProductId`|Integer|---|Sim|Código do produto identificado através do bin do cartão.|
+|`CreditCard.CardNumber`|String|19|---|Número do cartão (PAN)|
+|`CreditCard.ExpirationDate`|String|MM/yyyy|Sim|Data de validade do cartão. <br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação.|
+|`CreditCard.SecurityCodeStatus`|String|---|---|Enum: `Collected` `Unreadable` `Nonexistent` <br><br> Status da coleta de código de segurança (CVV)|
+|`CreditCard.SecurityCode`|String|3 ou 4|---|Código de segurança (CVV)|
+|`CreditCard.BrandId`|Integer|---|Sim|Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE.|
+|`CreditCard.IssuerId`|Integer|---|Sim|Código do emissor obtido através do campo IssuerId da BIN TABLE.|
+|`CreditCard.InputMode`|String|---|Sim|Enum: `Typed` `MagStripe` `Emv` <br><br>Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. <br><br>"00" – Magnético <br><br>"01" - Moedeiro VISA Cash sobre TIBC v1 <br><br>"02" - Moedeiro VISA Cash sobre TIBC v3 <br><br>"03" – EMV com contato <br><br>"04" - Easy-Entry sobre TIBC v1 <br><br>"05" - Chip sem contato simulando tarja <br><br> "06" - EMV sem contato.|
+|`CreditCard.AuthenticationMethod`|String|---|Sim|Enum: `NoPassword` `OnlineAuthentication` `OfflineAuthentication` <br><br>Método de autenticação <br><br>- Se o cartão foi lido a partir da digitação verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1; <br><br>- Se o cartão foi lido a partir da trilha verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, deve ser verificado o bit 2 do mesmo campo. Se este estiver com valor 1 deve ser capturada a senha. Se estiver com valor 0 a captura da senha vai depender do último dígito do service code; <br><br>- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2. <br><br>1 - Sem senha = “NoPassword”; <br><br>2 - Senha online = “Online Authentication”; <br><br>3 - Senha off-line = “Offline Authentication”.|
+|`CreditCard.TruncateCardNumberWhenPrinting`|Booleano|---|---|Indica se o número do cartão será truncado no momento da impressão do comprovante. A solução de captura deve tomar essa decisão com base no `confParamOp03` presente nas tabelas BIN TABLE, PARAMETER TABLE e ISSUER TABLE.|
 |`CreditCard.SaveCard`|---|---|---|---|
 |`CreditCard.IsFallback`|---|---|---|---|
-|`PinPadInformation.TerminalId`|---|---|---|---|
-|`PinPadInformation.SerialNumber`|---|---|---|---|
-|`PinPadInformation.PhysicalCharacteristics`|---|---|---|---|
-|`PinPadInformation.ReturnDataInfo`|---|---|---|---|
+|`PinPadInformation.TerminalId`|String|---|Sim|Número Lógico definido no Concentrador Cielo.|
+|`PinPadInformation.SerialNumber`|String|---|Sim|Número de Série do Equipamento.|
+|`PinPadInformation.PhysicalCharacteristics`|String|---|Sim|Enum: `WithoutPinPad` `PinPadWithoutChipReader` `PinPadWithChipReaderWithoutSamModule` `PinPadWithChipReaderWithSamModule` `NotCertifiedPinPad` `PinPadWithChipReaderWithoutSamAndContactless` `PinPadWithChipReaderWithSamModuleAndContactless` <br><br> Sem PIN-pad = `WithoutPinPad`; <br><br> PIN-pad sem leitor de Chip = `PinpadWithoutChipReader`; <br><br>PIN-pad com leitor de Chip sem módulo SAM = `PinPadWithChipReaderWithoutSamModule`; <br><br> PIN-pad com leitor de Chip com módulo SAM = `PinPadWithChipReaderWithSamModule`; <br><br> PIN-pad não homologado = `NotCertifiedPinPad`; <br><br> PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = `PinpadWithChipReaderWithoutSamAndContactless`; <br><br> PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = `PinpadWithChipReaderWithSamAndContactless`. <br><br><br> Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.|
+|`PinPadInformation.ReturnDataInfo`|String|---|Sim|Retorno da função PP_GetInfo() da biblioteca compartilhada|
 |`RecurrentPayment.EndDate`|---|---|---|---|
 |`RecurrentPayment.Interval`|---|---|---|---|
 
@@ -799,65 +799,65 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantOrderId`|---|---|---|---|
+|`MerchantOrderId`|String|---|---| Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.|
 |`Customer.Name`|---|---|---|---|
 |`Customer.Identity`|---|---|---|---|
 |`Customer.IdentityType`|---|---|---|---|
 |`Customer.Email`|---|---|---|---|
 |`Customer.Birthday`|---|---|---|---|
-|`Address.Street`|---|---|---|---|
-|`Address.Number`|---|---|---|---|
-|`Address.Complement`|---|---|---|---|
-|`Address.ZipCode`|---|---|---|---|
-|`Address.City`|---|---|---|---|
-|`Address.State`|---|---|---|---|
-|`Address.Country`|---|---|---|---|
-|`DeliveryAddress.Street`|---|---|---|---|
-|`DeliveryAddress.Number`|---|---|---|---|
-|`DeliveryAddress.Complement`|---|---|---|---|
-|`DeliveryAddress.ZipCode`|---|---|---|---|
-|`DeliveryAddress.City`|---|---|---|---|
-|`DeliveryAddress.State`|---|---|---|---|
-|`DeliveryAddress.Country`|---|---|---|---|
-|`Payment.Installments`|---|---|---|---|
-|`Payment.Interest`|---|---|---|---|
-|`Payment.Capture`|---|---|---|---|
-|`CreditCard.ExpirationDate`|---|---|---|---|
-|`CreditCard.BrandId`|---|---|---|---|
-|`CreditCard.IssuerId`|---|---|---|---|
-|`CreditCard.TruncateCardNumberWhenPrinting`|---|---|---|---|
-|`CreditCard.InputMode`|---|---|---|---|
-|`CreditCard.AuthenticationMethod`|---|---|---|---|
-|`CreditCard.EmvData`|---|---|---|---|
+|`Address.Street`|String|---|---||---|
+|`Address.Number`|String|---|---||---|
+|`Address.Complement`|String|---|---||---|
+|`Address.ZipCode`|String|---|---||---|
+|`Address.City`|String|---|---||---|
+|`Address.State`|String|---|---||---|
+|`Address.Country`|String|---|---||---|
+|`DeliveryAddress.Street`|String|---|---||---|
+|`DeliveryAddress.Number`|String|---|---||---|
+|`DeliveryAddress.Complement`|String|---|---||---|
+|`DeliveryAddress.ZipCode`|String|---|---||---|
+|`DeliveryAddress.City`|String|---|---||---|
+|`DeliveryAddress.State`|String|---|---||---|
+|`DeliveryAddress.Country`|String|---|---||---|
+|`Payment.Installments`|Integer|---|---|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
+|`Payment.Interest`|String|---|---|Default: `ByMerchant` <br><br> Enum: `ByMerchant` `ByIssuer` <br><br> Tipo de Parcelamento: <br><br> - Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado. <br><br> - Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.|
+|`Payment.Capture`|Booleano|---|---|Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.|
+|`CreditCard.ExpirationDate`|String|MM/yyyy|Sim|Data de validade do cartão. <br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação.|
+|`CreditCard.BrandId`|Integer|---|Sim|Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE.|
+|`CreditCard.IssuerId`|Integer|---|Sim|Código do emissor obtido através do campo IssuerId da BIN TABLE.|
+|`CreditCard.TruncateCardNumberWhenPrinting`|Booleano|---|---|Indica se o número do cartão será truncado no momento da impressão do comprovante. A solução de captura deve tomar essa decisão com base no `confParamOp03` presente nas tabelas BIN TABLE, PARAMETER TABLE e ISSUER TABLE.|
+|`CreditCard.InputMode`|String|---|Sim|Enum: `Typed` `MagStripe` `Emv` <br><br>Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. <br><br>"00" – Magnético <br><br>"01" - Moedeiro VISA Cash sobre TIBC v1 <br><br>"02" - Moedeiro VISA Cash sobre TIBC v3 <br><br>"03" – EMV com contato <br><br>"04" - Easy-Entry sobre TIBC v1 <br><br>"05" - Chip sem contato simulando tarja <br><br> "06" - EMV sem contato.|
+|`CreditCard.AuthenticationMethod`|String|---|Sim|Enum: `NoPassword` `OnlineAuthentication` `OfflineAuthentication` <br><br>Método de autenticação <br><br>- Se o cartão foi lido a partir da digitação verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1; <br><br>- Se o cartão foi lido a partir da trilha verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, deve ser verificado o bit 2 do mesmo campo. Se este estiver com valor 1 deve ser capturada a senha. Se estiver com valor 0 a captura da senha vai depender do último dígito do service code; <br><br>- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2. <br><br>1 - Sem senha = “NoPassword”; <br><br>2 - Senha online = “Online Authentication”; <br><br>3 - Senha off-line = “Offline Authentication”.|
+|`CreditCard.EmvData`|String|---|---|Dados da transação EMV <br><br>Obtidos através do comando PP_GoOnChip na BC|
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|---|---|---|---|
 |`PinBlock.KsnIdentification`|---|---|---|---|
-|`CreditCard.PanSequenceNumber`|---|---|---|---|
+|`CreditCard.PanSequenceNumber`|Number|---|---|Número sequencial do cartão, utilizado para identificar a conta corrente do cartão adicional. Mandatório para transações com cartões Chip EMV e que possuam PAN Sequence Number (Tag 5F34).|
 |`CreditCard.SaveCard`|---|---|---|---|
 |`CreditCard.IsFallback`|---|---|---|---|
-|`Payment.PaymentDateTime`|---|---|---|---|
+|`Payment.PaymentDateTime`|String|date-time|Sim|Data e Hora da captura da transação|
 |`Payment.ServiceTaxAmount`|---|---|---|---|
-|`Payment.SoftDescriptor`|---|---|---|---|
-|`Payment.ProductId`|---|---|---|---|
-|`PinPadInformation.TerminalId`|---|---|---|---|
-|`PinPadInformation.SerialNumber`|---|---|---|---|
-|`PinPadInformation.PhysicalCharacteristics`|---|---|---|---|
-|`PinPadInformation.ReturnDataInfo`|---|---|---|---|
-|`Payment.Amount`|---|---|---|---|
+|`Payment.SoftDescriptor`|String|13|---|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
+|`Payment.ProductId`|Integer|---|Sim|Código do produto identificado através do bin do cartão.|
+|`PinPadInformation.TerminalId`|String|---|Sim|Número Lógico definido no Concentrador Cielo.|
+|`PinPadInformation.SerialNumber`|String|---|Sim|Número de Série do Equipamento.|
+|`PinPadInformation.PhysicalCharacteristics`|String|---|Sim|Enum: `WithoutPinPad` `PinPadWithoutChipReader` `PinPadWithChipReaderWithoutSamModule` `PinPadWithChipReaderWithSamModule` `NotCertifiedPinPad` `PinPadWithChipReaderWithoutSamAndContactless` `PinPadWithChipReaderWithSamModuleAndContactless` <br><br> Sem PIN-pad = `WithoutPinPad`; <br><br> PIN-pad sem leitor de Chip = `PinpadWithoutChipReader`; <br><br>PIN-pad com leitor de Chip sem módulo SAM = `PinPadWithChipReaderWithoutSamModule`; <br><br> PIN-pad com leitor de Chip com módulo SAM = `PinPadWithChipReaderWithSamModule`; <br><br> PIN-pad não homologado = `NotCertifiedPinPad`; <br><br> PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = `PinpadWithChipReaderWithoutSamAndContactless`; <br><br> PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = `PinpadWithChipReaderWithSamAndContactless`. <br><br><br> Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.|
+|`PinPadInformation.ReturnDataInfo`|String|---|Sim|Retorno da função PP_GetInfo() da biblioteca compartilhada|
+|`Payment.Amount`|Integer(int64)|---|Sim|Valor da transação (1079 = R$10,79)|
 |`Payment.ReceivedDate`|---|---|---|---|
 |`Payment.CapturedAmount`|---|---|---|---|
-|`Payment.Provider`|---|---|---|---|
+|`Payment.Provider`|String|---|---|---|
 |`Payment.ConfirmationStatus`|---|---|---|---|
 |`Payment.InitializationVersion`|---|---|---|---|
 |`Payment.EmvResponseData`|---|---|---|---|
 |`Payment.Status`|---|---|---|---|
-|`Payment.IsSplitted`|---|---|---|---|
+|`Payment.IsSplitted`|Booleano|---|---|---|
 |`Payment.ReturnCode`|---|---|---|---|
-|`Payment.ReturnMessage`|---|---|---|---|
+|`Payment.ReturnMessage`|String|---|---|---|
 |`Payment.PaymentId`|---|---|---|---|
-|`Payment.Type`|---|---|---|---|
-|`Payment.Currency`|---|---|---|---|
-|`Payment.Country`|---|---|---|---|
+|`Payment.Type`|String|---|Sim|Value: `PhysicalCreditCard` / Tipo da Transação|
+|`Payment.Currency`|String|---|---|Default: "BRL" / Value: "BRL" / Moeda (Preencher com “BRL”)|
+|`Payment.Country`|String|---|---|Default: "BRA" / Value: "BRA" / País (Preencher com “BRA”)|
 |`Receipt.MerchantName`|---|---|---|---|
 |`Receipt.MerchantAddress`|---|---|---|---|
 |`Receipt.MerchantCity`|---|---|---|---|
@@ -956,24 +956,24 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantOrderId`|---|---|---|---|
-|`Payment.Type`|---|---|---|---|
-|`Payment.SoftDescriptor`|---|---|---|---|
-|`Payment.PaymentDateTime`|---|---|---|---|
-|`Payment.Amount`|---|---|---|---|
-|`Payment.Installments`|---|---|---|---|
-|`Payment.Capture`|---|---|---|---|
-|`Payment.Interest`|---|---|---|---|
-|`Payment.ProductId`|---|---|---|---|
-|`CreditCard.CardNumber`|---|---|---|---|
-|`CreditCard.ExpirationDate`|---|---|---|---|
-|`CreditCard.SecurityCodeStatus`|---|---|---|---|
-|`CreditCard.SecurityCode`|---|---|---|---|
-|`CreditCard.BrandId`|---|---|---|---|
-|`CreditCard.IssuerId`|---|---|---|---|
-|`CreditCard.InputMode`|---|---|---|---|
-|`CreditCard.AuthenticationMethod`|---|---|---|---|
-|`CreditCard.TruncateCardNumberWhenPrinting`|---|---|---|---|
+|`MerchantOrderId`|String|---|---| Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.|
+|`Payment.Type`|String|---|Sim|Value: `PhysicalCreditCard` / Tipo da Transação|
+|`Payment.SoftDescriptor`|String|13|---|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
+|`Payment.PaymentDateTime`|String|date-time|Sim|Data e Hora da captura da transação|
+|`Payment.Amount`|Integer(int64)|---|Sim|Valor da transação (1079 = R$10,79)|
+|`Payment.Capture`|Booleano|---|---|Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.|
+|`Payment.Installments`|Integer|---|---|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
+|`Payment.Interest`|String|---|---|Default: `ByMerchant` <br><br> Enum: `ByMerchant` `ByIssuer` <br><br> Tipo de Parcelamento: <br><br> - Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado. <br><br> - Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.|
+|`Payment.ProductId`|Integer|---|Sim|Código do produto identificado através do bin do cartão.|
+|`CreditCard.CardNumber`|String|19|---|Número do cartão (PAN)|
+|`CreditCard.ExpirationDate`|String|MM/yyyy|Sim|Data de validade do cartão. <br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação.|
+|`CreditCard.SecurityCodeStatus`|String|---|---|Enum: `Collected` `Unreadable` `Nonexistent` <br><br> Status da coleta de código de segurança (CVV)|
+|`CreditCard.SecurityCode`|String|3 ou 4|---|Código de segurança (CVV)|
+|`CreditCard.BrandId`|Integer|---|Sim|Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE.|
+|`CreditCard.IssuerId`|Integer|---|Sim|Código do emissor obtido através do campo IssuerId da BIN TABLE.|
+|`CreditCard.InputMode`|String|---|Sim|Enum: `Typed` `MagStripe` `Emv` <br><br>Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. <br><br>"00" – Magnético <br><br>"01" - Moedeiro VISA Cash sobre TIBC v1 <br><br>"02" - Moedeiro VISA Cash sobre TIBC v3 <br><br>"03" – EMV com contato <br><br>"04" - Easy-Entry sobre TIBC v1 <br><br>"05" - Chip sem contato simulando tarja <br><br> "06" - EMV sem contato.|
+|`CreditCard.AuthenticationMethod`|String|---|Sim|Enum: `NoPassword` `OnlineAuthentication` `OfflineAuthentication` <br><br>Método de autenticação <br><br>- Se o cartão foi lido a partir da digitação verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1; <br><br>- Se o cartão foi lido a partir da trilha verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, deve ser verificado o bit 2 do mesmo campo. Se este estiver com valor 1 deve ser capturada a senha. Se estiver com valor 0 a captura da senha vai depender do último dígito do service code; <br><br>- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2. <br><br>1 - Sem senha = “NoPassword”; <br><br>2 - Senha online = “Online Authentication”; <br><br>3 - Senha off-line = “Offline Authentication”.|
+|`CreditCard.TruncateCardNumberWhenPrinting`|Booleano|---|---|Indica se o número do cartão será truncado no momento da impressão do comprovante. A solução de captura deve tomar essa decisão com base no `confParamOp03` presente nas tabelas BIN TABLE, PARAMETER TABLE e ISSUER TABLE.|
 |`CreditCard.SaveCard`|---|---|---|---|
 |`CreditCard.IsFallback`|---|---|---|---|
 |`Customer.Name`|---|---|---|---|
@@ -981,24 +981,24 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Customer.IdentityType`|---|---|---|---|
 |`Customer.Email`|---|---|---|---|
 |`Customer.Birthday`|---|---|---|---|
-|`Address.Street`|---|---|---|---|
-|`Address.Number`|---|---|---|---|
-|`Address.Complement`|---|---|---|---|
-|`Address.ZipCode`|---|---|---|---|
-|`Address.City`|---|---|---|---|
-|`Address.State`|---|---|---|---|
-|`Address.Country`|---|---|---|---|
-|`DeliveryAddress.Street`|---|---|---|---|
-|`DeliveryAddress.Number`|---|---|---|---|
-|`DeliveryAddress.Complement`|---|---|---|---|
-|`DeliveryAddress.ZipCode`|---|---|---|---|
-|`DeliveryAddress.City`|---|---|---|---|
-|`DeliveryAddress.State`|---|---|---|---|
+|`Address.Street`|String|---|---|---|
+|`Address.Number`|String|---|---|---|
+|`Address.Complement`|String|---|---|---|
+|`Address.ZipCode`|String|---|---|---|
+|`Address.City`|String|---|---|---|
+|`Address.State`|String|---|---|---|
+|`Address.Country`|String|---|---|---|
+|`DeliveryAddress.Street`|String|---|---|---|
+|`DeliveryAddress.Number`|String|---|---|---|
+|`DeliveryAddress.Complement`|String|---|---|---|
+|`DeliveryAddress.ZipCode`|String|---|---|---|
+|`DeliveryAddress.City`|String|---|---|---|
+|`DeliveryAddress.State`|String|---|---|---|
 |`DeliveryAddress.Country`|---|---|---|---|
-|`PinPadInformation.TerminalId`|---|---|---|---|
-|`PinPadInformation.SerialNumber`|---|---|---|---|
-|`PinPadInformation.PhysicalCharacteristics`|---|---|---|---|
-|`PinPadInformation.ReturnDataInfo`|---|---|---|---|
+|`PinPadInformation.TerminalId`|String|---|Sim|Número Lógico definido no Concentrador Cielo.|
+|`PinPadInformation.SerialNumber`|String|---|Sim|Número de Série do Equipamento.|
+|`PinPadInformation.PhysicalCharacteristics`|String|---|Sim|Enum: `WithoutPinPad` `PinPadWithoutChipReader` `PinPadWithChipReaderWithoutSamModule` `PinPadWithChipReaderWithSamModule` `NotCertifiedPinPad` `PinPadWithChipReaderWithoutSamAndContactless` `PinPadWithChipReaderWithSamModuleAndContactless` <br><br> Sem PIN-pad = `WithoutPinPad`; <br><br> PIN-pad sem leitor de Chip = `PinpadWithoutChipReader`; <br><br>PIN-pad com leitor de Chip sem módulo SAM = `PinPadWithChipReaderWithoutSamModule`; <br><br> PIN-pad com leitor de Chip com módulo SAM = `PinPadWithChipReaderWithSamModule`; <br><br> PIN-pad não homologado = `NotCertifiedPinPad`; <br><br> PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = `PinpadWithChipReaderWithoutSamAndContactless`; <br><br> PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = `PinpadWithChipReaderWithSamAndContactless`. <br><br><br> Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.|
+|`PinPadInformation.ReturnDataInfo`|String|---|Sim|Retorno da função PP_GetInfo() da biblioteca compartilhada|
 
 ### Resposta
 
@@ -1251,65 +1251,65 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantOrderId`|---|---|---|---|
-|`Customer.Name`|---|---|---|---|
+|`MerchantOrderId`|String|---|---| Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.|
+|`Customer.Name`|String|---|---|---|---|
 |`Customer.Identity`|---|---|---|---|
 |`Customer.IdentityType`|---|---|---|---|
 |`Customer.Email`|---|---|---|---|
 |`Customer.Birthday`|---|---|---|---|
-|`Address.Street`|---|---|---|---|
-|`Address.Number`|---|---|---|---|
-|`Address.Complement`|---|---|---|---|
-|`Address.ZipCode`|---|---|---|---|
-|`Address.City`|---|---|---|---|
-|`Address.State`|---|---|---|---|
-|`Address.Country`|---|---|---|---|
-|`DeliveryAddress.Street`|---|---|---|---|
-|`DeliveryAddress.Number`|---|---|---|---|
-|`DeliveryAddress.Complement`|---|---|---|---|
-|`DeliveryAddress.ZipCode`|---|---|---|---|
-|`DeliveryAddress.City`|---|---|---|---|
-|`DeliveryAddress.State`|---|---|---|---|
-|`DeliveryAddress.Country`|---|---|---|---|
-|`Payment.Installments`|---|---|---|---|
-|`Payment.Interest`|---|---|---|---|
-|`Payment.Capture`|---|---|---|---|
-|`CreditCard.ExpirationDate`|---|---|---|---|
-|`CreditCard.BrandId`|---|---|---|---|
-|`CreditCard.IssuerId`|---|---|---|---|
-|`CreditCard.TruncateCardNumberWhenPrinting`|---|---|---|---|
-|`CreditCard.InputMode`|---|---|---|---|
-|`CreditCard.AuthenticationMethod`|---|---|---|---|
-|`CreditCard.EmvData`|---|---|---|---|
+|`Address.Street`|String|---|---|---|
+|`Address.Number`|String|---|---|---|
+|`Address.Complement`|String|---|---|---|
+|`Address.ZipCode`|String|---|---|---|
+|`Address.City`|String|---|---|---|
+|`Address.State`|String|---|---|---|
+|`Address.Country`|String|---|---||---|
+|`DeliveryAddress.Street`|String|---|---|---|
+|`DeliveryAddress.Number`|String|---|---|---|
+|`DeliveryAddress.Complement`|String|---|---|---|
+|`DeliveryAddress.ZipCode`|String|---|---|---|
+|`DeliveryAddress.City`|String|---|---|---|
+|`DeliveryAddress.State`|String|---|---|---|
+|`DeliveryAddress.Country`|String|---|---|---|
+||`Payment.Installments`|Integer|---|---|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
+|`Payment.Interest`|String|---|---|Default: `ByMerchant` <br><br> Enum: `ByMerchant` `ByIssuer` <br><br> Tipo de Parcelamento: <br><br> - Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado. <br><br> - Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.|
+|`Payment.Capture`|Booleano|---|---|Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.|
+|`CreditCard.ExpirationDate`|String|MM/yyyy|Sim|Data de validade do cartão. <br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação.|
+|`CreditCard.BrandId`|Integer|---|Sim|Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE.|
+|`CreditCard.IssuerId`|Integer|---|Sim|Código do emissor obtido através do campo IssuerId da BIN TABLE.|
+|`CreditCard.TruncateCardNumberWhenPrinting`|Booleano|---|---|Indica se o número do cartão será truncado no momento da impressão do comprovante. A solução de captura deve tomar essa decisão com base no `confParamOp03` presente nas tabelas BIN TABLE, PARAMETER TABLE e ISSUER TABLE.|
+|`CreditCard.InputMode`|String|---|Sim|Enum: `Typed` `MagStripe` `Emv` <br><br>Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. <br><br>"00" – Magnético <br><br>"01" - Moedeiro VISA Cash sobre TIBC v1 <br><br>"02" - Moedeiro VISA Cash sobre TIBC v3 <br><br>"03" – EMV com contato <br><br>"04" - Easy-Entry sobre TIBC v1 <br><br>"05" - Chip sem contato simulando tarja <br><br> "06" - EMV sem contato.|
+|`CreditCard.AuthenticationMethod`|String|---|Sim|Enum: `NoPassword` `OnlineAuthentication` `OfflineAuthentication` <br><br>Método de autenticação <br><br>- Se o cartão foi lido a partir da digitação verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1; <br><br>- Se o cartão foi lido a partir da trilha verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, deve ser verificado o bit 2 do mesmo campo. Se este estiver com valor 1 deve ser capturada a senha. Se estiver com valor 0 a captura da senha vai depender do último dígito do service code; <br><br>- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2. <br><br>1 - Sem senha = “NoPassword”; <br><br>2 - Senha online = “Online Authentication”; <br><br>3 - Senha off-line = “Offline Authentication”.|
+|`CreditCard.EmvData`|String|---|---|Dados da transação EMV <br><br>Obtidos através do comando PP_GoOnChip na BC|
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
-|`PinBlock.EncryptionType`|---|---|---|---|
-|`PinBlock.KsnIdentification`|---|---|---|---|
-|`CreditCard.PanSequenceNumber`|---|---|---|---|
+|`PinBlock.EncryptionType`|String|---|---|---|
+|`PinBlock.KsnIdentification`|String|---|---|---|
+|`CreditCard.PanSequenceNumber`|Number|---|---|Número sequencial do cartão, utilizado para identificar a conta corrente do cartão adicional. Mandatório para transações com cartões Chip EMV e que possuam PAN Sequence Number (Tag 5F34).|
 |`CreditCard.SaveCard`|---|---|---|---|
 |`CreditCard.IsFallback`|---|---|---|---|
-|`Payment.PaymentDateTime`|---|---|---|---|
+|`Payment.PaymentDateTime`|String|date-time|Sim|Data e Hora da captura da transação|
 |`Payment.ServiceTaxAmount`|---|---|---|---|
-|`Payment.SoftDescriptor`|---|---|---|---|
-|`Payment.ProductId`|---|---|---|---|
-|`PinPadInformation.TerminalId`|---|---|---|---|
-|`PinPadInformation.SerialNumber`|---|---|---|---|
-|`PinPadInformation.PhysicalCharacteristics`|---|---|---|---|
-|`PinPadInformation.ReturnDataInfo`|---|---|---|---|
-|`Payment.Amount`|---|---|---|---|
+|`Payment.SoftDescriptor`|String|13|---|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
+|`Payment.ProductId`|Integer|---|Sim|Código do produto identificado através do bin do cartão.|
+|`PinPadInformation.TerminalId`|String|---|Sim|Número Lógico definido no Concentrador Cielo.|
+|`PinPadInformation.SerialNumber`|String|---|Sim|Número de Série do Equipamento.|
+|`PinPadInformation.PhysicalCharacteristics`|String|---|Sim|Enum: `WithoutPinPad` `PinPadWithoutChipReader` `PinPadWithChipReaderWithoutSamModule` `PinPadWithChipReaderWithSamModule` `NotCertifiedPinPad` `PinPadWithChipReaderWithoutSamAndContactless` `PinPadWithChipReaderWithSamModuleAndContactless` <br><br> Sem PIN-pad = `WithoutPinPad`; <br><br> PIN-pad sem leitor de Chip = `PinpadWithoutChipReader`; <br><br>PIN-pad com leitor de Chip sem módulo SAM = `PinPadWithChipReaderWithoutSamModule`; <br><br> PIN-pad com leitor de Chip com módulo SAM = `PinPadWithChipReaderWithSamModule`; <br><br> PIN-pad não homologado = `NotCertifiedPinPad`; <br><br> PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = `PinpadWithChipReaderWithoutSamAndContactless`; <br><br> PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = `PinpadWithChipReaderWithSamAndContactless`. <br><br><br> Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.|
+|`PinPadInformation.ReturnDataInfo`|String|---|Sim|Retorno da função PP_GetInfo() da biblioteca compartilhada|
+|`Payment.Amount`|Integer(int64)|---|Sim|Valor da transação (1079 = R$10,79)|
 |`Payment.ReceivedDate`|---|---|---|---|
 |`Payment.CapturedAmount`|---|---|---|---|
-|`Payment.Provider`|---|---|---|---|
+|`Payment.Provider`|String|---|---|---|
 |`Payment.ConfirmationStatus`|---|---|---|---|
 |`Payment.InitializationVersion`|---|---|---|---|
 |`Payment.EmvResponseData`|---|---|---|---|
 |`Payment.Status`|---|---|---|---|
-|`Payment.IsSplitted`|---|---|---|---|
+|`Payment.IsSplitted`|Booleano|---|---|---|
 |`Payment.ReturnCode`|---|---|---|---|
-|`Payment.ReturnMessage`|---|---|---|---|
+|`Payment.ReturnMessage`|String|---|---|---|
 |`Payment.PaymentId`|---|---|---|---|
-|`Payment.Type`|---|---|---|---|
-|`Payment.Currency`|---|---|---|---|
-|`Payment.Country`|---|---|---|---|
+|`Payment.Type`|String|---|Sim|Value: `PhysicalCreditCard` / Tipo da Transação|
+|`Payment.Currency`|String|---|---|Default: "BRL" / Value: "BRL" / Moeda (Preencher com “BRL”)|
+|`Payment.Country`|String|---|---|Default: "BRA" / Value: "BRA" / País (Preencher com “BRA”)|
 |`Receipt.MerchantName`|---|---|---|---|
 |`Receipt.MerchantAddress`|---|---|---|---|
 |`Receipt.MerchantCity`|---|---|---|---|
@@ -1388,8 +1388,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantOrderId`|String|---|---| Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal.|
-|`Payment.Type`|String|---|Sim|Value: `PhysicalCreditCard` / Tipo da Transação|
+|`MerchantOrderId`|String|---|---| Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.||`Payment.Type`|String|---|Sim|Value: `PhysicalCreditCard` / Tipo da Transação|
 |`Payment.SoftDescriptor`|String|13|---|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
 |`Payment.PaymentDateTime`|String|date-time|Sim|Data e Hora da captura da transação|
 |`Payment.Amount`|Integer(int64)|---|Sim|Valor da transação (1079 = R$10,79)|
@@ -1667,65 +1666,65 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantOrderId`|---|---|---|---|
-|`Customer.Name`|---|---|---|---|
+|`MerchantOrderId`|String|---|---| Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.|
+|`Customer.Name`|String|---|---|---|
 |`Customer.Identity`|---|---|---|---|
 |`Customer.IdentityType`|---|---|---|---|
 |`Customer.Email`|---|---|---|---|
 |`Customer.Birthday`|---|---|---|---|
-|`Address.Street`|---|---|---|---|
-|`Address.Number`|---|---|---|---|
-|`Address.Complement`|---|---|---|---|
-|`Address.ZipCode`|---|---|---|---|
-|`Address.City`|---|---|---|---|
-|`Address.State`|---|---|---|---|
-|`Address.Country`|---|---|---|---|
-|`DeliveryAddress.Street`|---|---|---|---|
-|`DeliveryAddress.Number`|---|---|---|---|
-|`DeliveryAddress.Complement`|---|---|---|---|
-|`DeliveryAddress.ZipCode`|---|---|---|---|
-|`DeliveryAddress.City`|---|---|---|---|
-|`DeliveryAddress.State`|---|---|---|---|
-|`DeliveryAddress.Country`|---|---|---|---|
-|`Payment.Installments`|---|---|---|---|
-|`Payment.Interest`|---|---|---|---|
-|`Payment.Capture`|---|---|---|---|
-|`CreditCard.ExpirationDate`|---|---|---|---|
-|`CreditCard.BrandId`|---|---|---|---|
-|`CreditCard.IssuerId`|---|---|---|---|
-|`CreditCard.TruncateCardNumberWhenPrinting`|---|---|---|---|
-|`CreditCard.InputMode`|---|---|---|---|
-|`CreditCard.AuthenticationMethod`|---|---|---|---|
-|`CreditCard.EmvData`|---|---|---|---|
+|`Address.Street`|String|---|---|---|
+|`Address.Number`|String|---|---|---|
+|`Address.Complement`|String|---|---||---|
+|`Address.ZipCode`|String|---|---|---|
+|`Address.City`|String|---|---|---|
+|`Address.State`|String|---|---|---|
+|`Address.Country`|String|---|---|---|
+|`DeliveryAddress.Street`|String|---|---|---|
+|`DeliveryAddress.Number`|String|---|---|---|
+|`DeliveryAddress.Complement`|String|---|---||---|
+|`DeliveryAddress.ZipCode`|String|---|---|---|
+|`DeliveryAddress.City`|String|---|---|---|
+|`DeliveryAddress.State`|String|---|---|---|
+|`DeliveryAddress.Country`|String|---|---|---|
+|`Payment.Installments`|Integer|---|---|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
+|`Payment.Interest`|String|---|---|Default: `ByMerchant` <br><br> Enum: `ByMerchant` `ByIssuer` <br><br> Tipo de Parcelamento: <br><br> - Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado. <br><br> - Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.|
+|`Payment.Capture`|Booleano|---|---|Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.|
+|`CreditCard.ExpirationDate`|String|MM/yyyy|Sim|Data de validade do cartão. <br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação.|
+|`CreditCard.BrandId`|Integer|---|Sim|Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE.|
+|`CreditCard.IssuerId`|Integer|---|Sim|Código do emissor obtido através do campo IssuerId da BIN TABLE.|
+|`CreditCard.TruncateCardNumberWhenPrinting`|Booleano|---|---|Indica se o número do cartão será truncado no momento da impressão do comprovante. A solução de captura deve tomar essa decisão com base no `confParamOp03` presente nas tabelas BIN TABLE, PARAMETER TABLE e ISSUER TABLE.|
+|`CreditCard.InputMode`|String|---|Sim|Enum: `Typed` `MagStripe` `Emv` <br><br>Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. <br><br>"00" – Magnético <br><br>"01" - Moedeiro VISA Cash sobre TIBC v1 <br><br>"02" - Moedeiro VISA Cash sobre TIBC v3 <br><br>"03" – EMV com contato <br><br>"04" - Easy-Entry sobre TIBC v1 <br><br>"05" - Chip sem contato simulando tarja <br><br> "06" - EMV sem contato.|
+|`CreditCard.AuthenticationMethod`|String|---|Sim|Enum: `NoPassword` `OnlineAuthentication` `OfflineAuthentication` <br><br>Método de autenticação <br><br>- Se o cartão foi lido a partir da digitação verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1; <br><br>- Se o cartão foi lido a partir da trilha verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, deve ser verificado o bit 2 do mesmo campo. Se este estiver com valor 1 deve ser capturada a senha. Se estiver com valor 0 a captura da senha vai depender do último dígito do service code; <br><br>- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2. <br><br>1 - Sem senha = “NoPassword”; <br><br>2 - Senha online = “Online Authentication”; <br><br>3 - Senha off-line = “Offline Authentication”.|
+|`CreditCard.EmvData`|String|---|---|Dados da transação EMV <br><br>Obtidos através do comando PP_GoOnChip na BC|
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
-|`PinBlock.EncryptionType`|---|---|---|---|
-|`PinBlock.KsnIdentification`|---|---|---|---|
-|`CreditCard.PanSequenceNumber`|---|---|---|---|
+|`PinBlock.EncryptionType`|String|---|---|---|
+|`PinBlock.KsnIdentification`|String|---|---|---|
+|`CreditCard.PanSequenceNumber`|Number|---|---|Número sequencial do cartão, utilizado para identificar a conta corrente do cartão adicional. Mandatório para transações com cartões Chip EMV e que possuam PAN Sequence Number (Tag 5F34).|
 |`CreditCard.SaveCard`|---|---|---|---|
 |`CreditCard.IsFallback`|---|---|---|---|
-|`Payment.PaymentDateTime`|---|---|---|---|
+|`Payment.PaymentDateTime`|String|date-time|Sim|Data e Hora da captura da transação|
 |`Payment.ServiceTaxAmount`|---|---|---|---|
-|`Payment.SoftDescriptor`|---|---|---|---|
-|`Payment.ProductId`|---|---|---|---|
-|`PinPadInformation.TerminalId`|---|---|---|---|
-|`PinPadInformation.SerialNumber`|---|---|---|---|
-|`PinPadInformation.PhysicalCharacteristics`|---|---|---|---|
-|`PinPadInformation.ReturnDataInfo`|---|---|---|---|
-|`Payment.Amount`|---|---|---|---|
+|`Payment.SoftDescriptor`|String|13|---|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
+|`Payment.ProductId`|Integer|---|Sim|Código do produto identificado através do bin do cartão.|
+|`PinPadInformation.TerminalId`|String|---|Sim|Número Lógico definido no Concentrador Cielo.|
+|`PinPadInformation.SerialNumber`|String|---|Sim|Número de Série do Equipamento.|
+|`PinPadInformation.PhysicalCharacteristics`|String|---|Sim|Enum: `WithoutPinPad` `PinPadWithoutChipReader` `PinPadWithChipReaderWithoutSamModule` `PinPadWithChipReaderWithSamModule` `NotCertifiedPinPad` `PinPadWithChipReaderWithoutSamAndContactless` `PinPadWithChipReaderWithSamModuleAndContactless` <br><br> Sem PIN-pad = `WithoutPinPad`; <br><br> PIN-pad sem leitor de Chip = `PinpadWithoutChipReader`; <br><br>PIN-pad com leitor de Chip sem módulo SAM = `PinPadWithChipReaderWithoutSamModule`; <br><br> PIN-pad com leitor de Chip com módulo SAM = `PinPadWithChipReaderWithSamModule`; <br><br> PIN-pad não homologado = `NotCertifiedPinPad`; <br><br> PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = `PinpadWithChipReaderWithoutSamAndContactless`; <br><br> PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = `PinpadWithChipReaderWithSamAndContactless`. <br><br><br> Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.|
+|`PinPadInformation.ReturnDataInfo`|String|---|Sim|Retorno da função PP_GetInfo() da biblioteca compartilhada|
+|`Payment.Amount`|Integer(int64)|---|Sim|Valor da transação (1079 = R$10,79)|
 |`Payment.ReceivedDate`|---|---|---|---|
 |`Payment.CapturedAmount`|---|---|---|---|
-|`Payment.Provider`|---|---|---|---|
+|`Payment.Provider`|String|---|---|---|
 |`Payment.ConfirmationStatus`|---|---|---|---|
 |`Payment.InitializationVersion`|---|---|---|---|
 |`Payment.EmvResponseData`|---|---|---|---|
 |`Payment.Status`|---|---|---|---|
-|`Payment.IsSplitted`|---|---|---|---|
+|`Payment.IsSplitted`|Booleano|---|---|---|
 |`Payment.ReturnCode`|---|---|---|---|
-|`Payment.ReturnMessage`|---|---|---|---|
+|`Payment.ReturnMessage`|String|---|---|---|
 |`Payment.PaymentId`|---|---|---|---|
-|`Payment.Type`|---|---|---|---|
-|`Payment.Currency`|---|---|---|---|
-|`Payment.Country`|---|---|---|---|
+|`Payment.Type`|String|---|Sim|Value: `PhysicalCreditCard` / Tipo da Transação|
+|`Payment.Currency`|String|---|---|Default: "BRL" / Value: "BRL" / Moeda (Preencher com “BRL”)|
+|`Payment.Country`|String|---|---|Default: "BRA" / Value: "BRA" / País (Preencher com “BRA”)|
 |`Receipt.MerchantName`|---|---|---|---|
 |`Receipt.MerchantAddress`|---|---|---|---|
 |`Receipt.MerchantCity`|---|---|---|---|
@@ -1801,8 +1800,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantOrderId`|String|---|---| Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal.|
-|`Payment.Type`|String|---|Sim|Value: `PhysicalCreditCard` / Tipo da Transação|
+|`MerchantOrderId`|String|---|---| Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.||`Payment.Type`|String|---|Sim|Value: `PhysicalCreditCard` / Tipo da Transação|
 |`Payment.SoftDescriptor`|String|13|---|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
 |`Payment.PaymentDateTime`|String|date-time|Sim|Data e Hora da captura da transação|
 |`Payment.Amount`|Integer(int64)|---|Sim|Valor da transação (1079 = R$10,79)|
@@ -2077,65 +2075,65 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantOrderId`|---|---|---|---|
-|`Customer.Name`|---|---|---|---|
+|`MerchantOrderId`|String|---|---| Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.|
+|`Customer.Name`|String|---|---|---|
 |`Customer.Identity`|---|---|---|---|
 |`Customer.IdentityType`|---|---|---|---|
 |`Customer.Email`|---|---|---|---|
 |`Customer.Birthday`|---|---|---|---|
-|`Address.Street`|---|---|---|---|
-|`Address.Number`|---|---|---|---|
-|`Address.Complement`|---|---|---|---|
-|`Address.ZipCode`|---|---|---|---|
-|`Address.City`|---|---|---|---|
-|`Address.State`|---|---|---|---|
-|`Address.Country`|---|---|---|---|
-|`DeliveryAddress.Street`|---|---|---|---|
-|`DeliveryAddress.Number`|---|---|---|---|
-|`DeliveryAddress.Complement`|---|---|---|---|
-|`DeliveryAddress.ZipCode`|---|---|---|---|
-|`DeliveryAddress.City`|---|---|---|---|
-|`DeliveryAddress.State`|---|---|---|---|
-|`DeliveryAddress.Country`|---|---|---|---|
-|`Payment.Installments`|---|---|---|---|
-|`Payment.Interest`|---|---|---|---|
-|`Payment.Capture`|---|---|---|---|
-|`CreditCard.ExpirationDate`|---|---|---|---|
-|`CreditCard.BrandId`|---|---|---|---|
-|`CreditCard.IssuerId`|---|---|---|---|
-|`CreditCard.TruncateCardNumberWhenPrinting`|---|---|---|---|
-|`CreditCard.InputMode`|---|---|---|---|
-|`CreditCard.AuthenticationMethod`|---|---|---|---|
-|`CreditCard.EmvData`|---|---|---|---|
+|`Address.Street`|String|---|---|---|
+|`Address.Number`|String|---|---|---|
+|`Address.Complement`|String|---|---|---|
+|`Address.ZipCode`|String|---|---|---|
+|`Address.City`|String|---|---|---|
+|`Address.State`|String|---|---|---|
+|`Address.Country`|String|---|---|---|
+|`DeliveryAddress.Street`|String|---|---|---|
+|`DeliveryAddress.Number`|String|---|---|---|
+|`DeliveryAddress.Complement`|String|---|---|---|
+|`DeliveryAddress.ZipCode`|String|---|---|---|
+|`DeliveryAddress.City`|String|---|---|---|
+|`DeliveryAddress.State`|String|---|---|---|
+|`DeliveryAddress.Country`|String|---|---|---|
+|`Payment.Installments`|Integer|---|---|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
+|`Payment.Interest`|String|---|---|Default: `ByMerchant` <br><br> Enum: `ByMerchant` `ByIssuer` <br><br> Tipo de Parcelamento: <br><br> - Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado. <br><br> - Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.|
+|`Payment.Capture`|Booleano|---|---|Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.|
+|`CreditCard.ExpirationDate`|String|MM/yyyy|Sim|Data de validade do cartão. <br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação.|
+|`CreditCard.BrandId`|Integer|---|Sim|Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE.|
+|`CreditCard.IssuerId`|Integer|---|Sim|Código do emissor obtido através do campo IssuerId da BIN TABLE.|
+|`CreditCard.TruncateCardNumberWhenPrinting`|Booleano|---|---|Indica se o número do cartão será truncado no momento da impressão do comprovante. A solução de captura deve tomar essa decisão com base no `confParamOp03` presente nas tabelas BIN TABLE, PARAMETER TABLE e ISSUER TABLE.|
+|`CreditCard.InputMode`|String|---|Sim|Enum: `Typed` `MagStripe` `Emv` <br><br>Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. <br><br>"00" – Magnético <br><br>"01" - Moedeiro VISA Cash sobre TIBC v1 <br><br>"02" - Moedeiro VISA Cash sobre TIBC v3 <br><br>"03" – EMV com contato <br><br>"04" - Easy-Entry sobre TIBC v1 <br><br>"05" - Chip sem contato simulando tarja <br><br> "06" - EMV sem contato.|
+|`CreditCard.AuthenticationMethod`|String|---|Sim|Enum: `NoPassword` `OnlineAuthentication` `OfflineAuthentication` <br><br>Método de autenticação <br><br>- Se o cartão foi lido a partir da digitação verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1; <br><br>- Se o cartão foi lido a partir da trilha verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, deve ser verificado o bit 2 do mesmo campo. Se este estiver com valor 1 deve ser capturada a senha. Se estiver com valor 0 a captura da senha vai depender do último dígito do service code; <br><br>- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2. <br><br>1 - Sem senha = “NoPassword”; <br><br>2 - Senha online = “Online Authentication”; <br><br>3 - Senha off-line = “Offline Authentication”.|
+|`CreditCard.EmvData`|String|---|---|Dados da transação EMV <br><br>Obtidos através do comando PP_GoOnChip na BC|
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
-|`PinBlock.EncryptionType`|---|---|---|---|
-|`PinBlock.KsnIdentification`|---|---|---|---|
-|`CreditCard.PanSequenceNumber`|---|---|---|---|
+|`PinBlock.EncryptionType`|String|---|---|---|
+|`PinBlock.KsnIdentification`|String|---|---|---|
+|`CreditCard.PanSequenceNumber`|Number|---|---|Número sequencial do cartão, utilizado para identificar a conta corrente do cartão adicional. Mandatório para transações com cartões Chip EMV e que possuam PAN Sequence Number (Tag 5F34).|
 |`CreditCard.SaveCard`|---|---|---|---|
 |`CreditCard.IsFallback`|---|---|---|---|
-|`Payment.PaymentDateTime`|---|---|---|---|
+|`Payment.PaymentDateTime`|String|date-time|Sim|Data e Hora da captura da transação|
 |`Payment.ServiceTaxAmount`|---|---|---|---|
-|`Payment.SoftDescriptor`|---|---|---|---|
-|`Payment.ProductId`|---|---|---|---|
-|`PinPadInformation.TerminalId`|---|---|---|---|
-|`PinPadInformation.SerialNumber`|---|---|---|---|
-|`PinPadInformation.PhysicalCharacteristics`|---|---|---|---|
-|`PinPadInformation.ReturnDataInfo`|---|---|---|---|
-|`Payment.Amount`|---|---|---|---|
+|`Payment.SoftDescriptor`|String|13|---|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
+|`Payment.ProductId`|Integer|---|Sim|Código do produto identificado através do bin do cartão.|
+|`PinPadInformation.TerminalId`|String|---|Sim|Número Lógico definido no Concentrador Cielo.|
+|`PinPadInformation.SerialNumber`|String|---|Sim|Número de Série do Equipamento.|
+|`PinPadInformation.PhysicalCharacteristics`|String|---|Sim|Enum: `WithoutPinPad` `PinPadWithoutChipReader` `PinPadWithChipReaderWithoutSamModule` `PinPadWithChipReaderWithSamModule` `NotCertifiedPinPad` `PinPadWithChipReaderWithoutSamAndContactless` `PinPadWithChipReaderWithSamModuleAndContactless` <br><br> Sem PIN-pad = `WithoutPinPad`; <br><br> PIN-pad sem leitor de Chip = `PinpadWithoutChipReader`; <br><br>PIN-pad com leitor de Chip sem módulo SAM = `PinPadWithChipReaderWithoutSamModule`; <br><br> PIN-pad com leitor de Chip com módulo SAM = `PinPadWithChipReaderWithSamModule`; <br><br> PIN-pad não homologado = `NotCertifiedPinPad`; <br><br> PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = `PinpadWithChipReaderWithoutSamAndContactless`; <br><br> PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = `PinpadWithChipReaderWithSamAndContactless`. <br><br><br> Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.|
+|`PinPadInformation.ReturnDataInfo`|String|---|Sim|Retorno da função PP_GetInfo() da biblioteca compartilhada|
+|`Payment.Amount`|Integer(int64)|---|Sim|Valor da transação (1079 = R$10,79)|
 |`Payment.ReceivedDate`|---|---|---|---|
 |`Payment.CapturedAmount`|---|---|---|---|
-|`Payment.Provider`|---|---|---|---|
+|`Payment.Provider`|String|---|---|---|
 |`Payment.ConfirmationStatus`|---|---|---|---|
 |`Payment.InitializationVersion`|---|---|---|---|
 |`Payment.EmvResponseData`|---|---|---|---|
 |`Payment.Status`|---|---|---|---|
-|`Payment.IsSplitted`|---|---|---|---|
+|`Payment.IsSplitted`|Booleano|---|---|---|
 |`Payment.ReturnCode`|---|---|---|---|
-|`Payment.ReturnMessage`|---|---|---|---|
+|`Payment.ReturnMessage`|String|---|---|---|
 |`Payment.PaymentId`|---|---|---|---|
-|`Payment.Type`|---|---|---|---|
-|`Payment.Currency`|---|---|---|---|
-|`Payment.Country`|---|---|---|---|
+|`Payment.Type`|String|---|Sim|Value: `PhysicalCreditCard` / Tipo da Transação|
+|`Payment.Currency`|String|---|---|Default: "BRL" / Value: "BRL" / Moeda (Preencher com “BRL”)|
+|`Payment.Country`|String|---|---|Default: "BRA" / Value: "BRA" / País (Preencher com “BRA”)|
 |`Receipt.MerchantName`|---|---|---|---|
 |`Receipt.MerchantAddress`|---|---|---|---|
 |`Receipt.MerchantCity`|---|---|---|---|
@@ -2212,7 +2210,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantOrderId`|String|---|---| Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal.|
+|`MerchantOrderId`|String|---|---| Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.|
 |`Payment.Type`|String|---|Sim|Value: `PhysicalCreditCard` / Tipo da Transação|
 |`Payment.SoftDescriptor`|String|13|---|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
 |`Payment.PaymentDateTime`|String|date-time|Sim|Data e Hora da captura da transação|
@@ -2489,65 +2487,65 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantOrderId`|---|---|---|---|
-|`Customer.Name`|---|---|---|---|
+|`MerchantOrderId`|String|---|---| Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.|
+|`Customer.Name`|String|---|---|---|
 |`Customer.Identity`|---|---|---|---|
 |`Customer.IdentityType`|---|---|---|---|
 |`Customer.Email`|---|---|---|---|
 |`Customer.Birthday`|---|---|---|---|
-|`Address.Street`|---|---|---|---|
-|`Address.Number`|---|---|---|---|
-|`Address.Complement`|---|---|---|---|
-|`Address.ZipCode`|---|---|---|---|
-|`Address.City`|---|---|---|---|
-|`Address.State`|---|---|---|---|
-|`Address.Country`|---|---|---|---|
-|`DeliveryAddress.Street`|---|---|---|---|
-|`DeliveryAddress.Number`|---|---|---|---|
-|`DeliveryAddress.Complement`|---|---|---|---|
-|`DeliveryAddress.ZipCode`|---|---|---|---|
-|`DeliveryAddress.City`|---|---|---|---|
-|`DeliveryAddress.State`|---|---|---|---|
-|`DeliveryAddress.Country`|---|---|---|---|
-|`Payment.Installments`|---|---|---|---|
-|`Payment.Interest`|---|---|---|---|
-|`Payment.Capture`|---|---|---|---|
-|`CreditCard.ExpirationDate`|---|---|---|---|
-|`CreditCard.BrandId`|---|---|---|---|
-|`CreditCard.IssuerId`|---|---|---|---|
-|`CreditCard.TruncateCardNumberWhenPrinting`|---|---|---|---|
-|`CreditCard.InputMode`|---|---|---|---|
-|`CreditCard.AuthenticationMethod`|---|---|---|---|
-|`CreditCard.EmvData`|---|---|---|---|
+|`Address.Street`|String|---|---|---|
+|`Address.Number`|String|---|---|---|
+|`Address.Complement`|String|---|---|---|
+|`Address.ZipCode`|String|---|---|---|
+|`Address.City`|String|---|---|---|
+|`Address.State`|String|---|---|---|
+|`Address.Country`|String|---|---|---|
+|`DeliveryAddress.Street`|String|---|---|---|
+|`DeliveryAddress.Number`|String|---|---|---|
+|`DeliveryAddress.Complement`|String|---|---|---|
+|`DeliveryAddress.ZipCode`|String|---|---|---|
+|`DeliveryAddress.City`|String|---|---|---|
+|`DeliveryAddress.State`|String|---|---|---|
+|`DeliveryAddress.Country`|String|---|---|---|
+|`Payment.Installments`|Integer|---|---|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
+|`Payment.Interest`|String|---|---|Default: `ByMerchant` <br><br> Enum: `ByMerchant` `ByIssuer` <br><br> Tipo de Parcelamento: <br><br> - Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado. <br><br> - Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.|
+|`Payment.Capture`|Booleano|---|---|Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.|
+|`CreditCard.ExpirationDate`|String|MM/yyyy|Sim|Data de validade do cartão. <br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação.|
+|`CreditCard.BrandId`|Integer|---|Sim|Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE.|
+|`CreditCard.IssuerId`|Integer|---|Sim|Código do emissor obtido através do campo IssuerId da BIN TABLE.|
+|`CreditCard.TruncateCardNumberWhenPrinting`|Booleano|---|---|Indica se o número do cartão será truncado no momento da impressão do comprovante. A solução de captura deve tomar essa decisão com base no `confParamOp03` presente nas tabelas BIN TABLE, PARAMETER TABLE e ISSUER TABLE.|
+|`CreditCard.InputMode`|String|---|Sim|Enum: `Typed` `MagStripe` `Emv` <br><br>Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. <br><br>"00" – Magnético <br><br>"01" - Moedeiro VISA Cash sobre TIBC v1 <br><br>"02" - Moedeiro VISA Cash sobre TIBC v3 <br><br>"03" – EMV com contato <br><br>"04" - Easy-Entry sobre TIBC v1 <br><br>"05" - Chip sem contato simulando tarja <br><br> "06" - EMV sem contato.|
+|`CreditCard.AuthenticationMethod`|String|---|Sim|Enum: `NoPassword` `OnlineAuthentication` `OfflineAuthentication` <br><br>Método de autenticação <br><br>- Se o cartão foi lido a partir da digitação verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1; <br><br>- Se o cartão foi lido a partir da trilha verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, deve ser verificado o bit 2 do mesmo campo. Se este estiver com valor 1 deve ser capturada a senha. Se estiver com valor 0 a captura da senha vai depender do último dígito do service code; <br><br>- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2. <br><br>1 - Sem senha = “NoPassword”; <br><br>2 - Senha online = “Online Authentication”; <br><br>3 - Senha off-line = “Offline Authentication”.|
+|`CreditCard.EmvData`|String|---|---|Dados da transação EMV <br><br>Obtidos através do comando PP_GoOnChip na BC|
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
-|`PinBlock.EncryptionType`|---|---|---|---|
-|`PinBlock.KsnIdentification`|---|---|---|---|
-|`CreditCard.PanSequenceNumber`|---|---|---|---|
+|`PinBlock.EncryptionType`|String|---|---|---|
+|`PinBlock.KsnIdentification`|String|---|---|---|
+|`CreditCard.PanSequenceNumber`|Number|---|---|Número sequencial do cartão, utilizado para identificar a conta corrente do cartão adicional. Mandatório para transações com cartões Chip EMV e que possuam PAN Sequence Number (Tag 5F34).|
 |`CreditCard.SaveCard`|---|---|---|---|
 |`CreditCard.IsFallback`|---|---|---|---|
-|`Payment.PaymentDateTime`|---|---|---|---|
+|`Payment.PaymentDateTime`|String|date-time|Sim|Data e Hora da captura da transação|
 |`Payment.ServiceTaxAmount`|---|---|---|---|
-|`Payment.SoftDescriptor`|---|---|---|---|
-|`Payment.ProductId`|---|---|---|---|
-|`PinPadInformation.TerminalId`|---|---|---|---|
-|`PinPadInformation.SerialNumber`|---|---|---|---|
-|`PinPadInformation.PhysicalCharacteristics`|---|---|---|---|
-|`PinPadInformation.ReturnDataInfo`|---|---|---|---|
-|`Payment.Amount`|---|---|---|---|
+|`Payment.SoftDescriptor`|String|13|---|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
+|`Payment.ProductId`|Integer|---|Sim|Código do produto identificado através do bin do cartão.|
+|`PinPadInformation.TerminalId`|String|---|Sim|Número Lógico definido no Concentrador Cielo.|
+|`PinPadInformation.SerialNumber`|String|---|Sim|Número de Série do Equipamento.|
+|`PinPadInformation.PhysicalCharacteristics`|String|---|Sim|Enum: `WithoutPinPad` `PinPadWithoutChipReader` `PinPadWithChipReaderWithoutSamModule` `PinPadWithChipReaderWithSamModule` `NotCertifiedPinPad` `PinPadWithChipReaderWithoutSamAndContactless` `PinPadWithChipReaderWithSamModuleAndContactless` <br><br> Sem PIN-pad = `WithoutPinPad`; <br><br> PIN-pad sem leitor de Chip = `PinpadWithoutChipReader`; <br><br>PIN-pad com leitor de Chip sem módulo SAM = `PinPadWithChipReaderWithoutSamModule`; <br><br> PIN-pad com leitor de Chip com módulo SAM = `PinPadWithChipReaderWithSamModule`; <br><br> PIN-pad não homologado = `NotCertifiedPinPad`; <br><br> PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = `PinpadWithChipReaderWithoutSamAndContactless`; <br><br> PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = `PinpadWithChipReaderWithSamAndContactless`. <br><br><br> Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.|
+|`PinPadInformation.ReturnDataInfo`|String|---|Sim|Retorno da função PP_GetInfo() da biblioteca compartilhada|
+|`Payment.Amount`|Integer(int64)|---|Sim|Valor da transação (1079 = R$10,79)|
 |`Payment.ReceivedDate`|---|---|---|---|
 |`Payment.CapturedAmount`|---|---|---|---|
-|`Payment.Provider`|---|---|---|---|
+|`Payment.Provider`|String|---|---|---|
 |`Payment.ConfirmationStatus`|---|---|---|---|
 |`Payment.InitializationVersion`|---|---|---|---|
 |`Payment.EmvResponseData`|---|---|---|---|
 |`Payment.Status`|---|---|---|---|
-|`Payment.IsSplitted`|---|---|---|---|
+|`Payment.IsSplitted`|Booleano|---|---|---|
 |`Payment.ReturnCode`|---|---|---|---|
-|`Payment.ReturnMessage`|---|---|---|---|
+|`Payment.ReturnMessage`|String|---|---|---|
 |`Payment.PaymentId`|---|---|---|---|
-|`Payment.Type`|---|---|---|---|
-|`Payment.Currency`|---|---|---|---|
-|`Payment.Country`|---|---|---|---|
+|`Payment.Type`|String|---|Sim|Value: `PhysicalCreditCard` / Tipo da Transação|
+|`Payment.Currency`|String|---|---|Default: "BRL" / Value: "BRL" / Moeda (Preencher com “BRL”)|
+|`Payment.Country`|String|---|---|Default: "BRA" / Value: "BRA" / País (Preencher com “BRA”)|
 |`Receipt.MerchantName`|---|---|---|---|
 |`Receipt.MerchantAddress`|---|---|---|---|
 |`Receipt.MerchantCity`|---|---|---|---|
@@ -2621,7 +2619,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantOrderId`|String|---|---| Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal.|
+|`MerchantOrderId`|String|---|---| Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.|
 |`Payment.Type`|String|---|Sim|Value: `PhysicalCreditCard` / Tipo da Transação|
 |`Payment.SoftDescriptor`|String|13|---|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
 |`Payment.PaymentDateTime`|String|date-time|Sim|Data e Hora da captura da transação|
@@ -2895,65 +2893,65 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantOrderId`|---|---|---|---|
-|`Customer.Name`|---|---|---|---|
+|`MerchantOrderId`|String|---|---| Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.|
+|`Customer.Name`|String|---|---|---|
 |`Customer.Identity`|---|---|---|---|
 |`Customer.IdentityType`|---|---|---|---|
 |`Customer.Email`|---|---|---|---|
 |`Customer.Birthday`|---|---|---|---|
-|`Address.Street`|---|---|---|---|
-|`Address.Number`|---|---|---|---|
-|`Address.Complement`|---|---|---|---|
-|`Address.ZipCode`|---|---|---|---|
-|`Address.City`|---|---|---|---|
-|`Address.State`|---|---|---|---|
-|`Address.Country`|---|---|---|---|
-|`DeliveryAddress.Street`|---|---|---|---|
-|`DeliveryAddress.Number`|---|---|---|---|
-|`DeliveryAddress.Complement`|---|---|---|---|
-|`DeliveryAddress.ZipCode`|---|---|---|---|
-|`DeliveryAddress.City`|---|---|---|---|
-|`DeliveryAddress.State`|---|---|---|---|
-|`DeliveryAddress.Country`|---|---|---|---|
-|`Payment.Installments`|---|---|---|---|
-|`Payment.Interest`|---|---|---|---|
-|`Payment.Capture`|---|---|---|---|
-|`CreditCard.ExpirationDate`|---|---|---|---|
-|`CreditCard.BrandId`|---|---|---|---|
-|`CreditCard.IssuerId`|---|---|---|---|
-|`CreditCard.TruncateCardNumberWhenPrinting`|---|---|---|---|
-|`CreditCard.InputMode`|---|---|---|---|
-|`CreditCard.AuthenticationMethod`|---|---|---|---|
-|`CreditCard.EmvData`|---|---|---|---|
+|`Address.Street`|String|---|---|---|
+|`Address.Number`|String|---|---|---|
+|`Address.Complement`|String|---|---|---|
+|`Address.ZipCode`|String|---|---|---|
+|`Address.City`|String|---|---|---|
+|`Address.State`|String|---|---|---|
+|`Address.Country`|String|---|---|---|
+|`DeliveryAddress.Street`|String|---|---|---|
+|`DeliveryAddress.Number`|String|---|---|---|
+|`DeliveryAddress.Complement`|String|---|---||---|
+|`DeliveryAddress.ZipCode`|String|---|---||---|
+|`DeliveryAddress.City`|String|---|---|---|
+|`DeliveryAddress.State`|String|---|---|---|
+|`DeliveryAddress.Country`|String|---|---|---|
+|`Payment.Installments`|Integer|---|---|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
+|`Payment.Interest`|String|---|---|Default: `ByMerchant` <br><br> Enum: `ByMerchant` `ByIssuer` <br><br> Tipo de Parcelamento: <br><br> - Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado. <br><br> - Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.|
+|`Payment.Capture`|Booleano|---|---|Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.|
+|`CreditCard.ExpirationDate`|String|MM/yyyy|Sim|Data de validade do cartão. <br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação.|
+|`CreditCard.BrandId`|Integer|---|Sim|Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE.|
+|`CreditCard.IssuerId`|Integer|---|Sim|Código do emissor obtido através do campo IssuerId da BIN TABLE.|
+|`CreditCard.TruncateCardNumberWhenPrinting`|Booleano|---|---|Indica se o número do cartão será truncado no momento da impressão do comprovante. A solução de captura deve tomar essa decisão com base no `confParamOp03` presente nas tabelas BIN TABLE, PARAMETER TABLE e ISSUER TABLE.|
+|`CreditCard.InputMode`|String|---|Sim|Enum: `Typed` `MagStripe` `Emv` <br><br>Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. <br><br>"00" – Magnético <br><br>"01" - Moedeiro VISA Cash sobre TIBC v1 <br><br>"02" - Moedeiro VISA Cash sobre TIBC v3 <br><br>"03" – EMV com contato <br><br>"04" - Easy-Entry sobre TIBC v1 <br><br>"05" - Chip sem contato simulando tarja <br><br> "06" - EMV sem contato.|
+|`CreditCard.AuthenticationMethod`|String|---|Sim|Enum: `NoPassword` `OnlineAuthentication` `OfflineAuthentication` <br><br>Método de autenticação <br><br>- Se o cartão foi lido a partir da digitação verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1; <br><br>- Se o cartão foi lido a partir da trilha verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, deve ser verificado o bit 2 do mesmo campo. Se este estiver com valor 1 deve ser capturada a senha. Se estiver com valor 0 a captura da senha vai depender do último dígito do service code; <br><br>- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2. <br><br>1 - Sem senha = “NoPassword”; <br><br>2 - Senha online = “Online Authentication”; <br><br>3 - Senha off-line = “Offline Authentication”.|
+|`CreditCard.EmvData`|String|---|---|Dados da transação EMV <br><br>Obtidos através do comando PP_GoOnChip na BC|
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
-|`PinBlock.EncryptionType`|---|---|---|---|
-|`PinBlock.KsnIdentification`|---|---|---|---|
-|`CreditCard.PanSequenceNumber`|---|---|---|---|
+|`PinBlock.EncryptionType`|String|---|---|---|
+|`PinBlock.KsnIdentification`|String|---|---|---|
+|`CreditCard.PanSequenceNumber`|Number|---|---|Número sequencial do cartão, utilizado para identificar a conta corrente do cartão adicional. Mandatório para transações com cartões Chip EMV e que possuam PAN Sequence Number (Tag 5F34).|
 |`CreditCard.SaveCard`|---|---|---|---|
 |`CreditCard.IsFallback`|---|---|---|---|
-|`Payment.PaymentDateTime`|---|---|---|---|
+|`Payment.PaymentDateTime`|String|date-time|Sim|Data e Hora da captura da transação|
 |`Payment.ServiceTaxAmount`|---|---|---|---|
-|`Payment.SoftDescriptor`|---|---|---|---|
-|`Payment.ProductId`|---|---|---|---|
-|`PinPadInformation.TerminalId`|---|---|---|---|
-|`PinPadInformation.SerialNumber`|---|---|---|---|
-|`PinPadInformation.PhysicalCharacteristics`|---|---|---|---|
-|`PinPadInformation.ReturnDataInfo`|---|---|---|---|
-|`Payment.Amount`|---|---|---|---|
+|`Payment.SoftDescriptor`|String|13|---|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
+|`Payment.ProductId`|Integer|---|Sim|Código do produto identificado através do bin do cartão.|
+|`PinPadInformation.TerminalId`|String|---|Sim|Número Lógico definido no Concentrador Cielo.|
+|`PinPadInformation.SerialNumber`|String|---|Sim|Número de Série do Equipamento.|
+|`PinPadInformation.PhysicalCharacteristics`|String|---|Sim|Enum: `WithoutPinPad` `PinPadWithoutChipReader` `PinPadWithChipReaderWithoutSamModule` `PinPadWithChipReaderWithSamModule` `NotCertifiedPinPad` `PinPadWithChipReaderWithoutSamAndContactless` `PinPadWithChipReaderWithSamModuleAndContactless` <br><br> Sem PIN-pad = `WithoutPinPad`; <br><br> PIN-pad sem leitor de Chip = `PinpadWithoutChipReader`; <br><br>PIN-pad com leitor de Chip sem módulo SAM = `PinPadWithChipReaderWithoutSamModule`; <br><br> PIN-pad com leitor de Chip com módulo SAM = `PinPadWithChipReaderWithSamModule`; <br><br> PIN-pad não homologado = `NotCertifiedPinPad`; <br><br> PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = `PinpadWithChipReaderWithoutSamAndContactless`; <br><br> PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = `PinpadWithChipReaderWithSamAndContactless`. <br><br><br> Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.|
+|`PinPadInformation.ReturnDataInfo`|String|---|Sim|Retorno da função PP_GetInfo() da biblioteca compartilhada|
+|`Payment.Amount`|Integer(int64)|---|Sim|Valor da transação (1079 = R$10,79)|
 |`Payment.ReceivedDate`|---|---|---|---|
 |`Payment.CapturedAmount`|---|---|---|---|
-|`Payment.Provider`|---|---|---|---|
+|`Payment.Provider`|String|---|---|---|
 |`Payment.ConfirmationStatus`|---|---|---|---|
 |`Payment.InitializationVersion`|---|---|---|---|
 |`Payment.EmvResponseData`|---|---|---|---|
 |`Payment.Status`|---|---|---|---|
-|`Payment.IsSplitted`|---|---|---|---|
+|`Payment.IsSplitted`|Booleano|---|---|---|
 |`Payment.ReturnCode`|---|---|---|---|
-|`Payment.ReturnMessage`|---|---|---|---|
+|`Payment.ReturnMessage`|String|---|---|---|
 |`Payment.PaymentId`|---|---|---|---|
-|`Payment.Type`|---|---|---|---|
-|`Payment.Currency`|---|---|---|---|
-|`Payment.Country`|---|---|---|---|
+|`Payment.Type`|String|---|Sim|Value: `PhysicalCreditCard` / Tipo da Transação|
+|`Payment.Currency`|String|---|---|Default: "BRL" / Value: "BRL" / Moeda (Preencher com “BRL”)|
+|`Payment.Country`|String|---|---|Default: "BRA" / Value: "BRA" / País (Preencher com “BRA”)|
 |`Receipt.MerchantName`|---|---|---|---|
 |`Receipt.MerchantAddress`|---|---|---|---|
 |`Receipt.MerchantCity`|---|---|---|---|
@@ -3027,7 +3025,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantOrderId`|String|---|---| Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal.|
+|`MerchantOrderId`|String|---|---| Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.|
 |`Payment.Type`|String|---|Sim|Value: `PhysicalCreditCard` / Tipo da Transação|
 |`Payment.SoftDescriptor`|String|13|---|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
 |`Payment.PaymentDateTime`|String|date-time|Sim|Data e Hora da captura da transação|
@@ -3301,65 +3299,65 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 |Property|Type|Size|Required|Description|
 |---|---|---|---|---|
-|`MerchantOrderId`|---|---|---|---|
-|`Customer.Name`|---|---|---|---|
+|`MerchantOrderId`|String|---|---| Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.|
+|`Customer.Name`|String|---|---|---|---|
 |`Customer.Identity`|---|---|---|---|
 |`Customer.IdentityType`|---|---|---|---|
-|`Customer.Email`|---|---|---|---|
+|`Customer.Email`|---|---|---||---|
 |`Customer.Birthday`|---|---|---|---|
-|`Address.Street`|---|---|---|---|
-|`Address.Number`|---|---|---|---|
-|`Address.Complement`|---|---|---|---|
-|`Address.ZipCode`|---|---|---|---|
-|`Address.City`|---|---|---|---|
-|`Address.State`|---|---|---|---|
-|`Address.Country`|---|---|---|---|
-|`DeliveryAddress.Street`|---|---|---|---|
-|`DeliveryAddress.Number`|---|---|---|---|
-|`DeliveryAddress.Complement`|---|---|---|---|
-|`DeliveryAddress.ZipCode`|---|---|---|---|
-|`DeliveryAddress.City`|---|---|---|---|
-|`DeliveryAddress.State`|---|---|---|---|
-|`DeliveryAddress.Country`|---|---|---|---|
-|`Payment.Installments`|---|---|---|---|
-|`Payment.Interest`|---|---|---|---|
-|`Payment.Capture`|---|---|---|---|
-|`CreditCard.ExpirationDate`|---|---|---|---|
-|`CreditCard.BrandId`|---|---|---|---|
-|`CreditCard.IssuerId`|---|---|---|---|
-|`CreditCard.TruncateCardNumberWhenPrinting`|---|---|---|---|
-|`CreditCard.InputMode`|---|---|---|---|
-|`CreditCard.AuthenticationMethod`|---|---|---|---|
-|`CreditCard.EmvData`|---|---|---|---|
+|`Address.Street`|String|---|---|---|
+|`Address.Number`|String|---|---|---|
+|`Address.Complement`|String|---|---|---|
+|`Address.ZipCode`|String|---|---|---|
+|`Address.City`|String|---|---|---|
+|`Address.State`|String|---|---|---|
+|`Address.Country`|String|---|---|---|
+|`DeliveryAddress.Street`|String|---|---|---|
+|`DeliveryAddress.Number`|String|---|---|---|
+|`DeliveryAddress.Complement`|String|---|---|---|
+|`DeliveryAddress.ZipCode`|String|---|---|---|
+|`DeliveryAddress.City`|String|---|---|---|
+|`DeliveryAddress.State`|String|---|---|---|
+|`DeliveryAddress.Country`|String|---|---|---|
+|`Payment.Installments`|Integer|---|---|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
+|`Payment.Interest`|String|---|---|Default: `ByMerchant` <br><br> Enum: `ByMerchant` `ByIssuer` <br><br> Tipo de Parcelamento: <br><br> - Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado. <br><br> - Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.|
+|`Payment.Capture`|Booleano|---|---|Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.|
+|`CreditCard.ExpirationDate`|String|MM/yyyy|Sim|Data de validade do cartão. <br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação.|
+|`CreditCard.BrandId`|Integer|---|Sim|Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE.|
+|`CreditCard.IssuerId`|Integer|---|Sim|Código do emissor obtido através do campo IssuerId da BIN TABLE.|
+|`CreditCard.TruncateCardNumberWhenPrinting`|Booleano|---|---|Indica se o número do cartão será truncado no momento da impressão do comprovante. A solução de captura deve tomar essa decisão com base no `confParamOp03` presente nas tabelas BIN TABLE, PARAMETER TABLE e ISSUER TABLE.|
+|`CreditCard.InputMode`|String|---|Sim|Enum: `Typed` `MagStripe` `Emv` <br><br>Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. <br><br>"00" – Magnético <br><br>"01" - Moedeiro VISA Cash sobre TIBC v1 <br><br>"02" - Moedeiro VISA Cash sobre TIBC v3 <br><br>"03" – EMV com contato <br><br>"04" - Easy-Entry sobre TIBC v1 <br><br>"05" - Chip sem contato simulando tarja <br><br> "06" - EMV sem contato.|
+|`CreditCard.AuthenticationMethod`|String|---|Sim|Enum: `NoPassword` `OnlineAuthentication` `OfflineAuthentication` <br><br>Método de autenticação <br><br>- Se o cartão foi lido a partir da digitação verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1; <br><br>- Se o cartão foi lido a partir da trilha verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, deve ser verificado o bit 2 do mesmo campo. Se este estiver com valor 1 deve ser capturada a senha. Se estiver com valor 0 a captura da senha vai depender do último dígito do service code; <br><br>- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2. <br><br>1 - Sem senha = “NoPassword”; <br><br>2 - Senha online = “Online Authentication”; <br><br>3 - Senha off-line = “Offline Authentication”.|
+|`CreditCard.EmvData`|String|---|---|Dados da transação EMV <br><br>Obtidos através do comando PP_GoOnChip na BC|
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
-|`PinBlock.EncryptionType`|---|---|---|---|
-|`PinBlock.KsnIdentification`|---|---|---|---|
-|`CreditCard.PanSequenceNumber`|---|---|---|---|
+|`PinBlock.EncryptionType`|String|---|---|---|
+|`PinBlock.KsnIdentification`|String|---|---|---|
+|`CreditCard.PanSequenceNumber`|Number|---|---|Número sequencial do cartão, utilizado para identificar a conta corrente do cartão adicional. Mandatório para transações com cartões Chip EMV e que possuam PAN Sequence Number (Tag 5F34).|
 |`CreditCard.SaveCard`|---|---|---|---|
 |`CreditCard.IsFallback`|---|---|---|---|
-|`Payment.PaymentDateTime`|---|---|---|---|
+|`Payment.PaymentDateTime`|String|date-time|Sim|Data e Hora da captura da transação|
 |`Payment.ServiceTaxAmount`|---|---|---|---|
-|`Payment.SoftDescriptor`|---|---|---|---|
-|`Payment.ProductId`|---|---|---|---|
-|`PinPadInformation.TerminalId`|---|---|---|---|
-|`PinPadInformation.SerialNumber`|---|---|---|---|
-|`PinPadInformation.PhysicalCharacteristics`|---|---|---|---|
-|`PinPadInformation.ReturnDataInfo`|---|---|---|---|
-|`Payment.Amount`|---|---|---|---|
+|`Payment.SoftDescriptor`|String|13|---|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
+|`Payment.ProductId`|Integer|---|Sim|Código do produto identificado através do bin do cartão.|
+|`PinPadInformation.TerminalId`|String|---|Sim|Número Lógico definido no Concentrador Cielo.|
+|`PinPadInformation.SerialNumber`|String|---|Sim|Número de Série do Equipamento.|
+|`PinPadInformation.PhysicalCharacteristics`|String|---|Sim|Enum: `WithoutPinPad` `PinPadWithoutChipReader` `PinPadWithChipReaderWithoutSamModule` `PinPadWithChipReaderWithSamModule` `NotCertifiedPinPad` `PinPadWithChipReaderWithoutSamAndContactless` `PinPadWithChipReaderWithSamModuleAndContactless` <br><br> Sem PIN-pad = `WithoutPinPad`; <br><br> PIN-pad sem leitor de Chip = `PinpadWithoutChipReader`; <br><br>PIN-pad com leitor de Chip sem módulo SAM = `PinPadWithChipReaderWithoutSamModule`; <br><br> PIN-pad com leitor de Chip com módulo SAM = `PinPadWithChipReaderWithSamModule`; <br><br> PIN-pad não homologado = `NotCertifiedPinPad`; <br><br> PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = `PinpadWithChipReaderWithoutSamAndContactless`; <br><br> PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = `PinpadWithChipReaderWithSamAndContactless`. <br><br><br> Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.|
+|`PinPadInformation.ReturnDataInfo`|String|---|Sim|Retorno da função PP_GetInfo() da biblioteca compartilhada|
+|`Payment.Amount`|Integer(int64)|---|Sim|Valor da transação (1079 = R$10,79)|
 |`Payment.ReceivedDate`|---|---|---|---|
 |`Payment.CapturedAmount`|---|---|---|---|
-|`Payment.Provider`|---|---|---|---|
+|`Payment.Provider`|String|---|---|---|
 |`Payment.ConfirmationStatus`|---|---|---|---|
 |`Payment.InitializationVersion`|---|---|---|---|
 |`Payment.EmvResponseData`|---|---|---|---|
 |`Payment.Status`|---|---|---|---|
-|`Payment.IsSplitted`|---|---|---|---|
+|`Payment.IsSplitted`|Booleano|---|---|---|
 |`Payment.ReturnCode`|---|---|---|---|
-|`Payment.ReturnMessage`|---|---|---|---|
+|`Payment.ReturnMessage`|String|---|---|---|
 |`Payment.PaymentId`|---|---|---|---|
-|`Payment.Type`|---|---|---|---|
-|`Payment.Currency`|---|---|---|---|
-|`Payment.Country`|---|---|---|---|
+|`Payment.Type`|String|---|Sim|Value: `PhysicalCreditCard` / Tipo da Transação|
+|`Payment.Currency`|String|---|---|Default: "BRL" / Value: "BRL" / Moeda (Preencher com “BRL”)|
+|`Payment.Country`|String|---|---|Default: "BRA" / Value: "BRA" / País (Preencher com “BRA”)|
 |`Receipt.MerchantName`|---|---|---|---|
 |`Receipt.MerchantAddress`|---|---|---|---|
 |`Receipt.MerchantCity`|---|---|---|---|
