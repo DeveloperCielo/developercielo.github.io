@@ -6,6 +6,8 @@ search: true
 translated: true
 toc_footers: true
 sort_order: 1
+tags:
+  - API Pagamento
 language_tabs:
   json: JSON
   shell: cURL
