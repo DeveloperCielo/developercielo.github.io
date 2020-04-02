@@ -474,6 +474,307 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`SplitErrors.Code`|---|---|---|---|
 |`SplitErrors.Message`|---|---|---|---|
 
+## Venda com cartão de crédito digitado e sem senha com recorrência
+
+### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
+
+```json
+{
+  "MerchantOrderId": "201904150001",
+  "Payment": {
+    "Type": "PhysicalCreditCard",
+    "SoftDescriptor": "Description",
+    "PaymentDateTime": "2019-04-15T12:00:00Z",
+    "Amount": 15798,
+    "Installments": 1,
+    "Capture": true,
+    "Interest": "ByMerchant",
+    "ProductId": 1,
+    "CreditCard": {
+      "CardNumber": 1234567812345678,
+      "ExpirationDate": "12/2020",
+      "SecurityCodeStatus": "Collected",
+      "SecurityCode": 1230,
+      "BrandId": 1,
+      "IssuerId": 2,
+      "InputMode": "Typed",
+      "AuthenticationMethod": "NoPassword",
+      "TruncateCardNumberWhenPrinting": true,
+      "SaveCard": false,
+      "IsFallback": false
+    },
+    "PinPadInformation": {
+      "TerminalId": "10000001",
+      "SerialNumber": "ABC123",
+      "PhysicalCharacteristics": "PinPadWithChipReaderWithSamModule",
+      "ReturnDataInfo": "00"
+    },
+    "RecurrentPayment": {
+      "EndDate": "2019-12-01",
+      "Interval": "SemiAnual"
+    }
+  }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+
+
+### Resposta
+
+```json
+{
+  "MerchantOrderId": "20180204",
+  "Customer": {
+    "Name": "Comprador crédito completo",
+    "Identity": "11225468954",
+    "IdentityType": "CPF",
+    "Email": "compradorteste@teste.com",
+    "Birthday": "1991-01-02",
+    "Address": {
+      "Street": "Rua Teste",
+      "Number": "123",
+      "Complement": "AP 123",
+      "ZipCode": "12345987",
+      "City": "São Paulo",
+      "State": "SP",
+      "Country": "BRA"
+    },
+    "DeliveryAddress": {
+      "Street": "Rua Teste",
+      "Number": "123",
+      "Complement": "AP 123",
+      "ZipCode": "12345987",
+      "City": "São Paulo",
+      "State": "SP",
+      "Country": "BRA"
+    }
+  },
+  "Payment": {
+    "Installments": 1,
+    "Interest": "ByMerchant",
+    "Capture": true,
+    "CreditCard": {
+      "ExpirationDate": "12/2020",
+      "BrandId": 1,
+      "IssuerId": 2,
+      "TruncateCardNumberWhenPrinting": true,
+      "InputMode": "Emv",
+      "AuthenticationMethod": "OnlineAuthentication",
+      "EmvData": "112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800",
+      "PinBlock": {
+        "EncryptedPinBlock": "2280F6BDFD0C038D",
+        "EncryptionType": "Dukpt3Des",
+        "KsnIdentification": "1231vg31fv231313123"
+      },
+      "PanSequenceNumber": 123,
+      "SaveCard": false,
+      "IsFallback": false
+    },
+    "PaymentDateTime": "2019-04-15T12:00:00Z",
+    "ServiceTaxAmount": 0,
+    "SoftDescriptor": "Description",
+    "ProductId": 1,
+    "PinPadInformation": {
+      "TerminalId": "10000001",
+      "SerialNumber": "ABC123",
+      "PhysicalCharacteristics": "PinPadWithChipReaderWithSamModule",
+      "ReturnDataInfo": "00"
+    },
+    "Amount": 15798,
+    "ReceivedDate": "2019-04-15T12:00:00Z",
+    "CapturedAmount": 15798,
+    "Provider": "Cielo",
+    "ConfirmationStatus": 0,
+    "InitializationVersion": 1558708320029,
+    "EmvResponseData": "123456789ABCD1345DEA",
+    "Status": 2,
+    "IsSplitted": false,
+    "ReturnCode": 0,
+    "ReturnMessage": "Successful",
+    "PaymentId": "f15889ea-5719-4e1a-a2da-f4e50d5bd702",
+    "Type": "PhysicalDebitCard",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+      },
+      {
+        "Method": "DELETE",
+        "Rel": "self",
+        "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+      },
+      {
+        "Method": "PUT",
+        "Rel": "self",
+        "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/confirmation"
+      }
+    ],
+    "PrintMessage": [
+      {
+        "Position": "Top",
+        "Message": "Transação autorizada"
+      },
+      {
+        "Position": "Middle",
+        "Message": "Informação adicional"
+      },
+      {
+        "Position": "Bottom",
+        "Message": "Obrigado e volte sempre!"
+      }
+    ],
+    "ReceiptInformation": [
+      {
+        "Field": "MERCHANT_NAME",
+        "Label": "NOME DO ESTABELECIMENTO",
+        "Content": "Estabelecimento"
+      },
+      {
+        "Field": "MERCHANT_ADDRESS",
+        "Label": "ENDEREÇO DO ESTABELECIMENTO",
+        "Content": "Rua Sem Saida, 0"
+      },
+      {
+        "Field": "MERCHANT_CITY",
+        "Label": "CIDADE DO ESTABELECIMENTO",
+        "Content": "Cidade"
+      },
+      {
+        "Field": "MERCHANT_STATE",
+        "Label": "ESTADO DO ESTABELECIMENTO",
+        "Content": "WA"
+      },
+      {
+        "Field": "MERCHANT_CODE",
+        "Label": "COD.ESTAB.",
+        "Content": 1234567890123456
+      },
+      {
+        "Field": "TERMINAL",
+        "Label": "POS",
+        "Content": 12345678
+      },
+      {
+        "Field": "NSU",
+        "Label": "DOC",
+        "Content": 123456
+      },
+      {
+        "Field": "DATE",
+        "Label": "DATA",
+        "Content": "01/01/20"
+      },
+      {
+        "Field": "HOUR",
+        "Label": "HORA",
+        "Content": "01:01"
+      },
+      {
+        "Field": "ISSUER_NAME",
+        "Label": "EMISSOR",
+        "Content": "NOME DO EMISSOR"
+      },
+      {
+        "Field": "CARD_NUMBER",
+        "Label": "CARTÃO",
+        "Content": 5432123454321234
+      },
+      {
+        "Field": "TRANSACTION_TYPE",
+        "Label": "TIPO DE TRANSAÇÃO",
+        "Content": "VENDA A CREDITO"
+      },
+      {
+        "Field": "AUTHORIZATION_CODE",
+        "Label": "AUTORIZAÇÃO",
+        "Content": 123456
+      },
+      {
+        "Field": "TRANSACTION_MODE",
+        "Label": "MODO DA TRANSAÇÃO",
+        "Content": "ONL"
+      },
+      {
+        "Field": "INPUT_METHOD",
+        "Label": "MODO DE ENTRADA",
+        "Content": "X"
+      },
+      {
+        "Field": "VALUE",
+        "Label": "VALOR",
+        "Content": "1,23"
+      },
+      {
+        "Field": "SOFT_DESCRIPTOR",
+        "Label": "SOFT DESCRIPTOR",
+        "Content": "Simulado"
+      }
+    ],
+    "Receipt": {
+      "MerchantName": "Estabelecimento",
+      "MerchantAddress": "Rua Sem Saida, 0",
+      "MerchantCity": "Cidade",
+      "MerchantState": "WA",
+      "MerchantCode": 1234567890123456,
+      "Terminal": 12345678,
+      "Nsu": 123456,
+      "Date": "01/01/20",
+      "Hour": "01:01",
+      "IssuerName": "NOME DO EMISSOR",
+      "CardNumber": 5432123454321234,
+      "TransactionType": "VENDA A CREDITO",
+      "AuthorizationCode": 123456,
+      "TransactionMode": "ONL",
+      "InputMethod": "X",
+      "Value": "1,23",
+      "SoftDescriptor": "Simulado"
+    },
+    "RecurrentPayment": {
+      "RecurrentPaymentId": "a6b719fa-a8df-ab11-4e1a-f4e50d5bd702",
+      "ReasonCode": 0,
+      "ReasonMessage": "Successful",
+      "NextRecurrency": "2019-12-01",
+      "EndDate": "2019-12-01",
+      "Interval": 6
+    },
+    "SplitPayments": [
+      {
+        "SubordinateMerchantId": "491daf20-35f2-4379-874c-e7552ae8dc10",
+        "Amount": 100,
+        "Fares": {
+          "Mdr": 5,
+          "Fee": 0
+        }
+      },
+      {
+        "SubordinateMerchantId": "7e2846be-4e80-4f86-8ca9-eb35db6aea00",
+        "Amount": 80,
+        "Fares": {
+          "Mdr": 3,
+          "Fee": 1
+        }
+      }
+    ],
+    "SplitErrors": [
+      {
+        "Code": 326,
+        "Message": "SubordinatePayment amount must be greater than zero"
+      }
+    ]
+  }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+
 ## Venda com cartão de crédito com leitura de tarja e senha
 
 ### Requisição
