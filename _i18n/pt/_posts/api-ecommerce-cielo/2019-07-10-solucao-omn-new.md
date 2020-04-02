@@ -386,7 +386,25 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantOrderId`|String|---|---| Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal.|
-|`Customer.Name`|String|---|---|---|
+|`Customer.Name`|String|---|---|---||---|
+|`Customer.Identity`|---|---|---||---|
+|`Customer.IdentityType`|---|---|---||---|
+|`Customer.Email`|---|---|---||---|
+|`Customer.Birthday`|---|---|---||---|
+|`Address.Street`|---|---|---||---|
+|`Address.Number`|---|---|---||---|
+|`Address.Complement`---|---|---||---|
+|`Address.ZipCode`|---|---|---||---|
+|`Address.City`|---|---|---||---|
+|`Address.State`|---|---|---||---|
+|`Address.Country`|---|---|---||---|
+|`DeliveryAddress.Street`|---|---|---||---|
+|`DeliveryAddress.Number`|---|---|---||---|
+|`DeliveryAddress.Complement`|---|---|---||---|
+|`DeliveryAddress.ZipCode`|---|---|---||---|
+|`DeliveryAddress.City`|---|---|---||---|
+|`DeliveryAddress.State`|---|---|---||---|
+|`DeliveryAddress.Country`|---|---|---||---|
 |`Payment.Installments`|Integer|---|---|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
 |`Payment.Interest`|String|---|---|Default: `ByMerchant` <br><br> Enum: `ByMerchant` `ByIssuer` <br><br> Tipo de Parcelamento: <br><br> - Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado. <br><br> - Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.|
 |`Payment.Capture`|Booleano|---|---|Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.|
@@ -400,6 +418,9 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|String|---|---|---|
 |`PinBlock.KsnIdentification`|String|---|---|---|
+|`CreditCard.PanSequenceNumber`|---|---|---|---|
+|`CreditCard.SaveCard`|---|---|---|---|
+|`CreditCard.IsFallback`|---|---|---|---|
 |`Payment.PaymentDateTime`|String|date-time|Sim|Data e Hora da captura da transação|
 |`Payment.ServiceTaxAmount`|---|---|---|---|
 |`Payment.SoftDescriptor`|String|13|---|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
@@ -423,6 +444,35 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Payment.Type`|String|---|Sim|Value: `PhysicalCreditCard` / Tipo da Transação|
 |`Payment.Currency`|String|---|---|Default: "BRL" / Value: "BRL" / Moeda (Preencher com “BRL”)|
 |`Payment.Country`|String|---|---|Default: "BRA" / Value: "BRA" / País (Preencher com “BRA”)|
+|`Receipt.MerchantName`|---|---|---|---|
+|`Receipt.MerchantAddress`|---|---|---|---|
+|`Receipt.MerchantCity`|---|---|---|---|
+|`Receipt.MerchantState`|---|---|---|---|
+|`Receipt.MerchantCode`|---|---|---|---|
+|`Receipt.Terminal`|---|---|---|---|
+|`Receipt.Nsu`|---|---|---|---|
+|`Receipt.Date`|---|---|---|---|
+|`Receipt.Hour`|---|---|---|---|
+|`Receipt.IssuerName`|---|---|---|---|
+|`Receipt.CardNumber`|---|---|---|---|
+|`Receipt.TransactionType`|---|---|---|---|
+|`Receipt.AuthorizationCode`|---|---|---|---|
+|`Receipt.TransactionMode`|---|---|---|---|
+|`Receipt.InputMethod`|---|---|---|---|
+|`Receipt.Value`|---|---|---|---|
+|`Receipt.SoftDescriptor`|---|---|---|---|
+|`RecurrentPayment.RecurrentPaymentId`|---|---|---|---|
+|`RecurrentPayment.ReasonCode`|---|---|---|---|
+|`RecurrentPayment.ReasonMessage`|---|---|---|---|
+|`RecurrentPayment.NextRecurrency`|---|---|---|---|
+|`RecurrentPayment.EndDate`|---|---|---|---|
+|`RecurrentPayment.Interval`|---|---|---|---|
+|`SplitPayments.SubordinateMerchantId`|---|---|---|---|
+|`SplitPayments.Amount`|---|---|---|---|
+|`SplitPayments.Fares.Mdr`|---|---|---|---|
+|`SplitPayments.Fares.Fee`|---|---|---|---|
+|`SplitErrors.Code`|---|---|---|---|
+|`SplitErrors.Message`|---|---|---|---|
 
 ## Venda com cartão de crédito com leitura de tarja e senha
 
