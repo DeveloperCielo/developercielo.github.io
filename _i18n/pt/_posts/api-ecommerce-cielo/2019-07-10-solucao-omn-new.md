@@ -232,10 +232,10 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
         "Position": "Top",
         "Message": "Transação autorizada"
       },
-	  {
+      {
         "Position": "Middle",
         "Message": "Informação adicional"
-	  },
+      },
       {
         "Position": "Bottom",
         "Message": "Obrigado e volte sempre!"
