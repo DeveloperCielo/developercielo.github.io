@@ -3903,7 +3903,9 @@
         </span><span class="nl">"EncryptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dukpt3Des"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"KsnIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1231vg31fv231313123"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"PanSequenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="w">
+      </span><span class="nl">"PanSequenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IsFallback"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"PinPadInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"TerminalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10000001"</span><span class="p">,</span><span class="w">
@@ -4074,6 +4076,20 @@
       <td>Número sequencial do cartão, utilizado para identificar a conta corrente do cartão adicional. Mandatório para transações com cartões Chip EMV e que possuam PAN Sequence Number (Tag 5F34).</td>
     </tr>
     <tr>
+      <td><code class="highlighter-rouge">CreditCard.SaveCard</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.IsFallback</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
       <td><code class="highlighter-rouge">PinPadInformation.TerminalId</code></td>
       <td>String</td>
       <td>—</td>
@@ -4109,7 +4125,29 @@
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20180204"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[Guest]"</span><span class="w">
+    </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador crédito completo"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11225468954"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"compradorteste@teste.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Birthday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1991-01-02"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Teste"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AP 123"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Teste"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AP 123"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -4128,7 +4166,9 @@
         </span><span class="nl">"EncryptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dukpt3Des"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"KsnIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1231vg31fv231313123"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"PanSequenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="w">
+      </span><span class="nl">"PanSequenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IsFallback"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"PaymentDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-15T12:00:00Z"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -4178,6 +4218,10 @@
         </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transação autorizada"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Middle"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Informação adicional"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
         </span><span class="nl">"Position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bottom"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Obrigado e volte sempre!"</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -4186,12 +4230,138 @@
       </span><span class="p">{</span><span class="w">
         </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCHANT_NAME"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOME DO ESTABELECIMENTO"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo"</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Estabelecimento"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCHANT_ADDRESS"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ENDEREÇO DO ESTABELECIMENTO"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Sem Saida, 0"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCHANT_CITY"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CIDADE DO ESTABELECIMENTO"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cidade"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCHANT_STATE"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ESTADO DO ESTABELECIMENTO"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WA"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCHANT_CODE"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COD.ESTAB."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234567890123456</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TERMINAL"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POS"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345678</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NSU"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DOC"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DATE"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DATA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/20"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HOUR"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HORA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01:01"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ISSUER_NAME"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMISSOR"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOME DO EMISSOR"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CARD_NUMBER"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CARTÃO"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="mi">5432123454321234</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSACTION_TYPE"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TIPO DE TRANSAÇÃO"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VENDA A CREDITO"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUTHORIZATION_CODE"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUTORIZAÇÃO"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSACTION_MODE"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MODO DA TRANSAÇÃO"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONL"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INPUT_METHOD"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MODO DE ENTRADA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"X"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VALUE"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VALOR"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1,23"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOFT_DESCRIPTOR"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SOFT DESCRIPTOR"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"Receipt"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"MerchantName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Estabelecimento"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"MerchantAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Sem Saida, 0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"MerchantCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cidade"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"MerchantState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"MerchantCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234567890123456</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Terminal"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345678</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/20"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01:01"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IssuerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOME DO EMISSOR"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">5432123454321234</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TransactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VENDA A CREDITO"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TransactionMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONL"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"InputMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"X"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1,23"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"RecurrentPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"RecurrentPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a6b719fa-a8df-ab11-4e1a-f4e50d5bd702"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"NextRecurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-01"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-01"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"SplitPayments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"491daf20-35f2-4379-874c-e7552ae8dc10"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"SubordinateMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7e2846be-4e80-4f86-8ca9-eb35db6aea00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Fares"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Mdr"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"SplitErrors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">326</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SubordinatePayment amount must be greater than zero"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -4211,87 +4381,213 @@
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">MerchantOrderId</code></td>
-      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal.</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Customer.Name</code></td>
-      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Identity</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.IdentityType</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Email</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Birthday</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Street</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Number</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Complement</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.ZipCode</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.City</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.State</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Address.Country</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DeliveryAddress.Street</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DeliveryAddress.Number</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DeliveryAddress.Complement</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DeliveryAddress.ZipCode</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DeliveryAddress.City</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DeliveryAddress.State</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">DeliveryAddress.Country</code></td>
+      <td>—</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Installments</code></td>
-      <td>Integer</td>
       <td>—</td>
       <td>—</td>
-      <td>Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Interest</code></td>
-      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>Default: <code class="highlighter-rouge">ByMerchant</code> <br /> Enum: <code class="highlighter-rouge">ByMerchant</code> <code class="highlighter-rouge">ByIssuer</code> <br /> Tipo de Parcelamento: <br /> - Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado. <br /> - Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Capture</code></td>
-      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.ExpirationDate</code></td>
-      <td>String</td>
-      <td>MM/yyyy</td>
-      <td>Sim</td>
-      <td>Data de validade do cartão. <br />Dado obtido através do comando PP_GetCard na BC no momento da captura da transação.</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.BrandId</code></td>
-      <td>Integer</td>
       <td>—</td>
-      <td>Sim</td>
-      <td>Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE.</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.IssuerId</code></td>
-      <td>Integer</td>
       <td>—</td>
-      <td>Sim</td>
-      <td>Código do emissor obtido através do campo IssuerId da BIN TABLE.</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.TruncateCardNumberWhenPrinting</code></td>
-      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>Indica se o número do cartão será truncado no momento da impressão do comprovante. A solução de captura deve tomar essa decisão com base no <code class="highlighter-rouge">confParamOp03</code> presente nas tabelas BIN TABLE, PARAMETER TABLE e ISSUER TABLE.</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.InputMode</code></td>
-      <td>String</td>
       <td>—</td>
-      <td>Sim</td>
-      <td>Enum: <code class="highlighter-rouge">Typed</code> <code class="highlighter-rouge">MagStripe</code> <code class="highlighter-rouge">Emv</code> <br />Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. <br />“00” – Magnético <br />“01” - Moedeiro VISA Cash sobre TIBC v1 <br />“02” - Moedeiro VISA Cash sobre TIBC v3 <br />“03” – EMV com contato <br />“04” - Easy-Entry sobre TIBC v1 <br />“05” - Chip sem contato simulando tarja <br /> “06” - EMV sem contato.</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.AuthenticationMethod</code></td>
-      <td>String</td>
       <td>—</td>
-      <td>Sim</td>
-      <td>Enum: <code class="highlighter-rouge">NoPassword</code> <code class="highlighter-rouge">OnlineAuthentication</code> <code class="highlighter-rouge">OfflineAuthentication</code> <br />Método de autenticação <br />- Se o cartão foi lido a partir da digitação verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1; <br />- Se o cartão foi lido a partir da trilha verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, deve ser verificado o bit 2 do mesmo campo. Se este estiver com valor 1 deve ser capturada a senha. Se estiver com valor 0 a captura da senha vai depender do último dígito do service code; <br />- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2. <br />1 - Sem senha = “NoPassword”; <br />2 - Senha online = “Online Authentication”; <br />3 - Senha off-line = “Offline Authentication”.</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.EmvData</code></td>
-      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>Dados da transação EMV <br />Obtidos através do comando PP_GoOnChip na BC</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">PinBlock.EncryptedPinBlock</code></td>
@@ -4302,31 +4598,45 @@
     </tr>
     <tr>
       <td><code class="highlighter-rouge">PinBlock.EncryptionType</code></td>
-      <td>String</td>
+      <td>—</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">PinBlock.KsnIdentification</code></td>
-      <td>String</td>
+      <td>—</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">CreditCard.PanSequenceNumber</code></td>
-      <td>Number</td>
       <td>—</td>
       <td>—</td>
-      <td>Número sequencial do cartão, utilizado para identificar a conta corrente do cartão adicional. Mandatório para transações com cartões Chip EMV e que possuam PAN Sequence Number (Tag 5F34).</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.SaveCard</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">CreditCard.IsFallback</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.PaymentDateTime</code></td>
-      <td>String</td>
-      <td>date-time</td>
-      <td>Sim</td>
-      <td>Data e Hora da captura da transação</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.ServiceTaxAmount</code></td>
@@ -4337,52 +4647,52 @@
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.SoftDescriptor</code></td>
-      <td>String</td>
-      <td>13</td>
       <td>—</td>
-      <td>Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.ProductId</code></td>
-      <td>Integer</td>
       <td>—</td>
-      <td>Sim</td>
-      <td>Código do produto identificado através do bin do cartão.</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">PinPadInformation.TerminalId</code></td>
-      <td>String</td>
       <td>—</td>
-      <td>Sim</td>
-      <td>Número Lógico definido no Concentrador Cielo.</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">PinPadInformation.SerialNumber</code></td>
-      <td>String</td>
       <td>—</td>
-      <td>Sim</td>
-      <td>Número de Série do Equipamento.</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">PinPadInformation.PhysicalCharacteristics</code></td>
-      <td>String</td>
       <td>—</td>
-      <td>Sim</td>
-      <td>Enum: <code class="highlighter-rouge">WithoutPinPad</code> <code class="highlighter-rouge">PinPadWithoutChipReader</code> <code class="highlighter-rouge">PinPadWithChipReaderWithoutSamModule</code> <code class="highlighter-rouge">PinPadWithChipReaderWithSamModule</code> <code class="highlighter-rouge">NotCertifiedPinPad</code> <code class="highlighter-rouge">PinPadWithChipReaderWithoutSamAndContactless</code> <code class="highlighter-rouge">PinPadWithChipReaderWithSamModuleAndContactless</code> <br /> Sem PIN-pad = <code class="highlighter-rouge">WithoutPinPad</code>; <br /> PIN-pad sem leitor de Chip = <code class="highlighter-rouge">PinpadWithoutChipReader</code>; <br />PIN-pad com leitor de Chip sem módulo SAM = <code class="highlighter-rouge">PinPadWithChipReaderWithoutSamModule</code>; <br /> PIN-pad com leitor de Chip com módulo SAM = <code class="highlighter-rouge">PinPadWithChipReaderWithSamModule</code>; <br /> PIN-pad não homologado = <code class="highlighter-rouge">NotCertifiedPinPad</code>; <br /> PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = <code class="highlighter-rouge">PinpadWithChipReaderWithoutSamAndContactless</code>; <br /> PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = <code class="highlighter-rouge">PinpadWithChipReaderWithSamAndContactless</code>. <br /> Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">PinPadInformation.ReturnDataInfo</code></td>
-      <td>String</td>
       <td>—</td>
-      <td>Sim</td>
-      <td>Retorno da função PP_GetInfo() da biblioteca compartilhada</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Amount</code></td>
-      <td>Integer(int64)</td>
       <td>—</td>
-      <td>Sim</td>
-      <td>Valor da transação (1079 = R$10,79)</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.ReceivedDate</code></td>
@@ -4400,7 +4710,7 @@
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Provider</code></td>
-      <td>String</td>
+      <td>—</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
@@ -4435,7 +4745,7 @@
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.IsSplitted</code></td>
-      <td>Booleano</td>
+      <td>—</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
@@ -4449,7 +4759,7 @@
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.ReturnMessage</code></td>
-      <td>String</td>
+      <td>—</td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
@@ -4463,24 +4773,227 @@
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Type</code></td>
-      <td>String</td>
       <td>—</td>
-      <td>Sim</td>
-      <td>Value: <code class="highlighter-rouge">PhysicalCreditCard</code> / Tipo da Transação</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Currency</code></td>
-      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>Default: “BRL” / Value: “BRL” / Moeda (Preencher com “BRL”)</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">Payment.Country</code></td>
-      <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>Default: “BRA” / Value: “BRA” / País (Preencher com “BRA”)</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Receipt.MerchantName</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Receipt.MerchantAddress</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Receipt.MerchantCity</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Receipt.MerchantState</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Receipt.MerchantCode</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Receipt.Terminal</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Receipt.Nsu</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Receipt.Date</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Receipt.Hour</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Receipt.IssuerName</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Receipt.CardNumber</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Receipt.TransactionType</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Receipt.AuthorizationCode</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Receipt.TransactionMode</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Receipt.InputMethod</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Receipt.Value</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Receipt.SoftDescriptor</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RecurrentPayment.RecurrentPaymentId</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RecurrentPayment.ReasonCode</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RecurrentPayment.ReasonMessage</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RecurrentPayment.NextRecurrency</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RecurrentPayment.EndDate</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">RecurrentPayment.Interval</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SplitPayments.SubordinateMerchantId</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SplitPayments.Amount</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SplitPayments.Fares.Mdr</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SplitPayments.Fares.Fee</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SplitErrors.Code</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">SplitErrors.Message</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
   </tbody>
 </table>
