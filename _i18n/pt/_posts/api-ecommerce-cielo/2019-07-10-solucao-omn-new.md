@@ -4283,6 +4283,49 @@ null
 ```json
 {
   "VoidId": "f15889ea-5719-4e1a-a2da-f4e50d5bd702",
+  "InitializationVersion": 1558708320029,
+  "PrintMessage": [
+    {
+      "Position": "Top",
+      "Message": "Transação autorizada"
+    },
+    {
+      "Position": "Middle",
+      "Message": "Informação adicional"
+    },
+    {
+      "Position": "Bottom",
+      "Message": "Obrigado e volte sempre!"
+    }
+  ],
+  "Receipt": {
+    "MerchantName": "Estabelecimento",
+    "MerchantAddress": "Rua Sem Saida, 0",
+    "MerchantCity": "Cidade",
+    "MerchantState": "WA",
+    "MerchantCode": 549798965249,
+    "Terminal": 12345678,
+    "Nsu": 123456,
+    "Date": "01/01/20",
+    "Hour": 720,
+    "IssuerName": "VISA  PROD-I",
+    "CardNumber": 1111222233334444,
+    "TransactionType": "CANCELAMENTO DE TRANSACAO",
+    "AuthorizationCode": 123456,
+    "TransactionMode": "ONL",
+    "InputMethod": "C",
+    "CancelValue": "3,00",
+    "OriginalTransactonData": "DADOS DO PAGAMENTO ORIGNAL",
+    "OriginalTransactonType": "VENDA A CREDITO",
+    "OriginalTransactonNsu": 5349,
+    "OriginalTransactonAuthCode": 543210,
+    "OriginalTransactionDate": "01/01/20",
+    "OriginalTransactionHour": 720,
+    "OrignalTransactionValue": "3,00",
+    "OrignalTransactionCardHolder": "NOME NOME NOME NOME NOME N",
+    "OriginalTransactionMode": "ONL",
+    "OriginalInputMethod": "C"
+  },  
   "Status": 10,
   "ReturnCode": 0,
   "ReturnMessage": "Success",
@@ -4314,6 +4357,32 @@ null
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`VoidId`|String - uuid|---|---|Identificador do cancelamento|
+|`Receipt.MerchantName`|---|---|---|---|
+|`Receipt.MerchantAddress`|---|---|---|---|
+|`Receipt.MerchantCity`|---|---|---|---|
+|`Receipt.MerchantState`|---|---|---|---|
+|`Receipt.MerchantCode`|---|---|---|---|
+|`Receipt.Terminal`|---|---|---|---|
+|`Receipt.Nsu`|---|---|---|---|
+|`Receipt.Date`|---|---|---|---|
+|`Receipt.Hour`|---|---|---|---|
+|`Receipt.IssuerName`|---|---|---|---|
+|`Receipt.CardNumber`|---|---|---|---|
+|`Receipt.TransactionType`|---|---|---|---|
+|`Receipt.AuthorizationCode`|---|---|---|---|
+|`Receipt.TransactionMode`|---|---|---|---|
+|`Receipt.InputMethod`|---|---|---|---|
+|`Receipt.CancelValue`|---|---|---|---|
+|`Receipt.OriginalTransactonData`|---|---|---|---|
+|`Receipt.OriginalTransactonType`|---|---|---|---|
+|`Receipt.OriginalTransactonNsu`|---|---|---|---|
+|`Receipt.OriginalTransactonAuthCode`|---|---|---|---|
+|`Receipt.OriginalTransactionDate`|---|---|---|---|
+|`Receipt.OriginalTransactionHour`|---|---|---|---|
+|`Receipt.OrignalTransactionValue`|---|---|---|---|
+|`Receipt.OrignalTransactionCardHolder`|---|---|---|---|
+|`Receipt.OriginalTransactionMode`|---|---|---|---|
+|`Receipt.OriginalInputMethod`|---|---|---|---|
 |`Status`|Integer int16|---|---|Status do cancelamento. <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Negado <br><br>3 = Confirmado <br><br>4 = Desfeito|
 |`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
 |`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
@@ -4349,6 +4418,49 @@ null
 ```json
 {
   "VoidId": "f15889ea-5719-4e1a-a2da-f4e50d5bd702",
+  "InitializationVersion": 1558708320029,
+  "PrintMessage": [
+    {
+      "Position": "Top",
+      "Message": "Transação autorizada"
+    },
+    {
+      "Position": "Middle",
+      "Message": "Informação adicional"
+    },
+    {
+      "Position": "Bottom",
+      "Message": "Obrigado e volte sempre!"
+    }
+  ],
+  "Receipt": {
+    "MerchantName": "Estabelecimento",
+    "MerchantAddress": "Rua Sem Saida, 0",
+    "MerchantCity": "Cidade",
+    "MerchantState": "WA",
+    "MerchantCode": 549798965249,
+    "Terminal": 12345678,
+    "Nsu": 123456,
+    "Date": "01/01/20",
+    "Hour": 720,
+    "IssuerName": "VISA  PROD-I",
+    "CardNumber": 1111222233334444,
+    "TransactionType": "CANCELAMENTO DE TRANSACAO",
+    "AuthorizationCode": 123456,
+    "TransactionMode": "ONL",
+    "InputMethod": "C",
+    "CancelValue": "3,00",
+    "OriginalTransactonData": "DADOS DO PAGAMENTO ORIGNAL",
+    "OriginalTransactonType": "VENDA A CREDITO",
+    "OriginalTransactonNsu": 5349,
+    "OriginalTransactonAuthCode": 543210,
+    "OriginalTransactionDate": "01/01/20",
+    "OriginalTransactionHour": 720,
+    "OrignalTransactionValue": "3,00",
+    "OrignalTransactionCardHolder": "NOME NOME NOME NOME NOME N",
+    "OriginalTransactionMode": "ONL",
+    "OriginalInputMethod": "C"
+  },
   "Status": 10,
   "ReturnCode": 0,
   "ReturnMessage": "Success",
@@ -4799,12 +4911,14 @@ Cria um novo merchant.
   "Mcc": 0,
   "DocumentNumber": "string",
   "DocumentType": "Cpf",
+  "SubordinatedMerchantId": "string",
   "Owner": {
     "Name": "string",
     "Email": "string",
     "PhoneNumber": "string",
     "MessengerPhone": "string",
-    "Gender": "Other"
+    "Gender": "Other",
+    "DocumentNumber": "string"
   }
 }
 ```
@@ -4819,9 +4933,10 @@ Cria um novo merchant.
 |`CompanyName`|String|---|---|---|
 |`Email`|String|---|---|---|
 |`PhoneNumber`|String|---|---|---|
-|`Mcc`|String|---|---|---|
+|`Mcc`|String|Integer|---|---|
 |`DocumentNumber`|String|---|---|---|
 |`DocumentType`|String|---|---|Enum: `Cpf` `Cnpj`|
+|`SubordinatedMerchantId`|String|---|---|O ID que a loja subordinada deve assumir.|
 |`Owner.Name`|String|---|---|---|
 |`Owner.Email`|String|---|---|---|
 |`Owner.PhoneNumber`|String|---|---|---|
@@ -4830,7 +4945,7 @@ Cria um novo merchant.
 
 ### GET Merchant - Resposta
 
-Efetua a busca do merchant pelo seu ID.
+Encontra uma loja subordinada pelo seu ID.
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/merchants/{subordinatedMerchantId}</span></aside>
 
@@ -4843,7 +4958,8 @@ Efetua a busca do merchant pelo seu ID.
       "Email": "string",
       "PhoneNumber": "string",
       "MessengerPhone": "string",
-      "Gender": "Other"
+      "Gender": "Other",
+      "DocumentNumber": "string"
     }
   }
 }
@@ -4857,10 +4973,11 @@ Efetua a busca do merchant pelo seu ID.
 |`Owner.PhoneNumber`|String|---|---|---|
 |`Owner.MessengerPhone`|String|---|---|---|
 |`Owner.Gender`|String|---|---|Enum: `Other` `Male` `Female`|
+|`Owner.DocumentNumber`|---|---|---|
 
 ### PUT Merchant - Requisição
 
-Faz alteração do merchant pelo seu ID.
+Salva alterações em na loja subordinado com o ID especificado.
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/merchants/{subordinatedMerchantId}</span></aside>
 
@@ -4890,37 +5007,39 @@ Faz alteração do merchant pelo seu ID.
 |`Address.Number`|String|---|---|---|
 |`TradeName`|String|---|---|---|
 |`CompanyName`|String|---|---|---|
-|`Email`|String|---|---|---|
+|`Email`|String|String|---|---|
 |`PhoneNumber`|String|---|---|---|
-|`Mcc`|String|---|---|---|
+|`Mcc`|String|Integer|---|---|
 |`DocumentNumber`|String|---|---|---|
 |`DocumentType`|String|---|---|Enum: `Cpf` `Cnpj`|
 
 ## Terminal
 
-### Requisição
+### Cria um novo terminal
+
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals</span></aside>
 
 ```json
 {
-  "TerminalBaseModel": {
-    "CommunicationType": "string",
-    "EquipmentModel": 0,
-    "EquipmentSerialNumber": "string",
-    "TerminalId": "string"
-  }
+  "CommunicationType": "string",
+  "EquipmentModel": 0,
+  "EquipmentSerialNumber": "string",
+  "TerminalId": "string",
+  "SubordinatedMerchantId": "string"
 }
 ```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`TerminalBaseModel.CommunicationType`|String|---|---|---|
-|`TerminalBaseModel.EquipmentModel`|Integer|---|---|---|
-|`TerminalBaseModel.EquipmentSerialNumber`|String|---|---|---|
-|`TerminalBaseModel.TerminalId`|String|---|---|---|
+|`CommunicationType`|String|---|---|---|
+|`EquipmentModel`|Integer|---|---|---|
+|`EquipmentSerialNumber`|String|---|---|---|
+|`TerminalId`|String|---|---|---|
+|`SubordinatedMerchantId`|String <uuid>|---|---|ID da loja subordinada vinculada ao terminal|
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -4941,3 +5060,21 @@ Faz alteração do merchant pelo seu ID.
 |`TerminalBaseModel.EquipmentSerialNumber`|String|---|---|---|
 |`TerminalBaseModel.TerminalId`|String|---|---|---|
 |`Terminal.SubordinatedMerchantId`|String uuid|---|---|---|
+
+### Desabilita um terminal removendo o vínculo com um equipamento físico.
+
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals/disable</span></aside>
+
+```json
+{
+  "SubordinatedMerchantId": "string",
+  "TerminalId": "string"
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`SubordinatedMerchantId`|String <uuid>|---|---|ID da loja subordinada vinculada ao terminal|
+|`TerminalId`|String|---|---|---|
