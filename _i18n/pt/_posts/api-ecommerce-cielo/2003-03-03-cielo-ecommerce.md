@@ -2980,6 +2980,11 @@ curl
                 "RawData": "Client did not participate and did not authorize transaction"
             }
         ],
+        "FraudAlert": {
+            "Date": "2017-05-20",
+            "ReasonMessage": "Uso Ind Numeração",
+            "IncomingChargeback": false
+        },
         "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
         "Type": "CreditCard",
         "Amount": 15700,
@@ -3886,6 +3891,7 @@ A loja **deverá** retornar como resposta ao notificação: **HTTP Status Code 2
 |4|Mudança de status do pagamento recorrente (Ex. desativação automática)|
 |5|cancelamento negado|
 |7|Notificação de chargeback <br/> Para mais detalhes [Risk Notification](https://braspag.github.io//manual/risknotification)|
+|8|Alerta de fraude|
 
 # Análise de Fraude (AF)
 
