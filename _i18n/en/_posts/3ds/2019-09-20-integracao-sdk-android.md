@@ -74,7 +74,7 @@ Add the following dependency to dependency node in your **build.gradle** on modu
 ```kotlin
 dependecies{
   ...
-  implementation 'br.com.braspag:braspag3ds:<LATEST_VERSION>'
+  implementation 'br.com.braspag:braspag3ds:<*LATEST_VERSION*>'
 }
 ```
 
@@ -88,7 +88,7 @@ Then you must use the method `authenticate`, informing the *access_token* from p
 
 ```kotlin
 braspag3dsSdk.authenticate(
-           accessToken = “<Access_Token>“,
+           accessToken = “<*Access_Token*>“,
            orderData = OrderData(
                orderNumber = ORDER_NUMBER,
                currencyCode = CURRENCY_BRL,
