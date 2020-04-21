@@ -238,7 +238,7 @@
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">val</span> <span class="py">braspag3dsSdk</span> <span class="p">=</span> <span class="nc">Braspag3ds</span><span class="p">(</span><span class="nc">Environment</span><span class="p">.</span><span class="nc">SANDBOX</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>Em seguida é necessário utilizar o método <code class="highlighter-rouge">authenticate</code>, informando o accessToken gerado no passo anterior, os dados do comprador e o <em>callback</em> que receberá a resposta:</p>
+<p>Em seguida é necessário utilizar o método <code class="highlighter-rouge">authenticate</code>, informando o <em>access_token</em> gerado no passo anterior, os dados do comprador e o <em>callback</em> que receberá a resposta:</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">braspag3dsSdk</span><span class="p">.</span><span class="nf">authenticate</span><span class="p">(</span>
            <span class="n">accessToken</span> <span class="p">=</span> <span class="err">“</span><span class="p">&lt;</span><span class="nc">Access_Token</span><span class="p">&gt;</span><span class="err">“</span><span class="p">,</span>
