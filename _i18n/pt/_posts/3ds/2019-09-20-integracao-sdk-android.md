@@ -60,30 +60,26 @@ A solução é composta pelo passo de solicitação de token de acesso via API e
 
 # Passo 2 - Utilizando o SDK
 
-Para utilizar o SDK é necessário baixar o arquivo aar da versão mais recente em [releases](https://github.com/DeveloperCielo/3ds-android/releases), após isso, recomendamos adicioná-lo a pasta libs em seu app module
-
-Desta forma, poderá importar adicionando a seguinte dependência ao seu **build.gradle** no app module:
+Para utilizar o SDK é necessário adicioná-lo como dependência ao **build.gradle** do module que irá utilizá-lo:
 
 ```kotlin
 dependecies{
   ...
-  implementation files('libs/braspag3ds-1.1.0-release.aar')
+  implementation 'br.com.braspag:braspag3ds:<LATEST_VERSION>'
 }
 ```
 
-Em seguida é necessário passar para o lado cliente(APP) o *access_token* gerado no passo anterior:
+Em seguida é necessário informar o ambiente que deseja ao instanciar o **Braspag3ds**:
 
 ```kotlin
-val braspag3dsSdk = Braspag3ds(
-                       accessToken = “<Access_Token>“,
-                       environment = Environment.SANDBOX
-                   )
+  val braspag3dsSdk = Braspag3ds(Environment.SANDBOX)
 ```
 
-Em seguida é necessário utilizar o método `authenticate`, informando os dados do comprador e o *callback* que receberá a resposta:
+Em seguida é necessário utilizar o método `authenticate`, informando o accessToken gerado no passo anterior, os dados do comprador e o *callback* que receberá a resposta:
 
 ```kotlin
 braspag3dsSdk.authenticate(
+           accessToken = “<Access_Token>“,
            orderData = OrderData(
                orderNumber = ORDER_NUMBER,
                currencyCode = CURRENCY_BRL,
