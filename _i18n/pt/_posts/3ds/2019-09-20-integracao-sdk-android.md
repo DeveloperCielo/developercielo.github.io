@@ -75,7 +75,7 @@ Em seguida é necessário informar o ambiente que deseja ao instanciar o **Brasp
   val braspag3dsSdk = Braspag3ds(Environment.SANDBOX)
 ```
 
-Em seguida é necessário utilizar o método `authenticate`, informando o accessToken gerado no passo anterior, os dados do comprador e o *callback* que receberá a resposta:
+Em seguida é necessário utilizar o método `authenticate`, informando o *access_token* gerado no passo anterior, os dados do comprador e o *callback* que receberá a resposta:
 
 ```kotlin
 braspag3dsSdk.authenticate(
