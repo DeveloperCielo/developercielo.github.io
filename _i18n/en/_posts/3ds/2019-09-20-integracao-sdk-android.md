@@ -60,38 +60,35 @@ The solution is composed by the access token request via the API and authenticat
 | token\_type | Fixed &quot;Bearer&quot; | Alphanumeric |
 | expires\_in | Token expiration time (minutes) | Numeric |
 
-# STEP 2 - Using SDK
 
-To use the SDK you need to copy and paste the Braspag3dsSdk file into app libs:
+Em seguida é necessário informar o ambiente que deseja ao instanciar o **Braspag3ds**:
 
 ```kotlin
-braspag3ds-1.0-release.aar
+  val braspag3dsSdk = Braspag3ds(Environment.SANDBOX)
 ```
 
-Then change in (gradle:app)
+# STEP 2 - Using SDK
+
+Add the following dependency to dependency node in your **build.gradle** on module level:
 
 ```kotlin
 dependecies{
-
-  implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
-  
   ...
+  implementation 'br.com.braspag:braspag3ds:<LATEST_VERSION>'
 }
 ```
 
-Then it's necessary to pass to the client side (APP) the *access_token* generated in the previous step:
+Then it's necessary to instantiate **Braspag3ds** with the desired environment:
 
 ```kotlin
-val braspag3dsSdk = Braspag3ds(
-                       accessToken = “<Access_Token>“,
-                       environment = Environment.SANDBOX
-                   )
+  val braspag3dsSdk = Braspag3ds(environment = Environment.SANDBOX)
 ```
 
-Then you must use the method `authenticate`, informing the buyer details and the *callback* that will receive the response:
+Then you must use the method `authenticate`, informing the *access_token* from previous step, the buyer details and the *callback* that will receive the response:
 
 ```kotlin
 braspag3dsSdk.authenticate(
+           accessToken = “<Access_Token>“,
            orderData = OrderData(
                orderNumber = ORDER_NUMBER,
                currencyCode = CURRENCY_BRL,
