@@ -65,7 +65,7 @@ Para utilizar o SDK é necessário adicioná-lo como dependência ao **build.gra
 ```kotlin
 dependecies{
   ...
-  implementation 'br.com.braspag:braspag3ds:<LATEST_VERSION>'
+  implementation 'br.com.braspag:braspag3ds:<*LATEST_VERSION*>'
 }
 ```
 
@@ -79,7 +79,7 @@ Em seguida é necessário utilizar o método `authenticate`, informando o *acces
 
 ```kotlin
 braspag3dsSdk.authenticate(
-           accessToken = “<Access_Token>“,
+           accessToken = “<*Access_Token*>“,
            orderData = OrderData(
                orderNumber = ORDER_NUMBER,
                currencyCode = CURRENCY_BRL,
