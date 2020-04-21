@@ -631,7 +631,7 @@ Lastly, we’ll access our application IP to see if all worked fine!</p>
 
     <span class="k">foreach</span> <span class="p">(</span><span class="nv">$doubles</span> <span class="k">as</span> <span class="nv">$double</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">$t</span> <span class="o">=</span> <span class="nb">strlen</span><span class="p">(</span><span class="nv">$double</span><span class="p">);</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nv">$t</span><span class="p">;</span> <span class="o">++</span><span class="nv">$i</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nv">$sum</span> <span class="o">+=</span> <span class="p">(</span><span class="nx">int</span><span class="p">)</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$double</span><span class="p">,</span> <span class="nv">$i</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+            <span class="nv">$sum</span> <span class="o">+=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$double</span><span class="p">,</span> <span class="nv">$i</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
 

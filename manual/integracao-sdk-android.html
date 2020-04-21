@@ -225,27 +225,23 @@
 
 <h1 id="passo-2---utilizando-o-sdk">Passo 2 - Utilizando o SDK</h1>
 
-<p>Para utilizar o SDK é necessário baixar o arquivo aar da versão mais recente em <a href="https://github.com/DeveloperCielo/3ds-android/releases">releases</a>, após isso, recomendamos adicioná-lo a pasta libs em seu app module</p>
-
-<p>Desta forma, poderá importar adicionando a seguinte dependência ao seu <strong>build.gradle</strong> no app module:</p>
+<p>Para utilizar o SDK é necessário adicioná-lo como dependência ao <strong>build.gradle</strong> do module que irá utilizá-lo:</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">dependecies</span><span class="p">{</span>
   <span class="o">..</span><span class="p">.</span>
-  <span class="n">implementation</span> <span class="nf">files</span><span class="p">(</span><span class="err">'</span><span class="n">libs</span><span class="p">/</span><span class="n">braspag3ds-1</span><span class="p">.</span><span class="m">1.0</span><span class="p">-</span><span class="n">release</span><span class="p">.</span><span class="n">aar</span><span class="err">'</span><span class="p">)</span>
+  <span class="n">implementation</span> <span class="err">'</span><span class="n">br</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">braspag</span><span class="p">:</span><span class="n">braspag3ds</span><span class="p">:&lt;</span><span class="nc">LATEST_VERSION</span><span class="p">&gt;</span><span class="err">'</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>Em seguida é necessário passar para o lado cliente(APP) o <em>access_token</em> gerado no passo anterior:</p>
+<p>Em seguida é necessário informar o ambiente que deseja ao instanciar o <strong>Braspag3ds</strong>:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">val</span> <span class="py">braspag3dsSdk</span> <span class="p">=</span> <span class="nc">Braspag3ds</span><span class="p">(</span>
-                       <span class="n">accessToken</span> <span class="p">=</span> <span class="err">“</span><span class="p">&lt;</span><span class="nc">Access_Token</span><span class="p">&gt;</span><span class="err">“</span><span class="p">,</span>
-                       <span class="n">environment</span> <span class="p">=</span> <span class="nc">Environment</span><span class="p">.</span><span class="nc">SANDBOX</span>
-                   <span class="p">)</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">val</span> <span class="py">braspag3dsSdk</span> <span class="p">=</span> <span class="nc">Braspag3ds</span><span class="p">(</span><span class="nc">Environment</span><span class="p">.</span><span class="nc">SANDBOX</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>Em seguida é necessário utilizar o método <code class="highlighter-rouge">authenticate</code>, informando os dados do comprador e o <em>callback</em> que receberá a resposta:</p>
+<p>Em seguida é necessário utilizar o método <code class="highlighter-rouge">authenticate</code>, informando o accessToken gerado no passo anterior, os dados do comprador e o <em>callback</em> que receberá a resposta:</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">braspag3dsSdk</span><span class="p">.</span><span class="nf">authenticate</span><span class="p">(</span>
+           <span class="n">accessToken</span> <span class="p">=</span> <span class="err">“</span><span class="p">&lt;</span><span class="nc">Access_Token</span><span class="p">&gt;</span><span class="err">“</span><span class="p">,</span>
            <span class="n">orderData</span> <span class="p">=</span> <span class="nc">OrderData</span><span class="p">(</span>
                <span class="n">orderNumber</span> <span class="p">=</span> <span class="nc">ORDER_NUMBER</span><span class="p">,</span>
                <span class="n">currencyCode</span> <span class="p">=</span> <span class="nc">CURRENCY_BRL</span><span class="p">,</span>
@@ -269,7 +265,7 @@
                <span class="n">addressee</span> <span class="p">=</span> <span class="err">“</span><span class="nc">Rua</span> <span class="nc">Jose</span> <span class="nc">Joao</span><span class="p">,</span> <span class="m">666</span><span class="s">",
 </span>               <span class="n">city</span> <span class="p">=</span> <span class="err">“</span><span class="nc">Jundiaí</span><span class="err">“</span><span class="p">,</span>
                <span class="n">country</span> <span class="p">=</span> <span class="err">“</span><span class="nc">BR</span><span class="err">”</span><span class="p">,</span>
-               <span class="n">email</span> <span class="p">=</span> <span class="err">“</span><span class="n">josejoao</span><span class="err">@</span><span class="n">gmail</span><span class="p">.</span><span class="n">com</span><span class="err">”</span><span class="p">,</span>
+               <span class="n">email</span> <span class="p">=</span> <span class="err">“</span><span class="nd">josejoao@</span><span class="n">gmail</span><span class="p">.</span><span class="n">com</span><span class="err">”</span><span class="p">,</span>
                <span class="n">state</span> <span class="p">=</span> <span class="err">“</span><span class="nc">SP</span><span class="err">”</span><span class="p">,</span>
                <span class="n">shippingMethod</span> <span class="p">=</span> <span class="err">“</span><span class="n">lowcost</span><span class="err">”</span><span class="p">,</span>
                <span class="n">zipCode</span> <span class="p">=</span> <span class="err">“</span><span class="m">13306270</span><span class="err">”</span>
