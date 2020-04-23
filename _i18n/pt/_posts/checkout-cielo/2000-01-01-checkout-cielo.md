@@ -1472,7 +1472,7 @@ Na tela acima, há duas opções de Cancelamento pelos botões:
 
 O Checkout Cielo permite que o lojista modifique 3 dados da recorrencia:
 
-* **Ativação** - Uma recorrência pode ser ativada ou desativada. EX: Suspensão de uma assinatura por um periodo de 3 meses; Basta definir a Recorrência como inativa.
+* **Ativação** - Uma recorrência pode ser ativada ou cancelada.
 * **Intervalo** - É possivel modificar o intervalo de execução.
 * **Dia de ocorrência** - É possivel modificar o dia de execução da transação recorrente.
 
