@@ -32,9 +32,9 @@ The solution is composed by the access token request via the API and authenticat
 
 ```json
 {
-     "EstablishmentCode":"1006993069",
-     "MerchantName": "Loja Exemplo Ltda",
-     "MCC": "5912"
+  "EstablishmentCode":"1006993069",
+  "MerchantName": "Loja Exemplo Ltda",
+  "MCC": "5912"
 }
 ```
 
@@ -59,7 +59,6 @@ The solution is composed by the access token request via the API and authenticat
 | access\_token | Token required to continue with authentication | Alphanumeric |
 | token\_type | Fixed &quot;Bearer&quot; | Alphanumeric |
 | expires\_in | Token expiration time (minutes) | Numeric |
-
 
 Then it is necessary to inform the environment you want when instantiating **Braspag3ds**:
 
@@ -88,47 +87,45 @@ Then you must use the method `authenticate`, informing the *access_token* from p
 
 ```kotlin
 braspag3dsSdk.authenticate(
-           accessToken = “<*Access_Token*>“,
-           orderData = OrderData(
-               orderNumber = ORDER_NUMBER,
-               currencyCode = CURRENCY_BRL,
-               totalAmount = TOTAL_AMOUNT,
-               paymentMethod = PaymentMethod.credit,
-               transactionMode = TransactionMode.eCommerce,
-               installments = 3,
-               merchantUrl = “https://www.exemplo.com.br”
-           ),
-           cardData = CardData(
-               number = selectedCard,
-               expirationMonth = EXPIRATION_MONTH,
-               expirationYear = EXPIRATION_YEAR
-           ),
-           authOptions = OptionsData(
-               notifyOnly = notifyOnly,
-               suppressChallenge = suppressChallenge
-           ),
-           shipToData = ShipToData(
-               sameAsBillTo = true,
-               addressee = “Rua Jose Joao, 666",
-               city = “Jundiaí“,
-               country = “BR”,
-               email = “josejoao@gmail.com”,
-               state = “SP”,
-               shippingMethod = “lowcost”,
-               zipCode = “13306270”
-           ),
-           recurringData = RecurringData(
-               frequency = RecurringFrequency.MONTHLY
-           ),
-           userData = UserData(
-               newCustomer = false,
-               authenticationMethod = AuthenticationMethod.noAuthentication
-           ),
-           activity = activity,
-           callback = callback
-       )
-   }
-  }
+    accessToken = “<*Access_Token*>“,
+    orderData = OrderData(
+        orderNumber = ORDER_NUMBER,
+        currencyCode = CURRENCY_BRL,
+        totalAmount = TOTAL_AMOUNT,
+        paymentMethod = PaymentMethod.credit,
+        transactionMode = TransactionMode.eCommerce,
+        installments = 3,
+        merchantUrl = “https://www.exemplo.com.br”
+    ),
+    cardData = CardData(
+        number = selectedCard,
+        expirationMonth = EXPIRATION_MONTH,
+        expirationYear = EXPIRATION_YEAR
+    ),
+    authOptions = OptionsData(
+        notifyOnly = notifyOnly,
+        suppressChallenge = suppressChallenge
+    ),
+    shipToData = ShipToData(
+        sameAsBillTo = true,
+        addressee = “Rua Jose Joao, 666",
+        city = “Jundiaí“,
+        country = “BR”,
+        email = “josejoao@gmail.com”,
+        state = “SP”,
+        shippingMethod = “lowcost”,
+        zipCode = “13306270”
+    ),
+    recurringData = RecurringData(
+        frequency = RecurringFrequency.MONTHLY
+    ),
+    userData = UserData(
+        newCustomer = false,
+        authenticationMethod = AuthenticationMethod.noAuthentication
+    ),
+    activity = activity,
+    callback = callback
+)
 ```
 
 ## Method input parameters *authenticate*
