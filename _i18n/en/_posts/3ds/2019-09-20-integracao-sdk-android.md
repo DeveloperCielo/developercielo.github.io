@@ -48,9 +48,9 @@ The solution is composed by the access token request via the API and authenticat
 
 ```json
 {
-      "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG",
-      "token_type": "barear",
-      "expires_in": "2018-07-23T11:29:32"
+  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG",
+  "token_type": "barear",
+  "expires_in": "2018-07-23T11:29:32"
 }
 ```
 
@@ -61,7 +61,7 @@ The solution is composed by the access token request via the API and authenticat
 | expires\_in | Token expiration time (minutes) | Numeric |
 
 
-Em seguida é necessário informar o ambiente que deseja ao instanciar o **Braspag3ds**:
+Then it is necessary to inform the environment you want when instantiating **Braspag3ds**:
 
 ```kotlin
   val braspag3dsSdk = Braspag3ds(Environment.SANDBOX)
@@ -127,7 +127,7 @@ braspag3dsSdk.authenticate(
            activity = activity,
            callback = callback
        )
-   }                 
+   }
   }
 ```
 
@@ -150,7 +150,7 @@ braspag3dsSdk.authenticate(
 
 ## Callback status description
 
-| **Status** | **Description** | 
+| **Status** | **Description** |
 | --- | --- |
 | success | It's returned when the card is eligible and the authentication process has been successfully completed. In this case, the CAVV, XID, and ECI variables will be returned. This data must be sent in the request at the time of authorization. In this scenario, if the transaction is authorized, the liability shift is transferred to the issuer.|
 | unenrolled | It's returned when the card is not eligible, that is the holder and/or issuer doesn't participate in the authentication program. In this case, only the ECI variable will be returned. If there is a decision to proceed with the authorization anyway, the ECI must be sent at the time of the request. In this scenario, if the transaction is authorized, the liability shift remains with the establishment.|
@@ -237,7 +237,7 @@ For facilitate of use only what the merchant needs to send, The request is separ
 | phoneNumber | Shipping address contact phone | Numeric [to 15 characters], in the format: 5511999999999 | No |
 | email | Shipping contact email | Alphanumeric [to 255 characters], in the format [nome@exemplo.com](mailto:nome@exemplo.com) | No |
 | street1 | Shipping address and address number | Alphanumeric [to 60 characters] | No |
-| street2 | Shipping second address and neighborhood | Alphanumeric [to 60 characters] | No | 
+| street2 | Shipping second address and neighborhood | Alphanumeric [to 60 characters] | No |
 | city | Shipping address city | Alphanumeric [to 50 characters] | No |
 | state | Shipping address state initials | Text [2 characters] | No | 
 | zipCode | Shipping address zip | Alphanumeric [to 8 characters], in the format: 99999999 | No |
