@@ -997,7 +997,7 @@ curl
                 "Method": "GET",
                 "Rel": "self",
                 "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            }
+            },
             {
                 "Method": "PUT",
                 "Rel": "void",
@@ -1077,7 +1077,7 @@ curl
                 "Method": "GET",
                 "Rel": "self",
                 "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            }
+            },
             {
                 "Method": "PUT",
                 "Rel": "void",
