@@ -60,12 +60,6 @@ The solution is composed by the access token request via the API and authenticat
 
 # STEP 2 - Using SDK
 
-Then it is necessary to inform the environment you want when instantiating **Braspag3ds**:
-
-```kotlin
-  val braspag3dsSdk = Braspag3ds(Environment.SANDBOX)
-```
-
 Add the following dependency to dependency node in your **build.gradle** on module level:
 
 ```kotlin
