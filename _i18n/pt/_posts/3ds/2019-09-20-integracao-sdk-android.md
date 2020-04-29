@@ -30,9 +30,9 @@ A solução é composta pelo passo de solicitação de token de acesso via API e
 
 ```json
 {
-     "EstablishmentCode":"1006993069",
-     "MerchantName": "Loja Exemplo Ltda",
-     "MCC": "5912"
+  "EstablishmentCode": "1006993069",
+  "MerchantName": "Loja Exemplo Ltda",
+  "MCC": "5912"
 }
 ```
 
@@ -46,9 +46,9 @@ A solução é composta pelo passo de solicitação de token de acesso via API e
 
 ```json
 {
-      "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG",
-      "token_type": "barear",
-      "expires_in": "2018-07-23T11:29:32"
+  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG",
+  "token_type": "bearer",
+  "expires_in": "2018-07-23T11:29:32"
 }
 ```
 
@@ -79,47 +79,45 @@ Em seguida é necessário utilizar o método `authenticate`, informando o *acces
 
 ```kotlin
 braspag3dsSdk.authenticate(
-           accessToken = “ACCESS_TOKEN“,
-           orderData = OrderData(
-               orderNumber = ORDER_NUMBER,
-               currencyCode = CURRENCY_BRL,
-               totalAmount = TOTAL_AMOUNT,
-               paymentMethod = PaymentMethod.credit,
-               transactionMode = TransactionMode.eCommerce,
-               installments = 3,
-               merchantUrl = “https://www.exemplo.com.br”
-           ),
-           cardData = CardData(
-               number = selectedCard,
-               expirationMonth = EXPIRATION_MONTH,
-               expirationYear = EXPIRATION_YEAR
-           ),
-           authOptions = OptionsData(
-               notifyOnly = notifyOnly,
-               suppressChallenge = suppressChallenge
-           ),
-           shipToData = ShipToData(
-               sameAsBillTo = true,
-               addressee = “Rua Jose Joao, 666",
-               city = “Jundiaí“,
-               country = “BR”,
-               email = “josejoao@gmail.com”,
-               state = “SP”,
-               shippingMethod = “lowcost”,
-               zipCode = “13306270”
-           ),
-           recurringData = RecurringData(
-               frequency = RecurringFrequency.MONTHLY
-           ),
-           userData = UserData(
-               newCustomer = false,
-               authenticationMethod = AuthenticationMethod.noAuthentication
-           ),
-           activity = activity,
-           callback = callback
-       )
-   }                 
-  }
+    accessToken = "ACCESS_TOKEN",
+    orderData = OrderData(
+        orderNumber = ORDER_NUMBER,
+        currencyCode = CURRENCY_BRL,
+        totalAmount = TOTAL_AMOUNT,
+        paymentMethod = PaymentMethod.credit,
+        transactionMode = TransactionMode.eCommerce,
+        installments = 3,
+        merchantUrl = “https://www.exemplo.com.br”
+    ),
+    cardData = CardData(
+        number = selectedCard,
+        expirationMonth = EXPIRATION_MONTH,
+        expirationYear = EXPIRATION_YEAR
+    ),
+    authOptions = OptionsData(
+        notifyOnly = notifyOnly,
+        suppressChallenge = suppressChallenge
+    ),
+    shipToData = ShipToData(
+        sameAsBillTo = true,
+        addressee = "Rua Jose Joao, 666",
+        city = "Jundiaí",
+        country = "BR",
+        email = "josejoao@gmail.com",
+        state = "SP",
+        shippingMethod = "lowcost",
+        zipCode = "13306270"
+    ),
+    recurringData = RecurringData(
+        frequency = RecurringFrequency.MONTHLY
+    ),
+    userData = UserData(
+        newCustomer = false,
+        authenticationMethod = AuthenticationMethod.noAuthentication
+    ),
+    activity = activity,
+    callback = callback
+)
 ```
 
 ## Parâmetros de entrada do método *authenticate*
