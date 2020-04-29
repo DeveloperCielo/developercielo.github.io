@@ -8,8 +8,6 @@ categories: manual
 sort_order: 3
 tags:
   - 3DS 2.0 Authentication
-language_tabs:
-  json: JSON
 ---
 
 # What is 3DS 2.0?
