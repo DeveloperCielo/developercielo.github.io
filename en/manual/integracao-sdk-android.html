@@ -164,7 +164,7 @@
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/auth/token</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="s2">"1006993069"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1006993069"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"MerchantName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loja Exemplo Ltda"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"MCC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5912"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -205,7 +205,7 @@
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"barear"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-23T11:29:32"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -246,7 +246,7 @@
 
 <p>Add the following dependency to dependency node in your <strong>build.gradle</strong> on module level:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">dependecies</span><span class="p">{</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">dependecies</span> <span class="p">{</span>
   <span class="o">..</span><span class="p">.</span>
   <span class="n">implementation</span> <span class="err">'</span><span class="n">br</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">braspag</span><span class="p">:</span><span class="n">braspag3ds</span><span class="p">:</span><span class="nc">LATEST_VERSION</span><span class="err">'</span>
 <span class="p">}</span>
@@ -254,13 +254,13 @@
 
 <p>Then it’s necessary to instantiate <strong>Braspag3ds</strong> with the desired environment:</p>
 
-<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">val</span> <span class="py">braspag3dsSdk</span> <span class="p">=</span> <span class="nc">Braspag3ds</span><span class="p">(</span><span class="n">environment</span> <span class="p">=</span> <span class="nc">Environment</span><span class="p">.</span><span class="nc">SANDBOX</span><span class="p">)</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">val</span> <span class="py">braspag3dsSdk</span> <span class="p">=</span> <span class="nc">Braspag3ds</span><span class="p">(</span><span class="nc">Environment</span><span class="p">.</span><span class="nc">SANDBOX</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>Then you must use the method <code class="highlighter-rouge">authenticate</code>, informing the <em>access_token</em> from previous step, the buyer details and the <em>callback</em> that will receive the response:</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">braspag3dsSdk</span><span class="p">.</span><span class="nf">authenticate</span><span class="p">(</span>
-    <span class="n">accessToken</span> <span class="p">=</span> <span class="err">“</span><span class="nc">ACCESS_TOKEN</span><span class="err">“</span><span class="p">,</span>
+    <span class="n">accessToken</span> <span class="p">=</span> <span class="s">"ACCESS_TOKEN"</span><span class="p">,</span>
     <span class="n">orderData</span> <span class="p">=</span> <span class="nc">OrderData</span><span class="p">(</span>
         <span class="n">orderNumber</span> <span class="p">=</span> <span class="nc">ORDER_NUMBER</span><span class="p">,</span>
         <span class="n">currencyCode</span> <span class="p">=</span> <span class="nc">CURRENCY_BRL</span><span class="p">,</span>
@@ -281,13 +281,13 @@
     <span class="p">),</span>
     <span class="n">shipToData</span> <span class="p">=</span> <span class="nc">ShipToData</span><span class="p">(</span>
         <span class="n">sameAsBillTo</span> <span class="p">=</span> <span class="k">true</span><span class="p">,</span>
-        <span class="n">addressee</span> <span class="p">=</span> <span class="err">“</span><span class="nc">Rua</span> <span class="nc">Jose</span> <span class="nc">Joao</span><span class="p">,</span> <span class="m">666</span><span class="s">",
-</span>        <span class="n">city</span> <span class="p">=</span> <span class="err">“</span><span class="nc">Jundiaí</span><span class="err">“</span><span class="p">,</span>
-        <span class="n">country</span> <span class="p">=</span> <span class="err">“</span><span class="nc">BR</span><span class="err">”</span><span class="p">,</span>
-        <span class="n">email</span> <span class="p">=</span> <span class="err">“</span><span class="nd">josejoao@</span><span class="n">gmail</span><span class="p">.</span><span class="n">com</span><span class="err">”</span><span class="p">,</span>
-        <span class="n">state</span> <span class="p">=</span> <span class="err">“</span><span class="nc">SP</span><span class="err">”</span><span class="p">,</span>
-        <span class="n">shippingMethod</span> <span class="p">=</span> <span class="err">“</span><span class="n">lowcost</span><span class="err">”</span><span class="p">,</span>
-        <span class="n">zipCode</span> <span class="p">=</span> <span class="err">“</span><span class="m">13306270</span><span class="err">”</span>
+        <span class="n">addressee</span> <span class="p">=</span> <span class="s">"Rua Jose Joao, 666"</span><span class="p">,</span>
+        <span class="n">city</span> <span class="p">=</span> <span class="s">"Jundiaí"</span><span class="p">,</span>
+        <span class="n">country</span> <span class="p">=</span> <span class="s">"BR"</span><span class="p">,</span>
+        <span class="n">email</span> <span class="p">=</span> <span class="s">"josejoao@gmail.com"</span><span class="p">,</span>
+        <span class="n">state</span> <span class="p">=</span> <span class="s">"SP"</span><span class="p">,</span>
+        <span class="n">shippingMethod</span> <span class="p">=</span> <span class="s">"lowcost"</span><span class="p">,</span>
+        <span class="n">zipCode</span> <span class="p">=</span> <span class="s">"13306270"</span>
     <span class="p">),</span>
     <span class="n">recurringData</span> <span class="p">=</span> <span class="nc">RecurringData</span><span class="p">(</span>
         <span class="n">frequency</span> <span class="p">=</span> <span class="nc">RecurringFrequency</span><span class="p">.</span><span class="nc">MONTHLY</span>
