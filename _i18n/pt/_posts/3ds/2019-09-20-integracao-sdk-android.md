@@ -63,9 +63,9 @@ A solução é composta pelo passo de solicitação de token de acesso via API e
 Para utilizar o SDK é necessário adicioná-lo como dependência ao **build.gradle** do module que irá utilizá-lo:
 
 ```kotlin
-dependecies{
+dependecies {
   ...
-  implementation 'br.com.braspag:braspag3ds:<*LATEST_VERSION*>'
+  implementation 'br.com.braspag:braspag3ds:LATEST_VERSION'
 }
 ```
 
@@ -79,7 +79,7 @@ Em seguida é necessário utilizar o método `authenticate`, informando o *acces
 
 ```kotlin
 braspag3dsSdk.authenticate(
-           accessToken = “<*Access_Token*>“,
+           accessToken = “ACCESS_TOKEN“,
            orderData = OrderData(
                orderNumber = ORDER_NUMBER,
                currencyCode = CURRENCY_BRL,
