@@ -89,32 +89,32 @@ Then you must use the method `authenticate`, informing the *access_token* from p
 braspag3dsSdk.authenticate(
     accessToken = "ACCESS_TOKEN",
     orderData = OrderData(
-        orderNumber = ORDER_NUMBER,
-        currencyCode = CURRENCY_BRL,
-        totalAmount = TOTAL_AMOUNT,
+        orderNumber = "123456",
+        currencyCode = "986",
+        totalAmount = 1000L,
         paymentMethod = PaymentMethod.credit,
         transactionMode = TransactionMode.eCommerce,
         installments = 3,
-        merchantUrl = “https://www.exemplo.com.br”
+        merchantUrl = "https://www.exemplo.com.br"
     ),
     cardData = CardData(
-        number = selectedCard,
-        expirationMonth = EXPIRATION_MONTH,
-        expirationYear = EXPIRATION_YEAR
+        number = "4000000000001091",
+        expirationMonth = "01",
+        expirationYear = "2023"
     ),
     authOptions = OptionsData(
-        notifyOnly = notifyOnly,
-        suppressChallenge = suppressChallenge
+        notifyOnly = false,
+        suppressChallenge = false
     ),
     shipToData = ShipToData(
         sameAsBillTo = true,
-        addressee = "Rua Jose Joao, 666",
-        city = "Jundiaí",
+        addressee = "Rua do Meio, 666",
+        city = "Praia Grande",
         country = "BR",
-        email = "josejoao@gmail.com",
+        email = "contato@email.com",
         state = "SP",
         shippingMethod = "lowcost",
-        zipCode = "13306270"
+        zipCode = "11726000"
     ),
     recurringData = RecurringData(
         frequency = RecurringFrequency.MONTHLY
@@ -123,8 +123,8 @@ braspag3dsSdk.authenticate(
         newCustomer = false,
         authenticationMethod = AuthenticationMethod.noAuthentication
     ),
-    activity = activity,
-    callback = callback
+    activity = this@MainActivity,
+    callback = myCallback
 )
 ```
 
