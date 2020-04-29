@@ -262,32 +262,32 @@
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">braspag3dsSdk</span><span class="p">.</span><span class="nf">authenticate</span><span class="p">(</span>
     <span class="n">accessToken</span> <span class="p">=</span> <span class="s">"ACCESS_TOKEN"</span><span class="p">,</span>
     <span class="n">orderData</span> <span class="p">=</span> <span class="nc">OrderData</span><span class="p">(</span>
-        <span class="n">orderNumber</span> <span class="p">=</span> <span class="nc">ORDER_NUMBER</span><span class="p">,</span>
-        <span class="n">currencyCode</span> <span class="p">=</span> <span class="nc">CURRENCY_BRL</span><span class="p">,</span>
-        <span class="n">totalAmount</span> <span class="p">=</span> <span class="nc">TOTAL_AMOUNT</span><span class="p">,</span>
+        <span class="n">orderNumber</span> <span class="p">=</span> <span class="s">"123456"</span><span class="p">,</span>
+        <span class="n">currencyCode</span> <span class="p">=</span> <span class="s">"986"</span><span class="p">,</span>
+        <span class="n">totalAmount</span> <span class="p">=</span> <span class="m">1000L</span><span class="p">,</span>
         <span class="n">paymentMethod</span> <span class="p">=</span> <span class="nc">PaymentMethod</span><span class="p">.</span><span class="n">credit</span><span class="p">,</span>
         <span class="n">transactionMode</span> <span class="p">=</span> <span class="nc">TransactionMode</span><span class="p">.</span><span class="n">eCommerce</span><span class="p">,</span>
         <span class="n">installments</span> <span class="p">=</span> <span class="m">3</span><span class="p">,</span>
-        <span class="n">merchantUrl</span> <span class="p">=</span> <span class="err">“</span><span class="n">https</span><span class="p">:</span><span class="c1">//www.exemplo.com.br”</span>
+        <span class="n">merchantUrl</span> <span class="p">=</span> <span class="s">"https://www.exemplo.com.br"</span>
     <span class="p">),</span>
     <span class="n">cardData</span> <span class="p">=</span> <span class="nc">CardData</span><span class="p">(</span>
-        <span class="n">number</span> <span class="p">=</span> <span class="n">selectedCard</span><span class="p">,</span>
-        <span class="n">expirationMonth</span> <span class="p">=</span> <span class="nc">EXPIRATION_MONTH</span><span class="p">,</span>
-        <span class="n">expirationYear</span> <span class="p">=</span> <span class="nc">EXPIRATION_YEAR</span>
+        <span class="n">number</span> <span class="p">=</span> <span class="s">"4000000000001091"</span><span class="p">,</span>
+        <span class="n">expirationMonth</span> <span class="p">=</span> <span class="s">"01"</span><span class="p">,</span>
+        <span class="n">expirationYear</span> <span class="p">=</span> <span class="s">"2023"</span>
     <span class="p">),</span>
     <span class="n">authOptions</span> <span class="p">=</span> <span class="nc">OptionsData</span><span class="p">(</span>
-        <span class="n">notifyOnly</span> <span class="p">=</span> <span class="n">notifyOnly</span><span class="p">,</span>
-        <span class="n">suppressChallenge</span> <span class="p">=</span> <span class="n">suppressChallenge</span>
+        <span class="n">notifyOnly</span> <span class="p">=</span> <span class="k">false</span><span class="p">,</span>
+        <span class="n">suppressChallenge</span> <span class="p">=</span> <span class="k">false</span>
     <span class="p">),</span>
     <span class="n">shipToData</span> <span class="p">=</span> <span class="nc">ShipToData</span><span class="p">(</span>
         <span class="n">sameAsBillTo</span> <span class="p">=</span> <span class="k">true</span><span class="p">,</span>
-        <span class="n">addressee</span> <span class="p">=</span> <span class="s">"Rua Jose Joao, 666"</span><span class="p">,</span>
-        <span class="n">city</span> <span class="p">=</span> <span class="s">"Jundiaí"</span><span class="p">,</span>
+        <span class="n">addressee</span> <span class="p">=</span> <span class="s">"Rua do Meio, 666"</span><span class="p">,</span>
+        <span class="n">city</span> <span class="p">=</span> <span class="s">"Praia Grande"</span><span class="p">,</span>
         <span class="n">country</span> <span class="p">=</span> <span class="s">"BR"</span><span class="p">,</span>
-        <span class="n">email</span> <span class="p">=</span> <span class="s">"josejoao@gmail.com"</span><span class="p">,</span>
+        <span class="n">email</span> <span class="p">=</span> <span class="s">"contato@email.com"</span><span class="p">,</span>
         <span class="n">state</span> <span class="p">=</span> <span class="s">"SP"</span><span class="p">,</span>
         <span class="n">shippingMethod</span> <span class="p">=</span> <span class="s">"lowcost"</span><span class="p">,</span>
-        <span class="n">zipCode</span> <span class="p">=</span> <span class="s">"13306270"</span>
+        <span class="n">zipCode</span> <span class="p">=</span> <span class="s">"11726000"</span>
     <span class="p">),</span>
     <span class="n">recurringData</span> <span class="p">=</span> <span class="nc">RecurringData</span><span class="p">(</span>
         <span class="n">frequency</span> <span class="p">=</span> <span class="nc">RecurringFrequency</span><span class="p">.</span><span class="nc">MONTHLY</span>
@@ -296,8 +296,8 @@
         <span class="n">newCustomer</span> <span class="p">=</span> <span class="k">false</span><span class="p">,</span>
         <span class="n">authenticationMethod</span> <span class="p">=</span> <span class="nc">AuthenticationMethod</span><span class="p">.</span><span class="n">noAuthentication</span>
     <span class="p">),</span>
-    <span class="n">activity</span> <span class="p">=</span> <span class="n">activity</span><span class="p">,</span>
-    <span class="n">callback</span> <span class="p">=</span> <span class="n">callback</span>
+    <span class="n">activity</span> <span class="p">=</span> <span class="k">this</span><span class="nd">@MainActivity</span><span class="p">,</span>
+    <span class="n">callback</span> <span class="p">=</span> <span class="n">myCallback</span>
 <span class="p">)</span>
 </code></pre></div></div>
 
