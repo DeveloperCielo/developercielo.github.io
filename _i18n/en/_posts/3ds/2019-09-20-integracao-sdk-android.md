@@ -58,13 +58,13 @@ The solution is composed by the access token request via the API and authenticat
 | token\_type | Fixed &quot;Bearer&quot; | Alphanumeric |
 | expires\_in | Token expiration time (minutes) | Numeric |
 
+# STEP 2 - Using SDK
+
 Then it is necessary to inform the environment you want when instantiating **Braspag3ds**:
 
 ```kotlin
   val braspag3dsSdk = Braspag3ds(Environment.SANDBOX)
 ```
-
-# STEP 2 - Using SDK
 
 Add the following dependency to dependency node in your **build.gradle** on module level:
 
