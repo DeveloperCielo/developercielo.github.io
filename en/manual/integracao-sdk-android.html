@@ -248,7 +248,7 @@
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">dependecies</span><span class="p">{</span>
   <span class="o">..</span><span class="p">.</span>
-  <span class="n">implementation</span> <span class="err">'</span><span class="n">br</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">braspag</span><span class="p">:</span><span class="n">braspag3ds</span><span class="p">:&lt;*</span><span class="nc">LATEST_VERSION</span><span class="p">*&gt;</span><span class="err">'</span>
+  <span class="n">implementation</span> <span class="err">'</span><span class="n">br</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">braspag</span><span class="p">:</span><span class="n">braspag3ds</span><span class="p">:</span><span class="nc">LATEST_VERSION</span><span class="err">'</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
@@ -260,7 +260,7 @@
 <p>Then you must use the method <code class="highlighter-rouge">authenticate</code>, informing the <em>access_token</em> from previous step, the buyer details and the <em>callback</em> that will receive the response:</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">braspag3dsSdk</span><span class="p">.</span><span class="nf">authenticate</span><span class="p">(</span>
-    <span class="n">accessToken</span> <span class="p">=</span> <span class="err">“</span><span class="p">&lt;*</span><span class="nc">Access_Token</span><span class="p">*&gt;</span><span class="err">“</span><span class="p">,</span>
+    <span class="n">accessToken</span> <span class="p">=</span> <span class="err">“</span><span class="nc">ACCESS_TOKEN</span><span class="err">“</span><span class="p">,</span>
     <span class="n">orderData</span> <span class="p">=</span> <span class="nc">OrderData</span><span class="p">(</span>
         <span class="n">orderNumber</span> <span class="p">=</span> <span class="nc">ORDER_NUMBER</span><span class="p">,</span>
         <span class="n">currencyCode</span> <span class="p">=</span> <span class="nc">CURRENCY_BRL</span><span class="p">,</span>
