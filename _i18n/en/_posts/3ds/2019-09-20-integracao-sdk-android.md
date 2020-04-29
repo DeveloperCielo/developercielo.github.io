@@ -32,7 +32,7 @@ The solution is composed by the access token request via the API and authenticat
 
 ```json
 {
-  "EstablishmentCode":"1006993069",
+  "EstablishmentCode": "1006993069",
   "MerchantName": "Loja Exemplo Ltda",
   "MCC": "5912"
 }
@@ -49,7 +49,7 @@ The solution is composed by the access token request via the API and authenticat
 ```json
 {
   "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG",
-  "token_type": "barear",
+  "token_type": "bearer",
   "expires_in": "2018-07-23T11:29:32"
 }
 ```
@@ -71,7 +71,7 @@ Then it is necessary to inform the environment you want when instantiating **Bra
 Add the following dependency to dependency node in your **build.gradle** on module level:
 
 ```kotlin
-dependecies{
+dependecies {
   ...
   implementation 'br.com.braspag:braspag3ds:LATEST_VERSION'
 }
@@ -80,14 +80,14 @@ dependecies{
 Then it's necessary to instantiate **Braspag3ds** with the desired environment:
 
 ```kotlin
-  val braspag3dsSdk = Braspag3ds(environment = Environment.SANDBOX)
+  val braspag3dsSdk = Braspag3ds(Environment.SANDBOX)
 ```
 
 Then you must use the method `authenticate`, informing the *access_token* from previous step, the buyer details and the *callback* that will receive the response:
 
 ```kotlin
 braspag3dsSdk.authenticate(
-    accessToken = “ACCESS_TOKEN“,
+    accessToken = "ACCESS_TOKEN",
     orderData = OrderData(
         orderNumber = ORDER_NUMBER,
         currencyCode = CURRENCY_BRL,
@@ -108,13 +108,13 @@ braspag3dsSdk.authenticate(
     ),
     shipToData = ShipToData(
         sameAsBillTo = true,
-        addressee = “Rua Jose Joao, 666",
-        city = “Jundiaí“,
-        country = “BR”,
-        email = “josejoao@gmail.com”,
-        state = “SP”,
-        shippingMethod = “lowcost”,
-        zipCode = “13306270”
+        addressee = "Rua Jose Joao, 666",
+        city = "Jundiaí",
+        country = "BR",
+        email = "josejoao@gmail.com",
+        state = "SP",
+        shippingMethod = "lowcost",
+        zipCode = "13306270"
     ),
     recurringData = RecurringData(
         frequency = RecurringFrequency.MONTHLY
