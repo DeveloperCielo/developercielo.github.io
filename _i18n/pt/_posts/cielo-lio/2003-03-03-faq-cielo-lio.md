@@ -12,25 +12,13 @@ search: true
 
 # Dúvidas Plataforma LIO
 
-## Se o estabelecimento comercial trocar a LIO v1 pela LIO v2, o que ele precisa fazer para ter o aplicativo na nova máquina?
-
-Ao receber o novo equipamento, o cliente deve garantir que a LIO esteja conectada no 3G ou no Wi-Fi e então solicitar para atualizar aplicativos.
-
-Ajuda -> Sobre Cielo LIO -> Atualizar Aplicativos Cielo LIO
-
-Após esse procedimento todos os aplicativos que o cliente possui serão transferidos também para a nova máquina.
-
 ## É necessário fazer uma nova certificação do meu aplicativo para que ele funcione na LIO v2?
 
 Não, se o aplicativo já foi certificado não tem a necessidade de certificar novamente, exceto no caso de o desenvolvedor utilizar em seu aplicativo métodos e/ou funcionalidades exclusivas da LIO V2. Então ele deverá submeter o aplicativo para certificação.
 
-## Se o estabelecimento comercial possui máquinas LIO v1 como também LIO v2, o aplicativo do parceiro vai funcionar em ambas?
+## Se o estabelecimento comercial possui máquinas LIO v2 como também LIO +, o aplicativo do parceiro vai funcionar em ambas?
 
-Sim, o aplicativo do parceiro irá funcionar em ambos os modelos de LIO (V1 e V2).
-
-## Se meu aplicativo já funciona na LIO v1, ele vai funcionar também na LIO v2?
-
-Sim, se você já tem um aplicativo rodando na LIO V1, ele também funcionará na LIO V2.
+Sim, o aplicativo do parceiro irá funcionar em ambos os modelos de LIO (V2 e LIO+).
 
 ## Como faço para integrar com a Cielo LIO?
 
