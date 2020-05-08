@@ -130,6 +130,8 @@ Descrição das saídas
 | ReturnCode | Código de retorno da requisição de autenticação | Alfanumérico [até 5 posições] |
 | ReturnMessage | Mensagem de retorno da requisição de autenticação | Alfanumérico [varivável] |
 
+Nota: No caso de uma transação submetida como Data Only (bpmpi_auth_notifyonly como true), mesmo que bem-sucedida, não serão retornados os campos CAVV e XID (campos não necessários para uma transação no modelo Data Only).
+
 # Passo 3 - Mapeamento de classes
 
 A solução disponibiliza dezenas de classes que devem ser mapeadas em seu código HTML.
@@ -143,7 +145,7 @@ Uma vez que a classe é mapeada em determinado campo, o script é capaz de recup
 | **Dados de Parametrização** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
 | --- | --- | --- | --- |
 | bpmpi_auth | Booleano que indica se a transação é submetida o não para o processo de autenticação| Booleano:<br>true – submeter à autenticação<br>false – não submeter à autenticação | Sim |
-| bpmpi_auth_notifyonly | Booleano que indica se a transação com cartão será submetida no modo "somente notificação". Neste modo, o processo de autenticação não será acionado, porém, os dados serão submetidos à bandeira. **VÁLIDO SOMENTE PARA CARTÕES MASTERCARD** | Booleano: <br>true – modo somente notificação; <br>false – modo com autenticação | Não |
+| bpmpi_auth_notifyonly | Booleano que indica se a transação com cartão será submetida no modo "somente notificação" - **Data Only**. Neste modo, o processo de autenticação não será acionado, porém, os dados serão submetidos à bandeira. **VÁLIDO SOMENTE PARA CARTÕES MASTERCARD** | Booleano: <br>true – modo somente notificação; <br>false – modo com autenticação | Não |
 | bpmpi_auth_suppresschallenge | Booleano que indica se ignora ou não o desafio quando houver. Se uma transação autorizada após ignorar o desafio, o liability permanece com o estabelecimento.  | Booleano: <br>true – ignorar desafios se houver; <br>false – apresentar desafio se houver | Não |
 | bpmpi_accesstoken | Token gerado pela API de Token de Acesso (etapa 1) | Alfanumérico [varivável] | Sim |
 
@@ -259,6 +261,25 @@ Uma vez que a classe é mapeada em determinado campo, o script é capaz de recup
 O evento &quot;**bpmpi_Authenticate()**&quot; deve chamado no momento de finalização do checkout (finalização da compra). Vide exemplo abaixo:
 
 &lt;input type=&quot;button&quot;onclick=&quot;bpmpi_authenticate()&quot; /&gt;
+
+# ECI (E-commerce Indicator)
+
+E-Commerce Indicator (ECI) é retornado no processo de autenticação.
+Este código é um indicador do que exatamente ocorreu no processo de autenticação da transação.
+Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o agente responsável por aquela autenticação, conforme tabela abaixo:
+
+| **Bandeira** | **ECI** | **Significado da Transação** |
+| --- | --- | --- |
+| Visa | 05 | Autenticada pelo Banco Emissor – risco de chargeback passa a ser do banco Emissor |
+| Visa | 06 | Autenticada pela Bandeira – risco de chargeback passa a ser do banco Emissor |
+| Visa | Diferente de 05 e 06 | Não autenticada – risco de chargeback permanece com o estabelecimento |
+| Mastercard | 01 | Autenticada pela Bandeira – risco de chargeback passa a ser do banco Emissor |
+| Mastercard | 02 | Autenticada pelo Banco Emissor – risco de chargeback passa a ser do banco Emissor |
+| Mastercard | 04 | Não autenticada, transação caracterizada como Data Only – risco de chargeback permanece com o estabelecimento |
+| Mastercard | Diferente de  01, 02 e 04 | Não autenticada – risco de chargeback permanece com o estabelecimento |
+| Elo | 05 | Autenticada pelo Banco Emissor – risco de chargeback passa a ser do banco Emissor |
+| Elo | 06 | Autenticada pela Bandeira – risco de chargeback passa a ser do banco Emissor |
+| Elo | 07 | Não autenticada – risco de chargeback permanece com o estabelecimento |
 
 # Cartões de Teste
 
