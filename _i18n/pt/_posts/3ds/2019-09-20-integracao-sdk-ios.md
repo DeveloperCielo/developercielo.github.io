@@ -142,6 +142,8 @@ braspag3ds.authenticate(orderData: OrderData(...),
 | returnCode | Código de retorno da requisição de autenticação | Alfanumérico [até 5 posições] |
 | returnMessage | Mensagem de retorno da requisição de autenticação | Alfanumérico [varivável] |
 
+Nota: No caso de uma transação submetida como Data Only (bpmpi_auth_notifyonly como true), mesmo que bem-sucedida, não serão retornados os campos CAVV e XID (campos não necessários para uma transação no modelo Data Only).
+
 # Detalhamento dos objetos da requisição
 
 Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisição é separada em diversos objetos com contexto de dados bem definido conforme a tabela dos parâmetros de entrada do authenticate mostra. Abaixo vamos detalhar cada um dos objetos utilziados.
@@ -152,7 +154,7 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 
 | **Propriedade** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
 | --- | --- | --- | --- |
-| notifyonly | Booleano que indica se a transação com cartão será submetida no modo "somente notificação". Neste modo, o processo de autenticação não será acionado, porém, os dados serão submetidos à bandeira. **VÁLIDO SOMENTE PARA CARTÕES MASTERCARD** | Booleano: <br>true – modo somente notificação; <br>false – modo com autenticação | Não |
+| notifyonly | Booleano que indica se a transação com cartão será submetida no modo "somente notificação" - **Data Only**. Neste modo, o processo de autenticação não será acionado, porém, os dados serão submetidos à bandeira. **VÁLIDO SOMENTE PARA CARTÕES MASTERCARD** | Booleano: <br>true – modo somente notificação; <br>false – modo com autenticação | Não |
 | suppresschallenge | Booleano que indica se ignora ou não o desafio quando houver. Se uma transação autorizada após ignorar o desafio, o liability permanece com o estabelecimento.  | Booleano: <br>true – ignorar desafios se houver; <br>false – apresentar desafio se houver | Não |
 
 ## OrderData
@@ -296,6 +298,25 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 | **Proriedades** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
 | --- | --- | --- | --- |
 | ipAddress | Endereço IP da máquina do comprador | Alfanumérico [até 45] | Não |
+
+# ECI (E-commerce Indicator)
+
+E-Commerce Indicator (ECI) é retornado no processo de autenticação.
+Este código é um indicador do que exatamente ocorreu no processo de autenticação da transação.
+Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o agente responsável por aquela autenticação, conforme tabela abaixo:
+
+| **Bandeira** | **ECI** | **Significado da Transação** |
+| --- | --- | --- |
+| Visa | 05 | Autenticada pelo Banco Emissor – risco de chargeback passa a ser do banco Emissor |
+| Visa | 06 | Autenticada pela Bandeira – risco de chargeback passa a ser do banco Emissor |
+| Visa | Diferente de 05 e 06 | Não autenticada – risco de chargeback permanece com o estabelecimento |
+| Mastercard | 01 | Autenticada pela Bandeira – risco de chargeback passa a ser do banco Emissor |
+| Mastercard | 02 | Autenticada pelo Banco Emissor – risco de chargeback passa a ser do banco Emissor |
+| Mastercard | 04 | Não autenticada, transação caracterizada como Data Only – risco de chargeback permanece com o estabelecimento |
+| Mastercard | Diferente de  01, 02 e 04 | Não autenticada – risco de chargeback permanece com o estabelecimento |
+| Elo | 05 | Autenticada pelo Banco Emissor – risco de chargeback passa a ser do banco Emissor |
+| Elo | 06 | Autenticada pela Bandeira – risco de chargeback passa a ser do banco Emissor |
+| Elo | 07 | Não autenticada – risco de chargeback permanece com o estabelecimento |
 
 # Cartões de Teste
 
