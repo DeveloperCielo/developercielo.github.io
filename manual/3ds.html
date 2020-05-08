@@ -148,7 +148,7 @@
 
 <h2 id="quem-pode-usar-o-3ds-20">Quem pode usar o 3DS 2.0?</h2>
 
-<p>Todos os estabelecimentos eCommerce devem se adequar à solução a partir de Maio de 2019 frente ao Release de Bandeiras. O 3DS 2.0 é válido para todas as transações de eCommerce, sejam de débito, crédito ou pré-pago. Aos segmentos que possuem alto índice de chargeback/fraude, a solução tende a ser ainda mais vantajosa frente ao benefício de passar o liability shift ao banco emissor.</p>
+<p>O 3DS 2.0 é válido para todas as transações de eCommerce, sejam de débito, crédito ou pré-pago. Aos segmentos que possuem alto índice de chargeback/fraude, a solução tende a ser ainda mais vantajosa frente ao benefício de passar o liability shift ao banco emissor.</p>
 
 <h2 id="quais-são-requisitos-para-a-utilização-do-3ds-20">Quais são requisitos para a utilização do 3DS 2.0?</h2>
 
@@ -165,7 +165,7 @@
 
 <h2 id="bandeiras-e-emissores-disponíveis">Bandeiras e Emissores Disponíveis</h2>
 
-<p>Para envio de transações com pedido de autenticação 3DS 2.0 é fundamental que, além da Cielo, o Emissor e Bandeira estejam prontos com a solução. Dentre as bandeiras do mercado, atualmente estão disponíveis Visa e Mastercard no 3DS 2.0 Cielo. Ambas possuem um modelo de Stand-In, caso o Emissor ainda não esteja apto a responder um pedido de autenticação usando EMV 3DS 2.0. Nesse cenário, a bandeira avalia os dados enviados, como por exemplo o histórico comportamental do cliente e transacional, classificando os pedidos de autenticação como “Baixo Risco” e “Não Baixo Risco”. A partir dessas informações, os Emissores poderão contar com uma proteção mesmo não possuindo uma solução própria de 3DS 2.0, e terão uma maior confiança nas transações autenticadas. Em casos de Stand-In, a autenticação ocorre de forma silenciosa (sem desafio para o portador) e, uma vez que a transação foi autenticada, o liability em caso de fraude ficará com o Emissor. A decisão de autorizar ou não a transação é do Emissor.</p>
+<p>Para envio de transações com pedido de autenticação 3DS 2.0 é fundamental que, além da Cielo, o Emissor e Bandeira estejam prontos com a solução. Dentre as bandeiras do mercado, atualmente estão disponíveis Visa, Mastercard e Elo no 3DS 2.0 Cielo. As bandeiras Visa e Mastercard possuem um modelo de Stand-In, caso o Emissor ainda não esteja apto a responder um pedido de autenticação usando EMV 3DS 2.0. Nesse cenário, a bandeira avalia os dados enviados, como por exemplo o histórico comportamental do cliente e transacional, classificando os pedidos de autenticação como “Baixo Risco” e “Não Baixo Risco”. A partir dessas informações, os Emissores poderão contar com uma proteção mesmo não possuindo uma solução própria de 3DS 2.0, e terão uma maior confiança nas transações autenticadas. Em casos de Stand-In, a autenticação ocorre de forma silenciosa (sem desafio para o portador) e, uma vez que a transação foi autenticada, o liability em caso de fraude ficará com o Emissor. A decisão de autorizar ou não a transação é do Emissor. Em transações autenticadas pela bandeira, a decisão de autorizar ou não a transação ainda é do Emissor, onde este, ainda pode negar as transações na etapa de autorização da transação.</p>
 
 <p>Em breve as bandeiras Elo e Amex também estarão disponíveis.</p>
 
@@ -260,13 +260,13 @@
 
 <h2 id="o-que-é-o-data-only--somente-notificação">O que é o Data Only – Somente Notificação</h2>
 
-<p>O Data Only é um campo opcional ao lojista que poderá ser utilizado exclusivamente para cartões Mastercard. Para esses casos, o ECI será sempre 04.</p>
+<p>O Data Only é um campo opcional ao lojista que poderá ser <strong>utilizado exclusivamente para cartões Mastercard</strong>. Para esses casos, o ECI será sempre 04.</p>
 
 <p>Para utilizá-lo, deverá ser parametrizado o campo <strong>bpmpi_auth_notifyonly</strong> descrito no item <strong>Etapa de Autenticação – passo 3 – Mapeamento de classes</strong>. No modelo Data Only, os campos adicionais do 3DS 2.0 são mapeados da mesma forma, e enviados para a Mastercard e Bancos Emissores, porém, sem solicitar a autenticação.</p>
 
 <p>O benefício do uso do Data Only é enriquecer o banco de dados dos Bancos Emissores e da Mastercard, que passará a receber mais informações sobre os portadores de cada lojista. Esse campo busca aprimorar a autenticação silenciosa e o índice de aprovação dos Emissores, considerando o contexto atual onde o mercado está evoluindo para a integração com o novo protocolo de autenticação 2.0. Além disso, a partir de Maio de 2019, a bandeira Mastercard cobrará um <em>fee</em> adicional por transação não autenticada do adquirente, que poderá impactar no preço negociado entre a Cielo e o estabelecimento. O Data Only isenta o valor do <em>fee</em> cobrado.</p>
 
-<p>Vale destacar que nesse modelo, visto que não há autenticação do Emissor, o risco de chargeback por fraude permanece com o lojista.</p>
+<p>Vale destacar que <strong>nesse modelo, visto que não há autenticação do Emissor, o risco de chargeback por fraude permanece com o lojista</strong>.</p>
 
 <h2 id="fluxo-de-pagamento-3ds-20--com-desafio">Fluxo de Pagamento 3DS 2.0 | Com desafio</h2>
 
