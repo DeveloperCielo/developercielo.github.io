@@ -434,6 +434,8 @@
   </tbody>
 </table>
 
+<p>Nota: No caso de uma transação submetida como Data Only (bpmpi_auth_notifyonly como true), mesmo que bem-sucedida, não serão retornados os campos CAVV e XID (campos não necessários para uma transação no modelo Data Only).</p>
+
 <h1 id="detalhamento-dos-objetos-da-requisição">Detalhamento dos objetos da requisição</h1>
 
 <p>Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisição é separada em diversos objetos com contexto de dados bem definido conforme a tabela dos parâmetros de entrada do authenticate mostra. Abaixo vamos detalhar cada um dos objetos utilziados.</p>
@@ -454,7 +456,7 @@
   <tbody>
     <tr>
       <td>notifyonly</td>
-      <td>Booleano que indica se a transação com cartão será submetida no modo “somente notificação”. Neste modo, o processo de autenticação não será acionado, porém, os dados serão submetidos à bandeira. <strong>VÁLIDO SOMENTE PARA CARTÕES MASTERCARD</strong></td>
+      <td>Booleano que indica se a transação com cartão será submetida no modo “somente notificação” - <strong>Data Only</strong>. Neste modo, o processo de autenticação não será acionado, porém, os dados serão submetidos à bandeira. <strong>VÁLIDO SOMENTE PARA CARTÕES MASTERCARD</strong></td>
       <td>Booleano: <br />true – modo somente notificação; <br />false – modo com autenticação</td>
       <td>Não</td>
     </tr>
@@ -1120,6 +1122,74 @@
       <td>Endereço IP da máquina do comprador</td>
       <td>Alfanumérico [até 45]</td>
       <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="eci-e-commerce-indicator">ECI (E-commerce Indicator)</h1>
+
+<p>E-Commerce Indicator (ECI) é retornado no processo de autenticação.
+Este código é um indicador do que exatamente ocorreu no processo de autenticação da transação.
+Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o agente responsável por aquela autenticação, conforme tabela abaixo:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Bandeira</strong></th>
+      <th><strong>ECI</strong></th>
+      <th><strong>Significado da Transação</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Visa</td>
+      <td>05</td>
+      <td>Autenticada pelo Banco Emissor – risco de chargeback passa a ser do banco Emissor</td>
+    </tr>
+    <tr>
+      <td>Visa</td>
+      <td>06</td>
+      <td>Autenticada pela Bandeira – risco de chargeback passa a ser do banco Emissor</td>
+    </tr>
+    <tr>
+      <td>Visa</td>
+      <td>Diferente de 05 e 06</td>
+      <td>Não autenticada – risco de chargeback permanece com o estabelecimento</td>
+    </tr>
+    <tr>
+      <td>Mastercard</td>
+      <td>01</td>
+      <td>Autenticada pela Bandeira – risco de chargeback passa a ser do banco Emissor</td>
+    </tr>
+    <tr>
+      <td>Mastercard</td>
+      <td>02</td>
+      <td>Autenticada pelo Banco Emissor – risco de chargeback passa a ser do banco Emissor</td>
+    </tr>
+    <tr>
+      <td>Mastercard</td>
+      <td>04</td>
+      <td>Não autenticada, transação caracterizada como Data Only – risco de chargeback permanece com o estabelecimento</td>
+    </tr>
+    <tr>
+      <td>Mastercard</td>
+      <td>Diferente de  01, 02 e 04</td>
+      <td>Não autenticada – risco de chargeback permanece com o estabelecimento</td>
+    </tr>
+    <tr>
+      <td>Elo</td>
+      <td>05</td>
+      <td>Autenticada pelo Banco Emissor – risco de chargeback passa a ser do banco Emissor</td>
+    </tr>
+    <tr>
+      <td>Elo</td>
+      <td>06</td>
+      <td>Autenticada pela Bandeira – risco de chargeback passa a ser do banco Emissor</td>
+    </tr>
+    <tr>
+      <td>Elo</td>
+      <td>07</td>
+      <td>Não autenticada – risco de chargeback permanece com o estabelecimento</td>
     </tr>
   </tbody>
 </table>
