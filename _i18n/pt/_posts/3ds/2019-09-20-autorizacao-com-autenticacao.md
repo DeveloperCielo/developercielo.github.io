@@ -106,6 +106,92 @@ curl
 
 Veja mais: [https://developercielo.github.io/manual/cielo-ecommerce#resposta](https://developercielo.github.io/manual/cielo-ecommerce#resposta)
 
+# Autorização para transações Data Only (API 3.0)
+
+Após ter sido realizada a etapa de autenticação no modelo data only (enviando o campo bpmpi_auth_notifyonly como true) submete-se ao processo de autorização, enviando os dados de autenticação no modelo de &quot;autenticação externa&quot; (nó **ExternalAuthentication** ).
+
+Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisição de autorização da API Cielo 3.0:
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales</span></aside>
+
+### Request
+
+```json
+{  
+   "MerchantOrderId":"2017051002",
+   "Customer":
+   {  
+     (...)
+   },
+   "Payment":
+   {  
+     (...)
+     "Authenticate":false,
+     "ReturnUrl":"http://www.loja.com.br",
+     "CreditCard":{  
+         "CardNumber":"4000000000001000",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa",
+         "SaveCard":"false"
+     },
+     "ExternalAuthentication":{
+       "Eci":"4",
+       "ReferenceID":"a24a5d87-b1a1-4aef-a37b-2f30b91274e6",
+       "dataonly":true
+     }
+   }
+}
+```
+
+```shell
+curl
+--request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+--header "MerchantKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+--data-binary
+--verbose
+{  
+   "MerchantOrderId":"2017051002",
+   "Customer":
+   {  
+     (...)
+   },
+   "Payment":
+   {  
+     (...)
+     "Authenticate":false,
+     "ReturnUrl":"http://www.loja.com.br",
+     "CreditCard":{  
+         "CardNumber":"4000000000001000",
+         "Holder":"Nome do Portador",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "Brand":"Visa",
+         "SaveCard":"false"
+     },
+     "ExternalAuthentication":{
+       "Eci":"4",
+       "ReferenceID":"a24a5d87-b1a1-4aef-a37b-2f30b91274e6",
+       "dataonly":true
+     }
+   }
+}
+```
+
+| **Campo** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
+| --- | --- | --- | --- |
+| Payment.Authenticate | Booleano que define se o comprador será direcionado ao Banco emissor para autenticação do cartão| - | Sim, no caso de transação Data Only é obrigatório enviar como false |
+| Payment.ExternalAuthentication.Eci | E-Commerce Indicator retornado no processo de autenticação | Numérico [1 posição] | Sim |
+| Payment.ExternalAuthentication.ReferenceId | RequestID retornado no processo de autenticação | GUID [36 posições] | Sim |
+| Payment.ExternalAuthentication.Dataonly | Booleano que define se é uma transação dataonly | - | Sim, no caso de transação Data Only é obrigatório enviar como true |
+
+### Response
+
+Veja mais: [https://developercielo.github.io/manual/cielo-ecommerce#resposta](https://developercielo.github.io/manual/cielo-ecommerce#resposta)
+
 # Autorização com Autenticação (Webservice 1.5)
 
 Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisição de autorização da API Cielo 1.5.
@@ -153,15 +239,3 @@ Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisiçã
 ### Response
 
 Veja mais: [https://developercielo.github.io/manual/webservice-1-5#tipos-de-retorno](https://developercielo.github.io/manual/webservice-1-5#tipos-de-retorno)
-
-# Tabela de ECI
-
-| **Bandeira** | **ECI** | **Significado da Transação** |
-| --- | --- | --- |
-| Visa | 06 | Autenticada pela Bandeira – risco de chargeback passa a ser do banco Emissor |
-| Visa | 05 | Autenticada pelo Banco Emissor – risco de chargeback passa a ser do banco Emissor |
-| Visa | Diferente de 05 e 06 | Não autenticada – risco de chargeback permanece com o estabelecimento |
-| Mastercard | 01 | Autenticada pela Bandeira – risco de chargeback passa a ser do banco Emissor |
-| Mastercard | 02 | Autenticada pelo Banco Emissor – risco de chargeback passa a ser do banco Emissor |
-| Mastercard | 04 | Não autenticada, transação caracterizada como Data Only – risco de chargeback permanece com o estabelecimento |
-| Mastercard | Diferente de  01, 02 e 04 | Não autenticada – risco de chargeback permanece com o estabelecimento |
