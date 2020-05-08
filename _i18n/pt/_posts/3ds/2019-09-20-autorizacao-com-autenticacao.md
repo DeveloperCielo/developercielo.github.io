@@ -186,7 +186,7 @@ curl
 | Payment.Authenticate | Booleano que define se o comprador será direcionado ao Banco emissor para autenticação do cartão| - | Sim, no caso de transação Data Only é obrigatório enviar como false |
 | Payment.ExternalAuthentication.Eci | E-Commerce Indicator retornado no processo de autenticação | Numérico [1 posição] | Sim |
 | Payment.ExternalAuthentication.ReferenceId | RequestID retornado no processo de autenticação | GUID [36 posições] | Sim |
-| Payment.ExternalAuthentication.Dataonly | Booleano que define se é uma transação dataonly | - | Sim, no caso de transação Data Only é obrigatório enviar como true |
+| Payment.ExternalAuthentication.DataOnly | Booleano que define se é uma transação Data Only | - | Sim, no caso de transação Data Only é obrigatório enviar como true |
 
 ### Response
 
