@@ -126,7 +126,7 @@
 <p>Atualmente dentro da API de pagamentos existem três recursos utilizados para a integração, sendo eles:</p>
 
 <ul>
-  <li><strong>POST</strong> /access_token</li>
+  <li><strong>POST</strong> /v2/oauth/access-token</li>
   <li><strong>GET</strong> /publicKeys</li>
   <li><strong>POST</strong> /payments</li>
 </ul>
@@ -226,12 +226,12 @@ ZJZjFZWDJkOU40M0p4MVZwNGlWVXEzTzluTTR0TGF1UzhZYWo0V1JPcTJFSXU=' \
 
 <h3 id="public-keys">Public Keys</h3>
 
-<p>Public keys é o recurso responsável por retornar a chave pública da criptografia utilizada para criptografar o número do cartão, que futuramente será enviado no corpo da requisição do recurso <strong>payment</strong>. O algoritmo de criptografia utilizada é <strong>RSA de 2048 bits e cifra RSA/ECB/PKCS1Padding</strong>. Para a requisição ao recurso <strong>GET /publicKeys</strong> é necessário <strong>client_id</strong> e o <strong>access_token</strong> que foi gerado no passo anterior.</p>
+<p>Public keys é o recurso responsável por retornar a chave pública da criptografia utilizada para criptografar o número do cartão, que futuramente será enviado no corpo da requisição do recurso <strong>payment/card</strong>. O algoritmo de criptografia utilizada é <strong>RSA de 2048 bits e cifra RSA/ECB/PKCS1Padding</strong>. Para a requisição ao recurso <strong>GET /publicKeys</strong> é necessário o <strong>access_token</strong> que foi gerado no passo anterior.</p>
 
 <h4 id="contrato-1">Contrato</h4>
 
 <blockquote>
-  <p><strong>GET</strong> /cielo-payment/v1/publicKeys</p>
+  <p><strong>GET</strong> /padraoq/v1/publicKey</p>
 
   <p><strong>Headers</strong></p>
 
@@ -244,12 +244,8 @@ ZJZjFZWDJkOU40M0p4MVZwNGlWVXEzTzluTTR0TGF1UzhZYWo0V1JPcTJFSXU=' \
     </thead>
     <tbody>
       <tr>
-        <td><strong>client_id</strong></td>
-        <td> </td>
-      </tr>
-      <tr>
-        <td><strong>access_token</strong></td>
-        <td>{access_token}</td>
+        <td><strong>Authorization</strong></td>
+        <td>Bearer = access_token  (gerado pela API de Access Token)</td>
       </tr>
     </tbody>
   </table>
