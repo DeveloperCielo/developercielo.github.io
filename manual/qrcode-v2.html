@@ -159,14 +159,15 @@
 
 <h3 id="access-token">Access Token</h3>
 
-<p>O recurso <strong>access_token</strong> é responsável pela autenticação utilizando protocolo OAuth 2.0. Com o client_id e client_secret em mãos a requisição ao <strong>POST /access_token</strong> deve ser feita portando os parâmetros <strong>client_id</strong> e <strong>authorization</strong> no <strong>Header</strong> e o <strong>grant_type</strong> no corpo da requisição, segue exemplo abaixo.</p>
+<p>O recurso <strong>access_token</strong> é responsável pela autenticação utilizando protocolo OAuth 2.0. Com o client_id e client_secret em mãos a requisição ao <strong>POST /access_token</strong> deve ser feita portando o <strong>authorization</strong> no <strong>Header</strong> e o <strong>grant_type</strong> no corpo da requisição, segue exemplo abaixo.</p>
 
 <p><strong>Nota: O valor do authorization deve ser composto da palavra Basic com o Base64 gerado a partir da concatenação do client_id:client_secret</strong></p>
 
 <h4 id="contrato">Contrato</h4>
 
 <blockquote>
-  <p><strong>POST</strong> /cielo-payment/v1/access_token</p>
+  <p><strong>POST</strong> /v2/oauth/token (formato url encoded)
+<strong>POST</strong> /v2/oauth/access-token (formato json)</p>
 
   <p><strong>Headers</strong></p>
 
@@ -178,10 +179,6 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><strong>client_id</strong></td>
-        <td> </td>
-      </tr>
       <tr>
         <td><strong>Authorization</strong></td>
         <td> </td>
@@ -204,13 +201,14 @@
 <h4 id="exemplo-de-requisição">Exemplo de Requisição</h4>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-curl --request POST \
-  --url 'https:///cielo-payment/v1/access_token' \
-  --header 'Authorization: ' \
-  --header 'Content-Type: application/json' \
-  --header 'client_id: ' \
-  --data '{
-    "grant_type": "client_credentials"
+curl --location --request POST 'https://api2.cielo.com.br/v2/oauth/access-token' \
+--header 'Authorization: Basic
+dERxQUs000FoSDg5dFdpUWM1ejY0REJKc2lJTFpLbzh4TG0zV0p3eHkwRkQ0Y2dZVm46ZVZUVV
+ZJZjFZWDJkOU40M0p4MVZwNGlWVXEzTzluTTR0TGF1UzhZYWo0V1JPcTJFSXU=' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+ "grant_type": "client_credentials",
+"scopes": "qrcode_write,qrcode_read"
 }
 
 </code></pre></div></div>
@@ -219,9 +217,9 @@ curl --request POST \
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
-  "access_token": "g7xDuftvHv5y3Dx3gnQvsOeSG0YN99FcS4NVOtihNflWTUUPgf",
-  "token_type": "access_token",
-  "expires_in": 600
+  "access_token": "5eb50e6b-2bfc-3a44-b9ba-b9ba75256e7e",
+  "token_type": "bearer",
+  "expires_in": 86400
 }
 
 </code></pre></div></div>
