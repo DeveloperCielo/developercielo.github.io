@@ -128,7 +128,7 @@
 <ul>
   <li><strong>POST</strong> /v2/oauth/access-token</li>
   <li><strong>GET</strong> /padraoq/v1/publicKey</li>
-  <li><strong>POST</strong> /payments</li>
+  <li><strong>POST</strong> /padraoq/v1/payment/card</li>
 </ul>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxoIntegracao.png" alt="Fluxo de Integração QR Code" /></p>
@@ -296,7 +296,8 @@ public class EncriptCard {
 
 <h3 id="payments">Payments</h3>
 
-<p>O recurso <strong>POST /payments</strong> é responsável por efetuar o pagamento com base nos dados contidos no payload da requisição. No header da requisição é necessário os dados de <strong>client_id</strong>, <strong>access_token</strong>, <strong>Content-type</strong> e <strong>wallet</strong>. Wallet representa a carteira digital da aplicação sendo única por app. O corpo da requisição é composto por dados provenientes do aplicativo e do QR Code. <a href="https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments">Verificar seção 3 para os campos extraídos do QR Code</a>.</p>
+<p>O recurso <strong>POST /payment/card</strong> é responsável por efetuar o pagamento com base nos dados contidos no payload da requisição. No header da requisição é necessário informar o <strong>Authorization</strong>. 
+O corpo da requisição é composto por dados provenientes do aplicativo e do QR Code. <a href="https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments">Verificar seção 3 para os campos extraídos do QR Code</a>.</p>
 
 <h4 id="contrato-2">Contrato</h4>
 
@@ -310,23 +311,18 @@ public class EncriptCard {
       <tr>
         <th>Key</th>
         <th>Value</th>
+        <th> </th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><strong>client_id</strong></td>
         <td> </td>
-      </tr>
-      <tr>
-        <td><strong>access_token</strong></td>
-        <td> </td>
+        <td><strong>Authorization</strong></td>
+        <td>Bearer = access_token  (gerado pela API de Access Token)</td>
       </tr>
       <tr>
         <td><strong>Content-Type</strong></td>
         <td>application/json</td>
-      </tr>
-      <tr>
-        <td><strong>wallet</strong></td>
         <td> </td>
       </tr>
     </tbody>
