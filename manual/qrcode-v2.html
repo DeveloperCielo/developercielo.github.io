@@ -347,135 +347,44 @@ O corpo da requisição é composto por dados provenientes do aplicativo e do QR
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">technology.type</code></td>
-      <td>Enviar “QRCODE” por padrão</td>
-      <td>Texto</td>
-      <td>6</td>
+      <td><code class="highlighter-rouge">key_id</code></td>
+      <td>Identificador da chave de criptografia utilizada para criptografar o cartão. Retornado pelo recurso GET /publicKey</td>
+      <td>Texto alfanumérico</td>
+      <td> </td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">technology.identifier</code></td>
-      <td>Identificador da transação. Campo proveniente do QRCode, <a href="https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments">Veja layout</a></td>
+      <td>Dados do cartão criptografado pela chave publica, <a href="">Veja layout</a></td>
       <td>Texto alfanumérico</td>
-      <td>16</td>
+      <td> </td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">operationType.id</code></td>
-      <td>Enviar o numeral 1 por padrão</td>
-      <td>Número</td>
-      <td>1</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">amount</code></td>
-      <td>Valor da transação (em ambiente de homologação enviar apenas número inteiros). Campo proveniente do QRCode, <a href="https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments">Veja layout</a></td>
-      <td>Número</td>
-      <td>16</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">paymentInstallments</code></td>
-      <td>Número de parcelas. Campo proveniente do QRCode, <a href="https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments">Veja layout</a></td>
-      <td>Número</td>
-      <td>2</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">terminalLogicalNumber</code></td>
-      <td>Número lógico do POS. Campo proveniente do QRCode, <a href="https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments">Veja layout</a></td>
-      <td>Número</td>
-      <td>40</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">paymentDate</code></td>
-      <td>Data e hora da transação. Campo proveniente do QRCode, <a href="https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments">Veja layout</a></td>
+      <td><code class="highlighter-rouge">payee_document</code></td>
+      <td>CPF ou CNPJ do pagador (usuário logado na wallet)</td>
       <td>Texto</td>
-      <td>30</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">mainProduct.id</code></td>
-      <td>Produto matriz. Campo proveniente do QRCode, <a href="https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments">Veja layout</a></td>
-      <td>Número</td>
-      <td>4</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">subProduct.id</code></td>
-      <td>Produto secundário. Campo proveniente do QRCode, <a href="https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments">Veja layout</a></td>
-      <td>Número</td>
-      <td>4</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">merchantAccountInformation.id</code></td>
-      <td>Número do estabelecimento comercial. Campo proveniente do QRCode, <a href="https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments">Veja layout</a></td>
-      <td>Número</td>
-      <td>10</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">merchantAccountInformation.merchantName</code></td>
-      <td>Nome do estabelecimento comercial. Campo proveniente do QRCode, <a href="https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments">Veja layout</a></td>
-      <td>Número</td>
-      <td>1</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">card.encryptedCardNumber</code></td>
-      <td>Número do cartão criptografado, <a href="https://developercielo.github.io/manual/qrcode#public-keys">Veja mais</a></td>
-      <td> </td>
       <td> </td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">card.holder</code></td>
-      <td>Nome do portador impresso no cartão.</td>
-      <td>Número</td>
-      <td>25</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">card.expirationDate</code></td>
-      <td>Data de validade impresso no cartão.</td>
+      <td><code class="highlighter-rouge">payee_name</code></td>
+      <td>Nome do pagador (usuário logado na wallet)</td>
       <td>Texto</td>
-      <td>7</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">card.brand</code></td>
-      <td>Bandeira do cartão. Consultar a lista de produtos e bandeiras aceitas no QRCode.</td>
-      <td>Texto</td>
-      <td>10</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">carrier.name</code></td>
-      <td>Nome do usuário do aplicativo.</td>
-      <td>Texyo</td>
-      <td>255</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">carrier.document</code></td>
-      <td>Documento do usuário do aplicativo, exemplo CPF. Enviar apenas número</td>
-      <td>Texto</td>
-      <td>14</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">carrier.deviceId</code></td>
-      <td>Identificador único de cada dispositivo.</td>
-      <td> </td>
       <td> </td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">crc.qrCodeText</code></td>
-      <td>QRCode do POS</td>
+      <td><code class="highlighter-rouge">authorization_token</code></td>
+      <td>Token de autorização do usuário gerada pelo emissor (suporte ao pagamento no débito) * para uso futuro</td>
+      <td>Texto alfanumérico</td>
       <td> </td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">qrcode</code></td>
+      <td>String do QR Code capturado pela wallet</td>
+      <td>Texto alfanumérico</td>
       <td> </td>
       <td>Sim</td>
     </tr>
