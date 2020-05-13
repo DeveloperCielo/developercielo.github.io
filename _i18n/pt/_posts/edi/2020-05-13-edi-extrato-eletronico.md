@@ -18,7 +18,7 @@ Essa API possibilita o registro de grupos e mantém seu registro para receber ar
 |Ambiente|Endereço|
 |---|---|
 |Sandbox|https://api2.cielo.com.br/sandbox/edi-api/v2/|
-|Homologação|api2.cielo.com.br|https://apihom-cielo.sensedia.com/edi-api/v2/|
+|Homologação|https://apihom-cielo.sensedia.com/edi-api/v2/|
 
 # Operações
 
