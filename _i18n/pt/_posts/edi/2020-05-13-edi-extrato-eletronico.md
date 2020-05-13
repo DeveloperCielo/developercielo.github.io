@@ -1,6 +1,6 @@
 ---
 layout: tutorial
-title:  Manual de integração
+title:  EDI - Extrato Eletrônico
 description: Instruções EDI
 toc_footers: true
 categories: tutorial
