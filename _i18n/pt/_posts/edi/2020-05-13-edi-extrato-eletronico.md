@@ -241,3 +241,10 @@ Executa a lista de clientes abaixo do access_token informado. O filtro pode ser 
 }
 
 ```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|---|---|---|---|---|
+|`legalEntityNumber`|Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).|String|8||
+|`branches`|Lista de Filiais||||
+|`businessName`|Nome da empresa||||
+|`status`|Filial disponível ou Indisponível||||
