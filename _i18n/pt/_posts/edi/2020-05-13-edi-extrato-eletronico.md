@@ -13,6 +13,12 @@ tags:
 
 # Ambiente
 
+# Operações
+
+## **POST** Registers
+
+### Request
+
 > **POST** {{host}}/edi/registers
 >
 > **Headers**
@@ -33,6 +39,26 @@ tags:
   "type": [
     "SELL"
   ]
+}
+
+```
+
+## Responses
+
+```
+
+{
+  "legalEntityNumber": 1234567890,
+  "mainMerchantId": 2008983,
+  "registerID": 12345,
+  "merchants": [
+    823958412384701,
+    679809436576210
+  ],
+  "type": [
+    "SELL"
+  ],
+  "status": "PROCESSING"
 }
 
 ```
