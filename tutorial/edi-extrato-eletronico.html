@@ -156,7 +156,7 @@
 
 </code></pre></div></div>
 
-<h2 id="get-registers-status"><strong>GET</strong> Registers Status</h2>
+<h2 id="get-consultar-o-status-do-registro"><strong>GET</strong> Consultar o Status do Registro</h2>
 
 <p>Recupere o status de registro do EDI.</p>
 
@@ -244,6 +244,66 @@
     "SELL"
   ],
   "acknowledge": "COMPLETED"
+}
+
+</code></pre></div></div>
+
+<h2 id="put-atualizar-o-registro-do-merchantid"><strong>PUT</strong> Atualizar o Registro do merchantID</h2>
+
+<p>Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da entidade.</p>
+
+<h3 id="request-1">Request</h3>
+
+<blockquote>
+  <p><strong>PUT</strong> /edi</p>
+
+  <p><strong>Headers</strong></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>externalID</strong></td>
+        <td>Valor gerado pelo cliente para evitar solicitação duplicada. Esse valor pode ser usado para obter solicitação. Não use o mesmo valor para novas solicitações.</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+  "registerID": "string",
+  "mainMerchantId": "9999222333",
+  "merchants": [
+    "9999222111",
+    "9999222222"
+  ],
+  "type": [
+    "SELL"
+  ]
+}
+
+</code></pre></div></div>
+
+<h3 id="response-3">Response</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+  "legalEntityNumber": "01234567890",
+  "mainMerchantId": 9999111222,
+  "registerID": 12345,
+  "merchants": [
+    9999222333,
+    9999111222
+  ],
+  "type": [
+    "SELL"
+  ]
 }
 
 </code></pre></div></div>
