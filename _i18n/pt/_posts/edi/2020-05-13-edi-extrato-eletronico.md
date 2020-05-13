@@ -65,7 +65,7 @@ Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da 
 
 ```
 
-## **GET** Registers Status
+## **GET** Consultar o Status do Registro
 
 Recupere o status de registro do EDI.
 
@@ -123,6 +123,55 @@ Consulte o MerchantID com base no registerID ou no mainMerchantID.
     "SELL"
   ],
   "acknowledge": "COMPLETED"
+}
+
+```
+
+## **PUT** Atualizar o Registro do merchantID
+
+Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da entidade.
+
+### Request
+
+> **PUT** {{host}}/edi
+>
+> **Headers**
+>
+>| Key | Value |
+>|---|---|
+>| **externalID** |Valor gerado pelo cliente para evitar solicitação duplicada. Esse valor pode ser usado para obter solicitação. Não use o mesmo valor para novas solicitações.|
+
+```
+
+{
+  "registerID": "string",
+  "mainMerchantId": "9999222333",
+  "merchants": [
+    "9999222111",
+    "9999222222"
+  ],
+  "type": [
+    "SELL"
+  ]
+}
+
+```
+
+### Response
+
+```
+
+{
+  "legalEntityNumber": "01234567890",
+  "mainMerchantId": 9999111222,
+  "registerID": 12345,
+  "merchants": [
+    9999222333,
+    9999111222
+  ],
+  "type": [
+    "SELL"
+  ]
 }
 
 ```
