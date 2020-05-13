@@ -135,7 +135,7 @@
 
 </code></pre></div></div>
 
-<h2 id="responses">Responses</h2>
+<h2 id="response">Response</h2>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
@@ -148,6 +148,44 @@
   ],
   "type": [
     "SELL"
+  ],
+  "status": "PROCESSING"
+}
+
+</code></pre></div></div>
+
+<h2 id="get-registers-id"><strong>GET</strong> Registers ID</h2>
+
+<h3 id="response-1">Response</h3>
+
+<blockquote>
+  <p><strong>GET</strong> /edi/registers/{registerID}</p>
+
+  <p><strong>Headers</strong></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>registerID</strong></td>
+        <td> </td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+  "legalEntityNumber": "01234567890",
+  "registerID": 12345,
+  "merchants": [
+    9999222111,
+    9999222222
   ],
   "status": "PROCESSING"
 }
