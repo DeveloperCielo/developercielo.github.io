@@ -97,6 +97,8 @@
 
 <h2 id="post-registers"><strong>POST</strong> Registers</h2>
 
+<p>Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da entidade.</p>
+
 <h3 id="request">Request</h3>
 
 <blockquote>
@@ -114,7 +116,7 @@
     <tbody>
       <tr>
         <td><strong>externalID</strong></td>
-        <td> </td>
+        <td>Valor gerado pelo cliente para evitar solicitação duplicada. Esse valor pode ser usado para obter solicitação. Não use o mesmo valor para novas solicitações.</td>
       </tr>
     </tbody>
   </table>
@@ -135,7 +137,7 @@
 
 </code></pre></div></div>
 
-<h2 id="response">Response</h2>
+<h3 id="response">Response</h3>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
@@ -156,6 +158,8 @@
 
 <h2 id="get-registers-id"><strong>GET</strong> Registers ID</h2>
 
+<p>Recupere o status de registro do EDI.</p>
+
 <h3 id="response-1">Response</h3>
 
 <blockquote>
@@ -173,7 +177,7 @@
     <tbody>
       <tr>
         <td><strong>registerID</strong></td>
-        <td> </td>
+        <td>Valor usado para recuperar o status do registro.</td>
       </tr>
     </tbody>
   </table>
