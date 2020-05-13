@@ -210,6 +210,13 @@ Consulte o MerchantID com base no registerID ou no mainMerchantID.
 
 ```
 
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|---|---|---|---|---|
+|`legalEntityNumber`|Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).|String|8||
+|`mainMerchantId`|ID principal do cliente.|String|||
+|`registerID`|ID do registro. O mesmo fornecido por /edi/registers|String|||
+|`acknowledge`|Filial disponivel ou indisponivel||||
+
 ## **GET** Consulta a Lista de Filiais
 
 Executa a lista de clientes abaixo do access_token informado. O filtro pode ser usado para listar apenas aqueles disponíveis ou indisponíveis. Indisponível significa que a filial já participa de outro registro. Nos serviços de registro e edição, há validação para permitir que apenas aqueles disponíveis sejam informados.
