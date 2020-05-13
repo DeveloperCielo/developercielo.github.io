@@ -93,9 +93,9 @@ Recupere o status de registro do EDI.
 
 ```
 
-## **GET** Registers Status
+## **GET** Consulta o Registro do merchantID
 
-Recupere o status de registro do EDI.
+Consulte o MerchantID com base no registerID ou no mainMerchantID.
 
 ### Response
 
