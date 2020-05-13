@@ -129,7 +129,7 @@ Consulte o MerchantID com base no registerID ou no mainMerchantID.
 
 ## **PUT** Atualizar o Registro do merchantID
 
-Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da entidade.
+Atualize o merchantID com base no registerID ou mainMerchantID.
 
 ### Request
 
