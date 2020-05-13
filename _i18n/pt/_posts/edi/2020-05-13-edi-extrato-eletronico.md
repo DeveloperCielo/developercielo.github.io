@@ -17,6 +17,8 @@ tags:
 
 ## **POST** Registers
 
+Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da entidade.
+
 ### Request
 
 > **POST** {{host}}/edi/registers
@@ -25,7 +27,7 @@ tags:
 >
 >| Key | Value |
 >|---|---|
->| **externalID** | |
+>| **externalID** |Valor gerado pelo cliente para evitar solicitação duplicada. Esse valor pode ser usado para obter solicitação. Não use o mesmo valor para novas solicitações.|
 
 ```
 
@@ -43,7 +45,7 @@ tags:
 
 ```
 
-## Response
+### Response
 
 ```
 
@@ -65,6 +67,8 @@ tags:
 
 ## **GET** Registers ID
 
+Recupere o status de registro do EDI.
+
 ### Response
 
 > **GET** {{host}}/edi/registers/{registerID}
@@ -73,7 +77,7 @@ tags:
 >
 >| Key | Value |
 >|---|---|
->| **registerID** | |
+>| **registerID** |Valor usado para recuperar o status do registro.|
 
 ```
 
