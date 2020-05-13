@@ -43,7 +43,7 @@ tags:
 
 ```
 
-## Responses
+## Response
 
 ```
 
@@ -57,6 +57,32 @@ tags:
   ],
   "type": [
     "SELL"
+  ],
+  "status": "PROCESSING"
+}
+
+```
+
+## **GET** Registers ID
+
+### Response
+
+> **GET** {{host}}/edi/registers/{registerID}
+>
+> **Headers**
+>
+>| Key | Value |
+>|---|---|
+>| **registerID** | |
+
+```
+
+{
+  "legalEntityNumber": "01234567890",
+  "registerID": 12345,
+  "merchants": [
+    9999222111,
+    9999222222
   ],
   "status": "PROCESSING"
 }
