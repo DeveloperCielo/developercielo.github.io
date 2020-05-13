@@ -374,6 +374,48 @@
 
 </code></pre></div></div>
 
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">legalEntityNumber</code></td>
+      <td>Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).</td>
+      <td>String</td>
+      <td>8</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">mainMerchantId</code></td>
+      <td>ID principal do cliente.</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">registerID</code></td>
+      <td>ID do registro. O mesmo fornecido por /edi/registers</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">acknowledge</code></td>
+      <td>Filial disponivel ou indisponivel</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="get-consulta-a-lista-de-filiais"><strong>GET</strong> Consulta a Lista de Filiais</h2>
 
 <p>Executa a lista de clientes abaixo do access_token informado. O filtro pode ser usado para listar apenas aqueles disponíveis ou indisponíveis. Indisponível significa que a filial já participa de outro registro. Nos serviços de registro e edição, há validação para permitir que apenas aqueles disponíveis sejam informados.</p>
