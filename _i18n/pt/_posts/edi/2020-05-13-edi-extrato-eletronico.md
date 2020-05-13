@@ -175,3 +175,62 @@ Atualize o merchantID com base no registerID ou mainMerchantID.
 }
 
 ```
+
+## **DELETE** Excluir o Registro do merchantID
+
+Consulte o MerchantID com base no registerID ou no mainMerchantID.
+
+### Response
+
+> **DELETE** {{host}}/edi
+>
+> **Headers**
+>
+>| Key | Value |
+>|---|---|
+>| **externalID** |Valor gerado pelo cliente para evitar solicitação duplicada. Esse valor pode ser usado para obter solicitação. Não use o mesmo valor para novas solicitações.|
+>| **registerID** |O registerID é fornecido pela operação /edi/registers ao se registrar. Pode ser usado no lugar de mainMerchantID, se preferir (apenas um precisa ser informado).|
+>| **mainMerchantID** |A maneira mais comum de recuperar um registro EDI na empresa. Pode ser usado em vez de registerID, principalmente em casos de registro não realizados por /edi/registers.|
+
+```
+
+{
+  "legalEntityNumer": "12314314",
+  "mainMerchantId": 9999111222,
+  "registerID": 12345,
+  "acknowledge": "COMPLETED"
+}
+
+```
+
+## **GET** Consulta a Lista de Filiais
+
+Executa a lista de clientes abaixo do access_token informado. O filtro pode ser usado para listar apenas aqueles disponíveis ou indisponíveis. Indisponível significa que a filial já participa de outro registro. Nos serviços de registro e edição, há validação para permitir que apenas aqueles disponíveis sejam informados.
+
+### Response
+
+> **GET** {{host}}/edi/merchantgroup
+>
+> **Headers**
+>
+>| Key | Value |
+>|---|---|
+>| **externalID** |Valor gerado pelo cliente para evitar solicitação duplicada. Esse valor pode ser usado para obter solicitação. Não use o mesmo valor para novas solicitações.|
+>| **registerID** |O registerID é fornecido pela operação /edi/registers ao se registrar. Pode ser usado no lugar de mainMerchantID, se preferir (apenas um precisa ser informado).|
+>| **mainMerchantID** |A maneira mais comum de recuperar um registro EDI na empresa. Pode ser usado em vez de registerID, principalmente em casos de registro não realizados por /edi/registers.|
+
+```
+
+{
+  "legalEntityNumber": "string",
+  "branches": [
+    {
+      "merchantID": "9999111222",
+      "legalEntityNumber": "01234567890",
+      "businessName": "V",
+      "status": "UNAVAILABLE"
+    }
+  ]
+}
+
+```
