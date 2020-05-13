@@ -11,6 +11,8 @@ tags:
 
 # Introdução
 
+Essa API possibilita o registro de grupos e mantém seu registro para receber arquivos EDI (Electronic Data Interchange).
+
 # Ambiente
 
 |Ambiente|Endereço|
