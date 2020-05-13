@@ -95,7 +95,7 @@
 
 <h1 id="operações">Operações</h1>
 
-<h2 id="post-registers"><strong>POST</strong> Registers</h2>
+<h2 id="post-registrar-merchantid"><strong>POST</strong> Registrar merchantID</h2>
 
 <p>Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da entidade.</p>
 
@@ -156,7 +156,7 @@
 
 </code></pre></div></div>
 
-<h2 id="get-registers-id"><strong>GET</strong> Registers ID</h2>
+<h2 id="get-registers-status"><strong>GET</strong> Registers Status</h2>
 
 <p>Recupere o status de registro do EDI.</p>
 
@@ -192,6 +192,58 @@
     9999222222
   ],
   "status": "PROCESSING"
+}
+
+</code></pre></div></div>
+
+<h2 id="get-registers-status-1"><strong>GET</strong> Registers Status</h2>
+
+<p>Recupere o status de registro do EDI.</p>
+
+<h3 id="response-2">Response</h3>
+
+<blockquote>
+  <p><strong>GET</strong> /edi</p>
+
+  <p><strong>Headers</strong></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>externalID</strong></td>
+        <td>Valor gerado pelo cliente para evitar solicitação duplicada. Esse valor pode ser usado para obter solicitação. Não use o mesmo valor para novas solicitações.</td>
+      </tr>
+      <tr>
+        <td><strong>registerID</strong></td>
+        <td>O registerID é fornecido pela operação /edi/registers ao se registrar. Pode ser usado no lugar de mainMerchantID, se preferir (apenas um precisa ser informado).</td>
+      </tr>
+      <tr>
+        <td><strong>mainMerchantID</strong></td>
+        <td>A maneira mais comum de recuperar um registro EDI na empresa. Pode ser usado em vez de registerID, principalmente em casos de registro não realizados por /edi/registers.</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+  "legalEntityNumer": "12314314",
+  "mainMerchantId": 9999111222,
+  "registerID": 12345,
+  "merchants": [
+    9999111111,
+    9999111333
+  ],
+  "type": [
+    "SELL"
+  ],
+  "acknowledge": "COMPLETED"
 }
 
 </code></pre></div></div>
