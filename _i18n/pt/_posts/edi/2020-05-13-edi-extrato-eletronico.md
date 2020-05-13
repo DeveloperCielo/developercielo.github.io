@@ -4,7 +4,7 @@ title:  EDI - Extrato Eletrônico
 description: Instruções EDI
 toc_footers: true
 categories: tutorial
-sort_order: 6
+sort_order: 7
 tags:
-  - EDI Cielo - Extrato Eletrônico
+  - EDI Cielo
 ---
