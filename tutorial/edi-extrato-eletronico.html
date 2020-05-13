@@ -308,6 +308,101 @@
 
 </code></pre></div></div>
 
+<h2 id="delete-excluir-o-registro-do-merchantid"><strong>DELETE</strong> Excluir o Registro do merchantID</h2>
+
+<p>Consulte o MerchantID com base no registerID ou no mainMerchantID.</p>
+
+<h3 id="response-4">Response</h3>
+
+<blockquote>
+  <p><strong>DELETE</strong> /edi</p>
+
+  <p><strong>Headers</strong></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>externalID</strong></td>
+        <td>Valor gerado pelo cliente para evitar solicitação duplicada. Esse valor pode ser usado para obter solicitação. Não use o mesmo valor para novas solicitações.</td>
+      </tr>
+      <tr>
+        <td><strong>registerID</strong></td>
+        <td>O registerID é fornecido pela operação /edi/registers ao se registrar. Pode ser usado no lugar de mainMerchantID, se preferir (apenas um precisa ser informado).</td>
+      </tr>
+      <tr>
+        <td><strong>mainMerchantID</strong></td>
+        <td>A maneira mais comum de recuperar um registro EDI na empresa. Pode ser usado em vez de registerID, principalmente em casos de registro não realizados por /edi/registers.</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+  "legalEntityNumer": "12314314",
+  "mainMerchantId": 9999111222,
+  "registerID": 12345,
+  "acknowledge": "COMPLETED"
+}
+
+</code></pre></div></div>
+
+<h2 id="get-consulta-a-lista-de-filiais"><strong>GET</strong> Consulta a Lista de Filiais</h2>
+
+<p>Executa a lista de clientes abaixo do access_token informado. O filtro pode ser usado para listar apenas aqueles disponíveis ou indisponíveis. Indisponível significa que a filial já participa de outro registro. Nos serviços de registro e edição, há validação para permitir que apenas aqueles disponíveis sejam informados.</p>
+
+<h3 id="response-5">Response</h3>
+
+<blockquote>
+  <p><strong>GET</strong> /edi/merchantgroup</p>
+
+  <p><strong>Headers</strong></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>externalID</strong></td>
+        <td>Valor gerado pelo cliente para evitar solicitação duplicada. Esse valor pode ser usado para obter solicitação. Não use o mesmo valor para novas solicitações.</td>
+      </tr>
+      <tr>
+        <td><strong>registerID</strong></td>
+        <td>O registerID é fornecido pela operação /edi/registers ao se registrar. Pode ser usado no lugar de mainMerchantID, se preferir (apenas um precisa ser informado).</td>
+      </tr>
+      <tr>
+        <td><strong>mainMerchantID</strong></td>
+        <td>A maneira mais comum de recuperar um registro EDI na empresa. Pode ser usado em vez de registerID, principalmente em casos de registro não realizados por /edi/registers.</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+  "legalEntityNumber": "string",
+  "branches": [
+    {
+      "merchantID": "9999111222",
+      "legalEntityNumber": "01234567890",
+      "businessName": "V",
+      "status": "UNAVAILABLE"
+    }
+  ]
+}
+
+</code></pre></div></div>
+
 </div>
 
 
