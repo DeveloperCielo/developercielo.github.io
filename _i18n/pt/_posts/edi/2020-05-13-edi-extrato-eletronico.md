@@ -183,6 +183,14 @@ Atualize o merchantID com base no registerID ou mainMerchantID.
 
 ```
 
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|---|---|---|---|---|
+|`legalEntityNumber`|Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).|String|8||
+|`mainMerchantId`|ID principal do cliente.|String|||
+|`registerID`|ID do registro. O mesmo fornecido por /edi/registers|String|||
+|`merchants`|Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]||||
+|`type`|Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO||||
+
 ## **DELETE** Excluir o Registro do merchantID
 
 Consulte o MerchantID com base no registerID ou no mainMerchantID.
