@@ -93,6 +93,12 @@
 
 <h1 id="ambiente">Ambiente</h1>
 
+<h1 id="operações">Operações</h1>
+
+<h2 id="post-registers"><strong>POST</strong> Registers</h2>
+
+<h3 id="request">Request</h3>
+
 <blockquote>
   <p><strong>POST</strong> /edi/registers</p>
 
@@ -125,6 +131,25 @@
   "type": [
     "SELL"
   ]
+}
+
+</code></pre></div></div>
+
+<h2 id="responses">Responses</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+  "legalEntityNumber": 1234567890,
+  "mainMerchantId": 2008983,
+  "registerID": 12345,
+  "merchants": [
+    823958412384701,
+    679809436576210
+  ],
+  "type": [
+    "SELL"
+  ],
+  "status": "PROCESSING"
 }
 
 </code></pre></div></div>
