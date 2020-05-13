@@ -15,7 +15,7 @@ tags:
 
 # Operações
 
-## **POST** Registers
+## **POST** Registrar merchantID
 
 Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da entidade.
 
@@ -65,7 +65,7 @@ Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da 
 
 ```
 
-## **GET** Registers ID
+## **GET** Registers Status
 
 Recupere o status de registro do EDI.
 
@@ -89,6 +89,40 @@ Recupere o status de registro do EDI.
     9999222222
   ],
   "status": "PROCESSING"
+}
+
+```
+
+## **GET** Registers Status
+
+Recupere o status de registro do EDI.
+
+### Response
+
+> **GET** {{host}}/edi
+>
+> **Headers**
+>
+>| Key | Value |
+>|---|---|
+>| **externalID** |Valor gerado pelo cliente para evitar solicitação duplicada. Esse valor pode ser usado para obter solicitação. Não use o mesmo valor para novas solicitações.|
+>| **registerID** |O registerID é fornecido pela operação /edi/registers ao se registrar. Pode ser usado no lugar de mainMerchantID, se preferir (apenas um precisa ser informado).|
+>| **mainMerchantID** |A maneira mais comum de recuperar um registro EDI na empresa. Pode ser usado em vez de registerID, principalmente em casos de registro não realizados por /edi/registers.|
+
+```
+
+{
+  "legalEntityNumer": "12314314",
+  "mainMerchantId": 9999111222,
+  "registerID": 12345,
+  "merchants": [
+    9999111111,
+    9999111333
+  ],
+  "type": [
+    "SELL"
+  ],
+  "acknowledge": "COMPLETED"
 }
 
 ```
