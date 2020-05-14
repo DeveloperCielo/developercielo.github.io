@@ -546,6 +546,189 @@ qrcode:"00020101021226580014br.com.padraoq01160010000244470001020862000092030400
 
 </code></pre></div></div>
 
+<h2 id="response">Response</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+  "qrcode_data": {
+    "payload_format_indicator": "01",
+    "point_of_initiation_method": "12",
+    "merchant_account_information": {
+      "gui": "br.com.padraoq",
+      "id_merchant": "0020128328439200",
+      "id_terminal": "21832843",
+      "id_credenciador": "0001"
+    },
+    "merchant_category_code": "0000",
+    "transaction_currency": "986",
+    "transaction_amount": "6.00",
+    "country_code": "BR",
+    "merchant_name": "MASSA DADOS AFIL. ",
+    "merchant_city": "SAO PAULO SP",
+    "additional_data_field": {
+      "reference_label": "12050C0415690978"
+    },
+    "crc16": "B8B0",
+    "payment_information": {
+      "gui": "br.com.padraoq",
+      "timestamp": "120520162558",
+      "modalidade": "1000",
+      "parcelas": "01",
+      "tipo_de_transacao": "01",
+      "fonte_de_dados_do_pagamento": "03"
+    }
+  }
+}
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">payload_format_indicator</code></td>
+      <td>Data da transação (extraída do QRCode)</td>
+      <td>Texto</td>
+      <td>36</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">point_of_initiation_method</code></td>
+      <td>Número lógico do POS</td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">gui</code></td>
+      <td>Código de autorização da transação</td>
+      <td>Texto alfanumérico</td>
+      <td>6</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">id_merchant</code></td>
+      <td>Número Sequencial Único</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">id_terminal</code></td>
+      <td>Número Sequencial Único</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">id_credenciador</code></td>
+      <td>Número Sequencial Único</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">merchant_category_code</code></td>
+      <td>Número Sequencial Único</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">transaction_currency</code></td>
+      <td>Número Sequencial Único</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">transaction_amount</code></td>
+      <td>Número Sequencial Único</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">merchant_name</code></td>
+      <td>Número Sequencial Único</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">merchant_city</code></td>
+      <td>Número Sequencial Único</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">reference_label</code></td>
+      <td>Número Sequencial Único</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">crc16</code></td>
+      <td>Número Sequencial Único</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">gui</code></td>
+      <td>Número Sequencial Único</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">timestamp</code></td>
+      <td>Número Sequencial Único</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">modalidade</code></td>
+      <td>Número Sequencial Único</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">parcelas</code></td>
+      <td>Número Sequencial Único</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">tipo_de_transacao</code></td>
+      <td>Número Sequencial Único</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">fonte_de_dados_do_pagamento</code></td>
+      <td>Número Sequencial Único</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="dê-para-qr-code-x-recurso-payments">Dê-para QR Code x Recurso Payments</h1>
 
 <p>Para a composição do payload do <strong>/payments</strong> deve-se mesclar informações provenientes da leitura do QR Code e informações do cartão/portador via aplicativo. Na tabela abaixo é especificado o dê-para dos dados extraídos do QR Code para o payload da requisição.</p>
