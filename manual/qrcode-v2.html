@@ -396,59 +396,7 @@ O corpo da requisição é composto por dados provenientes do aplicativo e do QR
 
 <h4 id="exemplo-de-requisição-2">Exemplo de Requisição</h4>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl --request POST \
-  --url 'http:///cielo-payment/v1/payments' \
-  --header 'Content-Type: application/json' \
-  --header 'access_token: ' \
-  --header 'client_id: ' \
-  --data '{
-  "technology":{
-     "type":"QRCODE",
-     "identifier":"13050329197F190A"
-  },
-  "operationType":{
-     "id":1
-  },
-  "amount":1,
-  "paymentInstallments":01,
-  "terminalLogicalNumber":12345,
-  "paymentDate":"2018-05-15T11:33:49Z",
-  "mainProduct":{
-     "id":1000
-  },
-  "subProduct":{
-     "id":1
-  },
-  "merchantAccountInformation":{
-     "id":3456789012,
-     "merchantName":"Hotelaria Accor Pdb Ltda"
-  },
-  "card":{
-     "encryptedCardNumber": "KPzccLxuZFavn6FN5XhOsXdF19wrfiOleE0lCMixw+0E79YAVn659vDpKhy/D/EQnRbiKrrfRQYyQeek2cpyd5hiqtwK+4gdfUo8X4NpSYxDdk0n0ru1czg8hWn3Dl6LkQT8K/lOgfTttZQgQsmwPRBzhDImlzIav9E1Uqvzba3WWPrusCgGgE5oEMTGLjcmG1ZZByeXHiDmU5Pd9TomILj4nVFsoOWYtM5PZDn+1FfJ3lDLgND8asUMyLIqyQMZ3iDM6Rrgp/4Yj5082FNO++6ZMW2mPmlr4i2gmFi2sV4QayNuXX34mxrUw1kYpSetNVEL/okGzSaGxbN0O37Fug==",
-     "holder":"JOAO DA SILVA",
-     "expirationDate":"01/25",
-     "brand":"VISA"
-  },
-  "carrier":{
-     "name":"João da Silva",
-     "document":"31727721012",
-     "deviceId":"3ac43b36-0d92-48a7-901b-d3a527d9c3fe"
-  },
-  "crc":{
-     &gt;"qrCodeText":"00020101021226410005Cielo0116123456789012000102082009130352040000530398654120000000001005802BR5905CIELO6014SANTO ANDRE SP801010033”https://www.cielo.com.br/qrcode”011613050329197F190A0212150518113349030410000404000105020006020163049872"
-  }
-}
-</code></pre></div></div>
-
 <h4 id="exemplo-de-resposta-2">Exemplo de Resposta</h4>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-    "transactionDate": "2018-05-15T11:33:49.000-03:00",
-    "terminalLogicalNumber": "12345",
-    "authorizationCode": "8888",
-    "nsu": "999"
-}
-</code></pre></div></div>
 
 <table>
   <thead>
@@ -462,28 +410,63 @@ O corpo da requisição é composto por dados provenientes do aplicativo e do QR
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">transactionDate</code></td>
+      <td><code class="highlighter-rouge">reference_label</code></td>
       <td>Data da transação (extraída do QRCode)</td>
       <td>Texto</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">terminalLogicalNumber</code></td>
+      <td><code class="highlighter-rouge">merchant_id</code></td>
       <td>Número lógico do POS</td>
       <td>Texto</td>
       <td>40</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">authorizationCode</code></td>
+      <td><code class="highlighter-rouge">terminal_id</code></td>
       <td>Código de autorização da transação</td>
       <td>Texto alfanumérico</td>
       <td>6</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">nsu</code></td>
+      <td><code class="highlighter-rouge">authorization_code</code></td>
+      <td>Número Sequencial Único</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">authentication_code</code></td>
+      <td>Número Sequencial Único</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">host_nsu</code></td>
+      <td>Número Sequencial Único</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">terminal_nsu</code></td>
+      <td>Número Sequencial Único</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">timestamp</code></td>
+      <td>Número Sequencial Único</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">timestamp</code></td>
       <td>Número Sequencial Único</td>
       <td>Texto</td>
       <td>50</td>
@@ -491,6 +474,46 @@ O corpo da requisição é composto por dados provenientes do aplicativo e do QR
     </tr>
   </tbody>
 </table>
+
+<h1 id="parse---qr-code">Parse - QR Code</h1>
+
+<p>Uso opcional</p>
+
+<h2 id="request">REQUEST</h2>
+
+<blockquote>
+  <p><strong>GET</strong> /padraoq/v1/parsedQRCode</p>
+
+  <p><strong>Headers</strong></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Authorization</strong></td>
+        <td>Bearer = access_token  (gerado pela API de Access Token)</td>
+      </tr>
+      <tr>
+        <td><strong>Content-Type</strong></td>
+        <td>application/json</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+Parameter: 
+
+qrcode:"00020101021226580014br.com.padraoq011600100002444700010208620000920304000152040
+30053039865406123.995802BR5909POSTO_ABC6010Barueri_SP622005161000230716416292816000
+14br.com.padraoq0112230120171643020400040302020402010502038204010063041213"
+
+</code></pre></div></div>
 
 <h1 id="dê-para-qr-code-x-recurso-payments">Dê-para QR Code x Recurso Payments</h1>
 
