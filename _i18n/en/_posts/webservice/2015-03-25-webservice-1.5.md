@@ -1773,7 +1773,7 @@ The cancellation is used when the retailer decides for don't effective a purchas
   * In case of XML version 1.6.1 (this version is only for cancellation), the status of partial cancellation will be different: If cancellation OK, the code of status will be 9. In case of error on partial cancellation, the code of status will be 6. This rules are only for partial cancellation
   * Do not use the version 1.6.1 to send transactions. This versions is only to cancellation.
   * If the TAG `<valor>` doesn't be provided, the system will assume the total cancellation.
-  * To Amex issuer it's available just the total cancellation.
+  * Partial cancellation is available for all flags supported in e-Commerce.
   * To debit modality, doesn't exist the possibility of effective the partial cancellation.
   * **Transaction with boarding fees:**
     * Captured transactions with the same authorization value (in other words, total capture), have the same treatment for total and partial cancellation, because the boarding fee value is fully cancelled.
