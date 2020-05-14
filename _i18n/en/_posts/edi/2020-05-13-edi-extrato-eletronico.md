@@ -54,12 +54,12 @@ Register Merchant ID (just one, a list or all), based on a Entity Number.
 
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`mainMerchantId`|ID principal do cliente.|String|||
-|`merchants`|Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]||||
-|`status`|Endereço de e-mail do cliente||||
-|`type`|Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO||||
+|`mainMerchantId`|The most usual way to retrieve an EDI register in the company|String|||
+|`merchants`|List representing the merchant codes registered. Example: List [ "9999111111", "9999111333" ]||||
+|`status`|Branch is available ou unavailable||||
+|`type`|List representing TO BE state of conciliation file type. At least one of these files are required: SELL, PAYMENT, ANTECIPATION_CIELO||||
 
 ### Response
 
@@ -81,14 +81,14 @@ Register Merchant ID (just one, a list or all), based on a Entity Number.
 
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`legalEntityNumber`|Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).|String|8||
-|`mainMerchantId`|ID principal do cliente.|String|||
-|`registerID`|ID do registro. O mesmo fornecido por /edi/registers|String|||
-|`merchants`|Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]||||
-|`type`|Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO||||
-|`status`|Status de registro. Se concluído, os arquivos serão fornecidos no dia seguinte||||
+|`legalEntityNumber`|Brazilian entity number. CPF por person and CNPJ for legal person|String|||
+|`mainMerchantId`|The most usual way to retrieve an EDI register in the company|String|||
+|`registerID`|The same one provided by /edi/registers.|String|||
+|`merchants`|List representing the merchant codes registered. Example: List [ "9999111111", "9999111333" ]||||
+|`type`|List representing TO BE state of conciliation file type. At least one of these files are required: SELL, PAYMENT, ANTECIPATION_CIELO||||
+|`status`|Branch is available ou unavailable||||
 
 ## **GET** Retrieve status
 
@@ -118,12 +118,12 @@ Retrieve the EDI registration status.
 
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`legalEntityNumber`|Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).|String|8||
-|`registerID`|ID do registro. O mesmo fornecido por /edi/registers|String|||
-|`merchants`|Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]||||
-|`status`|Status de registro. Se concluído, os arquivos serão fornecidos no dia seguinte||||
+|`legalEntityNumber`|Brazilian entity number. CPF por person and CNPJ for legal person|String|||
+|`registerID`|The same one provided by /edi/registers.|String|||
+|`merchants`|List representing the merchant codes registered. Example: List [ "9999111111", "9999111333" ]||||
+|`status`|Branch is available ou unavailable||||
 
 ## **GET** Consult Register Merchant ID
 
@@ -159,13 +159,14 @@ Consult Merchant ID based on a Register ID or a Main Merchant ID.
 
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`legalEntityNumber`|Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).|String|8||
-|`mainMerchantId`|ID principal do cliente.|String|||
-|`registerID`|ID do registro. O mesmo fornecido por /edi/registers|String|||
-|`merchants`|Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]||||
-|`type`|Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO||||
+|`legalEntityNumber`|Brazilian entity number. CPF por person and CNPJ for legal person|String|||
+|`mainMerchantId`|The most usual way to retrieve an EDI register in the company|String|||
+|`registerID`|The same one provided by /edi/registers.|String|||
+|`merchants`|List representing the merchant codes registered. Example: List [ "9999111111", "9999111333" ]||||
+|`type`|List representing TO BE state of conciliation file type. At least one of these files are required: SELL, PAYMENT, ANTECIPATION_CIELO||||
+|`acknowledge`||||
 
 ## **PUT** Update Register Merchant ID
 
@@ -197,12 +198,12 @@ Update Merchant ID based on a Register ID or a Main Merchant ID.
 
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`registerID`|ID do registro. O mesmo fornecido por /edi/registers|String|||
-|`mainMerchantId`|ID principal do cliente.|String|||
-|`merchants`|Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]||||
-|`type`|Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO||||
+|`registerID`|The same one provided by /edi/registers.|String|||
+|`mainMerchantId`|The most usual way to retrieve an EDI register in the company|String|||
+|`merchants`|List representing the merchant codes registered. Example: List [ "9999111111", "9999111333" ]||||
+|`type`|List representing TO BE state of conciliation file type. At least one of these files are required: SELL, PAYMENT, ANTECIPATION_CIELO||||
 
 ### Response
 
@@ -223,13 +224,13 @@ Update Merchant ID based on a Register ID or a Main Merchant ID.
 
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`legalEntityNumber`|Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).|String|8||
-|`mainMerchantId`|ID principal do cliente.|String|||
-|`registerID`|ID do registro. O mesmo fornecido por /edi/registers|String|||
-|`merchants`|Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]||||
-|`type`|Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO||||
+|`legalEntityNumber`|Brazilian entity number. CPF por person and CNPJ for legal person|String|||
+|`mainMerchantId`|The most usual way to retrieve an EDI register in the company|String|||
+|`registerID`|The same one provided by /edi/registers.|String|||
+|`merchants`|List representing the merchant codes registered. Example: List [ "9999111111", "9999111333" ]||||
+|`type`|List representing TO BE state of conciliation file type. At least one of these files are required: SELL, PAYMENT, ANTECIPATION_CIELO||||
 
 ## **DELETE** Delete Register Merchant ID
 
