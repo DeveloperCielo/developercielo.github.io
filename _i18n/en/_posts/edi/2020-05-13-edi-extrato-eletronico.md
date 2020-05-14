@@ -258,12 +258,12 @@ Delete MerchantID based on a Register ID or a Main Merchant ID.
 
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`legalEntityNumber`|Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).|String|8||
-|`mainMerchantId`|ID principal do cliente.|String|||
-|`registerID`|ID do registro. O mesmo fornecido por /edi/registers|String|||
-|`acknowledge`|Filial disponivel ou indisponivel||||
+|`legalEntityNumber`|Brazilian entity number. CPF por person and CNPJ for legal person|String|||
+|`mainMerchantId`|The most usual way to retrieve an EDI register in the company|String|||
+|`registerID`|The same one provided by /edi/registers.|String|||
+|`acknowledge`||||
 
 ## **GET** List of branches
 
@@ -295,9 +295,9 @@ Performs the list of customers below the informed access_token. The filter can b
 
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`legalEntityNumber`|Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).|String|8||
-|`branches`|Lista de Filiais||||
-|`businessName`|Nome da empresa||||
-|`status`|Filial disponível ou Indisponível||||
+|`legalEntityNumber`|Brazilian entity number. CPF por person and CNPJ for legal person|String|||
+|`branches`|List of branches||||
+|`businessName`|Legal business name||||
+|`status`|Branch is available ou unavailable||||
