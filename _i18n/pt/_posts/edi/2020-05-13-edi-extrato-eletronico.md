@@ -2,6 +2,8 @@
 layout: tutorial
 title:  EDI - Extrato Eletrônico
 description: Instruções EDI
+search: true
+translated: true
 toc_footers: true
 categories: tutorial
 sort_order: 7
