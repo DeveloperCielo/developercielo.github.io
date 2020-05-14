@@ -52,6 +52,13 @@ Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da 
 
 ```
 
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|---|---|---|---|---|
+|`mainMerchantId`|ID principal do cliente.|String|||
+|`merchants`|Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]||||
+|`status`|Endereço de e-mail do cliente||||
+|`type`|Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO||||
+
 ### Response
 
 ```
@@ -71,6 +78,15 @@ Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da 
 }
 
 ```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|---|---|---|---|---|
+|`legalEntityNumber`|Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).|String|8||
+|`mainMerchantId`|ID principal do cliente.|String|||
+|`registerID`|ID do registro. O mesmo fornecido por /edi/registers|String|||
+|`merchants`|Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]||||
+|`type`|Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO||||
+|`status`|Status de registro. Se concluído, os arquivos serão fornecidos no dia seguinte||||
 
 ## **GET** Consultar o Status do Registro
 
@@ -99,6 +115,13 @@ Recupere o status de registro do EDI.
 }
 
 ```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|---|---|---|---|---|
+|`legalEntityNumber`|Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).|String|8||
+|`registerID`|ID do registro. O mesmo fornecido por /edi/registers|String|||
+|`merchants`|Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]||||
+|`status`|Status de registro. Se concluído, os arquivos serão fornecidos no dia seguinte||||
 
 ## **GET** Consulta o Registro do merchantID
 
