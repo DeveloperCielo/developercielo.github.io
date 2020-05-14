@@ -595,136 +595,136 @@ qrcode:"00020101021226580014br.com.padraoq01160010000244470001020862000092030400
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">payload_format_indicator</code></td>
-      <td>Data da transação (extraída do QRCode)</td>
-      <td>Texto</td>
-      <td>36</td>
-      <td>Sim</td>
+      <td>Versão dos dados do QR Code utilizada na geração do código. Fixo “01”.</td>
+      <td>Número</td>
+      <td>02</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">point_of_initiation_method</code></td>
-      <td>Número lógico do POS</td>
-      <td>Texto</td>
-      <td>40</td>
-      <td>Sim</td>
+      <td>Identificador do método QR Code gerado: Fixo “12” – QR Code Dinâmico.</td>
+      <td>Número</td>
+      <td>02</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">gui</code></td>
-      <td>Código de autorização da transação</td>
+      <td>Identificador global: usar fixo “br.com.padraoq”.</td>
       <td>Texto alfanumérico</td>
-      <td>6</td>
-      <td>Sim</td>
+      <td>14</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">id_merchant</code></td>
-      <td>Número Sequencial Único</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
+      <td>Número do Estabelecimento Comercial.</td>
+      <td>Número</td>
+      <td>16</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">id_terminal</code></td>
-      <td>Número Sequencial Único</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
+      <td>Número Lógico do Terminal</td>
+      <td>Número</td>
+      <td>08</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">id_credenciador</code></td>
-      <td>Número Sequencial Único</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
+      <td>Identificação do credenciador. Fixo “0001”.</td>
+      <td>Número</td>
+      <td>04</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">merchant_category_code</code></td>
-      <td>Número Sequencial Único</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
+      <td>Ramo de atividade do Estabelecimento (MCC).</td>
+      <td>Número</td>
+      <td>04</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">transaction_currency</code></td>
-      <td>Número Sequencial Único</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
+      <td>Código de origem da Moeda.</td>
+      <td>Número</td>
+      <td>03</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">transaction_amount</code></td>
-      <td>Número Sequencial Único</td>
+      <td>Valor da transação. Ex: “123.99”</td>
       <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
+      <td>13</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">merchant_name</code></td>
-      <td>Número Sequencial Único</td>
+      <td>Nome Fantasia do Estabelecimento.</td>
       <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
+      <td>25</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">merchant_city</code></td>
-      <td>Número Sequencial Único</td>
+      <td>Cidade do Estabelecimento.</td>
       <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
+      <td>15</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">reference_label</code></td>
-      <td>Número Sequencial Único</td>
+      <td>Identificação do QR Code. Código único da transação, extraído BIT31.</td>
       <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
+      <td>25</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">crc16</code></td>
-      <td>Número Sequencial Único</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">gui</code></td>
-      <td>Número Sequencial Único</td>
+      <td>Identificador global: usar fixo “br.com.padraoq”.</td>
       <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
+      <td>14</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">timestamp</code></td>
-      <td>Número Sequencial Único</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
+      <td>Data e hora da transação (DDMMAAHHmmss).</td>
+      <td>Número</td>
+      <td>12</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">modalidade</code></td>
-      <td>Número Sequencial Único</td>
-      <td>Texto</td>
-      <td>50</td>
+      <td>Código do produto Matriz.</td>
+      <td>Número</td>
+      <td>04</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">parcelas</code></td>
-      <td>Número Sequencial Único</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
+      <td>Número de parcelas.</td>
+      <td>Número</td>
+      <td>02</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">tipo_de_transacao</code></td>
-      <td>Número Sequencial Único</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
+      <td>Tipo da transação: Exemplo - “01” – Venda; “02” – Cancelamento.</td>
+      <td>Número</td>
+      <td>02</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">fonte_de_dados_do_pagamento</code></td>
-      <td>Número Sequencial Único</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
+      <td>Fixo: “03” – QR Code</td>
+      <td>Número</td>
+      <td>02</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
