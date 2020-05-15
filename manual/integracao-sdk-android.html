@@ -225,6 +225,8 @@
 
 <h1 id="passo-2---utilizando-o-sdk">Passo 2 - Utilizando o SDK</h1>
 
+<h2 id="importar">Importar</h2>
+
 <p>Para utilizar o SDK é necessário adicioná-lo como dependência ao <strong>build.gradle</strong> do module que irá utilizá-lo:</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">dependecies</span> <span class="p">{</span>
@@ -233,10 +235,90 @@
 <span class="p">}</span>
 </code></pre></div></div>
 
+<h2 id="instanciar">Instanciar</h2>
+
 <p>Em seguida é necessário informar o ambiente que deseja ao instanciar o <strong>Braspag3ds</strong>:</p>
 
 <div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">val</span> <span class="py">braspag3dsSdk</span> <span class="p">=</span> <span class="nc">Braspag3ds</span><span class="p">(</span><span class="nc">Environment</span><span class="p">.</span><span class="nc">SANDBOX</span><span class="p">)</span>
 </code></pre></div></div>
+
+<h2 id="customizar">Customizar</h2>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">braspag3ds</span><span class="p">.</span><span class="nf">customize</span><span class="p">(</span>
+  <span class="n">toolbarCustomization</span> <span class="p">=</span> <span class="nc">CustomToolbar</span><span class="p">(</span>
+      <span class="n">backgroundColor</span> <span class="p">=</span> <span class="s">"#00c1eb"</span><span class="p">,</span>
+      <span class="n">buttonText</span> <span class="p">=</span> <span class="s">"Cancel"</span><span class="p">,</span>
+      <span class="n">headerText</span> <span class="p">=</span> <span class="s">"BRASPAG 3DS"</span><span class="p">,</span>
+      <span class="n">textColor</span> <span class="p">=</span> <span class="s">"#ffffff"</span><span class="p">,</span>
+      <span class="n">textFontName</span> <span class="p">=</span> <span class="s">"font/amaticsc.ttf"</span><span class="p">,</span>
+      <span class="n">textFontSize</span> <span class="p">=</span> <span class="mi">16</span>
+  <span class="p">),</span>
+  <span class="n">textBoxCustomization</span> <span class="p">=</span> <span class="nc">CustomTextBox</span><span class="p">(</span>
+      <span class="n">borderColor</span> <span class="p">=</span> <span class="s">"#1f567d"</span><span class="p">,</span>
+      <span class="n">borderWidth</span> <span class="p">=</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="n">cornerRadius</span> <span class="p">=</span> <span class="mi">25</span><span class="p">,</span>
+      <span class="n">textColor</span> <span class="p">=</span> <span class="s">"#000000"</span><span class="p">,</span>
+      <span class="n">textFontName</span> <span class="p">=</span> <span class="s">"font/amaticsc.ttf"</span><span class="p">,</span>
+      <span class="n">textFontSize</span> <span class="p">=</span> <span class="mi">24</span>
+  <span class="p">),</span>
+  <span class="n">labelCustomization</span> <span class="p">=</span> <span class="nc">CustomLabel</span><span class="p">(</span>
+      <span class="n">headingTextColor</span> <span class="p">=</span> <span class="s">"#404040"</span><span class="p">,</span>
+      <span class="n">headingTextFontName</span> <span class="p">=</span> <span class="s">"font/amaticsc.ttf"</span><span class="p">,</span>
+      <span class="n">headingTextFontSize</span> <span class="p">=</span> <span class="mi">24</span><span class="p">,</span>
+      <span class="n">textColor</span> <span class="p">=</span> <span class="s">"#404040"</span><span class="p">,</span>
+      <span class="n">textFontName</span> <span class="p">=</span> <span class="s">"font/amaticsc.ttf"</span><span class="p">,</span>
+      <span class="n">textFontSize</span> <span class="p">=</span> <span class="mi">16</span>
+  <span class="p">),</span>
+  <span class="n">buttons</span> <span class="p">=</span> <span class="nf">listOf</span><span class="p">(</span>
+      <span class="nc">CustomButton</span><span class="p">(</span>
+          <span class="n">textColor</span> <span class="p">=</span> <span class="s">"#ffffff"</span><span class="p">,</span>
+          <span class="n">backgroundColor</span> <span class="p">=</span> <span class="s">"#5ea9d1"</span><span class="p">,</span>
+          <span class="n">textFontName</span> <span class="p">=</span> <span class="s">"font/amaticsc.ttf"</span><span class="p">,</span>
+          <span class="n">cornerRadius</span> <span class="p">=</span> <span class="mi">25</span><span class="p">,</span>
+          <span class="n">textFontSize</span> <span class="p">=</span> <span class="mi">16</span><span class="p">,</span>
+          <span class="n">type</span> <span class="p">=</span> <span class="nc">ButtonType</span><span class="p">.</span><span class="nc">VERIFY</span>
+      <span class="p">),</span>
+      <span class="nc">CustomButton</span><span class="p">(</span>
+          <span class="n">textColor</span> <span class="p">=</span> <span class="s">"#ffffff"</span><span class="p">,</span>
+          <span class="n">backgroundColor</span> <span class="p">=</span> <span class="s">"#5ea9d1"</span><span class="p">,</span>
+          <span class="n">textFontName</span> <span class="p">=</span> <span class="s">"font/amaticsc.ttf"</span><span class="p">,</span>
+          <span class="n">cornerRadius</span> <span class="p">=</span> <span class="mi">25</span><span class="p">,</span>
+          <span class="n">textFontSize</span> <span class="p">=</span> <span class="mi">16</span><span class="p">,</span>
+          <span class="n">type</span> <span class="p">=</span> <span class="nc">ButtonType</span><span class="p">.</span><span class="nc">CONTINUE</span>
+      <span class="p">),</span>
+      <span class="nc">CustomButton</span><span class="p">(</span>
+          <span class="n">textColor</span> <span class="p">=</span> <span class="s">"#ffffff"</span><span class="p">,</span>
+          <span class="n">backgroundColor</span> <span class="p">=</span> <span class="s">"#5ea9d1"</span><span class="p">,</span>
+          <span class="n">textFontName</span> <span class="p">=</span> <span class="s">"font/amaticsc.ttf"</span><span class="p">,</span>
+          <span class="n">cornerRadius</span> <span class="p">=</span> <span class="mi">25</span><span class="p">,</span>
+          <span class="n">textFontSize</span> <span class="p">=</span> <span class="mi">16</span><span class="p">,</span>
+          <span class="n">type</span> <span class="p">=</span> <span class="nc">ButtonType</span><span class="p">.</span><span class="nc">NEXT</span>
+      <span class="p">),</span>
+      <span class="nc">CustomButton</span><span class="p">(</span>
+          <span class="n">textColor</span> <span class="p">=</span> <span class="s">"#5ea9d1"</span><span class="p">,</span>
+          <span class="n">backgroundColor</span> <span class="p">=</span> <span class="s">"#ffffff"</span><span class="p">,</span>
+          <span class="n">textFontName</span> <span class="p">=</span> <span class="s">"font/amaticsc.ttf"</span><span class="p">,</span>
+          <span class="n">cornerRadius</span> <span class="p">=</span> <span class="mi">25</span><span class="p">,</span>
+          <span class="n">textFontSize</span> <span class="p">=</span> <span class="mi">16</span><span class="p">,</span>
+          <span class="n">type</span> <span class="p">=</span> <span class="nc">ButtonType</span><span class="p">.</span><span class="nc">RESEND</span>
+      <span class="p">),</span>
+      <span class="nc">CustomButton</span><span class="p">(</span>
+          <span class="n">textColor</span> <span class="p">=</span> <span class="s">"#ff0000"</span><span class="p">,</span>
+          <span class="n">backgroundColor</span> <span class="p">=</span> <span class="s">"#00c1eb"</span><span class="p">,</span>
+          <span class="n">textFontName</span> <span class="p">=</span> <span class="s">"font/amaticsc.ttf"</span><span class="p">,</span>
+          <span class="n">cornerRadius</span> <span class="p">=</span> <span class="mi">25</span><span class="p">,</span>
+          <span class="n">textFontSize</span> <span class="p">=</span> <span class="mi">20</span><span class="p">,</span>
+          <span class="n">type</span> <span class="p">=</span> <span class="nc">ButtonType</span><span class="p">.</span><span class="nc">CANCEL</span>
+      <span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>Fonts precisam ser adicionadas na aplicação e o caminho deve ser informado na customização.</p>
+</blockquote>
+
+<h2 id="autenticar">Autenticar</h2>
 
 <p>Em seguida é necessário utilizar o método <code class="highlighter-rouge">authenticate</code>, informando o <em>access_token</em> gerado no passo anterior, os dados do comprador e o <em>callback</em> que receberá a resposta:</p>
 
