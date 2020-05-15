@@ -6861,7 +6861,7 @@ curl
 |`Payment.CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do Comprador. A indicação de que o CardNumber deve ser preenchido com o DPAN para caso de tokenização de bandeira.|
 |`Payment.CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
 |`Payment.CreditCard.Cryptogram`|Texto|28|Não|Criptograma gerado pela bandeira.|
-|`Payment.CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
+|`Payment.CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade DO TOKEN GERADO PELA BANDEIRA.|
 |`Payment.CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
 |`Payment.CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o CardToken.|
 |`Payment.CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
