@@ -31,11 +31,11 @@ Para utilizar o Cielo Oauth são necessarias as seguintes credenciais:
 
 Para obter as credênciais no Checkout Cielo, basta seguir o fluxo abaixo:
 
-1 - Acessar o site Cielo
-2 - Super Link
-3 - Configurações
-4 - Dados da loja
-5 - Gerar chaves da API
+1. Acessar o site Cielo
+2. Super Link
+3. Configurações
+4. Dados da loja
+5. Gerar chaves da API
 
 ## Token de acesso
 
