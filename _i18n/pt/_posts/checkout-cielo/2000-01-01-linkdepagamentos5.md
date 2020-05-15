@@ -18,7 +18,7 @@ language_tabs:
 
 O Cielo OAUTH é um processo de autenticação utilizado em APIs Cielo que são correlacionadas a produtos E-commerce. Ele utiliza como segurança o protocolo **[OAUTH2](https://oauth.net/2/)**, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API CieloOAuth
 
-> Para obter o `ClientID` e o `ClientSecret`, acione a equipe de Produtos Cielo. Credênciais liberadas apenas para lojistas selecionados,
+> Para gerar o `ClientID` e o `ClientSecret`, consulte o tópico de Obter Credenciais.
 
 Para utilizar o Cielo Oauth são necessarias as seguintes credenciais:
 
@@ -27,20 +27,15 @@ Para utilizar o Cielo Oauth são necessarias as seguintes credenciais:
 | `ClientId`     | Identificador chave fornecido pela CIELO                              | guid   |
 | `ClientSecret` | Chave que valida o ClientID. Fornecida pela Cielo junto ao `ClientID` | string |
 
-## Obter Credênciais
+## Obter Credenciais
 
 Para obter as credênciais no Checkout Cielo, basta seguir o fluxo abaixo:
 
-1 - Acesso o Backoffice **Checkout Cielo**
-2 - Na aba **"Configurações"**, acesse a opção **"Dados cadastrais"** clique em **"Gerar Credenciais de acesso às APIs"** como na imagem abaixo
-
-![backoffice]({{ site.baseurl_root }}/images/gerarcredenciais.png)
-
-3 - A mensagem abaixo será enviada para o **e-mail de contato tecnico**, contendo as credenciais de acesso:
-
-![e-mail]({{ site.baseurl_root }}/images/emailcredencial.png)
-
-> Caso o botão de **"Gerar Credenciais de acesso às APIs"** não esteja disponivel em seu backoffice, acione a equipe de Produtos Cielo para a liberação da funcionalidade
+1 - Acessar o site Cielo
+2 - Super Link
+3 - Configurações
+4 - Dados da loja
+5 - Gerar chaves da API
 
 ## Token de acesso
 
