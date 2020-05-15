@@ -60,6 +60,8 @@ The solution is composed by the access token request via the API and authenticat
 
 # STEP 2 - Using SDK
 
+## Dependency
+
 Add the following dependency to dependency node in your **build.gradle** on module level:
 
 ```kotlin
@@ -69,11 +71,90 @@ dependecies {
 }
 ```
 
+## Instantiate
+
 Then it's necessary to instantiate **Braspag3ds** with the desired environment:
 
 ```kotlin
   val braspag3dsSdk = Braspag3ds(Environment.SANDBOX)
 ```
+
+## Customize
+
+```kotlin
+braspag3ds.customize(
+  toolbarCustomization = CustomToolbar(
+      backgroundColor = "#00c1eb",
+      buttonText = "Cancel",
+      headerText = "BRASPAG 3DS",
+      textColor = "#ffffff",
+      textFontName = "font/amaticsc.ttf",
+      textFontSize = 16
+  ),
+  textBoxCustomization = CustomTextBox(
+      borderColor = "#1f567d",
+      borderWidth = 10,
+      cornerRadius = 25,
+      textColor = "#000000",
+      textFontName = "font/amaticsc.ttf",
+      textFontSize = 24
+  ),
+  labelCustomization = CustomLabel(
+      headingTextColor = "#404040",
+      headingTextFontName = "font/amaticsc.ttf",
+      headingTextFontSize = 24,
+      textColor = "#404040",
+      textFontName = "font/amaticsc.ttf",
+      textFontSize = 16
+  ),
+  buttons = listOf(
+      CustomButton(
+          textColor = "#ffffff",
+          backgroundColor = "#5ea9d1",
+          textFontName = "font/amaticsc.ttf",
+          cornerRadius = 25,
+          textFontSize = 16,
+          type = ButtonType.VERIFY
+      ),
+      CustomButton(
+          textColor = "#ffffff",
+          backgroundColor = "#5ea9d1",
+          textFontName = "font/amaticsc.ttf",
+          cornerRadius = 25,
+          textFontSize = 16,
+          type = ButtonType.CONTINUE
+      ),
+      CustomButton(
+          textColor = "#ffffff",
+          backgroundColor = "#5ea9d1",
+          textFontName = "font/amaticsc.ttf",
+          cornerRadius = 25,
+          textFontSize = 16,
+          type = ButtonType.NEXT
+      ),
+      CustomButton(
+          textColor = "#5ea9d1",
+          backgroundColor = "#ffffff",
+          textFontName = "font/amaticsc.ttf",
+          cornerRadius = 25,
+          textFontSize = 16,
+          type = ButtonType.RESEND
+      ),
+      CustomButton(
+          textColor = "#ff0000",
+          backgroundColor = "#00c1eb",
+          textFontName = "font/amaticsc.ttf",
+          cornerRadius = 25,
+          textFontSize = 20,
+          type = ButtonType.CANCEL
+      )
+  )
+)
+```
+
+> Fonts have to be added to the application and the path should be provided in the UI customization.
+
+## Authenticate
 
 Then you must use the method `authenticate`, informing the *access_token* from previous step, the buyer details and the *callback* that will receive the response:
 
