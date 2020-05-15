@@ -19,11 +19,11 @@ language_tabs:
 
 Cielo OAUTH is an authentication process used in Cielo APIs that are correlated to E-commerce products. It uses the **[OAUTH2](https://oauth.net/2/)** protocol, where it is first necessary to obtain an access token, using its credentials, which should then be sent to the CieloOAuth API
 
-> To get the `ClientID` and` ClientSecret`, contact the Cielo Products team. Credits released only to selected merchants,
+> To get the `ClientID` and` ClientSecret`, see the topic of Obtaining Credentials.
 
 To use Cielo Oauth you need the following credentials:
 
-| PROPRIEDADE    | DESCRIÇÃO                                                    | TIPO   |
+| PROPERTY       | DESCRIPTION                                                  | TIPO   |
 | -------------- | ------------------------------------------------------------ | ------ |
 | `ClientId`     | Key identifier provided by CIELO                             | guid   |
 | `ClientSecret` | Key that validates the ClientID. Provided by Cielo with `ClientID` | string |
@@ -32,16 +32,11 @@ To use Cielo Oauth you need the following credentials:
 
 To obtain the credentials in Checkout Cielo, just follow the flow below:
 
-1 - Access the Backoffice **Checkout Sky**
-2 - On the **"Settings"** tab, access the **"Registration data"** option and click **"Generate access credentials for the APIs"** as in the image below
-
-![backoffice]({{ site.baseurl_root }}/images/gerarcredenciais.png)
-
-3 - The message below will be sent to the **technical contact email**, containing the access credentials:
-
-![e-mail]({{ site.baseurl_root }}/images/emailcredencial.png)
-
-> If the **"Generate API Access Credentials"** button is not available on your backoffice, contact the Cielo Products team to activate the functionality
+1. Access the Cielo website
+2. Super Link
+3. Configurações
+4. Dados da loja
+5. Gerar chaves da API
 
 ## Access token
 
