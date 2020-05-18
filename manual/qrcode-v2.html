@@ -442,66 +442,66 @@ curl --location --request POST 'https://api2.cielo.com.br/sandbox/padraoq/v1/pay
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">reference_label</code></td>
-      <td>Data da transação (extraída do QRCode)</td>
-      <td>Texto</td>
-      <td>36</td>
-      <td>Sim</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">merchant_id</code></td>
-      <td>Número lógico do POS</td>
-      <td>Texto</td>
-      <td>40</td>
-      <td>Sim</td>
+      <td>Número do estabelecimento</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">terminal_id</code></td>
-      <td>Código de autorização da transação</td>
-      <td>Texto alfanumérico</td>
-      <td>6</td>
-      <td>Sim</td>
+      <td>Número lógico do POS</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">authorization_code</code></td>
-      <td>Número Sequencial Único</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">authentication_code</code></td>
-      <td>Número Sequencial Único</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">host_nsu</code></td>
       <td>Número Sequencial Único</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">terminal_nsu</code></td>
       <td>Número Sequencial Único</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">timestamp</code></td>
-      <td>Número Sequencial Único</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">timestamp</code></td>
-      <td>Número Sequencial Único</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
+      <td><code class="highlighter-rouge">card_scheme</code></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -1315,31 +1315,6 @@ A solução de pagamento QR Code Cielo atualmente não aceita pagamentos no déb
     </tr>
   </tbody>
 </table>
-
-<h1 id="dúvidas-frequentes">Dúvidas Frequentes</h1>
-
-<ul>
-  <li>
-    <p><strong>Os testes devem ser feitos direto no ambiente de Homologação?</strong>
-R: Sim, infelizmente hoje não temos ambiente de desenvolvimento.</p>
-  </li>
-  <li>
-    <p><strong>Qual o processo para adquirir as credenciais de Produção?</strong>
-R: Vide seção 1.</p>
-  </li>
-  <li>
-    <p><strong>Qual criptografia é utilizada para criptografar o cartão?</strong>
-R: Vide seção 2.1.</p>
-  </li>
-  <li>
-    <p><strong>A solução de pagamento QR Code Cielo atualmente aceita pagamentos no débito?</strong>
-R: Não.</p>
-  </li>
-  <li>
-    <p><strong>O que seria o campo deviceID?</strong>
-R: Identificador único de cada dispositivo. Segue IOS: https://developer.apple.com/documentation/uikit/uidevice/1620059-identifierforvendor, Android: https://developer.android.com/training/articles/user-data-ids.</p>
-  </li>
-</ul>
 
 <h1 id="canal-de-suporte-a-dúvidas">Canal de Suporte a Dúvidas</h1>
 
