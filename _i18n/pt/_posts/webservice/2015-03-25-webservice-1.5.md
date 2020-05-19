@@ -2172,17 +2172,17 @@ A massa de dados para realizar os testes neste ambiente está disposta na tabela
 
 | Bandeira             | Autenticação | Número do cartão de teste | Validade | Código de segurança - CVC |
 |----------------------|--------------|---------------------------|----------|---------------------------|
-| Visa                 | Sim          | 4012001037141112          | 201805   | 123                       |
-| Mastercard           | Sim          | 5453010000066167          | 201805   | 123                       |
-| Visa                 | Não          | 4012001038443335          | 201805   | 123                       |
-| Mastercard           | Não          | 5453010000066167          | 201805   | 123                       |
-| Amex                 | Não          | 376449047333005           | 201805   | 1234                      |
-| Diners               | Não          | 36490102462661            | 201705   | 123                       |
-| Elo                  | Não          | 6362970000457013          | 201805   | 123                       |
+| Visa                 | Sim          | 4012001037141112          | 202405   | 123                       |
+| Mastercard           | Sim          | 5453010000066167          | 202405   | 123                       |
+| Visa                 | Não          | 4012001038443335          | 202405   | 123                       |
+| Mastercard           | Não          | 5453010000066167          | 202405   | 123                       |
+| Amex                 | Não          | 376449047333005           | 202405   | 1234                      |
+| Diners               | Não          | 36490102462661            | 202405   | 123                       |
+| Elo                  | Não          | 6362970000457013          | 202405   | 123                       |
 | Elo (Corona Voucher) | Não          | 5067220000000000          | 202405   | 123                       |
-| Discover             | Não          | 6011020000245045          | 201805   | 123                       |
-| JCB                  | Não          | 3566007770004971          | 201805   | 123                       |
-| Aura                 | Não          | 5078601912345600019       | 201805   | 123                       |
+| Discover             | Não          | 6011020000245045          | 202405   | 123                       |
+| JCB                  | Não          | 3566007770004971          | 202405   | 123                       |
+| Aura                 | Não          | 5078601912345600019       | 202405   | 123                       |
 
 ## Chave de testes
 
@@ -2190,7 +2190,6 @@ Para facilitar o desenvolvimento disponibilizamos duas chaves para testes, uma p
 
 |Número estabelecimento comercial|Chave de testes|
 |---|---|
-|1006993069|25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3|
 |2000019700|8c08a0d0f00b73dedd2673a06fa725b0bd8edbf71c4c7dd0614bf408e4d16120|
 
 <aside class="warning">O valor do pedido além de seguir o formato sem pontos ou vírgulas decimais, deve terminar em “00”, caso contrário, a autorização será sempre negada. Exemplo: R$ 15,00 deve ser formatado como “1500”.</aside>
