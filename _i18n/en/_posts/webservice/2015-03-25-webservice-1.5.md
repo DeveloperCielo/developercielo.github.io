@@ -1810,7 +1810,7 @@ The cancellation is used when the retailer decides for don't effective a purchas
 
 ## Endpoint
 
-The integrating tests must be realized before the homologation starts, during the development (codification) of solution. For this purpose, you must considered an enviroment like EndPoint to Webservice: [https://qasecommerce.cielo.com.br/servicos/ecommwsec.do](https://qasecommerce.cielo.com.br/servicos/ecommwsec.do)
+The integrating tests must be realized before the homologation starts, during the development (codification) of solution. For this purpose, you must considered an enviroment like EndPoint to Webservice: [https://sandbox1-5.hdevelo.com.br/sandsky/xml](https://sandbox1-5.hdevelo.com.br/sandsky/xml)
 
 <aside class="warning">All the connections to Cielo services must be done through the URL mentioned on this documentation. Cielo strongly recommend you don't  use the direct connection via IP, because it can vary without previously notice.</aside>
 
@@ -1818,18 +1818,19 @@ The integrating tests must be realized before the homologation starts, during th
 
 The data gross to realize the tests on this environment will be displayed on table below:
 
-|Card issuer|Authentication|Testing number card|Validity|Secure code - - CVC|
-|---|---|---|---|---|
-|Visa|Yes|4012001037141112|05/2018|123|
-|Mastercard|Yes|5453010000066167|05/2018|123|
-|Visa|No|4012001038443335|05/2018|123|
-|Mastercard|No|5453010000066167|05/2018|123|
-|Amex|No|376449047333005|05/2018|123|
-|Elo|No|6362970000457013|05/2018|123|
-|Diners|No||
-|Discover|No|6011020000245045|05/2018|123|
-|JCB|No|3566007770004971|05/2018|123|
-|Aura|No|5078601912345600019|05/2018|123|
+|Card issuer           |Authentication|Testing number card        |Validity  |Secure code - - CVC |
+|----------------------|--------------|---------------------------|----------|--------------------|
+| Visa                 | Sim          | 4012001037141112          | 201805   | 123                |
+| Mastercard           | Sim          | 5453010000066167          | 201805   | 123                |
+| Visa                 | Não          | 4012001038443335          | 201805   | 123                |
+| Mastercard           | Não          | 5453010000066167          | 201805   | 123                |
+| Amex                 | Não          | 376449047333005           | 201805   | 1234               |
+| Diners               | Não          | 36490102462661            | 201705   | 123                |
+| Elo                  | Não          | 6362970000457013          | 201805   | 123                |
+| Elo (Corona Voucher) | Não          | 5067220000000000          | 202405   | 123                |
+| Discover             | Não          | 6011020000245045          | 201805   | 123                |
+| JCB                  | Não          | 3566007770004971          | 201805   | 123                |
+| Aura                 | Não          | 5078601912345600019       | 201805   | 123                |
 
 ## Testing key
 
@@ -1838,6 +1839,7 @@ To make easier the development we provided two key for tests, one for each modal
 |Commercial establishment number|Testing key|
 |---|---|
 |1006993069|25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3|
+|2000019700|8c08a0d0f00b73dedd2673a06fa725b0bd8edbf71c4c7dd0614bf408e4d16120|
 
 <aside class="warning">The order value, besides to follow the format without points or decimal commas, must finish on "00", otherwise, the authorization will be always declined. Example: R$15,00 must be formated as "1500".</aside>
 
