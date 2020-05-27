@@ -27,6 +27,14 @@ O Extrato Eletrônico é um produto disponibilizado pela Cielo aos clientes que 
 * Segurança no recebiento das informações
 * Atendimento Especializado
 
+# Fluxo de Concessão 
+
+## Passo 1 - Login
+
+## Passo 2 – Requisitando um Access Token
+
+## Passo 3 – Chamando as APIs
+
 # Ambiente
 
 |Ambiente|Endereço|
