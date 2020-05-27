@@ -856,6 +856,18 @@
       <td>0 - Header <br /> 1 - Detalhe RO <br /> 2 - Detalhe CV <br /> 9 - Trailer <br /></td>
       <td>Conferir origem do pagamento recebido (tipo de venda, bandeira e cliente/estabelecimento que efetuou a venda).<br />Conciliação com a conta corrente.</td>
     </tr>
+    <tr>
+      <td><strong>06 Antecipação de Recebíveis Cielo</strong></td>
+      <td>Operação de ARV realizada pela Cielo no dia anterior ao envio do arquivo e respectivo detalhe dos ROs e CVs que foram antecipados.</td>
+      <td>0 - Header <br /> 5 - Detalhe de ARV <br /> 6 - Detalhe ROs antecipados <br /> 2 - Detalhe CV <br /> 7 - Detalhe dos débitos de ROs Antecipados <br /> 2 - Detalhe CV <br /> 9 - Trailer <br /> Obs.: Será demonstrado o registro tipo 5 para cada operação realizada.</td>
+      <td>Atualizar o fluxo de caixa, considerando os valores já recebidos através da antecipação.</td>
+    </tr>
+    <tr>
+      <td><strong>07 Cessão de Recebíveis</strong></td>
+      <td>Operação de cessão realizada no banco Bradesco no dia anterior ao envio do arquivo e respectivo detalhe dos ROs cedidos. <br /> Não é demonstrada a condição comercial negociada ou parcela cedida</td>
+      <td>0 - Header <br /> 5 - Detalhe de ARV <br /> 6 -  Detalhe ROs antecipados 9 - Trailer <br /> Obs.: Será demonstrado o registro tipo 5 para cada operação realizada.</td>
+      <td>Atualizar o fluxo de caixa, considerando os valores já recebidos através da operação de cessão.</td>
+    </tr>
   </tbody>
 </table>
 
