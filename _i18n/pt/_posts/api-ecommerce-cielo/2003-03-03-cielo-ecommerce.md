@@ -8464,7 +8464,6 @@ Nesse modelo, o lojista informa apenas que a transação é de uma Wallet Apple 
 | `ReturnCode`                        | Código de retorno da Adquirência.                                                                                                            | Texto | 32      | Texto alfanumérico                   |
 | `ReturnMessage`                     | Mensagem de retorno da Adquirência.                                                                                                          | Texto | 512     | Texto alfanumérico                   |
 | `Type`                              | indica qual o tipo de carteira: `ApplePay`                                      | Texto | 255     | Texto alfanumérico                   |
-| `Walletkey`                         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações                                            | Texto | 255     | Ver tabela `WalletKey`               |
 | `AdditionalData.EphemeralPublicKey` | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`                                                      | Texto | 255     | Ver Tabela `EphemeralPublicKey`      |
 | `AdditionalData.capturecode`        | Código informado pela `MasterPass` ao lojista                                                                                                | Texto | 255     | 3                                    |
 | `ECI`                               | O ECI (Eletronic Commerce Indicator) indica a segurança de uma transação. Deve ser levado em conta pelo lojista para decidir sobre a captura | Texto | 3       | 2                                    |
@@ -8708,7 +8707,6 @@ Nesse modelo, o lojista informa apenas que a transação é da Wallet VisaChecko
 | `ReturnCode`                        | Código de retorno da Adquirência.                                                                                                            | Texto | 32      | Texto alfanumérico                   |
 | `ReturnMessage`                     | Mensagem de retorno da Adquirência.                                                                                                          | Texto | 512     | Texto alfanumérico                   |
 | `Type`                              |indica qual o tipo de carteira: `VisaCheckout`/ `Masterpass` / `SamsungPay` /  `ApplePay`                                    | Texto | 255     | Texto alfanumérico                   |
-| `Walletkey`                         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações                                            | Texto | 255     | Ver tabela `WalletKey`               |
 
 ## MasterPass
 
@@ -8852,7 +8850,6 @@ Exemplo de Requisição *Masterpass*
 | `ReturnCode`                        | Código de retorno da Adquirência.                                                                                                            | Texto | 32      | Texto alfanumérico                   |
 | `ReturnMessage`                     | Mensagem de retorno da Adquirência.                                                                                                          | Texto | 512     | Texto alfanumérico                   |
 | `Type`                              |indica qual o tipo de carteira: `VisaCheckout`/ `Masterpass` / `SamsungPay` /  `ApplePay`                                    | Texto | 255     | Texto alfanumérico                   |
-| `Walletkey`                         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações                                            | Texto | 255     | Ver tabela `WalletKey`               |
 | `AdditionalData.capturecode`        | Código informado pela `MasterPass` ao lojista                                                                                                | Texto | 255     | 3                                    |
 | `ECI`                               | O ECI (Eletronic Commerce Indicator) indica a segurança de uma transação. Deve ser levado em conta pelo lojista para decidir sobre a captura | Texto | 3       | 2                                    |
 | `CAVV`                              | Campo de validação retornado pela Wallet e utilizado como base de autorização                                                                | Texto | 255     | --                                   |
@@ -9170,7 +9167,6 @@ Nesse modelo, o lojista informa apenas que a transação é da Wallet SamsungPay
 | `ReturnCode`                        | Código de retorno da Adquirência.                                                                                                            | Texto | 32      | Texto alfanumérico                   |
 | `ReturnMessage`                     | Mensagem de retorno da Adquirência.                                                                                                          | Texto | 512     | Texto alfanumérico                   |
 | `Type`                              | indica qual o tipo de carteira: `ApplePay` / `SamsungPay` / `VisaCheckout`/ `Masterpass`                                      | Texto | 255     | Texto alfanumérico                   |
-| `Walletkey`                         | Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações                                            | Texto | 255     | Ver tabela `WalletKey`               |
 | `AdditionalData.EphemeralPublicKey` | Token retornado pela Wallet. Deve ser enviado em Integrações: `ApplePay`                                                      | Texto | 255     | Ver Tabela `EphemeralPublicKey`      |
 | `AdditionalData.capturecode`        | Código informado pela `MasterPass` ao lojista                                                                                                | Texto | 255     | 3                                    |
 | `ECI`                               | O ECI (Eletronic Commerce Indicator) indica a segurança de uma transação. Deve ser levado em conta pelo lojista para decidir sobre a captura | Texto | 3       | 2                                    |
