@@ -315,3 +315,11 @@ Executa a lista de clientes abaixo do access_token informado. O filtro pode ser 
 |`branches`|Lista de Filiais||||
 |`businessName`|Nome da empresa||||
 |`status`|Filial disponível ou Indisponível||||
+
+# Tipos de Extrato Eletrônico
+
+## Tabela A - Tipos de Arquivo
+
+|Tipo de Arquivo|Informação|Tipo de Registro|Objetivo|
+|---|---|---|---|
+|03 Vendas com Plano Parcelado|* Vendas concluídas (capturadas) no dia anterior, ajustes e transações rejeitadas, com a previsão de  pagamento. * Todo o plano parcelado da venda realizada no dia anterior.|* 0 - * Header <br> * 1 - * Detalhe RO (com a primeira parcela) <br> * 2 - * Detalhe CV <br> * 1 - * Detalhe RO (previsão da segunda parcela em diante) <br> * 9 - * Trailer <br> |Conferir se todas as vendas realizadas foram recebidas pela Cielo e as previsões de pagamento.|
