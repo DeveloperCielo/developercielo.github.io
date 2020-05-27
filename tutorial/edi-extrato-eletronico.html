@@ -868,6 +868,18 @@
       <td>0 - Header <br /> 5 - Detalhe de ARV <br /> 6 -  Detalhe ROs antecipados 9 - Trailer <br /> Obs.: Será demonstrado o registro tipo 5 para cada operação realizada.</td>
       <td>Atualizar o fluxo de caixa, considerando os valores já recebidos através da operação de cessão.</td>
     </tr>
+    <tr>
+      <td><strong>09 Saldo em Aberto</strong></td>
+      <td>Valores a receber com a Cielo, contemplando as transações realizadas, capturadas e processadas, vendas a débito, crédito e parceladas ainda não liquidadas no movimento fechado no mês anterior. O arquivo é disponibilizado mensalmente.</td>
+      <td>0 - Header <br /> 1 - Detalhe RO <br /> 9 - Trailer</td>
+      <td>Atualizar a previsão futura de recebimentos. Este extrato é o analítico da Carta Saldo (Carta de Circularização) encaminhado para fins de auditoria. Não deve ser utilizado para conciliação.</td>
+    </tr>
+    <tr>
+      <td><strong>10 Antecipação de Recebíveis Alelo</strong></td>
+      <td>Operação de ARV realizada pela Alelo no dia anterior ao envio do arquivo e respectivo detalhe dos ROs e CVs que foram antecipados.</td>
+      <td>0 - Header <br /> 5 - Detalhe de ARV <br /> 6 - Detalhe ROs antecipados <br /> 2 - Detalhe CV <br /> 7 - Detalhe dos débitos de ROs Antecipados <br /> 2 - Detalhe CV <br /> 9 - Trailer <br /> Obs.: Será demonstrado o registro tipo 5 para cada operação realizada.</td>
+      <td>Atualizar o fluxo de caixa, considerando os valores já recebidos através da antecipação.</td>
+    </tr>
   </tbody>
 </table>
 
