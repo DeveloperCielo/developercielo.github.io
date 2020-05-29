@@ -36,7 +36,7 @@ O Extrato Eletrônico é um produto disponibilizado pela Cielo aos clientes que 
 3 - A Cielo mostra os termos de autorização e o cliente aprova este acesso clicando em `Permitir Acesso`. <br>
 4 - A Cielo redireciona o cliente para o parceiro novamente em `{partner-call-back-url}`. <br>
 
-![Login e Concessão de Acesso](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxo1_login1.jpg)
+![Login e Concessão de Acesso](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxo1_login1.jpg) 
 
 ## Passo 2 – Requisitando um Access Token
 
