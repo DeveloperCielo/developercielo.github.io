@@ -185,6 +185,11 @@ Possíveis valores para {error}:
 
 ## Observação
 
+* Todos os tokens (access_token e refresh_token) devem ser armazenados em um local seguro.
+* O parceiro precisam iniciar um novo fluxo de concessão se perderem os tokens ou ambos expirarem (O refresh_token tem expiração de 90 dias a partir da geração).
+* Caso gere um novo refresh_token este tem mais 90 dias a partir da geração para expirar.
+* O parceiro precisa iniciar um novo fluxo de concessão para cada cliente da Cielo que o parceiro deseja consultar os dados.
+
 # Ambiente
 
 |Ambiente|Endereço|
