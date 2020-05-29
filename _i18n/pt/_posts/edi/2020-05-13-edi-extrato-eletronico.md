@@ -53,6 +53,14 @@ https://`{base-login-url}`?response_type=code
 * **scope:** Uma lista separada por vírgula das APIs que o parceiro deseja acessar, os possiveis escopos serão enviados por API.
 * **state:** Um valor que o cliente deseja receber no retorno para manter o estado entre a requisição e o retorno
 
+> O que é partner-callback-url?
+
+https://`{partner-callback-url}`?code=`{code}`&state=`{state}`
+
+* **partner-callback-url:** A URL do parceiro que será redirecionado quando o processo de login terminar.
+* **code:** O authorization code gerado pela Cielo. Com esse código o parceiro vai poder trocar por um access_token para fazer chamadas em nome do cliente.
+* **state:** O mesmo valor que o parceiro enviou na requisição.
+
 ## Passo 2 – Requisitando um Access Token
 
 ## Passo 3 – Chamando as APIs
