@@ -88,6 +88,21 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 
 ### Response
 
+{
+"access_token": "{access_token}",
+"refresh_token": "{refresh_token}",
+"token_type": "access_token",
+"expires_in": {expiration_time}
+}
+
+|Propriedade|Descrição|
+|---|---|
+|`access_token`|O access_token para chamar as APIs da Cielo.|
+|`refresh_token`|Quando o access_token expirar o parceiro pode solicitar um novo access_token usando este refresh_token.|
+|`expiration_time`|O tempo de expiração do access_token em milisgundos.|
+
+### Response
+
 ## Passo 3 – Chamando as APIs
 
 # Ambiente
