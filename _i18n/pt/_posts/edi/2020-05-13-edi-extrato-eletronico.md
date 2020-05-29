@@ -101,7 +101,15 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 |`refresh_token`|Quando o access_token expirar o parceiro pode solicitar um novo access_token usando este refresh_token.|
 |`expiration_time`|O tempo de expiração do access_token em milisgundos.|
 
-### Response
+### Observações
+
+* O authorization_code precisa ser trocado por um access_token em menos de 10 minutos.
+* Este tipo de  access_token é mandatório para chamar as APIs que retornam dados sensíveis dos clientes.
+* O parceiro precisa armazenar o access_token e o refresh_token em um lugar seguro.
+* Quando o access_token expirar o parceiro não conseguirá mais chamas as APIs até que solicite um novo acess_token usando o fluxo de refresh_token.
+* O acess_token gerado nesse fluxo será único por cliente da Cielo, pois precisa obrigatoriamente a aprovação do cliente.
+* O parceiro NÃO consegue gerar um access_token sem o consentimento do cliente.
+* O parceiro NÃO consegue usar o authorization code, recebido no primeiro passo, mais de uma vez.
 
 ## Passo 3 – Chamando as APIs
 
