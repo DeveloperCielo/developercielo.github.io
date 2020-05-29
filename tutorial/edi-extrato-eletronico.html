@@ -165,6 +165,18 @@
   <li><strong>state:</strong> Um valor que o cliente deseja receber no retorno para manter o estado entre a requisição e o retorno</li>
 </ul>
 
+<blockquote>
+  <p>O que é partner-callback-url?</p>
+</blockquote>
+
+<p>https://<code class="highlighter-rouge">{partner-callback-url}</code>?code=<code class="highlighter-rouge">{code}</code>&amp;state=<code class="highlighter-rouge">{state}</code></p>
+
+<ul>
+  <li><strong>partner-callback-url:</strong> A URL do parceiro que será redirecionado quando o processo de login terminar.</li>
+  <li><strong>code:</strong> O authorization code gerado pela Cielo. Com esse código o parceiro vai poder trocar por um access_token para fazer chamadas em nome do cliente.</li>
+  <li><strong>state:</strong> O mesmo valor que o parceiro enviou na requisição.</li>
+</ul>
+
 <h2 id="passo-2--requisitando-um-access-token">Passo 2 – Requisitando um Access Token</h2>
 
 <h2 id="passo-3--chamando-as-apis">Passo 3 – Chamando as APIs</h2>
