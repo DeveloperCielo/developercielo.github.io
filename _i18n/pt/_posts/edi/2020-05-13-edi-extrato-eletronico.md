@@ -38,6 +38,21 @@ O Extrato Eletrônico é um produto disponibilizado pela Cielo aos clientes que 
 
 ![Login e Concessão de Acesso](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxo1_login1.jpg) 
 
+> O que é cielo-login-url?
+
+https://`{base-login-url}`?response_type=code
+&`client_id={client_id}`
+&`redirect_uri={redirect_uri}`
+&`scope={scope}`
+&`state={state}`
+
+* **base-login-url:** URL base que muda por ambiente, serão enviadas em tempo de projeto
+* **response_type:** O valor deve ser fixo "code"
+* **client_id:** Identificador do cliente, será enviado pela Cielo em tempo de projeto
+* **redirect_uri:** URL do parceiro para a Cielo redirecionar o usuário quando o processo de login terminar, ou se der algum erro no processo
+* **scope:** Uma lista separada por vírgula das APIs que o parceiro deseja acessar, os possiveis escopos serão enviados por API.
+* **state:** Um valor que o cliente deseja receber no retorno para manter o estado entre a requisição e o retorno
+
 ## Passo 2 – Requisitando um Access Token
 
 ## Passo 3 – Chamando as APIs
