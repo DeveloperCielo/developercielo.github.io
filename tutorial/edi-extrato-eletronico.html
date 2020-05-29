@@ -179,6 +179,38 @@
 
 <h2 id="passo-2--requisitando-um-access-token">Passo 2 – Requisitando um Access Token</h2>
 
+<ul>
+  <li>O serviço do parceiro solicita um <code class="highlighter-rouge">access_token</code>.</li>
+  <li>A Cielo retorna um <code class="highlighter-rouge">acess_token</code>,  um <code class="highlighter-rouge">refresh_token</code> e um <code class="highlighter-rouge">expiration_time</code>.</li>
+</ul>
+
+<h3 id="request">Request</h3>
+
+<blockquote>
+  <p><strong>POST</strong> {cielo-login-url}/consent/v1/oauth/access-token</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Authorization</strong></td>
+        <td>Base64 (client_id do parceiro concatenado com “:” e o client_secret  codificado em base64)</td>
+      </tr>
+      <tr>
+        <td><strong>Code</strong></td>
+        <td>O código recebido no primeiro passo</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h3 id="response">Response</h3>
+
 <h2 id="passo-3--chamando-as-apis">Passo 3 – Chamando as APIs</h2>
 
 <h1 id="ambiente">Ambiente</h1>
@@ -208,7 +240,7 @@
 
 <p>Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da entidade.</p>
 
-<h3 id="request">Request</h3>
+<h3 id="request-1">Request</h3>
 
 <blockquote>
   <p><strong>POST</strong> /edi/registers</p>
@@ -288,7 +320,7 @@
   </tbody>
 </table>
 
-<h3 id="response">Response</h3>
+<h3 id="response-1">Response</h3>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
@@ -367,7 +399,7 @@
 
 <p>Recupere o status de registro do EDI.</p>
 
-<h3 id="response-1">Response</h3>
+<h3 id="response-2">Response</h3>
 
 <blockquote>
   <p><strong>GET</strong> /edi/registers/{registerID}</p>
@@ -449,7 +481,7 @@
 
 <p>Consulte o MerchantID com base no registerID ou no mainMerchantID.</p>
 
-<h3 id="response-2">Response</h3>
+<h3 id="response-3">Response</h3>
 
 <blockquote>
   <p><strong>GET</strong> /edi</p>
@@ -550,7 +582,7 @@
 
 <p>Atualize o merchantID com base no registerID ou mainMerchantID.</p>
 
-<h3 id="request-1">Request</h3>
+<h3 id="request-2">Request</h3>
 
 <blockquote>
   <p><strong>PUT</strong> /edi</p>
@@ -630,7 +662,7 @@
   </tbody>
 </table>
 
-<h3 id="response-3">Response</h3>
+<h3 id="response-4">Response</h3>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
@@ -701,7 +733,7 @@
 
 <p>Consulte o MerchantID com base no registerID ou no mainMerchantID.</p>
 
-<h3 id="response-4">Response</h3>
+<h3 id="response-5">Response</h3>
 
 <blockquote>
   <p><strong>DELETE</strong> /edi</p>
@@ -788,7 +820,7 @@
 
 <p>Executa a lista de clientes abaixo do access_token informado. O filtro pode ser usado para listar apenas aqueles disponíveis ou indisponíveis. Indisponível significa que a filial já participa de outro registro. Nos serviços de registro e edição, há validação para permitir que apenas aqueles disponíveis sejam informados.</p>
 
-<h3 id="response-5">Response</h3>
+<h3 id="response-6">Response</h3>
 
 <blockquote>
   <p><strong>GET</strong> /edi/merchantgroup</p>
