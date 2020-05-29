@@ -68,12 +68,23 @@ https://`{partner-callback-url}`?code=`{code}`&state=`{state}`
 
 ### Request
 
-> **POST** {cielo-login-url}/consent/v1/oauth/access-token
+> **POST** {cielo-api-base-url}/consent/v1/oauth/access-token
 >
 >| Key | Value |
 >|---|---|
 >| **Authorization** | Base64 (client_id do parceiro concatenado com “:” e o client_secret  codificado em base64) |
->| **Code** | O código recebido no primeiro passo |
+
+```
+
+curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/access-token' \
+--header 'Basic64'
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "grant_type": "authorization_code",
+    "code": "{}"
+}'
+
+```
 
 ### Response
 
