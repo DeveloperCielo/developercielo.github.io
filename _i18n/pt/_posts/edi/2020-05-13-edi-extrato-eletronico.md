@@ -63,6 +63,20 @@ https://`{partner-callback-url}`?code=`{code}`&state=`{state}`
 
 ## Passo 2 – Requisitando um Access Token
 
+* O serviço do parceiro solicita um `access_token`.
+* A Cielo retorna um `acess_token`,  um `refresh_token` e um `expiration_time`.
+
+### Request
+
+> **POST** {cielo-login-url}/consent/v1/oauth/access-token
+>
+>| Key | Value |
+>|---|---|
+>| **Authorization** | Base64 (client_id do parceiro concatenado com “:” e o client_secret  codificado em base64) |
+>| **Code** | O código recebido no primeiro passo |
+
+### Response
+
 ## Passo 3 – Chamando as APIs
 
 # Ambiente
