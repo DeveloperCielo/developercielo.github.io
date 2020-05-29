@@ -115,7 +115,17 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 * O parceiro NÃO consegue gerar um access_token sem o consentimento do cliente.
 * O parceiro NÃO consegue usar o authorization code, recebido no primeiro passo, mais de uma vez.
 
-## Atualizando um Access Token
+## Passo 3 - Chamando as APIs
+
+Neste momento parceiro vai conseguir chamar as APIs da Cielo sem a necessidade da aprovação do cliente, pois esta já foi concedida.
+
+A única exigência para chamar as APIs da Cielo é enviar o seguinte header HTTP:
+**Authorization: Bearer {access_token}**
+Em todas as chamadas para as APIs.
+
+* O access_token foi obtido no Segundo passo
+
+## Passo 3.1 - Atualizando um Access Token
 
 > 1. O serviço do parceiro chama o serviço de `refresh_token`.
 > 2. A Cielo retorna um `access_token` novo, um `refresh_token` novo e um novo `expiration_time`.
@@ -173,7 +183,7 @@ Possíveis valores para {error}:
 
 > Opcionalmente pode ser retornado um outro parâmetros `error_description` com um detalhe do erro, apenas um texto simples.
 
-## Passo 3 – Chamando as APIs
+## Observação
 
 # Ambiente
 
