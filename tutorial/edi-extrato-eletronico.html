@@ -187,7 +187,7 @@
 <h3 id="request">Request</h3>
 
 <blockquote>
-  <p><strong>POST</strong> {cielo-login-url}/consent/v1/oauth/access-token</p>
+  <p><strong>POST</strong> {cielo-api-base-url}/consent/v1/oauth/access-token</p>
 
   <table>
     <thead>
@@ -201,13 +201,20 @@
         <td><strong>Authorization</strong></td>
         <td>Base64 (client_id do parceiro concatenado com “:” e o client_secret  codificado em base64)</td>
       </tr>
-      <tr>
-        <td><strong>Code</strong></td>
-        <td>O código recebido no primeiro passo</td>
-      </tr>
     </tbody>
   </table>
 </blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/access-token' \
+--header 'Basic64'
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "grant_type": "authorization_code",
+    "code": "{}"
+}'
+
+</code></pre></div></div>
 
 <h3 id="response">Response</h3>
 
