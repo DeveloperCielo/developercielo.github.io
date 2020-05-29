@@ -88,12 +88,16 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 
 ### Response
 
+```
+
 {
 "access_token": "{access_token}",
 "refresh_token": "{refresh_token}",
 "token_type": "access_token",
 "expires_in": {expiration_time}
 }
+
+```
 
 |Propriedade|Descrição|
 |---|---|
@@ -110,6 +114,64 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 * O acess_token gerado nesse fluxo será único por cliente da Cielo, pois precisa obrigatoriamente a aprovação do cliente.
 * O parceiro NÃO consegue gerar um access_token sem o consentimento do cliente.
 * O parceiro NÃO consegue usar o authorization code, recebido no primeiro passo, mais de uma vez.
+
+## Atualizando um Access Token
+
+> 1. O serviço do parceiro chama o serviço de `refresh_token`.
+> 2. A Cielo retorna um `access_token` novo, um `refresh_token` novo e um novo `expiration_time`.
+
+O dados de resposta serão os mesmos do passo 2 quando o parceiro solicita um acess_token, porém todos os dados retornados são novos e precisam ser armazenados no lugar dos antigos.
+
+### Request
+
+```
+
+curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/access-token' \
+--header 'Basic64'
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "grant_type": "refresh_token",
+    "code": "{}"
+}'
+
+```
+
+Um ponto de atenção na requisição pois agora o parceiro precisa enviar o `grant_type` como `refresh_token` e no campo `refresh_token` deve ser enviado um `refresh_token` válido (e não mais um access_token).
+
+### Response
+
+```
+
+{
+"access_token": "{access_token}",
+"refresh_token": "{refresh_token}",
+"token_type": "access_token",
+"expires_in": {expiration_time}
+}
+
+```
+
+|Propriedade|Descrição|
+|---|---|
+|`access_token`|O access_token para chamar as APIs da Cielo.|
+|`refresh_token`|Quando o access_token expirar o parceiro pode solicitar um novo access_token usando este refresh_token.|
+|`expiration_time`|O tempo de expiração do access_token em milisgundos.|
+
+## Erros
+
+Caso ocorra algum erro do lado Cielo o cliente será redirecionado para a URL de call-back do parceiro com o parâmetro error na URL, por exemplo https://{partner-callback-url}?error={error}.
+
+Possíveis valores para {error}:
+
+* **lid_request:** A requisição está faltando algum parâmetro obrigatório, ou esta com algum parâmetro inválido, ou qualquer outra possibilidade que faça a URL ficar incorreta.
+* **unauthorized_client:** O parceiro não está autorizado a fazer uma requisição usando este método.
+* **access_denied:** O dono do recurso ou o servidor de autorização negou a requisição.
+* **unsupported_response_type:** O servidor de autorização não suporta obter um authorization code usando este método.
+* **invalid_scope:** O escopo é invalido, desconhecido ou malformado.
+* **server_error:** O servidor de autorização encontrou uma condição inesperada e não consegue concluir esta requisição. ( Este erro é necessário porque não é possível retornar um HTTP status code 500 Internal Server Error via redirecionamento HTTP)
+* **temporarily_unavailable:** O servidor de autorização não consegue tratar a requisição devido a uma sobrecarga temporária ou está em manutenção. (Este erro é necessário pois não é possível retornar um HTTP Status 503 Service Unavailable para o parceiro  via redirecionamento HTTP)
+
+> Opcionalmente pode ser retornado um outro parâmetros `error_description` com um detalhe do erro, apenas um texto simples.
 
 ## Passo 3 – Chamando as APIs
 
