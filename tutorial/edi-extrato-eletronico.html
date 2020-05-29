@@ -263,7 +263,19 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   <li>O parceiro NÃO consegue usar o authorization code, recebido no primeiro passo, mais de uma vez.</li>
 </ul>
 
-<h2 id="atualizando-um-access-token">Atualizando um Access Token</h2>
+<h2 id="passo-3---chamando-as-apis">Passo 3 - Chamando as APIs</h2>
+
+<p>Neste momento parceiro vai conseguir chamar as APIs da Cielo sem a necessidade da aprovação do cliente, pois esta já foi concedida.</p>
+
+<p>A única exigência para chamar as APIs da Cielo é enviar o seguinte header HTTP:
+<strong>Authorization: Bearer {access_token}</strong>
+Em todas as chamadas para as APIs.</p>
+
+<ul>
+  <li>O access_token foi obtido no Segundo passo</li>
+</ul>
+
+<h2 id="passo-31---atualizando-um-access-token">Passo 3.1 - Atualizando um Access Token</h2>
 
 <blockquote>
   <ol>
@@ -344,7 +356,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   <p>Opcionalmente pode ser retornado um outro parâmetros <code class="highlighter-rouge">error_description</code> com um detalhe do erro, apenas um texto simples.</p>
 </blockquote>
 
-<h2 id="passo-3--chamando-as-apis">Passo 3 – Chamando as APIs</h2>
+<h2 id="observação">Observação</h2>
 
 <h1 id="ambiente">Ambiente</h1>
 
