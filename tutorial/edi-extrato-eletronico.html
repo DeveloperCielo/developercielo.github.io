@@ -218,6 +218,38 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 
 <h3 id="response">Response</h3>
 
+<p>{
+“access_token”: “{access_token}”,
+“refresh_token”: “{refresh_token}”,
+“token_type”: “access_token”,
+“expires_in”: {expiration_time}
+}</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">access_token</code></td>
+      <td>O access_token para chamar as APIs da Cielo.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">refresh_token</code></td>
+      <td>Quando o access_token expirar o parceiro pode solicitar um novo access_token usando este refresh_token.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">expiration_time</code></td>
+      <td>O tempo de expiração do access_token em milisgundos.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-1">Response</h3>
+
 <h2 id="passo-3--chamando-as-apis">Passo 3 – Chamando as APIs</h2>
 
 <h1 id="ambiente">Ambiente</h1>
@@ -327,7 +359,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </tbody>
 </table>
 
-<h3 id="response-1">Response</h3>
+<h3 id="response-2">Response</h3>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
@@ -406,7 +438,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 
 <p>Recupere o status de registro do EDI.</p>
 
-<h3 id="response-2">Response</h3>
+<h3 id="response-3">Response</h3>
 
 <blockquote>
   <p><strong>GET</strong> /edi/registers/{registerID}</p>
@@ -488,7 +520,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 
 <p>Consulte o MerchantID com base no registerID ou no mainMerchantID.</p>
 
-<h3 id="response-3">Response</h3>
+<h3 id="response-4">Response</h3>
 
 <blockquote>
   <p><strong>GET</strong> /edi</p>
@@ -669,7 +701,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </tbody>
 </table>
 
-<h3 id="response-4">Response</h3>
+<h3 id="response-5">Response</h3>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
@@ -740,7 +772,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 
 <p>Consulte o MerchantID com base no registerID ou no mainMerchantID.</p>
 
-<h3 id="response-5">Response</h3>
+<h3 id="response-6">Response</h3>
 
 <blockquote>
   <p><strong>DELETE</strong> /edi</p>
@@ -827,7 +859,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 
 <p>Executa a lista de clientes abaixo do access_token informado. O filtro pode ser usado para listar apenas aqueles disponíveis ou indisponíveis. Indisponível significa que a filial já participa de outro registro. Nos serviços de registro e edição, há validação para permitir que apenas aqueles disponíveis sejam informados.</p>
 
-<h3 id="response-6">Response</h3>
+<h3 id="response-7">Response</h3>
 
 <blockquote>
   <p><strong>GET</strong> /edi/merchantgroup</p>
