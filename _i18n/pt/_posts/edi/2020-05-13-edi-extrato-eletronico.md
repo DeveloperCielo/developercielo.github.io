@@ -31,10 +31,10 @@ O Extrato Eletrônico é um produto disponibilizado pela Cielo aos clientes que 
 
 ## Passo 1 - Login
 
-1 - O parceiro redireciona o cliente para {cielo-login-url}
-2 - O cliente entra com suas credenciais e clica em Entrar
-3 - A Cielo mostra os termos de autorização e o cliente aprova este acesso clicando em “Permitir Acesso”
-4 - A Cielo redireciona o cliente para o parceiro novamente em {partner-call-back-url}
+1 - O parceiro redireciona o cliente para `{cielo-login-url}`. <br>
+2 - O cliente entra com suas credenciais e clica em `Entrar`. <br>
+3 - A Cielo mostra os termos de autorização e o cliente aprova este acesso clicando em `Permitir Acesso`. <br>
+4 - A Cielo redireciona o cliente para o parceiro novamente em `partner-call-back-url`. <br>
 
 ![Login e Concessão de Acesso](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxo1_login.jpg)
 
