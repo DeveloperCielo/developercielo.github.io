@@ -358,6 +358,13 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 
 <h2 id="observação">Observação</h2>
 
+<ul>
+  <li>Todos os tokens (access_token e refresh_token) devem ser armazenados em um local seguro.</li>
+  <li>O parceiro precisam iniciar um novo fluxo de concessão se perderem os tokens ou ambos expirarem (O refresh_token tem expiração de 90 dias a partir da geração).</li>
+  <li>Caso gere um novo refresh_token este tem mais 90 dias a partir da geração para expirar.</li>
+  <li>O parceiro precisa iniciar um novo fluxo de concessão para cada cliente da Cielo que o parceiro deseja consultar os dados.</li>
+</ul>
+
 <h1 id="ambiente">Ambiente</h1>
 
 <table>
