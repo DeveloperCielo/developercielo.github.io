@@ -146,6 +146,25 @@
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxo1_login1.jpg" alt="Login e Concessão de Acesso" /></p>
 
+<blockquote>
+  <p>O que é cielo-login-url?</p>
+</blockquote>
+
+<p>https://<code class="highlighter-rouge">{base-login-url}</code>?response_type=code
+&amp;<code class="highlighter-rouge">client_id={client_id}</code>
+&amp;<code class="highlighter-rouge">redirect_uri={redirect_uri}</code>
+&amp;<code class="highlighter-rouge">scope={scope}</code>
+&amp;<code class="highlighter-rouge">state={state}</code></p>
+
+<ul>
+  <li><strong>base-login-url:</strong> URL base que muda por ambiente, serão enviadas em tempo de projeto</li>
+  <li><strong>response_type:</strong> O valor deve ser fixo “code”</li>
+  <li><strong>client_id:</strong> Identificador do cliente, será enviado pela Cielo em tempo de projeto</li>
+  <li><strong>redirect_uri:</strong> URL do parceiro para a Cielo redirecionar o usuário quando o processo de login terminar, ou se der algum erro no processo</li>
+  <li><strong>scope:</strong> Uma lista separada por vírgula das APIs que o parceiro deseja acessar, os possiveis escopos serão enviados por API.</li>
+  <li><strong>state:</strong> Um valor que o cliente deseja receber no retorno para manter o estado entre a requisição e o retorno</li>
+</ul>
+
 <h2 id="passo-2--requisitando-um-access-token">Passo 2 – Requisitando um Access Token</h2>
 
 <h2 id="passo-3--chamando-as-apis">Passo 3 – Chamando as APIs</h2>
