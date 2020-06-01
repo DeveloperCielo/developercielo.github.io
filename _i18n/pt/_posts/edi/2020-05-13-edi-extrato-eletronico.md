@@ -547,11 +547,7 @@ Grupo de vendas, ajustes ou cobrança de serviços. Permite identificar a origem
 |125|130|6|Num.|Quantidade de CVs aceitos|Quantidades de vendas aceitas no RO.|
 |131|132|2|Num.|Código do Produto (Desconsiderar)|A partir de 01/03/2014, o Identificador do produto passou a ser enviado nas posições 233-235 com três caracteres.|
 |133|138|6|Num.|Quantidades de CVs rejeitados|Quantidade de vendas rejeitadas no RO.|
-|139|139|1|Alfa|Identificador de revenda/aceleração|Identifica as ocorrências de manutenção em transações parceladas na loja: <br>`R` - Revenda <br> - `A` - Aceleração <br> `""` - Brancos (nenhuma ocorrência).
+|139|139|1|Alfa|Identificador de revenda/aceleração|Identifica as ocorrências de manutenção em transações parceladas na loja: <br>`R` - Revenda <br>`A` - Aceleração <br> `""` - Brancos (nenhuma ocorrência).
 |140|145|6|Num.|Data de captura da transação|AAMMDD - Data em que a transação foi capturada pela Cielo. Na recuperação, pode ser atualizada após o processamento da transação ou ajuste.|
 |146|147|2|Alfanum.|Origem do ajuste|Identifica o tipo de ajuste vide Tabela V. Preenchido se o tipo de transação for: <br> 02 Ajuste crédito <br> 03 Ajuste débito <br> 04 Ajuste aluguel|
 |148|160|13|Num.|Valor complementar|Valor do saque quando o produto for igual a 36 ou valor do Agro Electron para transações dos produtos 22 23 ou 25 apresentados na Tabela IV.|
-161 161 1 Alfa Identificador de Antecipação Identificador de antecipação do RO:<br> `" "` - Não antecipado;<br> `"A"` - Antecipado Cielo ou Alelo;<br> `C` - Antecipado no banco - Cessão de Recebíveis.
-|162|170|9|Num.|Número da operação de Antecipação|Identifica o número da operação de Antecipação apresentada no registro tipo 5 campo 12 ao 20, associada ao RO antecipado na Cielo/Alelo ou cedido no banco.<br> Conterá zeros, caso o RO não tenha sido antecipado.|
-|171|171|1|Alfa|Sinal do valor Bruto antecipado| `+` identifica valor a crédito. `-` - identifica valor a débito.|
-|172|184|13|Num.| Valor Bruto Antecipado `(*)`| Valor bruto antecipado, fornecido quando o RO for antecipado/cedido. Será preenchido com zeros quando não houver antecipação.|
