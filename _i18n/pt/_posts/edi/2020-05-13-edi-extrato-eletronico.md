@@ -491,3 +491,13 @@ Executa a lista de clientes abaixo do access_token informado. O filtro pode ser 
 |**07 Cessão de Recebíveis**|Operação de cessão realizada no banco Bradesco no dia anterior ao envio do arquivo e respectivo detalhe dos ROs cedidos. <br> Não é demonstrada a condição comercial negociada ou parcela cedida| 0 - Header <br> 5 - Detalhe de ARV <br> 6 -  Detalhe ROs antecipados 9 - Trailer <br> Obs.: Será demonstrado o registro tipo 5 para cada operação realizada. |Atualizar o fluxo de caixa, considerando os valores já recebidos através da operação de cessão.|
 |**09 Saldo em Aberto**|Valores a receber com a Cielo, contemplando as transações realizadas, capturadas e processadas, vendas a débito, crédito e parceladas ainda não liquidadas no movimento fechado no mês anterior. O arquivo é disponibilizado mensalmente.| 0 - Header <br> 1 - Detalhe RO <br> 9 - Trailer |Atualizar a previsão futura de recebimentos. Este extrato é o analítico da Carta Saldo (Carta de Circularização) encaminhado para fins de auditoria. Não deve ser utilizado para conciliação. |
 |**10 Antecipação de Recebíveis Alelo**|Operação de ARV realizada pela Alelo no dia anterior ao envio do arquivo e respectivo detalhe dos ROs e CVs que foram antecipados.|0 - Header <br> 5 - Detalhe de ARV <br> 6 - Detalhe ROs antecipados <br> 2 - Detalhe CV <br> 7 - Detalhe dos débitos de ROs Antecipados <br> 2 - Detalhe CV <br> 9 - Trailer <br> Obs.: Será demonstrado o registro tipo 5 para cada operação realizada. |Atualizar o fluxo de caixa, considerando os valores já recebidos através da antecipação.|
+
+## Layouts dos Tipos de Registros
+
+### Tabela B - Registro 0 - Header
+
+Identifica o cabeçalho de cada arquivo por matriz de extrato eletrônico*
+
+|Inicio|Fim|Tamanho|Tipo|Descrição|Edição dos Dados|
+|---|---|---|---|---|---|
+|001|001|1|Num.|Tipo de registro|Constante 0 : identifica o tipo de registro header (início do arquivo).|
