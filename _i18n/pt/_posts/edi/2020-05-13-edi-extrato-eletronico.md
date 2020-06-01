@@ -555,3 +555,9 @@ Grupo de vendas, ajustes ou cobrança de serviços. Permite identificar a origem
 |162|170|9|Num.|Número da operação de Antecipação|Identifica o número da operação de Antecipação apresentada no registro tipo 5 campo 12 ao 20, associada ao RO antecipado na Cielo/Alelo ou cedido no banco.<br> Conterá zeros, caso o RO não tenha sido antecipado.|
 |171|171|1|Alfa|Sinal do valor Bruto antecipado| `+` identifica valor a crédito. `-` - identifica valor a débito.|
 |172|184|13|Num.| Valor Bruto Antecipado `(*)`| Valor bruto antecipado, fornecido quando o RO for antecipado/cedido. Será preenchido com zeros quando não houver antecipação.|
+|185|187|3|Num.|Bandeira| Código da Bandeira vide tabela VI.|
+|188|209|22|Num.|Número Único do RO| Número Único de identificação do RO formatado da seguinte forma: <br>Primeira parte (fixa) 15 posições fixas: identifica o resumo mantendo o seu histórico na Cielo; <br> Segunda parte (variável) 07 posições variáveis: Identifica as alterações realizadas no RO.|
+|210|213|4Num.|Taxa Administrativa `(*)`| Percentual de taxa administrativa aplicado no valor da transação.|
+|214|218|5Num.|Tarifa Administrativa `(*)`| Tarifa cobrada por transação.|
+|219|222|4Num.|Taxa de Garantia `(*)`| Percentual de desconto aplicado sobre transações Electron Pré-Datado.|
+|223|224|2Num.|Meio de Captura|Vide tabela VII. Caso a venda tenha sido reprocessada, o sistema enviará o meio de captura 06: Meio de captura manual. Neste caso, desconsiderar o valor informado no número lógico do terminal.|
