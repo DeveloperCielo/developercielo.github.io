@@ -529,3 +529,10 @@ Grupo de vendas, ajustes ou cobrança de serviços. Permite identificar a origem
 |022|023|2|Alfanum.|Plano| No caso de venda parcelada, será formatado com o maior número de parcelas encontradas naquele grupo de vendas. Se o RO tiver vendas em 03, 04 ou 06 parcelas, será preenchido com 06. Se for uma aceleração de parcelas, será formatado com a maior parcela acelerada.<br> Exemplo: (posições 019 a 023) <br> 02A02 indica a aceleração da parcela 02 até a 02, ou seja, somente uma parcela. <br> 03A08 indica a aceleração da parcela 03 até a parcela 08 do plano da venda, ou seja, foram aceleradas 06 parcelas. <br> No caso de venda à vista, será formatado com brancos.<br>|
 |024|025|2|Num.|Tipo de Transação|Código que identifica a transação vide Tabela II.|
 |026|031|6|Num.|Data de apresentação|AAMMDD Data em que o RO foi transmitido para a Cielo.|
+|032|037|6|Num.|Data prevista de pagamento|AAMMDD Data prevista de pagamento. Na recuperação, pode ser atualizada após o processamento da transação ou ajuste.|
+|038|043|6|Num.|Data de envio ao banco|AAMMDD Data em que o arquivo de pagamento foi enviado ao banco. Na recuperação, pode ser atualizada após o processamento da transação ou ajuste.|
+|044|044|1|Alfa| Sinal do valor bruto|`+` - identifica valor a crédito. <br> `-` - identifica valor a débito.|
+|045|057|13|Num.| Valor bruto (*)| Somatória dos valores de venda.|
+|058|058|1|Alfa|Sinal da taxa administrativa|`+` - identifica valor a crédito. <br> `-` - identifica valor a débito.|
+|059|071|13|Num.|Valor da taxa administrativa (*)|Valor da taxa administrativa descontada sobre as vendas.|
+|072|072|1|Alfa| Sinal do valor rejeitado| `+` identifica valor a crédito.<br> `-` - identifica valor a débito.
