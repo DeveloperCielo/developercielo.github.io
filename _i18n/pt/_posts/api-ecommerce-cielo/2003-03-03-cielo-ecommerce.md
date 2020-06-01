@@ -4488,14 +4488,14 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 
 ### Tabela 14 - Payment.FraudAnalysis.Status
 
-|Valor|Descrição|
+|Código|Descrição|
 |:-|:-|
-|Accept|Transação aceita após análise de fraude|
-|Review|Transação em revisão após análise de fraude|
-|Reject|Transação rejeitada após análise de fraude|
-|Pendent|Transação pendente, pois ao enviar a mesma para análise de fraude ocorreu um timeout na resposta entre Cielo e Cybersource|
-|Unfinished|Transação não finalizada por algum motivo de validação de contrato ou erro interno|
-|ProviderError|Transação com erro no provedor ao ser enviada para análise|
+|0|Unknown|
+|1|Accept|
+|2|Reject|
+|3|Review|
+|4|Aborted|
+|5|Unfinished|
 
 ### Tabela 15 - Payment.FraudAnalysis.FraudAnalysisReasonCode
 
