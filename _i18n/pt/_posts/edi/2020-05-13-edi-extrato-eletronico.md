@@ -561,3 +561,6 @@ Grupo de vendas, ajustes ou cobrança de serviços. Permite identificar a origem
 |214|218|5|Num.|Tarifa Administrativa `(*)`| Tarifa cobrada por transação.|
 |219|222|4|Num.|Taxa de Garantia `(*)`| Percentual de desconto aplicado sobre transações Electron Pré-Datado.|
 |223|224|2|Num.|Meio de Captura|Vide tabela VII. Caso a venda tenha sido reprocessada, o sistema enviará o meio de captura 06: Meio de captura manual. Neste caso, desconsiderar o valor informado no número lógico do terminal.|
+|225|232|8|Alfanum.|Número lógico do terminal|Número lógico do terminal onde foi efetuada a venda. Quando o meio de captura for igual a 06, desconsiderar o número lógico do terminal, pois este será um número interno da Cielo.|
+|233|235|3|Num.|Código do Produto|Código que identifica o produto vide Tabela IV.|
+|236|245|10|Num. Matriz de Pagamento Estabelecimento matriz de pagamento.|
