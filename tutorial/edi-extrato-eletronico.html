@@ -1306,11 +1306,6 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
       <td>Tipo de Transação</td>
       <td>Código que identifica a transação vide Tabela II.</td>
     </tr>
-  </tbody>
-</table>
-
-<table>
-  <tbody>
     <tr>
       <td>026</td>
       <td>031</td>
@@ -1566,6 +1561,30 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
       <td>Num.</td>
       <td>Meio de Captura</td>
       <td>Vide tabela VII. Caso a venda tenha sido reprocessada, o sistema enviará o meio de captura 06: Meio de captura manual. Neste caso, desconsiderar o valor informado no número lógico do terminal.</td>
+    </tr>
+    <tr>
+      <td>225</td>
+      <td>232</td>
+      <td>8</td>
+      <td>Alfanum.</td>
+      <td>Número lógico do terminal</td>
+      <td>Número lógico do terminal onde foi efetuada a venda. Quando o meio de captura for igual a 06, desconsiderar o número lógico do terminal, pois este será um número interno da Cielo.</td>
+    </tr>
+    <tr>
+      <td>233</td>
+      <td>235</td>
+      <td>3</td>
+      <td>Num.</td>
+      <td>Código do Produto</td>
+      <td>Código que identifica o produto vide Tabela IV.</td>
+    </tr>
+    <tr>
+      <td>236</td>
+      <td>245</td>
+      <td>10</td>
+      <td>Num. Matriz de Pagamento Estabelecimento matriz de pagamento.</td>
+      <td> </td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
