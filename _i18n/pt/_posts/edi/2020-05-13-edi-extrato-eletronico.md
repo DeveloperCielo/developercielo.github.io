@@ -501,3 +501,16 @@ Identifica o cabeçalho de cada arquivo por matriz de extrato eletrônico*
 |Inicio|Fim|Tamanho|Tipo|Descrição|Edição dos Dados|
 |---|---|---|---|---|---|
 |001|001|1|Num.|Tipo de registro|Constante 0 : identifica o tipo de registro header (início do arquivo).|
+|002|011|10|Num.|Estabelecimento Matriz Número do estabelecimento matriz de extrato eletrônico.|
+|012|019|8|Num.|Data de processamento AAAAMMDD data em que o arquivo foi gerado.|
+|020|027|8|Num.|Período inicial AAAAMMDD período inicial.|
+|028|035|8|Num.|Período final AAAAMMDD período final.|
+|036|042|7|Num.|Sequência Número sequencial do arquivo. Nos casos de recuperação, este dado será enviado como 9999999.|
+|043|047|5|Alfa.|Empresa adquirente Constante Cielo.|
+|048|049|2|Num.|Opção de extrato Vide Tabela I.|
+|050|050|1|Alfa.|Transmissão Cielo.|
+|051|070|20|Alfanum.|Caixa Postal Caixa postal.|
+|071|073|3|Num.|Versão Layout Constante 013.|
+|074|250|177|Alfanum.|Uso Cielo Em Branco. Reservado para Cielo.|
+
+* **(*)** cadastro que permite a inclusão de todos os estabelecimentos controlados pelo cliente, independente do tipo de pagamento (centralizado, descentralizado, individual). Todos os números de estabelecimento (número do cliente na Cielo) devem ser informados no formulário de cadastro.
