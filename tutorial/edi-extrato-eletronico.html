@@ -1487,6 +1487,38 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
       <td>Valor complementar</td>
       <td>Valor do saque quando o produto for igual a 36 ou valor do Agro Electron para transações dos produtos 22 23 ou 25 apresentados na Tabela IV.</td>
     </tr>
+    <tr>
+      <td>161</td>
+      <td>161</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Identificador de Antecipação Identificador de antecipação do RO:<br /> <code class="highlighter-rouge">" "</code> - Não antecipado;<br /> <code class="highlighter-rouge">"A"</code> - Antecipado Cielo ou Alelo;<br /> <code class="highlighter-rouge">C</code> - Antecipado no banco - Cessão de Recebíveis.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>162</td>
+      <td>170</td>
+      <td>9</td>
+      <td>Num.</td>
+      <td>Número da operação de Antecipação</td>
+      <td>Identifica o número da operação de Antecipação apresentada no registro tipo 5 campo 12 ao 20, associada ao RO antecipado na Cielo/Alelo ou cedido no banco.<br /> Conterá zeros, caso o RO não tenha sido antecipado.</td>
+    </tr>
+    <tr>
+      <td>171</td>
+      <td>171</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor Bruto antecipado</td>
+      <td><code class="highlighter-rouge">+</code> identifica valor a crédito. <code class="highlighter-rouge">-</code> - identifica valor a débito.</td>
+    </tr>
+    <tr>
+      <td>172</td>
+      <td>184</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor Bruto Antecipado <code class="highlighter-rouge">(*)</code></td>
+      <td>Valor bruto antecipado, fornecido quando o RO for antecipado/cedido. Será preenchido com zeros quando não houver antecipação.</td>
+    </tr>
   </tbody>
 </table>
 
