@@ -1238,60 +1238,19 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 
 <p>Grupo de vendas, ajustes ou cobrança de serviços. Permite identificar a origem dos lançamentos e as ações de manutenção.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Inicio</th>
-      <th>Fim</th>
-      <th>Tamanho</th>
-      <th>Tipo</th>
-      <th>Descrição</th>
-      <th>Edição dos Dados</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>001</td>
-      <td>001</td>
-      <td>1</td>
-      <td>Num.</td>
-      <td>Tipo de registro</td>
-      <td>Constante 1 - Identifica o tipo de registro detalhe do RO.</td>
-    </tr>
-    <tr>
-      <td>002</td>
-      <td>011</td>
-      <td>10</td>
-      <td>Num.</td>
-      <td>Estabelecimento</td>
-      <td>Submissor Número do estabelecimento e/ou filial onde a venda foi realizada.</td>
-    </tr>
-    <tr>
-      <td>012</td>
-      <td>018</td>
-      <td>7</td>
-      <td>Num.</td>
-      <td>Número do RO</td>
-      <td>Número do resumo de operação. Contêm informações referentes a um grupo de vendas realizadas em uma determinada data.</td>
-    </tr>
-    <tr>
-      <td>019</td>
-      <td>020</td>
-      <td>2</td>
-      <td>Num.</td>
-      <td>Parcela</td>
-      <td>No caso de venda parcelada, será formatado com o número da parcela que está sendo liberada na data do envio do arquivo. No caso de venda à vista, será formatado com brancos.</td>
-    </tr>
-    <tr>
-      <td>021</td>
-      <td>021</td>
-      <td>1</td>
-      <td>Alfa</td>
-      <td>Filler</td>
-      <td><code class="highlighter-rouge">"/"</code> - Para vendas parceladas. <br /> <code class="highlighter-rouge">"a"</code> - aceleração das parcelas. <br /> <code class="highlighter-rouge">" "</code> - demais situações.</td>
-    </tr>
-  </tbody>
-</table>
+<p>|Inicio|Fim|Tamanho|Tipo|Descrição|Edição dos Dados|
+|—|—|—|—|—|—|
+|001|001|1|Num.|Tipo de registro|Constante 1 - Identifica o tipo de registro detalhe do RO.|
+|002|011|10|Num.|Estabelecimento|Submissor Número do estabelecimento e/ou filial onde a venda foi realizada.|
+|012|018|7|Num.|Número do RO|Número do resumo de operação. Contêm informações referentes a um grupo de vendas realizadas em uma determinada data.|
+|019|020|2|Num.|Parcela| No caso de venda parcelada, será formatado com o número da parcela que está sendo liberada na data do envio do arquivo. No caso de venda à vista, será formatado com brancos.|
+|021|021|1|Alfa|Filler|<code class="highlighter-rouge">"/"</code> - Para vendas parceladas. <br /> <code class="highlighter-rouge">"a"</code> - aceleração das parcelas. <br /> <code class="highlighter-rouge">" "</code> - demais situações.|
+|022|023|2|Alfanum.|Plano| No caso de venda parcelada, será formatado com o maior número de parcelas encontradas naquele grupo de vendas. Se o RO tiver
+vendas em 03, 04 ou 06 parcelas, será preenchido com 06. Se for uma aceleração de parcelas, será formatado com a maior parcela acelerada.<br />
+Exemplo: (posições 019 a 023) <br />
+02A02 indica a aceleração da parcela 02 até a 02, ou seja, somente uma parcela. <br />
+03A08 indica a aceleração da parcela 03 até a parcela 08 do plano da venda, ou seja, foram aceleradas 06 parcelas. <br />
+No caso de venda à vista, será formatado com brancos.<br />|</p>
 
 </div>
 
