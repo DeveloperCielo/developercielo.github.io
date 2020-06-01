@@ -1309,32 +1309,186 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </tbody>
 </table>
 
-<p>|026|031|6|Num.|Data de apresentação|AAMMDD Data em que o RO foi transmitido para a Cielo.|
-|032|037|6|Num.|Data prevista de pagamento|AAMMDD Data prevista de pagamento. Na recuperação, pode ser atualizada após o processamento da transação ou ajuste.|
-|038|043|6|Num.|Data de envio ao banco|AAMMDD Data em que o arquivo de pagamento foi enviado ao banco. Na recuperação, pode ser atualizada após o processamento da transação ou ajuste.|
-|044|044|1|Alfa|Sinal do valor bruto|<code class="highlighter-rouge">+</code> - identifica valor a crédito. <br /> <code class="highlighter-rouge">-</code> - identifica valor a débito.|
-|045|057|13|Num.|Valor bruto <code class="highlighter-rouge">(*)</code>| Somatória dos valores de venda.|
-|058|058|1|Alfa|Sinal da taxa administrativa|<code class="highlighter-rouge">+</code> - identifica valor a crédito. <br /> <code class="highlighter-rouge">-</code> - identifica valor a débito.|
-|059|071|13|Num.|Valor da taxa administrativa <code class="highlighter-rouge">(*)</code>|Valor da taxa administrativa descontada sobre as vendas.|
-|072|072|1|Alfa|Sinal do valor rejeitado| <code class="highlighter-rouge">+</code> identifica valor a crédito.<br /> <code class="highlighter-rouge">-</code> - identifica valor a débito.
-|073|085|13|Num.|Valor rejeitado <code class="highlighter-rouge">(*)</code>| Se houver rejeição, será preenchido com a somatória das transações rejeitadas.
-|086|086|1|Alfa|Sinal do valor líquido| <code class="highlighter-rouge">+</code> identifica o valor a crédito. <br /> <code class="highlighter-rouge">-</code> - identifica o valor a débito.
-|087|099|13|Num.|Valor líquido <code class="highlighter-rouge">(*)</code>| Valor das vendas descontado o valor da taxa administrativa.
-|100|103|4|Alfanum.|Banco|Código do banco no qual os valores foram depositados.
-|104|108|5|Alfanum.|Agência|Código da agência na qual os valores foram depositados.
-|109|122|14|Alfanum.|Conta-corrente / poupança|Conta-corrente / poupança na qual os valores foram depositados.
-|123|124|2|Num.|Status do pagamento| Identifica a situação em que se encontram os créditos enviados ao banco vide Tabela III. Na recuperação, o status é atualizado de acordo com o envio e retorno de confirmação de pagamento por parte do banco.|
-|125|130|6|Num.|Quantidade de CVs aceitos|Quantidades de vendas aceitas no RO.|
-|131|132|2|Num.|Código do Produto (Desconsiderar)|A partir de 01/03/2014, o Identificador do produto passou a ser enviado nas posições 233-235 com três caracteres.|
-|133|138|6|Num.|Quantidades de CVs rejeitados|Quantidade de vendas rejeitadas no RO.|
-|139|139|1|Alfa|Identificador de revenda/aceleração|Identifica as ocorrências de manutenção em transações parceladas na loja: <br /><code class="highlighter-rouge">R</code> - Revenda <br /> - <code class="highlighter-rouge">A</code> - Aceleração <br /> <code class="highlighter-rouge">""</code> - Brancos (nenhuma ocorrência).
-|140|145|6|Num.|Data de captura da transação|AAMMDD - Data em que a transação foi capturada pela Cielo. Na recuperação, pode ser atualizada após o processamento da transação ou ajuste.|
-|146|147|2|Alfanum.|Origem do ajuste|Identifica o tipo de ajuste vide Tabela V. Preenchido se o tipo de transação for: <br /> 02 Ajuste crédito <br /> 03 Ajuste débito <br /> 04 Ajuste aluguel|
-|148|160|13|Num.|Valor complementar|Valor do saque quando o produto for igual a 36 ou valor do Agro Electron para transações dos produtos 22 23 ou 25 apresentados na Tabela IV.|
-161 161 1 Alfa Identificador de Antecipação Identificador de antecipação do RO:<br /> <code class="highlighter-rouge">" "</code> - Não antecipado;<br /> <code class="highlighter-rouge">"A"</code> - Antecipado Cielo ou Alelo;<br /> <code class="highlighter-rouge">C</code> - Antecipado no banco - Cessão de Recebíveis.
-|162|170|9|Num.|Número da operação de Antecipação|Identifica o número da operação de Antecipação apresentada no registro tipo 5 campo 12 ao 20, associada ao RO antecipado na Cielo/Alelo ou cedido no banco.<br /> Conterá zeros, caso o RO não tenha sido antecipado.|
-|171|171|1|Alfa|Sinal do valor Bruto antecipado| <code class="highlighter-rouge">+</code> identifica valor a crédito. <code class="highlighter-rouge">-</code> - identifica valor a débito.|
-|172|184|13|Num.| Valor Bruto Antecipado <code class="highlighter-rouge">(*)</code>| Valor bruto antecipado, fornecido quando o RO for antecipado/cedido. Será preenchido com zeros quando não houver antecipação.|</p>
+<table>
+  <tbody>
+    <tr>
+      <td>026</td>
+      <td>031</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Data de apresentação</td>
+      <td>AAMMDD Data em que o RO foi transmitido para a Cielo.</td>
+    </tr>
+    <tr>
+      <td>032</td>
+      <td>037</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Data prevista de pagamento</td>
+      <td>AAMMDD Data prevista de pagamento. Na recuperação, pode ser atualizada após o processamento da transação ou ajuste.</td>
+    </tr>
+    <tr>
+      <td>038</td>
+      <td>043</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Data de envio ao banco</td>
+      <td>AAMMDD Data em que o arquivo de pagamento foi enviado ao banco. Na recuperação, pode ser atualizada após o processamento da transação ou ajuste.</td>
+    </tr>
+    <tr>
+      <td>044</td>
+      <td>044</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor bruto</td>
+      <td><code class="highlighter-rouge">+</code> - identifica valor a crédito. <br /> <code class="highlighter-rouge">-</code> - identifica valor a débito.</td>
+    </tr>
+    <tr>
+      <td>045</td>
+      <td>057</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor bruto <code class="highlighter-rouge">(*)</code></td>
+      <td>Somatória dos valores de venda.</td>
+    </tr>
+    <tr>
+      <td>058</td>
+      <td>058</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal da taxa administrativa</td>
+      <td><code class="highlighter-rouge">+</code> - identifica valor a crédito. <br /> <code class="highlighter-rouge">-</code> - identifica valor a débito.</td>
+    </tr>
+    <tr>
+      <td>059</td>
+      <td>071</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor da taxa administrativa <code class="highlighter-rouge">(*)</code></td>
+      <td>Valor da taxa administrativa descontada sobre as vendas.</td>
+    </tr>
+    <tr>
+      <td>072</td>
+      <td>072</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor rejeitado</td>
+      <td><code class="highlighter-rouge">+</code> identifica valor a crédito.<br /> <code class="highlighter-rouge">-</code> - identifica valor a débito.</td>
+    </tr>
+    <tr>
+      <td>073</td>
+      <td>085</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor rejeitado <code class="highlighter-rouge">(*)</code></td>
+      <td>Se houver rejeição, será preenchido com a somatória das transações rejeitadas.</td>
+    </tr>
+    <tr>
+      <td>086</td>
+      <td>086</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor líquido</td>
+      <td><code class="highlighter-rouge">+</code> identifica o valor a crédito. <br /> <code class="highlighter-rouge">-</code> - identifica o valor a débito.</td>
+    </tr>
+    <tr>
+      <td>087</td>
+      <td>099</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor líquido <code class="highlighter-rouge">(*)</code></td>
+      <td>Valor das vendas descontado o valor da taxa administrativa.</td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>103</td>
+      <td>4</td>
+      <td>Alfanum.</td>
+      <td>Banco</td>
+      <td>Código do banco no qual os valores foram depositados.</td>
+    </tr>
+    <tr>
+      <td>104</td>
+      <td>108</td>
+      <td>5</td>
+      <td>Alfanum.</td>
+      <td>Agência</td>
+      <td>Código da agência na qual os valores foram depositados.</td>
+    </tr>
+    <tr>
+      <td>109</td>
+      <td>122</td>
+      <td>14</td>
+      <td>Alfanum.</td>
+      <td>Conta-corrente / poupança</td>
+      <td>Conta-corrente / poupança na qual os valores foram depositados.</td>
+    </tr>
+    <tr>
+      <td>123</td>
+      <td>124</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Status do pagamento</td>
+      <td>Identifica a situação em que se encontram os créditos enviados ao banco vide Tabela III. Na recuperação, o status é atualizado de acordo com o envio e retorno de confirmação de pagamento por parte do banco.</td>
+    </tr>
+    <tr>
+      <td>125</td>
+      <td>130</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Quantidade de CVs aceitos</td>
+      <td>Quantidades de vendas aceitas no RO.</td>
+    </tr>
+    <tr>
+      <td>131</td>
+      <td>132</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Código do Produto (Desconsiderar)</td>
+      <td>A partir de 01/03/2014, o Identificador do produto passou a ser enviado nas posições 233-235 com três caracteres.</td>
+    </tr>
+    <tr>
+      <td>133</td>
+      <td>138</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Quantidades de CVs rejeitados</td>
+      <td>Quantidade de vendas rejeitadas no RO.</td>
+    </tr>
+    <tr>
+      <td>139</td>
+      <td>139</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Identificador de revenda/aceleração</td>
+      <td>Identifica as ocorrências de manutenção em transações parceladas na loja: <br /><code class="highlighter-rouge">R</code> - Revenda <br /><code class="highlighter-rouge">A</code> - Aceleração <br /> <code class="highlighter-rouge">""</code> - Brancos (nenhuma ocorrência).</td>
+    </tr>
+    <tr>
+      <td>140</td>
+      <td>145</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Data de captura da transação</td>
+      <td>AAMMDD - Data em que a transação foi capturada pela Cielo. Na recuperação, pode ser atualizada após o processamento da transação ou ajuste.</td>
+    </tr>
+    <tr>
+      <td>146</td>
+      <td>147</td>
+      <td>2</td>
+      <td>Alfanum.</td>
+      <td>Origem do ajuste</td>
+      <td>Identifica o tipo de ajuste vide Tabela V. Preenchido se o tipo de transação for: <br /> 02 Ajuste crédito <br /> 03 Ajuste débito <br /> 04 Ajuste aluguel</td>
+    </tr>
+    <tr>
+      <td>148</td>
+      <td>160</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor complementar</td>
+      <td>Valor do saque quando o produto for igual a 36 ou valor do Agro Electron para transações dos produtos 22 23 ou 25 apresentados na Tabela IV.</td>
+    </tr>
+  </tbody>
+</table>
 
 </div>
 
