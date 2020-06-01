@@ -1306,6 +1306,11 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
       <td>Tipo de Transação</td>
       <td>Código que identifica a transação vide Tabela II.</td>
     </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
     <tr>
       <td>026</td>
       <td>031</td>
@@ -1343,7 +1348,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
       <td>057</td>
       <td>13</td>
       <td>Num.</td>
-      <td>Valor bruto (*)</td>
+      <td>Valor bruto <code class="highlighter-rouge">(*)</code></td>
       <td>Somatória dos valores de venda.</td>
     </tr>
     <tr>
@@ -1359,7 +1364,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
       <td>071</td>
       <td>13</td>
       <td>Num.</td>
-      <td>Valor da taxa administrativa (*)</td>
+      <td>Valor da taxa administrativa <code class="highlighter-rouge">(*)</code></td>
       <td>Valor da taxa administrativa descontada sobre as vendas.</td>
     </tr>
     <tr>
@@ -1369,6 +1374,70 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
       <td>Alfa</td>
       <td>Sinal do valor rejeitado</td>
       <td><code class="highlighter-rouge">+</code> identifica valor a crédito.<br /> <code class="highlighter-rouge">-</code> - identifica valor a débito.</td>
+    </tr>
+    <tr>
+      <td>073</td>
+      <td>085</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor rejeitado <code class="highlighter-rouge">(*)</code></td>
+      <td>Se houver rejeição, será preenchido com a somatória das transações rejeitadas.</td>
+    </tr>
+    <tr>
+      <td>086</td>
+      <td>086</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor líquido</td>
+      <td><code class="highlighter-rouge">+</code> identifica o valor a crédito. <br /> <code class="highlighter-rouge">-</code> - identifica o valor a débito.</td>
+    </tr>
+    <tr>
+      <td>087</td>
+      <td>099</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor líquido <code class="highlighter-rouge">(*)</code></td>
+      <td>Valor das vendas descontado o valor da taxa administrativa.</td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>103</td>
+      <td>4</td>
+      <td>Alfanum.</td>
+      <td>Banco</td>
+      <td>Código do banco no qual os valores foram depositados.</td>
+    </tr>
+    <tr>
+      <td>104</td>
+      <td>108</td>
+      <td>5</td>
+      <td>Alfanum.</td>
+      <td>Agência</td>
+      <td>Código da agência na qual os valores foram depositados.</td>
+    </tr>
+    <tr>
+      <td>109</td>
+      <td>122</td>
+      <td>14</td>
+      <td>Alfanum.</td>
+      <td>Conta-corrente / poupança</td>
+      <td>Conta-corrente / poupança na qual os valores foram depositados.</td>
+    </tr>
+    <tr>
+      <td>123</td>
+      <td>124</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Status do pagamento</td>
+      <td>Identifica a situação em que se encontram os créditos enviados ao banco vide Tabela III. Na recuperação, o status é atualizado de acordo com o envio e retorno de confirmação de pagamento por parte do banco.</td>
+    </tr>
+    <tr>
+      <td>125</td>
+      <td>130</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Quantidade de CVs aceitos</td>
+      <td>Quantidades de vendas aceitas no RO.</td>
     </tr>
   </tbody>
 </table>
