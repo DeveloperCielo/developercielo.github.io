@@ -545,3 +545,9 @@ Grupo de vendas, ajustes ou cobrança de serviços. Permite identificar a origem
 |109|122|14|Alfanum.|Conta-corrente / poupança|Conta-corrente / poupança na qual os valores foram depositados.
 |123|124|2|Num.|Status do pagamento| Identifica a situação em que se encontram os créditos enviados ao banco vide Tabela III. Na recuperação, o status é atualizado de acordo com o envio e retorno de confirmação de pagamento por parte do banco.|
 |125|130|6|Num.|Quantidade de CVs aceitos|Quantidades de vendas aceitas no RO.|
+|131|132|2|Num.|Código do Produto (Desconsiderar)|A partir de 01/03/2014, o Identificador do produto passou a ser enviado nas posições 233-235 com três caracteres.|
+|133|138|6|Num.|Quantidades de CVs rejeitados|Quantidade de vendas rejeitadas no RO.|
+|139|139|1|Alfa|Identificador de revenda/aceleração|Identifica as ocorrências de manutenção em transações parceladas na loja: <br>`R` - Revenda <br> - `A` - Aceleração <br> `""` - Brancos (nenhuma ocorrência).
+|140|145|6|Num.|Data de captura da transação|AAMMDD - Data em que a transação foi capturada pela Cielo. Na recuperação, pode ser atualizada após o processamento da transação ou ajuste.|
+|146|147|2|Alfanum.|Origem do ajuste|Identifica o tipo de ajuste vide Tabela V. Preenchido se o tipo de transação for: <br> 02 Ajuste crédito <br> 03 Ajuste débito <br> 04 Ajuste aluguel|
+|148|160|13|Num.|Valor complementar|Valor do saque quando o produto for igual a 36 ou valor do Agro Electron para transações dos produtos 22 23 ou 25 apresentados na Tabela IV.|
