@@ -1139,8 +1139,100 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
       <td>Tipo de registro</td>
       <td>Constante 0 : identifica o tipo de registro header (início do arquivo).</td>
     </tr>
+    <tr>
+      <td>002</td>
+      <td>011</td>
+      <td>10</td>
+      <td>Num.</td>
+      <td>Estabelecimento Matriz Número do estabelecimento matriz de extrato eletrônico.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>019</td>
+      <td>8</td>
+      <td>Num.</td>
+      <td>Data de processamento AAAAMMDD data em que o arquivo foi gerado.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>020</td>
+      <td>027</td>
+      <td>8</td>
+      <td>Num.</td>
+      <td>Período inicial AAAAMMDD período inicial.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>028</td>
+      <td>035</td>
+      <td>8</td>
+      <td>Num.</td>
+      <td>Período final AAAAMMDD período final.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>036</td>
+      <td>042</td>
+      <td>7</td>
+      <td>Num.</td>
+      <td>Sequência Número sequencial do arquivo. Nos casos de recuperação, este dado será enviado como 9999999.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>043</td>
+      <td>047</td>
+      <td>5</td>
+      <td>Alfa.</td>
+      <td>Empresa adquirente Constante Cielo.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>048</td>
+      <td>049</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Opção de extrato Vide Tabela I.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>050</td>
+      <td>050</td>
+      <td>1</td>
+      <td>Alfa.</td>
+      <td>Transmissão Cielo.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>051</td>
+      <td>070</td>
+      <td>20</td>
+      <td>Alfanum.</td>
+      <td>Caixa Postal Caixa postal.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>071</td>
+      <td>073</td>
+      <td>3</td>
+      <td>Num.</td>
+      <td>Versão Layout Constante 013.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>074</td>
+      <td>250</td>
+      <td>177</td>
+      <td>Alfanum.</td>
+      <td>Uso Cielo Em Branco. Reservado para Cielo.</td>
+      <td> </td>
+    </tr>
   </tbody>
 </table>
+
+<ul>
+  <li><strong>(*)</strong> cadastro que permite a inclusão de todos os estabelecimentos controlados pelo cliente, independente do tipo de pagamento (centralizado, descentralizado, individual). Todos os números de estabelecimento (número do cliente na Cielo) devem ser informados no formulário de cadastro.</li>
+</ul>
 
 </div>
 
