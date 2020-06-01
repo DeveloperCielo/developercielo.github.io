@@ -514,3 +514,14 @@ Identifica o cabeçalho de cada arquivo por matriz de extrato eletrônico*
 |074|250|177|Alfanum.|Uso Cielo Em Branco. Reservado para Cielo.|
 
 * **(*)** cadastro que permite a inclusão de todos os estabelecimentos controlados pelo cliente, independente do tipo de pagamento (centralizado, descentralizado, individual). Todos os números de estabelecimento (número do cliente na Cielo) devem ser informados no formulário de cadastro.
+
+### Registro 1 - Detalhe do Resumo de Operações (RO)
+
+Grupo de vendas, ajustes ou cobrança de serviços. Permite identificar a origem dos lançamentos e as ações de manutenção.
+
+|Inicio|Fim|Tamanho|Tipo|Descrição|Edição dos Dados|
+|---|---|---|---|---|---|
+|001|001|1|Num.|Tipo de registro Constante 1 - Identifica o tipo de registro detalhe do RO.|
+|002|011|10|Num.|Estabelecimento Submissor Número do estabelecimento e/ou filial onde a venda foi realizada.|
+|012|018|7|Num.|Número do RO Número do resumo de operação. Contêm informações referentes a um grupo de vendas realizadas em uma determinada data.|
+|019|020|2|Num.|Parcela No caso de venda parcelada, será formatado com o número da parcela que está sendo liberada na data do envio do arquivo. No caso de venda à vista, será formatado com brancos.|
