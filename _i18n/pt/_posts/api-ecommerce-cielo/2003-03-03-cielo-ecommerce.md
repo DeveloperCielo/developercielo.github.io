@@ -3929,146 +3929,146 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 
 ```json
 {  
-   "MerchantOrderId":"2017051002",
-   "Customer":{  
-      "Name":"Nome do Comprador",
-      "Identity":"12345678910",
-      "IdentityType":"CPF",
-      "Email":"comprador@provedor.com.br",
-      "Birthdate":"1991-01-02",
-      "Phone": "5521976781114",
-      "BillingAddress":{  
-         "Street":"Alameda Xingu",
-         "Number":"512",
-         "Complement":"27 andar",
-         "ZipCode":"12345987",
-         "City":"São Paulo",
-         "State":"SP",
-         "Country":"BR",
-         "District":"Alphaville"
-      },
-      "DeliveryAddress":{  
-         "Street":"Alameda Xingu",
-         "Number":"512",
-         "Complement":"27 andar",
-         "ZipCode":"12345987",
-         "City":"São Paulo",
-         "State":"SP",
-         "Country":"BR",
-         "District":"Alphaville"
-      }
-   },
-   "Payment":{  
-      "Type":"CreditCard",
-      "Amount":10000,
-      "Currency":"BRL",
-      "Country":"BRA",
-	  "ServiceTaxAmount":0,
-      "Installments":1,
-      "Interest":"ByMerchant",
-      "Capture":false,
-      "Authenticate":false,
-      "SoftDescriptor":"Mensagem",
-      "CreditCard":{  
-         "CardNumber":"4551870000000181",
-         "Holder":"Nome do Portador",
-         "ExpirationDate":"12/2021",
-         "SecurityCode":"123",
-         "Brand":"Visa",
-         "SaveCard":"false"
-      },
-      "FraudAnalysis":{  
-         "Provider":"Cybersource",
-		 "Sequence":"AuthorizeFirst",
-         "SequenceCriteria":"OnSuccess",
-         "CaptureOnLowRisk":false,
-         "VoidOnHighRisk":false,
-         "TotalOrderAmount":10000,
-         "Browser":{  
-            "BrowserFingerprint":"074c1ee676ed4998ab66491013c565e2",
-            "CookiesAccepted":false,
-            "Email":"comprador@test.com.br",
-            "HostName":"Teste",
-            "IpAddress":"127.0.0.1",
-            "Type":"Chrome"
-         },
-         "Cart":{  
-            "IsGift":false,
-            "ReturnsAccepted":true,
-            "Items":[  
-               {  
-                  "GiftCategory":"Undefined",
-                  "HostHedge":"Off",
-                  "NonSensicalHedge":"Off",
-                  "ObscenitiesHedge":"Off",
-                  "PhoneHedge":"Off",
-                  "Name":"ItemTeste1",
-                  "Quantity":1,
-                  "Sku":"20170511",
-                  "UnitPrice":10000,
-                  "Risk":"High",
-                  "TimeHedge":"Normal",
-                  "Type":"AdultContent",
-                  "VelocityHedge":"High"
-               },
-               {  
-                  "GiftCategory":"Undefined",
-                  "HostHedge":"Off",
-                  "NonSensicalHedge":"Off",
-                  "ObscenitiesHedge":"Off",
-                  "PhoneHedge":"Off",
-                  "Name":"ItemTeste2",
-                  "Quantity":1,
-                  "Sku":"20170512",
-                  "UnitPrice":10000,
-                  "Risk":"High",
-                  "TimeHedge":"Normal",
-                  "Type":"AdultContent",
-                  "VelocityHedge":"High"
-               }
-            ]
-         },
-         "MerchantDefinedFields":[  
-            {  
-               "Id":2,
-               "Value":"100"
+    "MerchantOrderId":"2017051002",
+    "Customer":{  
+        "Name":"Nome do Comprador",
+        "Identity":"12345678910",
+        "IdentityType":"CPF",
+        "Email":"comprador@provedor.com.br",
+        "Birthdate":"1991-01-02",
+        "Phone": "5521976781114",
+        "BillingAddress":{  
+            "Street":"Alameda Xingu",
+            "Number":"512",
+            "Complement":"27 andar",
+            "ZipCode":"12345987",
+            "City":"São Paulo",
+            "State":"SP",
+            "Country":"BR",
+            "District":"Alphaville"
+        },
+        "DeliveryAddress":{  
+            "Street":"Alameda Xingu",
+            "Number":"512",
+            "Complement":"27 andar",
+            "ZipCode":"12345987",
+            "City":"São Paulo",
+            "State":"SP",
+            "Country":"BR",
+            "District":"Alphaville"
+        }
+    },
+    "Payment":{  
+        "Type":"CreditCard",
+        "Amount":10000,
+        "Currency":"BRL",
+        "Country":"BRA",
+        "ServiceTaxAmount":0,
+        "Installments":1,
+        "Interest":"ByMerchant",
+        "Capture":false,
+        "Authenticate":false,
+        "SoftDescriptor":"Mensagem",
+        "CreditCard":{  
+            "CardNumber":"4551870000000181",
+            "Holder":"Nome do Portador",
+            "ExpirationDate":"12/2021",
+            "SecurityCode":"123",
+            "Brand":"Visa",
+            "SaveCard":"false"
+        },
+        "FraudAnalysis":{  
+            "Provider":"Cybersource",
+            "Sequence":"AuthorizeFirst",
+            "SequenceCriteria":"OnSuccess",
+            "CaptureOnLowRisk":false,
+            "VoidOnHighRisk":false,
+            "TotalOrderAmount":10000,
+            "Browser":{  
+                "BrowserFingerprint":"074c1ee676ed4998ab66491013c565e2",
+                "CookiesAccepted":false,
+                "Email":"comprador@test.com.br",
+                "HostName":"Teste",
+                "IpAddress":"127.0.0.1",
+                "Type":"Chrome"
             },
-            {  
-               "Id":4,
-               "Value":"Web"
+            "Cart":{  
+                "IsGift":false,
+                "ReturnsAccepted":true,
+                "Items":[  
+                    {  
+                        "GiftCategory":"Undefined",
+                        "HostHedge":"Off",
+                        "NonSensicalHedge":"Off",
+                        "ObscenitiesHedge":"Off",
+                        "PhoneHedge":"Off",
+                        "Name":"ItemTeste1",
+                        "Quantity":1,
+                        "Sku":"20170511",
+                        "UnitPrice":10000,
+                        "Risk":"High",
+                        "TimeHedge":"Normal",
+                        "Type":"AdultContent",
+                        "VelocityHedge":"High"
+                    },
+                    {  
+                        "GiftCategory":"Undefined",
+                        "HostHedge":"Off",
+                        "NonSensicalHedge":"Off",
+                        "ObscenitiesHedge":"Off",
+                        "PhoneHedge":"Off",
+                        "Name":"ItemTeste2",
+                        "Quantity":1,
+                        "Sku":"20170512",
+                        "UnitPrice":10000,
+                        "Risk":"High",
+                        "TimeHedge":"Normal",
+                        "Type":"AdultContent",
+                        "VelocityHedge":"High"
+                    }
+                ]
             },
-            {  
-               "Id":9,
-               "Value":"SIM"
+            "MerchantDefinedFields":[  
+                {  
+                    "Id":2,
+                    "Value":"100"
+                },
+                {  
+                    "Id":4,
+                    "Value":"Web"
+                },
+                {  
+                    "Id":9,
+                    "Value":"SIM"
+                }
+            ],
+            "Shipping":{  
+                "Addressee":"João das Couves",
+                "Method":"LowCost",
+                "Phone":"551121840540"
+            },
+            "Travel":{  
+                "JourneyType":"OneWayTrip",
+                "DepartureTime":"2018-01-09 18:00",
+                "Passengers":[  
+                    {  
+                        "Name":"Passenger Test",
+                        "Identity":"212424808",
+                        "Status":"Gold",
+                        "Rating":"Adult",
+                        "Email":"email@mail.com",
+                        "Phone":"5564991681074",
+                        "TravelLegs":[  
+                            {  
+                                "Origin":"AMS",
+                                "Destination":"GIG"
+                            }
+                        ]
+                    }
+                ]
             }
-         ],
-         "Shipping":{  
-            "Addressee":"João das Couves",
-            "Method":"LowCost",
-            "Phone":"551121840540"
-         },
-         "Travel":{  
-            "JourneyType":"OneWayTrip",
-            "DepartureTime":"2018-01-09 18:00",
-            "Passengers":[  
-               {  
-                  "Name":"Passenger Test",
-                  "Identity":"212424808",
-                  "Status":"Gold",
-                  "Rating":"Adult",
-                  "Email":"email@mail.com",
-                  "Phone":"5564991681074",
-                  "TravelLegs":[  
-                     {  
-                        "Origin":"AMS",
-                        "Destination":"GIG"
-                     }
-                  ]
-               }
-            ]
-         }
-      }
-   }
+        }
+    }
 }
 
 ```
@@ -4684,31 +4684,38 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 |85 a 89|Campos livres e definidos junto ao provedor de AntiFraude, conforme as regras de negócio|-|-|-|
 |90 a 100|Reservados|-|-|-|
 
-## Device FingerPrint
+## Configuração do Fingerprint
 
-O Device FingerPrint é um javascript que uma vez instalado no checkout da loja captura dados de navegação e informações sobre o equipamento utilizado na compra. Essas informações são utlizadas pelo Antifraude para identificar compras fora do padrão do comprador.
+Importante componente da análise de fraude, o Fingerprint é um Javascript que deve ser inserido no seu site para capturar dados importantes como: IP do comprador, versão do browser, sistema operacional etc.
+Muitas vezes, somente os dados do carrinho não são suficientes para garantir uma análise assertiva. Os dados coletados pelo Fingerprint complementam a análise e garantem que sua loja está mais protegida.
 
-### Integração checkout
+Esta página descreve como funciona e como configurar o fingerprint em sua página de checkout e mobiles.
 
-Será necessário adicionar duas tags, a _script_ dentro da tag _head_ para uma performance correta e a _noscript_ dentro da tag _body_, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
+### Integração em checkout
 
-> **IMPORTANTE:** Se os 2 segmentos de código não forem colocados na página de checkout, os resultados podem não ser precisos.
+Será necessário adicionar duas tags, a *script* dentro da tag *head* para uma performance correta e a *noscript* dentro da tag *body*, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
 
-#### Variáveis
+<aside class="warning">Se os 2 segmentos de código não forem colocados na página de checkout, os resultados da análise de fraude podem não ser precisos.</aside>
+
+**Variáveis**
+Existem duas variáveis a serem preenchidas na URL do Javascript. O `org_id` e o `session_id`. O `org_id` é um valor predefinido conforme tabela abaixo, já o `session_id` é composto pela concatenação dos parâmetros `ProviderMerchantId` e `Payment.FraudAnalysis.Browser.BrowserFingerprint`, conforme exemplo abaixo:
 
 |Variável|Descrição|SuperMID|Advanced ou Enterprise|
-|:-|:-|:-|:-|
-|**ProviderOrgId**|Sandbox = 1snn5n9w <br/> Produção = k8vif92e|-|-|
-|**ProviderMerchantId**|Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Cielo|Use o valor padrão `cielo_webservice`|Dado exclusivo fornecido pela CyberSource|
-|**ProviderIdentifier**|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador <br/> Este mesmo identificador deve ser atribuído ao campo `Payment.FraudAnalysis.Browser.BrowserFingerprint` que será enviado na requisição da análise <br/> Obs.:Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.|-|-|
+|:-|:-|
+|`org_id`|para Sandbox = 1snn5n9w <br/> para Produção = k8vif92e|-|-|
+|`session_id`|SuperMID, utilizar o valaor padrão `cielo_webservice` <br/> Advanced ou Enterprise, solicitar junto a Cielo <br/> `ProviderMerchantId` = Identificador da sua loja na Cybersource <br/> `Payment.FraudAnalysis.Browser.BrowserFingerprint` = Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.|
 
-> **Observação:** O resultado da concatenação entre o campo `ProviderMerchantId` e `ProviderIdentifier`, deve ser atribuído ao campo session_id do(s) script(s) que serão incluídos na página de checkout.
+**Aplicação**
 
-> JavaScript
+O modelo do Javascript é o seguinte:
 
-![]({{ site.baseurl_root }}/images/apicieloecommerce/exemploscriptdfp.png)
+![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemploscriptdfp.png)
 
-> **IMPORTANTE:** Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.
+As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao exemplo abaixo:
+
+![Exemplo Url](https://braspag.github.io/images/braspag/af/urldfp.png)
+
+<aside class="warning">Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.</aside>
 
 ### Integração em aplicativos mobile
 
