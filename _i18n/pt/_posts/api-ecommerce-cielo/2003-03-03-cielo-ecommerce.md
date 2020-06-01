@@ -4686,32 +4686,24 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 
 ## Device FingerPrint
 
-### O que é o D.FingerPrint
+O Device FingerPrint é um javascript que uma vez instalado no checkout da loja captura dados de navegação e informações sobre o equipamento utilizado na compra. Essas informações são utlizadas pelo Antifraude para identificar compras fora do padrão do comprador.
 
-O Device FingerPrint é um javascript que uma vez instalado no checkout da loja captura dados de navegação e informações sobre o equipamento utilizado na compra. Essas informações são utlizadas pela AF para identificar compras fora do padrão do comprador.
-
-### Configurando FingerPrint
+### Configuração
 
 Será necessário adicionar duas tags, a _script_ dentro da tag _head_ para uma performance correta e a _noscript_ dentro da tag _body_, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
 
 > **IMPORTANTE:** Se os 2 segmentos de código não forem colocados na página de checkout, os resultados podem não ser precisos.
 
-#### Domain
-
-|Ambiente|Descrição|
-|-|-|
-|**Testing**| Use **h.online-metrix.net**, que é o DNS do servidor de fingerprint, como apresentado no exemplo de HTML abaixo|
-|**Production**| Altere o domínio para uma URL local, e configure seu servidor Web para redirecionar esta URL para **h.online-metrix.net**|
-
 #### Variáveis
 
-| Variável               | Descrição                                                                                       | Supermid                              | Hierarquia                                |
-|------------------------|-------------------------------------------------------------------------------------------------|---------------------------------------|-------------------------------------------|
-| **ProviderOrgId**      | Sandbox = 1snn5n9w<br>Produção = k8vif92e                                                       | Use o valor padrão `k8vif92e`         | Dado exclusivo fornecido pela CyberSource |
-| **ProviderMerchantId** | Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Cielo         | Use o valor padrão `cielo_webservice` | Dado exclusivo fornecido pela CyberSource |
-| **ProviderIdentifier** | Identificador utilizado para cruzar informações obtidas do dispositivo do comprador.Este mesmo identificador deve ser atribuído ao campo `Customer.BrowserFingerprint` que será enviado na requisição da análise.<br>Exemplo: 123456789<br>Obs.:Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.| Definido pela loja                    | Definido pela loja                        |
+|Variável|Descrição|SuperMID|Advanced ou Enterprise|
+|:-|:-|:-|:-|
+|**ProviderOrgId**|Sandbox = 1snn5n9w <br/> Produção = k8vif92e|-|-|
+|**ProviderMerchantId**|Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Cielo|Use o valor padrão `cielo_webservice`|Dado exclusivo fornecido pela CyberSource|
+|**ProviderIdentifier**|Identificador utilizado para cruzar informações obtidas do dispositivo do comprador <br/> Este mesmo identificador deve ser atribuído ao campo `Payment.FraudAnalysis.Browser.BrowserFingerprint` que será enviado na requisição da análise <br/> Obs.:Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.|-|-|
 
 > **Observação:** O resultado da concatenação entre o campo `ProviderMerchantId` e `ProviderIdentifier`, deve ser atribuído ao campo session_id do(s) script(s) que serão incluídos na página de checkout.
+
 > JavaScript
 
 ![]({{ site.baseurl_root }}/images/apicieloecommerce/exemploscriptdfp.png)
