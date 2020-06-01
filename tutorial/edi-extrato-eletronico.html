@@ -1234,6 +1234,57 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   <li><strong>(*)</strong> cadastro que permite a inclusão de todos os estabelecimentos controlados pelo cliente, independente do tipo de pagamento (centralizado, descentralizado, individual). Todos os números de estabelecimento (número do cliente na Cielo) devem ser informados no formulário de cadastro.</li>
 </ul>
 
+<h3 id="registro-1---detalhe-do-resumo-de-operações-ro">Registro 1 - Detalhe do Resumo de Operações (RO)</h3>
+
+<p>Grupo de vendas, ajustes ou cobrança de serviços. Permite identificar a origem dos lançamentos e as ações de manutenção.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Inicio</th>
+      <th>Fim</th>
+      <th>Tamanho</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Edição dos Dados</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Tipo de registro Constante 1 - Identifica o tipo de registro detalhe do RO.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>011</td>
+      <td>10</td>
+      <td>Num.</td>
+      <td>Estabelecimento Submissor Número do estabelecimento e/ou filial onde a venda foi realizada.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>018</td>
+      <td>7</td>
+      <td>Num.</td>
+      <td>Número do RO Número do resumo de operação. Contêm informações referentes a um grupo de vendas realizadas em uma determinada data.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>019</td>
+      <td>020</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Parcela No caso de venda parcelada, será formatado com o número da parcela que está sendo liberada na data do envio do arquivo. No caso de venda à vista, será formatado com brancos.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 
