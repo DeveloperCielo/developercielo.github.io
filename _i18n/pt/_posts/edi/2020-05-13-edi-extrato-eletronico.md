@@ -521,6 +521,7 @@ Grupo de vendas, ajustes ou cobrança de serviços. Permite identificar a origem
 
 |Inicio|Fim|Tamanho|Tipo|Descrição|Edição dos Dados|
 |---|---|---|---|---|---|
+
 |001|001|1|Num.|Tipo de registro|Constante 1 - Identifica o tipo de registro detalhe do RO.|
 |002|011|10|Num.|Estabelecimento|Submissor Número do estabelecimento e/ou filial onde a venda foi realizada.|
 |012|018|7|Num.|Número do RO|Número do resumo de operação. Contêm informações referentes a um grupo de vendas realizadas em uma determinada data.|
