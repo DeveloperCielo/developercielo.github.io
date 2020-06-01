@@ -4688,7 +4688,7 @@ Para que a análise de fraude via Cybersource seja efetuada durante uma transaç
 
 O Device FingerPrint é um javascript que uma vez instalado no checkout da loja captura dados de navegação e informações sobre o equipamento utilizado na compra. Essas informações são utlizadas pelo Antifraude para identificar compras fora do padrão do comprador.
 
-### Configuração
+### Integração checkout
 
 Será necessário adicionar duas tags, a _script_ dentro da tag _head_ para uma performance correta e a _noscript_ dentro da tag _body_, para que a coleta dos dados do dispositivo seja realizada mesmo se o Javascript do browser estiver desabilitado.
 
@@ -4709,6 +4709,10 @@ Será necessário adicionar duas tags, a _script_ dentro da tag _head_ para uma 
 ![]({{ site.baseurl_root }}/images/apicieloecommerce/exemploscriptdfp.png)
 
 > **IMPORTANTE:** Certifique-se de copiar todos os dados corretamente e de ter substituído as variáveis corretamente pelos respectivos valores.
+
+### Integração em aplicativos mobile
+
+> Solicite junto ao chamado de integração os SDKs (iOS e Android) e os manuais.
 
 # Velocity
 
