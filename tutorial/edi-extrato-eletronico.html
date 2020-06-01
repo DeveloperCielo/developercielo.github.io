@@ -1314,6 +1314,62 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
       <td>Data de apresentação</td>
       <td>AAMMDD Data em que o RO foi transmitido para a Cielo.</td>
     </tr>
+    <tr>
+      <td>032</td>
+      <td>037</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Data prevista de pagamento</td>
+      <td>AAMMDD Data prevista de pagamento. Na recuperação, pode ser atualizada após o processamento da transação ou ajuste.</td>
+    </tr>
+    <tr>
+      <td>038</td>
+      <td>043</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Data de envio ao banco</td>
+      <td>AAMMDD Data em que o arquivo de pagamento foi enviado ao banco. Na recuperação, pode ser atualizada após o processamento da transação ou ajuste.</td>
+    </tr>
+    <tr>
+      <td>044</td>
+      <td>044</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor bruto</td>
+      <td><code class="highlighter-rouge">+</code> - identifica valor a crédito. <br /> <code class="highlighter-rouge">-</code> - identifica valor a débito.</td>
+    </tr>
+    <tr>
+      <td>045</td>
+      <td>057</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor bruto (*)</td>
+      <td>Somatória dos valores de venda.</td>
+    </tr>
+    <tr>
+      <td>058</td>
+      <td>058</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal da taxa administrativa</td>
+      <td><code class="highlighter-rouge">+</code> - identifica valor a crédito. <br /> <code class="highlighter-rouge">-</code> - identifica valor a débito.</td>
+    </tr>
+    <tr>
+      <td>059</td>
+      <td>071</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor da taxa administrativa (*)</td>
+      <td>Valor da taxa administrativa descontada sobre as vendas.</td>
+    </tr>
+    <tr>
+      <td>072</td>
+      <td>072</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor rejeitado</td>
+      <td><code class="highlighter-rouge">+</code> identifica valor a crédito.<br /> <code class="highlighter-rouge">-</code> - identifica valor a débito.</td>
+    </tr>
   </tbody>
 </table>
 
