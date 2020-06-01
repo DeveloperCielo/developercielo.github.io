@@ -1519,6 +1519,54 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
       <td>Valor Bruto Antecipado <code class="highlighter-rouge">(*)</code></td>
       <td>Valor bruto antecipado, fornecido quando o RO for antecipado/cedido. Será preenchido com zeros quando não houver antecipação.</td>
     </tr>
+    <tr>
+      <td>185</td>
+      <td>187</td>
+      <td>3</td>
+      <td>Num.</td>
+      <td>Bandeira</td>
+      <td>Código da Bandeira vide tabela VI.</td>
+    </tr>
+    <tr>
+      <td>188</td>
+      <td>209</td>
+      <td>22</td>
+      <td>Num.</td>
+      <td>Número Único do RO</td>
+      <td>Número Único de identificação do RO formatado da seguinte forma: <br />Primeira parte (fixa) 15 posições fixas: identifica o resumo mantendo o seu histórico na Cielo; <br /> Segunda parte (variável) 07 posições variáveis: Identifica as alterações realizadas no RO.</td>
+    </tr>
+    <tr>
+      <td>210</td>
+      <td>213</td>
+      <td>4Num.</td>
+      <td>Taxa Administrativa <code class="highlighter-rouge">(*)</code></td>
+      <td>Percentual de taxa administrativa aplicado no valor da transação.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>214</td>
+      <td>218</td>
+      <td>5Num.</td>
+      <td>Tarifa Administrativa <code class="highlighter-rouge">(*)</code></td>
+      <td>Tarifa cobrada por transação.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>219</td>
+      <td>222</td>
+      <td>4Num.</td>
+      <td>Taxa de Garantia <code class="highlighter-rouge">(*)</code></td>
+      <td>Percentual de desconto aplicado sobre transações Electron Pré-Datado.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>223</td>
+      <td>224</td>
+      <td>2Num.</td>
+      <td>Meio de Captura</td>
+      <td>Vide tabela VII. Caso a venda tenha sido reprocessada, o sistema enviará o meio de captura 06: Meio de captura manual. Neste caso, desconsiderar o valor informado no número lógico do terminal.</td>
+      <td> </td>
+    </tr>
   </tbody>
 </table>
 
