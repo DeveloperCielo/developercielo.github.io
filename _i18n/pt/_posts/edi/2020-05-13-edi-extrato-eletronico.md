@@ -562,4 +562,8 @@ Grupo de vendas, ajustes ou cobrança de serviços. Permite identificar a origem
 |223|224|2|Num.|Meio de Captura|Vide tabela VII. Caso a venda tenha sido reprocessada, o sistema enviará o meio de captura 06: Meio de captura manual. Neste caso, desconsiderar o valor informado no número lógico do terminal.|
 |225|232|8|Alfanum.|Número lógico do terminal|Número lógico do terminal onde foi efetuada a venda. Quando o meio de captura for igual a 06, desconsiderar o número lógico do terminal, pois este será um número interno da Cielo.|
 |233|235|3|Num.|Código do Produto|Código que identifica o produto vide Tabela IV.|
-|236|245|10|Num. Matriz de Pagamento Estabelecimento matriz de pagamento.|
+|236|245|10|Num.| Matriz de Pagamento Estabelecimento matriz de pagamento.|
+|246|246|1|Alfa|Reenvio de Pagamento|`S` - identifica que este resumo está sendo reenviado no extrato. Desconsiderar o pagamento enviado anteriormente. `N` - não refere-se à reenvio de pagamento.
+|247|247|1|Alfa|Conceito aplicado|Identifica o conceito aplicado no resumo apresentado: <br>`" "` - Antigo <br> `"N"` - Novo|
+|248|249|2|Alfanum.|Grupo de Cartões| Identifica o grupo de cartões conforme abaixo: <br> - Brancos. Serviço não atribuído <br> 01 - Cartão emitido no Brasil <br> 02 - Cartão emitido no exterior <br> 03 - MDR por Tipo de Cartão - Inicial <br> 04 - MDR por Tipo de Cartão - Intermediário 05 - MDR por Tipo de Cartão - Superior|
+|250|250|1|Alfanum.|Uso Cielo|Em Branco. Reservado para Cielo.|
