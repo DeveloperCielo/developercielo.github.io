@@ -45,18 +45,21 @@ The current version of Checkout Cielo supports the following payment means:
 
 **Credit card**
 
-|Issuer|Credit card cash payment|Installment credit Store|Debit|Voucher|
-|---|---|---|---|---|
-|Visa|Yes|Yes|Yes|No|
-|MasterCard|Yes|Yes|Yes|No|
-|American Express|Yes|Yes|No|No|
-|Elo|Yes|Yes|No|No|
-|Diners Club|Yes|Yes|No|No|
-|Discover|Yes|No|No|No|
-|JCB|Yes|Yes|No|No|
-|Aura|Yes|Yes|No|No|
+| Issuer           |Credit card cash payment|Installment credit Store|Debit |Voucher|
+|------------------|------------------------|------------------------|------|-------|
+| Visa             | Yes                    | Yes                    | Yes  | No    |
+| MasterCard       | Yes                    | Yes                    | Yes  | No    |
+| American Express | Yes                    | Yes                    | No   | No    |
+| Elo              | Yes                    | Yes                    | Yes* | No    |
+| Diners Club      | Yes                    | Yes                    | No   | No    |
+| Discover         | Yes                    | No                     | No   | No    |
+| JCB              | Yes                    | Yes                    | No   | No    |
+| Aura             | Yes                    | Yes                    | No   | No    |
+| Hipercard        | Yes                    | Yes                    | No   | No    |
 
 **NOTE**: Checkout Cielo maximum limit of installments is 12X.
+
+<aside class="notice">Emergency Aid Only Caixa Econômica Federal (Corona Voucher).</aside>
 
 **Debit card**
 
@@ -64,6 +67,9 @@ The current version of Checkout Cielo supports the following payment means:
 |---|---|
 |Visa|Bradesco<br>Banco do Brasil<br>HSBC<br>Santander<br>Itaú<br>BRB<br>Safra<br>Banco da Amazônia<br>Sicredi<br>Banco do Espirito Santo<br>Banco do Nordeste<br>Mercantil|
 |Mastercard|Banco do Brasil<br>Santander<br>Itaú<br>BRB<br>Sicredi<br>Bancoob<br>CitiBank|
+|Elo*|Caixa Ecônomica Federal|
+
+<aside class="notice">Emergency Aid Only Caixa Econômica Federal (Corona Voucher).</aside>
 
 **Bank slip**
 
@@ -1156,7 +1162,7 @@ Below are described all the returned fields, as well as their definitions and si
 |`payment_boletonumber`|Number of bank slip generated|String|1|
 |`payment_boletoexpirationdate`|Due date for transactions made with bank slip|Numeric|10|
 |`payment_status`|Transaction status|Numeric|1|
-|`tid`|TID Cielo generated at the time of transaction authorization|Alphanumeric|32|
+|`tid`|TID Cielo generated at the time of transaction authorization|Alphanumeric|20|
 |`test_transaction`|Indicates whether the transaction was generated with 'Test Mode' enabled|Boolean|32|
 
 **Payment_status**
