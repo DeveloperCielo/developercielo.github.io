@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Link de Pagamentos
+title: API Super Link
 description: Integração técnica via API
 search: true
 translated: true
