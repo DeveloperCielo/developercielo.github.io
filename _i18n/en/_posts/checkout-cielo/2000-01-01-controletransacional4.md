@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Transactional control Api
+title: Transactional Control Api
 description: Technical integration via API
 search: true
 translated: true
