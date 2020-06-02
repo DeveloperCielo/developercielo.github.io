@@ -43,7 +43,7 @@ Cada aba tem um objetivo diferente. A tabela abaixo demonstra o objetivo de cada
 | **DashBoard**          | Página inicial onde são apresentadas informações sobre o volume transacionado em sua loja online, os tipos de pagamentos mais efetuados e o status das transações.                               |
 | **Pedidos**            | Nessa página fica contida a listagem de transações realizadas em seu estabelecimento. Aqui é possível pesquisar um determinado pedido ou transação.                                              |
 | **Link de Pagamentos** | Nessa aba são criados e salvos os links de pagamentos de seu estabelecimento.                                                                                                                    |
-| **Relatórios**         | Nesta página é possível gerar 05 tipos de relatórios: <br>“Relatório financeiro"<br>“Detalhado de vendas”<br>“Listagem de clientes”<br>* “Extrato de Cobrança”<br>“Relatório de Recorrência”     |
+| **Relatórios**         | Nesta página é possível gerar 05 tipos de relatórios: <br>“Relatório financeiro"<br>“Detalhado de vendas”<br>“Listagem de clientes”<br>“Extrato de Cobrança”<br>“Relatório de Recorrência”     |
 | **Manuais**            | Nesta página constam os manuais de utilização do produto, assim como a página de FAQ e de “Dúvidas”, onde o lojista pode entrar em contato com a equipe de suporte Check out Cielo/Super Link.   |
 | **Configurações**      | Página onde é possivel fazer alterações nas configurações da Loja e dos seus dados cadastrais.                                                                                                   |
 
