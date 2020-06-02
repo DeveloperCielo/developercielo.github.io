@@ -10,40 +10,42 @@ tags:
   - Checkout Cielo
 ---
 
-# Tutorial - Backoffice
+# Tutorial - Super Link e Checkout
 
-O objetivo deste documento é orientar o lojista sobre como acessar a manipular o Backoffice do Checkout Cielo.
+## Guia de Utilização
+
+Este tutorial tem como objetivo auxiliar o lojista na configuração de sua loja na Cielo. Estas configurações são aplicadas tanto para a solução Super Link quanto para o Checkout Cielo.
 
 ## Acessando o Backoffice
 
-Para acessar o Backoffice do Checkout Cielo, é necessário que o lojista **[realize login no Site Cielo](https://www.cielo.com.br/minha-conta)**, inserindo sua Afiliação (Nº de estabelecimento) e Usuário:
+O acesso ao painel administrativo ou backoffice é feito através do site Cielo. O acesso pode ser feito por meio do CPF, N° do estabelecimento (EC) ou e-mail do seu cadastro de e-commerce na Cielo.
 
-![Login Backoffice Cielo]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-login.png)
+![Login Backoffice Cielo]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-login-novo.png)
 
-Em seguida é necessário incluir sua Senha:
+Após o preenchimento do CPF/e-mail/N° do EC, o site irá solicitar a sua senha. Em caso de primeiro acesso, será enviada uma senha provisória por e-mail.
 
-![Senha Backoffice Cielo]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-login-senha.png)
+![Senha Backoffice Cielo]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-login-senha-novo.png)
 
-Na área de “Vendas Online” basta clicar em Checkout Cielo.
+Após realizar o acesso, deve ser localizado o menu de e-commerce. Neste menu estão disponíveis os produtos de e-commerce que o estabelecimento tem contratado. O Super Link e o Checkout Cielo são dois dos produtos disponíveis neste menu.
 
-![Vendas online]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-vendas-online.png)
+![Vendas online]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-vendas-online-novo.png)
 
-Caso o site principal da Cielo não esteja disponível, basta acessar a URL [https://cieloecommerce.cielo.com.br/backoffice](https://cieloecommerce.cielo.com.br/backoffice) e inserir seu e-mail de cadastro e senha.
+## Abas do Backoffice
 
-[!Checkout Cielo]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-cielo.png)
+Após clicar em Super Link ou Checkout você terá acesso ao painel administrativo. Este painel possui 6 abas distintas, as quais permitem a configuração de sua loja e a utilização dos produtos contratados.
 
-## Abas do Backoffice Checkout Cielo
+![Abas do Backoffice]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/abas-backoffice-novo.png)
 
-O Backoffice é formado por 6 Abas diferentes de administração do Checkout Cielo. Elas são:
+Cada aba tem um objetivo diferente. A tabela abaixo demonstra o objetivo de cada tela.
 
 | Aba                    | Descrição                                                                                                                                                                                        |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **DashBoard**          | Pagina inicial onde são apresentadas informações sobre a sua conta e sobre o volume e tipo de transações realizadas em sua loja.                                                                 |
-| **Pedidos**            | Nessa pagina fica contida toda a listagem de transações realizadas no Checkout Cielo. Aqui é possivel pesquisar um determinado pedido ou transação.                                              |
-| **Link de Pagamentos** | Nessa pagina são listados todos os Botões/Links cadastrados no Checkout Cielo                                                                                                                    |
-| **Relatórios**         | Nesta pagina é possível gerar 05 tipos de relatórios: <br>“Relatório financeiro"<br>“Detalhado de vendas”<br>“Listagem de clientes”<br>* “Extrato de Cobrança”<br>“Relatório de Recorrência”|
-| **Manuais**            | Nesta página constam os manuais do Checkout Cielo, assim como a pagina de FAQ e de “Duvidas”, onde o lojista pode entrar em contato com a equipe de suporte Checkout Cielo.                      |
-| **Configurações**      | Pagina onde é possivel fazer alterações nas configurações da Loja , dos seus dados cadastrais e Alterar sua Senha.                                                                               |
+| **DashBoard**          | Página inicial onde são apresentadas informações sobre o volume transacionado em sua loja online, os tipos de pagamentos mais efetuados e o status das transações.                               |
+| **Pedidos**            | Nessa página fica contida a listagem de transações realizadas em seu estabelecimento. Aqui é possível pesquisar um determinado pedido ou transação.                                              |
+| **Link de Pagamentos** | Nessa aba são criados e salvos os links de pagamentos de seu estabelecimento.                                                                                                                    |
+| **Relatórios**         | Nesta página é possível gerar 05 tipos de relatórios: <br>“Relatório financeiro"<br>“Detalhado de vendas”<br>“Listagem de clientes”<br>* “Extrato de Cobrança”<br>“Relatório de Recorrência”     |
+| **Manuais**            | Nesta página constam os manuais de utilização do produto, assim como a página de FAQ e de “Dúvidas”, onde o lojista pode entrar em contato com a equipe de suporte Check out Cielo/Super Link.   |
+| **Configurações**      | Página onde é possivel fazer alterações nas configurações da Loja e dos seus dados cadastrais.                                                                                                   |
 
 ## Aba DashBoard
 
