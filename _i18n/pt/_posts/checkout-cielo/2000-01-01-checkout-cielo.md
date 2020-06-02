@@ -61,7 +61,7 @@ A versão atual do Checkout Cielo possui suporte aos seguintes meios de pagament
 
 **OBS**: Limite maximo de parcelas do Checkout Cielo é 12X.
 
-<aside class="notice">*Apenas Auxílio emergencial da Caixa Econômica Federal (Corona Voucher)*</aside>
+<aside class="notice">Apenas Auxílio Emergencial da Caixa Econômica Federal (Corona Voucher)</aside>
 
 **Cartão de Débito**
 
@@ -71,7 +71,7 @@ A versão atual do Checkout Cielo possui suporte aos seguintes meios de pagament
 |Mastercard|Banco do Brasil<br>Santander<br>Itaú<br>BRB<br>Sicredi<br>Bancoob<br>CitiBank|
 |Elo*|Caixa Ecônomica Federal|
 
-<aside class="notice">*Apenas Auxílio emergencial da Caixa Econômica Federal (Corona Voucher)*</aside>
+<aside class="notice">Apenas Auxílio Emergencial da Caixa Econômica Federal (Corona Voucher)</aside>
 
 **Boleto**
 
