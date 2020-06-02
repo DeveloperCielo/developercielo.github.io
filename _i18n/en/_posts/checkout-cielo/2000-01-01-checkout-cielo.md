@@ -59,7 +59,7 @@ The current version of Checkout Cielo supports the following payment means:
 
 **NOTE**: Checkout Cielo maximum limit of installments is 12X.
 
-<aside class="notice">Emergency Aid Only Caixa Econômica Federal (Corona Voucher).</aside>
+<aside class="notice">* Emergency Aid Only Caixa Econômica Federal (Corona Voucher).</aside>
 
 **Debit card**
 
@@ -69,7 +69,7 @@ The current version of Checkout Cielo supports the following payment means:
 |Mastercard|Banco do Brasil<br>Santander<br>Itaú<br>BRB<br>Sicredi<br>Bancoob<br>CitiBank|
 |Elo*|Caixa Ecônomica Federal|
 
-<aside class="notice">Emergency Aid Only Caixa Econômica Federal (Corona Voucher).</aside>
+<aside class="notice">* Emergency Aid Only Caixa Econômica Federal (Corona Voucher).</aside>
 
 **Bank slip**
 
