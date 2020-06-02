@@ -236,7 +236,7 @@ The Cielo payments page provides a high level of confidence, following PCI secur
       <td>Elo</td>
       <td>Yes</td>
       <td>Yes</td>
-      <td>No</td>
+      <td>Yes*</td>
       <td>No</td>
     </tr>
     <tr>
@@ -267,10 +267,19 @@ The Cielo payments page provides a high level of confidence, following PCI secur
       <td>No</td>
       <td>No</td>
     </tr>
+    <tr>
+      <td>Hipercard</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
   </tbody>
 </table>
 
 <p><strong>NOTE</strong>: Checkout Cielo maximum limit of installments is 12X.</p>
+
+<aside class="notice">Emergency Aid Only Caixa Econômica Federal (Corona Voucher).</aside>
 
 <p><strong>Debit card</strong></p>
 
@@ -290,8 +299,14 @@ The Cielo payments page provides a high level of confidence, following PCI secur
       <td>Mastercard</td>
       <td>Banco do Brasil<br />Santander<br />Itaú<br />BRB<br />Sicredi<br />Bancoob<br />CitiBank</td>
     </tr>
+    <tr>
+      <td>Elo*</td>
+      <td>Caixa Ecônomica Federal</td>
+    </tr>
   </tbody>
 </table>
+
+<aside class="notice">Emergency Aid Only Caixa Econômica Federal (Corona Voucher).</aside>
 
 <p><strong>Bank slip</strong></p>
 
@@ -2609,7 +2624,7 @@ Below are described all the returned fields, as well as their definitions and si
       <td><code class="highlighter-rouge">tid</code></td>
       <td>TID Cielo generated at the time of transaction authorization</td>
       <td>Alphanumeric</td>
-      <td>32</td>
+      <td>20</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">test_transaction</code></td>
