@@ -52,7 +52,7 @@ A versão atual do Checkout Cielo possui suporte aos seguintes meios de pagament
 | Visa             | Sim             | Sim                    | Sim    | Não     |
 | MasterCard       | Sim             | Sim                    | Sim    | Não     |
 | American Express | Sim             | Sim                    | Não    | Não     |
-| Elo              | Sim             | Sim                    | Não    | Não     |
+| Elo              | Sim             | Sim                    | Sim*   | Não     |
 | Diners Club      | Sim             | Sim                    | Não    | Não     |
 | Discover         | Sim             | Não                    | Não    | Não     |
 | JCB              | Sim             | Sim                    | Não    | Não     |
@@ -60,6 +60,7 @@ A versão atual do Checkout Cielo possui suporte aos seguintes meios de pagament
 | Hipercard        | Sim             | Sim                    | Não    | Não     |
 
 **OBS**: Limite maximo de parcelas do Checkout Cielo é 12X.
+*Apenas Auxílio emergencial da caixa econômica federal (Corona Voucher).
 
 **Cartão de Débito**
 
@@ -67,6 +68,9 @@ A versão atual do Checkout Cielo possui suporte aos seguintes meios de pagament
 |---|---|
 |Visa|Bradesco<br>Banco do Brasil<br>HSBC<br>Santander<br>Itaú<br>BRB<br>Safra<br>Banco da Amazônia<br>Sicredi<br>Banco do Espirito Santo<br>Banco do Nordeste<br>Mercantil|
 |Mastercard|Banco do Brasil<br>Santander<br>Itaú<br>BRB<br>Sicredi<br>Bancoob<br>CitiBank|
+|Elo*|Caixa Ecônomica Federal|
+
+*Apenas Auxílio emergencial da caixa econômica federal (Corona Voucher).
 
 **Boleto**
 
@@ -1125,7 +1129,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
 | `payment_boletonumber`               | número do boleto gerado                                                                                      | String        | 1              |
 | `payment_boletoexpirationdate`       | Data de vencimento para transações realizadas com boleto bancário                                            | Numérico      | 10             |
 | `payment_status`                     | Status da transação                                                                                          | Numérico      | 1              |
-| `tid`                                | TID Cielo gerado no momento da autorização da transação                                                      | Alfanumérico  | 32             |
+| `tid`                                | TID Cielo gerado no momento da autorização da transação                                                      | Alfanumérico  | 20             |
 | `test_transaction`                   | Indica se a transação foi gerada com o `Modo de teste` ativado                                               | Boolean       | 32             |
 | `product_id`                         | Identificador do Botão/Link de pagamento que gerou a transação                                               | Alfanumérico  | 32             |
 | `product_type`                       | Tipo de Botão que gerou o pedido (Ver tabela de ProductID)                                                   | Alfanumérico  | 32             |
