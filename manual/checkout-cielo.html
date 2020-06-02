@@ -238,7 +238,7 @@ A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo
       <td>Elo</td>
       <td>Sim</td>
       <td>Sim</td>
-      <td>Não</td>
+      <td>Sim*</td>
       <td>Não</td>
     </tr>
     <tr>
@@ -279,7 +279,8 @@ A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo
   </tbody>
 </table>
 
-<p><strong>OBS</strong>: Limite maximo de parcelas do Checkout Cielo é 12X.</p>
+<p><strong>OBS</strong>: Limite maximo de parcelas do Checkout Cielo é 12X.
+*Apenas Auxílio emergencial da caixa econômica federal (Corona Voucher).</p>
 
 <p><strong>Cartão de Débito</strong></p>
 
@@ -299,8 +300,14 @@ A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo
       <td>Mastercard</td>
       <td>Banco do Brasil<br />Santander<br />Itaú<br />BRB<br />Sicredi<br />Bancoob<br />CitiBank</td>
     </tr>
+    <tr>
+      <td>Elo*</td>
+      <td>Caixa Ecônomica Federal</td>
+    </tr>
   </tbody>
 </table>
+
+<p>*Apenas Auxílio emergencial da caixa econômica federal (Corona Voucher).</p>
 
 <p><strong>Boleto</strong></p>
 
@@ -2551,7 +2558,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
       <td><code class="highlighter-rouge">tid</code></td>
       <td>TID Cielo gerado no momento da autorização da transação</td>
       <td>Alfanumérico</td>
-      <td>32</td>
+      <td>20</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">test_transaction</code></td>
