@@ -197,6 +197,12 @@ Possíveis valores para {error}:
 |Sandbox|https://api2.cielo.com.br/sandbox/edi-api/v2/|
 |Homologação|https://apihom-cielo.sensedia.com/edi-api/v2/|
 
+# Collection
+
+Dispobilizamos as Collections utiizadas para realizar as todas operações da API. Será necessário configurar a URL e as credenciais.
+
+[Download das Collections](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ONBOARDING_EDI_CIELO_PARA_CONCILIADORAS.postman_collection_1.json)
+
 # Operações
 
 ## **POST** Registrar merchantID
