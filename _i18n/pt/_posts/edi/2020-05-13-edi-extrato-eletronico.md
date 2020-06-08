@@ -573,3 +573,21 @@ Grupo de vendas, ajustes ou cobrança de serviços. Permite identificar a origem
 |247|247|1|Alfa|Conceito aplicado|Identifica o conceito aplicado no resumo apresentado: <br>`" "` - Antigo <br> `"N"` - Novo|
 |248|249|2|Alfanum.|Grupo de Cartões| Identifica o grupo de cartões conforme abaixo: <br> - Brancos. Serviço não atribuído <br> 01 - Cartão emitido no Brasil <br> 02 - Cartão emitido no exterior <br> 03 - MDR por Tipo de Cartão - Inicial <br> 04 - MDR por Tipo de Cartão - Intermediário 05 - MDR por Tipo de Cartão - Superior|
 |250|250|1|Alfanum.|Uso Cielo|Em Branco. Reservado para Cielo.|
+
+### Registro 2 - Detalhe do Comprovante de Venda (CV)
+
+Detalhe das vendas ou ajustes agrupados em um RO.
+Conforme regras de segurança, todos os registros que possuírem número de cartão apresentarão o número truncado.
+
+|001|001|1| Num.| Tipo de registro| Constante `"2"` identifica o tipo de registro de detalhe do Comprovante de Venda (CV).|
+|002|011|10| Num.| Estabelecimento Submissor| Número do estabelecimento e/ou filial onde a venda foi realizada.|
+|012|018|7| Num.| Número do RO| Número do resumo de operação. Contêm informações referentes a um grupo de vendas realizadas em uma determinada data.|
+|019|037|19| Alfanum.| Número do cartão truncado| Número do cartão truncado: número do cartão que efetuou a compra com número truncado. Conterá zeros para compras via mobile payment ou comércio eletrônico, sendo para o último opcional.|
+|038|045|8| Num.| Data da venda/ajuste| AAAAMMDD Data em que a venda ou o ajuste foi realizado.|
+|046|046|1|Alfa.|Sinal do valor da compra ou valor da parcela| `"+"` - identifica valor a crédito. `"-"` - identifica valor a débito.|
+|047|059|13|Num.|Valor da compra ou valor da parcela `(*)`| Valor da compra ou da parcela que foi liberada, no caso de venda parcelada na loja.|
+|060|061|2|Num.|Parcela| No caso de venda parcelada, será formatado com o número da parcela que está sendo liberada. No caso de venda à vista, será formatado com zeros.|
+|062|063|2|Num.|Total de parcelas| Número total de parcelas da venda. No caso de venda à vista, será formatado com zeros.|
+|064|066|3|Num.|Motivo da rejeição| Vide Tabela VIII, caso não possua rejeição o campo é formatado em branco.|
+|067|072|6|Alfanum.|Código de autorização| Código de autorização da transação. Este número não é único e pode se repetir. Para efeito de conciliação deverá ser combinado com outras chaves.|
+|073|092|20|Alfanum.|TID| Identificação da transação realizada no comércio eletrônico|
