@@ -1627,6 +1627,112 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </tbody>
 </table>
 
+<h3 id="registro-2---detalhe-do-comprovante-de-venda-cv">Registro 2 - Detalhe do Comprovante de Venda (CV)</h3>
+
+<p>Detalhe das vendas ou ajustes agrupados em um RO.
+Conforme regras de segurança, todos os registros que possuírem número de cartão apresentarão o número truncado.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Tipo de registro</td>
+      <td>Constante <code class="highlighter-rouge">"2"</code> identifica o tipo de registro de detalhe do Comprovante de Venda (CV).</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>011</td>
+      <td>10</td>
+      <td>Num.</td>
+      <td>Estabelecimento Submissor</td>
+      <td>Número do estabelecimento e/ou filial onde a venda foi realizada.</td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>018</td>
+      <td>7</td>
+      <td>Num.</td>
+      <td>Número do RO</td>
+      <td>Número do resumo de operação. Contêm informações referentes a um grupo de vendas realizadas em uma determinada data.</td>
+    </tr>
+    <tr>
+      <td>019</td>
+      <td>037</td>
+      <td>19</td>
+      <td>Alfanum.</td>
+      <td>Número do cartão truncado</td>
+      <td>Número do cartão truncado: número do cartão que efetuou a compra com número truncado. Conterá zeros para compras via mobile payment ou comércio eletrônico, sendo para o último opcional.</td>
+    </tr>
+    <tr>
+      <td>038</td>
+      <td>045</td>
+      <td>8</td>
+      <td>Num.</td>
+      <td>Data da venda/ajuste</td>
+      <td>AAAAMMDD Data em que a venda ou o ajuste foi realizado.</td>
+    </tr>
+    <tr>
+      <td>046</td>
+      <td>046</td>
+      <td>1</td>
+      <td>Alfa.</td>
+      <td>Sinal do valor da compra ou valor da parcela</td>
+      <td><code class="highlighter-rouge">"+"</code> - identifica valor a crédito. <code class="highlighter-rouge">"-"</code> - identifica valor a débito.</td>
+    </tr>
+    <tr>
+      <td>047</td>
+      <td>059</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor da compra ou valor da parcela <code class="highlighter-rouge">(*)</code></td>
+      <td>Valor da compra ou da parcela que foi liberada, no caso de venda parcelada na loja.</td>
+    </tr>
+    <tr>
+      <td>060</td>
+      <td>061</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Parcela</td>
+      <td>No caso de venda parcelada, será formatado com o número da parcela que está sendo liberada. No caso de venda à vista, será formatado com zeros.</td>
+    </tr>
+    <tr>
+      <td>062</td>
+      <td>063</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Total de parcelas</td>
+      <td>Número total de parcelas da venda. No caso de venda à vista, será formatado com zeros.</td>
+    </tr>
+    <tr>
+      <td>064</td>
+      <td>066</td>
+      <td>3</td>
+      <td>Num.</td>
+      <td>Motivo da rejeição</td>
+      <td>Vide Tabela VIII, caso não possua rejeição o campo é formatado em branco.</td>
+    </tr>
+    <tr>
+      <td>067</td>
+      <td>072</td>
+      <td>6</td>
+      <td>Alfanum.</td>
+      <td>Código de autorização</td>
+      <td>Código de autorização da transação. Este número não é único e pode se repetir. Para efeito de conciliação deverá ser combinado com outras chaves.</td>
+    </tr>
+    <tr>
+      <td>073</td>
+      <td>092</td>
+      <td>20</td>
+      <td>Alfanum.</td>
+      <td>TID</td>
+      <td>Identificação da transação realizada no comércio eletrônico</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 
