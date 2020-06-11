@@ -591,3 +591,13 @@ Conforme regras de segurança, todos os registros que possuírem número de cart
 |064|066|3|Num.|Motivo da rejeição| Vide Tabela VIII, caso não possua rejeição o campo é formatado em branco.|
 |067|072|6|Alfanum.|Código de autorização| Código de autorização da transação. Este número não é único e pode se repetir. Para efeito de conciliação deverá ser combinado com outras chaves.|
 |073|092|20|Alfanum.|TID| Identificação da transação realizada no comércio eletrônico|
+|093|098|6|Alfanum.|NSU/DOC| Número sequencial, também conhecido como DOC (número do documento), que identifica a transação no dia em que ela foi realizada. Este número não é único e pode se repetir. Caso a venda tenha sido reprocessada, o NSU pode ser alterado.|
+|099|111|13|Num.|Valor Complementar `(*)`| Valor da transação de Saque com cartão de Débito ou Agro Electron de acordo com indicador de produto do RO.|
+|112|113|2|Num.|Dig Cartão| Número de dígitos do cartão.|
+|114|126|13|Num.|Valor total da venda| Valor total da venda no caso de Parcelado Loja.|
+|127|139|13|Num.|Valor da próxima parcela| Valor da próxima parcela no caso de Parcelado Loja.|
+|140|148|9|Alfanum.|Número da Nota Fiscal| Número da nota fiscal para estabelecimentos que capturam esta informação na máquina. Quando não disponível será formatado com zeros.|
+|149|150|2|Alfanum.|Tipo de Cartão| Código do tipo de cartão vide tabela XI.|
+|151|152|2|Alfanum.|Grupo de Cartões| Código do grupo de cartões vide tabela X.|
+|153|160|8|Alfanum.|Número lógico do terminal| Número lógico do terminal onde foi efetuada a venda. Quando o Meio de Captura for 06, desconsiderar esta informação.|
+|161|162|2|Alfa| Identificador de taxa de embarque ou valor de entrada| Identificação da transação referente à taxa de embarque ou valor de entrada: <br> TX - Taxa de embarque; <br> VE - Valor da entrada; <br> Brancos - para demais tipos de transação.|
