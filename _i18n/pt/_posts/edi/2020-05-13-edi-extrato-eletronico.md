@@ -608,3 +608,21 @@ Conforme regras de segurança, todos os registros que possuírem número de cart
 |219|220|2|Num.|Modo de Entrada do Cartão|Identifica o modo de entrada do cartão. Vide Tabela IX.|
 |221|235|15|Alfanum.|Código da Venda |dentifica o código da venda. (somente conceito novo).|
 |236|250|15|Alfanum.|Código Interno do Ajuste|Identifica o código de agrupamento dos ajustes. (somente conceito novo).|
+
+### Registro 5 - Detalhe da Operação de Antecipação de Recebíveis
+
+Apresenta a operação de antecipação realizada na Cielo / Alelo ou de cessão de recebíveis (Banco Bradesco) realizada no dia anterior à
+geração do arquivo.
+
+|001|001|1|Num.|Tipo de registro|Constante `"5"` identifica o tipo de registro que apresenta as informações de uma operação de antecipação.|
+|002|011|10Num.|Estabelecimento de pagamento ou submissão|Número do estabelecimento.|
+|012|020|9|Num.|Número da operação de Antecipação|Número da operação de Antecipação, também apresentado no registro tipo 1 na data de liquidação do RO.|
+|021|028|8|Num.|Data de crédito da operação|AAAAMMDD Data de pagamento da operação.|
+|029|029|1|Alfa|Sinal do valor bruto da antecipação à vista.|`"+"` - identifica valor positivo.  <br> `"-"` - identifica valor negativo.|
+|030|042|13|Num.|Valor bruto da antecipação à vista|Valor bruto da antecipação de agenda à vista.  <br> O valor bruto da antecipação corresponde à soma dos valores lîquidos originais dos ROs antecipados dessa agenda.|
+|043|043|1|Alfa|Sinal do valor bruto da antecipação parcelado.|`"+"` - identifica valor positivo.  <br> `"-"` - identifica valor negativo.|
+|044|056|13|Num.|Valor bruto da antecipação parcelado|Valor bruto da antecipação da agenda do parcelado. <br> O valor da antecipação corresponde à soma dos valores líquidos originais dos ROs antecipados dessa agenda.|
+|057|057|1|Alfa|Sinal do valor bruto da antecipação Eléctron Pré-Datado| `"+"` - identifica valor positivo. <br>`"-"` - identifica valor negativo.
+|058|070|13|Num.|Valor bruto da antecipação Eléctron Pré-Datado.<br> Valor bruto da antecipação da agenda do Electron Pré-Datado. O valor bruto da antecipação corresponde à soma dos valores líquidos originais dos ROs antecipados dessa agenda.
+|071|071|1|Alfa|Sinal do valor bruto da antecipação| `"+"` - identifica valor positivo.<br> `"-"`  - identifica valor negativo.|
+|072|084|13|Num.|Valor bruto da antecipação O valor bruto da antecipação corresponde à soma dos valores líquidos originais dos ROs antecipados.|
