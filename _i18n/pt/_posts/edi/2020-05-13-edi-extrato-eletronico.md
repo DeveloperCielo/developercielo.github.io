@@ -601,3 +601,10 @@ Conforme regras de segurança, todos os registros que possuírem número de cart
 |151|152|2|Alfanum.|Grupo de Cartões| Código do grupo de cartões vide tabela X.|
 |153|160|8|Alfanum.|Número lógico do terminal| Número lógico do terminal onde foi efetuada a venda. Quando o Meio de Captura for 06, desconsiderar esta informação.|
 |161|162|2|Alfa| Identificador de taxa de embarque ou valor de entrada| Identificação da transação referente à taxa de embarque ou valor de entrada: <br> TX - Taxa de embarque; <br> VE - Valor da entrada; <br> Brancos - para demais tipos de transação.|
+|163|182|20|Alfanum.|Referência/código do pedido|Referência ou código do pedido informado em uma transação de comércio eletrônico. <br> Quando não disponível, será formatado com brancos.|
+|183|188|6|Num.|Hora da transação|Hora da transação apresentada no formado HHMMSS. <br> Essa informação será gerada somente nos registros de venda do arquivo de venda com CV original. <br> Nos demais casos, o campo será formatado com zeros.|
+|189|217|29|Num.|Número único da transação|Número Único que identifica cada transação.|
+|218|218|1|Alfa|Indicador Cielo Promo|Identificador do Produto Cielo Promo = "S". <br> Identifica que a venda participou de campanha na Plataforma Promocional. <br> Caso contrário, será formatado com brancos.|
+|219|220|2|Num.|Modo de Entrada do Cartão|Identifica o modo de entrada do cartão. Vide Tabela IX.|
+|221|235|15|Alfanum.|Código da Venda |dentifica o código da venda. (somente conceito novo).|
+|236|250|15|Alfanum.|Código Interno do Ajuste|Identifica o código de agrupamento dos ajustes. (somente conceito novo).|
