@@ -1810,6 +1810,62 @@ Conforme regras de segurança, todos os registros que possuírem número de cart
       <td>Identificador de taxa de embarque ou valor de entrada</td>
       <td>Identificação da transação referente à taxa de embarque ou valor de entrada: <br /> TX - Taxa de embarque; <br /> VE - Valor da entrada; <br /> Brancos - para demais tipos de transação.</td>
     </tr>
+    <tr>
+      <td>163</td>
+      <td>182</td>
+      <td>20</td>
+      <td>Alfanum.</td>
+      <td>Referência/código do pedido</td>
+      <td>Referência ou código do pedido informado em uma transação de comércio eletrônico. <br /> Quando não disponível, será formatado com brancos.</td>
+    </tr>
+    <tr>
+      <td>183</td>
+      <td>188</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Hora da transação</td>
+      <td>Hora da transação apresentada no formado HHMMSS. <br /> Essa informação será gerada somente nos registros de venda do arquivo de venda com CV original. <br /> Nos demais casos, o campo será formatado com zeros.</td>
+    </tr>
+    <tr>
+      <td>189</td>
+      <td>217</td>
+      <td>29</td>
+      <td>Num.</td>
+      <td>Número único da transação</td>
+      <td>Número Único que identifica cada transação.</td>
+    </tr>
+    <tr>
+      <td>218</td>
+      <td>218</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Indicador Cielo Promo</td>
+      <td>Identificador do Produto Cielo Promo = “S”. <br /> Identifica que a venda participou de campanha na Plataforma Promocional. <br /> Caso contrário, será formatado com brancos.</td>
+    </tr>
+    <tr>
+      <td>219</td>
+      <td>220</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Modo de Entrada do Cartão</td>
+      <td>Identifica o modo de entrada do cartão. Vide Tabela IX.</td>
+    </tr>
+    <tr>
+      <td>221</td>
+      <td>235</td>
+      <td>15</td>
+      <td>Alfanum.</td>
+      <td>Código da Venda</td>
+      <td>dentifica o código da venda. (somente conceito novo).</td>
+    </tr>
+    <tr>
+      <td>236</td>
+      <td>250</td>
+      <td>15</td>
+      <td>Alfanum.</td>
+      <td>Código Interno do Ajuste</td>
+      <td>Identifica o código de agrupamento dos ajustes. (somente conceito novo).</td>
+    </tr>
   </tbody>
 </table>
 
