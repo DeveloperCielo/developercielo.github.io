@@ -1869,6 +1869,112 @@ Conforme regras de segurança, todos os registros que possuírem número de cart
   </tbody>
 </table>
 
+<h3 id="registro-5---detalhe-da-operação-de-antecipação-de-recebíveis">Registro 5 - Detalhe da Operação de Antecipação de Recebíveis</h3>
+
+<p>Apresenta a operação de antecipação realizada na Cielo / Alelo ou de cessão de recebíveis (Banco Bradesco) realizada no dia anterior à
+geração do arquivo.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Tipo de registro</td>
+      <td>Constante <code class="highlighter-rouge">"5"</code> identifica o tipo de registro que apresenta as informações de uma operação de antecipação.</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>011</td>
+      <td>10Num.</td>
+      <td>Estabelecimento de pagamento ou submissão</td>
+      <td>Número do estabelecimento.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>020</td>
+      <td>9</td>
+      <td>Num.</td>
+      <td>Número da operação de Antecipação</td>
+      <td>Número da operação de Antecipação, também apresentado no registro tipo 1 na data de liquidação do RO.</td>
+    </tr>
+    <tr>
+      <td>021</td>
+      <td>028</td>
+      <td>8</td>
+      <td>Num.</td>
+      <td>Data de crédito da operação</td>
+      <td>AAAAMMDD Data de pagamento da operação.</td>
+    </tr>
+    <tr>
+      <td>029</td>
+      <td>029</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor bruto da antecipação à vista.</td>
+      <td><code class="highlighter-rouge">"+"</code> - identifica valor positivo.  <br /> <code class="highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>030</td>
+      <td>042</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor bruto da antecipação à vista</td>
+      <td>Valor bruto da antecipação de agenda à vista.  <br /> O valor bruto da antecipação corresponde à soma dos valores lîquidos originais dos ROs antecipados dessa agenda.</td>
+    </tr>
+    <tr>
+      <td>043</td>
+      <td>043</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor bruto da antecipação parcelado.</td>
+      <td><code class="highlighter-rouge">"+"</code> - identifica valor positivo.  <br /> <code class="highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>044</td>
+      <td>056</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor bruto da antecipação parcelado</td>
+      <td>Valor bruto da antecipação da agenda do parcelado. <br /> O valor da antecipação corresponde à soma dos valores líquidos originais dos ROs antecipados dessa agenda.</td>
+    </tr>
+    <tr>
+      <td>057</td>
+      <td>057</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor bruto da antecipação Eléctron Pré-Datado</td>
+      <td><code class="highlighter-rouge">"+"</code> - identifica valor positivo. <br /><code class="highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>058</td>
+      <td>070</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor bruto da antecipação Eléctron Pré-Datado.<br /> Valor bruto da antecipação da agenda do Electron Pré-Datado. O valor bruto da antecipação corresponde à soma dos valores líquidos originais dos ROs antecipados dessa agenda.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>071</td>
+      <td>071</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor bruto da antecipação</td>
+      <td><code class="highlighter-rouge">"+"</code> - identifica valor positivo.<br /> <code class="highlighter-rouge">"-"</code>  - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>072</td>
+      <td>084</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor bruto da antecipação O valor bruto da antecipação corresponde à soma dos valores líquidos originais dos ROs antecipados.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 
