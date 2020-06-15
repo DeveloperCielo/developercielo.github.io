@@ -625,4 +625,9 @@ geração do arquivo.
 |057|057|1|Alfa|Sinal do valor bruto da antecipação Eléctron Pré-Datado| `"+"` - identifica valor positivo. <br>`"-"` - identifica valor negativo.
 |058|070|13|Num.|Valor bruto da antecipação Eléctron Pré-Datado.<br> Valor bruto da antecipação da agenda do Electron Pré-Datado. O valor bruto da antecipação corresponde à soma dos valores líquidos originais dos ROs antecipados dessa agenda.
 |071|071|1|Alfa|Sinal do valor bruto da antecipação| `"+"` - identifica valor positivo.<br> `"-"`  - identifica valor negativo.|
-|072|084|13|Num.|Valor bruto da antecipação O valor bruto da antecipação corresponde à soma dos valores líquidos originais dos ROs antecipados.|
+|072|084|13|Num.|Valor bruto da antecipação| O valor bruto da antecipação corresponde à soma dos valores líquidos originais dos ROs antecipados.|
+|085|085|1|Alfa|Sinal do valor líquido da antecipação à vista| `"+"` - identifica valor positivo. <br> `"-"` - identifica valor negativo.|
+|086|098|13|Num.|Valor líquido da antecipação à vista| Valor líquido da antecipação da agenda à vista.|
+|099|099|1|Alfa|Sinal do valor líquido da antecipação parcelado| `"+"` - identifica valor positivo. <br> `"-"` - - identifica valor negativo.|
+|100|112|13|Num.|Valor líquido da antecipação parcelado|Valor líquido da antecipação da agenda do parcelado.|
+|113|113|1|Alfa|Sinal do valor líquido da antecipação PréDatado| `"+"` - identifica valor positivo. <br> `"+"` - identifica valor negativo.|
