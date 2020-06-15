@@ -631,3 +631,15 @@ geração do arquivo.
 |099|099|1|Alfa|Sinal do valor líquido da antecipação parcelado| `"+"` - identifica valor positivo. <br> `"-"` - - identifica valor negativo.|
 |100|112|13|Num.|Valor líquido da antecipação parcelado|Valor líquido da antecipação da agenda do parcelado.|
 |113|113|1|Alfa|Sinal do valor líquido da antecipação PréDatado| `"+"` - identifica valor positivo. <br> `"+"` - identifica valor negativo.|
+|114|126|13|Num.|Valor líquido da antecipação Pré-Datado| Valor líquido da antecipação da agenda do Electron Pré-Datado.|
+|127|127|1|Alfa|Sinal do valor líquido da antecipação| `"+"` - identifica valor positivo. <br> `"-"` - identifica valor negativo.|
+|128|140|13|Num.|Valor líquido da antecipação| Valor líquido da antecipação das agendas à vista, parcelado e Electron Pré-Datado.|
+|141|145|5|Num.|Taxa de desconto da antecipação `(*)`| Taxa de desconto comercial da antecipação.|
+|146|149|4|Alfanum.|Banco| Código do banco no qual os valores foram depositados.|
+|150|154|5|Alfanum.|Agência| Código da agência na qual os valores foram depositados.|
+|155|168|14|Alfanum.|Conta-corrente / poupança| Conta-corrente / poupança na qual os valores foram depositados.|
+|169|169|1|Alfa|Sinal do valor líquido da antecipação total| `"+"` - identifica valor positivo. `"-"` - identifica valor negativo.
+|170|182|13|Num.|Valor líquido da antecipação total| Valor líquido da antecipação total (deduzido a taxa e tarifa).|
+|183|183|1|Alfa|Sinal do valor da tarifa| `"+"` - identifica valor positivo. `"-"` - identifica valor negativo.|
+|184|192|9|Num.|Tarifa| Valor da tarifa cobrada por operação. Se não houver cobrança de tarifa, o campo será preenchido em branco.|
+|193|250|58|Alfanum.|Uso Cielo| Em Branco. Reservado para Cielo.|
