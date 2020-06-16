@@ -615,7 +615,7 @@ Apresenta a operação de antecipação realizada na Cielo / Alelo ou de cessão
 geração do arquivo.
 
 |001|001|1|Num.|Tipo de registro|Constante `"5"` identifica o tipo de registro que apresenta as informações de uma operação de antecipação.|
-|002|011|10Num.|Estabelecimento de pagamento ou submissão|Número do estabelecimento.|
+|002|011|10|Num.|Estabelecimento de pagamento ou submissão|Número do estabelecimento.|
 |012|020|9|Num.|Número da operação de Antecipação|Número da operação de Antecipação, também apresentado no registro tipo 1 na data de liquidação do RO.|
 |021|028|8|Num.|Data de crédito da operação|AAAAMMDD Data de pagamento da operação.|
 |029|029|1|Alfa|Sinal do valor bruto da antecipação à vista.|`"+"` - identifica valor positivo.  <br> `"-"` - identifica valor negativo.|
