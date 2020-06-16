@@ -656,7 +656,7 @@ Apresenta o detalhamento da operação de Antecipação demonstrando os ROs ante
 |036|037|2|Num.|Parcela antecipada|Número da parcela antecipada no caso de RO parcelado, se RO de venda à vista, será formatado com zeros.|
 |038|039|2|Num.|Total de parcelas|Quantidade de parcelas do RO. No caso de RO de venda à vista, será formatado com zeros.|
 |040|040|1|Alfa|Sinal do valor bruto original do RO| `"+"` - identifica valor positivo. `"-"` - identifica valor negativo.|
-|041|053|13|Num.|Valor bruto original do RO (*)| Valor bruto original do RO.|
+|041|053|13|Num.|Valor bruto original do RO `(*)`| Valor bruto original do RO.|
 |054|054|1|Alfa|Sinal do valor líquido original do RO| `"+"` - identifica valor positivo. `"-"` - identifica valor negativo.|
 |055|067|13|Num.|Valor líquido original do RO `(*)`| Valor líquido Original do RO.|
 |068|068|1|Num.|Sinal do valor bruto da antecipação do RO| `"+"` - identifica valor positivo. `"-"` - identifica valor negativo.|
@@ -707,10 +707,134 @@ Observação: os campos reservados para a Cielo poderão ser utilizados para a i
 
 ### Tabela I - Opção de Extrato
 
+|Código|Descrição|
+|---|---| 
+|03|Vendas com Plano Parcelado|
+|04|Pagamentos|
+|06|Antecipação de Recebíveis Cielo|
+|07|Cessão de Recebíveis|
+|09|Saldo em Aberto|
+|10|Antecipação de Recebíveis Alelo|
+
 ### Tabela II - Tipo de Transação
+
+|Código|Descrição|
+|---|---| 
+|01|Venda|
+|02|Ajuste a Crédito|
+|03|Ajuste a Débito|
+|04|Plano Cielo|
+|05|Reagendamento|
 
 ### Tabela III - Status do Pagamento
 
+|Código|Descrição|
+|---|---| 
+|00|**Agendado:** identifica a captura de uma transação e informa a previsão de pagamento. A data prevista poderá ser alterada.|
+|01|**Pago:** identifica que o pagamento foi realizado pelo banco domicílio.|
+|02|**Enviado para o Banco:** identifica que a Cielo solicitou o pagamento/cobrança para o banco domicílio, porém não houve confirmação.|
+|03|**A Confirmar:** identifica que a Cielo solicitou o pagamento/cobrança para o banco domicílio, porém ainda não houve confirmação.|
+
+Quando um valor a crédito estiver em processo de compensação com um valor a débito, ambos serão enviados no arquivo de pagamento na data da compensação, posterior a data prevista de pagamento. O status enviado para o banco poder ser novamente apresentado no extrato de pagamento, quando o banco domicílio devolver uma ordem de crédito (reenvio de pagamento)
+
 ### Tabela IV - Código do Produto
+
+|Código|Descrição|
+|---|---| 
+|001|Agiplan crédito à vista            |
+|002|Agiplan parcelado loja             |
+|003|Banescard crédito à vista          |
+|004|Banescard parcelado loja           |
+|005|Esplanada crédito à vista          |
+|006|Credz crédito à vista              |
+|007|Esplanada parcelado loja           |
+|008|Credz parcelado loja               |
+|009|Elo Crediário                      |
+|010|Mastercard crédito à vista         |
+|011|Maestro                            |
+|012|Mastercard parcelado loja          |
+|013|Elo Construcard                    |
+|014|Elo Agro Débito                    |
+|015|Elo Agro Custeio                   |
+|016|Elo Agro Investimento              |
+|017|Elo Agro Custeio + Débito          |
+|018|Elo Agro Investimento + Débito     |
+|019|Discover crédito à vista           |
+|020|Diners crédito à vista             |
+|021|Diners parcelado loja              |
+|022|Visa Agro Custeio + Débito         |
+|023|Visa Agro Investimento + Débito    |
+|024|FCO Investimento                   |
+|025|Agro Electron                      |
+|026|Agro Custeio                       |
+|027|Agro Investimento                  |
+|028|Visa FCO Giro                      |
+|029|Visa crediário no crédito          |
+|030|Visa parcelado cliente             |
+|033|JCB crédito a vista                |
+|036|Visa Saque com cartão de Débito    |
+|037|Flex Car Visa Vale                 |
+|038|Credsystem crédito à vista         |
+|039|Credsystem parcelado loja          |
+|040|Visa crédito à vista               |
+|041|Visa Electron Débito à vista       |
+|042|Visa Pedágio                       |
+|043|Visa parcelado loja                |
+|044|Visa Electron Pré-Datado           |
+|045|Alelo Refeição                     |
+|046|Alelo Alimentação                  |
+|058|Alelo Multibenefícios              |
+|059|Alelo Auto                         |
+|060|Sorocred débito à vista            |
+|061|Sorocred crédito à vista           |
+|062|Sorocred parcelado loja            |
+|064|Visa Crediário                     |
+|065|Alelo Refeição                        |
+|066|Alelo Alimentação                     |
+|067|Visa Capital de Giro                  |
+|068|Visa Crédito Imobiliário              |
+|069|Alelo Cultura                         |
+|070|Elo crédito a vista                   |
+|071|Elo débito à vista                    |
+|072|Elo parcelado loja                    |
+|079|Pagamento Carnê Visa Electron         |
+|080|Visa Crédito Conversor de Moeda       |
+|081|Mastercard Crédito Especializado `(*)`|
+|082|Amex crédito à vista                  |
+|083|Amex parcelado loja                   |
+|084|Amex parcelado banco                  |
+|089|Elo Crédito Imobiliário               |
+|091|Elo Crédito Especializado `(*)`       |
+|094|Banescard Débito                      |
+|096|Cabal crédito à vista                 |
+|097|Cabal débito à vista                  |
+|098|Cabal parcelado loja                  |
+|161|Hiper crédito à vista                 |
+|162|Hiper débito à vista                  |
+|163|Hiper parcelado loja                  |
+|164|Hipercard crédito à vista             |
+|165|Hipercard parcelado loja              |
+|200|Verdecard crédito a vista             |
+|201|Verdecard parcelado loja              |
+|202|Nutricash Alimentação                 |
+|203|Nutricash Refeição                    |
+|204|Nutricash Multibenefícios             |
+|205|Nutricash Combustível                 |
+|206|Ben Alimentação                       |
+|207|Ben Refeição                          |
+|314|Ourocard Agro débito                  |
+|315|Ourocard Agro custeio                 |
+|316|Ourocard Agro investimento            |
+|317|Ourocard Agro custeio + débito        |
+|318|Ourocard Agro investimento + débito   |
+|321|Mastercard crediário no crédito       |
+|322|Mastercard parcelado cliente          |
+|324|Elo parcelado cliente                 |
+|330|Elo crediário no crédito              |
+|342|Mastercard Pedágio                    |
+|377|Elo Carnê                             |
+|378|Mastercard Carnê                      |
+|380|Mastercard Crédito Conversor de Moeda |
+|433|JCB parcelado loja                    |
 
 ### Tabela V - Origem do Ajuste
