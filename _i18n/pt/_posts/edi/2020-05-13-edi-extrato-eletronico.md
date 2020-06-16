@@ -1015,6 +1015,66 @@ Quando um valor a crédito estiver em processo de compensação com um valor a d
 
 ### Tabela IX - Modo de Entrada do Cartão
 
+|Código|Descrição|
+|---|---|  
+|00|Reentrada manual|
+|01|Digitada        |
+|02|Trilha magnética|
+|03|Código de barra |
+|04|OCR (tecnologia que processa uma imagem e extrai os textos escritos)|
+|05|Chip online|
+|06|Trilha     |
+|07|Contactless|
+|81|Digitada   |
+|90|Trilha     |
+|91|Contactless emulando tarja|
+|95|Chip offline|
+
 ### Tabela X - Grupo de Cartões 
 
+|Código|Descrição|
+|---|---|  
+|00 Serviço não atribuído|
+|01 Cartão emitido no Brasil|
+|02 Cartão emitido no Exterior|
+|03 MDR por Tipo de Cartão - Inicial|
+|04 MDR por Tipo de Cartão - Intermediário|
+|05 MDR por Tipo de Cartão - Superior|
+
 ### Tabela XI - Tipo de Cartão
+
+|Código|Descrição|
+|---|---|  
+|00|Serviço não atribuído            |
+|01|Visa Classic                     |
+|02|Visa Empresarial                 |
+|03|Visa Gold                        |
+|04|Visa Platinum                    |
+|05|Visa Infinite                    |
+|06|Visa Corporate                   |
+|07|Visa Electron                    |
+|08|Visa Compras                     |
+|09|Master Platinum                  |
+|10|Master Standard                  |
+|11|Master Gold                      |
+|12|Master Pré-Pago                  |
+|13|Master Black                     |
+|14|Master Corporativo               |
+|15|Master Cartão Viagem             |
+|16|Master Cartão Benefício          |
+|17|Master World                     |
+|18|Master Agro                      |
+|19|Elo Bndes                        |
+|20|Elo Classic                      |
+|21|Elo Empresarial                  |
+|22|Elo Insumos                      |
+|23|Elo Corporativo                  |
+|24|Elo Mais                         |
+|25|Elo Grafite                      |
+|26|Elo Nanquim                      |
+|27|Elo Pré Pagos Geral / Gift Card  |
+|28|Elo Vale Cultura                 |
+|29|Elo Nacional PJ Empresarial      |
+|30|Elo Compras                      |
+|31|Elo Viagem                       |
+|32|Elo Premiação Inc de Vendas PJ   |
