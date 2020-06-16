@@ -2111,6 +2111,167 @@ geração do arquivo.</p>
   </tbody>
 </table>
 
+<h3 id="registro-6---detalhe-dos-ros-antecipados">Registro 6 - Detalhe dos ROs Antecipados</h3>
+
+<p>Apresenta o detalhamento da operação de Antecipação demonstrando os ROs antecipados/cedidos.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Tipo de registro</td>
+      <td>Constante 6 identifica o tipo de registro que apresenta as informações de um RO que foi antecipado.</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>011</td>
+      <td>10</td>
+      <td>Num.</td>
+      <td>Estabelecimento</td>
+      <td>Submissor Número do estabelecimento e/ou filial onde a venda foi realizada.</td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>020</td>
+      <td>9</td>
+      <td>Num.</td>
+      <td>Número da operação de antecipação</td>
+      <td>Número da operação de antecipação.</td>
+    </tr>
+    <tr>
+      <td>021</td>
+      <td>028</td>
+      <td>8</td>
+      <td>Num.</td>
+      <td>Data de vencimento do RO</td>
+      <td>AAAAMMDD Data de vencimento original do RO que foi antecipado.</td>
+    </tr>
+    <tr>
+      <td>029</td>
+      <td>035</td>
+      <td>7</td>
+      <td>Num.</td>
+      <td>Número do RO antecipado</td>
+      <td>Número do RO antecipado.</td>
+    </tr>
+    <tr>
+      <td>036</td>
+      <td>037</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Parcela antecipada</td>
+      <td>Número da parcela antecipada no caso de RO parcelado, se RO de venda à vista, será formatado com zeros.</td>
+    </tr>
+    <tr>
+      <td>038</td>
+      <td>039</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Total de parcelas</td>
+      <td>Quantidade de parcelas do RO. No caso de RO de venda à vista, será formatado com zeros.</td>
+    </tr>
+    <tr>
+      <td>040</td>
+      <td>040</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor bruto original do RO</td>
+      <td><code class="highlighter-rouge">"+"</code> - identifica valor positivo. <code class="highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>041</td>
+      <td>053</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor bruto original do RO (*)</td>
+      <td>Valor bruto original do RO.</td>
+    </tr>
+    <tr>
+      <td>054</td>
+      <td>054</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor líquido original do RO</td>
+      <td><code class="highlighter-rouge">"+"</code> - identifica valor positivo. <code class="highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>055</td>
+      <td>067</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor líquido original do RO <code class="highlighter-rouge">(*)</code></td>
+      <td>Valor líquido Original do RO.</td>
+    </tr>
+    <tr>
+      <td>068</td>
+      <td>068</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Sinal do valor bruto da antecipação do RO</td>
+      <td><code class="highlighter-rouge">"+"</code> - identifica valor positivo. <code class="highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>069</td>
+      <td>081</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor bruto da antecipação do RO (*)</td>
+      <td>Valor líquido original do RO, exceto se houver débitos programados para este RO.</td>
+    </tr>
+    <tr>
+      <td>082</td>
+      <td>082</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor líquido da antecipação do RO</td>
+      <td><code class="highlighter-rouge">"+"</code> - identifica valor positivo. <code class="highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>083</td>
+      <td>095</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor líquido da antecipação do RO <code class="highlighter-rouge">(*)</code></td>
+      <td>Valor pago ao estabelecimento descontada a taxa de desconto comercial da antecipação.</td>
+    </tr>
+    <tr>
+      <td>096</td>
+      <td>098</td>
+      <td>3</td>
+      <td>Num.</td>
+      <td>Bandeira</td>
+      <td>Código da Bandeira vide Tabela VI.</td>
+    </tr>
+    <tr>
+      <td>099</td>
+      <td>120</td>
+      <td>22</td>
+      <td>Num.</td>
+      <td>Número Único do RO</td>
+      <td>Número Único de identificação do RO formatado da seguinte forma: <br /> Primeira parte (fixa) - 15 posições fixas: identifica o resumo mantendo o seu histórico na Cielo; <br /> Segunda parte (variável) - 07 posições variáveis: para uso da Cielo. Identifica as alterações realizadas no RO.</td>
+    </tr>
+    <tr>
+      <td>121</td>
+      <td>121</td>
+      <td>1</td>
+      <td>Alfanum.</td>
+      <td>Identificador de RO de ajuste antecipado</td>
+      <td><code class="highlighter-rouge">S</code> considerar ajuste antecipado. <br /> Campo preenchido somente quando os ROs de ajustes forem efetivamente antecipados. (somente conceito novo).</td>
+    </tr>
+    <tr>
+      <td>122</td>
+      <td>250</td>
+      <td>129</td>
+      <td>Alfanum.</td>
+      <td>Uso Cielo</td>
+      <td>Em Branco. Reservado para Cielo.</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 
