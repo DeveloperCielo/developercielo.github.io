@@ -1078,3 +1078,23 @@ Quando um valor a crédito estiver em processo de compensação com um valor a d
 |30|Elo Compras                      |
 |31|Elo Viagem                       |
 |32|Elo Premiação Inc de Vendas PJ   |
+
+# Transmissão e Reenvio de arquivo
+
+Para receber o Extrato Eletrônico, é necessário que o cliente entre em contato com o Atendimento EDI e preencha o formulário de cadastro. Os arquivos serão disponibilizados na caixa postal diariamente, exceto o arquivo de saldo em aberto que será enviado mensalmente. 
+Quando não houver movimento, o arquivo será enviado somente com o `"Header"` e o `"Trailer"`.
+Caso ocorra alguma inconsistência na transmissão do(s) arquivo(s), o cliente deverá informar à Cielo, contatando o Atendimento EDI (edi@cielo.com.br
+
+## Reenvio de Arquivos
+
+Em caso de perda do arquivo ou não recebimento, a Cielo disponibilizará na caixa postal o mesmo arquivo enviado diariamente (arquivo backup). O cliente poderá contatar o Atendimento EDI para solicitar o reenvio
+
+## Recuperação de Arquivos
+
+* Permite a recuperação de um movimento anterior, atualizando o status dos lançamentos.
+* Os arquivos são disponibilizados separadamente do arquivo diário.
+* Não disponível para o Extrato de Saldo em Aberto (09).
+* A solicitação deve ser encaminhada para o Atendimento EDI.
+
+# Conceitos Financeiros/Glossário
+
