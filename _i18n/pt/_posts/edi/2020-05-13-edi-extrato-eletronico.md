@@ -702,3 +702,15 @@ Indica o final do arquivo.
 |042|250|209|Alfanum.|Uso Cielo|Em Branco. Reservado para Cielo.|
 
 Observação: os campos reservados para a Cielo poderão ser utilizados para a inclusão de novas informações. Também poderá ser necessário incluir novos tipos de registros. Por conta disso, sugerimos que a solução de conciliação despreze os registros não relacionados nesta especificação.
+
+## Tabelas
+
+### Tabela I - Opção de Extrato
+
+### Tabela II - Tipo de Transação
+
+### Tabela III - Status do Pagamento
+
+### Tabela IV - Código do Produto
+
+### Tabela V - Origem do Ajuste
