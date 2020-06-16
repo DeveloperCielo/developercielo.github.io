@@ -919,3 +919,15 @@ Quando um valor a crédito estiver em processo de compensação com um valor a d
 |85|Cielo Controle (Excedente)| Acerto/Cobrança                                 |
 |86|Cielo Controle (Franquia)| Acerto/Cobrança                                  |
 |93|Meliuz |Acerto/Cobrança                                                     |           
+
+### Tabela VI - Bandeira
+
+### Tabela VII - Meio de Captura
+
+### Tabela VIII - Motivo da Rejeição
+
+### Tabela IX - Modo de Entrada do Cartão
+
+### Tabela X - Grupo de Cartões 
+
+### Tabela XI - Tipo de Cartão
