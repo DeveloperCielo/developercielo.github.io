@@ -33,7 +33,7 @@ Seu principal objetivo é permitir que lojas possam criar links de pagamento (Bo
 > **Atenção**:
 > 
 > O link de pagamentos não é uma URL DE **PEDIDO/TRANSAÇÃO**. Ele é um "carrinho" que pode ser reutilizado inúmeras vezes.<br>
-> Para receber notificações sobre transações originadas de Links de pagamento é **OBRIGATÓRIO** o cadastro da **URL de Notificação** no backoffice do Checkout.<br><br>
+> Para receber notificações sobre transações originadas de Links de pagamento é **OBRIGATÓRIO** o cadastro da **URL de Notificação** no backoffice do Checkout.<br>
 > A consulta de transações realizadas através do Super Link pode ser feita através da **API de controle transacional**.<br>
 
 ## Modo teste
@@ -43,7 +43,7 @@ Seu principal objetivo é permitir que lojas possam criar links de pagamento (Bo
 Por se tratar de uma chamada não financeira, a API de Super Link não possui um Sand Box para testar a criação de links. Os Links devem ser criados a partir de um cadastro de produção. A credenciamento pode ser feito através do site cielo ou por meio da central de ecommerce.
 
 <aside class="warning"><b>Contatos da Central:<br>
-Credenciamentoecommerce@Cielo.com.br<br>
+credenciamentoecommerce@cielo.com.br<br>
 +55 11 4002-9700<br>
 0800-570-1700
 </b></aside>
@@ -188,9 +188,11 @@ O response possuirá o Token utilizado para novas requisições em Serviços Cie
 
 > O token retornado (access_token) deverá ser utilizado em toda requisição como uma chave de autorização, destacando que este possui uma validade de 20 minutos (1200 segundos) e após esse intervalo, será necessário obter um novo token para acesso aos serviços Cielo.
 
-## Criar Link
+## Link de Pagamento
 
-### Request
+### Criar Link
+
+#### Request
 
 Para criar link de pagamentos Checkout, basta enviar realizar um POST com os dados do Link ao endpoint:
 
@@ -252,7 +254,7 @@ Para criar link de pagamentos Checkout, basta enviar realizar um POST com os dad
 | `recurrent.interval` | Intervalo de cobrança da recorrência.<br><br>**Monthly** - Mensal<br>**Bimonthly** - Bimensal<br>**Quarterly** - Trimestral<br>**SemiAnnual** - Semestral<br>**Annual** – Anual<br> | string | 128     | Não         |
 | `recurrrent.endDate` | Data de término da recorrência. Se não informado a recorrência não terá fim, a cobrança será realizada de acordo com o intervalo selecionado indefinidamente.                       | string | 128     | Não         |
 
-### Response
+#### Response
 
 > "HTTP Status": 201 – Created
 
@@ -304,9 +306,9 @@ Os dados retornados na resposta contemplam todos os enviados na requisição e d
 | `shortUrl`  | string | Representa o link de pagamento que ao ser aberto, em um browser, apresentará a tela do Checkout Cielo.                        |
 | `links`     | object | Apresenta as operações disponíveis e possíveis (RESTful hypermedia) de serem efetuadas após a criação ou atualização do link. |
 
-## Consultar Link
+### Consultar Link
 
-### Request
+#### Request
 
 Para consultar um link existente basta realizar um `GET` informando o `ID` do link.
 
@@ -314,7 +316,7 @@ Para consultar um link existente basta realizar um `GET` informando o `ID` do li
 
 > **Header:** Authorization: Bearer {access_token}
 
-### Response
+#### Response
 
 > HTTP Status: 200 – OK
 
@@ -366,9 +368,9 @@ Para consultar um link existente basta realizar um `GET` informando o `ID` do li
 
 > **OBS**: O Response da consulta contem os mesmos dados retornados na criação do link.
 
-## Atualizar Link
+### Atualizar Link
 
-### Request
+#### Request
 
 Para Atualizar um link existente basta realizar um `GET` informando o `ID` do link.
 
@@ -395,7 +397,7 @@ Para Atualizar um link existente basta realizar um `GET` informando o `ID` do li
 }
 ```
 
-### Response
+#### Response
 
 > HTTP Status: 200 – OK
 
@@ -449,9 +451,9 @@ Para Atualizar um link existente basta realizar um `GET` informando o `ID` do li
 
 > **OBS**: O Response da consulta contem os mesmos dados retornados na criação do link.
 
-## Excluir Link
+### Excluir Link
 
-### Request
+#### Request
 
 Para excluir um link existente basta realizar um `DELETE` informando o `ID` do link.
 
@@ -459,7 +461,7 @@ Para excluir um link existente basta realizar um `DELETE` informando o `ID` do l
 
 > **Header:** Authorization: Bearer {access_token}
 
-### Response
+#### Response
 
 > HTTP Status: 204 – No Content
 
@@ -479,7 +481,7 @@ O Checkout Cielo possui dois tipos de notificações que o lojista pode utilizar
 
 Para utilizar ambos os modelos, o lojista necessitará acessar o Backoffice cielo e configurar tanto a `URL de NOTIFICAÇÃO` quando a `URL de MUDANÇA de STATUS`.
 
-## Tipos de URL de Notificação
+### Tipos de URL de Notificação
 
 O Checkout possui 3 tipos de URL que podem impactar o processo de notificação.
 
@@ -507,7 +509,7 @@ Todas as 3 URLs devem possuir as seguintes características:
 
 ![Cadastro de URLS]({{ site.baseurl_root }}/images/checkout/urls.png)
 
-## Notificação: POST
+### Notificação: POST
 
 A notificação via POST é baseada no envio de um `POST HTTP` quando uma transação é realizada. Ela é realizada em duas etapas:
 
@@ -530,7 +532,7 @@ Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acess
 
 Veja a descrição dos itens de notificação na sessão **"Conteúdo do POST de NOTIFICAÇÃO"**
 
-## Notificação: JSON
+### Notificação: JSON
 
 A notificação vai JSON é um método mais seguro e flexível para o lojista de realizar uma consulta no Chekcout Cielo.
 Essa modalidade de notificação é baseada em um `POST JSON`, onde o lojista recebe credenciais para que uma consulta (`GET`) possa ser realizado junto a base de dados Checkout Cielo.
@@ -546,7 +548,7 @@ Abaixo o Fluxo de uma Notificação JSON (Criação da transação + Mudança de
 
 ![Fluxo N.JSON]({{ site.baseurl_root }}/images/checkout/njson.png)
 
-### Conteúdo do POST de NOTIFICAÇÃO JSON:
+#### Conteúdo do POST de NOTIFICAÇÃO JSON:
 
 |Parâmetro|Descrição|Tipo do Campo|
 |---|---|---|
@@ -556,7 +558,7 @@ Abaixo o Fluxo de uma Notificação JSON (Criação da transação + Mudança de
 
 **Exemplo de uma consulta:**
 
-### Request
+#### Request
 
 ```shell
 curl
@@ -571,7 +573,7 @@ curl
 |---|---|---|---|---|
 |`MerchantId`|Identificador da loja|Guid|36|Sim|
 
-### Response
+#### Response
 
 ```json
 {
@@ -614,12 +616,12 @@ Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acess
 
 ![Reenvio de notificação]({{ site.baseurl_root }}/images/checkout/reenvipost.png)
 
-## Conteúdo da Notificação
+### Conteúdo da Notificação
 
 Tanto na Notificação via POST HTTP ou POST JSON, o conteúdo dos dados retornados é o mesmo.
 Abaixo são descritos todos os campos retornados, assim como suas definições e tamanhos:
 
-### Conteúdo do POST de NOTIFICAÇÃO:
+#### Conteúdo do POST de NOTIFICAÇÃO:
 
 | Parâmetro                            | Descrição                                                                                                    | Tipo do campo | Tamanho máximo |
 |--------------------------------------|--------------------------------------------------------------------------------------------------------------|---------------|----------------|
@@ -661,7 +663,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
 | `product_quantity`                   | Numero de transações restantes até que o link deixe de funcionar                                             | Alfanumérico  | 2              |
 | `product_description`                | Descrição do link de pagamentos registrada pelo lojista                                                      | texto         | 256            |
 
-### Tipos de productID
+#### Tipos de productID
 
 |Tipo de Link de pagamento|Enun|
 |-|-|
@@ -671,7 +673,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
 |Pagamento|4|
 |Recorrência|5|
 
-### Payment_status
+#### Payment_status
 
 O Checkout possui um Status próprios, diferente do SITE CIELO ou da API Cielo ecommerce. Veja abaixo a lista completa.
 
@@ -686,7 +688,7 @@ O Checkout possui um Status próprios, diferente do SITE CIELO ou da API Cielo e
 |7|`Autorizado`|somente para Cartão de Crédito|Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta|
 |8|`Chargeback`|somente para Cartão de Crédito|Transação cancelada pelo consumidor junto ao emissor do cartão. O Dinheiro não será depositado em conta.|
 
-### Payment_antifrauderesult
+#### Payment_antifrauderesult
 
 O Antifraude possui o conceito de `Status` e `SubStatus`, onde o primeiro representa o nível de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
 
@@ -703,7 +705,7 @@ O Antifraude possui o conceito de `Status` e `SubStatus`, onde o primeiro repres
 |N/A|`N/A`|Transação de recorrência|Transação de crédito seja posterior a transação de agendamento. **Somente o Agendamento é analisado**|
 |N/A|`N/A`|Transação negada|Venda a crédito foi negada - **Não são analisaveis pelo AF**|
 
-### Payment_method_type
+#### Payment_method_type
 
 O Checkout permite apenas um tipo de `Boleto` ou `Débito Online` por lojista, sendo assim não é retornado se o método usado foi Bradesco ou Banco do Brasil, pois apenas um deles estará ativado na afiliação.
 
@@ -715,7 +717,7 @@ O Checkout permite apenas um tipo de `Boleto` ou `Débito Online` por lojista, s
 |4|Cartão de Débito|
 |5|QR Code|
 
-### Payment_method_brand
+#### Payment_method_brand
 
 |Valor|Descrição|
 |---|---|
@@ -729,14 +731,14 @@ O Checkout permite apenas um tipo de `Boleto` ou `Débito Online` por lojista, s
 |8|Discover|
 |9|Hipercard|
 
-### Payment_method_bank
+#### Payment_method_bank
 
 |Valor|Descrição|
 |---|---|
 |1|Banco do Brasil|
 |2|Bradesco|
 
-### Shipping_type
+#### Shipping_type
 
 |Valor|Descrição|
 |---|---|
