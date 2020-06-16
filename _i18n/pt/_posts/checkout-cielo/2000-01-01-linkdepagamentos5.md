@@ -32,9 +32,9 @@ Seu principal objetivo é permitir que lojas possam criar links de pagamento (Bo
 
 > **Atenção**:
 > 
-> * O link de pagamentos não é uma URL DE **PEDIDO/TRANSAÇÃO**. Ele é um "carrinho" que pode ser reutilizado inúmeras vezes.
-> * Para receber notificações sobre transações originadas de Links de pagamento é **OBRIGATÓRIO** o cadastro da **URL de Notificação** no backoffice do Checkout.
-> * A consulta de transações realizadas através do Super Link pode ser feita através da **API de controle transacional**.
+> O link de pagamentos não é uma URL DE **PEDIDO/TRANSAÇÃO**. Ele é um "carrinho" que pode ser reutilizado inúmeras vezes.<br>
+> Para receber notificações sobre transações originadas de Links de pagamento é **OBRIGATÓRIO** o cadastro da **URL de Notificação** no backoffice do Checkout.<br><br>
+> A consulta de transações realizadas através do Super Link pode ser feita através da **API de controle transacional**.<br>
 
 ## Modo teste
 
@@ -42,12 +42,9 @@ Seu principal objetivo é permitir que lojas possam criar links de pagamento (Bo
 
 Por se tratar de uma chamada não financeira, a API de Super Link não possui um Sand Box para testar a criação de links. Os Links devem ser criados a partir de um cadastro de produção. A credenciamento pode ser feito através do site cielo ou por meio da central de ecommerce.
 
-<aside class="warning"><b>Contatos da Central:
-
-Credenciamentoecommerce@Cielo.com.br
-
-+55 11 4002-9700
-
+<aside class="warning"><b>Contatos da Central:<br>
+Credenciamentoecommerce@Cielo.com.br<br>
++55 11 4002-9700<br>
 0800-570-1700
 </b></aside>
 
