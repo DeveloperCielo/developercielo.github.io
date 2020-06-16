@@ -2186,7 +2186,7 @@ geração do arquivo.</p>
       <td>053</td>
       <td>13</td>
       <td>Num.</td>
-      <td>Valor bruto original do RO (*)</td>
+      <td>Valor bruto original do RO <code class="highlighter-rouge">(*)</code></td>
       <td>Valor bruto original do RO.</td>
     </tr>
     <tr>
@@ -2480,11 +2480,497 @@ geração do arquivo.</p>
 
 <h3 id="tabela-i---opção-de-extrato">Tabela I - Opção de Extrato</h3>
 
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>03</td>
+      <td>Vendas com Plano Parcelado</td>
+    </tr>
+    <tr>
+      <td>04</td>
+      <td>Pagamentos</td>
+    </tr>
+    <tr>
+      <td>06</td>
+      <td>Antecipação de Recebíveis Cielo</td>
+    </tr>
+    <tr>
+      <td>07</td>
+      <td>Cessão de Recebíveis</td>
+    </tr>
+    <tr>
+      <td>09</td>
+      <td>Saldo em Aberto</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Antecipação de Recebíveis Alelo</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="tabela-ii---tipo-de-transação">Tabela II - Tipo de Transação</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>01</td>
+      <td>Venda</td>
+    </tr>
+    <tr>
+      <td>02</td>
+      <td>Ajuste a Crédito</td>
+    </tr>
+    <tr>
+      <td>03</td>
+      <td>Ajuste a Débito</td>
+    </tr>
+    <tr>
+      <td>04</td>
+      <td>Plano Cielo</td>
+    </tr>
+    <tr>
+      <td>05</td>
+      <td>Reagendamento</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="tabela-iii---status-do-pagamento">Tabela III - Status do Pagamento</h3>
 
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>00</td>
+      <td><strong>Agendado:</strong> identifica a captura de uma transação e informa a previsão de pagamento. A data prevista poderá ser alterada.</td>
+    </tr>
+    <tr>
+      <td>01</td>
+      <td><strong>Pago:</strong> identifica que o pagamento foi realizado pelo banco domicílio.</td>
+    </tr>
+    <tr>
+      <td>02</td>
+      <td><strong>Enviado para o Banco:</strong> identifica que a Cielo solicitou o pagamento/cobrança para o banco domicílio, porém não houve confirmação.</td>
+    </tr>
+    <tr>
+      <td>03</td>
+      <td><strong>A Confirmar:</strong> identifica que a Cielo solicitou o pagamento/cobrança para o banco domicílio, porém ainda não houve confirmação.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Quando um valor a crédito estiver em processo de compensação com um valor a débito, ambos serão enviados no arquivo de pagamento na data da compensação, posterior a data prevista de pagamento. O status enviado para o banco poder ser novamente apresentado no extrato de pagamento, quando o banco domicílio devolver uma ordem de crédito (reenvio de pagamento)</p>
+
 <h3 id="tabela-iv---código-do-produto">Tabela IV - Código do Produto</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>Agiplan crédito à vista</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>Agiplan parcelado loja</td>
+    </tr>
+    <tr>
+      <td>003</td>
+      <td>Banescard crédito à vista</td>
+    </tr>
+    <tr>
+      <td>004</td>
+      <td>Banescard parcelado loja</td>
+    </tr>
+    <tr>
+      <td>005</td>
+      <td>Esplanada crédito à vista</td>
+    </tr>
+    <tr>
+      <td>006</td>
+      <td>Credz crédito à vista</td>
+    </tr>
+    <tr>
+      <td>007</td>
+      <td>Esplanada parcelado loja</td>
+    </tr>
+    <tr>
+      <td>008</td>
+      <td>Credz parcelado loja</td>
+    </tr>
+    <tr>
+      <td>009</td>
+      <td>Elo Crediário</td>
+    </tr>
+    <tr>
+      <td>010</td>
+      <td>Mastercard crédito à vista</td>
+    </tr>
+    <tr>
+      <td>011</td>
+      <td>Maestro</td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>Mastercard parcelado loja</td>
+    </tr>
+    <tr>
+      <td>013</td>
+      <td>Elo Construcard</td>
+    </tr>
+    <tr>
+      <td>014</td>
+      <td>Elo Agro Débito</td>
+    </tr>
+    <tr>
+      <td>015</td>
+      <td>Elo Agro Custeio</td>
+    </tr>
+    <tr>
+      <td>016</td>
+      <td>Elo Agro Investimento</td>
+    </tr>
+    <tr>
+      <td>017</td>
+      <td>Elo Agro Custeio + Débito</td>
+    </tr>
+    <tr>
+      <td>018</td>
+      <td>Elo Agro Investimento + Débito</td>
+    </tr>
+    <tr>
+      <td>019</td>
+      <td>Discover crédito à vista</td>
+    </tr>
+    <tr>
+      <td>020</td>
+      <td>Diners crédito à vista</td>
+    </tr>
+    <tr>
+      <td>021</td>
+      <td>Diners parcelado loja</td>
+    </tr>
+    <tr>
+      <td>022</td>
+      <td>Visa Agro Custeio + Débito</td>
+    </tr>
+    <tr>
+      <td>023</td>
+      <td>Visa Agro Investimento + Débito</td>
+    </tr>
+    <tr>
+      <td>024</td>
+      <td>FCO Investimento</td>
+    </tr>
+    <tr>
+      <td>025</td>
+      <td>Agro Electron</td>
+    </tr>
+    <tr>
+      <td>026</td>
+      <td>Agro Custeio</td>
+    </tr>
+    <tr>
+      <td>027</td>
+      <td>Agro Investimento</td>
+    </tr>
+    <tr>
+      <td>028</td>
+      <td>Visa FCO Giro</td>
+    </tr>
+    <tr>
+      <td>029</td>
+      <td>Visa crediário no crédito</td>
+    </tr>
+    <tr>
+      <td>030</td>
+      <td>Visa parcelado cliente</td>
+    </tr>
+    <tr>
+      <td>033</td>
+      <td>JCB crédito a vista</td>
+    </tr>
+    <tr>
+      <td>036</td>
+      <td>Visa Saque com cartão de Débito</td>
+    </tr>
+    <tr>
+      <td>037</td>
+      <td>Flex Car Visa Vale</td>
+    </tr>
+    <tr>
+      <td>038</td>
+      <td>Credsystem crédito à vista</td>
+    </tr>
+    <tr>
+      <td>039</td>
+      <td>Credsystem parcelado loja</td>
+    </tr>
+    <tr>
+      <td>040</td>
+      <td>Visa crédito à vista</td>
+    </tr>
+    <tr>
+      <td>041</td>
+      <td>Visa Electron Débito à vista</td>
+    </tr>
+    <tr>
+      <td>042</td>
+      <td>Visa Pedágio</td>
+    </tr>
+    <tr>
+      <td>043</td>
+      <td>Visa parcelado loja</td>
+    </tr>
+    <tr>
+      <td>044</td>
+      <td>Visa Electron Pré-Datado</td>
+    </tr>
+    <tr>
+      <td>045</td>
+      <td>Alelo Refeição</td>
+    </tr>
+    <tr>
+      <td>046</td>
+      <td>Alelo Alimentação</td>
+    </tr>
+    <tr>
+      <td>058</td>
+      <td>Alelo Multibenefícios</td>
+    </tr>
+    <tr>
+      <td>059</td>
+      <td>Alelo Auto</td>
+    </tr>
+    <tr>
+      <td>060</td>
+      <td>Sorocred débito à vista</td>
+    </tr>
+    <tr>
+      <td>061</td>
+      <td>Sorocred crédito à vista</td>
+    </tr>
+    <tr>
+      <td>062</td>
+      <td>Sorocred parcelado loja</td>
+    </tr>
+    <tr>
+      <td>064</td>
+      <td>Visa Crediário</td>
+    </tr>
+    <tr>
+      <td>065</td>
+      <td>Alelo Refeição</td>
+    </tr>
+    <tr>
+      <td>066</td>
+      <td>Alelo Alimentação</td>
+    </tr>
+    <tr>
+      <td>067</td>
+      <td>Visa Capital de Giro</td>
+    </tr>
+    <tr>
+      <td>068</td>
+      <td>Visa Crédito Imobiliário</td>
+    </tr>
+    <tr>
+      <td>069</td>
+      <td>Alelo Cultura</td>
+    </tr>
+    <tr>
+      <td>070</td>
+      <td>Elo crédito a vista</td>
+    </tr>
+    <tr>
+      <td>071</td>
+      <td>Elo débito à vista</td>
+    </tr>
+    <tr>
+      <td>072</td>
+      <td>Elo parcelado loja</td>
+    </tr>
+    <tr>
+      <td>079</td>
+      <td>Pagamento Carnê Visa Electron</td>
+    </tr>
+    <tr>
+      <td>080</td>
+      <td>Visa Crédito Conversor de Moeda</td>
+    </tr>
+    <tr>
+      <td>081</td>
+      <td>Mastercard Crédito Especializado <code class="highlighter-rouge">(*)</code></td>
+    </tr>
+    <tr>
+      <td>082</td>
+      <td>Amex crédito à vista</td>
+    </tr>
+    <tr>
+      <td>083</td>
+      <td>Amex parcelado loja</td>
+    </tr>
+    <tr>
+      <td>084</td>
+      <td>Amex parcelado banco</td>
+    </tr>
+    <tr>
+      <td>089</td>
+      <td>Elo Crédito Imobiliário</td>
+    </tr>
+    <tr>
+      <td>091</td>
+      <td>Elo Crédito Especializado <code class="highlighter-rouge">(*)</code></td>
+    </tr>
+    <tr>
+      <td>094</td>
+      <td>Banescard Débito</td>
+    </tr>
+    <tr>
+      <td>096</td>
+      <td>Cabal crédito à vista</td>
+    </tr>
+    <tr>
+      <td>097</td>
+      <td>Cabal débito à vista</td>
+    </tr>
+    <tr>
+      <td>098</td>
+      <td>Cabal parcelado loja</td>
+    </tr>
+    <tr>
+      <td>161</td>
+      <td>Hiper crédito à vista</td>
+    </tr>
+    <tr>
+      <td>162</td>
+      <td>Hiper débito à vista</td>
+    </tr>
+    <tr>
+      <td>163</td>
+      <td>Hiper parcelado loja</td>
+    </tr>
+    <tr>
+      <td>164</td>
+      <td>Hipercard crédito à vista</td>
+    </tr>
+    <tr>
+      <td>165</td>
+      <td>Hipercard parcelado loja</td>
+    </tr>
+    <tr>
+      <td>200</td>
+      <td>Verdecard crédito a vista</td>
+    </tr>
+    <tr>
+      <td>201</td>
+      <td>Verdecard parcelado loja</td>
+    </tr>
+    <tr>
+      <td>202</td>
+      <td>Nutricash Alimentação</td>
+    </tr>
+    <tr>
+      <td>203</td>
+      <td>Nutricash Refeição</td>
+    </tr>
+    <tr>
+      <td>204</td>
+      <td>Nutricash Multibenefícios</td>
+    </tr>
+    <tr>
+      <td>205</td>
+      <td>Nutricash Combustível</td>
+    </tr>
+    <tr>
+      <td>206</td>
+      <td>Ben Alimentação</td>
+    </tr>
+    <tr>
+      <td>207</td>
+      <td>Ben Refeição</td>
+    </tr>
+    <tr>
+      <td>314</td>
+      <td>Ourocard Agro débito</td>
+    </tr>
+    <tr>
+      <td>315</td>
+      <td>Ourocard Agro custeio</td>
+    </tr>
+    <tr>
+      <td>316</td>
+      <td>Ourocard Agro investimento</td>
+    </tr>
+    <tr>
+      <td>317</td>
+      <td>Ourocard Agro custeio + débito</td>
+    </tr>
+    <tr>
+      <td>318</td>
+      <td>Ourocard Agro investimento + débito</td>
+    </tr>
+    <tr>
+      <td>321</td>
+      <td>Mastercard crediário no crédito</td>
+    </tr>
+    <tr>
+      <td>322</td>
+      <td>Mastercard parcelado cliente</td>
+    </tr>
+    <tr>
+      <td>324</td>
+      <td>Elo parcelado cliente</td>
+    </tr>
+    <tr>
+      <td>330</td>
+      <td>Elo crediário no crédito</td>
+    </tr>
+    <tr>
+      <td>342</td>
+      <td>Mastercard Pedágio</td>
+    </tr>
+    <tr>
+      <td>377</td>
+      <td>Elo Carnê</td>
+    </tr>
+    <tr>
+      <td>378</td>
+      <td>Mastercard Carnê</td>
+    </tr>
+    <tr>
+      <td>380</td>
+      <td>Mastercard Crédito Conversor de Moeda</td>
+    </tr>
+    <tr>
+      <td>433</td>
+      <td>JCB parcelado loja</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="tabela-v---origem-do-ajuste">Tabela V - Origem do Ajuste</h3>
 
