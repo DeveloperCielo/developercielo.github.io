@@ -129,9 +129,7 @@
             </div>
 
             <div class="post">
-  <h1 id="api-de-super-link">API de Super Link</h1>
-
-<h2 id="obetivo-deste-item">Obetivo deste item</h2>
+  <h1 id="objetivo">Objetivo</h1>
 
 <p>Este manual irá guiar o desenvolvedor na integração com a API de Super Link da Cielo. Após realizar as integrações descritas será possível:</p>
 
@@ -142,7 +140,7 @@
   <li>Configurar a sua loja da maneira adequada</li>
 </ul>
 
-<h2 id="sobre-o-super-link">Sobre o Super Link</h2>
+<h1 id="sobre-o-super-link">Sobre o Super Link</h1>
 
 <p>A API Link de Pagamentos permite ao lojista criar, editar e consultar links de pagamentos.
 Seu principal objetivo é permitir que lojas possam criar links de pagamento (Botões ou QR Codes), através de seus próprios sistemas, sem a necessidade de acessar o Backoffice e compartilhar com seus clientes.</p>
@@ -155,9 +153,9 @@ Para receber notificações sobre transações originadas de Links de pagamento 
 A consulta de transações realizadas através do Super Link pode ser feita através da <strong>API de controle transacional</strong>.<br /></p>
 </blockquote>
 
-<h2 id="modo-teste">Modo teste</h2>
+<h1 id="modo-teste">Modo teste</h1>
 
-<h3 id="sandbox">Sandbox</h3>
+<h2 id="sandbox">Sandbox</h2>
 
 <p>Por se tratar de uma chamada não financeira, a API de Super Link não possui um Sand Box para testar a criação de links. Os Links devem ser criados a partir de um cadastro de produção. A credenciamento pode ser feito através do site cielo ou por meio da central de ecommerce.</p>
 
@@ -169,7 +167,7 @@ credenciamentoecommerce@cielo.com.br<br />
 
 <p>Os testes financeiros podem ser executados a partir da ativação do modo teste nas configuração da sua loja.</p>
 
-<h3 id="ativação-do-modo-de-teste">Ativação do Modo de Teste</h3>
+<h2 id="ativação-do-modo-de-teste">Ativação do Modo de Teste</h2>
 
 <p>O modo de teste pode ser ativado na aba <strong>Configurações</strong>, onde existe um caixa de seleção, que quando marcada, habilitará o modo de teste do Checkout Cielo. O modo somente se iniciará quando a seleção for salva.</p>
 
@@ -194,7 +192,7 @@ credenciamentoecommerce@cielo.com.br<br />
   </tbody>
 </table>
 
-<h3 id="como-transacionar-no-modo-de-teste">Como transacionar no Modo de teste</h3>
+<h2 id="como-transacionar-no-modo-de-teste">Como transacionar no Modo de teste</h2>
 
 <p>A realização de transações no modo de teste ocorre de forma normal. As informações da transação são enviadas via POST ou API, utilizando os parâmetros como descrito no tópico <a href="https://developercielo.github.io/manual/checkout-cielo#integra%C3%A7%C3%A3o-por-api">Integração por API</a>, entretanto, os meios de pagamentos a serem usados serão meios simulados.</p>
 
@@ -274,7 +272,7 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
 
 <aside class="notice">É muito importante que ao liberar sua loja para a realização de vendas para seus clientes que **ela não esteja em modo de teste**. Transações realizadas nesse ambiente poderão ser finalizadas normalmente, mas **não serão descontadas do cartão do cliente** e não poderão ser “transferidas” para o ambiente de venda padrão.</aside>
 
-<h2 id="cielo-oauth">Cielo OAUTH</h2>
+<h1 id="cielo-oauth">Cielo OAUTH</h1>
 
 <p>O Cielo OAUTH é um processo de autenticação utilizado em APIs Cielo que são correlacionadas a produtos E-commerce. Ele utiliza como segurança o protocolo <strong><a href="https://oauth.net/2/">OAUTH2</a></strong>, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API CieloOAuth</p>
 
@@ -306,7 +304,7 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
   </tbody>
 </table>
 
-<h3 id="obter-credenciais">Obter Credenciais</h3>
+<h2 id="obter-credenciais">Obter Credenciais</h2>
 
 <p>Para obter as credênciais no Checkout Cielo, basta seguir o fluxo abaixo:</p>
 
@@ -318,7 +316,7 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
   <li>Gerar chaves da API</li>
 </ol>
 
-<h3 id="token-de-acesso">Token de acesso</h3>
+<h2 id="token-de-acesso">Token de acesso</h2>
 
 <p>Para obter acesso a serviços Cielo que utilizam o <code class="highlighter-rouge">Cielo Oauth</code>, será necessário obter um token de acesso, conforme os passos abaixo:</p>
 
@@ -328,7 +326,7 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
   <li>Enviar uma requisição, utilizando o método HTTP POST</li>
 </ol>
 
-<h4 id="concatenação">Concatenação</h4>
+<h3 id="concatenação">Concatenação</h3>
 
 <table>
   <thead>
@@ -357,7 +355,7 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
   </tbody>
 </table>
 
-<h4 id="request">Request</h4>
+<h3 id="request">Request</h3>
 
 <p>O Request dever ser enviado apenas no Header da requisição.</p>
 
@@ -369,7 +367,7 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
 </span><span class="err">grant_type=client_credentials</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="response">Response</h4>
+<h3 id="response">Response</h3>
 
 <p>O response possuirá o Token utilizado para novas requisições em Serviços Cielo</p>
 
@@ -412,11 +410,11 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
   <p>O token retornado (access_token) deverá ser utilizado em toda requisição como uma chave de autorização, destacando que este possui uma validade de 20 minutos (1200 segundos) e após esse intervalo, será necessário obter um novo token para acesso aos serviços Cielo.</p>
 </blockquote>
 
-<h2 id="link-de-pagamento">Link de Pagamento</h2>
+<h1 id="link-de-pagamento">Link de Pagamento</h1>
 
-<h3 id="criar-link">Criar Link</h3>
+<h2 id="criar-link">Criar Link</h2>
 
-<h4 id="request-1">Request</h4>
+<h3 id="request-1">Request</h3>
 
 <p>Para criar link de pagamentos Checkout, basta enviar realizar um POST com os dados do Link ao endpoint:</p>
 
@@ -616,7 +614,7 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
   </tbody>
 </table>
 
-<h4 id="response-1">Response</h4>
+<h3 id="response-1">Response</h3>
 
 <blockquote>
   <p>“HTTP Status”: 201 – Created</p>
@@ -690,9 +688,9 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
   </tbody>
 </table>
 
-<h3 id="consultar-link">Consultar Link</h3>
+<h2 id="consultar-link">Consultar Link</h2>
 
-<h4 id="request-2">Request</h4>
+<h3 id="request-2">Request</h3>
 
 <p>Para consultar um link existente basta realizar um <code class="highlighter-rouge">GET</code> informando o <code class="highlighter-rouge">ID</code> do link.</p>
 
@@ -702,7 +700,7 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
   <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
 </blockquote>
 
-<h4 id="response-2">Response</h4>
+<h3 id="response-2">Response</h3>
 
 <blockquote>
   <p>HTTP Status: 200 – OK</p>
@@ -778,9 +776,9 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
   <p><strong>OBS</strong>: O Response da consulta contem os mesmos dados retornados na criação do link.</p>
 </blockquote>
 
-<h3 id="atualizar-link">Atualizar Link</h3>
+<h2 id="atualizar-link">Atualizar Link</h2>
 
-<h4 id="request-3">Request</h4>
+<h3 id="request-3">Request</h3>
 
 <p>Para Atualizar um link existente basta realizar um <code class="highlighter-rouge">GET</code> informando o <code class="highlighter-rouge">ID</code> do link.</p>
 
@@ -808,7 +806,7 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="response-3">Response</h4>
+<h3 id="response-3">Response</h3>
 
 <blockquote>
   <p>HTTP Status: 200 – OK</p>
@@ -886,9 +884,9 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
   <p><strong>OBS</strong>: O Response da consulta contem os mesmos dados retornados na criação do link.</p>
 </blockquote>
 
-<h3 id="excluir-link">Excluir Link</h3>
+<h2 id="excluir-link">Excluir Link</h2>
 
-<h4 id="request-4">Request</h4>
+<h3 id="request-4">Request</h3>
 
 <p>Para excluir um link existente basta realizar um <code class="highlighter-rouge">DELETE</code> informando o <code class="highlighter-rouge">ID</code> do link.</p>
 
@@ -898,13 +896,13 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
   <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
 </blockquote>
 
-<h4 id="response-4">Response</h4>
+<h3 id="response-4">Response</h3>
 
 <blockquote>
   <p>HTTP Status: 204 – No Content</p>
 </blockquote>
 
-<h2 id="notificações-de-pagamento">Notificações de Pagamento</h2>
+<h1 id="notificações-de-pagamento">Notificações de Pagamento</h1>
 
 <p>O processo de notificação transacional no Checkout Cielo ocorre via a inclusão de uma URL para onde serão direcionados dados das transações realizadas na plataforma.
 Vale destacar que o Checkout realiza a notificação somente quando uma transação é considerada finalizada ou seja, o comprador preencheu todos os dados da tela de pagamento e clicou em “Finalizar”.</p>
@@ -1689,22 +1687,22 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
   </tbody>
 </table>
 
-<h2 id="controle-transacional">Controle Transacional</h2>
+<h1 id="controle-transacional">Controle Transacional</h1>
 
 <p>O controle dos pedidos oriundos de link de pagamento pode ser feito por meio da API de controle transacional. A consulta de pedidos pode ser feita de 3 formas distintas:</p>
 
-<h3 id="por-merchant_order_number">Por Merchant_Order_Number</h3>
+<h2 id="por-merchant_order_number">Por Merchant_Order_Number</h2>
 
 <p>A consulta de transações por <code class="highlighter-rouge">Merchant_Order_Number</code> retorna uma lista de transações com o mesmo número de pedidos, isso ocorre pois o Checkout Cielo não impede a duplicação de OrderNumbers por parte do lojista.
 O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Number</code> que deverá ser usado na consulta de uma transação em especifico.</p>
 
-<h4 id="request-6">Request</h4>
+<h3 id="request-6">Request</h3>
 
 <p>Para consultar uma transação pelo <code class="highlighter-rouge">Merchant_Order_Number</code>, basta realizar um <code class="highlighter-rouge">GET</code>.</p>
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/merchantOrderNumber/{merchantordernumber}</span></aside>
 
-<h4 id="response-6">Response</h4>
+<h3 id="response-6">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -1799,9 +1797,9 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
   </tbody>
 </table>
 
-<h3 id="por-checkout_cielo_order_number">Por Checkout_Cielo_Order_Number</h3>
+<h2 id="por-checkout_cielo_order_number">Por Checkout_Cielo_Order_Number</h2>
 
-<h4 id="request-7">Request</h4>
+<h3 id="request-7">Request</h3>
 
 <p>Para consultar uma transação pelo <code class="highlighter-rouge">Checkout_Cielo_Order_Number</code>, basta realizar um <code class="highlighter-rouge">GET</code>.</p>
 
@@ -1811,7 +1809,7 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/{checkout_cielo_order_number}</span></aside>
 
-<h4 id="response-7">Response</h4>
+<h3 id="response-7">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> 
     </span><span class="nl">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c89fdfbb-dbe2-4e77-806a-6d75cd397dac"</span><span class="p">,</span><span class="w"> 
@@ -2119,9 +2117,9 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
   </tbody>
 </table>
 
-<h3 id="por-id-do-link-de-pagamento">Por ID do link de pagamento</h3>
+<h2 id="por-id-do-link-de-pagamento">Por ID do link de pagamento</h2>
 
-<h4 id="request-8">Request</h4>
+<h3 id="request-8">Request</h3>
 
 <p>Para consultar uma transação pelo <code class="highlighter-rouge">id</code>, basta realizar um <code class="highlighter-rouge">GET</code>.</p>
 
@@ -2131,7 +2129,7 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}/payments</span></aside>
 
-<h4 id="response-8">Response</h4>
+<h3 id="response-8">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
@@ -2292,7 +2290,7 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
 
 <p>O <code class="highlighter-rouge">Checkout_Cielo_Order_Number</code> é gerado apenas quando o pagamento é finalizado na tela transacional. Ele é enviado apenas pela URL de Notificação e não pelo Response da criação da tela transacional.</p>
 
-<h2 id="configurações-da-loja">Configurações da loja</h2>
+<h1 id="configurações-da-loja">Configurações da loja</h1>
 
 <p>As configurações de sua loja podem ser feitas dentro do site Cielo. Neste ambiente você tem acesso a diversas opções, dentre elas:</p>
 
@@ -2306,7 +2304,7 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
 
 <p>Para maiores detalhes veja o tutorial Super Link e Checkout Cielo.</p>
 
-<h2 id="status-e-códigos">Status e Códigos</h2>
+<h1 id="status-e-códigos">Status e Códigos</h1>
 
 <p>O Checkout possui um Status próprios, diferente do SITE CIELO ou da API Cielo ecommerce. Veja abaixo a lista completa.</p>
 
@@ -2371,7 +2369,7 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
   </tbody>
 </table>
 
-<h3 id="códigos-de-retorno">Códigos de Retorno</h3>
+<h2 id="códigos-de-retorno">Códigos de Retorno</h2>
 
 <p>Códigos emitidos pelos emissores dos cartões de crédito e débito explicando o motivo de uma transação ser autorizada ou não.</p>
 
@@ -3145,7 +3143,7 @@ O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Numb
   </tbody>
 </table>
 
-<h3 id="status-do-antifraude">Status do Antifraude</h3>
+<h2 id="status-do-antifraude">Status do Antifraude</h2>
 
 <table>
   <thead>
