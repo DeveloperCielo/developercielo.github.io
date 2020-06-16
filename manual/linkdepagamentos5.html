@@ -129,7 +129,152 @@
             </div>
 
             <div class="post">
-  <h1 id="cielo-oauth">Cielo OAUTH</h1>
+  <h1 id="api-de-super-link">API de Super Link</h1>
+
+<h2 id="obetivo-deste-item">Obetivo deste item</h2>
+
+<p>Este manual irá guiar o desenvolvedor na integração com a API de Super Link da Cielo. Após realizar as integrações descritas será possível:</p>
+
+<ul>
+  <li>Criar e editar Links de Pagamento via API,</li>
+  <li>Receber notificações de pagamentos</li>
+  <li>Consultar pagamentos</li>
+  <li>Configurar a sua loja da maneira adequada</li>
+</ul>
+
+<h2 id="sobre-o-super-link">Sobre o Super Link</h2>
+
+<p>A API Link de Pagamentos permite ao lojista criar, editar e consultar links de pagamentos.
+Seu principal objetivo é permitir que lojas possam criar links de pagamento (Botões ou QR Codes), através de seus próprios sistemas, sem a necessidade de acessar o Backoffice e compartilhar com seus clientes.</p>
+
+<blockquote>
+  <p><strong>Atenção</strong>:</p>
+
+  <p>O link de pagamentos não é uma URL DE <strong>PEDIDO/TRANSAÇÃO</strong>. Ele é um “carrinho” que pode ser reutilizado inúmeras vezes.
+Para receber notificações sobre transações originadas de Links de pagamento é <strong>OBRIGATÓRIO</strong> o cadastro da <strong>URL de Notificação</strong> no backoffice do Checkout.
+A consulta de transações realizadas através do Super Link pode ser feita através da <strong>API de controle transacional</strong>.</p>
+</blockquote>
+
+<h2 id="modo-teste">Modo teste</h2>
+
+<h3 id="sandbox">Sandbox</h3>
+
+<p>Por se tratar de uma chamada não financeira, a API de Super Link não possui um Sand Box para testar a criação de links. Os Links devem ser criados a partir de um cadastro de produção. A credenciamento pode ser feito através do site cielo ou por meio da central de ecommerce.</p>
+
+<aside class="warning">Contatos da Central:
+Credenciamentoecommerce@Cielo.com.br
++55 11 4002-9700
+0800-570-1700
+</aside>
+
+<p>Os testes financeiros podem ser executados a partir da ativação do modo teste nas configuração da sua loja.</p>
+
+<h3 id="ativação-do-modo-de-teste">Ativação do Modo de Teste</h3>
+
+<p>O modo de teste pode ser ativado na aba <strong>Configurações</strong>, onde existe um caixa de seleção, que quando marcada, habilitará o modo de teste do Checkout Cielo. O modo somente se iniciará quando a seleção for salva.</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/tm01.png" alt="Ativando Modo de teste" /></p>
+
+<p>Quando a opção for salva, uma tarja vermelha será exibida na parte superior da tela. Ela será exibida em todas as telas do <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">Backoffice Cielo Checkout</a> e na tela transacional do Checkout Cielo.</p>
+
+<p>Essa tarja indica que a sua loja Checkout Cielo está agora operando em ambiente de teste, ou seja, toda a transação realizada nesse modo será considerada como teste.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Backoffice</th>
+      <th>Transacional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="https://developercielo.github.io/images/checkout/tmbackoffice.png" alt="Tarja vermelha - Backoffice" /></td>
+      <td><img src="https://developercielo.github.io/images/checkout/tmtransacional.png" alt="Tarja vermelha - Transacional" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="como-transacionar-no-modo-de-teste">Como transacionar no Modo de teste</h3>
+
+<p>A realização de transações no modo de teste ocorre de forma normal. As informações da transação são enviadas via POST ou API, utilizando os parâmetros como descrito no tópico <a href="https://developercielo.github.io/manual/checkout-cielo#integra%C3%A7%C3%A3o-por-api">Integração por API</a>, entretanto, os meios de pagamentos a serem usados serão meios simulados.</p>
+
+<p>Para realizar transações de teste com diferentes meios de pagamento, siga as seguintes regras:</p>
+
+<p><strong>A - Transações com Cartão de crédito:</strong></p>
+
+<p>Para testar cartões de crédito é necessário que dois dados importantes sejam definidos, o status da autorização do cartão e o retorno da analise de fraude.</p>
+
+<p><strong>Status da Autorização do Cartão de Crédito</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status da Transação</th>
+      <th>Cartões para realização dos testes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Autorizado</td>
+      <td>0000.0000.0000.0000 / 0000.0000.0000.0004</td>
+    </tr>
+    <tr>
+      <td>Não Autorizado</td>
+      <td>0000.0000.0000.0005 / 0000.0000.0000.0009</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Exemplo:</strong> 540443424293010<strong>0</strong> = <strong>Autorizado</strong></p>
+
+<p><strong>B - Boleto Bancário</strong></p>
+
+<p>Basta realizar o processo de compra normalmente sem nenhuma alteração no procedimento.
+O boleto gerado no modo de teste sempre será um boleto simulado.</p>
+
+<p><strong>C - Debito online</strong></p>
+
+<p>É necessário informa o status da transação de Debito online para que seja retornado o status desejado. Esse processo ocorre como no antifraude do cartão de crédito descrito acima, com a alteração do nome do comprador.</p>
+
+<p><strong>Status do Débito</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sobre nome do cliente</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Pago</td>
+      <td>Pago</td>
+    </tr>
+    <tr>
+      <td>Qualquer nome.</td>
+      <td>Não autorizado</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><strong>Exemplo:</strong> Status não Autorizado.</li>
+  <li><strong>Nome do Cliente:</strong> Maria Pereira</li>
+</ul>
+
+<p><strong>D - Transações de teste</strong></p>
+
+<p>Todas as transações realizadas no modo de teste serão exibidas como transações normais na aba Pedidos do Checkout Cielo, entretanto, elas serão marcadas como transações de teste e não serão contabilizadas em conjunto com as transações realizadas fora do ambiente de teste.</p>
+
+<p><img src="https://developercielo.github.io/images/checkout-cielo-modo-teste-transacoes-de-teste.png" alt="Transações de teste" /></p>
+
+<p>Essas transações terão o símbolo de teste as diferenciando de suas outras transações. Elas podem ser capturadas ou canceladas utilizando os mesmos procedimentos das transações reais.</p>
+
+<p><img src="https://developercielo.github.io/images/checkout-cielo-modo-teste-transacoes-de-teste-cancelamento.png" alt="Transações de teste" /></p>
+
+<aside class="notice">É muito importante que ao liberar sua loja para a realização de vendas para seus clientes que **ela não esteja em modo de teste**. Transações realizadas nesse ambiente poderão ser finalizadas normalmente, mas **não serão descontadas do cartão do cliente** e não poderão ser “transferidas” para o ambiente de venda padrão.</aside>
+
+<h2 id="cielo-oauth">Cielo OAUTH</h2>
 
 <p>O Cielo OAUTH é um processo de autenticação utilizado em APIs Cielo que são correlacionadas a produtos E-commerce. Ele utiliza como segurança o protocolo <strong><a href="https://oauth.net/2/">OAUTH2</a></strong>, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API CieloOAuth</p>
 
@@ -161,7 +306,7 @@
   </tbody>
 </table>
 
-<h2 id="obter-credenciais">Obter Credenciais</h2>
+<h3 id="obter-credenciais">Obter Credenciais</h3>
 
 <p>Para obter as credênciais no Checkout Cielo, basta seguir o fluxo abaixo:</p>
 
@@ -173,7 +318,7 @@
   <li>Gerar chaves da API</li>
 </ol>
 
-<h2 id="token-de-acesso">Token de acesso</h2>
+<h3 id="token-de-acesso">Token de acesso</h3>
 
 <p>Para obter acesso a serviços Cielo que utilizam o <code class="highlighter-rouge">Cielo Oauth</code>, será necessário obter um token de acesso, conforme os passos abaixo:</p>
 
@@ -183,7 +328,7 @@
   <li>Enviar uma requisição, utilizando o método HTTP POST</li>
 </ol>
 
-<h3 id="concatenação">Concatenação</h3>
+<h4 id="concatenação">Concatenação</h4>
 
 <table>
   <thead>
@@ -212,7 +357,7 @@
   </tbody>
 </table>
 
-<h3 id="request">Request</h3>
+<h4 id="request">Request</h4>
 
 <p>O Request dever ser enviado apenas no Header da requisição.</p>
 
@@ -224,7 +369,7 @@
 </span><span class="err">grant_type=client_credentials</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="response">Response</h3>
+<h4 id="response">Response</h4>
 
 <p>O response possuirá o Token utilizado para novas requisições em Serviços Cielo</p>
 
@@ -266,25 +411,6 @@
 <blockquote>
   <p>O token retornado (access_token) deverá ser utilizado em toda requisição como uma chave de autorização, destacando que este possui uma validade de 20 minutos (1200 segundos) e após esse intervalo, será necessário obter um novo token para acesso aos serviços Cielo.</p>
 </blockquote>
-
-<h1 id="link-de-pagamento">Link de Pagamento</h1>
-
-<p>A <strong>API Link de Pagamentos</strong> permite ao lojista criar, editar e consultar links de pagamentos.</p>
-
-<p>Seu principal objetivo é permitir que lojas possam criar links de pagamento (Botões ou QR Codes), através de seus próprios sistemas, sem a necessidade de acessar o Backoffice do Checkout Cielo e compartilhar com seus clientes.</p>
-
-<blockquote>
-  <p><strong>Atenção</strong>:</p>
-
-  <ul>
-    <li>O link de pagamentos não é uma URL DE <strong>PEDIDO/TRANSAÇÃO</strong>. Ele é um “carrinho” que pode ser reutilizado inúmeras vezes.</li>
-    <li>Para receber notificações sobre transações originadas de Links de pagamento é <strong>OBRIGATÓRIO</strong> o cadastro da <strong>URL de Notificação</strong> no backoffice do Checkout.</li>
-  </ul>
-</blockquote>
-
-<h2 id="autenticação">Autenticação</h2>
-
-<p>O Processo de autenticação na API do link de pagamento é o <strong><a href="https://docscielo.github.io/Pilots/manual/linkdepagamentos5#cielo-oauth">Cielo OAUTH</a></strong></p>
 
 <h2 id="criar-link">Criar Link</h2>
 
@@ -776,35 +902,2296 @@
   <p>HTTP Status: 204 – No Content</p>
 </blockquote>
 
-<h2 id="códigos-de-status-http">Códigos de Status HTTP</h2>
+<h2 id="notificações-de-pagamento">Notificações de Pagamento</h2>
+
+<p>O processo de notificação transacional no Checkout Cielo ocorre via a inclusão de uma URL para onde serão direcionados dados das transações realizadas na plataforma.
+Vale destacar que o Checkout realiza a notificação somente quando uma transação é considerada finalizada ou seja, o comprador preencheu todos os dados da tela de pagamento e clicou em “Finalizar”.</p>
+
+<h2 id="tipos-de-notificação">Tipos de notificação</h2>
+
+<p>O Checkout Cielo possui dois tipos de notificações que o lojista pode utilizar de acordo com suas necessidades:</p>
 
 <table>
   <thead>
     <tr>
-      <th>CÓDIGO</th>
-      <th>DESCRIÇÃO</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>200 - OK</strong></td>
-      <td>Tudo funcionou corretamente.</td>
+      <td><code class="highlighter-rouge">POST</code></td>
+      <td>Notificação onde o lojista é passivo. Dois <code class="highlighter-rouge">POST HTTP</code> são disparados, um informando dados da venda e outra mudança de Status da transação</td>
     </tr>
     <tr>
-      <td><strong>400 – Bad Request</strong></td>
-      <td>A requisição não foi aceita. Algum parâmetro não foi informado ou foi informado incorretamente.</td>
+      <td><code class="highlighter-rouge">JSON</code></td>
+      <td>Notificação onde o lojista realiza uma consulta. Um <code class="highlighter-rouge">POST</code> contendo informações para a realização de uma consulta (<code class="highlighter-rouge">GET</code>) as transações checkout</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Para utilizar ambos os modelos, o lojista necessitará acessar o Backoffice cielo e configurar tanto a <code class="highlighter-rouge">URL de NOTIFICAÇÃO</code> quando a <code class="highlighter-rouge">URL de MUDANÇA de STATUS</code>.</p>
+
+<h2 id="tipos-de-url-de-notificação">Tipos de URL de Notificação</h2>
+
+<p>O Checkout possui 3 tipos de URL que podem impactar o processo de notificação.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Observação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">URL de Retorno</code></td>
+      <td>Página web na qual o comprador será redirecionado ao fim da compra. <br />Nenhum dado é trocado ou enviado para essa URL.<br /> Essa URL apenas leva o comprador, após finalizar a compra, a uma página definida pela loja.</td>
+      <td>Caso o Lojista deseje, ele pode configurar essa página para ser sensibilizada por tráfego, assim identificando que a transação foi finalizada no Checkout Cielo <br /> Pode ser enviada via API - Ver “Integração por API”</td>
     </tr>
     <tr>
-      <td><strong>401 - Unauthorized</strong></td>
-      <td>O token de acesso enviado no header da requisição não é válido.</td>
+      <td><code class="highlighter-rouge">URL de Notificação</code></td>
+      <td>Ao finalizar uma transação é enviado um POST HTTP com todos os dados da venda para a URL de Notificação.<br /> O POST de notificação é enviado apenas no momento que a transação é finalizada, independentemente se houve alteração do <strong>status da transação</strong></td>
+      <td>Utilizada na Notificação via <code class="highlighter-rouge">POST</code>e <code class="highlighter-rouge">JSON</code></td>
     </tr>
     <tr>
-      <td><strong>404 – Not Found</strong></td>
-      <td>O recurso sendo acessado não existe. Ocorre ao tentar atualizar, consultar ou excluir um link inexistente.</td>
+      <td><code class="highlighter-rouge">URL de Mudança de Status</code></td>
+      <td>Quando um pedido tiver seu status alterado, será enviando um post HTTP para a URL de Mudança de Status.<br /> O POST de mudança de status não contem dados do carrinho, apenas dados de identificação do pedido</td>
+      <td>Utilizada somente na Notificação via <code class="highlighter-rouge">POST</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>OBS:</strong> Caso uma <code class="highlighter-rouge">URL de retorno</code> seja enviada vai API, ela terá prioridade sobre a URL cadastrada no Backoffice / Na integração Checkout Cielo <code class="highlighter-rouge">via Botão</code>, só é possível usar a opção de URL de retorno via backoffice.</p>
+
+<p><strong>Características das URLs</strong></p>
+
+<p>Todas as 3 URLs devem possuir as seguintes características:</p>
+
+<ul>
+  <li>Devem ser URLs estáticas</li>
+  <li>Devem possuir menos de 255 caracteres</li>
+  <li>Caracteres especiais não são suportados</li>
+</ul>
+
+<p><strong>Configurando as URLs</strong></p>
+
+<ol>
+  <li>Basta acessar dentro do <strong>Backoffice</strong> as Abas <strong>Configurações</strong></li>
+  <li>Em <strong>Configurações da Loja</strong>, Vá a sessão de <strong>Pagamentos</strong></li>
+  <li>Cadastre as URLS e escolhe o tipo de Notificação desejado</li>
+</ol>
+
+<p><img src="https://developercielo.github.io/images/checkout/urls.png" alt="Cadastro de URLS" /></p>
+
+<h2 id="notificação-post">Notificação: POST</h2>
+
+<p>A notificação via POST é baseada no envio de um <code class="highlighter-rouge">POST HTTP</code> quando uma transação é realizada. Ela é realizada em duas etapas:</p>
+
+<ol>
+  <li><code class="highlighter-rouge">POST de NOTIFICAÇÃO</code> - Ocorre quando a transação é finalizada. Esse POST possui todos os dados do pedido, incluindo o STATUS inicial da transação.</li>
+  <li><code class="highlighter-rouge">POST de MUDANÇA DE STATUS</code> - Ocorre quando uma transação possui seu STATUS alterado - <strong>EX:</strong> “Autorizado” &gt; &gt; &gt; “Pago”</li>
+</ol>
+
+<p>Este fluxo é utilizado por lojas que ainda não realizam transações via API.</p>
+
+<p>Abaixo o Fluxo de uma Notificação POST</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/npost.png" alt="Fluxo N.POST" /></p>
+
+<p><strong>Retorno aguardado para o envio da notificação:</strong> <code class="highlighter-rouge">HttpStatus = 200 (OK)</code> - Post recebido e processado com sucesso</p>
+
+<p><strong>IMPORTANTE</strong> Se a <code class="highlighter-rouge">URL de Notificação</code> cadastrada retornar algum erro/estiver indisponível, serão realizadas <em>*3 novas tentativas, com intervalo de 1 hora entre cada POST</em>.</p>
+
+<p>Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acessar o pedido em questão pelo Backoffice e clicar no Ícone de envio:</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/reenvipost.png" alt="Reenvio de notificação" /></p>
+
+<p>Veja a descrição dos itens de notificação na sessão <strong>“Conteúdo do POST de NOTIFICAÇÃO”</strong></p>
+
+<h2 id="notificação-json">Notificação: JSON</h2>
+
+<p>A notificação vai JSON é um método mais seguro e flexível para o lojista de realizar uma consulta no Chekcout Cielo.
+Essa modalidade de notificação é baseada em um <code class="highlighter-rouge">POST JSON</code>, onde o lojista recebe credenciais para que uma consulta (<code class="highlighter-rouge">GET</code>) possa ser realizado junto a base de dados Checkout Cielo.</p>
+
+<p>Ela é realizada em duas etapas:</p>
+
+<ol>
+  <li><code class="highlighter-rouge">POST de NOTIFICAÇÃO</code> - Ocorre quando a transação é finalizada. Possui as Credenciais necessárias consultas transacionais.</li>
+  <li><code class="highlighter-rouge">CONSULTA TRANSACIONAL</code> - Com as credenciais de consulta, o lojista busca dados da venda junto ao Checkout Cielo</li>
+</ol>
+
+<p>Na Notificação de JSON, não há diferença entre o <code class="highlighter-rouge">POST de Notificação</code> e <code class="highlighter-rouge">Mudança de Status</code>. Sempre que algo ocorrer na transação, o lojista receberá um <code class="highlighter-rouge">POST de Notificação</code></p>
+
+<p>Abaixo o Fluxo de uma Notificação JSON (Criação da transação + Mudança de status)</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/njson.png" alt="Fluxo N.JSON" /></p>
+
+<h3 id="conteúdo-do-post-de-notificaÇÃo-json">Conteúdo do POST de NOTIFICAÇÃO JSON:</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Descrição</th>
+      <th>Tipo do Campo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">URL</code></td>
+      <td>URL com os dados necessários para realizar a busca dos dados da transação.</td>
+      <td>String</td>
     </tr>
     <tr>
-      <td><strong>500 – Internal Server Error</strong></td>
-      <td>Ocorreu um erro no sistema.</td>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>Identificador da loja no Checkout Cielo; consta no Backoffice no menu Configuração/Dados Cadastrais.</td>
+      <td>Alfanumérico (GUID)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantOrderNumber</code></td>
+      <td>Número do pedido da loja; se não for enviado, o Checkout Cielo gerará um número, que será visualizado pelo Consumidor.</td>
+      <td>Alfanumérico</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Exemplo de uma consulta:</strong></p>
+
+<h3 id="request-5">Request</h3>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> GET https://cieloecommerce.cielo.com.br/api/public/v1/orders/<span class="o">{</span>merchantId<span class="o">}</span>/<span class="o">{</span>merchantOrderNumber<span class="o">}</span><span class="s2">"
+--header "</span>Content-Type: application/json<span class="s2">"
+--header "</span>MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx<span class="s2">"
+--data-binary
+--verbose
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td>Identificador da loja</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-5">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido01"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"discount_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"checkout_cielo_order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65930e7460bd4a849502ed14d7be6c03"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12-09-2017 14:38:56"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Test"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21987654321"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84261300206"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@cielo.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Motoboy"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_address_zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21911130"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_address_district"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Freguesia"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_address_line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Cambui"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_address_line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apto 201"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_address_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"92"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"payment_method_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"payment_method_brand"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"payment_maskedcreditcard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"471612******7044"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"payment_installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10447480686J51OH8BPB"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"test_transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Veja a descrição dos itens de notificação na sessão <strong>“Conteúdo do POST de NOTIFICAÇÃO”</strong></p>
+
+<p><strong>Retorno aguardado para o envio da notificação:</strong> <code class="highlighter-rouge">HttpStatus = 200 (OK)</code> - Post recebido e processado com sucesso</p>
+
+<p><strong>IMPORTANTE</strong> Se a <code class="highlighter-rouge">URL de Notificação</code> cadastrada retornar algum erro/estiver indisponível, serão realizadas <em>*3 novas tentativas, com intervalo de 1 hora entre cada POST</em>.</p>
+
+<p>Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acessar o pedido em questão pelo Backoffice e clicar no Ícone de envio:</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/reenvipost.png" alt="Reenvio de notificação" /></p>
+
+<h2 id="conteúdo-da-notificação">Conteúdo da Notificação</h2>
+
+<p>Tanto na Notificação via POST HTTP ou POST JSON, o conteúdo dos dados retornados é o mesmo.
+Abaixo são descritos todos os campos retornados, assim como suas definições e tamanhos:</p>
+
+<h3 id="conteúdo-do-post-de-notificaÇÃo">Conteúdo do POST de NOTIFICAÇÃO:</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Descrição</th>
+      <th>Tipo do campo</th>
+      <th>Tamanho máximo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">checkout_cielo_order_number</code></td>
+      <td>Identificador único gerado pelo CHECKOUT CIELO</td>
+      <td>Alfanumérico</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">amount</code></td>
+      <td>Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)</td>
+      <td>Numérico</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">order_number</code></td>
+      <td>Número do pedido enviado pela loja</td>
+      <td>Alfanumérico</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">created_date</code></td>
+      <td>Data da criação do pedido - <code class="highlighter-rouge">dd-MM-yyyy HH:mm:ss</code></td>
+      <td>Alfanumérico</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">customer_name</code></td>
+      <td>Nome do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO</td>
+      <td>Alfanumérico</td>
+      <td>289</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">customer_identity</code></td>
+      <td>Identificação do consumidor (CPF ou CNPJ) Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO</td>
+      <td>Alfanumérico</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">customer_email</code></td>
+      <td>E-mail do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO</td>
+      <td>Alfanumérico</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">customer_phone</code></td>
+      <td>Telefone do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO</td>
+      <td>Numérico</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">discount_amount</code></td>
+      <td>Valor do desconto fornecido (enviado somente se houver desconto)</td>
+      <td>Numérico</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_type</code></td>
+      <td>Modalidade de frete</td>
+      <td>Numérico</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_name</code></td>
+      <td>Nome do frete</td>
+      <td>Alfanumérico</td>
+      <td>128</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_price</code></td>
+      <td>Valor do serviço de frete, em centavos (ex: R$ 10,00 = 1000)</td>
+      <td>Numérico</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_zipcode</code></td>
+      <td>CEP do endereço de entrega</td>
+      <td>Numérico</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_district</code></td>
+      <td>Bairro do endereço de entrega</td>
+      <td>Texto</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_city</code></td>
+      <td>Cidade do endereço de entrega</td>
+      <td>Alfanumérico</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_state</code></td>
+      <td>Estado de endereço de entrega</td>
+      <td>Alfanumérico</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_line1</code></td>
+      <td>Endereço de entrega</td>
+      <td>Alfanumérico</td>
+      <td>256</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_line2</code></td>
+      <td>Complemento do endereço de entrega</td>
+      <td>Alfanumérico</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping_address_number</code></td>
+      <td>Número do endereço de entrega</td>
+      <td>Numérico</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_method_type</code></td>
+      <td>Cód. do tipo de meio de pagamento</td>
+      <td>Numérico</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_method_brand</code></td>
+      <td>Bandeira (somente para transações com meio de pagamento cartão de crédito)</td>
+      <td>Numérico</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_method_bank</code></td>
+      <td>Banco emissor (Para transações de Boleto e Débito Automático)</td>
+      <td>Numérico</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_maskedcreditcard</code></td>
+      <td>Cartão Mascarado (Somente para transações com meio de pagamento cartão de crédito)</td>
+      <td>Alfanumérico</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_installments</code></td>
+      <td>Número de parcelas</td>
+      <td>Numérico</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_antifrauderesult</code></td>
+      <td>Status das transações de cartão de Crédito no Antifraude</td>
+      <td>Numérico</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_boletonumber</code></td>
+      <td>número do boleto gerado</td>
+      <td>String</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_boletoexpirationdate</code></td>
+      <td>Data de vencimento para transações realizadas com boleto bancário</td>
+      <td>Numérico</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">payment_status</code></td>
+      <td>Status da transação</td>
+      <td>Numérico</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">tid</code></td>
+      <td>TID Cielo gerado no momento da autorização da transação</td>
+      <td>Alfanumérico</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">test_transaction</code></td>
+      <td>Indica se a transação foi gerada com o <code class="highlighter-rouge">Modo de teste</code> ativado</td>
+      <td>Boolean</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">product_id</code></td>
+      <td>Identificador do Botão/Link de pagamento que gerou a transação</td>
+      <td>Alfanumérico</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">product_type</code></td>
+      <td>Tipo de Botão que gerou o pedido (Ver tabela de ProductID)</td>
+      <td>Alfanumérico</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">product_sku</code></td>
+      <td>Identificador do produto cadastro no link de pagamento</td>
+      <td>texto</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">product_max_number_of_installments</code></td>
+      <td>Numero de parcelas liberado pelo lojistas para o link de pagamento</td>
+      <td>Numérico</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">product_expiration_date</code></td>
+      <td>Data de validade do botão/Link de pagamento</td>
+      <td>Alfanumérico</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">product_quantity</code></td>
+      <td>Numero de transações restantes até que o link deixe de funcionar</td>
+      <td>Alfanumérico</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">product_description</code></td>
+      <td>Descrição do link de pagamentos registrada pelo lojista</td>
+      <td>texto</td>
+      <td>256</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tipos-de-productid">Tipos de productID</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo de Link de pagamento</th>
+      <th>Enun</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Material físico</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Digital</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Serviço</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Pagamento</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>Recorrência</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="payment_status">Payment_status</h3>
+
+<p>O Checkout possui um Status próprios, diferente do SITE CIELO ou da API Cielo ecommerce. Veja abaixo a lista completa.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Valor</th>
+      <th>Status de transação</th>
+      <th>Meios de pagamento</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><code class="highlighter-rouge">Pendente</code></td>
+      <td>Para todos os meios de pagamento</td>
+      <td>Indica que o pagamento ainda está sendo processado; OBS: Boleto - Indica que o boleto não teve o status alterado pelo lojista</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="highlighter-rouge">Pago</code></td>
+      <td>Para todos os meios de pagamento</td>
+      <td>Transação capturada e o dinheiro será depositado em conta.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="highlighter-rouge">Negado</code></td>
+      <td>Somente para Cartão Crédito</td>
+      <td>Transação não autorizada pelo responsável do meio de pagamento</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><code class="highlighter-rouge">Expirado</code></td>
+      <td>Cartões de Crédito e Boleto</td>
+      <td>Transação deixa de ser válida para captura - <strong>15 dias pós Autorização</strong></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><code class="highlighter-rouge">Cancelado</code></td>
+      <td>Para cartões de crédito</td>
+      <td>Transação foi cancelada pelo lojista</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><code class="highlighter-rouge">Não Finalizado</code></td>
+      <td>Todos os meios de pagamento</td>
+      <td>Pagamento esperando Status - Pode indicar erro ou falha de processamento. Entre em contato com o Suporte cielo</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><code class="highlighter-rouge">Autorizado</code></td>
+      <td>somente para Cartão de Crédito</td>
+      <td>Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td><code class="highlighter-rouge">Chargeback</code></td>
+      <td>somente para Cartão de Crédito</td>
+      <td>Transação cancelada pelo consumidor junto ao emissor do cartão. O Dinheiro não será depositado em conta.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="payment_antifrauderesult">Payment_antifrauderesult</h3>
+
+<p>O Antifraude possui o conceito de <code class="highlighter-rouge">Status</code> e <code class="highlighter-rouge">SubStatus</code>, onde o primeiro representa o nível de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Valor</th>
+      <th>Status Antifraude</th>
+      <th>Substatus</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><code class="highlighter-rouge">Baixo Risco</code></td>
+      <td>Baixo Risco</td>
+      <td>Baixo risco de ser uma transação fraudulenta</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="highlighter-rouge">Médio Risco</code></td>
+      <td>Médio Risco</td>
+      <td>Médio risco de ser uma transação fraudulenta</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="highlighter-rouge">Alto Risco</code></td>
+      <td>Alto Risco</td>
+      <td>Alto risco de ser uma transação fraudulenta</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><code class="highlighter-rouge">Não finalizado</code></td>
+      <td>Não finalizado</td>
+      <td>Não foi possível finalizar a consulta</td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>Autenticado</td>
+      <td>Transações autenticadas pelo banco - <strong>Não são analisaveis pelo AF</strong></td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>AF Não contratado</td>
+      <td>Antifraude não habilitado no plano do lojista - <strong>Não são analisaveis pelo AF</strong></td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>AF Dispensado</td>
+      <td>Antifraude dispensado via contrato ou inferior ao valor mínimo de antifrade parametrizado backoffice no lojista</td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>Não aplicável</td>
+      <td>Meio de pagamento não analisável como cartões de débito, boleto e débito online</td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>Transação de recorrência</td>
+      <td>Transação de crédito seja posterior a transação de agendamento. <strong>Somente o Agendamento é analisado</strong></td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td><code class="highlighter-rouge">N/A</code></td>
+      <td>Transação negada</td>
+      <td>Venda a crédito foi negada - <strong>Não são analisaveis pelo AF</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="payment_method_type">Payment_method_type</h3>
+
+<p>O Checkout permite apenas um tipo de <code class="highlighter-rouge">Boleto</code> ou <code class="highlighter-rouge">Débito Online</code> por lojista, sendo assim não é retornado se o método usado foi Bradesco ou Banco do Brasil, pois apenas um deles estará ativado na afiliação.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Valor</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Cartão de Crédito</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Boleto Bancário</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Débito Online</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Cartão de Débito</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>QR Code</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="payment_method_brand">Payment_method_brand</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Valor</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Visa</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Mastercad</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>AmericanExpress</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Diners</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Elo</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Aura</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>JCB</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Discover</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Hipercard</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="payment_method_bank">Payment_method_bank</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Valor</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Banco do Brasil</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Bradesco</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="shipping_type">Shipping_type</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Valor</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Correios</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Frete fixo</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Frete grátis</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Retirar em mãos/loja</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Sem cobrança de frete (serviços ou produtos digitais)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="controle-transacional">Controle Transacional</h2>
+
+<p>O controle dos pedidos oriundos de link de pagamento pode ser feito por meio da API de controle transacional. A consulta de pedidos pode ser feita de 3 formas distintas:</p>
+
+<h3 id="por-merchant_order_number">Por Merchant_Order_Number</h3>
+
+<p>A consulta de transações por <code class="highlighter-rouge">Merchant_Order_Number</code> retorna uma lista de transações com o mesmo número de pedidos, isso ocorre pois o Checkout Cielo não impede a duplicação de OrderNumbers por parte do lojista.
+O response possuirá o <code class="highlighter-rouge">Checkout_Cielo_Order_Number</code> que deverá ser usado na consulta de uma transação em especifico.</p>
+
+<h4 id="request-6">Request</h4>
+
+<p>Para consultar uma transação pelo <code class="highlighter-rouge">Merchant_Order_Number</code>, basta realizar um <code class="highlighter-rouge">GET</code>.</p>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/merchantOrderNumber/{merchantordernumber}</span></aside>
+
+<h4 id="response-6">Response</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"checkoutOrderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a58995ce24fd4f1cb025701e95a51478"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-30T12:09:33.57"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/a58995ce24fd4f1cb025701e95a51478"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"checkoutOrderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"438f3391860a4bedbae9a868180dda6e"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-30T12:05:41.317"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/438f3391860a4bedbae9a868180dda6e"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">$id</code></td>
+      <td>id do nó</td>
+      <td>Numérico</td>
+      <td>-</td>
+      <td>Exemplo: 1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">checkoutOrderNumber</code></td>
+      <td>Código de pedido gerado pelo Checkout Cielo</td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>Exmeplo: a58995ce24fd4f1cb025701e95a51478</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">createdDate</code></td>
+      <td>Data de criação do pedido</td>
+      <td>Data</td>
+      <td>-</td>
+      <td>AAAA-MM-DDTHH:mm:SS.ss</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">links.$id</code></td>
+      <td>Id do nó</td>
+      <td>Numérico</td>
+      <td>-</td>
+      <td>Exemplo: 1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">links.method</code></td>
+      <td>Método para consumo da operação</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Exmeplos: GET, POST, PUT</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">links.rel</code></td>
+      <td>Relação para consumo da operação</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Exemplo: self</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">links.href</code></td>
+      <td>Endpoint para consumo da operação</td>
+      <td>Texto</td>
+      <td>512</td>
+      <td>Exemplo: https://cieloecommerce.cielo.com.br/api/public/v2/orders/438f3391860a4bedbae9a868180dda6e</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="por-checkout_cielo_order_number">Por Checkout_Cielo_Order_Number</h3>
+
+<h4 id="request-7">Request</h4>
+
+<p>Para consultar uma transação pelo <code class="highlighter-rouge">Checkout_Cielo_Order_Number</code>, basta realizar um <code class="highlighter-rouge">GET</code>.</p>
+
+<blockquote>
+  <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
+</blockquote>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/{checkout_cielo_order_number}</span></aside>
+
+<h4 id="response-7">Response</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> 
+    </span><span class="nl">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c89fdfbb-dbe2-4e77-806a-6d75cd397dac"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"orderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"054f5b509f7149d6aec3b4023a6a2957"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"softDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido1234"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"cart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+        </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
+            </span><span class="p">{</span><span class="w"> 
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido ABC"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50 canetas - R$30,00 | 10 cadernos - R$50,00 | 10 Borrachas - R$10,00"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nl">"unitPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">9000</span><span class="p">,</span><span class="w"> 
+                </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+                </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w"> 
+            </span><span class="p">}</span><span class="w"> 
+        </span><span class="p">]</span><span class="w"> 
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="nl">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FixedAmount"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nl">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
+            </span><span class="p">{</span><span class="w"> 
+              </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entrega Rápida"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="w"> 
+            </span><span class="p">}</span><span class="w"> 
+        </span><span class="p">],</span><span class="w"> 
+        </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+            </span><span class="nl">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Estrada Caetano Monteiro"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"391A"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BL 10 AP 208"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"district"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Badu"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Niterói"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="w"> 
+        </span><span class="p">}</span><span class="w"> 
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="nl">"payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paid"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nl">"tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10127355487AK2C3EOTB"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"149111"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"authorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"294551"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"numberOfPayments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-02T14:29:43.767"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"finishedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-02T14:29:46.117"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cardMaskedNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456******2007"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"antifraud"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+            </span><span class="nl">"antifraudeResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lojista optou não realizar a análise do antifraude."</span><span class="w"> 
+        </span><span class="p">}</span><span class="w"> 
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="nl">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+        </span><span class="nl">"identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678911"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nl">"fullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fulano da Silva"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exemplo@email.com.br"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11123456789"</span><span class="w"> 
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
+        </span><span class="p">{</span><span class="w"> 
+            </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/054f5b509f7149d6aec3b4023a6a2957"</span><span class="w"> 
+        </span><span class="p">},</span><span class="w"> 
+        </span><span class="p">{</span><span class="w"> 
+            </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/054f5b509f7149d6aec3b4023a6a2957/void"</span><span class="w"> 
+        </span><span class="p">}</span><span class="w"> 
+    </span><span class="p">]</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Descrição</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">merchantId</code></td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Id da Loja no Checkout</td>
+      <td>Exemplo: c89fdfbb-dbe2-4e77-806a-6d75cd397dac</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">orderNumber</code></td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>Número do pedido da loja.</td>
+      <td>Exemplo: 123456</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">softDescriptor</code></td>
+      <td>Texto</td>
+      <td>13</td>
+      <td>Texto exibido na fatura do comprador. Sem caracteres especiais ou espaços</td>
+      <td>Exemplo: <code class="highlighter-rouge">Loja_ABC_1234</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cart.items.name</code></td>
+      <td>Texto</td>
+      <td>128</td>
+      <td>Nome do item no carrinho.</td>
+      <td>Exemplo: Pedido ABC</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cart.items.description</code></td>
+      <td>Texto</td>
+      <td>256</td>
+      <td>Descrição do item no carrinho.</td>
+      <td>Exemplo: 50 canetas - R$30,00</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cart.items.unitPrice</code></td>
+      <td>Numérico</td>
+      <td>18</td>
+      <td>Preço unitário do produto em centavos</td>
+      <td>Exemplo: R$ 1,00 = 100</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cart.items.quantity</code></td>
+      <td>Numérico</td>
+      <td>9</td>
+      <td>Quantidade do item no carrinho.</td>
+      <td>Exemplo: 1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cart.items.type</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Tipo do item no carrinho</td>
+      <td><code class="highlighter-rouge">Asset</code><br /><code class="highlighter-rouge">Digital</code><br /><code class="highlighter-rouge">Service</code><br /><code class="highlighter-rouge">Payment</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping.type</code></td>
+      <td>Numérico</td>
+      <td>36</td>
+      <td>Modalidade de frete</td>
+      <td>Exemplo: 1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping.services.name</code></td>
+      <td>Texto</td>
+      <td>128</td>
+      <td>Modalidade de frete</td>
+      <td>Exemplo: Casa Principal</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping.services.price</code></td>
+      <td>Numérico</td>
+      <td>10</td>
+      <td>Valor do serviço de frete, em centavos</td>
+      <td>Exemplo: R$ 10,00 = 1000</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping.address.street</code></td>
+      <td>Texto</td>
+      <td>256</td>
+      <td>Endereço de entrega</td>
+      <td>Exemplo: Rua João da Silva</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping.address.number</code></td>
+      <td>Numérico</td>
+      <td>8</td>
+      <td>Número do endereço de entrega</td>
+      <td>Exemplo: 123</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping.address.complement</code></td>
+      <td>Texto</td>
+      <td>64</td>
+      <td>Complemento do endereço de entrega</td>
+      <td>Exemplo: Casa</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping.address.district</code></td>
+      <td>Texto</td>
+      <td>64</td>
+      <td>Bairro do endereço de entrega</td>
+      <td>Exemplo: Alphaville</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping.address.city</code></td>
+      <td>Texto</td>
+      <td>64</td>
+      <td>Cidade do endereço de entrega</td>
+      <td>Exemplo: São Paulo</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shipping.address.state</code></td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Estado de endereço de entrega</td>
+      <td>Exemplo: SP</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.status</code></td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Status da transação</td>
+      <td>Exemplo: Paid</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.tid</code></td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>TID Cielo gerado no momento da autorização da transação</td>
+      <td>Exemplo: 10127355487AK2C3EOTB</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.nsu</code></td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>NSU Cielo gerado no momento da autorização da transação</td>
+      <td>Exemplo: 123456</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.authorizationCode</code></td>
+      <td>Texto</td>
+      <td>3</td>
+      <td>Código de autorização.</td>
+      <td>Exemplo: 456789</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.numberOfPayments</code></td>
+      <td>Numérico</td>
+      <td>6</td>
+      <td>Número de Parcelas.</td>
+      <td>Exemplo: 123456</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.createdDate</code></td>
+      <td>Texto</td>
+      <td>22</td>
+      <td>Data de criação da transação</td>
+      <td>Exemplo: AAAA-MM-DDTHH:mm:SS.ss</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.finishedDate</code></td>
+      <td>Texto</td>
+      <td>22</td>
+      <td>Data de finalização da transação</td>
+      <td>Exemplo: AAAA-MM-DDTHH:mm:SS.ss</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.cardMaskedNumber</code></td>
+      <td>Texto</td>
+      <td>19</td>
+      <td>Número do cartão mascarado</td>
+      <td>Exemplo: 123456<strong>**</strong>2007</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.brand</code></td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Bandeira do cartão</td>
+      <td>Exemplo: Visa</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.antifraud.antifraudeResult</code></td>
+      <td>Numeric</td>
+      <td>1</td>
+      <td>Status do antifraude</td>
+      <td>Exemplo: 1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Payment.antifraud.description</code></td>
+      <td>Texto</td>
+      <td>256</td>
+      <td>Descrição do status do antifraude</td>
+      <td>Exemplo: Lojista optou não realizar a análise do antifraude</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Identity</code></td>
+      <td>Numérico</td>
+      <td>14</td>
+      <td>CPF ou CNPJ do comprador.</td>
+      <td>Exemplo: 12345678909</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.FullName</code></td>
+      <td>Texto</td>
+      <td>256</td>
+      <td>Nome completo do comprador.</td>
+      <td>Exemplo: Fulano da Silva</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Email</code></td>
+      <td>Texto</td>
+      <td>64</td>
+      <td>Email do comprador.</td>
+      <td>Exemplo: exemplo@email.com.br</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">Customer.Phone</code></td>
+      <td>Numérico</td>
+      <td>11</td>
+      <td>Telefone do comprador.</td>
+      <td>Exemplo: 11123456789</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="por-id-do-link-de-pagamento">Por ID do link de pagamento</h3>
+
+<h4 id="request-8">Request</h4>
+
+<p>Para consultar uma transação pelo <code class="highlighter-rouge">id</code>, basta realizar um <code class="highlighter-rouge">GET</code>.</p>
+
+<blockquote>
+  <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
+</blockquote>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}/payments</span></aside>
+
+<h4 id="response-8">Response</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9487e3a9-f204-4188-96c5-a5a3013b2517"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-11T10:35:04.947"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+       </span><span class="p">{</span><span class="w">
+           </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"orderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b74df3e3c1ac49ccb7ad89fde2d787f7"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-11T10:37:23.447"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+               </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+               </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">11500</span><span class="p">,</span><span class="w">
+               </span><span class="nl">"numberOfPayments"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+               </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-11T10:37:23.447"</span><span class="p">,</span><span class="w">
+               </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Denied"</span><span class="w">
+           </span><span class="p">},</span><span class="w">
+           </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                   </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+                   </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+                   </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+                   </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/b74df3e3c1ac49ccb7ad89fde2d787f7"</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+           </span><span class="p">]</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">$id</code></td>
+      <td>id do nó</td>
+      <td>Numérico</td>
+      <td>-</td>
+      <td>Exemplo: 1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">productId</code></td>
+      <td>ID do link de pagamento</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Exmeplo: 9487e3a9-f204-4188-96c5-a5a3013b2517</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">createdDate</code></td>
+      <td>Data de criação do link de pagamento</td>
+      <td>Data</td>
+      <td>-</td>
+      <td>AAAA-MM-DDTHH:mm:SS.ss</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">orders.$id</code></td>
+      <td>Id do nó</td>
+      <td>Numérico</td>
+      <td>-</td>
+      <td>Exemplo: 1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">orders.orderNumber</code></td>
+      <td>Id pedido gerado pelo Checkout Cielo</td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>Exemplo: b74df3e3c1ac49ccb7ad89fde2d787f7</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">orders.createdDate</code></td>
+      <td>Data de criação do pedido</td>
+      <td>Data</td>
+      <td>-</td>
+      <td>AAAA-MM-DDTHH:mm:SS.ss</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">orders.payment.$id</code></td>
+      <td>Id do nó</td>
+      <td>Numérico</td>
+      <td>-</td>
+      <td>Exemplo: 1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">orders.payment.price</code></td>
+      <td>Valor da pedido, sem pontuação</td>
+      <td>Numérico</td>
+      <td>-</td>
+      <td>Exemplo: R$ 1,00 = 100</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">orders.payment.numberOfPayments</code></td>
+      <td>Número de parcelas</td>
+      <td>-</td>
+      <td>Exemplo: 3</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">orders.payment.createdDate</code></td>
+      <td>Data da transação (pagamento)</td>
+      <td>Data</td>
+      <td>-</td>
+      <td>AAAA-MM-DDTHH:mm:SS.ss</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">orders.payment.status</code></td>
+      <td>Status da Transação</td>
+      <td>Texto</td>
+      <td>Exemplo: Denied</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">links.$id</code></td>
+      <td>Id do nó</td>
+      <td>Numérico</td>
+      <td>-</td>
+      <td>Exemplo: 1</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">links.method</code></td>
+      <td>Método para consumo da operação</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Exmeplos: GET, POST, PUT</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">links.rel</code></td>
+      <td>Relação para consumo da operação</td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Exemplo: self</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">links.href</code></td>
+      <td>Endpoint para consumo da operação</td>
+      <td>Texto</td>
+      <td>512</td>
+      <td>Exemplo: https://cieloecommerce.cielo.com.br/api/public/v2/orders/438f3391860a4bedbae9a868180dda6e</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Para realizar o controle transacional no Checkout Cielo é OBRIGATÓRIO que a loja possua um dos dois modelos de notificação abaixo configurado:</p>
+
+<ul>
+  <li>URL de Notificação via <strong>POST</strong></li>
+  <li>URL de Notificação via <strong>JSON</strong></li>
+</ul>
+
+<p>A notificação é obrigatório pois todos os comandos da API (Consulta / Captura / Cancelamento) usam o identificador único da transação, chamado de <code class="highlighter-rouge">Checkout_Cielo_Order_Number</code>.</p>
+
+<p>O <code class="highlighter-rouge">Checkout_Cielo_Order_Number</code> é gerado apenas quando o pagamento é finalizado na tela transacional. Ele é enviado apenas pela URL de Notificação e não pelo Response da criação da tela transacional.</p>
+
+<h2 id="configurações-da-loja">Configurações da loja</h2>
+
+<p>As configurações de sua loja podem ser feitas dentro do site Cielo. Neste ambiente você tem acesso a diversas opções, dentre elas:</p>
+
+<ul>
+  <li>Geração das chaves para utilização da API;</li>
+  <li>Configuração de logo e cor de fundo da tela de pagamento;</li>
+  <li>Modificação dos métodos de pagamento;</li>
+  <li>Configuração de URL’s de retorno;</li>
+  <li>Outras ações;</li>
+</ul>
+
+<p>Para maiores detalhes veja o tutorial Super Link e Checkout Cielo.</p>
+
+<h2 id="status-e-códigos">Status e Códigos</h2>
+
+<p>O Checkout possui um Status próprios, diferente do SITE CIELO ou da API Cielo ecommerce. Veja abaixo a lista completa.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Valor</th>
+      <th>Status de transação</th>
+      <th>Meios de pagamento</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><code class="highlighter-rouge">Pendente</code></td>
+      <td>Para todos os meios de pagamento</td>
+      <td>Indica que o pagamento ainda está sendo processado; OBS: Boleto - Indica que o boleto não teve o status alterado pelo lojista</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="highlighter-rouge">Pago</code></td>
+      <td>Para todos os meios de pagamento</td>
+      <td>Transação capturada e o dinheiro será depositado em conta.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="highlighter-rouge">Negado</code></td>
+      <td>Somente para Cartão Crédito</td>
+      <td>Transação não autorizada pelo responsável do meio de pagamento</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><code class="highlighter-rouge">Expirado</code></td>
+      <td>Cartões de Crédito e Boleto</td>
+      <td>Transação deixa de ser válida para captura - <strong>15 dias pós Autorização</strong></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><code class="highlighter-rouge">Cancelado</code></td>
+      <td>Para cartões de crédito</td>
+      <td>Transação foi cancelada pelo lojista</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><code class="highlighter-rouge">Não Finalizado</code></td>
+      <td>Todos os meios de pagamento</td>
+      <td>Pagamento esperando Status - Pode indicar erro ou falha de processamento. Entre em contato com o Suporte cielo</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><code class="highlighter-rouge">Autorizado</code></td>
+      <td>somente para Cartão de Crédito</td>
+      <td>Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td><code class="highlighter-rouge">Chargeback</code></td>
+      <td>somente para Cartão de Crédito</td>
+      <td>Transação cancelada pelo consumidor junto ao emissor do cartão. O Dinheiro não será depositado em conta.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="códigos-de-retorno">Códigos de Retorno</h3>
+
+<p>Códigos emitidos pelos emissores dos cartões de crédito e débito explicando o motivo de uma transação ser autorizada ou não.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código Resposta</th>
+      <th>Definição</th>
+      <th>Significado</th>
+      <th>Ação</th>
+      <th>Permite Retentativa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>00</td>
+      <td>Transação autorizada com sucesso.</td>
+      <td>Transação autorizada com sucesso.</td>
+      <td>Transação autorizada com sucesso.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>000</td>
+      <td>Transação autorizada com sucesso.</td>
+      <td>Transação autorizada com sucesso.</td>
+      <td>Transação autorizada com sucesso.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>01</td>
+      <td>Transação não autorizada. Transação referida.</td>
+      <td>Transação não autorizada. Referida (suspeita de fraude) pelo banco emissor.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>02</td>
+      <td>Transação não autorizada. Transação referida.</td>
+      <td>Transação não autorizada. Referida (suspeita de fraude) pelo banco emissor.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>03</td>
+      <td>Transação não permitida. Erro no cadastramento do código do estabelecimento no arquivo de configuração do TEF</td>
+      <td>Transação não permitida. Estabelecimento inválido. Entre com contato com a Cielo.</td>
+      <td>Não foi possível processar a transação. Entre com contato com a Loja Virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>04</td>
+      <td>Transação não autorizada. Cartão bloqueado pelo banco emissor.</td>
+      <td>Transação não autorizada. Cartão bloqueado pelo banco emissor.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>05</td>
+      <td>Transação não autorizada. Cartão inadimplente (Do not honor).</td>
+      <td>Transação não autorizada. Não foi possível processar a transação. Questão relacionada a segurança, inadimplencia ou limite do portador.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>06</td>
+      <td>Transação não autorizada. Cartão cancelado.</td>
+      <td>Transação não autorizada. Não foi possível processar a transação. Cartão cancelado permanentemente pelo banco emissor.</td>
+      <td>Não foi possível processar a transação. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>07</td>
+      <td>Transação negada. Reter cartão condição especial</td>
+      <td>Transação não autorizada por regras do banco emissor.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>08</td>
+      <td>Transação não autorizada. Código de segurança inválido.</td>
+      <td>Transação não autorizada. Código de segurança inválido. Oriente o portador a corrigir os dados e tentar novamente.</td>
+      <td>Transação não autorizada. Dados incorretos. Reveja os dados e informe novamente.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Transação autorizada com sucesso para cartão emitido no exterior</td>
+      <td>Transação autorizada com sucesso.</td>
+      <td>Transação autorizada com sucesso.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Transação inválida, erro no cartão.</td>
+      <td>Não foi possível processar a transação. Solicite ao portador que verifique os dados do cartão e tente novamente.</td>
+      <td>Não foi possível processar a transação. reveja os dados informados e tente novamente. Se o erro persistir, entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Transação não permitida. Valor da transação Inválido.</td>
+      <td>Transação não permitida. Valor inválido. Solicite ao portador que reveja os dados e novamente. Se o erro persistir, entre em contato com a Cielo.</td>
+      <td>Transação não autorizada. Valor inválido. Refazer a transação confirmando os dados informados. Persistindo o erro, entrar em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Transação não autorizada. Cartão Inválido</td>
+      <td>Transação não autorizada. Cartão inválido. Pode ser bloqueio do cartão no banco emissor, dados incorretos ou tentativas de testes de cartão. Use o Algoritmo de Lhum (Mod 10) para evitar transações não autorizadas por esse motivo. Consulte www.cielo.com.br/desenvolvedores para implantar o Algoritmo de Lhum.</td>
+      <td>Não foi possível processar a transação. reveja os dados informados e tente novamente. Se o erro persistir, entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Banco emissor indisponível ou inexistente.</td>
+      <td>Transação não autorizada. Banco emissor indisponível.</td>
+      <td>Não foi possível processar a transação. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>Refaça a transação ou tente novamente mais tarde.</td>
+      <td>Não foi possível processar a transação. Refaça a transação ou tente novamente mais tarde. Se o erro persistir, entre em contato com a Cielo.</td>
+      <td>Não foi possível processar a transação. Refaça a transação ou tente novamente mais tarde. Se o erro persistir entre em contato com a loja virtual.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>Cancelamento não efetuado. Transação não localizada.</td>
+      <td>Não foi possível processar o cancelamento. Se o erro persistir, entre em contato com a Cielo.</td>
+      <td>Não foi possível processar o cancelamento. Tente novamente mais tarde. Persistindo o erro, entrar em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>Parcelamento inválido. Número de parcelas inválidas.</td>
+      <td>Não foi possível processar a transação. Número de parcelas inválidas. Se o erro persistir, entre em contato com a Cielo.</td>
+      <td>Não foi possível processar a transação. Valor inválido. Refazer a transação confirmando os dados informados. Persistindo o erro, entrar em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>Transação não autorizada. Valor da prestação inválido.</td>
+      <td>Não foi possível processar a transação. Valor da prestação inválido. Se o erro persistir, entre em contato com a Cielo.</td>
+      <td>Não foi possível processar a transação. Valor da prestação inválido. Refazer a transação confirmando os dados informados. Persistindo o erro, entrar em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>Quantidade de parcelas inválido.</td>
+      <td>Não foi possível processar a transação. Quantidade de parcelas inválido. Se o erro persistir, entre em contato com a Cielo.</td>
+      <td>Não foi possível processar a transação. Quantidade de parcelas inválido. Refazer a transação confirmando os dados informados. Persistindo o erro, entrar em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>Pedido de autorização não enviou número do cartão</td>
+      <td>Não foi possível processar a transação. Solicitação de autorização não enviou o número do cartão. Se o erro persistir, verifique a comunicação entre loja virtual e Cielo.</td>
+      <td>Não foi possível processar a transação. reveja os dados informados e tente novamente. Persistindo o erro, entrar em contato com a loja virtual.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>Arquivo temporariamente indisponível.</td>
+      <td>Não foi possível processar a transação. Arquivo temporariamente indisponível. Reveja a comunicação entre Loja Virtual e Cielo. Se o erro persistir, entre em contato com a Cielo.</td>
+      <td>Não foi possível processar a transação. Entre com contato com a Loja Virtual.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>Transação não autorizada. Decline Message</td>
+      <td>Não foi possível processar a transação. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir verifique a comunicação com a Cielo esta sendo feita corretamente</td>
+      <td>Não foi possível processar a transação. Reveja os dados e tente novamente. Se o erro persistir, entre em contato com a loja</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <td>Transação não autorizada. Erro no banco emissor.</td>
+      <td>Transação não autorizada. Erro no banco emissor.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>Transação não autorizada. Cartão bloqueado por perda.</td>
+      <td>Transação não autorizada. Cartão bloqueado por perda.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>43</td>
+      <td>Transação não autorizada. Cartão bloqueado por roubo.</td>
+      <td>Transação não autorizada. Cartão bloqueado por roubo.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>51</td>
+      <td>Transação não autorizada. Limite excedido/sem saldo.</td>
+      <td>Transação não autorizada. Limite excedido/sem saldo.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>52</td>
+      <td>Cartão com dígito de controle inválido.</td>
+      <td>Não foi possível processar a transação. Cartão com dígito de controle inválido.</td>
+      <td>Transação não autorizada. Reveja os dados informados e tente novamente.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>53</td>
+      <td>Transação não permitida. Cartão poupança inválido</td>
+      <td>Transação não permitida. Cartão poupança inválido.</td>
+      <td>Não foi possível processar a transação. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>54</td>
+      <td>Transação não autorizada. Cartão vencido</td>
+      <td>Transação não autorizada. Cartão vencido.</td>
+      <td>Transação não autorizada. Refazer a transação confirmando os dados.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>55</td>
+      <td>Transação não autorizada. Senha inválida</td>
+      <td>Transação não autorizada. Senha inválida.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>57</td>
+      <td>Transação não permitida para o cartão</td>
+      <td>Transação não autorizada. Transação não permitida para o cartão.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>58</td>
+      <td>Transação não permitida. Opção de pagamento inválida.</td>
+      <td>Transação não permitida. Opção de pagamento inválida. Reveja se a opção de pagamento escolhida está habilitada no cadastro</td>
+      <td>Transação não autorizada. Entre em contato com sua loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>59</td>
+      <td>Transação não autorizada. Suspeita de fraude.</td>
+      <td>Transação não autorizada. Suspeita de fraude.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>60</td>
+      <td>Transação não autorizada.</td>
+      <td>Transação não autorizada. Tente novamente. Se o erro persistir o portador deve entrar em contato com o banco emissor.</td>
+      <td>Não foi possível processar a transação. Tente novamente mais tarde. Se o erro persistir, entre em contato com seu banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>61</td>
+      <td>Banco emissor indisponível.</td>
+      <td>Transação não autorizada. Banco emissor indisponível.</td>
+      <td>Transação não autorizada. Tente novamente. Se o erro persistir, entre em contato com seu banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>62</td>
+      <td>Transação não autorizada. Cartão restrito para uso doméstico</td>
+      <td>Transação não autorizada. Cartão restrito para uso doméstico.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>63</td>
+      <td>Transação não autorizada. Violação de segurança</td>
+      <td>Transação não autorizada. Violação de segurança.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>64</td>
+      <td>Transação não autorizada. Valor abaixo do mínimo exigido pelo banco emissor.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Transação não autorizada. Valor abaixo do mínimo exigido pelo banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>65</td>
+      <td>Transação não autorizada. Excedida a quantidade de transações para o cartão.</td>
+      <td>Transação não autorizada. Excedida a quantidade de transações para o cartão.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>67</td>
+      <td>Transação não autorizada. Cartão bloqueado para compras hoje.</td>
+      <td>Transação não autorizada. Cartão bloqueado para compras hoje. Bloqueio pode ter ocorrido por excesso de tentativas inválidas. O cartão será desbloqueado automaticamente à meia noite.</td>
+      <td>Transação não autorizada. Cartão bloqueado temporariamente. Entre em contato com seu banco emissor.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>70</td>
+      <td>Transação não autorizada. Limite excedido/sem saldo.</td>
+      <td>Transação não autorizada. Limite excedido/sem saldo.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>72</td>
+      <td>Cancelamento não efetuado. Saldo disponível para cancelamento insuficiente.</td>
+      <td>Cancelamento não efetuado. Saldo disponível para cancelamento insuficiente. Se o erro persistir, entre em contato com a Cielo.</td>
+      <td>Cancelamento não efetuado. Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>74</td>
+      <td>Transação não autorizada. A senha está vencida.</td>
+      <td>Transação não autorizada. A senha está vencida.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>75</td>
+      <td>Senha bloqueada. Excedeu tentativas de cartão.</td>
+      <td>Transação não autorizada.</td>
+      <td>Sua Transação não pode ser processada. Entre em contato com o Emissor do seu cartão.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>76</td>
+      <td>Cancelamento não efetuado. Banco emissor não localizou a transação original</td>
+      <td>Cancelamento não efetuado. Banco emissor não localizou a transação original</td>
+      <td>Cancelamento não efetuado. Entre em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>77</td>
+      <td>Cancelamento não efetuado. Não foi localizado a transação original</td>
+      <td>Cancelamento não efetuado. Não foi localizado a transação original</td>
+      <td>Cancelamento não efetuado. Entre em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>78</td>
+      <td>Transação não autorizada. Cartão bloqueado primeiro uso.</td>
+      <td>Transação não autorizada. Cartão bloqueado primeiro uso. Solicite ao portador que desbloqueie o cartão diretamente com seu banco emissor.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor e solicite o desbloqueio do cartão.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>Transação não autorizada. Divergencia na data de transação/pagamento.</td>
+      <td>Transação não autorizada. Data da transação ou data do primeiro pagamento inválida.</td>
+      <td>Transação não autorizada. Refazer a transação confirmando os dados.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>82</td>
+      <td>Transação não autorizada. Cartão inválido.</td>
+      <td>Transação não autorizada. Cartão Inválido. Solicite ao portador que reveja os dados e tente novamente.</td>
+      <td>Transação não autorizada. Refazer a transação confirmando os dados. Se o erro persistir, entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>83</td>
+      <td>Transação não autorizada. Erro no controle de senhas</td>
+      <td>Transação não autorizada. Erro no controle de senhas</td>
+      <td>Transação não autorizada. Refazer a transação confirmando os dados. Se o erro persistir, entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>85</td>
+      <td>Transação não permitida. Falha da operação.</td>
+      <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
+      <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>86</td>
+      <td>Transação não permitida. Falha da operação.</td>
+      <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
+      <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>89</td>
+      <td>Erro na transação.</td>
+      <td>Transação não autorizada. Erro na transação. O portador deve tentar novamente e se o erro persistir, entrar em contato com o banco emissor.</td>
+      <td>Transação não autorizada. Erro na transação. Tente novamente e se o erro persistir, entre em contato com seu banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>90</td>
+      <td>Transação não permitida. Falha da operação.</td>
+      <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
+      <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>91</td>
+      <td>Transação não autorizada. Banco emissor temporariamente indisponível.</td>
+      <td>Transação não autorizada. Banco emissor temporariamente indisponível.</td>
+      <td>Transação não autorizada. Banco emissor temporariamente indisponível. Entre em contato com seu banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>92</td>
+      <td>Transação não autorizada. Tempo de comunicação excedido.</td>
+      <td>Transação não autorizada. Tempo de comunicação excedido.</td>
+      <td>Transação não autorizada. Comunicação temporariamente indisponível. Entre em contato com a loja virtual.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>93</td>
+      <td>Transação não autorizada. Violação de regra - Possível erro no cadastro.</td>
+      <td>Transação não autorizada. Violação de regra - Possível erro no cadastro.</td>
+      <td>Sua transação não pode ser processada. Entre em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>96</td>
+      <td>Falha no processamento.</td>
+      <td>Não foi possível processar a transação. Falha no sistema da Cielo. Se o erro persistir, entre em contato com a Cielo.</td>
+      <td>Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>97</td>
+      <td>Valor não permitido para essa transação.</td>
+      <td>Transação não autorizada. Valor não permitido para essa transação.</td>
+      <td>Transação não autorizada. Valor não permitido para essa transação.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>98</td>
+      <td>Sistema/comunicação indisponível.</td>
+      <td>Transação não autorizada. Sistema do emissor sem comunicação. Se for geral, verificar SITEF, GATEWAY e/ou Conectividade.</td>
+      <td>Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>99</td>
+      <td>Sistema/comunicação indisponível.</td>
+      <td>Transação não autorizada. Sistema do emissor sem comunicação. Tente mais tarde.  Pode ser erro no SITEF, favor verificar !</td>
+      <td>Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>999</td>
+      <td>Sistema/comunicação indisponível.</td>
+      <td>Transação não autorizada. Sistema do emissor sem comunicação. Tente mais tarde.  Pode ser erro no SITEF, favor verificar !</td>
+      <td>Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>AA</td>
+      <td>Tempo Excedido</td>
+      <td>Tempo excedido na comunicação com o banco emissor. Oriente o portador a tentar novamente, se o erro persistir será necessário que o portador contate seu banco emissor.</td>
+      <td>Tempo excedido na sua comunicação com o banco emissor, tente novamente mais tarde. Se o erro persistir, entre em contato com seu banco.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>AC</td>
+      <td>Transação não permitida. Cartão de débito sendo usado com crédito. Use a função débito.</td>
+      <td>Transação não permitida. Cartão de débito sendo usado com crédito. Solicite ao portador que selecione a opção de pagamento Cartão de Débito.</td>
+      <td>Transação não autorizada. Tente novamente selecionando a opção de pagamento cartão de débito.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>AE</td>
+      <td>Tente Mais Tarde</td>
+      <td>Tempo excedido na comunicação com o banco emissor. Oriente o portador a tentar novamente, se o erro persistir será necessário que o portador contate seu banco emissor.</td>
+      <td>Tempo excedido na sua comunicação com o banco emissor, tente novamente mais tarde. Se o erro persistir, entre em contato com seu banco.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>AF</td>
+      <td>Transação não permitida. Falha da operação.</td>
+      <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
+      <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>AG</td>
+      <td>Transação não permitida. Falha da operação.</td>
+      <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
+      <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>AH</td>
+      <td>Transação não permitida. Cartão de crédito sendo usado com débito. Use a função crédito.</td>
+      <td>Transação não permitida. Cartão de crédito sendo usado com débito. Solicite ao portador que selecione a opção de pagamento Cartão de Crédito.</td>
+      <td>Transação não autorizada. Tente novamente selecionando a opção de pagamento cartão de crédito.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>AI</td>
+      <td>Transação não autorizada. Autenticação não foi realizada.</td>
+      <td>Transação não autorizada. Autenticação não foi realizada. O portador não concluiu a autenticação. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir, entre em contato com a Cielo informando o BIN (6 primeiros dígitos do cartão)</td>
+      <td>Transação não autorizada. Autenticação não foi realizada com sucesso. Tente novamente e informe corretamente os dados solicitado. Se o erro persistir, entre em contato com o lojista.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>AJ</td>
+      <td>Transação não permitida. Transação de crédito ou débito em uma operação que permite apenas Private Label. Tente novamente selecionando a opção Private Label.</td>
+      <td>Transação não permitida. Transação de crédito ou débito em uma operação que permite apenas Private Label. Solicite ao portador que tente novamente selecionando a opção Private Label. Caso não disponibilize a opção Private Label verifique na Cielo se o seu estabelecimento permite essa operação.</td>
+      <td>Transação não permitida. Transação de crédito ou débito em uma operação que permite apenas Private Label. Tente novamente e selecione a opção Private Label. Em caso de um novo erro entre em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>AV</td>
+      <td>Transação não autorizada. Dados Inválidos</td>
+      <td>Falha na validação dos dados da transação. Oriente o portador a rever os dados e tentar novamente.</td>
+      <td>Falha na validação dos dados. Reveja os dados informados e tente novamente.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>BD</td>
+      <td>Transação não permitida. Falha da operação.</td>
+      <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
+      <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>BL</td>
+      <td>Transação não autorizada. Limite diário excedido.</td>
+      <td>Transação não autorizada. Limite diário excedido. Solicite ao portador que entre em contato com seu banco emissor.</td>
+      <td>Transação não autorizada. Limite diário excedido. Entre em contato com seu banco emissor.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>BM</td>
+      <td>Transação não autorizada. Cartão Inválido</td>
+      <td>Transação não autorizada. Cartão inválido. Pode ser bloqueio do cartão no banco emissor ou dados incorretos. Tente usar o Algoritmo de Lhum (Mod 10) para evitar transações não autorizadas por esse motivo.</td>
+      <td>Transação não autorizada. Cartão inválido.  Refaça a transação confirmando os dados informados.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>BN</td>
+      <td>Transação não autorizada. Cartão ou conta bloqueado.</td>
+      <td>Transação não autorizada. O cartão ou a conta do portador está bloqueada. Solicite ao portador que entre em contato com  seu banco emissor.</td>
+      <td>Transação não autorizada. O cartão ou a conta do portador está bloqueada. Entre em contato com  seu banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>BO</td>
+      <td>Transação não permitida. Falha da operação.</td>
+      <td>Transação não permitida. Houve um erro no processamento. Solicite ao portador que digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco emissor.</td>
+      <td>Transação não permitida. Houve um erro no processamento. Digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>BP</td>
+      <td>Transação não autorizada. Conta corrente inexistente.</td>
+      <td>Transação não autorizada. Não possível processar a transação por um erro relacionado ao cartão ou conta do portador. Solicite ao portador que entre em contato com o banco emissor.</td>
+      <td>Transação não autorizada. Não possível processar a transação por um erro relacionado ao cartão ou conta do portador. Entre em contato com o banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>BV</td>
+      <td>Transação não autorizada. Cartão vencido</td>
+      <td>Transação não autorizada. Cartão vencido.</td>
+      <td>Transação não autorizada. Refazer a transação confirmando os dados.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>CF</td>
+      <td>Transação não autorizada.C79:J79 Falha na validação dos dados.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>CG</td>
+      <td>Transação não autorizada. Falha na validação dos dados.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>DA</td>
+      <td>Transação não autorizada. Falha na validação dos dados.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>DF</td>
+      <td>Transação não permitida. Falha no cartão ou cartão inválido.</td>
+      <td>Transação não permitida. Falha no cartão ou cartão inválido. Solicite ao portador que digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco</td>
+      <td>Transação não permitida. Falha no cartão ou cartão inválido. Digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>DM</td>
+      <td>Transação não autorizada. Limite excedido/sem saldo.</td>
+      <td>Transação não autorizada. Limite excedido/sem saldo.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>DQ</td>
+      <td>Transação não autorizada. Falha na validação dos dados.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>DS</td>
+      <td>Transação não permitida para o cartão</td>
+      <td>Transação não autorizada. Transação não permitida para o cartão.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>EB</td>
+      <td>Transação não autorizada. Limite diário excedido.</td>
+      <td>Transação não autorizada. Limite diário excedido. Solicite ao portador que entre em contato com seu banco emissor.</td>
+      <td>Transação não autorizada. Limite diário excedido. Entre em contato com seu banco emissor.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>EE</td>
+      <td>Transação não permitida. Valor da parcela inferior ao mínimo permitido.</td>
+      <td>Transação não permitida. Valor da parcela inferior ao mínimo permitido. Não é permitido parcelas inferiores a R$ 5,00. Necessário rever calculo para parcelas.</td>
+      <td>Transação não permitida. O valor da parcela está abaixo do mínimo permitido. Entre em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>EK</td>
+      <td>Transação não permitida para o cartão</td>
+      <td>Transação não autorizada. Transação não permitida para o cartão.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>FA</td>
+      <td>Transação não autorizada.</td>
+      <td>Transação não autorizada AmEx.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>FC</td>
+      <td>Transação não autorizada. Ligue Emissor</td>
+      <td>Transação não autorizada. Oriente o portador a entrar em contato com o banco emissor.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>FD</td>
+      <td>Transação negada. Reter cartão condição especial</td>
+      <td>Transação não autorizada por regras do banco emissor.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>FE</td>
+      <td>Transação não autorizada. Divergencia na data de transação/pagamento.</td>
+      <td>Transação não autorizada. Data da transação ou data do primeiro pagamento inválida.</td>
+      <td>Transação não autorizada. Refazer a transação confirmando os dados.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>FF</td>
+      <td>Cancelamento OK</td>
+      <td>Transação de cancelamento autorizada com sucesso. ATENÇÂO: Esse retorno é para casos de cancelamentos e não para casos de autorizações.</td>
+      <td>Transação de cancelamento autorizada com sucesso</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>FG</td>
+      <td>Transação não autorizada. Ligue AmEx.</td>
+      <td>Transação não autorizada. Oriente o portador a entrar em contato com a Central de Atendimento AmEx.</td>
+      <td>Transação não autorizada. Entre em contato com a Central de Atendimento AmEx no telefone 08007285090</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>FG</td>
+      <td>Ligue 08007285090</td>
+      <td>Transação não autorizada. Oriente o portador a entrar em contato com a Central de Atendimento AmEx.</td>
+      <td>Transação não autorizada. Entre em contato com a Central de Atendimento AmEx no telefone 08007285090</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>GA</td>
+      <td>Aguarde Contato</td>
+      <td>Transação não autorizada. Referida pelo Lynx Online de forma preventiva. A Cielo entrará em contato com o lojista sobre esse caso.</td>
+      <td>Transação não autorizada. Entre em contato com o lojista.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>HJ</td>
+      <td>Transação não permitida. Código da operação inválido.</td>
+      <td>Transação não permitida. Código da operação Coban inválido.</td>
+      <td>Transação não permitida. Código da operação Coban inválido. Entre em contato com o lojista.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>IA</td>
+      <td>Transação não permitida. Indicador da operação inválido.</td>
+      <td>Transação não permitida. Indicador da operação Coban inválido.</td>
+      <td>Transação não permitida. Indicador da operação Coban inválido. Entre em contato com o lojista.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>JB</td>
+      <td>Transação não permitida. Valor da operação inválido.</td>
+      <td>Transação não permitida. Valor da operação Coban inválido.</td>
+      <td>Transação não permitida. Valor da operação Coban inválido. Entre em contato com o lojista.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>KA</td>
+      <td>Transação não permitida. Falha na validação dos dados.</td>
+      <td>Transação não permitida. Houve uma falha na validação dos dados. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir verifique a comunicação entre loja virtual e Cielo.</td>
+      <td>Transação não permitida. Houve uma falha na validação dos dados. reveja os dados informados e tente novamente. Se o erro persistir entre em contato com a Loja Virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>KB</td>
+      <td>Transação não permitida. Selecionado a opção incorrente.</td>
+      <td>Transação não permitida. Selecionado a opção incorreta. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir deve ser verificado a comunicação entre loja virtual e Cielo.</td>
+      <td>Transação não permitida. Selecionado a opção incorreta. Tente novamente. Se o erro persistir entre em contato com a Loja Virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>KE</td>
+      <td>Transação não autorizada. Falha na validação dos dados.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Opção selecionada não está habilitada. Verifique as opções disponíveis para o portador.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Opção selecionada não está habilitada. Entre em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>N7</td>
+      <td>Transação não autorizada. Código de segurança inválido.</td>
+      <td>Transação não autorizada. Código de segurança inválido. Oriente o portador corrigir os dados e tentar novamente.</td>
+      <td>Transação não autorizada. Reveja os dados e informe novamente.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>R1</td>
+      <td>Transação não autorizada. Cartão inadimplente (Do not honor).</td>
+      <td>Transação não autorizada. Não foi possível processar a transação. Questão relacionada a segurança, inadimplencia ou limite do portador.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>U3</td>
+      <td>Transação não permitida. Falha na validação dos dados.</td>
+      <td>Transação não permitida. Houve uma falha na validação dos dados. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir verifique a comunicação entre loja virtual e Cielo.</td>
+      <td>Transação não permitida. Houve uma falha na validação dos dados. reveja os dados informados e tente novamente. Se o erro persistir entre em contato com a Loja Virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>GD</td>
+      <td>Transação não permitida</td>
+      <td>Transação não permitida</td>
+      <td>Transação não é possível ser processada no estabelecimento. Entre em contato com a Cielo para obter mais detalhes Transação</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>BP171</td>
+      <td>Rejeitado por risco de Fraude</td>
+      <td>Transação rejeitada por risco de fraude</td>
+      <td>Transação rejeitada por risco de fraude</td>
+      <td>Nâo</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="status-do-antifraude">Status do Antifraude</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Campo</th>
+      <th>Definição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><strong>0</strong></td>
+      <td>N\A</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>1</strong></td>
+      <td>Risco baixo</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>2</strong></td>
+      <td>Risco Alto</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>3</strong></td>
+      <td>Não finalizada</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>4</strong></td>
+      <td>Risco Moderado</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>5</strong></td>
+      <td>Autenticado</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>6</strong></td>
+      <td>Não contratado</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>7</strong></td>
+      <td>Dispensado</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>8</strong></td>
+      <td>Não Aplicavel</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>9</strong></td>
+      <td>Transaçõe de Recorrência</td>
     </tr>
   </tbody>
 </table>
