@@ -2218,7 +2218,7 @@ geração do arquivo.</p>
       <td>081</td>
       <td>13</td>
       <td>Num.</td>
-      <td>Valor bruto da antecipação do RO (*)</td>
+      <td>Valor bruto da antecipação do RO <code class="highlighter-rouge">(*)</code></td>
       <td>Valor líquido original do RO, exceto se houver débitos programados para este RO.</td>
     </tr>
     <tr>
@@ -3457,9 +3457,371 @@ geração do arquivo.</p>
 
 <h3 id="tabela-vi---bandeira">Tabela VI - Bandeira</h3>
 
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>Visa</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>Mastercard</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>003</td>
+      <td>Amex</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>006</td>
+      <td>Sorocred</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>007</td>
+      <td>Elo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>009</td>
+      <td>Diners</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>011</td>
+      <td>Agiplan</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>015</td>
+      <td>Banescard</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>023</td>
+      <td>Cabal</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>029</td>
+      <td>Credsystem</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>035</td>
+      <td>Esplanada</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>040</td>
+      <td>Hipercard</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>060</td>
+      <td>Jcb</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>064</td>
+      <td>Credz</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>072</td>
+      <td>Hiper</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>075</td>
+      <td>Ourocard</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="tabela-vii---meio-de-captura">Tabela VII - Meio de Captura</h3>
 
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>00</td>
+      <td>LIO</td>
+    </tr>
+    <tr>
+      <td>01</td>
+      <td>POS (Point of Sale)</td>
+    </tr>
+    <tr>
+      <td>02</td>
+      <td>PDV (Ponto de Venda) ou TEF (Transferência Eletrônica de Fundos)</td>
+    </tr>
+    <tr>
+      <td>03</td>
+      <td>e-Commerce (Comércio Eletrônico)</td>
+    </tr>
+    <tr>
+      <td>04</td>
+      <td>EDI (Troca Eletrônica de Dados)</td>
+    </tr>
+    <tr>
+      <td>05</td>
+      <td>ADP/BSP (Empresa Capturadora) ou Reprocessamento</td>
+    </tr>
+    <tr>
+      <td>06</td>
+      <td>Manual</td>
+    </tr>
+    <tr>
+      <td>07</td>
+      <td>URA/CVA</td>
+    </tr>
+    <tr>
+      <td>08</td>
+      <td>Mobile</td>
+    </tr>
+    <tr>
+      <td>09</td>
+      <td>Moedeiro Eletrônico em Rede</td>
+    </tr>
+    <tr>
+      <td>99</td>
+      <td>Não identificado</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="tabela-viii---motivo-da-rejeição">Tabela VIII - Motivo da Rejeição</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>002</td>
+      <td>Cartão inválido</td>
+    </tr>
+    <tr>
+      <td>023</td>
+      <td>Outros erros</td>
+    </tr>
+    <tr>
+      <td>024</td>
+      <td>Tipo cartão inválido</td>
+    </tr>
+    <tr>
+      <td>031</td>
+      <td>Transação de saque com cartão Electron valor zerado</td>
+    </tr>
+    <tr>
+      <td>039</td>
+      <td>Banco emissor inválido</td>
+    </tr>
+    <tr>
+      <td>044</td>
+      <td>Data da transação inválida</td>
+    </tr>
+    <tr>
+      <td>045</td>
+      <td>Código de autorização inválido</td>
+    </tr>
+    <tr>
+      <td>055</td>
+      <td>Número de parcelas inválido</td>
+    </tr>
+    <tr>
+      <td>056</td>
+      <td>Transação financiada para estabelecimento não autorizado</td>
+    </tr>
+    <tr>
+      <td>057</td>
+      <td>Cartão em boletim protetor</td>
+    </tr>
+    <tr>
+      <td>061</td>
+      <td>Número de cartão inválido</td>
+    </tr>
+    <tr>
+      <td>066</td>
+      <td>Transação não autorizada</td>
+    </tr>
+    <tr>
+      <td>067</td>
+      <td>Transação não autorizada</td>
+    </tr>
+    <tr>
+      <td>069</td>
+      <td>Transação não autorizada</td>
+    </tr>
+    <tr>
+      <td>070</td>
+      <td>Transação não autorizada</td>
+    </tr>
+    <tr>
+      <td>071</td>
+      <td>Transação não autorizada</td>
+    </tr>
+    <tr>
+      <td>072</td>
+      <td>Transação não autorizada</td>
+    </tr>
+    <tr>
+      <td>073</td>
+      <td>Transação inválida</td>
+    </tr>
+    <tr>
+      <td>074</td>
+      <td>Valor de transação inválido</td>
+    </tr>
+    <tr>
+      <td>075</td>
+      <td>Número de cartão inválido</td>
+    </tr>
+    <tr>
+      <td>077</td>
+      <td>Transação não autorizada</td>
+    </tr>
+    <tr>
+      <td>078</td>
+      <td>Transação não autorizada</td>
+    </tr>
+    <tr>
+      <td>079</td>
+      <td>Transação não autorizada</td>
+    </tr>
+    <tr>
+      <td>080</td>
+      <td>Transação não autorizada</td>
+    </tr>
+    <tr>
+      <td>081</td>
+      <td>Cartão vencido</td>
+    </tr>
+    <tr>
+      <td>082</td>
+      <td>Transação não autorizada</td>
+    </tr>
+    <tr>
+      <td>083</td>
+      <td>Transação não autorizada</td>
+    </tr>
+    <tr>
+      <td>084</td>
+      <td>Transação não autorizada</td>
+    </tr>
+    <tr>
+      <td>086</td>
+      <td>Transação não autorizada</td>
+    </tr>
+    <tr>
+      <td>091</td>
+      <td>Transação não autorizada</td>
+    </tr>
+    <tr>
+      <td>092</td>
+      <td>Banco emissor sem comunicação</td>
+    </tr>
+    <tr>
+      <td>093</td>
+      <td>Desbalanceamento no plano parcelado</td>
+    </tr>
+    <tr>
+      <td>094</td>
+      <td>Venda parcelada para cartão emitido no exterior</td>
+    </tr>
+    <tr>
+      <td>097</td>
+      <td>Valor de parcela menor do que o permitido</td>
+    </tr>
+    <tr>
+      <td>099</td>
+      <td>Banco emissor inválido</td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>Transação não autorizada</td>
+    </tr>
+    <tr>
+      <td>101</td>
+      <td>Transação duplicada</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>Transação duplicada</td>
+    </tr>
+    <tr>
+      <td>124</td>
+      <td>BIN não cadastrado</td>
+    </tr>
+    <tr>
+      <td>126</td>
+      <td>Transação de saque com cartão Electron inválida</td>
+    </tr>
+    <tr>
+      <td>128</td>
+      <td>Transação de saque com cartão Electron inválida</td>
+    </tr>
+    <tr>
+      <td>129</td>
+      <td>Transação de saque com cartão Electron inválida</td>
+    </tr>
+    <tr>
+      <td>130</td>
+      <td>Transação de saque com cartão Electron inválida</td>
+    </tr>
+    <tr>
+      <td>133</td>
+      <td>Transação de saque com cartão Electron inválida</td>
+    </tr>
+    <tr>
+      <td>134</td>
+      <td>Transação de saque com cartão Electron inválida</td>
+    </tr>
+    <tr>
+      <td>140</td>
+      <td>Estabelecimento não e-commerce</td>
+    </tr>
+    <tr>
+      <td>141</td>
+      <td>Cartão travel transação inválida</td>
+    </tr>
+    <tr>
+      <td>143</td>
+      <td>Venda em dólar inválido</td>
+    </tr>
+    <tr>
+      <td>145</td>
+      <td>Estabelecimento inválido para distribuição</td>
+    </tr>
+    <tr>
+      <td>147</td>
+      <td>Parcelado emissor não habilitado</td>
+    </tr>
+    <tr>
+      <td>150</td>
+      <td>Estabelecimento não financeiro</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="tabela-ix---modo-de-entrada-do-cartão">Tabela IX - Modo de Entrada do Cartão</h3>
 
