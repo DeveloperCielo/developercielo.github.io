@@ -643,3 +643,27 @@ geração do arquivo.
 |183|183|1|Alfa|Sinal do valor da tarifa| `"+"` - identifica valor positivo. `"-"` - identifica valor negativo.|
 |184|192|9|Num.|Tarifa| Valor da tarifa cobrada por operação. Se não houver cobrança de tarifa, o campo será preenchido em branco.|
 |193|250|58|Alfanum.|Uso Cielo| Em Branco. Reservado para Cielo.|
+
+### Registro 6 - Detalhe dos ROs Antecipados
+
+Apresenta o detalhamento da operação de Antecipação demonstrando os ROs antecipados/cedidos.
+
+|001|001|1|Num.|Tipo de registro|Constante 6 identifica o tipo de registro que apresenta as informações de um RO que foi antecipado.|
+|002|011|10|Num.|Estabelecimento|Submissor Número do estabelecimento e/ou filial onde a venda foi realizada.|
+|012|020|9|Num.|Número da operação de antecipação|Número da operação de antecipação.|
+|021|028|8|Num.|Data de vencimento do RO|AAAAMMDD Data de vencimento original do RO que foi antecipado.|
+|029|035|7|Num.|Número do RO antecipado|Número do RO antecipado.|
+|036|037|2|Num.|Parcela antecipada|Número da parcela antecipada no caso de RO parcelado, se RO de venda à vista, será formatado com zeros.|
+|038|039|2|Num.|Total de parcelas|Quantidade de parcelas do RO. No caso de RO de venda à vista, será formatado com zeros.|
+|040|040|1|Alfa|Sinal do valor bruto original do RO| `"+"` - identifica valor positivo. `"-"` - identifica valor negativo.|
+|041|053|13|Num.|Valor bruto original do RO (*)| Valor bruto original do RO.|
+|054|054|1|Alfa|Sinal do valor líquido original do RO| `"+"` - identifica valor positivo. `"-"` - identifica valor negativo.|
+|055|067|13|Num.|Valor líquido original do RO `(*)`| Valor líquido Original do RO.|
+|068|068|1|Num.|Sinal do valor bruto da antecipação do RO| `"+"` - identifica valor positivo. `"-"` - identifica valor negativo.|
+|069|081|13|Num.|Valor bruto da antecipação do RO (*)| Valor líquido original do RO, exceto se houver débitos programados para este RO.|
+|082|082|1|Alfa|Sinal do valor líquido da antecipação do RO| `"+"` - identifica valor positivo. `"-"` - identifica valor negativo.|
+|083|095|13|Num.|Valor líquido da antecipação do RO `(*)`| Valor pago ao estabelecimento descontada a taxa de desconto comercial da antecipação.|
+|096|098|3|Num.|Bandeira|Código da Bandeira vide Tabela VI.|
+|099|120|22|Num.|Número Único do RO|Número Único de identificação do RO formatado da seguinte forma: <br> Primeira parte (fixa) - 15 posições fixas: identifica o resumo mantendo o seu histórico na Cielo; <br> Segunda parte (variável) - 07 posições variáveis: para uso da Cielo. Identifica as alterações realizadas no RO.|
+|121|121|1|Alfanum.|Identificador de RO de ajuste antecipado| `S` considerar ajuste antecipado. <br> Campo preenchido somente quando os ROs de ajustes forem efetivamente antecipados. (somente conceito novo).|
+|122|250|129|Alfanum.|Uso Cielo|Em Branco. Reservado para Cielo.|
