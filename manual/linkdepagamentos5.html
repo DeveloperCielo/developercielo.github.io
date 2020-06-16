@@ -162,7 +162,7 @@ A consulta de transações realizadas através do Super Link pode ser feita atra
 <p>Por se tratar de uma chamada não financeira, a API de Super Link não possui um Sand Box para testar a criação de links. Os Links devem ser criados a partir de um cadastro de produção. A credenciamento pode ser feito através do site cielo ou por meio da central de ecommerce.</p>
 
 <aside class="warning">Contatos da Central:<br />
-Credenciamentoecommerce@Cielo.com.br<br />
+credenciamentoecommerce@cielo.com.br<br />
 +55 11 4002-9700<br />
 0800-570-1700
 </aside>
@@ -412,9 +412,11 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
   <p>O token retornado (access_token) deverá ser utilizado em toda requisição como uma chave de autorização, destacando que este possui uma validade de 20 minutos (1200 segundos) e após esse intervalo, será necessário obter um novo token para acesso aos serviços Cielo.</p>
 </blockquote>
 
-<h2 id="criar-link">Criar Link</h2>
+<h2 id="link-de-pagamento">Link de Pagamento</h2>
 
-<h3 id="request-1">Request</h3>
+<h3 id="criar-link">Criar Link</h3>
+
+<h4 id="request-1">Request</h4>
 
 <p>Para criar link de pagamentos Checkout, basta enviar realizar um POST com os dados do Link ao endpoint:</p>
 
@@ -614,7 +616,7 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
   </tbody>
 </table>
 
-<h3 id="response-1">Response</h3>
+<h4 id="response-1">Response</h4>
 
 <blockquote>
   <p>“HTTP Status”: 201 – Created</p>
@@ -688,9 +690,9 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
   </tbody>
 </table>
 
-<h2 id="consultar-link">Consultar Link</h2>
+<h3 id="consultar-link">Consultar Link</h3>
 
-<h3 id="request-2">Request</h3>
+<h4 id="request-2">Request</h4>
 
 <p>Para consultar um link existente basta realizar um <code class="highlighter-rouge">GET</code> informando o <code class="highlighter-rouge">ID</code> do link.</p>
 
@@ -700,7 +702,7 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
   <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
 </blockquote>
 
-<h3 id="response-2">Response</h3>
+<h4 id="response-2">Response</h4>
 
 <blockquote>
   <p>HTTP Status: 200 – OK</p>
@@ -776,9 +778,9 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
   <p><strong>OBS</strong>: O Response da consulta contem os mesmos dados retornados na criação do link.</p>
 </blockquote>
 
-<h2 id="atualizar-link">Atualizar Link</h2>
+<h3 id="atualizar-link">Atualizar Link</h3>
 
-<h3 id="request-3">Request</h3>
+<h4 id="request-3">Request</h4>
 
 <p>Para Atualizar um link existente basta realizar um <code class="highlighter-rouge">GET</code> informando o <code class="highlighter-rouge">ID</code> do link.</p>
 
@@ -806,7 +808,7 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="response-3">Response</h3>
+<h4 id="response-3">Response</h4>
 
 <blockquote>
   <p>HTTP Status: 200 – OK</p>
@@ -884,9 +886,9 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
   <p><strong>OBS</strong>: O Response da consulta contem os mesmos dados retornados na criação do link.</p>
 </blockquote>
 
-<h2 id="excluir-link">Excluir Link</h2>
+<h3 id="excluir-link">Excluir Link</h3>
 
-<h3 id="request-4">Request</h3>
+<h4 id="request-4">Request</h4>
 
 <p>Para excluir um link existente basta realizar um <code class="highlighter-rouge">DELETE</code> informando o <code class="highlighter-rouge">ID</code> do link.</p>
 
@@ -896,7 +898,7 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
   <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
 </blockquote>
 
-<h3 id="response-4">Response</h3>
+<h4 id="response-4">Response</h4>
 
 <blockquote>
   <p>HTTP Status: 204 – No Content</p>
@@ -932,7 +934,7 @@ Vale destacar que o Checkout realiza a notificação somente quando uma transaç
 
 <p>Para utilizar ambos os modelos, o lojista necessitará acessar o Backoffice cielo e configurar tanto a <code class="highlighter-rouge">URL de NOTIFICAÇÃO</code> quando a <code class="highlighter-rouge">URL de MUDANÇA de STATUS</code>.</p>
 
-<h2 id="tipos-de-url-de-notificação">Tipos de URL de Notificação</h2>
+<h3 id="tipos-de-url-de-notificação">Tipos de URL de Notificação</h3>
 
 <p>O Checkout possui 3 tipos de URL que podem impactar o processo de notificação.</p>
 
@@ -985,7 +987,7 @@ Vale destacar que o Checkout realiza a notificação somente quando uma transaç
 
 <p><img src="https://developercielo.github.io/images/checkout/urls.png" alt="Cadastro de URLS" /></p>
 
-<h2 id="notificação-post">Notificação: POST</h2>
+<h3 id="notificação-post">Notificação: POST</h3>
 
 <p>A notificação via POST é baseada no envio de um <code class="highlighter-rouge">POST HTTP</code> quando uma transação é realizada. Ela é realizada em duas etapas:</p>
 
@@ -1010,7 +1012,7 @@ Vale destacar que o Checkout realiza a notificação somente quando uma transaç
 
 <p>Veja a descrição dos itens de notificação na sessão <strong>“Conteúdo do POST de NOTIFICAÇÃO”</strong></p>
 
-<h2 id="notificação-json">Notificação: JSON</h2>
+<h3 id="notificação-json">Notificação: JSON</h3>
 
 <p>A notificação vai JSON é um método mais seguro e flexível para o lojista de realizar uma consulta no Chekcout Cielo.
 Essa modalidade de notificação é baseada em um <code class="highlighter-rouge">POST JSON</code>, onde o lojista recebe credenciais para que uma consulta (<code class="highlighter-rouge">GET</code>) possa ser realizado junto a base de dados Checkout Cielo.</p>
@@ -1028,7 +1030,7 @@ Essa modalidade de notificação é baseada em um <code class="highlighter-rouge
 
 <p><img src="https://developercielo.github.io/images/checkout/njson.png" alt="Fluxo N.JSON" /></p>
 
-<h3 id="conteúdo-do-post-de-notificaÇÃo-json">Conteúdo do POST de NOTIFICAÇÃO JSON:</h3>
+<h4 id="conteúdo-do-post-de-notificaÇÃo-json">Conteúdo do POST de NOTIFICAÇÃO JSON:</h4>
 
 <table>
   <thead>
@@ -1059,7 +1061,7 @@ Essa modalidade de notificação é baseada em um <code class="highlighter-rouge
 
 <p><strong>Exemplo de uma consulta:</strong></p>
 
-<h3 id="request-5">Request</h3>
+<h4 id="request-5">Request</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
 <span class="nt">--request</span> GET https://cieloecommerce.cielo.com.br/api/public/v1/orders/<span class="o">{</span>merchantId<span class="o">}</span>/<span class="o">{</span>merchantOrderNumber<span class="o">}</span><span class="s2">"
@@ -1090,7 +1092,7 @@ Essa modalidade de notificação é baseada em um <code class="highlighter-rouge
   </tbody>
 </table>
 
-<h3 id="response-5">Response</h3>
+<h4 id="response-5">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido01"</span><span class="p">,</span><span class="w">
@@ -1132,12 +1134,12 @@ Essa modalidade de notificação é baseada em um <code class="highlighter-rouge
 
 <p><img src="https://developercielo.github.io/images/checkout/reenvipost.png" alt="Reenvio de notificação" /></p>
 
-<h2 id="conteúdo-da-notificação">Conteúdo da Notificação</h2>
+<h3 id="conteúdo-da-notificação">Conteúdo da Notificação</h3>
 
 <p>Tanto na Notificação via POST HTTP ou POST JSON, o conteúdo dos dados retornados é o mesmo.
 Abaixo são descritos todos os campos retornados, assim como suas definições e tamanhos:</p>
 
-<h3 id="conteúdo-do-post-de-notificaÇÃo">Conteúdo do POST de NOTIFICAÇÃO:</h3>
+<h4 id="conteúdo-do-post-de-notificaÇÃo">Conteúdo do POST de NOTIFICAÇÃO:</h4>
 
 <table>
   <thead>
@@ -1374,7 +1376,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
   </tbody>
 </table>
 
-<h3 id="tipos-de-productid">Tipos de productID</h3>
+<h4 id="tipos-de-productid">Tipos de productID</h4>
 
 <table>
   <thead>
@@ -1407,7 +1409,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
   </tbody>
 </table>
 
-<h3 id="payment_status">Payment_status</h3>
+<h4 id="payment_status">Payment_status</h4>
 
 <p>O Checkout possui um Status próprios, diferente do SITE CIELO ou da API Cielo ecommerce. Veja abaixo a lista completa.</p>
 
@@ -1472,7 +1474,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
   </tbody>
 </table>
 
-<h3 id="payment_antifrauderesult">Payment_antifrauderesult</h3>
+<h4 id="payment_antifrauderesult">Payment_antifrauderesult</h4>
 
 <p>O Antifraude possui o conceito de <code class="highlighter-rouge">Status</code> e <code class="highlighter-rouge">SubStatus</code>, onde o primeiro representa o nível de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.</p>
 
@@ -1549,7 +1551,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
   </tbody>
 </table>
 
-<h3 id="payment_method_type">Payment_method_type</h3>
+<h4 id="payment_method_type">Payment_method_type</h4>
 
 <p>O Checkout permite apenas um tipo de <code class="highlighter-rouge">Boleto</code> ou <code class="highlighter-rouge">Débito Online</code> por lojista, sendo assim não é retornado se o método usado foi Bradesco ou Banco do Brasil, pois apenas um deles estará ativado na afiliação.</p>
 
@@ -1584,7 +1586,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
   </tbody>
 </table>
 
-<h3 id="payment_method_brand">Payment_method_brand</h3>
+<h4 id="payment_method_brand">Payment_method_brand</h4>
 
 <table>
   <thead>
@@ -1633,7 +1635,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
   </tbody>
 </table>
 
-<h3 id="payment_method_bank">Payment_method_bank</h3>
+<h4 id="payment_method_bank">Payment_method_bank</h4>
 
 <table>
   <thead>
@@ -1654,7 +1656,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
   </tbody>
 </table>
 
-<h3 id="shipping_type">Shipping_type</h3>
+<h4 id="shipping_type">Shipping_type</h4>
 
 <table>
   <thead>
