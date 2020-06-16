@@ -35,6 +35,7 @@ Seu principal objetivo é permitir que lojas possam criar links de pagamento (Bo
 > * O link de pagamentos não é uma URL DE **PEDIDO/TRANSAÇÃO**. Ele é um "carrinho" que pode ser reutilizado inúmeras vezes.
 > * Para receber notificações sobre transações originadas de Links de pagamento é **OBRIGATÓRIO** o cadastro da **URL de Notificação** no backoffice do Checkout.
 > * A consulta de transações realizadas através do Super Link pode ser feita através da **API de controle transacional**.
+>
 
 ## Modo teste
 
@@ -997,7 +998,8 @@ As configurações de sua loja podem ser feitas dentro do site Cielo. Neste ambi
 * Configuração de logo e cor de fundo da tela de pagamento;
 * Modificação dos métodos de pagamento;
 * Configuração de URL’s de retorno;
-* Outras ações;			
+* Outras ações;
+
 Para maiores detalhes veja o tutorial Super Link e Checkout Cielo.
 
 ## Status e Códigos
