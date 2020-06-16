@@ -996,9 +996,8 @@ As configurações de sua loja podem ser feitas dentro do site Cielo. Neste ambi
 * Geração das chaves para utilização da API;
 * Configuração de logo e cor de fundo da tela de pagamento;
 * Modificação dos métodos de pagamento;
-* Configuração de URL’s de retorno
-* Outras ações
-			
+* Configuração de URL’s de retorno;
+* Outras ações;			
 Para maiores detalhes veja o tutorial Super Link e Checkout Cielo.
 
 ## Status e Códigos
