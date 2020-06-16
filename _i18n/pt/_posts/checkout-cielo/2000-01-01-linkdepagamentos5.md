@@ -30,6 +30,12 @@ Este manual irá guiar o desenvolvedor na integração com a API de Super Link d
 A API Link de Pagamentos permite ao lojista criar, editar e consultar links de pagamentos.
 Seu principal objetivo é permitir que lojas possam criar links de pagamento (Botões ou QR Codes), através de seus próprios sistemas, sem a necessidade de acessar o Backoffice e compartilhar com seus clientes.
 
+> **Atenção**:
+>
+> O link de pagamentos não é uma URL DE **PEDIDO/TRANSAÇÃO**. Ele é um "carrinho" que pode ser reutilizado inúmeras vezes.
+> Para receber notificações sobre transações originadas de Links de pagamento é **OBRIGATÓRIO** o cadastro da **URL de Notificação** no backoffice do Checkout.
+> A consulta de transações realizadas através do Super Link pode ser feita através da **API de controle transacional**.
+
 ## Modo teste
 
 ### Sandbox
