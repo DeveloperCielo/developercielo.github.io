@@ -660,7 +660,7 @@ Apresenta o detalhamento da operação de Antecipação demonstrando os ROs ante
 |054|054|1|Alfa|Sinal do valor líquido original do RO| `"+"` - identifica valor positivo. `"-"` - identifica valor negativo.|
 |055|067|13|Num.|Valor líquido original do RO `(*)`| Valor líquido Original do RO.|
 |068|068|1|Num.|Sinal do valor bruto da antecipação do RO| `"+"` - identifica valor positivo. `"-"` - identifica valor negativo.|
-|069|081|13|Num.|Valor bruto da antecipação do RO (*)| Valor líquido original do RO, exceto se houver débitos programados para este RO.|
+|069|081|13|Num.|Valor bruto da antecipação do RO `(*)`| Valor líquido original do RO, exceto se houver débitos programados para este RO.|
 |082|082|1|Alfa|Sinal do valor líquido da antecipação do RO| `"+"` - identifica valor positivo. `"-"` - identifica valor negativo.|
 |083|095|13|Num.|Valor líquido da antecipação do RO `(*)`| Valor pago ao estabelecimento descontada a taxa de desconto comercial da antecipação.|
 |096|098|3|Num.|Bandeira|Código da Bandeira vide Tabela VI.|
@@ -922,9 +922,96 @@ Quando um valor a crédito estiver em processo de compensação com um valor a d
 
 ### Tabela VI - Bandeira
 
+|Código|Descrição|                                                 |
+|---|---|                                                                   |
+|001|Visa        |
+|002|Mastercard  |
+|003|Amex        |
+|006|Sorocred    |
+|007|Elo         |
+|009|Diners      |
+|011|Agiplan     |
+|015|Banescard   |
+|023|Cabal       |
+|029|Credsystem  |
+|035|Esplanada   |
+|040|Hipercard   |
+|060|Jcb         |
+|064|Credz       |
+|072|Hiper       |
+|075|Ourocard    |
+
 ### Tabela VII - Meio de Captura
 
+|Código|Descrição|
+|---|---|                                                               
+|00|LIO|
+|01|POS (Point of Sale)|
+|02|PDV (Ponto de Venda) ou TEF (Transferência Eletrônica de Fundos)|
+|03|e-Commerce (Comércio Eletrônico)|
+|04|EDI (Troca Eletrônica de Dados)|
+|05|ADP/BSP (Empresa Capturadora) ou Reprocessamento
+|06|Manual|
+|07|URA/CVA|
+|08|Mobile|
+|09|Moedeiro Eletrônico em Rede|
+|99|Não identificado|
+
 ### Tabela VIII - Motivo da Rejeição
+
+|Código|Descrição|
+|---|---|                                                               
+|002|Cartão inválido|
+|023|Outros erros|
+|024|Tipo cartão inválido|
+|031|Transação de saque com cartão Electron valor zerado|
+|039|Banco emissor inválido|
+|044|Data da transação inválida|
+|045|Código de autorização inválido
+|055|Número de parcelas inválido|
+|056|Transação financiada para estabelecimento não autorizado|
+|057|Cartão em boletim protetor  |
+|061|Número de cartão inválido   |
+|066|Transação não autorizada    |
+|067|Transação não autorizada    |
+|069|Transação não autorizada    |
+|070|Transação não autorizada    |
+|071|Transação não autorizada    |
+|072|Transação não autorizada    |
+|073|Transação inválida          |
+|074|Valor de transação inválido |
+|075|Número de cartão inválido   |
+|077|Transação não autorizada    |
+|078|Transação não autorizada    |
+|079|Transação não autorizada    |
+|080|Transação não autorizada    |
+|081|Cartão vencido              |
+|082|Transação não autorizada    |
+|083|Transação não autorizada    |
+|084|Transação não autorizada    |
+|086|Transação não autorizada    |
+|091|Transação não autorizada    |
+|092|Banco emissor sem comunicação|
+|093|Desbalanceamento no plano parcelado|
+|094|Venda parcelada para cartão emitido no exterior|
+|097|Valor de parcela menor do que o permitido|
+|099|Banco emissor inválido|
+|100|Transação não autorizada
+|101|Transação duplicada|
+|102|Transação duplicada|
+|124|BIN não cadastrado|
+|126|Transação de saque com cartão Electron inválida|
+|128|Transação de saque com cartão Electron inválida|
+|129|Transação de saque com cartão Electron inválida|
+|130|Transação de saque com cartão Electron inválida|
+|133|Transação de saque com cartão Electron inválida|
+|134|Transação de saque com cartão Electron inválida|
+|140|Estabelecimento não e-commerce                 |
+|141|Cartão travel transação inválida               |
+|143|Venda em dólar inválido                        |
+|145|Estabelecimento inválido para distribuição     |
+|147|Parcelado emissor não habilitado               |
+|150|Estabelecimento não financeiro                 |
 
 ### Tabela IX - Modo de Entrada do Cartão
 
