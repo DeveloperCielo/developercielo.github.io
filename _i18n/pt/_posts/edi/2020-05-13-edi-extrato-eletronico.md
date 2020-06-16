@@ -667,3 +667,38 @@ Apresenta o detalhamento da operação de Antecipação demonstrando os ROs ante
 |099|120|22|Num.|Número Único do RO|Número Único de identificação do RO formatado da seguinte forma: <br> Primeira parte (fixa) - 15 posições fixas: identifica o resumo mantendo o seu histórico na Cielo; <br> Segunda parte (variável) - 07 posições variáveis: para uso da Cielo. Identifica as alterações realizadas no RO.|
 |121|121|1|Alfanum.|Identificador de RO de ajuste antecipado| `S` considerar ajuste antecipado. <br> Campo preenchido somente quando os ROs de ajustes forem efetivamente antecipados. (somente conceito novo).|
 |122|250|129|Alfanum.|Uso Cielo|Em Branco. Reservado para Cielo.|
+
+### Registro 7 - Detalhe dos Débitos de ROs Antecipados
+
+Apresenta os débitos compensados nas datas antecipadas.
+
+|001|001|1|Num.|Tipo de registro|Constante 7 identifica o tipo de registro que apresenta as informações de um RO que foi antecipado.|
+|002|011|10|Num.|Estabelecimento Submissor|Número do estabelecimento e/ou filial onde a venda foi realizada.|
+|012|033|22|Num.|Número Único do RO original da venda|Número único do RO original da venda.|
+|034|040|7|Num.|Número do RO antecipado|Número do RO da venda original.|
+|041|048|8|Num.|Data de pagamento do RO antecipado|AAAAMMDD Data de Pagamento do RO Antecipado.|
+|049|049|1|Alfa|Sinal do valor do RO antecipado|`"+"` - identifica valor positivo.`"-"` - identifica valor negativo.|
+|050|062|13|Num.|Valor do RO antecipado|Valor do RO antecipado.|
+|063|084|22|Num.|Nº Único do RO da venda que originou o ajuste|Número único do RO da venda que originou o ajuste.|
+|085|091|7|Num.|Nº do RO de ajuste a débito|Número do RO que apresenta os valores retidos para a operação de antecipação.|
+|092|099|8|Num.|Data de pagamento do ajuste|AAAAMMDD.| 
+|100|100|1|Alfa|Sinal do valor do ajuste a débito|`"+"` - identifica valor positivo. `"-"` - identifica valor negativo.|
+|101|113|13|Num.|Valor do ajuste a débito|Valor total do débito.|
+|114|114|1|Alfa|Sinal do valor compensado| `"+"` - identifica valor positivo.  `"-"` - identifica valor negativo.|
+|115|127|13|Num.|Valor compensado| Valor compensado do RO antecipado.|
+|128|128|1|Alfa|Sinal do saldo do RO antecipado| `"+"` identifica valor positivo. `"-"` - identifica valor negativo.|
+|129|141|13|Num.|Valor do saldo do RO antecipado| Resultado do total de débito valor compensado.|
+|142|250|109|Alfanum.| Uso Cielo| Em Branco. Reservado para Cielo.|
+
+### Registro 9 - Trailer
+
+Indica o final do arquivo.
+
+|001|001|1|Num.|Tipo de registro|Constante Identifica o tipo de registro de detalhe trailer (final do arquivo).|
+|002|012|11|Num.|Total de registro|Número total de registros, os quais não incluem header e trailer.|
+|013|013|1|Alfa|Sinal Valor Líquido da soma de todos os CVs| `"+"` - identifica valor positivo. `"-"` - identifica valor negativo.|
+|014|030|17|Num.|Valor Líquido da soma de todos os CVs| Valor Líquido da soma de todos os CVs.|
+|031|041|11|Num.|Quantidade total de CVs| Quantidade total de CVs.|
+|042|250|209|Alfanum.|Uso Cielo|Em Branco. Reservado para Cielo.|
+
+Observação: os campos reservados para a Cielo poderão ser utilizados para a inclusão de novas informações. Também poderá ser necessário incluir novos tipos de registros. Por conta disso, sugerimos que a solução de conciliação despreze os registros não relacionados nesta especificação.
