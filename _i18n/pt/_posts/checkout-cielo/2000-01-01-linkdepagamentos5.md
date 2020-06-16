@@ -14,7 +14,107 @@ language_tabs:
   shell: cURL
 ---
 
-# Cielo OAUTH
+# API de Super Link
+
+## Obetivo deste item
+
+Este manual irá guiar o desenvolvedor na integração com a API de Super Link da Cielo. Após realizar as integrações descritas será possível:
+
+* Criar e editar Links de Pagamento via API,
+* Receber notificações de pagamentos
+* Consultar pagamentos
+* Configurar a sua loja da maneira adequada
+
+## Sobre o Super Link
+
+A API Link de Pagamentos permite ao lojista criar, editar e consultar links de pagamentos.
+Seu principal objetivo é permitir que lojas possam criar links de pagamento (Botões ou QR Codes), através de seus próprios sistemas, sem a necessidade de acessar o Backoffice e compartilhar com seus clientes.
+
+> **Atenção**:
+>
+> * O link de pagamentos não é uma URL DE **PEDIDO/TRANSAÇÃO**. Ele é um "carrinho" que pode ser reutilizado inúmeras vezes.
+> * Para receber notificações sobre transações originadas de Links de pagamento é **OBRIGATÓRIO** o cadastro da **URL de Notificação** no backoffice do Checkout.
+> * A consulta de transações realizadas através do Super Link pode ser feita através da **API de controle transacional**.
+
+## Modo teste
+
+### Sandbox
+
+Por se tratar de uma chamada não financeira, a API de Super Link não possui um Sand Box para testar a criação de links. Os Links devem ser criados a partir de um cadastro de produção. A credenciamento pode ser feito através do site cielo ou por meio da central de ecommerce.
+
+<aside class="warning"><b>Contatos da Central:
+Credenciamentoecommerce@Cielo.com.br
++55 11 4002-9700
+0800-570-1700
+</b></aside>
+
+Os testes financeiros podem ser executados a partir da ativação do modo teste nas configuração da sua loja. 
+
+### Ativação do Modo de Teste
+
+O modo de teste pode ser ativado na aba **Configurações**, onde existe um caixa de seleção, que quando marcada, habilitará o modo de teste do Checkout Cielo. O modo somente se iniciará quando a seleção for salva.
+
+![Ativando Modo de teste]({{ site.baseurl_root }}/images/checkout/tm01.png)
+
+Quando a opção for salva, uma tarja vermelha será exibida na parte superior da tela. Ela será exibida em todas as telas do [Backoffice Cielo Checkout]({{ site.baseurl_root }}{% post_url 2000-01-01-checkout-tutoriais%}) e na tela transacional do Checkout Cielo.
+
+Essa tarja indica que a sua loja Checkout Cielo está agora operando em ambiente de teste, ou seja, toda a transação realizada nesse modo será considerada como teste.
+
+|Backoffice|Transacional|
+|---|---|
+|![Tarja vermelha - Backoffice]({{ site.baseurl_root }}/images/checkout/tmbackoffice.png)|![Tarja vermelha - Transacional]({{ site.baseurl_root }}/images/checkout/tmtransacional.png)|
+
+### Como transacionar no Modo de teste
+
+A realização de transações no modo de teste ocorre de forma normal. As informações da transação são enviadas via POST ou API, utilizando os parâmetros como descrito no tópico [Integração por API](#integração-por-api), entretanto, os meios de pagamentos a serem usados serão meios simulados.
+
+Para realizar transações de teste com diferentes meios de pagamento, siga as seguintes regras:
+
+**A - Transações com Cartão de crédito:**
+
+Para testar cartões de crédito é necessário que dois dados importantes sejam definidos, o status da autorização do cartão e o retorno da analise de fraude.
+
+**Status da Autorização do Cartão de Crédito**
+
+|Status da Transação|Cartões para realização dos testes|
+|---|---|---|---|
+|Autorizado|0000.0000.0000.0000 / 0000.0000.0000.0004|
+|Não Autorizado|0000.0000.0000.0005 / 0000.0000.0000.0009|
+
+**Exemplo:** 540443424293010**0** = **Autorizado**
+
+**B - Boleto Bancário**
+
+Basta realizar o processo de compra normalmente sem nenhuma alteração no procedimento.
+O boleto gerado no modo de teste sempre será um boleto simulado.
+
+**C - Debito online**
+
+É necessário informa o status da transação de Debito online para que seja retornado o status desejado. Esse processo ocorre como no antifraude do cartão de crédito descrito acima, com a alteração do nome do comprador.
+
+**Status do Débito**
+
+|Sobre nome do cliente|Status|
+|---|---|
+|Pago|Pago|
+|Qualquer nome.|Não autorizado|
+
+* **Exemplo:** Status não Autorizado.
+* **Nome do Cliente:** Maria Pereira
+
+**D - Transações de teste**
+
+Todas as transações realizadas no modo de teste serão exibidas como transações normais na aba Pedidos do Checkout Cielo, entretanto, elas serão marcadas como transações de teste e não serão contabilizadas em conjunto com as transações realizadas fora do ambiente de teste.
+
+![Transações de teste]({{ site.baseurl_root }}/images/checkout-cielo-modo-teste-transacoes-de-teste.png)
+
+Essas transações terão o símbolo de teste as diferenciando de suas outras transações. Elas podem ser capturadas ou canceladas utilizando os mesmos procedimentos das transações reais.
+
+![Transações de teste]({{ site.baseurl_root }}/images/checkout-cielo-modo-teste-transacoes-de-teste-cancelamento.png)
+
+<aside class="notice">É muito importante que ao liberar sua loja para a realização de vendas para seus clientes que **ela não esteja em modo de teste**. Transações realizadas nesse ambiente poderão ser finalizadas normalmente, mas **não serão descontadas do cartão do cliente** e não poderão ser “transferidas” para o ambiente de venda padrão.</aside>
+
+## Cielo OAUTH
 
 O Cielo OAUTH é um processo de autenticação utilizado em APIs Cielo que são correlacionadas a produtos E-commerce. Ele utiliza como segurança o protocolo **[OAUTH2](https://oauth.net/2/)**, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API CieloOAuth
 
@@ -27,7 +127,7 @@ Para utilizar o Cielo Oauth são necessarias as seguintes credenciais:
 | `ClientId`     | Identificador chave fornecido pela CIELO                              | guid   |
 | `ClientSecret` | Chave que valida o ClientID. Fornecida pela Cielo junto ao `ClientID` | string |
 
-## Obter Credenciais
+### Obter Credenciais
 
 Para obter as credênciais no Checkout Cielo, basta seguir o fluxo abaixo:
 
@@ -37,7 +137,7 @@ Para obter as credênciais no Checkout Cielo, basta seguir o fluxo abaixo:
 4. Dados da loja
 5. Gerar chaves da API
 
-## Token de acesso
+### Token de acesso
 
 Para obter acesso a serviços Cielo que utilizam o `Cielo Oauth`, será necessário obter um token de acesso, conforme os passos abaixo:
 
@@ -45,7 +145,7 @@ Para obter acesso a serviços Cielo que utilizam o `Cielo Oauth`, será necessá
 2. Codificar o resultado em **Base64**
 3. Enviar uma requisição, utilizando o método HTTP POST
 
-### Concatenação
+#### Concatenação
 
 | Campo                     | Formato                                                                                          |
 | ------------------------- | ------------------------------------------------------------------------------------------------ |
@@ -54,7 +154,7 @@ Para obter acesso a serviços Cielo que utilizam o `Cielo Oauth`, será necessá
 | **ClientId:ClientSecret** | _b521b6b2-b9b4-4a30-881d-3b63dece0006:08Qkje79NwWRx5BdgNJsIkBuITt5cIVO_                          |
 | **Base64**                | _YjUyMWI2YjItYjliNC00YTMwLTg4MWQtM2I2M2RlY2UwMDA2OiAwOFFramU3OU53V1J4NUJkZ05Kc0lrQnVJVHQ1Y0lWTw_ |
 
-### Request
+#### Request
 
 O Request dever ser enviado apenas no Header da requisição.
 
@@ -67,7 +167,7 @@ x-www-form-urlencoded
 grant_type=client_credentials
 ```
 
-### Response
+#### Response
 
 O response possuirá o Token utilizado para novas requisições em Serviços Cielo
 
@@ -87,21 +187,6 @@ O response possuirá o Token utilizado para novas requisições em Serviços Cie
 | `Expires_in`   | Validade do token em segundos. Aproximadamente 20 minutos | int    |
 
 > O token retornado (access_token) deverá ser utilizado em toda requisição como uma chave de autorização, destacando que este possui uma validade de 20 minutos (1200 segundos) e após esse intervalo, será necessário obter um novo token para acesso aos serviços Cielo.
-
-# Link de Pagamento
-
-A **API Link de Pagamentos** permite ao lojista criar, editar e consultar links de pagamentos.
-
-Seu principal objetivo é permitir que lojas possam criar links de pagamento (Botões ou QR Codes), através de seus próprios sistemas, sem a necessidade de acessar o Backoffice do Checkout Cielo e compartilhar com seus clientes.
-
-> **Atenção**:
->
-> * O link de pagamentos não é uma URL DE **PEDIDO/TRANSAÇÃO**. Ele é um "carrinho" que pode ser reutilizado inúmeras vezes.
-> * Para receber notificações sobre transações originadas de Links de pagamento é **OBRIGATÓRIO** o cadastro da **URL de Notificação** no backoffice do Checkout.
-
-## Autenticação
-
-O Processo de autenticação na API do link de pagamento é o **[Cielo OAUTH](https://docscielo.github.io/Pilots/manual/linkdepagamentos5#cielo-oauth)**
 
 ## Criar Link
 
@@ -378,12 +463,685 @@ Para excluir um link existente basta realizar um `DELETE` informando o `ID` do l
 
 > HTTP Status: 204 – No Content
 
-## Códigos de Status HTTP
+## Notificações de Pagamento
 
-| CÓDIGO                          | DESCRIÇÃO                                                                                                  |
-| ------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| **200 - OK**                    | Tudo funcionou corretamente.                                                                               |
-| **400 – Bad Request**           | A requisição não foi aceita. Algum parâmetro não foi informado ou foi informado incorretamente.            |
-| **401 - Unauthorized**          | O token de acesso enviado no header da requisição não é válido.                                            |
-| **404 – Not Found**             | O recurso sendo acessado não existe. Ocorre ao tentar atualizar, consultar ou excluir um link inexistente. |
-| **500 – Internal Server Error** | Ocorreu um erro no sistema.                                                                                |
+O processo de notificação transacional no Checkout Cielo ocorre via a inclusão de uma URL para onde serão direcionados dados das transações realizadas na plataforma.
+Vale destacar que o Checkout realiza a notificação somente quando uma transação é considerada finalizada ou seja, o comprador preencheu todos os dados da tela de pagamento e clicou em "Finalizar".
+
+## Tipos de notificação
+
+O Checkout Cielo possui dois tipos de notificações que o lojista pode utilizar de acordo com suas necessidades:
+
+|Tipo|Descrição|
+|---|---|
+|`POST`|Notificação onde o lojista é passivo. Dois `POST HTTP` são disparados, um informando dados da venda e outra mudança de Status da transação|
+|`JSON`|Notificação onde o lojista realiza uma consulta. Um `POST` contendo informações para a realização de uma consulta (`GET`) as transações checkout|
+
+Para utilizar ambos os modelos, o lojista necessitará acessar o Backoffice cielo e configurar tanto a `URL de NOTIFICAÇÃO` quando a `URL de MUDANÇA de STATUS`.
+
+## Tipos de URL de Notificação
+
+O Checkout possui 3 tipos de URL que podem impactar o processo de notificação.
+
+|Tipo|Descrição|Observação|
+|---|---|---|
+|`URL de Retorno`|Página web na qual o comprador será redirecionado ao fim da compra. <br>Nenhum dado é trocado ou enviado para essa URL.<br> Essa URL apenas leva o comprador, após finalizar a compra, a uma página definida pela loja.|Caso o Lojista deseje, ele pode configurar essa página para ser sensibilizada por tráfego, assim identificando que a transação foi finalizada no Checkout Cielo <br> Pode ser enviada via API - Ver "Integração por API"|
+|`URL de Notificação`|Ao finalizar uma transação é enviado um POST HTTP com todos os dados da venda para a URL de Notificação.<br> O POST de notificação é enviado apenas no momento que a transação é finalizada, independentemente se houve alteração do **status da transação**|Utilizada na Notificação via `POST`e `JSON`|
+|`URL de Mudança de Status`|Quando um pedido tiver seu status alterado, será enviando um post HTTP para a URL de Mudança de Status.<br> O POST de mudança de status não contem dados do carrinho, apenas dados de identificação do pedido|Utilizada somente na Notificação via `POST`|
+
+**OBS:** Caso uma `URL de retorno` seja enviada vai API, ela terá prioridade sobre a URL cadastrada no Backoffice / Na integração Checkout Cielo `via Botão`, só é possível usar a opção de URL de retorno via backoffice.
+
+**Características das URLs**
+
+Todas as 3 URLs devem possuir as seguintes características:
+
+* Devem ser URLs estáticas
+* Devem possuir menos de 255 caracteres
+* Caracteres especiais não são suportados
+
+**Configurando as URLs**
+
+1. Basta acessar dentro do **Backoffice** as Abas **Configurações**
+2. Em **Configurações da Loja**, Vá a sessão de **Pagamentos**
+3. Cadastre as URLS e escolhe o tipo de Notificação desejado
+
+![Cadastro de URLS]({{ site.baseurl_root }}/images/checkout/urls.png)
+
+## Notificação: POST
+
+A notificação via POST é baseada no envio de um `POST HTTP` quando uma transação é realizada. Ela é realizada em duas etapas:
+
+1. `POST de NOTIFICAÇÃO` - Ocorre quando a transação é finalizada. Esse POST possui todos os dados do pedido, incluindo o STATUS inicial da transação.
+2. `POST de MUDANÇA DE STATUS` - Ocorre quando uma transação possui seu STATUS alterado - **EX:** "Autorizado" > > > "Pago"
+
+Este fluxo é utilizado por lojas que ainda não realizam transações via API.
+
+Abaixo o Fluxo de uma Notificação POST
+
+![Fluxo N.POST]({{ site.baseurl_root }}/images/checkout/npost.png)
+
+**Retorno aguardado para o envio da notificação:** `HttpStatus = 200 (OK)` - Post recebido e processado com sucesso
+
+**IMPORTANTE** Se a `URL de Notificação` cadastrada retornar algum erro/estiver indisponível, serão realizadas **3 novas tentativas, com intervalo de 1 hora entre cada POST*.
+
+Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acessar o pedido em questão pelo Backoffice e clicar no Ícone de envio:
+
+![Reenvio de notificação]({{ site.baseurl_root }}/images/checkout/reenvipost.png)
+
+Veja a descrição dos itens de notificação na sessão **"Conteúdo do POST de NOTIFICAÇÃO"**
+
+## Notificação: JSON
+
+A notificação vai JSON é um método mais seguro e flexível para o lojista de realizar uma consulta no Chekcout Cielo.
+Essa modalidade de notificação é baseada em um `POST JSON`, onde o lojista recebe credenciais para que uma consulta (`GET`) possa ser realizado junto a base de dados Checkout Cielo.
+
+Ela é realizada em duas etapas:
+
+1. `POST de NOTIFICAÇÃO` - Ocorre quando a transação é finalizada. Possui as Credenciais necessárias consultas transacionais.
+2. `CONSULTA TRANSACIONAL` - Com as credenciais de consulta, o lojista busca dados da venda junto ao Checkout Cielo
+
+Na Notificação de JSON, não há diferença entre o `POST de Notificação` e `Mudança de Status`. Sempre que algo ocorrer na transação, o lojista receberá um `POST de Notificação`
+
+Abaixo o Fluxo de uma Notificação JSON (Criação da transação + Mudança de status)
+
+![Fluxo N.JSON]({{ site.baseurl_root }}/images/checkout/njson.png)
+
+### Conteúdo do POST de NOTIFICAÇÃO JSON:
+
+|Parâmetro|Descrição|Tipo do Campo|
+|---|---|---|
+|`URL`|URL com os dados necessários para realizar a busca dos dados da transação.|String|
+|`MerchantId`|Identificador da loja no Checkout Cielo; consta no Backoffice no menu Configuração/Dados Cadastrais.|Alfanumérico (GUID)|
+|`MerchantOrderNumber`|Número do pedido da loja; se não for enviado, o Checkout Cielo gerará um número, que será visualizado pelo Consumidor.|Alfanumérico|
+
+**Exemplo de uma consulta:**
+
+### Request
+
+```shell
+curl
+--request GET https://cieloecommerce.cielo.com.br/api/public/v1/orders/{merchantId}/{merchantOrderNumber}"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|---|---|---|---|---|
+|`MerchantId`|Identificador da loja|Guid|36|Sim|
+
+### Response
+
+```json
+{
+    "order_number": "Pedido01",
+    "amount": 101,
+    "discount_amount": 0,
+    "checkout_cielo_order_number": "65930e7460bd4a849502ed14d7be6c03",
+    "created_date": "12-09-2017 14:38:56",
+    "customer_name": "Test Test",
+    "customer_phone": "21987654321",
+    "customer_identity": "84261300206",
+    "customer_email": "test@cielo.com.br",
+    "shipping_type": 1,
+    "shipping_name": "Motoboy",
+    "shipping_price": 1,
+    "shipping_address_zipcode": "21911130",
+    "shipping_address_district": "Freguesia",
+    "shipping_address_city": "Rio de Janeiro",
+    "shipping_address_state": "RJ",
+    "shipping_address_line1": "Rua Cambui",
+    "shipping_address_line2": "Apto 201",
+    "shipping_address_number": "92",
+    "payment_method_type": 1,
+    "payment_method_brand": 1,
+    "payment_maskedcreditcard": "471612******7044",
+    "payment_installments": 1,
+    "payment_status": 3,
+    "tid": "10447480686J51OH8BPB",
+    "test_transaction": "False"
+}
+```
+
+Veja a descrição dos itens de notificação na sessão **"Conteúdo do POST de NOTIFICAÇÃO"**
+
+**Retorno aguardado para o envio da notificação:** `HttpStatus = 200 (OK)` - Post recebido e processado com sucesso
+
+**IMPORTANTE** Se a `URL de Notificação` cadastrada retornar algum erro/estiver indisponível, serão realizadas **3 novas tentativas, com intervalo de 1 hora entre cada POST*.
+
+Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acessar o pedido em questão pelo Backoffice e clicar no Ícone de envio:
+
+![Reenvio de notificação]({{ site.baseurl_root }}/images/checkout/reenvipost.png)
+
+## Conteúdo da Notificação
+
+Tanto na Notificação via POST HTTP ou POST JSON, o conteúdo dos dados retornados é o mesmo.
+Abaixo são descritos todos os campos retornados, assim como suas definições e tamanhos:
+
+### Conteúdo do POST de NOTIFICAÇÃO:
+
+| Parâmetro                            | Descrição                                                                                                    | Tipo do campo | Tamanho máximo |
+|--------------------------------------|--------------------------------------------------------------------------------------------------------------|---------------|----------------|
+| `checkout_cielo_order_number`        | Identificador único gerado pelo CHECKOUT CIELO                                                               | Alfanumérico  | 32             |
+| `amount`                             | Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)                                                   | Numérico      | 10             |
+| `order_number`                       | Número do pedido enviado pela loja                                                                           | Alfanumérico  | 32             |
+| `created_date`                       | Data da criação do pedido - `dd-MM-yyyy HH:mm:ss`                                                            | Alfanumérico  | 20             |
+| `customer_name`                      | Nome do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO                       | Alfanumérico  | 289            |
+| `customer_identity`                  | Identificação do consumidor (CPF ou CNPJ) Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO | Alfanumérico  | 14             |
+| `customer_email`                     | E-mail do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO                     | Alfanumérico  | 64             |
+| `customer_phone`                     | Telefone do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO                   | Numérico      | 11             |
+| `discount_amount`                    | Valor do desconto fornecido (enviado somente se houver desconto)                                             | Numérico      | 10             |
+| `shipping_type`                      | Modalidade de frete                                                                                          | Numérico      | 1              |
+| `shipping_name`                      | Nome do frete                                                                                                | Alfanumérico  | 128            |
+| `shipping_price`                     | Valor do serviço de frete, em centavos (ex: R$ 10,00 = 1000)                                                 | Numérico      | 10             |
+| `shipping_address_zipcode`           | CEP do endereço de entrega                                                                                   | Numérico      | 8              |
+| `shipping_address_district`          | Bairro do endereço de entrega                                                                                | Texto         | 64             |
+| `shipping_address_city`              | Cidade do endereço de entrega                                                                                | Alfanumérico  | 64             |
+| `shipping_address_state`             | Estado de endereço de entrega                                                                                | Alfanumérico  | 64             |
+| `shipping_address_line1`             | Endereço de entrega                                                                                          | Alfanumérico  | 256            |
+| `shipping_address_line2`             | Complemento do endereço de entrega                                                                           | Alfanumérico  | 14            |
+| `shipping_address_number`            | Número do endereço de entrega                                                                                | Numérico      | 8              |
+| `payment_method_type`                | Cód. do tipo de meio de pagamento                                                                            | Numérico      | 1              |
+| `payment_method_brand`               | Bandeira (somente para transações com meio de pagamento cartão de crédito)                                   | Numérico      | 1              |
+| `payment_method_bank`                | Banco emissor (Para transações de Boleto e Débito Automático)                                                | Numérico      | 1              |
+| `payment_maskedcreditcard`           | Cartão Mascarado (Somente para transações com meio de pagamento cartão de crédito)                           | Alfanumérico  | 20             |
+| `payment_installments`               | Número de parcelas                                                                                           | Numérico      | 1              |
+| `payment_antifrauderesult`           | Status das transações de cartão de Crédito no Antifraude                                                     | Numérico      | 1              |
+| `payment_boletonumber`               | número do boleto gerado                                                                                      | String        | 1              |
+| `payment_boletoexpirationdate`       | Data de vencimento para transações realizadas com boleto bancário                                            | Numérico      | 10             |
+| `payment_status`                     | Status da transação                                                                                          | Numérico      | 1              |
+| `tid`                                | TID Cielo gerado no momento da autorização da transação                                                      | Alfanumérico  | 20             |
+| `test_transaction`                   | Indica se a transação foi gerada com o `Modo de teste` ativado                                               | Boolean       | 32             |
+| `product_id`                         | Identificador do Botão/Link de pagamento que gerou a transação                                               | Alfanumérico  | 32             |
+| `product_type`                       | Tipo de Botão que gerou o pedido (Ver tabela de ProductID)                                                   | Alfanumérico  | 32             |
+| `product_sku`                        | Identificador do produto cadastro no link de pagamento                                                       | texto         | 16             |
+| `product_max_number_of_installments` | Numero de parcelas liberado pelo lojistas para o link de pagamento                                           | Numérico      | 2              |
+| `product_expiration_date`            | Data de validade do botão/Link de pagamento                                                                  | Alfanumérico  | 12             |
+| `product_quantity`                   | Numero de transações restantes até que o link deixe de funcionar                                             | Alfanumérico  | 2              |
+| `product_description`                | Descrição do link de pagamentos registrada pelo lojista                                                      | texto         | 256            |
+
+### Tipos de productID
+
+|Tipo de Link de pagamento|Enun|
+|-|-|
+|Material físico|1|
+|Digital|2|
+|Serviço|3|
+|Pagamento|4|
+|Recorrência|5|
+
+### Payment_status
+
+O Checkout possui um Status próprios, diferente do SITE CIELO ou da API Cielo ecommerce. Veja abaixo a lista completa.
+
+|Valor|Status de transação|Meios de pagamento|Descrição|
+|---|---|---|---|
+|1|`Pendente`|Para todos os meios de pagamento|Indica que o pagamento ainda está sendo processado; OBS: Boleto - Indica que o boleto não teve o status alterado pelo lojista|
+|2|`Pago`|Para todos os meios de pagamento|Transação capturada e o dinheiro será depositado em conta.|
+|3|`Negado`|Somente para Cartão Crédito|Transação não autorizada pelo responsável do meio de pagamento|
+|4|`Expirado`|Cartões de Crédito e Boleto|Transação deixa de ser válida para captura - **15 dias pós Autorização**|
+|5|`Cancelado`|Para cartões de crédito|Transação foi cancelada pelo lojista|
+|6|`Não Finalizado`|Todos os meios de pagamento|Pagamento esperando Status - Pode indicar erro ou falha de processamento. Entre em contato com o Suporte cielo|
+|7|`Autorizado`|somente para Cartão de Crédito|Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta|
+|8|`Chargeback`|somente para Cartão de Crédito|Transação cancelada pelo consumidor junto ao emissor do cartão. O Dinheiro não será depositado em conta.|
+
+### Payment_antifrauderesult
+
+O Antifraude possui o conceito de `Status` e `SubStatus`, onde o primeiro representa o nível de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
+
+|Valor|Status Antifraude|Substatus|Descrição|
+|---|---|---|---|
+|1|`Baixo Risco`|Baixo Risco|Baixo risco de ser uma transação fraudulenta|
+|3|`Médio Risco`|Médio Risco|Médio risco de ser uma transação fraudulenta|
+|2|`Alto Risco`|Alto Risco|Alto risco de ser uma transação fraudulenta|
+|4|`Não finalizado`|Não finalizado|Não foi possível finalizar a consulta|
+|N/A|`N/A`|Autenticado|Transações autenticadas pelo banco - **Não são analisaveis pelo AF**|
+|N/A|`N/A`|AF Não contratado|Antifraude não habilitado no plano do lojista - **Não são analisaveis pelo AF**|
+|N/A|`N/A`|AF Dispensado|Antifraude dispensado via contrato ou inferior ao valor mínimo de antifrade parametrizado backoffice no lojista|
+|N/A|`N/A`|Não aplicável|Meio de pagamento não analisável como cartões de débito, boleto e débito online|
+|N/A|`N/A`|Transação de recorrência|Transação de crédito seja posterior a transação de agendamento. **Somente o Agendamento é analisado**|
+|N/A|`N/A`|Transação negada|Venda a crédito foi negada - **Não são analisaveis pelo AF**|
+
+### Payment_method_type
+
+O Checkout permite apenas um tipo de `Boleto` ou `Débito Online` por lojista, sendo assim não é retornado se o método usado foi Bradesco ou Banco do Brasil, pois apenas um deles estará ativado na afiliação.
+
+|Valor|Descrição|
+|---|---|
+|1|Cartão de Crédito|
+|2|Boleto Bancário|
+|3|Débito Online|
+|4|Cartão de Débito|
+|5|QR Code|
+
+### Payment_method_brand
+
+|Valor|Descrição|
+|---|---|
+|1|Visa|
+|2|Mastercad|
+|3|AmericanExpress|
+|4|Diners|
+|5|Elo|
+|6|Aura|
+|7|JCB|
+|8|Discover|
+|9|Hipercard|
+
+### Payment_method_bank
+
+|Valor|Descrição|
+|---|---|
+|1|Banco do Brasil|
+|2|Bradesco|
+
+### Shipping_type
+
+|Valor|Descrição|
+|---|---|
+|1|Correios|
+|2|Frete fixo|
+|3|Frete grátis|
+|4|Retirar em mãos/loja|
+|5|Sem cobrança de frete (serviços ou produtos digitais)|
+
+## Controle Transacional
+
+O controle dos pedidos oriundos de link de pagamento pode ser feito por meio da API de controle transacional. A consulta de pedidos pode ser feita de 3 formas distintas:
+
+### Por Merchant_Order_Number
+
+A consulta de transações por `Merchant_Order_Number` retorna uma lista de transações com o mesmo número de pedidos, isso ocorre pois o Checkout Cielo não impede a duplicação de OrderNumbers por parte do lojista.
+O response possuirá o `Checkout_Cielo_Order_Number` que deverá ser usado na consulta de uma transação em especifico.
+
+#### Request 
+
+Para consultar uma transação pelo `Merchant_Order_Number`, basta realizar um `GET`.
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/merchantOrderNumber/{merchantordernumber}</span></aside>
+
+#### Response
+
+``` json
+[
+    {
+        "$id": "1",
+        "checkoutOrderNumber": "a58995ce24fd4f1cb025701e95a51478",
+        "createdDate": "2018-04-30T12:09:33.57",
+        "links": [
+            {
+                "$id": "2",
+                "method": "GET",
+                "rel": "self",
+                "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/a58995ce24fd4f1cb025701e95a51478"
+            }
+        ]
+    },
+    {
+        "$id": "3",
+        "checkoutOrderNumber": "438f3391860a4bedbae9a868180dda6e",
+        "createdDate": "2018-04-30T12:05:41.317",
+        "links": [
+            {
+                "$id": "4",
+                "method": "GET",
+                "rel": "self",
+                "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/438f3391860a4bedbae9a868180dda6e"
+            }
+        ]
+    }
+]
+```
+
+|Property|Description|Type|Size|Format|
+|---|---|---|---|---|
+|`$id`|id do nó|Numérico|-|Exemplo: 1|
+|`checkoutOrderNumber`|Código de pedido gerado pelo Checkout Cielo|Texto|32|Exmeplo: a58995ce24fd4f1cb025701e95a51478|
+|`createdDate`|Data de criação do pedido |Data|-|AAAA-MM-DDTHH:mm:SS.ss|
+|`links.$id`|Id do nó|Numérico|-|Exemplo: 1|
+|`links.method`|Método para consumo da operação|Texto|10|Exmeplos: GET, POST, PUT|
+|`links.rel`|Relação para consumo da operação|Texto|10|Exemplo: self|
+|`links.href`|Endpoint para consumo da operação|Texto|512|Exemplo: https://cieloecommerce.cielo.com.br/api/public/v2/orders/438f3391860a4bedbae9a868180dda6e|
+
+### Por Checkout_Cielo_Order_Number
+
+#### Request 
+
+Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realizar um `GET`.
+
+>**Header:** Authorization: Bearer {access_token}
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/{checkout_cielo_order_number}</span></aside>
+
+#### Response
+
+``` json
+{ 
+    "merchantId": "c89fdfbb-dbe2-4e77-806a-6d75cd397dac", 
+    "orderNumber": "054f5b509f7149d6aec3b4023a6a2957", 
+    "softDescriptor": "Pedido1234", 
+    "cart": { 
+        "items": [ 
+            { 
+                "name": "Pedido ABC", 
+                "description": "50 canetas - R$30,00 | 10 cadernos - R$50,00 | 10 Borrachas - R$10,00", 
+                "unitPrice": 9000, 
+                "quantity": 1, 
+                "type": "1" 
+            } 
+        ] 
+    }, 
+    "shipping": { 
+        "type": "FixedAmount", 
+        "services": [ 
+            { 
+              "name": "Entrega Rápida", 
+                "price": 2000 
+            } 
+        ], 
+        "address": { 
+            "street": "Estrada Caetano Monteiro", 
+            "number": "391A", 
+            "complement": "BL 10 AP 208", 
+            "district": "Badu", 
+            "city": "Niterói", 
+            "state": "RJ" 
+        } 
+    }, 
+    "payment": { 
+        "status": "Paid", 
+        "tid": "10127355487AK2C3EOTB",
+        "nsu": "149111",
+        "authorizationCode": "294551",
+        "numberOfPayments": 1,
+        "createdDate": "2018-03-02T14:29:43.767",
+        "finishedDate": "2018-03-02T14:29:46.117",
+        "cardMaskedNumber": "123456******2007",
+        "brand": "Visa",
+        "antifraud": { 
+            "antifraudeResult": 0,
+            "description": "Lojista optou não realizar a análise do antifraude." 
+        } 
+    }, 
+    "customer": { 
+        "identity": "12345678911", 
+        "fullName": "Fulano da Silva", 
+        "email": "exemplo@email.com.br", 
+        "phone": "11123456789" 
+    }, 
+    "links": [ 
+        { 
+            "method": "GET", 
+            "rel": "self", 
+            "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/054f5b509f7149d6aec3b4023a6a2957" 
+        }, 
+        { 
+            "method": "PUT", 
+            "rel": "void", 
+            "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/054f5b509f7149d6aec3b4023a6a2957/void" 
+        } 
+    ] 
+}
+```
+
+|Campo|Tipo|Tamanho|Descrição|Formato|
+|---|---|---|---|---|
+|`merchantId`|GUID|36|Id da Loja no Checkout|Exemplo: c89fdfbb-dbe2-4e77-806a-6d75cd397dac|
+|`orderNumber`|Texto|32|Número do pedido da loja.|Exemplo: 123456|
+|`softDescriptor`|Texto|13|Texto exibido na fatura do comprador. Sem caracteres especiais ou espaços|Exemplo: `Loja_ABC_1234`|
+|`cart.items.name`|Texto|128|Nome do item no carrinho.|Exemplo: Pedido ABC|
+|`cart.items.description`|Texto|256|Descrição do item no carrinho.|Exemplo: 50 canetas - R$30,00|
+|`cart.items.unitPrice`|Numérico|18|Preço unitário do produto em centavos|Exemplo: R$ 1,00 = 100|
+|`cart.items.quantity`|Numérico|9|Quantidade do item no carrinho.|Exemplo: 1|
+|`cart.items.type`|Texto|255|Tipo do item no carrinho|`Asset`<br>`Digital`<br>`Service`<br>`Payment`|
+|`shipping.type`|Numérico|36|Modalidade de frete|Exemplo: 1|
+|`shipping.services.name`|Texto|128|Modalidade de frete|Exemplo: Casa Principal|
+|`shipping.services.price`|Numérico|10|Valor do serviço de frete, em centavos|Exemplo: R$ 10,00 = 1000|
+|`shipping.address.street`|Texto|256|Endereço de entrega|Exemplo: Rua João da Silva|
+|`shipping.address.number`|Numérico|8|Número do endereço de entrega|Exemplo: 123|
+|`shipping.address.complement`|Texto|64|Complemento do endereço de entrega|Exemplo: Casa|
+|`shipping.address.district`|Texto|64|Bairro do endereço de entrega|Exemplo: Alphaville|
+|`shipping.address.city`|Texto|64|Cidade do endereço de entrega|Exemplo: São Paulo|
+|`shipping.address.state`|Texto|2|Estado de endereço de entrega|Exemplo: SP|
+|`Payment.status`|Texto|10|Status da transação|Exemplo: Paid|
+|`Payment.tid`|Texto|32|TID Cielo gerado no momento da autorização da transação|Exemplo: 10127355487AK2C3EOTB|
+|`Payment.nsu`|Texto|6|NSU Cielo gerado no momento da autorização da transação|Exemplo: 123456|
+|`Payment.authorizationCode`|Texto|3|Código de autorização.|Exemplo: 456789|
+|`Payment.numberOfPayments`|Numérico|6|Número de Parcelas.|Exemplo: 123456|
+|`Payment.createdDate`|Texto|22|Data de criação da transação|Exemplo: AAAA-MM-DDTHH:mm:SS.ss|
+|`Payment.finishedDate`|Texto|22|Data de finalização da transação|Exemplo: AAAA-MM-DDTHH:mm:SS.ss|
+|`Payment.cardMaskedNumber`|Texto|19|Número do cartão mascarado|Exemplo: 123456******2007|
+|`Payment.brand`|Texto|10|Bandeira do cartão|Exemplo: Visa|
+|`Payment.antifraud.antifraudeResult`|Numeric|1|Status do antifraude|Exemplo: 1|
+|`Payment.antifraud.description`|Texto|256|Descrição do status do antifraude|Exemplo: Lojista optou não realizar a análise do antifraude|
+|`Customer.Identity`|Numérico|14|CPF ou CNPJ do comprador.|Exemplo: 12345678909|
+|`Customer.FullName`|Texto|256|Nome completo do comprador.|Exemplo: Fulano da Silva|
+|`Customer.Email`|Texto|64|Email do comprador.|Exemplo: exemplo@email.com.br|
+|`Customer.Phone`|Numérico|11|Telefone do comprador.|Exemplo: 11123456789|
+
+### Por ID do link de pagamento
+
+#### Request 
+
+Para consultar uma transação pelo `id`, basta realizar um `GET`.
+
+>**Header:** Authorization: Bearer {access_token}
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}/payments</span></aside>
+
+#### Response
+
+``` json
+{
+   "$id": "1",
+   "productId": "9487e3a9-f204-4188-96c5-a5a3013b2517",
+   "createdDate": "2019-07-11T10:35:04.947",
+   "orders": [
+       {
+           "$id": "2",
+           "orderNumber": "b74df3e3c1ac49ccb7ad89fde2d787f7",
+           "createdDate": "2019-07-11T10:37:23.447",
+           "payment": {
+               "$id": "3",
+               "price": 11500,
+               "numberOfPayments": 6,
+               "createdDate": "2019-07-11T10:37:23.447",
+               "status": "Denied"
+           },
+           "links": [
+               {
+                   "$id": "4",
+                   "method": "GET",
+                   "rel": "self",
+                   "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/b74df3e3c1ac49ccb7ad89fde2d787f7"
+               }
+           ]
+       }
+   ]
+}
+```
+
+|Property|Description|Type|Size|Format|
+|---|---|---|---|---|
+|`$id`|id do nó|Numérico|-|Exemplo: 1|
+|`productId`|ID do link de pagamento|GUID|36|Exmeplo: 9487e3a9-f204-4188-96c5-a5a3013b2517|
+|`createdDate`|Data de criação do link de pagamento |Data|-|AAAA-MM-DDTHH:mm:SS.ss|
+|`orders.$id`|Id do nó|Numérico|-|Exemplo: 1|
+|`orders.orderNumber`|Id pedido gerado pelo Checkout Cielo|Texto|32|Exemplo: b74df3e3c1ac49ccb7ad89fde2d787f7|
+|`orders.createdDate`|Data de criação do pedido |Data|-|AAAA-MM-DDTHH:mm:SS.ss|
+|`orders.payment.$id`|Id do nó|Numérico|-|Exemplo: 1|
+|`orders.payment.price`|Valor da pedido, sem pontuação|Numérico|-|Exemplo: R$ 1,00 = 100|
+|`orders.payment.numberOfPayments`|Número de parcelas|-|Exemplo: 3|
+|`orders.payment.createdDate`|Data da transação (pagamento) |Data|-|AAAA-MM-DDTHH:mm:SS.ss|
+|`orders.payment.status`|Status da Transação|Texto|Exemplo: Denied|
+|`links.$id`|Id do nó|Numérico|-|Exemplo: 1|
+|`links.method`|Método para consumo da operação|Texto|10|Exmeplos: GET, POST, PUT|
+|`links.rel`|Relação para consumo da operação|Texto|10|Exemplo: self|
+|`links.href`|Endpoint para consumo da operação|Texto|512|Exemplo: https://cieloecommerce.cielo.com.br/api/public/v2/orders/438f3391860a4bedbae9a868180dda6e|
+
+Para realizar o controle transacional no Checkout Cielo é OBRIGATÓRIO que a loja possua um dos dois modelos de notificação abaixo configurado:
+
+* URL de Notificação via **POST**
+* URL de Notificação via **JSON**
+
+A notificação é obrigatório pois todos os comandos da API (Consulta / Captura / Cancelamento) usam o identificador único da transação, chamado de `Checkout_Cielo_Order_Number`.
+
+O `Checkout_Cielo_Order_Number` é gerado apenas quando o pagamento é finalizado na tela transacional. Ele é enviado apenas pela URL de Notificação e não pelo Response da criação da tela transacional.
+
+## Configurações da loja   
+
+As configurações de sua loja podem ser feitas dentro do site Cielo. Neste ambiente você tem acesso a diversas opções, dentre elas:
+
+* Geração das chaves para utilização da API;
+* Configuração de logo e cor de fundo da tela de pagamento;
+* Modificação dos métodos de pagamento;
+* Configuração de URL’s de retorno
+* Outras ações
+			
+Para maiores detalhes veja o tutorial Super Link e Checkout Cielo.
+
+## Status e Códigos
+
+O Checkout possui um Status próprios, diferente do SITE CIELO ou da API Cielo ecommerce. Veja abaixo a lista completa.
+
+| Valor | Status de transação | Meios de pagamento               | Descrição                                                                                                                     |
+|-------|---------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| 1     | `Pendente`          | Para todos os meios de pagamento | Indica que o pagamento ainda está sendo processado; OBS: Boleto - Indica que o boleto não teve o status alterado pelo lojista |
+| 2     | `Pago`              | Para todos os meios de pagamento | Transação capturada e o dinheiro será depositado em conta.                                                                    |
+| 3     | `Negado`            | Somente para Cartão Crédito      | Transação não autorizada pelo responsável do meio de pagamento                                                                |
+| 4     | `Expirado`          | Cartões de Crédito e Boleto      | Transação deixa de ser válida para captura - **15 dias pós Autorização**                                                      |
+| 5     | `Cancelado`         | Para cartões de crédito          | Transação foi cancelada pelo lojista                                                                                          |
+| 6     | `Não Finalizado`    | Todos os meios de pagamento      | Pagamento esperando Status - Pode indicar erro ou falha de processamento. Entre em contato com o Suporte cielo                |
+| 7     | `Autorizado`        | somente para Cartão de Crédito   | Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta                  |
+| 8     | `Chargeback`        | somente para Cartão de Crédito   | Transação cancelada pelo consumidor junto ao emissor do cartão. O Dinheiro não será depositado em conta.                      |
+
+### Códigos de Retorno
+
+Códigos emitidos pelos emissores dos cartões de crédito e débito explicando o motivo de uma transação ser autorizada ou não.
+
+| Código Resposta | Definição                                     | Significado                                                                 | Ação                                                              | Permite Retentativa |
+|-----------------|-----------------------------------------------|-----------------------------------------------------------------------------|-------------------------------------------------------------------|---------------------|
+| 00              | Transação autorizada com sucesso.             | Transação autorizada com sucesso.                                           | Transação autorizada com sucesso.                                 | Não                 |
+| 000             | Transação autorizada com sucesso.             | Transação autorizada com sucesso.                                           | Transação autorizada com sucesso.                                 | Não                 |
+| 01              | Transação não autorizada. Transação referida. | Transação não autorizada. Referida (suspeita de fraude) pelo banco emissor. | Transação não autorizada. Entre em contato com seu banco emissor. | Não                 |
+| 02              | Transação não autorizada. Transação referida. | Transação não autorizada. Referida (suspeita de fraude) pelo banco emissor. | Transação não autorizada. Entre em contato com seu banco emissor. | Não                 |
+|03|Transação não permitida. Erro no cadastramento do código do estabelecimento no arquivo de configuração do TEF|Transação não permitida. Estabelecimento inválido. Entre com contato com a Cielo.|Não foi possível processar a transação. Entre com contato com a Loja Virtual.|Não|
+|04|Transação não autorizada. Cartão bloqueado pelo banco emissor.|Transação não autorizada. Cartão bloqueado pelo banco emissor.|Transação não autorizada. Entre em contato com seu banco emissor.|Não|
+|05|Transação não autorizada. Cartão inadimplente (Do not honor).|Transação não autorizada. Não foi possível processar a transação. Questão relacionada a segurança, inadimplencia ou limite do portador.|Transação não autorizada. Entre em contato com seu banco emissor.|Apenas 4 vezes em 16 dias.|
+|06|Transação não autorizada. Cartão cancelado.|Transação não autorizada. Não foi possível processar a transação. Cartão cancelado permanentemente pelo banco emissor.|Não foi possível processar a transação. Entre em contato com seu banco emissor.|Não|
+|07|Transação negada. Reter cartão condição especial|Transação não autorizada por regras do banco emissor.|Transação não autorizada. Entre em contato com seu banco emissor|Não|
+|08|Transação não autorizada. Código de segurança inválido.|Transação não autorizada. Código de segurança inválido. Oriente o portador a corrigir os dados e tentar novamente.|Transação não autorizada. Dados incorretos. Reveja os dados e informe novamente.|Não|
+|11|Transação autorizada com sucesso para cartão emitido no exterior|Transação autorizada com sucesso.|Transação autorizada com sucesso.|Não|
+|12|Transação inválida, erro no cartão.|Não foi possível processar a transação. Solicite ao portador que verifique os dados do cartão e tente novamente.|Não foi possível processar a transação. reveja os dados informados e tente novamente. Se o erro persistir, entre em contato com seu banco emissor.|Não|
+|13|Transação não permitida. Valor da transação Inválido.|Transação não permitida. Valor inválido. Solicite ao portador que reveja os dados e novamente. Se o erro persistir, entre em contato com a Cielo.|Transação não autorizada. Valor inválido. Refazer a transação confirmando os dados informados. Persistindo o erro, entrar em contato com a loja virtual.|Não|
+|14|Transação não autorizada. Cartão Inválido|Transação não autorizada. Cartão inválido. Pode ser bloqueio do cartão no banco emissor, dados incorretos ou tentativas de testes de cartão. Use o Algoritmo de Lhum (Mod 10) para evitar transações não autorizadas por esse motivo. Consulte www.cielo.com.br/desenvolvedores para implantar o Algoritmo de Lhum.|Não foi possível processar a transação. reveja os dados informados e tente novamente. Se o erro persistir, entre em contato com seu banco emissor.|Não|
+|15|Banco emissor indisponível ou inexistente.|Transação não autorizada. Banco emissor indisponível.|Não foi possível processar a transação. Entre em contato com seu banco emissor.|Não|
+|19|Refaça a transação ou tente novamente mais tarde.|Não foi possível processar a transação. Refaça a transação ou tente novamente mais tarde. Se o erro persistir, entre em contato com a Cielo.|Não foi possível processar a transação. Refaça a transação ou tente novamente mais tarde. Se o erro persistir entre em contato com a loja virtual.|Apenas 4 vezes em 16 dias.|
+|21|Cancelamento não efetuado. Transação não localizada.|Não foi possível processar o cancelamento. Se o erro persistir, entre em contato com a Cielo.|Não foi possível processar o cancelamento. Tente novamente mais tarde. Persistindo o erro, entrar em contato com a loja virtual.|Não|
+|22|Parcelamento inválido. Número de parcelas inválidas.|Não foi possível processar a transação. Número de parcelas inválidas. Se o erro persistir, entre em contato com a Cielo.|Não foi possível processar a transação. Valor inválido. Refazer a transação confirmando os dados informados. Persistindo o erro, entrar em contato com a loja virtual.|Não|
+|23|Transação não autorizada. Valor da prestação inválido.|Não foi possível processar a transação. Valor da prestação inválido. Se o erro persistir, entre em contato com a Cielo.|Não foi possível processar a transação. Valor da prestação inválido. Refazer a transação confirmando os dados informados. Persistindo o erro, entrar em contato com a loja virtual.|Não|
+|24|Quantidade de parcelas inválido.|Não foi possível processar a transação. Quantidade de parcelas inválido. Se o erro persistir, entre em contato com a Cielo.|Não foi possível processar a transação. Quantidade de parcelas inválido. Refazer a transação confirmando os dados informados. Persistindo o erro, entrar em contato com a loja virtual.|Não|
+|25|Pedido de autorização não enviou número do cartão|Não foi possível processar a transação. Solicitação de autorização não enviou o número do cartão. Se o erro persistir, verifique a comunicação entre loja virtual e Cielo.|Não foi possível processar a transação. reveja os dados informados e tente novamente. Persistindo o erro, entrar em contato com a loja virtual.|Apenas 4 vezes em 16 dias.|
+|28|Arquivo temporariamente indisponível.|Não foi possível processar a transação. Arquivo temporariamente indisponível. Reveja a comunicação entre Loja Virtual e Cielo. Se o erro persistir, entre em contato com a Cielo.|Não foi possível processar a transação. Entre com contato com a Loja Virtual.|Apenas 4 vezes em 16 dias.|
+|30|Transação não autorizada. Decline Message|Não foi possível processar a transação. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir verifique a comunicação com a Cielo esta sendo feita corretamente|Não foi possível processar a transação. Reveja os dados e tente novamente. Se o erro persistir, entre em contato com a loja|Não|
+|39|Transação não autorizada. Erro no banco emissor.|Transação não autorizada. Erro no banco emissor.|Transação não autorizada. Entre em contato com seu banco emissor.|Não|
+|41|Transação não autorizada. Cartão bloqueado por perda.|Transação não autorizada. Cartão bloqueado por perda.|Transação não autorizada. Entre em contato com seu banco emissor.|Não|
+|43|Transação não autorizada. Cartão bloqueado por roubo.|Transação não autorizada. Cartão bloqueado por roubo.|Transação não autorizada. Entre em contato com seu banco emissor.|Não|
+|51|Transação não autorizada. Limite excedido/sem saldo.|Transação não autorizada. Limite excedido/sem saldo.|Transação não autorizada. Entre em contato com seu banco emissor.|A partir do dia seguinte, apenas 4 vezes em 16 dias.|
+|52|Cartão com dígito de controle inválido.|Não foi possível processar a transação. Cartão com dígito de controle inválido.|Transação não autorizada. Reveja os dados informados e tente novamente.|Não|
+|53|Transação não permitida. Cartão poupança inválido|Transação não permitida. Cartão poupança inválido.|Não foi possível processar a transação. Entre em contato com seu banco emissor.|Não|
+|54|Transação não autorizada. Cartão vencido|Transação não autorizada. Cartão vencido.|Transação não autorizada. Refazer a transação confirmando os dados.|Não|
+|55|Transação não autorizada. Senha inválida|Transação não autorizada. Senha inválida.|Transação não autorizada. Entre em contato com seu banco emissor.|Não|
+|57|Transação não permitida para o cartão|Transação não autorizada. Transação não permitida para o cartão.|Transação não autorizada. Entre em contato com seu banco emissor.|Apenas 4 vezes em 16 dias.|
+|58|Transação não permitida. Opção de pagamento inválida.|Transação não permitida. Opção de pagamento inválida. Reveja se a opção de pagamento escolhida está habilitada no cadastro|Transação não autorizada. Entre em contato com sua loja virtual.|Não|
+|59|Transação não autorizada. Suspeita de fraude.|Transação não autorizada. Suspeita de fraude.|Transação não autorizada. Entre em contato com seu banco emissor.|Não|
+|60|Transação não autorizada.|Transação não autorizada. Tente novamente. Se o erro persistir o portador deve entrar em contato com o banco emissor.|Não foi possível processar a transação. Tente novamente mais tarde. Se o erro persistir, entre em contato com seu banco emissor.|Apenas 4 vezes em 16 dias.|
+|61|Banco emissor indisponível.|Transação não autorizada. Banco emissor indisponível.|Transação não autorizada. Tente novamente. Se o erro persistir, entre em contato com seu banco emissor.|Apenas 4 vezes em 16 dias.|
+|62|Transação não autorizada. Cartão restrito para uso doméstico|Transação não autorizada. Cartão restrito para uso doméstico.|Transação não autorizada. Entre em contato com seu banco emissor.|A partir do dia seguinte, apenas 4 vezes em 16 dias.|
+|63|Transação não autorizada. Violação de segurança|Transação não autorizada. Violação de segurança.|Transação não autorizada. Entre em contato com seu banco emissor.|Não|
+|64|Transação não autorizada. Valor abaixo do mínimo exigido pelo banco emissor.|Transação não autorizada. Entre em contato com seu banco emissor.|Transação não autorizada. Valor abaixo do mínimo exigido pelo banco emissor.|Não|
+|65|Transação não autorizada. Excedida a quantidade de transações para o cartão.|Transação não autorizada. Excedida a quantidade de transações para o cartão.|Transação não autorizada. Entre em contato com seu banco emissor.|Apenas 4 vezes em 16 dias.|
+|67|Transação não autorizada. Cartão bloqueado para compras hoje.|Transação não autorizada. Cartão bloqueado para compras hoje. Bloqueio pode ter ocorrido por excesso de tentativas inválidas. O cartão será desbloqueado automaticamente à meia noite.|Transação não autorizada. Cartão bloqueado temporariamente. Entre em contato com seu banco emissor.|A partir do dia seguinte, apenas 4 vezes em 16 dias.|
+|70|Transação não autorizada. Limite excedido/sem saldo.|Transação não autorizada. Limite excedido/sem saldo.|Transação não autorizada. Entre em contato com seu banco emissor.|A partir do dia seguinte, apenas 4 vezes em 16 dias.|
+|72|Cancelamento não efetuado. Saldo disponível para cancelamento insuficiente.|Cancelamento não efetuado. Saldo disponível para cancelamento insuficiente. Se o erro persistir, entre em contato com a Cielo.|Cancelamento não efetuado. Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.|Não|
+|74|Transação não autorizada. A senha está vencida.|Transação não autorizada. A senha está vencida.|Transação não autorizada. Entre em contato com seu banco emissor.|Não|
+|75|Senha bloqueada. Excedeu tentativas de cartão.|Transação não autorizada.|Sua Transação não pode ser processada. Entre em contato com o Emissor do seu cartão.|Não|
+|76|Cancelamento não efetuado. Banco emissor não localizou a transação original|Cancelamento não efetuado. Banco emissor não localizou a transação original|Cancelamento não efetuado. Entre em contato com a loja virtual.|Não|
+|77|Cancelamento não efetuado. Não foi localizado a transação original|Cancelamento não efetuado. Não foi localizado a transação original|Cancelamento não efetuado. Entre em contato com a loja virtual.|Não|
+|78|Transação não autorizada. Cartão bloqueado primeiro uso.|Transação não autorizada. Cartão bloqueado primeiro uso. Solicite ao portador que desbloqueie o cartão diretamente com seu banco emissor.|Transação não autorizada. Entre em contato com seu banco emissor e solicite o desbloqueio do cartão.|Não|
+|80|Transação não autorizada. Divergencia na data de transação/pagamento.|Transação não autorizada. Data da transação ou data do primeiro pagamento inválida.|Transação não autorizada. Refazer a transação confirmando os dados.|Não|
+|82|Transação não autorizada. Cartão inválido.|Transação não autorizada. Cartão Inválido. Solicite ao portador que reveja os dados e tente novamente.|Transação não autorizada. Refazer a transação confirmando os dados. Se o erro persistir, entre em contato com seu banco emissor.|Não|
+|83|Transação não autorizada. Erro no controle de senhas|Transação não autorizada. Erro no controle de senhas|Transação não autorizada. Refazer a transação confirmando os dados. Se o erro persistir, entre em contato com seu banco emissor.|Não|
+|85|Transação não permitida. Falha da operação.|Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.|Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.|Não|
+|86|Transação não permitida. Falha da operação.|Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.|Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.|Não|
+|89|Erro na transação.|Transação não autorizada. Erro na transação. O portador deve tentar novamente e se o erro persistir, entrar em contato com o banco emissor.|Transação não autorizada. Erro na transação. Tente novamente e se o erro persistir, entre em contato com seu banco emissor.|Apenas 4 vezes em 16 dias.|
+|90|Transação não permitida. Falha da operação.|Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.|Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.|Não|
+|91|Transação não autorizada. Banco emissor temporariamente indisponível.|Transação não autorizada. Banco emissor temporariamente indisponível.|Transação não autorizada. Banco emissor temporariamente indisponível. Entre em contato com seu banco emissor.|Apenas 4 vezes em 16 dias.|
+|92|Transação não autorizada. Tempo de comunicação excedido.|Transação não autorizada. Tempo de comunicação excedido.|Transação não autorizada. Comunicação temporariamente indisponível. Entre em contato com a loja virtual.|Apenas 4 vezes em 16 dias.|
+|93|Transação não autorizada. Violação de regra - Possível erro no cadastro.|Transação não autorizada. Violação de regra - Possível erro no cadastro.|Sua transação não pode ser processada. Entre em contato com a loja virtual.|Não|
+|96|Falha no processamento.|Não foi possível processar a transação. Falha no sistema da Cielo. Se o erro persistir, entre em contato com a Cielo.|Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.|Apenas 4 vezes em 16 dias.|
+|97|Valor não permitido para essa transação.|Transação não autorizada. Valor não permitido para essa transação.|Transação não autorizada. Valor não permitido para essa transação.|Não|
+|98|Sistema/comunicação indisponível.|Transação não autorizada. Sistema do emissor sem comunicação. Se for geral, verificar SITEF, GATEWAY e/ou Conectividade.|Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.|Apenas 4 vezes em 16 dias.|
+|99|Sistema/comunicação indisponível.|Transação não autorizada. Sistema do emissor sem comunicação. Tente mais tarde.  Pode ser erro no SITEF, favor verificar !|Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.|A partir do dia seguinte, apenas 4 vezes em 16 dias.|
+|999|Sistema/comunicação indisponível.|Transação não autorizada. Sistema do emissor sem comunicação. Tente mais tarde.  Pode ser erro no SITEF, favor verificar !|Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.|A partir do dia seguinte, apenas 4 vezes em 16 dias.|
+|AA|Tempo Excedido|Tempo excedido na comunicação com o banco emissor. Oriente o portador a tentar novamente, se o erro persistir será necessário que o portador contate seu banco emissor.|Tempo excedido na sua comunicação com o banco emissor, tente novamente mais tarde. Se o erro persistir, entre em contato com seu banco.|Apenas 4 vezes em 16 dias.|
+|AC|Transação não permitida. Cartão de débito sendo usado com crédito. Use a função débito.|Transação não permitida. Cartão de débito sendo usado com crédito. Solicite ao portador que selecione a opção de pagamento Cartão de Débito.|Transação não autorizada. Tente novamente selecionando a opção de pagamento cartão de débito.|Não|
+|AE|Tente Mais Tarde|Tempo excedido na comunicação com o banco emissor. Oriente o portador a tentar novamente, se o erro persistir será necessário que o portador contate seu banco emissor.|Tempo excedido na sua comunicação com o banco emissor, tente novamente mais tarde. Se o erro persistir, entre em contato com seu banco.|Apenas 4 vezes em 16 dias.|
+|AF|Transação não permitida. Falha da operação.|Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.|Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.|Não|
+|AG|Transação não permitida. Falha da operação.|Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.|Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.|Não|
+|AH|Transação não permitida. Cartão de crédito sendo usado com débito. Use a função crédito.|Transação não permitida. Cartão de crédito sendo usado com débito. Solicite ao portador que selecione a opção de pagamento Cartão de Crédito.|Transação não autorizada. Tente novamente selecionando a opção de pagamento cartão de crédito.|Não|
+|AI|Transação não autorizada. Autenticação não foi realizada.|Transação não autorizada. Autenticação não foi realizada. O portador não concluiu a autenticação. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir, entre em contato com a Cielo informando o BIN (6 primeiros dígitos do cartão)|Transação não autorizada. Autenticação não foi realizada com sucesso. Tente novamente e informe corretamente os dados solicitado. Se o erro persistir, entre em contato com o lojista.|Não|
+|AJ|Transação não permitida. Transação de crédito ou débito em uma operação que permite apenas Private Label. Tente novamente selecionando a opção Private Label.|Transação não permitida. Transação de crédito ou débito em uma operação que permite apenas Private Label. Solicite ao portador que tente novamente selecionando a opção Private Label. Caso não disponibilize a opção Private Label verifique na Cielo se o seu estabelecimento permite essa operação.|Transação não permitida. Transação de crédito ou débito em uma operação que permite apenas Private Label. Tente novamente e selecione a opção Private Label. Em caso de um novo erro entre em contato com a loja virtual.|Não|
+|AV|Transação não autorizada. Dados Inválidos|Falha na validação dos dados da transação. Oriente o portador a rever os dados e tentar novamente.|Falha na validação dos dados. Reveja os dados informados e tente novamente.|Apenas 4 vezes em 16 dias.|
+|BD|Transação não permitida. Falha da operação.|Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.|Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.|Não|
+|BL|Transação não autorizada. Limite diário excedido.|Transação não autorizada. Limite diário excedido. Solicite ao portador que entre em contato com seu banco emissor.|Transação não autorizada. Limite diário excedido. Entre em contato com seu banco emissor.|A partir do dia seguinte, apenas 4 vezes em 16 dias.|
+|BM|Transação não autorizada. Cartão Inválido|Transação não autorizada. Cartão inválido. Pode ser bloqueio do cartão no banco emissor ou dados incorretos. Tente usar o Algoritmo de Lhum (Mod 10) para evitar transações não autorizadas por esse motivo.|Transação não autorizada. Cartão inválido.  Refaça a transação confirmando os dados informados.|Não|
+|BN|Transação não autorizada. Cartão ou conta bloqueado.|Transação não autorizada. O cartão ou a conta do portador está bloqueada. Solicite ao portador que entre em contato com  seu banco emissor.|Transação não autorizada. O cartão ou a conta do portador está bloqueada. Entre em contato com  seu banco emissor.|Não|
+|BO|Transação não permitida. Falha da operação.|Transação não permitida. Houve um erro no processamento. Solicite ao portador que digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco emissor.|Transação não permitida. Houve um erro no processamento. Digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco emissor.|Apenas 4 vezes em 16 dias.|
+|BP|Transação não autorizada. Conta corrente inexistente.|Transação não autorizada. Não possível processar a transação por um erro relacionado ao cartão ou conta do portador. Solicite ao portador que entre em contato com o banco emissor.|Transação não autorizada. Não possível processar a transação por um erro relacionado ao cartão ou conta do portador. Entre em contato com o banco emissor.|Não|
+|BV|Transação não autorizada. Cartão vencido|Transação não autorizada. Cartão vencido.|Transação não autorizada. Refazer a transação confirmando os dados.|Não|
+|CF|Transação não autorizada.C79:J79 Falha na validação dos dados.|Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.|Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.|Não|
+|CG|Transação não autorizada. Falha na validação dos dados.|Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.|Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.|Não|
+|DA|Transação não autorizada. Falha na validação dos dados.|Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.|Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.|Não|
+|DF|Transação não permitida. Falha no cartão ou cartão inválido.|Transação não permitida. Falha no cartão ou cartão inválido. Solicite ao portador que digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco|Transação não permitida. Falha no cartão ou cartão inválido. Digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco|Apenas 4 vezes em 16 dias.|
+|DM|Transação não autorizada. Limite excedido/sem saldo.|Transação não autorizada. Limite excedido/sem saldo.|Transação não autorizada. Entre em contato com seu banco emissor.|A partir do dia seguinte, apenas 4 vezes em 16 dias.|
+|DQ|Transação não autorizada. Falha na validação dos dados.|Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.|Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.|Não|
+|DS|Transação não permitida para o cartão|Transação não autorizada. Transação não permitida para o cartão.|Transação não autorizada. Entre em contato com seu banco emissor.|Apenas 4 vezes em 16 dias.|
+|EB|Transação não autorizada. Limite diário excedido.|Transação não autorizada. Limite diário excedido. Solicite ao portador que entre em contato com seu banco emissor.|Transação não autorizada. Limite diário excedido. Entre em contato com seu banco emissor.|A partir do dia seguinte, apenas 4 vezes em 16 dias.|
+|EE|Transação não permitida. Valor da parcela inferior ao mínimo permitido.|Transação não permitida. Valor da parcela inferior ao mínimo permitido. Não é permitido parcelas inferiores a R$ 5,00. Necessário rever calculo para parcelas.|Transação não permitida. O valor da parcela está abaixo do mínimo permitido. Entre em contato com a loja virtual.|Não|
+|EK|Transação não permitida para o cartão|Transação não autorizada. Transação não permitida para o cartão.|Transação não autorizada. Entre em contato com seu banco emissor.|Apenas 4 vezes em 16 dias.|
+|FA|Transação não autorizada.|Transação não autorizada AmEx.|Transação não autorizada. Entre em contato com seu banco emissor.|Não|
+|FC|Transação não autorizada. Ligue Emissor|Transação não autorizada. Oriente o portador a entrar em contato com o banco emissor.|Transação não autorizada. Entre em contato com seu banco emissor.|Não|
+|FD|Transação negada. Reter cartão condição especial|Transação não autorizada por regras do banco emissor.|Transação não autorizada. Entre em contato com seu banco emissor|Não|
+|FE|Transação não autorizada. Divergencia na data de transação/pagamento.|Transação não autorizada. Data da transação ou data do primeiro pagamento inválida.|Transação não autorizada. Refazer a transação confirmando os dados.|Não|
+|FF|Cancelamento OK|Transação de cancelamento autorizada com sucesso. ATENÇÂO: Esse retorno é para casos de cancelamentos e não para casos de autorizações.|Transação de cancelamento autorizada com sucesso|Não|
+|FG|Transação não autorizada. Ligue AmEx.|Transação não autorizada. Oriente o portador a entrar em contato com a Central de Atendimento AmEx.|Transação não autorizada. Entre em contato com a Central de Atendimento AmEx no telefone 08007285090|Não|
+|FG|Ligue 08007285090|Transação não autorizada. Oriente o portador a entrar em contato com a Central de Atendimento AmEx.|Transação não autorizada. Entre em contato com a Central de Atendimento AmEx no telefone 08007285090|Não|
+|GA|Aguarde Contato|Transação não autorizada. Referida pelo Lynx Online de forma preventiva. A Cielo entrará em contato com o lojista sobre esse caso.|Transação não autorizada. Entre em contato com o lojista.|Não|
+|HJ|Transação não permitida. Código da operação inválido.|Transação não permitida. Código da operação Coban inválido.|Transação não permitida. Código da operação Coban inválido. Entre em contato com o lojista.|Não|
+|IA|Transação não permitida. Indicador da operação inválido.|Transação não permitida. Indicador da operação Coban inválido.|Transação não permitida. Indicador da operação Coban inválido. Entre em contato com o lojista.|Não|
+|JB|Transação não permitida. Valor da operação inválido.|Transação não permitida. Valor da operação Coban inválido.|Transação não permitida. Valor da operação Coban inválido. Entre em contato com o lojista.|Não|
+|KA|Transação não permitida. Falha na validação dos dados.|Transação não permitida. Houve uma falha na validação dos dados. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir verifique a comunicação entre loja virtual e Cielo.|Transação não permitida. Houve uma falha na validação dos dados. reveja os dados informados e tente novamente. Se o erro persistir entre em contato com a Loja Virtual.|Não|
+|KB|Transação não permitida. Selecionado a opção incorrente.|Transação não permitida. Selecionado a opção incorreta. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir deve ser verificado a comunicação entre loja virtual e Cielo.|Transação não permitida. Selecionado a opção incorreta. Tente novamente. Se o erro persistir entre em contato com a Loja Virtual.|Não|
+|KE|Transação não autorizada. Falha na validação dos dados.|Transação não autorizada. Falha na validação dos dados. Opção selecionada não está habilitada. Verifique as opções disponíveis para o portador.|Transação não autorizada. Falha na validação dos dados. Opção selecionada não está habilitada. Entre em contato com a loja virtual.|Não|
+|N7|Transação não autorizada. Código de segurança inválido.|Transação não autorizada. Código de segurança inválido. Oriente o portador corrigir os dados e tentar novamente.|Transação não autorizada. Reveja os dados e informe novamente.|Não|
+|R1|Transação não autorizada. Cartão inadimplente (Do not honor).|Transação não autorizada. Não foi possível processar a transação. Questão relacionada a segurança, inadimplencia ou limite do portador.|Transação não autorizada. Entre em contato com seu banco emissor.|Apenas 4 vezes em 16 dias.|
+|U3|Transação não permitida. Falha na validação dos dados.|Transação não permitida. Houve uma falha na validação dos dados. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir verifique a comunicação entre loja virtual e Cielo.|Transação não permitida. Houve uma falha na validação dos dados. reveja os dados informados e tente novamente. Se o erro persistir entre em contato com a Loja Virtual.|Não|
+|GD|Transação não permitida|Transação não permitida|Transação não é possível ser processada no estabelecimento. Entre em contato com a Cielo para obter mais detalhes Transação|Não|
+|BP171|Rejeitado por risco de Fraude|Transação rejeitada por risco de fraude|Transação rejeitada por risco de fraude|Nâo|
+
+### Status do Antifraude
+
+| Campo | Definição                |
+|:-----:|--------------------------|
+| **0** | N\A                      |
+| **1** | Risco baixo              |
+| **2** | Risco Alto               |
+| **3** | Não finalizada           |
+| **4** | Risco Moderado           |
+| **5** | Autenticado              |
+| **6** | Não contratado           |
+| **7** | Dispensado               |
+| **8** | Não Aplicavel            |
+| **9** | Transaçõe de Recorrência |
