@@ -14,9 +14,7 @@ language_tabs:
   shell: cURL
 ---
 
-# API de Super Link
-
-## Obetivo deste item
+# Objetivo
 
 Este manual irá guiar o desenvolvedor na integração com a API de Super Link da Cielo. Após realizar as integrações descritas será possível:
 
@@ -25,7 +23,7 @@ Este manual irá guiar o desenvolvedor na integração com a API de Super Link d
 * Consultar pagamentos
 * Configurar a sua loja da maneira adequada
 
-## Sobre o Super Link
+# Sobre o Super Link
 
 A API Link de Pagamentos permite ao lojista criar, editar e consultar links de pagamentos.
 Seu principal objetivo é permitir que lojas possam criar links de pagamento (Botões ou QR Codes), através de seus próprios sistemas, sem a necessidade de acessar o Backoffice e compartilhar com seus clientes.
@@ -36,9 +34,9 @@ Seu principal objetivo é permitir que lojas possam criar links de pagamento (Bo
 > Para receber notificações sobre transações originadas de Links de pagamento é **OBRIGATÓRIO** o cadastro da **URL de Notificação** no backoffice do Checkout.<br>
 > A consulta de transações realizadas através do Super Link pode ser feita através da **API de controle transacional**.<br>
 
-## Modo teste
+# Modo teste
 
-### Sandbox
+## Sandbox
 
 Por se tratar de uma chamada não financeira, a API de Super Link não possui um Sand Box para testar a criação de links. Os Links devem ser criados a partir de um cadastro de produção. A credenciamento pode ser feito através do site cielo ou por meio da central de ecommerce.
 
@@ -50,7 +48,7 @@ credenciamentoecommerce@cielo.com.br<br>
 
 Os testes financeiros podem ser executados a partir da ativação do modo teste nas configuração da sua loja. 
 
-### Ativação do Modo de Teste
+## Ativação do Modo de Teste
 
 O modo de teste pode ser ativado na aba **Configurações**, onde existe um caixa de seleção, que quando marcada, habilitará o modo de teste do Checkout Cielo. O modo somente se iniciará quando a seleção for salva.
 
@@ -64,7 +62,7 @@ Essa tarja indica que a sua loja Checkout Cielo está agora operando em ambiente
 |---|---|
 |![Tarja vermelha - Backoffice]({{ site.baseurl_root }}/images/checkout/tmbackoffice.png)|![Tarja vermelha - Transacional]({{ site.baseurl_root }}/images/checkout/tmtransacional.png)|
 
-### Como transacionar no Modo de teste
+## Como transacionar no Modo de teste
 
 A realização de transações no modo de teste ocorre de forma normal. As informações da transação são enviadas via POST ou API, utilizando os parâmetros como descrito no tópico [Integração por API](https://developercielo.github.io/manual/checkout-cielo#integra%C3%A7%C3%A3o-por-api), entretanto, os meios de pagamentos a serem usados serão meios simulados.
 
@@ -114,7 +112,7 @@ Essas transações terão o símbolo de teste as diferenciando de suas outras tr
 
 <aside class="notice">É muito importante que ao liberar sua loja para a realização de vendas para seus clientes que **ela não esteja em modo de teste**. Transações realizadas nesse ambiente poderão ser finalizadas normalmente, mas **não serão descontadas do cartão do cliente** e não poderão ser “transferidas” para o ambiente de venda padrão.</aside>
 
-## Cielo OAUTH
+# Cielo OAUTH
 
 O Cielo OAUTH é um processo de autenticação utilizado em APIs Cielo que são correlacionadas a produtos E-commerce. Ele utiliza como segurança o protocolo **[OAUTH2](https://oauth.net/2/)**, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API CieloOAuth
 
@@ -127,7 +125,7 @@ Para utilizar o Cielo Oauth são necessarias as seguintes credenciais:
 | `ClientId`     | Identificador chave fornecido pela CIELO                              | guid   |
 | `ClientSecret` | Chave que valida o ClientID. Fornecida pela Cielo junto ao `ClientID` | string |
 
-### Obter Credenciais
+## Obter Credenciais
 
 Para obter as credênciais no Checkout Cielo, basta seguir o fluxo abaixo:
 
@@ -137,7 +135,7 @@ Para obter as credênciais no Checkout Cielo, basta seguir o fluxo abaixo:
 4. Dados da loja
 5. Gerar chaves da API
 
-### Token de acesso
+## Token de acesso
 
 Para obter acesso a serviços Cielo que utilizam o `Cielo Oauth`, será necessário obter um token de acesso, conforme os passos abaixo:
 
@@ -145,7 +143,7 @@ Para obter acesso a serviços Cielo que utilizam o `Cielo Oauth`, será necessá
 2. Codificar o resultado em **Base64**
 3. Enviar uma requisição, utilizando o método HTTP POST
 
-#### Concatenação
+### Concatenação
 
 | Campo                     | Formato                                                                                          |
 | ------------------------- | ------------------------------------------------------------------------------------------------ |
@@ -154,7 +152,7 @@ Para obter acesso a serviços Cielo que utilizam o `Cielo Oauth`, será necessá
 | **ClientId:ClientSecret** | _b521b6b2-b9b4-4a30-881d-3b63dece0006:08Qkje79NwWRx5BdgNJsIkBuITt5cIVO_                          |
 | **Base64**                | _YjUyMWI2YjItYjliNC00YTMwLTg4MWQtM2I2M2RlY2UwMDA2OiAwOFFramU3OU53V1J4NUJkZ05Kc0lrQnVJVHQ1Y0lWTw_ |
 
-#### Request
+### Request
 
 O Request dever ser enviado apenas no Header da requisição.
 
@@ -167,7 +165,7 @@ x-www-form-urlencoded
 grant_type=client_credentials
 ```
 
-#### Response
+### Response
 
 O response possuirá o Token utilizado para novas requisições em Serviços Cielo
 
@@ -188,11 +186,11 @@ O response possuirá o Token utilizado para novas requisições em Serviços Cie
 
 > O token retornado (access_token) deverá ser utilizado em toda requisição como uma chave de autorização, destacando que este possui uma validade de 20 minutos (1200 segundos) e após esse intervalo, será necessário obter um novo token para acesso aos serviços Cielo.
 
-## Link de Pagamento
+# Link de Pagamento
 
-### Criar Link
+## Criar Link
 
-#### Request
+### Request
 
 Para criar link de pagamentos Checkout, basta enviar realizar um POST com os dados do Link ao endpoint:
 
@@ -254,7 +252,7 @@ Para criar link de pagamentos Checkout, basta enviar realizar um POST com os dad
 | `recurrent.interval` | Intervalo de cobrança da recorrência.<br><br>**Monthly** - Mensal<br>**Bimonthly** - Bimensal<br>**Quarterly** - Trimestral<br>**SemiAnnual** - Semestral<br>**Annual** – Anual<br> | string | 128     | Não         |
 | `recurrrent.endDate` | Data de término da recorrência. Se não informado a recorrência não terá fim, a cobrança será realizada de acordo com o intervalo selecionado indefinidamente.                       | string | 128     | Não         |
 
-#### Response
+### Response
 
 > "HTTP Status": 201 – Created
 
@@ -306,9 +304,9 @@ Os dados retornados na resposta contemplam todos os enviados na requisição e d
 | `shortUrl`  | string | Representa o link de pagamento que ao ser aberto, em um browser, apresentará a tela do Checkout Cielo.                        |
 | `links`     | object | Apresenta as operações disponíveis e possíveis (RESTful hypermedia) de serem efetuadas após a criação ou atualização do link. |
 
-### Consultar Link
+## Consultar Link
 
-#### Request
+### Request
 
 Para consultar um link existente basta realizar um `GET` informando o `ID` do link.
 
@@ -316,7 +314,7 @@ Para consultar um link existente basta realizar um `GET` informando o `ID` do li
 
 > **Header:** Authorization: Bearer {access_token}
 
-#### Response
+### Response
 
 > HTTP Status: 200 – OK
 
@@ -368,9 +366,9 @@ Para consultar um link existente basta realizar um `GET` informando o `ID` do li
 
 > **OBS**: O Response da consulta contem os mesmos dados retornados na criação do link.
 
-### Atualizar Link
+## Atualizar Link
 
-#### Request
+### Request
 
 Para Atualizar um link existente basta realizar um `GET` informando o `ID` do link.
 
@@ -397,7 +395,7 @@ Para Atualizar um link existente basta realizar um `GET` informando o `ID` do li
 }
 ```
 
-#### Response
+### Response
 
 > HTTP Status: 200 – OK
 
@@ -451,9 +449,9 @@ Para Atualizar um link existente basta realizar um `GET` informando o `ID` do li
 
 > **OBS**: O Response da consulta contem os mesmos dados retornados na criação do link.
 
-### Excluir Link
+## Excluir Link
 
-#### Request
+### Request
 
 Para excluir um link existente basta realizar um `DELETE` informando o `ID` do link.
 
@@ -461,11 +459,11 @@ Para excluir um link existente basta realizar um `DELETE` informando o `ID` do l
 
 > **Header:** Authorization: Bearer {access_token}
 
-#### Response
+### Response
 
 > HTTP Status: 204 – No Content
 
-## Notificações de Pagamento
+# Notificações de Pagamento
 
 O processo de notificação transacional no Checkout Cielo ocorre via a inclusão de uma URL para onde serão direcionados dados das transações realizadas na plataforma.
 Vale destacar que o Checkout realiza a notificação somente quando uma transação é considerada finalizada ou seja, o comprador preencheu todos os dados da tela de pagamento e clicou em "Finalizar".
@@ -748,22 +746,22 @@ O Checkout permite apenas um tipo de `Boleto` ou `Débito Online` por lojista, s
 |4|Retirar em mãos/loja|
 |5|Sem cobrança de frete (serviços ou produtos digitais)|
 
-## Controle Transacional
+# Controle Transacional
 
 O controle dos pedidos oriundos de link de pagamento pode ser feito por meio da API de controle transacional. A consulta de pedidos pode ser feita de 3 formas distintas:
 
-### Por Merchant_Order_Number
+## Por Merchant_Order_Number
 
 A consulta de transações por `Merchant_Order_Number` retorna uma lista de transações com o mesmo número de pedidos, isso ocorre pois o Checkout Cielo não impede a duplicação de OrderNumbers por parte do lojista.
 O response possuirá o `Checkout_Cielo_Order_Number` que deverá ser usado na consulta de uma transação em especifico.
 
-#### Request 
+### Request 
 
 Para consultar uma transação pelo `Merchant_Order_Number`, basta realizar um `GET`.
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/merchantOrderNumber/{merchantordernumber}</span></aside>
 
-#### Response
+### Response
 
 ``` json
 [
@@ -806,9 +804,9 @@ Para consultar uma transação pelo `Merchant_Order_Number`, basta realizar um `
 |`links.rel`|Relação para consumo da operação|Texto|10|Exemplo: self|
 |`links.href`|Endpoint para consumo da operação|Texto|512|Exemplo: https://cieloecommerce.cielo.com.br/api/public/v2/orders/438f3391860a4bedbae9a868180dda6e|
 
-### Por Checkout_Cielo_Order_Number
+## Por Checkout_Cielo_Order_Number
 
-#### Request 
+### Request 
 
 Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realizar um `GET`.
 
@@ -816,7 +814,7 @@ Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realiza
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/{checkout_cielo_order_number}</span></aside>
 
-#### Response
+### Response
 
 ``` json
 { 
@@ -922,9 +920,9 @@ Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realiza
 |`Customer.Email`|Texto|64|Email do comprador.|Exemplo: exemplo@email.com.br|
 |`Customer.Phone`|Numérico|11|Telefone do comprador.|Exemplo: 11123456789|
 
-### Por ID do link de pagamento
+## Por ID do link de pagamento
 
-#### Request 
+### Request 
 
 Para consultar uma transação pelo `id`, basta realizar um `GET`.
 
@@ -932,7 +930,7 @@ Para consultar uma transação pelo `id`, basta realizar um `GET`.
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}/payments</span></aside>
 
-#### Response
+### Response
 
 ``` json
 {
@@ -991,7 +989,7 @@ A notificação é obrigatório pois todos os comandos da API (Consulta / Captur
 
 O `Checkout_Cielo_Order_Number` é gerado apenas quando o pagamento é finalizado na tela transacional. Ele é enviado apenas pela URL de Notificação e não pelo Response da criação da tela transacional.
 
-## Configurações da loja   
+# Configurações da loja   
 
 As configurações de sua loja podem ser feitas dentro do site Cielo. Neste ambiente você tem acesso a diversas opções, dentre elas:
 
@@ -1003,7 +1001,7 @@ As configurações de sua loja podem ser feitas dentro do site Cielo. Neste ambi
 
 Para maiores detalhes veja o tutorial Super Link e Checkout Cielo.
 
-## Status e Códigos
+# Status e Códigos
 
 O Checkout possui um Status próprios, diferente do SITE CIELO ou da API Cielo ecommerce. Veja abaixo a lista completa.
 
@@ -1018,7 +1016,7 @@ O Checkout possui um Status próprios, diferente do SITE CIELO ou da API Cielo e
 | 7     | `Autorizado`        | somente para Cartão de Crédito   | Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta                  |
 | 8     | `Chargeback`        | somente para Cartão de Crédito   | Transação cancelada pelo consumidor junto ao emissor do cartão. O Dinheiro não será depositado em conta.                      |
 
-### Códigos de Retorno
+## Códigos de Retorno
 
 Códigos emitidos pelos emissores dos cartões de crédito e débito explicando o motivo de uma transação ser autorizada ou não.
 
@@ -1133,7 +1131,7 @@ Códigos emitidos pelos emissores dos cartões de crédito e débito explicando 
 |GD|Transação não permitida|Transação não permitida|Transação não é possível ser processada no estabelecimento. Entre em contato com a Cielo para obter mais detalhes Transação|Não|
 |BP171|Rejeitado por risco de Fraude|Transação rejeitada por risco de fraude|Transação rejeitada por risco de fraude|Nâo|
 
-### Status do Antifraude
+## Status do Antifraude
 
 | Campo | Definição                |
 |:-----:|--------------------------|
