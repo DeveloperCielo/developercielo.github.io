@@ -32,13 +32,9 @@ Seu principal objetivo é permitir que lojas possam criar links de pagamento (Bo
 
 > **Atenção**:
 > 
-> O link de pagamentos não é uma URL DE **PEDIDO/TRANSAÇÃO**. Ele é um "carrinho" que pode ser reutilizado inúmeras vezes.
-> 
-> 
-> Para receber notificações sobre transações originadas de Links de pagamento é **OBRIGATÓRIO** o cadastro da **URL de Notificação** no backoffice do Checkout.
-> 
-> 
-> A consulta de transações realizadas através do Super Link pode ser feita através da **API de controle transacional**.
+> * O link de pagamentos não é uma URL DE **PEDIDO/TRANSAÇÃO**. Ele é um "carrinho" que pode ser reutilizado inúmeras vezes.
+> * Para receber notificações sobre transações originadas de Links de pagamento é **OBRIGATÓRIO** o cadastro da **URL de Notificação** no backoffice do Checkout.
+> * A consulta de transações realizadas através do Super Link pode ser feita através da **API de controle transacional**.
 
 ## Modo teste
 
