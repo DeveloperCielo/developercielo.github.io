@@ -66,7 +66,7 @@ Essa tarja indica que a sua loja Checkout Cielo está agora operando em ambiente
 
 ### Como transacionar no Modo de teste
 
-A realização de transações no modo de teste ocorre de forma normal. As informações da transação são enviadas via POST ou API, utilizando os parâmetros como descrito no tópico [Integração por API](#integração-por-api), entretanto, os meios de pagamentos a serem usados serão meios simulados.
+A realização de transações no modo de teste ocorre de forma normal. As informações da transação são enviadas via POST ou API, utilizando os parâmetros como descrito no tópico [Integração por API](https://developercielo.github.io/manual/checkout-cielo#integra%C3%A7%C3%A3o-por-api), entretanto, os meios de pagamentos a serem usados serão meios simulados.
 
 Para realizar transações de teste com diferentes meios de pagamento, siga as seguintes regras:
 
