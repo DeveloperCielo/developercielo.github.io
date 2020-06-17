@@ -1098,3 +1098,24 @@ Em caso de perda do arquivo ou não recebimento, a Cielo disponibilizará na cai
 
 # Conceitos Financeiros/Glossário
 
+**Ajuste:** lançamento financeiro à crédito ou a débito realizado para regularizar uma cobrança indevida, cancelar uma venda ou repassar um chargeback para o cliente.
+
+**Alteração do Plano Parcelado:** ocorre quando o portador solicita ao cliente uma alteração no plano parcelado contratado no início, como cancelamento total ou parcial da venda e alteração na quantidade ou valor de parcelas.
+
+**Antecipação de Recebíveis (ARV):** serviço oferecido ao cliente afiliado à Cielo ou Alelo que deseja antecipar o recebimento de suas vendas crédito à vista e parceladas.
+
+**Cadeia de Pagamento Centralizado:** é um grupo de clientes com a mesma raiz de CNPJ, regras de travas e antecipação, domicílio bancário e as mesmas condições comerciais de comissão e prazo. Uma cadeia possui apenas uma matriz, escolhida pelo cliente, onde estão cadastrados todos os produtos e taxas aplicados nas filiais.
+
+**Cessão de Recebíveis:** operação de antecipação dos recebíveis realizada no domicílio bancário, disponível para o banco Bradesco.
+
+**Chargeback:** devolução da transação pelo banco emissor, por contestação do portador.
+
+**Data da Venda:** dia em que a venda foi realizada pelo cliente Cielo. No caso de clientes que operam com soluções ecommerce, esta é a data na qual o portador realizou a compra no site e não a data na qual foi feita a confirmação da venda pelo cliente Cielo.
+
+**Data da Apresentação:** dia em que a venda foi submetida para processamento na Cielo, podendo ser um sábado, domingo ou feriado. Essa é a data base para o cálculo da programação de pagamento e pode ser diferente da data da venda, de acordo com o tipo de solução de captura utilizado.
+
+**Data da Captura:** data em que a transação foi capturada no sistema Cielo. Para clientes Cielo que operam com soluções e-commerce, esta é a data na qual a transação foi confirmada pelo cliente.
+
+**Data do Envio ao Banco:** data em que o arquivo de pagamento (crédito ou débito) foi enviado para o banco de domicílio do cliente.
+
+**Data do Pagamento:** dia do efetivo pagamento do valor na conta-corrente do cliente, considerando o prazo de pagamento acordado. Caso a data calculada não seja dia útil, o pagamento será realizado no primeiro dia útil posterior. Inicialmente, após a captura da venda, é informada a data prevista de pagamento, que poderá ser postergada no caso do valor ser utilizado para compensar a cobrança de algum débito proveniente de cancelamento de venda, chargeback ou cobrança de serviços. O pagamento também poderá ser antecipado caso o cliente realize uma operação de antecipação. 
