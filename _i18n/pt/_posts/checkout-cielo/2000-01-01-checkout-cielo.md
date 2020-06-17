@@ -493,7 +493,7 @@ Endpoint é a URL para onde as requisições com os dados do carrinho serão env
 |Campo|Tipo|Obrigatório|Tamanho|Descrição|Condicional|
 |---|---|---|---|---|---|
 |`OrderNumber`|Alphanumeric|Opcional|64|Número do pedido da loja.||
-|`SoftDescriptor`|Alphanumeric|Opcional|13|Texto exibido na fatura do comprador. Sem caracteres especiais ou espaços. EX: `Loja_ABC_1234`||
+|`SoftDescriptor`|Alphanumeric|Opcional|13|Texto exibido na fatura do comprador. Sem caracteres especiais ou espaços. EX: `NOMEDALOJA123`||
 |`Cart.Discount.Type`|Alphanumeric|Condicional|255|Tipo do desconto a ser aplicado: `Amount` ou `Percent`.|Obrigatório caso Cart.Discount.Value for maior ou igual a zero.|
 |`Cart.Discount.Value`|Numeric|Condicional|18|Valor do desconto a ser aplicado: Valor ou Percentual|Obrigatório caso Cart.Discount.Type for `Amount` ou `Percent`.|
 |`Cart.Items.Name`|Alphanumeric|Sim|128|Nome do item no carrinho.||
