@@ -495,7 +495,7 @@ Endpoint is the URL to where requests with the cart data will be sent. All reque
 |Field|Type|Required|Size|Description|Conditional|
 |---|---|---|---|---|---|
 |`OrderNumber`|Alphanumeric|Optional|64|Store order number.||
-|`SoftDescriptor`|Alphanumeric|Optional|13|Text displayed on buyer's invoice. No special characters or spaces. e.g.: `Loja_ABC_1234`||
+|`SoftDescriptor`|Alphanumeric|Optional|13|Text displayed on buyer's invoice. No special characters or spaces. e.g.: `NOMEDALOJA123`||
 |`Cart.Discount.Type`|Alphanumeric|Conditional|255|Discount type to be applied: `Amount` or `Percent`.|Required in case of Cart.Discount.Value is greater than or equal to zero.|
 |`Cart.Discount.Value`|Numeric|Condicional|18|Discount amount to be applied: Value or Percentage|Required in case of Cart.Discount.Type is `Amount` or `Percent`.|
 |`Cart.Items.Name`|Alphanumeric|Yes|128|Item name in cart.||
