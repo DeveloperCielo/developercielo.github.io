@@ -1119,3 +1119,57 @@ Em caso de perda do arquivo ou não recebimento, a Cielo disponibilizará na cai
 **Data do Envio ao Banco:** data em que o arquivo de pagamento (crédito ou débito) foi enviado para o banco de domicílio do cliente.
 
 **Data do Pagamento:** dia do efetivo pagamento do valor na conta-corrente do cliente, considerando o prazo de pagamento acordado. Caso a data calculada não seja dia útil, o pagamento será realizado no primeiro dia útil posterior. Inicialmente, após a captura da venda, é informada a data prevista de pagamento, que poderá ser postergada no caso do valor ser utilizado para compensar a cobrança de algum débito proveniente de cancelamento de venda, chargeback ou cobrança de serviços. O pagamento também poderá ser antecipado caso o cliente realize uma operação de antecipação. 
+
+**Matriz de Extrato:** cadastro que permite a inclusão de todos os estabelecimentos controlados pelo cliente, independente do tipo de pagamento (centralizado ou individual).
+
+**Número Único da Transação:** é atribuido pela Cielo e identifica cada transação de forma única, permitindo que a conciliação das ações de ajustes e antecipação de recebíveis realizadas tanto no RO quanto no CV sejam conciliadas por essa chave, Para isso, a solução de conciliação deverá usar somente as partes fixas do número único, seguindo esta composição.
+
+|Partes|Composição|
+|---|---|  
+|1|15 posições fixas que identificam o resumo de operações (RO) de forma única, mantendo o histórico na Cielo.|
+|2|07 posições variáveis. Identificam as alterações realizadas no RO.|
+|3|04 posições fixas que identificam o Comprovante de Venda (CV) dentro de um RO mantendo o seu histórico na Cielo.|
+|4|03 posições variáveis. Elas identificam as alterações realizadas no CV.|
+
+**Parcelado Loja Arredondamento do Valor da Parcela:** é sempre realizado na 1ª parcela e ocorre nos casos em que o resultado da divisão do valor da venda pela quantidade de parcelas for uma dízima periódica. Neste caso, a 1ª parcela será maior do que as demais.
+
+**Parcelado Loja - Prazo:** no extrato de Vendas com Plano Parcelado, todas as parcelas serão enviadas com a data de apresentação original. No entanto, no extrato de pagamentos, será demonstrada a data de liberação da respectiva parcela. O cálculo da data de pagamento de todas as parcelas tem como base a data da apresentação da 1ª parcela e possui uma lógica diferente para transações de cada uma das bandeiras, conforme abaixo:
+
+VISA, ELO, DINERS e demais bandeiras: As parcelas serão liberadas mensalmente no mesmo dia da 1ª parcela, não importando se o dia é útil ou não. Desta forma, uma venda em 04 parcelas apresentada em 10/01/2015 terá o seguinte plano de liberação (prazo de pagamento: 30 dias):
+
+|Parcela|Data da apresentação|Data de depósito (Liberação da Parcela)|Data de pagamento|
+|---|---|---|---|  
+|01/04|10/01/2015|10/01/2015|09/02/2015|
+|02/04|10/01/2015|10/02/2015|12/03/2015|
+|03/04|10/01/2015|10/03/2015|09/04/2015|
+|04/04|10/01/2015|10/04/2015|11/05/2015|
+
+A única exceção para a regra acima ocorre quando o dia não existir no mês de liberação da parcela. Exemplo: venda cuja 1ª parcela foi apresentada em 31/01/2015. Como não existe dia 31 no mês de fevereiro, a parcela deste mês será apresentada no último dia do mês, ou seja, 28/02/2015.
+
+MASTERCARD: a data de apresentação da 1ª parcela também será a data base para liberação de todas as parcelas do plano, no entanto, as parcelas futuras serão sempre 30 dias após apresentação da primeira parcela, mantendo essa lógica até a conclusão do plano. No exemplo da venda apresentada em 10/01/2015 utilizado anteriormente, notamos que as parcelas serão liberadas em 30, 60, 90 após a apresentação da primeira parcela (prazo de pagamento: 30 dias):
+
+|Parcela|Data da apresentação|Data de depósito (Liberação da Parcela)|Data de pagamento|
+|---|---|---|---| 
+|01/04|10/01/2015|10/01/2015|09/02/2015|
+|02/04|10/01/2015|09/02/2015|11/03/2015|
+|03/04|10/01/2015|11/03/2015|10/04/2015|
+|04/04|10/01/2015|10/04/2015|11/05/2015|
+
+**Rejeição de Transação:** ocorre quando o cliente ou a venda não possuem os atributos necessários para o correto processamento e agendamento do pagamento. 
+
+**Revenda:** ocorre quando existe uma alteração no plano de pagamento de uma venda parcelada, seja na quantidade de parcelas, ou no valor total da transação. 
+
+**Solução de Captura:** equipamento e/ou software de processamento de dados (POS, PDV, e-commerce, mobile payment, EDI etc.) que se conecta à rede Cielo para autorização e captura de transações.
+
+**Resumo de Operações (RO):** o número do RO identifica um agrupamento de vendas em determinada data. Tem 7 posições e será formatado conforme abaixo.
+
+|Posição|Descrição|Edição de dados|
+|---|---|---|
+|1|Tipo de produto| 0 - crédito à vista <br> 3 - parcelado emissor <br> 4 - parcelado loja <br> 5 - cartão de débito <br> 6 - parcelado cliente|
+|2 e 3| Ano que a transação foi realizada|AA|
+|4 e 5|Mês que a transação foi realizada|MM|
+|6 e 7 Dia que a transação foi realizada|DD|
+
+**Saldo em Aberto:** compreende todos os lançamentos à receber com a Cielo. Devem ser considerados os pagamentos da Cielo não realizados no passado devido à cancelamentos e contestações.
+
+**Tipos de cadastro:** com o cadastro por Grupo Comercial, que utiliza a raiz de CNPJ, todos os novos estabelecimentos da raiz são automaticamente inclusos no extrato eletrônico, evitando perdas de informações.
