@@ -361,7 +361,7 @@ O corpo da requisição é composto por dados provenientes do aplicativo e do QR
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">technology.identifier</code></td>
+      <td><code class="highlighter-rouge">card_data</code></td>
       <td>Dados do cartão criptografado pela chave publica, <a href="">Veja layout</a></td>
       <td>Texto alfanumérico</td>
       <td> </td>
@@ -510,11 +510,17 @@ curl --location --request POST 'https://api2.cielo.com.br/sandbox/padraoq/v1/pay
   </tbody>
 </table>
 
+<h1 id="layouts">Layouts</h1>
+
+<h2 id="card-data">Card Data</h2>
+
+<h2 id="qr-code">QR Code</h2>
+
 <h1 id="parsed---qr-code">Parsed - QR Code</h1>
 
 <p>Uso opcional</p>
 
-<h2 id="request">REQUEST</h2>
+<h2 id="request">Request</h2>
 
 <blockquote>
   <p><strong>GET</strong> /padraoq/v1/parsedQRCode</p>
@@ -732,8 +738,6 @@ qrcode:"00020101021226580014br.com.padraoq01160010000244470001020862000092030400
     </tr>
   </tbody>
 </table>
-
-<h1 id="dê-para-qr-code-x-recurso-payments">Dê-para QR Code x Recurso Payments</h1>
 
 <h1 id="como-obter-o-pos-de-homologação">Como obter o POS de homologação.</h1>
 
