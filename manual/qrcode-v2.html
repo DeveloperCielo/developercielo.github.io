@@ -297,10 +297,10 @@ public class EncriptCard {
 <h3 id="payments">Payments</h3>
 
 <p>O recurso <strong>POST /payment/card</strong> é responsável por efetuar o pagamento com base nos dados contidos no payload da requisição. No header da requisição é necessário informar o <strong>Authorization</strong>. 
-O corpo da requisição é composto por dados provenientes do aplicativo e do QR Code. <a href="https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments">Verificar seção 3 para os campos extraídos do QR Code</a>.</p>
+O corpo da requisição é composto por dados provenientes do aplicativo e do QR Code.</p>
 
 <blockquote>
-  <p>Observação: é possível gerar cartões para teste através da ferramenta (https://namso-gen.com/), para isso é necessário apenas informar os 6 primeiros dígitos de um cartão válido.</p>
+  <p>Observação: é possível gerar cartões para teste através da ferramenta (https://namso-gen.com/), para isso é necessário apenas informar os 6 primeiros dígitos de um cartão válido. Através da ferramenta (https://8gwifi.org/RSAFunctionality?keysize=2048), é possível simular a criptografia do <code class="highlighter-rouge">"card_data"</code> feita utilizando o retorno obtido do  <strong>GET /publicKeys</strong>.</p>
 </blockquote>
 
 <h4 id="contrato-2">Contrato</h4>
