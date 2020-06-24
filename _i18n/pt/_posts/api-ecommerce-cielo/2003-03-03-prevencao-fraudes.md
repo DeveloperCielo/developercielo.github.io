@@ -57,15 +57,9 @@ A Cielo construiu sua plataforma de pagamentos pela internet, pensando em agilid
 
 * **Captura posterior:** Permite que a loja virtual analise as transações antes de capturá-las. Caso identifique uma transação fraudulenta, permite não realizar a captura. 
 
-* **AVS (Address Verification Service):** Análise do endereço do comprador através do CEP, com base no retorno da transação, permite que a loja virtual decida se aceita ou não a transação. 
-
 * **Tokenização:**  é processo que transforma o número do cartão de credito em um código que auxilia evitar vazamentos de dados no site e exposição de dados dos cartões de clientes.
 
 * **3D Secure:** O comprador virtual é direcionado ao seu banco para concluir a transação mediante a digitação de senha pessoal. 
-
-* **Lynx:** ferramenta utilizada pela Cielo que possui sistema de inteligência artificial (rede neural) que analisa os riscos das transações, possibilitando comunicação com os bancos emissores e notificação de casos de fraudes.
-
-* **Velocity Check Cielo:** solução funciona em real time através de cálculos baseados em analises de repetições de variáveis utilizando toda base de transações dos clientes Cielo.
 
 * **Autenticação Seletiva:** solução que auxilia no aumento de conversão autenticando transações que foram negadas pelo banco.
 
