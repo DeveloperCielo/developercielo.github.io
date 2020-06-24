@@ -3,7 +3,7 @@ layout: manual
 title: Prevenção contra Fraudes e Chargeback
 description: Manual de prevenção contra fraudes e chargebacks
 search: true
-translated: true
+translated: false
 toc_footers: true
 categories: manual
 sort_order: 5
