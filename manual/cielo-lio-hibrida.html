@@ -288,7 +288,7 @@
 <p>A chamada de cancelamento deve ser feita da seguinte forma. Como explicado anteriormente, é preciso definir o contrato de resposta, aqui será utilizado essa configuração no parâmetro <strong>urlCallback</strong>:</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">var</span> <span class="n">base64</span> <span class="o">=</span> <span class="n">getBase64</span><span class="o">(</span><span class="n">jsonString</span><span class="o">)</span> 
-<span class="kt">var</span> <span class="n">checkoutUri</span> <span class="o">=</span><span class="s">"lio://paymentreversal?request=$base64&amp;urlCallback=order://response"</span> 
+<span class="kt">var</span> <span class="n">checkoutUri</span> <span class="o">=</span><span class="s">"lio://payment-reversal?request=$base64&amp;urlCallback=order://response"</span> 
 </code></pre></div></div>
 
 <p>Para recuperar os dados basta acessar a intent na activity de resposta e no parâmetro data, acessar a uri, da seguinte forma:</p>
