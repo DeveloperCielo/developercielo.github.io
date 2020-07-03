@@ -2539,6 +2539,75 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
+<h4 id="eci-e-commerce-indicator">ECI (E-commerce Indicator)</h4>
+
+<p>E-Commerce Indicator (ECI) is returned in the authentication process.
+This code is an indicator of what exactly occurred in the transaction authentication process.
+Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o agente responsável por aquela autenticação, conforme tabela abaixo:
+Through the ECI, it’s possible to verify if the transaction was authenticated and who was the agent responsible for that authentication, as shown in the table below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Brands</strong></th>
+      <th><strong>ECI</strong></th>
+      <th><strong>Transaction Meaning</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Visa</td>
+      <td>05</td>
+      <td>Authenticated by the Issuing Bank – risk of chargeback becomes of the Issuing bank</td>
+    </tr>
+    <tr>
+      <td>Visa</td>
+      <td>06</td>
+      <td>Authenticated by the Brand – risk of chargeback becomes of the Issuing bank</td>
+    </tr>
+    <tr>
+      <td>Visa</td>
+      <td>Different from 05 and 06</td>
+      <td>Unauthenticated – risk of chargeback remains with the establishment</td>
+    </tr>
+    <tr>
+      <td>Mastercard</td>
+      <td>01</td>
+      <td>Authenticated by the Brand – risk of chargeback becomes of the Issuing bank</td>
+    </tr>
+    <tr>
+      <td>Mastercard</td>
+      <td>02</td>
+      <td>Authenticated by the Issuing Bank – risk of chargeback becomes of the Issuing bank</td>
+    </tr>
+    <tr>
+      <td>Mastercard</td>
+      <td>04</td>
+      <td>Unauthenticated, transaction characterized as Data Only – risk of chargeback remains with the establishment</td>
+    </tr>
+    <tr>
+      <td>Mastercard</td>
+      <td>Different from 01, 02 and 04</td>
+      <td>Unauthenticated – risk of chargeback remains with the establishment</td>
+    </tr>
+    <tr>
+      <td>Elo</td>
+      <td>05</td>
+      <td>Authenticated by the Issuing Bank – risk of chargeback becomes of the Issuing bank</td>
+    </tr>
+    <tr>
+      <td>Elo</td>
+      <td>06</td>
+      <td>Authenticated by the Brand – risk of chargeback becomes of the Issuing bank</td>
+    </tr>
+    <tr>
+      <td>Elo</td>
+      <td>07</td>
+      <td>Unauthenticated – risk of chargeback remains with the establishment</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="debit-card">Debit Card</h2>
 
 <p>This payment method is automatically released along to the Cielo’s affiliation and can be used with the following brands and banks:</p>

@@ -2550,6 +2550,74 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
+<h4 id="eci-e-commerce-indicator">ECI (E-commerce Indicator)</h4>
+
+<p>E-Commerce Indicator (ECI) é retornado no processo de autenticação.
+Este código é um indicador do que exatamente ocorreu no processo de autenticação da transação.
+Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o agente responsável por aquela autenticação, conforme tabela abaixo:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Bandeira</strong></th>
+      <th><strong>ECI</strong></th>
+      <th><strong>Significado da Transação</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Visa</td>
+      <td>05</td>
+      <td>Autenticada pelo Banco Emissor – risco de chargeback passa a ser do banco Emissor</td>
+    </tr>
+    <tr>
+      <td>Visa</td>
+      <td>06</td>
+      <td>Autenticada pela Bandeira – risco de chargeback passa a ser do banco Emissor</td>
+    </tr>
+    <tr>
+      <td>Visa</td>
+      <td>Diferente de 05 e 06</td>
+      <td>Não autenticada – risco de chargeback permanece com o estabelecimento</td>
+    </tr>
+    <tr>
+      <td>Mastercard</td>
+      <td>01</td>
+      <td>Autenticada pela Bandeira – risco de chargeback passa a ser do banco Emissor</td>
+    </tr>
+    <tr>
+      <td>Mastercard</td>
+      <td>02</td>
+      <td>Autenticada pelo Banco Emissor – risco de chargeback passa a ser do banco Emissor</td>
+    </tr>
+    <tr>
+      <td>Mastercard</td>
+      <td>04</td>
+      <td>Não autenticada, transação caracterizada como Data Only – risco de chargeback permanece com o estabelecimento</td>
+    </tr>
+    <tr>
+      <td>Mastercard</td>
+      <td>Diferente de  01, 02 e 04</td>
+      <td>Não autenticada – risco de chargeback permanece com o estabelecimento</td>
+    </tr>
+    <tr>
+      <td>Elo</td>
+      <td>05</td>
+      <td>Autenticada pelo Banco Emissor – risco de chargeback passa a ser do banco Emissor</td>
+    </tr>
+    <tr>
+      <td>Elo</td>
+      <td>06</td>
+      <td>Autenticada pela Bandeira – risco de chargeback passa a ser do banco Emissor</td>
+    </tr>
+    <tr>
+      <td>Elo</td>
+      <td>07</td>
+      <td>Não autenticada – risco de chargeback permanece com o estabelecimento</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="cartão-de-débito">Cartão de Débito</h2>
 
 <p>Esse meio de pagamento é liberado automaticamente junto a afiliação de Cielo, podendo ser utilizado com as seguintes bandeiras e bancos:</p>
