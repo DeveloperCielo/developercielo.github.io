@@ -1319,6 +1319,26 @@ curl
 |`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
 |`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric texto|
 
+#### ECI (E-commerce Indicator)
+
+E-Commerce Indicator (ECI) is returned in the authentication process.
+This code is an indicator of what exactly occurred in the transaction authentication process.
+Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o agente responsável por aquela autenticação, conforme tabela abaixo:
+Through the ECI, it's possible to verify if the transaction was authenticated and who was the agent responsible for that authentication, as shown in the table below:
+
+| **Brands**   | **ECI**                    | **Transaction Meaning**                                                                                     |
+| ---------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Visa       | 05                           | Authenticated by the Issuing Bank – risk of chargeback becomes of the Issuing bank                          |
+| Visa       | 06                           | Authenticated by the Brand – risk of chargeback becomes of the Issuing bank                                 |
+| Visa       | Different from 05 and 06     | Unauthenticated – risk of chargeback remains with the establishment                                         |
+| Mastercard | 01                           | Authenticated by the Brand – risk of chargeback becomes of the Issuing bank                                 |
+| Mastercard | 02                           | Authenticated by the Issuing Bank – risk of chargeback becomes of the Issuing bank                          |
+| Mastercard | 04                           | Unauthenticated, transaction characterized as Data Only – risk of chargeback remains with the establishment |
+| Mastercard | Different from 01, 02 and 04 | Unauthenticated – risk of chargeback remains with the establishment                                         |
+| Elo        | 05                           | Authenticated by the Issuing Bank – risk of chargeback becomes of the Issuing bank                          |
+| Elo        | 06                           | Authenticated by the Brand – risk of chargeback becomes of the Issuing bank                                 |
+| Elo        | 07                           | Unauthenticated – risk of chargeback remains with the establishment                                         |
+
 ## Debit Card
 
 This payment method is automatically released along to the Cielo's affiliation and can be used with the following brands and banks:
