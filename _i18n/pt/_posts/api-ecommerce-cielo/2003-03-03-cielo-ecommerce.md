@@ -9535,12 +9535,6 @@ A Cielo informa seus clientes que está preparada para processar as transações
 |NÃO É POSSÍVEL LOCALIZAR O REGISTRO NO ARQUIVO|IRREVERSÍVEL|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|25|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE|
 |ARQUIVO NÃO DISPONÍVEL PARA ATUALIZAÇÃO|IRREVERSÍVEL|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|28|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE|
 
-
-
-
-
-
-
 #### Outros códigos de retorno
 
 | Código Resposta | Definição                                     | Significado                                                                 | Ação                                                              | Permite Retentativa |
