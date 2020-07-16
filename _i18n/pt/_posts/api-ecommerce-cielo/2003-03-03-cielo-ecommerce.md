@@ -9475,10 +9475,9 @@ A Cielo informa seus clientes que está preparada para processar as transações
 
 <aside class="notice">Os códigos da bandeira AMEX sofreram um de/para de modo a manter dois dígitos. Reforçamos que essa medida não altera os motivos de retorno.</aside>
 
-| Mensagem | Tipo de Código | ELO | VISA | AMEX | MASTERCARD/HIPER | AMEX - De/Para Cielo | Mensagem POS/Ecommerce          |
-|----------|----------------|-----|------|------|------------------|----------------------| ------------------------------- |
-| GENÉRICA | REVERSÍVEL     | 05  | 05   | 05   | 100              | FA                   | CONTATE A CENTRAL DO SEU CARTÃO |   
-|GENÉRICA|REVERSÍVEL|5|05|05|100|FA|CONTATE A CENTRAL DO SEU CARTÃO|
+| Mensagem | Tipo de Código | ELO | VISA | MASTERCARD/HIPER | AMEX             | AMEX - De/Para Cielo | Mensagem POS/Ecommerce          |
+|----------|----------------|-----|------|------------------|------------------|----------------------| ------------------------------- |
+| GENÉRICA | REVERSÍVEL     | 05  | 05   | 05               | 100              | FA                   | CONTATE A CENTRAL DO SEU CARTÃO |   
 |SALDO/LIMITE INSUFICIENTE|REVERSÍVEL|51|51|51|116|A5|NÃO AUTORIZADA|
 |SENHA INVÁLIDA|REVERSÍVEL|55|55  ou 86|55|117|A6|SENHA INVÁLIDA|
 |TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO|IRREVERSÍVEL|57|57|57|200|FD|TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO- NÃO TENTE NOVAMENTE|
