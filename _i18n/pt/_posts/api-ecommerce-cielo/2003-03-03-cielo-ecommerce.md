@@ -9475,9 +9475,9 @@ A Cielo informa seus clientes que está preparada para processar as transações
 
 <aside class="notice">Os códigos da bandeira AMEX sofreram um de/para de modo a manter dois dígitos. Reforçamos que essa medida não altera os motivos de retorno.</aside>
 
-| Mensagem | Tipo de Código | ELO | VISA | AMEX | /   | AMEX - De/Para Cielo | Mensagem POS/Ecommerce          |
-|----------|----------------|-----|------|------|-----|----------------------| ------------------------------- |
-| GENÉRICA | REVERSÍVEL     | 05  | 05   | 05   | 100 | FA                   | CONTATE A CENTRAL DO SEU CARTÃO |   
+| Mensagem | Tipo de Código | ELO | VISA | AMEX | MASTERCARD/HIPER | AMEX - De/Para Cielo | Mensagem POS/Ecommerce          |
+|----------|----------------|-----|------|------|------------------|----------------------| ------------------------------- |
+| GENÉRICA | REVERSÍVEL     | 05  | 05   | 05   | 100              | FA                   | CONTATE A CENTRAL DO SEU CARTÃO |   
 
 #### Outros códigos de retorno
 
