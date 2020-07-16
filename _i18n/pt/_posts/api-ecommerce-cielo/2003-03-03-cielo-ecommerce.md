@@ -3804,7 +3804,7 @@ https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={
 
 ### Códigos de Retorno de Cancelamento
 
-| RETURN CODE | RETURN MESSAGE                                                                                   |
+| RETURN CODE | DESCRIÇÃO                                                                                   |
 | 6           | Solicitação de cancelamento parcial aprovada com sucesso                                         |
 | 9           | Solicitação de cancelamento total aprovada com sucesso                                           |
 | 72          | Erro: Saldo do lojista insuficiente para cancelamento de venda                                   |
