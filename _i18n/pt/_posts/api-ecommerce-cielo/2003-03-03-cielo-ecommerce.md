@@ -3598,16 +3598,19 @@ Acesse nosso [**Tutorial**](https://developercielo.github.io/Tutorial//Backoffic
 
 ## Cancelando uma venda
 
+O cancelamento é uma funcionalidade que permite ao lojista estornar um pedido de compra, seja por insuficiência de estoque, por desistência da compra pelo consumidor, ou qualquer outro motivo.
+
+Na API Cielo e-commerce é possível realizar a requisição de cancelamento para cartões de débito e crédito.
+
+Para transações autorizadas e não capturadas (status transacional = 1), o cancelamento pode ser solicitado antes de ocorrer o desfazimento automático da transação.
+
+Já para transações capturadas (status transacional = 2), é possível realizar a requisição de cancelamento **1 dia após a captura** e em um prazo de **até 365 dias** após a autorização da venda. A aprovação dessa ordem de cancelamento é suscetível a avalição de saldo na agenda financeira do lojista no momento da requisição e a aprovação do banco emissor do cartão utilizado na transação.
+
 ### Cancelando uma venda via API
 
-O processo de cancelamento via API está disponivel apenas para cartão de crédito e débito. 
+O processo de cancelamento via API está disponivel apenas para cartão de crédito e débito.
 
 Cada meio de pagamento sofre impactos diferentes quando uma ordem de cancelamento (VOID) é executada.
-
-|Meio de pagamento|Descrição|Prazo|Participação Cielo|
-|---|---|---|---|
-|Cartão de crédito|A Cielo devolve o valor via crédito bancario|300 dias pós autorização|Sim|
-|Cartão de Débito|Cancelamento apenas na API. O retorno do valor é feito pelo proprio lojista|300 dias pós autorização|Não|
 
 ### Cancelamento total
 
@@ -3798,6 +3801,24 @@ curl
 ```
 https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={Valor}&serviceTaxAmount=xxx
 ```
+
+### Códigos de Retorno de Cancelamento
+
+| RETURN CODE | RETURN MESSAGE                                                                                   |
+| 6           | Solicitação de cancelamento parcial aprovada com sucesso                                         |
+| 9           | Solicitação de cancelamento total aprovada com sucesso                                           |
+| 72          | Erro: Saldo do lojista insuficiente para cancelamento de venda                                   |
+| 77          | Erro: Venda original não encontrada para cancelamento                                            |
+| 100         | Erro: Forma de pagamento e/ou Bandeira não permitem cancelamento                                 |
+| 101         | Erro: Valor de cancelamento solicitado acima do prazo permitido para cancelar                    |
+| 102         | Erro: Cancelamento solicitado acima do valor da transação original                               |
+| 103         | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central  de Cancelamento |
+| 104         | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central  de Cancelamento |
+| 105         | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central  de Cancelamento |
+| 106         | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central  de Cancelamento |
+| 107         | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central  de Cancelamento |
+| 108         | Erro:  Número do Estabelecimento (EC) não encontrado. Por favor, verifique o número enviado      |
+| 475         | Falha no processamento. Por favor, tente novamente                                               |
 
 ### Cancelamento via Backoffice
 
