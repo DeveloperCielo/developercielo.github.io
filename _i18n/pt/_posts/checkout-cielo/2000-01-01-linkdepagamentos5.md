@@ -748,6 +748,8 @@ O Checkout permite apenas um tipo de `Boleto` ou `Débito Online` por lojista, s
 
 # Controle Transacional
 
+A consulta de transações via API pode ser feita até 45 dias após a venda ter sido realizada.
+
 O controle dos pedidos oriundos de link de pagamento pode ser feito por meio da API de controle transacional. A consulta de pedidos pode ser feita de 3 formas distintas:
 
 ## Por Merchant_Order_Number
