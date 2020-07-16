@@ -110,6 +110,8 @@ O `Checkout_Cielo_Order_Number` é gerado apenas quando o pagamento é *finaliza
 
 ## Consultas
 
+A consulta de transações via API pode ser feita até 45 dias após a venda ter sido realizada.
+
 ### Por Merchant_Order_Number
 
 A consulta de transações por `Merchant_Order_Number` retorna uma lista de transações com o mesmo número de pedidos, isso ocorre pois o Checkout Cielo não impede a duplicação de OrderNumbers por parte do lojista.
