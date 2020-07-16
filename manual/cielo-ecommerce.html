@@ -6957,36 +6957,19 @@ Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o
 
 <h2 id="cancelando-uma-venda">Cancelando uma venda</h2>
 
+<p>O cancelamento é uma funcionalidade que permite ao lojista estornar um pedido de compra, seja por insuficiência de estoque, por desistência da compra pelo consumidor, ou qualquer outro motivo.</p>
+
+<p>Na API Cielo e-commerce é possível realizar a requisição de cancelamento para cartões de débito e crédito.</p>
+
+<p>Para transações autorizadas e não capturadas (status transacional = 1), o cancelamento pode ser solicitado antes de ocorrer o desfazimento automático da transação.</p>
+
+<p>Já para transações capturadas (status transacional = 2), é possível realizar a requisição de cancelamento <strong>1 dia após a captura</strong> e em um prazo de <strong>até 365 dias</strong> após a autorização da venda. A aprovação dessa ordem de cancelamento é suscetível a avalição de saldo na agenda financeira do lojista no momento da requisição e a aprovação do banco emissor do cartão utilizado na transação.</p>
+
 <h3 id="cancelando-uma-venda-via-api">Cancelando uma venda via API</h3>
 
 <p>O processo de cancelamento via API está disponivel apenas para cartão de crédito e débito.</p>
 
 <p>Cada meio de pagamento sofre impactos diferentes quando uma ordem de cancelamento (VOID) é executada.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Meio de pagamento</th>
-      <th>Descrição</th>
-      <th>Prazo</th>
-      <th>Participação Cielo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Cartão de crédito</td>
-      <td>A Cielo devolve o valor via crédito bancario</td>
-      <td>300 dias pós autorização</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td>Cartão de Débito</td>
-      <td>Cancelamento apenas na API. O retorno do valor é feito pelo proprio lojista</td>
-      <td>300 dias pós autorização</td>
-      <td>Não</td>
-    </tr>
-  </tbody>
-</table>
 
 <h3 id="cancelamento-total">Cancelamento total</h3>
 
@@ -7358,6 +7341,73 @@ Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={Valor}&amp;serviceTaxAmount=xxx
 </code></pre></div></div>
+
+<h3 id="códigos-de-retorno-de-cancelamento">Códigos de Retorno de Cancelamento</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>RETURN CODE</td>
+      <td>RETURN MESSAGE</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Solicitação de cancelamento parcial aprovada com sucesso</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Solicitação de cancelamento total aprovada com sucesso</td>
+    </tr>
+    <tr>
+      <td>72</td>
+      <td>Erro: Saldo do lojista insuficiente para cancelamento de venda</td>
+    </tr>
+    <tr>
+      <td>77</td>
+      <td>Erro: Venda original não encontrada para cancelamento</td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>Erro: Forma de pagamento e/ou Bandeira não permitem cancelamento</td>
+    </tr>
+    <tr>
+      <td>101</td>
+      <td>Erro: Valor de cancelamento solicitado acima do prazo permitido para cancelar</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>Erro: Cancelamento solicitado acima do valor da transação original</td>
+    </tr>
+    <tr>
+      <td>103</td>
+      <td>Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central  de Cancelamento</td>
+    </tr>
+    <tr>
+      <td>104</td>
+      <td>Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central  de Cancelamento</td>
+    </tr>
+    <tr>
+      <td>105</td>
+      <td>Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central  de Cancelamento</td>
+    </tr>
+    <tr>
+      <td>106</td>
+      <td>Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central  de Cancelamento</td>
+    </tr>
+    <tr>
+      <td>107</td>
+      <td>Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central  de Cancelamento</td>
+    </tr>
+    <tr>
+      <td>108</td>
+      <td>Erro:  Número do Estabelecimento (EC) não encontrado. Por favor, verifique o número enviado</td>
+    </tr>
+    <tr>
+      <td>475</td>
+      <td>Falha no processamento. Por favor, tente novamente</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="cancelamento-via-backoffice">Cancelamento via Backoffice</h3>
 
