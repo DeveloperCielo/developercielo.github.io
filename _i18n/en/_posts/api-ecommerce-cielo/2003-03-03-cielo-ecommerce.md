@@ -9678,7 +9678,7 @@ Cielo informs its customers that it's prepared to process transactions following
 
 | Response Code   | Definitio                                     | Meaning                                                                     | Action                                                            | Allows Retry |
 |-----------------|-----------------------------------------------|-----------------------------------------------------------------------------|-------------------------------------------------------------------|---------------------|
-|00|Successfully authorized transaction.|Successfully authorized transaction.|Successfully authorized transaction.|No|
+|00               |Successfully authorized transaction.|Successfully authorized transaction.|Successfully authorized transaction.|No|
 |02|Unauthorized transaction. Referred transaction.|Unauthorized transaction. Referred (suspected fraud) by the issuing bank.|Unauthorized transaction. Contact your issuing bank.|No|
 |09|Transaction partially canceled successfully.| Transaction partially canceled successfully.| Transaction partially canceled successfully.| No |
 |11|Successfully authorized transaction for card issued abroad|Successfully authorized transaction.|Successfully authorized transaction.|No|
