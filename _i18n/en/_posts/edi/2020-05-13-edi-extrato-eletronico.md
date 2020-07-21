@@ -15,6 +15,10 @@ tags:
 
 This API makes possible to register groups and maintain their registration to receive Electronic Data Interchange (EDI) files
 
+# Description
+
+## Benefits
+
 # Environment
 
 |Environment|URL|
