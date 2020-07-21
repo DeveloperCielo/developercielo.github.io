@@ -19,12 +19,36 @@ This API makes possible to register groups and maintain their registration to re
 
 ## Benefits
 
+# Consent Flow
+
+## Step 1 - Login
+
+## Step 2 - Requesting an Access Token
+
+## Step 3 - Requesting the APIs
+
+### Step 3.1 - Updating an Access Token
+
+#### Request
+
+#### Response
+
+### Errors
+
+### Note
+
 # Environment
 
 |Environment|URL|
 |---|---|
 |Sandbox|https://api2.cielo.com.br/sandbox/edi-api/v2/|
 |Homologation|https://apihom-cielo.sensedia.com/edi-api/v2/|
+
+# Collection
+
+We make the Collections used to perform all API operations available. You only need to configure the URL and credentials.
+
+[Collections Download](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ONBOARDING_EDI_CIELO_PARA_CONCILIADORAS.postman_collection.zip)
 
 # Operations
 
