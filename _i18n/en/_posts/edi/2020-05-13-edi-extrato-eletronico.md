@@ -330,3 +330,15 @@ Performs the list of customers below the informed access_token. The filter can b
 |`branches`|List of branches||||
 |`businessName`|Legal business name||||
 |`status`|Branch is available ou unavailable||||
+
+# Types Of Electronic Statements
+
+# Table A - File Types
+
+## Layout For The Types Of Records
+
+## Record 0 - Header
+
+### Record 1 - Sales Summary
+
+### Record 2 - Detailed Sales
