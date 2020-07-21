@@ -125,6 +125,24 @@
 
 <h2 id="benefits">Benefits</h2>
 
+<h1 id="consent-flow">Consent Flow</h1>
+
+<h2 id="step-1---login">Step 1 - Login</h2>
+
+<h2 id="step-2---requesting-an-access-token">Step 2 - Requesting an Access Token</h2>
+
+<h2 id="step-3---requesting-the-apis">Step 3 - Requesting the APIs</h2>
+
+<h3 id="step-31---updating-an-access-token">Step 3.1 - Updating an Access Token</h3>
+
+<h4 id="request">Request</h4>
+
+<h4 id="response">Response</h4>
+
+<h3 id="errors">Errors</h3>
+
+<h3 id="note">Note</h3>
+
 <h1 id="environment">Environment</h1>
 
 <table>
@@ -146,13 +164,19 @@
   </tbody>
 </table>
 
+<h1 id="collection">Collection</h1>
+
+<p>We make the Collections used to perform all API operations available. You only need to configure the URL and credentials.</p>
+
+<p><a href="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ONBOARDING_EDI_CIELO_PARA_CONCILIADORAS.postman_collection.zip">Collections Download</a></p>
+
 <h1 id="operations">Operations</h1>
 
 <h2 id="post-register-merchant-id"><strong>POST</strong> Register Merchant ID</h2>
 
 <p>Register Merchant ID (just one, a list or all), based on a Entity Number.</p>
 
-<h3 id="request">Request</h3>
+<h3 id="request-1">Request</h3>
 
 <blockquote>
   <p><strong>POST</strong> /edi/registers</p>
@@ -232,7 +256,7 @@
   </tbody>
 </table>
 
-<h3 id="response">Response</h3>
+<h3 id="response-1">Response</h3>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
@@ -311,7 +335,7 @@
 
 <p>Retrieve the EDI registration status.</p>
 
-<h3 id="response-1">Response</h3>
+<h3 id="response-2">Response</h3>
 
 <blockquote>
   <p><strong>GET</strong> /edi/registers/{registerID}</p>
@@ -393,7 +417,7 @@
 
 <p>Consult Merchant ID based on a Register ID or a Main Merchant ID.</p>
 
-<h3 id="response-2">Response</h3>
+<h3 id="response-3">Response</h3>
 
 <blockquote>
   <p><strong>GET</strong> /edi</p>
@@ -501,7 +525,7 @@
 
 <p>Update Merchant ID based on a Register ID or a Main Merchant ID.</p>
 
-<h3 id="request-1">Request</h3>
+<h3 id="request-2">Request</h3>
 
 <blockquote>
   <p><strong>PUT</strong> /edi</p>
@@ -581,7 +605,7 @@
   </tbody>
 </table>
 
-<h3 id="response-3">Response</h3>
+<h3 id="response-4">Response</h3>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
@@ -652,7 +676,7 @@
 
 <p>Delete MerchantID based on a Register ID or a Main Merchant ID.</p>
 
-<h3 id="response-4">Response</h3>
+<h3 id="response-5">Response</h3>
 
 <blockquote>
   <p><strong>DELETE</strong> /edi</p>
@@ -739,7 +763,7 @@
 
 <p>Performs the list of customers below the informed access_token. The filter can be used to list only those available or unavailable. Unavailable means that the branch already participates in another register. In the register and editing services, there is validation to allow only those available to be informed.</p>
 
-<h3 id="response-5">Response</h3>
+<h3 id="response-6">Response</h3>
 
 <blockquote>
   <p><strong>GET</strong> /edi/merchantgroup</p>
