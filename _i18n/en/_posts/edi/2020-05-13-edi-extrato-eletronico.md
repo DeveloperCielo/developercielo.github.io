@@ -333,6 +333,12 @@ Performs the list of customers below the informed access_token. The filter can b
 
 # Types Of Electronic Statements
 
+The following types of Electronic Statements are available:
+
+|File Type|Information|Record Type|Objective|
+|---|---|---|---|
+|**03 Detailed Sales With Future Installments**| Sales completed on the previous day, adjustments, and declined transactions, with payment schedule.<br> * All the first sales installments completed on the previous day.|0 - Header <br> 1 - Sales Summary (with the first installment) <br> 2 - Detailed Sales <br> 1 - Sales Summary (payment schedule for the second and remaining installments) <br> 9 - Trailer | Check whether all effective sales were received by Cielo and payment forecasts.|
+
 # Table A - File Types
 
 ## Layout For The Types Of Records
