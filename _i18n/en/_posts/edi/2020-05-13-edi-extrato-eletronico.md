@@ -337,7 +337,9 @@ The following types of Electronic Statements are available:
 
 |File Type|Information|Record Type|Objective|
 |---|---|---|---|
-|**03 Detailed Sales With Future Installments**| Sales completed on the previous day, adjustments, and declined transactions, with payment schedule.<br> * All the first sales installments completed on the previous day.|0 - Header <br> 1 - Sales Summary (with the first installment) <br> 2 - Detailed Sales <br> 1 - Sales Summary (payment schedule for the second and remaining installments) <br> 9 - Trailer | Check whether all effective sales were received by Cielo and payment forecasts.|
+|**03 Detailed Sales With Future Installments**|* Sales completed on the previous day, adjustments, and declined transactions, with payment schedule.<br> * All the first sales installments completed on the previous day.|0 - Header <br> 1 - Sales Summary (with the first installment) <br> 2 - Detailed Sales <br> 1 - Sales Summary (payment schedule for the second and remaining installments) <br> 9 - Trailer | Check whether all effective sales were received by Cielo and payment forecasts.|
+|**04 Detailed Payments**|* Amounts paid into the merchant bank account on the day the Electronic Statement is sent out. <br> Transactions offset, as anticipated or transferred previously and payments of outstanding installments.| 0 - Header <br>1 - Sales Summary <br>2 - Detailed Sales <br>9 - Trailer| Check the origin of the payment received (type of sale, card brand, and client/merchant that made the sale). <br>Reconciliation with Merchant Bank account.|
+|**06 Detailed Prepayment Cielo**|* Prepayment operation of the day before the file is sent out, with the respective summary and details.| 0 - Header <br>5 - Prepayment Operation <br>6 - Sales Summary <br>2 - Prepayment Detailed Sales <br>7 - Withheld prepayment by debits - Sales Summary 2 - Detailed Sales and Debits <br>9 - Trailer <br>Note: Record type 5 will be displayed for each merchant bank account.|Prepare cash flow, considering the prepayment amounts received.|
 
 # Table A - File Types
 
