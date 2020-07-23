@@ -337,16 +337,35 @@ Performs the list of customers below the informed access_token. The filter can b
 
 |File Type|Information|Record Type|Objective|
 |---|---|---|---|
-|**03 Detailed Sales With Future Installments**|* Sales completed on the previous day, adjustments, and declined transactions, with payment schedule.<br> * All the first sales installments completed on the previous day.|0 - Header <br> 1 - Sales Summary (with the first installment) <br> 2 - Detailed Sales <br> 1 - Sales Summary (payment schedule for the second and remaining installments) <br> 9 - Trailer | Check whether all effective sales were received by Cielo and payment forecasts.|
-|**04 Detailed Payments**|* Amounts paid into the merchant bank account on the day the Electronic Statement is sent out. <br> Transactions offset, as anticipated or transferred previously and payments of outstanding installments.| 0 - Header <br>1 - Sales Summary <br>2 - Detailed Sales <br>9 - Trailer| Check the origin of the payment received (type of sale, card brand, and client/merchant that made the sale). <br>Reconciliation with Merchant Bank account.|
-|**06 Detailed Prepayment Cielo**|* Prepayment operation of the day before the file is sent out, with the respective summary and details.| 0 - Header <br>5 - Prepayment Operation <br>6 - Sales Summary <br>2 - Prepayment Detailed Sales <br>7 - Withheld prepayment by debits - Sales Summary 2 - Detailed Sales and Debits <br>9 - Trailer <br>Note: Record type 5 will be displayed for each merchant bank account.|Prepare cash flow, considering the prepayment amounts received.|
-|**07 Assignment Of Receivables**|* Assignment operation conducted by the merchant bank account (only for Bradesco) on the day before the file is sent out. <br> The commercial terms negotiated or the indicator of the installment assigned is not shown.| 0 - Header <br> 5 - Assignment of Receivables <br> 6 - Assignment Sales Summary <br> 9 - Trailer <br> Note: Record type 5 will be displayed for each merchant bank account. <br>Prepare cash flow, considering the amounts received assignment operation.|
-|**09 Remaining Balance**|* Cielo's future receivables, including the transactions conducted, captured, and processed, debit and credit sales, and installment transactions that were not settled in the previous month.<br> The file is made available monthly.|0 - Header <br> 1 - Sales Summary <br> 9 - Trailer| Update the forward-receipts with appropriate rebates Prepayments and Adjustments. <br> It should not be used for reconciliation.|
+|**03 Detailed Sales With Future Installments**|Sales completed on the previous day, adjustments, and declined transactions, with payment schedule.<br> All the first sales installments completed on the previous day.|0 - Header <br> 1 - Sales Summary (with the first installment) <br> 2 - Detailed Sales <br> 1 - Sales Summary (payment schedule for the second and remaining installments) <br> 9 - Trailer | Check whether all effective sales were received by Cielo and payment forecasts.|
+|**04 Detailed Payments**|Amounts paid into the merchant bank account on the day the Electronic Statement is sent out. <br> Transactions offset, as anticipated or transferred previously and payments of outstanding installments.| 0 - Header <br>1 - Sales Summary <br>2 - Detailed Sales <br>9 - Trailer| Check the origin of the payment received (type of sale, card brand, and client/merchant that made the sale). <br>Reconciliation with Merchant Bank account.|
+|**06 Detailed Prepayment Cielo**|Prepayment operation of the day before the file is sent out, with the respective summary and details.| 0 - Header <br>5 - Prepayment Operation <br>6 - Sales Summary <br>2 - Prepayment Detailed Sales <br>7 - Withheld prepayment by debits - Sales Summary 2 - Detailed Sales and Debits <br>9 - Trailer <br>Note: Record type 5 will be displayed for each merchant bank account.|Prepare cash flow, considering the prepayment amounts received.|
+|**07 Assignment Of Receivables**|Assignment operation conducted by the merchant bank account (only for Bradesco) on the day before the file is sent out. <br> The commercial terms negotiated or the indicator of the installment assigned is not shown.| 0 - Header <br> 5 - Assignment of Receivables <br> 6 - Assignment Sales Summary <br> 9 - Trailer <br> Note: Record type 5 will be displayed for each merchant bank account. <br>Prepare cash flow, considering the amounts received assignment operation.|
+|**09 Remaining Balance**|Cielo's future receivables, including the transactions conducted, captured, and processed, debit and credit sales, and installment transactions that were not settled in the previous month.<br> The file is made available monthly.|0 - Header <br> 1 - Sales Summary <br> 9 - Trailer| Update the forward-receipts with appropriate rebates Prepayments and Adjustments. <br> It should not be used for reconciliation.|
 |**10 Detailed Prepayment Alelo**|Prepayment operation of the day before the file is sent out, with the respective summary and details.|0 - Header <br> 5 - Prepayment Operation <br> 6 - Sales Summary <br>2 - Prepayment Detailed Sales<br>7 - Withheld prepayment by debits - Sales Summary <br> 2 - Detailed Sales and Debits <br> 9 - Trailer <br> Note: Record type 5 will be displayed for each merchant bank account.|Prepare cash flow, considering the prepayment amounts received.|
 
 ## Layout For The Types Of Records
 
 ## Record 0 - Header
+
+It identifies the header of each file, by chain of electronic statement*.
+
+|Start|End|Size|Type|Description|Data Editing|
+|---|---|---|---|---|---|
+|001|001|1|Num.|Record type|Constant 0 : it identifies record type header (beginning of the file)|
+|002|011|10|Num.|Merchant's head chain| Number of the Cielo merchant registered in the VAN to receive the file.|
+|012|019|8|Num.|Processing date |YYYYMMDD date on which the file was generated.|
+|020|027|8|Num.|Initial period |YYYYMMDD initial period.|
+|028|035|8|Num.|End period |YYYYMMDD end period.|
+|036|042|7|Num.|Sequence |Sequential file number. In case of recovery, this data will be sent as 9999999.|
+|043|047|5|Alpha.|Acquirer| Constant Cielo.|
+|048|049|2|Num.|Statement option |Table I (attachment)|
+|050|050|1|Alpha.|Transmission |Cielo.|
+|051|070|20|Alphanum.|Inbox |Inbox.|
+|071|073|3|Num.|Layout version |Constant 013.|
+|074|250|177|Alphanum.|Cielo use Unwritten. |Reserved for Cielo|
+
+* **(*)** register that allows the inclusion of all establishments controlled by the customer, regardless of the type of payment (centralized, decentralized, individual). All establishment numbers must be reported in the registration form.
 
 ### Record 1 - Sales Summary
 
