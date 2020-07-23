@@ -875,6 +875,24 @@
       <td>0 - Header <br />5 - Prepayment Operation <br />6 - Sales Summary <br />2 - Prepayment Detailed Sales <br />7 - Withheld prepayment by debits - Sales Summary 2 - Detailed Sales and Debits <br />9 - Trailer <br />Note: Record type 5 will be displayed for each merchant bank account.</td>
       <td>Prepare cash flow, considering the prepayment amounts received.</td>
     </tr>
+    <tr>
+      <td><strong>07 Assignment Of Receivables</strong></td>
+      <td>* Assignment operation conducted by the merchant bank account (only for Bradesco) on the day before the file is sent out. <br /> The commercial terms negotiated or the indicator of the installment assigned is not shown.</td>
+      <td>0 - Header <br /> 5 - Assignment of Receivables <br /> 6 - Assignment Sales Summary <br /> 9 - Trailer <br /> Note: Record type 5 will be displayed for each merchant bank account. <br />Prepare cash flow, considering the amounts received assignment operation.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>09 Remaining Balance</strong></td>
+      <td>* Cielo’s future receivables, including the transactions conducted, captured, and processed, debit and credit sales, and installment transactions that were not settled in the previous month.<br /> The file is made available monthly.</td>
+      <td>0 - Header <br /> 1 - Sales Summary <br /> 9 - Trailer</td>
+      <td>Update the forward-receipts with appropriate rebates Prepayments and Adjustments. <br /> It should not be used for reconciliation.</td>
+    </tr>
+    <tr>
+      <td><strong>10 Detailed Prepayment Alelo</strong></td>
+      <td>Prepayment operation of the day before the file is sent out, with the respective summary and details.</td>
+      <td>0 - Header <br /> 5 - Prepayment Operation <br /> 6 - Sales Summary <br />2 - Prepayment Detailed Sales<br />7 - Withheld prepayment by debits - Sales Summary <br /> 2 - Detailed Sales and Debits <br /> 9 - Trailer <br /> Note: Record type 5 will be displayed for each merchant bank account.</td>
+      <td>Prepare cash flow, considering the prepayment amounts received.</td>
+    </tr>
   </tbody>
 </table>
 
