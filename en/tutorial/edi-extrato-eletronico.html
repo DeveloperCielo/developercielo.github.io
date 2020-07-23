@@ -859,31 +859,31 @@
   <tbody>
     <tr>
       <td><strong>03 Detailed Sales With Future Installments</strong></td>
-      <td>* Sales completed on the previous day, adjustments, and declined transactions, with payment schedule.<br /> * All the first sales installments completed on the previous day.</td>
+      <td>Sales completed on the previous day, adjustments, and declined transactions, with payment schedule.<br /> All the first sales installments completed on the previous day.</td>
       <td>0 - Header <br /> 1 - Sales Summary (with the first installment) <br /> 2 - Detailed Sales <br /> 1 - Sales Summary (payment schedule for the second and remaining installments) <br /> 9 - Trailer</td>
       <td>Check whether all effective sales were received by Cielo and payment forecasts.</td>
     </tr>
     <tr>
       <td><strong>04 Detailed Payments</strong></td>
-      <td>* Amounts paid into the merchant bank account on the day the Electronic Statement is sent out. <br /> Transactions offset, as anticipated or transferred previously and payments of outstanding installments.</td>
+      <td>Amounts paid into the merchant bank account on the day the Electronic Statement is sent out. <br /> Transactions offset, as anticipated or transferred previously and payments of outstanding installments.</td>
       <td>0 - Header <br />1 - Sales Summary <br />2 - Detailed Sales <br />9 - Trailer</td>
       <td>Check the origin of the payment received (type of sale, card brand, and client/merchant that made the sale). <br />Reconciliation with Merchant Bank account.</td>
     </tr>
     <tr>
       <td><strong>06 Detailed Prepayment Cielo</strong></td>
-      <td>* Prepayment operation of the day before the file is sent out, with the respective summary and details.</td>
+      <td>Prepayment operation of the day before the file is sent out, with the respective summary and details.</td>
       <td>0 - Header <br />5 - Prepayment Operation <br />6 - Sales Summary <br />2 - Prepayment Detailed Sales <br />7 - Withheld prepayment by debits - Sales Summary 2 - Detailed Sales and Debits <br />9 - Trailer <br />Note: Record type 5 will be displayed for each merchant bank account.</td>
       <td>Prepare cash flow, considering the prepayment amounts received.</td>
     </tr>
     <tr>
       <td><strong>07 Assignment Of Receivables</strong></td>
-      <td>* Assignment operation conducted by the merchant bank account (only for Bradesco) on the day before the file is sent out. <br /> The commercial terms negotiated or the indicator of the installment assigned is not shown.</td>
+      <td>Assignment operation conducted by the merchant bank account (only for Bradesco) on the day before the file is sent out. <br /> The commercial terms negotiated or the indicator of the installment assigned is not shown.</td>
       <td>0 - Header <br /> 5 - Assignment of Receivables <br /> 6 - Assignment Sales Summary <br /> 9 - Trailer <br /> Note: Record type 5 will be displayed for each merchant bank account. <br />Prepare cash flow, considering the amounts received assignment operation.</td>
       <td> </td>
     </tr>
     <tr>
       <td><strong>09 Remaining Balance</strong></td>
-      <td>* Cielo’s future receivables, including the transactions conducted, captured, and processed, debit and credit sales, and installment transactions that were not settled in the previous month.<br /> The file is made available monthly.</td>
+      <td>Cielo’s future receivables, including the transactions conducted, captured, and processed, debit and credit sales, and installment transactions that were not settled in the previous month.<br /> The file is made available monthly.</td>
       <td>0 - Header <br /> 1 - Sales Summary <br /> 9 - Trailer</td>
       <td>Update the forward-receipts with appropriate rebates Prepayments and Adjustments. <br /> It should not be used for reconciliation.</td>
     </tr>
@@ -899,6 +899,123 @@
 <h2 id="layout-for-the-types-of-records">Layout For The Types Of Records</h2>
 
 <h2 id="record-0---header">Record 0 - Header</h2>
+
+<p>It identifies the header of each file, by chain of electronic statement*.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Start</th>
+      <th>End</th>
+      <th>Size</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Data Editing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Record type</td>
+      <td>Constant 0 : it identifies record type header (beginning of the file)</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>011</td>
+      <td>10</td>
+      <td>Num.</td>
+      <td>Merchant’s head chain</td>
+      <td>Number of the Cielo merchant registered in the VAN to receive the file.</td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>019</td>
+      <td>8</td>
+      <td>Num.</td>
+      <td>Processing date</td>
+      <td>YYYYMMDD date on which the file was generated.</td>
+    </tr>
+    <tr>
+      <td>020</td>
+      <td>027</td>
+      <td>8</td>
+      <td>Num.</td>
+      <td>Initial period</td>
+      <td>YYYYMMDD initial period.</td>
+    </tr>
+    <tr>
+      <td>028</td>
+      <td>035</td>
+      <td>8</td>
+      <td>Num.</td>
+      <td>End period</td>
+      <td>YYYYMMDD end period.</td>
+    </tr>
+    <tr>
+      <td>036</td>
+      <td>042</td>
+      <td>7</td>
+      <td>Num.</td>
+      <td>Sequence</td>
+      <td>Sequential file number. In case of recovery, this data will be sent as 9999999.</td>
+    </tr>
+    <tr>
+      <td>043</td>
+      <td>047</td>
+      <td>5</td>
+      <td>Alpha.</td>
+      <td>Acquirer</td>
+      <td>Constant Cielo.</td>
+    </tr>
+    <tr>
+      <td>048</td>
+      <td>049</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Statement option</td>
+      <td>Table I (attachment)</td>
+    </tr>
+    <tr>
+      <td>050</td>
+      <td>050</td>
+      <td>1</td>
+      <td>Alpha.</td>
+      <td>Transmission</td>
+      <td>Cielo.</td>
+    </tr>
+    <tr>
+      <td>051</td>
+      <td>070</td>
+      <td>20</td>
+      <td>Alphanum.</td>
+      <td>Inbox</td>
+      <td>Inbox.</td>
+    </tr>
+    <tr>
+      <td>071</td>
+      <td>073</td>
+      <td>3</td>
+      <td>Num.</td>
+      <td>Layout version</td>
+      <td>Constant 013.</td>
+    </tr>
+    <tr>
+      <td>074</td>
+      <td>250</td>
+      <td>177</td>
+      <td>Alphanum.</td>
+      <td>Cielo use Unwritten.</td>
+      <td>Reserved for Cielo</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><strong>(*)</strong> register that allows the inclusion of all establishments controlled by the customer, regardless of the type of payment (centralized, decentralized, individual). All establishment numbers must be reported in the registration form.</li>
+</ul>
 
 <h3 id="record-1---sales-summary">Record 1 - Sales Summary</h3>
 
