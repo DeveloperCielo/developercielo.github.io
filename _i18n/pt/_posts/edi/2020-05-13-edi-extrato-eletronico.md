@@ -217,7 +217,7 @@ Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da 
 >
 >| Key | Value |
 >|---|---|
->| **externalID** |Valor gerado pelo cliente para evitar solicitação duplicada. Esse valor pode ser usado para obter solicitação. Não use o mesmo valor para novas solicitações.|
+>| **Authorization** |Bearer + access_token|
 
 ```
 
@@ -283,6 +283,7 @@ Recupere o status de registro do EDI.
 >
 >| Key | Value |
 >|---|---|
+>|**Authorization**| Bearer + access_token|
 >| **registerID** |Valor usado para recuperar o status do registro.|
 
 ```
@@ -318,7 +319,7 @@ Consulte o MerchantID com base no registerID ou no mainMerchantID.
 >
 >| Key | Value |
 >|---|---|
->| **externalID** |Valor gerado pelo cliente para evitar solicitação duplicada. Esse valor pode ser usado para obter solicitação. Não use o mesmo valor para novas solicitações.|
+>|**Authorization**| Bearer + access_token|
 >| **registerID** |O registerID é fornecido pela operação /edi/registers ao se registrar. Pode ser usado no lugar de mainMerchantID, se preferir (apenas um precisa ser informado).|
 >| **mainMerchantID** |A maneira mais comum de recuperar um registro EDI na empresa. Pode ser usado em vez de registerID, principalmente em casos de registro não realizados por /edi/registers.|
 
@@ -360,7 +361,7 @@ Atualize o merchantID com base no registerID ou mainMerchantID.
 >
 >| Key | Value |
 >|---|---|
->| **externalID** |Valor gerado pelo cliente para evitar solicitação duplicada. Esse valor pode ser usado para obter solicitação. Não use o mesmo valor para novas solicitações.|
+>|**Authorization**| Bearer + access_token|
 
 ```
 
@@ -424,7 +425,7 @@ Consulte o MerchantID com base no registerID ou no mainMerchantID.
 >
 >| Key | Value |
 >|---|---|
->| **externalID** |Valor gerado pelo cliente para evitar solicitação duplicada. Esse valor pode ser usado para obter solicitação. Não use o mesmo valor para novas solicitações.|
+>|**Authorization**| Bearer + access_token|
 >| **registerID** |O registerID é fornecido pela operação /edi/registers ao se registrar. Pode ser usado no lugar de mainMerchantID, se preferir (apenas um precisa ser informado).|
 >| **mainMerchantID** |A maneira mais comum de recuperar um registro EDI na empresa. Pode ser usado em vez de registerID, principalmente em casos de registro não realizados por /edi/registers.|
 
@@ -458,7 +459,7 @@ Executa a lista de clientes abaixo do access_token informado. O filtro pode ser 
 >
 >| Key | Value |
 >|---|---|
->| **externalID** |Valor gerado pelo cliente para evitar solicitação duplicada. Esse valor pode ser usado para obter solicitação. Não use o mesmo valor para novas solicitações.|
+>| |**Authorization**| Bearer + access_token|
 >| **registerID** |O registerID é fornecido pela operação /edi/registers ao se registrar. Pode ser usado no lugar de mainMerchantID, se preferir (apenas um precisa ser informado).|
 >| **mainMerchantID** |A maneira mais comum de recuperar um registro EDI na empresa. Pode ser usado em vez de registerID, principalmente em casos de registro não realizados por /edi/registers.|
 
