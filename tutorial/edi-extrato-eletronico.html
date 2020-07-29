@@ -414,8 +414,8 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
     </thead>
     <tbody>
       <tr>
-        <td><strong>externalID</strong></td>
-        <td>Valor gerado pelo cliente para evitar solicitação duplicada. Esse valor pode ser usado para obter solicitação. Não use o mesmo valor para novas solicitações.</td>
+        <td><strong>Authorization</strong></td>
+        <td>Bearer + access_token</td>
       </tr>
     </tbody>
   </table>
@@ -573,6 +573,10 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
     </thead>
     <tbody>
       <tr>
+        <td><strong>Authorization</strong></td>
+        <td>Bearer + access_token</td>
+      </tr>
+      <tr>
         <td><strong>registerID</strong></td>
         <td>Valor usado para recuperar o status do registro.</td>
       </tr>
@@ -655,8 +659,8 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
     </thead>
     <tbody>
       <tr>
-        <td><strong>externalID</strong></td>
-        <td>Valor gerado pelo cliente para evitar solicitação duplicada. Esse valor pode ser usado para obter solicitação. Não use o mesmo valor para novas solicitações.</td>
+        <td><strong>Authorization</strong></td>
+        <td>Bearer + access_token</td>
       </tr>
       <tr>
         <td><strong>registerID</strong></td>
@@ -756,8 +760,8 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
     </thead>
     <tbody>
       <tr>
-        <td><strong>externalID</strong></td>
-        <td>Valor gerado pelo cliente para evitar solicitação duplicada. Esse valor pode ser usado para obter solicitação. Não use o mesmo valor para novas solicitações.</td>
+        <td><strong>Authorization</strong></td>
+        <td>Bearer + access_token</td>
       </tr>
     </tbody>
   </table>
@@ -907,8 +911,8 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
     </thead>
     <tbody>
       <tr>
-        <td><strong>externalID</strong></td>
-        <td>Valor gerado pelo cliente para evitar solicitação duplicada. Esse valor pode ser usado para obter solicitação. Não use o mesmo valor para novas solicitações.</td>
+        <td><strong>Authorization</strong></td>
+        <td>Bearer + access_token</td>
       </tr>
       <tr>
         <td><strong>registerID</strong></td>
@@ -990,20 +994,24 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
       <tr>
         <th>Key</th>
         <th>Value</th>
+        <th> </th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><strong>externalID</strong></td>
-        <td>Valor gerado pelo cliente para evitar solicitação duplicada. Esse valor pode ser usado para obter solicitação. Não use o mesmo valor para novas solicitações.</td>
+        <td> </td>
+        <td><strong>Authorization</strong></td>
+        <td>Bearer + access_token</td>
       </tr>
       <tr>
         <td><strong>registerID</strong></td>
         <td>O registerID é fornecido pela operação /edi/registers ao se registrar. Pode ser usado no lugar de mainMerchantID, se preferir (apenas um precisa ser informado).</td>
+        <td> </td>
       </tr>
       <tr>
         <td><strong>mainMerchantID</strong></td>
         <td>A maneira mais comum de recuperar um registro EDI na empresa. Pode ser usado em vez de registerID, principalmente em casos de registro não realizados por /edi/registers.</td>
+        <td> </td>
       </tr>
     </tbody>
   </table>
