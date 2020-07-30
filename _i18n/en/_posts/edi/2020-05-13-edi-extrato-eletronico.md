@@ -394,6 +394,31 @@ Group of sales, adjustments, or service charges. It enables the identification o
 |100|103|4|Alphanum.|Bank | Code of the bank of the merchant bank account.|
 |104|108|5|Alphanum.|Agency | Code of the agency of the merchant bank account.|
 |109|122|14|Alphanum.| Merchant bank account |Code of the account of the merchant bank account.|
+|123|124|2|Num.| Payment status| It identifies the status of the credit sent to the merchant bank account on the date the file was generated - see Table III. In recovery, the status is updated according to the submission and the return of payment confirmation by the bank. |
+|125|130|6|Num.|Number of sales accepted |Number of sales accepted in the sales summary.|
+|131|132|2|Num.| Product Identifier (Disregard) |Starting on March 01, 2014, product identifiers are sent in positions 233-235 with three characters. |
+|133|138|6|Num.|Number of sales declined | Number of sales declined in the sales summary.|
+|139|139|1|Alpha| Resale/acceleration identifier|It identifies the maintenance actions conducted for installment transactions made by merchant: <br>`R` - Resale  <br>`A` - Acceleration  <br> `""` - Blank (no occurrence).|
+|140|145|6|Num.|Date on which the transaction was captured|YYMMDD - Date on which the transaction was captured in financial schedule. During recovery, it can be updated after the transaction or adjustment is processed.|
+|146|147|2|Alphanum.| Origin of adjustment|It identifies the type of adjustment - Table V. Completed for the following transactions: <br>  02 Credit adjustment <br> 03 Debit adjustment <br> 04 Cielo Plan|
+|148|160|13|Num.|Amount withdrawn when product is 36 or amount of Agro Electron for transactions of products 22 23 or 25 presented in Table IV.|
+|161|161|1|Alpha|Financial product identifier| Prepayment identifier of the sales summary: `" "` Prepayment didn't happen; `"A"` Prepayment with Cielo or Alelo; `"C"`Assignment of Receivables with merchant bank.|
+|162|170|9|Num.|Number of the financial operation|It identifies the number of the financial operation presented in record type 5 from field 12 to 20, associated with the prepayment sales summary/assigned at Cielo/Alelo or at the bank. It will contain zeros if the sales summary has not happen a prepayment.|
+|171|171|1|Alpha|Sign for the prepayment gross amount| `+` identifies a credit amount. `-` - identifies a debit amount.|
+|172|184|13|Num.|Prepayment gross amount `(*)`|Prepayment gross amount, provided when happens a prepayment operation. It will contain zero when happen a prepayment operation.|
+|185|187|3|Num.|Card brand code | Card Brand Code - see Table VI.|
+|188|209|22|Num.|Exclusive number of the sales summary|Exclusive identification number of the sales summary, formatted as follows: <br> First part (fixed) - 15 fixed digits: it identifies the summary, maintaining its history at Cielo; <br> Second part (variable) - 07 variable digits: It identifies the changes made in the sales summary|
+|210|213|4|Num.|Administration fee `(*)`|  Percentage of administration fee applied to the amount of the transaction.|
+|214|218|5|Num.| Fee `(*)`| Fee charged per transaction.|
+|219|222|4|Num.|Guarantee fee`(*)`|  Percentage of discount applied to Electron post-dated transactions.|
+|223|224|2|Num.|Capture method|See Table VII. If the sale is reprocessed for any reason, the system will send out capture method 06: Manual Capture Method; in this case, disregard the amount provided in the logical number of the terminal.|
+|225|232|8|Alphanum.|Logical number of the terminal|Logical number of the terminal in which the sale was made. If the capture number is 06, disregard the logical number of the terminal, since it will be a number used internally by Cielo. |
+|233|235|3|Num.|Product code | Code that identifies the product - see Table IV.|
+|236|245|10|Num.|  Payment matrix |Establishing payment matrix.|
+|246|246|1|Alpha| Resend of payment|`S` - Identifies that this summary is being forwarded in the statement. Disregard payment previously submitted. `N` - Does not refer to resend of payment.|
+|247|247|1|Alpha| Concept applied|Identifies the concept applied in the summary presented: <br>`" "` - Old <br> `"N"` - New|
+|248|249|2|Alphanum.| Group of cards|"" - Whites. Service not assigned <br> 01 - Card issued in Brazil <br> 02 - Card issued abroad <br> 03 - MDR by card type - Initial <br> 04 - MDR by card type - Intermediary <br> 05 - MDR by card type - Higher <br>|
+|250|250|1|Alphanum.| Cielo use | Unwritten. Reserved for Cielo.|
 
 (*) Only 2 decimal places should be considered, with no commas, periods, or any other characters.
 
