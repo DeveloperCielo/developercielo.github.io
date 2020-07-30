@@ -369,4 +369,32 @@ It identifies the header of each file, by chain of electronic statement*.
 
 ### Record 1 - Sales Summary
 
+Group of sales, adjustments, or service charges. It enables the identification of the origin of the entries and the possible maintenance actions.
+
+|Start|End|Size|Type|Description|Data Editing|
+|---|---|---|---|---|---|
+|001|001|1|Num.|Record type |Constant 1 - It identifies the type of sales summary record.|
+|002|011|10|Num.| Submitting merchant |Number of the merchant or branch where the sale was made.|
+|012|018|7|Num.| Sales summary number |Number of the sales summary. It contains information that refers to a group of sales on a given date.|
+|019|020|2|Num.|Installment| For installment transactions, it will be formatted with the number of the installment being cleared on the date the file is sent out. For a non installment transaction, it will be left blank.|
+|021|021|1|Alpha|Filler|`"/"` - for installment transactions.  <br> `"a"` - acceleration of installments. <br> `" "` - all other cases.|
+|022|023|2|Alphanum.|Plan|For installment transactions, it will be formatted with the largest number of installments found for that group of sales. If the sales summary contains sales in 3, 4, or 6 installments, it will contain 6. In the case of acceleration of installments, it will be formatted with the largest accelerated installment. Example: (positions 019 to 023) <br> **02A02** it shows acceleration from installment 02 to 02; that is, only one installment. <br> **03A08** it shows acceleration from installment 03 to 08 in the sales plan; that is, 6 installments were accelerated. <br> For a non installment transaction, it will be left blank.|
+|024|025|2|Num.|Transaction type | This code identifies the transaction - see Table II.|
+|026|031|6|Num.|Date of submission |YYMMDD Date on which the Sale was transmitted to Cielo|
+|032|037|6|Num.| Scheduled payment date|YYMMDD Scheduled payment date. During recovery, it can be updated after the transaction or adjustment is processed.|
+|038|043|6|Num.|Date on which it is sent out to the merchant bank account.|YYMMDD Date on which the payment file was sent out to the bank. During recovery, it can be updated after the transaction or adjustment is processed.|
+|044|044|1|Alpha| Sign for the gross amount.|`+` - identifies a credit amount. <br> `-` - identifies a debit amount.|
+|045|057|13|Num.|Gross amount `(*)`| Summation of the sales amounts for Merchant/Sales Summary.|
+|058|058|1|Alpha| Sign of the administrative fee|`+` - identifies a credit amount. <br> `-` - identifies a debit amount.|
+|059|071|13|Num.| Amount of the administrative fee `(*)`|Amount of the administrative fee deducted on sales.|
+|072|072|1|Alpha| Sign for the amount declined| `+` identifies a credit amount.<br> `-` - identifies a debit amount.|
+|073|085|13|Num.|Amount declined `(*)`|In the case of declines, it will contain the summation of the transactions declined.|
+|086|086|1|Alpha|Sign for the net amount| `+` identifies a credit amount. <br> `-` - identifies a debit amount.|
+|087|099|13|Num.|Net amount`(*)`|  Amount of sales, less the amount for administration fee.|
+|100|103|4|Alphanum.|Bank | Code of the bank of the merchant bank account.|
+|104|108|5|Alphanum.|Agency | Code of the agency of the merchant bank account.|
+|109|122|14|Alphanum.| Merchant bank account |Code of the account of the merchant bank account.|
+
+(*) Only 2 decimal places should be considered, with no commas, periods, or any other characters.
+
 ### Record 2 - Detailed Sales
