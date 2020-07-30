@@ -465,5 +465,21 @@ It displays the prepayment conducted at Cielo / Alelo or assignment of receivabl
 |058|070|13|Num.|Gross amount of Post-Dated Electron transactions|Gross amount of the Post-Dated Electron transactions schedule. The gross amount corresponds to the sum of the original net amounts of the sales summary in this schedule.|
 |071|071|1|Alpha|Sign for the gross amount of the prepayment| `"+"` - identifies a credit amount. <br>`"-"` -  identifies a debit amount.|
 |072|084|13|Num.| Gross amount of the prepayment| Gross amount of the credit transactions schedules, installment, and PostDated Electron transactions. The gross amount corresponds to the sum of the original net amounts of the sales summary.|
+|085|085|1|Alpha|Sign for the net amount of the credit transactions| `"+"` - identifies a credit amount. <br>`"-"` -  identifies a debit amount.|
+|086|098|13|Num.| Net amount of the of credit transactions | Net amount of the sight transactions schedule.|
+|099|099|1|Alpha|Sign for the net amount of installment transactions| `"+"` - identifies a credit amount. <br>`"-"` -  identifies a debit amount.|
+|100|112|13|Num.| Net amount of installment transactions| Net amount of the installment transactions.|
+|113|113|1|Alpha|Sign for the net amount of Post-Dated transactions|`"+"` - identifies a credit amount. <br>`"-"` -  identifies a debit amount.|
+|114|126|13|Num.| Net amount of Post-Dated transactions| Net amount of the Post-Dated Electron transactions schedule.|
+|127|127|1|Alpha|Sign for the net amount of the prepayment| `"+"` - identifies a credit amount. <br>`"-"` -  identifies a debit amount.|
+|128|140|13|Num.|Net amount of the prepayment| Net amount of the credit, installment, and Post-Dated Electron transactions schedule.|
+|141|145|5|Num.| Discount rate of the prepayment `(*)`|  Prepayment commercial discount.|
+|146|149|4|Alphanum.| Code of the merchant bank account|  Merchant bank account.|
+|150|154|5|Alphanum.|Code of the preferred branch | Branch in which the amounts are settled. |
+|155|168|14|Alphanum.| Code of the preferred account |Account in which the amounts are settled.|
+|169|169|1|Alpha|Sign for the net amount of the total prepayment|`"+"` - identifies a credit amount. <br>`"-"` -  identifies a debit amount.|
+|170|182|13|Num.| Net amount of the total prepayment |  Net amount of the total prepayment referring to the amounts.|
+|183|191|9|Num.|Fee|Fee charged per operation. If there is no charge for the field will be filled in blank|
+|192|250|59|Alphanum.|Cielo Use | Unwritten. Reserved for Cielo.|
 
 (*) Only 3 decimal places should be considered, with no commas, periods, or any other characters.
