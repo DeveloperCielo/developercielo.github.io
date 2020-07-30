@@ -1805,7 +1805,194 @@ Pursuant to the security rules, all records containing a card number will show i
 
 <h3 id="record-6---assignment-sales-summary">Record 6 - Assignment Sales Summary</h3>
 
-<p>It displays the sales summary of prepayment or assigned of receivables</p>
+<p>It displays the sales summary of prepayment or assigned of receivables.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Start</th>
+      <th>End</th>
+      <th>Size</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Data Editing</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Record type</td>
+      <td>Constant 6 It identifies the type of record that displays the information on an sales summary that happened a prepayment/assigned.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>011</td>
+      <td>10</td>
+      <td>Num.</td>
+      <td>Submitting merchant</td>
+      <td>Number of the merchant and/or branch where the sale was made.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>020</td>
+      <td>9</td>
+      <td>Num.</td>
+      <td>Number of the operation</td>
+      <td>Number of the operation.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>021</td>
+      <td>028</td>
+      <td>8</td>
+      <td>Num.</td>
+      <td>Due date of the sales summary</td>
+      <td>YYYYMMDD Original due date of the sales summary.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>029</td>
+      <td>035</td>
+      <td>7</td>
+      <td>Num.</td>
+      <td>Number of the sales summary</td>
+      <td>Number of the sales summary.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>036</td>
+      <td>037</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Prepayment/assigned installment</td>
+      <td>Number of the installment for the sales summary of installment transactions; for sales summary of at sight transactions, it will contain zeroes.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>038</td>
+      <td>039</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Total number of installments</td>
+      <td>Number of installments in the sales summary. For sales summary of at credit sales, it will contain zeroes.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>040</td>
+      <td>040</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the original gross amount of the sales summary</td>
+      <td><code class="highlighter-rouge">"+"</code> - identifies a credit amount. <code class="highlighter-rouge">"-"</code> - identifies a debit amount.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>041</td>
+      <td>053</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Original gross amount of the sales summary <code class="highlighter-rouge">(*)</code></td>
+      <td>Original gross amount of the sales summary.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>054</td>
+      <td>054</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the original net amount of the sales summary</td>
+      <td><code class="highlighter-rouge">"+"</code> - identifies a credit amount. <code class="highlighter-rouge">"-"</code> - identifies a debit amount.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>055</td>
+      <td>067</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Original net amount of the sales summary  <code class="highlighter-rouge">(*)</code></td>
+      <td>Original net amount of the sales summary.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>068</td>
+      <td>068</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Sign for the gross amount of the prepayment/assigned of the sales summary</td>
+      <td><code class="highlighter-rouge">"+"</code> - identifies a credit amount. <code class="highlighter-rouge">"-"</code> - identifies a debit amount.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>069</td>
+      <td>081</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Gross amount of the assigned of the sales summary<code class="highlighter-rouge">(*)</code></td>
+      <td>Original net amount of the sales summary, except for eventual debits.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>082</td>
+      <td>082</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the prepayment net amount of the sales summary</td>
+      <td><code class="highlighter-rouge">"+"</code> - identifies a credit amount. <code class="highlighter-rouge">"-"</code> - identifies a debit amount.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>083</td>
+      <td>095</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Prepayment net amount of the sales summary <code class="highlighter-rouge">(*)</code></td>
+      <td>Net amount effectively paid to the merchant, less the prepayment discount rate.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>096</td>
+      <td>098</td>
+      <td>3</td>
+      <td>Num.</td>
+      <td>Card brand code</td>
+      <td>Card brand code - table VI.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>099</td>
+      <td>120</td>
+      <td>22</td>
+      <td>Num.</td>
+      <td>Exclusive number of the sales summary</td>
+      <td>Exclusive identification number of the sales summary, formatted as follows: <br />First part (fixed) - 15 fixed digits: it identifies the summary, maintaining its history at Cielo; <br /> Second part (variable) - 07 variable digits: Cielo Use. It identifies the changes made in the sales summary.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>121</td>
+      <td>121</td>
+      <td>1</td>
+      <td>Alphanum.</td>
+      <td>Prepayment adjustment sales summary identifier</td>
+      <td>“S” - Consider prepayment adjustment. <br /> Field filled only when adjustment sales summary are effectively anticipated. (only new concept).</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>122</td>
+      <td>250</td>
+      <td>130</td>
+      <td>Alphanum.</td>
+      <td>Cielo use</td>
+      <td>Unwritten. Reserved for Cielo.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <ul>
   <li><strong>(*)</strong> Only 2 decimal places should be considered, with no commas, periods, or any other characters.</li>
