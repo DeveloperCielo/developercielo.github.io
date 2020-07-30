@@ -1562,6 +1562,117 @@ Pursuant to the security rules, all records containing a card number will show i
 
 <p>It displays the prepayment conducted at Cielo / Alelo or assignment of receivables (only for the Bradesco) on the day that precedes the generation of the file.</p>
 
+<table>
+  <thead>
+    <tr>
+      <th>Start</th>
+      <th>End</th>
+      <th>Size</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Data Editing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Record type</td>
+      <td>Constant “5” It identifies the type of record that displays information on a prepayment operation.</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>011</td>
+      <td>10</td>
+      <td>Num.</td>
+      <td>Establishment of payment or submission</td>
+      <td>Number of the merchant or branch where the sale was made.</td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>020</td>
+      <td>9</td>
+      <td>Num.</td>
+      <td>Number of the financial operation</td>
+      <td>Number of the financial operation, also displayed in record type 1, on the date the sales summary is settled.</td>
+    </tr>
+    <tr>
+      <td>021</td>
+      <td>028</td>
+      <td>8</td>
+      <td>Num.</td>
+      <td>Date of credit of the operation</td>
+      <td>YYYYMMDD Payment date of the operation.</td>
+    </tr>
+    <tr>
+      <td>029</td>
+      <td>029</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the gross amount of credit transactions</td>
+      <td><code class="highlighter-rouge">"+"</code> - identifies a credit amount.  <br /> <code class="highlighter-rouge">"-"</code> - identifies a debit amount.</td>
+    </tr>
+    <tr>
+      <td>030</td>
+      <td>042</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Gross amount</td>
+      <td>Gross amount of the credit transactions schedule. The gross amount corresponds to the sum of the original net amounts of the sales summary in this schedule.</td>
+    </tr>
+    <tr>
+      <td>043</td>
+      <td>043</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the gross amount of installment transactions.</td>
+      <td><code class="highlighter-rouge">"+"</code> - identifies a credit amount.  <br /> <code class="highlighter-rouge">"-"</code> - identifies a debit amount.</td>
+    </tr>
+    <tr>
+      <td>044</td>
+      <td>056</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Gross amount of installment transactions</td>
+      <td>Gross amount of the installment transactions schedule. The amount corresponds to the sum of the original net amounts of the sales summary in this schedule.</td>
+    </tr>
+    <tr>
+      <td>057</td>
+      <td>057</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the gross amount of Post Dated Electron Transactions</td>
+      <td><code class="highlighter-rouge">"+"</code> - identifies a credit amount. <br /><code class="highlighter-rouge">"-"</code> -  identifies a debit amount.</td>
+    </tr>
+    <tr>
+      <td>058</td>
+      <td>070</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Gross amount of Post-Dated Electron transactions</td>
+      <td>Gross amount of the Post-Dated Electron transactions schedule. The gross amount corresponds to the sum of the original net amounts of the sales summary in this schedule.</td>
+    </tr>
+    <tr>
+      <td>071</td>
+      <td>071</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the gross amount of the prepayment</td>
+      <td><code class="highlighter-rouge">"+"</code> - identifies a credit amount. <br /><code class="highlighter-rouge">"-"</code> -  identifies a debit amount.</td>
+    </tr>
+    <tr>
+      <td>072</td>
+      <td>084</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Gross amount of the prepayment</td>
+      <td>Gross amount of the credit transactions schedules, installment, and PostDated Electron transactions. The gross amount corresponds to the sum of the original net amounts of the sales summary.</td>
+    </tr>
+  </tbody>
+</table>
+
 <p>(*) Only 3 decimal places should be considered, with no commas, periods, or any other characters.</p>
 
 </div>
