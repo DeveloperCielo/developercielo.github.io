@@ -401,7 +401,7 @@ Group of sales, adjustments, or service charges. It enables the identification o
 |139|139|1|Alpha| Resale/acceleration identifier|It identifies the maintenance actions conducted for installment transactions made by merchant: <br>`R` - Resale  <br>`A` - Acceleration  <br> `""` - Blank (no occurrence).|
 |140|145|6|Num.|Date on which the transaction was captured|YYMMDD - Date on which the transaction was captured in financial schedule. During recovery, it can be updated after the transaction or adjustment is processed.|
 |146|147|2|Alphanum.| Origin of adjustment|It identifies the type of adjustment - Table V. Completed for the following transactions: <br>  02 Credit adjustment <br> 03 Debit adjustment <br> 04 Cielo Plan|
-|148|160|13|Num.|Amount withdrawn when product is 36 or amount of Agro Electron for transactions of products 22 23 or 25 presented in Table IV.|
+|148|160|13|Num.|Complementary amount|Amount withdrawn when product is 36 or amount of Agro Electron for transactions of products 22 23 or 25 presented in Table IV.|
 |161|161|1|Alpha|Financial product identifier| Prepayment identifier of the sales summary: `" "` Prepayment didn't happen; `"A"` Prepayment with Cielo or Alelo; `"C"`Assignment of Receivables with merchant bank.|
 |162|170|9|Num.|Number of the financial operation|It identifies the number of the financial operation presented in record type 5 from field 12 to 20, associated with the prepayment sales summary/assigned at Cielo/Alelo or at the bank. It will contain zeros if the sales summary has not happen a prepayment.|
 |171|171|1|Alpha|Sign for the prepayment gross amount| `+` identifies a credit amount. `-` - identifies a debit amount.|
@@ -420,6 +420,30 @@ Group of sales, adjustments, or service charges. It enables the identification o
 |248|249|2|Alphanum.| Group of cards|"" - Whites. Service not assigned <br> 01 - Card issued in Brazil <br> 02 - Card issued abroad <br> 03 - MDR by card type - Initial <br> 04 - MDR by card type - Intermediary <br> 05 - MDR by card type - Higher <br>|
 |250|250|1|Alphanum.| Cielo use | Unwritten. Reserved for Cielo.|
 
-(*) Only 2 decimal places should be considered, with no commas, periods, or any other characters.
+* **(*)** Only 2 decimal places should be considered, with no commas, periods, or any other characters.
 
 ### Record 2 - Detailed Sales
+
+Sales or adjustments of sale summary available in the sales or payment file. 
+Pursuant to the security rules, all records containing a card number will show it truncated.
+
+
+|093|098|6|Alphanum.|NSU/DOC| Sequential number, also known as DOC (document number), generated at the PDV or POS, which identifies the transaction on the day it was made. This number is not unique and can be repeated. If the sale has been reprocessed, the NSU can be changed.|
+|099|111|13|Num.|Complementary amount `(*)`| Amount withdrawn using the Debit or Agro Electron card, according to the product indicator of the sales summary. |
+|112|113|2|Num.|Dig - Card |Number of digits on the card.|
+|114|126|13|Num.|Total amount of sale | The total amount of the installment transaction.|
+|127|139|13|Num.| Amount of next installment | The amount of the next installments.|
+|140|148|9|Alphanum.| Invoice Number|Invoice number for merchants that capture this information in the POS. If not available, it will be left blank.|
+|149|150|2|Alphanum.|Card type | Card type code see table XI.|
+|151|152|2|Alphanum.|Group of cards | Group of cards code see table X.|
+|153|160|8|Alphanum.| Logical number of the terminal| Logical number of the terminal in which the sale was made. When the capture method is 06, disregard this information.|
+|161|162|2|Alpha.| Boarding fee or entrance fee indicator| Identification of the transaction referring to the boarding fee or entrance fee:<br> TX - Boarding fee;<br> VE - Entrance fee; <br> Blanks for all other types of transactions.|
+|163|182|20|Alphanum.|Order reference/code|Reference or code of the order provided in a electronic commerce transaction.<br> If not available, it will be left blank|
+|183|188|6|Num.|Transaction time|Time of the transaction, presented in HHMMSS format.<br> This information will only be generated in the sales records of the sale file with the original detailed sales. <br> For all other cases, this field will contain zeroes|
+|189|217|29|Num.|Exclusive transaction number|Exclusive number that identifies each transaction.|
+|218|218|1|Alpha.|Cielo Promo Indicator|Identifier for the Cielo Promo Product = "S" . It indicates that the sale is part of a campaign in the Promotions Platform. Otherwise, it will be left blank|
+|219|220|2|Num.|Entry mode|Card entry mode. See table IX. |
+|221|235|15|Alphanum.|Sale code|Identifies the sale code. (only new concept).|
+|236|250|15|Alphanum.|Internal Adjustment Code|Identifies the grouping code of the settings. (only new concept).|
+
+* **(*)** Only 2 decimal places should be considered, with no commas, periods, or any other characters.
