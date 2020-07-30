@@ -1019,6 +1019,193 @@
 
 <h3 id="record-1---sales-summary">Record 1 - Sales Summary</h3>
 
+<p>Group of sales, adjustments, or service charges. It enables the identification of the origin of the entries and the possible maintenance actions.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Start</th>
+      <th>End</th>
+      <th>Size</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Data Editing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Record type</td>
+      <td>Constant 1 - It identifies the type of sales summary record.</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>011</td>
+      <td>10</td>
+      <td>Num.</td>
+      <td>Submitting merchant</td>
+      <td>Number of the merchant or branch where the sale was made.</td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>018</td>
+      <td>7</td>
+      <td>Num.</td>
+      <td>Sales summary number</td>
+      <td>Number of the sales summary. It contains information that refers to a group of sales on a given date.</td>
+    </tr>
+    <tr>
+      <td>019</td>
+      <td>020</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Installment</td>
+      <td>For installment transactions, it will be formatted with the number of the installment being cleared on the date the file is sent out. For a non installment transaction, it will be left blank.</td>
+    </tr>
+    <tr>
+      <td>021</td>
+      <td>021</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Filler</td>
+      <td><code class="highlighter-rouge">"/"</code> - for installment transactions.  <br /> <code class="highlighter-rouge">"a"</code> - acceleration of installments. <br /> <code class="highlighter-rouge">" "</code> - all other cases.</td>
+    </tr>
+    <tr>
+      <td>022</td>
+      <td>023</td>
+      <td>2</td>
+      <td>Alphanum.</td>
+      <td>Plan</td>
+      <td>For installment transactions, it will be formatted with the largest number of installments found for that group of sales. If the sales summary contains sales in 3, 4, or 6 installments, it will contain 6. In the case of acceleration of installments, it will be formatted with the largest accelerated installment. Example: (positions 019 to 023) <br /> <strong>02A02</strong> it shows acceleration from installment 02 to 02; that is, only one installment. <br /> <strong>03A08</strong> it shows acceleration from installment 03 to 08 in the sales plan; that is, 6 installments were accelerated. <br /> For a non installment transaction, it will be left blank.</td>
+    </tr>
+    <tr>
+      <td>024</td>
+      <td>025</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Transaction type</td>
+      <td>This code identifies the transaction - see Table II.</td>
+    </tr>
+    <tr>
+      <td>026</td>
+      <td>031</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Date of submission</td>
+      <td>YYMMDD Date on which the Sale was transmitted to Cielo</td>
+    </tr>
+    <tr>
+      <td>032</td>
+      <td>037</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Scheduled payment date</td>
+      <td>YYMMDD Scheduled payment date. During recovery, it can be updated after the transaction or adjustment is processed.</td>
+    </tr>
+    <tr>
+      <td>038</td>
+      <td>043</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Date on which it is sent out to the merchant bank account.</td>
+      <td>YYMMDD Date on which the payment file was sent out to the bank. During recovery, it can be updated after the transaction or adjustment is processed.</td>
+    </tr>
+    <tr>
+      <td>044</td>
+      <td>044</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the gross amount.</td>
+      <td><code class="highlighter-rouge">+</code> - identifies a credit amount. <br /> <code class="highlighter-rouge">-</code> - identifies a debit amount.</td>
+    </tr>
+    <tr>
+      <td>045</td>
+      <td>057</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Gross amount <code class="highlighter-rouge">(*)</code></td>
+      <td>Summation of the sales amounts for Merchant/Sales Summary.</td>
+    </tr>
+    <tr>
+      <td>058</td>
+      <td>058</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign of the administrative fee</td>
+      <td><code class="highlighter-rouge">+</code> - identifies a credit amount. <br /> <code class="highlighter-rouge">-</code> - identifies a debit amount.</td>
+    </tr>
+    <tr>
+      <td>059</td>
+      <td>071</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Amount of the administrative fee <code class="highlighter-rouge">(*)</code></td>
+      <td>Amount of the administrative fee deducted on sales.</td>
+    </tr>
+    <tr>
+      <td>072</td>
+      <td>072</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the amount declined</td>
+      <td><code class="highlighter-rouge">+</code> identifies a credit amount.<br /> <code class="highlighter-rouge">-</code> - identifies a debit amount.</td>
+    </tr>
+    <tr>
+      <td>073</td>
+      <td>085</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Amount declined <code class="highlighter-rouge">(*)</code></td>
+      <td>In the case of declines, it will contain the summation of the transactions declined.</td>
+    </tr>
+    <tr>
+      <td>086</td>
+      <td>086</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the net amount</td>
+      <td><code class="highlighter-rouge">+</code> identifies a credit amount. <br /> <code class="highlighter-rouge">-</code> - identifies a debit amount.</td>
+    </tr>
+    <tr>
+      <td>087</td>
+      <td>099</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Net amount<code class="highlighter-rouge">(*)</code></td>
+      <td>Amount of sales, less the amount for administration fee.</td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>103</td>
+      <td>4</td>
+      <td>Alphanum.</td>
+      <td>Bank</td>
+      <td>Code of the bank of the merchant bank account.</td>
+    </tr>
+    <tr>
+      <td>104</td>
+      <td>108</td>
+      <td>5</td>
+      <td>Alphanum.</td>
+      <td>Agency</td>
+      <td>Code of the agency of the merchant bank account.</td>
+    </tr>
+    <tr>
+      <td>109</td>
+      <td>122</td>
+      <td>14</td>
+      <td>Alphanum.</td>
+      <td>Merchant bank account</td>
+      <td>Code of the account of the merchant bank account.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>(*) Only 2 decimal places should be considered, with no commas, periods, or any other characters.</p>
+
 <h3 id="record-2---detailed-sales">Record 2 - Detailed Sales</h3>
 
 </div>
