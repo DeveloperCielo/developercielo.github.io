@@ -483,3 +483,9 @@ It displays the prepayment conducted at Cielo / Alelo or assignment of receivabl
 |192|250|59|Alphanum.|Cielo Use | Unwritten. Reserved for Cielo.|
 
 (*) Only 3 decimal places should be considered, with no commas, periods, or any other characters.
+
+### Record 6 - Assignment Sales Summary
+
+It displays the sales summary of prepayment or assigned of receivables
+
+* **(*)** Only 2 decimal places should be considered, with no commas, periods, or any other characters.
