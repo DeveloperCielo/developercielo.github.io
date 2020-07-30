@@ -451,6 +451,4 @@ Pursuant to the security rules, all records containing a card number will show i
 
 It displays the prepayment conducted at Cielo / Alelo or assignment of receivables (only for the Bradesco) on the day that precedes the generation of the file.
 
-
-
 (*) Only 3 decimal places should be considered, with no commas, periods, or any other characters.
