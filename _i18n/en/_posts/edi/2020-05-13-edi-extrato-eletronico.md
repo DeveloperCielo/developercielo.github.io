@@ -367,7 +367,7 @@ It identifies the header of each file, by chain of electronic statement*.
 
 * **(*)** register that allows the inclusion of all establishments controlled by the customer, regardless of the type of payment (centralized, decentralized, individual). All establishment numbers must be reported in the registration form.
 
-#### Record 1 - Sales Summary
+### Record 1 - Sales Summary
 
 Group of sales, adjustments, or service charges. It enables the identification of the origin of the entries and the possible maintenance actions.
 
@@ -422,7 +422,7 @@ Group of sales, adjustments, or service charges. It enables the identification o
 
 * **(*)** Only 2 decimal places should be considered, with no commas, periods, or any other characters.
 
-#### Record 2 - Detailed Sales
+### Record 2 - Detailed Sales
 
 Sales or adjustments of sale summary available in the sales or payment file. 
 Pursuant to the security rules, all records containing a card number will show it truncated.
@@ -447,7 +447,7 @@ Pursuant to the security rules, all records containing a card number will show i
 
 * **(*)** Only 2 decimal places should be considered, with no commas, periods, or any other characters.
 
-#### Record 5 - Prepayment Operation
+### Record 5 - Prepayment Operation
 
 It displays the prepayment conducted at Cielo / Alelo or assignment of receivables (only for the Bradesco) on the day that precedes the generation of the file.
 
@@ -484,7 +484,7 @@ It displays the prepayment conducted at Cielo / Alelo or assignment of receivabl
 
 (*) Only 3 decimal places should be considered, with no commas, periods, or any other characters.
 
-#### Record 6 - Assignment Sales Summary
+### Record 6 - Assignment Sales Summary
 
 It displays the sales summary of prepayment or assigned of receivables.
 
@@ -512,7 +512,7 @@ It displays the sales summary of prepayment or assigned of receivables.
 
 * **(*)** Only 2 decimal places should be considered, with no commas, periods, or any other characters.
 
-#### Record 7 - Withheld Prepayment by Debits - Sales Summary
+### Record 7 - Withheld Prepayment by Debits - Sales Summary
 
 It displays the withheld prepayment by debits.
 
@@ -534,3 +534,20 @@ It displays the withheld prepayment by debits.
 |128|128|1|Alpha|Sign for the balance of the prepayment sales summary| `"+"` - identifies a credit amount.`"-"` - identifies a debit amount.|
 |129|141|13|Num.|Amount of the balance of the prepayment sales summary| Result of the total debit amount withheld|
 |142|250|109|Alphanum.|  Cielo use | Unwritten. Reserved for Cielo|
+
+### Record 9 - Trailer
+
+It indicates the end of the file.
+
+|Start|End|Size|Type|Description|Data Editing|
+|---|---|---|---|---|---|
+|001|001|1|Num.|Record type | Constant "9" It identifies the type of trailer record (end of file). |
+|002|012|11|Num.|Total number of records |Total number of records that do not include header and trailer.|
+|013|013|1|Alpha|Sign for amount of the sum of detailed sales| `"+"` - identifies a credit amount. `"-"` - identifies a debit amount.|
+|014|030|17|Num.|Amount of the sum of detailed sales| Amount of the sum of detailed sales|
+|031|041|11|Num.|Total amount of detailed sales| Total amount of detailed sales|
+|042|250|209|Alphanum.|Cielo use | Unwritten. Reserved for Cielo|
+
+Note: The fields reserved for Cielo may be used to include new information. It may also be necessary to include new types of records. Therefore, we suggest that the reconciliation solution should disregard the records that are not listed in this specification.
+
+## Tables
