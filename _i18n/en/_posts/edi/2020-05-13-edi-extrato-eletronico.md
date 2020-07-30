@@ -427,7 +427,6 @@ Group of sales, adjustments, or service charges. It enables the identification o
 Sales or adjustments of sale summary available in the sales or payment file. 
 Pursuant to the security rules, all records containing a card number will show it truncated.
 
-
 |093|098|6|Alphanum.|NSU/DOC| Sequential number, also known as DOC (document number), generated at the PDV or POS, which identifies the transaction on the day it was made. This number is not unique and can be repeated. If the sale has been reprocessed, the NSU can be changed.|
 |099|111|13|Num.|Complementary amount `(*)`| Amount withdrawn using the Debit or Agro Electron card, according to the product indicator of the sales summary. |
 |112|113|2|Num.|Dig - Card |Number of digits on the card.|
@@ -447,3 +446,11 @@ Pursuant to the security rules, all records containing a card number will show i
 |236|250|15|Alphanum.|Internal Adjustment Code|Identifies the grouping code of the settings. (only new concept).|
 
 * **(*)** Only 2 decimal places should be considered, with no commas, periods, or any other characters.
+
+### Record 5 - Prepayment Operation
+
+It displays the prepayment conducted at Cielo / Alelo or assignment of receivables (only for the Bradesco) on the day that precedes the generation of the file.
+
+
+
+(*) Only 3 decimal places should be considered, with no commas, periods, or any other characters.
