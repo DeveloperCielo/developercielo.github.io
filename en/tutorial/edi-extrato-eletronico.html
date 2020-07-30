@@ -1017,7 +1017,7 @@
   <li><strong>(*)</strong> register that allows the inclusion of all establishments controlled by the customer, regardless of the type of payment (centralized, decentralized, individual). All establishment numbers must be reported in the registration form.</li>
 </ul>
 
-<h4 id="record-1---sales-summary">Record 1 - Sales Summary</h4>
+<h3 id="record-1---sales-summary">Record 1 - Sales Summary</h3>
 
 <p>Group of sales, adjustments, or service charges. It enables the identification of the origin of the entries and the possible maintenance actions.</p>
 
@@ -1408,7 +1408,7 @@
   <li><strong>(*)</strong> Only 2 decimal places should be considered, with no commas, periods, or any other characters.</li>
 </ul>
 
-<h4 id="record-2---detailed-sales">Record 2 - Detailed Sales</h4>
+<h3 id="record-2---detailed-sales">Record 2 - Detailed Sales</h3>
 
 <p>Sales or adjustments of sale summary available in the sales or payment file. 
 Pursuant to the security rules, all records containing a card number will show it truncated.</p>
@@ -1558,7 +1558,7 @@ Pursuant to the security rules, all records containing a card number will show i
   <li><strong>(*)</strong> Only 2 decimal places should be considered, with no commas, periods, or any other characters.</li>
 </ul>
 
-<h4 id="record-5---prepayment-operation">Record 5 - Prepayment Operation</h4>
+<h3 id="record-5---prepayment-operation">Record 5 - Prepayment Operation</h3>
 
 <p>It displays the prepayment conducted at Cielo / Alelo or assignment of receivables (only for the Bradesco) on the day that precedes the generation of the file.</p>
 
@@ -1803,7 +1803,7 @@ Pursuant to the security rules, all records containing a card number will show i
 
 <p>(*) Only 3 decimal places should be considered, with no commas, periods, or any other characters.</p>
 
-<h4 id="record-6---assignment-sales-summary">Record 6 - Assignment Sales Summary</h4>
+<h3 id="record-6---assignment-sales-summary">Record 6 - Assignment Sales Summary</h3>
 
 <p>It displays the sales summary of prepayment or assigned of receivables.</p>
 
@@ -1998,7 +1998,7 @@ Pursuant to the security rules, all records containing a card number will show i
   <li><strong>(*)</strong> Only 2 decimal places should be considered, with no commas, periods, or any other characters.</li>
 </ul>
 
-<h4 id="record-7---withheld-prepayment-by-debits---sales-summary">Record 7 - Withheld Prepayment by Debits - Sales Summary</h4>
+<h3 id="record-7---withheld-prepayment-by-debits---sales-summary">Record 7 - Withheld Prepayment by Debits - Sales Summary</h3>
 
 <p>It displays the withheld prepayment by debits.</p>
 
@@ -2263,6 +2263,77 @@ Pursuant to the security rules, all records containing a card number will show i
     </tr>
   </tbody>
 </table>
+
+<h3 id="record-9---trailer">Record 9 - Trailer</h3>
+
+<p>It indicates the end of the file.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Start</th>
+      <th>End</th>
+      <th>Size</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Data Editing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Record type</td>
+      <td>Constant “9” It identifies the type of trailer record (end of file).</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>012</td>
+      <td>11</td>
+      <td>Num.</td>
+      <td>Total number of records</td>
+      <td>Total number of records that do not include header and trailer.</td>
+    </tr>
+    <tr>
+      <td>013</td>
+      <td>013</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for amount of the sum of detailed sales</td>
+      <td><code class="highlighter-rouge">"+"</code> - identifies a credit amount. <code class="highlighter-rouge">"-"</code> - identifies a debit amount.</td>
+    </tr>
+    <tr>
+      <td>014</td>
+      <td>030</td>
+      <td>17</td>
+      <td>Num.</td>
+      <td>Amount of the sum of detailed sales</td>
+      <td>Amount of the sum of detailed sales</td>
+    </tr>
+    <tr>
+      <td>031</td>
+      <td>041</td>
+      <td>11</td>
+      <td>Num.</td>
+      <td>Total amount of detailed sales</td>
+      <td>Total amount of detailed sales</td>
+    </tr>
+    <tr>
+      <td>042</td>
+      <td>250</td>
+      <td>209</td>
+      <td>Alphanum.</td>
+      <td>Cielo use</td>
+      <td>Unwritten. Reserved for Cielo</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Note: The fields reserved for Cielo may be used to include new information. It may also be necessary to include new types of records. Therefore, we suggest that the reconciliation solution should disregard the records that are not listed in this specification.</p>
+
+<h2 id="tables">Tables</h2>
 
 </div>
 
