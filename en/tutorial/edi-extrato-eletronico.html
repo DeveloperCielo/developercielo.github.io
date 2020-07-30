@@ -2335,6 +2335,498 @@ Pursuant to the security rules, all records containing a card number will show i
 
 <h2 id="tables">Tables</h2>
 
+<h3 id="table-i---type-of-statement">Table I - Type Of Statement</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>03</td>
+      <td>Detailed Sales with Future Installments</td>
+    </tr>
+    <tr>
+      <td>04</td>
+      <td>Detailed Payments</td>
+    </tr>
+    <tr>
+      <td>06</td>
+      <td>Detailed Prepayment Cielo</td>
+    </tr>
+    <tr>
+      <td>07</td>
+      <td>Assignment of Receivables</td>
+    </tr>
+    <tr>
+      <td>09</td>
+      <td>Remaining Balance</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Detailed Prepayment Alelo</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="table-ii---transaction-type">Table II - Transaction Type</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>01</td>
+      <td>Sale</td>
+    </tr>
+    <tr>
+      <td>02</td>
+      <td>Credit Adjustment</td>
+    </tr>
+    <tr>
+      <td>03</td>
+      <td>Debit Adjustment</td>
+    </tr>
+    <tr>
+      <td>04</td>
+      <td>Cielo Plan</td>
+    </tr>
+    <tr>
+      <td>05</td>
+      <td>Rescheduling</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="table-iii---payment-status">Table III - Payment Status</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>00</td>
+      <td>**Scheduled: It identifies the capture of an entry and provides the date scheduled for payment of the entry. The date scheduled can be changed.</td>
+    </tr>
+    <tr>
+      <td>01</td>
+      <td><strong>Paid:</strong>  It identifies that payment has been made by the merchant bank on the date provided.</td>
+    </tr>
+    <tr>
+      <td>02</td>
+      <td><strong>Sent to the bank:</strong> It identifies that the payment order has been sent by Cielo to the merchant bank and that payment has not been confirmed.</td>
+    </tr>
+    <tr>
+      <td>03</td>
+      <td><strong>To be confirmed:</strong> It identifies that the payment order has been sent by Cielo to the merchant bank and that payment has not been confirmed.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>When a credit amount is being offset against a debit amount, both will be sent in the payment file, on the offsetting date subsequent to the scheduled payment date. The status to the may appear again in the payment statement, when the merchant bank returns a credit transfer (resend of payment).</p>
+
+<h3 id="table-iv---product-code">Table IV - Product Code</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>Agiplan credit</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>Agiplan installment transaction</td>
+    </tr>
+    <tr>
+      <td>003</td>
+      <td>Banescard credit</td>
+    </tr>
+    <tr>
+      <td>004</td>
+      <td>Banescard installment transaction</td>
+    </tr>
+    <tr>
+      <td>005</td>
+      <td>Esplanada credit</td>
+    </tr>
+    <tr>
+      <td>006</td>
+      <td>Credz credit</td>
+    </tr>
+    <tr>
+      <td>007</td>
+      <td>Esplanada installment transaction</td>
+    </tr>
+    <tr>
+      <td>008</td>
+      <td>Credz installment transaction</td>
+    </tr>
+    <tr>
+      <td>009</td>
+      <td>Elo “Crédiario”</td>
+    </tr>
+    <tr>
+      <td>010</td>
+      <td>Mastercard credit</td>
+    </tr>
+    <tr>
+      <td>011</td>
+      <td>Maestro “debit”</td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>Mastercard installment transaction</td>
+    </tr>
+    <tr>
+      <td>013</td>
+      <td>Elo Construcard</td>
+    </tr>
+    <tr>
+      <td>014</td>
+      <td>Elo Agro Debit</td>
+    </tr>
+    <tr>
+      <td>015</td>
+      <td>Elo Agro Costing</td>
+    </tr>
+    <tr>
+      <td>016</td>
+      <td>Elo Agro Investment</td>
+    </tr>
+    <tr>
+      <td>017</td>
+      <td>Elo Agro Costing with Debit</td>
+    </tr>
+    <tr>
+      <td>018</td>
+      <td>Elo Agro Investment with Debit</td>
+    </tr>
+    <tr>
+      <td>019</td>
+      <td>Discover credit</td>
+    </tr>
+    <tr>
+      <td>020</td>
+      <td>Diners credit</td>
+    </tr>
+    <tr>
+      <td>021</td>
+      <td>Diners installment transaction</td>
+    </tr>
+    <tr>
+      <td>022</td>
+      <td>Visa Agro Costing with Debit</td>
+    </tr>
+    <tr>
+      <td>023</td>
+      <td>Visa Agro Investment with Debit</td>
+    </tr>
+    <tr>
+      <td>024</td>
+      <td>FCO Investment</td>
+    </tr>
+    <tr>
+      <td>025</td>
+      <td>Agro Electron</td>
+    </tr>
+    <tr>
+      <td>026</td>
+      <td>Agro Costing</td>
+    </tr>
+    <tr>
+      <td>027</td>
+      <td>Agro Investment</td>
+    </tr>
+    <tr>
+      <td>028</td>
+      <td>Visa FCO Working Capital</td>
+    </tr>
+    <tr>
+      <td>029</td>
+      <td>Visa crediário in credit</td>
+    </tr>
+    <tr>
+      <td>030</td>
+      <td>Visa Installment “Cliente”</td>
+    </tr>
+    <tr>
+      <td>033</td>
+      <td>JCB credit</td>
+    </tr>
+    <tr>
+      <td>036</td>
+      <td>Withdrawal using VISA Debit card</td>
+    </tr>
+    <tr>
+      <td>037</td>
+      <td>Flex Car Visa Vale</td>
+    </tr>
+    <tr>
+      <td>038</td>
+      <td>Credsystem credit</td>
+    </tr>
+    <tr>
+      <td>039</td>
+      <td>Credsystem installment transaction</td>
+    </tr>
+    <tr>
+      <td>040</td>
+      <td>Visa credit</td>
+    </tr>
+    <tr>
+      <td>041</td>
+      <td>Visa Electron “Debit”</td>
+    </tr>
+    <tr>
+      <td>042</td>
+      <td>Visa Toll “Pedágio”</td>
+    </tr>
+    <tr>
+      <td>043</td>
+      <td>Visa installment transaction</td>
+    </tr>
+    <tr>
+      <td>044</td>
+      <td>Visa Electron Post-Dated</td>
+    </tr>
+    <tr>
+      <td>045</td>
+      <td>Alelo Meal</td>
+    </tr>
+    <tr>
+      <td>046</td>
+      <td>Alelo Food</td>
+    </tr>
+    <tr>
+      <td>058</td>
+      <td>Alelo Multibenefícios</td>
+    </tr>
+    <tr>
+      <td>059</td>
+      <td>Alelo Auto</td>
+    </tr>
+    <tr>
+      <td>060</td>
+      <td>Sorocred debit</td>
+    </tr>
+    <tr>
+      <td>061</td>
+      <td>Sorocred credit</td>
+    </tr>
+    <tr>
+      <td>062</td>
+      <td>Sorocred installment transaction</td>
+    </tr>
+    <tr>
+      <td>064</td>
+      <td>Visa “Crediário”</td>
+    </tr>
+    <tr>
+      <td>065</td>
+      <td>Alelo Meal</td>
+    </tr>
+    <tr>
+      <td>066</td>
+      <td>Alelo Food</td>
+    </tr>
+    <tr>
+      <td>067</td>
+      <td>Visa Working Capital</td>
+    </tr>
+    <tr>
+      <td>068</td>
+      <td>Visa Property Finance</td>
+    </tr>
+    <tr>
+      <td>069</td>
+      <td>Alelo Cultura</td>
+    </tr>
+    <tr>
+      <td>070</td>
+      <td>Elo credit</td>
+    </tr>
+    <tr>
+      <td>071</td>
+      <td>Elo debit</td>
+    </tr>
+    <tr>
+      <td>072</td>
+      <td>Elo installment transaction</td>
+    </tr>
+    <tr>
+      <td>079</td>
+      <td>Visa Payment Carnet “Carnê”</td>
+    </tr>
+    <tr>
+      <td>080</td>
+      <td>Visa Credit Currency Converter</td>
+    </tr>
+    <tr>
+      <td>081</td>
+      <td>Mastercard Specialized Credit (*)</td>
+    </tr>
+    <tr>
+      <td>082</td>
+      <td>Amex credit</td>
+    </tr>
+    <tr>
+      <td>083</td>
+      <td>Amex installment transaction</td>
+    </tr>
+    <tr>
+      <td>084</td>
+      <td>Amex installment bank</td>
+    </tr>
+    <tr>
+      <td>089</td>
+      <td>Elo Property Finance</td>
+    </tr>
+    <tr>
+      <td>091</td>
+      <td>Elo Specialized Credit (*)</td>
+    </tr>
+    <tr>
+      <td>094</td>
+      <td>Banescard Debit</td>
+    </tr>
+    <tr>
+      <td>096</td>
+      <td>Cabal credit</td>
+    </tr>
+    <tr>
+      <td>097</td>
+      <td>Cabal debit</td>
+    </tr>
+    <tr>
+      <td>098</td>
+      <td>Cabal installment transaction</td>
+    </tr>
+    <tr>
+      <td>161</td>
+      <td>Hiper credit</td>
+    </tr>
+    <tr>
+      <td>162</td>
+      <td>Hiper debit</td>
+    </tr>
+    <tr>
+      <td>163</td>
+      <td>Hiper installment transaction</td>
+    </tr>
+    <tr>
+      <td>164</td>
+      <td>Hipercard credit</td>
+    </tr>
+    <tr>
+      <td>165</td>
+      <td>Hipercard installment transaction</td>
+    </tr>
+    <tr>
+      <td>200</td>
+      <td>Verdecard credit</td>
+    </tr>
+    <tr>
+      <td>201</td>
+      <td>Verdecard installment transaction</td>
+    </tr>
+    <tr>
+      <td>202</td>
+      <td>Nutricash Meal</td>
+    </tr>
+    <tr>
+      <td>203</td>
+      <td>Nutricash Food</td>
+    </tr>
+    <tr>
+      <td>204</td>
+      <td>Nutricash Multibenefícios</td>
+    </tr>
+    <tr>
+      <td>205</td>
+      <td>Nutricash Fuel</td>
+    </tr>
+    <tr>
+      <td>206</td>
+      <td>Ben Meal</td>
+    </tr>
+    <tr>
+      <td>207</td>
+      <td>Ben Food</td>
+    </tr>
+    <tr>
+      <td>314</td>
+      <td>Ourocard Agro Debit</td>
+    </tr>
+    <tr>
+      <td>315</td>
+      <td>Ourocard Agro Costing</td>
+    </tr>
+    <tr>
+      <td>316</td>
+      <td>Ourocard Agro Investment</td>
+    </tr>
+    <tr>
+      <td>317</td>
+      <td>Ourocard Agro Costing with Debit</td>
+    </tr>
+    <tr>
+      <td>318</td>
+      <td>Ourocard Agro Investment with Debit</td>
+    </tr>
+    <tr>
+      <td>321</td>
+      <td>Mastercard crediário in credit</td>
+    </tr>
+    <tr>
+      <td>322</td>
+      <td>Mastercard installment Cliente</td>
+    </tr>
+    <tr>
+      <td>324</td>
+      <td>Elo installment Cliente</td>
+    </tr>
+    <tr>
+      <td>330</td>
+      <td>Elo crediário in credit</td>
+    </tr>
+    <tr>
+      <td>342</td>
+      <td>Mastercard Toll Pedágio</td>
+    </tr>
+    <tr>
+      <td>377</td>
+      <td>Elo Payment Carnet “Carnê”</td>
+    </tr>
+    <tr>
+      <td>378</td>
+      <td>Mastercard Carnê</td>
+    </tr>
+    <tr>
+      <td>380</td>
+      <td>Mastercard Credit Currency Converter</td>
+    </tr>
+    <tr>
+      <td>433</td>
+      <td>JCB installment transaction</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Codes referring to the following cards: Construcard, Minha Casa Melhor, Producard, and Moveiscard</li>
+</ul>
+
 </div>
 
 
