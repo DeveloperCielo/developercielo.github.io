@@ -486,6 +486,28 @@ It displays the prepayment conducted at Cielo / Alelo or assignment of receivabl
 
 ### Record 6 - Assignment Sales Summary
 
-It displays the sales summary of prepayment or assigned of receivables
+It displays the sales summary of prepayment or assigned of receivables.
+
+|Start|End|Size|Type|Description|Data Editing|
+|---|---|---|---|---|---|
+|001|001|1|Num.| Record type|Constant 6 It identifies the type of record that displays the information on an sales summary that happened a prepayment/assigned. |
+|002|011|10|Num.| Submitting merchant | Number of the merchant and/or branch where the sale was made.|
+|012|020|9|Num.|Number of the operation | Number of the operation.|
+|021|028|8|Num.|Due date of the sales summary | YYYYMMDD Original due date of the sales summary.|
+|029|035|7|Num.|Number of the sales summary | Number of the sales summary.|
+|036|037|2|Num.|Prepayment/assigned installment|Number of the installment for the sales summary of installment transactions; for sales summary of at sight transactions, it will contain zeroes.|
+|038|039|2|Num.| Total number of installments|Number of installments in the sales summary. For sales summary of at credit sales, it will contain zeroes.|
+|040|040|1|Alpha|Sign for the original gross amount of the sales summary| `"+"` - identifies a credit amount. `"-"` - identifies a debit amount.|
+|041|053|13|Num.|Original gross amount of the sales summary `(*)`|Original gross amount of the sales summary.|
+|054|054|1|Alpha|Sign for the original net amount of the sales summary| `"+"` - identifies a credit amount. `"-"` - identifies a debit amount.|
+|055|067|13|Num.|Original net amount of the sales summary  `(*)`| Original net amount of the sales summary.||
+|068|068|1|Num.|Sign for the gross amount of the prepayment/assigned of the sales summary| `"+"` - identifies a credit amount. `"-"` - identifies a debit amount.|
+|069|081|13|Num.|Gross amount of the assigned of the sales summary`(*)`| Original net amount of the sales summary, except for eventual debits.|
+|082|082|1|Alpha|Sign for the prepayment net amount of the sales summary| `"+"` - identifies a credit amount. `"-"` - identifies a debit amount.|
+|083|095|13|Num.|Prepayment net amount of the sales summary `(*)`| Net amount effectively paid to the merchant, less the prepayment discount rate.|
+|096|098|3|Num.| Card brand code |Card brand code - table VI.|
+|099|120|22|Num.| Exclusive number of the sales summary |Exclusive identification number of the sales summary, formatted as follows: <br>First part (fixed) - 15 fixed digits: it identifies the summary, maintaining its history at Cielo; <br> Second part (variable) - 07 variable digits: Cielo Use. It identifies the changes made in the sales summary.|
+|121|121|1|Alphanum.| Prepayment adjustment sales summary identifier |"S" - Consider prepayment adjustment. <br> Field filled only when adjustment sales summary are effectively anticipated. (only new concept). |
+|122|250|130|Alphanum.|  Cielo use |Unwritten. Reserved for Cielo.|
 
 * **(*)** Only 2 decimal places should be considered, with no commas, periods, or any other characters.
