@@ -551,3 +551,135 @@ It indicates the end of the file.
 Note: The fields reserved for Cielo may be used to include new information. It may also be necessary to include new types of records. Therefore, we suggest that the reconciliation solution should disregard the records that are not listed in this specification.
 
 ## Tables
+
+### Table I - Type Of Statement
+
+|Code|Description|
+|---|---| 
+|03|Detailed Sales with Future Installments|
+|04|Detailed Payments|
+|06|Detailed Prepayment Cielo|
+|07|Assignment of Receivables|
+|09|Remaining Balance|
+|10|Detailed Prepayment Alelo|
+
+### Table II - Transaction Type
+
+|Code|Description|
+|---|---| 
+|01|Sale|
+|02|Credit Adjustment|
+|03|Debit Adjustment|
+|04|Cielo Plan|
+|05|Rescheduling|
+
+### Table III - Payment Status
+
+|Code|Description|
+|---|---| 
+|00|**Scheduled: It identifies the capture of an entry and provides the date scheduled for payment of the entry. The date scheduled can be changed.|
+|01|**Paid:**  It identifies that payment has been made by the merchant bank on the date provided.|
+|02|**Sent to the bank:** It identifies that the payment order has been sent by Cielo to the merchant bank and that payment has not been confirmed.|
+|03|**To be confirmed:** It identifies that the payment order has been sent by Cielo to the merchant bank and that payment has not been confirmed.|
+
+When a credit amount is being offset against a debit amount, both will be sent in the payment file, on the offsetting date subsequent to the scheduled payment date. The status to the may appear again in the payment statement, when the merchant bank returns a credit transfer (resend of payment).
+
+### Table IV - Product Code
+
+|001|Agiplan credit                                   |
+|002|Agiplan installment transaction                  |
+|003|Banescard credit                                 |
+|004|Banescard installment transaction                |
+|005|Esplanada credit                                 |
+|006|Credz credit                                     |
+|007|Esplanada installment transaction                |
+|008|Credz installment transaction                    |
+|009|Elo "Crédiario"                                  |
+|010|Mastercard credit                                |
+|011|Maestro "debit"                                  |
+|012|Mastercard installment transaction               |
+|013|Elo Construcard                                  |
+|014|Elo Agro Debit                                   |
+|015|Elo Agro Costing                                 |
+|016|Elo Agro Investment                              |
+|017|Elo Agro Costing with Debit                      |
+|018|Elo Agro Investment with Debit                   |
+|019|Discover credit                                  |
+|020|Diners credit                                    |
+|021|Diners installment transaction                   |
+|022|Visa Agro Costing with Debit                     |
+|023|Visa Agro Investment with Debit                  |
+|024|FCO Investment                                   |
+|025|Agro Electron                                    |
+|026|Agro Costing                                     |
+|027|Agro Investment                                  |
+|028|Visa FCO Working Capital                         |
+|029|Visa crediário in credit                         |
+|030|Visa Installment "Cliente"                       |
+|033|JCB credit                                       |
+|036|Withdrawal using VISA Debit card                 |
+|037|Flex Car Visa Vale                               |
+|038|Credsystem credit                                |
+|039|Credsystem installment transaction               |
+|040|Visa credit                                      |
+|041|Visa Electron “Debit”                            |
+|042|Visa Toll "Pedágio"                              |
+|043|Visa installment transaction                     |
+|044|Visa Electron Post-Dated                         |
+|045|Alelo Meal                                       |
+|046|Alelo Food                                       |
+|058|Alelo Multibenefícios                            |
+|059|Alelo Auto                                       |
+|060|Sorocred debit                                   |
+|061|Sorocred credit                                  |
+|062|Sorocred installment transaction                 |
+|064|Visa "Crediário"                                 |
+|065|Alelo Meal                                       |
+|066|Alelo Food                                       |
+|067|Visa Working Capital                             |
+|068|Visa Property Finance                            |
+|069|Alelo Cultura                                    |
+|070|Elo credit                                       |
+|071|Elo debit                                        |
+|072|Elo installment transaction                      |
+|079|Visa Payment Carnet "Carnê"                      |
+|080|Visa Credit Currency Converter                   |
+|081|Mastercard Specialized Credit (*)                |
+|082|Amex credit                                      |
+|083|Amex installment transaction                     |
+|084|Amex installment bank                            |
+|089|Elo Property Finance                             |
+|091|Elo Specialized Credit (*)                       |
+|094|Banescard Debit                                  |
+|096|Cabal credit                                     |
+|097|Cabal debit                                      |
+|098|Cabal installment transaction                    |
+|161|Hiper credit                                     |
+|162|Hiper debit                                      |
+|163|Hiper installment transaction                    |
+|164|Hipercard credit                                 |
+|165|Hipercard installment transaction                |
+|200|Verdecard credit                                 |
+|201|Verdecard installment transaction                |
+|202|Nutricash Meal                                   |
+|203|Nutricash Food                                   |
+|204|Nutricash Multibenefícios                        |
+|205|Nutricash Fuel                                   |
+|206|Ben Meal                                         |
+|207|Ben Food                                         |
+|314|Ourocard Agro Debit                              |
+|315|Ourocard Agro Costing                            |
+|316|Ourocard Agro Investment                         |
+|317|Ourocard Agro Costing with Debit                 |
+|318|Ourocard Agro Investment with Debit              |
+|321|Mastercard crediário in credit                   |
+|322|Mastercard installment Cliente                   |
+|324|Elo installment Cliente                          |
+|330|Elo crediário in credit                          |
+|342|Mastercard Toll Pedágio                          |
+|377|Elo Payment Carnet "Carnê"                       |
+|378|Mastercard Carnê                                 |
+|380|Mastercard Credit Currency Converter             |
+|433|JCB installment transaction                      |
+
+* Codes referring to the following cards: Construcard, Minha Casa Melhor, Producard, and Moveiscard 
