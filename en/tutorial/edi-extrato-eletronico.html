@@ -1201,6 +1201,206 @@
       <td>Merchant bank account</td>
       <td>Code of the account of the merchant bank account.</td>
     </tr>
+    <tr>
+      <td>123</td>
+      <td>124</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Payment status</td>
+      <td>It identifies the status of the credit sent to the merchant bank account on the date the file was generated - see Table III. In recovery, the status is updated according to the submission and the return of payment confirmation by the bank.</td>
+    </tr>
+    <tr>
+      <td>125</td>
+      <td>130</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Number of sales accepted</td>
+      <td>Number of sales accepted in the sales summary.</td>
+    </tr>
+    <tr>
+      <td>131</td>
+      <td>132</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Product Identifier (Disregard)</td>
+      <td>Starting on March 01, 2014, product identifiers are sent in positions 233-235 with three characters.</td>
+    </tr>
+    <tr>
+      <td>133</td>
+      <td>138</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Number of sales declined</td>
+      <td>Number of sales declined in the sales summary.</td>
+    </tr>
+    <tr>
+      <td>139</td>
+      <td>139</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Resale/acceleration identifier</td>
+      <td>It identifies the maintenance actions conducted for installment transactions made by merchant: <br /><code class="highlighter-rouge">R</code> - Resale  <br /><code class="highlighter-rouge">A</code> - Acceleration  <br /> <code class="highlighter-rouge">""</code> - Blank (no occurrence).</td>
+    </tr>
+    <tr>
+      <td>140</td>
+      <td>145</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Date on which the transaction was captured</td>
+      <td>YYMMDD - Date on which the transaction was captured in financial schedule. During recovery, it can be updated after the transaction or adjustment is processed.</td>
+    </tr>
+    <tr>
+      <td>146</td>
+      <td>147</td>
+      <td>2</td>
+      <td>Alphanum.</td>
+      <td>Origin of adjustment</td>
+      <td>It identifies the type of adjustment - Table V. Completed for the following transactions: <br />  02 Credit adjustment <br /> 03 Debit adjustment <br /> 04 Cielo Plan</td>
+    </tr>
+    <tr>
+      <td>148</td>
+      <td>160</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Amount withdrawn when product is 36 or amount of Agro Electron for transactions of products 22 23 or 25 presented in Table IV.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>161</td>
+      <td>161</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Financial product identifier</td>
+      <td>Prepayment identifier of the sales summary: <code class="highlighter-rouge">" "</code> Prepayment didn’t happen; <code class="highlighter-rouge">"A"</code> Prepayment with Cielo or Alelo; <code class="highlighter-rouge">"C"</code>Assignment of Receivables with merchant bank.</td>
+    </tr>
+    <tr>
+      <td>162</td>
+      <td>170</td>
+      <td>9</td>
+      <td>Num.</td>
+      <td>Number of the financial operation</td>
+      <td>It identifies the number of the financial operation presented in record type 5 from field 12 to 20, associated with the prepayment sales summary/assigned at Cielo/Alelo or at the bank. It will contain zeros if the sales summary has not happen a prepayment.</td>
+    </tr>
+    <tr>
+      <td>171</td>
+      <td>171</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the prepayment gross amount</td>
+      <td><code class="highlighter-rouge">+</code> identifies a credit amount. <code class="highlighter-rouge">-</code> - identifies a debit amount.</td>
+    </tr>
+    <tr>
+      <td>172</td>
+      <td>184</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Prepayment gross amount <code class="highlighter-rouge">(*)</code></td>
+      <td>Prepayment gross amount, provided when happens a prepayment operation. It will contain zero when happen a prepayment operation.</td>
+    </tr>
+    <tr>
+      <td>185</td>
+      <td>187</td>
+      <td>3</td>
+      <td>Num.</td>
+      <td>Card brand code</td>
+      <td>Card Brand Code - see Table VI.</td>
+    </tr>
+    <tr>
+      <td>188</td>
+      <td>209</td>
+      <td>22</td>
+      <td>Num.</td>
+      <td>Exclusive number of the sales summary</td>
+      <td>Exclusive identification number of the sales summary, formatted as follows: <br /> First part (fixed) - 15 fixed digits: it identifies the summary, maintaining its history at Cielo; <br /> Second part (variable) - 07 variable digits: It identifies the changes made in the sales summary</td>
+    </tr>
+    <tr>
+      <td>210</td>
+      <td>213</td>
+      <td>4</td>
+      <td>Num.</td>
+      <td>Administration fee <code class="highlighter-rouge">(*)</code></td>
+      <td>Percentage of administration fee applied to the amount of the transaction.</td>
+    </tr>
+    <tr>
+      <td>214</td>
+      <td>218</td>
+      <td>5</td>
+      <td>Num.</td>
+      <td>Fee <code class="highlighter-rouge">(*)</code></td>
+      <td>Fee charged per transaction.</td>
+    </tr>
+    <tr>
+      <td>219</td>
+      <td>222</td>
+      <td>4</td>
+      <td>Num.</td>
+      <td>Guarantee fee<code class="highlighter-rouge">(*)</code></td>
+      <td>Percentage of discount applied to Electron post-dated transactions.</td>
+    </tr>
+    <tr>
+      <td>223</td>
+      <td>224</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Capture method</td>
+      <td>See Table VII. If the sale is reprocessed for any reason, the system will send out capture method 06: Manual Capture Method; in this case, disregard the amount provided in the logical number of the terminal.</td>
+    </tr>
+    <tr>
+      <td>225</td>
+      <td>232</td>
+      <td>8</td>
+      <td>Alphanum.</td>
+      <td>Logical number of the terminal</td>
+      <td>Logical number of the terminal in which the sale was made. If the capture number is 06, disregard the logical number of the terminal, since it will be a number used internally by Cielo.</td>
+    </tr>
+    <tr>
+      <td>233</td>
+      <td>235</td>
+      <td>3</td>
+      <td>Num.</td>
+      <td>Product code</td>
+      <td>Code that identifies the product - see Table IV.</td>
+    </tr>
+    <tr>
+      <td>236</td>
+      <td>245</td>
+      <td>10</td>
+      <td>Num.</td>
+      <td>Payment matrix</td>
+      <td>Establishing payment matrix.</td>
+    </tr>
+    <tr>
+      <td>246</td>
+      <td>246</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Resend of payment</td>
+      <td><code class="highlighter-rouge">S</code> - Identifies that this summary is being forwarded in the statement. Disregard payment previously submitted. <code class="highlighter-rouge">N</code> - Does not refer to resend of payment.</td>
+    </tr>
+    <tr>
+      <td>247</td>
+      <td>247</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Concept applied</td>
+      <td>Identifies the concept applied in the summary presented: <br /><code class="highlighter-rouge">" "</code> - Old <br /> <code class="highlighter-rouge">"N"</code> - New</td>
+    </tr>
+    <tr>
+      <td>248</td>
+      <td>249</td>
+      <td>2</td>
+      <td>Alphanum.</td>
+      <td>Group of cards</td>
+      <td>”” - Whites. Service not assigned <br /> 01 - Card issued in Brazil <br /> 02 - Card issued abroad <br /> 03 - MDR by card type - Initial <br /> 04 - MDR by card type - Intermediary <br /> 05 - MDR by card type - Higher <br /></td>
+    </tr>
+    <tr>
+      <td>250</td>
+      <td>250</td>
+      <td>1</td>
+      <td>Alphanum.</td>
+      <td>Cielo use</td>
+      <td>Unwritten. Reserved for Cielo.</td>
+    </tr>
   </tbody>
 </table>
 
