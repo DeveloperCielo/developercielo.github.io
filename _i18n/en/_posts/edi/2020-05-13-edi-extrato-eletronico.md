@@ -333,7 +333,7 @@ Performs the list of customers below the informed access_token. The filter can b
 
 # Types Of Electronic Statements
 
-# Table A - File Types
+## Table A - File Types
 
 |File Type|Information|Record Type|Objective|
 |---|---|---|---|
@@ -346,7 +346,7 @@ Performs the list of customers below the informed access_token. The filter can b
 
 ## Layout For The Types Of Records
 
-## Record 0 - Header
+### Record 0 - Header
 
 It identifies the header of each file, by chain of electronic statement*.
 
@@ -367,7 +367,7 @@ It identifies the header of each file, by chain of electronic statement*.
 
 * **(*)** register that allows the inclusion of all establishments controlled by the customer, regardless of the type of payment (centralized, decentralized, individual). All establishment numbers must be reported in the registration form.
 
-### Record 1 - Sales Summary
+#### Record 1 - Sales Summary
 
 Group of sales, adjustments, or service charges. It enables the identification of the origin of the entries and the possible maintenance actions.
 
@@ -422,7 +422,7 @@ Group of sales, adjustments, or service charges. It enables the identification o
 
 * **(*)** Only 2 decimal places should be considered, with no commas, periods, or any other characters.
 
-### Record 2 - Detailed Sales
+#### Record 2 - Detailed Sales
 
 Sales or adjustments of sale summary available in the sales or payment file. 
 Pursuant to the security rules, all records containing a card number will show it truncated.
@@ -447,7 +447,7 @@ Pursuant to the security rules, all records containing a card number will show i
 
 * **(*)** Only 2 decimal places should be considered, with no commas, periods, or any other characters.
 
-### Record 5 - Prepayment Operation
+#### Record 5 - Prepayment Operation
 
 It displays the prepayment conducted at Cielo / Alelo or assignment of receivables (only for the Bradesco) on the day that precedes the generation of the file.
 
@@ -484,7 +484,7 @@ It displays the prepayment conducted at Cielo / Alelo or assignment of receivabl
 
 (*) Only 3 decimal places should be considered, with no commas, periods, or any other characters.
 
-### Record 6 - Assignment Sales Summary
+#### Record 6 - Assignment Sales Summary
 
 It displays the sales summary of prepayment or assigned of receivables.
 
@@ -511,3 +511,26 @@ It displays the sales summary of prepayment or assigned of receivables.
 |122|250|130|Alphanum.|  Cielo use |Unwritten. Reserved for Cielo.|
 
 * **(*)** Only 2 decimal places should be considered, with no commas, periods, or any other characters.
+
+#### Record 7 - Withheld Prepayment by Debits - Sales Summary
+
+It displays the withheld prepayment by debits.
+
+|Start|End|Size|Type|Description|Data Editing|
+|---|---|---|---|---|---|
+|001|001|1|Num.|Record type|Constant "7" It identifies the type of record that displays the information on an prepayment sales summary.|
+|002|011|10|Num.|Submitting merchant | Number of the merchant and/or branch where the sale was made.|
+|012|033|22|Num.|Exclusive number of the original sales summary of the sale|Exclusive number of the original sales summary of the sale|
+|034|040|7|Num.|Number of the sales summary | Number of the sales summary of the original sale|
+|041|048|8|Num.|Payment date of the sales summary|YYYYMMDD Payment date of the sales summary|
+|049|049|1|AlphaSign for the amount of the sales summary|`"+"` - identifies a credit amount.`"-"` - identifies a debit amount.|
+|050|062|13|Num.| Amount of the sales summary |Amount of the sales summary.|
+|063|084|22|Num.|Exclusive number of the sales summary of the sale that has originated the adjustment|Exclusive number of the sales summary of the sale that has originated the adjustment.||085|091|7|Num.|Number of the sales summary of the debit adjustment|Number of the sales summary that displays the prepayment amounts withheld.|
+|092|099|8|Num.| Payment date of the adjustment|YYYYMMDD.| 
+|100|100|1|Alpha|Sign for the amount of the debit adjustment|`"+"` - identifies a credit amount.`"-"` - identifies a debit amount.|
+|101|113|13|Num.| Amount of the debit adjustment |Total amount of the debit.|
+|114|114|1|Alpha| Sign for the amount withheld| `"+"` - identifies a credit amount.`"-"` - identifies a debit amount.|
+|115|127|13|Num.| Amount withheld|  Amount withheld for the prepayment sales summary.|
+|128|128|1|Alpha|Sign for the balance of the prepayment sales summary| `"+"` - identifies a credit amount.`"-"` - identifies a debit amount.|
+|129|141|13|Num.|Amount of the balance of the prepayment sales summary| Result of the total debit amount withheld|
+|142|250|109|Alphanum.|  Cielo use | Unwritten. Reserved for Cielo|
