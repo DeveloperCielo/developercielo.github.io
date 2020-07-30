@@ -451,4 +451,19 @@ Pursuant to the security rules, all records containing a card number will show i
 
 It displays the prepayment conducted at Cielo / Alelo or assignment of receivables (only for the Bradesco) on the day that precedes the generation of the file.
 
+|Start|End|Size|Type|Description|Data Editing|
+|---|---|---|---|---|---|
+|001|001|1|Num.| Record type|Constant "5" It identifies the type of record that displays information on a prepayment operation.|
+|002|011|10|Num.|Establishment of payment or submission|Number of the merchant or branch where the sale was made.|
+|012|020|9|Num.| Number of the financial operation|Number of the financial operation, also displayed in record type 1, on the date the sales summary is settled.|
+|021|028|8|Num.| Date of credit of the operation | YYYYMMDD Payment date of the operation.|
+|029|029|1|Alpha|Sign for the gross amount of credit transactions|`"+"` - identifies a credit amount.  <br> `"-"` - identifies a debit amount.|
+|030|042|13|Num.| Gross amount|Gross amount of the credit transactions schedule. The gross amount corresponds to the sum of the original net amounts of the sales summary in this schedule.|
+|043|043|1|Alpha|Sign for the gross amount of installment transactions.|`"+"` - identifies a credit amount.  <br> `"-"` - identifies a debit amount.|
+|044|056|13|Num.|Gross amount of installment transactions|Gross amount of the installment transactions schedule. The amount corresponds to the sum of the original net amounts of the sales summary in this schedule.|
+|057|057|1|Alpha|Sign for the gross amount of Post Dated Electron Transactions| `"+"` - identifies a credit amount. <br>`"-"` -  identifies a debit amount.|
+|058|070|13|Num.|Gross amount of Post-Dated Electron transactions|Gross amount of the Post-Dated Electron transactions schedule. The gross amount corresponds to the sum of the original net amounts of the sales summary in this schedule.|
+|071|071|1|Alpha|Sign for the gross amount of the prepayment| `"+"` - identifies a credit amount. <br>`"-"` -  identifies a debit amount.|
+|072|084|13|Num.| Gross amount of the prepayment| Gross amount of the credit transactions schedules, installment, and PostDated Electron transactions. The gross amount corresponds to the sum of the original net amounts of the sales summary.|
+
 (*) Only 3 decimal places should be considered, with no commas, periods, or any other characters.
