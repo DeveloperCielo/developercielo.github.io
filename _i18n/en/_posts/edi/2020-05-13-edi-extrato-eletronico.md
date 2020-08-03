@@ -704,43 +704,25 @@ When a credit amount is being offset against a debit amount, both will be sent i
 |17|Refund 															|Refund           |
 |18|Collection of operational fee 									|Collection       |
 |19|Farol 															|Hit / Collection |
-|20|Charges Cielo Plan Collection 21 Escrow agreement Hit 22 Credit concerning the return of the refund issuing bank Hit / Refund 23 EC Credit - referring to claim filed by the cardholder 											|Hit / Chargeback|
-|24|Credit for declined refund Cielo Hit / Chargeback 25 Processing of double debit - Visa Toll Pedágio Hit 26 Debit for sale made without reading the card chip 																		|Hit|
-|27|Debit for sale declined in the system Cielo Hit 28 Consumer does not recognize the purchase Hit / Chargeback 29 Reversal due to legal settlement Hit 30 Reversal of escrow agreement Hit 31 Reversal due to collection settlement Hit 32 Reversal of amount frozen by court order Hit 33 Reversal of cancelled sale Hit 34 Reversal of operational fee charged Hit 35 Reversal of monthly charges Lynx Comércio Hit 36 Reversal of Cielo Plan charges Hit 37 Reversal of debit for sale made without reading card chip Hit 38 Reversal of commercial incentive |Hit|
-|39|Reversal of fine for Chargeback Monitoring Program Hit / Chargeback 40 Reversal of Prepayment decline   |Hit             |
-|41|Reversal of reversal of double payment Prepayment Hit 42 Reversal of registration fee 					|Hit             |
-|43|Reversal of hard copy of statement 																		|Hit             |
-|44|Reversal of double processing of debit Visa Toll Pedágio Hit 45 Commercial incentive 					|Hit             |
-|46|Incentive for top-up sale 																				|Hit             |
-|47|Regularization of Prepayment decline 																	|Hit             |
-|48|Reversal of double payment Prepayment Hit 49 Registration fee 											|Collection      |
-|50|Fee for hard copy of statement 								 											|Collection      |
-|51|Acceleration of prepayment debit 							 											|Hit             |
-|52|Breach of contract 						                                                                |Hit / Chargeback|
-|53|Recurring sale canceled by the consumer                                                                 |Hit / Chargeback|
-|54|Consumer does not recognize the purchase                                                                |Hit / Chargeback| 
-55 Card expired 							                                                                |Hit / Chargeback|
-|57|Merchandise defective or different from description 													|Hit / Chargeback| 
-58 Irregular transaction                                													|Hit / Chargeback|
-|59|Merchandise not delivered                           													|Hit / Chargeback|
-|60|Services not provided 			    																	|Hit / Chargeback| 
-61 Sale without authorization code      																	|Hit / Chargeback|
-|62|Invalid card number				    																	|Hit / Chargeback|
-|63|Copy of invalid document / voucher 																		|Hit / Chargeback|
-|65|Unreadable document 																					|Hit / Chargeback|
-|66|Sale without chip reading																				|Hit / Chargeback|
-|67|Sale in another currency 																				|Hit / Chargeback|
-|68|Sale Processed Incorrectly 																				|Hit / Chargeback|
-|69|Sale canceled 								|Hit / Chargeback|
-|70|Credit in duplicity 						|Hit / Chargeback|
-|71|Documents not received 						|Hit / Chargeback|
-|72|Payment made by other means 				|Hit / Chargeback|
-|73|Equipment lost/stolen 						|Hit/Collection  |
-|77|Too much chargeback penalty 				|Hit / Chargeback|
-|78|Score Services 								|Collection      |
-|79|Rescheduling of prepayment debit 			|Hit             |
-|80|Adjustment to assignment debit 				|Hit             |
-|81|Cielo e-Commerce 	|Hit/Collection|
-|85|Cielo Controle (Excess) |Hit/Collection| 
-|86|Cielo Controle (Frank) 	|Hit/Collection 
-|93|Meliuz 					|Hit/Collection|
+|20|Charges Cielo Plan Collection 21 Escrow agreement 				|Hit| 
+|22| Credit concerning the return of the refund issuing bank 		|Hit / Refund |
+|23| EC Credit - referring to claim filed by the cardholder 		|Hit / Chargeback|
+|24|Credit for declined refund Cielo 								|Hit / Chargeback| 
+|25|Processing of double debit - Visa Toll Pedágio 					|Hit| 
+|26|Debit for sale made without reading the card chip 				|Hit|													|Hit|
+|27|Debit for sale declined in the system Cielo 					|Hit| 
+|28|Consumer does not recognize the purchase 						|Hit / Chargeback| 
+|29|Reversal due to legal settlement 								|Hit| 
+|30|Reversal of escrow agreement 									|Hit| 
+|31|Reversal due to collection settlement 							|Hit| 
+|32|Reversal of amount frozen by court order 						|Hit| 
+|33|Reversal of cancelled sale										|Hit| 
+|34|Reversal of operational fee charged 							|Hit| 
+|35|Reversal of monthly charges Lynx Comércio 						|Hit| 
+|36|Reversal of Cielo Plan charges 									|Hit| 
+|37|Reversal of debit for sale made without reading card chip 		|Hit| 
+|38|Reversal of commercial incentive 								|Hit|
+|39|Reversal of fine for Chargeback Monitoring Program 				|Hit / Chargeback| 
+|40| Reversal of Prepayment decline   								|Hit|
+|41|Reversal of reversal of double payment Prepayment 				|Hit| 
+|42| Reversal of registration fee 									|Hit|
