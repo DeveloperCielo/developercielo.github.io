@@ -688,5 +688,5 @@ When a credit amount is being offset against a debit amount, both will be sent i
 
 |Code|Description|Type of Adjustment|
 |---|---|---|
-|01|Adjustment concerning monetary restatement	|Hit	|
-|02|Adjustment to payment date |Hit              |
+|01|Adjustment concerning monetary restatement	|Hit  |
+  |02|Adjustment to payment date |Hit |
