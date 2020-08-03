@@ -711,7 +711,7 @@ When a credit amount is being offset against a debit amount, both will be sent i
 |23| EC Credit - referring to claim filed by the cardholder 		|Hit / Chargeback |
 |24|Credit for declined refund Cielo 								|Hit / Chargeback | 
 |25|Processing of double debit - Visa Toll Pedágio 					|Hit              | 
-|26|Debit for sale made without reading the card chip 				|Hit              |													|Hit|
+|26|Debit for sale made without reading the card chip 				|Hit              |													
 |27|Debit for sale declined in the system Cielo 					|Hit              | 
 |28|Consumer does not recognize the purchase 						|Hit / Chargeback | 
 |29|Reversal due to legal settlement 								|Hit              | 
