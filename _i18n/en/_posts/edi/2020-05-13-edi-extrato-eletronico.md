@@ -731,3 +731,16 @@ When a credit amount is being offset against a debit amount, both will be sent i
 |66|Sale without chip reading																				|Hit / Chargeback|
 |67|Sale in another currency 																				|Hit / Chargeback|
 |68|Sale Processed Incorrectly 																				|Hit / Chargeback|
+|69|Sale canceled 								|Hit / Chargeback|
+|70|Credit in duplicity 						|Hit / Chargeback|
+|71|Documents not received 						|Hit / Chargeback|
+|72|Payment made by other means 				|Hit / Chargeback|
+|73|Equipment lost/stolen 						|Hit/Collection  |
+|77|Too much chargeback penalty 				|Hit / Chargeback|
+|78|Score Services 								|Collection      |
+|79|Rescheduling of prepayment debit 			|Hit             |
+|80|Adjustment to assignment debit 				|Hit             |
+|81|Cielo e-Commerce 	|Hit/Collection|
+|85|Cielo Controle (Excess) |Hit/Collection| 
+|86|Cielo Controle (Frank) 	|Hit/Collection 
+|93|Meliuz 					|Hit/Collection|
