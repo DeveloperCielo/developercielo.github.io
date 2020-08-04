@@ -687,4 +687,5 @@ When a credit amount is being offset against a debit amount, both will be sent i
 ### Table V - Origin Of Adjustment
 
 |Code|Description|Type of Adjustment|
-|---|---|---|
+|---|-----------------------------------------------------------------------|--------------------|
+|01|Adjustment concerning monetary restatement								|Hit				 |
