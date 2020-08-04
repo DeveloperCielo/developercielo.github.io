@@ -688,4 +688,81 @@ When a credit amount is being offset against a debit amount, both will be sent i
 
 |Code|Description|Type of Adjustment|
 |---|---|---|
-|01|Adjustment concerning monetary restatement								|Hit				 |
+|01|Acerto de correção monetária| Acerto                                        |
+|02|Acerto de data de Pagamento| Acerto                                         |
+|03|Acerto de taxa de comissão| Acerto                                          |
+|04|Acerto de valores não processados| Acerto                                   |
+|05|Acerto de valores não recebidos| Acerto                                     |
+|06|Acerto de valores não reconhecidos| Acerto                                  |
+|07|Acerto de valores negociados| Acerto                                        |
+|08|Acerto de valores processados indevidamente| Acerto                         |
+|09|Acerto de lançamento não compensado em conta-corrente| Acerto               |
+|10|Acerto referente valores contestados| Acerto/Chargeback                     |
+|12|Acertos diversos| Acerto                                                    |
+|13|Acordo de cobrança| Acerto                                                  |
+|14|Acordo jurídico| Acerto                                                     |
+|15|Multa do Programa de Bandeira| Acerto/Chargeback                            |
+|16|Bloqueio de valor por ordem judicial| Bloqueio                              |
+|17|Cancelamento da venda| Cancelamento                                         |
+|18|Cobrança de tarifa Operacional| Cobrança                                    |
+|19|Valor Mensalidade Farol| Acerto / Cobrança                                  |
+|20|Cobrança Plano Cielo| Cobrança                                              |
+|21|Contrato de caução| Acerto                                                  |
+|22|Crédito de devolução do cancelamento banco emissor| Acerto/Cancelamento     |
+|23|Crédito EC referente contestação portador| Acerto/Chargeback                |
+|24|Crédito por cancelamento rejeitado Cielo| Acerto/Chargeback                 |
+|25|Processamento do débito duplicado Visa Pedágio| Acerto                      |
+|26|Débito por venda realizada sem a leitura do chip| Acerto                    |
+|27|Débito por venda rejeitada no sistema Cielo| Acerto                         |
+|28|Consumidor não reconhece a compra| Acerto/Chargeback                        |
+|29|Estorno de acordo jurídico| Acerto                                          |
+|30|Estorno de contrato de caução| Acerto                                       |
+|31|Estorno de acordo de cobrança| Acerto                                       |
+|32|Estorno de bloqueio de valor por ordem judicial| Acerto                     |
+|33|Estorno de cancelamento de venda| Acerto                                    |
+|34|Estorno de cobrança de tarifa operacional| Acerto                           |
+|35|Estorno de cobrança mensal Lynx Comércio| Acerto                            |
+|36|Estorno de cobrança Plano Cielo| Acerto                                     |
+|37|Estorno de débito venda sem a leitura do Chip| Acerto                       |
+|38|Estorno de incentivo comercial| Acerto                                      |
+|39|Estorno de Multa Programa Monitoria Chargeback| Acerto/Chargeback           |
+|40|Estorno de rejeição ARV| Acerto                                             |
+|41|Estorno de reversão de duplicidade do pagamento - ARV| Acerto               |
+|42|Estorno de tarifa de cadastro| Acerto                                       |
+|43|Estorno de extrato papel| Acerto                                            |
+|44|Estorno de processamento duplicado de débito - Visa Pedágio| Acerto         |
+|45|Incentivo comercial| Acerto                                                 |
+|46|Incentivo por venda de Recarga| Acerto                                      |
+|47|Regularização de rejeição ARV| Acerto                                       |
+|48|Reversão de duplicidade do pagamento - ARV| Acerto                          |
+|49|Tarifa de cadastro| Cobrança                                                |
+|50|Tarifa de extrato no papel| Cobrança                                        |
+|51|Aceleração de débito de antecipação| Acerto                                 |
+|52|Descumprimento de contrato| Acerto/Chargeback                               |
+|53|Venda recorrente cancelada pelo consumidor| Acerto/Chargeback               |
+|54|Consumidor não reconhece a compra| Acerto/Chargeback                        |
+|55|Cartão com validade vencida| Acerto/Chargeback                              |
+|57|Mercadoria com defeito ou diferente da descrição| Acerto/Chargeback         |
+|58|Transação irregular| Acerto/Chargeback                                      |
+|59|Mercadoria não foi entregue| Acerto/Chargeback                              |
+|60|Serviços não prestados| Acerto/Chargeback                                   |
+|61|Venda sem código de autorização| Acerto/Chargeback                          |
+|62|Número de cartão inválido| Acerto/Chargeback                                |
+|63|Cópia do comprovante / documento inválido| Acerto/Chargeback                |
+|65|Comprovante / documento ilegível| Acerto/Chargeback                         |
+|66|Venda sem leitura de chip| Acerto/Chargeback                                |
+|67|Venda em outra moeda| Acerto/Chargeback                                     |
+|68|Venda processada incorretamente| Acerto/Chargeback                          |
+|69|Venda cancelada| Acerto/Chargeback                                          |
+|70|Crédito em duplicidade| Acerto/Chargeback                                   |
+|71|Documentos não recebidos| Acerto/Chargeback                                 |
+|72|Pagamento realizado por outros| meios Acerto/Chargeback                     |
+|73|Equipamento perdido / roubado| Acerto/Cobrança                              |
+|77|Multa por excesso de chargeback| Acerto/Chargeback                          |
+|78|Serviços Score| Cobrança                                                    |
+|79|Reagendamento do débito de antecipação| Acerto                              |
+|80|Ajuste do débito de cessão| Acerto                                          |
+|81|Cielo e-Commerce| Acerto/Cobrança                                           |
+|85|Cielo Controle (Excedente)| Acerto/Cobrança                                 |
+|86|Cielo Controle (Franquia)| Acerto/Cobrança                                  |
+|93|Meliuz |Acerto/Cobrança                                                     |           
