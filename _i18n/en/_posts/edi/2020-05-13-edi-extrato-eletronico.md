@@ -688,16 +688,3 @@ When a credit amount is being offset against a debit amount, both will be sent i
 
 |Code|Description|Type of Adjustment|
 |---|---|---|
-|01|Adjustment concerning monetary restatement	|Hit  |
-|02|Adjustment to payment date |Hit |
-|03|Adjustment to commission fee |Hit	|
-|04|Adjustment to unprocessed amounts |Hit	|
-|05|Adjustment to amounts not received |Hit	|
-|06|Adjustment to amounts not recognized |Hit	|
-|07|Adjustment to amounts negotiated |Hit	|
-|08|Adjustment to improperly processed amounts |Hit	|
-|09|Adjustment to entry not offset in checking account |Hit	|
-|10|Adjustment referring to disputed amounts	|Hit / Chargeback	|
-|12|Miscellaneous adjustments	|Hit	|
-|13|Collection settlement	|Hit	|
-|14|Legal settlement	|Hit	|
