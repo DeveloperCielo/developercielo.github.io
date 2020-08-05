@@ -765,3 +765,40 @@ When a credit amount is being offset against a debit amount, both will be sent i
 |85|Cielo Controle (Excess)|Hit/Collection                                                 |
 |86|Cielo Controle (Frank)|Hit/Collection                                                  |
 |93|Meliuz|Hit/Collection                                                                  |
+
+### Table VI - Card Brand 
+
+|Code|Description|
+|---|---|
+|001|VISA|
+|002|Mastercard|
+|003|Amex|
+|006|Sorocred|
+|007|ELO|
+|009|Diners|
+|011|Agiplan|
+|015|Banescard|
+|023|Cabal|
+|029|Credsystem|
+|035|Esplanada|
+|040|Hipercard|
+|060|JCB|
+|064|Credz|
+|072|Hiper|
+|075|Ourocard|
+
+### Table VII - Capture Method
+
+|Code|Description|
+|---|---|
+|00|LIO|
+|01|POS (Point of Sale)|
+|02|PDV (Point of Sale) or TEF (Electronic Transfer of Funds)|
+|03|e-Commerce (Electronic commerce)|
+|04|EDI (Electronic Data Interchange)|
+|05|ADP/BSP (Capturing Company) or Reprocessing|
+|06|Manual|
+|07|URA/CVA|
+|08|Mobile|
+|09|Online electronic purse|
+|99|Not identified|
