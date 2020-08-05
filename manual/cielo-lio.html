@@ -304,10 +304,6 @@ Confira abaixo a tabela com as especificações técnicas da Cielo LIO:</p>
 
 <h2 id="rotação-de-tela-na-cielo-lio">Rotação de tela na Cielo LIO</h2>
 
-<p>As rotações na tela de exibição possuem comportamento diferente entre as versões da Cielo LIO.</p>
-
-<p>Na LIO V1 a orientação da tela é travada.</p>
-
 <p>Na LIO V2 é possível controlar a orientação da tela. Por padrão, a orientação da tela exibida é livre e definida de acordo com o acelerômetro do equipamento.</p>
 
 <p>Caso o desenvolvedor deseje controlar e usar de forma personalizada a orientação de tela da Cielo LIO, este deverá utilizar de acordo com a documentação do Android.</p>
@@ -413,13 +409,13 @@ aplicativo na plataforma Cielo LIO.</p>
 
 <h2 id="versão-target-da-aplicação">Versão target da aplicação</h2>
 
-<p>Recomenda-se que o desenvolvedor utilize para a Cielo LIO+ o APK target version 27 e versão mínima 22 (essa última para garantir compatibilidade com as demais soluções V1 e V2).</p>
+<p>Recomenda-se que o desenvolvedor utilize para a Cielo LIO+ o APK target version 27 e versão mínima 22 (essa última para garantir compatibilidade).</p>
 
-<h2 id="cielo-lio-app-padrão-de-vendas">Cielo LIO+ App padrão de vendas</h2>
+<h2 id="cielo-e-app-padrão-de-vendas">Cielo e App padrão de vendas</h2>
 
-<p>Você poderá configurar seu App da Cielo LIO+ como um aplicativo padrão. Para isso, deve submeter o seu app para a CieloStore, solicitando que seja definido como frente de caixa, informando qual Intent e qual nome do parâmetro receberá o valor.</p>
+<p>Você poderá configurar seu App na Cielo LIO como um aplicativo padrão, ou seja, você pode deixar o pagamento disponivel apenas para o seu aplicativo, bloqueando pagamentos via interface da Cielo LIO. Para isso, deve submeter o seu app para a CieloStore, solicitando que seja definido como frente de caixa, informando qual Intent e qual nome do parâmetro receberá o valor.</p>
 
-<p>Após a aprovado/certificado, o App estará disponível para ser selecionado com App Padrão de venda no menu da sua LIO+.</p>
+<p>Após a aprovado/certificado, o App estará disponível para ser selecionado com App Padrão de venda e com isso você consegue deixar o pagamento disponivel apenas pelo seu aplicativo</p>
 
 <h3 id="intent-para-receber-o-valor-da-venda">Intent para receber o valor da venda</h3>
 
@@ -439,6 +435,8 @@ aplicativo na plataforma Cielo LIO.</p>
     <p>Quando o seu app estiver marcado como padrão, e uma transação for iniciada usando o App Cielo Vender (App padrão vendas da Cielo). Neste cenário o valor digitado no App Cielo Vender será passado como Intent Extra para o seu App.</p>
   </li>
 </ul>
+
+<p>Caso possua algúma duvida na configuração desse recurso, você pode abrir um ticket em nosso suporte: <a href="https://devcielo.zendesk.com/hc/pt-br/requests/new?ticket_form_id=360000614392">Clique aqui</a></p>
 
 <h2 id="recursos-indisponíveis">Recursos Indisponíveis</h2>
 
@@ -1544,7 +1542,7 @@ Utilize o método abaixo para finalizar o uso do OrderManager:</p>
 
 <h3 id="verificar-modelo-da-lio">Verificar Modelo da LIO</h3>
 
-<p>O SDK disponibiliza um método para verificar se seu aplicativo está instalado numa LIO V1 ou V2. Basta acessar da seguinte forma:</p>
+<p>O SDK disponibiliza um método para verificar qual modelo da LIO o app está instalado. Basta acessar da seguinte forma:</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">infoManager</span><span class="o">.</span><span class="na">getDeviceModel</span><span class="o">();</span>
 </code></pre></div></div>
@@ -1587,7 +1585,7 @@ Abaixo, segue um descritivo de atributos do objeto Setttings.</p>
 
 <h2 id="impressão-apenas-lio-v2">Impressão [Apenas LIO V2]</h2>
 
-<p>A nova versão da Cielo LIO V2 permite que aplicações parceiras utilizem os métodos disponíveis da impressora para imprimir dados importantes ou necessários para o negócio do cliente. Para realizar estas operações, basta utilizar um dos métodos listados abaixo que permite a impressão de uma única linha, uma sequência de linhas, ou imagens.</p>
+<p>A Cielo LIO V2 permite que aplicações parceiras utilizem os métodos disponíveis da impressora para imprimir dados importantes ou necessários para o negócio do cliente. Para realizar estas operações, basta utilizar um dos métodos listados abaixo que permite a impressão de uma única linha, uma sequência de linhas, ou imagens.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PrinterManager</span> <span class="n">printerManager</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PrinterManager</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
 </code></pre></div></div>
