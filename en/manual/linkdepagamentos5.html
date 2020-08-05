@@ -134,7 +134,7 @@
 <p>Cielo OAUTH is an authentication process used in Cielo APIs that are correlated to E-commerce products. It uses the <strong><a href="https://oauth.net/2/">OAUTH2</a></strong> protocol, where it is first necessary to obtain an access token, using its credentials, which should then be sent to the CieloOAuth API</p>
 
 <blockquote>
-  <p>To get the <code class="highlighter-rouge">ClientID</code> and<code class="highlighter-rouge"> ClientSecret</code>, see the topic of Obtaining Credentials.</p>
+  <p>To get the <code class="language-plaintext highlighter-rouge">ClientID</code> and<code class="language-plaintext highlighter-rouge"> ClientSecret</code>, see the topic of Obtaining Credentials.</p>
 </blockquote>
 
 <p>To use Cielo Oauth you need the following credentials:</p>
@@ -149,13 +149,13 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">ClientId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ClientId</code></td>
       <td>Key identifier provided by CIELO</td>
       <td>guid</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">ClientSecret</code></td>
-      <td>Key that validates the ClientID. Provided by Cielo with <code class="highlighter-rouge">ClientID</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ClientSecret</code></td>
+      <td>Key that validates the ClientID. Provided by Cielo with <code class="language-plaintext highlighter-rouge">ClientID</code></td>
       <td>string</td>
     </tr>
   </tbody>
@@ -175,7 +175,7 @@
 
 <h2 id="access-token">Access token</h2>
 
-<p>To gain access to Cielo services that use <code class="highlighter-rouge">Cielo Oauth</code>, you will need to obtain an access token, according to the steps below:</p>
+<p>To gain access to Cielo services that use <code class="language-plaintext highlighter-rouge">Cielo Oauth</code>, you will need to obtain an access token, according to the steps below:</p>
 
 <ol>
   <li>Concatenate the <em>ClientId</em> and <em>ClientSecret</em>, <strong>ClientId: ClientSecret</strong></li>
@@ -246,17 +246,17 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Access_token</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Access_token</code></td>
       <td>Used to access API services</td>
       <td>string</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Token_type</code></td>
-      <td>Will always be <code class="highlighter-rouge">bearer</code> type</td>
+      <td><code class="language-plaintext highlighter-rouge">Token_type</code></td>
+      <td>Will always be <code class="language-plaintext highlighter-rouge">bearer</code> type</td>
       <td>texto</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Expires_in</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Expires_in</code></td>
       <td>Token lifetime in seconds. Approximately 20 minutes</td>
       <td>int</td>
     </tr>
@@ -295,7 +295,7 @@
 <aside class="request"><span class="method post">POST</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/</span></aside>
 
 <blockquote>
-  <p>Header: <code class="highlighter-rouge">Authorization: Bearer {access_token}</code></p>
+  <p>Header: <code class="language-plaintext highlighter-rouge">Authorization: Bearer {access_token}</code></p>
 </blockquote>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -331,63 +331,63 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">name</code></td>
+      <td><code class="language-plaintext highlighter-rouge">name</code></td>
       <td>Product name</td>
       <td>String</td>
       <td>128</td>
       <td>YES</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">description</code></td>
-      <td>Description of the product that will be displayed on the Checkout screen if the <code class="highlighter-rouge">show_description</code> option is true.</td>
+      <td><code class="language-plaintext highlighter-rouge">description</code></td>
+      <td>Description of the product that will be displayed on the Checkout screen if the <code class="language-plaintext highlighter-rouge">show_description</code> option is true.</td>
       <td>String</td>
       <td>512</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">showDescription</code></td>
+      <td><code class="language-plaintext highlighter-rouge">showDescription</code></td>
       <td>Flag indicating whether or not the description should be displayed on the Checkout screen</td>
       <td>String</td>
       <td>–</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">price</code></td>
+      <td><code class="language-plaintext highlighter-rouge">price</code></td>
       <td>Product price in <strong>cents</strong></td>
       <td>Int</td>
       <td>1000000</td>
       <td>YES</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">expirationDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">expirationDate</code></td>
       <td>Link expiration date. If a date is entered, the link becomes unavailable on the given date. If no date is entered, the link will not expire.</td>
       <td>String</td>
       <td>YYYY-MM-DD</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">weight</code></td>
+      <td><code class="language-plaintext highlighter-rouge">weight</code></td>
       <td>Product weight in <strong>grams</strong></td>
       <td>String</td>
       <td>2000000</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">softDescriptor</code></td>
+      <td><code class="language-plaintext highlighter-rouge">softDescriptor</code></td>
       <td>Description to be displayed on the bearer’s credit card invoice.</td>
       <td>String</td>
       <td>13</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">maxNumberOfInstallments</code></td>
+      <td><code class="language-plaintext highlighter-rouge">maxNumberOfInstallments</code></td>
       <td>Maximum number of installments that the buyer can select on the Checkout screen. If not informed, the store settings in Checkout Cielo will be used.</td>
       <td>int</td>
       <td>2</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">type</code></td>
       <td>Type of sale to be made through the payment link:<br /><strong>Asset</strong> – Physical Material<br /><strong>Digital</strong> – Digital Product<br /><strong>Service</strong> – Service<br /><strong>Payment</strong> – Simple Payments<br /><strong>Recurrent</strong> – Recurrent Payment</td>
       <td>String</td>
       <td>255</td>
@@ -397,7 +397,7 @@
 </table>
 
 <blockquote>
-  <p>Within <code class="highlighter-rouge">Description</code> You can use the pipe character<code class="highlighter-rouge">|</code>if it is desirable to break the line when displaying the description on the Checkout screen</p>
+  <p>Within <code class="language-plaintext highlighter-rouge">Description</code> You can use the pipe character<code class="language-plaintext highlighter-rouge">|</code>if it is desirable to break the line when displaying the description on the Checkout screen</p>
 </blockquote>
 
 <p><strong>Shipping Information</strong></p>
@@ -421,28 +421,28 @@
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping.name</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping.name</code></td>
       <td>Shipping name. <strong>Required for the shipping type “FixedAmount”</strong></td>
       <td>string</td>
       <td>128</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping.price</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping.price</code></td>
       <td>Shipping price. <strong>Required for the shipping type “FixedAmount”</strong></td>
       <td>int</td>
       <td>100000</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping.originZipCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping.originZipCode</code></td>
       <td>Order origin zip code. Required for the shipping type “Correios”. Must contain only numbers</td>
       <td>string</td>
       <td>8</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping.type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping.type</code></td>
       <td>Shipping type.<br /><strong>Correios</strong> – Deliver by correios<br /><strong>FixedAmount</strong> – Fixed amount<br /><strong>Free</strong> - Free<br /><strong>WithoutShippingPickUp</strong> – Without shipping pick up<br /><strong>WithoutShipping</strong> – Without shipping<br />If the chosen product type is “<strong>Asset</strong>”, the allowed shipping types are: <em><strong>“Correios, FixedAmount or Free”</strong></em>.<br />If the chosen product type is “<strong>Digital</strong>” ou “<strong>Service</strong>”, the allowed shipping types are: <em><strong>“WithoutShipping, WithoutShippingPickUp”</strong></em>.<br />If the chosen product type is “<strong>Recurrent</strong>” the allowed shipping type is: <em><strong>“WithoutShipping”</strong></em>.</td>
       <td>string</td>
       <td>255</td>
@@ -472,14 +472,14 @@
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">recurrent.interval</code></td>
+      <td><code class="language-plaintext highlighter-rouge">recurrent.interval</code></td>
       <td>Recurrence Charge Interval.<br /><strong>Monthly</strong> - Monthly<br /><strong>Bimonthly</strong> - Bimonthly<br /><strong>Quarterly</strong> - Quarterly<br /><strong>SemiAnnual</strong> - Semi Annual<br /><strong>Annual</strong> – Annual<br /></td>
       <td>string</td>
       <td>128</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">recurrrent.endDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">recurrrent.endDate</code></td>
       <td>Recurrence charge end date. If not informed the recurrence will not end, the charging will happen according to the interval selected indefinitely.</td>
       <td>string</td>
       <td>128</td>
@@ -545,17 +545,17 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">id</code></td>
       <td>guid</td>
       <td>Unique identifier of the payment link. Can be used to query, update or delete the link.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shortUrl</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shortUrl</code></td>
       <td>string</td>
       <td>Represents the payment link that, when opened in a browser, will display the Checkout Cielo screen.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">links</code></td>
+      <td><code class="language-plaintext highlighter-rouge">links</code></td>
       <td>object</td>
       <td>Displays the available and possible operations (RESTful hypermedia) to be performed after link creation or update.</td>
     </tr>
@@ -566,7 +566,7 @@
 
 <h3 id="request-2">Request</h3>
 
-<p>To query an existing link, simply perform a <code class="highlighter-rouge">GET</code> informing the link <code class="highlighter-rouge">ID</code>.</p>
+<p>To query an existing link, simply perform a <code class="language-plaintext highlighter-rouge">GET</code> informing the link <code class="language-plaintext highlighter-rouge">ID</code>.</p>
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}</span></aside>
 
@@ -629,17 +629,17 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">id</code></td>
       <td>guid</td>
       <td>Unique identifier of the payment link. Can be used to query, update, or delete the link.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shortUrl</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shortUrl</code></td>
       <td>string</td>
       <td>Represents the payment link that, when opened in a browser, will display the Checkout Cielo screen.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">links</code></td>
+      <td><code class="language-plaintext highlighter-rouge">links</code></td>
       <td>object</td>
       <td>Displays the available and possible operations (RESTful hypermedia) to be performed after link creation or update.</td>
     </tr>
@@ -654,7 +654,7 @@
 
 <h3 id="request-3">Request</h3>
 
-<p>To update an existing link, simply perform a <code class="highlighter-rouge">GET</code> informing the link <code class="highlighter-rouge">ID</code>.</p>
+<p>To update an existing link, simply perform a <code class="language-plaintext highlighter-rouge">GET</code> informing the link <code class="language-plaintext highlighter-rouge">ID</code>.</p>
 
 <aside class="request"><span class="method put">PUT</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}</span></aside>
 
@@ -737,17 +737,17 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">id</code></td>
       <td>guid</td>
       <td>Unique identifier of the payment link. Can be used to query, update, or delete the link.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shortUrl</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shortUrl</code></td>
       <td>string</td>
       <td>Represents the payment link that, when opened in a browser, will display the Checkout Cielo screen.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">links</code></td>
+      <td><code class="language-plaintext highlighter-rouge">links</code></td>
       <td>object</td>
       <td>Displays the available and possible operations (RESTful hypermedia) to be performed after link creation or update.</td>
     </tr>
@@ -762,7 +762,7 @@
 
 <h3 id="request-4">Request</h3>
 
-<p>To delete an existing link, simply perform a <code class="highlighter-rouge">GET</code> informing the link <code class="highlighter-rouge">ID</code>.</p>
+<p>To delete an existing link, simply perform a <code class="language-plaintext highlighter-rouge">GET</code> informing the link <code class="language-plaintext highlighter-rouge">ID</code>.</p>
 
 <aside class="request"><span class="method delete">DELETE</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}</span></aside>
 

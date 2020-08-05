@@ -225,14 +225,14 @@ Below, it is presented an exemple in high-level of the Cielo LIO Order Manager S
 
 <p>For release version, add the module from Cielo LIO Manager SDK on the Gradle dependencies:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>compile 'com.cielo.lio:order-manager:0.19.5'
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>compile 'com.cielo.lio:order-manager:0.19.5'
 </code></pre></div></div>
 
 <p>last version 0.19.4 - launched in 25/07/2018</p>
 
 <blockquote>
   <p>From the version 1.17.7-beta of the SDK, it has become required the permission of INTERNET on the costumer application.
-Add this permission to the <code class="highlighter-rouge">AndroidManifest.xml</code> of your application.</p>
+Add this permission to the <code class="language-plaintext highlighter-rouge">AndroidManifest.xml</code> of your application.</p>
 </blockquote>
 
 <h3 id="credentials">Credentials</h3>
@@ -284,12 +284,12 @@ Access-token identification, that stores the access rules allowed to the Client 
     <tr>
       <td>credentials</td>
       <td>Access credentials of the Partner/Developer. After registering on the Developers Portal and creating his app, the Partner/Developer gets the (Client-ID and Access-Token) credentials. They are for identifying him uniquely on LIO platform and to differentiate the orders of his application.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.Credentials</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cielo.sdk.order.Credentials</code></td>
     </tr>
     <tr>
       <td>context</td>
       <td>The application context.</td>
-      <td><code class="highlighter-rouge">android.content.Context</code></td>
+      <td><code class="language-plaintext highlighter-rouge">android.content.Context</code></td>
     </tr>
   </tbody>
 </table>
@@ -300,7 +300,7 @@ Access-token identification, that stores the access rules allowed to the Client 
 
 <h3 id="link-the-application-context-to-the-sdk">Link the application context to the SDK</h3>
 
-<p>With the <code class="highlighter-rouge">bind()</code> method, it is possible to link the application context to the SDK. This service is responsible for managing the functions related to the orders from LIO.</p>
+<p>With the <code class="language-plaintext highlighter-rouge">bind()</code> method, it is possible to link the application context to the SDK. This service is responsible for managing the functions related to the orders from LIO.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">ServiceBindListener</span> <span class="n">serviceBindListener</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ServiceBindListener</span><span class="o">()</span> <span class="o">{</span>
 
@@ -324,7 +324,7 @@ Access-token identification, that stores the access rules allowed to the Client 
 </code></pre></div></div>
 
 <blockquote>
-  <p><strong>Attention:</strong> You have to ensure that the <code class="highlighter-rouge">onServiceBound()</code> listener was called before using the OrderManager functions, otherwise an exception will be launched, causing a crash in your application.</p>
+  <p><strong>Attention:</strong> You have to ensure that the <code class="language-plaintext highlighter-rouge">onServiceBound()</code> listener was called before using the OrderManager functions, otherwise an exception will be launched, causing a crash in your application.</p>
 </blockquote>
 
 <p>Bind method gets two parameters:</p>
@@ -393,7 +393,7 @@ Start payment process</p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/checkoutOrder.jpg" alt="checkoutorder ways" /></p>
 
-<p>Independently on the chosen way, you’ll have to use the following callback as parameter of the <code class="highlighter-rouge">checkoutOrder()</code> method to receive the states related to the payment:</p>
+<p>Independently on the chosen way, you’ll have to use the following callback as parameter of the <code class="language-plaintext highlighter-rouge">checkoutOrder()</code> method to receive the states related to the payment:</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PaymentListener</span> <span class="n">paymentListener</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PaymentListener</span><span class="o">()</span> <span class="o">{</span>
     <span class="nd">@Override</span>
@@ -425,7 +425,7 @@ The following actions can be notified:<br />
 • onError - When there’s an error on the order payment.</p>
 </blockquote>
 
-<p>The <code class="highlighter-rouge">onPayment()</code> method returns an <code class="highlighter-rouge">Order</code> object with a list of <code class="highlighter-rouge">Payment</code> that has a <code class="highlighter-rouge">PaymentFields</code> HashMap with most of the transaction data.
+<p>The <code class="language-plaintext highlighter-rouge">onPayment()</code> method returns an <code class="language-plaintext highlighter-rouge">Order</code> object with a list of <code class="language-plaintext highlighter-rouge">Payment</code> that has a <code class="language-plaintext highlighter-rouge">PaymentFields</code> HashMap with most of the transaction data.
 Below there’s a table with the most relevant data existing in this map:</p>
 
 <table>
@@ -731,12 +731,12 @@ Below there’s a table with the most relevant data existing in this map:</p>
     <tr>
       <td>orderId</td>
       <td>The identifier of the order to be paid.</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>paymentListener</td>
       <td>Payment callback.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
     </tr>
   </tbody>
 </table>
@@ -767,17 +767,17 @@ Below there’s a table with the most relevant data existing in this map:</p>
     <tr>
       <td>orderId</td>
       <td>The identifier of the order to be paid.</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>value</td>
       <td>Amount to be paid. R$ 10,00 must be sent as 1000.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Long</code></td>
     </tr>
     <tr>
       <td>paymentListener</td>
       <td>Payment callback.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
     </tr>
   </tbody>
 </table>
@@ -814,22 +814,22 @@ Below there’s a table with the most relevant data existing in this map:</p>
     <tr>
       <td>id</td>
       <td>Code identifier on the system.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Long</code></td>
     </tr>
     <tr>
       <td>code</td>
       <td>Used on the payment function.</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>name</td>
       <td>Payment method name for display purposes.</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>secondaryProducts</td>
       <td>Listing of secondary payment codes. Example: One lump sum, Installment, etc.</td>
-      <td><code class="highlighter-rouge">ArrayList&lt;SecondaryProduct&gt;</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ArrayList&lt;SecondaryProduct&gt;</code></td>
     </tr>
   </tbody>
 </table>
@@ -848,7 +848,7 @@ Below there’s a table with the most relevant data existing in this map:</p>
 </code></pre></div></div>
 
 <blockquote>
-  <p><strong>Attention:</strong> On the version 0.19.0 of the SDK, there were introducted payment codes for the main operations provided on LIO, thus making the payment calls easier. It is important to emphasize that the payment ways are configured according to the commercial establishment, and not all will be available in all terminals. In case the selected payment method is not available on the LIO, there will be an excepetion of <code class="highlighter-rouge">NoSuchElementException</code>type.</p>
+  <p><strong>Attention:</strong> On the version 0.19.0 of the SDK, there were introducted payment codes for the main operations provided on LIO, thus making the payment calls easier. It is important to emphasize that the payment ways are configured according to the commercial establishment, and not all will be available in all terminals. In case the selected payment method is not available on the LIO, there will be an excepetion of <code class="language-plaintext highlighter-rouge">NoSuchElementException</code>type.</p>
 </blockquote>
 
 <table>
@@ -899,37 +899,37 @@ Below there’s a table with the most relevant data existing in this map:</p>
     <tr>
       <td>orderId</td>
       <td>Identifier of the order to be paid.</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>value</td>
       <td>Amount to be paid. R$ 10,00 must be sent as 1000.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Long</code></td>
     </tr>
     <tr>
       <td>primaryCode</td>
       <td>Identifier code of the primary method of payment. example: Debit, Credit.</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>secondaryCode</td>
       <td>Identifier code of the secondary method of payment. example: In one lump sum, Installment.</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>installments (<strong>not mandatory</strong>)</td>
       <td>Number of installments.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Long</code></td>
     </tr>
     <tr>
       <td>email (<strong>not mandatory</strong>)</td>
       <td>E-mail informed.</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>paymentListener</td>
       <td>Payment callback.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
     </tr>
   </tbody>
 </table>
@@ -964,32 +964,32 @@ In this payment way, it is only required to perform the call of the method sendi
     <tr>
       <td>orderId</td>
       <td>The identifier of the order to be paid.</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>value</td>
       <td>Amount to be paid. R$ 10,00 must be sent as 1000.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Long</code></td>
     </tr>
     <tr>
       <td>primaryCode</td>
       <td>Identifier code of the primary method of payment example: Debit, Credit.</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>secondaryCode</td>
       <td>Identifier code of the secondary method of payment example: One lump sum payment, Installment.</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>installments</td>
       <td>Number of installments.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Long</code></td>
     </tr>
     <tr>
       <td>paymentListener</td>
       <td>Payment callback.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
     </tr>
   </tbody>
 </table>
@@ -1029,37 +1029,37 @@ In this payment way, it is only required to perform the call of the method using
     <tr>
       <td>orderId</td>
       <td>The identifier of the order to be paid.</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>value</td>
       <td>Amount to be paid. R$ 10,00 must be sent as 1000.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Long</code></td>
     </tr>
     <tr>
       <td>primaryCode</td>
       <td>Identifier code of the primary method of payment example: Debit, Credit.</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>secondaryCode</td>
       <td>Identifier code of the secondary method of payment example: One lump sum payment, Installment.</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>installments</td>
       <td>Number of installments.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Long</code></td>
     </tr>
     <tr>
       <td>email</td>
       <td>E-mail informed</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>paymentListener</td>
       <td>Payment callback</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
     </tr>
   </tbody>
 </table>
@@ -1074,7 +1074,7 @@ In this payment way, it is only required to perform the call of the method using
 
 <h3 id="6-payment-informing-ce">6. Payment informing CE</h3>
 
-<p>This method, it is provided for the case of being necessary to effect a payment in a CE different from the main one. The CE informed must be configured on Cielo LIO at the moment of initialization for it to work, or the SDK will send an exception of <code class="highlighter-rouge">InvalidParameterException</code> type.
+<p>This method, it is provided for the case of being necessary to effect a payment in a CE different from the main one. The CE informed must be configured on Cielo LIO at the moment of initialization for it to work, or the SDK will send an exception of <code class="language-plaintext highlighter-rouge">InvalidParameterException</code> type.
 In this payment way, it is only required to perform the call of the method sending the following parameters:</p>
 
 <table>
@@ -1089,42 +1089,42 @@ In this payment way, it is only required to perform the call of the method sendi
     <tr>
       <td>orderId</td>
       <td>The identifier of the order to be paid.</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>value</td>
       <td>Amount to be paid. R$ 10,00 must be sent as 1000.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Long</code></td>
     </tr>
     <tr>
       <td>primaryCode</td>
       <td>Identifier code of the primary method of payment example: Debit, Credit.</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>secondaryCode</td>
       <td>Identifier code of the secondary method of payment example: One lump sum payment, Installment.</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>installments</td>
       <td>Number of installments.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Long</code></td>
     </tr>
     <tr>
       <td>email</td>
       <td>E-mail informed</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>merchantCode</td>
       <td>CE number</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>paymentListener</td>
       <td>Payment callback</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
     </tr>
   </tbody>
 </table>
@@ -1150,7 +1150,7 @@ In this payment way, it is only required to perform the call of the method sendi
 
 <p><a href="https://developercielo.github.io/manual/cielo-lio#cancelar-parte-do-valor-de-um-pagamento">Cancel Part of the Payment Amount</a></p>
 
-<p>Independently on the chosen way, you’ll have to use the following callback as parameter of the <code class="highlighter-rouge">cancelOrder()</code> method to receive the states related to the payment:</p>
+<p>Independently on the chosen way, you’ll have to use the following callback as parameter of the <code class="language-plaintext highlighter-rouge">cancelOrder()</code> method to receive the states related to the payment:</p>
 
 <blockquote>
   <p>CancellationListener: A callback that informs about all actions taken during the cancellation process. 
@@ -1202,22 +1202,22 @@ As soon as you get the Order instance, use the method below passing the paramete
     <tr>
       <td>context</td>
       <td>Context of your application.</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>orderID</td>
       <td>The identifier of the order to be paid.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Long</code></td>
     </tr>
     <tr>
       <td>payment</td>
       <td>The payment to be canceled.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.Payment</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cielo.sdk.order.payment.Payment</code></td>
     </tr>
     <tr>
       <td>cancellationListener</td>
       <td>Callback that informs about all actions taken during the cancelling process.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.CancellationListener</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cielo.sdk.order.payment.CancellationListener</code></td>
     </tr>
   </tbody>
 </table>
@@ -1250,27 +1250,27 @@ The parameters from the previous method, with the inclusion of a parameter that 
     <tr>
       <td>context</td>
       <td>Context of your application.</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>orderID</td>
       <td>The identifier of the order to be paid.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Long</code></td>
     </tr>
     <tr>
       <td>payment</td>
       <td>The payment to be canceled.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.Payment</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cielo.sdk.order.payment.Payment</code></td>
     </tr>
     <tr>
       <td>value</td>
       <td>The amount to be canceled.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Long</code></td>
     </tr>
     <tr>
       <td>cancellationListener</td>
       <td>Callback that informs about all actions taken during the cancelling process.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.CancellationListener</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cielo.sdk.order.payment.CancellationListener</code></td>
     </tr>
   </tbody>
 </table>
@@ -1285,11 +1285,11 @@ The parameters from the previous method, with the inclusion of a parameter that 
 
 <h3 id="get-a-warning-of-cancellation-made-on-lio">Get a warning of cancellation made on LIO</h3>
 
-<p>Every time there’s a cancellation on LIP using the launcher, the system sends a broadcast notifying any application that are registered over it. For your application to be notified of a cancellation, update the  <code class="highlighter-rouge">AndroidManifest.xml</code> file, as on the example below:</p>
+<p>Every time there’s a cancellation on LIP using the launcher, the system sends a broadcast notifying any application that are registered over it. For your application to be notified of a cancellation, update the  <code class="language-plaintext highlighter-rouge">AndroidManifest.xml</code> file, as on the example below:</p>
 
 <p><img src="https://developercielo.github.io/images/cielo-lio/manifest.jpg" alt="Manifest" /></p>
 
-<p>And then, it is required to implement a <code class="highlighter-rouge">BroadcastReceiver</code> to treat the event in a way that is pertinent to your application:</p>
+<p>And then, it is required to implement a <code class="language-plaintext highlighter-rouge">BroadcastReceiver</code> to treat the event in a way that is pertinent to your application:</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">LIOCancelationBroadcastReceiver</span> <span class="kd">extends</span> <span class="nc">BroadcastReceiver</span> <span class="o">{</span>
@@ -1333,12 +1333,12 @@ For that, just use the function below, that returns the orders in a paginated wa
     <tr>
       <td>pageSize</td>
       <td>Amount of items per page</td>
-      <td><code class="highlighter-rouge">Integer</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Integer</code></td>
     </tr>
     <tr>
       <td>page</td>
       <td>Number of the requisitioned page (starting in 0)</td>
-      <td><code class="highlighter-rouge">Integer</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Integer</code></td>
     </tr>
   </tbody>
 </table>
@@ -1351,7 +1351,7 @@ For that, just use the function below, that returns the orders in a paginated wa
 
 <p>After performing all the payment operations and in case it is not required using the OrderManager object, use the unbind method to unlink the context and avoid integrity problems.</p>
 
-<p>Pay attention to the local where the <code class="highlighter-rouge">unbind()</code> will be executed to avoid problems with the life cycle of the Activity or Fragment that was linked to the service.
+<p>Pay attention to the local where the <code class="language-plaintext highlighter-rouge">unbind()</code> will be executed to avoid problems with the life cycle of the Activity or Fragment that was linked to the service.
 it is important to remember that if the context is changed, it is required to unlink the service (example: change of Activity)
 Use the method below to end the OrderManager use:</p>
 
@@ -1373,7 +1373,7 @@ Use the method below to end the OrderManager use:</p>
 </code></pre></div></div>
 
 <blockquote>
-  <p>The battery value will be returned in a <code class="highlighter-rouge">Float</code> containing the value from 0 to 1 in case of success and -1 in case of error.</p>
+  <p>The battery value will be returned in a <code class="language-plaintext highlighter-rouge">Float</code> containing the value from 0 to 1 in case of success and -1 in case of error.</p>
 </blockquote>
 
 <h3 id="verify-lio-model">Verify LIO model</h3>
@@ -1383,7 +1383,7 @@ Use the method below to end the OrderManager use:</p>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">infoManager</span><span class="o">.</span><span class="na">getDeviceModel</span><span class="o">();</span>
 </code></pre></div></div>
 
-<p>It will return an enum of <code class="highlighter-rouge">DeviceModel</code> type with the correspondent model (<code class="highlighter-rouge">LIO_V1</code> or <code class="highlighter-rouge">LIO_V2</code>).</p>
+<p>It will return an enum of <code class="language-plaintext highlighter-rouge">DeviceModel</code> type with the correspondent model (<code class="language-plaintext highlighter-rouge">LIO_V1</code> or <code class="language-plaintext highlighter-rouge">LIO_V2</code>).</p>
 
 <h3 id="getting-user-informations-ce-and-logic-number">Getting user informations (CE and Logic Number)</h3>
 
@@ -1409,12 +1409,12 @@ Below, there’s a descriptive of attributes from the Settings object.</p>
     <tr>
       <td>merchantCode</td>
       <td>Client code</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>logicNumber</td>
       <td>LIO Logic Number</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
   </tbody>
 </table>
@@ -1479,47 +1479,47 @@ The following actions can be notified:
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_ALIGN</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PrinterAttributes.KEY_ALIGN</code></td>
       <td>Printing alignment</td>
-      <td><code class="highlighter-rouge">PrinterAttributes.VAL_ALIGN_CENTER</code>  <code class="highlighter-rouge">PrinterAttributes.VAL_ALIGN_LEFT</code> <code class="highlighter-rouge">PrinterAttributes.VAL_ALIGN_RIGHT</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PrinterAttributes.VAL_ALIGN_CENTER</code>  <code class="language-plaintext highlighter-rouge">PrinterAttributes.VAL_ALIGN_LEFT</code> <code class="language-plaintext highlighter-rouge">PrinterAttributes.VAL_ALIGN_RIGHT</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_TEXTSIZE</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PrinterAttributes.KEY_TEXTSIZE</code></td>
       <td>Text size</td>
       <td>Whole values</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_TYPEFACE</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PrinterAttributes.KEY_TYPEFACE</code></td>
       <td>Text font</td>
       <td>Works with an integer from 0 to 8, where each one is a different font.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_MARGINLEFT</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PrinterAttributes.KEY_MARGINLEFT</code></td>
       <td>Left margin</td>
       <td>Whole values</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_MARGINRIGHT</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PrinterAttributes.KEY_MARGINRIGHT</code></td>
       <td>Right margin</td>
       <td>Whole values</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_MARGINTOP</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PrinterAttributes.KEY_MARGINTOP</code></td>
       <td>Superior margin</td>
       <td>Whole values</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_MARGINBOTTOM</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PrinterAttributes.KEY_MARGINBOTTOM</code></td>
       <td>Inferior margin</td>
       <td>Whole values</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_LINESPACE</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PrinterAttributes.KEY_LINESPACE</code></td>
       <td>Line spacing</td>
       <td>Whole values</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_WEIGHT</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PrinterAttributes.KEY_WEIGHT</code></td>
       <td>Variable used when working with impression of multiple columns, to choose the weight of each column</td>
       <td>Whole values</td>
     </tr>
@@ -1546,7 +1546,7 @@ The following actions can be notified:
 
 <h3 id="simple-text-print">Simple text print</h3>
 
-<p>To print simple texts, use the <code class="highlighter-rouge">printText()</code> method from the PrinterManager. 
+<p>To print simple texts, use the <code class="language-plaintext highlighter-rouge">printText()</code> method from the PrinterManager. 
 The method receives as parameter the text to be printed, a printing style map and a listener to treat the printing return.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">textToPrint</span> <span class="o">=</span> <span class="s">"Simple text to be printed.\n With multiple lines"</span><span class="o">;</span>
@@ -1568,24 +1568,24 @@ The method receives as parameter the text to be printed, a printing style map an
     <tr>
       <td>text</td>
       <td>Text to be printed.</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>style</td>
       <td>Printing styles map</td>
-      <td><code class="highlighter-rouge">Map&lt;String, Int&gt;</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Map&lt;String, Int&gt;</code></td>
     </tr>
     <tr>
       <td>printerListener</td>
       <td>Printing callback.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.PrinterListener</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cielo.sdk.order.PrinterListener</code></td>
     </tr>
   </tbody>
 </table>
 
 <h3 id="multiple-columns-printing">Multiple columns printing</h3>
 
-<p>o print texts in multiple columns, use the <code class="highlighter-rouge">printMultipleColumnText()</code> method of the PrinterManager. 
+<p>o print texts in multiple columns, use the <code class="language-plaintext highlighter-rouge">printMultipleColumnText()</code> method of the PrinterManager. 
 The method receives as parameter an array of texts to be printed, an array with printing styles maps, respectively and a listener to treat the printing return.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span><span class="o">[]</span> <span class="n">textsToPrint</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">[]</span> <span class="o">{</span> <span class="s">"Text aligned to the left."</span><span class="o">,</span> <span class="s">"Text centralized"</span><span class="o">,</span> <span class="s">"Text aligned to the right"</span>  <span class="o">}</span>
@@ -1614,25 +1614,25 @@ The method receives as parameter an array of texts to be printed, an array with 
     <tr>
       <td>stringArray</td>
       <td>List of texts to be printed.</td>
-      <td><code class="highlighter-rouge">String[]</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String[]</code></td>
     </tr>
     <tr>
       <td>style</td>
       <td>List of printing styles map</td>
-      <td><code class="highlighter-rouge">List&lt;Map&lt;String, Int)&gt;&gt;</code></td>
+      <td><code class="language-plaintext highlighter-rouge">List&lt;Map&lt;String, Int)&gt;&gt;</code></td>
     </tr>
     <tr>
       <td>printerListener</td>
       <td>Printing callback.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.PrinterListener</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cielo.sdk.order.PrinterListener</code></td>
     </tr>
   </tbody>
 </table>
 
 <h3 id="image-printing">Image printing</h3>
 
-<p>To print images, use the <code class="highlighter-rouge">printImage()</code> method of the PrinterManager. 
-The method receives as parameter the <code class="highlighter-rouge">bitmap</code> to be printed, a printing styles map and a listener to treat the printing return.</p>
+<p>To print images, use the <code class="language-plaintext highlighter-rouge">printImage()</code> method of the PrinterManager. 
+The method receives as parameter the <code class="language-plaintext highlighter-rouge">bitmap</code> to be printed, a printing styles map and a listener to treat the printing return.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Bitmap</span> <span class="n">bitmap</span> <span class="o">=</span> <span class="nc">BitmapFactory</span><span class="o">.</span><span class="na">decodeResource</span><span class="o">(</span><span class="n">getResources</span><span class="o">(),</span> <span class="no">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">cielo</span><span class="o">);</span>
 <span class="n">printerManager</span><span class="o">.</span><span class="na">printImage</span><span class="o">(</span><span class="n">bitmap</span><span class="o">,</span> <span class="n">alignCenter</span><span class="o">,</span> <span class="n">printerListener</span><span class="o">);</span>
@@ -1665,17 +1665,17 @@ The method receives as parameter the <code class="highlighter-rouge">bitmap</cod
     <tr>
       <td>bitmap</td>
       <td>Image to be printed.</td>
-      <td><code class="highlighter-rouge">Bitmap</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Bitmap</code></td>
     </tr>
     <tr>
       <td>style</td>
       <td>Printing styles map</td>
-      <td><code class="highlighter-rouge">Map&lt;String, Int&gt;</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Map&lt;String, Int&gt;</code></td>
     </tr>
     <tr>
       <td>printerListener</td>
       <td>Printing callback.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.PrinterListener</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cielo.sdk.order.PrinterListener</code></td>
     </tr>
   </tbody>
 </table>
@@ -2421,7 +2421,7 @@ Example: Credit, Debit, etc.</p>
 
 <p>Requisition example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
     "number": "0992f1d5cee540d9a9648f4d6a9e4aa6",
     "reference": "ORDER #1234",
     "status": "DRAFT",
@@ -2481,7 +2481,7 @@ Example: Credit, Debit, etc.</p>
 
 <p>Answer example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
     "id": "2e1d7b07-dcee-4a09-8d09-3bb02d94169d"
 }
 </code></pre></div></div>
@@ -2546,7 +2546,7 @@ Example: Credit, Debit, etc.</p>
 
 <p>Answer example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
     {
     "id": "b4d8a7dc-4250-48a3-bf18-d560d4508368",
     "number": "0992f1d5-cee5-40d9-a964-8f4d6a9e4aa6",
@@ -2657,7 +2657,7 @@ Example: Credit, Debit, etc.</p>
 
 <p>Answer example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
     "id": "b4d8a7dc-4250-48a3-bf18-d560d4508368",
     "number": "0992f1d5-cee5-40d9-a964-8f4d6a9e4aa6",
     "reference": "JUICE STORE #1",
@@ -2780,7 +2780,7 @@ Example: Credit, Debit, etc.</p>
 
 <p>Answer example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>N/A
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>N/A
 </code></pre></div></div>
 
 <p>The return 200 of this operation represents success on the requisition.</p>
@@ -2847,7 +2847,7 @@ Example: Credit, Debit, etc.</p>
 
 <p>Answer example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>N/A
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>N/A
 </code></pre></div></div>
 
 <p>The return 200 of this operation represents success on the requisition.</p>
@@ -2887,7 +2887,7 @@ Example: Credit, Debit, etc.</p>
 
 <p>Requisition example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
     "sku": "ede8f84a8b8645cb8e576a593c25c6ed",
     "name": "product 1"
     "unit_price": 500,
@@ -2919,7 +2919,7 @@ Example: Credit, Debit, etc.</p>
 
 <p>Answer example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>N/A
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>N/A
 </code></pre></div></div>
 
 <p>The return 200 of this operation represents success on the requisition.</p>
@@ -2984,7 +2984,7 @@ Example: Credit, Debit, etc.</p>
 
 <p>Answer example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[{
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[{
         "id": 1,
         "sku": "ede8f84a8b8645cb8e576a593c25c6ed",
         "name": "product 1"
@@ -3049,7 +3049,7 @@ Example: Credit, Debit, etc.</p>
 /items/8484df74-eca6-4850-8e4c-35653af0bd31</p>
 </blockquote>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
     "sku": "ede8f84a8b8645cb8e576a593c25c6ed",
     "unit_price": 500,
     "quantity": 2,
@@ -3189,7 +3189,7 @@ Example: Credit, Debit, etc.</p>
   <p><strong>POST</strong> https://api.cielo.com.br/order-management/v1/orders/a9398720-9f78-4fa4-a5d4-ba54ba8009e7/transactions</p>
 </blockquote>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
   "id": "442bbdbe-41c8-4e22-83ee-e1a849ed3cb5",
   "external_id": "0b37f0d8-017a-4b11-91b9-ec1bb3e8fed3",
   "status": "CONFIRMED",
@@ -3231,7 +3231,7 @@ Example: Credit, Debit, etc.</p>
   </tbody>
 </table>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
 id: "00219dd0-1c13-46da-91e5-1c313f0d2e83"
 }
 </code></pre></div></div>
@@ -3301,7 +3301,7 @@ In production environment, once the payment is performed on Cielo LIO, the trans
 
 <p>Answer example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
 {
   "id": "442bbdbe-41c8-4e22-83ee-e1a849ed3cb5",
   "external_id": "0b37f0d8-017a-4b11-91b9-ec1bb3e8fed3",
@@ -3392,7 +3392,7 @@ In production environment, once the cancellation is performed on Cielo Lio the t
 
 <p>Answer example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
   {
     "id": "46019c39-989e-46e9-aa7d-d8e9414396b4",
     "external_id": "95185.99407021694",
@@ -3566,7 +3566,7 @@ In production environment, once the cancellation is performed on Cielo Lio the t
 <ul>
   <li>Object Oriented Design principles (S.O.L.I.D.).</li>
   <li>Java style guidelines.</li>
-  <li>Understand the difference between <code class="highlighter-rouge">compileSdkVersion</code>, <code class="highlighter-rouge">targetSdkVersion</code>, and <code class="highlighter-rouge">minSdkVersion</code>.</li>
+  <li>Understand the difference between <code class="language-plaintext highlighter-rouge">compileSdkVersion</code>, <code class="language-plaintext highlighter-rouge">targetSdkVersion</code>, and <code class="language-plaintext highlighter-rouge">minSdkVersion</code>.</li>
   <li>Enjoy the Android native buttons, like the “Back” and “Home” buttons.</li>
   <li>Optimize the operations seeking low battery consumption</li>
   <li>The application has to attend the Cielo commercial establishments (retailers) needs.</li>
@@ -3996,7 +3996,7 @@ Thus, it is assured the working of the application on the LIO V1 hardware as wel
 
 <p>Answer example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
     "app": {
       "name": "string",
       "package_name": "string"

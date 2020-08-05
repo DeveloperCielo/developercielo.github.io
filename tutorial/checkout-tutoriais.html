@@ -265,7 +265,7 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
   <tbody>
     <tr>
       <td> </td>
-      <td><code class="highlighter-rouge">http://bit.ly/2tRkSxZ</code></td>
+      <td><code class="language-plaintext highlighter-rouge">http://bit.ly/2tRkSxZ</code></td>
     </tr>
   </tbody>
 </table>
@@ -430,17 +430,17 @@ O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Servi
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">POST</code></td>
-      <td>Notificação onde o lojista é passivo. Dois <code class="highlighter-rouge">POST HTTP</code> são disparados, um informando dados da venda e outra mudança de Status da transação</td>
+      <td><code class="language-plaintext highlighter-rouge">POST</code></td>
+      <td>Notificação onde o lojista é passivo. Dois <code class="language-plaintext highlighter-rouge">POST HTTP</code> são disparados, um informando dados da venda e outra mudança de Status da transação</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">JSON</code></td>
-      <td>Notificação onde o lojista realiza uma consulta. Um <code class="highlighter-rouge">POST</code> contendo informações para a realização de uma consulta (<code class="highlighter-rouge">GET</code>) as transações checkout</td>
+      <td><code class="language-plaintext highlighter-rouge">JSON</code></td>
+      <td>Notificação onde o lojista realiza uma consulta. Um <code class="language-plaintext highlighter-rouge">POST</code> contendo informações para a realização de uma consulta (<code class="language-plaintext highlighter-rouge">GET</code>) as transações checkout</td>
     </tr>
   </tbody>
 </table>
 
-<p>Para utilizar ambos os modelos, o lojista necessitará acessar o Backoffice cielo e configurar tanto a <code class="highlighter-rouge">URL de NOTIFICAÇÃO</code> quando a <code class="highlighter-rouge">URL de MUDANÇA de STATUS</code>.</p>
+<p>Para utilizar ambos os modelos, o lojista necessitará acessar o Backoffice cielo e configurar tanto a <code class="language-plaintext highlighter-rouge">URL de NOTIFICAÇÃO</code> quando a <code class="language-plaintext highlighter-rouge">URL de MUDANÇA de STATUS</code>.</p>
 
 <p>Para mais informações sobre o modelo de notificação visite o <strong><a href="https://developercielo.github.io/manual/checkout-cielo#notificações-de-pagamento">Manual de integração</a></strong></p>
 
@@ -637,7 +637,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
       <td>Código interpretável por Smartphones e Tablets - Ideal para uso em <strong>Marketing impressos</strong> ou <strong>Digital</strong></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">http://bit.ly/2tRkSxZ</code></td>
+      <td><code class="language-plaintext highlighter-rouge">http://bit.ly/2tRkSxZ</code></td>
       <td style="text-align: center"><strong>LINK</strong></td>
       <td>é um link compartilhável, ideal para uso em <strong>Redes Sociais</strong> ou <strong>Messengers Mobile</strong></td>
     </tr>
@@ -674,7 +674,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
     </tr>
     <tr>
       <td><strong>Número do Pedido do Checkout</strong></td>
-      <td>O botão não permite o cadastro do número de pedido do Lojista. Como será a Cielo a acionar o próprio Checkout, será gerado um número de pedido (um <code class="highlighter-rouge">GUID</code>) único. O Lojista receberá esse número de pedido como link a venda realizada</td>
+      <td>O botão não permite o cadastro do número de pedido do Lojista. Como será a Cielo a acionar o próprio Checkout, será gerado um número de pedido (um <code class="language-plaintext highlighter-rouge">GUID</code>) único. O Lojista receberá esse número de pedido como link a venda realizada</td>
     </tr>
     <tr>
       <td><strong>Criação de pedidos</strong></td>
@@ -723,84 +723,84 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Tipo do Produto</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Tipo do Produto</code></td>
       <td>Indique se está vendendo um bem Material, um Serviço ou um bem Digital. Para bens Digitais, não será apresentada a opção de tipo de Frete.</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">SKU</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SKU</code></td>
       <td>Código de identificação do produto</td>
       <td>1</td>
       <td>50</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Título</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Título</code></td>
       <td>Titulo do Produto</td>
       <td>1</td>
       <td>50</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Descrição</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Descrição</code></td>
       <td>Descrição do Produto</td>
       <td>1</td>
       <td>255</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Preço</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Preço</code></td>
       <td>Valor total do pedido <strong>em centavos</strong> (ex.: R$1,00 =100).</td>
       <td>11</td>
       <td>14</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Frete</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Frete</code></td>
       <td>Escolher dentre uma das opções de Frete (Correios, Frete Fixo, Frete Grátis, Retirar na loja, Sem Cobrança).</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CEP de Origem</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CEP de Origem</code></td>
       <td>Esse campo só aparece para o frete tipo Correios, deve ser preenchido com o CEP de onde vai partir a mercadoria para fins de cálculo de frete.</td>
       <td>9</td>
       <td>9</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Peso(kg)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Peso(kg)</code></td>
       <td>Esse campo só aparece para o frete tipo Correios, deve ser preenchido com o peso do produto em kg para fins de cálculo de frete</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Valor do Frete</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Valor do Frete</code></td>
       <td>Esse campo só aparece para o frete tipo Frete Fixo, e deve ser preenchido com o valor que o lojista especificar para seus produtos.</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Método de envio</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Método de envio</code></td>
       <td>Esse campo só aparece para Tipo Produto igual a Material Físico e Tipo de Frete igual a Frete Fixo.</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">URL</code></td>
+      <td><code class="language-plaintext highlighter-rouge">URL</code></td>
       <td>Esse campo só aparece para Tipo Produto igual a Digital.</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Quantidade</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Quantidade</code></td>
       <td>Define a quantidade maxima de pedidos que o Botão pode gerar. Se não definido, o botão poderá gerar um numero infinito de pedidos</td>
       <td>n/a</td>
       <td>n/a</td>

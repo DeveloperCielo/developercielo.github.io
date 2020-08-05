@@ -139,10 +139,10 @@
 
 <h2 id="passo-1---login">Passo 1 - Login</h2>
 
-<p>1 - O parceiro redireciona o cliente para <code class="highlighter-rouge">{cielo-login-url}</code>. <br />
-2 - O cliente entra com suas credenciais e clica em <code class="highlighter-rouge">Entrar</code>. <br />
-3 - A Cielo mostra os termos de autorização e o cliente aprova este acesso clicando em <code class="highlighter-rouge">Permitir Acesso</code>. <br />
-4 - A Cielo redireciona o cliente para o parceiro novamente em <code class="highlighter-rouge">{partner-call-back-url}</code>. <br /></p>
+<p>1 - O parceiro redireciona o cliente para <code class="language-plaintext highlighter-rouge">{cielo-login-url}</code>. <br />
+2 - O cliente entra com suas credenciais e clica em <code class="language-plaintext highlighter-rouge">Entrar</code>. <br />
+3 - A Cielo mostra os termos de autorização e o cliente aprova este acesso clicando em <code class="language-plaintext highlighter-rouge">Permitir Acesso</code>. <br />
+4 - A Cielo redireciona o cliente para o parceiro novamente em <code class="language-plaintext highlighter-rouge">{partner-call-back-url}</code>. <br /></p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxo1_login1.jpg" alt="Login e Concessão de Acesso" /></p>
 
@@ -150,11 +150,11 @@
   <p>O que é cielo-login-url?</p>
 </blockquote>
 
-<p>https://<code class="highlighter-rouge">{base-login-url}</code>?response_type=code
-&amp;<code class="highlighter-rouge">client_id={client_id}</code>
-&amp;<code class="highlighter-rouge">redirect_uri={redirect_uri}</code>
-&amp;<code class="highlighter-rouge">scope={scope}</code>
-&amp;<code class="highlighter-rouge">state={state}</code></p>
+<p>https://<code class="language-plaintext highlighter-rouge">{base-login-url}</code>?response_type=code
+&amp;<code class="language-plaintext highlighter-rouge">client_id={client_id}</code>
+&amp;<code class="language-plaintext highlighter-rouge">redirect_uri={redirect_uri}</code>
+&amp;<code class="language-plaintext highlighter-rouge">scope={scope}</code>
+&amp;<code class="language-plaintext highlighter-rouge">state={state}</code></p>
 
 <ul>
   <li><strong>base-login-url:</strong> URL base que muda por ambiente, serão enviadas em tempo de projeto</li>
@@ -169,7 +169,7 @@
   <p>O que é partner-callback-url?</p>
 </blockquote>
 
-<p>https://<code class="highlighter-rouge">{partner-callback-url}</code>?code=<code class="highlighter-rouge">{code}</code>&amp;state=<code class="highlighter-rouge">{state}</code></p>
+<p>https://<code class="language-plaintext highlighter-rouge">{partner-callback-url}</code>?code=<code class="language-plaintext highlighter-rouge">{code}</code>&amp;state=<code class="language-plaintext highlighter-rouge">{state}</code></p>
 
 <ul>
   <li><strong>partner-callback-url:</strong> A URL do parceiro que será redirecionado quando o processo de login terminar.</li>
@@ -180,8 +180,8 @@
 <h2 id="passo-2--requisitando-um-access-token">Passo 2 – Requisitando um Access Token</h2>
 
 <ul>
-  <li>O serviço do parceiro solicita um <code class="highlighter-rouge">access_token</code>.</li>
-  <li>A Cielo retorna um <code class="highlighter-rouge">acess_token</code>,  um <code class="highlighter-rouge">refresh_token</code> e um <code class="highlighter-rouge">expiration_time</code>.</li>
+  <li>O serviço do parceiro solicita um <code class="language-plaintext highlighter-rouge">access_token</code>.</li>
+  <li>A Cielo retorna um <code class="language-plaintext highlighter-rouge">acess_token</code>,  um <code class="language-plaintext highlighter-rouge">refresh_token</code> e um <code class="language-plaintext highlighter-rouge">expiration_time</code>.</li>
 </ul>
 
 <h3 id="request">Request</h3>
@@ -205,7 +205,7 @@
   </table>
 </blockquote>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/access-token' \
 --header 'Basic64'
 --header 'Content-Type: application/json' \
@@ -218,7 +218,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 
 <h3 id="response">Response</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
 "access_token": "{access_token}",
 "refresh_token": "{refresh_token}",
@@ -237,15 +237,15 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">access_token</code></td>
+      <td><code class="language-plaintext highlighter-rouge">access_token</code></td>
       <td>O access_token para chamar as APIs da Cielo.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">refresh_token</code></td>
+      <td><code class="language-plaintext highlighter-rouge">refresh_token</code></td>
       <td>Quando o access_token expirar o parceiro pode solicitar um novo access_token usando este refresh_token.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">expiration_time</code></td>
+      <td><code class="language-plaintext highlighter-rouge">expiration_time</code></td>
       <td>O tempo de expiração do access_token em milisgundos.</td>
     </tr>
   </tbody>
@@ -279,8 +279,8 @@ Em todas as chamadas para as APIs.</p>
 
 <blockquote>
   <ol>
-    <li>O serviço do parceiro chama o serviço de <code class="highlighter-rouge">refresh_token</code>.</li>
-    <li>A Cielo retorna um <code class="highlighter-rouge">access_token</code> novo, um <code class="highlighter-rouge">refresh_token</code> novo e um novo <code class="highlighter-rouge">expiration_time</code>.</li>
+    <li>O serviço do parceiro chama o serviço de <code class="language-plaintext highlighter-rouge">refresh_token</code>.</li>
+    <li>A Cielo retorna um <code class="language-plaintext highlighter-rouge">access_token</code> novo, um <code class="language-plaintext highlighter-rouge">refresh_token</code> novo e um novo <code class="language-plaintext highlighter-rouge">expiration_time</code>.</li>
   </ol>
 </blockquote>
 
@@ -288,7 +288,7 @@ Em todas as chamadas para as APIs.</p>
 
 <h3 id="request-1">Request</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/access-token' \
 --header 'Basic64'
 --header 'Content-Type: application/json' \
@@ -299,11 +299,11 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 
 </code></pre></div></div>
 
-<p>Um ponto de atenção na requisição pois agora o parceiro precisa enviar o <code class="highlighter-rouge">grant_type</code> como <code class="highlighter-rouge">refresh_token</code> e no campo <code class="highlighter-rouge">refresh_token</code> deve ser enviado um <code class="highlighter-rouge">refresh_token</code> válido (e não mais um access_token).</p>
+<p>Um ponto de atenção na requisição pois agora o parceiro precisa enviar o <code class="language-plaintext highlighter-rouge">grant_type</code> como <code class="language-plaintext highlighter-rouge">refresh_token</code> e no campo <code class="language-plaintext highlighter-rouge">refresh_token</code> deve ser enviado um <code class="language-plaintext highlighter-rouge">refresh_token</code> válido (e não mais um access_token).</p>
 
 <h3 id="response-1">Response</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
 "access_token": "{access_token}",
 "refresh_token": "{refresh_token}",
@@ -322,15 +322,15 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">access_token</code></td>
+      <td><code class="language-plaintext highlighter-rouge">access_token</code></td>
       <td>O access_token para chamar as APIs da Cielo.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">refresh_token</code></td>
+      <td><code class="language-plaintext highlighter-rouge">refresh_token</code></td>
       <td>Quando o access_token expirar o parceiro pode solicitar um novo access_token usando este refresh_token.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">expiration_time</code></td>
+      <td><code class="language-plaintext highlighter-rouge">expiration_time</code></td>
       <td>O tempo de expiração do access_token em milisgundos.</td>
     </tr>
   </tbody>
@@ -353,7 +353,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 </ul>
 
 <blockquote>
-  <p>Opcionalmente pode ser retornado um outro parâmetros <code class="highlighter-rouge">error_description</code> com um detalhe do erro, apenas um texto simples.</p>
+  <p>Opcionalmente pode ser retornado um outro parâmetros <code class="language-plaintext highlighter-rouge">error_description</code> com um detalhe do erro, apenas um texto simples.</p>
 </blockquote>
 
 <h2 id="observação">Observação</h2>
@@ -421,7 +421,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </table>
 </blockquote>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
   "mainMerchantId": "9999111222",
   "merchants": [
@@ -448,28 +448,28 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">mainMerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">mainMerchantId</code></td>
       <td>ID principal do cliente.</td>
       <td>String</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">merchants</code></td>
+      <td><code class="language-plaintext highlighter-rouge">merchants</code></td>
       <td>Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista [“9999111111”, “9999111333”]</td>
       <td> </td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">status</code></td>
       <td>Endereço de e-mail do cliente</td>
       <td> </td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">type</code></td>
       <td>Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO</td>
       <td> </td>
       <td> </td>
@@ -480,7 +480,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 
 <h3 id="response-2">Response</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
   "legalEntityNumber": 1234567890,
   "mainMerchantId": 2008983,
@@ -509,42 +509,42 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">legalEntityNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">legalEntityNumber</code></td>
       <td>Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).</td>
       <td>String</td>
       <td>8</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">mainMerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">mainMerchantId</code></td>
       <td>ID principal do cliente.</td>
       <td>String</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">registerID</code></td>
+      <td><code class="language-plaintext highlighter-rouge">registerID</code></td>
       <td>ID do registro. O mesmo fornecido por /edi/registers</td>
       <td>String</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">merchants</code></td>
+      <td><code class="language-plaintext highlighter-rouge">merchants</code></td>
       <td>Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista [“9999111111”, “9999111333”]</td>
       <td> </td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">type</code></td>
       <td>Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO</td>
       <td> </td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">status</code></td>
       <td>Status de registro. Se concluído, os arquivos serão fornecidos no dia seguinte</td>
       <td> </td>
       <td> </td>
@@ -584,7 +584,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </table>
 </blockquote>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
   "legalEntityNumber": "01234567890",
   "registerID": 12345,
@@ -609,28 +609,28 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">legalEntityNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">legalEntityNumber</code></td>
       <td>Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).</td>
       <td>String</td>
       <td>8</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">registerID</code></td>
+      <td><code class="language-plaintext highlighter-rouge">registerID</code></td>
       <td>ID do registro. O mesmo fornecido por /edi/registers</td>
       <td>String</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">merchants</code></td>
+      <td><code class="language-plaintext highlighter-rouge">merchants</code></td>
       <td>Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista [“9999111111”, “9999111333”]</td>
       <td> </td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">status</code></td>
       <td>Status de registro. Se concluído, os arquivos serão fornecidos no dia seguinte</td>
       <td> </td>
       <td> </td>
@@ -674,7 +674,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </table>
 </blockquote>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
   "legalEntityNumer": "12314314",
   "mainMerchantId": 9999111222,
@@ -703,35 +703,35 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">legalEntityNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">legalEntityNumber</code></td>
       <td>Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).</td>
       <td>String</td>
       <td>8</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">mainMerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">mainMerchantId</code></td>
       <td>ID principal do cliente.</td>
       <td>String</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">registerID</code></td>
+      <td><code class="language-plaintext highlighter-rouge">registerID</code></td>
       <td>ID do registro. O mesmo fornecido por /edi/registers</td>
       <td>String</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">merchants</code></td>
+      <td><code class="language-plaintext highlighter-rouge">merchants</code></td>
       <td>Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista [“9999111111”, “9999111333”]</td>
       <td> </td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">type</code></td>
       <td>Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO</td>
       <td> </td>
       <td> </td>
@@ -767,7 +767,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </table>
 </blockquote>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
   "registerID": "string",
   "mainMerchantId": "9999222333",
@@ -794,28 +794,28 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">registerID</code></td>
+      <td><code class="language-plaintext highlighter-rouge">registerID</code></td>
       <td>ID do registro. O mesmo fornecido por /edi/registers</td>
       <td>String</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">mainMerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">mainMerchantId</code></td>
       <td>ID principal do cliente.</td>
       <td>String</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">merchants</code></td>
+      <td><code class="language-plaintext highlighter-rouge">merchants</code></td>
       <td>Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista [“9999111111”, “9999111333”]</td>
       <td> </td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">type</code></td>
       <td>Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO</td>
       <td> </td>
       <td> </td>
@@ -826,7 +826,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 
 <h3 id="response-5">Response</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
   "legalEntityNumber": "01234567890",
   "mainMerchantId": 9999111222,
@@ -854,35 +854,35 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">legalEntityNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">legalEntityNumber</code></td>
       <td>Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).</td>
       <td>String</td>
       <td>8</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">mainMerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">mainMerchantId</code></td>
       <td>ID principal do cliente.</td>
       <td>String</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">registerID</code></td>
+      <td><code class="language-plaintext highlighter-rouge">registerID</code></td>
       <td>ID do registro. O mesmo fornecido por /edi/registers</td>
       <td>String</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">merchants</code></td>
+      <td><code class="language-plaintext highlighter-rouge">merchants</code></td>
       <td>Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista [“9999111111”, “9999111333”]</td>
       <td> </td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">type</code></td>
       <td>Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO</td>
       <td> </td>
       <td> </td>
@@ -926,7 +926,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </table>
 </blockquote>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
   "legalEntityNumer": "12314314",
   "mainMerchantId": 9999111222,
@@ -948,28 +948,28 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">legalEntityNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">legalEntityNumber</code></td>
       <td>Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).</td>
       <td>String</td>
       <td>8</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">mainMerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">mainMerchantId</code></td>
       <td>ID principal do cliente.</td>
       <td>String</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">registerID</code></td>
+      <td><code class="language-plaintext highlighter-rouge">registerID</code></td>
       <td>ID do registro. O mesmo fornecido por /edi/registers</td>
       <td>String</td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">acknowledge</code></td>
+      <td><code class="language-plaintext highlighter-rouge">acknowledge</code></td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -1017,7 +1017,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </table>
 </blockquote>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
   "legalEntityNumber": "string",
   "branches": [
@@ -1044,28 +1044,28 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">legalEntityNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">legalEntityNumber</code></td>
       <td>Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).</td>
       <td>String</td>
       <td>8</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">branches</code></td>
+      <td><code class="language-plaintext highlighter-rouge">branches</code></td>
       <td>Lista de Filiais</td>
       <td> </td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">businessName</code></td>
+      <td><code class="language-plaintext highlighter-rouge">businessName</code></td>
       <td>Nome da empresa</td>
       <td> </td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">status</code></td>
       <td>Filial disponível ou Indisponível</td>
       <td> </td>
       <td> </td>
@@ -1302,7 +1302,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
       <td>1</td>
       <td>Alfa</td>
       <td>Filler</td>
-      <td><code class="highlighter-rouge">"/"</code> - Para vendas parceladas. <br /> <code class="highlighter-rouge">"a"</code> - aceleração das parcelas. <br /> <code class="highlighter-rouge">" "</code> - demais situações.</td>
+      <td><code class="language-plaintext highlighter-rouge">"/"</code> - Para vendas parceladas. <br /> <code class="language-plaintext highlighter-rouge">"a"</code> - aceleração das parcelas. <br /> <code class="language-plaintext highlighter-rouge">" "</code> - demais situações.</td>
     </tr>
     <tr>
       <td>022</td>
@@ -1350,14 +1350,14 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
       <td>1</td>
       <td>Alfa</td>
       <td>Sinal do valor bruto</td>
-      <td><code class="highlighter-rouge">+</code> - identifica valor a crédito. <br /> <code class="highlighter-rouge">-</code> - identifica valor a débito.</td>
+      <td><code class="language-plaintext highlighter-rouge">+</code> - identifica valor a crédito. <br /> <code class="language-plaintext highlighter-rouge">-</code> - identifica valor a débito.</td>
     </tr>
     <tr>
       <td>045</td>
       <td>057</td>
       <td>13</td>
       <td>Num.</td>
-      <td>Valor bruto <code class="highlighter-rouge">(*)</code></td>
+      <td>Valor bruto <code class="language-plaintext highlighter-rouge">(*)</code></td>
       <td>Somatória dos valores de venda.</td>
     </tr>
     <tr>
@@ -1366,14 +1366,14 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
       <td>1</td>
       <td>Alfa</td>
       <td>Sinal da taxa administrativa</td>
-      <td><code class="highlighter-rouge">+</code> - identifica valor a crédito. <br /> <code class="highlighter-rouge">-</code> - identifica valor a débito.</td>
+      <td><code class="language-plaintext highlighter-rouge">+</code> - identifica valor a crédito. <br /> <code class="language-plaintext highlighter-rouge">-</code> - identifica valor a débito.</td>
     </tr>
     <tr>
       <td>059</td>
       <td>071</td>
       <td>13</td>
       <td>Num.</td>
-      <td>Valor da taxa administrativa <code class="highlighter-rouge">(*)</code></td>
+      <td>Valor da taxa administrativa <code class="language-plaintext highlighter-rouge">(*)</code></td>
       <td>Valor da taxa administrativa descontada sobre as vendas.</td>
     </tr>
     <tr>
@@ -1382,14 +1382,14 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
       <td>1</td>
       <td>Alfa</td>
       <td>Sinal do valor rejeitado</td>
-      <td><code class="highlighter-rouge">+</code> identifica valor a crédito.<br /> <code class="highlighter-rouge">-</code> - identifica valor a débito.</td>
+      <td><code class="language-plaintext highlighter-rouge">+</code> identifica valor a crédito.<br /> <code class="language-plaintext highlighter-rouge">-</code> - identifica valor a débito.</td>
     </tr>
     <tr>
       <td>073</td>
       <td>085</td>
       <td>13</td>
       <td>Num.</td>
-      <td>Valor rejeitado <code class="highlighter-rouge">(*)</code></td>
+      <td>Valor rejeitado <code class="language-plaintext highlighter-rouge">(*)</code></td>
       <td>Se houver rejeição, será preenchido com a somatória das transações rejeitadas.</td>
     </tr>
     <tr>
@@ -1398,14 +1398,14 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
       <td>1</td>
       <td>Alfa</td>
       <td>Sinal do valor líquido</td>
-      <td><code class="highlighter-rouge">+</code> identifica o valor a crédito. <br /> <code class="highlighter-rouge">-</code> - identifica o valor a débito.</td>
+      <td><code class="language-plaintext highlighter-rouge">+</code> identifica o valor a crédito. <br /> <code class="language-plaintext highlighter-rouge">-</code> - identifica o valor a débito.</td>
     </tr>
     <tr>
       <td>087</td>
       <td>099</td>
       <td>13</td>
       <td>Num.</td>
-      <td>Valor líquido <code class="highlighter-rouge">(*)</code></td>
+      <td>Valor líquido <code class="language-plaintext highlighter-rouge">(*)</code></td>
       <td>Valor das vendas descontado o valor da taxa administrativa.</td>
     </tr>
     <tr>
@@ -1470,7 +1470,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
       <td>1</td>
       <td>Alfa</td>
       <td>Identificador de revenda/aceleração</td>
-      <td>Identifica as ocorrências de manutenção em transações parceladas na loja: <br /><code class="highlighter-rouge">R</code> - Revenda <br /><code class="highlighter-rouge">A</code> - Aceleração <br /> <code class="highlighter-rouge">""</code> - Brancos (nenhuma ocorrência).</td>
+      <td>Identifica as ocorrências de manutenção em transações parceladas na loja: <br /><code class="language-plaintext highlighter-rouge">R</code> - Revenda <br /><code class="language-plaintext highlighter-rouge">A</code> - Aceleração <br /> <code class="language-plaintext highlighter-rouge">""</code> - Brancos (nenhuma ocorrência).</td>
     </tr>
     <tr>
       <td>140</td>
@@ -1501,7 +1501,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
       <td>161</td>
       <td>1</td>
       <td>Alfa</td>
-      <td>Identificador de Antecipação Identificador de antecipação do RO:<br /> <code class="highlighter-rouge">" "</code> - Não antecipado;<br /> <code class="highlighter-rouge">"A"</code> - Antecipado Cielo ou Alelo;<br /> <code class="highlighter-rouge">C</code> - Antecipado no banco - Cessão de Recebíveis.</td>
+      <td>Identificador de Antecipação Identificador de antecipação do RO:<br /> <code class="language-plaintext highlighter-rouge">" "</code> - Não antecipado;<br /> <code class="language-plaintext highlighter-rouge">"A"</code> - Antecipado Cielo ou Alelo;<br /> <code class="language-plaintext highlighter-rouge">C</code> - Antecipado no banco - Cessão de Recebíveis.</td>
       <td> </td>
     </tr>
     <tr>
@@ -1518,14 +1518,14 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
       <td>1</td>
       <td>Alfa</td>
       <td>Sinal do valor Bruto antecipado</td>
-      <td><code class="highlighter-rouge">+</code> identifica valor a crédito. <code class="highlighter-rouge">-</code> - identifica valor a débito.</td>
+      <td><code class="language-plaintext highlighter-rouge">+</code> identifica valor a crédito. <code class="language-plaintext highlighter-rouge">-</code> - identifica valor a débito.</td>
     </tr>
     <tr>
       <td>172</td>
       <td>184</td>
       <td>13</td>
       <td>Num.</td>
-      <td>Valor Bruto Antecipado <code class="highlighter-rouge">(*)</code></td>
+      <td>Valor Bruto Antecipado <code class="language-plaintext highlighter-rouge">(*)</code></td>
       <td>Valor bruto antecipado, fornecido quando o RO for antecipado/cedido. Será preenchido com zeros quando não houver antecipação.</td>
     </tr>
     <tr>
@@ -1549,7 +1549,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
       <td>213</td>
       <td>4</td>
       <td>Num.</td>
-      <td>Taxa Administrativa <code class="highlighter-rouge">(*)</code></td>
+      <td>Taxa Administrativa <code class="language-plaintext highlighter-rouge">(*)</code></td>
       <td>Percentual de taxa administrativa aplicado no valor da transação.</td>
     </tr>
     <tr>
@@ -1557,7 +1557,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
       <td>218</td>
       <td>5</td>
       <td>Num.</td>
-      <td>Tarifa Administrativa <code class="highlighter-rouge">(*)</code></td>
+      <td>Tarifa Administrativa <code class="language-plaintext highlighter-rouge">(*)</code></td>
       <td>Tarifa cobrada por transação.</td>
     </tr>
     <tr>
@@ -1565,7 +1565,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
       <td>222</td>
       <td>4</td>
       <td>Num.</td>
-      <td>Taxa de Garantia <code class="highlighter-rouge">(*)</code></td>
+      <td>Taxa de Garantia <code class="language-plaintext highlighter-rouge">(*)</code></td>
       <td>Percentual de desconto aplicado sobre transações Electron Pré-Datado.</td>
     </tr>
     <tr>
@@ -1606,7 +1606,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
       <td>1</td>
       <td>Alfa</td>
       <td>Reenvio de Pagamento</td>
-      <td><code class="highlighter-rouge">S</code> - identifica que este resumo está sendo reenviado no extrato. Desconsiderar o pagamento enviado anteriormente. <code class="highlighter-rouge">N</code> - não refere-se à reenvio de pagamento.</td>
+      <td><code class="language-plaintext highlighter-rouge">S</code> - identifica que este resumo está sendo reenviado no extrato. Desconsiderar o pagamento enviado anteriormente. <code class="language-plaintext highlighter-rouge">N</code> - não refere-se à reenvio de pagamento.</td>
     </tr>
     <tr>
       <td>247</td>
@@ -1614,7 +1614,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
       <td>1</td>
       <td>Alfa</td>
       <td>Conceito aplicado</td>
-      <td>Identifica o conceito aplicado no resumo apresentado: <br /><code class="highlighter-rouge">" "</code> - Antigo <br /> <code class="highlighter-rouge">"N"</code> - Novo</td>
+      <td>Identifica o conceito aplicado no resumo apresentado: <br /><code class="language-plaintext highlighter-rouge">" "</code> - Antigo <br /> <code class="language-plaintext highlighter-rouge">"N"</code> - Novo</td>
     </tr>
     <tr>
       <td>248</td>
@@ -1648,7 +1648,7 @@ Conforme regras de segurança, todos os registros que possuírem número de cart
       <td>1</td>
       <td>Num.</td>
       <td>Tipo de registro</td>
-      <td>Constante <code class="highlighter-rouge">"2"</code> identifica o tipo de registro de detalhe do Comprovante de Venda (CV).</td>
+      <td>Constante <code class="language-plaintext highlighter-rouge">"2"</code> identifica o tipo de registro de detalhe do Comprovante de Venda (CV).</td>
     </tr>
     <tr>
       <td>002</td>
@@ -1688,14 +1688,14 @@ Conforme regras de segurança, todos os registros que possuírem número de cart
       <td>1</td>
       <td>Alfa.</td>
       <td>Sinal do valor da compra ou valor da parcela</td>
-      <td><code class="highlighter-rouge">"+"</code> - identifica valor a crédito. <code class="highlighter-rouge">"-"</code> - identifica valor a débito.</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor a crédito. <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor a débito.</td>
     </tr>
     <tr>
       <td>047</td>
       <td>059</td>
       <td>13</td>
       <td>Num.</td>
-      <td>Valor da compra ou valor da parcela <code class="highlighter-rouge">(*)</code></td>
+      <td>Valor da compra ou valor da parcela <code class="language-plaintext highlighter-rouge">(*)</code></td>
       <td>Valor da compra ou da parcela que foi liberada, no caso de venda parcelada na loja.</td>
     </tr>
     <tr>
@@ -1751,7 +1751,7 @@ Conforme regras de segurança, todos os registros que possuírem número de cart
       <td>111</td>
       <td>13</td>
       <td>Num.</td>
-      <td>Valor Complementar <code class="highlighter-rouge">(*)</code></td>
+      <td>Valor Complementar <code class="language-plaintext highlighter-rouge">(*)</code></td>
       <td>Valor da transação de Saque com cartão de Débito ou Agro Electron de acordo com indicador de produto do RO.</td>
     </tr>
     <tr>
@@ -1890,7 +1890,7 @@ geração do arquivo.</p>
       <td>1</td>
       <td>Num.</td>
       <td>Tipo de registro</td>
-      <td>Constante <code class="highlighter-rouge">"5"</code> identifica o tipo de registro que apresenta as informações de uma operação de antecipação.</td>
+      <td>Constante <code class="language-plaintext highlighter-rouge">"5"</code> identifica o tipo de registro que apresenta as informações de uma operação de antecipação.</td>
     </tr>
     <tr>
       <td>002</td>
@@ -1922,7 +1922,7 @@ geração do arquivo.</p>
       <td>1</td>
       <td>Alfa</td>
       <td>Sinal do valor bruto da antecipação à vista.</td>
-      <td><code class="highlighter-rouge">"+"</code> - identifica valor positivo.  <br /> <code class="highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo.  <br /> <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
     </tr>
     <tr>
       <td>030</td>
@@ -1938,7 +1938,7 @@ geração do arquivo.</p>
       <td>1</td>
       <td>Alfa</td>
       <td>Sinal do valor bruto da antecipação parcelado.</td>
-      <td><code class="highlighter-rouge">"+"</code> - identifica valor positivo.  <br /> <code class="highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo.  <br /> <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
     </tr>
     <tr>
       <td>044</td>
@@ -1954,7 +1954,7 @@ geração do arquivo.</p>
       <td>1</td>
       <td>Alfa</td>
       <td>Sinal do valor bruto da antecipação Eléctron Pré-Datado</td>
-      <td><code class="highlighter-rouge">"+"</code> - identifica valor positivo. <br /><code class="highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <br /><code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
     </tr>
     <tr>
       <td>058</td>
@@ -1970,7 +1970,7 @@ geração do arquivo.</p>
       <td>1</td>
       <td>Alfa</td>
       <td>Sinal do valor bruto da antecipação</td>
-      <td><code class="highlighter-rouge">"+"</code> - identifica valor positivo.<br /> <code class="highlighter-rouge">"-"</code>  - identifica valor negativo.</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo.<br /> <code class="language-plaintext highlighter-rouge">"-"</code>  - identifica valor negativo.</td>
     </tr>
     <tr>
       <td>072</td>
@@ -1986,7 +1986,7 @@ geração do arquivo.</p>
       <td>1</td>
       <td>Alfa</td>
       <td>Sinal do valor líquido da antecipação à vista</td>
-      <td><code class="highlighter-rouge">"+"</code> - identifica valor positivo. <br /> <code class="highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <br /> <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
     </tr>
     <tr>
       <td>086</td>
@@ -2002,7 +2002,7 @@ geração do arquivo.</p>
       <td>1</td>
       <td>Alfa</td>
       <td>Sinal do valor líquido da antecipação parcelado</td>
-      <td><code class="highlighter-rouge">"+"</code> - identifica valor positivo. <br /> <code class="highlighter-rouge">"-"</code> - - identifica valor negativo.</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <br /> <code class="language-plaintext highlighter-rouge">"-"</code> - - identifica valor negativo.</td>
     </tr>
     <tr>
       <td>100</td>
@@ -2018,7 +2018,7 @@ geração do arquivo.</p>
       <td>1</td>
       <td>Alfa</td>
       <td>Sinal do valor líquido da antecipação PréDatado</td>
-      <td><code class="highlighter-rouge">"+"</code> - identifica valor positivo. <br /> <code class="highlighter-rouge">"+"</code> - identifica valor negativo.</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <br /> <code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor negativo.</td>
     </tr>
     <tr>
       <td>114</td>
@@ -2034,7 +2034,7 @@ geração do arquivo.</p>
       <td>1</td>
       <td>Alfa</td>
       <td>Sinal do valor líquido da antecipação</td>
-      <td><code class="highlighter-rouge">"+"</code> - identifica valor positivo. <br /> <code class="highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <br /> <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
     </tr>
     <tr>
       <td>128</td>
@@ -2049,7 +2049,7 @@ geração do arquivo.</p>
       <td>145</td>
       <td>5</td>
       <td>Num.</td>
-      <td>Taxa de desconto da antecipação <code class="highlighter-rouge">(*)</code></td>
+      <td>Taxa de desconto da antecipação <code class="language-plaintext highlighter-rouge">(*)</code></td>
       <td>Taxa de desconto comercial da antecipação.</td>
     </tr>
     <tr>
@@ -2082,7 +2082,7 @@ geração do arquivo.</p>
       <td>1</td>
       <td>Alfa</td>
       <td>Sinal do valor líquido da antecipação total</td>
-      <td><code class="highlighter-rouge">"+"</code> - identifica valor positivo. <code class="highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
     </tr>
     <tr>
       <td>170</td>
@@ -2098,7 +2098,7 @@ geração do arquivo.</p>
       <td>1</td>
       <td>Alfa</td>
       <td>Sinal do valor da tarifa</td>
-      <td><code class="highlighter-rouge">"+"</code> - identifica valor positivo. <code class="highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
     </tr>
     <tr>
       <td>184</td>
@@ -2187,14 +2187,14 @@ geração do arquivo.</p>
       <td>1</td>
       <td>Alfa</td>
       <td>Sinal do valor bruto original do RO</td>
-      <td><code class="highlighter-rouge">"+"</code> - identifica valor positivo. <code class="highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
     </tr>
     <tr>
       <td>041</td>
       <td>053</td>
       <td>13</td>
       <td>Num.</td>
-      <td>Valor bruto original do RO <code class="highlighter-rouge">(*)</code></td>
+      <td>Valor bruto original do RO <code class="language-plaintext highlighter-rouge">(*)</code></td>
       <td>Valor bruto original do RO.</td>
     </tr>
     <tr>
@@ -2203,14 +2203,14 @@ geração do arquivo.</p>
       <td>1</td>
       <td>Alfa</td>
       <td>Sinal do valor líquido original do RO</td>
-      <td><code class="highlighter-rouge">"+"</code> - identifica valor positivo. <code class="highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
     </tr>
     <tr>
       <td>055</td>
       <td>067</td>
       <td>13</td>
       <td>Num.</td>
-      <td>Valor líquido original do RO <code class="highlighter-rouge">(*)</code></td>
+      <td>Valor líquido original do RO <code class="language-plaintext highlighter-rouge">(*)</code></td>
       <td>Valor líquido Original do RO.</td>
     </tr>
     <tr>
@@ -2219,14 +2219,14 @@ geração do arquivo.</p>
       <td>1</td>
       <td>Num.</td>
       <td>Sinal do valor bruto da antecipação do RO</td>
-      <td><code class="highlighter-rouge">"+"</code> - identifica valor positivo. <code class="highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
     </tr>
     <tr>
       <td>069</td>
       <td>081</td>
       <td>13</td>
       <td>Num.</td>
-      <td>Valor bruto da antecipação do RO <code class="highlighter-rouge">(*)</code></td>
+      <td>Valor bruto da antecipação do RO <code class="language-plaintext highlighter-rouge">(*)</code></td>
       <td>Valor líquido original do RO, exceto se houver débitos programados para este RO.</td>
     </tr>
     <tr>
@@ -2235,14 +2235,14 @@ geração do arquivo.</p>
       <td>1</td>
       <td>Alfa</td>
       <td>Sinal do valor líquido da antecipação do RO</td>
-      <td><code class="highlighter-rouge">"+"</code> - identifica valor positivo. <code class="highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
     </tr>
     <tr>
       <td>083</td>
       <td>095</td>
       <td>13</td>
       <td>Num.</td>
-      <td>Valor líquido da antecipação do RO <code class="highlighter-rouge">(*)</code></td>
+      <td>Valor líquido da antecipação do RO <code class="language-plaintext highlighter-rouge">(*)</code></td>
       <td>Valor pago ao estabelecimento descontada a taxa de desconto comercial da antecipação.</td>
     </tr>
     <tr>
@@ -2267,7 +2267,7 @@ geração do arquivo.</p>
       <td>1</td>
       <td>Alfanum.</td>
       <td>Identificador de RO de ajuste antecipado</td>
-      <td><code class="highlighter-rouge">S</code> considerar ajuste antecipado. <br /> Campo preenchido somente quando os ROs de ajustes forem efetivamente antecipados. (somente conceito novo).</td>
+      <td><code class="language-plaintext highlighter-rouge">S</code> considerar ajuste antecipado. <br /> Campo preenchido somente quando os ROs de ajustes forem efetivamente antecipados. (somente conceito novo).</td>
     </tr>
     <tr>
       <td>122</td>
@@ -2332,7 +2332,7 @@ geração do arquivo.</p>
       <td>1</td>
       <td>Alfa</td>
       <td>Sinal do valor do RO antecipado</td>
-      <td><code class="highlighter-rouge">"+"</code> - identifica valor positivo.<code class="highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo.<code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
     </tr>
     <tr>
       <td>050</td>
@@ -2372,7 +2372,7 @@ geração do arquivo.</p>
       <td>1</td>
       <td>Alfa</td>
       <td>Sinal do valor do ajuste a débito</td>
-      <td><code class="highlighter-rouge">"+"</code> - identifica valor positivo. <code class="highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
     </tr>
     <tr>
       <td>101</td>
@@ -2388,7 +2388,7 @@ geração do arquivo.</p>
       <td>1</td>
       <td>Alfa</td>
       <td>Sinal do valor compensado</td>
-      <td><code class="highlighter-rouge">"+"</code> - identifica valor positivo.  <code class="highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo.  <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
     </tr>
     <tr>
       <td>115</td>
@@ -2404,7 +2404,7 @@ geração do arquivo.</p>
       <td>1</td>
       <td>Alfa</td>
       <td>Sinal do saldo do RO antecipado</td>
-      <td><code class="highlighter-rouge">"+"</code> identifica valor positivo. <code class="highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> identifica valor positivo. <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
     </tr>
     <tr>
       <td>129</td>
@@ -2453,7 +2453,7 @@ geração do arquivo.</p>
       <td>1</td>
       <td>Alfa</td>
       <td>Sinal Valor Líquido da soma de todos os CVs</td>
-      <td><code class="highlighter-rouge">"+"</code> - identifica valor positivo. <code class="highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
     </tr>
     <tr>
       <td>014</td>
@@ -2831,7 +2831,7 @@ geração do arquivo.</p>
     </tr>
     <tr>
       <td>081</td>
-      <td>Mastercard Crédito Especializado <code class="highlighter-rouge">(*)</code></td>
+      <td>Mastercard Crédito Especializado <code class="language-plaintext highlighter-rouge">(*)</code></td>
     </tr>
     <tr>
       <td>082</td>
@@ -2851,7 +2851,7 @@ geração do arquivo.</p>
     </tr>
     <tr>
       <td>091</td>
-      <td>Elo Crédito Especializado <code class="highlighter-rouge">(*)</code></td>
+      <td>Elo Crédito Especializado <code class="language-plaintext highlighter-rouge">(*)</code></td>
     </tr>
     <tr>
       <td>094</td>
@@ -4077,7 +4077,7 @@ geração do arquivo.</p>
 <h1 id="transmissão-e-reenvio-de-arquivo">Transmissão e Reenvio de arquivo</h1>
 
 <p>Para receber o Extrato Eletrônico, é necessário que o cliente entre em contato com o Atendimento EDI e preencha o formulário de cadastro. Os arquivos serão disponibilizados na caixa postal diariamente, exceto o arquivo de saldo em aberto que será enviado mensalmente. 
-Quando não houver movimento, o arquivo será enviado somente com o <code class="highlighter-rouge">"Header"</code> e o <code class="highlighter-rouge">"Trailer"</code>.
+Quando não houver movimento, o arquivo será enviado somente com o <code class="language-plaintext highlighter-rouge">"Header"</code> e o <code class="language-plaintext highlighter-rouge">"Trailer"</code>.
 Caso ocorra alguma inconsistência na transmissão do(s) arquivo(s), o cliente deverá informar à Cielo, contatando o Atendimento EDI (edi@cielo.com.br</p>
 
 <h2 id="reenvio-de-arquivos">Reenvio de Arquivos</h2>

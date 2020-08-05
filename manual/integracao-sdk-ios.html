@@ -235,7 +235,7 @@
 <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">braspag3ds</span> <span class="o">=</span> <span class="kt">Braspag3ds</span><span class="p">(</span><span class="nv">accessToken</span><span class="p">:</span> <span class="s">"&lt;&lt;Access_Token gerado no passo 1&gt;&gt;"</span><span class="p">,</span> <span class="nv">environment</span><span class="p">:</span> <span class="kt">Environment</span><span class="o">.</span><span class="n">production</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>Em seguida é necessário utilizar o método <code class="highlighter-rouge">authenticate</code>, informando os dados do comprador e o <em>callback</em> que receberá a resposta:</p>
+<p>Em seguida é necessário utilizar o método <code class="language-plaintext highlighter-rouge">authenticate</code>, informando os dados do comprador e o <em>callback</em> que receberá a resposta:</p>
 
 <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">braspag3ds</span><span class="o">.</span><span class="nf">authenticate</span><span class="p">(</span><span class="nv">orderData</span><span class="p">:</span> <span class="kt">OrderData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
                         <span class="nv">cardData</span><span class="p">:</span> <span class="kt">CardData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>

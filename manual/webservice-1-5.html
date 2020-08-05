@@ -449,7 +449,7 @@ para iniciar a operação no ambiente de produção.</p>
   <li>Deve-se definir um timeout adequado nas requisições HTTP à Cielo; recomendamos 30 segundos.</li>
   <li>O certificado Root da entidade certificadora (CA) de nosso Web Service deve estar cadastrado na Truststore a ser utilizada. Como nossa certificadora é de ampla aceitação no mercado, é provável que ela já esteja registrada na Truststore do próprio sistema operacional.</li>
   <li>Disponibilizamos no kit de integração o arquivo eCommerce.xsd para facilitar a validação das restrições de formato, tamanho dos campos, tipos e domínios de dados.</li>
-  <li>Em todas as mensagens a data/hora deverá seguir o formato: <code class="highlighter-rouge">aaaa-MM-ddTHH24:mm:ss</code>. Exemplo: 2011-12-21T11:32:45.</li>
+  <li>Em todas as mensagens a data/hora deverá seguir o formato: <code class="language-plaintext highlighter-rouge">aaaa-MM-ddTHH24:mm:ss</code>. Exemplo: 2011-12-21T11:32:45.</li>
   <li>Os valores monetários são sempre tratados como valores inteiros, sem representação das casas decimais, sendo que os dois últimos dígitos são considerados como os centavos. Exemplo: R$ 1.286,87 é representado como 128687; R$ 1,00 é representado como 100.</li>
 </ul>
 
@@ -464,7 +464,7 @@ para iniciar a operação no ambiente de produção.</p>
 <ul>
   <li>A mensagem em formato XML, definida de acordo com a funcionalidade.</li>
   <li>O destino (ambiente de teste ou de produção).</li>
-  <li>O retorno em formato XML, que pode ser: <code class="highlighter-rouge">&lt;transacao/&gt;</code>, <code class="highlighter-rouge">&lt;retorno-token&gt;</code> ou <code class="highlighter-rouge">&lt;erro/&gt;</code>.</li>
+  <li>O retorno em formato XML, que pode ser: <code class="language-plaintext highlighter-rouge">&lt;transacao/&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;retorno-token&gt;</code> ou <code class="language-plaintext highlighter-rouge">&lt;erro/&gt;</code>.</li>
 </ul>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /servicos/ecommwsec.do HTTP/1.1
@@ -678,7 +678,7 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
 
 <h1 id="criando-transações">Criando transações</h1>
 
-<p>Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) ao Web Service da Cielo com uma mensagem XML <code class="highlighter-rouge">&lt;requisicao-transacao&gt;</code>, cujo conjunto de TAGS determinam as configurações de uma transação.</p>
+<p>Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) ao Web Service da Cielo com uma mensagem XML <code class="language-plaintext highlighter-rouge">&lt;requisicao-transacao&gt;</code>, cujo conjunto de TAGS determinam as configurações de uma transação.</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
@@ -779,14 +779,14 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
       <td>Alfanumérico</td>
       <td>Sim</td>
       <td>1..1024</td>
-      <td>URL da página de retorno. É para essa página que a Cielo vai direcionar o browser ao fim da autenticação ou da autorização. Não é obrigatório apenas para autorização direta, porém o campo dever ser inserido como <code class="highlighter-rouge">null</code>.</td>
+      <td>URL da página de retorno. É para essa página que a Cielo vai direcionar o browser ao fim da autenticação ou da autorização. Não é obrigatório apenas para autorização direta, porém o campo dever ser inserido como <code class="language-plaintext highlighter-rouge">null</code>.</td>
     </tr>
     <tr>
       <td>capturar</td>
       <td>Boolean</td>
       <td>Sim</td>
       <td>n/a</td>
-      <td><code class="highlighter-rouge">true</code> ou <code class="highlighter-rouge">false</code>. Define se a transação será automaticamente capturada caso seja autorizada.</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code> ou <code class="language-plaintext highlighter-rouge">false</code>. Define se a transação será automaticamente capturada caso seja autorizada.</td>
     </tr>
     <tr>
       <td>campo-livre</td>
@@ -807,14 +807,14 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
       <td>Boolean</td>
       <td>Opcional</td>
       <td>n/a</td>
-      <td><code class="highlighter-rouge">true</code> ou <code class="highlighter-rouge">false</code>. Define se a transação atual deve gerar um token associado ao cartão.</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code> ou <code class="language-plaintext highlighter-rouge">false</code>. Define se a transação atual deve gerar um token associado ao cartão.</td>
     </tr>
     <tr>
       <td>avs#avs</td>
       <td>Alfanumérico</td>
       <td>Opcional</td>
       <td>n/a</td>
-      <td>String contendo um bloco XML, encapsulado pelo <code class="highlighter-rouge">CDATA</code>, contendo as informações necessárias para realizar a consulta ao serviço.</td>
+      <td>String contendo um bloco XML, encapsulado pelo <code class="language-plaintext highlighter-rouge">CDATA</code>, contendo as informações necessárias para realizar a consulta ao serviço.</td>
     </tr>
   </tbody>
 </table>
@@ -946,7 +946,7 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
       <td>Alfanumérico</td>
       <td>Sim</td>
       <td>19</td>
-      <td>Data hora do pedido. <strong>Formato</strong>: <code class="highlighter-rouge">aaaa-MM-ddTHH24:mm:ss</code></td>
+      <td>Data hora do pedido. <strong>Formato</strong>: <code class="language-plaintext highlighter-rouge">aaaa-MM-ddTHH24:mm:ss</code></td>
     </tr>
     <tr>
       <td>descricao</td>
@@ -1052,14 +1052,14 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
 <p>Há três tipos de retorno que podem ser gerados na resposta do Web Service:</p>
 
 <ol>
-  <li><code class="highlighter-rouge">&lt;transacao&gt;</code></li>
-  <li><code class="highlighter-rouge">&lt;retorno-token&gt;</code></li>
-  <li><code class="highlighter-rouge">&lt;erro&gt;</code></li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;transacao&gt;</code></li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;retorno-token&gt;</code></li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;erro&gt;</code></li>
 </ol>
 
-<p>Para as operações relacionadas a uma transação (consultas, autorização, captura e cancelamento), a resposta, em caso de sucesso, é sempre um XML do tipo <code class="highlighter-rouge">&lt;transacao&gt;</code>. No caso de uma requisição exclusiva para criação de token, a resposta esperada é <code class="highlighter-rouge">&lt;retorno-token&gt;</code>.</p>
+<p>Para as operações relacionadas a uma transação (consultas, autorização, captura e cancelamento), a resposta, em caso de sucesso, é sempre um XML do tipo <code class="language-plaintext highlighter-rouge">&lt;transacao&gt;</code>. No caso de uma requisição exclusiva para criação de token, a resposta esperada é <code class="language-plaintext highlighter-rouge">&lt;retorno-token&gt;</code>.</p>
 
-<p>O exemplo ao lado ilustra a forma mais reduzida de uma mensagem de retorno tipo <code class="highlighter-rouge">&lt;transacao&gt;</code>. Basicamente, ela é composta pelos dados do pedido e dados da configuração da transação.</p>
+<p>O exemplo ao lado ilustra a forma mais reduzida de uma mensagem de retorno tipo <code class="language-plaintext highlighter-rouge">&lt;transacao&gt;</code>. Basicamente, ela é composta pelos dados do pedido e dados da configuração da transação.</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;transacao</span> <span class="na">versao=</span><span class="s">"1.6.2"</span> <span class="na">id=</span><span class="s">"af32f93c-5e9c-4f44-9478-ccc5aca9319e"</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
@@ -1108,7 +1108,7 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
   <li><strong>Status</strong>: é a informação base para a loja controlar a transação.</li>
 </ul>
 
-<p>A tabela abaixo detalha as TAGS do XML básico de retorno, identificado pelo nó raiz <code class="highlighter-rouge">&lt;transação&gt;</code>:</p>
+<p>A tabela abaixo detalha as TAGS do XML básico de retorno, identificado pelo nó raiz <code class="language-plaintext highlighter-rouge">&lt;transação&gt;</code>:</p>
 
 <table>
   <thead>
@@ -1159,7 +1159,7 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
   </tbody>
 </table>
 
-<p>Por fim, há outro tipo de retorno que é empregado toda vez que uma requisição não pode ser executada, seja porque era inválida ou por ter ocorrido falha no seu processamento. Nesse cenário o nó raiz do XML de resposta é do tipo <code class="highlighter-rouge">&lt;erro&gt;</code>.</p>
+<p>Por fim, há outro tipo de retorno que é empregado toda vez que uma requisição não pode ser executada, seja porque era inválida ou por ter ocorrido falha no seu processamento. Nesse cenário o nó raiz do XML de resposta é do tipo <code class="language-plaintext highlighter-rouge">&lt;erro&gt;</code>.</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;erro</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
@@ -1184,7 +1184,7 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
 
 <p>Ela acontece sempre no site do banco (Internet Banking), utilizando mecanismos e tecnologias independentes da Cielo. Dessa forma, é possível que o banco utilize token eletrônico e senha, enquanto outro utilize os cartões de senhas ou CPF para autenticar uma transação.</p>
 
-<p>Conforme mostrado anteriormente, a mecânica do redirecionamento é obtida através da tag <code class="highlighter-rouge">&lt;url-autenticacao&gt;</code> que é retornada pela Cielo no XML  no momento da solicitação de autorização ao Web Service.</p>
+<p>Conforme mostrado anteriormente, a mecânica do redirecionamento é obtida através da tag <code class="language-plaintext highlighter-rouge">&lt;url-autenticacao&gt;</code> que é retornada pela Cielo no XML  no momento da solicitação de autorização ao Web Service.</p>
 
 <p>A autenticação é obrigatória para transações de débito e opcional para o crédito. Atualmente somente Visa e MasterCard suportam essa funcionalidade e consequentemente, somente essas duas bandeiras possuem o produto débito.</p>
 
@@ -1196,12 +1196,12 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
 
 <ol>
   <li>fecharPedido() – acontece quando o portador do cartão finaliza o pedido e dá início ao pagamento da compra</li>
-  <li>criarTransacao(autenticada) – o sistema do lojista envia uma requisição XML <code class="highlighter-rouge">&lt;requisicao-transacao&gt;</code> solicitando uma transação autenticada, ou seja, a TAG  será 0, 1 ou 2. Em seguida, a Cielo informará no XML de retorno o campo  com o endereço que o portador deverá ser redirecionado.</li>
+  <li>criarTransacao(autenticada) – o sistema do lojista envia uma requisição XML <code class="language-plaintext highlighter-rouge">&lt;requisicao-transacao&gt;</code> solicitando uma transação autenticada, ou seja, a TAG  será 0, 1 ou 2. Em seguida, a Cielo informará no XML de retorno o campo  com o endereço que o portador deverá ser redirecionado.</li>
   <li>acessar(url-atenticacao) – o browser do portador é redirecionado ao ambiente da Cielo. Assim que a página da Cielo é acessada, automaticamente ela já é direcionada para o banco emissor (3.1). Esse redirect é tão rápido que é praticamente imperceptível.</li>
   <li>autenticar(token, cpf) – o portador estará no ambiente do banco e utilizará algum mecanismo provido pelo próprio emissor para realizar a autenticação da transação (geralmente token, cartão de bingo, cpf, assinatura eletrônica, etc).</li>
   <li>resultadoAutenticacao() – o banco emissor redireciona o fluxo para a Cielo com o resultado da autenticação. A partir daí, o fluxo volta ao normal, conforme disposto no item “2.3 Arquitetura de integração”.
     1.processar() – o sistema da Cielo processa o retorno da autenticação e submete á autorização e, opcionalmente, à captura automática.
-    2. enviarRedirect(url-retorno) – o sistema da Cielo envia um redirect ao browser do cliente para o endereço especificado na URL de retorno, fornecida na primeira requisição (<code class="highlighter-rouge">&lt;requisicao-transacao&gt;</code>)
+    2. enviarRedirect(url-retorno) – o sistema da Cielo envia um redirect ao browser do cliente para o endereço especificado na URL de retorno, fornecida na primeira requisição (<code class="language-plaintext highlighter-rouge">&lt;requisicao-transacao&gt;</code>)
     <ol>
       <li>acessar(url-retorno) – o browser do portador acessar a URL no ambiente da loja, onde recomendamos que exista uma requisição de consulta via TID ao Web Service da Cielo.</li>
     </ol>
@@ -1225,7 +1225,7 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
   <li>A configuração da // deve ser 0, 1 ou 2.</li>
 </ul>
 
-<p>Observando o diagrama da seção <a href="#transação">Transação</a>, é possível observar que todas as transações passarão pelo status “Autenticada” ou “Não autenticada”. Por consequência, todas receberão o nó <code class="highlighter-rouge">&lt;autenticacao&gt;</code> no XML de resposta ao lojista. Abaixo, o XML com o nó de autenticação:</p>
+<p>Observando o diagrama da seção <a href="#transação">Transação</a>, é possível observar que todas as transações passarão pelo status “Autenticada” ou “Não autenticada”. Por consequência, todas receberão o nó <code class="language-plaintext highlighter-rouge">&lt;autenticacao&gt;</code> no XML de resposta ao lojista. Abaixo, o XML com o nó de autenticação:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;transacao</span> <span class="na">versao=</span><span class="s">"1.3.0"</span> <span class="na">id=</span><span class="s">"5e445904-963e-4fa1-95cd-55ef88c289cc"</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
@@ -1271,7 +1271,7 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
 <span class="nt">&lt;/transacao&gt;</span>
 </code></pre></div></div>
 
-<p>Os campos apenas do nó <code class="highlighter-rouge">&lt;autenticacao&gt;</code> estão listados na tabela abaixo:</p>
+<p>Os campos apenas do nó <code class="language-plaintext highlighter-rouge">&lt;autenticacao&gt;</code> estão listados na tabela abaixo:</p>
 
 <table>
   <thead>
@@ -2101,7 +2101,7 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
 
 <h2 id="códigos-de-erros">Códigos de Erros</h2>
 
-<p>Os erros que podem ser apresentados na mensagem XML, através da TAG <code class="highlighter-rouge">&lt;erro&gt;</code>, estão dispostos a seguir:</p>
+<p>Os erros que podem ser apresentados na mensagem XML, através da TAG <code class="language-plaintext highlighter-rouge">&lt;erro&gt;</code>, estão dispostos a seguir:</p>
 
 <h3 id="tabela-de-erros-de-integração">Tabela de erros de integração</h3>
 
@@ -2557,7 +2557,7 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
   <li><strong>Regras</strong>
     <ul>
       <li>O cadastro da loja virtual deve estar habilitado para envio dos dados do cartão.</li>
-      <li>Enviar a TAG <code class="highlighter-rouge">&lt;autorizar&gt;</code> com o valor “3”.</li>
+      <li>Enviar a TAG <code class="language-plaintext highlighter-rouge">&lt;autorizar&gt;</code> com o valor “3”.</li>
       <li>Somente válido para Crédito.</li>
       <li>O lojista deve estar atento às regras para envio do cartão.</li>
       <li>Na autorização direta, o nível de segurança da transação (ECI) é definido como:
@@ -2610,7 +2610,7 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
   <li><strong>Objetivo</strong> - Submeter uma transação recorrente com o uso de um cartão de crédito.</li>
   <li><strong>Regras</strong>
     <ul>
-      <li>Enviar a TAG <code class="highlighter-rouge">&lt;autorizar&gt;</code> com o valor “4”.</li>
+      <li>Enviar a TAG <code class="language-plaintext highlighter-rouge">&lt;autorizar&gt;</code> com o valor “4”.</li>
       <li>Somente válido para crédito à vista.</li>
     </ul>
   </li>
@@ -2875,7 +2875,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
   <li><strong>Objetico</strong> - Submeter uma transação direta (sem autenticação) com o uso de um token previamente cadastrado</li>
   <li><strong>Regras</strong>
     <ul>
-      <li>Enviar a TAG <code class="highlighter-rouge">&lt;autorizar&gt;</code> com o valor “3”.</li>
+      <li>Enviar a TAG <code class="language-plaintext highlighter-rouge">&lt;autorizar&gt;</code> com o valor “3”.</li>
       <li>O token deve estar desbloqueado.</li>
       <li>Válido somente para crédito.</li>
     </ul>
@@ -2912,7 +2912,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
   <li><strong>Objetivo</strong> - Submeter uma transação recorrente com o uso de um token previamente cadastrado.</li>
   <li><strong>Regras</strong>
     <ul>
-      <li>Enviar a TAG <code class="highlighter-rouge">&lt;autorizar&gt;</code> com o valor “4”.</li>
+      <li>Enviar a TAG <code class="language-plaintext highlighter-rouge">&lt;autorizar&gt;</code> com o valor “4”.</li>
       <li>O token deve estar desbloqueado.</li>
       <li>Somente válido para crédito à vista.</li>
     </ul>
@@ -2971,7 +2971,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 <aside class="warning">este serviço adicional está sujeito a cobrança a partir do momento em que a geração de token é solicitada.</aside>
 
 <ul>
-  <li><strong>Objetivo</strong> - Além da mensagem específica para criação de um token, descrita em Transação com Token, é possível aproveitar uma requisição de autorização para solicitar a geração do token, acrescentando a informação <code class="highlighter-rouge">&lt;gerar-token&gt;</code> no nó de requisição de transação.</li>
+  <li><strong>Objetivo</strong> - Além da mensagem específica para criação de um token, descrita em Transação com Token, é possível aproveitar uma requisição de autorização para solicitar a geração do token, acrescentando a informação <code class="language-plaintext highlighter-rouge">&lt;gerar-token&gt;</code> no nó de requisição de transação.</li>
   <li><strong>Regras</strong>
     <ul>
       <li>Caso um cartão seja submetido mais de uma vez pelo mesmo lojista, o Token gerado será sempre o mesmo.</li>
@@ -3668,7 +3668,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 </code></pre></div></div>
 
 <ul>
-  <li><strong>Objetivo</strong> - A captura automática permite que uma requisição de autorização seja capturada imediatamente após sua aprovação. Dessa forma, não é preciso realizar uma <code class="highlighter-rouge">&lt;requisicao-captura&gt;</code>.</li>
+  <li><strong>Objetivo</strong> - A captura automática permite que uma requisição de autorização seja capturada imediatamente após sua aprovação. Dessa forma, não é preciso realizar uma <code class="language-plaintext highlighter-rouge">&lt;requisicao-captura&gt;</code>.</li>
   <li><strong>Regras</strong>
     <ul>
       <li>Somente autorizações aprovadas serão capturadas automaticamente.</li>
@@ -3698,7 +3698,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 <ul>
   <li><strong>Objetivo</strong> A taxa de embarque é um campo informativo que define o montante do total da transação (informado na tag dados-pedido//valor) que deve ser destinado ao pagamento da taxa à Infraero.
     <ul>
-      <li>O valor da taxa de embarque não é acumulado ao valor da autorização. Por exemplo, em uma venda de passagem aérea de R$ 200,00 com taxa de embarque de R$ 25,00 deve-se enviar o campo <code class="highlighter-rouge">&lt;valor&gt;22500&lt;/valor&gt;</code> e <code class="highlighter-rouge">&lt;taxa-embarque&gt;2500&lt;/taxa-embarque&gt;</code>.</li>
+      <li>O valor da taxa de embarque não é acumulado ao valor da autorização. Por exemplo, em uma venda de passagem aérea de R$ 200,00 com taxa de embarque de R$ 25,00 deve-se enviar o campo <code class="language-plaintext highlighter-rouge">&lt;valor&gt;22500&lt;/valor&gt;</code> e <code class="language-plaintext highlighter-rouge">&lt;taxa-embarque&gt;2500&lt;/taxa-embarque&gt;</code>.</li>
     </ul>
   </li>
   <li><strong>Regras</strong>
@@ -3911,7 +3911,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
   <li>Posterior à autorização (captura total ou parcial).</li>
 </ul>
 
-<p>No primeiro caso, não é necessário enviar uma requisição de captura, pois ela é feita automaticamente pela Cielo após a autorização da transação. Para tanto, é preciso configurar a requisição de transação definindo-se o valor “true” para a TAG <code class="highlighter-rouge">&lt;capturar&gt;</code>, conforme visto na seção “Criando uma transação”.</p>
+<p>No primeiro caso, não é necessário enviar uma requisição de captura, pois ela é feita automaticamente pela Cielo após a autorização da transação. Para tanto, é preciso configurar a requisição de transação definindo-se o valor “true” para a TAG <code class="language-plaintext highlighter-rouge">&lt;capturar&gt;</code>, conforme visto na seção “Criando uma transação”.</p>
 
 <p>Já no segundo caso, é preciso fazer uma “captura posterior”, através de uma nova requisição ao Webservice da Cielo para confirmar a transação e receber o valor da venda.</p>
 
@@ -3946,7 +3946,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
         <ul>
           <li>Na requisição de captura, o valor da taxa de embarque indica o montante do total que será capturado que deve ser destinado a esse fim.</li>
           <li>Obrigatório caso seja captura parcial.</li>
-          <li>Caso a captura seja total, o sistema irá considerar o valor da taxa de embarque informado no requisição de autorização (<code class="highlighter-rouge">&lt;requisicao-transacao&gt;</code>).</li>
+          <li>Caso a captura seja total, o sistema irá considerar o valor da taxa de embarque informado no requisição de autorização (<code class="language-plaintext highlighter-rouge">&lt;requisicao-transacao&gt;</code>).</li>
         </ul>
       </li>
     </ul>
@@ -4048,7 +4048,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
       <li>O prazo de cancelamento é de até 300 dias para a modalidade crédito e D+0 para débito.</li>
       <li>O cancelamento total, quando realizado com sucesso, altera o status da transação para “9 – Cancelada”, enquanto que o parcial não altera o status da transação, mantendo-a como “6 – Capturada”.</li>
       <li>Em caso de cancelamento na versão 1.6.1 (esta versão é exclusiva para cancelamento), o status de cancelamento parcial será diferente, ou seja: se cancelado com sucesso, retorna status 9; caso ocorra um erro no cancelamento parcial, o código de status será 6. Estas regras aplicam-se apenas para o cancelamento parcial.</li>
-      <li>Caso a TAG <code class="highlighter-rouge">&lt;valor&gt;</code> não seja fornecida, o sistema assumirá um cancelamento total.</li>
+      <li>Caso a TAG <code class="language-plaintext highlighter-rouge">&lt;valor&gt;</code> não seja fornecida, o sistema assumirá um cancelamento total.</li>
       <li>O cancelamento parcial está disponível para todas as bandeiras suportadas no e-Commerce.</li>
       <li>Para a modalidade débito, não existe a possibilidade de efetuar cancelamento parcial.</li>
       <li><strong>Transações com Taxa de embarque:</strong>
@@ -4155,7 +4155,7 @@ O lote a ser gerado deverá conter uma ou mais transações do mesmo tipo de ope
 
 <p>4 - A nomenclatura do arquivo deverá respeitar a regra abaixo e conter a seguinte estrutura e tamanhos de campo:</p>
 
-<p>Exemplo: <code class="highlighter-rouge">ECOMM_1006993069_02_20121002_0000000086.xml</code></p>
+<p>Exemplo: <code class="language-plaintext highlighter-rouge">ECOMM_1006993069_02_20121002_0000000086.xml</code></p>
 
 <ul>
   <li>a) Prefixo – obrigatoriamente deve iniciar com “ECOMM”;</li>

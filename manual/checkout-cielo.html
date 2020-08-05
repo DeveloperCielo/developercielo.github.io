@@ -577,11 +577,11 @@ Abaixo listamos pontos que devem estar prontos antes da integração:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">API</code></td>
+      <td><code class="language-plaintext highlighter-rouge">API</code></td>
       <td>É utilizada uma Integração via API que permite o lojista enviar o <strong>“Carrinho de compras”</strong> do seu site com todos os dados que ele deseja apresentar na tela transacional. <br /> Neste tipo de integração o lojista possui maior controle sobre como o pedido será gerado.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Botão / QR Code / Link</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Botão / QR Code / Link</code></td>
       <td>Dentro do Backoffice do Checkout Cielo, é possível registrar um produto ou grupo de produtos que vão gerar um Link capaz de criar várias telas de pagamento. Esse modelo é usado para pagamentos por redes sociais, campanhas promocionais ou Vendas via QR Code. Nessa categoria o lojista possui menos controle sobre como os pedidos serão apresentados ou gerados na tela transacional</td>
     </tr>
   </tbody>
@@ -762,23 +762,23 @@ Esses dados são separados nos seguintes “nós principais”:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Cart</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cart</code></td>
       <td>Contem dados dos produtos a serem vendidos.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping</code></td>
-      <td>Contem dados do tipo de frete a ser cobrado. É influenciado pelo nó <code class="highlighter-rouge">Cart</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping</code></td>
+      <td>Contem dados do tipo de frete a ser cobrado. É influenciado pelo nó <code class="language-plaintext highlighter-rouge">Cart</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment</code></td>
       <td>Contem informações que influenciam o valor cobrado. <strong>Não contem informações sobre meios de pagamento</strong></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer</code></td>
       <td>Possui dados o comprador. Não obrigatório na integração, mas exigido na tela de pagamentos. Sugerimos que seja enviado para acelerar o processo de compra</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Options</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Options</code></td>
       <td>Controla features opcionais do Checkout. Nó não obrigatório</td>
     </tr>
   </tbody>
@@ -792,7 +792,7 @@ Esses dados são separados nos seguintes “nós principais”:</p>
 
 <p>Endpoint é a URL para onde as requisições com os dados do carrinho serão enviadas. Todas as requisições deverão ser enviadas utilizando o método HTTP POST, para o endpoint:</p>
 
-<p><strong>Produção</strong> <code class="highlighter-rouge">https://cieloecommerce.cielo.com.br/api/public/v1/orders</code>.</p>
+<p><strong>Produção</strong> <code class="language-plaintext highlighter-rouge">https://cieloecommerce.cielo.com.br/api/public/v1/orders</code>.</p>
 
 <p><strong>Exemplo de uma requisição</strong></p>
 
@@ -877,14 +877,14 @@ Esses dados são separados nos seguintes “nós principais”:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
       <td>Guid</td>
       <td>Sim</td>
       <td>36</td>
       <td>Identificador único da loja. <strong>Formato:</strong> 00000000-0000-0000-0000-000000000000</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Content-type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Content-type</code></td>
       <td>Alphanumeric</td>
       <td>Sim</td>
       <td>n/a</td>
@@ -893,7 +893,7 @@ Esses dados são separados nos seguintes “nós principais”:</p>
   </tbody>
 </table>
 
-<p><strong>Cabeçalho e Autenticação</strong> - Todas as requisições enviadas para a Cielo deverão ser autenticadas pela loja. A autenticação consiste no envio do <code class="highlighter-rouge">MerchantId</code>, que é o identificador único da loja fornecido pela Cielo após a afiliação da loja. A autenticação da loja deverá ser feita através do envio do campo de cabeçalho HTTP <code class="highlighter-rouge">MerchantId</code>, como ilustrado abaixo e ao lado:</p>
+<p><strong>Cabeçalho e Autenticação</strong> - Todas as requisições enviadas para a Cielo deverão ser autenticadas pela loja. A autenticação consiste no envio do <code class="language-plaintext highlighter-rouge">MerchantId</code>, que é o identificador único da loja fornecido pela Cielo após a afiliação da loja. A autenticação da loja deverá ser feita através do envio do campo de cabeçalho HTTP <code class="language-plaintext highlighter-rouge">MerchantId</code>, como ilustrado abaixo e ao lado:</p>
 
 <p><strong>Body - Detalhado</strong></p>
 
@@ -910,7 +910,7 @@ Esses dados são separados nos seguintes “nós principais”:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">OrderNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">OrderNumber</code></td>
       <td>Alphanumeric</td>
       <td>Opcional</td>
       <td>64</td>
@@ -918,31 +918,31 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">SoftDescriptor</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
       <td>Alphanumeric</td>
       <td>Opcional</td>
       <td>13</td>
-      <td>Texto exibido na fatura do comprador. Sem caracteres especiais ou espaços. EX: <code class="highlighter-rouge">NOMEDALOJA123</code></td>
+      <td>Texto exibido na fatura do comprador. Sem caracteres especiais ou espaços. EX: <code class="language-plaintext highlighter-rouge">NOMEDALOJA123</code></td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Cart.Discount.Type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Discount.Type</code></td>
       <td>Alphanumeric</td>
       <td>Condicional</td>
       <td>255</td>
-      <td>Tipo do desconto a ser aplicado: <code class="highlighter-rouge">Amount</code> ou <code class="highlighter-rouge">Percent</code>.</td>
+      <td>Tipo do desconto a ser aplicado: <code class="language-plaintext highlighter-rouge">Amount</code> ou <code class="language-plaintext highlighter-rouge">Percent</code>.</td>
       <td>Obrigatório caso Cart.Discount.Value for maior ou igual a zero.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Cart.Discount.Value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Discount.Value</code></td>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>18</td>
       <td>Valor do desconto a ser aplicado: Valor ou Percentual</td>
-      <td>Obrigatório caso Cart.Discount.Type for <code class="highlighter-rouge">Amount</code> ou <code class="highlighter-rouge">Percent</code>.</td>
+      <td>Obrigatório caso Cart.Discount.Type for <code class="language-plaintext highlighter-rouge">Amount</code> ou <code class="language-plaintext highlighter-rouge">Percent</code>.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Cart.Items.Name</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Items.Name</code></td>
       <td>Alphanumeric</td>
       <td>Sim</td>
       <td>128</td>
@@ -950,7 +950,7 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Cart.Items.Description</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Items.Description</code></td>
       <td>Alphanumeric</td>
       <td>Opcional</td>
       <td>256</td>
@@ -958,7 +958,7 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Cart.Items.UnitPrice</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Items.UnitPrice</code></td>
       <td>Numeric</td>
       <td>Sim</td>
       <td>18</td>
@@ -966,7 +966,7 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Cart.Items.Quantity</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Items.Quantity</code></td>
       <td>Numeric</td>
       <td>Sim</td>
       <td>9</td>
@@ -974,15 +974,15 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Cart.Items.Type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Items.Type</code></td>
       <td>Alphanumeric</td>
       <td>Sim</td>
       <td>255</td>
-      <td>Tipo do item no carrinho: <br /><code class="highlighter-rouge">Asset</code><br /><code class="highlighter-rouge">Digital</code><br /><code class="highlighter-rouge">Service</code><br /><code class="highlighter-rouge">Payment</code></td>
+      <td>Tipo do item no carrinho: <br /><code class="language-plaintext highlighter-rouge">Asset</code><br /><code class="language-plaintext highlighter-rouge">Digital</code><br /><code class="language-plaintext highlighter-rouge">Service</code><br /><code class="language-plaintext highlighter-rouge">Payment</code></td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Cart.Items.Sku</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Items.Sku</code></td>
       <td>Alphanumeric</td>
       <td>Opcional</td>
       <td>32</td>
@@ -990,7 +990,7 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Cart.Items.Weight</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Items.Weight</code></td>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>9</td>
@@ -998,7 +998,7 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td>Necessário caso Shipping.Type for “Correios”.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.BoletoDiscount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.BoletoDiscount</code></td>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>3</td>
@@ -1006,7 +1006,7 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.DebitDiscount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DebitDiscount</code></td>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>3</td>
@@ -1014,7 +1014,7 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FirstInstallmentDiscount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">FirstInstallmentDiscount</code></td>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>3</td>
@@ -1022,7 +1022,7 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MaxNumberOfInstallments</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MaxNumberOfInstallments</code></td>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>2</td>
@@ -1030,7 +1030,7 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Identity</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>14</td>
@@ -1038,7 +1038,7 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td>Não obrigatório na API, mas obrigatório na tela transacional</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.FullName</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.FullName</code></td>
       <td>Alphanumeric</td>
       <td>Condicional</td>
       <td>288</td>
@@ -1046,7 +1046,7 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td>Não obrigatório na API, mas obrigatório na tela transacional</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Email</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
       <td>Alphanumeric</td>
       <td>Condicional</td>
       <td>64</td>
@@ -1054,7 +1054,7 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td>Não obrigatório na API, mas obrigatório na tela transacional</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Phone</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Phone</code></td>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>11</td>
@@ -1062,7 +1062,7 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td>Não obrigatório na API, mas obrigatório na tela transacional</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Options.AntifraudEnabled</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Options.AntifraudEnabled</code></td>
       <td>Boolean</td>
       <td>Condicional</td>
       <td>n/a</td>
@@ -1070,7 +1070,7 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Options.ReturnUrl</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Options.ReturnUrl</code></td>
       <td>Strin</td>
       <td>Condicional</td>
       <td>255</td>
@@ -1118,21 +1118,21 @@ Esses dados são separados nos seguintes “nós principais”:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">CheckoutUrl</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CheckoutUrl</code></td>
       <td>String</td>
       <td>Sim</td>
       <td>255</td>
       <td>URL da tela transacional. O Comprador <strong>deve ser direcionado a esse ambiente para finalizar a transação</strong></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Profile</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Profile</code></td>
       <td>String</td>
       <td>Sim</td>
       <td>16</td>
       <td>Perfil do lojista: fixo “CheckoutCielo”.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Version</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Version</code></td>
       <td>String</td>
       <td>Sim</td>
       <td>1</td>
@@ -1160,7 +1160,7 @@ Esses dados são separados nos seguintes “nós principais”:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Message</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Message</code></td>
       <td>String</td>
       <td>Sim</td>
       <td>254</td>
@@ -1195,22 +1195,22 @@ Os descontos disponíveis no Checkout Cielo são:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Carrinho</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Carrinho</code></td>
       <td>API</td>
       <td>Quando enviado, aplica o desconto sobre todo o carrinho, independente do meio de pagamento</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Boleto</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Boleto</code></td>
       <td>API e Backoffice</td>
       <td>Quando enviado, o desconto é aplicado somente caso o Boleto seja o meio de pagamento escolhido</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Débito Online</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Débito Online</code></td>
       <td>API e Backoffice</td>
       <td>Quando enviado, o desconto é aplicado somente caso o Débito online seja o meio de pagamento escolhido</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">A vista</code></td>
+      <td><code class="language-plaintext highlighter-rouge">A vista</code></td>
       <td>API</td>
       <td>Quando enviado, o desconto é aplicado quando Cartão de crédito a vista é o meio de pagamento escolhido</td>
     </tr>
@@ -1223,7 +1223,7 @@ Os descontos disponíveis no Checkout Cielo são:</p>
 
 <p><strong>Carrinho</strong></p>
 
-<p>Para enviar um Desconto sobre o <code class="highlighter-rouge">Carrinho</code> basta enviar o nó abaixo dentro do nó <code class="highlighter-rouge">Cart</code></p>
+<p>Para enviar um Desconto sobre o <code class="language-plaintext highlighter-rouge">Carrinho</code> basta enviar o nó abaixo dentro do nó <code class="language-plaintext highlighter-rouge">Cart</code></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">      </span><span class="p">{</span><span class="w">
        </span><span class="nl">"Discount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  
@@ -1246,20 +1246,20 @@ Os descontos disponíveis no Checkout Cielo são:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Cart.Discount.Type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Discount.Type</code></td>
       <td>Alphanumeric</td>
       <td>Condicional</td>
       <td>255</td>
-      <td>Tipo do desconto a ser aplicado: <code class="highlighter-rouge">Amount</code> ou <code class="highlighter-rouge">Percent</code>.</td>
+      <td>Tipo do desconto a ser aplicado: <code class="language-plaintext highlighter-rouge">Amount</code> ou <code class="language-plaintext highlighter-rouge">Percent</code>.</td>
       <td>Obrigatório caso Cart.Discount.Value for maior ou igual a zero.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Cart.Discount.Value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Discount.Value</code></td>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>18</td>
       <td>Valor do desconto a ser aplicado: Valor ou Percentual</td>
-      <td>Obrigatório caso Cart.Discount.Type for <code class="highlighter-rouge">Amount</code> ou <code class="highlighter-rouge">Percent</code>.</td>
+      <td>Obrigatório caso Cart.Discount.Type for <code class="language-plaintext highlighter-rouge">Amount</code> ou <code class="language-plaintext highlighter-rouge">Percent</code>.</td>
     </tr>
   </tbody>
 </table>
@@ -1283,7 +1283,7 @@ Os descontos disponíveis no Checkout Cielo são:</p>
 
 <p><strong>Boleto &amp; Débito Online</strong></p>
 
-<p>Para enviar um Desconto sobre o <code class="highlighter-rouge">Boleto</code> e <code class="highlighter-rouge">Débito online</code> basta enviar dentro do nó Payment os campos abaixo:</p>
+<p>Para enviar um Desconto sobre o <code class="language-plaintext highlighter-rouge">Boleto</code> e <code class="language-plaintext highlighter-rouge">Débito online</code> basta enviar dentro do nó Payment os campos abaixo:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">      </span><span class="p">{</span><span class="w">
       </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  
@@ -1306,21 +1306,21 @@ Os descontos disponíveis no Checkout Cielo são:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Payment.BoletoDiscount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.BoletoDiscount</code></td>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>3</td>
       <td>Desconto, em porcentagem, para pagamentos a serem realizados com boleto.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.DebitDiscount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DebitDiscount</code></td>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>3</td>
       <td>Desconto, em porcentagem, para pagamentos a serem realizados com débito online.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.FirstInstallmentDiscount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.FirstInstallmentDiscount</code></td>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>3</td>
@@ -1357,23 +1357,23 @@ Os descontos disponíveis no Checkout Cielo são:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">FixedAmount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">FixedAmount</code></td>
       <td>Valor fixo enviado pelo lojista. Utilizado caso o Lojista possua um método de entrega próprio</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Free</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Free</code></td>
       <td>Não realiza calculo de frete e exibe na tela transacional “Frete Grátis”</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">WithoutShippingPickUp</code></td>
+      <td><code class="language-plaintext highlighter-rouge">WithoutShippingPickUp</code></td>
       <td>Considerado “Retirada na loja”</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">WithoutShipping</code></td>
+      <td><code class="language-plaintext highlighter-rouge">WithoutShipping</code></td>
       <td>Sem cobrança de frete (aplicável para serviços e produtos digitais).</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Correios</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Correios</code></td>
       <td>Utiliza a API dos correios para realizar o calculo do custo. O valor do calculo dependerá o contrato utilizado (Escolhido no Backoffice do checkout) e do tipo de integração para calculo: <strong>Frete com Volume</strong> ou <strong>Frete sem Volume</strong></td>
     </tr>
   </tbody>
@@ -1390,29 +1390,29 @@ Os descontos disponíveis no Checkout Cielo são:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">FixedAmount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">FixedAmount</code></td>
       <td><img src="https://developercielo.github.io/images/checkout/fixedamount.png" alt="FixedAmount" /></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Free</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Free</code></td>
       <td><img src="https://developercielo.github.io/images/checkout/free.png" alt="Free" /></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">WithoutShippingPickUp</code></td>
+      <td><code class="language-plaintext highlighter-rouge">WithoutShippingPickUp</code></td>
       <td><img src="https://developercielo.github.io/images/checkout/withoutshippingpickup.png" alt="WithoutShippingPickUp" /></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">WithoutShipping</code></td>
+      <td><code class="language-plaintext highlighter-rouge">WithoutShipping</code></td>
       <td><img src="https://developercielo.github.io/images/checkout/withoutshippingpickup.png" alt="WithoutShipping" /></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Correios</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Correios</code></td>
       <td><img src="https://developercielo.github.io/images/checkout/correios.png" alt="Correios" /></td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>OBS:</strong> As opções para múltiplos fretes na categoria <code class="highlighter-rouge">Correios</code> devem ser selecionadas dentro do Backoffice Cielo.</p>
+<p><strong>OBS:</strong> As opções para múltiplos fretes na categoria <code class="language-plaintext highlighter-rouge">Correios</code> devem ser selecionadas dentro do Backoffice Cielo.</p>
 
 <p>Os nós que formam as informações de frete abaixo:</p>
 
@@ -1433,15 +1433,15 @@ Os descontos disponíveis no Checkout Cielo são:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Type</code></td>
       <td>Alphanumeric</td>
       <td>Sim</td>
       <td>255</td>
-      <td>Tipo do frete: <br /><code class="highlighter-rouge">Correios</code><br /><code class="highlighter-rouge">FixedAmount</code><br /><code class="highlighter-rouge">Free</code><br /><code class="highlighter-rouge">WithoutShippingPickUp</code><br /><code class="highlighter-rouge">WithoutShipping</code></td>
+      <td>Tipo do frete: <br /><code class="language-plaintext highlighter-rouge">Correios</code><br /><code class="language-plaintext highlighter-rouge">FixedAmount</code><br /><code class="language-plaintext highlighter-rouge">Free</code><br /><code class="language-plaintext highlighter-rouge">WithoutShippingPickUp</code><br /><code class="language-plaintext highlighter-rouge">WithoutShipping</code></td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.SourceZipCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.SourceZipCode</code></td>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>8</td>
@@ -1449,7 +1449,7 @@ Os descontos disponíveis no Checkout Cielo são:</p>
       <td>Obrigatório caso Shipping.Type for “Correios”.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.TargetZipCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.TargetZipCode</code></td>
       <td>Numeric</td>
       <td>Opcional</td>
       <td>8</td>
@@ -1473,42 +1473,42 @@ Os descontos disponíveis no Checkout Cielo são:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Address.Street</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.Street</code></td>
       <td>Alphanumeric</td>
       <td>Sim</td>
       <td>256</td>
       <td>Rua, avenida, travessa, etc, do endereço de entrega do comprador.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Address.Number</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.Number</code></td>
       <td>Alphanumeric</td>
       <td>Sim</td>
       <td>8</td>
       <td>Número do endereço de entrega do comprador.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Address.Complement</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.Complement</code></td>
       <td>Alphanumeric</td>
       <td>Opcional</td>
       <td>14</td>
       <td>Complemento do endereço de entrega do comprador.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Address.District</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.District</code></td>
       <td>Alphanumeric</td>
       <td>Sim</td>
       <td>64</td>
       <td>Bairro do endereço de entrega do comprador.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Address.City</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.City</code></td>
       <td>Alphanumeric</td>
       <td>Sim</td>
       <td>64</td>
       <td>Cidade do endereço de entrega do comprador.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Address.State</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.State</code></td>
       <td>Alphanumeric</td>
       <td>Sim</td>
       <td>2</td>
@@ -1531,21 +1531,21 @@ Os descontos disponíveis no Checkout Cielo são:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Services.Name</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Services.Name</code></td>
       <td>Alphanumeric</td>
       <td>Sim</td>
       <td>128</td>
       <td>Nome do serviço de frete.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Services.Price</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Services.Price</code></td>
       <td>Numeric</td>
       <td>Sim</td>
       <td>18</td>
       <td>Preço do serviço de frete em centavos. Ex: R$ 1,00 = 100.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Services.Deadline</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Services.Deadline</code></td>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>9</td>
@@ -1561,7 +1561,7 @@ Os descontos disponíveis no Checkout Cielo são:</p>
   <li><strong>Frete sem Volume</strong> - Utiliza a API dos correios, mas considera apenas o peso do carrinho como base de cálculo para a entrega.</li>
 </ul>
 
-<p>Para utilizar o frete volumétrico, basta enviar o nó <code class="highlighter-rouge">Shipping.Measures</code>, seguindo as regras de integração via API REST.</p>
+<p>Para utilizar o frete volumétrico, basta enviar o nó <code class="language-plaintext highlighter-rouge">Shipping.Measures</code>, seguindo as regras de integração via API REST.</p>
 
 <p><strong>Shipping.Measures</strong></p>
 
@@ -1578,15 +1578,15 @@ Os descontos disponíveis no Checkout Cielo são:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Package</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Package</code></td>
       <td>Alphanumeric</td>
       <td>Obrigatório</td>
       <td>Inteiro</td>
-      <td>Tipo de pacote: <br /><code class="highlighter-rouge">BOX</code>- Caixa <br /> <code class="highlighter-rouge">ROL</code> - Cilindro ou ENVELOPE</td>
+      <td>Tipo de pacote: <br /><code class="language-plaintext highlighter-rouge">BOX</code>- Caixa <br /> <code class="language-plaintext highlighter-rouge">ROL</code> - Cilindro ou ENVELOPE</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Lenght</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Lenght</code></td>
       <td>Numeric</td>
       <td>Obrigatório</td>
       <td>Inteiro</td>
@@ -1594,7 +1594,7 @@ Os descontos disponíveis no Checkout Cielo são:</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Height</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Height</code></td>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>Inteiro</td>
@@ -1602,7 +1602,7 @@ Os descontos disponíveis no Checkout Cielo são:</p>
       <td>Obrigatório caso Shipping.Package como BOX</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Width</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Width</code></td>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>Inteiro</td>
@@ -1610,7 +1610,7 @@ Os descontos disponíveis no Checkout Cielo são:</p>
       <td>Obrigatório caso Shipping.Package como BOX ou ENVELOPE</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Diameter</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Diameter</code></td>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>Inteiro</td>
@@ -1678,7 +1678,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
       <td>Código interpretável por Smartphones e Tablets - Ideal para uso em <strong>Marketing impressos</strong> ou <strong>Digital</strong></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">http://bit.ly/2tRkSxZ</code></td>
+      <td><code class="language-plaintext highlighter-rouge">http://bit.ly/2tRkSxZ</code></td>
       <td style="text-align: center"><strong>LINK</strong></td>
       <td>é um link compartilhável, ideal para uso em <strong>Redes Sociais</strong> ou <strong>Messengers Mobile</strong></td>
     </tr>
@@ -1715,7 +1715,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
     </tr>
     <tr>
       <td><strong>Número do Pedido do Checkout</strong></td>
-      <td>O botão não permite o cadastro do número de pedido do Lojista. Como será a Cielo a acionar o próprio Checkout, será gerado um número de pedido (um <code class="highlighter-rouge">GUID</code>) único. O Lojista receberá esse número de pedido como link a venda realizada</td>
+      <td>O botão não permite o cadastro do número de pedido do Lojista. Como será a Cielo a acionar o próprio Checkout, será gerado um número de pedido (um <code class="language-plaintext highlighter-rouge">GUID</code>) único. O Lojista receberá esse número de pedido como link a venda realizada</td>
     </tr>
     <tr>
       <td><strong>Criação de pedidos</strong></td>
@@ -1754,84 +1754,84 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Tipo do Produto</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Tipo do Produto</code></td>
       <td>Indique se está vendendo um bem Material, um Serviço ou um bem Digital. Para bens Digitais, não será apresentada a opção de tipo de Frete.</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">SKU</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SKU</code></td>
       <td>Código de identificação do produto</td>
       <td>1</td>
       <td>50</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Título</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Título</code></td>
       <td>Titulo do Produto</td>
       <td>1</td>
       <td>50</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Descrição</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Descrição</code></td>
       <td>Descrição do Produto</td>
       <td>1</td>
       <td>255</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Preço</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Preço</code></td>
       <td>Valor total do pedido <strong>em centavos</strong> (ex.: R$1,00 =100).</td>
       <td>11</td>
       <td>14</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Frete</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Frete</code></td>
       <td>Escolher dentre uma das opções de Frete (Correios, Frete Fixo, Frete Grátis, Retirar na loja, Sem Cobrança).</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">CEP de Origem</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CEP de Origem</code></td>
       <td>Esse campo só aparece para o frete tipo Correios, deve ser preenchido com o CEP de onde vai partir a mercadoria para fins de cálculo de frete.</td>
       <td>9</td>
       <td>9</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Peso(kg)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Peso(kg)</code></td>
       <td>Esse campo só aparece para o frete tipo Correios, deve ser preenchido com o peso do produto em kg para fins de cálculo de frete</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Valor do Frete</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Valor do Frete</code></td>
       <td>Esse campo só aparece para o frete tipo Frete Fixo, e deve ser preenchido com o valor que o lojista especificar para seus produtos.</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Método de envio</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Método de envio</code></td>
       <td>Esse campo só aparece para Tipo Produto igual a Material Físico e Tipo de Frete igual a Frete Fixo.</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">URL</code></td>
+      <td><code class="language-plaintext highlighter-rouge">URL</code></td>
       <td>Esse campo só aparece para Tipo Produto igual a Digital.</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Quantidade</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Quantidade</code></td>
       <td>Define a quantidade maxima de pedidos que o Botão pode gerar. Se não definido, o botão poderá gerar um numero infinito de pedidos</td>
       <td>n/a</td>
       <td>n/a</td>
@@ -1871,7 +1871,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
   <tbody>
     <tr>
       <td> </td>
-      <td><code class="highlighter-rouge">http://bit.ly/2tRkSxZ</code></td>
+      <td><code class="language-plaintext highlighter-rouge">http://bit.ly/2tRkSxZ</code></td>
     </tr>
   </tbody>
 </table>
@@ -1935,14 +1935,14 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
 
 <h3 id="análise-de-fraude">Análise de Fraude</h3>
 
-<p>Transações de crédito <strong>“AUTORIZADAS”</strong> serão enviadas para análise da ferramenta de antifraude caso o parametro <code class="highlighter-rouge">Options.AntifraudEnabled</code> esteja definido como <code class="highlighter-rouge">TRUE</code>.
-O Antifraude possui o conceito de <code class="highlighter-rouge">Status</code> e <code class="highlighter-rouge">SubStatus</code>, onde o primeiro representa o nivel de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
-A análise indicará um grau de <strong>RISCO</strong>, especificado pelo <code class="highlighter-rouge">Status</code>, para a venda em questão.
+<p>Transações de crédito <strong>“AUTORIZADAS”</strong> serão enviadas para análise da ferramenta de antifraude caso o parametro <code class="language-plaintext highlighter-rouge">Options.AntifraudEnabled</code> esteja definido como <code class="language-plaintext highlighter-rouge">TRUE</code>.
+O Antifraude possui o conceito de <code class="language-plaintext highlighter-rouge">Status</code> e <code class="language-plaintext highlighter-rouge">SubStatus</code>, onde o primeiro representa o nivel de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
+A análise indicará um grau de <strong>RISCO</strong>, especificado pelo <code class="language-plaintext highlighter-rouge">Status</code>, para a venda em questão.
 Esse grau de risco é o que deve guiar a decisão do lojista de capturar ou cancelar a venda.</p>
 
 <p>Para que as transações sejam analisadas pelo antifraude, é necessario que a loja Checkout possua:</p>
 <ul>
-  <li>Enviar via contrato <code class="highlighter-rouge">Options.AntifraudEnabled</code> como <code class="highlighter-rouge">true</code></li>
+  <li>Enviar via contrato <code class="language-plaintext highlighter-rouge">Options.AntifraudEnabled</code> como <code class="language-plaintext highlighter-rouge">true</code></li>
   <li>Valor da compra deve ser MAIOR que o valor mínimo configurado - Ver em Tutotial Backoffice Checkout</li>
   <li>Possuir um Plano que inclua a ferramenta de analise.</li>
   <li>A transação de crédito deve ser AUTORIZADA</li>
@@ -1958,52 +1958,52 @@ Esse grau de risco é o que deve guiar a decisão do lojista de capturar ou canc
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Baixo Risco</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Baixo Risco</code></td>
       <td>Baixo Risco</td>
       <td>Baixo risco de ser uma transação fraudulenta</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Médio Risco</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Médio Risco</code></td>
       <td>Médio Risco</td>
       <td>Médio risco de ser uma transação fraudulenta</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Alto Risco</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Alto Risco</code></td>
       <td>Alto Risco</td>
       <td>Alto risco de ser uma transação fraudulenta</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Não finalizado</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Não finalizado</code></td>
       <td>Não finalizado</td>
       <td>Não foi possível finalizar a consulta</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">N/A</code></td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>Autenticado</td>
       <td>Transações autenticadas pelo banco - <strong>Não são analisáveis pelo AF</strong></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">N/A</code></td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>AF Não contratado</td>
       <td>Antifraude não habilitado no plano do lojista - <strong>Não são analisáveis pelo AF</strong></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">N/A</code></td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>AF Dispensado</td>
       <td>Antifraude dispensado via contrato ou inferior ao valor mínimo de antifrade parametrizado backoffice no lojista</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">N/A</code></td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>Não aplicável</td>
       <td>Meio de pagamento não analisável como cartões de débito, boleto e débito online</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">N/A</code></td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>Transação de recorrência</td>
       <td>Transação de crédito seja posterior a transação de agendamento. <strong>Somente o Agendamento é analisado</strong></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">N/A</code></td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>Transação negada</td>
       <td>Venda a crédito foi negada - <strong>Não são analisáveis pelo AF</strong></td>
     </tr>
@@ -2157,17 +2157,17 @@ Vale destacar que o Checkout realiza a notificação somente quando uma transaç
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">POST</code></td>
-      <td>Notificação onde o lojista é passivo. Dois <code class="highlighter-rouge">POST HTTP</code> são disparados, um informando dados da venda e outra mudança de Status da transação</td>
+      <td><code class="language-plaintext highlighter-rouge">POST</code></td>
+      <td>Notificação onde o lojista é passivo. Dois <code class="language-plaintext highlighter-rouge">POST HTTP</code> são disparados, um informando dados da venda e outra mudança de Status da transação</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">JSON</code></td>
-      <td>Notificação onde o lojista realiza uma consulta. Um <code class="highlighter-rouge">POST</code> contendo informações para a realização de uma consulta (<code class="highlighter-rouge">GET</code>) as transações checkout</td>
+      <td><code class="language-plaintext highlighter-rouge">JSON</code></td>
+      <td>Notificação onde o lojista realiza uma consulta. Um <code class="language-plaintext highlighter-rouge">POST</code> contendo informações para a realização de uma consulta (<code class="language-plaintext highlighter-rouge">GET</code>) as transações checkout</td>
     </tr>
   </tbody>
 </table>
 
-<p>Para utilizar ambos os modelos, o lojista necessitará acessar o Backoffice cielo e configurar tanto a <code class="highlighter-rouge">URL de NOTIFICAÇÃO</code> quando a <code class="highlighter-rouge">URL de MUDANÇA de STATUS</code>.</p>
+<p>Para utilizar ambos os modelos, o lojista necessitará acessar o Backoffice cielo e configurar tanto a <code class="language-plaintext highlighter-rouge">URL de NOTIFICAÇÃO</code> quando a <code class="language-plaintext highlighter-rouge">URL de MUDANÇA de STATUS</code>.</p>
 
 <h2 id="tipos-de-url-de-notificação">Tipos de URL de Notificação</h2>
 
@@ -2183,24 +2183,24 @@ Vale destacar que o Checkout realiza a notificação somente quando uma transaç
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">URL de Retorno</code></td>
+      <td><code class="language-plaintext highlighter-rouge">URL de Retorno</code></td>
       <td>Página web na qual o comprador será redirecionado ao fim da compra. <br />Nenhum dado é trocado ou enviado para essa URL.<br /> Essa URL apenas leva o comprador, após finalizar a compra, a uma página definida pela loja.</td>
       <td>Caso o Lojista deseje, ele pode configurar essa página para ser sensibilizada por tráfego, assim identificando que a transação foi finalizada no Checkout Cielo <br /> Pode ser enviada via API - Ver “Integração por API”</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">URL de Notificação</code></td>
+      <td><code class="language-plaintext highlighter-rouge">URL de Notificação</code></td>
       <td>Ao finalizar uma transação é enviado um POST HTTP com todos os dados da venda para a URL de Notificação.<br /> O POST de notificação é enviado apenas no momento que a transação é finalizada, independentemente se houve alteração do <strong>status da transação</strong></td>
-      <td>Utilizada na Notificação via <code class="highlighter-rouge">POST</code>e <code class="highlighter-rouge">JSON</code></td>
+      <td>Utilizada na Notificação via <code class="language-plaintext highlighter-rouge">POST</code>e <code class="language-plaintext highlighter-rouge">JSON</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">URL de Mudança de Status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">URL de Mudança de Status</code></td>
       <td>Quando um pedido tiver seu status alterado, será enviando um post HTTP para a URL de Mudança de Status.<br /> O POST de mudança de status não contem dados do carrinho, apenas dados de identificação do pedido</td>
-      <td>Utilizada somente na Notificação via <code class="highlighter-rouge">POST</code></td>
+      <td>Utilizada somente na Notificação via <code class="language-plaintext highlighter-rouge">POST</code></td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>OBS:</strong> Caso uma <code class="highlighter-rouge">URL de retorno</code> seja enviada vai API, ela terá prioridade sobre a URL cadastrada no Backoffice / Na integração Checkout Cielo <code class="highlighter-rouge">via Botão</code>, só é possível usar a opção de URL de retorno via backoffice.</p>
+<p><strong>OBS:</strong> Caso uma <code class="language-plaintext highlighter-rouge">URL de retorno</code> seja enviada vai API, ela terá prioridade sobre a URL cadastrada no Backoffice / Na integração Checkout Cielo <code class="language-plaintext highlighter-rouge">via Botão</code>, só é possível usar a opção de URL de retorno via backoffice.</p>
 
 <p><strong>Características das URLs</strong></p>
 
@@ -2224,11 +2224,11 @@ Vale destacar que o Checkout realiza a notificação somente quando uma transaç
 
 <h2 id="notificação-post">Notificação: POST</h2>
 
-<p>A notificação via POST é baseada no envio de um <code class="highlighter-rouge">POST HTTP</code> quando uma transação é realizada. Ela é realizada em duas etapas:</p>
+<p>A notificação via POST é baseada no envio de um <code class="language-plaintext highlighter-rouge">POST HTTP</code> quando uma transação é realizada. Ela é realizada em duas etapas:</p>
 
 <ol>
-  <li><code class="highlighter-rouge">POST de NOTIFICAÇÃO</code> - Ocorre quando a transação é finalizada. Esse POST possui todos os dados do pedido, incluindo o STATUS inicial da transação.</li>
-  <li><code class="highlighter-rouge">POST de MUDANÇA DE STATUS</code> - Ocorre quando uma transação possui seu STATUS alterado - <strong>EX:</strong> “Autorizado” &gt; &gt; &gt; “Pago”</li>
+  <li><code class="language-plaintext highlighter-rouge">POST de NOTIFICAÇÃO</code> - Ocorre quando a transação é finalizada. Esse POST possui todos os dados do pedido, incluindo o STATUS inicial da transação.</li>
+  <li><code class="language-plaintext highlighter-rouge">POST de MUDANÇA DE STATUS</code> - Ocorre quando uma transação possui seu STATUS alterado - <strong>EX:</strong> “Autorizado” &gt; &gt; &gt; “Pago”</li>
 </ol>
 
 <p>Este fluxo é utilizado por lojas que ainda não realizam transações via API.</p>
@@ -2237,9 +2237,9 @@ Vale destacar que o Checkout realiza a notificação somente quando uma transaç
 
 <p><img src="https://developercielo.github.io/images/checkout/npost.png" alt="Fluxo N.POST" /></p>
 
-<p><strong>Retorno aguardado para o envio da notificação:</strong> <code class="highlighter-rouge">HttpStatus = 200 (OK)</code> - Post recebido e processado com sucesso</p>
+<p><strong>Retorno aguardado para o envio da notificação:</strong> <code class="language-plaintext highlighter-rouge">HttpStatus = 200 (OK)</code> - Post recebido e processado com sucesso</p>
 
-<p><strong>IMPORTANTE</strong> Se a <code class="highlighter-rouge">URL de Notificação</code> cadastrada retornar algum erro/estiver indisponível, serão realizadas <em>*3 novas tentativas, com intervalo de 1 hora entre cada POST</em>.</p>
+<p><strong>IMPORTANTE</strong> Se a <code class="language-plaintext highlighter-rouge">URL de Notificação</code> cadastrada retornar algum erro/estiver indisponível, serão realizadas <em>*3 novas tentativas, com intervalo de 1 hora entre cada POST</em>.</p>
 
 <p>Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acessar o pedido em questão pelo Backoffice e clicar no Ícone de envio:</p>
 
@@ -2250,16 +2250,16 @@ Vale destacar que o Checkout realiza a notificação somente quando uma transaç
 <h2 id="notificação-json">Notificação: JSON</h2>
 
 <p>A notificação vai JSON é um método mais seguro e flexível para o lojista de realizar uma consulta no Chekcout Cielo.
-Essa modalidade de notificação é baseada em um <code class="highlighter-rouge">POST JSON</code>, onde o lojista recebe credenciais para que uma consulta (<code class="highlighter-rouge">GET</code>) possa ser realizado junto a base de dados Checkout Cielo.</p>
+Essa modalidade de notificação é baseada em um <code class="language-plaintext highlighter-rouge">POST JSON</code>, onde o lojista recebe credenciais para que uma consulta (<code class="language-plaintext highlighter-rouge">GET</code>) possa ser realizado junto a base de dados Checkout Cielo.</p>
 
 <p>Ela é realizada em duas etapas:</p>
 
 <ol>
-  <li><code class="highlighter-rouge">POST de NOTIFICAÇÃO</code> - Ocorre quando a transação é finalizada. Possui as Credenciais necessárias consultas transacionais.</li>
-  <li><code class="highlighter-rouge">CONSULTA TRANSACIONAL</code> - Com as credenciais de consulta, o lojista busca dados da venda junto ao Checkout Cielo</li>
+  <li><code class="language-plaintext highlighter-rouge">POST de NOTIFICAÇÃO</code> - Ocorre quando a transação é finalizada. Possui as Credenciais necessárias consultas transacionais.</li>
+  <li><code class="language-plaintext highlighter-rouge">CONSULTA TRANSACIONAL</code> - Com as credenciais de consulta, o lojista busca dados da venda junto ao Checkout Cielo</li>
 </ol>
 
-<p>Na Notificação de JSON, não há diferença entre o <code class="highlighter-rouge">POST de Notificação</code> e <code class="highlighter-rouge">Mudança de Status</code>. Sempre que algo ocorrer na transação, o lojista receberá um <code class="highlighter-rouge">POST de Notificação</code></p>
+<p>Na Notificação de JSON, não há diferença entre o <code class="language-plaintext highlighter-rouge">POST de Notificação</code> e <code class="language-plaintext highlighter-rouge">Mudança de Status</code>. Sempre que algo ocorrer na transação, o lojista receberá um <code class="language-plaintext highlighter-rouge">POST de Notificação</code></p>
 
 <p>Abaixo o Fluxo de uma Notificação JSON (Criação da transação + Mudança de status)</p>
 
@@ -2277,17 +2277,17 @@ Essa modalidade de notificação é baseada em um <code class="highlighter-rouge
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">URL</code></td>
+      <td><code class="language-plaintext highlighter-rouge">URL</code></td>
       <td>URL com os dados necessários para realizar a busca dos dados da transação.</td>
       <td>String</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
       <td>Identificador da loja no Checkout Cielo; consta no Backoffice no menu Configuração/Dados Cadastrais.</td>
       <td>Alfanumérico (GUID)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MerchantOrderNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderNumber</code></td>
       <td>Número do pedido da loja; se não for enviado, o Checkout Cielo gerará um número, que será visualizado pelo Consumidor.</td>
       <td>Alfanumérico</td>
     </tr>
@@ -2318,7 +2318,7 @@ Essa modalidade de notificação é baseada em um <code class="highlighter-rouge
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
       <td>Identificador da loja</td>
       <td>Guid</td>
       <td>36</td>
@@ -2362,9 +2362,9 @@ Essa modalidade de notificação é baseada em um <code class="highlighter-rouge
 
 <p>Veja a descrição dos itens de notificação na sessão <strong>“Conteúdo do POST de NOTIFICAÇÃO”</strong></p>
 
-<p><strong>Retorno aguardado para o envio da notificação:</strong> <code class="highlighter-rouge">HttpStatus = 200 (OK)</code> - Post recebido e processado com sucesso</p>
+<p><strong>Retorno aguardado para o envio da notificação:</strong> <code class="language-plaintext highlighter-rouge">HttpStatus = 200 (OK)</code> - Post recebido e processado com sucesso</p>
 
-<p><strong>IMPORTANTE</strong> Se a <code class="highlighter-rouge">URL de Notificação</code> cadastrada retornar algum erro/estiver indisponível, serão realizadas <em>*3 novas tentativas, com intervalo de 1 hora entre cada POST</em>.</p>
+<p><strong>IMPORTANTE</strong> Se a <code class="language-plaintext highlighter-rouge">URL de Notificação</code> cadastrada retornar algum erro/estiver indisponível, serão realizadas <em>*3 novas tentativas, com intervalo de 1 hora entre cada POST</em>.</p>
 
 <p>Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acessar o pedido em questão pelo Backoffice e clicar no Ícone de envio:</p>
 
@@ -2388,223 +2388,223 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">checkout_cielo_order_number</code></td>
+      <td><code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code></td>
       <td>Identificador único gerado pelo CHECKOUT CIELO</td>
       <td>Alfanumérico</td>
       <td>32</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">amount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">amount</code></td>
       <td>Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)</td>
       <td>Numérico</td>
       <td>10</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">order_number</code></td>
+      <td><code class="language-plaintext highlighter-rouge">order_number</code></td>
       <td>Número do pedido enviado pela loja</td>
       <td>Alfanumérico</td>
       <td>32</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">created_date</code></td>
-      <td>Data da criação do pedido - <code class="highlighter-rouge">dd-MM-yyyy HH:mm:ss</code></td>
+      <td><code class="language-plaintext highlighter-rouge">created_date</code></td>
+      <td>Data da criação do pedido - <code class="language-plaintext highlighter-rouge">dd-MM-yyyy HH:mm:ss</code></td>
       <td>Alfanumérico</td>
       <td>20</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">customer_name</code></td>
+      <td><code class="language-plaintext highlighter-rouge">customer_name</code></td>
       <td>Nome do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO</td>
       <td>Alfanumérico</td>
       <td>289</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">customer_identity</code></td>
+      <td><code class="language-plaintext highlighter-rouge">customer_identity</code></td>
       <td>Identificação do consumidor (CPF ou CNPJ) Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO</td>
       <td>Alfanumérico</td>
       <td>14</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">customer_email</code></td>
+      <td><code class="language-plaintext highlighter-rouge">customer_email</code></td>
       <td>E-mail do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO</td>
       <td>Alfanumérico</td>
       <td>64</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">customer_phone</code></td>
+      <td><code class="language-plaintext highlighter-rouge">customer_phone</code></td>
       <td>Telefone do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO</td>
       <td>Numérico</td>
       <td>11</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">discount_amount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">discount_amount</code></td>
       <td>Valor do desconto fornecido (enviado somente se houver desconto)</td>
       <td>Numérico</td>
       <td>10</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping_type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping_type</code></td>
       <td>Modalidade de frete</td>
       <td>Numérico</td>
       <td>1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping_name</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping_name</code></td>
       <td>Nome do frete</td>
       <td>Alfanumérico</td>
       <td>128</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping_price</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping_price</code></td>
       <td>Valor do serviço de frete, em centavos (ex: R$ 10,00 = 1000)</td>
       <td>Numérico</td>
       <td>10</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping_address_zipcode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping_address_zipcode</code></td>
       <td>CEP do endereço de entrega</td>
       <td>Numérico</td>
       <td>8</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping_address_district</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping_address_district</code></td>
       <td>Bairro do endereço de entrega</td>
       <td>Texto</td>
       <td>64</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping_address_city</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping_address_city</code></td>
       <td>Cidade do endereço de entrega</td>
       <td>Alfanumérico</td>
       <td>64</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping_address_state</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping_address_state</code></td>
       <td>Estado de endereço de entrega</td>
       <td>Alfanumérico</td>
       <td>64</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping_address_line1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping_address_line1</code></td>
       <td>Endereço de entrega</td>
       <td>Alfanumérico</td>
       <td>256</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping_address_line2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping_address_line2</code></td>
       <td>Complemento do endereço de entrega</td>
       <td>Alfanumérico</td>
       <td>14</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping_address_number</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping_address_number</code></td>
       <td>Número do endereço de entrega</td>
       <td>Numérico</td>
       <td>8</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">payment_method_type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">payment_method_type</code></td>
       <td>Cód. do tipo de meio de pagamento</td>
       <td>Numérico</td>
       <td>1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">payment_method_brand</code></td>
+      <td><code class="language-plaintext highlighter-rouge">payment_method_brand</code></td>
       <td>Bandeira (somente para transações com meio de pagamento cartão de crédito)</td>
       <td>Numérico</td>
       <td>1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">payment_method_bank</code></td>
+      <td><code class="language-plaintext highlighter-rouge">payment_method_bank</code></td>
       <td>Banco emissor (Para transações de Boleto e Débito Automático)</td>
       <td>Numérico</td>
       <td>1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">payment_maskedcreditcard</code></td>
+      <td><code class="language-plaintext highlighter-rouge">payment_maskedcreditcard</code></td>
       <td>Cartão Mascarado (Somente para transações com meio de pagamento cartão de crédito)</td>
       <td>Alfanumérico</td>
       <td>20</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">payment_installments</code></td>
+      <td><code class="language-plaintext highlighter-rouge">payment_installments</code></td>
       <td>Número de parcelas</td>
       <td>Numérico</td>
       <td>1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">payment_antifrauderesult</code></td>
+      <td><code class="language-plaintext highlighter-rouge">payment_antifrauderesult</code></td>
       <td>Status das transações de cartão de Crédito no Antifraude</td>
       <td>Numérico</td>
       <td>1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">payment_boletonumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">payment_boletonumber</code></td>
       <td>número do boleto gerado</td>
       <td>String</td>
       <td>1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">payment_boletoexpirationdate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">payment_boletoexpirationdate</code></td>
       <td>Data de vencimento para transações realizadas com boleto bancário</td>
       <td>Numérico</td>
       <td>10</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">payment_status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">payment_status</code></td>
       <td>Status da transação</td>
       <td>Numérico</td>
       <td>1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">tid</code></td>
+      <td><code class="language-plaintext highlighter-rouge">tid</code></td>
       <td>TID Cielo gerado no momento da autorização da transação</td>
       <td>Alfanumérico</td>
       <td>20</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">test_transaction</code></td>
-      <td>Indica se a transação foi gerada com o <code class="highlighter-rouge">Modo de teste</code> ativado</td>
+      <td><code class="language-plaintext highlighter-rouge">test_transaction</code></td>
+      <td>Indica se a transação foi gerada com o <code class="language-plaintext highlighter-rouge">Modo de teste</code> ativado</td>
       <td>Boolean</td>
       <td>32</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">product_id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">product_id</code></td>
       <td>Identificador do Botão/Link de pagamento que gerou a transação</td>
       <td>Alfanumérico</td>
       <td>32</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">product_type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">product_type</code></td>
       <td>Tipo de Botão que gerou o pedido (Ver tabela de ProductID)</td>
       <td>Alfanumérico</td>
       <td>32</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">product_sku</code></td>
+      <td><code class="language-plaintext highlighter-rouge">product_sku</code></td>
       <td>Identificador do produto cadastro no link de pagamento</td>
       <td>texto</td>
       <td>16</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">product_max_number_of_installments</code></td>
+      <td><code class="language-plaintext highlighter-rouge">product_max_number_of_installments</code></td>
       <td>Numero de parcelas liberado pelo lojistas para o link de pagamento</td>
       <td>Numérico</td>
       <td>2</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">product_expiration_date</code></td>
+      <td><code class="language-plaintext highlighter-rouge">product_expiration_date</code></td>
       <td>Data de validade do botão/Link de pagamento</td>
       <td>Alfanumérico</td>
       <td>12</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">product_quantity</code></td>
+      <td><code class="language-plaintext highlighter-rouge">product_quantity</code></td>
       <td>Numero de transações restantes até que o link deixe de funcionar</td>
       <td>Alfanumérico</td>
       <td>2</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">product_description</code></td>
+      <td><code class="language-plaintext highlighter-rouge">product_description</code></td>
       <td>Descrição do link de pagamentos registrada pelo lojista</td>
       <td>texto</td>
       <td>256</td>
@@ -2661,49 +2661,49 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
   <tbody>
     <tr>
       <td>1</td>
-      <td><code class="highlighter-rouge">Pendente</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Pendente</code></td>
       <td>Para todos os meios de pagamento</td>
       <td>Indica que o pagamento ainda está sendo processado; OBS: Boleto - Indica que o boleto não teve o status alterado pelo lojista</td>
     </tr>
     <tr>
       <td>2</td>
-      <td><code class="highlighter-rouge">Pago</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Pago</code></td>
       <td>Para todos os meios de pagamento</td>
       <td>Transação capturada e o dinheiro será depositado em conta.</td>
     </tr>
     <tr>
       <td>3</td>
-      <td><code class="highlighter-rouge">Negado</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Negado</code></td>
       <td>Somente para Cartão Crédito</td>
       <td>Transação não autorizada pelo responsável do meio de pagamento</td>
     </tr>
     <tr>
       <td>4</td>
-      <td><code class="highlighter-rouge">Expirado</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Expirado</code></td>
       <td>Cartões de Crédito e Boleto</td>
       <td>Transação deixa de ser válida para captura - <strong>15 dias pós Autorização</strong></td>
     </tr>
     <tr>
       <td>5</td>
-      <td><code class="highlighter-rouge">Cancelado</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cancelado</code></td>
       <td>Para cartões de crédito</td>
       <td>Transação foi cancelada pelo lojista</td>
     </tr>
     <tr>
       <td>6</td>
-      <td><code class="highlighter-rouge">Não Finalizado</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Não Finalizado</code></td>
       <td>Todos os meios de pagamento</td>
       <td>Pagamento esperando Status - Pode indicar erro ou falha de processamento. Entre em contato com o Suporte cielo</td>
     </tr>
     <tr>
       <td>7</td>
-      <td><code class="highlighter-rouge">Autorizado</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Autorizado</code></td>
       <td>somente para Cartão de Crédito</td>
       <td>Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta</td>
     </tr>
     <tr>
       <td>8</td>
-      <td><code class="highlighter-rouge">Chargeback</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Chargeback</code></td>
       <td>somente para Cartão de Crédito</td>
       <td>Transação cancelada pelo consumidor junto ao emissor do cartão. O Dinheiro não será depositado em conta.</td>
     </tr>
@@ -2712,7 +2712,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
 
 <p><strong>Payment_antifrauderesult</strong></p>
 
-<p>O Antifraude possui o conceito de <code class="highlighter-rouge">Status</code> e <code class="highlighter-rouge">SubStatus</code>, onde o primeiro representa o nível de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.</p>
+<p>O Antifraude possui o conceito de <code class="language-plaintext highlighter-rouge">Status</code> e <code class="language-plaintext highlighter-rouge">SubStatus</code>, onde o primeiro representa o nível de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.</p>
 
 <table>
   <thead>
@@ -2726,61 +2726,61 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
   <tbody>
     <tr>
       <td>1</td>
-      <td><code class="highlighter-rouge">Baixo Risco</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Baixo Risco</code></td>
       <td>Baixo Risco</td>
       <td>Baixo risco de ser uma transação fraudulenta</td>
     </tr>
     <tr>
       <td>3</td>
-      <td><code class="highlighter-rouge">Médio Risco</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Médio Risco</code></td>
       <td>Médio Risco</td>
       <td>Médio risco de ser uma transação fraudulenta</td>
     </tr>
     <tr>
       <td>2</td>
-      <td><code class="highlighter-rouge">Alto Risco</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Alto Risco</code></td>
       <td>Alto Risco</td>
       <td>Alto risco de ser uma transação fraudulenta</td>
     </tr>
     <tr>
       <td>4</td>
-      <td><code class="highlighter-rouge">Não finalizado</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Não finalizado</code></td>
       <td>Não finalizado</td>
       <td>Não foi possível finalizar a consulta</td>
     </tr>
     <tr>
       <td>N/A</td>
-      <td><code class="highlighter-rouge">N/A</code></td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>Autenticado</td>
       <td>Transações autenticadas pelo banco - <strong>Não são analisaveis pelo AF</strong></td>
     </tr>
     <tr>
       <td>N/A</td>
-      <td><code class="highlighter-rouge">N/A</code></td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>AF Não contratado</td>
       <td>Antifraude não habilitado no plano do lojista - <strong>Não são analisaveis pelo AF</strong></td>
     </tr>
     <tr>
       <td>N/A</td>
-      <td><code class="highlighter-rouge">N/A</code></td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>AF Dispensado</td>
       <td>Antifraude dispensado via contrato ou inferior ao valor mínimo de antifrade parametrizado backoffice no lojista</td>
     </tr>
     <tr>
       <td>N/A</td>
-      <td><code class="highlighter-rouge">N/A</code></td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>Não aplicável</td>
       <td>Meio de pagamento não analisável como cartões de débito, boleto e débito online</td>
     </tr>
     <tr>
       <td>N/A</td>
-      <td><code class="highlighter-rouge">N/A</code></td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>Transação de recorrência</td>
       <td>Transação de crédito seja posterior a transação de agendamento. <strong>Somente o Agendamento é analisado</strong></td>
     </tr>
     <tr>
       <td>N/A</td>
-      <td><code class="highlighter-rouge">N/A</code></td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>Transação negada</td>
       <td>Venda a crédito foi negada - <strong>Não são analisaveis pelo AF</strong></td>
     </tr>
@@ -2789,7 +2789,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
 
 <p><strong>Payment_method_type</strong></p>
 
-<p>O Checkout permite apenas um tipo de <code class="highlighter-rouge">Boleto</code> ou <code class="highlighter-rouge">Débito Online</code> por lojista, sendo assim não é retornado se o método usado foi Bradesco ou Banco do Brasil, pois apenas um deles estará ativado na afiliação.</p>
+<p>O Checkout permite apenas um tipo de <code class="language-plaintext highlighter-rouge">Boleto</code> ou <code class="language-plaintext highlighter-rouge">Débito Online</code> por lojista, sendo assim não é retornado se o método usado foi Bradesco ou Banco do Brasil, pois apenas um deles estará ativado na afiliação.</p>
 
 <table>
   <thead>
@@ -2972,7 +2972,7 @@ O Checkout realiza o cálculo das parcelas considerando valor total e limite par
   <li>O valor do frete é somado ao valor do parcelamento.</li>
 </ul>
 
-<p>O Parcelamento via API é realizado enviando o campo <code class="highlighter-rouge">MaxNumberOfInstallments</code> dentro do nó Payment. Isso forçará o Checkout a recalcular o valor do parcelamento.
+<p>O Parcelamento via API é realizado enviando o campo <code class="language-plaintext highlighter-rouge">MaxNumberOfInstallments</code> dentro do nó Payment. Isso forçará o Checkout a recalcular o valor do parcelamento.
 Abaixo, um exemplo do Nó</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2992,7 +2992,7 @@ Abaixo, um exemplo do Nó</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">MaxNumberOfInstallments</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MaxNumberOfInstallments</code></td>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>2</td>
@@ -3040,7 +3040,7 @@ Alguns exemplos de negócios são:</p>
 
 <h2 id="recorrência-por-api">Recorrência por API</h2>
 
-<p>Uma transação de recorrência no Checkout Cielo possui duas configurações: <code class="highlighter-rouge">Intervalo</code> e <code class="highlighter-rouge">Data de encerramento</code>.</p>
+<p>Uma transação de recorrência no Checkout Cielo possui duas configurações: <code class="language-plaintext highlighter-rouge">Intervalo</code> e <code class="language-plaintext highlighter-rouge">Data de encerramento</code>.</p>
 
 <ul>
   <li><strong>Intervalo</strong> – padrão de repetição e intervalo de tempo entre cada transação. Esse intervalo temporal entre as transações podem ser: Mensal, Bimestral, Trimestral, Semestral e Anual.</li>
@@ -3068,14 +3068,14 @@ Alguns exemplos de negócios são:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Payment.RecurrentPayment.Interval</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code></td>
       <td>Alphanumeric</td>
       <td>Sim</td>
       <td>10</td>
       <td>Intervalo entre cada transação da recorrencia</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.RecurrentPayment.EndDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.EndDate</code></td>
       <td>YYYY-MM-DD</td>
       <td>Não</td>
       <td>255</td>
@@ -3093,23 +3093,23 @@ Alguns exemplos de negócios são:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Monthly</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Monthly</code></td>
       <td>Mensal</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Bimonthly</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Bimonthly</code></td>
       <td>Bimestral</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Quarterly</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Quarterly</code></td>
       <td>Trimestral</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">SemiAnnual</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SemiAnnual</code></td>
       <td>Semestral</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Annual</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Annual</code></td>
       <td>Anual</td>
     </tr>
   </tbody>
@@ -3117,7 +3117,7 @@ Alguns exemplos de negócios são:</p>
 
 <p>Os dados do cartão de crédito do comprador ficam armazenados de forma segura dentro do Checkout Cielo, permitindo sua reutilização em uma transação recorrente. Esses dados não são acessados pelo lojista e essa inteligência é controlada pelo Checkout Cielo.</p>
 
-<p>Exceto o objeto <code class="highlighter-rouge">Payment</code> que contém um novo elemento específico para a recorrência chamado <code class="highlighter-rouge">RecurrentPayment</code>, todos os outros objetos são iguais à integração com o Carrinho.</p>
+<p>Exceto o objeto <code class="language-plaintext highlighter-rouge">Payment</code> que contém um novo elemento específico para a recorrência chamado <code class="language-plaintext highlighter-rouge">RecurrentPayment</code>, todos os outros objetos são iguais à integração com o Carrinho.</p>
 
 <h3 id="request-1">Request</h3>
 
@@ -3183,8 +3183,8 @@ Alguns exemplos de negócios são:</p>
 
 <p><strong>Exemplo</strong>: Bem Físico</p>
 
-<p>Se o tipo de produto for <code class="highlighter-rouge">Bem Físico</code>, a <strong>API obriga o envio do tipo de frete</strong>.
-Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo <code class="highlighter-rouge">WithoutShipping</code>, caso contrário, a seguinte resposta será apresentada:</p>
+<p>Se o tipo de produto for <code class="language-plaintext highlighter-rouge">Bem Físico</code>, a <strong>API obriga o envio do tipo de frete</strong>.
+Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo <code class="language-plaintext highlighter-rouge">WithoutShipping</code>, caso contrário, a seguinte resposta será apresentada:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The request is invalid."</span><span class="p">,</span><span class="w">

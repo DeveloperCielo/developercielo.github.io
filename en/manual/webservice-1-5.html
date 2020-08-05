@@ -455,10 +455,10 @@
 <ul>
   <li>The message in XML format, defined according to the functionality.</li>
   <li>The destiny (testing environment or production).</li>
-  <li>The return on XML format, can be: <code class="highlighter-rouge">&lt;transacao/&gt;</code>, <code class="highlighter-rouge">&lt;retorno-token&gt;</code> or <code class="highlighter-rouge">&lt;erro/&gt;</code>.</li>
+  <li>The return on XML format, can be: <code class="language-plaintext highlighter-rouge">&lt;transacao/&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;retorno-token&gt;</code> or <code class="language-plaintext highlighter-rouge">&lt;erro/&gt;</code>.</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /servicos/ecommwsec.do HTTP/1.1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /servicos/ecommwsec.do HTTP/1.1
 Host: ecommerce.cielo.com.br
 Content-Type: application/x-www-form-urlencoded
 Content-Length: length
@@ -669,7 +669,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h1 id="creating-transactions">Creating transactions</h1>
 
-<p>Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservice at Cielo with a XML message <code class="highlighter-rouge">&lt;requisicao-transacao&gt;</code>, which group of TAGS defines a transaction configuration:</p>
+<p>Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservice at Cielo with a XML message <code class="language-plaintext highlighter-rouge">&lt;requisicao-transacao&gt;</code>, which group of TAGS defines a transaction configuration:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
@@ -769,14 +769,14 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
       <td>alphanumeric</td>
       <td>Yes</td>
       <td>1..1024</td>
-      <td>URL of return’s page. This page is that one used by Cielo to direct the browser in the end of authentication or authorized. It’s not only mandatory  for a direct authorization, but the field must be inserted as <code class="highlighter-rouge">null</code>.</td>
+      <td>URL of return’s page. This page is that one used by Cielo to direct the browser in the end of authentication or authorized. It’s not only mandatory  for a direct authorization, but the field must be inserted as <code class="language-plaintext highlighter-rouge">null</code>.</td>
     </tr>
     <tr>
       <td>capturar</td>
       <td>Boolean</td>
       <td>Yes</td>
       <td>n/a</td>
-      <td><code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code>. Define if a transaction will be captured automatically in case of being authorized.</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code> or <code class="language-plaintext highlighter-rouge">false</code>. Define if a transaction will be captured automatically in case of being authorized.</td>
     </tr>
     <tr>
       <td>campo-livre</td>
@@ -797,7 +797,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
       <td>Boolean</td>
       <td>optional</td>
       <td>n/a</td>
-      <td><code class="highlighter-rouge">true</code> ou <code class="highlighter-rouge">false</code>. Define if the current transaction must create an associate token to card.</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code> ou <code class="language-plaintext highlighter-rouge">false</code>. Define if the current transaction must create an associate token to card.</td>
     </tr>
     <tr>
       <td>avs#avs</td>
@@ -1042,12 +1042,12 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 <p>There are three types of return that can be created on WebService response:</p>
 
 <ol>
-  <li><code class="highlighter-rouge">&lt;transacao&gt;</code></li>
-  <li><code class="highlighter-rouge">&lt;retorno-token&gt;</code></li>
-  <li><code class="highlighter-rouge">&lt;erro&gt;</code></li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;transacao&gt;</code></li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;retorno-token&gt;</code></li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;erro&gt;</code></li>
 </ol>
 
-<p>To operations related to a transaction (consults, authorization, capture and cancellation) in case of success the response is always a XML of type <code class="highlighter-rouge">&lt;transacao&gt;</code>. In case of an exclusive request to create a token, the response expected is <code class="highlighter-rouge">&lt;retorno-token&gt;</code>.</p>
+<p>To operations related to a transaction (consults, authorization, capture and cancellation) in case of success the response is always a XML of type <code class="language-plaintext highlighter-rouge">&lt;transacao&gt;</code>. In case of an exclusive request to create a token, the response expected is <code class="language-plaintext highlighter-rouge">&lt;retorno-token&gt;</code>.</p>
 
 <p>The next example shows the more reduced way of a message of return such . Basically, it’s composed by order data and data from transaction’s configuration.</p>
 
@@ -1098,7 +1098,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   <li><strong>Status</strong>: it’s the base information to store control the transaction.</li>
 </ul>
 
-<p>The table below details TAGS from basic-XML of return, identified by source node <code class="highlighter-rouge">&lt;transacao&gt;</code>:</p>
+<p>The table below details TAGS from basic-XML of return, identified by source node <code class="language-plaintext highlighter-rouge">&lt;transacao&gt;</code>:</p>
 
 <table>
   <thead>
@@ -1149,7 +1149,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   </tbody>
 </table>
 
-<p>Finally, there is another type of return which is employed every time a request can’t be executed, because it’s invalid or for some failure in its process. In this scenario, root node of XML response is like this <code class="highlighter-rouge">&lt;erro&gt;</code>.</p>
+<p>Finally, there is another type of return which is employed every time a request can’t be executed, because it’s invalid or for some failure in its process. In this scenario, root node of XML response is like this <code class="language-plaintext highlighter-rouge">&lt;erro&gt;</code>.</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;erro</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
@@ -1176,7 +1176,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <p>This happens always on the bank website (Internet Banking), using mechanisms and technologies independently from Cielo. In this way, it’s possible for bank use an electronic token and password meanwhile another uses the password cards or CPF [c]to authenticate a transaction.</p>
 
-<p>As shown previously, the mechanic of redirection is obtained through a tag <code class="highlighter-rouge">&lt;url-autenticacao&gt;</code> that is returned by Cielo on XML  in the moment of a request of authorization to Web Service.</p>
+<p>As shown previously, the mechanic of redirection is obtained through a tag <code class="language-plaintext highlighter-rouge">&lt;url-autenticacao&gt;</code> that is returned by Cielo on XML  in the moment of a request of authorization to Web Service.</p>
 
 <p>The authentication is mandatory for debt transactions and optional for credit. Nowadays only Visa and MasterCard support this functionality and consequently, only these two card issuers have the debt product.</p>
 
@@ -1188,12 +1188,12 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <ol>
   <li>finishOrder() - it happens when a cardholder finishes the order and starts the payment purchase.</li>
-  <li>createTransaction (authenticated) - the retailer system send a XML request <code class="highlighter-rouge">&lt;requisicao-transacao&gt;</code> requesting an authenticated transaction, in other words, the TAG  will be 0,1 or 2. After this, Cielo will inform at XML returned a field  with the address which the holder must be redirected for.</li>
+  <li>createTransaction (authenticated) - the retailer system send a XML request <code class="language-plaintext highlighter-rouge">&lt;requisicao-transacao&gt;</code> requesting an authenticated transaction, in other words, the TAG  will be 0,1 or 2. After this, Cielo will inform at XML returned a field  with the address which the holder must be redirected for.</li>
   <li>access (url-authentication) - the holder’s browser is redirected to Cielo environment. Thereby, the Cielo’s page is accessed, it automatically is directed to an issuer bank (3.1). This redirect is so fast that is practically imperceptible.</li>
   <li>authenticate (token, cpf) - the holder will be on bank environment and will use some mechanism provided by his/her own issuer to realize the authentication of the transaction (generally token, “bingo card”/security card, cpf, electronic sign, etc).</li>
   <li>resultAuthentication ()- the issuer bank redirects the flux to Cielo with the result of authentication. Then, the flux backs to normal, according to item “2.3 Architecture of integration”.
     1.process () - Cielo system process the return of authentication and submit to authorization and, optionally, to automatic capture.
-    2. sendRedirect(url-return) - Cielo system send a redirection to customer browser to the address specificated on URL of return, provided on the first request (<code class="highlighter-rouge">&lt;requisicao-transacao&gt;</code>)
+    2. sendRedirect(url-return) - Cielo system send a redirection to customer browser to the address specificated on URL of return, provided on the first request (<code class="language-plaintext highlighter-rouge">&lt;requisicao-transacao&gt;</code>)
     <ol>
       <li>access (url-return) - the holder’s browser access the URL on store environment, where we recommend that you have a consult request via TID to Cielo Web Service.</li>
     </ol>
@@ -1217,7 +1217,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   <li>Setting the //  is 0, 1 or 2.</li>
 </ul>
 
-<p>Looking at the diagram of section <a href="#transaction">Transaction</a>, you can see that all transactions will pass through status “Authenticated” or “not authenticated”. Consequently, all receive the node <code class="highlighter-rouge">&lt;autenticacao&gt;</code> in the merchant response XML. Below the XML with the authentication node:</p>
+<p>Looking at the diagram of section <a href="#transaction">Transaction</a>, you can see that all transactions will pass through status “Authenticated” or “not authenticated”. Consequently, all receive the node <code class="language-plaintext highlighter-rouge">&lt;autenticacao&gt;</code> in the merchant response XML. Below the XML with the authentication node:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;transacao</span> <span class="na">versao=</span><span class="s">"1.3.0"</span> <span class="na">id=</span><span class="s">"5e445904-963e-4fa1-95cd-55ef88c289cc"</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
@@ -1248,7 +1248,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 <span class="nt">&lt;/transacao&gt;</span>
 </code></pre></div></div>
 
-<p>Just the “node” fields <code class="highlighter-rouge">&lt;autenticacao&gt;</code> are listed on the table below:</p>
+<p>Just the “node” fields <code class="language-plaintext highlighter-rouge">&lt;autenticacao&gt;</code> are listed on the table below:</p>
 
 <table>
   <thead>
@@ -3675,7 +3675,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   <li><strong>Purpose</strong> - Make eligible the transaction for authentication.</li>
   <li><strong>Rules</strong>
     <ul>
-      <li>To send a flag <code class="highlighter-rouge">autorizar</code> according to the domain below, to try:
+      <li>To send a flag <code class="language-plaintext highlighter-rouge">autorizar</code> according to the domain below, to try:
         <ul>
           <li>0 - Only authenticate a transaction</li>
           <li>1- Submit to authorization only if the transaction be authenticated.</li>
@@ -3736,7 +3736,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 </code></pre></div></div>
 
 <ul>
-  <li><strong>Purpose</strong> - The automatic capture allows a request of authorization to be captured immediately after its approval. So it’s not necessary realize a <code class="highlighter-rouge">&lt;requisicao-captura&gt;</code>.</li>
+  <li><strong>Purpose</strong> - The automatic capture allows a request of authorization to be captured immediately after its approval. So it’s not necessary realize a <code class="language-plaintext highlighter-rouge">&lt;requisicao-captura&gt;</code>.</li>
   <li><strong>Rules</strong>
     <ul>
       <li>Just approved authorizations can be captured automatically.</li>
@@ -3766,7 +3766,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 <ul>
   <li><strong>Purpose</strong>: the boarding fee is the informative field that defines the total amount of transaction  (informed on tag data-order//value) that must be destined to payment of Infraero tax.
     <ul>
-      <li>The boarding fee is not accumulated to authorization value. For example, in a airplane ticket sale of R$ 200,00 with boarding fee of R$ 25,00 you have to send the field <code class="highlighter-rouge">&lt;valor&gt;22500&lt;/valor&gt;</code> and <code class="highlighter-rouge">&lt;taxa-embarque&gt;2500&lt;/taxa-embarque&gt;</code>.</li>
+      <li>The boarding fee is not accumulated to authorization value. For example, in a airplane ticket sale of R$ 200,00 with boarding fee of R$ 25,00 you have to send the field <code class="language-plaintext highlighter-rouge">&lt;valor&gt;22500&lt;/valor&gt;</code> and <code class="language-plaintext highlighter-rouge">&lt;taxa-embarque&gt;2500&lt;/taxa-embarque&gt;</code>.</li>
     </ul>
   </li>
   <li><strong>Rules</strong>
@@ -3888,7 +3888,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
         <ul>
           <li>On the request capture, the boarding fee indicates the total of amount that will be captured that must be destined to this purpose.</li>
           <li>It’s mandatory in case of partial capture.</li>
-          <li>In case of total capture, the system will consider the value of boarding fee informed to request of authorization (<code class="highlighter-rouge">&lt;requisicao-transacao&gt;</code>).</li>
+          <li>In case of total capture, the system will consider the value of boarding fee informed to request of authorization (<code class="language-plaintext highlighter-rouge">&lt;requisicao-transacao&gt;</code>).</li>
         </ul>
       </li>
     </ul>
@@ -3912,7 +3912,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 <span class="nt">&lt;/transacao&gt;</span>
 </code></pre></div></div>
 
-<p>The field of node <code class="highlighter-rouge">&lt;captura&gt;</code> are detailed below:</p>
+<p>The field of node <code class="language-plaintext highlighter-rouge">&lt;captura&gt;</code> are detailed below:</p>
 
 <table>
   <thead>
@@ -3992,7 +3992,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
       <li>The total cancellation, when realized with success changes the transaction status to “9-Cancelled”, while the partial doesn’t change the transaction status, keeping it as “6-Captured”.</li>
       <li>In case of XML version 1.6.1 (this version is only for cancellation), the status of partial cancellation will be different: If cancellation OK, the code of status will be 9. In case of error on partial cancellation, the code of status will be 6. This rules are only for partial cancellation</li>
       <li>Do not use the version 1.6.1 to send transactions. This versions is only to cancellation.</li>
-      <li>If the TAG <code class="highlighter-rouge">&lt;valor&gt;</code> doesn’t be provided, the system will assume the total cancellation.</li>
+      <li>If the TAG <code class="language-plaintext highlighter-rouge">&lt;valor&gt;</code> doesn’t be provided, the system will assume the total cancellation.</li>
       <li>Partial cancellation is available for all flags supported in e-Commerce.</li>
       <li>To debit modality, doesn’t exist the possibility of effective the partial cancellation.</li>
       <li><strong>Transaction with boarding fees:</strong>

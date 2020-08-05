@@ -263,7 +263,7 @@ Cielo Checkout considers 5 kinds of products: Physical material, Digital, Servic
   <tbody>
     <tr>
       <td> </td>
-      <td><code class="highlighter-rouge">http://bit.ly/2tRkSxZ</code></td>
+      <td><code class="language-plaintext highlighter-rouge">http://bit.ly/2tRkSxZ</code></td>
     </tr>
   </tbody>
 </table>
@@ -429,19 +429,19 @@ Cielo Checkout considers 5 kinds of products: Physical material, Digital, Servic
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">POST</code></td>
-      <td>Notification where the retailer is passive. Two <code class="highlighter-rouge">POST HTTP</code> are triggered, one informing the sale data and the other transaction Status change</td>
+      <td><code class="language-plaintext highlighter-rouge">POST</code></td>
+      <td>Notification where the retailer is passive. Two <code class="language-plaintext highlighter-rouge">POST HTTP</code> are triggered, one informing the sale data and the other transaction Status change</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">JSON</code></td>
-      <td>Notification where the retailer performs a query. A <code class="highlighter-rouge">POST</code> containing information to perform a (<code class="highlighter-rouge">GET</code>) query on the Checkout transactions</td>
+      <td><code class="language-plaintext highlighter-rouge">JSON</code></td>
+      <td>Notification where the retailer performs a query. A <code class="language-plaintext highlighter-rouge">POST</code> containing information to perform a (<code class="language-plaintext highlighter-rouge">GET</code>) query on the Checkout transactions</td>
       <td> </td>
     </tr>
   </tbody>
 </table>
 
-<p>In order to use both models, the retailer will have to access the Cielo Backoffice and configure both the <code class="highlighter-rouge">NOTIFICATION URL</code> and the <code class="highlighter-rouge">STATUS CHANGE URL</code>.</p>
+<p>In order to use both models, the retailer will have to access the Cielo Backoffice and configure both the <code class="language-plaintext highlighter-rouge">NOTIFICATION URL</code> and the <code class="language-plaintext highlighter-rouge">STATUS CHANGE URL</code>.</p>
 
 <p>For more information about the notifications model, visit the <strong><a href="https://developercielo.github.io/manual/checkout-cielo#notificações-de-pagamento">Integration manual</a></strong></p>
 
@@ -640,7 +640,7 @@ This kind of integration is is performed via the register of a set of items to b
       <td>Código interpretável por Smartphones e Tablets - Ideal to <strong>Printed Marketing</strong> or <strong>Digital</strong> usage</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">http://bit.ly/2tRkSxZ</code></td>
+      <td><code class="language-plaintext highlighter-rouge">http://bit.ly/2tRkSxZ</code></td>
       <td style="text-align: center"><strong>LINK</strong></td>
       <td>a compatible link, ideal to <strong>Social Media</strong> or <strong>Mobile Messengers</strong> usage</td>
     </tr>
@@ -677,7 +677,7 @@ This kind of integration is is performed via the register of a set of items to b
     </tr>
     <tr>
       <td><strong>Checkout Order Number</strong></td>
-      <td>The button does not allow the Retailer order number register. As Cielo will be the one responsible to activate the own Checkout, it will be generated an order number (a <code class="highlighter-rouge">GUID</code>) unique. The retailer will get this order number as a link to the sale performed.</td>
+      <td>The button does not allow the Retailer order number register. As Cielo will be the one responsible to activate the own Checkout, it will be generated an order number (a <code class="language-plaintext highlighter-rouge">GUID</code>) unique. The retailer will get this order number as a link to the sale performed.</td>
     </tr>
     <tr>
       <td><strong>Orders creation</strong></td>
@@ -726,84 +726,84 @@ This kind of integration is is performed via the register of a set of items to b
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Product Kind</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Product Kind</code></td>
       <td>Indicates if it’s selling a physical material, a service or a digital good. For digital goods, the Freight kind option will no be displayed.</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">SKU</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SKU</code></td>
       <td>Product identification code</td>
       <td>1</td>
       <td>50</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Title</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Title</code></td>
       <td>Product title</td>
       <td>1</td>
       <td>50</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Description</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Description</code></td>
       <td>Product Description</td>
       <td>1</td>
       <td>255</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Price</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Price</code></td>
       <td>Total order value <strong>in cents</strong> (example: R$1,00 =100).</td>
       <td>11</td>
       <td>14</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Freight</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Freight</code></td>
       <td>Choose between one of the Freight options (Courier, Withdraw at the store, Free).</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Origin Zip Code</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Origin Zip Code</code></td>
       <td>This field only appears to the Courier Freight kind, must be filled with the zip code where the merchandise will depart from for freight calculus purpose.</td>
       <td>9</td>
       <td>9</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Weight (kg)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Weight (kg)</code></td>
       <td>This field only appears to the Courier Freight kind, and it must be filled with the product weight in Kg for freight calculus purpose.</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Freight Cost</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Freight Cost</code></td>
       <td>This field only appears to the Fix Freight, and should be filled with the cost that the retailer specifies for his products.</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping method</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping method</code></td>
       <td>Esse campo só aparece para Tipo Produto igual a Material Físico e Tipo de Frete igual a Frete Fixo.</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">URL</code></td>
+      <td><code class="language-plaintext highlighter-rouge">URL</code></td>
       <td>This field only appears to the Kind of Product like the Digital.</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Amount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
       <td>Sets the maximum amount of orders that the Button is able to generate. If not set, the button will be able to generate an infinite number of products.</td>
       <td>n/a</td>
       <td>n/a</td>

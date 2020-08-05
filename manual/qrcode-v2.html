@@ -193,7 +193,7 @@
 
   <p><strong>Body</strong></p>
 
-  <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
 "grant_type": "client_credentials"
 }
 </code></pre></div>  </div>
@@ -201,7 +201,7 @@
 
 <h4 id="exemplo-de-requisição">Exemplo de Requisição</h4>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 curl --location --request POST 'https://api2.cielo.com.br/v2/oauth/access-token' \
 --header 'Authorization: Basic
 dERxQUs000FoSDg5dFdpUWM1ejY0REJKc2lJTFpLbzh4TG0zV0p3eHkwRkQ0Y2dZVm46ZVZUVVZJZjFZWDJkOU40M0p4MVZwNGlWVXEzTzluTTR0TGF1UzhZYWo0V1JPcTJFSXU=' \
@@ -215,7 +215,7 @@ dERxQUs000FoSDg5dFdpUWM1ejY0REJKc2lJTFpLbzh4TG0zV0p3eHkwRkQ0Y2dZVm46ZVZUVVZJZjFZ
 
 <h4 id="exemplo-de-resposta">Exemplo de Resposta</h4>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
   "access_token": "5eb50e6b-2bfc-3a44-b9ba-b9ba75256e7e",
   "token_type": "bearer",
@@ -253,7 +253,7 @@ dERxQUs000FoSDg5dFdpUWM1ejY0REJKc2lJTFpLbzh4TG0zV0p3eHkwRkQ0Y2dZVm46ZVZUVVZJZjFZ
 
 <h4 id="exemplo-de-requisição-1">Exemplo de Requisição</h4>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 curl --location --request GET 'https://api2.cielo.com.br/sandbox/padraoq/v1/publicKey' \
 --header 'Authorization: Bearer 83247803-585d-379d-8ea4-19dfcf4c3f75'
 
@@ -261,7 +261,7 @@ curl --location --request GET 'https://api2.cielo.com.br/sandbox/padraoq/v1/publ
 
 <h4 id="exemplo-de-resposta-1">Exemplo de Resposta</h4>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
     "public_key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmH7eS0n6yQSylMDZnY3c/mbDUUEJfyslrilslJKpDRG3m2YaCZdtwo5LahEUWshhBc8jckRkCyqDVVfBJ7WQN1Z1hN0ifCK8mfnh/2SAYGc4e8qydcWT64AVQo+Kay201cRuHeCt1Iyuhi5tOxTF2satd40+8eMkqiVJdhJ0Sjc1ZRezFSo96XReiT8eYz/4Rhubq1BPISlNXqqls3NuPMCxY6IFOLmjTi3xEIdcYtUT5MCfXBG4Rz6rMNrQ7JRAfEOIdvcAt++ygV9ilUxtETn+OKKNDcEUKzXM3Taop8vFXD8HWKzfmlA/usxeKxiI6eTrcWCmrVMQ2Yvf4RSU4wIDAQAB",
     "key_id": "1b59934a-7eaa-4f90-a391-585de0ffc550",
@@ -274,7 +274,7 @@ curl --location --request GET 'https://api2.cielo.com.br/sandbox/padraoq/v1/publ
 
 <p>Exemplo de código Java para criptografar o número do cartão usando uma  public key:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import java.security.PublicKey;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import java.security.PublicKey;
 import java.util.Base64;
 import javax.crypto.Cipher;
 public class EncriptCard {
@@ -300,7 +300,7 @@ public class EncriptCard {
 O corpo da requisição é composto por dados provenientes do aplicativo e do QR Code.</p>
 
 <blockquote>
-  <p>Observação: é possível gerar cartões para teste através da ferramenta (https://namso-gen.com/), para isso é necessário apenas informar os 6 primeiros dígitos de um cartão válido. Através da ferramenta (https://8gwifi.org/RSAFunctionality?keysize=2048), é possível simular a criptografia do <code class="highlighter-rouge">"card_data"</code> feita utilizando o retorno obtido do  <strong>GET /publicKeys</strong>.</p>
+  <p>Observação: é possível gerar cartões para teste através da ferramenta (https://namso-gen.com/), para isso é necessário apenas informar os 6 primeiros dígitos de um cartão válido. Através da ferramenta (https://8gwifi.org/RSAFunctionality?keysize=2048), é possível simular a criptografia do <code class="language-plaintext highlighter-rouge">"card_data"</code> feita utilizando o retorno obtido do  <strong>GET /publicKeys</strong>.</p>
 </blockquote>
 
 <h4 id="contrato-2">Contrato</h4>
@@ -330,7 +330,7 @@ O corpo da requisição é composto por dados provenientes do aplicativo e do QR
   </table>
 </blockquote>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
     "key_id": "1b59934a-7eaa-4f90-a391-585de0ffc550",
     "card_data": "liRNW6uKAbB95ht2gmLg+LdYRZuAzredVeJkKpJsVSUABak2828xennWNjySFJlvNL9LXBv7adGddr7oM6rqoTGo+NLt/rpyosT9Gl4mvPmSFyNe+bMd7bPht2PKfnyWH4skP6lSuxqusq5bcPbapO8i9Fe8rSY+msNBTTywu02hYym6FD6MVgZe2dewpH39DfjTTtF9ck5rJlCYje3Jqfh3gUnLU6+6s7kliuKrbb5Z66y5BwQ9HFyF92mJYWilCYSEc5aqB9zcs7ij+B4yo8uMo8uBscJ+e15M2ESURdn/HMkehNggvqQBydtF+IJZqGo5jT/DI8LbhAG9WuyeAA==",
@@ -354,42 +354,42 @@ O corpo da requisição é composto por dados provenientes do aplicativo e do QR
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">key_id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">key_id</code></td>
       <td>Identificador da chave de criptografia utilizada para criptografar o cartão. Retornado pelo recurso GET /publicKey</td>
       <td>Texto alfanumérico</td>
       <td> </td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">card_data</code></td>
+      <td><code class="language-plaintext highlighter-rouge">card_data</code></td>
       <td>Dados do cartão criptografado pela chave publica, <a href="https://developercielo.github.io/manual/qrcode-v2#layout-card-data">Veja layout</a></td>
       <td>Texto alfanumérico</td>
       <td> </td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">payee_document</code></td>
+      <td><code class="language-plaintext highlighter-rouge">payee_document</code></td>
       <td>CPF ou CNPJ do pagador (usuário logado na wallet)</td>
       <td>Texto</td>
       <td> </td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">payee_name</code></td>
+      <td><code class="language-plaintext highlighter-rouge">payee_name</code></td>
       <td>Nome do pagador (usuário logado na wallet)</td>
       <td>Texto</td>
       <td> </td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">authorization_token</code></td>
+      <td><code class="language-plaintext highlighter-rouge">authorization_token</code></td>
       <td>Token de autorização do usuário gerada pelo emissor (suporte ao pagamento no débito) * para uso futuro</td>
       <td>Texto alfanumérico</td>
       <td> </td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">qrcode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">qrcode</code></td>
       <td>String do QR Code capturado pela wallet</td>
       <td>Texto alfanumérico</td>
       <td> </td>
@@ -400,7 +400,7 @@ O corpo da requisição é composto por dados provenientes do aplicativo e do QR
 
 <h4 id="exemplo-de-requisição-2">Exemplo de Requisição</h4>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 curl --location --request POST 'https://api2.cielo.com.br/sandbox/padraoq/v1/payment/card' \
 --header 'Authorization: Bearer 83247803-585d-379d-8ea4-19dfcf4c3f75' \
 --header 'Content-Type: application/json' \
@@ -418,7 +418,7 @@ curl --location --request POST 'https://api2.cielo.com.br/sandbox/padraoq/v1/pay
 
 <h4 id="exemplo-de-resposta-2">Exemplo de Resposta</h4>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
   "reference_label": "30012036995B2230",
   "merchant_id": "0020060049139200",
@@ -445,63 +445,63 @@ curl --location --request POST 'https://api2.cielo.com.br/sandbox/padraoq/v1/pay
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">reference_label</code></td>
+      <td><code class="language-plaintext highlighter-rouge">reference_label</code></td>
       <td> </td>
       <td> </td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">merchant_id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">merchant_id</code></td>
       <td>Número do estabelecimento</td>
       <td> </td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">terminal_id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">terminal_id</code></td>
       <td>Número lógico do POS</td>
       <td> </td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">authorization_code</code></td>
+      <td><code class="language-plaintext highlighter-rouge">authorization_code</code></td>
       <td> </td>
       <td> </td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">authentication_code</code></td>
+      <td><code class="language-plaintext highlighter-rouge">authentication_code</code></td>
       <td> </td>
       <td> </td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">host_nsu</code></td>
+      <td><code class="language-plaintext highlighter-rouge">host_nsu</code></td>
       <td>Número Sequencial Único</td>
       <td> </td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">terminal_nsu</code></td>
+      <td><code class="language-plaintext highlighter-rouge">terminal_nsu</code></td>
       <td>Número Sequencial Único</td>
       <td> </td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">timestamp</code></td>
+      <td><code class="language-plaintext highlighter-rouge">timestamp</code></td>
       <td> </td>
       <td> </td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">card_scheme</code></td>
+      <td><code class="language-plaintext highlighter-rouge">card_scheme</code></td>
       <td> </td>
       <td> </td>
       <td> </td>
@@ -545,7 +545,7 @@ curl --location --request POST 'https://api2.cielo.com.br/sandbox/padraoq/v1/pay
   </table>
 </blockquote>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 Parameter: 
 
 qrcode:"00020101021226580014br.com.padraoq011600100002444700010208620000920304000152040
@@ -556,7 +556,7 @@ qrcode:"00020101021226580014br.com.padraoq01160010000244470001020862000092030400
 
 <h2 id="response">Response</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
   "qrcode_data": {
     "payload_format_indicator": "01",
@@ -602,133 +602,133 @@ qrcode:"00020101021226580014br.com.padraoq01160010000244470001020862000092030400
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">payload_format_indicator</code></td>
+      <td><code class="language-plaintext highlighter-rouge">payload_format_indicator</code></td>
       <td>Versão dos dados do QR Code utilizada na geração do código. Fixo “01”.</td>
       <td>Número</td>
       <td>02</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">point_of_initiation_method</code></td>
+      <td><code class="language-plaintext highlighter-rouge">point_of_initiation_method</code></td>
       <td>Identificador do método QR Code gerado: Fixo “12” – QR Code Dinâmico.</td>
       <td>Número</td>
       <td>02</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">gui</code></td>
+      <td><code class="language-plaintext highlighter-rouge">gui</code></td>
       <td>Identificador global: usar fixo “br.com.padraoq”.</td>
       <td>Texto alfanumérico</td>
       <td>14</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">id_merchant</code></td>
+      <td><code class="language-plaintext highlighter-rouge">id_merchant</code></td>
       <td>Número do Estabelecimento Comercial.</td>
       <td>Número</td>
       <td>16</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">id_terminal</code></td>
+      <td><code class="language-plaintext highlighter-rouge">id_terminal</code></td>
       <td>Número Lógico do Terminal</td>
       <td>Número</td>
       <td>08</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">id_credenciador</code></td>
+      <td><code class="language-plaintext highlighter-rouge">id_credenciador</code></td>
       <td>Identificação do credenciador. Fixo “0001”.</td>
       <td>Número</td>
       <td>04</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">merchant_category_code</code></td>
+      <td><code class="language-plaintext highlighter-rouge">merchant_category_code</code></td>
       <td>Ramo de atividade do Estabelecimento (MCC).</td>
       <td>Número</td>
       <td>04</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">transaction_currency</code></td>
+      <td><code class="language-plaintext highlighter-rouge">transaction_currency</code></td>
       <td>Código de origem da Moeda.</td>
       <td>Número</td>
       <td>03</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">transaction_amount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">transaction_amount</code></td>
       <td>Valor da transação. Ex: “123.99”</td>
       <td>Texto</td>
       <td>13</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">merchant_name</code></td>
+      <td><code class="language-plaintext highlighter-rouge">merchant_name</code></td>
       <td>Nome Fantasia do Estabelecimento.</td>
       <td>Texto</td>
       <td>25</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">merchant_city</code></td>
+      <td><code class="language-plaintext highlighter-rouge">merchant_city</code></td>
       <td>Cidade do Estabelecimento.</td>
       <td>Texto</td>
       <td>15</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">reference_label</code></td>
+      <td><code class="language-plaintext highlighter-rouge">reference_label</code></td>
       <td>Identificação do QR Code. Código único da transação, extraído BIT31.</td>
       <td>Texto</td>
       <td>25</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">crc16</code></td>
+      <td><code class="language-plaintext highlighter-rouge">crc16</code></td>
       <td> </td>
       <td> </td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">gui</code></td>
+      <td><code class="language-plaintext highlighter-rouge">gui</code></td>
       <td>Identificador global: usar fixo “br.com.padraoq”.</td>
       <td>Texto</td>
       <td>14</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">timestamp</code></td>
+      <td><code class="language-plaintext highlighter-rouge">timestamp</code></td>
       <td>Data e hora da transação (DDMMAAHHmmss).</td>
       <td>Número</td>
       <td>12</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">modalidade</code></td>
+      <td><code class="language-plaintext highlighter-rouge">modalidade</code></td>
       <td>Código do produto Matriz.</td>
       <td>Número</td>
       <td>04</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">parcelas</code></td>
+      <td><code class="language-plaintext highlighter-rouge">parcelas</code></td>
       <td>Número de parcelas.</td>
       <td>Número</td>
       <td>02</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">tipo_de_transacao</code></td>
+      <td><code class="language-plaintext highlighter-rouge">tipo_de_transacao</code></td>
       <td>Tipo da transação: Exemplo - “01” – Venda; “02” – Cancelamento.</td>
       <td>Número</td>
       <td>02</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">fonte_de_dados_do_pagamento</code></td>
+      <td><code class="language-plaintext highlighter-rouge">fonte_de_dados_do_pagamento</code></td>
       <td>Fixo: “03” – QR Code</td>
       <td>Número</td>
       <td>02</td>
@@ -749,7 +749,7 @@ qrcode:"00020101021226580014br.com.padraoq01160010000244470001020862000092030400
 
 <h2 id="requisição">Requisição</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{  
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{  
    "transactionDate": "2018-10-29T14:35:12.000+0000",
    "terminalLogicalNumber": "78257509",
    "authorizationCode": "019387",
@@ -773,56 +773,56 @@ qrcode:"00020101021226580014br.com.padraoq01160010000244470001020862000092030400
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">transactionDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">transactionDate</code></td>
       <td>Data da transação (extraída do QRCode)</td>
       <td>Texto</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">terminalLogicalNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">terminalLogicalNumber</code></td>
       <td>Número lógico do POS</td>
       <td>Texto</td>
       <td>40</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">authorizationCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">authorizationCode</code></td>
       <td>Código de autorização da transação</td>
       <td>Texto alfanumérico</td>
       <td>6</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">nsu</code></td>
+      <td><code class="language-plaintext highlighter-rouge">nsu</code></td>
       <td>Número Sequencial Único</td>
       <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">merchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">merchantId</code></td>
       <td>Identificador da loja na Cielo (extraído do QRCode)</td>
       <td>Número</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">amount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">amount</code></td>
       <td>Valor da transação</td>
       <td>Número</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">originalTransactionType</code></td>
+      <td><code class="language-plaintext highlighter-rouge">originalTransactionType</code></td>
       <td>Transação de origem. Comunica o desfazimento de uma transação do /payments.</td>
       <td>Número</td>
       <td>1</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">statusCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">statusCode</code></td>
       <td>1 - Pagamento / 2 - Cancelamento / 3 - Desfazimento - Quando desfazimento - statusCode = 3</td>
       <td>Número</td>
       <td>1</td>

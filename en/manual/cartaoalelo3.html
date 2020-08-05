@@ -123,7 +123,7 @@
             <div class="post">
   <h1 id="alelo-cards">Alelo Cards</h1>
 
-<p>To create a sale that will use Alelo card, you need to make a <code class="highlighter-rouge">POST</code> for the Payment feature using the technical contract of a <code class="highlighter-rouge">Debit Card</code> sale.</p>
+<p>To create a sale that will use Alelo card, you need to make a <code class="language-plaintext highlighter-rouge">POST</code> for the Payment feature using the technical contract of a <code class="language-plaintext highlighter-rouge">Debit Card</code> sale.</p>
 
 <blockquote>
   <p>For more information on debit card integration via the Cielo Ecommerce API, access the <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-simplified-sale">Integration Manual</a></p>
@@ -140,11 +140,11 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Payment.Authenticate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
       <td><strong>FALSE</strong> or not sent</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">DebitCard.Brand</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DebitCard.Brand</code></td>
       <td>Must be sent as ELO</td>
     </tr>
   </tbody>
@@ -201,105 +201,105 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
       <td>Store identifier in Cielo eCommerce API.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MerchantKey</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
       <td>Public Key for Double Authentication on the Cielo eCommerce API.</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">RequestId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
       <td>Request identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>Guid</td>
       <td>36</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MerchantOrderId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
       <td>Order ID number.</td>
       <td>Text</td>
       <td>50</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Name</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
       <td>Buyer’s name.</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
       <td>Buyer registration status on the store (NEW / EXISTING) - Used by the fraud analysis.</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.Authenticate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
       <td>Defines whether the buyer will be directed to the issuing bank for card authentication</td>
       <td>Boolean</td>
       <td> </td>
       <td>No (Default false)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.Type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
       <td>Payment method Type.</td>
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.Amount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
       <td>Order value (sent in cents).</td>
       <td>Number</td>
       <td>15</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.ReturnUrl</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ReturnUrl</code></td>
       <td>Merchant return URL.</td>
       <td>Text</td>
       <td>1024</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.ReturnUrl</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ReturnUrl</code></td>
       <td>URI to where the user will be redirected after payment.</td>
       <td>Text</td>
       <td>1024</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">DebitCard.CardNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DebitCard.CardNumber</code></td>
       <td>Buyer’s Card Number.</td>
       <td>Text</td>
       <td>19</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">DebitCard.Holder</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DebitCard.Holder</code></td>
       <td>Buyer’s name printed on the card.</td>
       <td>Text</td>
       <td>25</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">DebitCard.ExpirationDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DebitCard.ExpirationDate</code></td>
       <td>Expiration date printed on the card.</td>
       <td>Text</td>
       <td>7</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">DebitCard.SecurityCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DebitCard.SecurityCode</code></td>
       <td>Security code printed on the back of the card.</td>
       <td>Text</td>
       <td>4</td>
@@ -368,42 +368,42 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">AuthenticationUrl</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AuthenticationUrl</code></td>
       <td>URL to which the Merchant must redirect the Client for the Debit flow.</td>
       <td>Text</td>
       <td>56</td>
       <td>Authentication Url</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Tid</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
       <td>Transaction ID on the acquirer.</td>
       <td>Text</td>
       <td>20</td>
       <td>Alphanumeric text</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PaymentId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
       <td>Order ID Field.</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">ReturnUrl</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ReturnUrl</code></td>
       <td>Merchant return URL. URL to where the merchant will be redirected at the end of the flow.</td>
       <td>Text</td>
       <td>1024</td>
       <td>http://www.urllogista.com.br</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td>Transaction status.</td>
       <td>Byte</td>
       <td>—</td>
       <td>0</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">ReturnCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
       <td>Acquiring return code.</td>
       <td>Text</td>
       <td>32</td>

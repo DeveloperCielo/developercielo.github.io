@@ -575,11 +575,11 @@ Below we list points that must be ready before integration:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">API</code></td>
+      <td><code class="language-plaintext highlighter-rouge">API</code></td>
       <td>An Integration via API allows the merchant to send the web site <strong>“Shopping cart”</strong> with all the data that he wants to display on the transactional screen. <br /> In this type of integration the merchant has more control over how the order will be generated.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Botão / QR Code / Link</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Botão / QR Code / Link</code></td>
       <td>Within the Checkout Cielo Backoffice, it is possible to register a product or group of products that will generate a Link capable of creating multiple payment screens. This template is used for payments by social networks, promotional campaigns or Sales via QR Code. In this category the merchant has less control over how the orders will be presented or generated on the transactional screen</td>
     </tr>
   </tbody>
@@ -795,23 +795,23 @@ These data are separated into the following “main nodes”:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Cart</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cart</code></td>
       <td>Contains data of the products to be sold.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping</code></td>
-      <td>Contains data of the type of freight to be charged. Is influenced by the <code class="highlighter-rouge">Cart</code> node</td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping</code></td>
+      <td>Contains data of the type of freight to be charged. Is influenced by the <code class="language-plaintext highlighter-rouge">Cart</code> node</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment</code></td>
       <td>Contains information that influences the amount charged. <strong>Does not contain information about payment means</strong></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer</code></td>
       <td>Has buyer’s data. Not required in the integration, but required on the payments screen. We suggest it to be sent to expedite the purchase process</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Options</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Options</code></td>
       <td>Controls Checkout optional features. Node not required</td>
     </tr>
   </tbody>
@@ -910,14 +910,14 @@ These data are separated into the following “main nodes”:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
       <td>Guid</td>
       <td>Yes</td>
       <td>36</td>
       <td>Unique store identifier. <strong>Format:</strong> 00000000-0000-0000-0000-000000000000</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Content-type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Content-type</code></td>
       <td>Alphanumeric</td>
       <td>Yes</td>
       <td>n/a</td>
@@ -926,7 +926,7 @@ These data are separated into the following “main nodes”:</p>
   </tbody>
 </table>
 
-<p><strong>Header and Authentication</strong> - All requests sent to Cielo must be authenticated by the store. Authentication consists of sending <code class="highlighter-rouge">MerchantId</code>, which is the unique store identifier provided by Cielo after store affiliation. Store authentication should be done by sending the <code class="highlighter-rouge">MerchantId</code> HTTP header field, as shown below and beside:</p>
+<p><strong>Header and Authentication</strong> - All requests sent to Cielo must be authenticated by the store. Authentication consists of sending <code class="language-plaintext highlighter-rouge">MerchantId</code>, which is the unique store identifier provided by Cielo after store affiliation. Store authentication should be done by sending the <code class="language-plaintext highlighter-rouge">MerchantId</code> HTTP header field, as shown below and beside:</p>
 
 <p><strong>Body - Detailed</strong></p>
 
@@ -943,7 +943,7 @@ These data are separated into the following “main nodes”:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">OrderNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">OrderNumber</code></td>
       <td>Alphanumeric</td>
       <td>Optional</td>
       <td>64</td>
@@ -951,31 +951,31 @@ These data are separated into the following “main nodes”:</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">SoftDescriptor</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
       <td>Alphanumeric</td>
       <td>Optional</td>
       <td>13</td>
-      <td>Text displayed on buyer’s invoice. No special characters or spaces. e.g.: <code class="highlighter-rouge">NOMEDALOJA123</code></td>
+      <td>Text displayed on buyer’s invoice. No special characters or spaces. e.g.: <code class="language-plaintext highlighter-rouge">NOMEDALOJA123</code></td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Cart.Discount.Type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Discount.Type</code></td>
       <td>Alphanumeric</td>
       <td>Conditional</td>
       <td>255</td>
-      <td>Discount type to be applied: <code class="highlighter-rouge">Amount</code> or <code class="highlighter-rouge">Percent</code>.</td>
+      <td>Discount type to be applied: <code class="language-plaintext highlighter-rouge">Amount</code> or <code class="language-plaintext highlighter-rouge">Percent</code>.</td>
       <td>Required in case of Cart.Discount.Value is greater than or equal to zero.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Cart.Discount.Value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Discount.Value</code></td>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>18</td>
       <td>Discount amount to be applied: Value or Percentage</td>
-      <td>Required in case of Cart.Discount.Type is <code class="highlighter-rouge">Amount</code> or <code class="highlighter-rouge">Percent</code>.</td>
+      <td>Required in case of Cart.Discount.Type is <code class="language-plaintext highlighter-rouge">Amount</code> or <code class="language-plaintext highlighter-rouge">Percent</code>.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Cart.Items.Name</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Items.Name</code></td>
       <td>Alphanumeric</td>
       <td>Yes</td>
       <td>128</td>
@@ -983,7 +983,7 @@ These data are separated into the following “main nodes”:</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Cart.Items.Description</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Items.Description</code></td>
       <td>Alphanumeric</td>
       <td>Optional</td>
       <td>256</td>
@@ -991,7 +991,7 @@ These data are separated into the following “main nodes”:</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Cart.Items.UnitPrice</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Items.UnitPrice</code></td>
       <td>Numeric</td>
       <td>Yes</td>
       <td>18</td>
@@ -999,7 +999,7 @@ These data are separated into the following “main nodes”:</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Cart.Items.Quantity</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Items.Quantity</code></td>
       <td>Numeric</td>
       <td>Yes</td>
       <td>9</td>
@@ -1007,15 +1007,15 @@ These data are separated into the following “main nodes”:</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Cart.Items.Type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Items.Type</code></td>
       <td>Alphanumeric</td>
       <td>Yes</td>
       <td>255</td>
-      <td>Item type in cart: <br /><code class="highlighter-rouge">Asset</code><br /><code class="highlighter-rouge">Digital</code><br /><code class="highlighter-rouge">Service</code><br /><code class="highlighter-rouge">Payment</code></td>
+      <td>Item type in cart: <br /><code class="language-plaintext highlighter-rouge">Asset</code><br /><code class="language-plaintext highlighter-rouge">Digital</code><br /><code class="language-plaintext highlighter-rouge">Service</code><br /><code class="language-plaintext highlighter-rouge">Payment</code></td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Cart.Items.Sku</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Items.Sku</code></td>
       <td>Alphanumeric</td>
       <td>Optional</td>
       <td>32</td>
@@ -1023,7 +1023,7 @@ These data are separated into the following “main nodes”:</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Cart.Items.Weight</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Items.Weight</code></td>
       <td>Numeric</td>
       <td>Conditional</td>
       <td>9</td>
@@ -1031,7 +1031,7 @@ These data are separated into the following “main nodes”:</p>
       <td>Required in case of Shipping.Type is “Post office”.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.BoletoDiscount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.BoletoDiscount</code></td>
       <td>Numeric</td>
       <td>Conditional</td>
       <td>3</td>
@@ -1039,7 +1039,7 @@ These data are separated into the following “main nodes”:</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.DebitDiscount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DebitDiscount</code></td>
       <td>Numeric</td>
       <td>Conditional</td>
       <td>3</td>
@@ -1047,7 +1047,7 @@ These data are separated into the following “main nodes”:</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FirstInstallmentDiscount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">FirstInstallmentDiscount</code></td>
       <td>Numeric</td>
       <td>Conditional</td>
       <td>3</td>
@@ -1055,7 +1055,7 @@ These data are separated into the following “main nodes”:</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MaxNumberOfInstallments</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MaxNumberOfInstallments</code></td>
       <td>Numeric</td>
       <td>Conditional</td>
       <td>2</td>
@@ -1063,7 +1063,7 @@ These data are separated into the following “main nodes”:</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Identity</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
       <td>Numeric</td>
       <td>Conditional</td>
       <td>14</td>
@@ -1071,7 +1071,7 @@ These data are separated into the following “main nodes”:</p>
       <td>Not required in API, but mandatory in the transactional screen</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.FullName</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.FullName</code></td>
       <td>Alphanumeric</td>
       <td>Conditional</td>
       <td>288</td>
@@ -1079,7 +1079,7 @@ These data are separated into the following “main nodes”:</p>
       <td>Not required in API, but mandatory in the transactional screen</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Email</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
       <td>Alphanumeric</td>
       <td>Conditional</td>
       <td>64</td>
@@ -1087,7 +1087,7 @@ These data are separated into the following “main nodes”:</p>
       <td>Not required in API, but mandatory in the transactional screen</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Phone</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Phone</code></td>
       <td>Numeric</td>
       <td>Conditional</td>
       <td>11</td>
@@ -1095,7 +1095,7 @@ These data are separated into the following “main nodes”:</p>
       <td>Not required in API, but mandatory in the transactional screen</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Options.AntifraudEnabled</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Options.AntifraudEnabled</code></td>
       <td>Boolean</td>
       <td>Conditional</td>
       <td>n/a</td>
@@ -1103,7 +1103,7 @@ These data are separated into the following “main nodes”:</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Options.ReturnUrl</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Options.ReturnUrl</code></td>
       <td>Strin</td>
       <td>Conditional</td>
       <td>255</td>
@@ -1156,21 +1156,21 @@ In case of success, the response will be the content of the Request plus the Lin
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">CheckoutUrl</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CheckoutUrl</code></td>
       <td>String</td>
       <td>Yes</td>
       <td>255</td>
       <td>Transactional screen URL. The Buyer <strong>must be directed to this environment to finalize the transaction</strong></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Profile</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Profile</code></td>
       <td>String</td>
       <td>Yes</td>
       <td>16</td>
       <td>Merchant profile: “CheckoutCielo” fixed.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Version</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Version</code></td>
       <td>String</td>
       <td>Yes</td>
       <td>1</td>
@@ -1203,7 +1203,7 @@ In case of error, the message below will be returned.</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Message</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Message</code></td>
       <td>String</td>
       <td>Yes</td>
       <td>254</td>
@@ -1238,22 +1238,22 @@ The discounts available at Checkout Cielo are:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Cart</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cart</code></td>
       <td>API</td>
       <td>When sent, it applies the discount on the entire cart, regardless of the means of payment</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Bank slip</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Bank slip</code></td>
       <td>API and Backoffice</td>
       <td>When sent, the discount is applied only if the Bank slip is the chosen payment means</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Online Debit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Online Debit</code></td>
       <td>API and Backoffice</td>
       <td>When sent, the discount is applied only if the Online debit is the chosen payment means</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Cash payment</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cash payment</code></td>
       <td>API</td>
       <td>When sent, the discount is applied when cash payment on Credit Card is the chosen payment means</td>
     </tr>
@@ -1264,7 +1264,7 @@ The discounts available at Checkout Cielo are:</p>
 
 <p><strong>Cart</strong></p>
 
-<p>To send a Discount on the <code class="highlighter-rouge">Cart</code> just send the node below inside the <code class="highlighter-rouge">Cart</code> node</p>
+<p>To send a Discount on the <code class="language-plaintext highlighter-rouge">Cart</code> just send the node below inside the <code class="language-plaintext highlighter-rouge">Cart</code> node</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">      </span><span class="p">{</span><span class="w">
        </span><span class="nl">"Discount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  
@@ -1287,20 +1287,20 @@ The discounts available at Checkout Cielo are:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Cart.Discount.Type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Discount.Type</code></td>
       <td>Alphanumeric</td>
       <td>Conditional</td>
       <td>255</td>
-      <td>Discount type to be applied: <code class="highlighter-rouge">Amount</code> or <code class="highlighter-rouge">Percent</code>.</td>
+      <td>Discount type to be applied: <code class="language-plaintext highlighter-rouge">Amount</code> or <code class="language-plaintext highlighter-rouge">Percent</code>.</td>
       <td>Required in case of Cart.Discount.Value is greater than or equal to zero.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Cart.Discount.Value</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cart.Discount.Value</code></td>
       <td>Numeric</td>
       <td>Conditional</td>
       <td>18</td>
       <td>Discount amount to be applied: Value or Percentage</td>
-      <td>Required in case of Cart.Discount.Type is <code class="highlighter-rouge">Amount</code> or <code class="highlighter-rouge">Percent</code>.</td>
+      <td>Required in case of Cart.Discount.Type is <code class="language-plaintext highlighter-rouge">Amount</code> or <code class="language-plaintext highlighter-rouge">Percent</code>.</td>
     </tr>
   </tbody>
 </table>
@@ -1324,7 +1324,7 @@ The discounts available at Checkout Cielo are:</p>
 
 <p><strong>Bank slip &amp; Online Debit</strong></p>
 
-<p>To send a Discount on the <code class="highlighter-rouge">Bank slip</code> and <code class="highlighter-rouge">Online debit</code> just send inside the Payment node the fields below:</p>
+<p>To send a Discount on the <code class="language-plaintext highlighter-rouge">Bank slip</code> and <code class="language-plaintext highlighter-rouge">Online debit</code> just send inside the Payment node the fields below:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">      </span><span class="p">{</span><span class="w">
       </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">  
@@ -1347,21 +1347,21 @@ The discounts available at Checkout Cielo are:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Payment.BoletoDiscount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.BoletoDiscount</code></td>
       <td>Numeric</td>
       <td>Conditional</td>
       <td>3</td>
       <td>Discount, in percentage, for payments to be performed with bank slip.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.DebitDiscount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DebitDiscount</code></td>
       <td>Numeric</td>
       <td>Conditional</td>
       <td>3</td>
       <td>Discount, in percentage, for payments to be perfomed with online debit.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.FirstInstallmentDiscount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.FirstInstallmentDiscount</code></td>
       <td>Numeric</td>
       <td>Conditional</td>
       <td>3</td>
@@ -1398,23 +1398,23 @@ The discounts available at Checkout Cielo are:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">FixedAmount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">FixedAmount</code></td>
       <td>Fixed value sent by the merchant. Used if the Merchant has a delivery method of his own</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Free</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Free</code></td>
       <td>Do not perform freight calculation and displays on the transactional screen “Free Shipping”</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">WithoutShippingPickUp</code></td>
+      <td><code class="language-plaintext highlighter-rouge">WithoutShippingPickUp</code></td>
       <td>Considered “Withdrawal at the store”</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">WithoutShipping</code></td>
+      <td><code class="language-plaintext highlighter-rouge">WithoutShipping</code></td>
       <td>No freight charge (applicable for digital products and services).</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Post office</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Post office</code></td>
       <td>Uses the post office API to perform the cost calculation. The value of the calculation will depend on the used contract (Chosen in the Backoffice of the checkout) and on the type of integration for calculation: <strong>Shipping with Volume</strong> or <strong>Shipping without Volume</strong></td>
     </tr>
   </tbody>
@@ -1431,29 +1431,29 @@ The discounts available at Checkout Cielo are:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">FixedAmount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">FixedAmount</code></td>
       <td><img src="https://developercielo.github.io/en/images/Checkout/fixedamount.png" alt="FixedAmount" /></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Free</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Free</code></td>
       <td><img src="https://developercielo.github.io/en/images/Checkout/free.png" alt="Free" /></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">WithoutShippingPickUp</code></td>
+      <td><code class="language-plaintext highlighter-rouge">WithoutShippingPickUp</code></td>
       <td><img src="https://developercielo.github.io/en/images/Checkout/withoutshippingpickup.png" alt="WithoutShippingPickUp" /></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">WithoutShipping</code></td>
+      <td><code class="language-plaintext highlighter-rouge">WithoutShipping</code></td>
       <td><img src="https://developercielo.github.io/en/images/Checkout/withoutshippingpickup.png" alt="WithoutShipping" /></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Post office</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Post office</code></td>
       <td><img src="https://developercielo.github.io/en/images/Checkout/correios.png" alt="Post office" /></td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>NOTE:</strong> The options for multiple freights in the category <code class="highlighter-rouge">Post office</code> should be selected within the Backoffice Cielo.</p>
+<p><strong>NOTE:</strong> The options for multiple freights in the category <code class="language-plaintext highlighter-rouge">Post office</code> should be selected within the Backoffice Cielo.</p>
 
 <p>The nodes that compound the freight information below:</p>
 
@@ -1474,15 +1474,15 @@ The discounts available at Checkout Cielo are:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Type</code></td>
       <td>Alphanumeric</td>
       <td>Yes</td>
       <td>255</td>
-      <td>Freight type: <br /><code class="highlighter-rouge">Post office</code><br /><code class="highlighter-rouge">FixedAmount</code><br /><code class="highlighter-rouge">Free</code><br /><code class="highlighter-rouge">WithoutShippingPickUp</code><br /><code class="highlighter-rouge">WithoutShipping</code></td>
+      <td>Freight type: <br /><code class="language-plaintext highlighter-rouge">Post office</code><br /><code class="language-plaintext highlighter-rouge">FixedAmount</code><br /><code class="language-plaintext highlighter-rouge">Free</code><br /><code class="language-plaintext highlighter-rouge">WithoutShippingPickUp</code><br /><code class="language-plaintext highlighter-rouge">WithoutShipping</code></td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.SourceZipCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.SourceZipCode</code></td>
       <td>Numeric</td>
       <td>Conditional</td>
       <td>8</td>
@@ -1490,7 +1490,7 @@ The discounts available at Checkout Cielo are:</p>
       <td>Obrigatório caso Shipping.Type for “Correios”.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.TargetZipCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.TargetZipCode</code></td>
       <td>Numeric</td>
       <td>Optional</td>
       <td>8</td>
@@ -1514,42 +1514,42 @@ The discounts available at Checkout Cielo are:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Address.Street</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.Street</code></td>
       <td>Alphanumeric</td>
       <td>Yes</td>
       <td>256</td>
       <td>Street, avenue, lane, etc., from buyer’s delivery address.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Address.Number</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.Number</code></td>
       <td>Alphanumeric</td>
       <td>Yes</td>
       <td>8</td>
       <td>Buyer’s delivery address number.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Address.Complement</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.Complement</code></td>
       <td>Alphanumeric</td>
       <td>Optional</td>
       <td>14</td>
       <td>Buyer’s delivery address complement.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Address.District</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.District</code></td>
       <td>Alphanumeric</td>
       <td>Yes</td>
       <td>64</td>
       <td>Buyer’s delivery address neighborhood.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Address.City</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.City</code></td>
       <td>Alphanumeric</td>
       <td>Yes</td>
       <td>64</td>
       <td>Buyer’s delivery address city.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Address.State</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Address.State</code></td>
       <td>Alphanumeric</td>
       <td>Yes</td>
       <td>2</td>
@@ -1572,21 +1572,21 @@ The discounts available at Checkout Cielo are:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Services.Name</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Services.Name</code></td>
       <td>Alphanumeric</td>
       <td>Yes</td>
       <td>128</td>
       <td>Freight service name.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Services.Price</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Services.Price</code></td>
       <td>Numeric</td>
       <td>Yes</td>
       <td>18</td>
       <td>Price of freight service in cents. e.g.: R$ 1,00 = 100.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Services.Deadline</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Services.Deadline</code></td>
       <td>Numeric</td>
       <td>Conditional</td>
       <td>9</td>
@@ -1602,7 +1602,7 @@ The discounts available at Checkout Cielo are:</p>
   <li><strong>Freight without Volume</strong> - Uses the Post Office API, but only considers cart weight as the basis for calculating the delivery.</li>
 </ul>
 
-<p>To use volumetric freight, just send the <code class="highlighter-rouge">Shipping.Measures</code> node, following the integration rules via API REST.</p>
+<p>To use volumetric freight, just send the <code class="language-plaintext highlighter-rouge">Shipping.Measures</code> node, following the integration rules via API REST.</p>
 
 <p><strong>Shipping.Measures</strong></p>
 
@@ -1619,15 +1619,15 @@ The discounts available at Checkout Cielo are:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Package</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Package</code></td>
       <td>Alphanumeric</td>
       <td>Required</td>
       <td>Integer</td>
-      <td>Type of package: <br /><code class="highlighter-rouge">BOX</code>- Box <br /> <code class="highlighter-rouge">ROL</code> - Cylinder or ENVELOPE</td>
+      <td>Type of package: <br /><code class="language-plaintext highlighter-rouge">BOX</code>- Box <br /> <code class="language-plaintext highlighter-rouge">ROL</code> - Cylinder or ENVELOPE</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Lenght</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Lenght</code></td>
       <td>Numeric</td>
       <td>Required</td>
       <td>Integer</td>
@@ -1635,7 +1635,7 @@ The discounts available at Checkout Cielo are:</p>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Height</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Height</code></td>
       <td>Numeric</td>
       <td>Conditional</td>
       <td>Integer</td>
@@ -1643,7 +1643,7 @@ The discounts available at Checkout Cielo are:</p>
       <td>Required in case of Shipping.Package as BOX</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Width</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Width</code></td>
       <td>Numeric</td>
       <td>Conditional</td>
       <td>Integer</td>
@@ -1651,7 +1651,7 @@ The discounts available at Checkout Cielo are:</p>
       <td>Required in case of Shipping.Package as BOX or ENVELOPE</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping.Diameter</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping.Diameter</code></td>
       <td>Numeric</td>
       <td>Conditional</td>
       <td>Integer</td>
@@ -1719,7 +1719,7 @@ This type of integration is accomplished through the registration of a set of it
       <td>Code interpretable by Smartphones and Tablets - Ideal for use in <strong>Printed Marketing</strong> or <strong>Digital</strong></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">http://bit.ly/2tRkSxZ</code></td>
+      <td><code class="language-plaintext highlighter-rouge">http://bit.ly/2tRkSxZ</code></td>
       <td style="text-align: center"><strong>LINK</strong></td>
       <td>is a shareable link, ideal for use in <strong>Social networks</strong> or <strong>Messengers Mobile</strong></td>
     </tr>
@@ -1756,7 +1756,7 @@ This type of integration is accomplished through the registration of a set of it
     </tr>
     <tr>
       <td><strong>Checkout Order Number</strong></td>
-      <td>The button does not allow the register of the Merchant’s order number. Since Cielo will trigger its own Checkout, a unique order number (a <code class="highlighter-rouge">GUID</code>) will be generated. The Merchant will receive this order number as a link to the performed sale</td>
+      <td>The button does not allow the register of the Merchant’s order number. Since Cielo will trigger its own Checkout, a unique order number (a <code class="language-plaintext highlighter-rouge">GUID</code>) will be generated. The Merchant will receive this order number as a link to the performed sale</td>
     </tr>
     <tr>
       <td><strong>Creation of orders</strong></td>
@@ -1795,77 +1795,77 @@ This type of integration is accomplished through the registration of a set of it
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Product Type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Product Type</code></td>
       <td>Indicate whether you are selling a Material, a Service or a Digital Good. For Digital goods, the Freight type option will not be displayed.</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">SKU</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SKU</code></td>
       <td>Product identification code</td>
       <td>1</td>
       <td>50</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Title</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Title</code></td>
       <td>Product Title</td>
       <td>1</td>
       <td>50</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Description</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Description</code></td>
       <td>Product description</td>
       <td>1</td>
       <td>255</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Price</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Price</code></td>
       <td>Order total value <strong>in cents</strong> (e.g.: R$1,00 =100).</td>
       <td>11</td>
       <td>14</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Freight</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Freight</code></td>
       <td>Choose from one of the Freight options (Post Office, Fixed Freight, Free Shipping, Store Pickup, No Charge).</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Zip Code of Origin</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Zip Code of Origin</code></td>
       <td>This field only appears for Post Office Freight type, must be filled with the Zip Code from where the goods will be shipped for freight calculation purposes.</td>
       <td>9</td>
       <td>9</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Weight(kg)</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Weight(kg)</code></td>
       <td>This field only appears for Post Office Freight type, must be filled with the product weight in kg for freight calculation purposes</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Cost of Freight</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Cost of Freight</code></td>
       <td>This field only appears for Fixed Freight freight type, and must be filled with the amount that the merchant specifies for their products.</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Shipping method</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Shipping method</code></td>
       <td>This field only appears for Product Type equal to Physical Material and Type of Freight equal to Fixed Freight.</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">URL</code></td>
+      <td><code class="language-plaintext highlighter-rouge">URL</code></td>
       <td>This field only appears for Product Type equal to Digital.</td>
       <td>n/a</td>
       <td>n/a</td>
@@ -1882,7 +1882,7 @@ This type of integration is accomplished through the registration of a set of it
   <p><strong>Button</strong> - An HTML code like the one below will be created.:</p>
 </blockquote>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;form method='post' action='https://cieloecommerce.cielo.com.br/transactional/Checkout/BuyNow' target='blank'&gt;&lt;input type='hidden' name='id' value=00000000-0000-0000-000000000000/&gt;&lt;input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br /BackOffice/Contentimages/botao_comprar_3.jpg' /&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;form method='post' action='https://cieloecommerce.cielo.com.br/transactional/Checkout/BuyNow' target='blank'&gt;&lt;input type='hidden' name='id' value=00000000-0000-0000-000000000000/&gt;&lt;input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br /BackOffice/Contentimages/botao_comprar_3.jpg' /&gt;
 &lt;/form&gt;
 </code></pre></div></div>
 
@@ -1902,7 +1902,7 @@ This type of integration is accomplished through the registration of a set of it
   <tbody>
     <tr>
       <td> </td>
-      <td><code class="highlighter-rouge">http://bit.ly/2tRkSxZ</code></td>
+      <td><code class="language-plaintext highlighter-rouge">http://bit.ly/2tRkSxZ</code></td>
     </tr>
   </tbody>
 </table>
@@ -2001,9 +2001,9 @@ Just follow the path below:</p>
 
 <h3 id="fraud-analysis">Fraud Analysis</h3>
 
-<p>Credit transactions <strong>“AUTHORIZED”</strong> will be sent for analysis of the anti-fraud tool if the <code class="highlighter-rouge">Options.AntifraudEnabled</code> parameter is defined as <code class="highlighter-rouge">TRUE</code>.
-Anti-Fraud has the concept of <code class="highlighter-rouge">Status</code> and <code class="highlighter-rouge">SubStatus</code>, where the first represents the level of risk that a transaction has to be a fraud, and the second, additional information about the transaction.
-The analysis shall indicate a degree of *RISK**, specified by the <code class="highlighter-rouge">Status</code>, for the sale in question.
+<p>Credit transactions <strong>“AUTHORIZED”</strong> will be sent for analysis of the anti-fraud tool if the <code class="language-plaintext highlighter-rouge">Options.AntifraudEnabled</code> parameter is defined as <code class="language-plaintext highlighter-rouge">TRUE</code>.
+Anti-Fraud has the concept of <code class="language-plaintext highlighter-rouge">Status</code> and <code class="language-plaintext highlighter-rouge">SubStatus</code>, where the first represents the level of risk that a transaction has to be a fraud, and the second, additional information about the transaction.
+The analysis shall indicate a degree of *RISK**, specified by the <code class="language-plaintext highlighter-rouge">Status</code>, for the sale in question.
 This degree of risk is what should guide the merchant’s decision to capture or cancel the sale.</p>
 
 <table>
@@ -2016,52 +2016,52 @@ This degree of risk is what should guide the merchant’s decision to capture or
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Low risk</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Low risk</code></td>
       <td>Low risk</td>
       <td>Low risk of being a fraudulent transaction</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Medium Risk</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Medium Risk</code></td>
       <td>Medium Risk</td>
       <td>Medium risk of being a fraudulent transaction</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">High risk</code></td>
+      <td><code class="language-plaintext highlighter-rouge">High risk</code></td>
       <td>High risk</td>
       <td>High risk of being a fraudulent transaction</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Not finished</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Not finished</code></td>
       <td>Not finished</td>
       <td>Could not complete the query</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">N/A</code></td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>Authenticated</td>
       <td>Transactions authenticated by the bank - <strong>They are not analyzable by AF</strong></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">N/A</code></td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>AF Not hired</td>
       <td>Anti-fraud not allowed in merchant’s plan - <strong>They are not analyzable by AF</strong></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">N/A</code></td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>AF Dispensed</td>
       <td>Anti-fraud dispensed via contract or lower than the minimum value of antifrade parameterized backoffice in the merchant</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">N/A</code></td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>Not applicable</td>
       <td>Non-analyzable means of payment such as debit cards, bank slip and online debit</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">N/A</code></td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>Recurrence transaction</td>
       <td>credit transaction is later than the scheduled transaction. <strong>Only Scheduling is analyzed</strong></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">N/A</code></td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>Transaction declined</td>
       <td>Credit sale has been declined - <strong>They are not analyzable by AF</strong></td>
     </tr>
@@ -2247,17 +2247,17 @@ Note that Checkout only notifies when a transaction is considered completed i.e.
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">POST</code></td>
-      <td>Notification where the merchant is passive. Two <code class="highlighter-rouge">POST HTTP</code> are triggered, one informing sales data and another the change of Transaction Status</td>
+      <td><code class="language-plaintext highlighter-rouge">POST</code></td>
+      <td>Notification where the merchant is passive. Two <code class="language-plaintext highlighter-rouge">POST HTTP</code> are triggered, one informing sales data and another the change of Transaction Status</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">JSON</code></td>
-      <td>Notification where the merchant performs a query. One <code class="highlighter-rouge">POST</code> containing information for conducting a query (<code class="highlighter-rouge">GET</code>) the checkout transactions</td>
+      <td><code class="language-plaintext highlighter-rouge">JSON</code></td>
+      <td>Notification where the merchant performs a query. One <code class="language-plaintext highlighter-rouge">POST</code> containing information for conducting a query (<code class="language-plaintext highlighter-rouge">GET</code>) the checkout transactions</td>
     </tr>
   </tbody>
 </table>
 
-<p>To use both models, the merchant will need to access Cielo Backoffice and configure both the <code class="highlighter-rouge">NOTIFICATION URL</code> and the <code class="highlighter-rouge">STATUS CHANGE URL</code>.</p>
+<p>To use both models, the merchant will need to access Cielo Backoffice and configure both the <code class="language-plaintext highlighter-rouge">NOTIFICATION URL</code> and the <code class="language-plaintext highlighter-rouge">STATUS CHANGE URL</code>.</p>
 
 <h2 id="notification-url-types">Notification URL Types</h2>
 
@@ -2273,24 +2273,24 @@ Note that Checkout only notifies when a transaction is considered completed i.e.
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Return URL</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Return URL</code></td>
       <td>Web page to where the buyer will be redirected at the end of the purchase. <br />No data is exchanged or sent to this URL.<br /> This URL only takes the buyer, after completing the purchase, to a page set by the store.</td>
       <td>If the Merchant wishes, he can configure this page to be sensitized by traffic, thus identifying that the transaction has been completed in Checkout Cielo <br /> Can be sent via API - See “Integration via API”</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Notification URL</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Notification URL</code></td>
       <td>At the end of a transaction, an HTTP POST with all the sales data is sent to the Notification URL.<br /> The notification POST is only sent at the time the transaction is finalized, regardless of whether the transaction status changed**</td>
-      <td>Used in the Notification via <code class="highlighter-rouge">POST</code> and<code class="highlighter-rouge"> JSON</code></td>
+      <td>Used in the Notification via <code class="language-plaintext highlighter-rouge">POST</code> and<code class="language-plaintext highlighter-rouge"> JSON</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Status Change URL</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Status Change URL</code></td>
       <td>When an order has its status changed, a HTTP post will be sent to the Status Change URL.<br /> The status change POST does not contain cart data, only order identification data</td>
-      <td>Used only in Notification via <code class="highlighter-rouge">POST</code></td>
+      <td>Used only in Notification via <code class="language-plaintext highlighter-rouge">POST</code></td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>NOTE:</strong> If a <code class="highlighter-rouge">Return URL</code> is sent to the API, it will have priority over the URL registered in the Backoffice / In the integration Cielo <code class="highlighter-rouge">via Button</code>, you can only use the return URL option via backoffice.</p>
+<p><strong>NOTE:</strong> If a <code class="language-plaintext highlighter-rouge">Return URL</code> is sent to the API, it will have priority over the URL registered in the Backoffice / In the integration Cielo <code class="language-plaintext highlighter-rouge">via Button</code>, you can only use the return URL option via backoffice.</p>
 
 <p><strong>URL Features</strong></p>
 
@@ -2314,11 +2314,11 @@ Note that Checkout only notifies when a transaction is considered completed i.e.
 
 <h2 id="notification-post">Notification: POST</h2>
 
-<p>Notification via POST is based on sending a <code class="highlighter-rouge">POST HTTP</code> when a transaction is performed. It is performed in two steps:</p>
+<p>Notification via POST is based on sending a <code class="language-plaintext highlighter-rouge">POST HTTP</code> when a transaction is performed. It is performed in two steps:</p>
 
 <ol>
-  <li><code class="highlighter-rouge">NOTIFICATION POST</code> - Occurs when the transaction is finalized. This POST has all the order data, including the initial STATUS of the transaction.</li>
-  <li><code class="highlighter-rouge">STATUS CHANGE POST</code> - Occurs when a transaction has its STATUS changed - <strong>e.g.:</strong> “Authorized” &gt; &gt; &gt; “Paid”</li>
+  <li><code class="language-plaintext highlighter-rouge">NOTIFICATION POST</code> - Occurs when the transaction is finalized. This POST has all the order data, including the initial STATUS of the transaction.</li>
+  <li><code class="language-plaintext highlighter-rouge">STATUS CHANGE POST</code> - Occurs when a transaction has its STATUS changed - <strong>e.g.:</strong> “Authorized” &gt; &gt; &gt; “Paid”</li>
 </ol>
 
 <p>This flow is used by stores that do not yet perform transactions via API.</p>
@@ -2327,9 +2327,9 @@ Note that Checkout only notifies when a transaction is considered completed i.e.
 
 <p><img src="https://developercielo.github.io/en/images/Checkout/npost.png" alt="N.POST Flow" /></p>
 
-<p><strong>Return expected to send notification:</strong> <code class="highlighter-rouge">HttpStatus = 200 (OK)</code> - Post received and processed successfully</p>
+<p><strong>Return expected to send notification:</strong> <code class="language-plaintext highlighter-rouge">HttpStatus = 200 (OK)</code> - Post received and processed successfully</p>
 
-<p><strong>IMPORTANT</strong> If the registered <code class="highlighter-rouge">Notification URL</code> returns any error/is unavailable, <em>*3 retries, with an interval of 1 hour between each POST</em> will be performed.</p>
+<p><strong>IMPORTANT</strong> If the registered <code class="language-plaintext highlighter-rouge">Notification URL</code> returns any error/is unavailable, <em>*3 retries, with an interval of 1 hour between each POST</em> will be performed.</p>
 
 <p>If the POST is not received, it is possible to resend it manually, just access the order in question by the Backoffice and click on the Sending icon:</p>
 
@@ -2340,16 +2340,16 @@ Note that Checkout only notifies when a transaction is considered completed i.e.
 <h2 id="notification-json">Notification: JSON</h2>
 
 <p>Notification via JSON is a more secure and flexible method for the merchant to conduct a query in Chekcout Cielo.
-This notification mode is based on a <code class="highlighter-rouge">POST JSON</code>, where the merchant receives credentials so that a query (<code class="highlighter-rouge">GET</code>) can be performed with the Checkout Cielo database.</p>
+This notification mode is based on a <code class="language-plaintext highlighter-rouge">POST JSON</code>, where the merchant receives credentials so that a query (<code class="language-plaintext highlighter-rouge">GET</code>) can be performed with the Checkout Cielo database.</p>
 
 <p>It is performed in two steps:</p>
 
 <ol>
-  <li><code class="highlighter-rouge">NOTIFICATION POST</code> - Occurs when the transaction is finalized. It has the necessary Credentials transactional queries.</li>
-  <li><code class="highlighter-rouge">TRANSACTIONAL QUERY</code> - With the query credentials, the merchant searches for sale data with Checkout Cielo</li>
+  <li><code class="language-plaintext highlighter-rouge">NOTIFICATION POST</code> - Occurs when the transaction is finalized. It has the necessary Credentials transactional queries.</li>
+  <li><code class="language-plaintext highlighter-rouge">TRANSACTIONAL QUERY</code> - With the query credentials, the merchant searches for sale data with Checkout Cielo</li>
 </ol>
 
-<p>In JSON Notification, there is no difference between the <code class="highlighter-rouge">Notification POST</code> and <code class="highlighter-rouge">Status Change</code>. Whenever something occurs in the transaction, the merchant will receive a <code class="highlighter-rouge">Notification POST</code></p>
+<p>In JSON Notification, there is no difference between the <code class="language-plaintext highlighter-rouge">Notification POST</code> and <code class="language-plaintext highlighter-rouge">Status Change</code>. Whenever something occurs in the transaction, the merchant will receive a <code class="language-plaintext highlighter-rouge">Notification POST</code></p>
 
 <p>Below the Flow of a JSON Notification (Transaction Creation + Status Change)</p>
 
@@ -2367,17 +2367,17 @@ This notification mode is based on a <code class="highlighter-rouge">POST JSON</
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">URL</code></td>
+      <td><code class="language-plaintext highlighter-rouge">URL</code></td>
       <td>URL with the data needed to perform the transaction data search.</td>
       <td>String</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
       <td>Store identifier at Checkout Cielo; in the Backoffice in the Setup/Register Data menu.</td>
       <td>Alphanumeric (GUID)</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MerchantOrderNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderNumber</code></td>
       <td>Store order number; if it is not sent, Checkout Cielo will generate a number, which will be viewed by the Customer.</td>
       <td>Alphanumeric</td>
     </tr>
@@ -2427,9 +2427,9 @@ This notification mode is based on a <code class="highlighter-rouge">POST JSON</
 
 <p>See description of notification items in the session <strong>“NOTIFICATION POST content”</strong></p>
 
-<p><strong>Return expected to send notification:</strong> <code class="highlighter-rouge">HttpStatus = 200 (OK)</code> - Post received and processed successfully</p>
+<p><strong>Return expected to send notification:</strong> <code class="language-plaintext highlighter-rouge">HttpStatus = 200 (OK)</code> - Post received and processed successfully</p>
 
-<p><strong>IMPORTANT</strong> If the registered <code class="highlighter-rouge">Notification URL</code> returns any error/is unavailable, <em>*3 new attempts, with an interval of 1 hour between each POST</em> will be made.</p>
+<p><strong>IMPORTANT</strong> If the registered <code class="language-plaintext highlighter-rouge">Notification URL</code> returns any error/is unavailable, <em>*3 new attempts, with an interval of 1 hour between each POST</em> will be made.</p>
 
 <p>If the POST is not received, it is possible to resend it manually, just access the order in question by the Backoffice and click on the Sending icon:</p>
 
@@ -2453,181 +2453,181 @@ Below are described all the returned fields, as well as their definitions and si
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">checkout_cielo_order_number</code></td>
+      <td><code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code></td>
       <td>Unique identifier generated by CHECKOUT CIELO</td>
       <td>Alphanumeric</td>
       <td>32</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">amount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">amount</code></td>
       <td>Unit price of the product, in cents (e.g.: R$ 1,00 = 100)</td>
       <td>Numeric</td>
       <td>10</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">order_number</code></td>
+      <td><code class="language-plaintext highlighter-rouge">order_number</code></td>
       <td>Order number sent by store</td>
       <td>Alphanumeric</td>
       <td>32</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">created_date</code></td>
-      <td>Date of order creation - <code class="highlighter-rouge">dd/MM/yyyy HH:mm:ss</code></td>
+      <td><code class="language-plaintext highlighter-rouge">created_date</code></td>
+      <td>Date of order creation - <code class="language-plaintext highlighter-rouge">dd/MM/yyyy HH:mm:ss</code></td>
       <td>Alphanumeric</td>
       <td>20</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">customer_name</code></td>
+      <td><code class="language-plaintext highlighter-rouge">customer_name</code></td>
       <td>Name of the customer. If sent, this value is already filled in the CHECKOUT CIELO screen</td>
       <td>Alphanumeric</td>
       <td>289</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">customer_identity</code></td>
+      <td><code class="language-plaintext highlighter-rouge">customer_identity</code></td>
       <td>Customer identification (CPF or CNPJ) If sent, this value is already filled in the CHECKOUT CIELO screen</td>
       <td>Alphanumeric</td>
       <td>14</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">customer_email</code></td>
+      <td><code class="language-plaintext highlighter-rouge">customer_email</code></td>
       <td>Customer e-mail. If sent, this value is already filled in the CHECKOUT CIELO screen</td>
       <td>Alphanumeric</td>
       <td>64</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">customer_phone</code></td>
+      <td><code class="language-plaintext highlighter-rouge">customer_phone</code></td>
       <td>Customer phone number. If sent, this value is already filled in the CHECKOUT CIELO screen</td>
       <td>Numeric</td>
       <td>11</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">discount_amount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">discount_amount</code></td>
       <td>Discount amount provided (sent only if there was a discount)</td>
       <td>Numeric</td>
       <td>10</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping_type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping_type</code></td>
       <td>Freight mode</td>
       <td>Numeric</td>
       <td>1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping_name</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping_name</code></td>
       <td>Freight name</td>
       <td>Alphanumeric</td>
       <td>128</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping_price</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping_price</code></td>
       <td>Value of the freight service, in cents (e.g.: R$ 10,00 = 1000)</td>
       <td>Numeric</td>
       <td>10</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping_address_zipcode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping_address_zipcode</code></td>
       <td>Delivery address zip code</td>
       <td>Numeric</td>
       <td>8</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping_address_district</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping_address_district</code></td>
       <td>Delivery address neighborhood</td>
       <td>Text</td>
       <td>64</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping_address_city</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping_address_city</code></td>
       <td>Delivery address city</td>
       <td>Alphanumeric</td>
       <td>64</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping_address_state</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping_address_state</code></td>
       <td>Delivery address state</td>
       <td>Alphanumeric</td>
       <td>64</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping_address_line1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping_address_line1</code></td>
       <td>Delivery address</td>
       <td>Alphanumeric</td>
       <td>256</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping_address_line2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping_address_line2</code></td>
       <td>Delivery address complement</td>
       <td>Alphanumeric</td>
       <td>14</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping_address_number</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping_address_number</code></td>
       <td>Delivery address number</td>
       <td>Numeric</td>
       <td>8</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">payment_method_type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">payment_method_type</code></td>
       <td>Payment means type code</td>
       <td>Numeric</td>
       <td>1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">payment_method_brand</code></td>
+      <td><code class="language-plaintext highlighter-rouge">payment_method_brand</code></td>
       <td>Issuer (only for transactions with credit card payment means)</td>
       <td>Numeric</td>
       <td>1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">payment_method_bank</code></td>
+      <td><code class="language-plaintext highlighter-rouge">payment_method_bank</code></td>
       <td>Issuer bank (For Automatic Debit and Bank slip transactions)</td>
       <td>Numeric</td>
       <td>1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">payment_maskedcredicard</code></td>
+      <td><code class="language-plaintext highlighter-rouge">payment_maskedcredicard</code></td>
       <td>Masked Card (Only for transactions with credit card payment means)</td>
       <td>Alphanumeric</td>
       <td>20</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">payment_installments</code></td>
+      <td><code class="language-plaintext highlighter-rouge">payment_installments</code></td>
       <td>Number of installments</td>
       <td>Numeric</td>
       <td>1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">payment_antifrauderesult</code></td>
+      <td><code class="language-plaintext highlighter-rouge">payment_antifrauderesult</code></td>
       <td>Status of Credit Card Transactions in Anti-Fraud</td>
       <td>Numeric</td>
       <td>1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">payment_boletonumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">payment_boletonumber</code></td>
       <td>Number of bank slip generated</td>
       <td>String</td>
       <td>1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">payment_boletoexpirationdate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">payment_boletoexpirationdate</code></td>
       <td>Due date for transactions made with bank slip</td>
       <td>Numeric</td>
       <td>10</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">payment_status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">payment_status</code></td>
       <td>Transaction status</td>
       <td>Numeric</td>
       <td>1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">tid</code></td>
+      <td><code class="language-plaintext highlighter-rouge">tid</code></td>
       <td>TID Cielo generated at the time of transaction authorization</td>
       <td>Alphanumeric</td>
       <td>20</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">test_transaction</code></td>
+      <td><code class="language-plaintext highlighter-rouge">test_transaction</code></td>
       <td>Indicates whether the transaction was generated with ‘Test Mode’ enabled</td>
       <td>Boolean</td>
       <td>32</td>
@@ -2651,49 +2651,49 @@ Below are described all the returned fields, as well as their definitions and si
   <tbody>
     <tr>
       <td>1</td>
-      <td><code class="highlighter-rouge">Pending</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Pending</code></td>
       <td>For all means of payment</td>
       <td>Indicates payment is still being processed; NOTE: Bank slip - Indicates that the bank slip did not have status changed by the merchant</td>
     </tr>
     <tr>
       <td>2</td>
-      <td><code class="highlighter-rouge">Paid</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Paid</code></td>
       <td>For all means of payment</td>
       <td>Transaction captured and money will be deposited into account.</td>
     </tr>
     <tr>
       <td>3</td>
-      <td><code class="highlighter-rouge">Declined</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Declined</code></td>
       <td>Credit Card only</td>
       <td>Transaction not authorized by the party responsible for the payment means</td>
     </tr>
     <tr>
       <td>4</td>
-      <td><code class="highlighter-rouge">Expired</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Expired</code></td>
       <td>Credit Cards and Bank slip</td>
       <td>Transaction no longer valid for capture - <strong>15 days post Authorization</strong></td>
     </tr>
     <tr>
       <td>5</td>
-      <td><code class="highlighter-rouge">Canceled</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Canceled</code></td>
       <td>For credit cards</td>
       <td>Transaction was canceled by the merchant</td>
     </tr>
     <tr>
       <td>6</td>
-      <td><code class="highlighter-rouge">Not Finished</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Not Finished</code></td>
       <td>All means of payment</td>
       <td>Payment waiting Status - May indicate error or processing failure. Contact Cielo Support</td>
     </tr>
     <tr>
       <td>7</td>
-      <td><code class="highlighter-rouge">Authorized</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Authorized</code></td>
       <td>Credit Card only</td>
       <td>Transaction authorized by the card issuer. Must be captured for money to be deposited into account</td>
     </tr>
     <tr>
       <td>8</td>
-      <td><code class="highlighter-rouge">Chargeback</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Chargeback</code></td>
       <td>Credit Card only</td>
       <td>Transaction canceled by the customer with the card issuer. Money will not be deposited into account.</td>
     </tr>
@@ -2702,7 +2702,7 @@ Below are described all the returned fields, as well as their definitions and si
 
 <p><strong>Payment_antifrauderesult</strong></p>
 
-<p>Antifraud has the concept of <code class="highlighter-rouge">Status</code> and <code class="highlighter-rouge">SubStatus</code>, where the first represents the level of risk that a transaction has to be a fraud, and the second, an additional information about the transaction.</p>
+<p>Antifraud has the concept of <code class="language-plaintext highlighter-rouge">Status</code> and <code class="language-plaintext highlighter-rouge">SubStatus</code>, where the first represents the level of risk that a transaction has to be a fraud, and the second, an additional information about the transaction.</p>
 
 <table>
   <thead>
@@ -2716,61 +2716,61 @@ Below are described all the returned fields, as well as their definitions and si
   <tbody>
     <tr>
       <td>1</td>
-      <td><code class="highlighter-rouge">Low risk</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Low risk</code></td>
       <td>Low risk</td>
       <td>Low risk of being a fraudulent transaction</td>
     </tr>
     <tr>
       <td>3</td>
-      <td><code class="highlighter-rouge">Medium Risk</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Medium Risk</code></td>
       <td>Medium Risk</td>
       <td>Medium risk of being a fraudulent transaction</td>
     </tr>
     <tr>
       <td>2</td>
-      <td><code class="highlighter-rouge">High risk</code></td>
+      <td><code class="language-plaintext highlighter-rouge">High risk</code></td>
       <td>High risk</td>
       <td>High risk of being a fraudulent transaction</td>
     </tr>
     <tr>
       <td>4</td>
-      <td><code class="highlighter-rouge">Not finished</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Not finished</code></td>
       <td>Not finished</td>
       <td>Could not end query</td>
     </tr>
     <tr>
       <td>N/A</td>
-      <td><code class="highlighter-rouge">N/A</code></td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>Authenticated</td>
       <td>Transactions authenticated by the bank - <strong>Not analyzable by AF</strong></td>
     </tr>
     <tr>
       <td>N/A</td>
-      <td><code class="highlighter-rouge">N/A</code></td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>AF Not hired</td>
       <td>Anti-Fraud not enabled on the merchant’s plan - <strong>Not analyzable by AF</strong></td>
     </tr>
     <tr>
       <td>N/A</td>
-      <td><code class="highlighter-rouge">N/A</code></td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>AF Dispensed</td>
       <td>Anti-fraud dispensed via contract or lower than the minimum value of anti-fraud parameterized backoffice in the merchant</td>
     </tr>
     <tr>
       <td>N/A</td>
-      <td><code class="highlighter-rouge">N/A</code></td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>Not applicable</td>
       <td>Non-analyzable payment means such as debit cards, bank slip and online debit</td>
     </tr>
     <tr>
       <td>N/A</td>
-      <td><code class="highlighter-rouge">N/A</code></td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>Recurrence transaction</td>
       <td>Credit transaction is after than the scheduled transaction. <strong>Only Scheduling is analyzed</strong></td>
     </tr>
     <tr>
       <td>N/A</td>
-      <td><code class="highlighter-rouge">N/A</code></td>
+      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>Transaction declined</td>
       <td>Sale by credit was declined - <strong>Not analyzable by AF</strong></td>
     </tr>
@@ -2779,7 +2779,7 @@ Below are described all the returned fields, as well as their definitions and si
 
 <p><strong>Payment_method_type</strong></p>
 
-<p>Checkout allows only one type of <code class="highlighter-rouge">Bank slip</code> or <code class="highlighter-rouge">Online Debit</code> per merchant, so it is not returned if the method used is Bradesco or Banco do Brasil, since only one of them will be activated in the affiliation.</p>
+<p>Checkout allows only one type of <code class="language-plaintext highlighter-rouge">Bank slip</code> or <code class="language-plaintext highlighter-rouge">Online Debit</code> per merchant, so it is not returned if the method used is Bradesco or Banco do Brasil, since only one of them will be activated in the affiliation.</p>
 
 <table>
   <thead>
@@ -2950,7 +2950,7 @@ Checkout calculates the installments by considering total value and limit of ins
   <li>The value of the freight is added to the value of the installment.</li>
 </ul>
 
-<p>The Installment via API is performed by sending the <code class="highlighter-rouge">MaxNumberOfInstallments</code> field inside the Payment node. This will force Checkout to recalculate the installment value.
+<p>The Installment via API is performed by sending the <code class="language-plaintext highlighter-rouge">MaxNumberOfInstallments</code> field inside the Payment node. This will force Checkout to recalculate the installment value.
 Below is an example of the Node</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2970,7 +2970,7 @@ Below is an example of the Node</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">MaxNumberOfInstallments</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MaxNumberOfInstallments</code></td>
       <td>Numeric</td>
       <td>Conditional</td>
       <td>2</td>
@@ -3018,7 +3018,7 @@ Some business examples are:</p>
 
 <h2 id="recurrence-by-api">Recurrence by API</h2>
 
-<p>A recurring transaction in Checkout Cielo has two settings: <code class="highlighter-rouge">Interval</code> and <code class="highlighter-rouge">Closing date</code>.</p>
+<p>A recurring transaction in Checkout Cielo has two settings: <code class="language-plaintext highlighter-rouge">Interval</code> and <code class="language-plaintext highlighter-rouge">Closing date</code>.</p>
 
 <ul>
   <li><strong>Interval</strong> – repeat pattern and time interval between each transaction. This time interval between transactions can be: Monthly, Bimonthly, Quarterly, Biannual and Annual.</li>
@@ -3046,14 +3046,14 @@ Some business examples are:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Payment.RecurrentPayment.Interval</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code></td>
       <td>Alphanumeric</td>
       <td>Yes</td>
       <td>10</td>
       <td>Interval between each recurrence transaction</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.RecurrentPayment.EndDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.EndDate</code></td>
       <td>YYYY-MM-DD</td>
       <td>No</td>
       <td>255</td>
@@ -3071,23 +3071,23 @@ Some business examples are:</p>
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Monthly</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Monthly</code></td>
       <td>Monthly</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Bimonthly</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Bimonthly</code></td>
       <td>Bimonthly</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Quarterly</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Quarterly</code></td>
       <td>Quarterly</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">SemiAnnual</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SemiAnnual</code></td>
       <td>SemiAnnual</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Annual</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Annual</code></td>
       <td>Annual</td>
     </tr>
   </tbody>
@@ -3095,7 +3095,7 @@ Some business examples are:</p>
 
 <p>The buyer’s credit card data is securely stored within Checkout Cielo, allowing it to be re-used in a recurring transaction. This data is not accessed by the merchant and this intelligence is controlled by Checkout Cielo.</p>
 
-<p>Except the <code class="highlighter-rouge">Payment</code> object that contains a new element specific to the recurrence called <code class="highlighter-rouge">RecurrentPayment</code>, all other objects are equal to the integration with the Cart.</p>
+<p>Except the <code class="language-plaintext highlighter-rouge">Payment</code> object that contains a new element specific to the recurrence called <code class="language-plaintext highlighter-rouge">RecurrentPayment</code>, all other objects are equal to the integration with the Cart.</p>
 
 <blockquote>
   <p>REQUEST</p>
@@ -3163,8 +3163,8 @@ Some business examples are:</p>
 
 <p><strong>Example</strong>: Physical goods</p>
 
-<p>If the product type is <code class="highlighter-rouge">Physical Goods</code>, the <strong>API requires the sending of the type of freight</strong>.
-If there is a recurrence node in the technical contract, the <code class="highlighter-rouge">WithoutShipping</code> type is mandatory, otherwise the following response will be displayed:</p>
+<p>If the product type is <code class="language-plaintext highlighter-rouge">Physical Goods</code>, the <strong>API requires the sending of the type of freight</strong>.
+If there is a recurrence node in the technical contract, the <code class="language-plaintext highlighter-rouge">WithoutShipping</code> type is mandatory, otherwise the following response will be displayed:</p>
 
 <blockquote>
   <p>RESPONSE</p>

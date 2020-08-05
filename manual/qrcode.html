@@ -197,7 +197,7 @@
 
   <p><strong>Body</strong></p>
 
-  <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
 "grant_type": "client_credentials"
 }
 </code></pre></div>  </div>
@@ -205,7 +205,7 @@
 
 <h4 id="exemplo-de-requisição">Exemplo de Requisição</h4>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 curl --request POST \
   --url 'https:///cielo-payment/v1/access_token' \
   --header 'Authorization: ' \
@@ -219,7 +219,7 @@ curl --request POST \
 
 <h4 id="exemplo-de-resposta">Exemplo de Resposta</h4>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
   "access_token": "g7xDuftvHv5y3Dx3gnQvsOeSG0YN99FcS4NVOtihNflWTUUPgf",
   "token_type": "access_token",
@@ -261,7 +261,7 @@ curl --request POST \
 
 <h4 id="exemplo-de-requisição-1">Exemplo de Requisição</h4>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 curl --request GET \
   --url 'http:///cielo-payment/v1/publicKeys' \
   --header 'access_token: ' \
@@ -271,7 +271,7 @@ curl --request GET \
 
 <h4 id="exemplo-de-resposta-1">Exemplo de Resposta</h4>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmeiLngFr9h0npwe6D3ArSi10ZgdOCUCsUYT12KMuYsxImzwe9aGX8XXvzEF60E600ZjdvmYU64UnZKgfbttwNi+Tl7ZcB2cnS/oJMrfA0AbRHukJnL/fFsziHOjv0A1xRcE70ZbJRkob5A5s4GenF+jv/xCTOoIetFimZHZDiPPFux2NyrL3ZqSs7F4XJZvo2zPfCVlAcnEbVf+8vWX3goP2TEuAqZtBT543wIDAQAB+dqSzZSqZolYU1sjV7s8FzsjZYqo+AjM8BMuPlMoPEuBqgRFm4fSRIpeJIr0G9FokSU3X6MAZTvC7n3YePHFsFmGxPTrKpEFrp8s28f1qMP5suTsA
 
 </code></pre></div></div>
@@ -280,7 +280,7 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmeiLngFr9h0npwe6D3ArSi10ZgdOCUCsUYT1
 
 <p>Exemplo de código Java para criptografar o número do cartão usando uma  public key:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import java.security.PublicKey;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import java.security.PublicKey;
 import java.util.Base64;
 import javax.crypto.Cipher;
 
@@ -341,7 +341,7 @@ public class EncriptCard {
 
   <p><strong>Body</strong></p>
 
-  <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
  "technology":{
     "type":"QRCODE",
     "identifier":"13050329197F190A"
@@ -393,133 +393,133 @@ public class EncriptCard {
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">technology.type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">technology.type</code></td>
       <td>Enviar “QRCODE” por padrão</td>
       <td>Texto</td>
       <td>6</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">technology.identifier</code></td>
+      <td><code class="language-plaintext highlighter-rouge">technology.identifier</code></td>
       <td>Identificador da transação. Campo proveniente do QRCode, <a href="https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments">Veja layout</a></td>
       <td>Texto alfanumérico</td>
       <td>16</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">operationType.id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">operationType.id</code></td>
       <td>Enviar o numeral 1 por padrão</td>
       <td>Número</td>
       <td>1</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">amount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">amount</code></td>
       <td>Valor da transação (em ambiente de homologação enviar apenas número inteiros). Campo proveniente do QRCode, <a href="https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments">Veja layout</a></td>
       <td>Número</td>
       <td>16</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">paymentInstallments</code></td>
+      <td><code class="language-plaintext highlighter-rouge">paymentInstallments</code></td>
       <td>Número de parcelas. Campo proveniente do QRCode, <a href="https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments">Veja layout</a></td>
       <td>Número</td>
       <td>2</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">terminalLogicalNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">terminalLogicalNumber</code></td>
       <td>Número lógico do POS. Campo proveniente do QRCode, <a href="https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments">Veja layout</a></td>
       <td>Número</td>
       <td>40</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">paymentDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">paymentDate</code></td>
       <td>Data e hora da transação. Campo proveniente do QRCode, <a href="https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments">Veja layout</a></td>
       <td>Texto</td>
       <td>30</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">mainProduct.id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">mainProduct.id</code></td>
       <td>Produto matriz. Campo proveniente do QRCode, <a href="https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments">Veja layout</a></td>
       <td>Número</td>
       <td>4</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">subProduct.id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">subProduct.id</code></td>
       <td>Produto secundário. Campo proveniente do QRCode, <a href="https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments">Veja layout</a></td>
       <td>Número</td>
       <td>4</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">merchantAccountInformation.id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">merchantAccountInformation.id</code></td>
       <td>Número do estabelecimento comercial. Campo proveniente do QRCode, <a href="https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments">Veja layout</a></td>
       <td>Número</td>
       <td>10</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">merchantAccountInformation.merchantName</code></td>
+      <td><code class="language-plaintext highlighter-rouge">merchantAccountInformation.merchantName</code></td>
       <td>Nome do estabelecimento comercial. Campo proveniente do QRCode, <a href="https://developercielo.github.io/manual/qrcode#d%C3%AA-para-qr-code-x-recurso-payments">Veja layout</a></td>
       <td>Número</td>
       <td>1</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">card.encryptedCardNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">card.encryptedCardNumber</code></td>
       <td>Número do cartão criptografado, <a href="https://developercielo.github.io/manual/qrcode#public-keys">Veja mais</a></td>
       <td> </td>
       <td> </td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">card.holder</code></td>
+      <td><code class="language-plaintext highlighter-rouge">card.holder</code></td>
       <td>Nome do portador impresso no cartão.</td>
       <td>Número</td>
       <td>25</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">card.expirationDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">card.expirationDate</code></td>
       <td>Data de validade impresso no cartão.</td>
       <td>Texto</td>
       <td>7</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">card.brand</code></td>
+      <td><code class="language-plaintext highlighter-rouge">card.brand</code></td>
       <td>Bandeira do cartão. Consultar a lista de produtos e bandeiras aceitas no QRCode.</td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">carrier.name</code></td>
+      <td><code class="language-plaintext highlighter-rouge">carrier.name</code></td>
       <td>Nome do usuário do aplicativo.</td>
       <td>Texyo</td>
       <td>255</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">carrier.document</code></td>
+      <td><code class="language-plaintext highlighter-rouge">carrier.document</code></td>
       <td>Documento do usuário do aplicativo, exemplo CPF. Enviar apenas número</td>
       <td>Texto</td>
       <td>14</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">carrier.deviceId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">carrier.deviceId</code></td>
       <td>Identificador único de cada dispositivo.</td>
       <td> </td>
       <td> </td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">crc.qrCodeText</code></td>
+      <td><code class="language-plaintext highlighter-rouge">crc.qrCodeText</code></td>
       <td>QRCode do POS</td>
       <td> </td>
       <td> </td>
@@ -530,7 +530,7 @@ public class EncriptCard {
 
 <h4 id="exemplo-de-requisição-2">Exemplo de Requisição</h4>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl --request POST \
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl --request POST \
   --url 'http:///cielo-payment/v1/payments' \
   --header 'Content-Type: application/json' \
   --header 'access_token: ' \
@@ -576,7 +576,7 @@ public class EncriptCard {
 
 <h4 id="exemplo-de-resposta-2">Exemplo de Resposta</h4>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
     "transactionDate": "2018-05-15T11:33:49.000-03:00",
     "terminalLogicalNumber": "12345",
     "authorizationCode": "8888",
@@ -596,28 +596,28 @@ public class EncriptCard {
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">transactionDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">transactionDate</code></td>
       <td>Data da transação (extraída do QRCode)</td>
       <td>Texto</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">terminalLogicalNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">terminalLogicalNumber</code></td>
       <td>Número lógico do POS</td>
       <td>Texto</td>
       <td>40</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">authorizationCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">authorizationCode</code></td>
       <td>Código de autorização da transação</td>
       <td>Texto alfanumérico</td>
       <td>6</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">nsu</code></td>
+      <td><code class="language-plaintext highlighter-rouge">nsu</code></td>
       <td>Número Sequencial Único</td>
       <td>Texto</td>
       <td>50</td>
@@ -736,7 +736,7 @@ Observação: Ao testar com o QR Code especificado um erro do tipo 422 é espera
 
 <h2 id="requisição">Requisição</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{  
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{  
    "transactionDate": "2018-10-29T14:35:12.000+0000",
    "terminalLogicalNumber": "78257509",
    "authorizationCode": "019387",
@@ -760,56 +760,56 @@ Observação: Ao testar com o QR Code especificado um erro do tipo 422 é espera
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">transactionDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">transactionDate</code></td>
       <td>Data da transação (extraída do QRCode)</td>
       <td>Texto</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">terminalLogicalNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">terminalLogicalNumber</code></td>
       <td>Número lógico do POS</td>
       <td>Texto</td>
       <td>40</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">authorizationCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">authorizationCode</code></td>
       <td>Código de autorização da transação</td>
       <td>Texto alfanumérico</td>
       <td>6</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">nsu</code></td>
+      <td><code class="language-plaintext highlighter-rouge">nsu</code></td>
       <td>Número Sequencial Único</td>
       <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">merchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">merchantId</code></td>
       <td>Identificador da loja na Cielo (extraído do QRCode)</td>
       <td>Número</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">amount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">amount</code></td>
       <td>Valor da transação</td>
       <td>Número</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">originalTransactionType</code></td>
+      <td><code class="language-plaintext highlighter-rouge">originalTransactionType</code></td>
       <td>Transação de origem. Comunica o desfazimento de uma transação do /payments.</td>
       <td>Número</td>
       <td>1</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">statusCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">statusCode</code></td>
       <td>1 - Pagamento / 2 - Cancelamento / 3 - Desfazimento - Quando desfazimento - statusCode = 3</td>
       <td>Número</td>
       <td>1</td>

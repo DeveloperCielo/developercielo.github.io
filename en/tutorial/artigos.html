@@ -119,7 +119,7 @@
 <p>Let’s talk about Azure Kubernetes Services, commonly known as AKS.
 We use it to perform deploys in our main applications, from the most basic to the most complex, all with high availability!</p>
 
-<p>Running Docker containers on a local computer is very simple, only a command <code class="highlighter-rouge">docker run nginx</code> and done, You have your beautiful container running, however, when you have the need to run the same container on a cloud environment, the scenario changes…
+<p>Running Docker containers on a local computer is very simple, only a command <code class="language-plaintext highlighter-rouge">docker run nginx</code> and done, You have your beautiful container running, however, when you have the need to run the same container on a cloud environment, the scenario changes…
 You have to build your cluster, configure the auto-scale, configure the load balance… OH MY GOD, HOW MANY THINGS!
 A certain day I took some time to search for a solution that spared my time, therefore, I thought to myself::</p>
 
@@ -138,7 +138,7 @@ In case you want to know more about Kubernetes, the link of their documentation 
 
 <h2 id="mounting-a-cluster-in-kubernetes">Mounting a cluster in Kubernetes</h2>
 
-<p>I’m considering that you already have the <code class="highlighter-rouge">Azure CLI</code> configured in your machine. In case you don’t, the configuration tutorial link follows:</p>
+<p>I’m considering that you already have the <code class="language-plaintext highlighter-rouge">Azure CLI</code> configured in your machine. In case you don’t, the configuration tutorial link follows:</p>
 
 <blockquote>
   <p>https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest</p>
@@ -146,12 +146,12 @@ In case you want to know more about Kubernetes, the link of their documentation 
 
 <p>To mount a cluster using AKS, a single command is needed:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"az aks create -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos --generate-ssh-keys"
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"az aks create -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos --generate-ssh-keys"
 </code></pre></div></div>
 
-<p>Replace <code class="highlighter-rouge">NomeDoSeuCluster</code> for the name of your cluster.</p>
+<p>Replace <code class="language-plaintext highlighter-rouge">NomeDoSeuCluster</code> for the name of your cluster.</p>
 
-<p>Replace <code class="highlighter-rouge">NomeDoGrupoDeRecursos</code> for the name of the features group where your cluster will be provisioned. The feature group has to exist in your Azure account.</p>
+<p>Replace <code class="language-plaintext highlighter-rouge">NomeDoGrupoDeRecursos</code> for the name of the features group where your cluster will be provisioned. The feature group has to exist in your Azure account.</p>
 
 <p>After a couple of minutes, you`ll have your cluster mounted, as can be seen on the image below:</p>
 
@@ -159,7 +159,7 @@ In case you want to know more about Kubernetes, the link of their documentation 
 
 <p>After mounting our cluster, we`ll get the access credentials with the command:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"az aks get-credentials -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos"
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"az aks get-credentials -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos"
 </code></pre></div></div>
 
 <p>In case everything works, you’ll get the following message:</p>
@@ -168,7 +168,7 @@ In case you want to know more about Kubernetes, the link of their documentation 
 
 <p>Now let’s configure the Kubectl Cli, it will be used to communicate directly with Kubernetes, to do so, just execute the following command:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"az aks install-cli"
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"az aks install-cli"
 </code></pre></div></div>
 
 <p>If all went well, the following message will be displayed:</p>
@@ -177,33 +177,33 @@ In case you want to know more about Kubernetes, the link of their documentation 
 
 <p>Now let’s check what is the machine state of our cluster. For that, we’ll use the command:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl get nodes"
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl get nodes"
 </code></pre></div></div>
 
 <p><img src="https://i.imgur.com/Qyygi8y.png" alt="" /></p>
 
-<p>Finally we are going to run our first application inside our cluster!!! For that, we’re going to use the command <code class="highlighter-rouge">run</code>:</p>
+<p>Finally we are going to run our first application inside our cluster!!! For that, we’re going to use the command <code class="language-plaintext highlighter-rouge">run</code>:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl run meu-nginx --image=nginx --replicas=1 --port=80"
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl run meu-nginx --image=nginx --replicas=1 --port=80"
 </code></pre></div></div>
 
 <p><img src="https://i.imgur.com/gGNYlk2.png" alt="" /></p>
 
-<p>We’ll call the <code class="highlighter-rouge">get pods</code> to check if our application was successfully deployed:</p>
+<p>We’ll call the <code class="language-plaintext highlighter-rouge">get pods</code> to check if our application was successfully deployed:</p>
 
 <p><img src="https://i.imgur.com/IxKDQJ8.png" alt="" /></p>
 
 <p>As we have seen on the image above, our application was “deployed”, however it isn’t available on the internet yet.
-To make our application available, we’ll use the command <code class="highlighter-rouge">expose</code>:</p>
+To make our application available, we’ll use the command <code class="language-plaintext highlighter-rouge">expose</code>:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl expose deployment meu-nginx --port=80 --type=LoadBalancer"
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl expose deployment meu-nginx --port=80 --type=LoadBalancer"
 </code></pre></div></div>
 
 <p><img src="https://i.imgur.com/JVJH82V.png" alt="" /></p>
 
-<p>Now just call the command <code class="highlighter-rouge">get services</code> para descobrir qual o IP que nossa aplicação recebeu, essa etapa pode demorar alguns minutos:</p>
+<p>Now just call the command <code class="language-plaintext highlighter-rouge">get services</code> para descobrir qual o IP que nossa aplicação recebeu, essa etapa pode demorar alguns minutos:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl get services --watch"
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl get services --watch"
 </code></pre></div></div>
 
 <p><img src="https://i.imgur.com/DaKu0HU.png" alt="" /></p>

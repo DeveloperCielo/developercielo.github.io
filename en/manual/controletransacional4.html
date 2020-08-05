@@ -134,7 +134,7 @@
 <p>Cielo OAUTH is an authentication process used in Cielo APIs that are correlated to E-commerce products. It uses the <strong><a href="https://oauth.net/2/">OAUTH2</a></strong> protocol, where it is first necessary to obtain an access token, using its credentials, which should then be sent to the CieloOAuth API.</p>
 
 <blockquote>
-  <p>To get the <code class="highlighter-rouge">ClientID</code> and <code class="highlighter-rouge">ClientSecret</code>, contact the Cielo Products team. Credentials are released only to selected merchants.</p>
+  <p>To get the <code class="language-plaintext highlighter-rouge">ClientID</code> and <code class="language-plaintext highlighter-rouge">ClientSecret</code>, contact the Cielo Products team. Credentials are released only to selected merchants.</p>
 </blockquote>
 
 <p>To use Cielo Oauth you need the following credentials:</p>
@@ -149,13 +149,13 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">ClientId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ClientId</code></td>
       <td>Key identifier provided by CIELO</td>
       <td>guid</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">ClientSecret</code></td>
-      <td>Key that validates the ClientID. Provided by Cielo with the <code class="highlighter-rouge">ClientID</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ClientSecret</code></td>
+      <td>Key that validates the ClientID. Provided by Cielo with the <code class="language-plaintext highlighter-rouge">ClientID</code></td>
       <td>string</td>
     </tr>
   </tbody>
@@ -163,7 +163,7 @@
 
 <h2 id="access-token">Access token</h2>
 
-<p>To gain access to Cielo services that use <code class="highlighter-rouge">Cielo Oauth</code>, you will need to obtain an access token, according to the steps below:</p>
+<p>To gain access to Cielo services that use <code class="language-plaintext highlighter-rouge">Cielo Oauth</code>, you will need to obtain an access token, according to the steps below:</p>
 
 <ol>
   <li>Concatenate the <em>ClientId</em> and <em>ClientSecret</em>, <strong>ClientId: ClientSecret</strong></li>
@@ -233,17 +233,17 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Access_token</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Access_token</code></td>
       <td>Used to access the API services</td>
       <td>string</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Token_type</code></td>
-      <td>Will always be of the <code class="highlighter-rouge">bearer</code> type</td>
+      <td><code class="language-plaintext highlighter-rouge">Token_type</code></td>
+      <td>Will always be of the <code class="language-plaintext highlighter-rouge">bearer</code> type</td>
       <td>text</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Expires_in</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Expires_in</code></td>
       <td>Token lifetime in seconds. Approximately 20 minutes</td>
       <td>int</td>
     </tr>
@@ -285,9 +285,9 @@
   <li>Notification URL via <strong>JSON</strong></li>
 </ul>
 
-<p>Notification is required because all API commands (Query / Capture / Cancellation) use the unique identifier of the transaction, called <code class="highlighter-rouge">Checkout_Cielo_Order_Number</code>.</p>
+<p>Notification is required because all API commands (Query / Capture / Cancellation) use the unique identifier of the transaction, called <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code>.</p>
 
-<p>The <code class="highlighter-rouge">Checkout_Cielo_Order_Number</code> is only generated when payment is <em>completed on the transactional screen</em>. It is sent only by the <em>Notification URL</em> and not by the Transactional Screen Creation Response.</p>
+<p>The <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code> is only generated when payment is <em>completed on the transactional screen</em>. It is sent only by the <em>Notification URL</em> and not by the Transactional Screen Creation Response.</p>
 
 <h2 id="query-transaction">Query transaction</h2>
 
@@ -295,12 +295,12 @@
 
 <h3 id="by-merchant_order_number">By Merchant_Order_Number</h3>
 
-<p>Querying transactions by <code class="highlighter-rouge">Merchant_Order_Number</code> returns a list of transactions with the same number of orders. This is because Checkout Cielo does not prevent the duplication of OrderNumbers by the merchant.
-The response will have the <code class="highlighter-rouge">Checkout_Cielo_Order_Number</code> that should be used to query a specific transaction.</p>
+<p>Querying transactions by <code class="language-plaintext highlighter-rouge">Merchant_Order_Number</code> returns a list of transactions with the same number of orders. This is because Checkout Cielo does not prevent the duplication of OrderNumbers by the merchant.
+The response will have the <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code> that should be used to query a specific transaction.</p>
 
 <h4 id="request-1">Request</h4>
 
-<p>To query a transaction by <code class="highlighter-rouge">Merchant_Order_Number</code>, just perform a <code class="highlighter-rouge">GET</code>.</p>
+<p>To query a transaction by <code class="language-plaintext highlighter-rouge">Merchant_Order_Number</code>, just perform a <code class="language-plaintext highlighter-rouge">GET</code>.</p>
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/merchantOrderNumber/{merchantordernumber}</span></aside>
 
@@ -356,49 +356,49 @@ The response will have the <code class="highlighter-rouge">Checkout_Cielo_Order_
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">$id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">$id</code></td>
       <td>Node’s ID</td>
       <td>Numeric</td>
       <td>-</td>
       <td>Example: 1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">checkoutOrderNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">checkoutOrderNumber</code></td>
       <td>Order number generated by Checkout Cielo</td>
       <td>Text</td>
       <td>32</td>
       <td>Exmeplo: a58995ce24fd4f1cb025701e95a51478</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">createdDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">createdDate</code></td>
       <td>Order’s creation date</td>
       <td>Data</td>
       <td>-</td>
       <td>AAAA-MM-DDTHH:mm:SS.ss</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">links.$id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">links.$id</code></td>
       <td>Node’s ID</td>
       <td>Numeric</td>
       <td>-</td>
       <td>Example: 1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">links.method</code></td>
+      <td><code class="language-plaintext highlighter-rouge">links.method</code></td>
       <td>method’s name</td>
       <td>Text</td>
       <td>10</td>
       <td>Exmeplos: GET, POST, PUT</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">links.rel</code></td>
+      <td><code class="language-plaintext highlighter-rouge">links.rel</code></td>
       <td>relation’s type</td>
       <td>Text</td>
       <td>10</td>
       <td>Example: self</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">links.href</code></td>
+      <td><code class="language-plaintext highlighter-rouge">links.href</code></td>
       <td>Operation’s endpoint</td>
       <td>Text</td>
       <td>512</td>
@@ -411,7 +411,7 @@ The response will have the <code class="highlighter-rouge">Checkout_Cielo_Order_
 
 <h4 id="request-2">Request</h4>
 
-<p>To query a transaction by <code class="highlighter-rouge">Checkout_Cielo_Order_Number</code>, just perform <code class="highlighter-rouge">GET</code>.</p>
+<p>To query a transaction by <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code>, just perform <code class="language-plaintext highlighter-rouge">GET</code>.</p>
 
 <blockquote>
   <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
@@ -501,224 +501,224 @@ The response will have the <code class="highlighter-rouge">Checkout_Cielo_Order_
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">merchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">merchantId</code></td>
       <td>GUID</td>
       <td>36</td>
       <td>Merchant’s ID</td>
       <td>Example: c89fdfbb-dbe2-4e77-806a-6d75cd397dac</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">orderNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">orderNumber</code></td>
       <td>Text</td>
       <td>32</td>
       <td>Order’s ID</td>
       <td>Example: 123456</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">softDescriptor</code></td>
+      <td><code class="language-plaintext highlighter-rouge">softDescriptor</code></td>
       <td>Text</td>
       <td>13</td>
       <td>Text printed on the buyer’s bank invoice - Only available for VISA/MASTER - does not allow special character</td>
-      <td>Example: <code class="highlighter-rouge">Loja_ABC_1234</code></td>
+      <td>Example: <code class="language-plaintext highlighter-rouge">Loja_ABC_1234</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">cart.items.name</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cart.items.name</code></td>
       <td>Text</td>
       <td>128</td>
       <td>Cart item’s name</td>
       <td>Example: Pedido ABC</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">cart.items.description</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cart.items.description</code></td>
       <td>Text</td>
       <td>256</td>
       <td>Cart item’s description.</td>
       <td>Example: 50 canetas - R$30,00</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">cart.items.unitPrice</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cart.items.unitPrice</code></td>
       <td>Numeric</td>
       <td>18</td>
       <td>Cart item’s amount</td>
       <td>Example: R$ 1,00 = 100</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">cart.items.quantity</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cart.items.quantity</code></td>
       <td>Numeric</td>
       <td>9</td>
       <td>Cart item’s quantity</td>
       <td>Example: 1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">cart.items.type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cart.items.type</code></td>
       <td>Text</td>
       <td>255</td>
       <td>Cart item’s type</td>
-      <td><code class="highlighter-rouge">Asset</code><br /><code class="highlighter-rouge">Digital</code><br /><code class="highlighter-rouge">Service</code><br /><code class="highlighter-rouge">Payment</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Asset</code><br /><code class="language-plaintext highlighter-rouge">Digital</code><br /><code class="language-plaintext highlighter-rouge">Service</code><br /><code class="language-plaintext highlighter-rouge">Payment</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping.type</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping.type</code></td>
       <td>Numeric</td>
       <td>36</td>
       <td>Shipping method type</td>
       <td>Example: 1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping.services.name</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping.services.name</code></td>
       <td>Text</td>
       <td>128</td>
       <td>Shipping method name</td>
       <td>Example: Casa Principal</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping.services.price</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping.services.price</code></td>
       <td>Numeric</td>
       <td>10</td>
       <td>Shipping method amount</td>
       <td>Example: R$ 10,00 = 1000</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping.address.street</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping.address.street</code></td>
       <td>Text</td>
       <td>256</td>
       <td>Shipping adress street name</td>
       <td>Example: Rua João da Silva</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping.address.number</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping.address.number</code></td>
       <td>Numeric</td>
       <td>8</td>
       <td>Shipping adress street number</td>
       <td>Example: 123</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping.address.complement</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping.address.complement</code></td>
       <td>Text</td>
       <td>64</td>
       <td>Shipping adress street complement</td>
       <td>Example: Casa</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping.address.district</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping.address.district</code></td>
       <td>Text</td>
       <td>64</td>
       <td>Bairro do endereço de entrega</td>
       <td>Example: Alphaville</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping.address.city</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping.address.city</code></td>
       <td>Text</td>
       <td>64</td>
       <td>Shipping adress city</td>
       <td>Example: São Paulo</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">shipping.address.state</code></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping.address.state</code></td>
       <td>Text</td>
       <td>2</td>
       <td>Shipping adress state</td>
       <td>Example: SP</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.status</code></td>
       <td>Text</td>
       <td>10</td>
       <td>Payment status</td>
       <td>Example: Paid</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.tid</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.tid</code></td>
       <td>Text</td>
       <td>32</td>
       <td>Transaction ID</td>
       <td>Example: 10127355487AK2C3EOTB</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.nsu</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.nsu</code></td>
       <td>Text</td>
       <td>6</td>
       <td>Transaction NSU</td>
       <td>Example: 123456</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.authorizationCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.authorizationCode</code></td>
       <td>Text</td>
       <td>3</td>
       <td>Authorization Code</td>
       <td>Example: 456789</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.numberOfPayments</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.numberOfPayments</code></td>
       <td>Numeric</td>
       <td>6</td>
       <td>Number of installments</td>
       <td>Example: 123456</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.createdDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.createdDate</code></td>
       <td>Text</td>
       <td>22</td>
       <td>Transaction created date</td>
       <td>Example: AAAA-MM-DDTHH:mm:SS.ss</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.finishedDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.finishedDate</code></td>
       <td>Text</td>
       <td>22</td>
       <td>Transaction finished date</td>
       <td>Example: AAAA-MM-DDTHH:mm:SS.ss</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.cardMaskedNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.cardMaskedNumber</code></td>
       <td>Text</td>
       <td>19</td>
       <td>Masked card number</td>
       <td>Example: 123456<strong>**</strong>2007</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.brand</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.brand</code></td>
       <td>Text</td>
       <td>10</td>
       <td>Card scheme name</td>
       <td>Example: Visa</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.antifraud.antifraudeResult</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.antifraud.antifraudeResult</code></td>
       <td>Numeric</td>
       <td>1</td>
       <td>Antifraud status</td>
       <td>Example: 1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Payment.antifraud.description</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.antifraud.description</code></td>
       <td>Text</td>
       <td>256</td>
       <td>Antifraud status description</td>
       <td>Example: Lojista optou não realizar a análise do antifraude</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Identity</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
       <td>Numeric</td>
       <td>14</td>
       <td>Buyer’s CPF or CNPJ</td>
       <td>Example: 12345678909</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.FullName</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.FullName</code></td>
       <td>Text</td>
       <td>256</td>
       <td>Buyer’s name</td>
       <td>Example: Fulano da Silva</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Email</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
       <td>Text</td>
       <td>64</td>
       <td>Buyer’s email address</td>
       <td>Example: Example@email.com.br</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Customer.Phone</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Phone</code></td>
       <td>Numeric</td>
       <td>11</td>
       <td>Buyer’s phone number</td>
@@ -731,7 +731,7 @@ The response will have the <code class="highlighter-rouge">Checkout_Cielo_Order_
 
 <h4 id="request-3">Request</h4>
 
-<p>To query a transaction by <code class="highlighter-rouge">id</code>, just perform <code class="highlighter-rouge">GET</code>.</p>
+<p>To query a transaction by <code class="language-plaintext highlighter-rouge">id</code>, just perform <code class="language-plaintext highlighter-rouge">GET</code>.</p>
 
 <blockquote>
   <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
@@ -782,105 +782,105 @@ The response will have the <code class="highlighter-rouge">Checkout_Cielo_Order_
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">$id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">$id</code></td>
       <td>Node’s ID</td>
       <td>Numeric</td>
       <td>-</td>
       <td>Example: 1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">productId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">productId</code></td>
       <td>Payment Link ID</td>
       <td>GUID</td>
       <td>36</td>
       <td>Exmeplo: 9487e3a9-f204-4188-96c5-a5a3013b2517</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">createdDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">createdDate</code></td>
       <td>Payment Link creation date</td>
       <td>Date</td>
       <td>-</td>
       <td>AAAA-MM-DDTHH:mm:SS.ss</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">orders.$id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">orders.$id</code></td>
       <td>Node’s ID</td>
       <td>Numeric</td>
       <td>-</td>
       <td>Example: 1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">orders.orderNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">orders.orderNumber</code></td>
       <td>Order number generated by Checkout Cielo</td>
       <td>Text</td>
       <td>32</td>
       <td>Example: b74df3e3c1ac49ccb7ad89fde2d787f7</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">orders.createdDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">orders.createdDate</code></td>
       <td>Order creation date</td>
       <td>Date</td>
       <td>-</td>
       <td>AAAA-MM-DDTHH:mm:SS.ss</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">orders.payment.$id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">orders.payment.$id</code></td>
       <td>Node’s ID</td>
       <td>Numeric</td>
       <td>-</td>
       <td>Example: 1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">orders.payment.price</code></td>
+      <td><code class="language-plaintext highlighter-rouge">orders.payment.price</code></td>
       <td>Transaction amount</td>
       <td>Numeric</td>
       <td>-</td>
       <td>Example: R$ 1,00 = 100</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">orders.payment.numberOfPayments</code></td>
+      <td><code class="language-plaintext highlighter-rouge">orders.payment.numberOfPayments</code></td>
       <td>Number of installments</td>
       <td>-</td>
       <td>Example: 3</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">orders.payment.createdDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">orders.payment.createdDate</code></td>
       <td>Transaction creation date</td>
       <td>Date</td>
       <td>-</td>
       <td>AAAA-MM-DDTHH:mm:SS.ss</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">orders.payment.status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">orders.payment.status</code></td>
       <td>Transaction status</td>
       <td>Text</td>
       <td>Example: Denied</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">links.$id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">links.$id</code></td>
       <td>Node’s ID</td>
       <td>Numeric</td>
       <td>-</td>
       <td>Example: 1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">links.method</code></td>
+      <td><code class="language-plaintext highlighter-rouge">links.method</code></td>
       <td>method’s name</td>
       <td>Text</td>
       <td>10</td>
       <td>Exmeplos: GET, POST, PUT</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">links.rel</code></td>
+      <td><code class="language-plaintext highlighter-rouge">links.rel</code></td>
       <td>relation’s type</td>
       <td>Text</td>
       <td>10</td>
       <td>Example: self</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">links.href</code></td>
+      <td><code class="language-plaintext highlighter-rouge">links.href</code></td>
       <td>Operation’s endpoint</td>
       <td>Text</td>
       <td>512</td>
@@ -893,7 +893,7 @@ The response will have the <code class="highlighter-rouge">Checkout_Cielo_Order_
 
 <h3 id="request-4">Request</h3>
 
-<p>To capture a transaction by <code class="highlighter-rouge">Checkout_Cielo_Order_Number</code>, just perform a <code class="highlighter-rouge">PUT</code>.</p>
+<p>To capture a transaction by <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code>, just perform a <code class="language-plaintext highlighter-rouge">PUT</code>.</p>
 
 <p><strong>Total Capture</strong></p>
 
@@ -946,25 +946,25 @@ The response will have the <code class="highlighter-rouge">Checkout_Cielo_Order_
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">success</code></td>
+      <td><code class="language-plaintext highlighter-rouge">success</code></td>
       <td>Sets the status of the update process</td>
       <td>Boolean</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">status</code></td>
       <td>Checkout transaction status -  <a href="https://docscielo.github.io/Pilots/manual/appcielo-link#status-e-c%C3%B3digos">STATUS</a></td>
       <td>int</td>
       <td>2</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">returnCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">returnCode</code></td>
       <td>Code explaining the reason for denied or authorized transactions  - <a href="https://docscielo.github.io/Pilots/manual/appcielo-link#status-e-c%C3%B3digos">Code table</a></td>
       <td>String</td>
       <td>2</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">returnMessage</code></td>
+      <td><code class="language-plaintext highlighter-rouge">returnMessage</code></td>
       <td>Message explaining the reason for denied or authorized transactions  - <a href="https://docscielo.github.io/Pilots/manual/appcielo-link#status-e-c%C3%B3digos">Code table</a></td>
       <td>String</td>
       <td>255</td>
@@ -976,7 +976,7 @@ The response will have the <code class="highlighter-rouge">Checkout_Cielo_Order_
 
 <h3 id="request-5">Request</h3>
 
-<p>To cancel a transaction by <code class="highlighter-rouge">Checkout_Cielo_Order_Number</code>, just perform a <code class="highlighter-rouge">PUT</code>.</p>
+<p>To cancel a transaction by <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code>, just perform a <code class="language-plaintext highlighter-rouge">PUT</code>.</p>
 
 <p><strong>Total Cancellation</strong></p>
 
@@ -1030,25 +1030,25 @@ The response will have the <code class="highlighter-rouge">Checkout_Cielo_Order_
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">success</code></td>
+      <td><code class="language-plaintext highlighter-rouge">success</code></td>
       <td>Sets the status of the update process</td>
       <td>Boolean</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">status</code></td>
       <td>Checkout transaction status -  <a href="https://docscielo.github.io/Pilots/manual/appcielo-link#status-e-c%C3%B3digos">STATUS</a></td>
       <td>int</td>
       <td>2</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">returnCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">returnCode</code></td>
       <td>Code explaining the reason for denied or authorized transactions  - <a href="https://docscielo.github.io/Pilots/manual/appcielo-link#status-e-c%C3%B3digos">Code table</a></td>
       <td>String</td>
       <td>2</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">returnMessage</code></td>
+      <td><code class="language-plaintext highlighter-rouge">returnMessage</code></td>
       <td>Message explaining the reason for denied or authorized transactions  - <a href="https://docscielo.github.io/Pilots/manual/appcielo-link#status-e-c%C3%B3digos">Code table</a></td>
       <td>String</td>
       <td>255</td>
@@ -1074,49 +1074,49 @@ The response will have the <code class="highlighter-rouge">Checkout_Cielo_Order_
   <tbody>
     <tr>
       <td>1</td>
-      <td><code class="highlighter-rouge">Pending</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Pending</code></td>
       <td>For every payment method</td>
       <td>The payment is still being processed; OBS: Payment slip - The payment slip didn’t have its status altered by the merchant</td>
     </tr>
     <tr>
       <td>2</td>
-      <td><code class="highlighter-rouge">Payed</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payed</code></td>
       <td>For every payment method</td>
       <td>Transaction captured and money will be deposited into account.</td>
     </tr>
     <tr>
       <td>3</td>
-      <td><code class="highlighter-rouge">Denied</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Denied</code></td>
       <td>Credit card only</td>
       <td>Transaction not authorized by the person responsible for the payment method</td>
     </tr>
     <tr>
       <td>4</td>
-      <td><code class="highlighter-rouge">Expired</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Expired</code></td>
       <td>Credit card and payment slip</td>
       <td>Transaction no longer valid for capture - <strong>15 days after Authorization</strong></td>
     </tr>
     <tr>
       <td>5</td>
-      <td><code class="highlighter-rouge">Canceled</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Canceled</code></td>
       <td>Credit card only</td>
       <td>Transaction canceled by the merchant</td>
     </tr>
     <tr>
       <td>6</td>
-      <td><code class="highlighter-rouge">Not Finished</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Not Finished</code></td>
       <td>For every payment method</td>
       <td>Payment waiting for status - May indicate error or processing failure. Contact CieloSupport</td>
     </tr>
     <tr>
       <td>7</td>
-      <td><code class="highlighter-rouge">Authorized</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Authorized</code></td>
       <td>Credit card only</td>
       <td>Transaction authorized by the card issuer. Must be captured for the money to be deposited into account</td>
     </tr>
     <tr>
       <td>8</td>
-      <td><code class="highlighter-rouge">Chargeback</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Chargeback</code></td>
       <td>Credit card only</td>
       <td>Transaction canceled by the consumer with the card issuer. Money will not be deposited into account.</td>
     </tr>

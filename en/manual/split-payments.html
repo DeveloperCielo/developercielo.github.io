@@ -249,7 +249,7 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
 <p>To get an access token:</p>
 
 <ol>
-  <li>Concatenate the ClientId and ClientSecret: <code class="highlighter-rouge">ClientId:ClientSecret</code>.</li>
+  <li>Concatenate the ClientId and ClientSecret: <code class="language-plaintext highlighter-rouge">ClientId:ClientSecret</code>.</li>
   <li>Encode the concatenation result in Base64.</li>
   <li>Perform a request to the authorization server:</li>
 </ol>
@@ -668,28 +668,28 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">SplitPayments.SubordinateMerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.SubordinateMerchantId</code></td>
       <td><strong>Subordinate</strong> <strong>MerchantId</strong> (Identifier).</td>
       <td>Guid</td>
       <td>36</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">SplitPayments.Amount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Amount</code></td>
       <td><strong>Subordinate</strong>’s part of transaction, in cents (BRL).</td>
       <td>Integer</td>
       <td>-</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">SplitPayments.Fares.Mdr</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Fares.Mdr</code></td>
       <td><strong>Marketplace MDR(%)</strong> to be discounted from <strong>Subordinate</strong>’s part of transaction..</td>
       <td>Decimal</td>
       <td>-</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">SplitPayments.Fares.Fee</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Fares.Fee</code></td>
       <td><strong>Fixed Fee (BRL)</strong>, in cents, to be discounted from <strong>Subordinate</strong>’s part of transaction.</td>
       <td>Integer</td>
       <td>-</td>
@@ -734,14 +734,14 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">SplitPayments.Splits.SubordinateMerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Splits.SubordinateMerchantId</code></td>
       <td><strong>Subordinate</strong>’s or <strong>Marketplace</strong>’s <strong>MerchantId</strong> (Identifier).</td>
       <td>Guid</td>
       <td>36</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">SplitPayments.Splits.Amount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Splits.Amount</code></td>
       <td>Result of the calculation of the transaction part to be paid to the <strong>Subordinate</strong> or <strong>Marketplace</strong>, with fares already discounted (MDR and Fixed Fees)</td>
       <td>Integer</td>
       <td>-</td>
@@ -1399,14 +1399,14 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">VoidSplitPayments.SubordinateMerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">VoidSplitPayments.SubordinateMerchantId</code></td>
       <td><strong>Subordinate MerchantId</strong> (Identifier).</td>
       <td>Guid</td>
       <td>36</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">VoidedAmount.Amount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">VoidedAmount.Amount</code></td>
       <td>Total or part of the <strong>Subordinate</strong>’s amount to be voided, in cents.</td>
       <td>Integer</td>
       <td>-</td>
@@ -1495,57 +1495,57 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
   <tbody>
     <tr>
       <td>1</td>
-      <td><code class="highlighter-rouge">Credit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Credit</code></td>
       <td>Credit of installments of a transaction.</td>
     </tr>
     <tr>
       <td>3</td>
-      <td><code class="highlighter-rouge">FeeCredit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">FeeCredit</code></td>
       <td>Fixed Rate credit agreed between Marketplace and Mediator.</td>
     </tr>
     <tr>
       <td>5</td>
-      <td><code class="highlighter-rouge">RefundCredit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">RefundCredit</code></td>
       <td>Credit caused by a cancellation.</td>
     </tr>
     <tr>
       <td>7</td>
-      <td><code class="highlighter-rouge">ChargebackCredit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ChargebackCredit</code></td>
       <td>Credit caused by a chargeback.</td>
     </tr>
     <tr>
       <td>9</td>
-      <td><code class="highlighter-rouge">UndoChargebackCredit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">UndoChargebackCredit</code></td>
       <td>Credit to undo a chargeback.</td>
     </tr>
     <tr>
       <td>11</td>
-      <td><code class="highlighter-rouge">AntiFraudFeeCredit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AntiFraudFeeCredit</code></td>
       <td>Credit related to an anti-fraud transaction.</td>
     </tr>
     <tr>
       <td>13</td>
-      <td><code class="highlighter-rouge">AntiFraudFeeWithReviewCredit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AntiFraudFeeWithReviewCredit</code></td>
       <td>Credit related to an anti-fraud transaction with a manual review.</td>
     </tr>
     <tr>
       <td>15</td>
-      <td><code class="highlighter-rouge">AdjustmentCredit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AdjustmentCredit</code></td>
       <td>Credit as an adjustment.</td>
     </tr>
     <tr>
       <td>17</td>
-      <td><code class="highlighter-rouge">ChargebackReversalCredit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ChargebackReversalCredit</code></td>
       <td>Credit related to a chargeback reversion.</td>
     </tr>
     <tr>
       <td>19</td>
-      <td><code class="highlighter-rouge">AnticipationCredit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AnticipationCredit</code></td>
       <td>Credit related to anticipation.</td>
     </tr>
     <tr>
       <td>20</td>
-      <td><code class="highlighter-rouge">AnticipationCommissionCredit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AnticipationCommissionCredit</code></td>
       <td>Credit related to an anticipation commission.</td>
     </tr>
   </tbody>
@@ -1564,52 +1564,52 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
   <tbody>
     <tr>
       <td>2</td>
-      <td><code class="highlighter-rouge">Debit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Debit</code></td>
       <td>Debit of installments of a transaction.</td>
     </tr>
     <tr>
       <td>4</td>
-      <td><code class="highlighter-rouge">FeeDebit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">FeeDebit</code></td>
       <td>Fixed Rate debit agreed between Marketplace and Mediator.</td>
     </tr>
     <tr>
       <td>6</td>
-      <td><code class="highlighter-rouge">RefundDebit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">RefundDebit</code></td>
       <td>Debit caused by a cancellation.</td>
     </tr>
     <tr>
       <td>8</td>
-      <td><code class="highlighter-rouge">ChargebackDebit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ChargebackDebit</code></td>
       <td>Debit caused by a chargeback.</td>
     </tr>
     <tr>
       <td>10</td>
-      <td><code class="highlighter-rouge">UndoChargebackDebit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">UndoChargebackDebit</code></td>
       <td>Debit to undo a chargeback.</td>
     </tr>
     <tr>
       <td>12</td>
-      <td><code class="highlighter-rouge">AntiFraudFeeDebit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AntiFraudFeeDebit</code></td>
       <td>Debit related to an anti-fraud transaction.</td>
     </tr>
     <tr>
       <td>14</td>
-      <td><code class="highlighter-rouge">AntiFraudFeeWithReviewDebit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AntiFraudFeeWithReviewDebit</code></td>
       <td>Debit related to an anti-fraud transaction with a manual review.</td>
     </tr>
     <tr>
       <td>16</td>
-      <td><code class="highlighter-rouge">AdjustmentDebit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AdjustmentDebit</code></td>
       <td>Debit as an adjustment.</td>
     </tr>
     <tr>
       <td>18</td>
-      <td><code class="highlighter-rouge">ChargebackReversalDebit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ChargebackReversalDebit</code></td>
       <td>Debit related to a chargeback reversion.</td>
     </tr>
     <tr>
       <td>22</td>
-      <td><code class="highlighter-rouge">AnticipationCommissionDebit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">AnticipationCommissionDebit</code></td>
       <td>Debit related to an anticipation commission.</td>
     </tr>
   </tbody>
@@ -1645,7 +1645,7 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">InitialForecastedDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">InitialForecastedDate</code></td>
       <td>Filters by the forecasted initial payment date.</td>
       <td>Date</td>
       <td>YYYY-MM-DD</td>
@@ -1653,7 +1653,7 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
       <td>CurrentDate</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FinalForecastedDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">FinalForecastedDate</code></td>
       <td>Filters by the forecasted final payment date.</td>
       <td>Date</td>
       <td>YYYY-MM-DD</td>
@@ -1661,7 +1661,7 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
       <td>InitialForecastedDate</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">InitialPaymentDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">InitialPaymentDate</code></td>
       <td>Filters by the initial payment date.</td>
       <td>Date</td>
       <td>YYYY-MM-DD</td>
@@ -1669,7 +1669,7 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FinalPaymentDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">FinalPaymentDate</code></td>
       <td>Filters by the final payment date.</td>
       <td>Date</td>
       <td>YYYY-MM-DD</td>
@@ -1677,7 +1677,7 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
       <td>InitialPaymentDate</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PageIndex</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PageIndex</code></td>
       <td>Selected page.</td>
       <td>Int</td>
       <td>-</td>
@@ -1685,7 +1685,7 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
       <td>1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PageSize</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PageSize</code></td>
       <td>Page size. Accepted values: 25, 50, 100.</td>
       <td>Int</td>
       <td>-</td>
@@ -1693,7 +1693,7 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
       <td>25</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">EventStatus</code></td>
+      <td><code class="language-plaintext highlighter-rouge">EventStatus</code></td>
       <td>Filters by event status [Scheduled - Pending - Settled - Error - WaitingForAdjustmentDebit - Anticipated].</td>
       <td>String</td>
       <td>-</td>
@@ -1701,7 +1701,7 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
       <td>All statuses</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">IncludeAllSubordinates</code></td>
+      <td><code class="language-plaintext highlighter-rouge">IncludeAllSubordinates</code></td>
       <td>Includes all subordinates in the response.</td>
       <td>Boolean</td>
       <td>-</td>
@@ -1709,7 +1709,7 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
       <td>false</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MerchantIds</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantIds</code></td>
       <td>Filters by Merchant IDs.</td>
       <td>Guid</td>
       <td>-</td>
@@ -1830,67 +1830,67 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Schedules[].Id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Schedules[].Id</code></td>
       <td>Event ID on financial schedule.</td>
       <td>Guid</td>
       <td>36</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Schedules[].PaymentId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Schedules[].PaymentId</code></td>
       <td>Transaction ID.</td>
       <td>Guid</td>
       <td>36</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Schedules[].MerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Schedules[].MerchantId</code></td>
       <td>Merchant ID.</td>
       <td>Guid</td>
       <td>36</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Schedules[].PaymentDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Schedules[].PaymentDate</code></td>
       <td>Settlement date. This property is available only when the payment has finished (EventStatus = Settled).</td>
       <td>Date</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Schedules[].ForecastedDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Schedules[].ForecastedDate</code></td>
       <td>Forecasted settlement date.</td>
       <td>Date</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Schedules[].Installments</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Schedules[].Installments</code></td>
       <td>Number of installments of a transaction.</td>
       <td>Int</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Schedules[].InstallmentAmount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Schedules[].InstallmentAmount</code></td>
       <td>Value in cents of the installment to be settled.</td>
       <td>Int</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Schedules[].InstallmentNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Schedules[].InstallmentNumber</code></td>
       <td>Installment to be settled.</td>
       <td>Int</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Schedules[].Event</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Schedules[].Event</code></td>
       <td>Event ID.</td>
       <td>Int</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Schedules[].EventDescription</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Schedules[].EventDescription</code></td>
       <td>Event description.</td>
       <td>String</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Schedules[].EventStatus</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Schedules[].EventStatus</code></td>
       <td>Event status. [Scheduled - Pending - Settled - Error - WaitingForAdjustementDebit]</td>
       <td>String</td>
       <td>-</td>
@@ -1917,7 +1917,7 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">InitialCaptureDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">InitialCaptureDate</code></td>
       <td>Filters by the initial capture date.</td>
       <td>Date</td>
       <td>YYYY-MM-DD</td>
@@ -1925,7 +1925,7 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">FinalCaptureDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">FinalCaptureDate</code></td>
       <td>Filters by the final capture date.</td>
       <td>Date</td>
       <td>YYYY-MM-DD</td>
@@ -1933,7 +1933,7 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
       <td>InitialCaptureDate</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PageIndex</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PageIndex</code></td>
       <td>Selected page.</td>
       <td>Int</td>
       <td>-</td>
@@ -1941,7 +1941,7 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
       <td>1</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PageSize</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PageSize</code></td>
       <td>Page size. Accepted values: 25, 50, 100.</td>
       <td>Int</td>
       <td>-</td>
@@ -1949,7 +1949,7 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
       <td>25</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">EventStatus</code></td>
+      <td><code class="language-plaintext highlighter-rouge">EventStatus</code></td>
       <td>Filters by event status [Scheduled - Pending - Settled - Error - Anticipated].</td>
       <td>String</td>
       <td>-</td>
@@ -1957,7 +1957,7 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
       <td>All statuses</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">IncludeAllSubordinates</code></td>
+      <td><code class="language-plaintext highlighter-rouge">IncludeAllSubordinates</code></td>
       <td>Includes all subordinates in the response.</td>
       <td>Boolean</td>
       <td>-</td>
@@ -1965,7 +1965,7 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
       <td>false</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">MerchantIds</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantIds</code></td>
       <td>Filters by Merchant IDs.</td>
       <td>Guid</td>
       <td>-</td>
@@ -2053,67 +2053,67 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">Transactions[].PaymentId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Transactions[].PaymentId</code></td>
       <td>Transaction ID.</td>
       <td>Guid</td>
       <td>36</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Transactions[].CaptureDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Transactions[].CaptureDate</code></td>
       <td>Capture date.</td>
       <td>Date</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Transactions[].Schedules[].MerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].MerchantId</code></td>
       <td>Merchant ID.</td>
       <td>Guid</td>
       <td>36</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Transactions[].Schedules[].PaymentDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].PaymentDate</code></td>
       <td>Settlement date. This property is available only when the payment has finished (EventStatus = Settled).</td>
       <td>Date</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Transactions[].Schedules[].ForecastedDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].ForecastedDate</code></td>
       <td>Forecasted settlement date.</td>
       <td>Date</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Transactions[].Schedules[].Installments</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].Installments</code></td>
       <td>Number of installments of a transaction.</td>
       <td>Int</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Transactions[].Schedules[].InstallmentsAmount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].InstallmentsAmount</code></td>
       <td>Value in cents of the installment to be settled.</td>
       <td>Int</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Transactions[].Schedules[].InstallmentNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].InstallmentNumber</code></td>
       <td>Installment to be settled.</td>
       <td>Int</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Transactions[].Schedules[].Event</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].Event</code></td>
       <td>Event ID.</td>
       <td>Int</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Transactions[].Schedules[].EventDescription</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].EventDescription</code></td>
       <td>Event description.</td>
       <td>String</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">Transactions[].Schedules[].EventStatus</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Transactions[].Schedules[].EventStatus</code></td>
       <td>Event status. [Scheduled - Pending - Settled - Error - Anticipated]</td>
       <td>String</td>
       <td>-</td>
@@ -2228,42 +2228,42 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">merchantIdToDebit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">merchantIdToDebit</code></td>
       <td>Merchant where the amount will be debited.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">merchantIdToCredit</code></td>
+      <td><code class="language-plaintext highlighter-rouge">merchantIdToCredit</code></td>
       <td>Merchant where the amount will be credited.</td>
       <td>Int</td>
       <td>-</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">forecastedDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">forecastedDate</code></td>
       <td>Forecasted date to post the adjustment on the financial schedule.</td>
       <td>String</td>
       <td>-</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">amount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">amount</code></td>
       <td>Adjustment amount, in cents.</td>
       <td>Int</td>
       <td>-</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">description</code></td>
+      <td><code class="language-plaintext highlighter-rouge">description</code></td>
       <td>Adjustment description.</td>
       <td>String</td>
       <td>500</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">transactionId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">transactionId</code></td>
       <td>Transaction ID where the adjustment is being posted.</td>
       <td>Guid</td>
       <td>-</td>
@@ -2301,14 +2301,14 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">id</code></td>
+      <td><code class="language-plaintext highlighter-rouge">id</code></td>
       <td>Adjustment ID</td>
       <td>Guid</td>
       <td>36</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">status</code></td>
       <td>Adjustment status [Created - Scheduled - Processed - Canceled ].</td>
       <td>String</td>
       <td>-</td>
@@ -2355,13 +2355,13 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">SubordinateMerchantId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">SubordinateMerchantId</code></td>
       <td>Subordinate ID.</td>
       <td>Guid</td>
       <td>36</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">ChargebackAmount</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ChargebackAmount</code></td>
       <td>Chargeback amount that must be passed to the Subordinate, in cents.</td>
       <td>Int</td>
       <td>-</td>
@@ -2420,7 +2420,7 @@ For more information about the Cielo E-Commerce API, see the <a href="https://de
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">ChargebackSplitPayments.ChargebackSplits</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ChargebackSplitPayments.ChargebackSplits</code></td>
       <td>List containing the split of chargeback for each participant.</td>
       <td>Guid</td>
       <td>36</td>

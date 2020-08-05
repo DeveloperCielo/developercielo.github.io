@@ -119,7 +119,7 @@
 <p>Vamos falar um pouco sobre o Azure Kubernetes Services, vulgo AKS.
 O utilizamos para realizar deploys em nossas principais aplicações, desde as mais básicas as mais complexas tudo com alta disponibilidade!</p>
 
-<p>Rodar containers Docker em um computador local é muito simples, basta um comando <code class="highlighter-rouge">docker run nginx</code> e pronto, você tem seu container lindo rodando, porém quando você tem a necessidade de rodar esse mesmo container em um ambiente de nuvem a história muda…
+<p>Rodar containers Docker em um computador local é muito simples, basta um comando <code class="language-plaintext highlighter-rouge">docker run nginx</code> e pronto, você tem seu container lindo rodando, porém quando você tem a necessidade de rodar esse mesmo container em um ambiente de nuvem a história muda…
 Você tem que montar seu cluster, configurar o auto-scale, configurar o load balance… MEU DEUS QUANTA COISA!
 Um certo dia, parei para pesquisar uma solução que poupasse meu tempo, logo, pensei comigo:</p>
 
@@ -138,7 +138,7 @@ Caso queira saber mais sobre o Kubernetes segue o link da documentação deles:<
 
 <h2 id="montando-um-cluster-em-kubernetes">Montando um Cluster em Kubernetes</h2>
 
-<p>Estou levando em consideração que você já tenha o <code class="highlighter-rouge">Azure CLI</code> configurado na sua máquina, caso não tenha segue um tutorial de configuração:</p>
+<p>Estou levando em consideração que você já tenha o <code class="language-plaintext highlighter-rouge">Azure CLI</code> configurado na sua máquina, caso não tenha segue um tutorial de configuração:</p>
 
 <blockquote>
   <p>https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest</p>
@@ -146,12 +146,12 @@ Caso queira saber mais sobre o Kubernetes segue o link da documentação deles:<
 
 <p>Para montar um cluster utilizando o AKS basta um único comando:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"az aks create -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos --generate-ssh-keys"
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"az aks create -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos --generate-ssh-keys"
 </code></pre></div></div>
 
-<p>Substitua o <code class="highlighter-rouge">NomeDoSeuCluster</code> pelo nome do seu cluster.</p>
+<p>Substitua o <code class="language-plaintext highlighter-rouge">NomeDoSeuCluster</code> pelo nome do seu cluster.</p>
 
-<p>Substitua o <code class="highlighter-rouge">NomeDoGrupoDeRecursos</code> pelo nome do grupo de recursos onde o seu cluster irá ser provisionado, este grupo de recursos precisa existir na sua conta do Azure.</p>
+<p>Substitua o <code class="language-plaintext highlighter-rouge">NomeDoGrupoDeRecursos</code> pelo nome do grupo de recursos onde o seu cluster irá ser provisionado, este grupo de recursos precisa existir na sua conta do Azure.</p>
 
 <p>Após alguns minutos você terá o seu cluster montado como pode ser visto na imagem abaixo:</p>
 
@@ -159,7 +159,7 @@ Caso queira saber mais sobre o Kubernetes segue o link da documentação deles:<
 
 <p>Após montar nosso cluster vamos resgaras as credenciais de acesso com o comando:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"az aks get-credentials -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos"
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"az aks get-credentials -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos"
 </code></pre></div></div>
 
 <p>Caso tudo dê certo você irá receber a seguinte mensagem:</p>
@@ -168,7 +168,7 @@ Caso queira saber mais sobre o Kubernetes segue o link da documentação deles:<
 
 <p>Vamos agora configurar o Kubectl CLI, este será utilizado para se comunicar diretamente com o Kubernetes, para fazer isso basta executar o seguinte comando:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"az aks install-cli"
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"az aks install-cli"
 </code></pre></div></div>
 
 <p>Se tudo ocorreu bem será exibido a seguinte mensagem:</p>
@@ -177,33 +177,33 @@ Caso queira saber mais sobre o Kubernetes segue o link da documentação deles:<
 
 <p>Vamos verificar agora qual o estado das máquinas do nosso cluster, para isso utilizaremos o comando:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl get nodes"
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl get nodes"
 </code></pre></div></div>
 
 <p><img src="https://i.imgur.com/Qyygi8y.png" alt="" /></p>
 
-<p>Finalmente vamos subir nossa primeira aplicação dentro do nosso cluster!!! Para isso vamos utilizar o comando <code class="highlighter-rouge">run</code>:</p>
+<p>Finalmente vamos subir nossa primeira aplicação dentro do nosso cluster!!! Para isso vamos utilizar o comando <code class="language-plaintext highlighter-rouge">run</code>:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl run meu-nginx --image=nginx --replicas=1 --port=80"
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl run meu-nginx --image=nginx --replicas=1 --port=80"
 </code></pre></div></div>
 
 <p><img src="https://i.imgur.com/gGNYlk2.png" alt="" /></p>
 
-<p>Vamos chamar o <code class="highlighter-rouge">get pods</code> para verificar se nossa aplicação foi deployada com sucesso:</p>
+<p>Vamos chamar o <code class="language-plaintext highlighter-rouge">get pods</code> para verificar se nossa aplicação foi deployada com sucesso:</p>
 
 <p><img src="https://i.imgur.com/IxKDQJ8.png" alt="" /></p>
 
 <p>Como vimos na imagem acima nossa aplicação foi “deployada”, porém ela ainda não está disponivel na internet
-Para disponibilizar nossa aplicação na internet vamos utilizar o comando <code class="highlighter-rouge">expose</code>:</p>
+Para disponibilizar nossa aplicação na internet vamos utilizar o comando <code class="language-plaintext highlighter-rouge">expose</code>:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl expose deployment meu-nginx --port=80 --type=LoadBalancer"
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl expose deployment meu-nginx --port=80 --type=LoadBalancer"
 </code></pre></div></div>
 
 <p><img src="https://i.imgur.com/JVJH82V.png" alt="" /></p>
 
-<p>Agora basta chamar o comando <code class="highlighter-rouge">get services</code> para descobrir qual o IP que nossa aplicação recebeu, essa etapa pode demorar alguns minutos:</p>
+<p>Agora basta chamar o comando <code class="language-plaintext highlighter-rouge">get services</code> para descobrir qual o IP que nossa aplicação recebeu, essa etapa pode demorar alguns minutos:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl get services --watch"
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl get services --watch"
 </code></pre></div></div>
 
 <p><img src="https://i.imgur.com/DaKu0HU.png" alt="" /></p>

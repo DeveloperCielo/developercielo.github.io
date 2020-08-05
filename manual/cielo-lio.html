@@ -129,26 +129,11 @@
 
 <p>É uma plataforma aberta que fornece controle e gestão de negócios indo além de um sistema de pagamentos tradicional. Essa solução suporta aplicativos desenvolvidos para sistema Android, possibilitando que desenvolvedores parceiros possam criar aplicativos especializados para diversos segmentos e qualquer porte de cliente.</p>
 
-<p>A LIO conta com duas opções de hardware, com e sem impressão.</p>
-
-<h3 id="cielo-lio-1">Cielo LIO+</h3>
-
-<p>Solução 2 em 1,  a primeira do segmento a oferecer smartphone e maquininha de cartão em um único aparelho, com o objetivo de digitalizar o pequeno negócio.</p>
-
-<p>A Cielo LIO+ oferece mobilidade e praticidade ao vendedor. Isso porque ela é 2 em 1: o mesmo equipamento opera como um smartphone, com todas as suas funções de voz e aplicativos, e uma maquininha de cartão que se conecta de maneira rápida e intuitiva ao celular com um simples snap (encaixe magnético que oferece uma conexão imediata entre o celular e o módulo de pagamento), diferente das soluções que exigem o pareamento via bluetooth, por exemplo.</p>
-
-<p>Ambas contam com a Cielo Store, loja de aplicativos B2B disponível em todos as LIO´s, dando escala e distribuição para qualquer aplicativo integrado a ela.</p>
-
-<h3 id="modelos-disponíveis-da-cielo-lio">Modelos disponíveis da Cielo LIO</h3>
-
-<p>Atualmente a Cielo LIO está disponível em 3 modelos: LIO V1, LIO V2 e LIO +</p>
-
-<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/lio_v1_v2.png" alt="Comparação - LIO V1 e LIO V2" />
-<img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/blue_lio.png" alt="BLUE" /></p>
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/liov2.png" alt="LIO V2" /></p>
 
 <p>Ambos os modelos foram desenvolvidos pela Cielo pensando em atender as necessidades específicas de alguns clientes.</p>
 
-<p>Enquanto a LIO V1 possui um design mais compacto e permite uma maior mobilidade, a LIO V2 foi concebida em um tamanho maior e possui algumas funcionalidades exclusivas e adicionais como por exemplo:</p>
+<p>A LIO V2 foi concebida em um tamanho maior e possui algumas funcionalidades exclusivas como por exemplo:</p>
 
 <p><strong>Impressora térmica</strong>: o cliente poderá ter a 1ª e 2ª via impressa após o pagamento realizado. Além disso, as aplicações parceiras poderão utilizar os métodos disponíveis da impressora para imprimir dados importantes ou necessários para o negócio do cliente.</p>
 
@@ -423,7 +408,7 @@ Confira abaixo a tabela com as especificações técnicas da Cielo LIO:</p>
 <ul>
   <li>Princípios de Design Orientado a Objetos (S.O.L.I.D.).</li>
   <li>Diretrizes de estilo Java.</li>
-  <li>Entenda a diferença entre <code class="highlighter-rouge">compileSdkVersion</code>, <code class="highlighter-rouge">targetSdkVersion</code>, e <code class="highlighter-rouge">minSdkVersion</code>.</li>
+  <li>Entenda a diferença entre <code class="language-plaintext highlighter-rouge">compileSdkVersion</code>, <code class="language-plaintext highlighter-rouge">targetSdkVersion</code>, e <code class="language-plaintext highlighter-rouge">minSdkVersion</code>.</li>
   <li>Aproveite os botões nativos do Android, como os botões “Voltar” e “Início”.</li>
   <li>Otimize as operações visando o baixo consumo da bateria</li>
   <li>O aplicativo deve atender às necessidades dos estabelecimentos comerciais (lojistas) da Cielo.</li>
@@ -702,14 +687,14 @@ aplicativo na plataforma Cielo LIO.</p>
 
 <p>Para a versão release, adicione o módulo do Cielo LIO Order Manager SDK nas dependências do Gradle:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>compile 'com.cielo.lio:order-manager:1.4.0'
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>compile 'com.cielo.lio:order-manager:1.4.0'
 </code></pre></div></div>
 
 <p>última versão 1.4.0</p>
 
 <blockquote>
   <p>A partir da versão 1.17.7-beta do SDK se tornou necessária a permissão de INTERNET na aplicação cliente.
-Adicione essa permissão ao <code class="highlighter-rouge">AndroidManifest.xml</code> da sua aplicação.</p>
+Adicione essa permissão ao <code class="language-plaintext highlighter-rouge">AndroidManifest.xml</code> da sua aplicação.</p>
 </blockquote>
 
 <h3 id="credenciais">Credenciais</h3>
@@ -763,12 +748,12 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
     <tr>
       <td>credentials</td>
       <td>Credenciais de acesso do Parceiro/Desenvolvedor. Depois de se registrar no Portal de Desenvolvedores e criar seu app, o Parceiro/Desenvolvedor recebe as credenciais (Client-Id e Access-Token). Elas servem para identificá-lo unicamente na plataforma LIO e diferenciar as ordens da sua aplicação.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.Credentials</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cielo.sdk.order.Credentials</code></td>
     </tr>
     <tr>
       <td>context</td>
       <td>O contexto da aplicação.</td>
-      <td><code class="highlighter-rouge">android.content.Context</code></td>
+      <td><code class="language-plaintext highlighter-rouge">android.content.Context</code></td>
     </tr>
   </tbody>
 </table>
@@ -779,7 +764,7 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 
 <h3 id="vincular-o-contexto-da-aplicação-ao-sdk">Vincular o contexto da aplicação ao SDK</h3>
 
-<p>Com o método <code class="highlighter-rouge">bind()</code>, é possível vincular o contexto da aplicação ao SDK. Este serviço é responsável por gerenciar as funções relacionadas com as ordens da LIO</p>
+<p>Com o método <code class="language-plaintext highlighter-rouge">bind()</code>, é possível vincular o contexto da aplicação ao SDK. Este serviço é responsável por gerenciar as funções relacionadas com as ordens da LIO</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">ServiceBindListener</span> <span class="n">serviceBindListener</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ServiceBindListener</span><span class="o">()</span> <span class="o">{</span>
 
@@ -803,7 +788,7 @@ Identificação do token de acesso, que armazena as regras de acesso permitidas 
 </code></pre></div></div>
 
 <blockquote>
-  <p><strong>Atenção:</strong> Você deve garantir que o listener <code class="highlighter-rouge">onServiceBound()</code> foi chamado antes de utilizar as funções do OrderManager, caso contrário uma exceção será lançada e causará um crash na sua aplicação.</p>
+  <p><strong>Atenção:</strong> Você deve garantir que o listener <code class="language-plaintext highlighter-rouge">onServiceBound()</code> foi chamado antes de utilizar as funções do OrderManager, caso contrário uma exceção será lançada e causará um crash na sua aplicação.</p>
 </blockquote>
 
 <p>O método Bind recebe dois parâmetros:</p>
@@ -872,7 +857,7 @@ Iniciar processo de pagamento</p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/checkoutOrder.jpg" alt="checkoutorder formas" /></p>
 
-<p>Independende da forma escolhida, você deverá utilizar o seguinte callback como parâmetro do método de <code class="highlighter-rouge">checkoutOrder()</code> para receber os estados relacionados ao pagamento.:</p>
+<p>Independende da forma escolhida, você deverá utilizar o seguinte callback como parâmetro do método de <code class="language-plaintext highlighter-rouge">checkoutOrder()</code> para receber os estados relacionados ao pagamento.:</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PaymentListener</span> <span class="n">paymentListener</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PaymentListener</span><span class="o">()</span> <span class="o">{</span>
     <span class="nd">@Override</span>
@@ -904,7 +889,7 @@ As seguintes ações podem ser notificadas:<br />
 • onError - Quando acontece um erro no pagamento do pedido.</p>
 </blockquote>
 
-<p>O método <code class="highlighter-rouge">onPayment()</code> retorna um objeto <code class="highlighter-rouge">Order</code> com uma lista de <code class="highlighter-rouge">Payment</code> que possui um HashMap <code class="highlighter-rouge">PaymentFields</code> com a maioria dos dados da transação.
+<p>O método <code class="language-plaintext highlighter-rouge">onPayment()</code> retorna um objeto <code class="language-plaintext highlighter-rouge">Order</code> com uma lista de <code class="language-plaintext highlighter-rouge">Payment</code> que possui um HashMap <code class="language-plaintext highlighter-rouge">PaymentFields</code> com a maioria dos dados da transação.
 Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:</p>
 
 <table>
@@ -1271,32 +1256,32 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:</p>
     <tr>
       <td>orderId</td>
       <td>O identificador do pedido a ser pago.</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>amount</td>
       <td>Valor a ser pago. R$ 10,00 deve ser enviado como 1000.</td>
-      <td><code class="highlighter-rouge">Long</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Long</code></td>
     </tr>
     <tr>
       <td>ec</td>
       <td>Em casos de multi-ec, informar aqui o número correspondente</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>installments</td>
       <td>número de parcelas. para pagamento a vista, não precisa informar</td>
-      <td><code class="highlighter-rouge">Int</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Int</code></td>
     </tr>
     <tr>
       <td>email</td>
       <td>email pra onde será enviado o comprovante</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>paymentCode</td>
       <td>Código da operação de pagamento</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.PaymentCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cielo.sdk.order.payment.PaymentCode</code></td>
     </tr>
   </tbody>
 </table>
@@ -1318,18 +1303,18 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:</p>
     <tr>
       <td>request</td>
       <td>O objeto contendo as informações da ordem a ser paga.</td>
-      <td><code class="highlighter-rouge">cielo.orders.domain.CheckoutRequest</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cielo.orders.domain.CheckoutRequest</code></td>
     </tr>
     <tr>
       <td>paymentListener</td>
       <td>Callback de pagamento.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cielo.sdk.order.payment.PaymentListener</code></td>
     </tr>
   </tbody>
 </table>
 
 <blockquote>
-  <p><strong>Atenção:</strong> Na versão 0.19.0 do SDK foram introduzidos códigos de pagamento para as principais operações disponibilizadas na LIO, facilitando assim as chamadas de pagamento. É importante ressaltar que as formas de pagamento são configuradas de acordo com o estabelecimento comercial, e nem todas estarão disponíveis em todas os terminais. Caso o método de pagamento selecionado não esteja disponível na LIO em questão, ocorrerá uma exceção do tipo <code class="highlighter-rouge">NoSuchElementException</code>.</p>
+  <p><strong>Atenção:</strong> Na versão 0.19.0 do SDK foram introduzidos códigos de pagamento para as principais operações disponibilizadas na LIO, facilitando assim as chamadas de pagamento. É importante ressaltar que as formas de pagamento são configuradas de acordo com o estabelecimento comercial, e nem todas estarão disponíveis em todas os terminais. Caso o método de pagamento selecionado não esteja disponível na LIO em questão, ocorrerá uma exceção do tipo <code class="language-plaintext highlighter-rouge">NoSuchElementException</code>.</p>
 </blockquote>
 
 <table>
@@ -1395,7 +1380,7 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:</p>
 
 <h2 id="cancelamento">Cancelamento</h2>
 
-<p>Para tratar a resposta do cancelamento, você deverá utilizar o seguinte callback como parâmetro do método de <code class="highlighter-rouge">cancelOrder()</code> para receber os estados relacionados ao cancelamento.</p>
+<p>Para tratar a resposta do cancelamento, você deverá utilizar o seguinte callback como parâmetro do método de <code class="language-plaintext highlighter-rouge">cancelOrder()</code> para receber os estados relacionados ao cancelamento.</p>
 
 <blockquote>
   <p>CancellationListener: Um callback que informa sobre todas as ações tomadas durante o processo de cancelamento. 
@@ -1459,32 +1444,32 @@ Assim que possuir a instância da Order, utilize o método abaixo passando os pa
     <tr>
       <td>orderID</td>
       <td>O identificador do pedido a ser pago.</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>authCode</td>
       <td>Código de autorização do pagamento.</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>cieloCode</td>
       <td>NSU do pagamento</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>value</td>
       <td>Valor do pagamento a ser  cancelado</td>
-      <td><code class="highlighter-rouge">Long</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Long</code></td>
     </tr>
     <tr>
       <td>ec</td>
       <td>Em casos de multi-ec, informar aqui o número correspondente</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>cancellationListener</td>
       <td>Callback que informa sobre todas as ações tomadas durante o processo de cancelamento.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.CancellationListener</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cielo.sdk.order.payment.CancellationListener</code></td>
     </tr>
   </tbody>
 </table>
@@ -1506,23 +1491,23 @@ Assim que possuir a instância da Order, utilize o método abaixo passando os pa
     <tr>
       <td>request</td>
       <td>O objeto contendo as informações da ordem a ser cancelada.</td>
-      <td><code class="highlighter-rouge">cielo.orders.domain.CancellationRequest</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cielo.orders.domain.CancellationRequest</code></td>
     </tr>
     <tr>
       <td>cancellationListener</td>
       <td>Callback que informa sobre todas as ações tomadas durante o processo de cancelamento.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.payment.CancellationListener</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cielo.sdk.order.payment.CancellationListener</code></td>
     </tr>
   </tbody>
 </table>
 
 <h3 id="receber-aviso-de-cancelamento-feito-na-lio">Receber aviso de cancelamento feito na LIO</h3>
 
-<p>Toda vez que é feito um cancelamento na LIO utilizando o launcher, o sistema envia um broadcast notificando quaisquer aplicações que estejam registradas sobre o mesmo. Para que sua aplicação seja notificada de um cancelamento, atualize o arquivo <code class="highlighter-rouge">AndroidManifest.xml</code> conforme o exemplo abaixo:</p>
+<p>Toda vez que é feito um cancelamento na LIO utilizando o launcher, o sistema envia um broadcast notificando quaisquer aplicações que estejam registradas sobre o mesmo. Para que sua aplicação seja notificada de um cancelamento, atualize o arquivo <code class="language-plaintext highlighter-rouge">AndroidManifest.xml</code> conforme o exemplo abaixo:</p>
 
 <p><img src="https://developercielo.github.io/images/cielo-lio/manifest.jpg" alt="Manifest" /></p>
 
-<p>em seguida, é necessário implementar um <code class="highlighter-rouge">BroadcastReceiver</code> para tratar o evento da maneira que for pertinente a sua aplicação:</p>
+<p>em seguida, é necessário implementar um <code class="language-plaintext highlighter-rouge">BroadcastReceiver</code> para tratar o evento da maneira que for pertinente a sua aplicação:</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">LIOCancelationBroadcastReceiver</span> <span class="kd">extends</span> <span class="nc">BroadcastReceiver</span> <span class="o">{</span>
@@ -1566,12 +1551,12 @@ Para isso, basta utilizar a função abaixo, que retorna os pedidos de forma pag
     <tr>
       <td>pageSize</td>
       <td>quantidade de items por página</td>
-      <td><code class="highlighter-rouge">Integer</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Integer</code></td>
     </tr>
     <tr>
       <td>page</td>
       <td>número da página requistada (iniciando em 0)</td>
-      <td><code class="highlighter-rouge">Integer</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Integer</code></td>
     </tr>
   </tbody>
 </table>
@@ -1584,7 +1569,7 @@ Para isso, basta utilizar a função abaixo, que retorna os pedidos de forma pag
 
 <p>Após executar todas as operações de pagamento e caso não seja necessário utilizar o objeto orderManager, utilize método unbind para desvincular o contexto e evitar problemas de integridade.</p>
 
-<p>Fique atento ao local onde o <code class="highlighter-rouge">unbind()</code> será executado para evitar problemas com ciclo de vida da Activity ou Fragment que foi vinculado ao serviço.
+<p>Fique atento ao local onde o <code class="language-plaintext highlighter-rouge">unbind()</code> será executado para evitar problemas com ciclo de vida da Activity ou Fragment que foi vinculado ao serviço.
 É importante lembrar que se o contexto for alterado, é preciso desvincular o serviço (ex.: troca de Activity)
 Utilize o método abaixo para finalizar o uso do OrderManager:</p>
 
@@ -1606,7 +1591,7 @@ Utilize o método abaixo para finalizar o uso do OrderManager:</p>
 </code></pre></div></div>
 
 <blockquote>
-  <p>O valor da bateria será retornado em uma <code class="highlighter-rouge">Float</code> contendo um valor de 0 a 1 em caso de sucesso e -1 em caso de erro.</p>
+  <p>O valor da bateria será retornado em uma <code class="language-plaintext highlighter-rouge">Float</code> contendo um valor de 0 a 1 em caso de sucesso e -1 em caso de erro.</p>
 </blockquote>
 
 <h3 id="verificar-modelo-da-lio">Verificar Modelo da LIO</h3>
@@ -1616,7 +1601,7 @@ Utilize o método abaixo para finalizar o uso do OrderManager:</p>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">infoManager</span><span class="o">.</span><span class="na">getDeviceModel</span><span class="o">();</span>
 </code></pre></div></div>
 
-<p>O mesmo irá retornar um enum do tipo <code class="highlighter-rouge">DeviceModel</code> com o modelo correspondente (<code class="highlighter-rouge">LIO_V1</code> ou <code class="highlighter-rouge">LIO_V2</code> ).</p>
+<p>O mesmo irá retornar um enum do tipo <code class="language-plaintext highlighter-rouge">DeviceModel</code> com o modelo correspondente (<code class="language-plaintext highlighter-rouge">LIO_V1</code> ou <code class="language-plaintext highlighter-rouge">LIO_V2</code> ).</p>
 
 <h3 id="obtendo-informações-do-usuário-ec-e-número-lógico">Obtendo informações do usuário (EC e Número Lógico)</h3>
 
@@ -1642,12 +1627,12 @@ Abaixo, segue um descritivo de atributos do objeto Setttings.</p>
     <tr>
       <td>merchantCode</td>
       <td>Código do cliente</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>logicNumber</td>
       <td>Número lógico da LIO</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
   </tbody>
 </table>
@@ -1712,47 +1697,47 @@ As seguintes ações pode ser notificadas:
   </thead>
   <tbody>
     <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_ALIGN</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PrinterAttributes.KEY_ALIGN</code></td>
       <td>Alinhamento da impressão</td>
-      <td><code class="highlighter-rouge">PrinterAttributes.VAL_ALIGN_CENTER</code>  <code class="highlighter-rouge">PrinterAttributes.VAL_ALIGN_LEFT</code> <code class="highlighter-rouge">PrinterAttributes.VAL_ALIGN_RIGHT</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PrinterAttributes.VAL_ALIGN_CENTER</code>  <code class="language-plaintext highlighter-rouge">PrinterAttributes.VAL_ALIGN_LEFT</code> <code class="language-plaintext highlighter-rouge">PrinterAttributes.VAL_ALIGN_RIGHT</code></td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_TEXTSIZE</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PrinterAttributes.KEY_TEXTSIZE</code></td>
       <td>Tamanho do texto</td>
       <td>Valores inteiros</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_TYPEFACE</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PrinterAttributes.KEY_TYPEFACE</code></td>
       <td>Fonte do texto</td>
       <td>Trabalha com um inteiro de 0 a 8, onde cada um é uma fonte diferente.</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_MARGINLEFT</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PrinterAttributes.KEY_MARGINLEFT</code></td>
       <td>Margem esquerda</td>
       <td>Valores inteiros</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_MARGINRIGHT</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PrinterAttributes.KEY_MARGINRIGHT</code></td>
       <td>Margem direia</td>
       <td>Valores inteiros</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_MARGINTOP</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PrinterAttributes.KEY_MARGINTOP</code></td>
       <td>Margem superior</td>
       <td>Valores inteiros</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_MARGINBOTTOM</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PrinterAttributes.KEY_MARGINBOTTOM</code></td>
       <td>Margem inferior</td>
       <td>Valores inteiros</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_LINESPACE</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PrinterAttributes.KEY_LINESPACE</code></td>
       <td>Espaçamento entre as linhas</td>
       <td>Valores inteiros</td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">PrinterAttributes.KEY_WEIGHT</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PrinterAttributes.KEY_WEIGHT</code></td>
       <td>Varíavel utilizada quando se trbaalho com impressão de múltiplas colunas, para escolher o peso de cada coluna</td>
       <td>Valores inteiros</td>
     </tr>
@@ -1779,7 +1764,7 @@ As seguintes ações pode ser notificadas:
 
 <h3 id="impressão-de-texto-simples">Impressão de texto simples</h3>
 
-<p>Para imprimir textos simples utilize o método <code class="highlighter-rouge">printText()</code> do PrinterManager. 
+<p>Para imprimir textos simples utilize o método <code class="language-plaintext highlighter-rouge">printText()</code> do PrinterManager. 
 O método recebe como parâmetro o texto a ser impresso, um mapa de estilo de impressão e um listener para tratar o retorno da impressão.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span> <span class="n">textToPrint</span> <span class="o">=</span> <span class="s">"Texto simples a ser impresso.\n Com múltiplas linhas"</span><span class="o">;</span>
@@ -1801,24 +1786,24 @@ O método recebe como parâmetro o texto a ser impresso, um mapa de estilo de im
     <tr>
       <td>text</td>
       <td>Texto a ser impresso.</td>
-      <td><code class="highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
     </tr>
     <tr>
       <td>style</td>
       <td>Mapa de estilos de impressão</td>
-      <td><code class="highlighter-rouge">Map&lt;String, Int&gt;</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Map&lt;String, Int&gt;</code></td>
     </tr>
     <tr>
       <td>printerListener</td>
       <td>Callback de impressão.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.PrinterListener</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cielo.sdk.order.PrinterListener</code></td>
     </tr>
   </tbody>
 </table>
 
 <h3 id="impressão-de-múltiplas-colunas">Impressão de múltiplas colunas</h3>
 
-<p>Para imprimir textos em múltiplas colunas utilize o método <code class="highlighter-rouge">printMultipleColumnText()</code> do PrinterManager. 
+<p>Para imprimir textos em múltiplas colunas utilize o método <code class="language-plaintext highlighter-rouge">printMultipleColumnText()</code> do PrinterManager. 
 O método recebe como parâmetro um array de texts a serem impresso, um array com mapas de estilos de impressão, respectivamente e um listener para tratar o retorno da impressão.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">String</span><span class="o">[]</span> <span class="n">textsToPrint</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">[]</span> <span class="o">{</span> <span class="s">"Texto alinhado à esquerda."</span><span class="o">,</span> <span class="s">"Texto centralizado"</span><span class="o">,</span> <span class="s">"Texto alinhado à direita"</span>  <span class="o">}</span>
@@ -1847,25 +1832,25 @@ O método recebe como parâmetro um array de texts a serem impresso, um array co
     <tr>
       <td>stringArray</td>
       <td>Lista de textos a serem impressos.</td>
-      <td><code class="highlighter-rouge">String[]</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String[]</code></td>
     </tr>
     <tr>
       <td>style</td>
       <td>Lista de mapa de estilos de impressão</td>
-      <td><code class="highlighter-rouge">List&lt;Map&lt;String, Int)&gt;&gt;</code></td>
+      <td><code class="language-plaintext highlighter-rouge">List&lt;Map&lt;String, Int)&gt;&gt;</code></td>
     </tr>
     <tr>
       <td>printerListener</td>
       <td>Callback de impressão.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.PrinterListener</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cielo.sdk.order.PrinterListener</code></td>
     </tr>
   </tbody>
 </table>
 
 <h3 id="impressão-de-imagem">Impressão de imagem</h3>
 
-<p>Para imprimir imagens utilize o método <code class="highlighter-rouge">printImage()</code> do PrinterManager. 
-O método recebe como parâmetro o <code class="highlighter-rouge">bitmap</code> a ser impresso, um mapa de estilos de impressão e um listener para tratar o retorno da impressão.</p>
+<p>Para imprimir imagens utilize o método <code class="language-plaintext highlighter-rouge">printImage()</code> do PrinterManager. 
+O método recebe como parâmetro o <code class="language-plaintext highlighter-rouge">bitmap</code> a ser impresso, um mapa de estilos de impressão e um listener para tratar o retorno da impressão.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Bitmap</span> <span class="n">bitmap</span> <span class="o">=</span> <span class="nc">BitmapFactory</span><span class="o">.</span><span class="na">decodeResource</span><span class="o">(</span><span class="n">getResources</span><span class="o">(),</span> <span class="no">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">cielo</span><span class="o">);</span>
 <span class="n">printerManager</span><span class="o">.</span><span class="na">printImage</span><span class="o">(</span><span class="n">bitmap</span><span class="o">,</span> <span class="n">alignCenter</span><span class="o">,</span> <span class="n">printerListener</span><span class="o">);</span>
@@ -1898,17 +1883,17 @@ O método recebe como parâmetro o <code class="highlighter-rouge">bitmap</code>
     <tr>
       <td>bitmap</td>
       <td>Imagem a ser impressa.</td>
-      <td><code class="highlighter-rouge">Bitmap</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Bitmap</code></td>
     </tr>
     <tr>
       <td>style</td>
       <td>Mapa de estilos de impressão</td>
-      <td><code class="highlighter-rouge">Map&lt;String, Int&gt;</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Map&lt;String, Int&gt;</code></td>
     </tr>
     <tr>
       <td>printerListener</td>
       <td>Callback de impressão.</td>
-      <td><code class="highlighter-rouge">cielo.sdk.order.PrinterListener</code></td>
+      <td><code class="language-plaintext highlighter-rouge">cielo.sdk.order.PrinterListener</code></td>
     </tr>
   </tbody>
 </table>
@@ -2477,7 +2462,7 @@ Ex.: Crédito, Débito, etc.</p>
 
 <p>Exemplo de requisição:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
     "number": "0992f1d5cee540d9a9648f4d6a9e4aa6",
     "reference": "PEDIDO #1234",
     "status": "DRAFT",
@@ -2537,7 +2522,7 @@ Ex.: Crédito, Débito, etc.</p>
 
 <p>Exemplo de resposta:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
     "id": "2e1d7b07-dcee-4a09-8d09-3bb02d94169d"
 }
 </code></pre></div></div>
@@ -2602,7 +2587,7 @@ Ex.: Crédito, Débito, etc.</p>
 
 <p>Exemplo de resposta:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
     {
     "id": "b4d8a7dc-4250-48a3-bf18-d560d4508368",
     "number": "0992f1d5-cee5-40d9-a964-8f4d6a9e4aa6",
@@ -2755,7 +2740,7 @@ Ex.: Crédito, Débito, etc.</p>
 
 <p>Exemplo de resposta:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
     "id": "b4d8a7dc-4250-48a3-bf18-d560d4508368",
     "number": "0992f1d5-cee5-40d9-a964-8f4d6a9e4aa6",
     "reference": "LOJA SUCO #1",
@@ -2807,7 +2792,7 @@ Ex.: Crédito, Débito, etc.</p>
 
 <p>Na consulta de pedidos, é possível informar os parâmetro acima citados, para identificar as ordens criadas conforme mostrado no exemplo abaixo:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.cielo.com.br/order-management/v1/orders/?reference=EXEMPLO_DE_REFERENCE
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.cielo.com.br/order-management/v1/orders/?reference=EXEMPLO_DE_REFERENCE
 </code></pre></div></div>
 
 <h4 id="put--alterar-status-de-um-pedido">PUT- Alterar status de um pedido</h4>
@@ -2883,7 +2868,7 @@ Ex.: Crédito, Débito, etc.</p>
 
 <p>Exemplo de resposta:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>N/A
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>N/A
 </code></pre></div></div>
 
 <p>O retorno 200 dessa operação representa sucesso na requisição.</p>
@@ -2950,7 +2935,7 @@ Ex.: Crédito, Débito, etc.</p>
 
 <p>Exemplo de resposta:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>N/A
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>N/A
 </code></pre></div></div>
 
 <p>O retorno 200 dessa operação representa sucesso na requisição.</p>
@@ -2990,7 +2975,7 @@ Ex.: Crédito, Débito, etc.</p>
 
 <p>Exemplo de requisição:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
     "sku": "ede8f84a8b8645cb8e576a593c25c6ed",
     "name": "produto 1"
     "unit_price": 500,
@@ -3022,7 +3007,7 @@ Ex.: Crédito, Débito, etc.</p>
 
 <p>Exemplo de resposta:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>N/A
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>N/A
 </code></pre></div></div>
 
 <p>O retorno 200 dessa operação representa sucesso na requisição.</p>
@@ -3087,7 +3072,7 @@ Ex.: Crédito, Débito, etc.</p>
 
 <p>Exemplo de resposta:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[{
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[{
         "id": 1,
         "sku": "ede8f84a8b8645cb8e576a593c25c6ed",
         "name": "produto 1"
@@ -3152,7 +3137,7 @@ Ex.: Crédito, Débito, etc.</p>
 /items/8484df74-eca6-4850-8e4c-35653af0bd31</p>
 </blockquote>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
     "sku": "ede8f84a8b8645cb8e576a593c25c6ed",
     "unit_price": 500,
     "quantity": 2,
@@ -3292,7 +3277,7 @@ Ex.: Crédito, Débito, etc.</p>
   <p><strong>POST</strong> https://api.cielo.com.br/order-management/v1/orders/a9398720-9f78-4fa4-a5d4-ba54ba8009e7/transactions</p>
 </blockquote>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
   "id": "442bbdbe-41c8-4e22-83ee-e1a849ed3cb5",
   "external_id": "0b37f0d8-017a-4b11-91b9-ec1bb3e8fed3",
   "status": "CONFIRMED",
@@ -3334,7 +3319,7 @@ Ex.: Crédito, Débito, etc.</p>
   </tbody>
 </table>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
 id: "00219dd0-1c13-46da-91e5-1c313f0d2e83"
 }
 </code></pre></div></div>
@@ -3404,7 +3389,7 @@ Em ambiente de produção, uma vez que um pagamento for realizado na Cielo LIO a
 
 <p>Exemplo de resposta:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
 {
   "id": "442bbdbe-41c8-4e22-83ee-e1a849ed3cb5",
   "external_id": "0b37f0d8-017a-4b11-91b9-ec1bb3e8fed3",
@@ -3494,7 +3479,7 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 
 <p>Exemplo de resposta:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
   {
     "id": "46019c39-989e-46e9-aa7d-d8e9414396b4",
     "external_id": "95185.99407021694",
@@ -3993,7 +3978,7 @@ Ao clicar nela, aparecerá um QR Code. Nesse momento, basta abrir o aplicativo T
 
 <p>Exemplo de resposta:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
     "app": {
       "name": "string",
       "package_name": "string"
