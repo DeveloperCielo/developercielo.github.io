@@ -857,7 +857,7 @@ When a credit amount is being offset against a debit amount, both will be sent i
 |147|Issued installment not enabled|
 |150|Non-Financial Establishment|
 
-Table IX - Entry Mode
+### Table IX - Entry Mode
 
 |Code|Description|
 |---|---|
@@ -873,3 +873,52 @@ Table IX - Entry Mode
 |90|Track|
 |91|Contactless imitating stripe|
 |95|Offline chip|
+
+### Table X - Group Of Cards
+
+|Code|Description|
+|---|---|
+|00|Service not assigned|
+|01|Card issued in Brazil|
+|02|Card issued abroad|
+|03|MDR by card type - Initial|
+|04|MDR by card type - Intermediary|
+|05|MDR by card type - Higher|
+
+### Table XI - Card Type
+
+|Code|Description|
+|---|---|
+|00|Service not assigned|
+|01|Visa Classic|
+|02|Visa Empresarial|
+|03|Visa Gold|
+|04|Visa Platinum|
+|05|Visa Infinite|
+|06|Visa Corporate|
+|07|Visa Electron|
+|08|Visa Compras|
+|09|Master Platinum|
+|10|Master Standard|
+|11|Master Gold|
+|12|Master Pré-Pago|
+|13|Master Black|
+|14|Master Corporativo|
+|15|Master Cartão Viagem|
+|16|Master Cartão Benefício|
+|17|Master World|
+|18|Master Agro|
+|19|Elo Bndes|
+|20|Elo Classic|
+|21|Elo Empresarial|
+|22|Elo Insumos|
+|23|Elo Corporativo|
+|24|Elo Mais|
+|25|Elo Grafite|
+|26|Elo Nanquim|
+|27|Elo Pré Pagos Geral / Gift Card|
+|28|Elo Vale Cultura|
+|29|Elo Nacional PJ Empresarial|
+|30|Elo Compras|
+|31|Elo Viagem|
+|32|Elo Premiação Inc de Vendas PJ|
