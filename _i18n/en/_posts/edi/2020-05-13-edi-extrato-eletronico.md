@@ -802,3 +802,74 @@ When a credit amount is being offset against a debit amount, both will be sent i
 |08|Mobile|
 |09|Online electronic purse|
 |99|Not identified|
+
+### Table VIII - Reason For Decline
+
+|Code|Description|
+|---|---|
+|002|Invalid Card|
+|023|Other Errors|
+|024|Invalid card type|
+|031|Withdrawal transaction using an Electron card without funds|
+|039|Invalid issuing bank|
+|044|Invalid transaction date|
+|045|Invalid authorization code|
+|055|Invalid number of installments|
+|056|Transaction financed for unauthorized merchant|
+|057|Card listed in alert bulletin|
+|061|Invalid card number|
+|066|Unauthorized transaction|
+|067|Unauthorized transaction|
+|069|Unauthorized transaction|
+|070|Unauthorized transaction|
+|071|Unauthorized transaction|
+|072|Unauthorized transaction|
+|073|Invalid transaction|
+|074|Invalid transaction amount|
+|075|Invalid card number|
+|077|Unauthorized transaction|
+|078|Unauthorized transaction|
+|079|Unauthorized transaction|
+|080|Unauthorized transaction|
+|081|Expired card|
+|082|Unauthorized transaction|
+|083|Unauthorized transaction 084 Unauthorized transaction 086 Unauthorized transaction|
+|091|Unauthorized transaction|
+|092|Expired card|
+|093|Imbalance in the installment plan|
+|094|Installment transaction made for a card issued abroad|
+|097|Installment amount below minimum|
+|099|Invalid issuing bank|
+|100|Unauthorized transaction|
+|101|Double transaction|
+|102|Double transaction|
+|124|BIN not registered|
+|126|Invalid withdrawal transaction using an Electron card|
+|128|Invalid withdrawal transaction using an Electron card|
+|129|Invalid withdrawal transaction using an Electron card|
+|130|Invalid withdrawal transaction using an Electron card|
+|133|Invalid withdrawal transaction using an Electron card|
+|134|Invalid withdrawal transaction using an Electron card|
+|140|Non-ecommerce establishment|
+|141|Travel card - Invalid transaction|
+|143|Sale in dollar invalid|
+|145|Merchant invalid for distribution|
+|147|Issued installment not enabled|
+|150|Non-Financial Establishment|
+
+Table IX - Entry Mode
+
+|Code|Description|
+|---|---|
+|00|Manual re-entry|
+|01|Typed|
+|02|Magnetic track|
+|03|Bar code|
+|04|OCR (Optical Character Recognition)|
+|05|Online chip|
+|06|Track|
+|07|Contactless|
+|81|Typed|
+|90|Track|
+|91|Contactless imitating stripe|
+|95|Offline chip|
