@@ -972,3 +972,29 @@ In case of loss of the file or not receiving, the Cielo will make available in t
 |2|7 variable digits. They identify the changes made in the sales summary.|
 |3|4 fixed digits that identify the detailed sales in an sales summary, maintaining its history at Cielo.|
 |4|3 variable digits. They identify the changes made in the detailed sales.|
+
+**Merchant Installment Transaction - Period:** in the sales file with the option for future installments, all installments will be sent with the original presentation date. However, the payment file will display the clearance date of the respective installment. The payment date of all installments is calculated based on the date on which the first installment was submitted, and its logic differs for each card brand, as shown below: 
+
+VISA, ELO, DINERS and other brands: the installments will be cleared monthly on the same day as the 1st installment, regardless of whether or not it is a business day. In this way, a sale in four installments submitted on 01/10/2015 will have the following clearance plan (payment term: 30 days):
+
+|Parts|Date of Submission (MM/DD/YYYY)|Deposit Date (portion release)|Payment Date|
+|---|---|---|---|
+|01/04|01/10/2015|01/10/2015|02/09/2015|
+|02/04|01/10/2015|02/10/2015|03/12/2015|
+|03/04|01/10/2015|03/10/2015|04/09/2015|
+|04/04|01/10/2015|04/10/2015|05/11/2015|
+
+The only exception to the rule above occurs whenever a date does not exist in the month in which the installment is cleared. For example: a sale whose 1st installment was presented on January 31, 2015. Since February 31 does not exist, the installment for this month will be submitted on the last day of the month; that is, on February 28, 2015.
+
+MASTERCARD: the date of submission of the 1st installment will be used as the reference date for clearance of all installments in the plan; however, the date of the future installments will always fall 30 days after the submission of the first installment, a logic that will be maintained until the end of the plan. In the example of the sale submitted on January 10, 2014 used previously, notice that the installments are cleared 30, 60, and 90 days after submission of the first installment (payment term: 30 days):
+
+|Parts|Date of Submission (MM/DD/YYYY)|Deposit Date (portion release)|Payment Date|
+|---|---|---|---|
+|01/04|01/10/2015|01/10/2015|02/09/2015|
+|02/04|01/10/2015|02/09/2015|03/11/2015| 
+|03/04|01/10/2015|03/11/2015|04/10/2015| 
+|04/04|01/10/2015|04/10/2015|05/11/2015|
+
+***Declined Transaction:*** it occurs whenever the client or the sale does not match the attributes required for the proper processing and scheduling of payment data.
+***Resale:*** it occurs whenever a change is made to the payment plan of an installment transaction, whether in relation to the number of installments or to the total amount of the transaction.
+***Capture Solution:*** device and/or processing software (POS, PDV, E-commerce, mobile payment, EDI, etc.) that connects to the Cielo network to authorize and capture transactions.
