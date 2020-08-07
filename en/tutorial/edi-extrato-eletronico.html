@@ -4044,9 +4044,47 @@ Pursuant to the security rules, all records containing a card number will show i
   </tbody>
 </table>
 
-<p><strong><em>Declined Transaction:</em></strong> it occurs whenever the client or the sale does not match the attributes required for the proper processing and scheduling of payment data.
-<strong><em>Resale:</em></strong> it occurs whenever a change is made to the payment plan of an installment transaction, whether in relation to the number of installments or to the total amount of the transaction.
-<strong><em>Capture Solution:</em></strong> device and/or processing software (POS, PDV, E-commerce, mobile payment, EDI, etc.) that connects to the Cielo network to authorize and capture transactions.</p>
+<p><strong>Declined Transaction:</strong> it occurs whenever the client or the sale does not match the attributes required for the proper processing and scheduling of payment data.
+<strong>Resale:</strong> it occurs whenever a change is made to the payment plan of an installment transaction, whether in relation to the number of installments or to the total amount of the transaction.
+<strong>Capture Solution:</strong> device and/or processing software (POS, PDV, E-commerce, mobile payment, EDI, etc.) that connects to the Cielo network to authorize and capture transactions.</p>
+
+<p><strong>Sales Summary:</strong> identifies a sales group on a certain date. It has 7 positions and will be formatted as follows.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Digit</td>
+      <td>Description</td>
+      <td>Data Editing</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Product type</td>
+      <td>0 - at sight credit<br /> 3 - installment transaction made by issuer bank<br /> 4 - merchant installment transaction<br /> 5 - debit card<br /> 6 - post-dated electron</td>
+    </tr>
+    <tr>
+      <td>2 and 3</td>
+      <td>Year in which the transaction was made</td>
+      <td>YY</td>
+    </tr>
+    <tr>
+      <td>4 and 5</td>
+      <td>Month in which the transaction was made</td>
+      <td>MM</td>
+    </tr>
+    <tr>
+      <td>6 and 7</td>
+      <td>Day on which the transaction was made</td>
+      <td>DD</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Remaining Balance:</strong> it comprises all releases to receive from Cielo. They should be considered Cielo payments not made in the past due to refund and chargeback.</p>
+
+<p><strong>Types of registration:</strong> with registration by the Commercial Group, which uses the CNPJ root, all new merchants from the root are automatically included in the electronic statement, avoiding the loss of information.</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/niveis_extrato_eletronico.png" alt="Electronic Extract Levels" /></p>
 
 </div>
 
