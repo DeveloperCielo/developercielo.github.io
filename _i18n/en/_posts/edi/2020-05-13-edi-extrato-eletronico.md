@@ -995,6 +995,20 @@ MASTERCARD: the date of submission of the 1st installment will be used as the re
 |03/04|01/10/2015|03/11/2015|04/10/2015| 
 |04/04|01/10/2015|04/10/2015|05/11/2015|
 
-***Declined Transaction:*** it occurs whenever the client or the sale does not match the attributes required for the proper processing and scheduling of payment data.
-***Resale:*** it occurs whenever a change is made to the payment plan of an installment transaction, whether in relation to the number of installments or to the total amount of the transaction.
-***Capture Solution:*** device and/or processing software (POS, PDV, E-commerce, mobile payment, EDI, etc.) that connects to the Cielo network to authorize and capture transactions.
+**Declined Transaction:** it occurs whenever the client or the sale does not match the attributes required for the proper processing and scheduling of payment data.
+**Resale:** it occurs whenever a change is made to the payment plan of an installment transaction, whether in relation to the number of installments or to the total amount of the transaction.
+**Capture Solution:** device and/or processing software (POS, PDV, E-commerce, mobile payment, EDI, etc.) that connects to the Cielo network to authorize and capture transactions.
+
+**Sales Summary:** identifies a sales group on a certain date. It has 7 positions and will be formatted as follows.
+
+|Digit|Description|Data Editing|
+|1|Product type|0 - at sight credit<br> 3 - installment transaction made by issuer bank<br> 4 - merchant installment transaction<br> 5 - debit card<br> 6 - post-dated electron|
+|2 and 3|Year in which the transaction was made|YY|
+|4 and 5|Month in which the transaction was made|MM|
+|6 and 7|Day on which the transaction was made|DD|
+
+**Remaining Balance:** it comprises all releases to receive from Cielo. They should be considered Cielo payments not made in the past due to refund and chargeback.
+
+**Types of registration:** with registration by the Commercial Group, which uses the CNPJ root, all new merchants from the root are automatically included in the electronic statement, avoiding the loss of information.
+
+![Electronic Extract Levels](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/niveis_extrato_eletronico.png)
