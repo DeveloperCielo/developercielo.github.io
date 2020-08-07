@@ -922,3 +922,53 @@ When a credit amount is being offset against a debit amount, both will be sent i
 |30|Elo Compras|
 |31|Elo Viagem|
 |32|Elo Premiação Inc de Vendas PJ|
+
+# File Transmission and Resending
+
+In order to receive the Electronic Statement, the client must contact the EDI Service and complete the service acquisition form. The files will be made available in the Inbox daily, except for the remaining balance file, which will be sent monthly. In the absence of transactions, the file sent will contain only the and the . In the case of any inconsistency in the transmission of the file(s), the client should inform Cielo, contacting the EDI Service (edi@cielo.com.br).
+
+## File Resending
+
+In case of loss of the file or not receiving, the Cielo will make available in the Inbox the same file sent daily (backup file). The client may contact EDI Service to request resending of the file.
+
+## File Recovery
+
+* Allows for the recovery of a previous transaction, updating the status of the entries. 
+* The files will be made available separately from the daily file.
+* Recovery is not available for the Remaining Balance file (09).
+* The request can be made to EDI Service.
+
+# Financial Concepts/Glossary
+
+**Adjustment:** debit or credit entry made by Cielo in order to settle undue charges, to refund a sale, or issue a reversal to the merchant.
+
+**Change in Installment Plan:** it occurs when the cardholder requests the client to modify the original installment plan, such as the total or partial sale refund and the change in the number or amount of the installments.
+
+**Prepayment:** service offered by Cielo or Alelo to clients that wish to prepayment their credit and installment transactions.
+
+**Chain Centralized Payment:** is a group of customers with the same CNPJ root, rules locks and anticipation, bank address and the same commercial terms and commission term. A chain has only one matrix, chosen by the customer, where are registered all products and rates applied in the branches.
+
+**Assignment of Receivables:** operation concerning the assignment of receivables, conducted at the merchant bank account, only available for Bradesco.
+
+**Chargeback:** refund, made by the issuer bank, of a transaction disputed or challenged by the cardholder.
+
+**Date of Sale:** day on which the sale was made by the Cielo client. For clients that operate using e-commerce solutions, this is the date on which the cardholder made a purchase on the website and not the date on which the sale was confirmed by the Cielo client.
+
+**Date of Submission:** day on which the sale was submitted to Cielo for processing, which may be Saturdays, Sundays, or holidays. This is the reference date used in the calculation of the payment schedule and may differ from the date of sale, depending on the capture solution used.
+
+**Date of Capture:** date on which the transaction was captured in the Cielo system. For Cielo clients that operate using ecommerce solutions, this is the date on which the transaction was confirmed by the client.
+
+**Date of Submission to the Bank:** date on which the (credit or debit) payment file was submitted to the bank.
+
+**Payment Date:** date on which payment is effectively credited to the bank account, considering the payment period agreed upon. If the date calculated is not a business day, payment will be made on the next business day. Initially, once the sale is captured, the scheduled payment date is provided; however, it may be postponed if the amount is used to offset any debit concerning the sale refund, reversal, or service charges. Payment may also be made in advance, if the client conducts a prepayment operation. 
+
+**Chain of Electronic Statement:** register that allows the inclusion of all establishments controlled by the customer, regardless of the type of payment (centralized, decentralized, individual).
+
+**Exclusive Transaction Number:** it is assigned by Cielo and exclusively identifies each transaction, enabling the reconciliation of the adjustments, prepayment operations, and assignment of receivables conducted in the sales summary and in the detailed sales through this key. To this end, the reconciliation solution should only consider the fixed parts of the exclusive number, according to the following composition.
+
+|Parts|Composition|
+|---|---|
+|1|15 fixed digits that exclusively identify the sales summary, maintaining the history of maintenance actions conducted at Cielo.|
+|2|7 variable digits. They identify the changes made in the sales summary.|
+|3|4 fixed digits that identify the detailed sales in an sales summary, maintaining its history at Cielo.|
+|4|3 variable digits. They identify the changes made in the detailed sales.|
