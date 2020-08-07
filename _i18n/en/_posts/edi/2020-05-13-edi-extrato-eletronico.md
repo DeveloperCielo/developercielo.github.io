@@ -17,7 +17,15 @@ This API makes possible to register groups and maintain their registration to re
 
 # Description
 
+The Electronic Statement is a service provided by Cielo to merchants that need an automatic in the reconciliation process. Through it, information is transmitted in a standardized manner, with no manual intervention via SFG channel (sterling file gateway), enabling agile and secure traffic of information/data. The macro flow of the service is as follows:
+
 ## Benefits
+
+* Enables automated accounting and financial reconciliation 
+* Increased agility and operational efficiency
+* Integration with the sales automation
+* Security in receiving information 
+* Specialized support
 
 # Consent Flow
 
