@@ -180,6 +180,11 @@ Possible values for {error}:
 
 ### Note
 
+* All tokens (access_token and refresh_token) must be stored in a safe place.
+* The partner needs to start a new concession flow if they lose the tokens or both expire (The refresh_token expires 90 days from generation).
+* If you generate a new refresh_token it has another 90 days from the generation to expire.
+* The partner needs to start a new concession flow for each Cielo client that the partner wants to consult the data.
+
 # Environment
 
 |Environment|URL|
