@@ -59,15 +59,124 @@ https://`{partner-callback-url}`?code=`{code}`&state=`{state}`
 
 ## Step 2 - Requesting an Access Token
 
+* The partner service requests an `access_token`.
+* Cielo returns an `acess_token`, a` refresh_token` and an `expiration_time`.
+
+### Request
+
+> **POST** {cielo-api-base-url}/consent/v1/oauth/access-token
+>
+>| Key | Value |
+>|---|---|
+>| **Authorization** | Base64 (client_id do parceiro concatenado com “:” e o client_secret  codificado em base64) |
+
+```
+
+curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/access-token' \
+--header 'Basic64'
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "grant_type": "authorization_code",
+    "code": "{}"
+}'
+
+```
+
+### Response
+
+```
+
+{
+"access_token": "{access_token}",
+"refresh_token": "{refresh_token}",
+"token_type": "access_token",
+"expires_in": {expiration_time}
+}
+
+```
+
+|Property|Description|
+|---|---|
+|`access_token`|The access_token to call Cielo's APIs.|
+|`refresh_token`|When the access_token expires, the partner can request a new access_token using this refresh_token.|
+|`expiration_time`|O tempo de expiração do access_token em milisgundos.|
+
+### Observações
+
+* The authorization_code needs to be replaced with an access_token in less than 10 minutes.
+* This type of access_token is mandatory to call APIs that return sensitive customer data.
+* The partner needs to store access_token and refresh_token in a safe place.
+* When the access_token expires, the partner will no longer be able to call the APIs until they request a new acess_token using the refresh_token flow.
+* The acess_token generated in this flow will be unique per Cielo customer, as it must be approved by the customer.
+* The partner is NOT able to generate an access_token without the customer's consent.
+* The partner is NOT able to use the authorization code, received in the first step, more than once.
+
 ## Step 3 - Requesting the APIs
+
+At this point, the partner will be able to call Cielo's APIs without the need for customer approval, as this has already been granted.
+
+The only requirement to call Cielo's APIs is to send the following HTTP header:
+** Authorization: Bearer {access_token} ** In all calls to the APIs.
+
+* The access_token was obtained in the second step
 
 ### Step 3.1 - Updating an Access Token
 
+> 1. The partner calls the service `refresh_token`.
+> 2. Cielo returns a new `access_token`, a new` refresh_token` and a new `expiration_time`.
+
+The response data will be the same as in step 2 when the partner requests an acess_token, however all data returned is new and needs to be stored in place of the old ones.
+
 #### Request
+
+```
+
+curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/access-token' \
+--header 'Basic64'
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "grant_type": "refresh_token",
+    "refresh_token": "{}"
+}'
+
+```
+
+A point of attention in the request because now the partner needs to send `grant_type` as` refresh_token` and in the `refresh_token` field a valid` refresh_token` should be sent (and no longer an access_token).
 
 #### Response
 
+```
+
+{
+"access_token": "{access_token}",
+"refresh_token": "{refresh_token}",
+"token_type": "access_token",
+"expires_in": {expiration_time}
+}
+
+```
+
+|Property|Description|
+|---|---|
+|`access_token`|The access_token to call Cielo's APIs.|
+|`refresh_token`|When the access_token expires, the partner can request a new access_token using this refresh_token.|
+|`expiration_time`|O tempo de expiração do access_token em milisgundos.|
+
 ### Errors
+
+If an error occurs on the Cielo side, the customer will be redirected to the partner's call-back URL with the error parameter in the URL, for example https: // {partner-callback-url}? Error = {error}.
+
+Possible values for {error}:
+
+* **lid_request:** The request is missing some mandatory parameter, or it has an invalid parameter, or any other possibility that makes the URL incorrect.
+* **unauthorized_client:** The partner is not authorized to make a request using this method.
+* **access_denied:** The resource owner or authorization server denied the request.
+* **unsupported_response_type:** The authorization server does not support obtaining an authorization code using this method.
+* **invalid_scope:** The scope is invalid, unknown or malformed.
+* **server_error:** The authorization server encountered an unexpected condition and is unable to complete this request. (This error is necessary because it is not possible to return an HTTP status code 500 Internal Server Error via HTTP redirect)
+* **temporarily_unavailable:** The authorization server is unable to handle the request due to temporary overhead or is undergoing maintenance. (This error is necessary as it is not possible to return an HTTP Status 503 Service Unavailable to the partner via HTTP redirect)
+
+> Optionally, another parameter `error_description` can be returned with a detail of the error, just plain text.
 
 ### Note
 
