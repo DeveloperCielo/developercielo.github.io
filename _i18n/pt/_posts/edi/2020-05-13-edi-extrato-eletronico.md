@@ -240,7 +240,7 @@ Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da 
 |`mainMerchantId`|ID principal do cliente.|String|||
 |`merchants`|Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]||||
 |`merchantEMail`|Endereço de e-mail do cliente||||
-|`type`|||||
+|`type`|Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO.||||
 
 ### Response
 
@@ -705,8 +705,6 @@ Indica o final do arquivo.
 Observação: os campos reservados para a Cielo poderão ser utilizados para a inclusão de novas informações. Também poderá ser necessário incluir novos tipos de registros. Por conta disso, sugerimos que a solução de conciliação despreze os registros não relacionados nesta especificação.
 
 ## Tabelas
-
-### Tabela I - Tipos de Arquivos
  I 
 ### Tabela II - Opção de Extrato
 
