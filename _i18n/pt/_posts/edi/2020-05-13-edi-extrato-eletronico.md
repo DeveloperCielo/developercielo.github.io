@@ -705,5 +705,7 @@ Indica o final do arquivo.
 Observação: os campos reservados para a Cielo poderão ser utilizados para a inclusão de novas informações. Também poderá ser necessário incluir novos tipos de registros. Por conta disso, sugerimos que a solução de conciliação despreze os registros não relacionados nesta especificação.
 
 ## Tabelas
+
+### Tabela I - Tipos de Arquivos
  I 
 ### Tabela II - Opção de Extrato
