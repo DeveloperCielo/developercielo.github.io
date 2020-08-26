@@ -553,6 +553,527 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </tbody>
 </table>
 
+<h2 id="get-consultar-o-status-do-registro"><strong>GET</strong> Consultar o Status do Registro</h2>
+
+<p>Recupere o status de registro do EDI.</p>
+
+<h3 id="response-3">Response</h3>
+
+<blockquote>
+  <p><strong>GET</strong> /edi/registers/{registerID}</p>
+
+  <p><strong>Headers</strong></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Authorization</strong></td>
+        <td>Bearer + access_token</td>
+      </tr>
+      <tr>
+        <td><strong>registerID</strong></td>
+        <td>Valor usado para recuperar o status do registro.</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+  "legalEntityNumber": "01234567890",
+  "registerID": 12345,
+  "merchants": [
+    9999222111,
+    9999222222
+  ],
+  "status": "PROCESSING"
+}
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">legalEntityNumber</code></td>
+      <td>Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).</td>
+      <td>String</td>
+      <td>8</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">registerID</code></td>
+      <td>ID do registro. O mesmo fornecido por /edi/registers</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">merchants</code></td>
+      <td>Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista [“9999111111”, “9999111333”]</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">status</code></td>
+      <td>Status de registro. Se concluído, os arquivos serão fornecidos no dia seguinte</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="get-consulta-o-registro-do-merchantid"><strong>GET</strong> Consulta o Registro do merchantID</h2>
+
+<p>Consulte o MerchantID com base no registerID ou no mainMerchantID.</p>
+
+<h3 id="response-4">Response</h3>
+
+<blockquote>
+  <p><strong>GET</strong> /edi</p>
+
+  <p><strong>Headers</strong></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Authorization</strong></td>
+        <td>Bearer + access_token</td>
+      </tr>
+      <tr>
+        <td><strong>registerID</strong></td>
+        <td>O registerID é fornecido pela operação /edi/registers ao se registrar. Pode ser usado no lugar de mainMerchantID, se preferir (apenas um precisa ser informado).</td>
+      </tr>
+      <tr>
+        <td><strong>mainMerchantID</strong></td>
+        <td>A maneira mais comum de recuperar um registro EDI na empresa. Pode ser usado em vez de registerID, principalmente em casos de registro não realizados por /edi/registers.</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+  "legalEntityNumer": "12314314",
+  "mainMerchantId": 9999111222,
+  "registerID": 12345,
+  "merchants": [
+    9999111111,
+    9999111333
+  ],
+  "type": [
+    "SELL"
+  ],
+  "acknowledge": "COMPLETED"
+}
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">legalEntityNumber</code></td>
+      <td>Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).</td>
+      <td>String</td>
+      <td>8</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">mainMerchantId</code></td>
+      <td>ID principal do cliente.</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">registerID</code></td>
+      <td>ID do registro. O mesmo fornecido por /edi/registers</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">merchants</code></td>
+      <td>Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista [“9999111111”, “9999111333”]</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">type</code></td>
+      <td>Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="put-atualizar-o-registro-do-merchantid"><strong>PUT</strong> Atualizar o Registro do merchantID</h2>
+
+<p>Atualize o merchantID com base no registerID ou mainMerchantID.</p>
+
+<h3 id="request-3">Request</h3>
+
+<blockquote>
+  <p><strong>PUT</strong> /edi</p>
+
+  <p><strong>Headers</strong></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Authorization</strong></td>
+        <td>Bearer + access_token</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+  "registerID": "string",
+  "mainMerchantId": "9999222333",
+  "merchants": [
+    "9999222111",
+    "9999222222"
+  ],
+  "type": [
+    "SELL"
+  ]
+}
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">registerID</code></td>
+      <td>ID do registro. O mesmo fornecido por /edi/registers</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">mainMerchantId</code></td>
+      <td>ID principal do cliente.</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">merchants</code></td>
+      <td>Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista [“9999111111”, “9999111333”]</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">type</code></td>
+      <td>Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-5">Response</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+  "legalEntityNumber": "01234567890",
+  "mainMerchantId": 9999111222,
+  "registerID": 12345,
+  "merchants": [
+    9999222333,
+    9999111222
+  ],
+  "type": [
+    "SELL"
+  ]
+}
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">legalEntityNumber</code></td>
+      <td>Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).</td>
+      <td>String</td>
+      <td>8</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">mainMerchantId</code></td>
+      <td>ID principal do cliente.</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">registerID</code></td>
+      <td>ID do registro. O mesmo fornecido por /edi/registers</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">merchants</code></td>
+      <td>Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista [“9999111111”, “9999111333”]</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">type</code></td>
+      <td>Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="delete-excluir-o-registro-do-merchantid"><strong>DELETE</strong> Excluir o Registro do merchantID</h2>
+
+<p>Consulte o MerchantID com base no registerID ou no mainMerchantID.</p>
+
+<h3 id="response-6">Response</h3>
+
+<blockquote>
+  <p><strong>DELETE</strong> /edi</p>
+
+  <p><strong>Headers</strong></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Authorization</strong></td>
+        <td>Bearer + access_token</td>
+      </tr>
+      <tr>
+        <td><strong>registerID</strong></td>
+        <td>O registerID é fornecido pela operação /edi/registers ao se registrar. Pode ser usado no lugar de mainMerchantID, se preferir (apenas um precisa ser informado).</td>
+      </tr>
+      <tr>
+        <td><strong>mainMerchantID</strong></td>
+        <td>A maneira mais comum de recuperar um registro EDI na empresa. Pode ser usado em vez de registerID, principalmente em casos de registro não realizados por /edi/registers.</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+  "legalEntityNumer": "12314314",
+  "mainMerchantId": 9999111222,
+  "registerID": 12345,
+  "acknowledge": "COMPLETED"
+}
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">legalEntityNumber</code></td>
+      <td>Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).</td>
+      <td>String</td>
+      <td>8</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">mainMerchantId</code></td>
+      <td>ID principal do cliente.</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">registerID</code></td>
+      <td>ID do registro. O mesmo fornecido por /edi/registers</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">acknowledge</code></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="get-consulta-a-lista-de-filiais"><strong>GET</strong> Consulta a Lista de Filiais</h2>
+
+<p>Executa a lista de clientes abaixo do access_token informado. O filtro pode ser usado para listar apenas aqueles disponíveis ou indisponíveis. Indisponível significa que a filial já participa de outro registro. Nos serviços de registro e edição, há validação para permitir que apenas aqueles disponíveis sejam informados.</p>
+
+<h3 id="response-7">Response</h3>
+
+<blockquote>
+  <p><strong>GET</strong> /edi/merchantgroup</p>
+
+  <p><strong>Headers</strong></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td> </td>
+        <td><strong>Authorization</strong></td>
+        <td>Bearer + access_token</td>
+      </tr>
+      <tr>
+        <td><strong>registerID</strong></td>
+        <td>O registerID é fornecido pela operação /edi/registers ao se registrar. Pode ser usado no lugar de mainMerchantID, se preferir (apenas um precisa ser informado).</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td><strong>mainMerchantID</strong></td>
+        <td>A maneira mais comum de recuperar um registro EDI na empresa. Pode ser usado em vez de registerID, principalmente em casos de registro não realizados por /edi/registers.</td>
+        <td> </td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+  "legalEntityNumber": "string",
+  "branches": [
+    {
+      "merchantID": "9999111222",
+      "legalEntityNumber": "01234567890",
+      "businessName": "V",
+      "status": "UNAVAILABLE"
+    }
+  ]
+}
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">legalEntityNumber</code></td>
+      <td>Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).</td>
+      <td>String</td>
+      <td>8</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">branches</code></td>
+      <td>Lista de Filiais</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">businessName</code></td>
+      <td>Nome da empresa</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">status</code></td>
+      <td>Filial disponível ou Indisponível</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 
