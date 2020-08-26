@@ -707,12 +707,3 @@ Observação: os campos reservados para a Cielo poderão ser utilizados para a i
 ## Tabelas
  I 
 ### Tabela II - Opção de Extrato
-
-|Código|Descrição|
-|---|---| 
-|03|Vendas com Plano Parcelado|
-|04|Pagamentos|
-|06|Antecipação de Recebíveis Cielo|
-|07|Cessão de Recebíveis|
-|09|Saldo em Aberto|
-|10|Antecipação de Recebíveis Alelo|
