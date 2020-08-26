@@ -1090,3 +1090,100 @@ Quando um valor a crédito estiver em processo de compensação com um valor a d
 |30|Elo Compras                      |
 |31|Elo Viagem                       |
 |32|Elo Premiação Inc de Vendas PJ   |
+
+# Transmissão e Reenvio de arquivo
+
+Para receber o Extrato Eletrônico, é necessário que o cliente entre em contato com o Atendimento EDI e preencha o formulário de cadastro. Os arquivos serão disponibilizados na caixa postal diariamente, exceto o arquivo de saldo em aberto que será enviado mensalmente. 
+Quando não houver movimento, o arquivo será enviado somente com o `"Header"` e o `"Trailer"`.
+Caso ocorra alguma inconsistência na transmissão do(s) arquivo(s), o cliente deverá informar à Cielo, contatando o Atendimento EDI (edi@cielo.com.br
+
+## Reenvio de Arquivos
+
+Em caso de perda do arquivo ou não recebimento, a Cielo disponibilizará na caixa postal o mesmo arquivo enviado diariamente (arquivo backup). O cliente poderá contatar o Atendimento EDI para solicitar o reenvio
+
+## Recuperação de Arquivos
+
+* Permite a recuperação de um movimento anterior, atualizando o status dos lançamentos.
+* Os arquivos são disponibilizados separadamente do arquivo diário.
+* Não disponível para o Extrato de Saldo em Aberto (09).
+* A solicitação deve ser encaminhada para o Atendimento EDI.
+
+# Conceitos Financeiros/Glossário
+
+**Ajuste:** lançamento financeiro à crédito ou a débito realizado para regularizar uma cobrança indevida, cancelar uma venda ou repassar um chargeback para o cliente.
+
+**Alteração do Plano Parcelado:** ocorre quando o portador solicita ao cliente uma alteração no plano parcelado contratado no início, como cancelamento total ou parcial da venda e alteração na quantidade ou valor de parcelas.
+
+**Antecipação de Recebíveis (ARV):** serviço oferecido ao cliente afiliado à Cielo ou Alelo que deseja antecipar o recebimento de suas vendas crédito à vista e parceladas.
+
+**Cadeia de Pagamento Centralizado:** é um grupo de clientes com a mesma raiz de CNPJ, regras de travas e antecipação, domicílio bancário e as mesmas condições comerciais de comissão e prazo. Uma cadeia possui apenas uma matriz, escolhida pelo cliente, onde estão cadastrados todos os produtos e taxas aplicados nas filiais.
+
+**Cessão de Recebíveis:** operação de antecipação dos recebíveis realizada no domicílio bancário, disponível para o banco Bradesco.
+
+**Chargeback:** devolução da transação pelo banco emissor, por contestação do portador.
+
+**Data da Venda:** dia em que a venda foi realizada pelo cliente Cielo. No caso de clientes que operam com soluções ecommerce, esta é a data na qual o portador realizou a compra no site e não a data na qual foi feita a confirmação da venda pelo cliente Cielo.
+
+**Data da Apresentação:** dia em que a venda foi submetida para processamento na Cielo, podendo ser um sábado, domingo ou feriado. Essa é a data base para o cálculo da programação de pagamento e pode ser diferente da data da venda, de acordo com o tipo de solução de captura utilizado.
+
+**Data da Captura:** data em que a transação foi capturada no sistema Cielo. Para clientes Cielo que operam com soluções e-commerce, esta é a data na qual a transação foi confirmada pelo cliente.
+
+**Data do Envio ao Banco:** data em que o arquivo de pagamento (crédito ou débito) foi enviado para o banco de domicílio do cliente.
+
+**Data do Pagamento:** dia do efetivo pagamento do valor na conta-corrente do cliente, considerando o prazo de pagamento acordado. Caso a data calculada não seja dia útil, o pagamento será realizado no primeiro dia útil posterior. Inicialmente, após a captura da venda, é informada a data prevista de pagamento, que poderá ser postergada no caso do valor ser utilizado para compensar a cobrança de algum débito proveniente de cancelamento de venda, chargeback ou cobrança de serviços. O pagamento também poderá ser antecipado caso o cliente realize uma operação de antecipação. 
+
+**Matriz de Extrato:** cadastro que permite a inclusão de todos os estabelecimentos controlados pelo cliente, independente do tipo de pagamento (centralizado ou individual).
+
+**Número Único da Transação:** é atribuido pela Cielo e identifica cada transação de forma única, permitindo que a conciliação das ações de ajustes e antecipação de recebíveis realizadas tanto no RO quanto no CV sejam conciliadas por essa chave, Para isso, a solução de conciliação deverá usar somente as partes fixas do número único, seguindo esta composição.
+
+|Partes|Composição|
+|---|---|  
+|1|15 posições fixas que identificam o resumo de operações (RO) de forma única, mantendo o histórico na Cielo.|
+|2|07 posições variáveis. Identificam as alterações realizadas no RO.|
+|3|04 posições fixas que identificam o Comprovante de Venda (CV) dentro de um RO mantendo o seu histórico na Cielo.|
+|4|03 posições variáveis. Elas identificam as alterações realizadas no CV.|
+
+**Parcelado Loja Arredondamento do Valor da Parcela:** é sempre realizado na 1ª parcela e ocorre nos casos em que o resultado da divisão do valor da venda pela quantidade de parcelas for uma dízima periódica. Neste caso, a 1ª parcela será maior do que as demais.
+
+**Parcelado Loja - Prazo:** no extrato de Vendas com Plano Parcelado, todas as parcelas serão enviadas com a data de apresentação original. No entanto, no extrato de pagamentos, será demonstrada a data de liberação da respectiva parcela. O cálculo da data de pagamento de todas as parcelas tem como base a data da apresentação da 1ª parcela e possui uma lógica diferente para transações de cada uma das bandeiras, conforme abaixo:
+
+VISA, ELO, DINERS e demais bandeiras: As parcelas serão liberadas mensalmente no mesmo dia da 1ª parcela, não importando se o dia é útil ou não. Desta forma, uma venda em 04 parcelas apresentada em 10/01/2015 terá o seguinte plano de liberação (prazo de pagamento: 30 dias):
+
+|Parcela|Data da apresentação|Data de depósito (Liberação da Parcela)|Data de pagamento|
+|---|---|---|---|  
+|01/04|10/01/2015|10/01/2015|09/02/2015|
+|02/04|10/01/2015|10/02/2015|12/03/2015|
+|03/04|10/01/2015|10/03/2015|09/04/2015|
+|04/04|10/01/2015|10/04/2015|11/05/2015|
+
+A única exceção para a regra acima ocorre quando o dia não existir no mês de liberação da parcela. Exemplo: venda cuja 1ª parcela foi apresentada em 31/01/2015. Como não existe dia 31 no mês de fevereiro, a parcela deste mês será apresentada no último dia do mês, ou seja, 28/02/2015.
+
+MASTERCARD: a data de apresentação da 1ª parcela também será a data base para liberação de todas as parcelas do plano, no entanto, as parcelas futuras serão sempre 30 dias após apresentação da primeira parcela, mantendo essa lógica até a conclusão do plano. No exemplo da venda apresentada em 10/01/2015 utilizado anteriormente, notamos que as parcelas serão liberadas em 30, 60, 90 após a apresentação da primeira parcela (prazo de pagamento: 30 dias):
+
+|Parcela|Data da apresentação|Data de depósito (Liberação da Parcela)|Data de pagamento|
+|---|---|---|---| 
+|01/04|10/01/2015|10/01/2015|09/02/2015|
+|02/04|10/01/2015|09/02/2015|11/03/2015|
+|03/04|10/01/2015|11/03/2015|10/04/2015|
+|04/04|10/01/2015|10/04/2015|11/05/2015|
+
+**Rejeição de Transação:** ocorre quando o cliente ou a venda não possuem os atributos necessários para o correto processamento e agendamento do pagamento. 
+
+**Revenda:** ocorre quando existe uma alteração no plano de pagamento de uma venda parcelada, seja na quantidade de parcelas, ou no valor total da transação. 
+
+**Solução de Captura:** equipamento e/ou software de processamento de dados (POS, PDV, e-commerce, mobile payment, EDI etc.) que se conecta à rede Cielo para autorização e captura de transações.
+
+**Resumo de Operações (RO):** o número do RO identifica um agrupamento de vendas em determinada data. Tem 7 posições e será formatado conforme abaixo.
+
+|Posição|Descrição|Edição de dados|
+|---|---|---|
+|1|Tipo de produto| 0 - crédito à vista <br> 3 - parcelado emissor <br> 4 - parcelado loja <br> 5 - cartão de débito <br> 6 - parcelado cliente|
+|2 e 3| Ano que a transação foi realizada|AA|
+|4 e 5|Mês que a transação foi realizada|MM|
+|6 e 7 Dia que a transação foi realizada|DD|
+
+**Saldo em Aberto:** compreende todos os lançamentos à receber com a Cielo. Devem ser considerados os pagamentos da Cielo não realizados no passado devido à cancelamentos e contestações.
+
+**Tipos de cadastro:** com o cadastro por Grupo Comercial, que utiliza a raiz de CNPJ, todos os novos estabelecimentos da raiz são automaticamente inclusos no extrato eletrônico, evitando perdas de informações.
+
+![Níveis Extrato Eletrênico](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/niveis_extrato_eletronico.png)
