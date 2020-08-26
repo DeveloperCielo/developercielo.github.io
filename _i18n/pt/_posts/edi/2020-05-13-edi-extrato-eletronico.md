@@ -240,7 +240,7 @@ Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da 
 |`mainMerchantId`|ID principal do cliente.|String|||
 |`merchants`|Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]||||
 |`merchantEMail`|Endereço de e-mail do cliente||||
-|`type`|Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO||||
+|`type`|Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO. Para consultar os tipos de arquivos disponíveis - [Tabelas - Tipo de Arquivos](https://devcielo.zendesk.com/hc/pt-br/requests/new?ticket_form_id=360000330511)||||
 
 ### Response
 
@@ -731,11 +731,11 @@ Observação: os campos reservados para a Cielo poderão ser utilizados para a i
  I 
 |Type|Codigo Tabela I|Descrição|
 |---|---|---|
-|SELL|03|Vendas com Plano Parcelado|
-|PAYMENT|04|Pagamentos|
+|SELL|03|Vendas com Plano Parcelado                   |
+|PAYMENT|04|Pagamentos                                |
 |ANTECIPATION_CIELO|06|Antecipação de Recebíveis Cielo|
-|ASSIGNMENT|07|Cessão de Recebíveis|
-|BALANCE|09|Saldo em aberto|
+|ASSIGNMENT|07|Cessão de Recebíveis                   |
+|BALANCE|09|Saldo em aberto                           |
 |ANTECIPATION_ALELO|10|Antecipação de Recebíveis Alelo|
 
 ### Tabela III - Status do Pagamento
