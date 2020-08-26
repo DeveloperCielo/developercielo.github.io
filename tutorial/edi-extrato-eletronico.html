@@ -121,6 +121,62 @@
 
 <p>Essa API possibilita o registro de grupos e mantém seu registro para receber arquivos EDI (Electronic Data Interchange).</p>
 
+<h1 id="descrição-do-produto">Descrição do Produto</h1>
+
+<p>O Extrato Eletrônico é um produto disponibilizado pela Cielo aos clientes que necessitam de automatização no processo de conciliação. Nele, as informações são transmitidas de forma padronizada sem intervenção manual por meio do canal SFG (Sterling File Gateway), proporcionando agilidade e segurança no tráfego das informações. Ao lado, macrofluxo do serviço.</p>
+
+<h2 id="benefícios">Benefícios</h2>
+
+<ul>
+  <li>Permite a realização da conciliação contábil e financeira de forma automatizada</li>
+  <li>Maior agilidade e eficiência operacional</li>
+  <li>Integração com a automação comercial de vendas</li>
+  <li>Segurança no recebiento das informações</li>
+  <li>Atendimento Especializado</li>
+</ul>
+
+<h1 id="fluxo-de-concessão">Fluxo de Concessão</h1>
+
+<h2 id="passo-1---login">Passo 1 - Login</h2>
+
+<p>1 - O parceiro redireciona o cliente para <code class="language-plaintext highlighter-rouge">{cielo-login-url}</code>. <br />
+2 - O cliente entra com suas credenciais e clica em <code class="language-plaintext highlighter-rouge">Entrar</code>. <br />
+3 - A Cielo mostra os termos de autorização e o cliente aprova este acesso clicando em <code class="language-plaintext highlighter-rouge">Permitir Acesso</code>. <br />
+4 - A Cielo redireciona o cliente para o parceiro novamente em <code class="language-plaintext highlighter-rouge">{partner-call-back-url}</code>. <br /></p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxo1_login1.jpg" alt="Login e Concessão de Acesso" /></p>
+
+<blockquote>
+  <p>O que é cielo-login-url?</p>
+</blockquote>
+
+<p>https://<code class="language-plaintext highlighter-rouge">{base-login-url}</code>?response_type=code
+&amp;<code class="language-plaintext highlighter-rouge">client_id={client_id}</code>
+&amp;<code class="language-plaintext highlighter-rouge">redirect_uri={redirect_uri}</code>
+&amp;<code class="language-plaintext highlighter-rouge">scope={scope}</code>
+&amp;<code class="language-plaintext highlighter-rouge">state={state}</code></p>
+
+<ul>
+  <li><strong>base-login-url:</strong> URL base que muda por ambiente, serão enviadas em tempo de projeto</li>
+  <li><strong>response_type:</strong> O valor deve ser fixo “code”</li>
+  <li><strong>client_id:</strong> Identificador do cliente, será enviado pela Cielo em tempo de projeto</li>
+  <li><strong>redirect_uri:</strong> URL do parceiro para a Cielo redirecionar o usuário quando o processo de login terminar, ou se der algum erro no processo</li>
+  <li><strong>scope:</strong> Uma lista separada por vírgula das APIs que o parceiro deseja acessar, os possiveis escopos serão enviados por API.</li>
+  <li><strong>state:</strong> Um valor que o cliente deseja receber no retorno para manter o estado entre a requisição e o retorno</li>
+</ul>
+
+<blockquote>
+  <p>O que é partner-callback-url?</p>
+</blockquote>
+
+<p>https://<code class="language-plaintext highlighter-rouge">{partner-callback-url}</code>?code=<code class="language-plaintext highlighter-rouge">{code}</code>&amp;state=<code class="language-plaintext highlighter-rouge">{state}</code></p>
+
+<ul>
+  <li><strong>partner-callback-url:</strong> A URL do parceiro que será redirecionado quando o processo de login terminar.</li>
+  <li><strong>code:</strong> O authorization code gerado pela Cielo. Com esse código o parceiro vai poder trocar por um access_token para fazer chamadas em nome do cliente.</li>
+  <li><strong>state:</strong> O mesmo valor que o parceiro enviou na requisição.</li>
+</ul>
+
 </div>
 
 
