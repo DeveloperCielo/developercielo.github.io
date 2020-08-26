@@ -270,3 +270,218 @@ Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da 
 |`merchants`|Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]||||
 |`type`|Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO||||
 |`status`|Status de registro. Se concluído, os arquivos serão fornecidos no dia seguinte||||
+
+## **GET** Consultar o Status do Registro
+
+Recupere o status de registro do EDI.
+
+### Response
+
+> **GET** {{host}}/edi/registers/{registerID}
+>
+> **Headers**
+>
+>| Key | Value |
+>|---|---|
+>|**Authorization**| Bearer + access_token|
+>| **registerID** |Valor usado para recuperar o status do registro.|
+
+```
+
+{
+  "legalEntityNumber": "01234567890",
+  "registerID": 12345,
+  "merchants": [
+    9999222111,
+    9999222222
+  ],
+  "status": "PROCESSING"
+}
+
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|---|---|---|---|---|
+|`legalEntityNumber`|Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).|String|8||
+|`registerID`|ID do registro. O mesmo fornecido por /edi/registers|String|||
+|`merchants`|Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]||||
+|`status`|Status de registro. Se concluído, os arquivos serão fornecidos no dia seguinte||||
+
+## **GET** Consulta o Registro do merchantID
+
+Consulte o MerchantID com base no registerID ou no mainMerchantID.
+
+### Response
+
+> **GET** {{host}}/edi
+>
+> **Headers**
+>
+>| Key | Value |
+>|---|---|
+>|**Authorization**| Bearer + access_token|
+>| **registerID** |O registerID é fornecido pela operação /edi/registers ao se registrar. Pode ser usado no lugar de mainMerchantID, se preferir (apenas um precisa ser informado).|
+>| **mainMerchantID** |A maneira mais comum de recuperar um registro EDI na empresa. Pode ser usado em vez de registerID, principalmente em casos de registro não realizados por /edi/registers.|
+
+```
+
+{
+  "legalEntityNumer": "12314314",
+  "mainMerchantId": 9999111222,
+  "registerID": 12345,
+  "merchants": [
+    9999111111,
+    9999111333
+  ],
+  "type": [
+    "SELL"
+  ],
+  "acknowledge": "COMPLETED"
+}
+
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|---|---|---|---|---|
+|`legalEntityNumber`|Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).|String|8||
+|`mainMerchantId`|ID principal do cliente.|String|||
+|`registerID`|ID do registro. O mesmo fornecido por /edi/registers|String|||
+|`merchants`|Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]||||
+|`type`|Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO||||
+
+## **PUT** Atualizar o Registro do merchantID
+
+Atualize o merchantID com base no registerID ou mainMerchantID.
+
+### Request
+
+> **PUT** {{host}}/edi
+>
+> **Headers**
+>
+>| Key | Value |
+>|---|---|
+>|**Authorization**| Bearer + access_token|
+
+```
+
+{
+  "registerID": "string",
+  "mainMerchantId": "9999222333",
+  "merchants": [
+    "9999222111",
+    "9999222222"
+  ],
+  "type": [
+    "SELL"
+  ]
+}
+
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|---|---|---|---|---|
+|`registerID`|ID do registro. O mesmo fornecido por /edi/registers|String|||
+|`mainMerchantId`|ID principal do cliente.|String|||
+|`merchants`|Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]||||
+|`type`|Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO||||
+
+### Response
+
+```
+
+{
+  "legalEntityNumber": "01234567890",
+  "mainMerchantId": 9999111222,
+  "registerID": 12345,
+  "merchants": [
+    9999222333,
+    9999111222
+  ],
+  "type": [
+    "SELL"
+  ]
+}
+
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|---|---|---|---|---|
+|`legalEntityNumber`|Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).|String|8||
+|`mainMerchantId`|ID principal do cliente.|String|||
+|`registerID`|ID do registro. O mesmo fornecido por /edi/registers|String|||
+|`merchants`|Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]||||
+|`type`|Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO||||
+
+## **DELETE** Excluir o Registro do merchantID
+
+Consulte o MerchantID com base no registerID ou no mainMerchantID.
+
+### Response
+
+> **DELETE** {{host}}/edi
+>
+> **Headers**
+>
+>| Key | Value |
+>|---|---|
+>|**Authorization**| Bearer + access_token|
+>| **registerID** |O registerID é fornecido pela operação /edi/registers ao se registrar. Pode ser usado no lugar de mainMerchantID, se preferir (apenas um precisa ser informado).|
+>| **mainMerchantID** |A maneira mais comum de recuperar um registro EDI na empresa. Pode ser usado em vez de registerID, principalmente em casos de registro não realizados por /edi/registers.|
+
+```
+
+{
+  "legalEntityNumer": "12314314",
+  "mainMerchantId": 9999111222,
+  "registerID": 12345,
+  "acknowledge": "COMPLETED"
+}
+
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|---|---|---|---|---|
+|`legalEntityNumber`|Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).|String|8||
+|`mainMerchantId`|ID principal do cliente.|String|||
+|`registerID`|ID do registro. O mesmo fornecido por /edi/registers|String|||
+|`acknowledge`|||||
+
+## **GET** Consulta a Lista de Filiais
+
+Executa a lista de clientes abaixo do access_token informado. O filtro pode ser usado para listar apenas aqueles disponíveis ou indisponíveis. Indisponível significa que a filial já participa de outro registro. Nos serviços de registro e edição, há validação para permitir que apenas aqueles disponíveis sejam informados.
+
+### Response
+
+> **GET** {{host}}/edi/merchantgroup
+>
+> **Headers**
+>
+>| Key | Value |
+>|---|---|
+>| |**Authorization**| Bearer + access_token|
+>| **registerID** |O registerID é fornecido pela operação /edi/registers ao se registrar. Pode ser usado no lugar de mainMerchantID, se preferir (apenas um precisa ser informado).|
+>| **mainMerchantID** |A maneira mais comum de recuperar um registro EDI na empresa. Pode ser usado em vez de registerID, principalmente em casos de registro não realizados por /edi/registers.|
+
+```
+
+{
+  "legalEntityNumber": "string",
+  "branches": [
+    {
+      "merchantID": "9999111222",
+      "legalEntityNumber": "01234567890",
+      "businessName": "V",
+      "status": "UNAVAILABLE"
+    }
+  ]
+}
+
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|---|---|---|---|---|
+|`legalEntityNumber`|Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).|String|8||
+|`branches`|Lista de Filiais||||
+|`businessName`|Nome da empresa||||
+|`status`|Filial disponível ou Indisponível||||
