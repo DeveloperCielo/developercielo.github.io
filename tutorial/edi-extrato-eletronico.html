@@ -1074,6 +1074,1416 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </tbody>
 </table>
 
+<h1 id="tipos-de-extrato-eletrônico">Tipos de Extrato Eletrônico</h1>
+
+<h2 id="tabela-a---tipos-de-arquivo">Tabela A - Tipos de Arquivo</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo de Arquivo</th>
+      <th>Informação</th>
+      <th>Tipo de Registro</th>
+      <th>Objetivo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>03 Vendas com Plano Parcelado</strong></td>
+      <td>Vendas concluídas (capturadas) no dia anterior, ajustes e transações rejeitadas, com a previsão de  pagamento. Todo o plano parcelado da venda realizada no dia anterior.</td>
+      <td>0 - Header <br /> 1 - Detalhe RO (com a primeira parcela) <br /> 2 - Detalhe CV <br /> 1 - Detalhe RO (previsão da segunda parcela em diante) <br /> 9 - Trailer <br /></td>
+      <td>Conferir se todas as vendas realizadas foram recebidas pela Cielo e as previsões de pagamento.</td>
+    </tr>
+    <tr>
+      <td><strong>04 Pagamentos</strong></td>
+      <td>Valores pagos na conta-corrente no dia do envio do Extrato: detalha os ROs e ajustes compensados no dia. <br /> Transações compensadas, já antecipadas ou cedidas anteriormente e pagamentos de parcelas em aberto.</td>
+      <td>0 - Header <br /> 1 - Detalhe RO <br /> 2 - Detalhe CV <br /> 9 - Trailer <br /></td>
+      <td>Conferir origem do pagamento recebido (tipo de venda, bandeira e cliente/estabelecimento que efetuou a venda).<br />Conciliação com a conta corrente.</td>
+    </tr>
+    <tr>
+      <td><strong>06 Antecipação de Recebíveis Cielo</strong></td>
+      <td>Operação de ARV realizada pela Cielo no dia anterior ao envio do arquivo e respectivo detalhe dos ROs e CVs que foram antecipados.</td>
+      <td>0 - Header <br /> 5 - Detalhe de ARV <br /> 6 - Detalhe ROs antecipados <br /> 2 - Detalhe CV <br /> 7 - Detalhe dos débitos de ROs Antecipados <br /> 2 - Detalhe CV <br /> 9 - Trailer <br /> Obs.: Será demonstrado o registro tipo 5 para cada operação realizada.</td>
+      <td>Atualizar o fluxo de caixa, considerando os valores já recebidos através da antecipação.</td>
+    </tr>
+    <tr>
+      <td><strong>07 Cessão de Recebíveis</strong></td>
+      <td>Operação de cessão realizada no banco Bradesco no dia anterior ao envio do arquivo e respectivo detalhe dos ROs cedidos. <br /> Não é demonstrada a condição comercial negociada ou parcela cedida</td>
+      <td>0 - Header <br /> 5 - Detalhe de ARV <br /> 6 -  Detalhe ROs antecipados 9 - Trailer <br /> Obs.: Será demonstrado o registro tipo 5 para cada operação realizada.</td>
+      <td>Atualizar o fluxo de caixa, considerando os valores já recebidos através da operação de cessão.</td>
+    </tr>
+    <tr>
+      <td><strong>09 Saldo em Aberto</strong></td>
+      <td>Valores a receber com a Cielo, contemplando as transações realizadas, capturadas e processadas, vendas a débito, crédito e parceladas ainda não liquidadas no movimento fechado no mês anterior. O arquivo é disponibilizado mensalmente.</td>
+      <td>0 - Header <br /> 1 - Detalhe RO <br /> 9 - Trailer</td>
+      <td>Atualizar a previsão futura de recebimentos. Este extrato é o analítico da Carta Saldo (Carta de Circularização) encaminhado para fins de auditoria. Não deve ser utilizado para conciliação.</td>
+    </tr>
+    <tr>
+      <td><strong>10 Antecipação de Recebíveis Alelo</strong></td>
+      <td>Operação de ARV realizada pela Alelo no dia anterior ao envio do arquivo e respectivo detalhe dos ROs e CVs que foram antecipados.</td>
+      <td>0 - Header <br /> 5 - Detalhe de ARV <br /> 6 - Detalhe ROs antecipados <br /> 2 - Detalhe CV <br /> 7 - Detalhe dos débitos de ROs Antecipados <br /> 2 - Detalhe CV <br /> 9 - Trailer <br /> Obs.: Será demonstrado o registro tipo 5 para cada operação realizada.</td>
+      <td>Atualizar o fluxo de caixa, considerando os valores já recebidos através da antecipação.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="layouts-dos-tipos-de-registros">Layouts dos Tipos de Registros</h2>
+
+<h3 id="tabela-b---registro-0---header">Tabela B - Registro 0 - Header</h3>
+
+<p>Identifica o cabeçalho de cada arquivo por matriz de extrato eletrônico*</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Inicio</th>
+      <th>Fim</th>
+      <th>Tamanho</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Edição dos Dados</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Tipo de registro</td>
+      <td>Constante 0 : identifica o tipo de registro header (início do arquivo).</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>011</td>
+      <td>10</td>
+      <td>Num.</td>
+      <td>Estabelecimento Matriz Número do estabelecimento matriz de extrato eletrônico.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>019</td>
+      <td>8</td>
+      <td>Num.</td>
+      <td>Data de processamento AAAAMMDD data em que o arquivo foi gerado.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>020</td>
+      <td>027</td>
+      <td>8</td>
+      <td>Num.</td>
+      <td>Período inicial AAAAMMDD período inicial.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>028</td>
+      <td>035</td>
+      <td>8</td>
+      <td>Num.</td>
+      <td>Período final AAAAMMDD período final.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>036</td>
+      <td>042</td>
+      <td>7</td>
+      <td>Num.</td>
+      <td>Sequência Número sequencial do arquivo. Nos casos de recuperação, este dado será enviado como 9999999.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>043</td>
+      <td>047</td>
+      <td>5</td>
+      <td>Alfa.</td>
+      <td>Empresa adquirente Constante Cielo.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>048</td>
+      <td>049</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Opção de extrato Vide Tabela I.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>050</td>
+      <td>050</td>
+      <td>1</td>
+      <td>Alfa.</td>
+      <td>Transmissão Cielo.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>051</td>
+      <td>070</td>
+      <td>20</td>
+      <td>Alfanum.</td>
+      <td>Caixa Postal Caixa postal.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>071</td>
+      <td>073</td>
+      <td>3</td>
+      <td>Num.</td>
+      <td>Versão Layout Constante 013.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>074</td>
+      <td>250</td>
+      <td>177</td>
+      <td>Alfanum.</td>
+      <td>Uso Cielo Em Branco. Reservado para Cielo.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><strong>(*)</strong> cadastro que permite a inclusão de todos os estabelecimentos controlados pelo cliente, independente do tipo de pagamento (centralizado, descentralizado, individual). Todos os números de estabelecimento (número do cliente na Cielo) devem ser informados no formulário de cadastro.</li>
+</ul>
+
+<h3 id="registro-1---detalhe-do-resumo-de-operações-ro">Registro 1 - Detalhe do Resumo de Operações (RO)</h3>
+
+<p>Grupo de vendas, ajustes ou cobrança de serviços. Permite identificar a origem dos lançamentos e as ações de manutenção.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Inicio</th>
+      <th>Fim</th>
+      <th>Tamanho</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Edição dos Dados</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Tipo de registro</td>
+      <td>Constante 1 - Identifica o tipo de registro detalhe do RO.</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>011</td>
+      <td>10</td>
+      <td>Num.</td>
+      <td>Estabelecimento</td>
+      <td>Submissor Número do estabelecimento e/ou filial onde a venda foi realizada.</td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>018</td>
+      <td>7</td>
+      <td>Num.</td>
+      <td>Número do RO</td>
+      <td>Número do resumo de operação. Contêm informações referentes a um grupo de vendas realizadas em uma determinada data.</td>
+    </tr>
+    <tr>
+      <td>019</td>
+      <td>020</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Parcela</td>
+      <td>No caso de venda parcelada, será formatado com o número da parcela que está sendo liberada na data do envio do arquivo. No caso de venda à vista, será formatado com brancos.</td>
+    </tr>
+    <tr>
+      <td>021</td>
+      <td>021</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Filler</td>
+      <td><code class="language-plaintext highlighter-rouge">"/"</code> - Para vendas parceladas. <br /> <code class="language-plaintext highlighter-rouge">"a"</code> - aceleração das parcelas. <br /> <code class="language-plaintext highlighter-rouge">" "</code> - demais situações.</td>
+    </tr>
+    <tr>
+      <td>022</td>
+      <td>023</td>
+      <td>2</td>
+      <td>Alfanum.</td>
+      <td>Plano</td>
+      <td>No caso de venda parcelada, será formatado com o maior número de parcelas encontradas naquele grupo de vendas. Se o RO tiver vendas em 03, 04 ou 06 parcelas, será preenchido com 06. Se for uma aceleração de parcelas, será formatado com a maior parcela acelerada.<br /> Exemplo: (posições 019 a 023) <br /> 02A02 indica a aceleração da parcela 02 até a 02, ou seja, somente uma parcela. <br /> 03A08 indica a aceleração da parcela 03 até a parcela 08 do plano da venda, ou seja, foram aceleradas 06 parcelas. <br /> No caso de venda à vista, será formatado com brancos.<br /></td>
+    </tr>
+    <tr>
+      <td>024</td>
+      <td>025</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Tipo de Transação</td>
+      <td>Código que identifica a transação vide Tabela II.</td>
+    </tr>
+    <tr>
+      <td>026</td>
+      <td>031</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Data de apresentação</td>
+      <td>AAMMDD Data em que o RO foi transmitido para a Cielo.</td>
+    </tr>
+    <tr>
+      <td>032</td>
+      <td>037</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Data prevista de pagamento</td>
+      <td>AAMMDD Data prevista de pagamento. Na recuperação, pode ser atualizada após o processamento da transação ou ajuste.</td>
+    </tr>
+    <tr>
+      <td>038</td>
+      <td>043</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Data de envio ao banco</td>
+      <td>AAMMDD Data em que o arquivo de pagamento foi enviado ao banco. Na recuperação, pode ser atualizada após o processamento da transação ou ajuste.</td>
+    </tr>
+    <tr>
+      <td>044</td>
+      <td>044</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor bruto</td>
+      <td><code class="language-plaintext highlighter-rouge">+</code> - identifica valor a crédito. <br /> <code class="language-plaintext highlighter-rouge">-</code> - identifica valor a débito.</td>
+    </tr>
+    <tr>
+      <td>045</td>
+      <td>057</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor bruto <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Somatória dos valores de venda.</td>
+    </tr>
+    <tr>
+      <td>058</td>
+      <td>058</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal da taxa administrativa</td>
+      <td><code class="language-plaintext highlighter-rouge">+</code> - identifica valor a crédito. <br /> <code class="language-plaintext highlighter-rouge">-</code> - identifica valor a débito.</td>
+    </tr>
+    <tr>
+      <td>059</td>
+      <td>071</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor da taxa administrativa <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Valor da taxa administrativa descontada sobre as vendas.</td>
+    </tr>
+    <tr>
+      <td>072</td>
+      <td>072</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor rejeitado</td>
+      <td><code class="language-plaintext highlighter-rouge">+</code> identifica valor a crédito.<br /> <code class="language-plaintext highlighter-rouge">-</code> - identifica valor a débito.</td>
+    </tr>
+    <tr>
+      <td>073</td>
+      <td>085</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor rejeitado <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Se houver rejeição, será preenchido com a somatória das transações rejeitadas.</td>
+    </tr>
+    <tr>
+      <td>086</td>
+      <td>086</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor líquido</td>
+      <td><code class="language-plaintext highlighter-rouge">+</code> identifica o valor a crédito. <br /> <code class="language-plaintext highlighter-rouge">-</code> - identifica o valor a débito.</td>
+    </tr>
+    <tr>
+      <td>087</td>
+      <td>099</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor líquido <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Valor das vendas descontado o valor da taxa administrativa.</td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>103</td>
+      <td>4</td>
+      <td>Alfanum.</td>
+      <td>Banco</td>
+      <td>Código do banco no qual os valores foram depositados.</td>
+    </tr>
+    <tr>
+      <td>104</td>
+      <td>108</td>
+      <td>5</td>
+      <td>Alfanum.</td>
+      <td>Agência</td>
+      <td>Código da agência na qual os valores foram depositados.</td>
+    </tr>
+    <tr>
+      <td>109</td>
+      <td>122</td>
+      <td>14</td>
+      <td>Alfanum.</td>
+      <td>Conta-corrente / poupança</td>
+      <td>Conta-corrente / poupança na qual os valores foram depositados.</td>
+    </tr>
+    <tr>
+      <td>123</td>
+      <td>124</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Status do pagamento</td>
+      <td>Identifica a situação em que se encontram os créditos enviados ao banco vide Tabela III. Na recuperação, o status é atualizado de acordo com o envio e retorno de confirmação de pagamento por parte do banco.</td>
+    </tr>
+    <tr>
+      <td>125</td>
+      <td>130</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Quantidade de CVs aceitos</td>
+      <td>Quantidades de vendas aceitas no RO.</td>
+    </tr>
+    <tr>
+      <td>131</td>
+      <td>132</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Código do Produto (Desconsiderar)</td>
+      <td>A partir de 01/03/2014, o Identificador do produto passou a ser enviado nas posições 233-235 com três caracteres.</td>
+    </tr>
+    <tr>
+      <td>133</td>
+      <td>138</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Quantidades de CVs rejeitados</td>
+      <td>Quantidade de vendas rejeitadas no RO.</td>
+    </tr>
+    <tr>
+      <td>139</td>
+      <td>139</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Identificador de revenda/aceleração</td>
+      <td>Identifica as ocorrências de manutenção em transações parceladas na loja: <br /><code class="language-plaintext highlighter-rouge">R</code> - Revenda <br /><code class="language-plaintext highlighter-rouge">A</code> - Aceleração <br /> <code class="language-plaintext highlighter-rouge">""</code> - Brancos (nenhuma ocorrência).</td>
+    </tr>
+    <tr>
+      <td>140</td>
+      <td>145</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Data de captura da transação</td>
+      <td>AAMMDD - Data em que a transação foi capturada pela Cielo. Na recuperação, pode ser atualizada após o processamento da transação ou ajuste.</td>
+    </tr>
+    <tr>
+      <td>146</td>
+      <td>147</td>
+      <td>2</td>
+      <td>Alfanum.</td>
+      <td>Origem do ajuste</td>
+      <td>Identifica o tipo de ajuste vide Tabela V. Preenchido se o tipo de transação for: <br /> 02 Ajuste crédito <br /> 03 Ajuste débito <br /> 04 Ajuste aluguel</td>
+    </tr>
+    <tr>
+      <td>148</td>
+      <td>160</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor complementar</td>
+      <td>Valor do saque quando o produto for igual a 36 ou valor do Agro Electron para transações dos produtos 22 23 ou 25 apresentados na Tabela IV.</td>
+    </tr>
+    <tr>
+      <td>161</td>
+      <td>161</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Identificador de Antecipação Identificador de antecipação do RO:<br /> <code class="language-plaintext highlighter-rouge">" "</code> - Não antecipado;<br /> <code class="language-plaintext highlighter-rouge">"A"</code> - Antecipado Cielo ou Alelo;<br /> <code class="language-plaintext highlighter-rouge">C</code> - Antecipado no banco - Cessão de Recebíveis.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>162</td>
+      <td>170</td>
+      <td>9</td>
+      <td>Num.</td>
+      <td>Número da operação de Antecipação</td>
+      <td>Identifica o número da operação de Antecipação apresentada no registro tipo 5 campo 12 ao 20, associada ao RO antecipado na Cielo/Alelo ou cedido no banco.<br /> Conterá zeros, caso o RO não tenha sido antecipado.</td>
+    </tr>
+    <tr>
+      <td>171</td>
+      <td>171</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor Bruto antecipado</td>
+      <td><code class="language-plaintext highlighter-rouge">+</code> identifica valor a crédito. <code class="language-plaintext highlighter-rouge">-</code> - identifica valor a débito.</td>
+    </tr>
+    <tr>
+      <td>172</td>
+      <td>184</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor Bruto Antecipado <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Valor bruto antecipado, fornecido quando o RO for antecipado/cedido. Será preenchido com zeros quando não houver antecipação.</td>
+    </tr>
+    <tr>
+      <td>185</td>
+      <td>187</td>
+      <td>3</td>
+      <td>Num.</td>
+      <td>Bandeira</td>
+      <td>Código da Bandeira vide tabela VI.</td>
+    </tr>
+    <tr>
+      <td>188</td>
+      <td>209</td>
+      <td>22</td>
+      <td>Num.</td>
+      <td>Número Único do RO</td>
+      <td>Número Único de identificação do RO formatado da seguinte forma: <br />Primeira parte (fixa) 15 posições fixas: identifica o resumo mantendo o seu histórico na Cielo; <br /> Segunda parte (variável) 07 posições variáveis: Identifica as alterações realizadas no RO.</td>
+    </tr>
+    <tr>
+      <td>210</td>
+      <td>213</td>
+      <td>4</td>
+      <td>Num.</td>
+      <td>Taxa Administrativa <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Percentual de taxa administrativa aplicado no valor da transação.</td>
+    </tr>
+    <tr>
+      <td>214</td>
+      <td>218</td>
+      <td>5</td>
+      <td>Num.</td>
+      <td>Tarifa Administrativa <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Tarifa cobrada por transação.</td>
+    </tr>
+    <tr>
+      <td>219</td>
+      <td>222</td>
+      <td>4</td>
+      <td>Num.</td>
+      <td>Taxa de Garantia <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Percentual de desconto aplicado sobre transações Electron Pré-Datado.</td>
+    </tr>
+    <tr>
+      <td>223</td>
+      <td>224</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Meio de Captura</td>
+      <td>Vide tabela VII. Caso a venda tenha sido reprocessada, o sistema enviará o meio de captura 06: Meio de captura manual. Neste caso, desconsiderar o valor informado no número lógico do terminal.</td>
+    </tr>
+    <tr>
+      <td>225</td>
+      <td>232</td>
+      <td>8</td>
+      <td>Alfanum.</td>
+      <td>Número lógico do terminal</td>
+      <td>Número lógico do terminal onde foi efetuada a venda. Quando o meio de captura for igual a 06, desconsiderar o número lógico do terminal, pois este será um número interno da Cielo.</td>
+    </tr>
+    <tr>
+      <td>233</td>
+      <td>235</td>
+      <td>3</td>
+      <td>Num.</td>
+      <td>Código do Produto</td>
+      <td>Código que identifica o produto vide Tabela IV.</td>
+    </tr>
+    <tr>
+      <td>236</td>
+      <td>245</td>
+      <td>10</td>
+      <td>Num.</td>
+      <td>Matriz de Pagamento</td>
+      <td>Estabelecimento matriz de pagamento.</td>
+    </tr>
+    <tr>
+      <td>246</td>
+      <td>246</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Reenvio de Pagamento</td>
+      <td><code class="language-plaintext highlighter-rouge">S</code> - identifica que este resumo está sendo reenviado no extrato. Desconsiderar o pagamento enviado anteriormente. <code class="language-plaintext highlighter-rouge">N</code> - não refere-se à reenvio de pagamento.</td>
+    </tr>
+    <tr>
+      <td>247</td>
+      <td>247</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Conceito aplicado</td>
+      <td>Identifica o conceito aplicado no resumo apresentado: <br /><code class="language-plaintext highlighter-rouge">" "</code> - Antigo <br /> <code class="language-plaintext highlighter-rouge">"N"</code> - Novo</td>
+    </tr>
+    <tr>
+      <td>248</td>
+      <td>249</td>
+      <td>2</td>
+      <td>Alfanum.</td>
+      <td>Grupo de Cartões</td>
+      <td>Identifica o grupo de cartões conforme abaixo: <br /> - Brancos. Serviço não atribuído <br /> 01 - Cartão emitido no Brasil <br /> 02 - Cartão emitido no exterior <br /> 03 - MDR por Tipo de Cartão - Inicial <br /> 04 - MDR por Tipo de Cartão - Intermediário 05 - MDR por Tipo de Cartão - Superior</td>
+    </tr>
+    <tr>
+      <td>250</td>
+      <td>250</td>
+      <td>1</td>
+      <td>Alfanum.</td>
+      <td>Uso Cielo</td>
+      <td>Em Branco. Reservado para Cielo.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="registro-2---detalhe-do-comprovante-de-venda-cv">Registro 2 - Detalhe do Comprovante de Venda (CV)</h3>
+
+<p>Detalhe das vendas ou ajustes agrupados em um RO.
+Conforme regras de segurança, todos os registros que possuírem número de cartão apresentarão o número truncado.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Tipo de registro</td>
+      <td>Constante <code class="language-plaintext highlighter-rouge">"2"</code> identifica o tipo de registro de detalhe do Comprovante de Venda (CV).</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>011</td>
+      <td>10</td>
+      <td>Num.</td>
+      <td>Estabelecimento Submissor</td>
+      <td>Número do estabelecimento e/ou filial onde a venda foi realizada.</td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>018</td>
+      <td>7</td>
+      <td>Num.</td>
+      <td>Número do RO</td>
+      <td>Número do resumo de operação. Contêm informações referentes a um grupo de vendas realizadas em uma determinada data.</td>
+    </tr>
+    <tr>
+      <td>019</td>
+      <td>037</td>
+      <td>19</td>
+      <td>Alfanum.</td>
+      <td>Número do cartão truncado</td>
+      <td>Número do cartão truncado: número do cartão que efetuou a compra com número truncado. Conterá zeros para compras via mobile payment ou comércio eletrônico, sendo para o último opcional.</td>
+    </tr>
+    <tr>
+      <td>038</td>
+      <td>045</td>
+      <td>8</td>
+      <td>Num.</td>
+      <td>Data da venda/ajuste</td>
+      <td>AAAAMMDD Data em que a venda ou o ajuste foi realizado.</td>
+    </tr>
+    <tr>
+      <td>046</td>
+      <td>046</td>
+      <td>1</td>
+      <td>Alfa.</td>
+      <td>Sinal do valor da compra ou valor da parcela</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor a crédito. <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor a débito.</td>
+    </tr>
+    <tr>
+      <td>047</td>
+      <td>059</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor da compra ou valor da parcela <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Valor da compra ou da parcela que foi liberada, no caso de venda parcelada na loja.</td>
+    </tr>
+    <tr>
+      <td>060</td>
+      <td>061</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Parcela</td>
+      <td>No caso de venda parcelada, será formatado com o número da parcela que está sendo liberada. No caso de venda à vista, será formatado com zeros.</td>
+    </tr>
+    <tr>
+      <td>062</td>
+      <td>063</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Total de parcelas</td>
+      <td>Número total de parcelas da venda. No caso de venda à vista, será formatado com zeros.</td>
+    </tr>
+    <tr>
+      <td>064</td>
+      <td>066</td>
+      <td>3</td>
+      <td>Num.</td>
+      <td>Motivo da rejeição</td>
+      <td>Vide Tabela VIII, caso não possua rejeição o campo é formatado em branco.</td>
+    </tr>
+    <tr>
+      <td>067</td>
+      <td>072</td>
+      <td>6</td>
+      <td>Alfanum.</td>
+      <td>Código de autorização</td>
+      <td>Código de autorização da transação. Este número não é único e pode se repetir. Para efeito de conciliação deverá ser combinado com outras chaves.</td>
+    </tr>
+    <tr>
+      <td>073</td>
+      <td>092</td>
+      <td>20</td>
+      <td>Alfanum.</td>
+      <td>TID</td>
+      <td>Identificação da transação realizada no comércio eletrônico</td>
+    </tr>
+    <tr>
+      <td>093</td>
+      <td>098</td>
+      <td>6</td>
+      <td>Alfanum.</td>
+      <td>NSU/DOC</td>
+      <td>Número sequencial, também conhecido como DOC (número do documento), que identifica a transação no dia em que ela foi realizada. Este número não é único e pode se repetir. Caso a venda tenha sido reprocessada, o NSU pode ser alterado.</td>
+    </tr>
+    <tr>
+      <td>099</td>
+      <td>111</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor Complementar <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Valor da transação de Saque com cartão de Débito ou Agro Electron de acordo com indicador de produto do RO.</td>
+    </tr>
+    <tr>
+      <td>112</td>
+      <td>113</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Dig Cartão</td>
+      <td>Número de dígitos do cartão.</td>
+    </tr>
+    <tr>
+      <td>114</td>
+      <td>126</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor total da venda</td>
+      <td>Valor total da venda no caso de Parcelado Loja.</td>
+    </tr>
+    <tr>
+      <td>127</td>
+      <td>139</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor da próxima parcela</td>
+      <td>Valor da próxima parcela no caso de Parcelado Loja.</td>
+    </tr>
+    <tr>
+      <td>140</td>
+      <td>148</td>
+      <td>9</td>
+      <td>Alfanum.</td>
+      <td>Número da Nota Fiscal</td>
+      <td>Número da nota fiscal para estabelecimentos que capturam esta informação na máquina. Quando não disponível será formatado com zeros.</td>
+    </tr>
+    <tr>
+      <td>149</td>
+      <td>150</td>
+      <td>2</td>
+      <td>Alfanum.</td>
+      <td>Tipo de Cartão</td>
+      <td>Código do tipo de cartão vide tabela XI.</td>
+    </tr>
+    <tr>
+      <td>151</td>
+      <td>152</td>
+      <td>2</td>
+      <td>Alfanum.</td>
+      <td>Grupo de Cartões</td>
+      <td>Código do grupo de cartões vide tabela X.</td>
+    </tr>
+    <tr>
+      <td>153</td>
+      <td>160</td>
+      <td>8</td>
+      <td>Alfanum.</td>
+      <td>Número lógico do terminal</td>
+      <td>Número lógico do terminal onde foi efetuada a venda. Quando o Meio de Captura for 06, desconsiderar esta informação.</td>
+    </tr>
+    <tr>
+      <td>161</td>
+      <td>162</td>
+      <td>2</td>
+      <td>Alfa</td>
+      <td>Identificador de taxa de embarque ou valor de entrada</td>
+      <td>Identificação da transação referente à taxa de embarque ou valor de entrada: <br /> TX - Taxa de embarque; <br /> VE - Valor da entrada; <br /> Brancos - para demais tipos de transação.</td>
+    </tr>
+    <tr>
+      <td>163</td>
+      <td>182</td>
+      <td>20</td>
+      <td>Alfanum.</td>
+      <td>Referência/código do pedido</td>
+      <td>Referência ou código do pedido informado em uma transação de comércio eletrônico. <br /> Quando não disponível, será formatado com brancos.</td>
+    </tr>
+    <tr>
+      <td>183</td>
+      <td>188</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Hora da transação</td>
+      <td>Hora da transação apresentada no formado HHMMSS. <br /> Essa informação será gerada somente nos registros de venda do arquivo de venda com CV original. <br /> Nos demais casos, o campo será formatado com zeros.</td>
+    </tr>
+    <tr>
+      <td>189</td>
+      <td>217</td>
+      <td>29</td>
+      <td>Num.</td>
+      <td>Número único da transação</td>
+      <td>Número Único que identifica cada transação.</td>
+    </tr>
+    <tr>
+      <td>218</td>
+      <td>218</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Indicador Cielo Promo</td>
+      <td>Identificador do Produto Cielo Promo = “S”. <br /> Identifica que a venda participou de campanha na Plataforma Promocional. <br /> Caso contrário, será formatado com brancos.</td>
+    </tr>
+    <tr>
+      <td>219</td>
+      <td>220</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Modo de Entrada do Cartão</td>
+      <td>Identifica o modo de entrada do cartão. Vide Tabela IX.</td>
+    </tr>
+    <tr>
+      <td>221</td>
+      <td>235</td>
+      <td>15</td>
+      <td>Alfanum.</td>
+      <td>Código da Venda</td>
+      <td>dentifica o código da venda. (somente conceito novo).</td>
+    </tr>
+    <tr>
+      <td>236</td>
+      <td>250</td>
+      <td>15</td>
+      <td>Alfanum.</td>
+      <td>Código Interno do Ajuste</td>
+      <td>Identifica o código de agrupamento dos ajustes. (somente conceito novo).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="registro-5---detalhe-da-operação-de-antecipação-de-recebíveis">Registro 5 - Detalhe da Operação de Antecipação de Recebíveis</h3>
+
+<p>Apresenta a operação de antecipação realizada na Cielo / Alelo ou de cessão de recebíveis (Banco Bradesco) realizada no dia anterior à
+geração do arquivo.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Tipo de registro</td>
+      <td>Constante <code class="language-plaintext highlighter-rouge">"5"</code> identifica o tipo de registro que apresenta as informações de uma operação de antecipação.</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>011</td>
+      <td>10</td>
+      <td>Num.</td>
+      <td>Estabelecimento de pagamento ou submissão</td>
+      <td>Número do estabelecimento.</td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>020</td>
+      <td>9</td>
+      <td>Num.</td>
+      <td>Número da operação de Antecipação</td>
+      <td>Número da operação de Antecipação, também apresentado no registro tipo 1 na data de liquidação do RO.</td>
+    </tr>
+    <tr>
+      <td>021</td>
+      <td>028</td>
+      <td>8</td>
+      <td>Num.</td>
+      <td>Data de crédito da operação</td>
+      <td>AAAAMMDD Data de pagamento da operação.</td>
+    </tr>
+    <tr>
+      <td>029</td>
+      <td>029</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor bruto da antecipação à vista.</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo.  <br /> <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>030</td>
+      <td>042</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor bruto da antecipação à vista</td>
+      <td>Valor bruto da antecipação de agenda à vista.  <br /> O valor bruto da antecipação corresponde à soma dos valores lîquidos originais dos ROs antecipados dessa agenda.</td>
+    </tr>
+    <tr>
+      <td>043</td>
+      <td>043</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor bruto da antecipação parcelado.</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo.  <br /> <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>044</td>
+      <td>056</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor bruto da antecipação parcelado</td>
+      <td>Valor bruto da antecipação da agenda do parcelado. <br /> O valor da antecipação corresponde à soma dos valores líquidos originais dos ROs antecipados dessa agenda.</td>
+    </tr>
+    <tr>
+      <td>057</td>
+      <td>057</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor bruto da antecipação Eléctron Pré-Datado</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <br /><code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>058</td>
+      <td>070</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor bruto da antecipação Eléctron Pré-Datado.</td>
+      <td>Valor bruto da antecipação da agenda do Electron Pré-Datado. <br /> O valor bruto da antecipação corresponde à soma dos valores líquidos originais dos ROs antecipados dessa agenda.</td>
+    </tr>
+    <tr>
+      <td>071</td>
+      <td>071</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor bruto da antecipação</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo.<br /> <code class="language-plaintext highlighter-rouge">"-"</code>  - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>072</td>
+      <td>084</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor bruto da antecipação</td>
+      <td>O valor bruto da antecipação corresponde à soma dos valores líquidos originais dos ROs antecipados.</td>
+    </tr>
+    <tr>
+      <td>085</td>
+      <td>085</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor líquido da antecipação à vista</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <br /> <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>086</td>
+      <td>098</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor líquido da antecipação à vista</td>
+      <td>Valor líquido da antecipação da agenda à vista.</td>
+    </tr>
+    <tr>
+      <td>099</td>
+      <td>099</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor líquido da antecipação parcelado</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <br /> <code class="language-plaintext highlighter-rouge">"-"</code> - - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>112</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor líquido da antecipação parcelado</td>
+      <td>Valor líquido da antecipação da agenda do parcelado.</td>
+    </tr>
+    <tr>
+      <td>113</td>
+      <td>113</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor líquido da antecipação PréDatado</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <br /> <code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>114</td>
+      <td>126</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor líquido da antecipação Pré-Datado</td>
+      <td>Valor líquido da antecipação da agenda do Electron Pré-Datado.</td>
+    </tr>
+    <tr>
+      <td>127</td>
+      <td>127</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor líquido da antecipação</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <br /> <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>128</td>
+      <td>140</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor líquido da antecipação</td>
+      <td>Valor líquido da antecipação das agendas à vista, parcelado e Electron Pré-Datado.</td>
+    </tr>
+    <tr>
+      <td>141</td>
+      <td>145</td>
+      <td>5</td>
+      <td>Num.</td>
+      <td>Taxa de desconto da antecipação <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Taxa de desconto comercial da antecipação.</td>
+    </tr>
+    <tr>
+      <td>146</td>
+      <td>149</td>
+      <td>4</td>
+      <td>Alfanum.</td>
+      <td>Banco</td>
+      <td>Código do banco no qual os valores foram depositados.</td>
+    </tr>
+    <tr>
+      <td>150</td>
+      <td>154</td>
+      <td>5</td>
+      <td>Alfanum.</td>
+      <td>Agência</td>
+      <td>Código da agência na qual os valores foram depositados.</td>
+    </tr>
+    <tr>
+      <td>155</td>
+      <td>168</td>
+      <td>14</td>
+      <td>Alfanum.</td>
+      <td>Conta-corrente / poupança</td>
+      <td>Conta-corrente / poupança na qual os valores foram depositados.</td>
+    </tr>
+    <tr>
+      <td>169</td>
+      <td>169</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor líquido da antecipação total</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>170</td>
+      <td>182</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor líquido da antecipação total</td>
+      <td>Valor líquido da antecipação total (deduzido a taxa e tarifa).</td>
+    </tr>
+    <tr>
+      <td>183</td>
+      <td>183</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor da tarifa</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>184</td>
+      <td>192</td>
+      <td>9</td>
+      <td>Num.</td>
+      <td>Tarifa</td>
+      <td>Valor da tarifa cobrada por operação. Se não houver cobrança de tarifa, o campo será preenchido em branco.</td>
+    </tr>
+    <tr>
+      <td>193</td>
+      <td>250</td>
+      <td>58</td>
+      <td>Alfanum.</td>
+      <td>Uso Cielo</td>
+      <td>Em Branco. Reservado para Cielo.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="registro-6---detalhe-dos-ros-antecipados">Registro 6 - Detalhe dos ROs Antecipados</h3>
+
+<p>Apresenta o detalhamento da operação de Antecipação demonstrando os ROs antecipados/cedidos.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Tipo de registro</td>
+      <td>Constante 6 identifica o tipo de registro que apresenta as informações de um RO que foi antecipado.</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>011</td>
+      <td>10</td>
+      <td>Num.</td>
+      <td>Estabelecimento</td>
+      <td>Submissor Número do estabelecimento e/ou filial onde a venda foi realizada.</td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>020</td>
+      <td>9</td>
+      <td>Num.</td>
+      <td>Número da operação de antecipação</td>
+      <td>Número da operação de antecipação.</td>
+    </tr>
+    <tr>
+      <td>021</td>
+      <td>028</td>
+      <td>8</td>
+      <td>Num.</td>
+      <td>Data de vencimento do RO</td>
+      <td>AAAAMMDD Data de vencimento original do RO que foi antecipado.</td>
+    </tr>
+    <tr>
+      <td>029</td>
+      <td>035</td>
+      <td>7</td>
+      <td>Num.</td>
+      <td>Número do RO antecipado</td>
+      <td>Número do RO antecipado.</td>
+    </tr>
+    <tr>
+      <td>036</td>
+      <td>037</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Parcela antecipada</td>
+      <td>Número da parcela antecipada no caso de RO parcelado, se RO de venda à vista, será formatado com zeros.</td>
+    </tr>
+    <tr>
+      <td>038</td>
+      <td>039</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Total de parcelas</td>
+      <td>Quantidade de parcelas do RO. No caso de RO de venda à vista, será formatado com zeros.</td>
+    </tr>
+    <tr>
+      <td>040</td>
+      <td>040</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor bruto original do RO</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>041</td>
+      <td>053</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor bruto original do RO <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Valor bruto original do RO.</td>
+    </tr>
+    <tr>
+      <td>054</td>
+      <td>054</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor líquido original do RO</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>055</td>
+      <td>067</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor líquido original do RO <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Valor líquido Original do RO.</td>
+    </tr>
+    <tr>
+      <td>068</td>
+      <td>068</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Sinal do valor bruto da antecipação do RO</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>069</td>
+      <td>081</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor bruto da antecipação do RO <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Valor líquido original do RO, exceto se houver débitos programados para este RO.</td>
+    </tr>
+    <tr>
+      <td>082</td>
+      <td>082</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor líquido da antecipação do RO</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>083</td>
+      <td>095</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor líquido da antecipação do RO <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Valor pago ao estabelecimento descontada a taxa de desconto comercial da antecipação.</td>
+    </tr>
+    <tr>
+      <td>096</td>
+      <td>098</td>
+      <td>3</td>
+      <td>Num.</td>
+      <td>Bandeira</td>
+      <td>Código da Bandeira vide Tabela VI.</td>
+    </tr>
+    <tr>
+      <td>099</td>
+      <td>120</td>
+      <td>22</td>
+      <td>Num.</td>
+      <td>Número Único do RO</td>
+      <td>Número Único de identificação do RO formatado da seguinte forma: <br /> Primeira parte (fixa) - 15 posições fixas: identifica o resumo mantendo o seu histórico na Cielo; <br /> Segunda parte (variável) - 07 posições variáveis: para uso da Cielo. Identifica as alterações realizadas no RO.</td>
+    </tr>
+    <tr>
+      <td>121</td>
+      <td>121</td>
+      <td>1</td>
+      <td>Alfanum.</td>
+      <td>Identificador de RO de ajuste antecipado</td>
+      <td><code class="language-plaintext highlighter-rouge">S</code> considerar ajuste antecipado. <br /> Campo preenchido somente quando os ROs de ajustes forem efetivamente antecipados. (somente conceito novo).</td>
+    </tr>
+    <tr>
+      <td>122</td>
+      <td>250</td>
+      <td>129</td>
+      <td>Alfanum.</td>
+      <td>Uso Cielo</td>
+      <td>Em Branco. Reservado para Cielo.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="registro-7---detalhe-dos-débitos-de-ros-antecipados">Registro 7 - Detalhe dos Débitos de ROs Antecipados</h3>
+
+<p>Apresenta os débitos compensados nas datas antecipadas.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Tipo de registro</td>
+      <td>Constante 7 identifica o tipo de registro que apresenta as informações de um RO que foi antecipado.</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>011</td>
+      <td>10</td>
+      <td>Num.</td>
+      <td>Estabelecimento Submissor</td>
+      <td>Número do estabelecimento e/ou filial onde a venda foi realizada.</td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>033</td>
+      <td>22</td>
+      <td>Num.</td>
+      <td>Número Único do RO original da venda</td>
+      <td>Número único do RO original da venda.</td>
+    </tr>
+    <tr>
+      <td>034</td>
+      <td>040</td>
+      <td>7</td>
+      <td>Num.</td>
+      <td>Número do RO antecipado</td>
+      <td>Número do RO da venda original.</td>
+    </tr>
+    <tr>
+      <td>041</td>
+      <td>048</td>
+      <td>8</td>
+      <td>Num.</td>
+      <td>Data de pagamento do RO antecipado</td>
+      <td>AAAAMMDD Data de Pagamento do RO Antecipado.</td>
+    </tr>
+    <tr>
+      <td>049</td>
+      <td>049</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor do RO antecipado</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo.<code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>050</td>
+      <td>062</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor do RO antecipado</td>
+      <td>Valor do RO antecipado.</td>
+    </tr>
+    <tr>
+      <td>063</td>
+      <td>084</td>
+      <td>22</td>
+      <td>Num.</td>
+      <td>Nº Único do RO da venda que originou o ajuste</td>
+      <td>Número único do RO da venda que originou o ajuste.</td>
+    </tr>
+    <tr>
+      <td>085</td>
+      <td>091</td>
+      <td>7</td>
+      <td>Num.</td>
+      <td>Nº do RO de ajuste a débito</td>
+      <td>Número do RO que apresenta os valores retidos para a operação de antecipação.</td>
+    </tr>
+    <tr>
+      <td>092</td>
+      <td>099</td>
+      <td>8</td>
+      <td>Num.</td>
+      <td>Data de pagamento do ajuste</td>
+      <td>AAAAMMDD.</td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>100</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor do ajuste a débito</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>101</td>
+      <td>113</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor do ajuste a débito</td>
+      <td>Valor total do débito.</td>
+    </tr>
+    <tr>
+      <td>114</td>
+      <td>114</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor compensado</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo.  <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>115</td>
+      <td>127</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor compensado</td>
+      <td>Valor compensado do RO antecipado.</td>
+    </tr>
+    <tr>
+      <td>128</td>
+      <td>128</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do saldo do RO antecipado</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> identifica valor positivo. <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>129</td>
+      <td>141</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor do saldo do RO antecipado</td>
+      <td>Resultado do total de débito valor compensado.</td>
+    </tr>
+    <tr>
+      <td>142</td>
+      <td>250</td>
+      <td>109</td>
+      <td>Alfanum.</td>
+      <td>Uso Cielo</td>
+      <td>Em Branco. Reservado para Cielo.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="registro-9---trailer">Registro 9 - Trailer</h3>
+
+<p>Indica o final do arquivo.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Tipo de registro</td>
+      <td>Constante Identifica o tipo de registro de detalhe trailer (final do arquivo).</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>012</td>
+      <td>11</td>
+      <td>Num.</td>
+      <td>Total de registro</td>
+      <td>Número total de registros, os quais não incluem header e trailer.</td>
+    </tr>
+    <tr>
+      <td>013</td>
+      <td>013</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal Valor Líquido da soma de todos os CVs</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+    </tr>
+    <tr>
+      <td>014</td>
+      <td>030</td>
+      <td>17</td>
+      <td>Num.</td>
+      <td>Valor Líquido da soma de todos os CVs</td>
+      <td>Valor Líquido da soma de todos os CVs.</td>
+    </tr>
+    <tr>
+      <td>031</td>
+      <td>041</td>
+      <td>11</td>
+      <td>Num.</td>
+      <td>Quantidade total de CVs</td>
+      <td>Quantidade total de CVs.</td>
+    </tr>
+    <tr>
+      <td>042</td>
+      <td>250</td>
+      <td>209</td>
+      <td>Alfanum.</td>
+      <td>Uso Cielo</td>
+      <td>Em Branco. Reservado para Cielo.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Observação: os campos reservados para a Cielo poderão ser utilizados para a inclusão de novas informações. Também poderá ser necessário incluir novos tipos de registros. Por conta disso, sugerimos que a solução de conciliação despreze os registros não relacionados nesta especificação.</p>
+
 </div>
 
 
