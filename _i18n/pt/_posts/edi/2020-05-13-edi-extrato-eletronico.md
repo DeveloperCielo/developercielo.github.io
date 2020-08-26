@@ -202,3 +202,71 @@ Possíveis valores para {error}:
 Dispobilizamos as Collections utiizadas para realizar as todas operações da API. Será necessário configurar a URL e as credenciais.
 
 [Download das Collections](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ONBOARDING_EDI_CIELO_PARA_CONCILIADORAS.postman_collection.zip)
+
+# Operações
+
+## **POST** Registrar merchantID
+
+Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da entidade.
+
+### Request
+
+> **POST** {{host}}/edi/registers
+>
+> **Headers**
+>
+>| Key | Value |
+>|---|---|
+>| **Authorization** |Bearer + access_token|
+
+```
+
+{
+  "mainMerchantId": "9999111222",
+  "merchants": [
+    "9999111111",
+    "9999111333"
+  ],
+  "merchantEMail": "customer@customer.com",
+  "type": [
+    "SELL"
+  ]
+}
+
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|---|---|---|---|---|
+|`mainMerchantId`|ID principal do cliente.|String|||
+|`merchants`|Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]||||
+|`merchantEMail`|Endereço de e-mail do cliente||||
+|`type`|Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO||||
+
+### Response
+
+```
+
+{
+  "legalEntityNumber": 1234567890,
+  "mainMerchantId": 2008983,
+  "registerID": 12345,
+  "merchants": [
+    823958412384701,
+    679809436576210
+  ],
+  "type": [
+    "SELL"
+  ],
+  "status": "PROCESSING"
+}
+
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|---|---|---|---|---|
+|`legalEntityNumber`|Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).|String|8||
+|`mainMerchantId`|ID principal do cliente.|String|||
+|`registerID`|ID do registro. O mesmo fornecido por /edi/registers|String|||
+|`merchants`|Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista ["9999111111", "9999111333"]||||
+|`type`|Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO||||
+|`status`|Status de registro. Se concluído, os arquivos serão fornecidos no dia seguinte||||
