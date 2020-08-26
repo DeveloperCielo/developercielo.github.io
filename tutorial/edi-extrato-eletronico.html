@@ -177,6 +177,221 @@
   <li><strong>state:</strong> O mesmo valor que o parceiro enviou na requisição.</li>
 </ul>
 
+<h2 id="passo-2--requisitando-um-access-token">Passo 2 – Requisitando um Access Token</h2>
+
+<ul>
+  <li>O serviço do parceiro solicita um <code class="language-plaintext highlighter-rouge">access_token</code>.</li>
+  <li>A Cielo retorna um <code class="language-plaintext highlighter-rouge">acess_token</code>,  um <code class="language-plaintext highlighter-rouge">refresh_token</code> e um <code class="language-plaintext highlighter-rouge">expiration_time</code>.</li>
+</ul>
+
+<h3 id="request">Request</h3>
+
+<blockquote>
+  <p><strong>POST</strong> {cielo-api-base-url}/consent/v1/oauth/access-token</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Authorization</strong></td>
+        <td>Base64 (client_id do parceiro concatenado com “:” e o client_secret  codificado em base64)</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/access-token' \
+--header 'Basic64'
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "grant_type": "authorization_code",
+    "code": "{}"
+}'
+
+</code></pre></div></div>
+
+<h3 id="response">Response</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+"access_token": "{access_token}",
+"refresh_token": "{refresh_token}",
+"token_type": "access_token",
+"expires_in": {expiration_time}
+}
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">access_token</code></td>
+      <td>O access_token para chamar as APIs da Cielo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">refresh_token</code></td>
+      <td>Quando o access_token expirar o parceiro pode solicitar um novo access_token usando este refresh_token.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">expiration_time</code></td>
+      <td>O tempo de expiração do access_token em milisgundos.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="observações">Observações</h3>
+
+<ul>
+  <li>O authorization_code precisa ser trocado por um access_token em menos de 10 minutos.</li>
+  <li>Este tipo de  access_token é mandatório para chamar as APIs que retornam dados sensíveis dos clientes.</li>
+  <li>O parceiro precisa armazenar o access_token e o refresh_token em um lugar seguro.</li>
+  <li>Quando o access_token expirar o parceiro não conseguirá mais chamas as APIs até que solicite um novo acess_token usando o fluxo de refresh_token.</li>
+  <li>O acess_token gerado nesse fluxo será único por cliente da Cielo, pois precisa obrigatoriamente a aprovação do cliente.</li>
+  <li>O parceiro NÃO consegue gerar um access_token sem o consentimento do cliente.</li>
+  <li>O parceiro NÃO consegue usar o authorization code, recebido no primeiro passo, mais de uma vez.</li>
+</ul>
+
+<h2 id="passo-3---chamando-as-apis">Passo 3 - Chamando as APIs</h2>
+
+<p>Neste momento parceiro vai conseguir chamar as APIs da Cielo sem a necessidade da aprovação do cliente, pois esta já foi concedida.</p>
+
+<p>A única exigência para chamar as APIs da Cielo é enviar o seguinte header HTTP:
+<strong>Authorization: Bearer {access_token}</strong>
+Em todas as chamadas para as APIs.</p>
+
+<ul>
+  <li>O access_token foi obtido no Segundo passo</li>
+</ul>
+
+<h2 id="passo-31---atualizando-um-access-token">Passo 3.1 - Atualizando um Access Token</h2>
+
+<blockquote>
+  <ol>
+    <li>O serviço do parceiro chama o serviço de <code class="language-plaintext highlighter-rouge">refresh_token</code>.</li>
+    <li>A Cielo retorna um <code class="language-plaintext highlighter-rouge">access_token</code> novo, um <code class="language-plaintext highlighter-rouge">refresh_token</code> novo e um novo <code class="language-plaintext highlighter-rouge">expiration_time</code>.</li>
+  </ol>
+</blockquote>
+
+<p>O dados de resposta serão os mesmos do passo 2 quando o parceiro solicita um acess_token, porém todos os dados retornados são novos e precisam ser armazenados no lugar dos antigos.</p>
+
+<h3 id="request-1">Request</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/access-token' \
+--header 'Basic64'
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "grant_type": "refresh_token",
+    "refresh_token": "{}"
+}'
+
+</code></pre></div></div>
+
+<p>Um ponto de atenção na requisição pois agora o parceiro precisa enviar o <code class="language-plaintext highlighter-rouge">grant_type</code> como <code class="language-plaintext highlighter-rouge">refresh_token</code> e no campo <code class="language-plaintext highlighter-rouge">refresh_token</code> deve ser enviado um <code class="language-plaintext highlighter-rouge">refresh_token</code> válido (e não mais um access_token).</p>
+
+<h3 id="response-1">Response</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+"access_token": "{access_token}",
+"refresh_token": "{refresh_token}",
+"token_type": "access_token",
+"expires_in": {expiration_time}
+}
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">access_token</code></td>
+      <td>O access_token para chamar as APIs da Cielo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">refresh_token</code></td>
+      <td>Quando o access_token expirar o parceiro pode solicitar um novo access_token usando este refresh_token.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">expiration_time</code></td>
+      <td>O tempo de expiração do access_token em milisgundos.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="erros">Erros</h2>
+
+<p>Caso ocorra algum erro do lado Cielo o cliente será redirecionado para a URL de call-back do parceiro com o parâmetro error na URL, por exemplo https://{partner-callback-url}?error={error}.</p>
+
+<p>Possíveis valores para {error}:</p>
+
+<ul>
+  <li><strong>lid_request:</strong> A requisição está faltando algum parâmetro obrigatório, ou esta com algum parâmetro inválido, ou qualquer outra possibilidade que faça a URL ficar incorreta.</li>
+  <li><strong>unauthorized_client:</strong> O parceiro não está autorizado a fazer uma requisição usando este método.</li>
+  <li><strong>access_denied:</strong> O dono do recurso ou o servidor de autorização negou a requisição.</li>
+  <li><strong>unsupported_response_type:</strong> O servidor de autorização não suporta obter um authorization code usando este método.</li>
+  <li><strong>invalid_scope:</strong> O escopo é invalido, desconhecido ou malformado.</li>
+  <li><strong>server_error:</strong> O servidor de autorização encontrou uma condição inesperada e não consegue concluir esta requisição. ( Este erro é necessário porque não é possível retornar um HTTP status code 500 Internal Server Error via redirecionamento HTTP)</li>
+  <li><strong>temporarily_unavailable:</strong> O servidor de autorização não consegue tratar a requisição devido a uma sobrecarga temporária ou está em manutenção. (Este erro é necessário pois não é possível retornar um HTTP Status 503 Service Unavailable para o parceiro  via redirecionamento HTTP)</li>
+</ul>
+
+<blockquote>
+  <p>Opcionalmente pode ser retornado um outro parâmetros <code class="language-plaintext highlighter-rouge">error_description</code> com um detalhe do erro, apenas um texto simples.</p>
+</blockquote>
+
+<h2 id="observação">Observação</h2>
+
+<ul>
+  <li>Todos os tokens (access_token e refresh_token) devem ser armazenados em um local seguro.</li>
+  <li>O parceiro precisam iniciar um novo fluxo de concessão se perderem os tokens ou ambos expirarem (O refresh_token tem expiração de 90 dias a partir da geração).</li>
+  <li>Caso gere um novo refresh_token este tem mais 90 dias a partir da geração para expirar.</li>
+  <li>O parceiro precisa iniciar um novo fluxo de concessão para cada cliente da Cielo que o parceiro deseja consultar os dados.</li>
+</ul>
+
+<h1 id="ambiente">Ambiente</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ambiente</th>
+      <th>Endereço</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sandbox</td>
+      <td>https://api2.cielo.com.br/sandbox/</td>
+    </tr>
+    <tr>
+      <td>Homologação</td>
+      <td>https://apihom-cielo.sensedia.com/</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="collection">Collection</h1>
+
+<p>Dispobilizamos as Collections utiizadas para realizar as todas operações da API. Será necessário configurar a URL e as credenciais.</p>
+
+<p><a href="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ONBOARDING_EDI_CIELO_PARA_CONCILIADORAS.postman_collection.zip">Download das Collections</a></p>
+
 </div>
 
 
