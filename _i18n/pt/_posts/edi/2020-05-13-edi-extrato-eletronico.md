@@ -703,3 +703,379 @@ Indica o final do arquivo.
 |042|250|209|Alfanum.|Uso Cielo|Em Branco. Reservado para Cielo.|
 
 Observação: os campos reservados para a Cielo poderão ser utilizados para a inclusão de novas informações. Também poderá ser necessário incluir novos tipos de registros. Por conta disso, sugerimos que a solução de conciliação despreze os registros não relacionados nesta especificação.
+
+## Tabelas
+ I 
+### Tabela II - Opção de Extrato
+
+|Código|Descrição|
+|---|---| 
+|03|Vendas com Plano Parcelado|
+|04|Pagamentos|
+|06|Antecipação de Recebíveis Cielo|
+|07|Cessão de Recebíveis|
+|09|Saldo em Aberto|
+|10|Antecipação de Recebíveis Alelo|
+
+### Tabela III - Tipo de Transação
+
+|Código|Descrição|
+|---|---| 
+|01|Venda|
+|02|Ajuste a Crédito|
+|03|Ajuste a Débito|
+|04|Plano Cielo|
+|05|Reagendamento|
+
+### Tabela IV - Status do Pagamento
+
+|Código|Descrição|
+|---|---| 
+|00|**Agendado:** identifica a captura de uma transação e informa a previsão de pagamento. A data prevista poderá ser alterada.|
+|01|**Pago:** identifica que o pagamento foi realizado pelo banco domicílio.|
+|02|**Enviado para o Banco:** identifica que a Cielo solicitou o pagamento/cobrança para o banco domicílio, porém não houve confirmação.|
+|03|**A Confirmar:** identifica que a Cielo solicitou o pagamento/cobrança para o banco domicílio, porém ainda não houve confirmação.|
+
+Quando um valor a crédito estiver em processo de compensação com um valor a débito, ambos serão enviados no arquivo de pagamento na data da compensação, posterior a data prevista de pagamento. O status enviado para o banco poder ser novamente apresentado no extrato de pagamento, quando o banco domicílio devolver uma ordem de crédito (reenvio de pagamento)
+
+### Tabela V - Código do Produto
+
+|Código|Descrição|
+|---|---| 
+|001|Agiplan crédito à vista            |
+|002|Agiplan parcelado loja             |
+|003|Banescard crédito à vista          |
+|004|Banescard parcelado loja           |
+|005|Esplanada crédito à vista          |
+|006|Credz crédito à vista              |
+|007|Esplanada parcelado loja           |
+|008|Credz parcelado loja               |
+|009|Elo Crediário                      |
+|010|Mastercard crédito à vista         |
+|011|Maestro                            |
+|012|Mastercard parcelado loja          |
+|013|Elo Construcard                    |
+|014|Elo Agro Débito                    |
+|015|Elo Agro Custeio                   |
+|016|Elo Agro Investimento              |
+|017|Elo Agro Custeio + Débito          |
+|018|Elo Agro Investimento + Débito     |
+|019|Discover crédito à vista           |
+|020|Diners crédito à vista             |
+|021|Diners parcelado loja              |
+|022|Visa Agro Custeio + Débito         |
+|023|Visa Agro Investimento + Débito    |
+|024|FCO Investimento                   |
+|025|Agro Electron                      |
+|026|Agro Custeio                       |
+|027|Agro Investimento                  |
+|028|Visa FCO Giro                      |
+|029|Visa crediário no crédito          |
+|030|Visa parcelado cliente             |
+|033|JCB crédito a vista                |
+|036|Visa Saque com cartão de Débito    |
+|037|Flex Car Visa Vale                 |
+|038|Credsystem crédito à vista         |
+|039|Credsystem parcelado loja          |
+|040|Visa crédito à vista               |
+|041|Visa Electron Débito à vista       |
+|042|Visa Pedágio                       |
+|043|Visa parcelado loja                |
+|044|Visa Electron Pré-Datado           |
+|045|Alelo Refeição                     |
+|046|Alelo Alimentação                  |
+|058|Alelo Multibenefícios              |
+|059|Alelo Auto                         |
+|060|Sorocred débito à vista            |
+|061|Sorocred crédito à vista           |
+|062|Sorocred parcelado loja            |
+|064|Visa Crediário                     |
+|065|Alelo Refeição                        |
+|066|Alelo Alimentação                     |
+|067|Visa Capital de Giro                  |
+|068|Visa Crédito Imobiliário              |
+|069|Alelo Cultura                         |
+|070|Elo crédito a vista                   |
+|071|Elo débito à vista                    |
+|072|Elo parcelado loja                    |
+|079|Pagamento Carnê Visa Electron         |
+|080|Visa Crédito Conversor de Moeda       |
+|081|Mastercard Crédito Especializado `(*)`|
+|082|Amex crédito à vista                  |
+|083|Amex parcelado loja                   |
+|084|Amex parcelado banco                  |
+|089|Elo Crédito Imobiliário               |
+|091|Elo Crédito Especializado `(*)`       |
+|094|Banescard Débito                      |
+|096|Cabal crédito à vista                 |
+|097|Cabal débito à vista                  |
+|098|Cabal parcelado loja                  |
+|161|Hiper crédito à vista                 |
+|162|Hiper débito à vista                  |
+|163|Hiper parcelado loja                  |
+|164|Hipercard crédito à vista             |
+|165|Hipercard parcelado loja              |
+|200|Verdecard crédito a vista             |
+|201|Verdecard parcelado loja              |
+|202|Nutricash Alimentação                 |
+|203|Nutricash Refeição                    |
+|204|Nutricash Multibenefícios             |
+|205|Nutricash Combustível                 |
+|206|Ben Alimentação                       |
+|207|Ben Refeição                          |
+|314|Ourocard Agro débito                  |
+|315|Ourocard Agro custeio                 |
+|316|Ourocard Agro investimento            |
+|317|Ourocard Agro custeio + débito        |
+|318|Ourocard Agro investimento + débito   |
+|321|Mastercard crediário no crédito       |
+|322|Mastercard parcelado cliente          |
+|324|Elo parcelado cliente                 |
+|330|Elo crediário no crédito              |
+|342|Mastercard Pedágio                    |
+|377|Elo Carnê                             |
+|378|Mastercard Carnê                      |
+|380|Mastercard Crédito Conversor de Moeda |
+|433|JCB parcelado loja                    |
+
+### Tabela VI - Origem do Ajuste
+
+|Código|Descrição|Tipo Ajuste|                                                  |
+|---|---|---|                                                                   |
+|01|Acerto de correção monetária| Acerto                                        |
+|02|Acerto de data de Pagamento| Acerto                                         |
+|03|Acerto de taxa de comissão| Acerto                                          |
+|04|Acerto de valores não processados| Acerto                                   |
+|05|Acerto de valores não recebidos| Acerto                                     |
+|06|Acerto de valores não reconhecidos| Acerto                                  |
+|07|Acerto de valores negociados| Acerto                                        |
+|08|Acerto de valores processados indevidamente| Acerto                         |
+|09|Acerto de lançamento não compensado em conta-corrente| Acerto               |
+|10|Acerto referente valores contestados| Acerto/Chargeback                     |
+|12|Acertos diversos| Acerto                                                    |
+|13|Acordo de cobrança| Acerto                                                  |
+|14|Acordo jurídico| Acerto                                                     |
+|15|Multa do Programa de Bandeira| Acerto/Chargeback                            |
+|16|Bloqueio de valor por ordem judicial| Bloqueio                              |
+|17|Cancelamento da venda| Cancelamento                                         |
+|18|Cobrança de tarifa Operacional| Cobrança                                    |
+|19|Valor Mensalidade Farol| Acerto / Cobrança                                  |
+|20|Cobrança Plano Cielo| Cobrança                                              |
+|21|Contrato de caução| Acerto                                                  |
+|22|Crédito de devolução do cancelamento banco emissor| Acerto/Cancelamento     |
+|23|Crédito EC referente contestação portador| Acerto/Chargeback                |
+|24|Crédito por cancelamento rejeitado Cielo| Acerto/Chargeback                 |
+|25|Processamento do débito duplicado Visa Pedágio| Acerto                      |
+|26|Débito por venda realizada sem a leitura do chip| Acerto                    |
+|27|Débito por venda rejeitada no sistema Cielo| Acerto                         |
+|28|Consumidor não reconhece a compra| Acerto/Chargeback                        |
+|29|Estorno de acordo jurídico| Acerto                                          |
+|30|Estorno de contrato de caução| Acerto                                       |
+|31|Estorno de acordo de cobrança| Acerto                                       |
+|32|Estorno de bloqueio de valor por ordem judicial| Acerto                     |
+|33|Estorno de cancelamento de venda| Acerto                                    |
+|34|Estorno de cobrança de tarifa operacional| Acerto                           |
+|35|Estorno de cobrança mensal Lynx Comércio| Acerto                            |
+|36|Estorno de cobrança Plano Cielo| Acerto                                     |
+|37|Estorno de débito venda sem a leitura do Chip| Acerto                       |
+|38|Estorno de incentivo comercial| Acerto                                      |
+|39|Estorno de Multa Programa Monitoria Chargeback| Acerto/Chargeback           |
+|40|Estorno de rejeição ARV| Acerto                                             |
+|41|Estorno de reversão de duplicidade do pagamento - ARV| Acerto               |
+|42|Estorno de tarifa de cadastro| Acerto                                       |
+|43|Estorno de extrato papel| Acerto                                            |
+|44|Estorno de processamento duplicado de débito - Visa Pedágio| Acerto         |
+|45|Incentivo comercial| Acerto                                                 |
+|46|Incentivo por venda de Recarga| Acerto                                      |
+|47|Regularização de rejeição ARV| Acerto                                       |
+|48|Reversão de duplicidade do pagamento - ARV| Acerto                          |
+|49|Tarifa de cadastro| Cobrança                                                |
+|50|Tarifa de extrato no papel| Cobrança                                        |
+|51|Aceleração de débito de antecipação| Acerto                                 |
+|52|Descumprimento de contrato| Acerto/Chargeback                               |
+|53|Venda recorrente cancelada pelo consumidor| Acerto/Chargeback               |
+|54|Consumidor não reconhece a compra| Acerto/Chargeback                        |
+|55|Cartão com validade vencida| Acerto/Chargeback                              |
+|57|Mercadoria com defeito ou diferente da descrição| Acerto/Chargeback         |
+|58|Transação irregular| Acerto/Chargeback                                      |
+|59|Mercadoria não foi entregue| Acerto/Chargeback                              |
+|60|Serviços não prestados| Acerto/Chargeback                                   |
+|61|Venda sem código de autorização| Acerto/Chargeback                          |
+|62|Número de cartão inválido| Acerto/Chargeback                                |
+|63|Cópia do comprovante / documento inválido| Acerto/Chargeback                |
+|65|Comprovante / documento ilegível| Acerto/Chargeback                         |
+|66|Venda sem leitura de chip| Acerto/Chargeback                                |
+|67|Venda em outra moeda| Acerto/Chargeback                                     |
+|68|Venda processada incorretamente| Acerto/Chargeback                          |
+|69|Venda cancelada| Acerto/Chargeback                                          |
+|70|Crédito em duplicidade| Acerto/Chargeback                                   |
+|71|Documentos não recebidos| Acerto/Chargeback                                 |
+|72|Pagamento realizado por outros| meios Acerto/Chargeback                     |
+|73|Equipamento perdido / roubado| Acerto/Cobrança                              |
+|77|Multa por excesso de chargeback| Acerto/Chargeback                          |
+|78|Serviços Score| Cobrança                                                    |
+|79|Reagendamento do débito de antecipação| Acerto                              |
+|80|Ajuste do débito de cessão| Acerto                                          |
+|81|Cielo e-Commerce| Acerto/Cobrança                                           |
+|85|Cielo Controle (Excedente)| Acerto/Cobrança                                 |
+|86|Cielo Controle (Franquia)| Acerto/Cobrança                                  |
+|93|Meliuz |Acerto/Cobrança                                                     |           
+
+### Tabela VII - Bandeira
+
+|Código|Descrição|                                                 |
+|---|---|                                                                   |
+|001|Visa        |
+|002|Mastercard  |
+|003|Amex        |
+|006|Sorocred    |
+|007|Elo         |
+|009|Diners      |
+|011|Agiplan     |
+|015|Banescard   |
+|023|Cabal       |
+|029|Credsystem  |
+|035|Esplanada   |
+|040|Hipercard   |
+|060|Jcb         |
+|064|Credz       |
+|072|Hiper       |
+|075|Ourocard    |
+
+### Tabela VIII - Meio de Captura
+
+|Código|Descrição|
+|---|---|                                                               
+|00|LIO|
+|01|POS (Point of Sale)|
+|02|PDV (Ponto de Venda) ou TEF (Transferência Eletrônica de Fundos)|
+|03|e-Commerce (Comércio Eletrônico)|
+|04|EDI (Troca Eletrônica de Dados)|
+|05|ADP/BSP (Empresa Capturadora) ou Reprocessamento
+|06|Manual|
+|07|URA/CVA|
+|08|Mobile|
+|09|Moedeiro Eletrônico em Rede|
+|99|Não identificado|
+
+### Tabela IX - Motivo da Rejeição
+
+|Código|Descrição|
+|---|---|                                                               
+|002|Cartão inválido|
+|023|Outros erros|
+|024|Tipo cartão inválido|
+|031|Transação de saque com cartão Electron valor zerado|
+|039|Banco emissor inválido|
+|044|Data da transação inválida|
+|045|Código de autorização inválido
+|055|Número de parcelas inválido|
+|056|Transação financiada para estabelecimento não autorizado|
+|057|Cartão em boletim protetor  |
+|061|Número de cartão inválido   |
+|066|Transação não autorizada    |
+|067|Transação não autorizada    |
+|069|Transação não autorizada    |
+|070|Transação não autorizada    |
+|071|Transação não autorizada    |
+|072|Transação não autorizada    |
+|073|Transação inválida          |
+|074|Valor de transação inválido |
+|075|Número de cartão inválido   |
+|077|Transação não autorizada    |
+|078|Transação não autorizada    |
+|079|Transação não autorizada    |
+|080|Transação não autorizada    |
+|081|Cartão vencido              |
+|082|Transação não autorizada    |
+|083|Transação não autorizada    |
+|084|Transação não autorizada    |
+|086|Transação não autorizada    |
+|091|Transação não autorizada    |
+|092|Banco emissor sem comunicação|
+|093|Desbalanceamento no plano parcelado|
+|094|Venda parcelada para cartão emitido no exterior|
+|097|Valor de parcela menor do que o permitido|
+|099|Banco emissor inválido|
+|100|Transação não autorizada
+|101|Transação duplicada|
+|102|Transação duplicada|
+|124|BIN não cadastrado|
+|126|Transação de saque com cartão Electron inválida|
+|128|Transação de saque com cartão Electron inválida|
+|129|Transação de saque com cartão Electron inválida|
+|130|Transação de saque com cartão Electron inválida|
+|133|Transação de saque com cartão Electron inválida|
+|134|Transação de saque com cartão Electron inválida|
+|140|Estabelecimento não e-commerce                 |
+|141|Cartão travel transação inválida               |
+|143|Venda em dólar inválido                        |
+|145|Estabelecimento inválido para distribuição     |
+|147|Parcelado emissor não habilitado               |
+|150|Estabelecimento não financeiro                 |
+
+### Tabela X - Modo de Entrada do Cartão
+
+|Código|Descrição|
+|---|---|  
+|00|Reentrada manual|
+|01|Digitada        |
+|02|Trilha magnética|
+|03|Código de barra |
+|04|OCR (tecnologia que processa uma imagem e extrai os textos escritos)|
+|05|Chip online|
+|06|Trilha     |
+|07|Contactless|
+|81|Digitada   |
+|90|Trilha     |
+|91|Contactless emulando tarja|
+|95|Chip offline|
+
+### Tabela XI - Grupo de Cartões 
+
+|Código|Descrição|
+|---|---|  
+|00 Serviço não atribuído|
+|01 Cartão emitido no Brasil|
+|02 Cartão emitido no Exterior|
+|03 MDR por Tipo de Cartão - Inicial|
+|04 MDR por Tipo de Cartão - Intermediário|
+|05 MDR por Tipo de Cartão - Superior|
+
+### Tabela XII - Tipo de Cartão
+
+|Código|Descrição|
+|---|---|  
+|00|Serviço não atribuído            |
+|01|Visa Classic                     |
+|02|Visa Empresarial                 |
+|03|Visa Gold                        |
+|04|Visa Platinum                    |
+|05|Visa Infinite                    |
+|06|Visa Corporate                   |
+|07|Visa Electron                    |
+|08|Visa Compras                     |
+|09|Master Platinum                  |
+|10|Master Standard                  |
+|11|Master Gold                      |
+|12|Master Pré-Pago                  |
+|13|Master Black                     |
+|14|Master Corporativo               |
+|15|Master Cartão Viagem             |
+|16|Master Cartão Benefício          |
+|17|Master World                     |
+|18|Master Agro                      |
+|19|Elo Bndes                        |
+|20|Elo Classic                      |
+|21|Elo Empresarial                  |
+|22|Elo Insumos                      |
+|23|Elo Corporativo                  |
+|24|Elo Mais                         |
+|25|Elo Grafite                      |
+|26|Elo Nanquim                      |
+|27|Elo Pré Pagos Geral / Gift Card  |
+|28|Elo Vale Cultura                 |
+|29|Elo Nacional PJ Empresarial      |
+|30|Elo Compras                      |
+|31|Elo Viagem                       |
+|32|Elo Premiação Inc de Vendas PJ   |
