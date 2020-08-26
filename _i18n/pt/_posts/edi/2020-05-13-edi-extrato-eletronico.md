@@ -708,4 +708,13 @@ Observação: os campos reservados para a Cielo poderão ser utilizados para a i
 
 ### Tabela I - Tipos de Arquivos
 
+|Type|Codigo Tabela I|Descrição|
+|---|---|---|
+|SELL|03|Vendas com Plano Parcelado|
+|PAYMENT|04|Pagamentos|
+|ANTECIPATION_CIELO|06|Antecipação de Recebíveis Cielo|
+|ASSIGNMENT|07|Cessão de Recebíveis|
+|BALANCE|09|Saldo em aberto|
+|ANTECIPATION_ALELO|10|Antecipação de Recebíveis Alelo|
+
 ### Tabela II - Opção de Extrato
