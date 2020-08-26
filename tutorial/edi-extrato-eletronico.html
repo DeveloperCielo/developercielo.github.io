@@ -392,6 +392,167 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 
 <p><a href="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ONBOARDING_EDI_CIELO_PARA_CONCILIADORAS.postman_collection.zip">Download das Collections</a></p>
 
+<h1 id="operações">Operações</h1>
+
+<h2 id="post-registrar-merchantid"><strong>POST</strong> Registrar merchantID</h2>
+
+<p>Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da entidade.</p>
+
+<h3 id="request-2">Request</h3>
+
+<blockquote>
+  <p><strong>POST</strong> /edi/registers</p>
+
+  <p><strong>Headers</strong></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Authorization</strong></td>
+        <td>Bearer + access_token</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+  "mainMerchantId": "9999111222",
+  "merchants": [
+    "9999111111",
+    "9999111333"
+  ],
+  "merchantEMail": "customer@customer.com",
+  "type": [
+    "SELL"
+  ]
+}
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">mainMerchantId</code></td>
+      <td>ID principal do cliente.</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">merchants</code></td>
+      <td>Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista [“9999111111”, “9999111333”]</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">merchantEMail</code></td>
+      <td>Endereço de e-mail do cliente</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">type</code></td>
+      <td>Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-2">Response</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+  "legalEntityNumber": 1234567890,
+  "mainMerchantId": 2008983,
+  "registerID": 12345,
+  "merchants": [
+    823958412384701,
+    679809436576210
+  ],
+  "type": [
+    "SELL"
+  ],
+  "status": "PROCESSING"
+}
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">legalEntityNumber</code></td>
+      <td>Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).</td>
+      <td>String</td>
+      <td>8</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">mainMerchantId</code></td>
+      <td>ID principal do cliente.</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">registerID</code></td>
+      <td>ID do registro. O mesmo fornecido por /edi/registers</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">merchants</code></td>
+      <td>Representa o estado da lista de códigos do comerciante (todos os clientes do grupo serão considerados se omitidos). Exemplo: Lista [“9999111111”, “9999111333”]</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">type</code></td>
+      <td>Representa o estado dos tipos de arquivo EDI. Pelo menos um desses arquivos é necessário: SELL, PAYMENT, ANTECIPATION_CIELO</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">status</code></td>
+      <td>Status de registro. Se concluído, os arquivos serão fornecidos no dia seguinte</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 
