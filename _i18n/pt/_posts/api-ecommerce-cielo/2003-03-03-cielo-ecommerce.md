@@ -115,8 +115,6 @@ Todos os clientes de E-Commerce que são **Facilitadores de Pagamento, por obrig
 
 Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos campos deste novo nó, os facilitadores terão também de enviar obrigatoriamente o campo softdescriptor do nó payment. Segue abaixo exemplo do envio e da resposta.
 
-<aside class="warning"><b>Atenção: Reforçamos que as informações não devem ser enviadas antes de 20 de fevereiro de 2020, havendo risco de perda de transações.</b></aside>
-
 #### Requisição
 
 ```json
@@ -172,10 +170,12 @@ Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos cam
          "EstablishmentCode":"1234",
          "SubEstablishment":{
             "EstablishmentCode":"1234",
+			"Identity":"11111111000100",
             "Mcc":"1234",
             "Address":"Alameda Grajau, 512",
             "City":"Barueri",
             "State":"SP",
+			"CountryCode":"076",
             "PostalCode":"06455914",
             "PhoneNumber":"1155855585"
          }
@@ -183,6 +183,20 @@ Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos cam
    }
 }
 ```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|PaymentFacilitator.EstablishmentCode|Numérico|11|Obrigatório para facilitadores|Código do estabelecimento do Facilitador. "Facilitator ID” (Cadastro do facilitador com as bandeiras)|
+|PaymentFacilitator.SubEstablishment.EstablishmentCode|Numérico|15|Obrigatório para facilitadores|Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)|
+|PaymentFacilitator.SubEstablishment.Identity|Numérico|14|Obrigatório para facilitadores|CNPJ ou CPF do sub-merchant.|
+|PaymentFacilitator.SubEstablishment.Mcc|Numérico|4|Obrigatório para facilitadores|MCC do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.Address|Alfanumérico|22|Obrigatório para facilitadores|Endereço do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.City|Alfanumérico|13|Obrigatório para facilitadores|Cidade do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.State|Alfanumérico|2|Obrigatório para facilitadores|Estado do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.PostalCode|Numérico|9|Obrigatório para facilitadores|Código postal do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.CountryCode|Numérico|3|Obrigatório para facilitadores|"Código país do sub-merchant com base no ISO 3166"|
+|PaymentFacilitator.SubEstablishment.PhoneNumber|Numérico|13|Obrigatório para facilitadores|Número de telefone do sub Merchant.|
+|Payment.Softdescriptor|Texto|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
 
 #### Resposta
 
@@ -238,10 +252,12 @@ Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos cam
          "EstablishmentCode":"1234",
          "SubEstablishment":{
             "EstablishmentCode":"1234",
+			"Identity":"11111111000100",
             "Mcc":"1234",
             "Address":"Alameda Grajau, 512",
             "City":"Barueri",
             "State":"SP",
+			"CountryCode":"076",
             "PostalCode":"06455914",
             "PhoneNumber":"1155855585"
          }
@@ -281,11 +297,13 @@ Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos cam
 |---|---|---|---|---|
 |PaymentFacilitator.EstablishmentCode|Numérico|11|Obrigatório para facilitadores|Código do estabelecimento do Facilitador. "Facilitator ID” (Cadastro do facilitador com as bandeiras)|
 |PaymentFacilitator.SubEstablishment.EstablishmentCode|Numérico|15|Obrigatório para facilitadores|Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)|
+|PaymentFacilitator.SubEstablishment.Identity|Numérico|14|Obrigatório para facilitadores|CNPJ ou CPF do sub-merchant.|
 |PaymentFacilitator.SubEstablishment.Mcc|Numérico|4|Obrigatório para facilitadores|MCC do sub Merchant.|
 |PaymentFacilitator.SubEstablishment.Address|Alfanumérico|22|Obrigatório para facilitadores|Endereço do sub Merchant.|
 |PaymentFacilitator.SubEstablishment.City|Alfanumérico|13|Obrigatório para facilitadores|Cidade do sub Merchant.|
 |PaymentFacilitator.SubEstablishment.State|Alfanumérico|2|Obrigatório para facilitadores|Estado do sub Merchant.|
 |PaymentFacilitator.SubEstablishment.PostalCode|Numérico|9|Obrigatório para facilitadores|Código postal do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.CountryCode|Numérico|3|Obrigatório para facilitadores|"Código país do sub-merchant com base no ISO 3166"|
 |PaymentFacilitator.SubEstablishment.PhoneNumber|Numérico|13|Obrigatório para facilitadores|Número de telefone do sub Merchant.|
 |Payment.Softdescriptor|Texto|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
 
