@@ -170,12 +170,12 @@ Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos cam
          "EstablishmentCode":"1234",
          "SubEstablishment":{
             "EstablishmentCode":"1234",
-			"Identity":"11111111000100",
+            "Identity":"11111111000100",
             "Mcc":"1234",
             "Address":"Alameda Grajau, 512",
             "City":"Barueri",
             "State":"SP",
-			"CountryCode":"076",
+            "CountryCode":"076",
             "PostalCode":"06455914",
             "PhoneNumber":"1155855585"
          }
@@ -252,12 +252,12 @@ Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos cam
          "EstablishmentCode":"1234",
          "SubEstablishment":{
             "EstablishmentCode":"1234",
-			"Identity":"11111111000100",
+            "Identity":"11111111000100",
             "Mcc":"1234",
             "Address":"Alameda Grajau, 512",
             "City":"Barueri",
             "State":"SP",
-			"CountryCode":"076",
+            "CountryCode":"076",
             "PostalCode":"06455914",
             "PhoneNumber":"1155855585"
          }
