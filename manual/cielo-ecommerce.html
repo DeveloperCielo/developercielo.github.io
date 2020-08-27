@@ -427,8 +427,6 @@
 
 <p>Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos campos deste novo nó, os facilitadores terão também de enviar obrigatoriamente o campo softdescriptor do nó payment. Segue abaixo exemplo do envio e da resposta.</p>
 
-<aside class="warning">Atenção: Reforçamos que as informações não devem ser enviadas antes de 20 de fevereiro de 2020, havendo risco de perda de transações.</aside>
-
 <h4 id="requisição">Requisição</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -483,10 +481,12 @@
          </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"SubEstablishment"</span><span class="p">:{</span><span class="w">
             </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Identity"</span><span class="p">:</span><span class="s2">"11111111000100"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Mcc"</span><span class="p">:</span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Address"</span><span class="p">:</span><span class="s2">"Alameda Grajau, 512"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"Barueri"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"State"</span><span class="p">:</span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"CountryCode"</span><span class="p">:</span><span class="s2">"076"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"PostalCode"</span><span class="p">:</span><span class="s2">"06455914"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"PhoneNumber"</span><span class="p">:</span><span class="s2">"1155855585"</span><span class="w">
          </span><span class="p">}</span><span class="w">
@@ -494,6 +494,97 @@
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PaymentFacilitator.EstablishmentCode</td>
+      <td>Numérico</td>
+      <td>11</td>
+      <td>Obrigatório para facilitadores</td>
+      <td>Código do estabelecimento do Facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras)</td>
+    </tr>
+    <tr>
+      <td>PaymentFacilitator.SubEstablishment.EstablishmentCode</td>
+      <td>Numérico</td>
+      <td>15</td>
+      <td>Obrigatório para facilitadores</td>
+      <td>Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)</td>
+    </tr>
+    <tr>
+      <td>PaymentFacilitator.SubEstablishment.Identity</td>
+      <td>Numérico</td>
+      <td>14</td>
+      <td>Obrigatório para facilitadores</td>
+      <td>CNPJ ou CPF do sub-merchant.</td>
+    </tr>
+    <tr>
+      <td>PaymentFacilitator.SubEstablishment.Mcc</td>
+      <td>Numérico</td>
+      <td>4</td>
+      <td>Obrigatório para facilitadores</td>
+      <td>MCC do sub Merchant.</td>
+    </tr>
+    <tr>
+      <td>PaymentFacilitator.SubEstablishment.Address</td>
+      <td>Alfanumérico</td>
+      <td>22</td>
+      <td>Obrigatório para facilitadores</td>
+      <td>Endereço do sub Merchant.</td>
+    </tr>
+    <tr>
+      <td>PaymentFacilitator.SubEstablishment.City</td>
+      <td>Alfanumérico</td>
+      <td>13</td>
+      <td>Obrigatório para facilitadores</td>
+      <td>Cidade do sub Merchant.</td>
+    </tr>
+    <tr>
+      <td>PaymentFacilitator.SubEstablishment.State</td>
+      <td>Alfanumérico</td>
+      <td>2</td>
+      <td>Obrigatório para facilitadores</td>
+      <td>Estado do sub Merchant.</td>
+    </tr>
+    <tr>
+      <td>PaymentFacilitator.SubEstablishment.PostalCode</td>
+      <td>Numérico</td>
+      <td>9</td>
+      <td>Obrigatório para facilitadores</td>
+      <td>Código postal do sub Merchant.</td>
+    </tr>
+    <tr>
+      <td>PaymentFacilitator.SubEstablishment.CountryCode</td>
+      <td>Numérico</td>
+      <td>3</td>
+      <td>Obrigatório para facilitadores</td>
+      <td>“Código país do sub-merchant com base no ISO 3166”</td>
+    </tr>
+    <tr>
+      <td>PaymentFacilitator.SubEstablishment.PhoneNumber</td>
+      <td>Numérico</td>
+      <td>13</td>
+      <td>Obrigatório para facilitadores</td>
+      <td>Número de telefone do sub Merchant.</td>
+    </tr>
+    <tr>
+      <td>Payment.Softdescriptor</td>
+      <td>Texto</td>
+      <td>13</td>
+      <td>Obrigatório para facilitadores</td>
+      <td>Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h4 id="resposta">Resposta</h4>
 
@@ -548,10 +639,12 @@
          </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"SubEstablishment"</span><span class="p">:{</span><span class="w">
             </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Identity"</span><span class="p">:</span><span class="s2">"11111111000100"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Mcc"</span><span class="p">:</span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Address"</span><span class="p">:</span><span class="s2">"Alameda Grajau, 512"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"Barueri"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"State"</span><span class="p">:</span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"CountryCode"</span><span class="p">:</span><span class="s2">"076"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"PostalCode"</span><span class="p">:</span><span class="s2">"06455914"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"PhoneNumber"</span><span class="p">:</span><span class="s2">"1155855585"</span><span class="w">
          </span><span class="p">}</span><span class="w">
@@ -613,6 +706,13 @@
       <td>Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)</td>
     </tr>
     <tr>
+      <td>PaymentFacilitator.SubEstablishment.Identity</td>
+      <td>Numérico</td>
+      <td>14</td>
+      <td>Obrigatório para facilitadores</td>
+      <td>CNPJ ou CPF do sub-merchant.</td>
+    </tr>
+    <tr>
       <td>PaymentFacilitator.SubEstablishment.Mcc</td>
       <td>Numérico</td>
       <td>4</td>
@@ -646,6 +746,13 @@
       <td>9</td>
       <td>Obrigatório para facilitadores</td>
       <td>Código postal do sub Merchant.</td>
+    </tr>
+    <tr>
+      <td>PaymentFacilitator.SubEstablishment.CountryCode</td>
+      <td>Numérico</td>
+      <td>3</td>
+      <td>Obrigatório para facilitadores</td>
+      <td>“Código país do sub-merchant com base no ISO 3166”</td>
     </tr>
     <tr>
       <td>PaymentFacilitator.SubEstablishment.PhoneNumber</td>
