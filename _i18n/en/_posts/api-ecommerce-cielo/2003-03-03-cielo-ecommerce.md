@@ -114,8 +114,6 @@ All E-Commerce customers who are **Payment Facilitators, as required by the Card
 
 The new fields are contained within the Payment Facilitator node. In addition to the fields of this new node, facilitators will also have to send the softdescriptor field of the payment node. Below is an example of sending and reply.
 
-<aside class="warning"><b>Attention: We emphasize that information shouldn't be submitted before February 20, 2020, as there is a risk of losing transactions.</b></aside>
-
 #### Request
 
 ```json
@@ -171,10 +169,12 @@ The new fields are contained within the Payment Facilitator node. In addition to
          "EstablishmentCode":"1234",
          "SubEstablishment":{
             "EstablishmentCode":"1234",
+            "Identity":"11111111000100",
             "Mcc":"1234",
             "Address":"Alameda Grajau, 512",
             "City":"Barueri",
             "State":"SP",
+            "CountryCode":"076",
             "PostalCode":"06455914",
             "PhoneNumber":"1155855585"
          }
@@ -182,6 +182,20 @@ The new fields are contained within the Payment Facilitator node. In addition to
    }
 }
 ```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|PaymentFacilitator.EstablishmentCode|Number|11|Required for facilitators|Facilitator's establishment code. “Facilitator ID” (Registration of the facilitator with the card brands)|
+|PaymentFacilitator.SubEstablishment.EstablishmentCode|Number|15|Required for facilitators|Sub Merchant establishment code. “Sub-Merchant ID” (Registration of sub-accredited with the facilitator)|
+|PaymentFacilitator.SubEstablishment.Identity|Number|14|Required for facilitators|CNPJ or CPF of the sub-merchant.|
+|PaymentFacilitator.SubEstablishment.Mcc|Number|4|Required for facilitators|MCC do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.Address|Alphanumeric|22|Required for facilitators|Sub Merchant Address.|
+|PaymentFacilitator.SubEstablishment.City|Alphanumeric|13|Required for facilitators|City of the sub Merchant.|
+|PaymentFacilitator.SubEstablishment.State|Alphanumeric|2|Required for facilitators|State do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.PostalCode|Number|9|Required for facilitators|Sub Merchant Postcode.|
+|PaymentFacilitator.SubEstablishment.CountryCode|Number|3|Required for facilitators|"Sub-merchant country code based on ISO 3166."|
+|PaymentFacilitator.SubEstablishment.PhoneNumber|Number|13|Required for facilitators|Sub Merchant Phone Number.|
+|Payment.Softdescriptor|Text|13|Required for facilitators|Text printed on buyer bank invoice. Must be completed according to the data of the sub Merchant.|
 
 #### Response
 
@@ -237,10 +251,12 @@ The new fields are contained within the Payment Facilitator node. In addition to
          "EstablishmentCode":"1234",
          "SubEstablishment":{
             "EstablishmentCode":"1234",
+            "Identity":"11111111000100",
             "Mcc":"1234",
             "Address":"Alameda Grajau, 512",
             "City":"Barueri",
             "State":"SP",
+            "CountryCode":"076",
             "PostalCode":"06455914",
             "PhoneNumber":"1155855585"
          }
@@ -280,11 +296,13 @@ The new fields are contained within the Payment Facilitator node. In addition to
 |---|---|---|---|---|
 |PaymentFacilitator.EstablishmentCode|Number|11|Required for facilitators|Facilitator's establishment code. “Facilitator ID” (Registration of the facilitator with the card brands)|
 |PaymentFacilitator.SubEstablishment.EstablishmentCode|Number|15|Required for facilitators|Sub Merchant establishment code. “Sub-Merchant ID” (Registration of sub-accredited with the facilitator)|
+|PaymentFacilitator.SubEstablishment.Identity|Number|14|Required for facilitators|CNPJ or CPF of the sub-merchant.|
 |PaymentFacilitator.SubEstablishment.Mcc|Number|4|Required for facilitators|MCC do sub Merchant.|
 |PaymentFacilitator.SubEstablishment.Address|Alphanumeric|22|Required for facilitators|Sub Merchant Address.|
 |PaymentFacilitator.SubEstablishment.City|Alphanumeric|13|Required for facilitators|City of the sub Merchant.|
 |PaymentFacilitator.SubEstablishment.State|Alphanumeric|2|Required for facilitators|State do sub Merchant.|
 |PaymentFacilitator.SubEstablishment.PostalCode|Number|9|Required for facilitators|Sub Merchant Postcode.|
+|PaymentFacilitator.SubEstablishment.CountryCode|Number|3|Required for facilitators|"Sub-merchant country code based on ISO 3166."|
 |PaymentFacilitator.SubEstablishment.PhoneNumber|Number|13|Required for facilitators|Sub Merchant Phone Number.|
 |Payment.Softdescriptor|Text|13|Required for facilitators|Text printed on buyer bank invoice. Must be completed according to the data of the sub Merchant.|
 
