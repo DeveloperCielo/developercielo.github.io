@@ -700,7 +700,18 @@ Note: The fields reserved for Cielo may be used to include new information. It m
 
 ## Tables
 
-### Table I - Type Of Statement
+### Table I - File Types
+
+|Type|Table Code|Description|
+|---|---|---|
+|SELL|03|Sales with Installment Plan|
+|PAYMENT|04|Payments|
+|ANTECIPATION_CIELO|06|Anticipation of Cielo Receivables|
+|ASSIGNMENT|07|Assignment of Receivables|
+|BALANCE|09|Outstanding balance|
+|ANTECIPATION_ALELO|10|Prepayment of Receivables Alelo|
+
+### Table II - Type Of Statement
 
 |Code|Description|
 |---|---| 
@@ -711,7 +722,7 @@ Note: The fields reserved for Cielo may be used to include new information. It m
 |09|Remaining Balance|
 |10|Detailed Prepayment Alelo|
 
-### Table II - Transaction Type
+### Table III - Transaction Type
 
 |Code|Description|
 |---|---| 
@@ -721,7 +732,7 @@ Note: The fields reserved for Cielo may be used to include new information. It m
 |04|Cielo Plan|
 |05|Rescheduling|
 
-### Table III - Payment Status
+### Table IV - Payment Status
 
 |Code|Description|
 |---|---| 
@@ -732,7 +743,7 @@ Note: The fields reserved for Cielo may be used to include new information. It m
 
 When a credit amount is being offset against a debit amount, both will be sent in the payment file, on the offsetting date subsequent to the scheduled payment date. The status to the may appear again in the payment statement, when the merchant bank returns a credit transfer (resend of payment).
 
-### Table IV - Product Code
+### Table V - Product Code
 
 |001|Agiplan credit                                   |
 |002|Agiplan installment transaction                  |
@@ -832,7 +843,7 @@ When a credit amount is being offset against a debit amount, both will be sent i
 
 * Codes referring to the following cards: Construcard, Minha Casa Melhor, Producard, and Moveiscard 
 
-### Table V - Origin Of Adjustment
+### Table VI - Origin Of Adjustment
 
 |Code|Description|Type of Adjustment|
 |---|---|---|
@@ -914,7 +925,7 @@ When a credit amount is being offset against a debit amount, both will be sent i
 |86|Cielo Controle (Frank)|Hit/Collection                                                  |
 |93|Meliuz|Hit/Collection                                                                  |
 
-### Table VI - Card Brand 
+### Table VII - Card Brand 
 
 |Code|Description|
 |---|---|
@@ -935,7 +946,7 @@ When a credit amount is being offset against a debit amount, both will be sent i
 |072|Hiper|
 |075|Ourocard|
 
-### Table VII - Capture Method
+### Table VIII - Capture Method
 
 |Code|Description|
 |---|---|
@@ -951,7 +962,7 @@ When a credit amount is being offset against a debit amount, both will be sent i
 |09|Online electronic purse|
 |99|Not identified|
 
-### Table VIII - Reason For Decline
+### Table IX - Reason For Decline
 
 |Code|Description|
 |---|---|
@@ -1005,7 +1016,7 @@ When a credit amount is being offset against a debit amount, both will be sent i
 |147|Issued installment not enabled|
 |150|Non-Financial Establishment|
 
-### Table IX - Entry Mode
+### Table X - Entry Mode
 
 |Code|Description|
 |---|---|
@@ -1022,7 +1033,7 @@ When a credit amount is being offset against a debit amount, both will be sent i
 |91|Contactless imitating stripe|
 |95|Offline chip|
 
-### Table X - Group Of Cards
+### Table XI - Group Of Cards
 
 |Code|Description|
 |---|---|
@@ -1033,7 +1044,7 @@ When a credit amount is being offset against a debit amount, both will be sent i
 |04|MDR by card type - Intermediary|
 |05|MDR by card type - Higher|
 
-### Table XI - Card Type
+### Table XII - Card Type
 
 |Code|Description|
 |---|---|
