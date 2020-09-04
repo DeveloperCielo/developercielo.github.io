@@ -195,7 +195,7 @@
     <tbody>
       <tr>
         <td><strong>Authorization</strong></td>
-        <td>Base64 (client_id do parceiro concatenado com “:” e o client_secret  codificado em base64)</td>
+        <td>Basic <em>Base64(client_id do parceiro concatenado com “:” e o client_secret  codificado em base64)</em></td>
       </tr>
     </tbody>
   </table>
@@ -203,7 +203,7 @@
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/access-token' \
---header 'Basic64'
+--header 'Basic Base64'
 --header 'Content-Type: application/json' \
 --data-raw '{
     "grant_type": "authorization_code",
@@ -285,7 +285,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/access-token' \
---header 'Basic64'
+--header 'Basic Base64'
 --header 'Content-Type: application/json' \
 --data-raw '{
     "grant_type": "refresh_token",
