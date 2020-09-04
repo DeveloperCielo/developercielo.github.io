@@ -68,12 +68,12 @@ https://`{partner-callback-url}`?code=`{code}`&state=`{state}`
 >
 >| Key | Value |
 >|---|---|
->| **Authorization** | Base64 (client_id do parceiro concatenado com “:” e o client_secret  codificado em base64) |
+>| **Authorization** | Basic *Base64(client_id do parceiro concatenado com “:” e o client_secret  codificado em base64)*|
 
 ```
 
 curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/access-token' \
---header 'Basic64'
+--header 'Basic Base64'
 --header 'Content-Type: application/json' \
 --data-raw '{
     "grant_type": "authorization_code",
@@ -132,7 +132,7 @@ The response data will be the same as in step 2 when the partner requests an ace
 ```
 
 curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/access-token' \
---header 'Basic64'
+--header 'Basic Base64'
 --header 'Content-Type: application/json' \
 --data-raw '{
     "grant_type": "refresh_token",
