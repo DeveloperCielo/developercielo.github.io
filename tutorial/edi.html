@@ -350,10 +350,67 @@
       <td>10</td>
       <td>N</td>
       <td>N.o da maquineta (contrato CIELO)</td>
-      <td>Campo Obrigatório. Rejeição se  <strong>N</strong> = Numérico / <strong>X</strong> = Alfanumérico</td>
+      <td>Campo Obrigatório. Rejeição se &lt; = 0 ou não numérico</td>
+    </tr>
+    <tr>
+      <td>007</td>
+      <td>Código da moeda</td>
+      <td>41</td>
+      <td>3</td>
+      <td>N</td>
+      <td>“986” - R$, “840” - US$</td>
+      <td>Rejeitado se diferente de 986 ou 840</td>
+    </tr>
+    <tr>
+      <td>008</td>
+      <td>Indicador do processo</td>
+      <td>44</td>
+      <td>1</td>
+      <td>X</td>
+      <td>“P” – Produção</td>
+      <td>Rejeita se diferente de “P”</td>
+    </tr>
+    <tr>
+      <td>009</td>
+      <td>Indicador de cancelamento de vendas</td>
+      <td>45</td>
+      <td>1</td>
+      <td>X</td>
+      <td>“C” – Cancelamento de venda Credito à vista<br />“P” – Cancelamento de venda Parcelado Loja<br />“D” – Cancelamento de venda Débito</td>
+      <td>Se campo diferente de “C” ou “P” ou “D” o lote será recusado.</td>
+    </tr>
+    <tr>
+      <td>010</td>
+      <td>Indicação de estabelecimento especial</td>
+      <td>46</td>
+      <td>01</td>
+      <td>X</td>
+      <td>Constante = brancos</td>
+      <td>Somente deverá ser diferente de branco caso a equipe de sistemas assim determinar.</td>
+    </tr>
+    <tr>
+      <td>011</td>
+      <td>Não utilizar</td>
+      <td>47</td>
+      <td>204</td>
+      <td>X</td>
+      <td>Constante = brancos</td>
+      <td>não lido</td>
     </tr>
   </tbody>
 </table>
+
+<h4 id="legenda">Legenda</h4>
+
+<ul>
+  <li><strong>POS</strong> = Posição inicial do Campo no Arquivo;</li>
+  <li><strong>TAM</strong> = Tamanho do Campo</li>
+  <li><strong>FOR</strong> = Formatos válidos para o conteúdo do campo, sendo:</li>
+</ul>
+
+<blockquote>
+  <p><strong>N</strong> = Numérico / <strong>X</strong> = Alfanumérico</p>
+</blockquote>
 
 <h3 id="registro-detalhe">Registro Detalhe</h3>
 
