@@ -350,10 +350,67 @@
       <td>10</td>
       <td>N</td>
       <td>Number of the card machine (CIELO contract)</td>
-      <td>Mandatory field. Rejection if  <strong>N</strong> = Numeric / <strong>X</strong> = Alphanumeric</td>
+      <td>Mandatory field. Rejection if &lt; than 0 or not numeric</td>
+    </tr>
+    <tr>
+      <td>007</td>
+      <td>Currency code</td>
+      <td>41</td>
+      <td>3</td>
+      <td>N</td>
+      <td>“986” - R$, “840” - US$</td>
+      <td>Rejected if different from 986 or 840</td>
+    </tr>
+    <tr>
+      <td>008</td>
+      <td>Process indicator</td>
+      <td>44</td>
+      <td>1</td>
+      <td>X</td>
+      <td>“P” – Production</td>
+      <td>Rejected if different than “P”</td>
+    </tr>
+    <tr>
+      <td>009</td>
+      <td>Sales cancellation indicator</td>
+      <td>45</td>
+      <td>1</td>
+      <td>X</td>
+      <td>“C” – Sales cancellation Cash credit<br />“P” – Sale cancellation Parceled Out<br />“D” – Sale cancellation Debit</td>
+      <td>If the field is different from “C” or “P” or “D” the batch will be refused.</td>
+    </tr>
+    <tr>
+      <td>010</td>
+      <td>Indication of special establishment</td>
+      <td>46</td>
+      <td>01</td>
+      <td>X</td>
+      <td>Constant = blanks</td>
+      <td>It will only have to be different from bank in case the system team determinate it.</td>
+    </tr>
+    <tr>
+      <td>011</td>
+      <td>Do not use</td>
+      <td>47</td>
+      <td>204</td>
+      <td>X</td>
+      <td>Constant = blanks</td>
+      <td>not read</td>
     </tr>
   </tbody>
 </table>
+
+<h4 id="caption">Caption</h4>
+
+<ul>
+  <li><strong>POSITION</strong> = Initial position of the Field on the File;</li>
+  <li><strong>SIZE</strong> = Field size</li>
+  <li><strong>FORMAT</strong> = Valid formats to the field content, being:</li>
+</ul>
+
+<blockquote>
+  <p><strong>N</strong> = Numeric / <strong>X</strong> = Alphanumeric</p>
+</blockquote>
 
 <h3 id="detail-register">Detail Register</h3>
 
