@@ -5358,6 +5358,28 @@ Consulta um cancelamento
 |`VoidId`|---|---|---|---|
 |`CancellationStatus`|---|---|---|---|
 |`Status`|---|---|---|---|
+
+
+## Cancelamento
+
+Consulta um cancelamento
+
+### Requisição
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/{VoidId}</span></aside>
+
+### Resposta
+
+```json
+{
+  "VoidId": "a4bc7892-b455-4cd1-b902-c791802cd72b",
+  "CancellationStatus": 1,
+  "Status": 10
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
 |`VoidId`|---|---|---|---|
 |`CancellationStatus`|---|---|---|---|
 |`Status`|---|---|---|---|
