@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Manual de Integração Solução Omni
+title: Manual de Integração SoluçãoOmni
 description: API para integração de vendas no físico e OnLine
 search: true
 translated: true
