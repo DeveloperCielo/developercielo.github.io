@@ -39,7 +39,6 @@ Para a integração é necessário que a solução de captura do parceiro de neg
 * Disponibilizar sua BDK para instalação no HSM Cielo.
 * Para soluções de pagamento que utilizam Pinpad externo (conexão Bluetooth ou cabo), é obrigatório o uso de criptografia WKPAN para dados. Clientes desse tipo de solução precisam apresentar certificado PCI DSS.
 
-
 Formato da Chave exigida pela Cielo:
 
 O HSM Cielo está parametrizado para um KSN da seguinte forma:
