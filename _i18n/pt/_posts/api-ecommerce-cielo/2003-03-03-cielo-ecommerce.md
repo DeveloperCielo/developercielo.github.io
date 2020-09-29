@@ -9504,7 +9504,7 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 | 322    | Zero Dollar Auth is not enabled                                                                                |                                                                                               |
 | 323    | Bin Query is not enabled                                                                                       |                                                                                               |
 
-### Códigos de retorno (ABECS)
+### Códigos de retorno - ABECS
 
 A Associação Brasileira das Empresas de Cartão de Crédito e Serviços (ABECS) estabelece a partir do dia 15 de Julho de 2020 a padronização do código de retorno das autorizações de vendas recusadas tanto para as soluções pagamento do mundo físico e e-commerce do mercado brasileiro.
 
