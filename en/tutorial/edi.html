@@ -1027,6 +1027,10 @@
       <td>Invalid establishment</td>
     </tr>
     <tr>
+      <td>03</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
       <td>04</td>
       <td>Mixed lot</td>
     </tr>
@@ -1063,12 +1067,24 @@
       <td>Invalid transaction</td>
     </tr>
     <tr>
+      <td>12</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
       <td>13</td>
       <td>Invalid amount</td>
     </tr>
     <tr>
+      <td>13</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
       <td>14</td>
       <td>Not Applicable</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>See file position 211 - error details (Attachment II)</td>
     </tr>
     <tr>
       <td>15</td>
@@ -1099,10 +1115,6 @@
       <td>Cancellation amount greater than allowed (jurisdiction)</td>
     </tr>
     <tr>
-      <td>)</td>
-      <td> </td>
-    </tr>
-    <tr>
       <td>23</td>
       <td>Invalid number of the original OS number (register I2)</td>
     </tr>
@@ -1111,8 +1123,16 @@
       <td>Canceled card</td>
     </tr>
     <tr>
+      <td>42</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
       <td>54</td>
       <td>It is not allowed the partial cancellation of an installment plan that is being contested by the holder.</td>
+    </tr>
+    <tr>
+      <td>55</td>
+      <td>See file position 211 - error details (Attachment II)</td>
     </tr>
     <tr>
       <td>56</td>
@@ -1123,8 +1143,12 @@
       <td>Invalid card type 60 Invalid date</td>
     </tr>
     <tr>
+      <td>59</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
       <td>71</td>
-      <td>Transaction declined by the issuing bank</td>
+      <td>See file position 211 - error details (Attachment II)</td>
     </tr>
     <tr>
       <td>72</td>
@@ -1132,23 +1156,23 @@
     </tr>
     <tr>
       <td>73</td>
-      <td>Card problem - retain the card</td>
+      <td>See file position 211 - error details (Attachment II)</td>
     </tr>
     <tr>
       <td>74</td>
-      <td>Authorization denied</td>
+      <td>See file position 211 - error details (Attachment II)</td>
     </tr>
     <tr>
       <td>75</td>
-      <td>Error</td>
+      <td>See file position 211 - error details (Attachment II)</td>
     </tr>
     <tr>
       <td>76</td>
-      <td>Transaction declined by the issuing bank</td>
+      <td>See file position 211 - error details (Attachment II)</td>
     </tr>
     <tr>
       <td>77</td>
-      <td>Sintax error - redo the transaction</td>
+      <td>See file position 211 - error details (Attachment II)</td>
     </tr>
     <tr>
       <td>78</td>
@@ -1156,35 +1180,55 @@
     </tr>
     <tr>
       <td>79</td>
-      <td>Canceled card</td>
+      <td>See file position 211 - error details (Attachment II)</td>
     </tr>
     <tr>
       <td>80</td>
-      <td>Canceled card</td>
+      <td>See file position 211 - error details (Attachment II)</td>
     </tr>
     <tr>
       <td>81</td>
-      <td>Insufficient funds</td>
+      <td>See file position 211 - error details (Attachment II)</td>
     </tr>
     <tr>
       <td>82</td>
       <td>Expired card or wrong expiration date</td>
     </tr>
     <tr>
+      <td>82</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>83</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>86</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
       <td>87</td>
-      <td>Card not allowed</td>
+      <td>See file position 211 - error details (Attachment II)</td>
     </tr>
     <tr>
       <td>88</td>
-      <td>Exceeded the number of transactions in the period</td>
+      <td>See file position 211 - error details (Attachment II)</td>
     </tr>
     <tr>
       <td>89</td>
-      <td>Message differs from original message</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>90</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>91</td>
+      <td>See file position 211 - error details (Attachment II)</td>
     </tr>
     <tr>
       <td>92</td>
-      <td>Issuing bank without communication</td>
+      <td>See file position 211 - error details (Attachment II)</td>
     </tr>
     <tr>
       <td>93</td>
@@ -1192,7 +1236,7 @@
     </tr>
     <tr>
       <td>94</td>
-      <td>Duplication on the airlines</td>
+      <td>See file position 211 - error details (Attachment II)</td>
     </tr>
     <tr>
       <td>95</td>
@@ -1205,486 +1249,1604 @@
   </tbody>
 </table>
 
+<aside class="notice">(*) - In the case of an EC VAN that tries to transact AMEX or Hipercard the details will be 99.</aside>
+
 <h2 id="attachment-ii--detailing-of-the-error-to-the-sales-status-informed-on-the-field-23">ATTACHMENT II – Detailing of the error to the Sales Status informed on the field 23</h2>
 
 <table>
   <thead>
     <tr>
       <th>CODE</th>
-      <th>Error complement</th>
-      <th>CE action</th>
+      <th>BRANDS</th>
+      <th>ERROR COMPLEMENT</th>
+      <th>CE ACTION</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>E001</td>
+      <td>All</td>
       <td>The Lot has exceeded the number of records</td>
       <td>Review file structure</td>
     </tr>
     <tr>
       <td>E001</td>
+      <td>All</td>
       <td>Incorrect lot structure</td>
       <td>Review file structure</td>
     </tr>
     <tr>
       <td>E001</td>
+      <td>All</td>
       <td>Invalid transmission means</td>
       <td>Contact Cielo</td>
     </tr>
     <tr>
       <td>E002</td>
+      <td>All</td>
       <td>Review the card information</td>
-      <td>Redo the transaction with valid inforation</td>
+      <td>Repeat the transaction with valid inforation</td>
     </tr>
     <tr>
       <td>E005</td>
+      <td>All</td>
       <td>Establishment Number not found</td>
       <td>Check the Cielo Establishment data</td>
     </tr>
     <tr>
       <td>E005</td>
+      <td>All</td>
       <td>Problem with your register on Cielo</td>
       <td>Contact Cielo</td>
     </tr>
     <tr>
       <td>E010</td>
+      <td>All</td>
       <td>Problem with your register on Cielo</td>
       <td>Contact Cielo</td>
     </tr>
     <tr>
       <td>E023</td>
+      <td>All</td>
       <td>Problem with your register on Cielo</td>
       <td>Contact Cielo</td>
     </tr>
     <tr>
       <td>E024</td>
+      <td>All</td>
       <td>Card type not allowed in this channel</td>
       <td>Contact your costumer</td>
     </tr>
     <tr>
       <td>E044</td>
+      <td>All</td>
       <td>Transaction date does not match</td>
       <td>Review original transaction data</td>
     </tr>
     <tr>
       <td>E045</td>
+      <td>All</td>
       <td>Authorization code not found</td>
       <td>Review transaction data</td>
     </tr>
     <tr>
       <td>E048</td>
+      <td>All</td>
       <td>Card expriration date is incorrect</td>
       <td>Contact your costumer</td>
     </tr>
     <tr>
       <td>E054</td>
+      <td>All</td>
       <td>Incorrect lot estructure</td>
       <td>Review your file</td>
     </tr>
     <tr>
       <td>E055</td>
+      <td>All</td>
       <td>Invalid installment amount</td>
       <td>Review installments amount</td>
     </tr>
     <tr>
       <td>E056</td>
+      <td>All</td>
       <td>Transaction not allowed for your register</td>
-      <td>Do not resend transaction</td>
+      <td>Don’t resend transaction</td>
     </tr>
     <tr>
       <td>E057</td>
+      <td>All</td>
       <td>Canceled card</td>
       <td>Contact your costumer</td>
     </tr>
     <tr>
       <td>E061</td>
+      <td>All</td>
       <td>Review the card information</td>
       <td>Redo the transaction with valid information</td>
     </tr>
     <tr>
       <td>E094</td>
+      <td>All</td>
       <td>Transaction not allowed for International cards</td>
-      <td>Do not resend transaction</td>
+      <td>Don’t resend transaction</td>
     </tr>
     <tr>
       <td>E095</td>
+      <td>All</td>
       <td>Transaction not allowed for Debit cards</td>
-      <td>Do not resend transaction</td>
+      <td>Don’t resend transaction</td>
     </tr>
     <tr>
       <td>E097</td>
+      <td>All</td>
       <td>Installment with the amount inferior to R$ 5,00</td>
       <td>Redo adjusting the installments amount</td>
     </tr>
     <tr>
       <td>E101</td>
+      <td>2</td>
+      <td>Transaction declined by the Issuing bank</td>
+      <td>Contact your costumer</td>
+    </tr>
+    <tr>
+      <td>E101</td>
+      <td>40</td>
       <td>Transaction declined by the Issuing bank</td>
       <td>Contact your costumer</td>
     </tr>
     <tr>
       <td>E102</td>
+      <td>All</td>
       <td>Transaction declined by the Issuing bank</td>
       <td>Contact your costumer</td>
     </tr>
     <tr>
       <td>E103</td>
+      <td>1</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E103</td>
+      <td>2</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E103</td>
+      <td>40</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E103</td>
+      <td>Other Brands</td>
       <td>Problem with your register on Cielo</td>
       <td>Contact Cielo</td>
     </tr>
     <tr>
       <td>E104</td>
+      <td>1</td>
+      <td>Contact your card center - Don’t try again</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E104</td>
+      <td>2</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E104</td>
+      <td>7</td>
+      <td>Repeat the transaction</td>
+      <td>Repeat the transaction</td>
+    </tr>
+    <tr>
+      <td>E104</td>
+      <td>40</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E104</td>
+      <td>Other Brands</td>
       <td>Canceled card</td>
       <td>Contact your costumer</td>
     </tr>
     <tr>
       <td>E105</td>
+      <td>1</td>
+      <td>Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E105</td>
+      <td>2</td>
+      <td>Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E105</td>
+      <td>7</td>
+      <td>Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E105</td>
+      <td>40</td>
+      <td>Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E105</td>
+      <td>Other Brands</td>
       <td>Transaction declined by the Issuing bank</td>
       <td>Contact your costumer</td>
+    </tr>
+    <tr>
+      <td>E106</td>
+      <td>1</td>
+      <td>Card error - Don’t try again</td>
+      <td>Don’t resend, I’ll inform the customer that the card is in error</td>
+    </tr>
+    <tr>
+      <td>E106</td>
+      <td>1</td>
+      <td>Check card data</td>
+      <td>Repeat the transaction with valid data</td>
+    </tr>
+    <tr>
+      <td>E106</td>
+      <td>7</td>
+      <td>Storekeeper, contact the buyer</td>
+      <td>Contact Cielo</td>
+    </tr>
+    <tr>
+      <td>E106</td>
+      <td>Other Brands</td>
+      <td>Transaction rejected by the Issuing bank</td>
+      <td>The holder must ask the issuer the reason for the rejection. For Bradesco cards, it means that the card is blocked by excessive password attempts.</td>
     </tr>
     <tr>
       <td>E107</td>
+      <td>1</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E107</td>
+      <td>Other Brands</td>
       <td>Transaction declined by the Issuing bank</td>
       <td>Contact your costumer</td>
     </tr>
     <tr>
+      <td>E108</td>
+      <td>3</td>
+      <td>Check card data</td>
+      <td>Repeat the transaction with valid data</td>
+    </tr>
+    <tr>
       <td>E112</td>
+      <td>1</td>
+      <td>Card error - Don’t try again</td>
+      <td>Don’t resend, inform the customer that the card is in error</td>
+    </tr>
+    <tr>
+      <td>E112</td>
+      <td>2</td>
+      <td>Invalid installment - Don’t try again</td>
+      <td>Don’t resubmit, invalid installments</td>
+    </tr>
+    <tr>
+      <td>E112</td>
+      <td>7</td>
+      <td>Check card data</td>
+      <td>Repeat the transaction with valid data</td>
+    </tr>
+    <tr>
+      <td>E112</td>
+      <td>40</td>
+      <td>Invalid installment - Don’t try again</td>
+      <td>Don’t resubmit, invalid installments</td>
+    </tr>
+    <tr>
+      <td>E112</td>
+      <td>Other Brands</td>
       <td>Transaction not allowed in this channel</td>
       <td>Contact Cielo</td>
     </tr>
     <tr>
       <td>E112</td>
+      <td>Other Brands</td>
       <td>Transaction in Dollar currency, not allowed</td>
-      <td>Do not resent transaction</td>
+      <td>Don’t resent transaction</td>
     </tr>
     <tr>
       <td>E112</td>
+      <td>Other Brands</td>
       <td>Transaction with no authorization code</td>
       <td>Redo including the authorization code</td>
     </tr>
     <tr>
       <td>E112</td>
+      <td>Other Brands</td>
       <td>Transaction not allowed for Recurring Register</td>
       <td>Contact Cielo</td>
     </tr>
     <tr>
       <td>E112</td>
+      <td>Other Brands</td>
       <td>Transaction authorized previously</td>
-      <td>Do not resent transaction</td>
+      <td>Don’t resent transaction</td>
     </tr>
     <tr>
       <td>E112</td>
+      <td>Other Brands</td>
       <td>Card not allowed for Dollar Register</td>
-      <td>Do not resent transaction</td>
+      <td>Don’t resent transaction</td>
     </tr>
     <tr>
       <td>E112</td>
+      <td>Other Brands</td>
       <td>Installment Transaction not allowed</td>
-      <td>Do not resent transaction</td>
+      <td>Don’t resent transaction</td>
     </tr>
     <tr>
       <td>E112</td>
+      <td>Other Brands</td>
       <td>Problem with your register on Cielo</td>
       <td>Contact Cielo</td>
     </tr>
     <tr>
       <td>E112</td>
+      <td>Other Brands</td>
       <td>Transaction not allowed</td>
-      <td>Do not resent transaction</td>
+      <td>Don’t resent transaction</td>
     </tr>
     <tr>
       <td>E112</td>
+      <td>Other Brands</td>
       <td>Transaction not allowed by your register</td>
-      <td>Do not resent transaction</td>
+      <td>Don’t resent transaction</td>
     </tr>
     <tr>
       <td>E112</td>
+      <td>Other Brands</td>
       <td>International card transaction not allowed for your register</td>
-      <td>Do not resent transaction</td>
+      <td>Don’t resent transaction</td>
     </tr>
     <tr>
       <td>E112</td>
+      <td>Other Brands</td>
       <td>Invalid transaction data</td>
       <td>Review transaction data</td>
     </tr>
     <tr>
+      <td>E113</td>
+      <td>1</td>
+      <td>Transaction amount not allowed - Don’t try again</td>
+      <td>Don’t resubmit, value not allowed</td>
+    </tr>
+    <tr>
+      <td>E113</td>
+      <td>2</td>
+      <td>Transaction amount not allowed - Don’t try again</td>
+      <td>Don’t resubmit, value not allowed</td>
+    </tr>
+    <tr>
+      <td>E113</td>
+      <td>7</td>
+      <td>Transaction amount not allowed - Don’t try again</td>
+      <td>Don’t resubmit, value not allowed</td>
+    </tr>
+    <tr>
+      <td>E113</td>
+      <td>40</td>
+      <td>Transaction amount not allowed - Don’t try again</td>
+      <td>Don’t resubmit, value not allowed</td>
+    </tr>
+    <tr>
       <td>E114</td>
+      <td>2</td>
+      <td>Check card data</td>
+      <td>Repeat the transaction with valid data</td>
+    </tr>
+    <tr>
+      <td>E114</td>
+      <td>7</td>
+      <td>Check card data</td>
+      <td>Repeat the transaction with valid data</td>
+    </tr>
+    <tr>
+      <td>E114</td>
+      <td>40</td>
+      <td>Check card data</td>
+      <td>Repeat the transaction with valid data</td>
+    </tr>
+    <tr>
+      <td>E114</td>
+      <td>Other Brands</td>
       <td>Review the card information</td>
       <td>Redo the transaction with valid information</td>
     </tr>
     <tr>
+      <td>E115</td>
+      <td>1</td>
+      <td>Invalid card data - Don’t try again</td>
+      <td>Don’t resend, review card data</td>
+    </tr>
+    <tr>
+      <td>E115</td>
+      <td>2</td>
+      <td>Invalid card data - Don’t try again</td>
+      <td>Don’t resend, review card data</td>
+    </tr>
+    <tr>
+      <td>E115</td>
+      <td>40</td>
+      <td>Invalid card data - Don’t try again</td>
+      <td>Don’t resend, review card data</td>
+    </tr>
+    <tr>
+      <td>E119</td>
+      <td>1</td>
+      <td>Card error - Don’t try again</td>
+      <td>Don’t resend, inform the customer that the card is in error</td>
+    </tr>
+    <tr>
+      <td>E119</td>
+      <td>7</td>
+      <td>Card error - Don’t try again</td>
+      <td>Don’t resend, inform the customer that the card is in error</td>
+    </tr>
+    <tr>
+      <td>E123</td>
+      <td>7</td>
+      <td>Invalid installment - Don’t try again</td>
+      <td>Don’t resubmit, invalid installments</td>
+    </tr>
+    <tr>
+      <td>E125</td>
+      <td>2</td>
+      <td>Contact your card center - Don’t try again</td>
+      <td>Don’t resend, ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E125</td>
+      <td>40</td>
+      <td>Contact your card center - Don’t try again</td>
+      <td>Don’t resend, ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E128</td>
+      <td>2</td>
+      <td>Contact your card center - Don’t try again</td>
+      <td>Don’t resend, ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E128</td>
+      <td>40</td>
+      <td>Contact your card center - Don’t try again</td>
+      <td>Don’t resend, ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E130</td>
+      <td>2</td>
+      <td>Card error - Don’t try again</td>
+      <td>Don’t resend, inform the customer that the card is in error</td>
+    </tr>
+    <tr>
+      <td>E130</td>
+      <td>7</td>
+      <td>Card error - Don’t try again</td>
+      <td>Don’t resend, inform the customer that the card is in error</td>
+    </tr>
+    <tr>
+      <td>E130</td>
+      <td>40</td>
+      <td>Card error - Don’t try again</td>
+      <td>Don’t resend, inform the customer that the card is in error</td>
+    </tr>
+    <tr>
+      <td>E138</td>
+      <td>7</td>
+      <td>Password attempts exceeded. Contact your card center</td>
+      <td>Inform the customer that Contact the card center, password attempts exceeded</td>
+    </tr>
+    <tr>
+      <td>E139</td>
+      <td>1</td>
+      <td>Use debit function</td>
+      <td>Send again using debit function</td>
+    </tr>
+    <tr>
       <td>E141</td>
+      <td>1</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E141</td>
+      <td>2</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E141</td>
+      <td>7</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E141</td>
+      <td>40</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E141</td>
+      <td>Other Brands</td>
       <td>Canceled card</td>
       <td>Contact your costumer</td>
     </tr>
     <tr>
       <td>E143</td>
+      <td>1</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E143</td>
+      <td>2</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E143</td>
+      <td>7</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E143</td>
+      <td>40</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E143</td>
+      <td>Other Brands</td>
       <td>Canceled card</td>
       <td>Contact your costumer</td>
     </tr>
     <tr>
       <td>E151</td>
+      <td>1</td>
+      <td>Not allowed</td>
+      <td>Unauthorized transaction</td>
+    </tr>
+    <tr>
+      <td>E151</td>
+      <td>2</td>
+      <td>Not allowed</td>
+      <td>Unauthorized transaction</td>
+    </tr>
+    <tr>
+      <td>E151</td>
+      <td>7</td>
+      <td>Not allowed</td>
+      <td>Unauthorized transaction</td>
+    </tr>
+    <tr>
+      <td>E151</td>
+      <td>40</td>
+      <td>Not allowed</td>
+      <td>Unauthorized transaction</td>
+    </tr>
+    <tr>
+      <td>E151</td>
+      <td>Other Brands</td>
       <td>Transaction not authorized by the Issuing bank</td>
       <td>Contact your costumer</td>
     </tr>
     <tr>
+      <td>E152</td>
+      <td>1</td>
+      <td>Use credit function</td>
+      <td>Send again using credit function</td>
+    </tr>
+    <tr>
+      <td>E153</td>
+      <td>1</td>
+      <td>Use credit function</td>
+      <td>Send again using credit function</td>
+    </tr>
+    <tr>
       <td>E154</td>
+      <td>2</td>
+      <td>Check card data</td>
+      <td>Repeat the transaction with valid data</td>
+    </tr>
+    <tr>
+      <td>E154</td>
+      <td>7</td>
+      <td>Check card data</td>
+      <td>Repeat the transaction with valid data</td>
+    </tr>
+    <tr>
+      <td>E154</td>
+      <td>40</td>
+      <td>Check card data</td>
+      <td>Repeat the transaction with valid data</td>
+    </tr>
+    <tr>
+      <td>E154</td>
+      <td>Other Brands</td>
       <td>Incorrect card expiration date</td>
       <td>Contact your costumer</td>
     </tr>
     <tr>
+      <td>E155</td>
+      <td>1</td>
+      <td>Invalid password</td>
+      <td>Inform the customer that the password is invalid</td>
+    </tr>
+    <tr>
+      <td>E155</td>
+      <td>2</td>
+      <td>Invalid password</td>
+      <td>Inform the customer that the password is invalid</td>
+    </tr>
+    <tr>
+      <td>E155</td>
+      <td>7</td>
+      <td>Invalid password</td>
+      <td>Inform the customer that the password is invalid</td>
+    </tr>
+    <tr>
+      <td>E155</td>
+      <td>40</td>
+      <td>Invalid password</td>
+      <td>Inform the customer that the password is invalid</td>
+    </tr>
+    <tr>
+      <td>E156</td>
+      <td>7</td>
+      <td>Check card data</td>
+      <td>Repeat the transaction with valid data</td>
+    </tr>
+    <tr>
       <td>E157</td>
+      <td>1</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E157</td>
+      <td>2</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E157</td>
+      <td>7</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E157</td>
+      <td>40</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E157</td>
+      <td>Other Brands</td>
       <td>Canceled card</td>
       <td>Contact your costumer</td>
     </tr>
     <tr>
       <td>E158</td>
+      <td>1</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E158</td>
+      <td>2</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E158</td>
+      <td>7</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E158</td>
+      <td>40</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E158</td>
+      <td>Other Brands</td>
       <td>Card type not allowed in this channel</td>
       <td>Contact Cielo</td>
     </tr>
     <tr>
+      <td>E159</td>
+      <td>1</td>
+      <td>Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E159</td>
+      <td>7</td>
+      <td>Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E161</td>
+      <td>1</td>
+      <td>Exceeded value. Contact your card center</td>
+      <td>Ask the customer to Contact your card center - valor excedido</td>
+    </tr>
+    <tr>
+      <td>E161</td>
+      <td>2</td>
+      <td>Exceeded value. Contact your card center</td>
+      <td>Ask the customer to Contact your card center - valor excedido</td>
+    </tr>
+    <tr>
+      <td>E161</td>
+      <td>7</td>
+      <td>Exceeded value. Contact your card center</td>
+      <td>Ask the customer to Contact your card center - valor excedido</td>
+    </tr>
+    <tr>
+      <td>E161</td>
+      <td>40</td>
+      <td>Exceeded value. Contact your card center</td>
+      <td>Ask the customer to Contact your card center - valor excedido</td>
+    </tr>
+    <tr>
       <td>E162</td>
+      <td>1</td>
+      <td>Card not allowed for this transaction</td>
+      <td>Inform the customer that the card doesn’t allow international transactions, request a new payment method</td>
+    </tr>
+    <tr>
+      <td>E162</td>
+      <td>2</td>
+      <td>Card not allowed for this transaction</td>
+      <td>Inform the customer that the card doesn’t allow international transactions, request a new payment method</td>
+    </tr>
+    <tr>
+      <td>E162</td>
+      <td>7</td>
+      <td>Card not allowed for this transaction</td>
+      <td>Inform the customer that the card doesn’t allow international transactions, request a new payment method</td>
+    </tr>
+    <tr>
+      <td>E162</td>
+      <td>40</td>
+      <td>Card not allowed for this transaction</td>
+      <td>Inform the customer that the card doesn’t allow international transactions, request a new payment method</td>
+    </tr>
+    <tr>
+      <td>E162</td>
+      <td>Other Brands</td>
       <td>Card not allowed in this transaction</td>
       <td>Contact your costumer</td>
     </tr>
     <tr>
+      <td>E163</td>
+      <td>2</td>
+      <td>Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E163</td>
+      <td>7</td>
+      <td>Check card data</td>
+      <td>Repeat the transaction with valid data</td>
+    </tr>
+    <tr>
+      <td>E163</td>
+      <td>40</td>
+      <td>Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E164</td>
+      <td>1</td>
+      <td>Contact your card center - Don’t try again</td>
+      <td>Don’t resend, ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E164</td>
+      <td>7</td>
+      <td>Transaction amount not allowed - Don’t try again</td>
+      <td>Don’t resubmit, value not allowed</td>
+    </tr>
+    <tr>
+      <td>E165</td>
+      <td>1</td>
+      <td>Amount of withdrawals exceeded. Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E165</td>
+      <td>2</td>
+      <td>Amount of withdrawals exceeded. Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E165</td>
+      <td>7</td>
+      <td>Amount of withdrawals exceeded. Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E165</td>
+      <td>40</td>
+      <td>Amount of withdrawals exceeded. Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E174</td>
+      <td>1</td>
+      <td>Invalid password - Don’t try again</td>
+      <td>Don’t send again - Invalid password</td>
+    </tr>
+    <tr>
+      <td>E174</td>
+      <td>7</td>
+      <td>Invalid password - Don’t try again</td>
+      <td>Don’t send again - Invalid password</td>
+    </tr>
+    <tr>
+      <td>E175</td>
+      <td>1</td>
+      <td>Password attempts exceeded. Contact your card center</td>
+      <td>Inform the customer that Contact the card center, password attempts exceeded</td>
+    </tr>
+    <tr>
+      <td>E175</td>
+      <td>2</td>
+      <td>Password attempts exceeded. Contact your card center</td>
+      <td>Inform the customer that Contact the card center, password attempts exceeded</td>
+    </tr>
+    <tr>
+      <td>E175</td>
+      <td>7</td>
+      <td>Password attempts exceeded. Contact your card center</td>
+      <td>Inform the customer that Contact the card center, password attempts exceeded</td>
+    </tr>
+    <tr>
+      <td>E175</td>
+      <td>40</td>
+      <td>Password attempts exceeded. Contact your card center</td>
+      <td>Inform the customer that Contact the card center, password attempts exceeded</td>
+    </tr>
+    <tr>
+      <td>E176</td>
+      <td>1</td>
+      <td>Contact your card center - Don’t try again</td>
+      <td>Don’t resend, ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E176</td>
+      <td>7</td>
+      <td>Invalid destination account - Don’t try again</td>
+      <td>Don’t try again</td>
+    </tr>
+    <tr>
+      <td>E177</td>
+      <td>7</td>
+      <td>Invalid source account - Don’t try again</td>
+      <td>Don’t try again</td>
+    </tr>
+    <tr>
+      <td>E178</td>
+      <td>1</td>
+      <td>Unlock the card</td>
+      <td>Ask the customer to Unlock the card</td>
+    </tr>
+    <tr>
+      <td>E178</td>
+      <td>7</td>
+      <td>Unlock the card</td>
+      <td>Ask the customer to Unlock the card</td>
+    </tr>
+    <tr>
       <td>E180</td>
+      <td>All</td>
       <td>Transaction date does not match</td>
       <td>Review original transaction data</td>
     </tr>
     <tr>
       <td>E182</td>
+      <td>1</td>
+      <td>Card error - Don’t try again</td>
+      <td>Don’t resend, I’ll inform the customer that the card is in error</td>
+    </tr>
+    <tr>
+      <td>E182</td>
+      <td>7</td>
+      <td>Card error - Don’t try again</td>
+      <td>Don’t resend, I’ll inform the customer that the card is in error</td>
+    </tr>
+    <tr>
+      <td>E182</td>
+      <td>Other Brands</td>
       <td>Invalid Card security code</td>
       <td>Review transaction data / Contact your costumer</td>
     </tr>
     <tr>
+      <td>E186</td>
+      <td>1</td>
+      <td>Invalid password</td>
+      <td>Inform the customer that the password is invalid</td>
+    </tr>
+    <tr>
+      <td>E186</td>
+      <td>2</td>
+      <td>Invalid password</td>
+      <td>Inform the customer that the password is invalid</td>
+    </tr>
+    <tr>
+      <td>E186</td>
+      <td>40</td>
+      <td>Invalid password</td>
+      <td>Inform the customer that the password is invalid</td>
+    </tr>
+    <tr>
+      <td>E188</td>
+      <td>2</td>
+      <td>Invalid password - Don’t try again</td>
+      <td>Don’t send again - Invalid password</td>
+    </tr>
+    <tr>
+      <td>E188</td>
+      <td>40</td>
+      <td>Invalid password - Don’t try again</td>
+      <td>Don’t send again - Invalid password</td>
+    </tr>
+    <tr>
       <td>E191</td>
+      <td>1</td>
+      <td>Communication failure - Try later</td>
+      <td>Try to send again later</td>
+    </tr>
+    <tr>
+      <td>E191</td>
+      <td>2</td>
+      <td>Communication failure - Try later</td>
+      <td>Try to send again later</td>
+    </tr>
+    <tr>
+      <td>E191</td>
+      <td>7</td>
+      <td>Communication failure - Try later</td>
+      <td>Try to send again later</td>
+    </tr>
+    <tr>
+      <td>E191</td>
+      <td>40</td>
+      <td>Communication failure - Try later</td>
+      <td>Try to send again later</td>
+    </tr>
+    <tr>
+      <td>E191</td>
+      <td>Other Brands</td>
       <td>Issuing Bank with no communication</td>
       <td>Contact Cielo</td>
     </tr>
     <tr>
       <td>E192</td>
+      <td>1</td>
+      <td>Contact your card center - Don’t try again</td>
+      <td>Don’t resend, ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E192</td>
+      <td>2</td>
+      <td>Contact your card center - Don’t try again</td>
+      <td>Don’t resend, ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E192</td>
+      <td>40</td>
+      <td>Contact your card center - Don’t try again</td>
+      <td>Don’t resend, ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E192</td>
+      <td>Other Brands</td>
       <td>Applicable for Airline companies</td>
       <td>Applicable for Airline companies</td>
     </tr>
     <tr>
+      <td>E193</td>
+      <td>1</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E194</td>
+      <td>1</td>
+      <td>Contact your card center - Don’t try again</td>
+      <td>Don’t resend, ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E194</td>
+      <td>2</td>
+      <td>Contact your card center - Don’t try again</td>
+      <td>Don’t resend, ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E194</td>
+      <td>40</td>
+      <td>Contact your card center - Don’t try again</td>
+      <td>Don’t resend, ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E196</td>
+      <td>1</td>
+      <td>Communication failure - Try later</td>
+      <td>Try to send again later</td>
+    </tr>
+    <tr>
+      <td>E196</td>
+      <td>2</td>
+      <td>Communication failure - Try later</td>
+      <td>Try to send again later</td>
+    </tr>
+    <tr>
+      <td>E196</td>
+      <td>7</td>
+      <td>Communication failure - Try later</td>
+      <td>Try to send again later</td>
+    </tr>
+    <tr>
+      <td>E196</td>
+      <td>40</td>
+      <td>Communication failure - Try later</td>
+      <td>Try to send again later</td>
+    </tr>
+    <tr>
+      <td>E199</td>
+      <td>7</td>
+      <td>Value other than pre-authorization - Don’t try again</td>
+      <td>Don’t resubmit, value not allowed</td>
+    </tr>
+    <tr>
+      <td>E1A1</td>
+      <td>3</td>
+      <td>Communication failure - Try later</td>
+      <td>Try to send again later</td>
+    </tr>
+    <tr>
+      <td>E1A2</td>
+      <td>3</td>
+      <td>Invalid installment - Don’t try again</td>
+      <td>Don’t resubmit, invalid installments</td>
+    </tr>
+    <tr>
+      <td>E1A2</td>
+      <td>3</td>
+      <td>Check card data</td>
+      <td>Repeat the transaction with valid data</td>
+    </tr>
+    <tr>
+      <td>E1A3</td>
+      <td>3</td>
+      <td>Card error - Don’t try again</td>
+      <td>Don’t resend, I’ll inform the customer that the card is in error</td>
+    </tr>
+    <tr>
+      <td>E1A4</td>
+      <td>3</td>
+      <td>Password attempts exceeded. Contact your card center</td>
+      <td>Inform the customer that Contact the card center, password attempts exceeded</td>
+    </tr>
+    <tr>
+      <td>E1A5</td>
+      <td>3</td>
+      <td>Not allowed</td>
+      <td>Unauthorized transaction</td>
+    </tr>
+    <tr>
+      <td>E1A5</td>
+      <td>3</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E1A6</td>
+      <td>3</td>
+      <td>Invalid password</td>
+      <td>Inform the customer that the password is invalid</td>
+    </tr>
+    <tr>
+      <td>E1A7</td>
+      <td>3</td>
+      <td>Card error - Don’t try again</td>
+      <td>Don’t resend, I’ll inform the customer that the card is in error</td>
+    </tr>
+    <tr>
+      <td>E1A7</td>
+      <td>3</td>
+      <td>Invalid password - Don’t try again</td>
+      <td>Don’t send again - Invalid password</td>
+    </tr>
+    <tr>
+      <td>E1AB</td>
+      <td>7</td>
+      <td>Use credit function</td>
+      <td>Send again using credit function</td>
+    </tr>
+    <tr>
+      <td>E1AC</td>
+      <td>3</td>
+      <td>Use debit function</td>
+      <td>Send again using debit function</td>
+    </tr>
+    <tr>
+      <td>E1AE</td>
+      <td>3</td>
+      <td>Communication failure - Try later</td>
+      <td>Try to send again later</td>
+    </tr>
+    <tr>
+      <td>E1B1</td>
+      <td>1</td>
+      <td>Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E1B2</td>
+      <td>1</td>
+      <td>Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E1BV</td>
+      <td>3</td>
+      <td>Check card data</td>
+      <td>Repeat the transaction with valid data</td>
+    </tr>
+    <tr>
+      <td>E1DA</td>
+      <td>3</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E1FA</td>
+      <td>3</td>
+      <td>Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E1FD</td>
+      <td>3</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E1JB</td>
+      <td>3</td>
+      <td>Transaction amount not allowed - Don’t try again</td>
+      <td>Don’t resubmit, value not allowed</td>
+    </tr>
+    <tr>
+      <td>E1N0</td>
+      <td>1</td>
+      <td>Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E1N3</td>
+      <td>1</td>
+      <td>Cashout not available - Don’t try again</td>
+      <td>Don’t resubmit - withdrawal not available</td>
+    </tr>
+    <tr>
+      <td>E1N4</td>
+      <td>1</td>
+      <td>Exceeded value. Contact your card center</td>
+      <td>Ask the customer to Contact your card center - valor excedido</td>
+    </tr>
+    <tr>
+      <td>E1N8</td>
+      <td>1</td>
+      <td>Value other than pre-authorization - Don’t try again</td>
+      <td>Don’t resubmit, value not allowed</td>
+    </tr>
+    <tr>
+      <td>E1P5</td>
+      <td>7</td>
+      <td>Invalid password - Don’t try again</td>
+      <td>Don’t send again - Invalid password</td>
+    </tr>
+    <tr>
+      <td>E1P6</td>
+      <td>7</td>
+      <td>Invalid password utilize nova senha</td>
+      <td>Inform the customer that the password is invalid</td>
+    </tr>
+    <tr>
+      <td>E1R0</td>
+      <td>1</td>
+      <td>Suspension of recurring payment for service - Don’t try again</td>
+      <td>Don’t resubmit, recurring payment suspension for service</td>
+    </tr>
+    <tr>
+      <td>E1R1</td>
+      <td>1</td>
+      <td>Suspension of recurring payment for service - Don’t try again</td>
+      <td>Don’t resubmit, recurring payment suspension for service</td>
+    </tr>
+    <tr>
+      <td>E1R2</td>
+      <td>1</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E1R3</td>
+      <td>1</td>
+      <td>Suspension of recurring payment for service - Don’t try again</td>
+      <td>Don’t resubmit, recurring payment suspension for service</td>
+    </tr>
+    <tr>
       <td>E205</td>
+      <td>All</td>
       <td>Review card data</td>
       <td>Redo the transaction with valid information</td>
     </tr>
     <tr>
       <td>E207</td>
+      <td>All</td>
       <td>Invalid Lot number</td>
       <td>Review Lot number</td>
     </tr>
     <tr>
       <td>E207</td>
+      <td>All</td>
       <td>Lot field is not numeric</td>
       <td>Review Lot number</td>
     </tr>
     <tr>
       <td>E207</td>
+      <td>All</td>
       <td>Duplicate Lot number</td>
       <td>Review Lot number</td>
     </tr>
     <tr>
       <td>E209</td>
+      <td>All</td>
       <td>Applicable for Airline companies</td>
       <td>Review amount</td>
     </tr>
     <tr>
       <td>E210</td>
+      <td>All</td>
       <td>Invalid Installment amount</td>
       <td>Field zeroed number of installments</td>
     </tr>
     <tr>
       <td>E210</td>
+      <td>All</td>
       <td>Invalid Installment amount</td>
       <td>Contact Cielo</td>
     </tr>
     <tr>
       <td>E210</td>
+      <td>All</td>
       <td>Product not authorized for your Establishment</td>
       <td>Contact Cielo</td>
     </tr>
     <tr>
       <td>E210</td>
+      <td>All</td>
       <td>Installment amount greater than the allowed</td>
       <td>Contact Cielo to change installment register</td>
     </tr>
     <tr>
       <td>E211</td>
+      <td>All</td>
       <td>Applicable for Airline companies</td>
       <td>Review amount</td>
     </tr>
     <tr>
       <td>E212</td>
+      <td>All</td>
       <td>Applicable for Airline companies</td>
       <td>Review amount</td>
     </tr>
     <tr>
       <td>E213</td>
+      <td>All</td>
       <td>Cancellation amount not allowed</td>
       <td>Review transaction data</td>
     </tr>
     <tr>
       <td>E214</td>
+      <td>All</td>
       <td>Transaction not found</td>
       <td>Review transaction data</td>
     </tr>
     <tr>
       <td>E215</td>
+      <td>All</td>
       <td>Already canceled transaction</td>
       <td>Contact Cielo</td>
     </tr>
     <tr>
       <td>E216</td>
+      <td>All</td>
       <td>Transaction canceled previously</td>
-      <td>Do not resend transaction</td>
+      <td>Don’t resend transaction</td>
     </tr>
     <tr>
       <td>E217</td>
+      <td>All</td>
       <td>Cancellation amount greater than the sale</td>
       <td>Review transaction data</td>
     </tr>
     <tr>
       <td>E218</td>
+      <td>All</td>
       <td>Cancellation not allowed in this channel</td>
       <td>Contact Cielo</td>
     </tr>
     <tr>
       <td>E219</td>
+      <td>All</td>
       <td>OS number not found</td>
       <td>Review transaction data</td>
     </tr>
     <tr>
       <td>E220</td>
+      <td>All</td>
       <td>Transaction cancellation timeout exceeded</td>
-      <td>Do not resend transaction</td>
+      <td>Don’t resend transaction</td>
     </tr>
     <tr>
       <td>E900</td>
+      <td>All</td>
       <td>Invalid Register type</td>
       <td>Review file estructure</td>
     </tr>
     <tr>
       <td>E901</td>
+      <td>All</td>
       <td>Invalid Header Deposit date</td>
       <td>Review transaction data</td>
     </tr>
     <tr>
       <td>E902</td>
+      <td>All</td>
       <td>Invalid number of Operations Summary (OS) of the header</td>
       <td>Review the number of Operations Summary (OS)</td>
     </tr>
     <tr>
       <td>E903</td>
+      <td>All</td>
       <td>Establishment Number of the Header invalid</td>
       <td>Review the Establishment Number/Contact Cielo</td>
     </tr>
     <tr>
       <td>E904</td>
+      <td>All</td>
       <td>Invalid Header currency</td>
       <td>Review the Header estructure</td>
     </tr>
     <tr>
       <td>E905</td>
+      <td>All</td>
       <td>Invalid Header test indicator</td>
       <td>Review the Header estructure</td>
     </tr>
     <tr>
       <td>E906</td>
+      <td>All</td>
       <td>Invalid Header test indicator</td>
       <td>Review the Header estructure</td>
     </tr>
     <tr>
       <td>E911</td>
+      <td>All</td>
       <td>Invalid sale receipt (SR) number</td>
       <td>Review transaction data</td>
     </tr>
     <tr>
       <td>E912</td>
+      <td>All</td>
       <td>Invalid Sale Date</td>
       <td>Review transaction data</td>
     </tr>
     <tr>
       <td>E913</td>
+      <td>All</td>
       <td>Invalid Sale Date</td>
       <td>Review transaction data</td>
     </tr>
     <tr>
       <td>E914</td>
+      <td>All</td>
       <td>Invalid card number</td>
       <td>Review transaction data/Contact your costumer</td>
     </tr>
     <tr>
       <td>E915</td>
+      <td>All</td>
       <td>Invalid sale amount</td>
       <td>Review transaction data</td>
     </tr>
     <tr>
       <td>E916</td>
+      <td>All</td>
       <td>Invalid installments amount</td>
       <td>Review transaction data</td>
     </tr>
     <tr>
       <td>E917</td>
+      <td>All</td>
       <td>Invalid funded amount</td>
       <td>Review transaction data</td>
     </tr>
     <tr>
       <td>E918</td>
+      <td>All</td>
       <td>Invalid input amount</td>
       <td>Review transaction data</td>
     </tr>
     <tr>
       <td>E919</td>
+      <td>All</td>
       <td>Invalid board tax amount</td>
       <td>Applicable for Airline Companies</td>
     </tr>
     <tr>
       <td>E920</td>
+      <td>All</td>
       <td>Invalid installment amount</td>
       <td>Review transaction data</td>
     </tr>
     <tr>
       <td>E921</td>
-      <td>Invalid  Operations Summary (OS) number</td>
+      <td>All</td>
+      <td>Invalid Operations Summary (OS) number</td>
       <td>Review the Operations Summary (OS) numbe</td>
     </tr>
     <tr>
       <td>E922</td>
+      <td>All</td>
       <td>Invalid Establishment Number</td>
       <td>Review the Establishment Number / Contact Cielo</td>
     </tr>
     <tr>
       <td>E923</td>
+      <td>All</td>
       <td>Invalid card expiration date</td>
       <td>Contact your costumer</td>
     </tr>
     <tr>
       <td>E924</td>
+      <td>All</td>
       <td>Invalid Original Operations Summary (OS) number</td>
       <td>Review the Operations Summary (OS) number</td>
     </tr>
     <tr>
       <td>E925</td>
+      <td>All</td>
       <td>Invalid refund amount</td>
       <td>Review transaction data</td>
     </tr>
     <tr>
       <td>E926</td>
+      <td>All</td>
       <td>Invalid reference number</td>
       <td>Review transaction data</td>
     </tr>
     <tr>
       <td>E930</td>
+      <td>All</td>
       <td>Amount of Trailer registers does not match</td>
       <td>Review the registers amount</td>
     </tr>
     <tr>
       <td>E931</td>
+      <td>All</td>
       <td>Total gross amount does not match</td>
       <td>Review transaction data</td>
+    </tr>
+  </tbody>
+</table>
+
+<aside class="notice">(*) - In the case of an EC VAN that tries to transact AMEX or Hipercard the details will be E023.</aside>
+
+<h2 id="attachment-iii---list-of-codes-and-flags">ATTACHMENT III - List of codes and flags</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>CODE</th>
+      <th>BRAND</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Visa</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>MasterCard</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Amex</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Sorocred</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Elo</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Diners</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Agiplan</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Banescard</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>Cabal</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>Credsystem</td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>Esplanada</td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>Hipercard</td>
+    </tr>
+    <tr>
+      <td>60</td>
+      <td>Jcb</td>
+    </tr>
+    <tr>
+      <td>64</td>
+      <td>Credz</td>
+    </tr>
+    <tr>
+      <td>72</td>
+      <td>Hiper</td>
+    </tr>
+    <tr>
+      <td>75</td>
+      <td>Ourocard</td>
     </tr>
   </tbody>
 </table>
