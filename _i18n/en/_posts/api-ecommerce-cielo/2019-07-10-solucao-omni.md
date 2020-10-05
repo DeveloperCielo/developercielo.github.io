@@ -36,7 +36,7 @@ For the integration, it is necessary that the business partner/sub-purchaser cap
 * Shared library for PINPad or proprietary library certified with the brands.
 * DUKPT encryption keys implemented for PIN.
 * Make your BDK available for installation on HSM Cielo.
-* For payment solutions that use an external Pinpad (Bluetooth or cable connection), the use of WKPAN encryption for data is required. Customers of this type of solution must be a PCI DSS certificate.
+* For payment solutions that use an external Pinpad (Bluetooth or cable connection), the use of WKPAN encryption for data is required. Customers of this type of solution must be a PCI DSS and PA DSS certificate.
 
 Key Format required by Cielo:
 
