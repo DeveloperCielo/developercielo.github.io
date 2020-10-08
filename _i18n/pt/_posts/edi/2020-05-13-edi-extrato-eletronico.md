@@ -1187,3 +1187,9 @@ MASTERCARD: a data de apresentação da 1ª parcela também será a data base pa
 **Tipos de cadastro:** com o cadastro por Grupo Comercial, que utiliza a raiz de CNPJ, todos os novos estabelecimentos da raiz são automaticamente inclusos no extrato eletrônico, evitando perdas de informações.
 
 ![Níveis Extrato Eletrênico](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/niveis_extrato_eletronico.png)
+
+# Importante
+
+[Manual de Extrato Eletrônico](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Manual_Extrato_Eletronico.zip)
+
+[ Atualização de Layout EE - Registro de Recebíveis](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis.pdf)
