@@ -219,8 +219,6 @@ Executa a lista de clientes abaixo do access_token informado. O filtro pode ser 
 >| Key | Value |
 >|---|---|
 >| |**Authorization**| Bearer + access_token|
->| **registerID** |O registerID é fornecido pela operação /edi/registers ao se registrar. Pode ser usado no lugar de mainMerchantID, se preferir (apenas um precisa ser informado).|
->| **mainMerchantID** |A maneira mais comum de recuperar um registro EDI na empresa. Pode ser usado em vez de registerID, principalmente em casos de registro não realizados por /edi/registers.|
 
 ```
 
