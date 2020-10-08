@@ -202,7 +202,7 @@ Possíveis valores para {error}:
 
 Dispobilizamos as Collections utiizadas para realizar as todas operações da API. Será necessário configurar a URL e as credenciais.
 
-[Download das Collections](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/EDI_-_Extrato_Eletronico.postman_collection.zip)
+[Download das Collections](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ONBOARDING_EDI_CIELO_PARA_CONCILIADORAS.postman_collection.zip)
 
 # Operações
 
@@ -1190,6 +1190,8 @@ MASTERCARD: a data de apresentação da 1ª parcela também será a data base pa
 ![Níveis Extrato Eletrênico](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/niveis_extrato_eletronico.png)
 
 # Importante
+
+> Observação: as atualizações citadas abaixo, estarão disponíveis a partir do dia 3 de novembro de 2020. 
 
 [Manual de Extrato Eletrônico](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Manual_Extrato_Eletronico.zip)
 
