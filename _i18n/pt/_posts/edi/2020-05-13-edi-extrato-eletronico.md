@@ -1192,4 +1192,4 @@ MASTERCARD: a data de apresentação da 1ª parcela também será a data base pa
 
 [Manual de Extrato Eletrônico](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Manual_Extrato_Eletronico.zip)
 
-[ Atualização de Layout EE - Registro de Recebíveis](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis.pdf)
+[Atualização de Layout EE - Registro de Recebíveis](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis.pdf)
