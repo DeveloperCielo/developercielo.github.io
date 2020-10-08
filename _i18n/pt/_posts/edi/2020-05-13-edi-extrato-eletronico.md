@@ -196,12 +196,13 @@ Possíveis valores para {error}:
 |---|---|
 |Sandbox|https://api2.cielo.com.br/sandbox/|
 |Homologação|https://apihom-cielo.sensedia.com/|
+|Produção|https://api2.cielo.com.br/|
 
 # Collection
 
 Dispobilizamos as Collections utiizadas para realizar as todas operações da API. Será necessário configurar a URL e as credenciais.
 
-[Download das Collections](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/EDI_-_Extrato_Eletronico.postman_collection.json)
+[Download das Collections](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/EDI_-_Extrato_Eletronico.postman_collection.zip)
 
 # Operações
 
