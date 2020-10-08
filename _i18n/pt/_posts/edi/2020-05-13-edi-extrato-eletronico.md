@@ -206,6 +206,88 @@ Dispobilizamos as Collections utiizadas para realizar as todas operações da AP
 
 # Operações
 
+## **GET** Consulta a Lista de Filiais
+
+Executa a lista de clientes abaixo do access_token informado. O filtro pode ser usado para listar apenas aqueles disponíveis ou indisponíveis. Indisponível significa que a filial já participa de outro registro. Nos serviços de registro e edição, há validação para permitir que apenas aqueles disponíveis sejam informados.
+
+### Response
+
+> **GET** {{host}}/edi/merchantgroup
+>
+> **Headers**
+>
+>| Key | Value |
+>|---|---|
+>| |**Authorization**| Bearer + access_token|
+>| **registerID** |O registerID é fornecido pela operação /edi/registers ao se registrar. Pode ser usado no lugar de mainMerchantID, se preferir (apenas um precisa ser informado).|
+>| **mainMerchantID** |A maneira mais comum de recuperar um registro EDI na empresa. Pode ser usado em vez de registerID, principalmente em casos de registro não realizados por /edi/registers.|
+
+```
+
+{
+  "legalEntityNumber": "string",
+  "branches": [
+    {
+      "merchantID": "9999111222",
+      "legalEntityNumber": "01234567890",
+      "businessName": "V",
+      "status": "UNAVAILABLE"
+    }
+  ]
+}
+
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|---|---|---|---|---|
+|`legalEntityNumber`|Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).|String|8||
+|`branches`|Lista de Filiais||||
+|`businessName`|Nome da empresa||||
+|`status`|Filial disponível ou Indisponível||||
+
+## **GET** Consultar configurações existentes.
+
+Retorna configurações existentes agrupadas por mainMerchantID.
+
+Observações: disponível a partir de 3 de novembro de 2020.
+
+### Response
+
+> **GET** {{host}}/mainmerchants
+>
+> **Headers**
+>
+>| Key | Value |
+>|---|---|
+>|**Authorization**| Bearer + access_token|
+
+```
+
+{
+  "configurations": [
+    {
+      "registerID": "12345",
+      "mainMerchantID": "9999111111",
+      "merchants": [
+        "9999111111",
+        "9999111222",
+        "9999111333"
+      ],
+      "type": [
+        "SELL",
+        "PAYMENT",
+        "ANTECIPATION_CIELO",
+        "ASSIGNMENT",
+        "BALANCE",
+        "ANTECIPATION_ALELO"
+      ],
+      "editStatus": "AVAILABLE"
+    }
+  ]
+}
+
+```
+
 ## **POST** Registrar merchantID
 
 Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da entidade.
@@ -314,7 +396,7 @@ Consulte o MerchantID com base no registerID ou no mainMerchantID.
 
 ### Response
 
-> **GET** {{host}}/edi
+> **GET** {{host}}/edi?registerID={{register_id}}&mainMerchantID={{main_merchant_id}}
 >
 > **Headers**
 >
@@ -447,45 +529,6 @@ Consulte o MerchantID com base no registerID ou no mainMerchantID.
 |`mainMerchantId`|ID principal do cliente.|String|||
 |`registerID`|ID do registro. O mesmo fornecido por /edi/registers|String|||
 |`acknowledge`|||||
-
-## **GET** Consulta a Lista de Filiais
-
-Executa a lista de clientes abaixo do access_token informado. O filtro pode ser usado para listar apenas aqueles disponíveis ou indisponíveis. Indisponível significa que a filial já participa de outro registro. Nos serviços de registro e edição, há validação para permitir que apenas aqueles disponíveis sejam informados.
-
-### Response
-
-> **GET** {{host}}/edi/merchantgroup
->
-> **Headers**
->
->| Key | Value |
->|---|---|
->| |**Authorization**| Bearer + access_token|
->| **registerID** |O registerID é fornecido pela operação /edi/registers ao se registrar. Pode ser usado no lugar de mainMerchantID, se preferir (apenas um precisa ser informado).|
->| **mainMerchantID** |A maneira mais comum de recuperar um registro EDI na empresa. Pode ser usado em vez de registerID, principalmente em casos de registro não realizados por /edi/registers.|
-
-```
-
-{
-  "legalEntityNumber": "string",
-  "branches": [
-    {
-      "merchantID": "9999111222",
-      "legalEntityNumber": "01234567890",
-      "businessName": "V",
-      "status": "UNAVAILABLE"
-    }
-  ]
-}
-
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
-|---|---|---|---|---|
-|`legalEntityNumber`|Número de entidade brasileiro. Para uma pessoa jurídica, a raiz (primeiros 8 dígitos) do documento CNPJ deve ser informada. No caso de uma pessoa, todo o documento CPF deve ser informado (11 dígitos, são necessários zeros à esquerda para completar esse tamanho).|String|8||
-|`branches`|Lista de Filiais||||
-|`businessName`|Nome da empresa||||
-|`status`|Filial disponível ou Indisponível||||
 
 # Tipos de Extrato Eletrônico
 
