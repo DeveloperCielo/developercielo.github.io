@@ -2257,7 +2257,6 @@ QR Code de Pagamento possui suporte às seguintes bandeiras e produtos:
 | JCB              | Sim             | Sim                    | *Não*  |
 | Aura             | Sim             | Sim                    | *Não*  |
 | Hipercard        | Sim             | Sim                    | *Não*  |
-| Hiper            | Sim             | Sim                    | *Não*  |
 
 ### Sandbox e Ferramentas
 
