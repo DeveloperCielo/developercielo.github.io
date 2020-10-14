@@ -297,7 +297,7 @@
   <li><a href="https://developercielo.github.io/en/attachment/Root.crt">Root Certificate</a></li>
   <li><a href="https://developercielo.github.io/en/attachment/Intermediate1.crt">Intermediate 1 certificate</a></li>
   <li><a href="https://developercielo.github.io/en/attachment/Intermediate2.crt">Intermediate 2 certificate</a></li>
-  <li><a href="https://developercielo.github.io/en/attachment/ServerCertificate.crt">E-Commerce Cielo certificate</a></li>
+  <li><a href="https://developercielo.github.io/en/attachment/ecommerce.cielo.com.br.cer.zip">E-Commerce Cielo certificate</a></li>
 </ul>
 
 <h2 id="step-by-step-installation">Step by Step Installation</h2>
@@ -481,7 +481,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <p>All E-Commerce customers who are <strong>Payment Facilitators, as required by the flags and Central Bank</strong> must submit new fields in <strong>transactional messaging</strong>. Cielo will transmit the information to the flags through transactional messaging at the time of authorization.</p>
 
-<p>The new fields are contained within the Payment Facilitator node. In addition to the fields of this new node, facilitators will also have to send the softdescriptor field of the payment node. Below is an example of sending and reply.</p>
+<p>The new fields are contained within the <strong>&lt;subcredenciador&gt;</strong> tag. In addition to the fields in this new node, facilitators will also have to send the <strong>&lt;soft-descriptor&gt;</strong> tag. Below is an example of sending and reply.</p>
 
 <aside class="warning">Attention: We emphasize that information shouldn't be submitted before February 20, 2020, as there is a risk of losing transactions.</aside>
 
@@ -494,13 +494,15 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
         <span class="nt">&lt;subcredenciador&gt;</span>
             <span class="nt">&lt;numero&gt;</span>12345678901<span class="nt">&lt;/numero&gt;</span>
             <span class="nt">&lt;sub-ec&gt;</span>
-                <span class="nt">&lt;numero&gt;</span>123456789012   <span class="nt">&lt;/numero&gt;</span>
-                <span class="nt">&lt;mcc&gt;</span>4511<span class="nt">&lt;/mcc&gt;</span>
+                <span class="nt">&lt;numero&gt;</span>2000130733<span class="nt">&lt;/numero&gt;</span>
+                <span class="nt">&lt;mcc&gt;</span>5542<span class="nt">&lt;/mcc&gt;</span>
                 <span class="nt">&lt;endereco&gt;</span>Alameda Xingu, 512<span class="nt">&lt;/endereco&gt;</span>
                 <span class="nt">&lt;cidade&gt;</span>Barueri<span class="nt">&lt;/cidade&gt;</span>
                 <span class="nt">&lt;estado&gt;</span>SP<span class="nt">&lt;/estado&gt;</span>
                 <span class="nt">&lt;codigo-postal&gt;</span>06537085<span class="nt">&lt;/codigo-postal&gt;</span>
                 <span class="nt">&lt;telefone&gt;</span>11978962345<span class="nt">&lt;/telefone&gt;</span>
+                <span class="nt">&lt;documento&gt;</span>53976428000130<span class="nt">&lt;/documento&gt;</span>
+                <span class="nt">&lt;codigo-pais&gt;</span>076<span class="nt">&lt;/codigo-pais&gt;</span>
             <span class="nt">&lt;/sub-ec&gt;</span>
         <span class="nt">&lt;/subcredenciador&gt;</span>
     <span class="nt">&lt;/dados-ec&gt;</span>
@@ -529,7 +531,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
     <span class="nt">&lt;url-retorno&gt;</span>http://www.cielo.com.br<span class="nt">&lt;/url-retorno&gt;</span>
     <span class="nt">&lt;autorizar&gt;</span>3<span class="nt">&lt;/autorizar&gt;</span>
     <span class="nt">&lt;capturar&gt;</span>true<span class="nt">&lt;/capturar&gt;</span>
-    <span class="nt">&lt;gerar-token&gt;</span>false<span class="nt">&lt;/gerar-token&gt;</span> 
+    <span class="nt">&lt;gerar-token&gt;</span>false<span class="nt">&lt;/gerar-token&gt;</span>
 <span class="nt">&lt;/requisicao-transacao&gt;</span>
 </code></pre></div></div>
 
@@ -588,77 +590,81 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
       <th>Size</th>
       <th>Required</th>
       <th>Description</th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>PaymentFacilitator.EstablishmentCode</td>
-      <td> </td>
+      <td>subcredenciador.numero</td>
       <td>Number</td>
       <td>11</td>
       <td>Required for facilitators</td>
       <td>Facilitator’s establishment code. “Facilitator ID” (Registration of the facilitator with the card brands)</td>
     </tr>
     <tr>
-      <td>PaymentFacilitator.SubEstablishment.EstablishmentCode</td>
-      <td> </td>
+      <td>sub-ec.numero</td>
       <td>Number</td>
       <td>15</td>
       <td>Required for facilitators</td>
       <td>Sub Merchant establishment code. “Sub-Merchant ID” (Registration of sub-accredited with the facilitator)</td>
     </tr>
     <tr>
-      <td>PaymentFacilitator.SubEstablishment.Mcc</td>
-      <td> </td>
+      <td>sub-ec.mcc</td>
       <td>Number</td>
       <td>4</td>
       <td>Required for facilitators</td>
       <td>MCC do sub Merchant.</td>
     </tr>
     <tr>
-      <td>PaymentFacilitator.SubEstablishment.Address</td>
-      <td> </td>
+      <td>sub-ec.endereco</td>
       <td>Alphanumeric</td>
       <td>22</td>
       <td>Required for facilitators</td>
       <td>Sub Merchant Address.</td>
     </tr>
     <tr>
-      <td>PaymentFacilitator.SubEstablishment.City</td>
-      <td> </td>
+      <td>sub-ec.cidade</td>
       <td>Alphanumeric</td>
       <td>13</td>
       <td>Required for facilitators</td>
       <td>City of the sub Merchant.</td>
     </tr>
     <tr>
-      <td>PaymentFacilitator.SubEstablishment.State</td>
-      <td> </td>
+      <td>sub-ec.estado</td>
       <td>Alphanumeric</td>
       <td>2</td>
       <td>Required for facilitators</td>
       <td>State do sub Merchant.</td>
     </tr>
     <tr>
-      <td>PaymentFacilitator.SubEstablishment.PostalCode</td>
-      <td> </td>
+      <td>sub-ec.codigo-postal</td>
       <td>Number</td>
       <td>9</td>
       <td>Required for facilitators</td>
       <td>Sub Merchant Postcode.</td>
     </tr>
     <tr>
-      <td>PaymentFacilitator.SubEstablishment.PhoneNumber</td>
-      <td> </td>
+      <td>sub-ec.telefone</td>
       <td>Number</td>
       <td>13</td>
       <td>Required for facilitators</td>
       <td>Sub Merchant Phone Number.</td>
     </tr>
     <tr>
-      <td>Payment.Softdescriptor</td>
-      <td> </td>
+      <td>sub-ec.documento</td>
+      <td>Number</td>
+      <td>14</td>
+      <td>Required for facilitators</td>
+      <td>CNPJ or CPF of the Sub Merchant.</td>
+    </tr>
+    <tr>
+      <td>sub-ec.codigo-pais</td>
+      <td>Number</td>
+      <td>3</td>
+      <td>Required for facilitators</td>
+      <td>Sub Merchant country code based on ISO 3166.</td>
+    </tr>
+    <tr>
+      <td>dados.pedido.soft-descriptor</td>
       <td>Text</td>
       <td>13</td>
       <td>Required for facilitators</td>
