@@ -2256,7 +2256,6 @@ QR Code  payment supports the following issuers and products:
 | JCB              | Yes             | Yes                      | *No*  |
 | Aura             | Yes             | Yes                      | *No*  |
 | Hipercard        | Yes             | Yes                      | *No*  |
-| Hiper            | Yes             | Yes                      | *No*  |
 
 ### Sandbox and tools for QR Code
 
