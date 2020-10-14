@@ -303,7 +303,7 @@ para iniciar a operação no ambiente de produção.</p>
   <li><a href="https://developercielo.github.io/attachment/Root.crt">Certificado Raiz</a></li>
   <li><a href="https://developercielo.github.io/attachment/intermediate1.crt">Certificado Intermediária 1</a></li>
   <li><a href="https://developercielo.github.io/attachment/intermediate2.crt">Certificado Intermediária 2</a></li>
-  <li><a href="https://developercielo.github.io/attachment/serversertificate.crt">Certificado E-Commerce Cielo</a></li>
+  <li><a href="https://developercielo.github.io/attachment/ecommerce.cielo.com.br.cer.zip">Certificado E-Commerce Cielo</a></li>
 </ul>
 
 <h2 id="passo-a-passo-para-a-instalação">Passo a Passo para a Instalação</h2>
@@ -490,7 +490,7 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
 
 <p>Todos os clientes de E-Commerce que são <strong>Facilitadores de Pagamento, por obrigatoriedade das bandeiras e do Banco Central</strong> deverão enviar novos campos na <strong>mensageria transacional</strong>. A Cielo transmitirá as informações para as bandeiras por meio da mensageria transacional no momento da autorização.</p>
 
-<p>Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos campos deste novo nó, os facilitadores terão também de enviar obrigatoriamente o campo softdescriptor do nó payment. Segue abaixo exemplo do envio e da resposta.</p>
+<p>Os novos campos estão contidos dentro da tag <strong>&lt;subcredenciador&gt;</strong>. Além dos campos deste novo nó, os facilitadores terão também de enviar obrigatoriamente a tag <strong>&lt;soft-descriptor&gt;</strong>. Segue abaixo exemplo do envio e da resposta.</p>
 
 <aside class="warning">Atenção: Reforçamos que as informações não devem ser enviadas antes de 20 de fevereiro de 2020, havendo risco de perda de transações.</aside>
 
@@ -503,13 +503,15 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
         <span class="nt">&lt;subcredenciador&gt;</span>
             <span class="nt">&lt;numero&gt;</span>12345678901<span class="nt">&lt;/numero&gt;</span>
             <span class="nt">&lt;sub-ec&gt;</span>
-                <span class="nt">&lt;numero&gt;</span>123456789012   <span class="nt">&lt;/numero&gt;</span>
-                <span class="nt">&lt;mcc&gt;</span>4511<span class="nt">&lt;/mcc&gt;</span>
+                <span class="nt">&lt;numero&gt;</span>2000130733<span class="nt">&lt;/numero&gt;</span>
+                <span class="nt">&lt;mcc&gt;</span>5542<span class="nt">&lt;/mcc&gt;</span>
                 <span class="nt">&lt;endereco&gt;</span>Alameda Xingu, 512<span class="nt">&lt;/endereco&gt;</span>
                 <span class="nt">&lt;cidade&gt;</span>Barueri<span class="nt">&lt;/cidade&gt;</span>
                 <span class="nt">&lt;estado&gt;</span>SP<span class="nt">&lt;/estado&gt;</span>
                 <span class="nt">&lt;codigo-postal&gt;</span>06537085<span class="nt">&lt;/codigo-postal&gt;</span>
                 <span class="nt">&lt;telefone&gt;</span>11978962345<span class="nt">&lt;/telefone&gt;</span>
+                <span class="nt">&lt;documento&gt;</span>53976428000130<span class="nt">&lt;/documento&gt;</span>
+                <span class="nt">&lt;codigo-pais&gt;</span>076<span class="nt">&lt;/codigo-pais&gt;</span>
             <span class="nt">&lt;/sub-ec&gt;</span>
         <span class="nt">&lt;/subcredenciador&gt;</span>
     <span class="nt">&lt;/dados-ec&gt;</span>
@@ -597,77 +599,81 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
       <th>Tamanho</th>
       <th>Obrigatório</th>
       <th>Descrição</th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>PaymentFacilitator.EstablishmentCode</td>
-      <td> </td>
+      <td>subcredenciador.numero</td>
       <td>Numérico</td>
       <td>11</td>
       <td>Obrigatório para facilitadores</td>
       <td>Código do estabelecimento do Facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras)</td>
     </tr>
     <tr>
-      <td>PaymentFacilitator.SubEstablishment.EstablishmentCode</td>
-      <td> </td>
+      <td>sub-ec.numero</td>
       <td>Numérico</td>
       <td>15</td>
       <td>Obrigatório para facilitadores</td>
       <td>Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)</td>
     </tr>
     <tr>
-      <td>PaymentFacilitator.SubEstablishment.Mcc</td>
-      <td> </td>
+      <td>sub-ec.mcc</td>
       <td>Numérico</td>
       <td>4</td>
       <td>Obrigatório para facilitadores</td>
       <td>MCC do sub Merchant.</td>
     </tr>
     <tr>
-      <td>PaymentFacilitator.SubEstablishment.Address</td>
-      <td> </td>
+      <td>sub-ec.endereco</td>
       <td>Alfanumérico</td>
       <td>22</td>
       <td>Obrigatório para facilitadores</td>
       <td>Endereço do sub Merchant.</td>
     </tr>
     <tr>
-      <td>PaymentFacilitator.SubEstablishment.City</td>
-      <td> </td>
+      <td>sub-ec.cidade</td>
       <td>Alfanumérico</td>
       <td>13</td>
       <td>Obrigatório para facilitadores</td>
       <td>Cidade do sub Merchant.</td>
     </tr>
     <tr>
-      <td>PaymentFacilitator.SubEstablishment.State</td>
-      <td> </td>
+      <td>sub-ec.estado</td>
       <td>Alfanumérico</td>
       <td>2</td>
       <td>Obrigatório para facilitadores</td>
       <td>Estado do sub Merchant.</td>
     </tr>
     <tr>
-      <td>PaymentFacilitator.SubEstablishment.PostalCode</td>
-      <td> </td>
+      <td>sub-ec.codigo-postal</td>
       <td>Numérico</td>
       <td>9</td>
       <td>Obrigatório para facilitadores</td>
       <td>Código postal do sub Merchant.</td>
     </tr>
     <tr>
-      <td>PaymentFacilitator.SubEstablishment.PhoneNumber</td>
-      <td> </td>
+      <td>sub-ec.telefone</td>
       <td>Numérico</td>
       <td>13</td>
       <td>Obrigatório para facilitadores</td>
       <td>Número de telefone do sub Merchant.</td>
     </tr>
     <tr>
-      <td>Payment.Softdescriptor</td>
-      <td> </td>
+      <td>sub-ec.documento</td>
+      <td>Numérico</td>
+      <td>14</td>
+      <td>Obrigatório para facilitadores</td>
+      <td>CNPJ ou CPF do sub Merchant.</td>
+    </tr>
+    <tr>
+      <td>sub-ec.codigo-pais</td>
+      <td>Numérico</td>
+      <td>3</td>
+      <td>Obrigatório para facilitadores</td>
+      <td>Código país do sub Merchant com base no ISO 3166.</td>
+    </tr>
+    <tr>
+      <td>dados.pedido.soft-descriptor</td>
       <td>Texto</td>
       <td>13</td>
       <td>Obrigatório para facilitadores</td>
