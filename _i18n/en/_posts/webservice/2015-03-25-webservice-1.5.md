@@ -108,7 +108,7 @@ Just install the following three files in the server Trustedstore. Cielo does no
 * [Root Certificate]({{ site.baseurl }}/attachment/Root.crt)
 * [Intermediate 1 certificate]({{ site.baseurl }}/attachment/Intermediate1.crt)
 * [Intermediate 2 certificate]({{ site.baseurl }}/attachment/Intermediate2.crt)
-* [E-Commerce Cielo certificate]({{ site.baseurl }}/attachment/ServerCertificate.crt)
+* [E-Commerce Cielo certificate]({{ site.baseurl }}/attachment/ecommerce.cielo.com.br.cer.zip)
 
 ## Step by Step Installation
 
@@ -282,7 +282,7 @@ The transition of status can be realized through the message exchange between th
 
 All E-Commerce customers who are **Payment Facilitators, as required by the flags and Central Bank** must submit new fields in **transactional messaging**. Cielo will transmit the information to the flags through transactional messaging at the time of authorization.
 
-The new fields are contained within the Payment Facilitator node. In addition to the fields of this new node, facilitators will also have to send the softdescriptor field of the payment node. Below is an example of sending and reply.
+The new fields are contained within the **&lt;subcredenciador&gt;** tag. In addition to the fields in this new node, facilitators will also have to send the **&lt;soft-descriptor&gt;** tag. Below is an example of sending and reply.
 
 <aside class="warning"><b>Attention: We emphasize that information shouldn't be submitted before February 20, 2020, as there is a risk of losing transactions.</b></aside>
 
@@ -296,13 +296,15 @@ The new fields are contained within the Payment Facilitator node. In addition to
         <subcredenciador>
             <numero>12345678901</numero>
             <sub-ec>
-                <numero>123456789012   </numero>
-                <mcc>4511</mcc>
+                <numero>2000130733</numero>
+                <mcc>5542</mcc>
                 <endereco>Alameda Xingu, 512</endereco>
                 <cidade>Barueri</cidade>
                 <estado>SP</estado>
                 <codigo-postal>06537085</codigo-postal>
                 <telefone>11978962345</telefone>
+                <documento>53976428000130</documento>
+                <codigo-pais>076</codigo-pais>
             </sub-ec>
         </subcredenciador>
     </dados-ec>
@@ -331,7 +333,7 @@ The new fields are contained within the Payment Facilitator node. In addition to
     <url-retorno>http://www.cielo.com.br</url-retorno>
     <autorizar>3</autorizar>
     <capturar>true</capturar>
-    <gerar-token>false</gerar-token> 
+    <gerar-token>false</gerar-token>
 </requisicao-transacao>
 ```
 
@@ -385,15 +387,17 @@ The new fields are contained within the Payment Facilitator node. In addition to
 
 |Property|Type|Size|Required|Description|
 |---|---|---|---|---|
-|PaymentFacilitator.EstablishmentCode|<subcredenciador><numero>|Number|11|Required for facilitators|Facilitator's establishment code. “Facilitator ID” (Registration of the facilitator with the card brands)|
-|PaymentFacilitator.SubEstablishment.EstablishmentCode|<subcredenciador><sub-ec><numero>|Number|15|Required for facilitators|Sub Merchant establishment code. “Sub-Merchant ID” (Registration of sub-accredited with the facilitator)|
-|PaymentFacilitator.SubEstablishment.Mcc|<subcredenciador><sub-ec><mcc>|Number|4|Required for facilitators|MCC do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.Address|<subcredenciador><sub-ec><endereco>|Alphanumeric|22|Required for facilitators|Sub Merchant Address.|
-|PaymentFacilitator.SubEstablishment.City|<subcredenciador><sub-ec><cidade>|Alphanumeric|13|Required for facilitators|City of the sub Merchant.|
-|PaymentFacilitator.SubEstablishment.State|<subcredenciador><sub-ec><estado>|Alphanumeric|2|Required for facilitators|State do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.PostalCode|<subcredenciador><sub-ec><codigo-postal>|Number|9|Required for facilitators|Sub Merchant Postcode.|
-|PaymentFacilitator.SubEstablishment.PhoneNumber|<subcredenciador><sub-ec><telefone>|Number|13|Required for facilitators|Sub Merchant Phone Number.|
-|Payment.Softdescriptor|<soft-descriptor>|Text|13|Required for facilitators|Text printed on buyer bank invoice. Must be completed according to the data of the sub Merchant.|
+|subcredenciador.numero|Number|11|Required for facilitators|Facilitator's establishment code. “Facilitator ID” (Registration of the facilitator with the card brands)|
+|sub-ec.numero|Number|15|Required for facilitators|Sub Merchant establishment code. “Sub-Merchant ID” (Registration of sub-accredited with the facilitator)|
+|sub-ec.mcc|Number|4|Required for facilitators|MCC do sub Merchant.|
+|sub-ec.endereco|Alphanumeric|22|Required for facilitators|Sub Merchant Address.|
+|sub-ec.cidade|Alphanumeric|13|Required for facilitators|City of the sub Merchant.|
+|sub-ec.estado|Alphanumeric|2|Required for facilitators|State do sub Merchant.|
+|sub-ec.codigo-postal|Number|9|Required for facilitators|Sub Merchant Postcode.|
+|sub-ec.telefone|Number|13|Required for facilitators|Sub Merchant Phone Number.|
+|sub-ec.documento|Number|14|Required for facilitators|CNPJ or CPF of the Sub Merchant.|
+|sub-ec.codigo-pais|Number|3|Required for facilitators|Sub Merchant country code based on ISO 3166.|
+|dados.pedido.soft-descriptor|Text|13|Required for facilitators|Text printed on buyer bank invoice. Must be completed according to the data of the sub Merchant.|
 
 # Creating transactions
 
