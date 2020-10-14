@@ -114,7 +114,7 @@ Basta instalar os três arquivos a seguir na Trustedstore do servidor. A Cielo n
 * [Certificado Raiz]({{ site.baseurl }}/attachment/Root.crt)
 * [Certificado Intermediária 1]({{ site.baseurl }}/attachment/intermediate1.crt)
 * [Certificado Intermediária 2]({{ site.baseurl }}/attachment/intermediate2.crt)
-* [Certificado E-Commerce Cielo]({{ site.baseurl }}/attachment/serversertificate.crt)
+* [Certificado E-Commerce Cielo]({{ site.baseurl }}/attachment/ecommerce.cielo.com.br.cer.zip)
 
 ## Passo a Passo para a Instalação
 
@@ -291,7 +291,7 @@ As transições de status podem ser realizadas através da troca de mensagens en
 
 Todos os clientes de E-Commerce que são **Facilitadores de Pagamento, por obrigatoriedade das bandeiras e do Banco Central** deverão enviar novos campos na **mensageria transacional**. A Cielo transmitirá as informações para as bandeiras por meio da mensageria transacional no momento da autorização.
 
-Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos campos deste novo nó, os facilitadores terão também de enviar obrigatoriamente o campo softdescriptor do nó payment. Segue abaixo exemplo do envio e da resposta.
+Os novos campos estão contidos dentro da tag **&lt;subcredenciador&gt;**. Além dos campos deste novo nó, os facilitadores terão também de enviar obrigatoriamente a tag **&lt;soft-descriptor&gt;**. Segue abaixo exemplo do envio e da resposta.
 
 <aside class="warning">Atenção: Reforçamos que as informações não devem ser enviadas antes de 20 de fevereiro de 2020, havendo risco de perda de transações.</aside>
 
@@ -305,13 +305,15 @@ Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos cam
         <subcredenciador>
             <numero>12345678901</numero>
             <sub-ec>
-                <numero>123456789012   </numero>
-                <mcc>4511</mcc>
+                <numero>2000130733</numero>
+                <mcc>5542</mcc>
                 <endereco>Alameda Xingu, 512</endereco>
                 <cidade>Barueri</cidade>
                 <estado>SP</estado>
                 <codigo-postal>06537085</codigo-postal>
                 <telefone>11978962345</telefone>
+                <documento>53976428000130</documento>
+                <codigo-pais>076</codigo-pais>
             </sub-ec>
         </subcredenciador>
     </dados-ec>
@@ -394,15 +396,17 @@ Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos cam
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|PaymentFacilitator.EstablishmentCode|<subcredenciador><numero>|Numérico|11|Obrigatório para facilitadores|Código do estabelecimento do Facilitador. "Facilitator ID” (Cadastro do facilitador com as bandeiras)|
-|PaymentFacilitator.SubEstablishment.EstablishmentCode|<subcredenciador><sub-ec><numero>|Numérico|15|Obrigatório para facilitadores|Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)|
-|PaymentFacilitator.SubEstablishment.Mcc|<subcredenciador><sub-ec><mcc>|Numérico|4|Obrigatório para facilitadores|MCC do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.Address|<subcredenciador><sub-ec><endereco>|Alfanumérico|22|Obrigatório para facilitadores|Endereço do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.City|<subcredenciador><sub-ec><cidade>|Alfanumérico|13|Obrigatório para facilitadores|Cidade do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.State|<subcredenciador><sub-ec><estado>|Alfanumérico|2|Obrigatório para facilitadores|Estado do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.PostalCode|<subcredenciador><sub-ec><codigo-postal>|Numérico|9|Obrigatório para facilitadores|Código postal do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.PhoneNumber|<subcredenciador><sub-ec><telefone>|Numérico|13|Obrigatório para facilitadores|Número de telefone do sub Merchant.|
-|Payment.Softdescriptor|<soft-descriptor>|Texto|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
+|subcredenciador.numero|Numérico|11|Obrigatório para facilitadores|Código do estabelecimento do Facilitador. "Facilitator ID” (Cadastro do facilitador com as bandeiras)|
+|sub-ec.numero|Numérico|15|Obrigatório para facilitadores|Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)|
+|sub-ec.mcc|Numérico|4|Obrigatório para facilitadores|MCC do sub Merchant.|
+|sub-ec.endereco|Alfanumérico|22|Obrigatório para facilitadores|Endereço do sub Merchant.|
+|sub-ec.cidade|Alfanumérico|13|Obrigatório para facilitadores|Cidade do sub Merchant.|
+|sub-ec.estado|Alfanumérico|2|Obrigatório para facilitadores|Estado do sub Merchant.|
+|sub-ec.codigo-postal|Numérico|9|Obrigatório para facilitadores|Código postal do sub Merchant.|
+|sub-ec.telefone|Numérico|13|Obrigatório para facilitadores|Número de telefone do sub Merchant.|
+|sub-ec.documento|Numérico|14|Obrigatório para facilitadores|CNPJ ou CPF do sub Merchant.|
+|sub-ec.codigo-pais|Numérico|3|Obrigatório para facilitadores|Código país do sub Merchant com base no ISO 3166.|
+|dados.pedido.soft-descriptor|Texto|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
 
 # Criando transações
 
