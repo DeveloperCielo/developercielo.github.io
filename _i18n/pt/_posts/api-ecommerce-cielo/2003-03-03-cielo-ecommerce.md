@@ -103,7 +103,6 @@ A versão atual do Webservice Cielo possui suporte às seguintes bandeiras e pro
 | JCB              | Sim             | Sim                    | *Não*  | *Não*   | Sim           |
 | Aura             | Sim             | Sim                    | *Não*  | *Não*   | Sim           |
 | Hipercard        | Sim             | Sim                    | *Não*  | *Não*   | *Não*         |
-| Hiper            | Sim             | Sim                    | *Não*  | *Não*   | *Não*         |
 
 > Cartões emitidos no exterior não possuem permissão de parcelamento.
 
