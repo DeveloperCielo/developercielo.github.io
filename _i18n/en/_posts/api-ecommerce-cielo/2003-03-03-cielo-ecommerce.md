@@ -102,7 +102,6 @@ The current version of Cielo Webservice supports the following issuers and produ
 | JCB              | Yes           | Yes                      | *No*  | *No*    |
 | Aura             | Yes           | Yes                      | *No*  | *No*    |
 | Hipercard        | Yes           | Yes                      | *No*  | *No*    |
-| Hiper            | Yes           | Yes                      | *No*  | *No*    |
 
 > Cards that was issued abroad do not have permission to pay in installments.
 
