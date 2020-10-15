@@ -146,7 +146,7 @@ To create Checkout payments link, simply send a POST with the Link data to the e
 | `weight`                  | Product weight in **grams**                                  | String | 2000000    | No       |
 | `softDescriptor`          | Description to be displayed on the bearer's credit card invoice. | String | 13         | No       |
 | `maxNumberOfInstallments` | Maximum number of installments that the buyer can select on the Checkout screen. If not informed, the store settings in Checkout Cielo will be used. | int    | 2          | No       |
-| `quantity`                | Number of transactions remaining until the link stops working | Int | 2 | No |                                                                                                                                                                      | int    | 2          | Não         |
+| `quantity`                | Number of transactions remaining until the link stops working | Int | 2 | No |
 | `type`                    | Type of sale to be made through the payment link:<br><br>**Asset** – Physical Material<br>**Digital** – Digital Product<br>**Service** – Service<br>**Payment** – Simple Payments<br>**Recurrent** – Recurrent Payment | String | 255        | YES      |
 
 > Within `Description` You can use the pipe character`|`if it is desirable to break the line when displaying the description on the Checkout screen
