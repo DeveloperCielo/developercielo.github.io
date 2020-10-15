@@ -338,7 +338,7 @@ Just install the following three files in the server Trustedstore. Cielo does no
 * [Root Certificate]({{ site.baseurl }}/attachment/Root.crt)
 * [Intermediate 1 certificate]({{ site.baseurl }}/attachment/Intermediate1.crt)
 * [Intermediate 2 certificate]({{ site.baseurl }}/attachment/Intermediate2.crt)
-* [E-Commerce Cielo certificate]({{ site.baseurl }}/attachment/ServerCertificate.crt)
+* [E-Commerce Cielo certificate]({{ site.baseurl }}/attachment/ecommerce.cielo.com.br.cer.zip)
 
 ## Step-by-Step for Installation
 
