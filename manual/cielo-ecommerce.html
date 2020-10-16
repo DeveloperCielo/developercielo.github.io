@@ -19308,6 +19308,1022 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:</p>
   </tbody>
 </table>
 
+<h2 id="códigos-de-retorno-abecs">Códigos de retorno ABECS</h2>
+
+<p>A Associação Brasileira das Empresas de Cartão de Crédito e Serviços (ABECS) estabelece a partir do dia 15 de Julho de 2020 a padronização do código de retorno das autorizações de vendas recusadas tanto para as soluções pagamento do mundo físico e e-commerce do mercado brasileiro.</p>
+
+<p>Essa medida normativa busca trazer benefícios para todo o mercado de pagamentos, proporcionando maior transparência no entendimento do motivo de recusa das transações, além de possibilitar maior assertividade na adoção de estratégias de retentativas de vendas.</p>
+
+<p>A Cielo informa seus clientes que está preparada para processar as transações seguindo esse novo padrão do mercado, segue abaixo a tabela de códigos padronizados pela ABECS.</p>
+
+<aside class="notice">Os códigos da bandeira AMEX sofreram um de/para de modo a manter dois dígitos. Reforçamos que essa medida não altera os motivos de retorno.</aside>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mensagem</th>
+      <th>Tipo de Código</th>
+      <th>ELO</th>
+      <th>VISA</th>
+      <th>MASTERCARD/HIPER</th>
+      <th>AMEX</th>
+      <th>AMEX - De/Para Cielo</th>
+      <th>Mensagem POS/Ecommerce</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>GENÉRICA</td>
+      <td>REVERSÍVEL</td>
+      <td>05</td>
+      <td>05</td>
+      <td>05</td>
+      <td>100</td>
+      <td>FA</td>
+      <td>CONTATE A CENTRAL DO SEU CARTÃO</td>
+    </tr>
+    <tr>
+      <td>SALDO/LIMITE INSUFICIENTE</td>
+      <td>REVERSÍVEL</td>
+      <td>51</td>
+      <td>51</td>
+      <td>51</td>
+      <td>116</td>
+      <td>A5</td>
+      <td>NÃO AUTORIZADA</td>
+    </tr>
+    <tr>
+      <td>SENHA INVÁLIDA</td>
+      <td>REVERSÍVEL</td>
+      <td>55</td>
+      <td>55 ou 86</td>
+      <td>55</td>
+      <td>117</td>
+      <td>A6</td>
+      <td>SENHA INVÁLIDA</td>
+    </tr>
+    <tr>
+      <td>TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO</td>
+      <td>IRREVERSÍVEL</td>
+      <td>57</td>
+      <td>57</td>
+      <td>57</td>
+      <td>200</td>
+      <td>FD</td>
+      <td>TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO- NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>NÚMERO CARTÃO NÃO PERTENCE AO EMISSOR | NÚMERO CARTÃO INVÁLIDO</td>
+      <td>IRREVERSÍVEL</td>
+      <td>14 ou 56</td>
+      <td>06</td>
+      <td>14 ou 01</td>
+      <td>122</td>
+      <td>08</td>
+      <td>VERIFIQUE OS DADOS DO CARTÃO</td>
+    </tr>
+    <tr>
+      <td>VIOLAÇÃO DE SEGURANÇA</td>
+      <td>IRREVERSÍVEL</td>
+      <td>63</td>
+      <td>06</td>
+      <td>14</td>
+      <td>122</td>
+      <td>08</td>
+      <td>VERIFIQUE OS DADOS DO CARTÃO</td>
+    </tr>
+    <tr>
+      <td>SUSPEITA DE FRAUDE</td>
+      <td>REVERSÍVEL</td>
+      <td>59</td>
+      <td>59</td>
+      <td>63</td>
+      <td>100</td>
+      <td>FA</td>
+      <td>CONTATE A CENTRAL DO SEU CARTÃO</td>
+    </tr>
+    <tr>
+      <td>COMERCIANTE INVÁLIDO</td>
+      <td>IRREVERSÍVEL</td>
+      <td>58</td>
+      <td>03</td>
+      <td>03</td>
+      <td>109</td>
+      <td>DA</td>
+      <td>TRANSAÇÃO NÃO PERMITIDA - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>REFAZER A TRANSAÇÃO (EMISSOR SOLICITA RETENTATIVA)</td>
+      <td>REVERSÍVEL</td>
+      <td>4</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>REFAZER A TRANSAÇÃO</td>
+    </tr>
+    <tr>
+      <td>CONSULTAR CREDENCIADOR</td>
+      <td>REVERSÍVEL</td>
+      <td>6</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>LOJISTA, CONTATE O ADQUIRENTE</td>
+    </tr>
+    <tr>
+      <td>PROBLEMA NO ADQUIRENTE</td>
+      <td>IRREVERSÍVEL</td>
+      <td>19</td>
+      <td>19</td>
+      <td>30</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>ERRO NO CARTÃO – NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>ERRO NO CARTÃO</td>
+      <td>IRREVERSÍVEL</td>
+      <td>12</td>
+      <td>06</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>115</td>
+      <td>A2</td>
+      <td>VERIFIQUE OS DADOS DO CARTÃO</td>
+    </tr>
+    <tr>
+      <td>ERRO DE FORMATO (MENSAGERIA)</td>
+      <td>IRREVERSÍVEL</td>
+      <td>30</td>
+      <td>12</td>
+      <td>30</td>
+      <td>181</td>
+      <td>A3</td>
+      <td>ERRO NO CARTÃO - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>VALOR DA TRANSAÇÃO INVÁLIDA</td>
+      <td>IRREVERSÍVEL</td>
+      <td>13</td>
+      <td>13</td>
+      <td>13</td>
+      <td>110</td>
+      <td>JB</td>
+      <td>VALOR DA TRANSAÇÃO NÃO PERMITIDO - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>VALOR DA PARCELA INVÁLIDA</td>
+      <td>IRREVERSÍVEL</td>
+      <td>23</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>12</td>
+      <td>115</td>
+      <td>A2</td>
+      <td>PARCELAMENTO INVÁLIDO - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>EXCEDIDAS TENTATIVAS DE SENHA | COMPRAS</td>
+      <td>REVERSÍVEL</td>
+      <td>38</td>
+      <td>75</td>
+      <td>75</td>
+      <td>106</td>
+      <td>A4</td>
+      <td>EXCEDIDAS TENTATIVAS DE SENHA.CONTATE A CENTRAL DO SEU CARTÃO</td>
+    </tr>
+    <tr>
+      <td>CARTÃO PERDIDO</td>
+      <td>IRREVERSÍVEL</td>
+      <td>41</td>
+      <td>41</td>
+      <td>41</td>
+      <td>200</td>
+      <td>FD</td>
+      <td>TRANSAÇÃO NÃO PERMITIDA - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>CARTÃO ROUBADO</td>
+      <td>IRREVERSÍVEL</td>
+      <td>43</td>
+      <td>43</td>
+      <td>43</td>
+      <td>200</td>
+      <td>FD</td>
+      <td>TRANSAÇÃO NÃO PERMITIDA - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>CARTÃO VENCIDO / DT EXPIRAÇÃO INVÁLIDA</td>
+      <td>IRREVERSÍVEL</td>
+      <td>54</td>
+      <td>06</td>
+      <td>54</td>
+      <td>101</td>
+      <td>BV</td>
+      <td>VERIFIQUE OS DADOS DO CARTÃO</td>
+    </tr>
+    <tr>
+      <td>TRANSAÇÃO NÃO PERMITIDA | CAPACIDADE DO TERMINAL</td>
+      <td>IRREVERSÍVEL</td>
+      <td>57</td>
+      <td>58</td>
+      <td>58</td>
+      <td>116</td>
+      <td>A5</td>
+      <td>TRANSAÇÃO NÃO PERMITIDA - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>VALOR EXCESSO | SAQUE</td>
+      <td>REVERSÍVEL</td>
+      <td>61</td>
+      <td>61 ou N4</td>
+      <td>61</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>VALOR EXCEDIDO. CONTATE A CENTRAL DO SEU CARTÃO</td>
+    </tr>
+    <tr>
+      <td>CARTÃO DOMÉSTICO - TRANSAÇÃO INTERNACIONAL</td>
+      <td>IRREVERSÍVEL</td>
+      <td>62</td>
+      <td>62</td>
+      <td>62</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>CARTÃO NÃO PERMITE TRANSAÇÃO INTERNACIONAL</td>
+    </tr>
+    <tr>
+      <td>VALOR MÍNIMO DA TRANSAÇÃO INVÁLIDO</td>
+      <td>IRREVERSÍVEL</td>
+      <td>64</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>VALOR DA TRANSAÇÃO NÃO PERMITIDO - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>QUANT. DE SAQUES EXCEDIDO</td>
+      <td>REVERSÍVEL</td>
+      <td>65</td>
+      <td>65</td>
+      <td>65</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>QUANTIDADE DE SAQUES EXCEDIDA. CONTATE A CENTRAL DO SEU CARTÃO</td>
+    </tr>
+    <tr>
+      <td>SENHA VENCIDA / ERRO DE CRIPTOGRAFIA DE SENHA</td>
+      <td>IRREVERSÍVEL</td>
+      <td>74</td>
+      <td>74 ou 81</td>
+      <td>88</td>
+      <td>180</td>
+      <td>A7</td>
+      <td>SENHA INVÁLIDA - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>EXCEDIDAS TENTATIVAS DE SENHA | SAQUE</td>
+      <td>IRREVERSÍVEL</td>
+      <td>75</td>
+      <td>75</td>
+      <td>75</td>
+      <td>106</td>
+      <td>A4</td>
+      <td>EXCEDIDAS TENTATIVAS DE SENHA.CONTATE A CENTRAL DO SEU CARTÃO</td>
+    </tr>
+    <tr>
+      <td>CONTA DESTINO INVÁLIDA OU INEXISTENTE</td>
+      <td>IRREVERSÍVEL</td>
+      <td>76</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>CONTA DESTINO INVÁLIDA - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>CONTA ORIGEM INVÁLIDA OU INEXISTENTE</td>
+      <td>IRREVERSÍVEL</td>
+      <td>77</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>CONTA ORIGEM INVÁLIDA - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>CARTÃO NOVO SEM DESBLOQUEIO</td>
+      <td>REVERSÍVEL</td>
+      <td>78</td>
+      <td>78</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>DESBLOQUEIE O CARTÃO</td>
+    </tr>
+    <tr>
+      <td>CARTÃO INVÁLIDO (criptograma)</td>
+      <td>IRREVERSÍVEL</td>
+      <td>82</td>
+      <td>82</td>
+      <td>88</td>
+      <td>180</td>
+      <td>A7</td>
+      <td>ERRO NO CARTÃO - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>EMISSOR FORA DO AR</td>
+      <td>REVERSÍVEL</td>
+      <td>91</td>
+      <td>91</td>
+      <td>91</td>
+      <td>912</td>
+      <td>A1</td>
+      <td>FALHA DE COMUNICAÇÃO - TENTE MAIS TARDE</td>
+    </tr>
+    <tr>
+      <td>FALHA DO SISTEMA</td>
+      <td>REVERSÍVEL</td>
+      <td>96</td>
+      <td>96</td>
+      <td>96</td>
+      <td>911</td>
+      <td>AE</td>
+      <td>FALHA DE COMUNICAÇÃO - TENTE MAIS TARDE</td>
+    </tr>
+    <tr>
+      <td>DIFERENÇA - PRÉ AUTORIZAÇÃO</td>
+      <td>IRREVERSÍVEL</td>
+      <td>99</td>
+      <td>N8</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>VALOR DIFERENTE DA PRÉ AUTORIZAÇÃO - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>FUNÇÃO INCORRETA (DÉBITO)</td>
+      <td>IRREVERSÍVEL</td>
+      <td>AB</td>
+      <td>52 ou 53</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>UTILIZE FUNÇÃO CRÉDITO</td>
+    </tr>
+    <tr>
+      <td>FUNÇÃO INCORRETA (CRÉDITO)</td>
+      <td>IRREVERSÍVEL</td>
+      <td>AC</td>
+      <td>39</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>UTILIZE FUNÇÃO DÉBITO</td>
+    </tr>
+    <tr>
+      <td>TROCA DE SENHA / DESBLOQUEIO</td>
+      <td>IRREVERSÍVEL</td>
+      <td>P5</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SENHA INVÁLIDA - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>NOVA SENHA NÃO ACEITA</td>
+      <td>REVERSÍVEL</td>
+      <td>P6</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SENHA INVÁLIDA UTILIZE A NOVA SENHA</td>
+    </tr>
+    <tr>
+      <td>RECOLHER CARTÃO (NÃO HÁ FRAUDE)</td>
+      <td>IRREVERSÍVEL</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>04</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>ERRO POR MUDANÇA DE CHAVE DINÂMICA</td>
+      <td>IRREVERSÍVEL</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>06</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>ERRO NO CARTÃO - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>FRAUDE CONFIRMADA</td>
+      <td>IRREVERSÍVEL</td>
+      <td>57</td>
+      <td>07</td>
+      <td>04</td>
+      <td>200</td>
+      <td>FD</td>
+      <td>TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>EMISSOR Ñ LOCALIZADO - BIN INCORRETO</td>
+      <td>IRREVERSÍVEL</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>15</td>
+      <td>15</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>DADOS DO CARTÃO INVÁLIDO - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>(negativa do adquirente) NÃO CUMPRIMENTO PELAS LEIS DE ANTE LAVAGEM DE DINHEIRO</td>
+      <td>IRREVERSÍVEL</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>64</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>REVERSÃO INVÁLIDA</td>
+      <td>IRREVERSÍVEL</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>76</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>NÃO LOCALIZADO PELO ROTEADOR</td>
+      <td>IRREVERSÍVEL</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>92</td>
+      <td>92</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>TRANSAÇÃO NEGADA POR INFRAÇÃO DE LEI</td>
+      <td>IRREVERSÍVEL</td>
+      <td>57</td>
+      <td>93</td>
+      <td>57</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>VALOR DO TRACING DATA DUPLICADO</td>
+      <td>IRREVERSÍVEL</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>94</td>
+      <td>94</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTENOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>SURCHARGE NÃO SUPORTADO</td>
+      <td>REVERSÍVEL</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>B1</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>CONTATE A CENTRAL DO SEU CARTÃO</td>
+    </tr>
+    <tr>
+      <td>SURCHARGE NÃO SUPORTADO PELA REDE DE DÉBITO</td>
+      <td>REVERSÍVEL</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>B2</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>CONTATE A CENTRAL DO SEU CARTÃO</td>
+    </tr>
+    <tr>
+      <td>FORÇAR STIP</td>
+      <td>REVERSÍVEL</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>N0</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>CONTATE A CENTRAL DO SEU CARTÃO</td>
+    </tr>
+    <tr>
+      <td>SAQUE NÃO DISPONÍVEL</td>
+      <td>IRREVERSÍVEL</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>N3</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SAQUE NÃO DISPONÍVEL - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>SUSPENSÃO DE PAGAMENTO RECORRENTE PARA UM SERVIÇO</td>
+      <td>IRREVERSÍVEL</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>R0</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SUSPENSÃO DE PAGAMENTO RECORRENTE PARA SERVIÇO - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>SUSPENSÃO DE PAGAMENTO RECORRENTE PARA TODOS SERVIÇO</td>
+      <td>IRREVERSÍVEL</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>R1</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SUSPENSÃO DE PAGAMENTO RECORRENTE PARA SERVIÇO - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>TRANSAÇÃO NÃO QUALIFICADA PARA VISA PIN</td>
+      <td>IRREVERSÍVEL</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>R2</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>SUSPENSÃO DE TODAS AS ORDENS DE AUTORIZAÇÃO</td>
+      <td>IRREVERSÍVEL</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>R3</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SUSPENSÃO DE PAGAMENTO RECORRENTE PARA SERVIÇO - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>NÃO É POSSÍVEL LOCALIZAR O REGISTRO NO ARQUIVO</td>
+      <td>IRREVERSÍVEL</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>25</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE</td>
+    </tr>
+    <tr>
+      <td>ARQUIVO NÃO DISPONÍVEL PARA ATUALIZAÇÃO</td>
+      <td>IRREVERSÍVEL</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>28</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="outros-códigos-de-retorno">Outros códigos de retorno</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código Resposta</th>
+      <th>Definição</th>
+      <th>Significado</th>
+      <th>Ação</th>
+      <th>Permite Retentativa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>00</td>
+      <td>Transação autorizada com sucesso.</td>
+      <td>Transação autorizada com sucesso.</td>
+      <td>Transação autorizada com sucesso.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>02</td>
+      <td>Transação não autorizada. Transação referida.</td>
+      <td>Transação não autorizada. Referida (suspeita de fraude) pelo banco emissor.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>09</td>
+      <td>Transação cancelada parcialmente com sucesso.</td>
+      <td>Transação cancelada parcialmente com sucesso</td>
+      <td>Transação cancelada parcialmente com sucesso</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Transação autorizada com sucesso para cartão emitido no exterior</td>
+      <td>Transação autorizada com sucesso.</td>
+      <td>Transação autorizada com sucesso.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>Cancelamento não efetuado. Transação não localizada.</td>
+      <td>Não foi possível processar o cancelamento. Se o erro persistir, entre em contato com a Cielo.</td>
+      <td>Não foi possível processar o cancelamento. Tente novamente mais tarde. Persistindo o erro, entrar em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>Parcelamento inválido. Número de parcelas inválidas.</td>
+      <td>Não foi possível processar a transação. Número de parcelas inválidas. Se o erro persistir, entre em contato com a Cielo.</td>
+      <td>Não foi possível processar a transação. Valor inválido. Refazer a transação confirmando os dados informados. Persistindo o erro, entrar em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>Quantidade de parcelas inválido.</td>
+      <td>Não foi possível processar a transação. Quantidade de parcelas inválido. Se o erro persistir, entre em contato com a Cielo.</td>
+      <td>Não foi possível processar a transação. Quantidade de parcelas inválido. Refazer a transação confirmando os dados informados. Persistindo o erro, entrar em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>60</td>
+      <td>Transação não autorizada.</td>
+      <td>Transação não autorizada. Tente novamente. Se o erro persistir o portador deve entrar em contato com o banco emissor.</td>
+      <td>Não foi possível processar a transação. Tente novamente mais tarde. Se o erro persistir, entre em contato com seu banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>67</td>
+      <td>Transação não autorizada. Cartão bloqueado para compras hoje.</td>
+      <td>Transação não autorizada. Cartão bloqueado para compras hoje. Bloqueio pode ter ocorrido por excesso de tentativas inválidas. O cartão será desbloqueado automaticamente à meia noite.</td>
+      <td>Transação não autorizada. Cartão bloqueado temporariamente. Entre em contato com seu banco emissor.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>70</td>
+      <td>Transação não autorizada. Limite excedido/sem saldo.</td>
+      <td>Transação não autorizada. Limite excedido/sem saldo.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>72</td>
+      <td>Cancelamento não efetuado. Saldo disponível para cancelamento insuficiente.</td>
+      <td>Cancelamento não efetuado. Saldo disponível para cancelamento insuficiente. Se o erro persistir, entre em contato com a Cielo.</td>
+      <td>Cancelamento não efetuado. Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>Transação não autorizada. Divergencia na data de transação/pagamento.</td>
+      <td>Transação não autorizada. Data da transação ou data do primeiro pagamento inválida.</td>
+      <td>Transação não autorizada. Refazer a transação confirmando os dados.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>83</td>
+      <td>Transação não autorizada. Erro no controle de senhas</td>
+      <td>Transação não autorizada. Erro no controle de senhas</td>
+      <td>Transação não autorizada. Refazer a transação confirmando os dados. Se o erro persistir, entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>85</td>
+      <td>Transação não permitida. Falha da operação.</td>
+      <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
+      <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>89</td>
+      <td>Erro na transação.</td>
+      <td>Transação não autorizada. Erro na transação. O portador deve tentar novamente e se o erro persistir, entrar em contato com o banco emissor.</td>
+      <td>Transação não autorizada. Erro na transação. Tente novamente e se o erro persistir, entre em contato com seu banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>90</td>
+      <td>Transação não permitida. Falha da operação.</td>
+      <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
+      <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>97</td>
+      <td>Valor não permitido para essa transação.</td>
+      <td>Transação não autorizada. Valor não permitido para essa transação.</td>
+      <td>Transação não autorizada. Valor não permitido para essa transação.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>98</td>
+      <td>Sistema/comunicação indisponível.</td>
+      <td>Transação não autorizada. Sistema do emissor sem comunicação. Se for geral, verificar SITEF, GATEWAY e/ou Conectividade.</td>
+      <td>Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>475</td>
+      <td>Timeout de Cancelamento</td>
+      <td>A aplicação não respondeu dentro do tempo esperado.</td>
+      <td>Realizar uma nova tentativa após alguns segundos. Persistindo, entrar em contato com o Suporte.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>999</td>
+      <td>Sistema/comunicação indisponível.</td>
+      <td>Transação não autorizada. Sistema do emissor sem comunicação. Tente mais tarde.  Pode ser erro no SITEF, favor verificar !</td>
+      <td>Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>AA</td>
+      <td>Tempo Excedido</td>
+      <td>Tempo excedido na comunicação com o banco emissor. Oriente o portador a tentar novamente, se o erro persistir será necessário que o portador contate seu banco emissor.</td>
+      <td>Tempo excedido na sua comunicação com o banco emissor, tente novamente mais tarde. Se o erro persistir, entre em contato com seu banco.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>AF</td>
+      <td>Transação não permitida. Falha da operação.</td>
+      <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
+      <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>AG</td>
+      <td>Transação não permitida. Falha da operação.</td>
+      <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
+      <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>AH</td>
+      <td>Transação não permitida. Cartão de crédito sendo usado com débito. Use a função crédito.</td>
+      <td>Transação não permitida. Cartão de crédito sendo usado com débito. Solicite ao portador que selecione a opção de pagamento Cartão de Crédito.</td>
+      <td>Transação não autorizada. Tente novamente selecionando a opção de pagamento cartão de crédito.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>AI</td>
+      <td>Transação não autorizada. Autenticação não foi realizada.</td>
+      <td>Transação não autorizada. Autenticação não foi realizada. O portador não concluiu a autenticação. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir, entre em contato com a Cielo informando o BIN (6 primeiros dígitos do cartão)</td>
+      <td>Transação não autorizada. Autenticação não foi realizada com sucesso. Tente novamente e informe corretamente os dados solicitado. Se o erro persistir, entre em contato com o lojista.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>AJ</td>
+      <td>Transação não permitida. Transação de crédito ou débito em uma operação que permite apenas Private Label. Tente novamente selecionando a opção Private Label.</td>
+      <td>Transação não permitida. Transação de crédito ou débito em uma operação que permite apenas Private Label. Solicite ao portador que tente novamente selecionando a opção Private Label. Caso não disponibilize a opção Private Label verifique na Cielo se o seu estabelecimento permite essa operação.</td>
+      <td>Transação não permitida. Transação de crédito ou débito em uma operação que permite apenas Private Label. Tente novamente e selecione a opção Private Label. Em caso de um novo erro entre em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>AV</td>
+      <td>Transação não autorizada. Dados Inválidos</td>
+      <td>Falha na validação dos dados da transação. Oriente o portador a rever os dados e tentar novamente.</td>
+      <td>Falha na validação dos dados. Reveja os dados informados e tente novamente.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>BD</td>
+      <td>Transação não permitida. Falha da operação.</td>
+      <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
+      <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>BL</td>
+      <td>Transação não autorizada. Limite diário excedido.</td>
+      <td>Transação não autorizada. Limite diário excedido. Solicite ao portador que entre em contato com seu banco emissor.</td>
+      <td>Transação não autorizada. Limite diário excedido. Entre em contato com seu banco emissor.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>BM</td>
+      <td>Transação não autorizada. Cartão Inválido</td>
+      <td>Transação não autorizada. Cartão inválido. Pode ser bloqueio do cartão no banco emissor ou dados incorretos. Tente usar o Algoritmo de Lhum (Mod 10) para evitar transações não autorizadas por esse motivo.</td>
+      <td>Transação não autorizada. Cartão inválido.  Refaça a transação confirmando os dados informados.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>BN</td>
+      <td>Transação não autorizada. Cartão ou conta bloqueado.</td>
+      <td>Transação não autorizada. O cartão ou a conta do portador está bloqueada. Solicite ao portador que entre em contato com  seu banco emissor.</td>
+      <td>Transação não autorizada. O cartão ou a conta do portador está bloqueada. Entre em contato com  seu banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>BO</td>
+      <td>Transação não permitida. Falha da operação.</td>
+      <td>Transação não permitida. Houve um erro no processamento. Solicite ao portador que digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco emissor.</td>
+      <td>Transação não permitida. Houve um erro no processamento. Digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>BP</td>
+      <td>Transação não autorizada. Conta corrente inexistente.</td>
+      <td>Transação não autorizada. Não possível processar a transação por um erro relacionado ao cartão ou conta do portador. Solicite ao portador que entre em contato com o banco emissor.</td>
+      <td>Transação não autorizada. Não possível processar a transação por um erro relacionado ao cartão ou conta do portador. Entre em contato com o banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>BP176</td>
+      <td>Transação não permitida.</td>
+      <td>Parceiro deve checar se o processo de integração foi concluído com sucesso.</td>
+      <td>Parceiro deve checar se o processo de integração foi concluído com sucesso.</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>C1</td>
+      <td>Transação não permitida. Cartão não pode processar transações de débito.</td>
+      <td>Troque a modalidade de pagamento ou o cartão utilizado.</td>
+      <td>Troque a modalidade de pagamento ou o cartão utilizado.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>C2</td>
+      <td>Transação não permitida.</td>
+      <td>Dados incorretos. Favor rever os dados preenchidos na tela de pagamento.</td>
+      <td>Dados incorretos. Favor rever os dados preenchidos na tela de pagamento.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>C3</td>
+      <td>Transação não permitida.</td>
+      <td>Período inválido para este tipo de transação.</td>
+      <td>Período inválido para este tipo de transação.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>CF</td>
+      <td>Transação não autorizada.C79:J79 Falha na validação dos dados.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>CG</td>
+      <td>Transação não autorizada. Falha na validação dos dados.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>DF</td>
+      <td>Transação não permitida. Falha no cartão ou cartão inválido.</td>
+      <td>Transação não permitida. Falha no cartão ou cartão inválido. Solicite ao portador que digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco</td>
+      <td>Transação não permitida. Falha no cartão ou cartão inválido. Digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>DM</td>
+      <td>Transação não autorizada. Limite excedido/sem saldo.</td>
+      <td>Transação não autorizada. Limite excedido/sem saldo.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>DQ</td>
+      <td>Transação não autorizada. Falha na validação dos dados.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>DS</td>
+      <td>Transação não permitida para o cartão</td>
+      <td>Transação não autorizada. Transação não permitida para o cartão.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>EB</td>
+      <td>Transação não autorizada. Limite diário excedido.</td>
+      <td>Transação não autorizada. Limite diário excedido. Solicite ao portador que entre em contato com seu banco emissor.</td>
+      <td>Transação não autorizada. Limite diário excedido. Entre em contato com seu banco emissor.</td>
+      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>EE</td>
+      <td>Transação não permitida. Valor da parcela inferior ao mínimo permitido.</td>
+      <td>Transação não permitida. Valor da parcela inferior ao mínimo permitido. Não é permitido parcelas inferiores a R$ 5,00. Necessário rever calculo para parcelas.</td>
+      <td>Transação não permitida. O valor da parcela está abaixo do mínimo permitido. Entre em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>EK</td>
+      <td>Transação não permitida para o cartão</td>
+      <td>Transação não autorizada. Transação não permitida para o cartão.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Apenas 4 vezes em 16 dias.</td>
+    </tr>
+    <tr>
+      <td>FC</td>
+      <td>Transação não autorizada. Ligue Emissor</td>
+      <td>Transação não autorizada. Oriente o portador a entrar em contato com o banco emissor.</td>
+      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>FE</td>
+      <td>Transação não autorizada. Divergencia na data de transação/pagamento.</td>
+      <td>Transação não autorizada. Data da transação ou data do primeiro pagamento inválida.</td>
+      <td>Transação não autorizada. Refazer a transação confirmando os dados.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>FF</td>
+      <td>Cancelamento OK</td>
+      <td>Transação de cancelamento autorizada com sucesso. ATENÇÂO: Esse retorno é para casos de cancelamentos e não para casos de autorizações.</td>
+      <td>Transação de cancelamento autorizada com sucesso</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>FG</td>
+      <td>Transação não autorizada. Ligue AmEx 08007285090.</td>
+      <td>Transação não autorizada. Oriente o portador a entrar em contato com a Central de Atendimento AmEx.</td>
+      <td>Transação não autorizada. Entre em contato com a Central de Atendimento AmEx no telefone 08007285090</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>GA</td>
+      <td>Aguarde Contato</td>
+      <td>Transação não autorizada. Referida pelo Lynx Online de forma preventiva.</td>
+      <td>Transação não autorizada. Entre em contato com o lojista.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>GD</td>
+      <td>Transação não permitida.</td>
+      <td>Transação não permitida. Entre em contato com a Cielo.</td>
+      <td>Transação não permitida. Entre em contato com a Cielo.</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>HJ</td>
+      <td>Transação não permitida. Código da operação inválido.</td>
+      <td>Transação não permitida. Código da operação Coban inválido.</td>
+      <td>Transação não permitida. Código da operação Coban inválido. Entre em contato com o lojista.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>IA</td>
+      <td>Transação não permitida. Indicador da operação inválido.</td>
+      <td>Transação não permitida. Indicador da operação Coban inválido.</td>
+      <td>Transação não permitida. Indicador da operação Coban inválido. Entre em contato com o lojista.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>KA</td>
+      <td>Transação não permitida. Falha na validação dos dados.</td>
+      <td>Transação não permitida. Houve uma falha na validação dos dados. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir verifique a comunicação entre loja virtual e Cielo.</td>
+      <td>Transação não permitida. Houve uma falha na validação dos dados. reveja os dados informados e tente novamente. Se o erro persistir entre em contato com a Loja Virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>KB</td>
+      <td>Transação não permitida. Selecionado a opção incorrente.</td>
+      <td>Transação não permitida. Selecionado a opção incorreta. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir deve ser verificado a comunicação entre loja virtual e Cielo.</td>
+      <td>Transação não permitida. Selecionado a opção incorreta. Tente novamente. Se o erro persistir entre em contato com a Loja Virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>KE</td>
+      <td>Transação não autorizada. Falha na validação dos dados.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Opção selecionada não está habilitada. Verifique as opções disponíveis para o portador.</td>
+      <td>Transação não autorizada. Falha na validação dos dados. Opção selecionada não está habilitada. Entre em contato com a loja virtual.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>N7</td>
+      <td>Transação não autorizada. Código de segurança inválido.</td>
+      <td>Transação não autorizada. Código de segurança inválido. Oriente o portador corrigir os dados e tentar novamente.</td>
+      <td>Transação não autorizada. Reveja os dados e informe novamente.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>U3</td>
+      <td>Transação não permitida. Falha na validação dos dados.</td>
+      <td>Transação não permitida. Houve uma falha na validação dos dados. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir verifique a comunicação entre loja virtual e Cielo.</td>
+      <td>Transação não permitida. Houve uma falha na validação dos dados. reveja os dados informados e tente novamente. Se o erro persistir entre em contato com a Loja Virtual.</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="status-transacional">Status transacional</h2>
 
 <table>
@@ -20272,1022 +21288,6 @@ Se esse código for exibido, a requisição contem erros (EX: tamanho/condiçõe
       <td>Bin Query is not enabled</td>
       <td> </td>
       <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="códigos-de-retorno-abecs">Códigos de retorno ABECS</h3>
-
-<p>A Associação Brasileira das Empresas de Cartão de Crédito e Serviços (ABECS) estabelece a partir do dia 15 de Julho de 2020 a padronização do código de retorno das autorizações de vendas recusadas tanto para as soluções pagamento do mundo físico e e-commerce do mercado brasileiro.</p>
-
-<p>Essa medida normativa busca trazer benefícios para todo o mercado de pagamentos, proporcionando maior transparência no entendimento do motivo de recusa das transações, além de possibilitar maior assertividade na adoção de estratégias de retentativas de vendas.</p>
-
-<p>A Cielo informa seus clientes que está preparada para processar as transações seguindo esse novo padrão do mercado, segue abaixo a tabela de códigos padronizados pela ABECS.</p>
-
-<aside class="notice">Os códigos da bandeira AMEX sofreram um de/para de modo a manter dois dígitos. Reforçamos que essa medida não altera os motivos de retorno.</aside>
-
-<table>
-  <thead>
-    <tr>
-      <th>Mensagem</th>
-      <th>Tipo de Código</th>
-      <th>ELO</th>
-      <th>VISA</th>
-      <th>MASTERCARD/HIPER</th>
-      <th>AMEX</th>
-      <th>AMEX - De/Para Cielo</th>
-      <th>Mensagem POS/Ecommerce</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>GENÉRICA</td>
-      <td>REVERSÍVEL</td>
-      <td>05</td>
-      <td>05</td>
-      <td>05</td>
-      <td>100</td>
-      <td>FA</td>
-      <td>CONTATE A CENTRAL DO SEU CARTÃO</td>
-    </tr>
-    <tr>
-      <td>SALDO/LIMITE INSUFICIENTE</td>
-      <td>REVERSÍVEL</td>
-      <td>51</td>
-      <td>51</td>
-      <td>51</td>
-      <td>116</td>
-      <td>A5</td>
-      <td>NÃO AUTORIZADA</td>
-    </tr>
-    <tr>
-      <td>SENHA INVÁLIDA</td>
-      <td>REVERSÍVEL</td>
-      <td>55</td>
-      <td>55 ou 86</td>
-      <td>55</td>
-      <td>117</td>
-      <td>A6</td>
-      <td>SENHA INVÁLIDA</td>
-    </tr>
-    <tr>
-      <td>TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO</td>
-      <td>IRREVERSÍVEL</td>
-      <td>57</td>
-      <td>57</td>
-      <td>57</td>
-      <td>200</td>
-      <td>FD</td>
-      <td>TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO- NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>NÚMERO CARTÃO NÃO PERTENCE AO EMISSOR | NÚMERO CARTÃO INVÁLIDO</td>
-      <td>IRREVERSÍVEL</td>
-      <td>14 ou 56</td>
-      <td>06</td>
-      <td>14 ou 01</td>
-      <td>122</td>
-      <td>08</td>
-      <td>VERIFIQUE OS DADOS DO CARTÃO</td>
-    </tr>
-    <tr>
-      <td>VIOLAÇÃO DE SEGURANÇA</td>
-      <td>IRREVERSÍVEL</td>
-      <td>63</td>
-      <td>06</td>
-      <td>14</td>
-      <td>122</td>
-      <td>08</td>
-      <td>VERIFIQUE OS DADOS DO CARTÃO</td>
-    </tr>
-    <tr>
-      <td>SUSPEITA DE FRAUDE</td>
-      <td>REVERSÍVEL</td>
-      <td>59</td>
-      <td>59</td>
-      <td>63</td>
-      <td>100</td>
-      <td>FA</td>
-      <td>CONTATE A CENTRAL DO SEU CARTÃO</td>
-    </tr>
-    <tr>
-      <td>COMERCIANTE INVÁLIDO</td>
-      <td>IRREVERSÍVEL</td>
-      <td>58</td>
-      <td>03</td>
-      <td>03</td>
-      <td>109</td>
-      <td>DA</td>
-      <td>TRANSAÇÃO NÃO PERMITIDA - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>REFAZER A TRANSAÇÃO (EMISSOR SOLICITA RETENTATIVA)</td>
-      <td>REVERSÍVEL</td>
-      <td>4</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>REFAZER A TRANSAÇÃO</td>
-    </tr>
-    <tr>
-      <td>CONSULTAR CREDENCIADOR</td>
-      <td>REVERSÍVEL</td>
-      <td>6</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>LOJISTA, CONTATE O ADQUIRENTE</td>
-    </tr>
-    <tr>
-      <td>PROBLEMA NO ADQUIRENTE</td>
-      <td>IRREVERSÍVEL</td>
-      <td>19</td>
-      <td>19</td>
-      <td>30</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>ERRO NO CARTÃO – NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>ERRO NO CARTÃO</td>
-      <td>IRREVERSÍVEL</td>
-      <td>12</td>
-      <td>06</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>115</td>
-      <td>A2</td>
-      <td>VERIFIQUE OS DADOS DO CARTÃO</td>
-    </tr>
-    <tr>
-      <td>ERRO DE FORMATO (MENSAGERIA)</td>
-      <td>IRREVERSÍVEL</td>
-      <td>30</td>
-      <td>12</td>
-      <td>30</td>
-      <td>181</td>
-      <td>A3</td>
-      <td>ERRO NO CARTÃO - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>VALOR DA TRANSAÇÃO INVÁLIDA</td>
-      <td>IRREVERSÍVEL</td>
-      <td>13</td>
-      <td>13</td>
-      <td>13</td>
-      <td>110</td>
-      <td>JB</td>
-      <td>VALOR DA TRANSAÇÃO NÃO PERMITIDO - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>VALOR DA PARCELA INVÁLIDA</td>
-      <td>IRREVERSÍVEL</td>
-      <td>23</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>12</td>
-      <td>115</td>
-      <td>A2</td>
-      <td>PARCELAMENTO INVÁLIDO - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>EXCEDIDAS TENTATIVAS DE SENHA | COMPRAS</td>
-      <td>REVERSÍVEL</td>
-      <td>38</td>
-      <td>75</td>
-      <td>75</td>
-      <td>106</td>
-      <td>A4</td>
-      <td>EXCEDIDAS TENTATIVAS DE SENHA.CONTATE A CENTRAL DO SEU CARTÃO</td>
-    </tr>
-    <tr>
-      <td>CARTÃO PERDIDO</td>
-      <td>IRREVERSÍVEL</td>
-      <td>41</td>
-      <td>41</td>
-      <td>41</td>
-      <td>200</td>
-      <td>FD</td>
-      <td>TRANSAÇÃO NÃO PERMITIDA - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>CARTÃO ROUBADO</td>
-      <td>IRREVERSÍVEL</td>
-      <td>43</td>
-      <td>43</td>
-      <td>43</td>
-      <td>200</td>
-      <td>FD</td>
-      <td>TRANSAÇÃO NÃO PERMITIDA - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>CARTÃO VENCIDO / DT EXPIRAÇÃO INVÁLIDA</td>
-      <td>IRREVERSÍVEL</td>
-      <td>54</td>
-      <td>06</td>
-      <td>54</td>
-      <td>101</td>
-      <td>BV</td>
-      <td>VERIFIQUE OS DADOS DO CARTÃO</td>
-    </tr>
-    <tr>
-      <td>TRANSAÇÃO NÃO PERMITIDA | CAPACIDADE DO TERMINAL</td>
-      <td>IRREVERSÍVEL</td>
-      <td>57</td>
-      <td>58</td>
-      <td>58</td>
-      <td>116</td>
-      <td>A5</td>
-      <td>TRANSAÇÃO NÃO PERMITIDA - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>VALOR EXCESSO | SAQUE</td>
-      <td>REVERSÍVEL</td>
-      <td>61</td>
-      <td>61 ou N4</td>
-      <td>61</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>VALOR EXCEDIDO. CONTATE A CENTRAL DO SEU CARTÃO</td>
-    </tr>
-    <tr>
-      <td>CARTÃO DOMÉSTICO - TRANSAÇÃO INTERNACIONAL</td>
-      <td>IRREVERSÍVEL</td>
-      <td>62</td>
-      <td>62</td>
-      <td>62</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>CARTÃO NÃO PERMITE TRANSAÇÃO INTERNACIONAL</td>
-    </tr>
-    <tr>
-      <td>VALOR MÍNIMO DA TRANSAÇÃO INVÁLIDO</td>
-      <td>IRREVERSÍVEL</td>
-      <td>64</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>VALOR DA TRANSAÇÃO NÃO PERMITIDO - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>QUANT. DE SAQUES EXCEDIDO</td>
-      <td>REVERSÍVEL</td>
-      <td>65</td>
-      <td>65</td>
-      <td>65</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>QUANTIDADE DE SAQUES EXCEDIDA. CONTATE A CENTRAL DO SEU CARTÃO</td>
-    </tr>
-    <tr>
-      <td>SENHA VENCIDA / ERRO DE CRIPTOGRAFIA DE SENHA</td>
-      <td>IRREVERSÍVEL</td>
-      <td>74</td>
-      <td>74 ou 81</td>
-      <td>88</td>
-      <td>180</td>
-      <td>A7</td>
-      <td>SENHA INVÁLIDA - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>EXCEDIDAS TENTATIVAS DE SENHA | SAQUE</td>
-      <td>IRREVERSÍVEL</td>
-      <td>75</td>
-      <td>75</td>
-      <td>75</td>
-      <td>106</td>
-      <td>A4</td>
-      <td>EXCEDIDAS TENTATIVAS DE SENHA.CONTATE A CENTRAL DO SEU CARTÃO</td>
-    </tr>
-    <tr>
-      <td>CONTA DESTINO INVÁLIDA OU INEXISTENTE</td>
-      <td>IRREVERSÍVEL</td>
-      <td>76</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>CONTA DESTINO INVÁLIDA - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>CONTA ORIGEM INVÁLIDA OU INEXISTENTE</td>
-      <td>IRREVERSÍVEL</td>
-      <td>77</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>CONTA ORIGEM INVÁLIDA - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>CARTÃO NOVO SEM DESBLOQUEIO</td>
-      <td>REVERSÍVEL</td>
-      <td>78</td>
-      <td>78</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>DESBLOQUEIE O CARTÃO</td>
-    </tr>
-    <tr>
-      <td>CARTÃO INVÁLIDO (criptograma)</td>
-      <td>IRREVERSÍVEL</td>
-      <td>82</td>
-      <td>82</td>
-      <td>88</td>
-      <td>180</td>
-      <td>A7</td>
-      <td>ERRO NO CARTÃO - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>EMISSOR FORA DO AR</td>
-      <td>REVERSÍVEL</td>
-      <td>91</td>
-      <td>91</td>
-      <td>91</td>
-      <td>912</td>
-      <td>A1</td>
-      <td>FALHA DE COMUNICAÇÃO - TENTE MAIS TARDE</td>
-    </tr>
-    <tr>
-      <td>FALHA DO SISTEMA</td>
-      <td>REVERSÍVEL</td>
-      <td>96</td>
-      <td>96</td>
-      <td>96</td>
-      <td>911</td>
-      <td>AE</td>
-      <td>FALHA DE COMUNICAÇÃO - TENTE MAIS TARDE</td>
-    </tr>
-    <tr>
-      <td>DIFERENÇA - PRÉ AUTORIZAÇÃO</td>
-      <td>IRREVERSÍVEL</td>
-      <td>99</td>
-      <td>N8</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>VALOR DIFERENTE DA PRÉ AUTORIZAÇÃO - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>FUNÇÃO INCORRETA (DÉBITO)</td>
-      <td>IRREVERSÍVEL</td>
-      <td>AB</td>
-      <td>52 ou 53</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>UTILIZE FUNÇÃO CRÉDITO</td>
-    </tr>
-    <tr>
-      <td>FUNÇÃO INCORRETA (CRÉDITO)</td>
-      <td>IRREVERSÍVEL</td>
-      <td>AC</td>
-      <td>39</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>UTILIZE FUNÇÃO DÉBITO</td>
-    </tr>
-    <tr>
-      <td>TROCA DE SENHA / DESBLOQUEIO</td>
-      <td>IRREVERSÍVEL</td>
-      <td>P5</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SENHA INVÁLIDA - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>NOVA SENHA NÃO ACEITA</td>
-      <td>REVERSÍVEL</td>
-      <td>P6</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SENHA INVÁLIDA UTILIZE A NOVA SENHA</td>
-    </tr>
-    <tr>
-      <td>RECOLHER CARTÃO (NÃO HÁ FRAUDE)</td>
-      <td>IRREVERSÍVEL</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>04</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>ERRO POR MUDANÇA DE CHAVE DINÂMICA</td>
-      <td>IRREVERSÍVEL</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>06</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>ERRO NO CARTÃO - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>FRAUDE CONFIRMADA</td>
-      <td>IRREVERSÍVEL</td>
-      <td>57</td>
-      <td>07</td>
-      <td>04</td>
-      <td>200</td>
-      <td>FD</td>
-      <td>TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>EMISSOR Ñ LOCALIZADO - BIN INCORRETO</td>
-      <td>IRREVERSÍVEL</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>15</td>
-      <td>15</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>DADOS DO CARTÃO INVÁLIDO - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>(negativa do adquirente) NÃO CUMPRIMENTO PELAS LEIS DE ANTE LAVAGEM DE DINHEIRO</td>
-      <td>IRREVERSÍVEL</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>64</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>REVERSÃO INVÁLIDA</td>
-      <td>IRREVERSÍVEL</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>76</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>NÃO LOCALIZADO PELO ROTEADOR</td>
-      <td>IRREVERSÍVEL</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>92</td>
-      <td>92</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>TRANSAÇÃO NEGADA POR INFRAÇÃO DE LEI</td>
-      <td>IRREVERSÍVEL</td>
-      <td>57</td>
-      <td>93</td>
-      <td>57</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>VALOR DO TRACING DATA DUPLICADO</td>
-      <td>IRREVERSÍVEL</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>94</td>
-      <td>94</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTENOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>SURCHARGE NÃO SUPORTADO</td>
-      <td>REVERSÍVEL</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>B1</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>CONTATE A CENTRAL DO SEU CARTÃO</td>
-    </tr>
-    <tr>
-      <td>SURCHARGE NÃO SUPORTADO PELA REDE DE DÉBITO</td>
-      <td>REVERSÍVEL</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>B2</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>CONTATE A CENTRAL DO SEU CARTÃO</td>
-    </tr>
-    <tr>
-      <td>FORÇAR STIP</td>
-      <td>REVERSÍVEL</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>N0</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>CONTATE A CENTRAL DO SEU CARTÃO</td>
-    </tr>
-    <tr>
-      <td>SAQUE NÃO DISPONÍVEL</td>
-      <td>IRREVERSÍVEL</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>N3</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SAQUE NÃO DISPONÍVEL - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>SUSPENSÃO DE PAGAMENTO RECORRENTE PARA UM SERVIÇO</td>
-      <td>IRREVERSÍVEL</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>R0</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SUSPENSÃO DE PAGAMENTO RECORRENTE PARA SERVIÇO - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>SUSPENSÃO DE PAGAMENTO RECORRENTE PARA TODOS SERVIÇO</td>
-      <td>IRREVERSÍVEL</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>R1</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SUSPENSÃO DE PAGAMENTO RECORRENTE PARA SERVIÇO - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>TRANSAÇÃO NÃO QUALIFICADA PARA VISA PIN</td>
-      <td>IRREVERSÍVEL</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>R2</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>SUSPENSÃO DE TODAS AS ORDENS DE AUTORIZAÇÃO</td>
-      <td>IRREVERSÍVEL</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>R3</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SUSPENSÃO DE PAGAMENTO RECORRENTE PARA SERVIÇO - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>NÃO É POSSÍVEL LOCALIZAR O REGISTRO NO ARQUIVO</td>
-      <td>IRREVERSÍVEL</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>25</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>ARQUIVO NÃO DISPONÍVEL PARA ATUALIZAÇÃO</td>
-      <td>IRREVERSÍVEL</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>28</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="outros-códigos-de-retorno">Outros códigos de retorno</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Código Resposta</th>
-      <th>Definição</th>
-      <th>Significado</th>
-      <th>Ação</th>
-      <th>Permite Retentativa</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>00</td>
-      <td>Transação autorizada com sucesso.</td>
-      <td>Transação autorizada com sucesso.</td>
-      <td>Transação autorizada com sucesso.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>02</td>
-      <td>Transação não autorizada. Transação referida.</td>
-      <td>Transação não autorizada. Referida (suspeita de fraude) pelo banco emissor.</td>
-      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>09</td>
-      <td>Transação cancelada parcialmente com sucesso.</td>
-      <td>Transação cancelada parcialmente com sucesso</td>
-      <td>Transação cancelada parcialmente com sucesso</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>11</td>
-      <td>Transação autorizada com sucesso para cartão emitido no exterior</td>
-      <td>Transação autorizada com sucesso.</td>
-      <td>Transação autorizada com sucesso.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>21</td>
-      <td>Cancelamento não efetuado. Transação não localizada.</td>
-      <td>Não foi possível processar o cancelamento. Se o erro persistir, entre em contato com a Cielo.</td>
-      <td>Não foi possível processar o cancelamento. Tente novamente mais tarde. Persistindo o erro, entrar em contato com a loja virtual.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>22</td>
-      <td>Parcelamento inválido. Número de parcelas inválidas.</td>
-      <td>Não foi possível processar a transação. Número de parcelas inválidas. Se o erro persistir, entre em contato com a Cielo.</td>
-      <td>Não foi possível processar a transação. Valor inválido. Refazer a transação confirmando os dados informados. Persistindo o erro, entrar em contato com a loja virtual.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>24</td>
-      <td>Quantidade de parcelas inválido.</td>
-      <td>Não foi possível processar a transação. Quantidade de parcelas inválido. Se o erro persistir, entre em contato com a Cielo.</td>
-      <td>Não foi possível processar a transação. Quantidade de parcelas inválido. Refazer a transação confirmando os dados informados. Persistindo o erro, entrar em contato com a loja virtual.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>60</td>
-      <td>Transação não autorizada.</td>
-      <td>Transação não autorizada. Tente novamente. Se o erro persistir o portador deve entrar em contato com o banco emissor.</td>
-      <td>Não foi possível processar a transação. Tente novamente mais tarde. Se o erro persistir, entre em contato com seu banco emissor.</td>
-      <td>Apenas 4 vezes em 16 dias.</td>
-    </tr>
-    <tr>
-      <td>67</td>
-      <td>Transação não autorizada. Cartão bloqueado para compras hoje.</td>
-      <td>Transação não autorizada. Cartão bloqueado para compras hoje. Bloqueio pode ter ocorrido por excesso de tentativas inválidas. O cartão será desbloqueado automaticamente à meia noite.</td>
-      <td>Transação não autorizada. Cartão bloqueado temporariamente. Entre em contato com seu banco emissor.</td>
-      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
-    </tr>
-    <tr>
-      <td>70</td>
-      <td>Transação não autorizada. Limite excedido/sem saldo.</td>
-      <td>Transação não autorizada. Limite excedido/sem saldo.</td>
-      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
-    </tr>
-    <tr>
-      <td>72</td>
-      <td>Cancelamento não efetuado. Saldo disponível para cancelamento insuficiente.</td>
-      <td>Cancelamento não efetuado. Saldo disponível para cancelamento insuficiente. Se o erro persistir, entre em contato com a Cielo.</td>
-      <td>Cancelamento não efetuado. Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>80</td>
-      <td>Transação não autorizada. Divergencia na data de transação/pagamento.</td>
-      <td>Transação não autorizada. Data da transação ou data do primeiro pagamento inválida.</td>
-      <td>Transação não autorizada. Refazer a transação confirmando os dados.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>83</td>
-      <td>Transação não autorizada. Erro no controle de senhas</td>
-      <td>Transação não autorizada. Erro no controle de senhas</td>
-      <td>Transação não autorizada. Refazer a transação confirmando os dados. Se o erro persistir, entre em contato com seu banco emissor.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>85</td>
-      <td>Transação não permitida. Falha da operação.</td>
-      <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
-      <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>89</td>
-      <td>Erro na transação.</td>
-      <td>Transação não autorizada. Erro na transação. O portador deve tentar novamente e se o erro persistir, entrar em contato com o banco emissor.</td>
-      <td>Transação não autorizada. Erro na transação. Tente novamente e se o erro persistir, entre em contato com seu banco emissor.</td>
-      <td>Apenas 4 vezes em 16 dias.</td>
-    </tr>
-    <tr>
-      <td>90</td>
-      <td>Transação não permitida. Falha da operação.</td>
-      <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
-      <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>97</td>
-      <td>Valor não permitido para essa transação.</td>
-      <td>Transação não autorizada. Valor não permitido para essa transação.</td>
-      <td>Transação não autorizada. Valor não permitido para essa transação.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>98</td>
-      <td>Sistema/comunicação indisponível.</td>
-      <td>Transação não autorizada. Sistema do emissor sem comunicação. Se for geral, verificar SITEF, GATEWAY e/ou Conectividade.</td>
-      <td>Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.</td>
-      <td>Apenas 4 vezes em 16 dias.</td>
-    </tr>
-    <tr>
-      <td>475</td>
-      <td>Timeout de Cancelamento</td>
-      <td>A aplicação não respondeu dentro do tempo esperado.</td>
-      <td>Realizar uma nova tentativa após alguns segundos. Persistindo, entrar em contato com o Suporte.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>999</td>
-      <td>Sistema/comunicação indisponível.</td>
-      <td>Transação não autorizada. Sistema do emissor sem comunicação. Tente mais tarde.  Pode ser erro no SITEF, favor verificar !</td>
-      <td>Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.</td>
-      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
-    </tr>
-    <tr>
-      <td>AA</td>
-      <td>Tempo Excedido</td>
-      <td>Tempo excedido na comunicação com o banco emissor. Oriente o portador a tentar novamente, se o erro persistir será necessário que o portador contate seu banco emissor.</td>
-      <td>Tempo excedido na sua comunicação com o banco emissor, tente novamente mais tarde. Se o erro persistir, entre em contato com seu banco.</td>
-      <td>Apenas 4 vezes em 16 dias.</td>
-    </tr>
-    <tr>
-      <td>AF</td>
-      <td>Transação não permitida. Falha da operação.</td>
-      <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
-      <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>AG</td>
-      <td>Transação não permitida. Falha da operação.</td>
-      <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
-      <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>AH</td>
-      <td>Transação não permitida. Cartão de crédito sendo usado com débito. Use a função crédito.</td>
-      <td>Transação não permitida. Cartão de crédito sendo usado com débito. Solicite ao portador que selecione a opção de pagamento Cartão de Crédito.</td>
-      <td>Transação não autorizada. Tente novamente selecionando a opção de pagamento cartão de crédito.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>AI</td>
-      <td>Transação não autorizada. Autenticação não foi realizada.</td>
-      <td>Transação não autorizada. Autenticação não foi realizada. O portador não concluiu a autenticação. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir, entre em contato com a Cielo informando o BIN (6 primeiros dígitos do cartão)</td>
-      <td>Transação não autorizada. Autenticação não foi realizada com sucesso. Tente novamente e informe corretamente os dados solicitado. Se o erro persistir, entre em contato com o lojista.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>AJ</td>
-      <td>Transação não permitida. Transação de crédito ou débito em uma operação que permite apenas Private Label. Tente novamente selecionando a opção Private Label.</td>
-      <td>Transação não permitida. Transação de crédito ou débito em uma operação que permite apenas Private Label. Solicite ao portador que tente novamente selecionando a opção Private Label. Caso não disponibilize a opção Private Label verifique na Cielo se o seu estabelecimento permite essa operação.</td>
-      <td>Transação não permitida. Transação de crédito ou débito em uma operação que permite apenas Private Label. Tente novamente e selecione a opção Private Label. Em caso de um novo erro entre em contato com a loja virtual.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>AV</td>
-      <td>Transação não autorizada. Dados Inválidos</td>
-      <td>Falha na validação dos dados da transação. Oriente o portador a rever os dados e tentar novamente.</td>
-      <td>Falha na validação dos dados. Reveja os dados informados e tente novamente.</td>
-      <td>Apenas 4 vezes em 16 dias.</td>
-    </tr>
-    <tr>
-      <td>BD</td>
-      <td>Transação não permitida. Falha da operação.</td>
-      <td>Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.</td>
-      <td>Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>BL</td>
-      <td>Transação não autorizada. Limite diário excedido.</td>
-      <td>Transação não autorizada. Limite diário excedido. Solicite ao portador que entre em contato com seu banco emissor.</td>
-      <td>Transação não autorizada. Limite diário excedido. Entre em contato com seu banco emissor.</td>
-      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
-    </tr>
-    <tr>
-      <td>BM</td>
-      <td>Transação não autorizada. Cartão Inválido</td>
-      <td>Transação não autorizada. Cartão inválido. Pode ser bloqueio do cartão no banco emissor ou dados incorretos. Tente usar o Algoritmo de Lhum (Mod 10) para evitar transações não autorizadas por esse motivo.</td>
-      <td>Transação não autorizada. Cartão inválido.  Refaça a transação confirmando os dados informados.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>BN</td>
-      <td>Transação não autorizada. Cartão ou conta bloqueado.</td>
-      <td>Transação não autorizada. O cartão ou a conta do portador está bloqueada. Solicite ao portador que entre em contato com  seu banco emissor.</td>
-      <td>Transação não autorizada. O cartão ou a conta do portador está bloqueada. Entre em contato com  seu banco emissor.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>BO</td>
-      <td>Transação não permitida. Falha da operação.</td>
-      <td>Transação não permitida. Houve um erro no processamento. Solicite ao portador que digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco emissor.</td>
-      <td>Transação não permitida. Houve um erro no processamento. Digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco emissor.</td>
-      <td>Apenas 4 vezes em 16 dias.</td>
-    </tr>
-    <tr>
-      <td>BP</td>
-      <td>Transação não autorizada. Conta corrente inexistente.</td>
-      <td>Transação não autorizada. Não possível processar a transação por um erro relacionado ao cartão ou conta do portador. Solicite ao portador que entre em contato com o banco emissor.</td>
-      <td>Transação não autorizada. Não possível processar a transação por um erro relacionado ao cartão ou conta do portador. Entre em contato com o banco emissor.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>BP176</td>
-      <td>Transação não permitida.</td>
-      <td>Parceiro deve checar se o processo de integração foi concluído com sucesso.</td>
-      <td>Parceiro deve checar se o processo de integração foi concluído com sucesso.</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td>C1</td>
-      <td>Transação não permitida. Cartão não pode processar transações de débito.</td>
-      <td>Troque a modalidade de pagamento ou o cartão utilizado.</td>
-      <td>Troque a modalidade de pagamento ou o cartão utilizado.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>C2</td>
-      <td>Transação não permitida.</td>
-      <td>Dados incorretos. Favor rever os dados preenchidos na tela de pagamento.</td>
-      <td>Dados incorretos. Favor rever os dados preenchidos na tela de pagamento.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>C3</td>
-      <td>Transação não permitida.</td>
-      <td>Período inválido para este tipo de transação.</td>
-      <td>Período inválido para este tipo de transação.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>CF</td>
-      <td>Transação não autorizada.C79:J79 Falha na validação dos dados.</td>
-      <td>Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.</td>
-      <td>Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>CG</td>
-      <td>Transação não autorizada. Falha na validação dos dados.</td>
-      <td>Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.</td>
-      <td>Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>DF</td>
-      <td>Transação não permitida. Falha no cartão ou cartão inválido.</td>
-      <td>Transação não permitida. Falha no cartão ou cartão inválido. Solicite ao portador que digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco</td>
-      <td>Transação não permitida. Falha no cartão ou cartão inválido. Digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco</td>
-      <td>Apenas 4 vezes em 16 dias.</td>
-    </tr>
-    <tr>
-      <td>DM</td>
-      <td>Transação não autorizada. Limite excedido/sem saldo.</td>
-      <td>Transação não autorizada. Limite excedido/sem saldo.</td>
-      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
-    </tr>
-    <tr>
-      <td>DQ</td>
-      <td>Transação não autorizada. Falha na validação dos dados.</td>
-      <td>Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.</td>
-      <td>Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>DS</td>
-      <td>Transação não permitida para o cartão</td>
-      <td>Transação não autorizada. Transação não permitida para o cartão.</td>
-      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td>Apenas 4 vezes em 16 dias.</td>
-    </tr>
-    <tr>
-      <td>EB</td>
-      <td>Transação não autorizada. Limite diário excedido.</td>
-      <td>Transação não autorizada. Limite diário excedido. Solicite ao portador que entre em contato com seu banco emissor.</td>
-      <td>Transação não autorizada. Limite diário excedido. Entre em contato com seu banco emissor.</td>
-      <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
-    </tr>
-    <tr>
-      <td>EE</td>
-      <td>Transação não permitida. Valor da parcela inferior ao mínimo permitido.</td>
-      <td>Transação não permitida. Valor da parcela inferior ao mínimo permitido. Não é permitido parcelas inferiores a R$ 5,00. Necessário rever calculo para parcelas.</td>
-      <td>Transação não permitida. O valor da parcela está abaixo do mínimo permitido. Entre em contato com a loja virtual.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>EK</td>
-      <td>Transação não permitida para o cartão</td>
-      <td>Transação não autorizada. Transação não permitida para o cartão.</td>
-      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td>Apenas 4 vezes em 16 dias.</td>
-    </tr>
-    <tr>
-      <td>FC</td>
-      <td>Transação não autorizada. Ligue Emissor</td>
-      <td>Transação não autorizada. Oriente o portador a entrar em contato com o banco emissor.</td>
-      <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>FE</td>
-      <td>Transação não autorizada. Divergencia na data de transação/pagamento.</td>
-      <td>Transação não autorizada. Data da transação ou data do primeiro pagamento inválida.</td>
-      <td>Transação não autorizada. Refazer a transação confirmando os dados.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>FF</td>
-      <td>Cancelamento OK</td>
-      <td>Transação de cancelamento autorizada com sucesso. ATENÇÂO: Esse retorno é para casos de cancelamentos e não para casos de autorizações.</td>
-      <td>Transação de cancelamento autorizada com sucesso</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>FG</td>
-      <td>Transação não autorizada. Ligue AmEx 08007285090.</td>
-      <td>Transação não autorizada. Oriente o portador a entrar em contato com a Central de Atendimento AmEx.</td>
-      <td>Transação não autorizada. Entre em contato com a Central de Atendimento AmEx no telefone 08007285090</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>GA</td>
-      <td>Aguarde Contato</td>
-      <td>Transação não autorizada. Referida pelo Lynx Online de forma preventiva.</td>
-      <td>Transação não autorizada. Entre em contato com o lojista.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>GD</td>
-      <td>Transação não permitida.</td>
-      <td>Transação não permitida. Entre em contato com a Cielo.</td>
-      <td>Transação não permitida. Entre em contato com a Cielo.</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td>HJ</td>
-      <td>Transação não permitida. Código da operação inválido.</td>
-      <td>Transação não permitida. Código da operação Coban inválido.</td>
-      <td>Transação não permitida. Código da operação Coban inválido. Entre em contato com o lojista.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>IA</td>
-      <td>Transação não permitida. Indicador da operação inválido.</td>
-      <td>Transação não permitida. Indicador da operação Coban inválido.</td>
-      <td>Transação não permitida. Indicador da operação Coban inválido. Entre em contato com o lojista.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>KA</td>
-      <td>Transação não permitida. Falha na validação dos dados.</td>
-      <td>Transação não permitida. Houve uma falha na validação dos dados. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir verifique a comunicação entre loja virtual e Cielo.</td>
-      <td>Transação não permitida. Houve uma falha na validação dos dados. reveja os dados informados e tente novamente. Se o erro persistir entre em contato com a Loja Virtual.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>KB</td>
-      <td>Transação não permitida. Selecionado a opção incorrente.</td>
-      <td>Transação não permitida. Selecionado a opção incorreta. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir deve ser verificado a comunicação entre loja virtual e Cielo.</td>
-      <td>Transação não permitida. Selecionado a opção incorreta. Tente novamente. Se o erro persistir entre em contato com a Loja Virtual.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>KE</td>
-      <td>Transação não autorizada. Falha na validação dos dados.</td>
-      <td>Transação não autorizada. Falha na validação dos dados. Opção selecionada não está habilitada. Verifique as opções disponíveis para o portador.</td>
-      <td>Transação não autorizada. Falha na validação dos dados. Opção selecionada não está habilitada. Entre em contato com a loja virtual.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>N7</td>
-      <td>Transação não autorizada. Código de segurança inválido.</td>
-      <td>Transação não autorizada. Código de segurança inválido. Oriente o portador corrigir os dados e tentar novamente.</td>
-      <td>Transação não autorizada. Reveja os dados e informe novamente.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>U3</td>
-      <td>Transação não permitida. Falha na validação dos dados.</td>
-      <td>Transação não permitida. Houve uma falha na validação dos dados. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir verifique a comunicação entre loja virtual e Cielo.</td>
-      <td>Transação não permitida. Houve uma falha na validação dos dados. reveja os dados informados e tente novamente. Se o erro persistir entre em contato com a Loja Virtual.</td>
-      <td>Não</td>
     </tr>
   </tbody>
 </table>
