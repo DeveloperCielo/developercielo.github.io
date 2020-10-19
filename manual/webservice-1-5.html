@@ -682,6 +682,161 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
   </tbody>
 </table>
 
+<h3 id="transações-cbps">Transações CBPS</h3>
+
+<p>Atualmente, os consumidores geralmente precisam fazer login em diversos sites de cobrança para pagar suas contas, muitos dos quais não aceitam pagamentos de cartão. Os fornecedores do Serviço de Pagamento de Contas para Consumidores (CBPS) simplificam o processo ao permitir que os consumidores façam todos os pagamentos de contas com cartão e em um único canal. Geralmente os fornecedores CBPS oferecem um aplicativo móvel ou um comercio eletrônico para o portador fazer a gestão e efetuar os pagamentos.</p>
+
+<p>A Visa solicita que os provedores deste tipo de serviço passem a informar quais transações são CBPS a partir de Out20. Essa informação deve ser enviado na mensageria transacional no campo “pagamento-conta” de acordo com o XML abaixo.</p>
+
+<h4 id="requisição-1">Requisição</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span> <span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;dados-ec&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>2000000001<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;chave&gt;</span>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx<span class="nt">&lt;/chave&gt;</span>
+        <span class="nt">&lt;subcredenciador&gt;</span>
+            <span class="nt">&lt;numero&gt;</span>12345678901<span class="nt">&lt;/numero&gt;</span>
+            <span class="nt">&lt;sub-ec&gt;</span>
+                <span class="nt">&lt;numero&gt;</span>2000130733<span class="nt">&lt;/numero&gt;</span>
+                <span class="nt">&lt;mcc&gt;</span>5542<span class="nt">&lt;/mcc&gt;</span>
+                <span class="nt">&lt;endereco&gt;</span>Alameda Xingu, 512<span class="nt">&lt;/endereco&gt;</span>
+                <span class="nt">&lt;cidade&gt;</span>Barueri<span class="nt">&lt;/cidade&gt;</span>
+                <span class="nt">&lt;estado&gt;</span>SP<span class="nt">&lt;/estado&gt;</span>
+                <span class="nt">&lt;codigo-postal&gt;</span>06537085<span class="nt">&lt;/codigo-postal&gt;</span>
+                <span class="nt">&lt;telefone&gt;</span>11978962345<span class="nt">&lt;/telefone&gt;</span>
+                <span class="nt">&lt;documento&gt;</span>53976428000130<span class="nt">&lt;/documento&gt;</span>
+                <span class="nt">&lt;codigo-pais&gt;</span>076<span class="nt">&lt;/codigo-pais&gt;</span>
+            <span class="nt">&lt;/sub-ec&gt;</span>
+        <span class="nt">&lt;/subcredenciador&gt;</span>
+    <span class="nt">&lt;/dados-ec&gt;</span>
+    <span class="nt">&lt;dados-portador&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>518605152xxxxxx5923<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;validade&gt;</span>aaaamm<span class="nt">&lt;/validade&gt;</span>
+        <span class="nt">&lt;indicador&gt;</span>1<span class="nt">&lt;/indicador&gt;</span>
+        <span class="nt">&lt;codigo-seguranca&gt;</span>xxx<span class="nt">&lt;/codigo-seguranca&gt;</span>
+        <span class="nt">&lt;nome-portador&gt;</span>Jose Luis<span class="nt">&lt;/nome-portador&gt;</span>
+        <span class="nt">&lt;token/&gt;</span>
+    <span class="nt">&lt;/dados-portador&gt;</span>
+    <span class="nt">&lt;dados-pedido&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>54583<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;valor&gt;</span>10000<span class="nt">&lt;/valor&gt;</span>
+        <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
+        <span class="nt">&lt;data-hora&gt;</span>2016-02-16T13:45:05<span class="nt">&lt;/data-hora&gt;</span>
+        <span class="nt">&lt;descricao&gt;</span>Compra Online<span class="nt">&lt;/descricao&gt;</span>
+        <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
+        <span class="nt">&lt;soft-descriptor&gt;</span>lojinha<span class="nt">&lt;/soft-descriptor&gt;</span>
+        <span class="nt">&lt;pagamento-conta&gt;</span>true<span class="nt">&lt;/pagamento-conta&gt;</span>
+    <span class="nt">&lt;/dados-pedido&gt;</span>
+    <span class="nt">&lt;forma-pagamento&gt;</span>
+        <span class="nt">&lt;bandeira&gt;</span>mastercard<span class="nt">&lt;/bandeira&gt;</span>
+        <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
+        <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
+    <span class="nt">&lt;/forma-pagamento&gt;</span>
+    <span class="nt">&lt;url-retorno&gt;</span>http://www.cielo.com.br<span class="nt">&lt;/url-retorno&gt;</span>
+    <span class="nt">&lt;autorizar&gt;</span>3<span class="nt">&lt;/autorizar&gt;</span>
+    <span class="nt">&lt;capturar&gt;</span>true<span class="nt">&lt;/capturar&gt;</span>
+    <span class="nt">&lt;gerar-token&gt;</span>false<span class="nt">&lt;/gerar-token&gt;</span>
+<span class="nt">&lt;/requisicao-transacao&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>subcredenciador.numero</td>
+      <td>Numérico</td>
+      <td>11</td>
+      <td>Obrigatório para facilitadores</td>
+      <td>Código do estabelecimento do Facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras)</td>
+    </tr>
+    <tr>
+      <td>sub-ec.numero</td>
+      <td>Numérico</td>
+      <td>15</td>
+      <td>Obrigatório para facilitadores</td>
+      <td>Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)</td>
+    </tr>
+    <tr>
+      <td>sub-ec.mcc</td>
+      <td>Numérico</td>
+      <td>4</td>
+      <td>Obrigatório para facilitadores</td>
+      <td>MCC do sub Merchant.</td>
+    </tr>
+    <tr>
+      <td>sub-ec.endereco</td>
+      <td>Alfanumérico</td>
+      <td>22</td>
+      <td>Obrigatório para facilitadores</td>
+      <td>Endereço do sub Merchant.</td>
+    </tr>
+    <tr>
+      <td>sub-ec.cidade</td>
+      <td>Alfanumérico</td>
+      <td>13</td>
+      <td>Obrigatório para facilitadores</td>
+      <td>Cidade do sub Merchant.</td>
+    </tr>
+    <tr>
+      <td>sub-ec.estado</td>
+      <td>Alfanumérico</td>
+      <td>2</td>
+      <td>Obrigatório para facilitadores</td>
+      <td>Estado do sub Merchant.</td>
+    </tr>
+    <tr>
+      <td>sub-ec.codigo-postal</td>
+      <td>Numérico</td>
+      <td>9</td>
+      <td>Obrigatório para facilitadores</td>
+      <td>Código postal do sub Merchant.</td>
+    </tr>
+    <tr>
+      <td>sub-ec.telefone</td>
+      <td>Numérico</td>
+      <td>13</td>
+      <td>Obrigatório para facilitadores</td>
+      <td>Número de telefone do sub Merchant.</td>
+    </tr>
+    <tr>
+      <td>sub-ec.documento</td>
+      <td>Numérico</td>
+      <td>14</td>
+      <td>Obrigatório para facilitadores</td>
+      <td>CNPJ ou CPF do sub Merchant.</td>
+    </tr>
+    <tr>
+      <td>sub-ec.codigo-pais</td>
+      <td>Numérico</td>
+      <td>3</td>
+      <td>Obrigatório para facilitadores</td>
+      <td>Código país do sub Merchant com base no ISO 3166.</td>
+    </tr>
+    <tr>
+      <td>dados.pedido.soft-descriptor</td>
+      <td>Texto</td>
+      <td>13</td>
+      <td>Obrigatório para facilitadores</td>
+      <td>Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.</td>
+    </tr>
+    <tr>
+      <td>dados.pedido.pagamento-conta</td>
+      <td>Boolen</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>True ou false. Indica se é uma transação CBPS (Serviço de Pagamento de Contas para Consumidores)</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="criando-transações">Criando transações</h1>
 
 <p>Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) ao Web Service da Cielo com uma mensagem XML <code class="language-plaintext highlighter-rouge">&lt;requisicao-transacao&gt;</code>, cujo conjunto de TAGS determinam as configurações de uma transação.</p>
@@ -3239,7 +3394,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
   <li><strong>Situação 3:</strong> - <strong>NÃO HÁ</strong> armazenamento de dados do cartão, o estabelecimento simplesmente não envia esta tag.</li>
 </ul>
 
-<h4 id="requisição-1">Requisição</h4>
+<h4 id="requisição-2">Requisição</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
 <span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span> <span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
@@ -3698,7 +3853,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <p>Clientes que fazem tokenização do cartão junto com as bandeiras poderão enviar as informações para a Cielo no fluxo transacional.</p>
 
-<h4 id="requisição-2">Requisição</h4>
+<h4 id="requisição-3">Requisição</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
 <span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span> <span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
@@ -4021,7 +4176,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
   </li>
 </ul>
 
-<h4 id="requisição-3">Requisição</h4>
+<h4 id="requisição-4">Requisição</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;requisicao-consulta</span> <span class="na">id=</span><span class="s">"6fcf758e-bc60-4d6a-acf4-496593a40441"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
@@ -4084,7 +4239,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <aside class="notice">INFORMAÇÃO: A consulta por Número do Pedido deve ser usada apenas como contingência à Consulta por TID, pois esta pode não garantir unicidade da transação, tendo em vista que este campo é enviado pela loja virtual e apenas acatado pela Cielo.</aside>
 
-<h4 id="requisição-4">Requisição</h4>
+<h4 id="requisição-5">Requisição</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;requisicao-consulta-chsec</span> <span class="na">id=</span><span class="s">"a51489b1-93d5-437f-bb4f-5b932fade248"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
