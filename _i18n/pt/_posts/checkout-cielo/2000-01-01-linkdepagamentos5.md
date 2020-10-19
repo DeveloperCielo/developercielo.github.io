@@ -1016,7 +1016,7 @@ Este tópico irá ensinar como criar uma integração entre o Super Link Cielo e
 
 ## Fluxograma simplificado
 
-![Fluxograma simplificado Antifraude próprios]({{ site.baseurl_root }}/docs/images/checkout/fluxograma_simplificado_antifraude.png)
+![Fluxograma simplificado Antifraude próprios]({{ site.baseurl_root }}/images/checkout/fluxogramasimplificadoantifraude.png)
 
 ### Passo a passo de integração
 
