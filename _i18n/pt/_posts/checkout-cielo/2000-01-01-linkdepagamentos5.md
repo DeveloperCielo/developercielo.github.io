@@ -1021,14 +1021,14 @@ Este tópico irá ensinar como criar uma integração entre o Super Link Cielo e
 ### Passo a passo de integração
 
 1. Crie os links via API de Super Link
-Os links podem ser criados diretamente via chamadas de API. O request e o response padrão são encontrados no tópico link de pagamento do manual. Clique aqui para saber mais.
+Os links podem ser criados diretamente via chamadas de API. O request e o response padrão são encontrados no tópico link de pagamento do manual. [Clique aqui](https://developercielo.github.io/manual/linkdepagamentos5#link-de-pagamento)  para saber mais.
  
 2. Envie o link para o portador do cartão realizar o pagamento
 O link de pagamento deve ser enviado pelas redes sociais para que seja realizado o pagamento. A venda/transação só começa a partir do preenchimento da tela de pagamento.
 
 3. Receba os dados de pagamento via Post de notificação
-A confirmação de pagamento é enviada via Webhook para uma URL da escolha do lojista. Veja como configurar uma URL para receber a notificação aqui.
-As informações retornadas via Post de notificação podem ser encontradas no tópico Conteúdo da notificação
+A confirmação de pagamento é enviada via Webhook para uma URL da escolha do lojista. Veja como configurar uma URL para receber a notificação [aqui](https://developercielo.github.io/manual/linkdepagamentos5#tipos-de-url-de-notifica%C3%A7%C3%A3o).
+As informações retornadas via Post de notificação podem ser encontradas no tópico [Conteúdo da notificação](https://developercielo.github.io/manual/linkdepagamentos5#conteúdo-da-notificação).
 
 4. Envie os dados de pagamento para o Antifraude contratado
 As informações retornadas no Post de notificação devem ser enviadas para seu Antifraude. Caso necessário você pode enriquecer as informações retornadas com informações cadastrais do cliente que está executando aquele pagamento. 
@@ -1036,7 +1036,7 @@ Consulte seu provedor de Antifraude para saber quais campos podem ser enviados p
 A Cielo não participa do envio dessas informações. Todas as dúvidas relacionadas ao processo de integração entre Lojista e Antifraude devem ser envidas para o Suporte do provedor de antifraude.
 
 5. Capture ou cancele as vendas 
-De acordo com o retorno de seu provedor de antifraude capture ou cancele a venda. A captura e o cancelamento de vendas podem ser feitos via API de controle transacional. Veja como fazer o controle transacional de suas vendas aqui.
+De acordo com o retorno de seu provedor de antifraude capture ou cancele a venda. A captura e o cancelamento de vendas podem ser feitos via API de controle transacional. Veja como fazer o controle transacional de suas vendas [aqui](https://developercielo.github.io/manual/controletransacional4#capturar-transa%C3%A7%C3%A3o).
 
 # Status e Códigos
 
