@@ -399,6 +399,79 @@ The new fields are contained within the **&lt;subcredenciador&gt;** tag. In addi
 |sub-ec.codigo-pais|Number|3|Required for facilitators|Sub Merchant country code based on ISO 3166.|
 |dados.pedido.soft-descriptor|Text|13|Required for facilitators|Text printed on buyer bank invoice. Must be completed according to the data of the sub Merchant.|
 
+### CBPS Transactions
+
+Today, consumers often need to log in to several billing sites to pay their bills, many of which do not accept card payments. Suppliers of the Account Payment Service for Consumers (CBPS) simplify the process by allowing consumers to make all bill payments with a card and in a single channel. Generally, CBPS providers offer a mobile application or electronic commerce for the bearer to manage and make payments.
+
+Visa requests that providers of this type of service start to inform which transactions are CBPS as of Oct20. This information must be sent in the transactional message in the field “payment-account” according to the XML below.
+
+#### Request
+
+``` xml
+<requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
+    <dados-ec>
+        <numero>2000000001</numero>
+        <chave>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</chave>
+        <subcredenciador>
+            <numero>12345678901</numero>
+            <sub-ec>
+                <numero>2000130733</numero>
+                <mcc>5542</mcc>
+                <endereco>Alameda Xingu, 512</endereco>
+                <cidade>Barueri</cidade>
+                <estado>SP</estado>
+                <codigo-postal>06537085</codigo-postal>
+                <telefone>11978962345</telefone>
+                <documento>53976428000130</documento>
+                <codigo-pais>076</codigo-pais>
+            </sub-ec>
+        </subcredenciador>
+    </dados-ec>
+    <dados-portador>
+        <numero>518605152xxxxxx5923</numero>
+        <validade>aaaamm</validade>
+        <indicador>1</indicador>
+        <codigo-seguranca>xxx</codigo-seguranca>
+        <nome-portador>Jose Luis</nome-portador>
+        <token/>
+    </dados-portador>
+    <dados-pedido>
+        <numero>54583</numero>
+        <valor>10000</valor>
+        <moeda>986</moeda>
+        <data-hora>2016-02-16T13:45:05</data-hora>
+        <descricao>Compra Online</descricao>
+        <idioma>PT</idioma>
+        <soft-descriptor>lojinha</soft-descriptor>
+        <pagamento-conta>true</pagamento-conta>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>mastercard</bandeira>
+        <produto>1</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <url-retorno>http://www.cielo.com.br</url-retorno>
+    <autorizar>3</autorizar>
+    <capturar>true</capturar>
+    <gerar-token>false</gerar-token>
+</requisicao-transacao>
+```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|subcredenciador.numero|Number|11|Required for facilitators|Facilitator's establishment code. “Facilitator ID” (Registration of the facilitator with the card brands)|
+|sub-ec.numero|Number|15|Required for facilitators|Sub Merchant establishment code. “Sub-Merchant ID” (Registration of sub-accredited with the facilitator)|
+|sub-ec.mcc|Number|4|Required for facilitators|MCC do sub Merchant.|
+|sub-ec.endereco|Alphanumeric|22|Required for facilitators|Sub Merchant Address.|
+|sub-ec.cidade|Alphanumeric|13|Required for facilitators|City of the sub Merchant.|
+|sub-ec.estado|Alphanumeric|2|Required for facilitators|State do sub Merchant.|
+|sub-ec.codigo-postal|Number|9|Required for facilitators|Sub Merchant Postcode.|
+|sub-ec.telefone|Number|13|Required for facilitators|Sub Merchant Phone Number.|
+|sub-ec.documento|Number|14|Required for facilitators|CNPJ or CPF of the Sub Merchant.|
+|sub-ec.codigo-pais|Number|3|Required for facilitators|Sub Merchant country code based on ISO 3166.|
+|dados.pedido.soft-descriptor|Text|13|Required for facilitators|Text printed on buyer bank invoice. Must be completed according to the data of the sub Merchant.|
+|dados.pedido.pagamento-conta|Boolen|---|No|True or false. Indicates whether it is a CBPS (Consumer Bill Payment Service) transaction)|
+
 # Creating transactions
 
 Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservice at Cielo with a XML message `<requisicao-transacao>`, which group of TAGS defines a transaction configuration:
