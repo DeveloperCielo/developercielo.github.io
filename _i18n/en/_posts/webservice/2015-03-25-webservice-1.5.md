@@ -470,7 +470,7 @@ Visa requests that providers of this type of service start to inform which trans
 |sub-ec.documento|Number|14|Required for facilitators|CNPJ or CPF of the Sub Merchant.|
 |sub-ec.codigo-pais|Number|3|Required for facilitators|Sub Merchant country code based on ISO 3166.|
 |dados.pedido.soft-descriptor|Text|13|Required for facilitators|Text printed on buyer bank invoice. Must be completed according to the data of the sub Merchant.|
-|dados.pedido.pagamento-conta|Boolen|---|No|True or false. Indicates whether it is a CBPS (Consumer Bill Payment Service) transaction)|
+|dados.pedido.pagamento-conta|Boolean|---|No|True or false. Indicates whether it is a CBPS (Consumer Bill Payment Service) transaction)|
 
 # Creating transactions
 
