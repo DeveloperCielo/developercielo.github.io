@@ -479,7 +479,7 @@ A Visa solicita que os provedores deste tipo de serviço passem a informar quais
 |sub-ec.documento|Numérico|14|Obrigatório para facilitadores|CNPJ ou CPF do sub Merchant.|
 |sub-ec.codigo-pais|Numérico|3|Obrigatório para facilitadores|Código país do sub Merchant com base no ISO 3166.|
 |dados.pedido.soft-descriptor|Texto|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
-|dados.pedido.pagamento-conta|Boolen|---|Não|True ou false. Indica se é uma transação CBPS (Serviço de Pagamento de Contas para Consumidores)|
+|dados.pedido.pagamento-conta|Boolean|---|Não|True ou false. Indica se é uma transação CBPS (Serviço de Pagamento de Contas para Consumidores)|
 
 # Criando transações
 
