@@ -452,7 +452,7 @@ A Visa solicita que os provedores deste tipo de serviço passem a informar quais
         <descricao>Compra Online</descricao>
         <idioma>PT</idioma>
         <soft-descriptor>lojinha</soft-descriptor>
-		<pagamento-conta>true</pagamento-conta>
+        <pagamento-conta>true</pagamento-conta>
     </dados-pedido>
     <forma-pagamento>
         <bandeira>mastercard</bandeira>
