@@ -1,1059 +1,824 @@
 ---
 layout: manual
-title: API Super Link
-description: Integração técnica via API
+title: Manual de Integração
+description: Integração Técnica via XML
 search: true
 translated: true
 toc_footers: true
 categories: manual
-sort_order: 2
+sort_order: 1
 tags:
-  - Checkout Cielo
+  - Webservice 1.5
 language_tabs:
-  json: JSON
-  shell: cURL
+  xml: XML
 ---
 
-# Objetivo
+# Integração Webservice 1.5
 
-Este manual irá guiar o desenvolvedor na integração com a API de Super Link da Cielo. Após realizar as integrações descritas será possível:
+<aside class="warning">O Webservice 1.5 foi descontinuado. O documento abaixo existe como base de conhecimento para clientes ja integrados. Novos cadastros não serão realizados pelo atendimento Cielo</aside> 
 
-* Criar e editar Links de Pagamento via API,
-* Receber notificações de pagamentos
-* Consultar pagamentos
-* Configurar a sua loja da maneira adequada
+> Para novas integrações, veja [API Cielo E-commerce](https://developercielo.github.io/manual/cielo-ecommerce)
 
-# Sobre o Super Link
+O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a solução Webservice da Cielo, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.
 
-A API Link de Pagamentos permite ao lojista criar, editar e consultar links de pagamentos.
-Seu principal objetivo é permitir que lojas possam criar links de pagamento (Botões ou QR Codes), através de seus próprios sistemas, sem a necessidade de acessar o Backoffice e compartilhar com seus clientes.
+O mecanismo de integração com o Cielo eCommerce é simples, de modo que apenas conhecimentos intermediários em linguagem de programação para Web, requisições HTTP/HTTPS e manipulação de arquivos XML, são necessários para implantar a solução Cielo eCommerce com sucesso. É importante destacar para utilizar essa plataforma, o website deve estar em confirmidade com regras de segurança ou utilizar a certificação PCI. Para dúvidas sobre segurança web, favor encaminhar email para: [Segurança Web](mailto:e-seg@cielo.com.br).
 
-> **Atenção**:
-> 
-> O link de pagamentos não é uma URL DE **PEDIDO/TRANSAÇÃO**. Ele é um "carrinho" que pode ser reutilizado inúmeras vezes.<br>
-> Para receber notificações sobre transações originadas de Links de pagamento é **OBRIGATÓRIO** o cadastro da **URL de Notificação** no backoffice do Checkout.<br>
-> A consulta de transações realizadas através do Super Link pode ser feita através da **API de controle transacional**.<br>
+Após a conclusão do credenciamento e recebimento das instruções é preciso desenvolver a integração utilizando como guia este manual. Assim que a integração estiver concluída, é necessário preencher completamente o formulário de homologação e enviá-lo para o Suporte Web do Cielo eCommerce que informará ao estabelecimento a chave de segurança.
 
-# Modo teste
+Por fim, após o término do desenvolvimento, é preciso dar início à homologação junto à Cielo
+para iniciar a operação no ambiente de produção.
 
-## Sandbox
+<aside class="notice">Veja a seção <a href="#testes-e-homologação">Homologação</a> para instruções sobre o processo de homologação</aside>
 
-Por se tratar de uma chamada não financeira, a API de Super Link não possui um Sand Box para testar a criação de links. Os Links devem ser criados a partir de um cadastro de produção. A credenciamento pode ser feito através do site cielo ou por meio da central de ecommerce.
+## Suporte Cielo
 
-<aside class="warning"><b>Contatos da Central:<br>
-credenciamentoecommerce@cielo.com.br<br>
-+55 11 4002-9700<br>
-0800-570-1700
-</b></aside>
+Após a leitura deste manual, caso ainda persistam dúvidas (técnicas ou não), a Cielo disponibiliza o suporte técnico 24 horas por dia, 7 dias por semana em idiomas (Português e Inglês), nos seguintes contatos:
 
-Os testes financeiros podem ser executados a partir da ativação do modo teste nas configuração da sua loja. 
+* +55 4002-9700 – *Capitais e Regiões Metropolitanas*
+* +55 0800-570-1700 – *Demais Localidades*
+* +55 11 2860-1348 – *Internacionais*
+  * Opção 1 – *Suporte técnico;*
+  * Opção 2 – *Credenciamento eCommerce.*
+* Email: [cieloeCommerce@cielo.com.br](mailto:cieloeCommerce@cielo.com.br)
 
-## Ativação do Modo de Teste
+## Glossário
 
-O modo de teste pode ser ativado na aba **Configurações**, onde existe um caixa de seleção, que quando marcada, habilitará o modo de teste do Checkout Cielo. O modo somente se iniciará quando a seleção for salva.
+Para facilitar o entendimento, listamos abaixo um pequeno glossário com os principais termos relacionados ao eCommerce, ao mercado de cartões e adquirencia:
 
-![Ativando Modo de teste]({{ site.baseurl_root }}/images/checkout/tm01.png)
+* **Autenticação**: processo para assegurar que o comprador é realmente aquele quem diz ser (portador legítimo), geralmente ocorre no banco emissor com uso de um token digital ou cartão com chaves de segurança.
+* **Autorização**: processo para verificar se uma compra pode ou não ser realizada com um cartão. Nesse momento, são feitas diversas verificações com o cartão e com o portador (ex.: adimplência, bloqueios, etc.) É também neste momento que o limite do cartão é sensibilizado com o valor da transação.
+* **Cancelamento**: processo para cancelar uma compra realizada com cartão.
+* **Captura**: processo que confirma uma autorização que foi realizada previamente. Somente após a captura, é que o portador do cartão poderá visualizá-la em seu extrato ou fatura.
+* **Chave de acesso**: é um código de segurança específico de cada loja, gerado pela Cielo, usada para realizar a autenticação e comunicação em todas as mensagens trocadas com a Cielo. Também conhecido como chave de produção e key data.
+* **Comprador**: é o aquele que efetua compra na loja virtual.
+* **Emissor (ou banco emissor)**: É a instituição financeira que emite o cartão de crédito, débito ou voucher.
+* **Estabelecimento comercial ou EC**: Entidade que responde pela loja virtual.
+* **Gateway de pagamentos**: Empresa responsável pelo integração técnica e processamento das transações.
+* **Número de credenciamento**: é um número identificador que o lojista recebe após seu credenciamento junto à Cielo.
+* **Portador**: é a pessoa que tem o porte do cartão no momento da venda.
+* **SecureCode**: programa internacional da Mastercard para possibilitar a autenticação do comprador no momento de uma compra em ambiente eCommerce.
+* **TID (Transaction Identifier)**: código composto por 20 caracteres que identificada unicamente uma transação Cielo eCommerce.
+* **Transação**: é o pedido de compra do portador do cartão na Cielo.
+* **VBV (Verified by Visa)**: Programa internacional da Visa que possibilita a autenticação do comprador no momento de uma compra em ambiente eCommerce.
 
-Quando a opção for salva, uma tarja vermelha será exibida na parte superior da tela. Ela será exibida em todas as telas do [Backoffice Cielo Checkout]({{ site.baseurl_root }}{% post_url 2000-01-01-checkout-tutoriais%}) e na tela transacional do Checkout Cielo.
+<aside class="notice">Acesse http://www.mastercard.com.br/securecode para mais detalhes sobre o SecureCode.</aside>
 
-Essa tarja indica que a sua loja Checkout Cielo está agora operando em ambiente de teste, ou seja, toda a transação realizada nesse modo será considerada como teste.
+<aside class="notice">Acesse http://www.verifiedbyvisa.com.br para mais detalhes sobre o VBV.</aside>
 
-|Backoffice|Transacional|
-|---|---|
-|![Tarja vermelha - Backoffice]({{ site.baseurl_root }}/images/checkout/tmbackoffice.png)|![Tarja vermelha - Transacional]({{ site.baseurl_root }}/images/checkout/tmtransacional.png)|
+## Produtos e Bandeiras suportadas
 
-## Como transacionar no Modo de teste
+A versão atual do Webservice Cielo possui suporte às seguintes bandeiras e produtos:
 
-A realização de transações no modo de teste ocorre de forma normal. As informações da transação são enviadas via POST ou API, utilizando os parâmetros como descrito no tópico [Integração por API](https://developercielo.github.io/manual/checkout-cielo#integra%C3%A7%C3%A3o-por-api), entretanto, os meios de pagamentos a serem usados serão meios simulados.
+|Bandeira|Crédito à vista|Crédito parcelado Loja|Débito|Voucher|
+|---|---|---|---|---|
+|Visa|Sim|Sim|Sim|*Não*|
+|Master Card|Sim|Sim|Sim|*Não*|
+|American Express|Sim|Sim|*Não*|*Não*|
+|Elo|Sim|Sim|*Não*|*Não*|
+|Diners Club|Sim|Sim|*Não*|*Não*|
+|Discover|Sim|*Não*|*Não*|*Não*|
+|JCB|Sim|Sim|*Não*|*Não*|
+|Aura|Sim|Sim|*Não*|*Não*|
+|Hipercard|Sim|Sim|*Não*|*Não*|
 
-Para realizar transações de teste com diferentes meios de pagamento, siga as seguintes regras:
+# Certificado Extended Validation
 
-**A - Transações com Cartão de crédito:**
+## O que é Certificado SSL?
 
-Para testar cartões de crédito é necessário que dois dados importantes sejam definidos, o status da autorização do cartão e o retorno da analise de fraude.
+O Certificado SSL para servidor web oferece autenticidade e integridade dos dados de um web site, proporcionando aos clientes das lojas virtuais a garantia de que estão realmente acessando o site que desejam, e não uma um site fraudador.
 
-**Status da Autorização do Cartão de Crédito**
+Empresas especializadas são responsáveis por fazer a validação do domínio e, dependendo do tipo de certificado, também da entidade detentora do domínio.
 
-|Status da Transação|Cartões para realização dos testes|
+### Internet Explorer:
+
+![Certificado EV Internet Explorer]({{ site.baseurl_root }}/images/certificado-ie.jpg)
+
+### Firefox
+
+![Certificado EV Firefox]({{ site.baseurl_root }}/images/certificado-firefox.jpg)
+
+### Google Chrome
+
+![Certificado EV Google Chrome]({{ site.baseurl_root }}/images/certificado-chrome.jpg)
+
+## O que é Certificado EV SSL?
+
+O Certificado EV foi lançado no mercado recentemente e garante um nível de segurança maior para os clientes das lojas virtuais.
+
+Trata-se de um certificado de maior confiança e quando o https for acessado a barra de endereço ficará verde, dando mais confiabilidade aos visitantes do site.
+
+## Como instalar o Certificado Extended Validation no servidor da Loja?
+
+Basta instalar os três arquivos a seguir na Trustedstore do servidor. A Cielo não oferece suporte para a instalação do Certificado. Caso não esteja seguro sobre como realizar a instalação do Certificado EV, então você deverá ser contatado o suporte do fornecedor do seu servidor.
+
+* [Certificado Raiz]({{ site.baseurl }}/attachment/Root.crt)
+* [Certificado Intermediária 1]({{ site.baseurl }}/attachment/intermediate1.crt)
+* [Certificado Intermediária 2]({{ site.baseurl }}/attachment/intermediate2.crt)
+* [Certificado E-Commerce Cielo]({{ site.baseurl }}/attachment/ecommerce.cielo.com.br.cer.zip)
+
+## Passo a Passo para a Instalação
+
+### Instalação no Servidor da Loja Virtual
+
+O passo a passo para a instalação do Certificado EV deverá ser contatado o suporte do fornecedor do seu servidor.
+
+<aside class="warning">A Cielo não oferece suporte para a instalação do Certificado.</aside>
+
+### Acesso do Cliente à Loja Virtual
+
+Normalmente, o browser faz a atualização do Certificado automaticamente, caso não o faça e o cliente entre em contato deverá ser informado os seguintes passos:
+
+#### 1o Passo:
+
+Salvar os arquivos abaixo em uma pasta nova, ou que relembre facilmente, pois será utilizada posteriormente:
+
+* [Certificado Raiz]({{ site.baseurl }}/attachment/Root.crt)
+* [Certificado Intermediária 1]({{ site.baseurl }}/attachment/intermediate1.crt)
+* [Certificado Intermediária 2]({{ site.baseurl }}/attachment/intermediate2.crt)
+* [Certificado E-Commerce Cielo]({{ site.baseurl }}/attachment/servercertificate.crt)
+
+#### 2o Passo:
+
+No “Internet Explorer”, clique no menu “Ferramentas” e acesse as “Opções da Internet”:
+
+![Instalar IE]({{ site.baseurl_root }}/images/certificado-instalar-ie-1.jpg)
+
+No “Firefox”, clique no menu “Abrir Menu” e acesse “Avançado” e “Opções”:
+
+![Instalar FF]({{ site.baseurl_root }}/images/certificado-instalar-ff-1.jpg)
+
+No “Chrome”, clique no “Personalizar e Controlar o Google Chrome” e acesse “Configurações” e “Mostrar configurações avançadas... “Alterar Configurações de Proxy e “Conteúdo” e Certificados:
+
+![Instalar GC]({{ site.baseurl_root }}/images/certificado-instalar-gc-1.jpg)
+
+#### 3o Passo:
+
+No Internet Explorer, em “Certificados”, clique em “Importar”.
+
+![Instalar IE]({{ site.baseurl_root }}/images/certificado-instalar-ie-2.jpg)
+
+No Firefox clique em “Ver Certificados”, clique em “Importar”
+
+![Instalar FF]({{ site.baseurl_root }}/images/certificado-instalar-ff-2.jpg)
+
+No Chrome clique em “Gerenciar Certificados”, clique em “Importar”
+
+![Instalar GC]({{ site.baseurl_root }}/images/certificado-instalar-gc-2.jpg)
+
+#### 4o Passo:
+
+No Internet Explorer e Chrome “Assistente para Importação de Certificados”, clique em “Avançar”.
+
+![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-3.jpg)
+
+![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-4.jpg)
+
+No Firefox “Aba Servidores ”, clique em “Importar”
+
+![Instalar FF]({{ site.baseurl_root }}/images/certificado-instalar-ff-3.jpg)
+
+#### 5o Passo:
+
+No Chrome e Internet Explorer “Assistente para Importação de Certificados”, clique em “Procurar”, procure a pasta onde estão os arquivos e selecione o arquivo “ecommerce.cielo.com.br.crt, clique em “Abrir” e em seguida “Avançar”.
+
+![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-5.jpg)
+
+![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-6.jpg)
+
+#### 6o Passo:
+
+Selecionar a opção desejada: adicionar o Certificado em uma pasta padrão ou procurar a pasta de sua escolha.
+
+![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-7.jpg)
+
+#### 7o Passo:
+
+Clique em “Concluir”.
+
+![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-8.jpg)
+
+#### 8o Passo:
+
+Clique em “Ok” para concluir a importação.
+
+![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-9.jpg)
+
+<aside class="notice">No Firefox não consta a mensagem de Importação com Êxito, apenas conclui a importação.</aside>
+
+O Certificado poderá ser visualizado na aba padrão “Outras Pessoas” ou na escolhida pelo cliente.
+
+![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-10.jpg)
+
+#### 9o Passo:
+
+Repita o mesmo procedimento para os 3 arquivos enviados.
+
+## Dúvidas
+
+Em caso de dúvidas em qualquer etapa ou outras informações técnicas, entre em contato com o Suporte Web do Cielo e-Commerce nos seguintes canais:
+
+* **Email:** [cieloeCommerce@cielo.com.br](mailto:cieloeCommerce@cielo.com.br)
+* **Capitais:** 4002-9700
+* **Demais Cidades:** 0800 570 1700
+
+Horário de atendimento: 24h por dia, 7 dias por semana.
+
+# Visão Geral
+
+Neste manual será apresentado uma visão geral do Cielo eCommerce e o mecanismo tecnológico no formato de integração Webservice (chamado nas versões anteriores de Buy Page Loja).
+
+Para informações sobre a integração no formato do Checkout Cielo (chamado nas versões anteriores de Buy Page Cielo ou Solução Integrada) acesse: [https://www.cielo.com.br/eCommerce](https://www.cielo.com.br/eCommerce).
+
+Para todo pedido de compra, a meta é efetivá-la em uma venda. Uma venda com cartão pode ser caracterizado em uma transação autorizada e capturada.
+
+<aside class="warning">Uma transação autorizada somente gera o crédito para o lojista se ela for capturada (ou confirmada).</aside>
+
+## Características da solução
+
+A solução Webservice da plataforma Cielo eCommerce foi desenvolvida com tecnologia XML, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: ASP, ASP. Net, Java, PHP, Ruby, Python, etc.
+
+Entre outras características, os atributos que mais se destacam na plataforma Cielo eCommerce:
+
+* **Ausência de aplicativos proprietários**: não é necessário instalar aplicativos no ambiente da loja virtual em nenhuma hipótese.
+* **Simplicidade**: o protocolo utilizado é puramente o HTTPS, sem necessidade do uso de SOAP.
+* **Facilidade de credenciamento**: o tratamento das credenciais do cliente (número de afiliação e chave de acesso) trafega na mensagem, em campos comuns do XML, sem necessidade de atributos especiais, como por exemplo, SOAP Header.
+* **Segurança**: a troca de informações se dá sempre entre o Servidor da Loja e da Cielo, ou seja, sem o browser do comprador.
+* **Multiplataforma**: a integração é realizada através de Web Service, em um único Endpoint.
+
+## Considerações sobre a integração
+
+* Todas as requisições a Web Service da Cielo devem conter o nó de autenticação do lojista, composto pelo número de credenciamento e chave de acesso.
+* O cadastro da loja deve estar ativo junto à Cielo.
+* Deve-se definir um timeout adequado nas requisições HTTP à Cielo; recomendamos 30 segundos.
+* O certificado Root da entidade certificadora (CA) de nosso Web Service deve estar cadastrado na Truststore a ser utilizada. Como nossa certificadora é de ampla aceitação no mercado, é provável que ela já esteja registrada na Truststore do próprio sistema operacional.
+* Disponibilizamos no kit de integração o arquivo eCommerce.xsd para facilitar a validação das restrições de formato, tamanho dos campos, tipos e domínios de dados.
+* Em todas as mensagens a data/hora deverá seguir o formato: `aaaa-MM-ddTHH24:mm:ss`. Exemplo: 2011-12-21T11:32:45.
+* Os valores monetários são sempre tratados como valores inteiros, sem representação das casas decimais, sendo que os dois últimos dígitos são considerados como os centavos. Exemplo: R$ 1.286,87 é representado como 128687; R$ 1,00 é representado como 100.
+
+<aside class="notice">Veja a seção Certificado Digital para informações sobre os certificados Cielo</aside>
+
+## Arquitetura
+
+A integração é realizada através de serviços disponibilizados como Web Services. O modelo empregado é bastante simples: há uma única URL (endpoint) que recebe os POSTs via HTTPs e, dependendo do formato do XML enviado, uma determinada operação é realizada.
+
+A chamada ao Web Service é resumida por:
+
+* A mensagem em formato XML, definida de acordo com a funcionalidade.
+* O destino (ambiente de teste ou de produção).
+* O retorno em formato XML, que pode ser: `<transacao/>`, `<retorno-token>` ou `<erro/>`.
+
+``` xml
+POST /servicos/ecommwsec.do HTTP/1.1
+Host: eCommerce.cielo.com.br
+Content-Type: application/x-www-form-urlencoded
+Content-Length: length
+mensagem=<?xml version="1.0" encoding="ISO-8859-1"?><requisicao-captura id="3e22bdd0-2017-4756-80b7-35a532e6c973" versao="1.2.1"><tid>10069930690101012005</tid><dados-ec><numero>1006993069</numero><chave>25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3</chave></dados-ec><valor>3880</valor></requisicao-captura>
+```
+
+## Transação
+
+O elemento central do Cielo eCommerce é a transação, criada a partir de uma requisição HTTP ao Webservice da Cielo. A identificação única de uma transação na Cielo é feita através do campo TID, que está presente no retorno das mensagens de autorização. Esse campo é essencial para realizar consultas, capturas e cancelamentos.
+
+A partir da criação de uma transação, ela pode assumir os seguintes status:
+
+![status transações]({{ site.baseurl_root }}/images/status.png)
+
+As transições de status podem ser realizadas através da troca de mensagens entre a loja e a Cielo, ou de forma automática, por exemplo, quando o prazo para a captura de transação autorizada expirar.
+
+## Atualizações Mandatórias
+
+### Facilitadores de Pagamento
+
+Todos os clientes de E-Commerce que são **Facilitadores de Pagamento, por obrigatoriedade das bandeiras e do Banco Central** deverão enviar novos campos na **mensageria transacional**. A Cielo transmitirá as informações para as bandeiras por meio da mensageria transacional no momento da autorização.
+
+Os novos campos estão contidos dentro da tag **&lt;subcredenciador&gt;**. Além dos campos deste novo nó, os facilitadores terão também de enviar obrigatoriamente a tag **&lt;soft-descriptor&gt;**. Segue abaixo exemplo do envio e da resposta.
+
+<aside class="warning">Atenção: Reforçamos que as informações não devem ser enviadas antes de 20 de fevereiro de 2020, havendo risco de perda de transações.</aside>
+
+#### Requisição
+
+``` xml
+<requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
+    <dados-ec>
+        <numero>2000000001</numero>
+        <chave>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</chave>
+        <subcredenciador>
+            <numero>12345678901</numero>
+            <sub-ec>
+                <numero>2000130733</numero>
+                <mcc>5542</mcc>
+                <endereco>Alameda Xingu, 512</endereco>
+                <cidade>Barueri</cidade>
+                <estado>SP</estado>
+                <codigo-postal>06537085</codigo-postal>
+                <telefone>11978962345</telefone>
+                <documento>53976428000130</documento>
+                <codigo-pais>076</codigo-pais>
+            </sub-ec>
+        </subcredenciador>
+    </dados-ec>
+    <dados-portador>
+        <numero>518605152xxxxxx5923</numero>
+        <validade>aaaamm</validade>
+        <indicador>1</indicador>
+        <codigo-seguranca>xxx</codigo-seguranca>
+        <nome-portador>Jose Luis</nome-portador>
+        <token/>
+    </dados-portador>
+    <dados-pedido>
+        <numero>54583</numero>
+        <valor>10000</valor>
+        <moeda>986</moeda>
+        <data-hora>2016-02-16T13:45:05</data-hora>
+        <descricao>Compra Online</descricao>
+        <idioma>PT</idioma>
+        <soft-descriptor>lojinha</soft-descriptor>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>mastercard</bandeira>
+        <produto>1</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <url-retorno>http://www.cielo.com.br</url-retorno>
+    <autorizar>3</autorizar>
+    <capturar>true</capturar>
+    <gerar-token>false</gerar-token>
+</requisicao-transacao>
+```
+
+#### Resposta
+
+<aside class="notice">Obs: No response do 1.5 não são retornados os dados de facilitador.</aside>
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0" xmlns="http://ecommerce.cbmp.com.br">
+    <tid>2000153601009A0OCH1E</tid>
+    <pan>qM5R3jZDvsXFU7KUAM5fmzKg7dA7ZaG2/gc2rFeFMW0=</pan>
+    <dados-pedido>
+        <numero>54583</numero>
+        <valor>10000</valor>
+        <moeda>986</moeda>
+        <data-hora>2016-02-16T13:45:05</data-hora>
+        <descricao>Compra Online</descricao>
+        <idioma>PT</idioma>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>mastercard</bandeira>
+        <produto>1</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <status>6</status>
+    <autenticacao>
+        <codigo>6</codigo>
+        <mensagem>Transacao sem autenticacao</mensagem>
+        <data-hora>2020-01-10T15:32:45.843-03:00</data-hora>
+        <valor>10000</valor>
+        <eci>0</eci>
+    </autenticacao>
+    <autorizacao>
+        <codigo>6</codigo>
+        <mensagem>Transacao autorizada</mensagem>
+        <data-hora>2020-01-10T15:32:45.844-03:00</data-hora>
+        <valor>10000</valor>
+        <lr>00</lr>
+        <arp>192379</arp>
+        <nsu>094004</nsu>
+    </autorizacao>
+    <captura>
+        <codigo>6</codigo>
+        <mensagem>Transacao capturada com sucesso</mensagem>
+        <data-hora>2020-01-10T15:32:45.844-03:00</data-hora>
+        <valor>10000</valor>
+    </captura>
+</transacao>
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|subcredenciador.numero|Numérico|11|Obrigatório para facilitadores|Código do estabelecimento do Facilitador. "Facilitator ID” (Cadastro do facilitador com as bandeiras)|
+|sub-ec.numero|Numérico|15|Obrigatório para facilitadores|Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)|
+|sub-ec.mcc|Numérico|4|Obrigatório para facilitadores|MCC do sub Merchant.|
+|sub-ec.endereco|Alfanumérico|22|Obrigatório para facilitadores|Endereço do sub Merchant.|
+|sub-ec.cidade|Alfanumérico|13|Obrigatório para facilitadores|Cidade do sub Merchant.|
+|sub-ec.estado|Alfanumérico|2|Obrigatório para facilitadores|Estado do sub Merchant.|
+|sub-ec.codigo-postal|Numérico|9|Obrigatório para facilitadores|Código postal do sub Merchant.|
+|sub-ec.telefone|Numérico|13|Obrigatório para facilitadores|Número de telefone do sub Merchant.|
+|sub-ec.documento|Numérico|14|Obrigatório para facilitadores|CNPJ ou CPF do sub Merchant.|
+|sub-ec.codigo-pais|Numérico|3|Obrigatório para facilitadores|Código país do sub Merchant com base no ISO 3166.|
+|dados.pedido.soft-descriptor|Texto|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
+
+### Transações CBPS
+
+Atualmente, os consumidores geralmente precisam fazer login em diversos sites de cobrança para pagar suas contas, muitos dos quais não aceitam pagamentos de cartão. Os fornecedores do Serviço de Pagamento de Contas para Consumidores (CBPS) simplificam o processo ao permitir que os consumidores façam todos os pagamentos de contas com cartão e em um único canal. Geralmente os fornecedores CBPS oferecem um aplicativo móvel ou um comercio eletrônico para o portador fazer a gestão e efetuar os pagamentos.
+
+A Visa solicita que os provedores deste tipo de serviço passem a informar quais transações são CBPS a partir de Out20. Essa informação deve ser enviado na mensageria transacional no campo “pagamento-conta” de acordo com o XML abaixo.
+
+#### Requisição
+
+``` xml
+<requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
+    <dados-ec>
+        <numero>2000000001</numero>
+        <chave>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</chave>
+        <subcredenciador>
+            <numero>12345678901</numero>
+            <sub-ec>
+                <numero>2000130733</numero>
+                <mcc>5542</mcc>
+                <endereco>Alameda Xingu, 512</endereco>
+                <cidade>Barueri</cidade>
+                <estado>SP</estado>
+                <codigo-postal>06537085</codigo-postal>
+                <telefone>11978962345</telefone>
+                <documento>53976428000130</documento>
+                <codigo-pais>076</codigo-pais>
+            </sub-ec>
+        </subcredenciador>
+    </dados-ec>
+    <dados-portador>
+        <numero>518605152xxxxxx5923</numero>
+        <validade>aaaamm</validade>
+        <indicador>1</indicador>
+        <codigo-seguranca>xxx</codigo-seguranca>
+        <nome-portador>Jose Luis</nome-portador>
+        <token/>
+    </dados-portador>
+    <dados-pedido>
+        <numero>54583</numero>
+        <valor>10000</valor>
+        <moeda>986</moeda>
+        <data-hora>2016-02-16T13:45:05</data-hora>
+        <descricao>Compra Online</descricao>
+        <idioma>PT</idioma>
+        <soft-descriptor>lojinha</soft-descriptor>
+        <pagamento-conta>true</pagamento-conta>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>mastercard</bandeira>
+        <produto>1</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <url-retorno>http://www.cielo.com.br</url-retorno>
+    <autorizar>3</autorizar>
+    <capturar>true</capturar>
+    <gerar-token>false</gerar-token>
+</requisicao-transacao>
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|subcredenciador.numero|Numérico|11|Obrigatório para facilitadores|Código do estabelecimento do Facilitador. "Facilitator ID” (Cadastro do facilitador com as bandeiras)|
+|sub-ec.numero|Numérico|15|Obrigatório para facilitadores|Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)|
+|sub-ec.mcc|Numérico|4|Obrigatório para facilitadores|MCC do sub Merchant.|
+|sub-ec.endereco|Alfanumérico|22|Obrigatório para facilitadores|Endereço do sub Merchant.|
+|sub-ec.cidade|Alfanumérico|13|Obrigatório para facilitadores|Cidade do sub Merchant.|
+|sub-ec.estado|Alfanumérico|2|Obrigatório para facilitadores|Estado do sub Merchant.|
+|sub-ec.codigo-postal|Numérico|9|Obrigatório para facilitadores|Código postal do sub Merchant.|
+|sub-ec.telefone|Numérico|13|Obrigatório para facilitadores|Número de telefone do sub Merchant.|
+|sub-ec.documento|Numérico|14|Obrigatório para facilitadores|CNPJ ou CPF do sub Merchant.|
+|sub-ec.codigo-pais|Numérico|3|Obrigatório para facilitadores|Código país do sub Merchant com base no ISO 3166.|
+|dados.pedido.soft-descriptor|Texto|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
+|dados.pedido.pagamento-conta|Boolean|---|Não|True ou false. Indica se é uma transação CBPS (Serviço de Pagamento de Contas para Consumidores)|
+
+# Criando transações
+
+Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) ao Web Service da Cielo com uma mensagem XML `<requisicao-transacao>`, cujo conjunto de TAGS determinam as configurações de uma transação.
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1">
+  <dados-ec>
+    <numero>1006993069</numero>
+    <chave>25fbb997438630f30b112d033ce2e621b34f3</chave>
+  </dados-ec>
+  <dados-portador>
+    <numero>4012001038443335</numero>
+    <validade>201508</validade>
+    <indicador>1</indicador>
+    <codigo-seguranca>973</codigo-seguranca>
+    <token/>
+  </dados-portador>
+  <dados-pedido>
+    <numero>178148599</numero>
+    <valor>1000</valor>
+    <moeda>986</moeda>
+    <data-hora>2011-12-07T11:43:37</data-hora>
+    <descricao>[origem:10.50.54.156]</descricao>
+    <idioma>PT</idioma>
+    <taxa-embarque/>
+    <soft-descriptor/>
+    <numero-bilhete>123456</numero-bilhete>
+  </dados-pedido>
+  <forma-pagamento>
+    <bandeira>visa</bandeira>
+    <produto>A</produto>
+    <parcelas>1</parcelas>
+  </forma-pagamento>
+  <url-retorno>http://localhost/lojaexemplo/retorno.jsp</url-retorno>
+  <autorizar>1</autorizar>
+  <capturar>false</capturar>
+  <campo-livre>Informações extras</campo-livre>
+  <bin>455187</bin>
+  <gerar-token>false</gerar-token>
+  <avs>
+  <![CDATA[
+    <dados-avs>
+      <endereco>Rua Teste AVS</endereco>
+      <complemento>Casa</complemento>
+      <numero>123</numero>
+      <bairro>Vila AVS</bairro>
+      <cep>12345-123</cep>
+      <cpf>11111111111</cpf>
+    </dados-avs>
+  ]]>
+  </avs>
+</requisicao-transacao>
+
+```
+
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="{{ site.baseurl }}/attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
+
+## raiz
+
+|Elemento|Tipo|Obrigatório|Tamanho|Descrição|
+|---|---|---|---|---|
+|[dados-ec](#dados-ec)|n/a|Sim|n/a|Dados do estabelecimento comercial|
+|[dados-portador](#dados-portador)|n/a|Sim|n/a|Dados do cartão|
+|[dados-pedido](#dados-pedido)|n/a|Sim|n/a|Dados do pedido|
+|[forma-pagamento](#forma-pagamento)|n/a|Sim|n/a|Forma de pagamento|
+|url-retorno|Alfanumérico|Sim|1..1024|URL da página de retorno. É para essa página que a Cielo vai direcionar o browser ao fim da autenticação ou da autorização. Não é obrigatório apenas para autorização direta, porém o campo dever ser inserido como `null`.|
+|capturar|Boolean|Sim|n/a|`true` ou `false`. Define se a transação será automaticamente capturada caso seja autorizada.|
+|campo-livre|Alfanumérico|Opcional|0..128|Campo livre disponível para o Estabelecimento.|
+|bin|Numérico|Opcional|6|Seis primeiros números do cartão.|
+|gerar-token|Boolean|Opcional|n/a|`true` ou `false`. Define se a transação atual deve gerar um token associado ao cartão.|
+|avs#avs|Alfanumérico|Opcional|n/a|String contendo um bloco XML, encapsulado pelo `CDATA`, contendo as informações necessárias para realizar a consulta ao serviço.|
+
+## dados-ec
+
+|Elemento|Tipo|Obrigatório|Tamanho|Descrição|
+|---|---|---|---|---|
+|numero|Numérico|Sim|1..20|Número de afiliação da loja com a Cielo.|
+|chave|AlfaNumérico|Sim|1..100|Chave de acesso da loja atribuída pela Cielo.|
+
+## dados-portador
+
+|Elemento|Tipo|Obrigatório|Tamanho|Descrição|
+|---|---|---|---|---|
+|numero|Numérico|Sim|19|Número do cartão.|
+|validade|Numérico|Sim|6|Validade do cartão no formato aaaamm. Exemplo: 201212 (dez/2012).|
+|indicador|Numérico|Sim|1|Indicador sobre o envio do Código de segurança: **0** – não informado, **1** – informado, **2** – ilegível, **9** – inexistente|
+|codigo-seguranca|Numérico|Condicional|3..4|Obrigatório se o indicador for **1**|
+|nome-portador|Alfanumérico|Opcional|0..50|Nome como impresso no cartão|
+|token|Alfanumérico|Condicional|0..100|Token que deve ser utilizado em substituição aos dados do cartão para uma autorização direta ou uma transação recorrente. Não é permitido o envio do token junto com os dados do cartão na mesma transação.|
+
+## dados-pedido
+
+|Elemento|Tipo|Obrigatório|Tamanho|Descrição|
+|---|---|---|---|---|
+|numero|Alfanumérico|Sim|1..20|Número do pedido da loja. **Recomenda-se que seja um valor único por pedido.**|
+|valor|Numérico|Sim|1..12|Valor a ser cobrado pelo pedido (já deve incluir valoresde frete, embrulho, custos extras, taxa de embarque, etc). Esse valor é o que será debitado do consumidor.|
+|moeda|Numérico|Sim|3|Código numérico da moeda na norma ISO 4217. **Para o Real, o código é 986**.|
+|data-hora|Alfanumérico|Sim|19|Data hora do pedido. **Formato**: `aaaa-MM-ddTHH24:mm:ss`|
+|descricao|Alfanumérico|Opcional|0..1024|Descrição do pedido|
+|idioma|Alfanumérico|Opcional|2|Idioma do pedido: PT (português), EN (inglês) ou ES (espanhol). Com base nessa informação é definida a língua a ser utilizada nas telas da Cielo. **Caso não seja enviado, o sistema assumirá “PT”**.|
+|taxa-embarque|Numérico|Opcional|1..9|Montante do valor da autorização que deve ser destinado à taxa de embarque.|
+|soft-descriptor|Alfanumérico|Opcional|0..13|Texto de até 13 caracteres que será exibido na fatura do portador, após o nome do Estabelecimento Comercial.|
+|numero-bilhete|Alfanumérico|Não|13|Informar o número do principal bilhete aéreo da transação.|
+
+<aside class="notice">O cadastro do cliente está habilitado para transacionar apenas com a moeda REAL, caso necessite de mais informações, contate a central de relacionamento, seu gerente comercial ou o Suporte Web Cielo eCommerce.</aside>
+
+## forma-pagamento
+
+|Elemento|Tipo|Obrigatório|Tamanho|Descrição|
+|---|---|---|---|---|
+|bandeira|Alfanumérico|Sim|n/a|Nome da bandeira (minúsculo): “visa”, “mastercard”, “diners”, “discover”, “elo”, “amex”, “jcb”, “aura”, “hipercard”|
+|produto|Alfanumérico|Sim|1|Código do produto: **1** – Crédito à Vista, **2** – Parcelado loja, **A** – Débito.|
+|parcelas|Numérico|Sim|1..2|Número de parcelas. **Para crédito à vista ou débito, utilizar 1.**|
+
+<aside class="warning">O valor resultante da divisão do valor do pedido pelo número de parcelas não deve ser inferior a R$ 5,00. Para transações Visa, a autorização será negada. Para transações MasterCard, Elo, Diners, Discover, Aura e JCB, a transação que for aprovada, terá seu plano parcelado alterado para à vista. Para evitar reclamações, permita apenas transações parceladas com a parcela mínima acima de R$ 5,00.</aside>
+
+## Fluxos de integração e redirecionamentos
+
+Após a transação ter sido criada, o fluxo de navegação pode ser direcionado ao ambiente da Cielo caso o lojista solicite a autenticação na mensagem XML.
+
+Nessa situação, o sistema do lojista deve obter o valor da TAG <url-autenticacao> do XML de retorno para realizar um redirect no browser do cliente e dar continuidade ao processo. O redirecionamento deve ser realizado em modo Full Screen. Ou seja, não há mais suporte a abertura de pop up. Dessa forma, a partir da tela de checkout deve ser realizado um redirecionamento à URL retornada na criação da transação.
+
+<aside class="notice">Esse redirecionamento pode ser através de um Http Redirect (como no código da Loja Exemplo) ou através de um Javascript.</aside>
+
+Após o processo de autenticação, o fluxo é devolvido ao lojista através da informação presente na TAG <url-retorno>, enviada na primeira requisição para a Cielo.
+
+O diagrama abaixo facilita a visualização do fluxo completo de navegação:
+
+![fluxo]({{ site.baseurl_root }}/images/fluxo.png)
+
+<aside class="notice">Geralmente, a URL de retorno segue o seguinte formato: https://minhaloja.com.br/pedido?id=12345678. Essa página deve utilizar o número do pedido para buscar internamente o TID que foi retornado pela Cielo. Com esta informação, a página deve realizar uma requisição de Consulta via TID ao Web Service da Cielo e interpretar o resultado para exibir ao cliente</aside>
+
+Por outro lado, quando não há autenticação, não existe troca de contextos ou redirects, e a integração é mais simples:
+
+![fluxo-simples]({{ site.baseurl_root }}/images/fluxo-simples.png)
+
+## Tipo de retorno
+
+Há três tipos de retorno que podem ser gerados na resposta do Web Service:
+
+1. `<transacao>`
+2. `<retorno-token>`
+3. `<erro>`
+
+Para as operações relacionadas a uma transação (consultas, autorização, captura e cancelamento), a resposta, em caso de sucesso, é sempre um XML do tipo `<transacao>`. No caso de uma requisição exclusiva para criação de token, a resposta esperada é `<retorno-token>`.
+
+O exemplo ao lado ilustra a forma mais reduzida de uma mensagem de retorno tipo `<transacao>`. Basicamente, ela é composta pelos dados do pedido e dados da configuração da transação.
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<transacao versao="1.6.2" id="af32f93c-5e9c-4f44-9478-ccc5aca9319e" xmlns="http://ecommerce.cbmp.com.br">
+    <tid>100699306908642F1001</tid>
+    <pan>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=</pan>
+    <dados-pedido>
+        <numero>2132385784</numero>
+        <valor>1000</valor>
+        <moeda>986</moeda>
+        <data-hora>2013-02-18T16:51:30.852-03:00</data-hora>
+        <descricao>[origem:0:0:0:0:0:0:0:1]</descricao>
+        <idioma>PT</idioma>
+        <taxa-embarque>0</taxa-embarque>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>visa</bandeira>
+        <produto>1</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <status>4</status>
+    <autenticacao>
+        <codigo>4</codigo>
+        <mensagem>Transacao sem autenticacao</mensagem>
+        <data-hora>2013-02-18T16:51:31.158-03:00</data-hora>
+        <valor>1000</valor>
+        <eci>7</eci>
+    </autenticacao>
+    <autorizacao>
+        <codigo>4</codigo>
+        <mensagem>Transação autorizada</mensagem>
+        <data-hora>2013-02-18T16:51:31.460-03:00</data-hora>
+        <valor>1000</valor>
+        <lr>00</lr>
+        <arp>123456</arp>
+        <nsu>549935</nsu>
+        <par>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</par>
+    </autorizacao>
+</transacao>
+```
+
+As informações mais importantes são:
+
+* **TID**: é o elo entre o pedido de compra da loja virtual e a transação na Cielo.
+* **URL de autenticação**: aponta à página que dá início à autenticação (quando solicitada).
+* **Status**: é a informação base para a loja controlar a transação.
+
+A tabela abaixo detalha as TAGS do XML básico de retorno, identificado pelo nó raiz `<transação>`:
+
+|Elemento|Tipo|Tamanho|Descrição|
 |---|---|---|---|
-|Autorizado|0000.0000.0000.0000 / 0000.0000.0000.0004|
-|Não Autorizado|0000.0000.0000.0005 / 0000.0000.0000.0009|
+|tid|Alfanumérico|1..40|Identificador da transação|
+|dados-pedido|Idêntico ao nó enviado pela loja na criação da transação.|
+|forma-pagamento|Idêntico ao nó enviado pela loja na criação da transação.|
+|status|Numérico|12|Código de status da transação. Veja o apêndice para a lista de status|
+|url-autenticacao|Alfanumérico|1..256|URL de redirecionamento à Cielo.|
+|par|Numérico|29|O retorno do par só será feito para transações enviadas no xml versão 1.6.2. O PAR(payment account reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado.|
 
-**Exemplo:** 540443424293010**0** = **Autorizado**
+Por fim, há outro tipo de retorno que é empregado toda vez que uma requisição não pode ser executada, seja porque era inválida ou por ter ocorrido falha no seu processamento. Nesse cenário o nó raiz do XML de resposta é do tipo `<erro>`.
 
-**B - Boleto Bancário**
-
-Basta realizar o processo de compra normalmente sem nenhuma alteração no procedimento.
-O boleto gerado no modo de teste sempre será um boleto simulado.
-
-**C - Debito online**
-
-É necessário informa o status da transação de Debito online para que seja retornado o status desejado. Esse processo ocorre como no antifraude do cartão de crédito descrito acima, com a alteração do nome do comprador.
-
-**Status do Débito**
-
-|Sobre nome do cliente|Status|
-|---|---|
-|Pago|Pago|
-|Qualquer nome.|Não autorizado|
-
-* **Exemplo:** Status não Autorizado.
-* **Nome do Cliente:** Maria Pereira
-
-**D - Transações de teste**
-
-Todas as transações realizadas no modo de teste serão exibidas como transações normais na aba Pedidos do Checkout Cielo, entretanto, elas serão marcadas como transações de teste e não serão contabilizadas em conjunto com as transações realizadas fora do ambiente de teste.
-
-![Transações de teste]({{ site.baseurl_root }}/images/checkout-cielo-modo-teste-transacoes-de-teste.png)
-
-Essas transações terão o símbolo de teste as diferenciando de suas outras transações. Elas podem ser capturadas ou canceladas utilizando os mesmos procedimentos das transações reais.
-
-![Transações de teste]({{ site.baseurl_root }}/images/checkout-cielo-modo-teste-transacoes-de-teste-cancelamento.png)
-
-<aside class="notice">É muito importante que ao liberar sua loja para a realização de vendas para seus clientes que **ela não esteja em modo de teste**. Transações realizadas nesse ambiente poderão ser finalizadas normalmente, mas **não serão descontadas do cartão do cliente** e não poderão ser “transferidas” para o ambiente de venda padrão.</aside>
-
-# Cielo OAUTH
-
-O Cielo OAUTH é um processo de autenticação utilizado em APIs Cielo que são correlacionadas a produtos E-commerce. Ele utiliza como segurança o protocolo **[OAUTH2](https://oauth.net/2/)**, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API CieloOAuth
-
-> Para gerar o `ClientID` e o `ClientSecret`, consulte o tópico de Obter Credenciais.
-
-Para utilizar o Cielo Oauth são necessarias as seguintes credenciais:
-
-| PROPRIEDADE    | DESCRIÇÃO                                                             | TIPO   |
-| -------------- | --------------------------------------------------------------------- | ------ |
-| `ClientId`     | Identificador chave fornecido pela CIELO                              | guid   |
-| `ClientSecret` | Chave que valida o ClientID. Fornecida pela Cielo junto ao `ClientID` | string |
-
-## Obter Credenciais
-
-Para obter as credênciais no Checkout Cielo, basta seguir o fluxo abaixo:
-
-1. Acessar o site Cielo
-2. Super Link
-3. Configurações
-4. Dados da loja
-5. Gerar chaves da API
-
-## Token de acesso
-
-Para obter acesso a serviços Cielo que utilizam o `Cielo Oauth`, será necessário obter um token de acesso, conforme os passos abaixo:
-
-1. Concatenar o _ClientId_ e o _ClientSecret_, **ClientId:ClientSecret**
-2. Codificar o resultado em **Base64**
-3. Enviar uma requisição, utilizando o método HTTP POST
-
-### Concatenação
-
-| Campo                     | Formato                                                                                          |
-| ------------------------- | ------------------------------------------------------------------------------------------------ |
-| **ClientId**              | b521b6b2-b9b4-4a30-881d-3b63dece0006                                                             |
-| **ClientSecret**          | 08Qkje79NwWRx5BdgNJsIkBuITt5cIVO                                                                 |
-| **ClientId:ClientSecret** | _b521b6b2-b9b4-4a30-881d-3b63dece0006:08Qkje79NwWRx5BdgNJsIkBuITt5cIVO_                          |
-| **Base64**                | _YjUyMWI2YjItYjliNC00YTMwLTg4MWQtM2I2M2RlY2UwMDA2OiAwOFFramU3OU53V1J4NUJkZ05Kc0lrQnVJVHQ1Y0lWTw_ |
-
-### Request
-
-O Request dever ser enviado apenas no Header da requisição.
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/token</span></aside>
-
-```json
-x-www-form-urlencoded
---header "Authorization: Basic {base64}"  
---header "Content-Type: application/x-www-form-urlencoded"  
-grant_type=client_credentials
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<erro xmlns="http://ecommerce.cbmp.com.br">
+  <codigo>001</codigo>
+  <mensagem><![CDATA[O XML informado nao e valido:- string value '' does not match pattern for type of valor element in DadosPedido in namespace http://ecommerce.cbmp. com.br: '<xml-fragment/>]]>
+  </mensagem>
+</erro>
 ```
 
-### Response
+Quando a transação é inválida, podemos classificar os erros em dois tipos:
 
-O response possuirá o Token utilizado para novas requisições em Serviços Cielo
+* **Erros sintáticos**: ocorrem quando a mensagem XML não respeita as regras definidas no arquivo eCommerce.xsd. Por exemplo, uma letra em um campo numérico, ou a ausência de um valor obrigatório;
+* **Erros semânticos**: ocorrem quando uma requisição solicita uma operação não suportada para determinada transação. Por exemplo, tentar capturar uma transação não autorizada, ou ainda, cancelar uma transação já cancelada.
 
-```json
-{
-  "access_token":
-    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6Ik1ldUNoZWNrb3V0IE1hc3RlciBLZXkiLCJjbGllbnRfaWQiOiJjODlmZGasdasdasdmUyLTRlNzctODA2YS02ZDc1Y2QzOTdkYWMiLCJzY29wZXMiOiJ7XCJTY29wZVwiOlwiQ2hlY2tvdXRBcGlcIixcIkNsYWltc1wiOltdfSIsInJvbGUiOiJasdasdasd291dEFwaSIsImlzc47I6Imh0dHBzOi8vYXV0aGhvbasdasdnJhc3BhZy5jb20uYnIiLCJhdWQiOiJVVlF4Y1VBMmNTSjFma1EzSVVFbk9pSTNkbTl0ZmasdsadQjVKVVV1UVdnPSIsImV4cCI6MTQ5Nzk5NjY3NywibmJmIjoxNDk3OTEwMjc3fQ.ozj4xnH9PA3dji-ARPSbI7Nakn9dw5I8w6myBRkF-uA",
-  "token_type": "bearer",
-  "expires_in": 1199
-}
+<aside class="notice">As mensagens de erro sempre trazem informações adicionais que facilitam o troubleshooting. A tabela que consta no item “Anexos - 6.2. Catálogo de Erros” possui a lista completa com os códigos de erros e suas descrições que devem ser consideradas no desenvolvimento da integração.</aside>
+
+## Autenticação e nível de segurança
+
+Dependendo da bandeira escolhida, as transações na plataforma Cielo eCommerce podem ser configuradas para serem autenticadas no banco emissor do cartão (portador), a fim de garantir o nível maior de segurança ao lojista. A autenticação não é feita automaticamente entre sistemas, deste modo é necessário que o comprador interaja no processo, conforme será visto a seguir.
+
+Ela acontece sempre no site do banco (Internet Banking), utilizando mecanismos e tecnologias independentes da Cielo. Dessa forma, é possível que o banco utilize token eletrônico e senha, enquanto outro utilize os cartões de senhas ou CPF para autenticar uma transação.
+
+Conforme mostrado anteriormente, a mecânica do redirecionamento é obtida através da tag `<url-autenticacao>` que é retornada pela Cielo no XML <transação> no momento da solicitação de autorização ao Web Service.
+
+A autenticação é obrigatória para transações de débito e opcional para o crédito. Atualmente somente Visa e MasterCard suportam essa funcionalidade e consequentemente, somente essas duas bandeiras possuem o produto débito.
+
+<aside class="notice">Consulte os produtos e bandeiras suportadas no item 1.6 Produtos e Bandeiras suportadas.</aside>
+
+Quando há autenticação, o fluxo de execução da autorização acaba sendo feito em duas etapas, conforme mostrado no diagrama abaixo:
+
+![fluxo-autenticacao]({{ site.baseurl_root }}/images/fluxo-autenticacao.png)
+
+1. fecharPedido() – acontece quando o portador do cartão finaliza o pedido e dá início ao pagamento da compra
+  1. criarTransacao(autenticada) – o sistema do lojista envia uma requisição XML `<requisicao-transacao>` solicitando uma transação autenticada, ou seja, a TAG <autorizar> será 0, 1 ou 2. Em seguida, a Cielo informará no XML de retorno o campo <url-autenticacao> com o endereço que o portador deverá ser redirecionado.
+2. acessar(url-atenticacao) – o browser do portador é redirecionado ao ambiente da Cielo. Assim que a página da Cielo é acessada, automaticamente ela já é direcionada para o banco emissor (3.1). Esse redirect é tão rápido que é praticamente imperceptível.
+3. autenticar(token, cpf) – o portador estará no ambiente do banco e utilizará algum mecanismo provido pelo próprio emissor para realizar a autenticação da transação (geralmente token, cartão de bingo, cpf, assinatura eletrônica, etc).
+  1. resultadoAutenticacao() – o banco emissor redireciona o fluxo para a Cielo com o resultado da autenticação. A partir daí, o fluxo volta ao normal, conforme disposto no item “2.3 Arquitetura de integração”.
+    1.processar() – o sistema da Cielo processa o retorno da autenticação e submete á autorização e, opcionalmente, à captura automática.
+    2. enviarRedirect(url-retorno) – o sistema da Cielo envia um redirect ao browser do cliente para o endereço especificado na URL de retorno, fornecida na primeira requisição (`<requisicao-transacao>`)
+      1. acessar(url-retorno) – o browser do portador acessar a URL no ambiente da loja, onde recomendamos que exista uma requisição de consulta via TID ao Web Service da Cielo.
+
+### Observações
+
+* Somente o primeiro redirecionamento (1.2: enviarRedirect()) é de responsabilidade da loja virtual.
+* O comprador é redirecionado ao site do Banco Emissor somente se a autenticação estiver disponível. Caso contrário, a transação prosseguirá à autorização automaticamente (exceto se foi apenas solicitada autenticação).
+
+<aside class="notice">Consulte os produtos e bandeiras suportadas no item 1.6 Produtos e Bandeiras suportadas.</aside>
+
+Os pré-requisitos para que uma transação seja autenticada estão relacionados abaixo:
+
+* Banco e Bandeira devem ser participantes do programa de autenticação;
+* O BIN do cartão deve ser participante do programa de autenticação;
+* A configuração da <requisicao-transacao>//<autorizar> deve ser 0, 1 ou 2.
+
+Observando o diagrama da seção [Transação](#transação), é possível observar que todas as transações passarão pelo status “Autenticada” ou “Não autenticada”. Por consequência, todas receberão o nó `<autenticacao>` no XML de resposta ao lojista. Abaixo, o XML com o nó de autenticação:
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<transacao versao="1.3.0" id="5e445904-963e-4fa1-95cd-55ef88c289cc" xmlns="http://ecommerce.cbmp.com.br">
+    <tid>10069930690864281001</tid>
+    <pan>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=</pan>
+    <dados-pedido>
+        <numero>1739114311</numero>
+        <valor>1000</valor>
+        <moeda>986</moeda>
+        <data-hora>2013-02-18T15:06:27.523-03:00</data-hora>
+        <descricao>[origem:172.16.34.66]</descricao>
+        <idioma>PT</idioma>
+        <taxa-embarque>0</taxa-embarque>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>visa</bandeira>
+        <produto>1</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <status>6</status>
+    <autenticacao>
+        <codigo>6</codigo>
+        <mensagem>Transacao sem autenticacao</mensagem>
+        <data-hora>2013-02-18T15:06:28.013-03:00</data-hora>
+        <valor>1000</valor>
+        <eci>7</eci>
+    </autenticacao>
+    <autorizacao>
+        <codigo>6</codigo>
+        <mensagem>Transação autorizada</mensagem>
+        <data-hora>2013-02-18T15:06:28.807-03:00</data-hora>
+        <valor>1000</valor>
+        <lr>00</lr>
+        <arp>123456</arp>
+        <nsu>549928</nsu>
+    </autorizacao>
+    <captura>
+        <codigo>6</codigo>
+        <mensagem>Transacao capturada com sucesso</mensagem>
+        <data-hora>2013-02-18T15:08:23.031-03:00</data-hora>
+        <valor>1000</valor>
+    </captura>
+</transacao>
 ```
 
-| PROPRIEDADE    | DESCRIÇÃO                                                 | TIPO   |
-| -------------- | --------------------------------------------------------- | ------ |
-| `Access_token` | Utilizado para acesso aos serviços da API                 | string |
-| `Token_type`   | Sempre será do tipo `bearer`                              | texto  |
-| `Expires_in`   | Validade do token em segundos. Aproximadamente 20 minutos | int    |
+Os campos apenas do nó `<autenticacao>` estão listados na tabela abaixo:
 
-> O token retornado (access_token) deverá ser utilizado em toda requisição como uma chave de autorização, destacando que este possui uma validade de 20 minutos (1200 segundos) e após esse intervalo, será necessário obter um novo token para acesso aos serviços Cielo.
-
-# Link de Pagamento
-
-## Criar Link
-
-### Request
-
-Para criar link de pagamentos Checkout, basta enviar realizar um POST com os dados do Link ao endpoint:
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/</span></aside>
-
-> Header: `Authorization: Bearer {access_token}`
-
-```json
-{
-  "Type": "Digital",
-  "name": "Pedido",
-  "description": "teste description",
-  "price": "1000000",
-  "weight": 2000000,
-  "ExpirationDate": "2037-06-19",
-  "maxNumberOfInstallments": "1",
-  "quantity": 2,
-  "Sku": "teste",
-  "shipping": {
-    "type": "WithoutShipping",
-    "name": "teste",
-    "price": "1000000000"
-  },
-  "SoftDescriptor": "Pedido1234"
-}
-```
-
-**Dados do produto**
-
-| PROPRIEDADE               | DESCRIÇÃO                                                                                                                                                                                                                             | TIPO   | TAMANHO    | OBRIGATÓRIO |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ---------- | ----------- |
-| `name`                    | Nome do produto                                                                                                                                                                                                                       | String | 128        | SIM         |
-| `description`             | Descrição do produto que será exibida na tela de Checkout caso a opção `show_description` seja verdadeira.                                                                                                                            | String | 512        |             |
-| `showDescription`         | Flag indicando se a descrição deve ou não ser exibida na tela de Checkout                                                                                                                                                             | String | --         | Não         |
-| `price`                   | Valor do produto em **centavos**                                                                                                                                                                                                      | Int    | 1000000    | SIM         |
-| `expirationDate`          | Data de expiração do link. Caso uma data senha informada, o link se torna indisponível na data informada. Se nenhuma data for informada, o link não expira.                                                                           | String | YYYY-MM-DD | Não         |
-| `weight`                  | Peso do produto em **gramas**                                                                                                                                                                                                         | String | 2000000    | Não         |
-| `softDescriptor`          | Descrição a ser apresentada na fatura do cartão de crédito do portador.                                                                                                                                                               | String | 13         | Não         |
-| `maxNumberOfInstallments` | Número máximo de parcelas que o comprador pode selecionar na tela de Checkout.Se não informado será utilizada as configurações da loja no Checkout Cielo.                                                                             | int    | 2          | Não         |
-| `quantity`                | Número de transações restantes até que o link deixe de funcionar                                                                                                                                                                      | int    | 2          | Não         |
-| `type`                    | Tipo de venda a ser realizada através do link de pagamento: <br><br>**Asset** – Material Físico<br>**Digital** – Produto Digital<br>**Service** – Serviço<br>**Payment** – Pagamentos Simples<br>**Recurrent** – Pagamento Recorrente | String | 255        | SIM         |
-
-> Dentro de `Description` Pode-se utilizar o caracter pipe `|` caso seja desejável quebrar a linha ao apresentar a descrição na tela de Checkout
-
-**Dados do Frete**
-
-| PROPRIEDADE              | DESCRIÇÃO                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | TIPO   | TAMANHO | OBRIGATÓRIO |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ------- | ----------- |
-| **shipping**             | Nó contendo informações de entrega do produto                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |        |         |             |
-| `shipping.name`          | Nome do frete. **Obrigatório para frete tipo “FixedAmount”**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | string | 128     | Sim         |
-| `shipping.price`         | O valor do frete. **Obrigatório para frete tipo “FixedAmount”**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | int    | 100000  | Sim         |
-| `shipping.originZipCode` | Cep de origem da encomenda. Obrigatório para frete tipo “Correios”. Deve conter apenas números                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | string | 8       | Não         |
-| `shipping.type`          | Tipo de frete.<br>**Correios** – Entrega pelos correios<br>**FixedAmount** – Valor Fixo<br>**Free** - Grátis<br>**WithoutShippingPickUp** – Sem entrega com retirada na loja<br>**WithoutShipping** – Sem entrega<br><br>Se o tipo de produto escolhido for “**Asset**”, os tipos permitidos de frete são: _**“Correios, FixedAmount ou Free”**_.<br><br>Se o tipo produto escolhido for “**Digital**” ou “**Service**”, os tipos permitidos de frete são: _**“WithoutShipping, WithoutShippingPickUp”**_.<br><br>Se o tipo produto escolhido for “**Recurrent**” o tipo de frete permitido é: _**“WithoutShipping”**_. | string | 255     | Sim         |
-
-**Dados da Recorrência**
-
-| PROPRIEDADE          | DESCRIÇÃO                                                                                                                                                                           | TIPO   | TAMANHO | OBRIGATÓRIO |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ------- | ----------- |
-| **recurrent**        | Nó contendo informações da recorrência do pagamento.Pode ser informado caso o tipo do produto seja “Recurrent”                                                                      |        |         |             |
-| `recurrent.interval` | Intervalo de cobrança da recorrência.<br><br>**Monthly** - Mensal<br>**Bimonthly** - Bimensal<br>**Quarterly** - Trimestral<br>**SemiAnnual** - Semestral<br>**Annual** – Anual<br> | string | 128     | Não         |
-| `recurrrent.endDate` | Data de término da recorrência. Se não informado a recorrência não terá fim, a cobrança será realizada de acordo com o intervalo selecionado indefinidamente.                       | string | 128     | Não         |
-
-### Response
-
-> "HTTP Status": 201 – Created
-
-```json
-{
-  "id": "529aca91-2961-4976-8f7d-9e3f2fa8a0c9",
-  "shortUrl": "http://bit.ly/2smqdhD",
-  "type": "Asset",
-  "name": "Pedido ABC",
-  "description": "50 canetas - R$30,00 | 10 cadernos - R$50,00",
-  "showDescription": false,
-  "price": 8000,
-  "weight": 4500,
-  "shipping": {
-    "type": "Correios",
-    "originZipcode": "06455030"
-  },
-  "softDescriptor": "Pedido1234",
-  "expirationDate": "2017-06-30T00:00:00",
-  "maxNumberOfInstallments": 2,
-  "links": [
-    {
-      "method": "GET",
-      "rel": "self",
-      "href":
-        "https://cieloecommerce.cielo.com.br/Api/public/v1/product/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
-    },
-    {
-      "method": "PUT",
-      "rel": "update",
-      "href":
-        "https://cieloecommerce.cielo.com.br/Api/public/v1/product/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
-    },
-    {
-      "method": "DELETE",
-      "rel": "delete",
-      "href":
-        "https://cieloecommerce.cielo.com.br/Api/public/v1/product/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
-    }
-  ]
-}
-```
-
-Os dados retornados na resposta contemplam todos os enviados na requisição e dados adicionais referentes a criação do link.
-
-| PROPRIEDADE | TIPO   | DESCRIÇÃO                                                                                                                     |
-| ----------- | ------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| `id`        | guid   | Identificador único do link de pagamento.Pode ser utilizado para consultar, atualizar ou excluir o link.                      |
-| `shortUrl`  | string | Representa o link de pagamento que ao ser aberto, em um browser, apresentará a tela do Checkout Cielo.                        |
-| `links`     | object | Apresenta as operações disponíveis e possíveis (RESTful hypermedia) de serem efetuadas após a criação ou atualização do link. |
-
-## Consultar Link
-
-### Request
-
-Para consultar um link existente basta realizar um `GET` informando o `ID` do link.
-
-<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}</span></aside>
-
-> **Header:** Authorization: Bearer {access_token}
-
-### Response
-
-> HTTP Status: 200 – OK
-
-```json
-{
-  "id": "529aca91-2961-4976-8f7d-9e3f2fa8a0c9",
-  "shortUrl": "http://bit.ly/2smqdhD",
-  "type": "Asset",
-  "name": "Pedido ABC",
-  "description": "50 canetas - R$30,00 | 10 cadernos - R$50,00",
-  "showDescription": false,
-  "price": 8000,
-  "weight": 4500,
-  "shipping": {
-    "type": "Correios",
-    "originZipcode": "06455030"
-  },
-  "softDescriptor": "Pedido1234",
-  "expirationDate": "2017-06-30",
-  "maxNumberOfInstallments": 2,
-  "links": [
-    {
-      "method": "GET",
-      "rel": "self",
-      "href":
-        "https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
-    },
-    {
-      "method": "PUT",
-      "rel": "update",
-      "href":
-        "https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
-    },
-    {
-      "method": "DELETE",
-      "rel": "delete",
-      "href":
-        " https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
-    }
-  ]
-}
-```
-
-| PROPRIEDADE | TIPO   | DESCRIÇÃO                                                                                                                     |
-| ----------- | ------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| `id`        | guid   | Identificador único do link de pagamento.Pode ser utilizado para consultar, atualizar ou excluir o link.                      |
-| `shortUrl`  | string | Representa o link de pagamento que ao ser aberto, em um browser, apresentará a tela do Checkout Cielo.                        |
-| `links`     | object | Apresenta as operações disponíveis e possíveis (RESTful hypermedia) de serem efetuadas após a criação ou atualização do link. |
-
-> **OBS**: O Response da consulta contem os mesmos dados retornados na criação do link.
-
-## Atualizar Link
-
-### Request
-
-Para Atualizar um link existente basta realizar um `GET` informando o `ID` do link.
-
-<aside class="request"><span class="method put">PUT</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}</span></aside>
-
-> **Header**: Authorization: Bearer {access_token}
-
-```json
-{
-  "Type": "Asset",
-  "name": "Pedido ABC",
-  "description":
-    "50 canetas - R$30,00 | 10 cadernos - R$50,00 | 10 Borrachas - R$10,00",
-  "price": 9000,
-  "expirationDate": "2017-06-30",
-  "weight": 4700,
-  "shipping": {
-    "type": "FixedAmount",
-    "name": "Entrega Rápida",
-    "price": 1000
-  },
-  "SoftDescriptor": "Pedido1234",
-  "maxNumberOfInstallments": 2
-}
-```
-
-### Response
-
-> HTTP Status: 200 – OK
-
-```json
-{
-  "id": "529aca91-2961-4976-8f7d-9e3f2fa8a0c9",
-  "shortUrl": "http://bit.ly/2smqdhD",
-  "type": "Asset",
-  "name": "Pedido ABC",
-  "description":
-    "50 canetas - R$30,00 | 10 cadernos - R$50,00 | 10 Borrachas - R$10,00",
-  "showDescription": false,
-  "price": 9000,
-  "weight": 4700,
-  "shipping": {
-    "type": "FixedAmount",
-    "name": "Entrega Rápida",
-    "price": 1000
-  },
-  "softDescriptor": "Pedido1234",
-  "expirationDate": "2017-06-30",
-  "maxNumberOfInstallments": 2,
-  "links": [
-    {
-      "method": "GET",
-      "rel": "self",
-      "href":
-        "https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
-    },
-    {
-      "method": "PUT",
-      "rel": "update",
-      "href":
-        "https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
-    },
-    {
-      "method": "DELETE",
-      "rel": "delete",
-      "href":
-        "https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
-    }
-  ]
-}
-```
-
-| PROPRIEDADE | TIPO   | DESCRIÇÃO                                                                                                                     |
-| ----------- | ------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| `id`        | guid   | Identificador único do link de pagamento.Pode ser utilizado para consultar, atualizar ou excluir o link.                      |
-| `shortUrl`  | string | Representa o link de pagamento que ao ser aberto, em um browser, apresentará a tela do Checkout Cielo.                        |
-| `links`     | object | Apresenta as operações disponíveis e possíveis (RESTful hypermedia) de serem efetuadas após a criação ou atualização do link. |
-
-> **OBS**: O Response da consulta contem os mesmos dados retornados na criação do link.
-
-## Excluir Link
-
-### Request
-
-Para excluir um link existente basta realizar um `DELETE` informando o `ID` do link.
-
-<aside class="request"><span class="method delete">DELETE</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}</span></aside>
-
-> **Header:** Authorization: Bearer {access_token}
-
-### Response
-
-> HTTP Status: 204 – No Content
-
-# Notificações de Pagamento
-
-O processo de notificação transacional no Checkout Cielo ocorre via a inclusão de uma URL para onde serão direcionados dados das transações realizadas na plataforma.
-Vale destacar que o Checkout realiza a notificação somente quando uma transação é considerada finalizada ou seja, o comprador preencheu todos os dados da tela de pagamento e clicou em "Finalizar".
-
-## Tipos de notificação
-
-O Checkout Cielo possui dois tipos de notificações que o lojista pode utilizar de acordo com suas necessidades:
-
-|Tipo|Descrição|
-|---|---|
-|`POST`|Notificação onde o lojista é passivo. Dois `POST HTTP` são disparados, um informando dados da venda e outra mudança de Status da transação|
-|`JSON`|Notificação onde o lojista realiza uma consulta. Um `POST` contendo informações para a realização de uma consulta (`GET`) as transações checkout|
-
-Para utilizar ambos os modelos, o lojista necessitará acessar o Backoffice cielo e configurar tanto a `URL de NOTIFICAÇÃO` quando a `URL de MUDANÇA de STATUS`.
-
-### Tipos de URL de Notificação
-
-O Checkout possui 3 tipos de URL que podem impactar o processo de notificação.
-
-|Tipo|Descrição|Observação|
-|---|---|---|
-|`URL de Retorno`|Página web na qual o comprador será redirecionado ao fim da compra. <br>Nenhum dado é trocado ou enviado para essa URL.<br> Essa URL apenas leva o comprador, após finalizar a compra, a uma página definida pela loja.|Caso o Lojista deseje, ele pode configurar essa página para ser sensibilizada por tráfego, assim identificando que a transação foi finalizada no Checkout Cielo <br> Pode ser enviada via API - Ver "Integração por API"|
-|`URL de Notificação`|Ao finalizar uma transação é enviado um POST HTTP com todos os dados da venda para a URL de Notificação.<br> O POST de notificação é enviado apenas no momento que a transação é finalizada, independentemente se houve alteração do **status da transação**|Utilizada na Notificação via `POST`e `JSON`|
-|`URL de Mudança de Status`|Quando um pedido tiver seu status alterado, será enviando um post HTTP para a URL de Mudança de Status.<br> O POST de mudança de status não contem dados do carrinho, apenas dados de identificação do pedido|Utilizada somente na Notificação via `POST`|
-
-**OBS:** Caso uma `URL de retorno` seja enviada vai API, ela terá prioridade sobre a URL cadastrada no Backoffice / Na integração Checkout Cielo `via Botão`, só é possível usar a opção de URL de retorno via backoffice.
-
-**Características das URLs**
-
-Todas as 3 URLs devem possuir as seguintes características:
-
-* Devem ser URLs estáticas
-* Devem possuir menos de 255 caracteres
-* Caracteres especiais não são suportados
-
-**Configurando as URLs**
-
-1. Basta acessar dentro do **Backoffice** as Abas **Configurações**
-2. Em **Configurações da Loja**, Vá a sessão de **Pagamentos**
-3. Cadastre as URLS e escolhe o tipo de Notificação desejado
-
-![Cadastro de URLS]({{ site.baseurl_root }}/images/checkout/urls.png)
-
-### Notificação: POST
-
-A notificação via POST é baseada no envio de um `POST HTTP` quando uma transação é realizada. Ela é realizada em duas etapas:
-
-1. `POST de NOTIFICAÇÃO` - Ocorre quando a transação é finalizada. Esse POST possui todos os dados do pedido, incluindo o STATUS inicial da transação.
-2. `POST de MUDANÇA DE STATUS` - Ocorre quando uma transação possui seu STATUS alterado - **EX:** "Autorizado" > > > "Pago"
-
-Este fluxo é utilizado por lojas que ainda não realizam transações via API.
-
-Abaixo o Fluxo de uma Notificação POST
-
-![Fluxo N.POST]({{ site.baseurl_root }}/images/checkout/npost.png)
-
-**Retorno aguardado para o envio da notificação:** `HttpStatus = 200 (OK)` - Post recebido e processado com sucesso
-
-**IMPORTANTE** Se a `URL de Notificação` cadastrada retornar algum erro/estiver indisponível, serão realizadas **3 novas tentativas, com intervalo de 1 hora entre cada POST*.
-
-Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acessar o pedido em questão pelo Backoffice e clicar no Ícone de envio:
-
-![Reenvio de notificação]({{ site.baseurl_root }}/images/checkout/reenvipost.png)
-
-Veja a descrição dos itens de notificação na sessão **"Conteúdo do POST de NOTIFICAÇÃO"**
-
-### Notificação: JSON
-
-A notificação vai JSON é um método mais seguro e flexível para o lojista de realizar uma consulta no Chekcout Cielo.
-Essa modalidade de notificação é baseada em um `POST JSON`, onde o lojista recebe credenciais para que uma consulta (`GET`) possa ser realizado junto a base de dados Checkout Cielo.
-
-Ela é realizada em duas etapas:
-
-1. `POST de NOTIFICAÇÃO` - Ocorre quando a transação é finalizada. Possui as Credenciais necessárias consultas transacionais.
-2. `CONSULTA TRANSACIONAL` - Com as credenciais de consulta, o lojista busca dados da venda junto ao Checkout Cielo
-
-Na Notificação de JSON, não há diferença entre o `POST de Notificação` e `Mudança de Status`. Sempre que algo ocorrer na transação, o lojista receberá um `POST de Notificação`
-
-Abaixo o Fluxo de uma Notificação JSON (Criação da transação + Mudança de status)
-
-![Fluxo N.JSON]({{ site.baseurl_root }}/images/checkout/njson.png)
-
-#### Conteúdo do POST de NOTIFICAÇÃO JSON:
-
-|Parâmetro|Descrição|Tipo do Campo|
-|---|---|---|
-|`URL`|URL com os dados necessários para realizar a busca dos dados da transação.|String|
-|`MerchantId`|Identificador da loja no Checkout Cielo; consta no Backoffice no menu Configuração/Dados Cadastrais.|Alfanumérico (GUID)|
-|`MerchantOrderNumber`|Número do pedido da loja; se não for enviado, o Checkout Cielo gerará um número, que será visualizado pelo Consumidor.|Alfanumérico|
-
-**Exemplo de uma consulta:**
-
-#### Request
-
-```shell
-curl
---request GET https://cieloecommerce.cielo.com.br/api/public/v1/orders/{merchantId}/{merchantOrderNumber}"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
---verbose
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
-|---|---|---|---|---|
-|`MerchantId`|Identificador da loja|Guid|36|Sim|
-
-#### Response
-
-```json
-{
-    "order_number": "Pedido01",
-    "amount": 101,
-    "discount_amount": 0,
-    "checkout_cielo_order_number": "65930e7460bd4a849502ed14d7be6c03",
-    "created_date": "12-09-2017 14:38:56",
-    "customer_name": "Test Test",
-    "customer_phone": "21987654321",
-    "customer_identity": "84261300206",
-    "customer_email": "test@cielo.com.br",
-    "shipping_type": 1,
-    "shipping_name": "Motoboy",
-    "shipping_price": 1,
-    "shipping_address_zipcode": "21911130",
-    "shipping_address_district": "Freguesia",
-    "shipping_address_city": "Rio de Janeiro",
-    "shipping_address_state": "RJ",
-    "shipping_address_line1": "Rua Cambui",
-    "shipping_address_line2": "Apto 201",
-    "shipping_address_number": "92",
-    "payment_method_type": 1,
-    "payment_method_brand": 1,
-    "payment_maskedcreditcard": "471612******7044",
-    "payment_installments": 1,
-    "payment_status": 3,
-    "tid": "10447480686J51OH8BPB",
-    "test_transaction": "False"
-}
-```
-
-Veja a descrição dos itens de notificação na sessão **"Conteúdo do POST de NOTIFICAÇÃO"**
-
-**Retorno aguardado para o envio da notificação:** `HttpStatus = 200 (OK)` - Post recebido e processado com sucesso
-
-**IMPORTANTE** Se a `URL de Notificação` cadastrada retornar algum erro/estiver indisponível, serão realizadas **3 novas tentativas, com intervalo de 1 hora entre cada POST*.
-
-Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acessar o pedido em questão pelo Backoffice e clicar no Ícone de envio:
-
-![Reenvio de notificação]({{ site.baseurl_root }}/images/checkout/reenvipost.png)
-
-### Conteúdo da Notificação
-
-Tanto na Notificação via POST HTTP ou POST JSON, o conteúdo dos dados retornados é o mesmo.
-Abaixo são descritos todos os campos retornados, assim como suas definições e tamanhos:
-
-#### Conteúdo do POST de NOTIFICAÇÃO:
-
-| Parâmetro                            | Descrição                                                                                                    | Tipo do campo | Tamanho máximo |
-|--------------------------------------|--------------------------------------------------------------------------------------------------------------|---------------|----------------|
-| `checkout_cielo_order_number`        | Identificador único gerado pelo CHECKOUT CIELO                                                               | Alfanumérico  | 32             |
-| `amount`                             | Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)                                                   | Numérico      | 10             |
-| `order_number`                       | Número do pedido enviado pela loja                                                                           | Alfanumérico  | 32             |
-| `created_date`                       | Data da criação do pedido - `dd-MM-yyyy HH:mm:ss`                                                            | Alfanumérico  | 20             |
-| `customer_name`                      | Nome do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO                       | Alfanumérico  | 289            |
-| `customer_identity`                  | Identificação do consumidor (CPF ou CNPJ) Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO | Alfanumérico  | 14             |
-| `customer_email`                     | E-mail do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO                     | Alfanumérico  | 64             |
-| `customer_phone`                     | Telefone do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO                   | Numérico      | 11             |
-| `discount_amount`                    | Valor do desconto fornecido (enviado somente se houver desconto)                                             | Numérico      | 10             |
-| `shipping_type`                      | Modalidade de frete                                                                                          | Numérico      | 1              |
-| `shipping_name`                      | Nome do frete                                                                                                | Alfanumérico  | 128            |
-| `shipping_price`                     | Valor do serviço de frete, em centavos (ex: R$ 10,00 = 1000)                                                 | Numérico      | 10             |
-| `shipping_address_zipcode`           | CEP do endereço de entrega                                                                                   | Numérico      | 8              |
-| `shipping_address_district`          | Bairro do endereço de entrega                                                                                | Texto         | 64             |
-| `shipping_address_city`              | Cidade do endereço de entrega                                                                                | Alfanumérico  | 64             |
-| `shipping_address_state`             | Estado de endereço de entrega                                                                                | Alfanumérico  | 64             |
-| `shipping_address_line1`             | Endereço de entrega                                                                                          | Alfanumérico  | 256            |
-| `shipping_address_line2`             | Complemento do endereço de entrega                                                                           | Alfanumérico  | 14            |
-| `shipping_address_number`            | Número do endereço de entrega                                                                                | Numérico      | 8              |
-| `payment_method_type`                | Cód. do tipo de meio de pagamento                                                                            | Numérico      | 1              |
-| `payment_method_brand`               | Bandeira (somente para transações com meio de pagamento cartão de crédito)                                   | Numérico      | 1              |
-| `payment_method_bank`                | Banco emissor (Para transações de Boleto e Débito Automático)                                                | Numérico      | 1              |
-| `payment_maskedcreditcard`           | Cartão Mascarado (Somente para transações com meio de pagamento cartão de crédito)                           | Alfanumérico  | 20             |
-| `payment_installments`               | Número de parcelas                                                                                           | Numérico      | 1              |
-| `payment_antifrauderesult`           | Status das transações de cartão de Crédito no Antifraude                                                     | Numérico      | 1              |
-| `payment_boletonumber`               | número do boleto gerado                                                                                      | String        | 1              |
-| `payment_boletoexpirationdate`       | Data de vencimento para transações realizadas com boleto bancário                                            | Numérico      | 10             |
-| `payment_status`                     | Status da transação                                                                                          | Numérico      | 1              |
-| `tid`                                | TID Cielo gerado no momento da autorização da transação                                                      | Alfanumérico  | 20             |
-| `test_transaction`                   | Indica se a transação foi gerada com o `Modo de teste` ativado                                               | Boolean       | 32             |
-| `product_id`                         | Identificador do Botão/Link de pagamento que gerou a transação                                               | Alfanumérico  | 32             |
-| `product_type`                       | Tipo de Botão que gerou o pedido (Ver tabela de ProductID)                                                   | Alfanumérico  | 32             |
-| `product_sku`                        | Identificador do produto cadastro no link de pagamento                                                       | texto         | 16             |
-| `product_max_number_of_installments` | Numero de parcelas liberado pelo lojistas para o link de pagamento                                           | Numérico      | 2              |
-| `product_expiration_date`            | Data de validade do botão/Link de pagamento                                                                  | Alfanumérico  | 12             |
-| `product_quantity`                   | Numero de transações restantes até que o link deixe de funcionar                                             | Alfanumérico  | 2              |
-| `product_description`                | Descrição do link de pagamentos registrada pelo lojista                                                      | texto         | 256            |
-
-#### Tipos de productID
-
-|Tipo de Link de pagamento|Enun|
-|-|-|
-|Material físico|1|
-|Digital|2|
-|Serviço|3|
-|Pagamento|4|
-|Recorrência|5|
-
-#### Payment_status
-
-O Checkout possui um Status próprios, diferente do SITE CIELO ou da API Cielo ecommerce. Veja abaixo a lista completa.
-
-|Valor|Status de transação|Meios de pagamento|Descrição|
+|Elemento|Tipo|Tamanho|Descrição|
 |---|---|---|---|
-|1|`Pendente`|Para todos os meios de pagamento|Indica que o pagamento ainda está sendo processado; OBS: Boleto - Indica que o boleto não teve o status alterado pelo lojista|
-|2|`Pago`|Para todos os meios de pagamento|Transação capturada e o dinheiro será depositado em conta.|
-|3|`Negado`|Somente para Cartão Crédito|Transação não autorizada pelo responsável do meio de pagamento|
-|4|`Expirado`|Cartões de Crédito e Boleto|Transação deixa de ser válida para captura - **15 dias pós Autorização**|
-|5|`Cancelado`|Para cartões de crédito|Transação foi cancelada pelo lojista|
-|6|`Não Finalizado`|Todos os meios de pagamento|Pagamento esperando Status - Pode indicar erro ou falha de processamento. Entre em contato com o Suporte cielo|
-|7|`Autorizado`|somente para Cartão de Crédito|Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta|
-|8|`Chargeback`|somente para Cartão de Crédito|Transação cancelada pelo consumidor junto ao emissor do cartão. O Dinheiro não será depositado em conta.|
+|codigo|Numérico|1.2|Código do processamento|
+|mensagem|Alfanumérico|1..100|Detalhe do processamento|
+|data-hora|Alfanumérico|19|Data e hora do processamento|
+|valor|Numérico|1..12|Valor do processamento sem pontuação. Os dois últimos dígitos são os centavos.|
+|eci|Numérico|2|Nível de segurança.|
 
-#### Payment_antifrauderesult
+O campo ECI (Eletronic Commerce Indicator) representa o quão segura é uma transação. Esse valor deve ser levado em consideração pelo lojista para decidir sobre a captura da transação.
 
-O Antifraude possui o conceito de `Status` e `SubStatus`, onde o primeiro representa o nível de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
+<aside class="warning">O indicador ECI é muito importante, pois é ele que determina as regras de Chargeback.</aside>
 
-|Valor|Status 'raude|Substatus|Descrição|
-|---|---|---|---|
-|1|`Baixo Risco`|Baixo Risco|Baixo risco de ser uma transação fraudulenta|
-|3|`Médio Risco`|Médio Risco|Médio risco de ser uma transação fraudulenta|
-|2|`Alto Risco`|Alto Risco|Alto risco de ser uma transação fraudulenta|
-|4|`Não finalizado`|Não finalizado|Não foi possível finalizar a consulta|
-|N/A|`N/A`|Autenticado|Transações autenticadas pelo banco - **Não são analisaveis pelo AF**|
-|N/A|`N/A`|AF Não contratado|Antifraude não habilitado no plano do lojista - **Não são analisaveis pelo AF**|
-|N/A|`N/A`|AF Dispensado|Antifraude dispensado via contrato ou inferior ao valor mínimo de antifrade parametrizado backoffice no lojista|
-|N/A|`N/A`|Não aplicável|Meio de pagamento não analisável como cartões de débito, boleto e débito online|
-|N/A|`N/A`|Transação de recorrência|Transação de crédito seja posterior a transação de agendamento. **Somente o Agendamento é analisado**|
-|N/A|`N/A`|Transação negada|Venda a crédito foi negada - **Não são analisaveis pelo AF**|
+> A transação autenticada passa por uma validação do emissor e da bandeira, em momento de autorização, podendo refletir na alteração do ECI (Eletronic Commerce Indicator), que é utilizado para determinar quem será o responsável em caso de chargeback nas modalidades fraude.
 
-#### Payment_method_type
+# Catálogo de códigos de resposta
 
-O Checkout permite apenas um tipo de `Boleto` ou `Débito Online` por lojista, sendo assim não é retornado se o método usado foi Bradesco ou Banco do Brasil, pois apenas um deles estará ativado na afiliação.
+## Códigos de Autorização LR
 
-|Valor|Descrição|
-|---|---|
-|1|Cartão de Crédito|
-|2|Boleto Bancário|
-|3|Débito Online|
-|4|Cartão de Débito|
-|5|QR Code|
+A seguir estão os códigos de resposta que respondem por 99% dos retornos gerados no processo de autorização. Os demais códigos existentes não estão listados pois ocorrem raramente ou em casos específicos. Para estes casos deve-se assumir que eles não são passíveis de retentativa.
 
-#### Payment_method_brand
+Caso tenha uma quantidade elevada de códigos de retorno que não está listado abaixo, entre em contato com o Suporte Web Cielo eCommerce.
 
-|Valor|Descrição|
-|---|---|
-|1|Visa|
-|2|Mastercad|
-|3|AmericanExpress|
-|4|Diners|
-|5|Elo|
-|6|Aura|
-|7|JCB|
-|8|Discover|
-|9|Hipercard|
+<aside class="warning">As descrições abaixo são exclusivas para uso interno do estabelecimento comercial e não devem ser divulgadas para o portador do cartão.</aside>
 
-#### Payment_method_bank
+<aside class="notice">Exceto os códigos AA, AC e GA, todos os outros são gerados pelos emissores/bandeiras.</aside>
 
-|Valor|Descrição|
-|---|---|
-|1|Banco do Brasil|
-|2|Bradesco|
-
-#### Shipping_type
-
-|Valor|Descrição|
-|---|---|
-|1|Correios|
-|2|Frete fixo|
-|3|Frete grátis|
-|4|Retirar em mãos/loja|
-|5|Sem cobrança de frete (serviços ou produtos digitais)|
-
-# Controle Transacional
-
-A consulta de transações via API pode ser feita até 45 dias após a venda ter sido realizada.
-
-O controle dos pedidos oriundos de link de pagamento pode ser feito por meio da API de controle transacional. A consulta de pedidos pode ser feita de 3 formas distintas:
-
-## Por Merchant_Order_Number
-
-A consulta de transações por `Merchant_Order_Number` retorna uma lista de transações com o mesmo número de pedidos, isso ocorre pois o Checkout Cielo não impede a duplicação de OrderNumbers por parte do lojista.
-O response possuirá o `Checkout_Cielo_Order_Number` que deverá ser usado na consulta de uma transação em especifico.
-
-### Request 
-
-Para consultar uma transação pelo `Merchant_Order_Number`, basta realizar um `GET`.
-
-<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/merchantOrderNumber/{merchantordernumber}</span></aside>
-
-### Response
-
-``` json
-[
-    {
-        "$id": "1",
-        "checkoutOrderNumber": "a58995ce24fd4f1cb025701e95a51478",
-        "createdDate": "2018-04-30T12:09:33.57",
-        "links": [
-            {
-                "$id": "2",
-                "method": "GET",
-                "rel": "self",
-                "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/a58995ce24fd4f1cb025701e95a51478"
-            }
-        ]
-    },
-    {
-        "$id": "3",
-        "checkoutOrderNumber": "438f3391860a4bedbae9a868180dda6e",
-        "createdDate": "2018-04-30T12:05:41.317",
-        "links": [
-            {
-                "$id": "4",
-                "method": "GET",
-                "rel": "self",
-                "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/438f3391860a4bedbae9a868180dda6e"
-            }
-        ]
-    }
-]
-```
-
-|Property|Description|Type|Size|Format|
-|---|---|---|---|---|
-|`$id`|id do nó|Numérico|-|Exemplo: 1|
-|`checkoutOrderNumber`|Código de pedido gerado pelo Checkout Cielo|Texto|32|Exmeplo: a58995ce24fd4f1cb025701e95a51478|
-|`createdDate`|Data de criação do pedido |Data|-|AAAA-MM-DDTHH:mm:SS.ss|
-|`links.$id`|Id do nó|Numérico|-|Exemplo: 1|
-|`links.method`|Método para consumo da operação|Texto|10|Exmeplos: GET, POST, PUT|
-|`links.rel`|Relação para consumo da operação|Texto|10|Exemplo: self|
-|`links.href`|Endpoint para consumo da operação|Texto|512|Exemplo: https://cieloecommerce.cielo.com.br/api/public/v2/orders/438f3391860a4bedbae9a868180dda6e|
-
-## Por Checkout_Cielo_Order_Number
-
-### Request 
-
-Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realizar um `GET`.
-
->**Header:** Authorization: Bearer {access_token}
-
-<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/{checkout_cielo_order_number}</span></aside>
-
-### Response
-
-``` json
-{ 
-    "merchantId": "c89fdfbb-dbe2-4e77-806a-6d75cd397dac", 
-    "orderNumber": "054f5b509f7149d6aec3b4023a6a2957", 
-    "softDescriptor": "Pedido1234", 
-    "cart": { 
-        "items": [ 
-            { 
-                "name": "Pedido ABC", 
-                "description": "50 canetas - R$30,00 | 10 cadernos - R$50,00 | 10 Borrachas - R$10,00", 
-                "unitPrice": 9000, 
-                "quantity": 1, 
-                "type": "1" 
-            } 
-        ] 
-    }, 
-    "shipping": { 
-        "type": "FixedAmount", 
-        "services": [ 
-            { 
-              "name": "Entrega Rápida", 
-                "price": 2000 
-            } 
-        ], 
-        "address": { 
-            "street": "Estrada Caetano Monteiro", 
-            "number": "391A", 
-            "complement": "BL 10 AP 208", 
-            "district": "Badu", 
-            "city": "Niterói", 
-            "state": "RJ" 
-        } 
-    }, 
-    "payment": { 
-        "status": "Paid", 
-        "tid": "10127355487AK2C3EOTB",
-        "nsu": "149111",
-        "authorizationCode": "294551",
-        "numberOfPayments": 1,
-        "createdDate": "2018-03-02T14:29:43.767",
-        "finishedDate": "2018-03-02T14:29:46.117",
-        "cardMaskedNumber": "123456******2007",
-        "brand": "Visa",
-        "antifraud": { 
-            "antifraudeResult": 0,
-            "description": "Lojista optou não realizar a análise do antifraude." 
-        } 
-    }, 
-    "customer": { 
-        "identity": "12345678911", 
-        "fullName": "Fulano da Silva", 
-        "email": "exemplo@email.com.br", 
-        "phone": "11123456789" 
-    }, 
-    "links": [ 
-        { 
-            "method": "GET", 
-            "rel": "self", 
-            "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/054f5b509f7149d6aec3b4023a6a2957" 
-        }, 
-        { 
-            "method": "PUT", 
-            "rel": "void", 
-            "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/054f5b509f7149d6aec3b4023a6a2957/void" 
-        } 
-    ] 
-}
-```
-
-|Campo|Tipo|Tamanho|Descrição|Formato|
-|---|---|---|---|---|
-|`merchantId`|GUID|36|Id da Loja no Checkout|Exemplo: c89fdfbb-dbe2-4e77-806a-6d75cd397dac|
-|`orderNumber`|Texto|32|Número do pedido da loja.|Exemplo: 123456|
-|`softDescriptor`|Texto|13|Texto exibido na fatura do comprador. Sem caracteres especiais ou espaços|Exemplo: `Loja_ABC_1234`|
-|`cart.items.name`|Texto|128|Nome do item no carrinho.|Exemplo: Pedido ABC|
-|`cart.items.description`|Texto|256|Descrição do item no carrinho.|Exemplo: 50 canetas - R$30,00|
-|`cart.items.unitPrice`|Numérico|18|Preço unitário do produto em centavos|Exemplo: R$ 1,00 = 100|
-|`cart.items.quantity`|Numérico|9|Quantidade do item no carrinho.|Exemplo: 1|
-|`cart.items.type`|Texto|255|Tipo do item no carrinho|`Asset`<br>`Digital`<br>`Service`<br>`Payment`|
-|`shipping.type`|Numérico|36|Modalidade de frete|Exemplo: 1|
-|`shipping.services.name`|Texto|128|Modalidade de frete|Exemplo: Casa Principal|
-|`shipping.services.price`|Numérico|10|Valor do serviço de frete, em centavos|Exemplo: R$ 10,00 = 1000|
-|`shipping.address.street`|Texto|256|Endereço de entrega|Exemplo: Rua João da Silva|
-|`shipping.address.number`|Numérico|8|Número do endereço de entrega|Exemplo: 123|
-|`shipping.address.complement`|Texto|64|Complemento do endereço de entrega|Exemplo: Casa|
-|`shipping.address.district`|Texto|64|Bairro do endereço de entrega|Exemplo: Alphaville|
-|`shipping.address.city`|Texto|64|Cidade do endereço de entrega|Exemplo: São Paulo|
-|`shipping.address.state`|Texto|2|Estado de endereço de entrega|Exemplo: SP|
-|`Payment.status`|Texto|10|Status da transação|Exemplo: Paid|
-|`Payment.tid`|Texto|32|TID Cielo gerado no momento da autorização da transação|Exemplo: 10127355487AK2C3EOTB|
-|`Payment.nsu`|Texto|6|NSU Cielo gerado no momento da autorização da transação|Exemplo: 123456|
-|`Payment.authorizationCode`|Texto|3|Código de autorização.|Exemplo: 456789|
-|`Payment.numberOfPayments`|Numérico|6|Número de Parcelas.|Exemplo: 123456|
-|`Payment.createdDate`|Texto|22|Data de criação da transação|Exemplo: AAAA-MM-DDTHH:mm:SS.ss|
-|`Payment.finishedDate`|Texto|22|Data de finalização da transação|Exemplo: AAAA-MM-DDTHH:mm:SS.ss|
-|`Payment.cardMaskedNumber`|Texto|19|Número do cartão mascarado|Exemplo: 123456******2007|
-|`Payment.brand`|Texto|10|Bandeira do cartão|Exemplo: Visa|
-|`Payment.antifraud.antifraudeResult`|Numeric|1|Status do antifraude|Exemplo: 1|
-|`Payment.antifraud.description`|Texto|256|Descrição do status do antifraude|Exemplo: Lojista optou não realizar a análise do antifraude|
-|`Customer.Identity`|Numérico|14|CPF ou CNPJ do comprador.|Exemplo: 12345678909|
-|`Customer.FullName`|Texto|256|Nome completo do comprador.|Exemplo: Fulano da Silva|
-|`Customer.Email`|Texto|64|Email do comprador.|Exemplo: exemplo@email.com.br|
-|`Customer.Phone`|Numérico|11|Telefone do comprador.|Exemplo: 11123456789|
-
-## Por ID do link de pagamento
-
-### Request 
-
-Para consultar uma transação pelo `id`, basta realizar um `GET`.
-
->**Header:** Authorization: Bearer {access_token}
-
-<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}/payments</span></aside>
-
-### Response
-
-``` json
-{
-   "$id": "1",
-   "productId": "9487e3a9-f204-4188-96c5-a5a3013b2517",
-   "createdDate": "2019-07-11T10:35:04.947",
-   "orders": [
-       {
-           "$id": "2",
-           "orderNumber": "b74df3e3c1ac49ccb7ad89fde2d787f7",
-           "createdDate": "2019-07-11T10:37:23.447",
-           "payment": {
-               "$id": "3",
-               "price": 11500,
-               "numberOfPayments": 6,
-               "createdDate": "2019-07-11T10:37:23.447",
-               "status": "Denied"
-           },
-           "links": [
-               {
-                   "$id": "4",
-                   "method": "GET",
-                   "rel": "self",
-                   "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/b74df3e3c1ac49ccb7ad89fde2d787f7"
-               }
-           ]
-       }
-   ]
-}
-```
-
-|Property|Description|Type|Size|Format|
-|---|---|---|---|---|
-|`$id`|id do nó|Numérico|-|Exemplo: 1|
-|`productId`|ID do link de pagamento|GUID|36|Exmeplo: 9487e3a9-f204-4188-96c5-a5a3013b2517|
-|`createdDate`|Data de criação do link de pagamento |Data|-|AAAA-MM-DDTHH:mm:SS.ss|
-|`orders.$id`|Id do nó|Numérico|-|Exemplo: 1|
-|`orders.orderNumber`|Id pedido gerado pelo Checkout Cielo|Texto|32|Exemplo: b74df3e3c1ac49ccb7ad89fde2d787f7|
-|`orders.createdDate`|Data de criação do pedido |Data|-|AAAA-MM-DDTHH:mm:SS.ss|
-|`orders.payment.$id`|Id do nó|Numérico|-|Exemplo: 1|
-|`orders.payment.price`|Valor da pedido, sem pontuação|Numérico|-|Exemplo: R$ 1,00 = 100|
-|`orders.payment.numberOfPayments`|Número de parcelas|-|Exemplo: 3|
-|`orders.payment.createdDate`|Data da transação (pagamento) |Data|-|AAAA-MM-DDTHH:mm:SS.ss|
-|`orders.payment.status`|Status da Transação|Texto|Exemplo: Denied|
-|`links.$id`|Id do nó|Numérico|-|Exemplo: 1|
-|`links.method`|Método para consumo da operação|Texto|10|Exmeplos: GET, POST, PUT|
-|`links.rel`|Relação para consumo da operação|Texto|10|Exemplo: self|
-|`links.href`|Endpoint para consumo da operação|Texto|512|Exemplo: https://cieloecommerce.cielo.com.br/api/public/v2/orders/438f3391860a4bedbae9a868180dda6e|
-
-Para realizar o controle transacional no Checkout Cielo é OBRIGATÓRIO que a loja possua um dos dois modelos de notificação abaixo configurado:
-
-* URL de Notificação via **POST**
-* URL de Notificação via **JSON**
-
-A notificação é obrigatório pois todos os comandos da API (Consulta / Captura / Cancelamento) usam o identificador único da transação, chamado de `Checkout_Cielo_Order_Number`.
-
-O `Checkout_Cielo_Order_Number` é gerado apenas quando o pagamento é finalizado na tela transacional. Ele é enviado apenas pela URL de Notificação e não pelo Response da criação da tela transacional.
-
-# Configurações da loja   
-
-As configurações de sua loja podem ser feitas dentro do site Cielo. Neste ambiente você tem acesso a diversas opções, dentre elas:
-
-* Geração das chaves para utilização da API;
-* Configuração de logo e cor de fundo da tela de pagamento;
-* Modificação dos métodos de pagamento;
-* Configuração de URL’s de retorno;
-* Outras ações;
-
-Para maiores detalhes veja o tutorial Super Link e Checkout Cielo.
-
-# Antifraude próprio
-
-Este tópico irá ensinar como criar uma integração entre o Super Link Cielo e um antifraude próprio/terceiro de mercado.
-
-## Pré requisitos
-
-1. Integração com APIs de Super Link;
-2. Captura Posterior das transações;
-3. Negociação com provedor de Antifraude;
-
-## Fluxograma simplificado
-
-![Fluxograma simplificado Antifraude próprios]({{ site.baseurl_root }}/images/checkout/fluxogramasimplificadoantifraude.png)
-
-### Passo a passo de integração
-
-1. Crie os links via API de Super Link
-Os links podem ser criados diretamente via chamadas de API. O request e o response padrão são encontrados no tópico link de pagamento do manual. [Clique aqui](https://developercielo.github.io/manual/linkdepagamentos5#link-de-pagamento)  para saber mais.
- 
-2. Envie o link para o portador do cartão realizar o pagamento
-O link de pagamento deve ser enviado pelas redes sociais para que seja realizado o pagamento. A venda/transação só começa a partir do preenchimento da tela de pagamento.
-
-3. Receba os dados de pagamento via Post de notificação
-A confirmação de pagamento é enviada via Webhook para uma URL da escolha do lojista. Veja como configurar uma URL para receber a notificação [aqui](https://developercielo.github.io/manual/linkdepagamentos5#tipos-de-url-de-notifica%C3%A7%C3%A3o).
-As informações retornadas via Post de notificação podem ser encontradas no tópico [Conteúdo da notificação](https://developercielo.github.io/manual/linkdepagamentos5#conteúdo-da-notificação).
-
-4. Envie os dados de pagamento para o Antifraude contratado
-As informações retornadas no Post de notificação devem ser enviadas para seu Antifraude. Caso necessário você pode enriquecer as informações retornadas com informações cadastrais do cliente que está executando aquele pagamento. 
-Consulte seu provedor de Antifraude para saber quais campos podem ser enviados para análise.
-A Cielo não participa do envio dessas informações. Todas as dúvidas relacionadas ao processo de integração entre Lojista e Antifraude devem ser envidas para o Suporte do provedor de antifraude.
-
-5. Capture ou cancele as vendas 
-De acordo com o retorno de seu provedor de antifraude capture ou cancele a venda. A captura e o cancelamento de vendas podem ser feitos via API de controle transacional. Veja como fazer o controle transacional de suas vendas [aqui](https://developercielo.github.io/manual/controletransacional4#capturar-transa%C3%A7%C3%A3o).
-
-# Status e Códigos
-
-O Checkout possui um Status próprios, diferente do SITE CIELO ou da API Cielo ecommerce. Veja abaixo a lista completa.
-
-| Valor | Status de transação | Meios de pagamento               | Descrição                                                                                                                     |
-|-------|---------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| 1     | `Pendente`          | Para todos os meios de pagamento | Indica que o pagamento ainda está sendo processado; OBS: Boleto - Indica que o boleto não teve o status alterado pelo lojista |
-| 2     | `Pago`              | Para todos os meios de pagamento | Transação capturada e o dinheiro será depositado em conta.                                                                    |
-| 3     | `Negado`            | Somente para Cartão Crédito      | Transação não autorizada pelo responsável do meio de pagamento                                                                |
-| 4     | `Expirado`          | Cartões de Crédito e Boleto      | Transação deixa de ser válida para captura - **15 dias pós Autorização**                                                      |
-| 5     | `Cancelado`         | Para cartões de crédito          | Transação foi cancelada pelo lojista                                                                                          |
-| 6     | `Não Finalizado`    | Todos os meios de pagamento      | Pagamento esperando Status - Pode indicar erro ou falha de processamento. Entre em contato com o Suporte cielo                |
-| 7     | `Autorizado`        | somente para Cartão de Crédito   | Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta                  |
-| 8     | `Chargeback`        | somente para Cartão de Crédito   | Transação cancelada pelo consumidor junto ao emissor do cartão. O Dinheiro não será depositado em conta.                      |
-
-## Códigos de retorno (ABECS)
+### Códigos de retorno ABECS
 
 A Associação Brasileira das Empresas de Cartão de Crédito e Serviços (ABECS) estabelece a partir do dia 15 de Julho de 2020 a padronização do código de retorno das autorizações de vendas recusadas tanto para as soluções pagamento do mundo físico e e-commerce do mercado brasileiro.
 
@@ -1128,7 +893,6 @@ A Cielo informa seus clientes que está preparada para processar as transações
 |-----------------|-----------------------------------------------|-----------------------------------------------------------------------------|-------------------------------------------------------------------|---------------------|
 | 00              | Transação autorizada com sucesso.             | Transação autorizada com sucesso.                                           | Transação autorizada com sucesso.                                 | Não                 |
 | 02              | Transação não autorizada. Transação referida. | Transação não autorizada. Referida (suspeita de fraude) pelo banco emissor. | Transação não autorizada. Entre em contato com seu banco emissor. | Não                 |
-|09|Transação cancelada parcialmente com sucesso.                 | Transação cancelada parcialmente com sucesso                                | Transação cancelada parcialmente com sucesso                       | Não                 |
 |11|Transação autorizada com sucesso para cartão emitido no exterior|Transação autorizada com sucesso.|Transação autorizada com sucesso.|Não|
 |21|Cancelamento não efetuado. Transação não localizada.|Não foi possível processar o cancelamento. Se o erro persistir, entre em contato com a Cielo.|Não foi possível processar o cancelamento. Tente novamente mais tarde. Persistindo o erro, entrar em contato com a loja virtual.|Não|
 |22|Parcelamento inválido. Número de parcelas inválidas.|Não foi possível processar a transação. Número de parcelas inválidas. Se o erro persistir, entre em contato com a Cielo.|Não foi possível processar a transação. Valor inválido. Refazer a transação confirmando os dados informados. Persistindo o erro, entrar em contato com a loja virtual.|Não|
@@ -1144,7 +908,6 @@ A Cielo informa seus clientes que está preparada para processar as transações
 |90|Transação não permitida. Falha da operação.|Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.|Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.|Não|
 |97|Valor não permitido para essa transação.|Transação não autorizada. Valor não permitido para essa transação.|Transação não autorizada. Valor não permitido para essa transação.|Não|
 |98|Sistema/comunicação indisponível.|Transação não autorizada. Sistema do emissor sem comunicação. Se for geral, verificar SITEF, GATEWAY e/ou Conectividade.|Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.|Apenas 4 vezes em 16 dias.|
-|475|Timeout de Cancelamento|A aplicação não respondeu dentro do tempo esperado.|Realizar uma nova tentativa após alguns segundos. Persistindo, entrar em contato com o Suporte.|Não|
 |999|Sistema/comunicação indisponível.|Transação não autorizada. Sistema do emissor sem comunicação. Tente mais tarde.  Pode ser erro no SITEF, favor verificar !|Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.|A partir do dia seguinte, apenas 4 vezes em 16 dias.|
 |AA|Tempo Excedido|Tempo excedido na comunicação com o banco emissor. Oriente o portador a tentar novamente, se o erro persistir será necessário que o portador contate seu banco emissor.|Tempo excedido na sua comunicação com o banco emissor, tente novamente mais tarde. Se o erro persistir, entre em contato com seu banco.|Apenas 4 vezes em 16 dias.|
 |AF|Transação não permitida. Falha da operação.|Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.|Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.|Não|
@@ -1159,7 +922,6 @@ A Cielo informa seus clientes que está preparada para processar as transações
 |BN|Transação não autorizada. Cartão ou conta bloqueado.|Transação não autorizada. O cartão ou a conta do portador está bloqueada. Solicite ao portador que entre em contato com  seu banco emissor.|Transação não autorizada. O cartão ou a conta do portador está bloqueada. Entre em contato com  seu banco emissor.|Não|
 |BO|Transação não permitida. Falha da operação.|Transação não permitida. Houve um erro no processamento. Solicite ao portador que digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco emissor.|Transação não permitida. Houve um erro no processamento. Digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco emissor.|Apenas 4 vezes em 16 dias.|
 |BP|Transação não autorizada. Conta corrente inexistente.|Transação não autorizada. Não possível processar a transação por um erro relacionado ao cartão ou conta do portador. Solicite ao portador que entre em contato com o banco emissor.|Transação não autorizada. Não possível processar a transação por um erro relacionado ao cartão ou conta do portador. Entre em contato com o banco emissor.|Não|
-|BP176|Transação não permitida.|Parceiro deve checar se o processo de integração foi concluído com sucesso.|Parceiro deve checar se o processo de integração foi concluído com sucesso.|---|
 |C1|Transação não permitida. Cartão não pode processar transações de débito.|Troque a modalidade de pagamento ou o cartão utilizado.|Troque a modalidade de pagamento ou o cartão utilizado.|Não|
 |C2|Transação não permitida.|Dados incorretos. Favor rever os dados preenchidos na tela de pagamento.|Dados incorretos. Favor rever os dados preenchidos na tela de pagamento.|Não|
 |C3|Transação não permitida.|Período inválido para este tipo de transação.|Período inválido para este tipo de transação.|Não|
@@ -1186,17 +948,1416 @@ A Cielo informa seus clientes que está preparada para processar as transações
 |N7|Transação não autorizada. Código de segurança inválido.|Transação não autorizada. Código de segurança inválido. Oriente o portador corrigir os dados e tentar novamente.|Transação não autorizada. Reveja os dados e informe novamente.|Não|
 |U3|Transação não permitida. Falha na validação dos dados.|Transação não permitida. Houve uma falha na validação dos dados. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir verifique a comunicação entre loja virtual e Cielo.|Transação não permitida. Houve uma falha na validação dos dados. reveja os dados informados e tente novamente. Se o erro persistir entre em contato com a Loja Virtual.|Não|
 
-## Status do Antifraude
+## Códigos de Erros
 
-| Campo | Definição                |
-|:-----:|--------------------------|
-| **0** | N\A                      |
-| **1** | Risco baixo              |
-| **2** | Risco Alto               |
-| **3** | Não finalizada           |
-| **4** | Risco Moderado           |
-| **5** | Autenticado              |
-| **6** | Não contratado           |
-| **7** | Dispensado               |
-| **8** | Não Aplicavel            |
-| **9** | Transaçõe de Recorrência |
+Os erros que podem ser apresentados na mensagem XML, através da TAG `<erro>`, estão dispostos a seguir:
+
+### Tabela de erros de integração
+
+|Código|Mensagem|Descrição|Ação|
+|---|---|---|---|
+|1|Mensagem inválida|A mensagem XML está fora do formato especificado pelo arquivo eCommerce.xsd|Revisar as informações enviadas na mensagem XML frente às especificações|
+|2|Credenciais inválidas|Impossibilidade de autenticar uma requisição daloja virtual.|Verificar se o número de credenciamento e a chave estão corretos|
+|3|Transação inexistente|Não existe transação para o identificador informado|Rever a aplicação|
+|8|Código de Segurança Inválido|O código de segurança informado na mensagem é inválido.|Revisar as informações de cartão enviadas na mensagem XML|
+|10|Inconsistência no envio do cartão|A transação, com ou sem cartão, está divergente com a permissão de envio dessa informação|Rever se o cadastro da loja permite o envio do cartão ou não|
+|11|Modalidade não habilitada|A transação está configurada com uma modalidade de pagamento não habilitada para a loja|Rever a modalidade de pagamento solicitada|
+|12|Número de parcelas inválido|O número de parcelas solicitado ultrapassa o máximo permitido|Rever a forma de pagamento|
+|13|Flag de autorização automática|Flag de autorização automática incompatível com a inválida forma de pagamento solicitada|Rever as regras de utilização da flag|
+|14|Autorização Direta inválida|A solicitação de Autorização Direta está inválida|Rever as regras de utilização da Autorização Direta|
+|15|Autorização Direta sem Cartão|A solicitação de Autorização Direta está sem cartão|Rever as regras de utilização da Autorização Direta|
+|16|Identificador, TID, inválido|O TID fornecido está duplicado|Rever a aplicação|
+|17|Código de segurança ausente|O código de segurança do cartão não foi enviado (essa informação é sempre obrigatória para Amex)|Rever a aplicação|
+|18|Indicador de código de segurança inconsistente|Uso incorreto do indicador de código de segurança|Revisar as informações de cartão enviadas na mensagem XML|
+|19|URL de Retorno não fornecida|A URL de Retorno é obrigatória, exceto para recorrência e autorização direta.|Revisar as informações enviadas na mensagem XML|
+|20|Status não permite autorização|Não é permitido realizar autorização para o status da transação|Rever as regras de autorização|
+|21|Prazo de autorização vencido|Não é permitido realizar autorização, pois o prazo está vencido|Rever as regras de autorização|
+|22|Número de parcelas inválido|Não é permitido realizar autorização para este número de parcelas|Rever as regras de autorização|
+|25|Encaminhamento a autorização não permitido|O resultado da Autenticação da transação não permite a solicitação de Autorização|Rever as regras de autorização|
+|30|Status inválido para captura|O status da transação não permite captura|Rever as regras de captura|
+|31|Prazo de captura vencido|A captura não pode ser realizada, pois o prazo para captura está vencido|Rever as regras de captura|
+|32|Valor de captura inválido|O valor solicitado para captura não é válido|Rever as regras de captura|
+|33|Falha ao capturar|Não foi possível realizar a captura|Realizar nova tentativa. Persistindo, entrar em contato com o Suporte eCommerce e informar o TID da transação.|
+|34|Valor da taxa de embarque obrigatório|O valor da taxa de embarque é obrigatório se a captura for parcial e a autorização tiver sido feita com taxa de embarque.|Envie novamente a requisição de captura com a tag .|
+|35|Bandeira inválida para utilização da Taxa de Embarque|A bandeira utilizada na transação não tem suporte à taxa de embarque.|Remova a taxa de embarque ou utilize um cartão que suporte esta funcionalidade: Visa ou Mastercard.|
+|36|Produto inválido para utilização da Taxa de Embarque|O produto escolhido não tem suporte à taxa de embarque.|Altere o produto.|
+|40|Prazo de cancelamento vencido|O cancelamento não pode ser realizado, pois o prazo está vencido|Rever as regras de cancelamento.|
+|42|Falha ao cancelar|Não foi possível realizar o cancelamento|Realizar nova tentativa. Persistindo, entrar em contato com o Suporte eCommerce e informar o TID da transação.|
+|43|Valor de cancelamento é maior que valor autorizado.|O valor que está tentando cancelar supera o valor total capturado da transação.|Revisar o valor do cancelamento parcial, pois não pode ser maior que o valor capturado da transação.|
+|51|Recorrência Inválida|As configurações da transação não permitem que a transação recorrente seja efetuada com sucesso.|Verifique se escolheu “Crédito à vista”; Verifique se está enviando somente o token ou somente o cartão de crédito|
+|52|Token Inválido|O token fornecido na requisição de autorização não é válido ou está bloqueado.|Verifique se o Token está correto. Persistindo, entrar em contato com o Suporte.|
+|53|Recorrência não habilitada|O cadastro do lojista não permite o envio de transações recorrentes.|Entre em contato com suporte para saber como habilitar a recorrência no cadastro.|
+|54|Transação com Token inválida|As configurações da transação não permitem que a autorização direta com uso de Token seja efetuada com sucesso.|Verifique se escolheu “Crédito à vista”; Verifique se está enviando somente o token ou somente o cartão de crédito.|
+|55|Número do cartão não fornecido|Foi solicitado criação de Token, porém o número do cartão de crédito não foi fornecido.|Revisar as informações enviadas na mensagem XML frente às especificações|
+|56|Validade do cartão não fornecido|Foi solicitado criação de Token, porém a validade do cartão de crédito não foi fornecida.|Revisar as informações enviadas na mensagem XML frente às especificações.|
+|57|Erro inesperado gerando Token|Falha no sistema ocorrida no momento da geração do Token.|Tentar novamente. Persistindo, entrar em contato com o Suporte.|
+|61|Transação Recorrente Inválida|As configurações da transação recorrente estão inválidas.|Verifique se o produto é Crédito à vista, se o token ou o cartão foram enviados na mensagem.|
+|77|XID não fornecido|Foi solicitado uma autorização com autenticação externa, porém o campo XID não foi fornecido.|Revisar as informações enviadas na mensagem XML frente às especificações.|
+|78|CAVV não fornecido|Foi solicitado uma autorização com autenticação externa, porém o campo CAVV não foi fornecido.|Revisar as informações enviadas na mensagem XML frente às especificações.|
+|86|XID e CAVV não fornecidos|Foi solicitado uma autorização com autenticação externa, porém os campos CAVV e XID não foram fornecidos.|Revisar as informações enviadas na mensagem XML frente às especificações.|
+|87|CAVV com tamanho divergente|Foi solicitado uma autorização com autenticação externa, porém o campo CAVV possue um tamanho divergente.|Revisar as informações enviadas na mensagem XML frente às especificações.|
+|88|XID com tamanho divergente|Foi solicitado uma autorização com autenticação externa, porém o campo XID possue um tamanho divergente.|Revisar as informações enviadas na mensagem XML frente às especificações.|
+|89|ECI com tamanho divergente|Foi solicitado uma autorização com autenticação externa, porém o campo ECI possue um tamanho divergente.|Revisar as informações enviadas na mensagem XML frente às especificações.|
+|90|ECI inválido|Foi solicitado uma autorização com autenticação externa, porém o campo ECI possue um valor inválido.|Revisar as informações enviadas na mensagem XML frente às especificações.|
+|95|Erro interno de autenticação|Falha no sistema|Persistindo, entrar em contato com o Suporte e informar o TID da transação.|
+|97|Sistema indisponível|Falha no sistema|Persistindo, entrar em contato com o Suporte.|
+|98|Timeout|A aplicação não respondeu dentro do tempo esperado.|Consultar a transação e avaliar o status antes de submeter a transação. Persistindo, entrar em contato com o Suporte.|
+|99|Erro inesperado|Falha no sistema|Persistindo, entrar em contato com o Suporte e informar o TID da transação.|
+
+## Status das transações
+
+|Status|Código|
+|---|---|
+|Transação Criada|0|
+|Transação em Andamento|1|
+|Transação Autenticada|2|
+|Transação não Autenticada|3|
+|Transação Autorizada|4|
+|Transação não Autorizada|5|
+|Transação Capturada|6|
+|Transação Cancelada|9|
+|Transação em Autenticação|10|
+|Transação em Cancelamento|12|
+
+## ECI
+
+|Resultado da Autenticação|Visa|Mastercard|Aura|Demais|
+|---|---|---|---|---|
+|Portador autenticado com sucesso.|5|2|n/d|n/d|
+|Portador não fez autenticação, pois o emissor não forneceu mecanismos de autenticação.|6|1|n/d|n/d|
+|Portador não se autenticou com sucesso, pois ocorreu um erro técnico inesperado.|7|1|n/d|n/d|
+|Portador não se autenticou com sucesso.|7|0|n/d|n/d|
+|A loja optou por autorizar sem passar pela autenticação.|7|0|0|7|
+
+# Operações e configurações
+
+## Criação da Transação de Autorização
+
+A requisição de autorização é a principal operação do Cielo eCommerce, pois é através dela que uma venda pode ser concretizada e finalizar o processo de venda. A autorização possui uma série de configurações que podem ser customizadas, além de funcionalidades que agregam valor ao lojista e seus consumidores.
+
+<aside class="notice">Para os códigos de resposta da autorização consulte o Catálogo de Códigos de Resposta da Autorização (LR)</aside>
+
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="{{ site.baseurl }}/attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
+
+## Autorização Direta
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1">
+  <dados-ec>
+    <numero>1006993069</numero>
+    <chave>25fbb997438630f30b112d033ce2e621b34f3</chave>
+  </dados-ec>
+  <dados-portador>
+    <numero>4012001038443335</numero>
+    <validade>201508</validade>
+    <indicador>1</indicador>
+    <codigo-seguranca>973</codigo-seguranca>
+  </dados-portador>
+  <dados-pedido>
+    <!-- ... -->
+  </dados-pedido>
+  <forma-pagamento>
+    <bandeira>visa</bandeira>
+    <produto>1</produto>
+    <parcelas>1</parcelas>
+  </forma-pagamento>
+  <url-retorno>http://localhost/lojaexemplo/retorno.jsp</url-retorno>
+  <autorizar>3</autorizar>
+  <capturar>false</capturar>
+</requisicao-transacao>
+```
+
+A autorização direta caracteriza-se por ser uma transação onde não há a autenticação do portador, seja por opção (e risco) do lojista, seja porque a bandeira ou emissor não tem suporte. A autorização direta pode ser feita de duas formas: tradicional (com os dados do cartão) ou através de um token.
+
+### Tradicional
+
+* **Objetivo** - Submeter uma transação direta com o uso de um cartão de crédito.
+* **Regras**
+  * O cadastro da loja virtual deve estar habilitado para envio dos dados do cartão.
+  * Enviar a TAG `<autorizar>` com o valor “3”.
+  * Somente válido para Crédito.
+  * O lojista deve estar atento às regras para envio do cartão.
+  * Na autorização direta, o nível de segurança da transação (ECI) é definido como:
+    * “7” para Visa, Diners, Discover, Elo e JCB.
+    * “0” para Mastercard, Aura e Hipercard.
+
+## Autorização Recorrente
+
+``` XML
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1">
+  <dados-ec>
+    <numero>1006993069</numero>
+    <chave>25fbb997438630f30b112d033ce2e621b34f3</chave>
+  </dados-ec>
+  <dados-portador>
+    <numero>4012001038443335</numero>
+    <validade>201508</validade>
+    <indicador>1</indicador>
+    <codigo-seguranca>973</codigo-seguranca>
+  </dados-portador>
+  <dados-pedido>
+    <!-- ... -->
+  </dados-pedido>
+  <forma-pagamento>
+    <bandeira>visa</bandeira>
+    <produto>1</produto>
+    <parcelas>1</parcelas>
+  </forma-pagamento>
+  <url-retorno>http://localhost/lojaexemplo/retorno.jsp</url-retorno>
+  <autorizar>4</autorizar>
+  <capturar>false</capturar>
+</requisicao-transacao>
+```
+
+A autorização recorrente pode ser feita de duas formas: através do envio de um token previamente cadastrado, ou através de um cartão. A transação recorrente é praticamente igual à transação tradicional, as mudanças consistem nas regras que o emissor e a bandeira utilizam para autorizar ou negar uma transação. Outra diferença está relacionada ao Renova Fácil.
+
+<aside class="notice">Para saber se sua loja é elegível a utilizar a autorização recorrente, consulte nossa central de relacionamento ou o Suporte Web Cielo eCommerce.</aside>
+
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="{{ site.baseurl }}/attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
+
+### Autorização recorrente com Cartão
+
+* **Objetivo** - Submeter uma transação recorrente com o uso de um cartão de crédito.
+* **Regras**
+  * Enviar a TAG `<autorizar>` com o valor “4”.
+  * Somente válido para crédito à vista.
+
+### Renova Fácil
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<transacao xmlns="http://ecommerce.cbmp.com.br" versao="1.2.1" id="d35b67189442">
+  <tid>10069930690362461001</tid>
+  <pan>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=</pan>
+  <dados-pedido>
+    <!-- ... -->
+  </dados-pedido>
+  <forma-pagamento>
+    <!-- ... -->
+  </forma-pagamento>
+  <status>5</status>
+  <!-- ... -->
+  <autorizacao>
+    <codigo>5</codigo>
+    <mensagem>Autorização negada</mensagem>
+    <data-hora>2011-12-09T10:58:45.847-02:00</data-hora>
+    <valor>1000</valor>
+    <lr>57</lr>
+    <nsu>221766</nsu>
+  </autorizacao>
+  <dados-portador>
+    <numero>4012001038443335</numero>
+    <validade>201508</validade>
+  </dados-portador>
+</transacao>
+```
+
+Essa funcionalidade facilita a identificação de um cartão que tenha sido substituído por outro no banco emissor. Dessa forma, quando uma transação recorrente é submetida ao Web Service e a Cielo identifica que o cartão utilizado está desatualizado, o sistema terá o seguinte comportamento:
+
+1. Caso a transação recorrente tenha sido enviada através de um cartão, sua autorização será negada e serão retornados os dados do novo cartão, conforme o diagrama abaixo:
+
+![remova fácil]({{ site.baseurl_root }}/images/remova-facil.png)
+
+<aside class="notice">O Renova Fácil só está disponível para transações recorrentes. A efetividade do Renova Fácil depende do uso correto das transações recorrentes devidamente sinalizadas como tal. Consulte os bancos e bandeiras participantes com o Suporte Web Cielo eCommerce.</aside>
+
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="{{ site.baseurl }}/attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
+
+### Autorização de uma transação previamente gerada
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<requisicao-autorizacao-tid id="a387cb68-b33a-4113-b7c4-9b7dfde871ec" versao="1.3.0">
+    <tid>100699306908642E1001</tid>
+    <dados-ec>
+        <numero>1006993069</numero>
+        <chave>25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3</chave>
+    </dados-ec>
+</requisicao-autorizacao-tid>
+```
+
+Para os estabelecimentos utilizando o processo de autenticação, é possível solicitar a autorização
+das transações que pararam após a execução deste processo. A mensagem para performar tal operação
+é a “requisicao-autorizacao-tid” como descrita abaixo:
+
+<aside class="notice">Requisições para transações que não foram submetidas ao processo de autenticação ou foram interrompidas, pois o portador errou a senha não serão aceitas.</aside>
+
+<aside class="notice">Todas as mensagens devem estar formatadas corretamente segundo especificado no <a href="{{ site.baseurl }}/attachment/ecommerce.xsd">XML Schema eCommerce.xsd</a></aside>
+
+|Elemento|Tipo|Obrigatório|Tamanho|Descrição|
+|---|---|---|---|---|
+|tid|Alfanumérico|Sim|20|Identificador da transação|
+|dados-ec.numero|Numérico|Sim|1..20|Número de afiliação da loja com a Cielo.|
+|dados-ec.chave|Alfanumérico|Sim|1..100|Chave de acesso da loja atribuída pela Cielo.|
+
+## Transação com Token
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<requisicao-token id="8fc889c7-004f-42f1-963a-31aa26f75e5c" versao="1.2.1">
+  <dados-ec>
+    <numero>1006993069</numero>
+    <chave>25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3</chave>
+  </dados-ec>
+  <dados-portador>
+    <numero>4012001038443335</numero>
+    <validade>201508</validade>
+    <nome-portador>FULANO DA SILVA</nome-portador>
+  </dados-portador>
+</requisicao-token>
+```
+
+* **Objetivo** - Solicitar a criação de um token associada a um cartão de crédito, para viabilizar o envio de transações sem o cartão.
+* **Regras**
+  * O Token é único para um determinado [Cartão + Estabelecimento Comercial]. Dessa forma, um cartão pode estar “tokenizado” em mais de uma loja e em cada uma possuirá códigos diferentes.
+  * Caso seja enviada mais de uma solicitação com os mesmos dados, o token retornado será sempre o mesmo.
+  * A criação do token é independente do resultado da autorização (aprovada/negada).
+
+<aside class="warning">A transação feita via token não isenta o lojista do envio da informação de bandeira, portanto é necessário que o sistema do lojista (ou gateway) que armazenará os tokens também armazene a bandeira do cartão que foi tokenizado.</aside>
+
+<aside class="notice">Um token não utilizado por mais de um ano será automaticamente removido do banco de dados da Cielo. É possível realizar o bloqueio de um token específico para que este não seja mais usado. O bloqueio do token deve ser solicitado ao Suporte Web Cielo eCommerce.</aside>
+
+|Elemento|Tipo|Obrigatório|Tamanho|Descrição|
+|---|---|---|---|---|
+|dados-ec.numero|Numérico|Sim|1..20|Número de afiliação da loja com a Cielo.|
+|dados-ec.chave|Alfanumérico|Sim|1..100|Chave de acesso da loja atribuída pela Cielo.|
+|daods-portador|n/a|Opcional|n/a|Nó com os dados do cartão.|
+|dados-portador.numero|Numérico|Sim|19|Número do cartão|
+|dados-portador.validade|Numérico|Sim|6|Validade do cartão no formato aaaamm. Exemplo: 201212 (dez/2012).|
+|dados-portador.nome-portador|Alfanumérico|Opcional|0..50|Nome impresso no cartão|
+
+### Retorno
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<retorno-token xmlns="http://ecommerce.cbmp.com.br" versao="1.2.1" id="57239017">
+  <token>
+    <dados-token>
+      <codigo-token>TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=</codigo-token>
+      <status>1</status>
+      <numero-cartao-truncado>455187******0183</numero-cartao-truncado>
+    </dados-token>
+  </token>
+</retorno-token>
+```
+
+O retorno será do tipo <retorno-token> quando a solicitação tenha sido concluída com sucesso, ou <erro> em caso de fracasso.
+
+|Elemento|Tipo|Tamanho|Descrição|
+|---|---|---|---|
+|codigo-token|Alfanumérico|100|Código do token gerado|
+|status|Numérico|1|Status do Token: **0** – Bloqueado, **1** – Desbloqueado|
+|numero-cartao-truncado|Alfanumérico|1..16|Número do cartão truncado.|
+
+### Autorização Direta via Token
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1">
+  <dados-ec>
+    <numero>1006993069</numero>
+    <chave>25fbb997438630f30b112d033ce2e621b34f3</chave>
+  </dados-ec>
+  <dados-portador>
+    <token>TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=</token>
+  </dados-portador>
+  <dados-pedido>
+    <!-- ... -->
+  </dados-pedido>
+  <forma-pagamento>
+    <bandeira>visa</bandeira>
+    <produto>1</produto>
+    <parcelas>1</parcelas>
+  </forma-pagamento>
+  <url-retorno>http://localhost/lojaexemplo/retorno.jsp</url-retorno>
+  <autorizar>3</autorizar>
+  <capturar>true</capturar>
+</requisicao-transacao>
+```
+
+* **Objetico** - Submeter uma transação direta (sem autenticação) com o uso de um token previamente cadastrado
+* **Regras**
+  * Enviar a TAG `<autorizar>` com o valor “3”.
+  * O token deve estar desbloqueado.
+  * Válido somente para crédito.
+
+### Autorização recorrente com Token
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1">
+  <dados-ec>
+    <numero>1006993069</numero>
+    <chave>25fbb997438630f30b112d033ce2e621b34f3</chave>
+  </dados-ec>
+  <dados-portador>
+    <token>TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=</token>
+  </dados-portador>
+  <dados-pedido>
+    <!-- ... -->
+  </dados-pedido>
+  <forma-pagamento>
+    <bandeira>visa</bandeira>
+    <produto>1</produto>
+    <parcelas>1</parcelas>
+  </forma-pagamento>
+  <url-retorno>http://localhost/lojaexemplo/retorno.jsp</url-retorno>
+  <autorizar>4</autorizar>
+  <capturar>true</capturar>
+</requisicao-transacao>
+
+```
+
+* **Objetivo** - Submeter uma transação recorrente com o uso de um token previamente cadastrado.
+* **Regras**
+  * Enviar a TAG `<autorizar>` com o valor “4”.
+  * O token deve estar desbloqueado.
+  * Somente válido para crédito à vista.
+
+### Renova Fácil com Token
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<transacao xmlns="http://ecommerce.cbmp.com.br" versao="1.2.1" id="d35b67189442">
+  <tid>10069930690362461001</tid>
+  <pan>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=</pan>
+  <dados-pedido>
+    <!-- ... -->
+  </dados-pedido>
+  <forma-pagamento>
+    <!-- ... -->
+  </forma-pagamento>
+  <status>5</status>
+  <!-- ... -->
+  <autorizacao>
+    <codigo>5</codigo>
+    <mensagem>Autorização negada</mensagem>
+    <data-hora>2011-12-09T10:58:45.847-02:00</data-hora>
+    <valor>1000</valor>
+    <lr>57</lr>
+    <nsu>221766</nsu>
+  </autorizacao>
+  <token>
+    <dados-token>
+      <codigo-token>TuS6LeBHWjqFFtE7S3zR052Jl/KUlD+tYJFpAdlA87E=</codigo-token>
+      <status>1</status>
+      <numero-cartao-truncado>455187******0183</numero-cartao-truncado>
+    </dados-token>
+  </token>
+</transacao>
+```
+
+Essa funcionalidade facilita a identificação de um cartão que tenha sido substituído por outro no banco emissor. Dessa forma, quando uma transação recorrente é submetida ao Web Service e a Cielo identifica que o cartão utilizado está desatualizado, o sistema terá o seguinte comportamento:
+
+1. Caso a transação recorrente tenha sido enviada através de um token, sua autorização será negada e será retornado um novo token para ser utilizado, conforme o diagrama abaixo:
+
+![remova fácil com token]({{ site.baseurl_root }}/images/remova-facil-token.png)
+
+### Geração de Token
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.0">
+  <!-- ... -->
+  <gerar-token>true</gerar-token>
+</requisicao-transacao>
+```
+
+<aside class="warning">este serviço adicional está sujeito a cobrança a partir do momento em que a geração de token é solicitada.</aside>
+
+* **Objetivo** - Além da mensagem específica para criação de um token, descrita em Transação com Token, é possível aproveitar uma requisição de autorização para solicitar a geração do token, acrescentando a informação `<gerar-token>` no nó de requisição de transação.
+* **Regras**
+  * Caso um cartão seja submetido mais de uma vez pelo mesmo lojista, o Token gerado será sempre o mesmo.
+
+### Credencial Armazenado - Card On File
+
+O portador do cartão poderá permitir que os dados de seu cartão, sejam armazenados de forma segura, para transações futuras no Estabelecimento Comercial.
+
+Abaixo seguem as situações para identificar se é a primeira transação ou subsequente, através da TAG primeira transação:
+
+* **Situação 1:** - **HÁ** armazenamento de dados do cartão e **É** primeira transação.
+
+``` xml
+<credencial-armazenada>
+  <primeira-transacao>S</primeira-transacao>
+</credencial-armazenada>
+```
+
+* **Situação 2:** - **HÁ** armazenamento de dados do cartão e **NÃO É** primeira transação.
+
+``` xml
+<credencial-armazenada>
+  <primeira-transacao>N</primeira-transacao>
+</credencial-armazenada>
+```
+
+* **Situação 3:** - **NÃO HÁ** armazenamento de dados do cartão, o estabelecimento simplesmente não envia esta tag. 
+
+#### Requisição
+
+``` xml
+<?xml version="1.0"?>
+<requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
+  <dados-ec>
+    <numero>2000019700</numero>
+    <chave>65d156641f765861451c7c1270a4c09a617863b031b2e4b0c4a09cd390783c82</chave>
+  </dados-ec>
+  <dados-portador>
+    <numero>4096031111110011</numero>
+    <validade>201712</validade>
+    <indicador>1</indicador>
+    <codigo-seguranca>123</codigo-seguranca>
+    <nome-portador>TESTE CUCUMBER</nome-portador>
+  </dados-portador>
+  <dados-pedido>
+    <numero>77115</numero>
+    <valor>315000</valor>
+    <moeda>986</moeda>
+    <data-hora>2016-02-16T13:45:05</data-hora>
+    <descricao>Compra Online</descricao>
+    <idioma>PT</idioma>
+    <soft-descriptor>soft cucumber</soft-descriptor>
+  </dados-pedido>
+  <forma-pagamento>
+    <bandeira>visa</bandeira>
+    <produto>1</produto>
+    <parcelas>1</parcelas>
+  </forma-pagamento>
+  <url-retorno>http://www.cielo.com.br</url-retorno>
+  <autorizar>3</autorizar>
+  <capturar>false</capturar>
+  <credencial-armazenada>
+    <primeira-transacao>S</primeira-transacao>
+  </credencial-armazenada>
+  <gerar-token>false</gerar-token>
+</requisicao-transacao>
+```
+
+|Elemento|Tipo|Obrigatório|Tamanho|Descrição|
+|---|---|---|---|---|
+|dados-ec.numero|Numérico|Sim|1..20|Número da afiliação da loja com a Cielo.|
+|dados-ec.chave|Alfanumérico|Sim|1..100|Chave de acesso da loja atribuída pela Cielo.|
+|dados-portador.numero|Numérico|Sim|19|Número do cartão.|
+|dados-portador.validade|Numérico|Sim|1|Validade do cartão no formato aaaamm. Exemplo: 201212 (dez/2012).|
+|dados-portador.indicador|Numérico|Sim|1|Indicador sobre o envio do Código de segurança: 0 – não informado, 1 – informado, 2 – ilegível, 9 – inexistente|
+|dados-portador.codigo-seguranca|Numérico|Condiciona|3..4|Obrigatório se o indicador for 1|
+|dados-portador.nome-portador|Alfanumérico|Opcional|0..100|Nome como impresso no cartão|
+|dados-pedido.numero|Alfanumérico|Sim|1..20|Número do pedido da loja. Recomenda-se que seja um valor único por pedido.|
+|dados-pedido.valor|Numérico|Sim|1..12|Valor a ser cobrado pelo pedido (já deve incluir valores de frete, embrulho, custos extras, taxa de embarque, etc). Esse valor é o que será debitado do consumidor.|
+|dados-pedido.moeda|Numérico|Sim|3|Código numérico da moeda na norma ISO 4217. Para o Real, o código é 986.|
+|dados-pedido.data-hora|Alfanumérico|Sim|19|Data hora do pedido. Formato: aaaa-MM-ddTHH24:mm:ss|
+|dados-pedido.descricao|Alfanumérico|Opcional|0..1024|Descrição do pedido|
+|dados-pedido.idioma|Alfanumérico|Opcional|2|Idioma do pedido: PT (português), EN (inglês) ou ES (espanhol). Com base nessa informação é definida a língua a ser utilizada nas telas da Cielo. Caso não seja enviado, o sistema assumirá “PT”.|
+|dados-pedido.soft-descriptor|Alfanumérico|Opcional|0..13|Texto de até 13 caracteres que será exibido na fatura do portador, após o nome do Estabelecimento Comercial.|
+|forma-pagamento.bandeira|Alfanumérico|Sim|n/a|Nome da bandeira (minúsculo): “visa”, “mastercard”, “diners”, “discover”, “elo”, “amex”, “jcb”, “aura”, “hipercard”|
+|forma-pagamento.produto|Alfanumérico|Sim|1|Código do produto: 1 – Crédito à Vista, 2 – Parcelado loja, A – Débito.|
+|forma-pagamento.parcelas|Numérico|Sim|1..2|Número de parcelas. Para crédito à vista ou débito, utilizar 1.|
+|url-retorno|Alfanumérico|Sim|1..1024|URL da página de retorno. É para essa página que a Cielo vai direcionar o browser ao fim da autenticação ou da autorização. Não é obrigatório apenas para autorização direta, porém o campo dever ser inserido como null.|
+|autorizar|Alfanumérico|Sim|1|Define se o tipo de autorização da transação e a autenticação.<br>0 - Nao autorizar<br>1 - Autorizar somente se autenticada<br>2 - Autorizar nao-autenticada e autenticada<br>3 - Somente autorizar (nao realizar autenticacao)<br>4 - autorizacao recorrente|
+|capturar|Boolean|Sim|n/a|true ou false. Define se a transação será automaticamente capturada caso seja autorizada.|
+|credencial-armazenada.primeira-transacao|Alfanumérico|Opcional|1|Dados do cartão do portador armazenado.<br>Define se é a primeira transação (S) ou transação subsequente (N).|
+|gerar-token|Boolean|Opcional|n/a|true ou false. Define se a transação atual deve gerar um token associado ao cartão.|
+
+#### Resposta
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0" xmlns="http://ecommerce.cbmp.com.br">
+  <tid>20000197008CTDEP7DHC</tid>
+  <pan>iwcdiV9SLhtb/dsQNXRHT426+tgjcLtMzchw5YggfP8=</pan>
+  <dados-pedido>
+    <numero>77115</numero>
+    <valor>315000</valor>
+    <moeda>986</moeda>
+    <data-hora>2016-02-16T13:45:05</data-hora>
+    <descricao>Compra Online</descricao>
+    <idioma>PT</idioma>
+  </dados-pedido>
+  <forma-pagamento>
+    <bandeira>elo</bandeira>
+    <produto>A</produto>
+    <parcelas>1</parcelas>
+  </forma-pagamento>
+  <status>6</status>
+  <autenticacao>
+    <codigo>6</codigo>
+    <mensagem>Autenticada com sucesso</mensagem>
+    <data-hora>2019-08-28T13:45:43.959-03:00</data-hora>
+    <valor>315000</valor>
+    <eci>5</eci>
+  </autenticacao>
+  <autorizacao>
+    <codigo>6</codigo>
+    <mensagem>Transacao autorizada</mensagem>
+    <data-hora>2019-08-28T13:45:43.959-03:00</data-hora>
+    <valor>315000</valor>
+    <lr>00</lr>
+    <arp>882114</arp>
+    <nsu>248001</nsu>
+  </autorizacao>
+  <captura>
+    <codigo>6</codigo>
+    <mensagem>Transacao capturada com sucesso</mensagem>
+    <data-hora>2019-08-28T13:45:43.959-03:00</data-hora>
+    <valor>315000</valor>
+  </captura>
+</transacao>
+```
+
+|Elemento|Tipo|Obrigatório|Tamanho|Descrição|
+|---|---|---|---|---|
+|tid|Alfanumérico|Sim|1..40|Identificador da transação.|
+|pan|Alfanumérico|Sim|n/a|
+|dados-pedido.numero|Alfanumérico|Sim|1..20|Número do pedido da loja. Recomenda-se que seja um valor único por pedido.|
+|dados-pedido.valor|Numérico|Sim|1..12|Valor a ser cobrado pelo pedido (já deve incluir valoresde frete, embrulho, custos extras, taxa de embarque, etc). Esse valor é o que será debitado do consumidor.|
+|dados-pedido.moeda|Numérico|Sim|3|Código numérico da moeda na norma ISO 4217. Para o Real, o código é 986.|
+|dados-pedido.data-hora|Alfanumérico|Sim|19|Data hora do pedido. Formato: aaaa-MM-ddTHH24:mm:ss|
+|dados-pedido.descricao|Alfanumérico|Opcional|0..1024|Descrição do pedido|
+|dados-pedido.idioma|Alfanumérico|Opcional|2|Idioma do pedido: PT (português), EN (inglês) ou ES (espanhol). Com base nessa informação é definida a língua a ser utilizada nas telas da Cielo. Caso não seja enviado, o sistema assumirá “PT”.|
+|forma-pagamento.bandeira|Alfanumérico|Sim|n/a|Nome da bandeira (minúsculo): “visa”, “mastercard”, “diners”, “discover”, “elo”, “amex”, “jcb”, “aura”, “hipercard”|
+|forma-pagamento.produto|Alfanumérico|Sim|1|Código do produto: 1 – Crédito à Vista, 2 – Parcelado loja, A – Débito.|
+|forma-pagamento.parcelas|Numérico|Sim|1..2|Número de parcelas. Para crédito à vista ou débito, utilizar 1.|
+|autenticacao.codigo|Numérico|Sim|1.2|Código do processamento|
+|autenticacao.mensagem|Alfanumérico|Sim|1..100|Mensagem com a resposta sobre o processamento da transação.|
+|autenticacao.data-hora|Alfanumérico|Sim|19|Data e hora do processamento|
+|autenticacao.valor|Numérico|Sim|1..12|Valor do processamento sem pontuação. Os dois últimos dígitos são os centavos.|
+|autenticacao.eci|Numérico|Sim|2|Nível de segurança.|
+|autorizacao.codigo|Numérico|Sim|1.2|Código do processamento|
+|autorizacao.mensagem|Alfanumérico|Sim|n/a|Mensagem com a resposta sobre o processamento da transação.|
+|autorizacao.data-hora|Alfanumérico|Sim|19|Data e hora do processamento|
+|autorizacao.valor|Numérico|Sim|1..12|Valor do processamento sem pontuação. Os dois últimos dígitos são os centavos.|
+|autorizacao.lr|Alfanumérico|Sim|4|Código da Literal da Autorização.|
+|autorizacao.arp|Alfanumérico|Sim|6|ARP da Autorização.|
+|autorizacao.nsu|Alfanumérico|Sim|6|NSU da Autorização|
+|captura.codigo|Numérico|Sim|1.2|Código do processamento|
+|captura.mensagem|Alfanumérico|Sim|n/a|Mensagem com a resposta sobre o processamento da transação.|
+|captura.data-hora|Alfanumérico|Sim|19|Data e hora do processamento|
+|captura.valor|Numérico|Sim|1..12|Valor do processamento sem pontuação. Os dois últimos dígitos são os centavos.|
+
+### Tokenização de Bandeira
+
+Clientes que fazem tokenização do cartão junto com as bandeiras poderão enviar as informações para a Cielo no fluxo transacional.
+
+#### Requisição
+
+``` xml
+<?xml version="1.0"?>
+<requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
+    <dados-ec>
+        <numero>2000019700</numero>
+        <chave>65d156641f765861451c7c1270a4c09a617863b031b2e4b0c4a09cd390783c82</chave>
+    </dados-ec>
+    <dados-portador>
+        <numero>4084359300407900</numero>
+        <validade>201712</validade>
+        <indicador>1</indicador>
+        <codigo-seguranca>123</codigo-seguranca>
+        <nome-portador>TESTE CUCUMBER</nome-portador>
+        <token/>
+        <carteira>
+            <tipo>MERCHANT</tipo>
+            <codigo-captura/>
+            <cavv>A901234A5678A0123A567A90120=</cavv>
+            <eci>4</eci>
+        </carteira>
+    </dados-portador>
+    <dados-pedido>
+        <numero>86785</numero>
+        <valor>315000</valor>
+        <moeda>986</moeda>
+        <data-hora>2016-02-16T13:45:05</data-hora>
+        <descricao>Compra Online</descricao>
+        <idioma>PT</idioma>
+        <soft-descriptor>soft cucumber</soft-descriptor>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>visa</bandeira>
+        <produto>1</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <url-retorno>http://www.cielo.com.br</url-retorno>
+    <autorizar>3</autorizar>
+    <capturar>false</capturar>
+    <gerar-token>false</gerar-token>
+    <avs>
+        <![CDATA[<dados-avs><endereco>Rua Credito</endereco><complemento>Apto 504</complemento><numero>745</numero><bairro>Vila Cucumber</bairro><cep>13040-144</cep><cpf>30652698501</cpf></dados-avs>]]>
+    </avs>
+</requisicao-transacao>
+```
+
+|Propriedade|Tipo|Tamanho|
+|---|---|---|
+|carteira.eci|Numérico|1|
+|carteira.cavv|Alfanumérico|29|
+|carteira.tipo|Fixo||
+
+#### Resposta
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0" xmlns="http://ecommerce.cbmp.com.br">
+    <tid>2000019700008C730BOC</tid>
+    <pan>Ma7WOe2ciLGucTokmn5mX2mkpeVJGkqVTavqR42Pm5k=</pan>
+    <dados-pedido>
+        <numero>86785</numero>
+        <valor>315000</valor>
+        <moeda>986</moeda>
+        <data-hora>2016-02-16T13:45:05</data-hora>
+        <descricao>Compra Online</descricao>
+        <idioma>PT</idioma>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>visa</bandeira>
+        <produto>1</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <status>4</status>
+    <autenticacao>
+        <codigo>4</codigo>
+        <mensagem>Nao autenticada</mensagem>
+        <data-hora>2020-01-09T11:28:39.732-03:00</data-hora>
+        <valor>315000</valor>
+        <eci>4</eci>
+    </autenticacao>
+    <autorizacao>
+        <codigo>4</codigo>
+        <mensagem>Transacao autorizada</mensagem>
+        <data-hora>2020-01-09T11:28:39.732-03:00</data-hora>
+        <valor>315000</valor>
+        <lr>00</lr>
+        <arp>144716</arp>
+        <nsu>549201</nsu>
+        <codigo-avs-cep>C</codigo-avs-cep>
+        <mensagem-avs-cep>Confere</mensagem-avs-cep>
+        <codigo-avs-end>C</codigo-avs-end>
+        <mensagem-avs-end>Confere</mensagem-avs-end>
+    </autorizacao>
+</transacao>
+```
+
+## Funcionalidades Agregadas
+
+### Autenticação e Transações com Cartões de Débito
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1">
+  <!-- ... -->
+  <forma-pagamento>
+    <bandeira>visa</bandeira>
+    <produto>A</produto>
+    <parcelas>1</parcelas>
+  </forma-pagamento>
+  <!-- ... -->
+  <autorizar>1</autorizar>
+</requisicao-transacao>
+```
+
+A autenticação da transação garantirá uma segurança extra ao lojista contra Chargebacks, porém, conforme apresentando no capítulo “2.5 – Autenticação e nível de segurança”, nem todas as bandeiras e emissores disponibilizam esse tipo de serviço.
+
+O produto débito obrigatoriamente exige uma transação autenticada, caso contrário, a transação não é autorizada.
+
+* **Objetivo** - Tornar elegível uma transação para autenticação.
+* **Regras**
+  * Enviar a flag <autorizar> de acordo com o domínio abaixo, para tentar:
+    * 0 – Somente autenticar a transação.
+    * 1 – Submeter à autorização somente se a transação for autenticada.
+    * 2 – Submeter à autorização se a transação for autenticada ou não.
+  * Para débito, enviar o produto “A” no XML.
+  * A solicitação da autorização de uma transação que foi somente autenticada pode ser feita em até 90 dias após a data inicial.
+
+<aside class="notice">Tendo em vista que a autenticação não depende exclusivamente desta flag, recomendamos sempre verificar o campo eci para verificar o resultado da autenticação.</aside>
+
+### Permite que o lojista envie um texto (Soft Descriptor)
+
+``` xml
+<requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1">
+  <!-- ... -->
+  <dados-pedido>
+    <numero>178148599</numero>
+    <valor>1000</valor>
+    <moeda>986</moeda>
+    <data-hora>2011-12-07T11:43:37</data-hora>
+    <descricao>[origem:10.50.54.156]</descricao>
+    <idioma>PT</idioma>
+    <soft-descriptor>soft-descriptor</soft-descriptor>
+  </dados-pedido>
+  <!-- ... -->
+</requisicao-transacao>
+```
+
+* **Objetivo** - Permite que o lojista envie um texto de até 13 caracteres que será impresso na fatura do portador, ao lado da identificação da loja, respeitando o comprimento das bandeiras:
+  * **Visa**: 25 caracteres
+  * **Mastercard**: 22 caracteres
+* **Regras**
+  * Tamanho máximo: 13 caracteres.
+  * Disponível apenas para as bandeiras Visa e MasterCard.
+  * Uso exclusivo de caracteres simples.
+
+<aside class="notice">Para conhecer e/ou alterar o nome da loja que será impresso na fatura do portador entre em contato com nossa central de relacionamento</aside>
+
+### Captura Automática
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1">
+  <!-- ... -->
+  <capturar>true</capturar>
+  <!-- ... -->
+</requisicao-transacao>
+```
+
+* **Objetivo** - A captura automática permite que uma requisição de autorização seja capturada imediatamente após sua aprovação. Dessa forma, não é preciso realizar uma `<requisicao-captura>`.
+* **Regras**
+  * Somente autorizações aprovadas serão capturadas automaticamente.
+
+### Taxa de embarque
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1">
+  <!-- ... -->
+  <dados-pedido>
+    <numero>178148599</numero>
+    <valor>10000</valor>
+    <moeda>986</moeda>
+    <data-hora>2011-12-07T11:43:37</data-hora>
+    <descricao>[origem:10.50.54.156]</descricao>
+    <idioma>PT</idioma>
+    <taxa-embarque>1000</taxa-embarque>
+    <soft-descriptor>softdescriptor</soft-descriptor>
+  </dados-pedido>
+  <!-- ... -->
+</requisicao-transacao>
+```
+
+* **Objetivo** A taxa de embarque é um campo informativo que define o montante do total da transação (informado na tag dados-pedido//valor) que deve ser destinado ao pagamento da taxa à Infraero.
+  * O valor da taxa de embarque não é acumulado ao valor da autorização. Por exemplo, em uma venda de passagem aérea de R$ 200,00 com taxa de embarque de R$ 25,00 deve-se enviar o campo `<valor>22500</valor>` e `<taxa-embarque>2500</taxa-embarque>`.
+* **Regras**
+  * Disponível apenas para as bandeiras Visa e Mastercard.
+  * O valor da taxa de embarque não é somado ao valor da autorização, ou seja, é apenas informativo.
+
+<aside class="notice">Existem regras específicas para a requisição de captura com taxa de embarque, disponíveis no item Captura Total e Parcial.</aside>
+
+### AVS (Address Verification Service)
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<requisicao-transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1">
+  <!-- ... -->
+  <dados-pedido>
+    <numero>178148599</numero>
+    <valor>10000</valor>
+    <moeda>986</moeda>
+    <data-hora>2011-12-07T11:43:37</data-hora>
+    <descricao>[origem:10.50.54.156]</descricao>
+    <idioma>PT</idioma>
+    <taxa-embarque>1000</taxa-embarque>
+    <soft-descriptor>softdescriptor</soft-descriptor>
+    <avs>
+  <![CDATA[
+      <dados-avs>
+        <endereco>Rua Teste AVS</endereco>
+        <complemento>Casa</complemento>
+        <numero>123</numero>
+        <bairro>Vila AVS</bairro>
+        <cep>12345-123</cep>
+        <dados-avs>11111111111</dados-avs>
+      </dados-avs>
+  ]]>
+    </avs>
+  </dados-pedido>
+  <!-- ... -->
+</requisicao-transacao>
+```
+
+* **Objetivo** - O AVS é um serviço para transações de cartão não presente onde é realizada uma validação cadastral através do batimento dos dados numéricos do endereço informado pelo portador (endereço de entrega da fatura) na loja virtual, com os dados cadastrais do emissor.
+  * O AVS é um serviço que auxilia na redução do risco de não reconhecimento de compras online. É uma ferramenta que o estabelecimento utilizará para a análise de suas vendas, antes de decidir pela captura da transação e a entrega do produto ou serviço.
+* **Regras**
+  * Disponível apenas para as bandeiras Visa, Mastercard e AmEx.
+  * Produtos permitidos: somente crédito.
+  * O retorno da consulta ao AVS é separado em dois itens: CEP e endereço.
+  * Cada um deles pode ter os seguintes valores:
+    * C – Confere;
+    * N – Não confere;
+    * I – Indisponível;
+    * T – Temporariamente indisponível;
+    * X – Serviço não suportado para esta Bandeira.
+    * E - Dados enviados incorretos. Verificar se todos os campos foram enviados
+  * O nó contendo o XML do AVS deve estar encapsulado pelo termo “CDATA”, para evitar problemas com o parser da requisição.
+  * É necessário que todos os campos contidos no nó AVS sejam preenchidos.
+  * Quando o campo não for aplicável (exemplo: complemento), a tag deve ser enviada preenchia com NULL ou N/A
+  * Necessário habilitar a opção do AVS no cadastro. Para habilitar a opção AVS no cadastro ou consultar os bancos participantes, entre em contato com o Suporte Web Cielo eCommerce.
+
+<aside class="warning">Conforme contrato, este serviço adicional está sujeito a cobrança a partir do momento em que a consulta de AVS for solicitada. Para maiores informações, favor entrar em contato com a central de atendimento, seu gerente de contas ou o Suporte Web Cielo eCommerce.</aside>
+
+## Consulta
+
+A operação de consulta é essencial na integração, pois ela que garantirá a situação atual de uma transação. Ela deve ser executada ao término do processo de autorização, no momento em que a Loja Virtual recebe o fluxo de execução na URL informada na primeira requisição (através da TAG <url-retorno>). O E-commerce pode levar até 25 segundos para processar completamente uma transação.
+
+### Consulta por TID
+
+* **Objetivo** - Realizar a consulta de uma transação através do TID informado.
+* **Regras**
+  * Somente transações dos últimos 365 dias estão disponíveis.
+  * Não há mudança de status da transação.
+
+#### Requisição
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<requisicao-consulta id="6fcf758e-bc60-4d6a-acf4-496593a40441" versao="1.2.1">
+  <tid>100699306903609A1001</tid>
+  <dados-ec>
+    <numero>1006993069</numero>
+    <chave>25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3
+    </chave>
+  </dados-ec>
+</requisicao-consulta>
+```
+
+|TAG|Tipo|Obrig.|Tam.|Descrição|
+|---|---|---|---|---|
+|dados-ec.numero|Numérico|Sim|1..20|Número de afiliação da loja com a Cielo.|
+|dados-ec.chave|Alfanumérico|Sim|1..100|Chave de acesso da loja atribuída pela Cielo.|
+|Tid|Alfanumérico|Sim|1..40|Identificador da transação|
+
+### Consulta por Número do Pedido
+
+* **Objetivo** - Realizar a consulta de uma transação através do número do pedido, fornecido pela loja no momento da requisição de transação.
+* **Regras**:
+  * Somente transações dos últimos 365 dias estão disponíveis.
+  * Caso seja encontrada mais de uma transação para o mesmo número do pedido, a Cielo enviará a transação mais recente.
+  * Não há mudança de status da transação.
+
+<aside class="notice"><strong>INFORMAÇÃO</strong>: A consulta por Número do Pedido deve ser usada apenas como contingência à Consulta por TID, pois esta pode não garantir unicidade da transação, tendo em vista que este campo é enviado pela loja virtual e apenas acatado pela Cielo.</aside>
+
+#### Requisição
+
+``` xml
+<?xml version="1.0" encoding="UTF-8"?>
+<requisicao-consulta-chsec id="a51489b1-93d5-437f-bb4f-5b932fade248" versao="1.2.1">
+  <numero-pedido>1663784368</numero-pedido>
+  <dados-ec>
+    <numero>1006993069</numero>
+    <chave>25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3
+    </chave>
+  </dados-ec>
+</requisicao-consulta-chsec>
+```
+
+|TAG|Tipo|Obrig.|Tam.|Descrição|
+|---|---|---|---|---|
+|dados-ec.numero|Numérico|Sim|1..20|Número de afiliação da loja com a Cielo.|
+|dados-ec.chave|Alfanumérico|Sim|1..100|Chave de acesso da loja atribuída pela Cielo.|
+|Numero|Alfanumérico|Sim|1..20|Número do pedido associado a uma transação.|
+
+## Captura
+
+Uma transação autorizada somente gera o crédito para o estabelecimento comercial caso ela seja capturada. Por isso, **toda venda que o lojista queira efetivar será preciso realizar a captura (ou confirmação) da transação**.
+
+Para vendas na modalidade de Crédito, essa confirmação pode ocorrer em dois momentos:
+
+* Imediatamente após a autorização (captura total);
+* Posterior à autorização (captura total ou parcial).
+
+No primeiro caso, não é necessário enviar uma requisição de captura, pois ela é feita automaticamente pela Cielo após a autorização da transação. Para tanto, é preciso configurar a requisição de transação definindo-se o valor “true” para a TAG `<capturar>`, conforme visto na seção “Criando uma transação”.
+
+Já no segundo caso, é preciso fazer uma “captura posterior”, através de uma nova requisição ao Webservice da Cielo para confirmar a transação e receber o valor da venda.
+
+<aside class="warning">O prazo máximo para realizar a captura posterior é de 5 dias corridos após a data da autorização. Por exemplo, se uma autorização ocorreu em 10/12 às 15h20m45s, o limite para captura será às 15h20m45s do dia 15/12.</aside>
+
+<aside class="notice">Na modalidade de débito não existe essa opção: toda transação de débito autorizada é capturada automaticamente.</aside>
+
+### Captura Total e Parcial
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<requisicao-captura id="adbc9961-8a39-452b-b7fd-15b44b464a97" versao="1.3.0">
+    <tid>10069930690864281001</tid>
+    <dados-ec>
+        <numero>1006993069</numero>
+        <chave>25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3</chave>
+    </dados-ec>
+    <valor>1000</valor>
+    <taxa-embarque>0</taxa-embarque>
+</requisicao-captura>
+```
+
+* **Objetivo** - Realizar a captura total e parcial de uma transação previamente autorizada.
+* **Regras**
+  * Disponível somente para transações dentro do prazo máximo de captura.
+  * Caso o valor não seja informado, o sistema assumirá a captura do valor total.
+  * O valor da captura deve ser menor ou igual ao valor da autorização.
+  * Em caso de falha, novas tentativas de captura poderão ser feitas.
+  * Em caso de sucesso, o status é alterado para “6 – Capturada”.
+  * **Transações com Taxa de embarque:**
+    * Na requisição de captura, o valor da taxa de embarque indica o montante do total que será capturado que deve ser destinado a esse fim.
+    * Obrigatório caso seja captura parcial.
+    * Caso a captura seja total, o sistema irá considerar o valor da taxa de embarque informado no requisição de autorização (`<requisicao-transacao>`).
+
+### Retorno
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<transacao xmlns="http://ecommerce.cbmp.com.br" versao="1.2.1" id="0378c8cf4d">
+  <tid>10069930690360EF1001</tid>
+  <pan>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=</pan>
+  <!-- ... -->
+  <captura>
+    <codigo>6</codigo>
+    <mensagem>Transacao capturada com sucesso</mensagem>
+    <data-hora>2011-12-08T14:23:08.779-02:00</data-hora>
+    <valor>900</valor>
+    <taxa-embarque>900</taxa-embarque>
+  </captura>
+</transacao>
+```
+
+Os campos do nó <captura> estão detalhados a seguir:
+
+|Elemento|Tipo|Tamanho|Descrição|
+|---|---|---|---|
+|captura|Nó com dados da captura caso tenha passado por essa etapa.|
+|captura.codigo|Numérico|1..2|Código do processamento|
+|captura.mensagem|Alfanumérico|1..100|Detalhe do processamento.|
+|captura.datahora|Alfanumérico|19|Data hora do processamento.|
+|captura.valor|Numérico|1..12|Valor do processamento sem pontuação. Os dois últimos dígitos são os centavos.|
+|captura.taxa-embarque|Numérico|1..9|Montante declarado como taxa de embarque que foi capturado.|
+
+## Cancelamento
+
+O cancelamento é utilizado quando o lojista decide não efetivar um pedido de compra, seja por insuficiência de estoque, por desistência da compra pelo consumidor, ou qualquer outro motivo. Seu uso faz-se necessário principalmente se a transação estiver capturada, pois haverá débito na fatura do portador, caso ela não seja cancelada.
+
+<aside class="notice">Se a transação estiver apenas autorizada e a loja queira cancelá-la, o pedido de cancelamento não é necessário, pois após o prazo de captura expirar, ela será cancelada automaticamente pelo sistema.</aside>
+
+### Cancelamento Total e Parcial
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<requisicao-cancelamento id="39d36eb6-5ae9-4308-89a1-455d299460c0" versao="1.3.0">
+    <tid>100699306908642E1001</tid>
+    <dados-ec>
+        <numero>1006993069</numero>
+        <chave>25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3</chave>
+    </dados-ec>
+    <valor>0</valor>
+</requisicao-cancelamento>
+```
+
+* **Objetivo** - Realizar o cancelamento do valor total ou parcial de uma transação.
+* **Regras**
+  * O cancelamento total é válido tanto para transações capturadas, como autorizadas; o parcial é válido apenas para as capturadas.
+  * O prazo de cancelamento é de até 300 dias para a modalidade crédito e D+0 para débito.
+  * O cancelamento total, quando realizado com sucesso, altera o status da transação para “9 – Cancelada”, enquanto que o parcial não altera o status da transação, mantendo-a como “6 – Capturada”.
+  * Em caso de cancelamento na versão 1.6.1 (esta versão é exclusiva para cancelamento), o status de cancelamento parcial será diferente, ou seja: se cancelado com sucesso, retorna status 9; caso ocorra um erro no cancelamento parcial, o código de status será 6. Estas regras aplicam-se apenas para o cancelamento parcial.
+  * Caso a TAG `<valor>` não seja fornecida, o sistema assumirá um cancelamento total.
+  * O cancelamento parcial está disponível para todas as bandeiras suportadas no e-Commerce.
+  * Para a modalidade débito, não existe a possibilidade de efetuar cancelamento parcial.
+  * **Transações com Taxa de embarque:**
+    * Transações capturadas com o mesmo valor da autorização (ou seja, captura total) possuem o mesmo tratamento para cancelamentos parciais e totais, pois o valor da taxa de embarque é cancelado integralmente.
+
+|Elemento|Tipo|Obrigatório|Tamanho|Descrição|
+|---|---|---|---|---|
+|tid|Alfanumérico|Sim|1..40|Identificador da transação.|
+|dados-ec.numero|Numérico|Sim|1..10|Número de credenciamento da loja com a Cielo.|
+|dados-ec.chave|Alfanumérico|Sim|1..100|Chave de acesso da loja atribuída pela Cielo.|
+|valor|Numérico|Opcional|1..12|Valor a ser cancelado. **Caso não seja informado, será um cancelamento total.**|
+
+#### Retorno
+
+``` xml
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<transacao xmlns="http://ecommerce.cbmp.com.br" versao="1.2.1" id="2c18f00a-3ff6-4c85-8865-a4fde599b2b2">
+  <tid>100699306903613E1001</tid>
+  <pan>uv9yI5tkhX9jpuCt+dfrtoSVM4U3gIjvrcwMBfZcadE=</pan>
+  <!-- ... -->
+  <cancelamentos>
+    <cancelamento>
+      <codigo>9</codigo>
+      <mensagem>Transacao cancelada com sucesso</mensagem>
+      <data-hora>2011-12-08T16:46:35.109-02:00</data-hora>
+      <valor>1000</valor>
+    </cancelamento>
+  </cancelamentos>
+</transacao>
+```
+
+<aside class="notice">Os cancelamentos (parciais ou totais) das transações com taxa de embarque e captura parcial não serão acatadas automaticamente pelo sistema.</aside>
+
+# Processamento em lote
+
+O Processamento em Lote permite que sejam transmitidas em uma única chamada um conjunto
+com várias transações, essas transações serão processadas e disponibilizadas através de um arquivo de
+retorno no formato XML.
+
+## O que é o Processamento em Lote
+
+O Processamento em Lote é baseado em um arquivo XML, o qual deve conter uma lista com as transações que compõem o lote, estas transações não devem exigir autenticação, pois será executada diretamente pela Cielo, após a geração do arquivo pelo Estabelecimento Comercial, deve ser enviado para Cielo utilizando o protocolo HTTPS.
+
+Após o recebimento do arquivo, é feita uma pré-validação pela Cielo e o mesmo entra em uma fila para processamento, sendo que este processo é agendado para ser executado de hora em hora.
+
+No momento da pré-validação arquivo poderá ser rejeitado, caso seja enviado em branco ou com formatação inválida.
+
+<aside class="notice">Após o prazo de doze horas o Estabelecimento Comercial poderá solicitar o download do arquivo de retorno.</aside>
+
+## Integração
+
+### Regras
+
+Processamento em Lote deverá seguir as seguintes regras:
+
+<aside class="warning">O lote deverá respeitar os limites informados abaixo. Caso não sejam respeitados, o arquivo será rejeitado.</aside>
+
+1 - O XML para processamento em lote está definido através do "ecm-lote.xsd" que possui dependência com o ecommerce.xsd.
+2 - O arquivo deverá respeitar o limite de 20MB (aprox.: 27.000 transações).
+3 - O processamento em lote suporta os mesmos tipos de operações do transacional online. Veja a tabela em anexo. 
+
+<br> 
+Os dados do Estabelecimento Comercial serão informados uma única vez dentro do lote, ou seja, o pacote de transações pertence exclusivamente ao Estabelecimento informado no arquivo.
+<br>
+O lote a ser gerado deverá conter uma ou mais transações do mesmo tipo de operação, caso mais de um tipo seja enviado no lote, o arquivo será rejeitado.
+<br>
+
+4 - A nomenclatura do arquivo deverá respeitar a regra abaixo e conter a seguinte estrutura e tamanhos de campo:
+
+Exemplo: `ECOMM_1006993069_02_20121002_0000000086.xml`
+
+* a) Prefixo – obrigatoriamente deve iniciar com “ECOMM”;
+* b) N.o Afiliação EC – número de afiliação do Estabelecimento Comercial, com a Cielo, deverá conter dez dígitos;
+* c) Tipo de operação – deverá conter dois dígitos e para o código do tipo de operação vide tabela acima;
+* d) Data de geração do arquivo – data em que o arquivo foi gerado, deve ser no formato yyyymmdd;
+* e) Numero do lote – número do lote deverá ser sequencial e conter dez dígitos preenchidos com zeros à esquerda;
+* f) Extensão do arquivo – deve ser XML obrigatoriamente.
+
+## Mensagens
+
+### Mensagem de Upload de Arquivo
+
+``` xml
+<?xml version="1.0" encoding="UTF-8"?>
+<retorno-upload-lote xmlns="http://ecommerce.cbmp.com.br ">
+    <data-envio>2012-10-08T09:38:04.284-03:00</data-envio>
+    <data-retorno>2012-10-09T09:38:04.284-03:00</data-retorno>
+    <mensagem>Seu lote está válido para processamento. Favor aguardar o determinado para retorno.</mensagem>
+</retorno-upload-lote>
+```
+
+Após a geração do arquivo, o Estabelecimento Comercial deverá efetuar o seu upload através do protocolo HTTPS, utilizando o método POST, na seguinte URL [http://ecommerce.cbmp.com.br/lote/ecommwsecLoteUpload.do](http://ecommerce.cbmp.com.br/lote/ecommwsecLoteUpload.do).
+
+Após o envio, o Estabelecimento Comercial receberá o seguinte XML de retorno:
+
+### Mensagem de Solicitação de Download de Retorno
+
+``` xml
+<?xml version="1.0" encoding="UTF-8"?>
+<requisicao-download-retorno-lote versao="Versao da msg" id=“session id”>
+   <dados-ec>
+   <numero>1006993069 </numero>
+   <chave>25fbb997438630f30b112d033ce2e621b34f3</chave>
+   </dados-ec>
+   <numero-lote>0000000086</numero-lote>
+</requisicao-download-retorno-lote>
+```
+
+O Estabelecimento Comercial poderá solicitar o download do arquivo de retorno, após doze horas no mínimo, montando a seguinte mensagem:
+
+A tabela abaixo detalha as TAGS do XML que podem ser enviadas na mensagem para definir as configurações da transação para o Processamento em Lote:
+
+|Elemento|Tipo|Obrigatoriedade|Tamanho|Descrição|
+|--------|----|---------------|-------|---------|
+|data-envio|n/a|n/a|n/a|Data e horário de envio da mensagem de upload de arquivo pelo Estabelecimento Comercial|
+|data-retorno|n/a|n/a|n/a|Data e horário que a Cielo respondeu para o Estabelecimento Comercial o recebimento do arquivo|
+|mensagem|n/a|n/a|n/a|Mensagem de resposta enviado pela Cielo|
+|numero-lote|N|Sim|1..10|Número do lote que foi solicitado o upload|
+
+Ao receber esta mensagem, a plataforma Cielo eCommerce verificará se o lote está processado e o se o arquivo está gerado no outbox, com as validações positivas, o arquivo de retorno é devolvido para o Estabelecimento Comercial, caso contrário, será retornado um XML cuja mensagem informa em qual etapa o processo está pendente.
+
+Caso o arquivo tenha sido gerado, porem não está no outbox, pode ter ocorrido limpeza do storage, neste caso, automaticamente, ocorre um evento que solicita a segunda via do arquivo. O Estabelecimento Comercial será informado através de uma mensagem XML retorno, que uma nova requisição deverá ser feita mais tarde, para que um novo arquivo seja gerado.
+
+## Anexo
+
+### Tipos de operações do transacional online
+
+| Tipo de operação | Código |
+|------------------|--------|
+|Autorização|02|
+|Cancelamento|03|
+|Captura|04|
+|Tokenização|05|
+|Consulta|06|
+|ConsultaChSeq|07|
+|AutorizaçãoTid|08|
+
+### Códigos de resposta
+
+Os erros que podem ser apresentados na mensagem XML, através da TAG <erro>, estão dispostos a seguir:
+
+|Código|Erro|Descrição|Ação|
+|------|----|---------|----|
+|071|Inconsistência no formato do arquivo|Lote inválido, arquivo não é um XML com formato inválido|Rever a formatação do arquivo|
+|072|Este arquivo já foi enviado para processamento|Lote duplicado, já existe um lote com o mesmo numero para o EC|Rever a sequência numérica dos lotes|
+|073|Tipo de transação inválido|Mais de um único tipo de operação no lote|Rever os tipos de transações que estão contemplados no lote|
+|074|Arquivo inexistente|Arquivo não consta na plataforma Cielo eCommerce|Rever informações do arquivo enviado anteriormente|
+|075|Formatação do XML inválida|Erro de parse do arquivo, formatação do xml no arquivo inválida|Rever a formatação do xml|
+|076|Nomenclatura incorreta|Nomenclatura do arquivo incorreta|Rever estrutura do nome do arquivo|
+|079|Erro inesperado|Falha no Sistema|Persistindo, entrar em contato com o Suporte.|
+|080|Inconsistência no conteúdo e nomenclatura|Tipos diferentes de operações presentes no conteúdo arquivo e na nomenclatura|Rever conteúdo e nomenclatura do arquivo|
+|081|Lote em processamento|Lote ainda não processado|Enviar nova requisição mais tarde|
+|082|Arquivo expirado|Arquivo de lote expirado|Enviar nova requisição mais tarde|
+|083|Numero de lote inválido|Numero de lote inválido|Rever número de lote|
+|084|Número de EC Inválido|Número de EC Inválido|Rever número do EC|
+|085|Credenciais inválidas|Credenciais inválidas|Rever credenciais|
+
+### Arquivo ECM-LOTE.XSD
+
+``` xml
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://ecommerce.cbmp.com.br"
+    targetNamespace="http://ecommerce.cbmp.com.br"
+    elementFormDefault="qualified">
+
+    <xsd:include schemaLocation="ecm-ec.xsd"></xsd:include>
+
+
+    <xsd:simpleType name="numeroLoteType">
+        <xsd:restriction base="xsd:int">
+            <xsd:minExclusive value="0"></xsd:minExclusive>
+
+            <xsd:maxInclusive value="999999999"></xsd:maxInclusive>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+
+
+    <xsd:element name="requisicao-lote" type="RequisicaoLote"></xsd:element>
+
+    <xsd:element name="retorno-lote" type="RetornoLote"></xsd:element>
+
+    <xsd:complexType name="RequisicaoLote">
+        <xsd:sequence>
+            <xsd:element name="dados-ec" type="DadosEc"
+                maxOccurs="1" minOccurs="1">
+            </xsd:element>
+            <xsd:element name="numero-lote" type="numeroLoteType"
+                maxOccurs="1" minOccurs="1">
+            </xsd:element>            
+            <xsd:element name="tipo-operacao" minOccurs="1" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        2: Autorização 3:Cancelamento 4:Captura 5:Tokenização 6:Consulta 7:ConsultaChSec 8:AutorizacaoTid
+                    </xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:pattern value="(2|3|4|5|6|7|8)"></xsd:pattern>                        
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="lista-requisicoes"
+                type="ListaRequisicoesLote" maxOccurs="unbounded"
+                minOccurs="1">
+            </xsd:element>
+
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="RetornoLote">
+        <xsd:sequence>
+            <xsd:element name="dados-ec" type="DadosEc"></xsd:element>
+            <xsd:element name="numero-lote" type="numeroLoteType"></xsd:element>
+            <xsd:element name="lista" type="ListaRetornoLote"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ListaRequisicoesLote">
+        <xsd:sequence>
+            <xsd:element name="requisicao-transacao"
+                type="RequisicaoNovaTransacao" maxOccurs="unbounded"
+                minOccurs="0">
+            </xsd:element>
+            <xsd:element name="requisicao-token" type="RequisicaoToken"
+                maxOccurs="unbounded" minOccurs="0">
+            </xsd:element>
+            <xsd:element name="requisicao-consulta"
+                type="RequisicaoConsulta" maxOccurs="unbounded" minOccurs="0">
+            </xsd:element>
+            <xsd:element name="requisicao-cancelamento"
+                type="RequisicaoCancelamento" maxOccurs="unbounded"
+                minOccurs="0">
+            </xsd:element>
+            <xsd:element name="requisicao-captura"
+                type="RequisicaoCaptura" maxOccurs="unbounded" minOccurs="0">
+            </xsd:element>
+
+            <xsd:element name="requisicao-consulta-chsec"
+                type="RequisicaoConsultaChSec" maxOccurs="unbounded"
+                minOccurs="0">
+            </xsd:element>
+            <xsd:element name="requisicao-autorizacao-tid"
+                type="RequisicaoAutorizacaoTid" maxOccurs="unbounded" minOccurs="0">
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="ListaRetornoLote">
+        <xsd:sequence>
+            <xsd:element name="transacao" type="Retorno" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+            <xsd:element name="retorno-token" type="RetornoToken" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+            <xsd:element name="erro" type="RequisicaoErro" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="RequisicaoDownloadRetornoLote">
+        <xsd:complexContent>
+            <xsd:extension base="Mensagem">
+                <xsd:sequence>
+                    <xsd:element name="dados-ec" type="DadosEc" maxOccurs="1" minOccurs="1"></xsd:element>
+                    <xsd:element name="numero-lote" type="numeroLoteType" maxOccurs="1" minOccurs="1"></xsd:element>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="RetornoDownloadLote">
+        <xsd:sequence>
+            <xsd:element name="erro" type="RequisicaoErro" maxOccurs="1"
+                minOccurs="0">
+            </xsd:element>
+            <xsd:element name="arquivo" type="xsd:string" maxOccurs="1"
+                minOccurs="0">
+            </xsd:element>
+            <xsd:element name="mensagem" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="requisicao-download-retorno-lote"
+        type="RequisicaoDownloadRetornoLote">
+    </xsd:element>
+
+    <xsd:element name="retorno-download-lote"
+        type="RetornoDownloadLote">
+    </xsd:element>
+    
+    <xsd:complexType name="RetornoUploadLote">
+        <xsd:sequence>
+            <xsd:element name="data-envio" type="xsd:dateTime" maxOccurs="1" minOccurs="1"></xsd:element>
+            <xsd:element name="data-retorno" type="xsd:dateTime" maxOccurs="1" minOccurs="1"></xsd:element>            
+            <xsd:element name="mensagem" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>            
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="retorno-upload-lote" type="RetornoUploadLote"></xsd:element>
+</xsd:schema>
+```
+
+# Testes e Homologação
+
+## Endpoint
+
+Os testes de integração deverão ser realizados antes do início da homologação, durante o desenvolvimento (codificação) da solução. Para isso, deve-se considerar o seguinte ambiente como EndPoint do Webservice: [https://sandbox1-5.hdevelo.com.br/sandsky/xml](https://sandbox1-5.hdevelo.com.br/sandsky/xml)
+
+<aside class="warning">Toda a conexão aos serviços da Cielo deve ser feita através das URL’s divulgadas neste manual. A Cielo desaconselha fortemente a conexão direta via IP, uma vez que estes podem variar sem aviso prévio.</aside>
+
+## Dados para testes
+
+A massa de dados para realizar os testes neste ambiente está disposta na tabela abaixo:
+
+| Bandeira             | Autenticação | Número do cartão de teste | Validade | Código de segurança - CVC |
+|----------------------|--------------|---------------------------|----------|---------------------------|
+| Visa                 | Sim          | 4012001037141112          | 202405   | 123                       |
+| Mastercard           | Sim          | 5453010000066167          | 202405   | 123                       |
+| Visa                 | Não          | 4012001038443335          | 202405   | 123                       |
+| Mastercard           | Não          | 5453010000066167          | 202405   | 123                       |
+| Amex                 | Não          | 376449047333005           | 202405   | 1234                      |
+| Diners               | Não          | 36490102462661            | 202405   | 123                       |
+| Elo                  | Não          | 6362970000457013          | 202405   | 123                       |
+| Elo (Corona Voucher) | Não          | 5067220000000000          | 202405   | 123                       |
+| Discover             | Não          | 6011020000245045          | 202405   | 123                       |
+| JCB                  | Não          | 3566007770004971          | 202405   | 123                       |
+| Aura                 | Não          | 5078601912345600019       | 202405   | 123                       |
+
+## Chave de testes
+
+Para facilitar o desenvolvimento disponibilizamos duas chaves para testes, uma para cada modalidade de integração. Com base nas configurações iniciais feitas durante o seu credenciamento, escolha os dados corretos para realizar os testes:
+
+|Número estabelecimento comercial|Chave de testes|
+|---|---|
+|2000019700|8c08a0d0f00b73dedd2673a06fa725b0bd8edbf71c4c7dd0614bf408e4d16120|
+
+<aside class="warning">O valor do pedido além de seguir o formato sem pontos ou vírgulas decimais, deve terminar em “00”, caso contrário, a autorização será sempre negada. Exemplo: R$ 15,00 deve ser formatado como “1500”.</aside>
+
+<aside class="notice">O ambiente de testes só deve ser utilizado pelos estabelecimentos de testes listados no quadro acima. O uso de dados originais do estabelecimento gerará transações não possíveis de rastreamento, gerando resultados incorretos. No ambiente de testes, use as credenciais para testes, no ambiente de produção, use os dados originais do estabelecimento.</aside>
+
+Após a conclusão do desenvolvimento, a etapa de Homologação garantirá que a implementação foi adequada e a solução do Cliente está apta para interagir no ambiente produtivo da Cielo. Ela sempre acontece depois que o desenvolvimento foi finalizado e testado. É composta pelas seguintes etapas:
+
+![fluxo testes]({{ site.baseurl_root }}/images/fluxo-testes.png)
+
+1. Finalização do Cadastro: nesta etapa o Cliente deve enviar um email para [cieloeCommerce@cielo.com.br](mailto:cieloeCommerce@cielo.com.br), solicitando a Chave de Produção. A mensagem deve conter as
+seguintes informações, que irão completar o cadastro:
+  * URL Definitiva do site (ambiente de produção).
+  * Nome da empresa responsável pelo desenvolvimento da integração.
+  * Nome e e-mail do técnico (desenvolvedor) responsável pela integração.
+  * Número de credenciamento (junto à Cielo) da loja virtual.
+  * Razão social e nome fantasia da loja virtual.
+  * Um usuário e senha na loja virtual para efetuar compras de testes.
+  * URL do logotipo da loja no formato GIF e tamanho de 112X25 pixels.
+
+<aside class="notice">A imagem do logotipo deve estar hospedada em ambiente seguro (HTTPS), caso contrário o consumidor receberá notificações de segurança que podem culminar no abandono da compra.</aside>
+
+Em resposta, a Cielo retornará uma chave válida no ambiente de produção. Logo, a loja está habilitada a realizar seus testes nesse ambiente. Inicia-se a segunda etapa. É importante que testes sejam realizados para cobrir os seguintes tópicos:
+
+* Interação com o Webservice: testes com a conexão utilizada.
+* Integração visual: a ida e a volta do fluxo a Cielo (fluxos alternativos devem ser
+* considerados).
+* Aplicação correta da marca da bandeira.
+* Modalidades de pagamento: testes com as combinações possíveis de pagamento.
+
+Neste momento, deve-se considerar o ambiente: [https://ecommerce.cielo.com.br/servicos/ecommwsec.do](https://ecommerce.cielo.com.br/servicos/ecommwsec.do)
+
+<aside class="notice">A integração da loja virtual deverá ser feita sempre através da URL acima e não por IP.</aside>
+
+Os testes em produção devem ser feitos com cartões de propriedade da Loja ou cujo portador tenha autorizado seu uso, uma vez que neste ambiente existe compromisso financeiro sobre as transações realizadas.
+
+Ao término, uma nova solicitação deve ser enviada para cieloeCommerce@cielo.com.br, para que a Cielo realize a homologação de fato. Um conjunto de testes será executado aprovar e negar transações. O resultado “HOMOLOGADO” é enviado por e-mail. Caso haja algum ponto que não permite a conclusão da homologação, a informação será igualmente enviada por email solicitando as correções necessárias.
+
+# Considerações Finais
+
+## Regras para leitura do cartão na loja
+
+A leitura dos dados do cartão no ambiente próprio é controlada por regras definidas pelo programa de segurança imposto pelas bandeiras de cartões.
+
+Para a Visa, esse programa é o conhecido como AIS (Account Information Security) PCI. Para maiores informações acesse: [https://www.cielo.com.br](https://www.cielo.com.br) > Serviços > Serviços de Segurança > AIS – Programa de Segurança da Informação , ou entre em contato conosco.
+
+Para a Mastercard o programa de segurança é o SDP (Site Data Protection) PCI. Para maiores informações acesse: [http://www.mastercard.com/us/sdp/index.html](http://www.mastercard.com/us/sdp/index.html), ou entre em contato conosco.
+
+Ademais, atendidos os requisitos, no momento do credenciamento eCommerce deve ser mencionada a escolha por leitura do cartão na própria loja.
+
+## Certificado digital
+
+Em alguns ambientes é preciso extrair o Certificado Digital que a aplicação do Cielo eCommerce utiliza para ser instalado na Trustedstore do cliente, especialmente em ambientes Java e PHP.
+
+Para obter o certificado, abra um browser e acesse [http://ecommerce.cielo.com.br](http://ecommerce.cielo.com.br) e clique no ícone que exibe as informações sobre o certificado:
+
+**Google Chrome**:
+
+![Certificado no Google Chrome]({{ site.baseurl_root }}/images/certificado-chrome.png)
+
+**Mozilla Firefox**:
+
+![Certificado no Mozilla Firefox]({{ site.baseurl_root }}/images/certificado-firefox.png)
+
+**Internet Explorer**:
+
+![Certificado no Internet Explorer]({{ site.baseurl_root }}/images/certificado-ie.png)
+
+Programa **Verified by Visa** (Visa)
+
+Programa internacional da Visa para possibilitar a autenticação do comprador no momento de uma compra em ambiente eCommerce. Visite [http://www.verifiedbyvisa.com.br/](http://www.verifiedbyvisa.com.br/) para maiores informações.
+
+Programa **Secure Code** (Mastercard)
+
+Programa internacional da Mastercard para possibilitar a autenticação do comprador no momento de uma compra em ambiente eCommerce. Visite [http://www.mastercard.com/securecode](http://www.mastercard.com/securecode) para maiores informações.
