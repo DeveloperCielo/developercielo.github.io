@@ -691,7 +691,7 @@ O Checkout possui um Status próprios, diferente do SITE CIELO ou da API Cielo e
 
 O Antifraude possui o conceito de `Status` e `SubStatus`, onde o primeiro representa o nível de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
 
-|Valor|Status Antifraude|Substatus|Descrição|
+|Valor|Status 'raude|Substatus|Descrição|
 |---|---|---|---|
 |1|`Baixo Risco`|Baixo Risco|Baixo risco de ser uma transação fraudulenta|
 |3|`Médio Risco`|Médio Risco|Médio risco de ser uma transação fraudulenta|
@@ -1004,7 +1004,7 @@ As configurações de sua loja podem ser feitas dentro do site Cielo. Neste ambi
 
 Para maiores detalhes veja o tutorial Super Link e Checkout Cielo.
 
-# Antifraude próprios
+# Antifraude próprio
 
 Este tópico irá ensinar como criar uma integração entre o Super Link Cielo e um antifraude próprio/terceiro de mercado.
 
