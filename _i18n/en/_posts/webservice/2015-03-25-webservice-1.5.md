@@ -468,9 +468,11 @@ Visa requests that providers of this type of service start to inform which trans
 |sub-ec.codigo-postal|Number|9|Required for facilitators|Sub Merchant Postcode.|
 |sub-ec.telefone|Number|13|Required for facilitators|Sub Merchant Phone Number.|
 |sub-ec.documento|Number|14|Required for facilitators|CNPJ or CPF of the Sub Merchant.|
-|sub-ec.codigo-pais|Number|3|Required for facilitators|Sub Merchant country code based on ISO 3166.|
+|sub-ec.codigo-pais|Number|3|Required for facilitators|Sub Merchant country code based on ISO 3166. <br>Ex: Brazil's ISO 3166 code is 076. [Complete list online](https://www.iso.org/obp/ui/#search/code/).|
 |dados.pedido.soft-descriptor|Text|13|Required for facilitators|Text printed on buyer bank invoice. Must be completed according to the data of the sub Merchant.|
 |dados.pedido.pagamento-conta|Boolean|---|No|True or false. Indicates whether it is a CBPS (Consumer Bill Payment Service) transaction)|
+
+<aside class="warning"><b>Attention: Fields mustn't be sent with spacing to the left. Subject to rejection in the settlement of transactions.</b></aside>
 
 # Creating transactions
 
