@@ -405,8 +405,10 @@ Os novos campos estão contidos dentro da tag **&lt;subcredenciador&gt;**. Além
 |sub-ec.codigo-postal|Numérico|9|Obrigatório para facilitadores|Código postal do sub Merchant.|
 |sub-ec.telefone|Numérico|13|Obrigatório para facilitadores|Número de telefone do sub Merchant.|
 |sub-ec.documento|Numérico|14|Obrigatório para facilitadores|CNPJ ou CPF do sub Merchant.|
-|sub-ec.codigo-pais|Numérico|3|Obrigatório para facilitadores|Código país do sub Merchant com base no ISO 3166.|
+|sub-ec.codigo-pais|Numérico|3|Obrigatório para facilitadores|Código país do sub Merchant com base no ISO 3166. <br>Ex: código ISO 3166 do Brasil é o 076. [Lista completa online](https://www.iso.org/obp/ui/#search/code/)|
 |dados.pedido.soft-descriptor|Texto|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
+
+<aside class="warning"><b>Atenção: Os campos não devem ser enviados com espaçamento a esquerda. Sujeito a rejeição na liquidação das transações.</b></aside>
 
 ### Transações CBPS
 
