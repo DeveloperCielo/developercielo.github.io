@@ -809,7 +809,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
       <td>Number</td>
       <td>3</td>
       <td>Required for facilitators</td>
-      <td>Sub Merchant country code based on ISO 3166.</td>
+      <td>Sub Merchant country code based on ISO 3166. <br />Ex: Brazil’s ISO 3166 code is 076. <a href="https://www.iso.org/obp/ui/#search/code/">Complete list online</a>.</td>
     </tr>
     <tr>
       <td>dados.pedido.soft-descriptor</td>
@@ -827,6 +827,8 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
     </tr>
   </tbody>
 </table>
+
+<aside class="warning">Attention: Fields mustn't be sent with spacing to the left. Subject to rejection in the settlement of transactions.</aside>
 
 <h1 id="creating-transactions">Creating transactions</h1>
 
