@@ -192,7 +192,7 @@ The new fields are contained within the Payment Facilitator node. In addition to
 |PaymentFacilitator.SubEstablishment.City|Alphanumeric|13|Required for facilitators|City of the sub Merchant.|
 |PaymentFacilitator.SubEstablishment.State|Alphanumeric|2|Required for facilitators|State do sub Merchant.|
 |PaymentFacilitator.SubEstablishment.PostalCode|Number|9|Required for facilitators|Sub Merchant Postcode.|
-|PaymentFacilitator.SubEstablishment.CountryCode|Number|3|Required for facilitators|"Sub-merchant country code based on ISO 3166."|
+|PaymentFacilitator.SubEstablishment.CountryCode|Number|3|Required for facilitators|Sub-merchant country code based on ISO 3166.<br>Ex: Brazil's ISO 3166 code is 076. [Complete list online](https://www.iso.org/obp/ui/#search/code/)|
 |PaymentFacilitator.SubEstablishment.PhoneNumber|Number|13|Required for facilitators|Sub Merchant Phone Number.|
 |Payment.Softdescriptor|Text|13|Required for facilitators|Text printed on buyer bank invoice. Must be completed according to the data of the sub Merchant.|
 
@@ -301,9 +301,11 @@ The new fields are contained within the Payment Facilitator node. In addition to
 |PaymentFacilitator.SubEstablishment.City|Alphanumeric|13|Required for facilitators|City of the sub Merchant.|
 |PaymentFacilitator.SubEstablishment.State|Alphanumeric|2|Required for facilitators|State do sub Merchant.|
 |PaymentFacilitator.SubEstablishment.PostalCode|Number|9|Required for facilitators|Sub Merchant Postcode.|
-|PaymentFacilitator.SubEstablishment.CountryCode|Number|3|Required for facilitators|"Sub-merchant country code based on ISO 3166."|
+|PaymentFacilitator.SubEstablishment.CountryCode|Number|3|Required for facilitators|Sub-merchant country code based on ISO 3166.<br>Ex: Brazil's ISO 3166 code is 076. [Complete list online](https://www.iso.org/obp/ui/#search/code/)|
 |PaymentFacilitator.SubEstablishment.PhoneNumber|Number|13|Required for facilitators|Sub Merchant Phone Number.|
 |Payment.Softdescriptor|Text|13|Required for facilitators|Text printed on buyer bank invoice. Must be completed according to the data of the sub Merchant.|
+
+<aside class="warning"><b>Attention: Fields mustn't be sent with spacing to the left. Subject to rejection in the settlement of transactions.</b></aside>
 
 # Extended Validation Certificate
 
