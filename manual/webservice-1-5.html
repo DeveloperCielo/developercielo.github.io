@@ -670,7 +670,7 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
       <td>Numérico</td>
       <td>3</td>
       <td>Obrigatório para facilitadores</td>
-      <td>Código país do sub Merchant com base no ISO 3166.</td>
+      <td>Código país do sub Merchant com base no ISO 3166. <br />Ex: código ISO 3166 do Brasil é o 076. <a href="https://www.iso.org/obp/ui/#search/code/">Lista completa online</a></td>
     </tr>
     <tr>
       <td>dados.pedido.soft-descriptor</td>
@@ -681,6 +681,8 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
     </tr>
   </tbody>
 </table>
+
+<aside class="warning">Atenção: Os campos não devem ser enviados com espaçamento a esquerda. Sujeito a rejeição na liquidação das transações.</aside>
 
 <h3 id="transações-cbps">Transações CBPS</h3>
 
