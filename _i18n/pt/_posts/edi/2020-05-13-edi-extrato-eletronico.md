@@ -247,8 +247,6 @@ Executa a lista de clientes abaixo do access_token informado. O filtro pode ser 
 
 Retorna configurações existentes agrupadas por mainMerchantID.
 
-Observações: disponível a partir de 3 de novembro de 2020.
-
 ### Response
 
 > **GET** {{host}}/mainmerchants
