@@ -197,6 +197,8 @@ Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos cam
 |PaymentFacilitator.SubEstablishment.PhoneNumber|Numérico|13|Obrigatório para facilitadores|Número de telefone do sub Merchant.|
 |Payment.Softdescriptor|Texto|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
 
+<aside class="warning"><b>Atenção: Os campos não devem ser enviados com espaçamento a esquerda. Sujeito a rejeição na liquidação das transações.</b></aside>
+
 #### Resposta
 
 ```json
@@ -305,8 +307,6 @@ Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos cam
 |PaymentFacilitator.SubEstablishment.CountryCode|Numérico|3|Obrigatório para facilitadores|Código país do sub-merchant com base no ISO 3166.<br>Ex: código ISO 3166 do Brasil é o 076. [Lista completa online](https://www.iso.org/obp/ui/#search/code/)|
 |PaymentFacilitator.SubEstablishment.PhoneNumber|Numérico|13|Obrigatório para facilitadores|Número de telefone do sub Merchant.|
 |Payment.Softdescriptor|Texto|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
-
-<aside class="warning"><b>Atenção: Os campos não devem ser enviados com espaçamento a esquerda. Sujeito a rejeição na liquidação das transações.</b></aside>
 
 # Certificados e segurança
 
