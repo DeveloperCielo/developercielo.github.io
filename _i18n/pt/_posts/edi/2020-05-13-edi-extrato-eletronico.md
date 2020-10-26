@@ -260,26 +260,20 @@ Retorna configurações existentes agrupadas por mainMerchantID.
 ```
 
 {
-  "configurations": [
-    {
-      "registerID": "12345",
-      "mainMerchantID": "9999111111",
-      "merchants": [
-        "9999111111",
-        "9999111222",
-        "9999111333"
-      ],
-      "type": [
-        "SELL",
-        "PAYMENT",
-        "ANTECIPATION_CIELO",
-        "ASSIGNMENT",
-        "BALANCE",
-        "ANTECIPATION_ALELO"
-      ],
-      "editStatus": "AVAILABLE"
-    }
-  ]
+   "registerID":"38724",
+   "mainMerchantID":"2006907071",
+   "merchants":[
+      "2006907071"
+   ],
+   "type":[
+      "SELL",
+      "PAYMENT",
+      "ANTECIPATION_CIELO",
+      "ASSIGNMENT",
+      "BALANCE",
+      "ANTECIPATION_ALELO"
+   ],
+   "editStatus":"AVAILABLE"
 }
 
 ```
