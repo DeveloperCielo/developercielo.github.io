@@ -1978,7 +1978,7 @@ curl
 }
 ```
 
-| Propriedade         | Descrição                                                                                   | Tipo  | Tamanho | Obrigatório                          |
+| Propriedade         | Descrição                                                                                   | Tipo  | Tamanho | Formato                              |
 |---------------------|---------------------------------------------------------------------------------------------|-------|---------|--------------------------------------|
 | `AuthenticationUrl` | URL para qual o Lojista deve redirecionar o Cliente para o fluxo de Débito.                 | Texto | 56      | URL de Autenticação                  |
 | `Tid`               | ID da transação na adquirente.                                                              | Texto | 20      | Texto alfanumérico                   |
