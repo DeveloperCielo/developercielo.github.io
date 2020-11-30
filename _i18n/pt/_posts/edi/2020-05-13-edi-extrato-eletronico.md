@@ -520,6 +520,10 @@ Consulte o MerchantID com base no registerID ou no mainMerchantID.
 |`registerID`|ID do registro. O mesmo fornecido por /edi/registers|String|||
 |`acknowledge`|||||
 
+# Duplicação de Matriz
+
+A duplicação de registro funciona com base no retorno do GET /merchantgroup, se retornar "unavailable" significa que esse merchant já possui vínculo com alguma conciliadora.
+
 # Tipos de Extrato Eletrônico
 
 ## Tabela A - Tipos de Arquivo
