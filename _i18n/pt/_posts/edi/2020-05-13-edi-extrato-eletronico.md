@@ -588,7 +588,7 @@ Com isso, deverá ser feita uma chamada de PUT /edi no qual, irá fazer a duplic
 
 > Com base no retorno do GET /mainmerchants, será necessário informar o registerID, mainMerchantID e as filiais no array de merchants da chamada de PUT.
 
-Note: Caso do retorno do GET /merchantgroup (1ºPASSO) seja "available" significa que esse merchant está disponível para registro, com isso, é necessário fazer a chamada de POST /registers.
+<aside class="warning"><b> Observação: Caso do retorno do GET /merchantgroup (1ºPASSO) seja "available" significa que esse merchant está disponível para registro, com isso, é necessário fazer a chamada de POST /registers.</b></aside>
 
 # Tipos de Extrato Eletrônico
 
