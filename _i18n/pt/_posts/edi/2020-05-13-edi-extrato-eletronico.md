@@ -542,6 +542,54 @@ A duplicação de registro funciona com base no retorno do GET /merchantgroup, s
 
 ```
 
+Com isso, será necessário efetuar um novo GET para saber se você pode ou não vincular essa cadeia de merchant a sua conciliadora, que nesse caso é o GET /mainmerchants, se você obter o status "available" no campo "editStatus", significa que você poderá fazer a duplicação de matriz via API.
+
+> **GET** {{host}}/mainmerchants
+
+```
+
+[
+    {
+        "registerID": "38724",
+        "mainMerchantID": "2006907071",
+        "merchants": [
+            "2006907071"
+        ],
+        "type": [
+            "SELL",
+            "ASSIGNMENT",
+            "BALANCE"
+        ],
+        "editStatus": "AVAILABLE"
+    }
+]
+
+```
+
+> GET /mainmerchants pode retornar mais de um objeto, com isso, se o objeto estiver como "available", será necessário efetuar uma chamada de PUT para cada objeto. Os objetos que retornarem “unavailable”, será necessário solicitar a duplicação manual através do edi@cielo.com.br (lembrando que isso representa apenas 10% dos casos, após a implementação da duplicação através do método PUT).
+
+
+Com isso, deverá ser feita uma chamada de PUT /edi no qual, irá fazer a duplicação da matriz. 
+
+```
+
+{
+	"mainMerchantID": "2006907071",
+	"registerID": "38724",
+	    "merchants": [
+        "2006907071"
+    ],
+	 "type": ["SELL", "ASSIGNMENT"]
+}
+
+```
+
+> O header de todas essas requisições permanecem da mesma forma, deve ser informado o Authorization, como nas demais chamadas desta API.
+
+> Com base no retorno do GET /mainmerchants, será necessário informar o registerID, mainMerchantID e as filiais no array de merchants da chamada de PUT.
+
+Note: Caso do retorno do GET /merchantgroup (1ºPASSO) seja "available" significa que esse merchant está disponível para registro, com isso, é necessário fazer a chamada de POST /registers.
+
 # Tipos de Extrato Eletrônico
 
 ## Tabela A - Tipos de Arquivo
