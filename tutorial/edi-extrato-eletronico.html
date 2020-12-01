@@ -1119,6 +1119,25 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 
 <p>A duplicação de registro funciona com base no retorno do GET /merchantgroup, se retornar “unavailable” significa que esse merchant já possui vínculo com alguma conciliadora.</p>
 
+<blockquote>
+  <p><strong>GET</strong> /merchantgroup</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+    "legalEntityNumber": "67625512",
+    "branches": [
+        {
+            "merchantID": "2006907071",
+            "legalEntityNumber": "67.625.512/0001-14",
+            "businessName": "MERCHANTI",
+            "status": "UNAVAILABLE"
+        }
+    ]
+}
+
+</code></pre></div></div>
+
 <h1 id="tipos-de-extrato-eletrônico">Tipos de Extrato Eletrônico</h1>
 
 <h2 id="tabela-a---tipos-de-arquivo">Tabela A - Tipos de Arquivo</h2>
