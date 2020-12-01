@@ -1138,6 +1138,31 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 
 </code></pre></div></div>
 
+<p>Com isso, será necessário efetuar um novo GET para saber se você pode ou não vincular essa cadeia de merchant a sua conciliadora, que nesse caso é o GET /mainmerchants, se você obter o status “available” no campo “editStatus”, significa que você poderá fazer a duplicação de matriz via API.</p>
+
+<blockquote>
+  <p><strong>GET</strong> /mainmerchants</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+[
+    {
+        "registerID": "38724",
+        "mainMerchantID": "2006907071",
+        "merchants": [
+            "2006907071"
+        ],
+        "type": [
+            "SELL",
+            "ASSIGNMENT",
+            "BALANCE"
+        ],
+        "editStatus": "AVAILABLE"
+    }
+]
+
+</code></pre></div></div>
+
 <h1 id="tipos-de-extrato-eletrônico">Tipos de Extrato Eletrônico</h1>
 
 <h2 id="tabela-a---tipos-de-arquivo">Tabela A - Tipos de Arquivo</h2>
