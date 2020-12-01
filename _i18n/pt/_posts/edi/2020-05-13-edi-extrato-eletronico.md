@@ -542,6 +542,30 @@ A duplicação de registro funciona com base no retorno do GET /merchantgroup, s
 
 ```
 
+Com isso, será necessário efetuar um novo GET para saber se você pode ou não vincular essa cadeia de merchant a sua conciliadora, que nesse caso é o GET /mainmerchants, se você obter o status "available" no campo "editStatus", significa que você poderá fazer a duplicação de matriz via API.
+
+> **GET** {{host}}/mainmerchants
+
+```
+
+[
+    {
+        "registerID": "38724",
+        "mainMerchantID": "2006907071",
+        "merchants": [
+            "2006907071"
+        ],
+        "type": [
+            "SELL",
+            "ASSIGNMENT",
+            "BALANCE"
+        ],
+        "editStatus": "AVAILABLE"
+    }
+]
+
+```
+
 # Tipos de Extrato Eletrônico
 
 ## Tabela A - Tipos de Arquivo
