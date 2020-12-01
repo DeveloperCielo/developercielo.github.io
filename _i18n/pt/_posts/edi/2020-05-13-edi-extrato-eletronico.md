@@ -524,6 +524,24 @@ Consulte o MerchantID com base no registerID ou no mainMerchantID.
 
 A duplicação de registro funciona com base no retorno do GET /merchantgroup, se retornar "unavailable" significa que esse merchant já possui vínculo com alguma conciliadora.
 
+> **GET** {{host}}/merchantgroup
+
+```
+
+{
+    "legalEntityNumber": "67625512",
+    "branches": [
+        {
+            "merchantID": "2006907071",
+            "legalEntityNumber": "67.625.512/0001-14",
+            "businessName": "MERCHANTI",
+            "status": "UNAVAILABLE"
+        }
+    ]
+}
+
+```
+
 # Tipos de Extrato Eletrônico
 
 ## Tabela A - Tipos de Arquivo
