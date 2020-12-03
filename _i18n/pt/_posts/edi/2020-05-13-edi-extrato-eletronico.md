@@ -568,19 +568,6 @@ Com isso, será necessário efetuar um novo GET para saber se você pode ou não
 
 > GET /mainmerchants pode retornar mais de um objeto, com isso, se o objeto estiver como "available", será necessário efetuar uma chamada de PUT para cada objeto. Os objetos que retornarem “unavailable”, será necessário solicitar a duplicação manual através do edi@cielo.com.br (lembrando que isso representa apenas 10% dos casos, após a implementação da duplicação através do método PUT).
 
-```
-
-{
-	"mainMerchantID": "2006907071",
-	"registerID": "38724",
-	    "merchants": [
-        "2006907071"
-    ],
-	 "type": ["SELL", "ASSIGNMENT"]
-}
-
-```
-
 # Tipos de Extrato Eletrônico
 
 ## Tabela A - Tipos de Arquivo
