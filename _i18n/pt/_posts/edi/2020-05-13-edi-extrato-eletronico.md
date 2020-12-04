@@ -573,12 +573,12 @@ Com isso, deverá ser feita uma chamada de PUT /edi no qual, irá fazer a duplic
 ```
 
 {
-	"mainMerchantID": "2006907071",
-	"registerID": "38724",
-	    "merchants": [
+    "mainMerchantID": "2006907071",
+    "registerID": "38724",
+        "merchants": [
         "2006907071"
     ],
-	 "type": ["SELL", "ASSIGNMENT"]
+    "type": ["SELL", "ASSIGNMENT"]
 }
 
 ```
