@@ -1169,6 +1169,10 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 
 <p>Com isso, deverá ser feita uma chamada de PUT /edi no qual, irá fazer a duplicação da matriz.</p>
 
+<blockquote>
+  <p><strong>PUT</strong> /edi</p>
+</blockquote>
+
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
     "mainMerchantID": "2006907071",
@@ -1180,6 +1184,10 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 }
 
 </code></pre></div></div>
+
+<blockquote>
+  <p>O header de todas essas requisições permanecem da mesma forma, deve ser informado o Authorization, como nas demais chamadas desta API.</p>
+</blockquote>
 
 <h1 id="tipos-de-extrato-eletrônico">Tipos de Extrato Eletrônico</h1>
 
