@@ -570,8 +570,6 @@ Com isso, será necessário efetuar um novo GET para saber se você pode ou não
 
 Com isso, deverá ser feita uma chamada de PUT /edi no qual, irá fazer a duplicação da matriz. 
 
-> **PUT** {{host}}/edi
-
 ```
 
 {
