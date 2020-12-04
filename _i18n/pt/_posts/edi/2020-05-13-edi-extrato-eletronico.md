@@ -570,6 +570,8 @@ Com isso, será necessário efetuar um novo GET para saber se você pode ou não
 
 Com isso, deverá ser feita uma chamada de PUT /edi no qual, irá fazer a duplicação da matriz. 
 
+> **PUT** {{host}}/edi
+
 ```
 
 {
@@ -582,6 +584,8 @@ Com isso, deverá ser feita uma chamada de PUT /edi no qual, irá fazer a duplic
 }
 
 ```
+
+> O header de todas essas requisições permanecem da mesma forma, deve ser informado o Authorization, como nas demais chamadas desta API.
 
 # Tipos de Extrato Eletrônico
 
