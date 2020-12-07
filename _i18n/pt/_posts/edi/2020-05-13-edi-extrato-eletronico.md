@@ -74,8 +74,7 @@ https://`{partner-callback-url}`?code=`{code}`&state=`{state}`
 >|---|---|
 >| **Authorization** | Basic *Base64(client_id e client_secret do parceiro concatenado com “:” e codificado em base64)* |
 
-```
-
+```shell
 curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/access-token' \
 --header 'Basic Basic64'
 --header 'Content-Type: application/json' \
@@ -83,20 +82,18 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
     "grant_type": "authorization_code",
     "code": "{}"
 }'
-
+--verbose
 ```
 
 ### Response
 
-```
-
+```json
 {
 "access_token": "{access_token}",
 "refresh_token": "{refresh_token}",
 "token_type": "access_token",
 "expires_in": {expiration_time}
 }
-
 ```
 
 |Propriedade|Descrição|
@@ -134,8 +131,7 @@ O dados de resposta serão os mesmos do passo 2 quando o parceiro solicita um ac
 
 ### Request
 
-```
-
+```shell
 curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/access-token' \
 --header 'Basic Basic64'
 --header 'Content-Type: application/json' \
@@ -143,22 +139,20 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
     "grant_type": "refresh_token",
     "refresh_token": "{}"
 }'
-
+--verbose
 ```
 
 Um ponto de atenção na requisição pois agora o parceiro precisa enviar o `grant_type` como `refresh_token` e no campo `refresh_token` deve ser enviado um `refresh_token` válido (e não mais um access_token).
 
 ### Response
 
-```
-
+```json
 {
 "access_token": "{access_token}",
 "refresh_token": "{refresh_token}",
 "token_type": "access_token",
 "expires_in": {expiration_time}
 }
-
 ```
 
 |Propriedade|Descrição|
@@ -220,8 +214,7 @@ Executa a lista de clientes abaixo do access_token informado. O filtro pode ser 
 >|---|---|
 >| |**Authorization**| Bearer + access_token|
 
-```
-
+```json
 {
   "legalEntityNumber": "string",
   "branches": [
@@ -233,7 +226,6 @@ Executa a lista de clientes abaixo do access_token informado. O filtro pode ser 
     }
   ]
 }
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -257,8 +249,7 @@ Retorna configurações existentes agrupadas por mainMerchantID.
 >|---|---|
 >|**Authorization**| Bearer + access_token|
 
-```
-
+```json
 {
    "registerID":"38724",
    "mainMerchantID":"2006907071",
@@ -275,7 +266,6 @@ Retorna configurações existentes agrupadas por mainMerchantID.
    ],
    "editStatus":"AVAILABLE"
 }
-
 ```
 
 ## **POST** Registrar merchantID
@@ -292,8 +282,7 @@ Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da 
 >|---|---|
 >| **Authorization** |Bearer + access_token|
 
-```
-
+```json
 {
   "mainMerchantId": "9999111222",
   "merchants": [
@@ -305,7 +294,6 @@ Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da 
     "SELL"
   ]
 }
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -317,8 +305,7 @@ Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da 
 
 ### Response
 
-```
-
+```json
 {
   "legalEntityNumber": 1234567890,
   "mainMerchantId": 2008983,
@@ -332,7 +319,6 @@ Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da 
   ],
   "status": "PROCESSING"
 }
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -359,8 +345,7 @@ Recupere o status de registro do EDI.
 >|**Authorization**| Bearer + access_token|
 >| **registerID** |Valor usado para recuperar o status do registro.|
 
-```
-
+```json
 {
   "legalEntityNumber": "01234567890",
   "registerID": 12345,
@@ -370,7 +355,6 @@ Recupere o status de registro do EDI.
   ],
   "status": "PROCESSING"
 }
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -396,8 +380,7 @@ Consulte o MerchantID com base no registerID ou no mainMerchantID.
 >| **registerID** |O registerID é fornecido pela operação /edi/registers ao se registrar. Pode ser usado no lugar de mainMerchantID, se preferir (apenas um precisa ser informado).|
 >| **mainMerchantID** |A maneira mais comum de recuperar um registro EDI na empresa. Pode ser usado em vez de registerID, principalmente em casos de registro não realizados por /edi/registers.|
 
-```
-
+```json
 {
   "legalEntityNumer": "12314314",
   "mainMerchantId": 9999111222,
@@ -411,7 +394,6 @@ Consulte o MerchantID com base no registerID ou no mainMerchantID.
   ],
   "acknowledge": "COMPLETED"
 }
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -436,8 +418,7 @@ Atualize o merchantID com base no registerID ou mainMerchantID.
 >|---|---|
 >|**Authorization**| Bearer + access_token|
 
-```
-
+```json
 {
   "registerID": "string",
   "mainMerchantId": "9999222333",
@@ -449,7 +430,6 @@ Atualize o merchantID com base no registerID ou mainMerchantID.
     "SELL"
   ]
 }
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -461,8 +441,7 @@ Atualize o merchantID com base no registerID ou mainMerchantID.
 
 ### Response
 
-```
-
+```json
 {
   "legalEntityNumber": "01234567890",
   "mainMerchantId": 9999111222,
@@ -475,7 +454,6 @@ Atualize o merchantID com base no registerID ou mainMerchantID.
     "SELL"
   ]
 }
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -502,15 +480,13 @@ Consulte o MerchantID com base no registerID ou no mainMerchantID.
 >| **registerID** |O registerID é fornecido pela operação /edi/registers ao se registrar. Pode ser usado no lugar de mainMerchantID, se preferir (apenas um precisa ser informado).|
 >| **mainMerchantID** |A maneira mais comum de recuperar um registro EDI na empresa. Pode ser usado em vez de registerID, principalmente em casos de registro não realizados por /edi/registers.|
 
-```
-
+```json
 {
   "legalEntityNumer": "12314314",
   "mainMerchantId": 9999111222,
   "registerID": 12345,
   "acknowledge": "COMPLETED"
 }
-
 ```
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
@@ -526,8 +502,7 @@ A duplicação de registro funciona com base no retorno do GET /merchantgroup, s
 
 > **GET** {{host}}/merchantgroup
 
-```
-
+```json
 {
     "legalEntityNumber": "67625512",
     "branches": [
@@ -539,15 +514,13 @@ A duplicação de registro funciona com base no retorno do GET /merchantgroup, s
         }
     ]
 }
-
 ```
 
 Com isso, será necessário efetuar um novo GET para saber se você pode ou não vincular essa cadeia de merchant a sua conciliadora, que nesse caso é o GET /mainmerchants, se você obter o status "available" no campo "editStatus", significa que você poderá fazer a duplicação de matriz via API.
 
 > **GET** {{host}}/mainmerchants
 
-```
-
+```json
 [
     {
         "registerID": "38724",
@@ -563,7 +536,6 @@ Com isso, será necessário efetuar um novo GET para saber se você pode ou não
         "editStatus": "AVAILABLE"
     }
 ]
-
 ```
 
 > GET /mainmerchants pode retornar mais de um objeto, com isso, se o objeto estiver como "available", será necessário efetuar uma chamada de PUT para cada objeto. Os objetos que retornarem “unavailable”, será necessário solicitar a duplicação manual através do edi@cielo.com.br (lembrando que isso representa apenas 10% dos casos, após a implementação da duplicação através do método PUT).
@@ -572,8 +544,7 @@ Com isso, deverá ser feita uma chamada de PUT /edi no qual, irá fazer a duplic
 
 > **PUT** {{host}}/edi
 
-```
-
+```json
 {
     "mainMerchantID": "2006907071",
     "registerID": "38724",
@@ -582,7 +553,6 @@ Com isso, deverá ser feita uma chamada de PUT /edi no qual, irá fazer a duplic
     ],
     "type": ["SELL", "ASSIGNMENT"]
 }
-
 ```
 
 > O header de todas essas requisições permanecem da mesma forma, deve ser informado o Authorization, como nas demais chamadas desta API.
