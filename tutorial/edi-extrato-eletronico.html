@@ -205,28 +205,25 @@
   </table>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/access-token' \
---header 'Basic Basic64'
---header 'Content-Type: application/json' \
---data-raw '{
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{cielo-api-base-url}/consent/v1/oauth/access-token'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Basic Basic64'</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
     "grant_type": "authorization_code",
     "code": "{}"
-}'
-
+}'</span>
+<span class="nt">--verbose</span>
 </code></pre></div></div>
 
 <h3 id="response">Response</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-{
-"access_token": "{access_token}",
-"refresh_token": "{refresh_token}",
-"token_type": "access_token",
-"expires_in": {expiration_time}
-}
-
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{access_token}"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{refresh_token}"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"access_token"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">expiration_time</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <table>
   <thead>
@@ -288,30 +285,27 @@ Em todas as chamadas para as APIs.</p>
 
 <h3 id="request-1">Request</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/access-token' \
---header 'Basic Basic64'
---header 'Content-Type: application/json' \
---data-raw '{
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{cielo-api-base-url}/consent/v1/oauth/access-token'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Basic Basic64'</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
     "grant_type": "refresh_token",
     "refresh_token": "{}"
-}'
-
+}'</span>
+<span class="nt">--verbose</span>
 </code></pre></div></div>
 
 <p>Um ponto de atenção na requisição pois agora o parceiro precisa enviar o <code class="language-plaintext highlighter-rouge">grant_type</code> como <code class="language-plaintext highlighter-rouge">refresh_token</code> e no campo <code class="language-plaintext highlighter-rouge">refresh_token</code> deve ser enviado um <code class="language-plaintext highlighter-rouge">refresh_token</code> válido (e não mais um access_token).</p>
 
 <h3 id="response-1">Response</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-{
-"access_token": "{access_token}",
-"refresh_token": "{refresh_token}",
-"token_type": "access_token",
-"expires_in": {expiration_time}
-}
-
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{access_token}"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{refresh_token}"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"access_token"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">expiration_time</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <table>
   <thead>
@@ -427,20 +421,18 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </table>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-{
-  "legalEntityNumber": "string",
-  "branches": [
-    {
-      "merchantID": "9999111222",
-      "legalEntityNumber": "01234567890",
-      "businessName": "V",
-      "status": "UNAVAILABLE"
-    }
-  ]
-}
-
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"legalEntityNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"branches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"merchantID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9999111222"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"legalEntityNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01234567890"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"businessName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNAVAILABLE"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <table>
   <thead>
@@ -511,25 +503,23 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </table>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-{
-   "registerID":"38724",
-   "mainMerchantID":"2006907071",
-   "merchants":[
-      "2006907071"
-   ],
-   "type":[
-      "SELL",
-      "PAYMENT",
-      "ANTECIPATION_CIELO",
-      "ASSIGNMENT",
-      "BALANCE",
-      "ANTECIPATION_ALELO"
-   ],
-   "editStatus":"AVAILABLE"
-}
-
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"registerID"</span><span class="p">:</span><span class="s2">"38724"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"mainMerchantID"</span><span class="p">:</span><span class="s2">"2006907071"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"merchants"</span><span class="p">:[</span><span class="w">
+      </span><span class="s2">"2006907071"</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nl">"type"</span><span class="p">:[</span><span class="w">
+      </span><span class="s2">"SELL"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"PAYMENT"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ANTECIPATION_CIELO"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ASSIGNMENT"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"BALANCE"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ANTECIPATION_ALELO"</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nl">"editStatus"</span><span class="p">:</span><span class="s2">"AVAILABLE"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <h2 id="post-registrar-merchantid"><strong>POST</strong> Registrar merchantID</h2>
 
@@ -558,20 +548,18 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </table>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-{
-  "mainMerchantId": "9999111222",
-  "merchants": [
-    "9999111111",
-    "9999111333"
-  ],
-  "merchantEMail": "customer@customer.com",
-  "type": [
-    "SELL"
-  ]
-}
-
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"mainMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9999111222"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"merchants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"9999111111"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"9999111333"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"merchantEMail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer@customer.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"SELL"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <table>
   <thead>
@@ -617,22 +605,20 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 
 <h3 id="response-4">Response</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-{
-  "legalEntityNumber": 1234567890,
-  "mainMerchantId": 2008983,
-  "registerID": 12345,
-  "merchants": [
-    823958412384701,
-    679809436576210
-  ],
-  "type": [
-    "SELL"
-  ],
-  "status": "PROCESSING"
-}
-
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"legalEntityNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234567890</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"mainMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2008983</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"registerID"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"merchants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">823958412384701</span><span class="p">,</span><span class="w">
+    </span><span class="mi">679809436576210</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"SELL"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PROCESSING"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <table>
   <thead>
@@ -721,18 +707,16 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </table>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-{
-  "legalEntityNumber": "01234567890",
-  "registerID": 12345,
-  "merchants": [
-    9999222111,
-    9999222222
-  ],
-  "status": "PROCESSING"
-}
-
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"legalEntityNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01234567890"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"registerID"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"merchants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">9999222111</span><span class="p">,</span><span class="w">
+    </span><span class="mi">9999222222</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PROCESSING"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <table>
   <thead>
@@ -811,22 +795,20 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </table>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-{
-  "legalEntityNumer": "12314314",
-  "mainMerchantId": 9999111222,
-  "registerID": 12345,
-  "merchants": [
-    9999111111,
-    9999111333
-  ],
-  "type": [
-    "SELL"
-  ],
-  "acknowledge": "COMPLETED"
-}
-
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"legalEntityNumer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12314314"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"mainMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9999111222</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"registerID"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"merchants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">9999111111</span><span class="p">,</span><span class="w">
+    </span><span class="mi">9999111333</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"SELL"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"acknowledge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COMPLETED"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <table>
   <thead>
@@ -904,20 +886,18 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </table>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-{
-  "registerID": "string",
-  "mainMerchantId": "9999222333",
-  "merchants": [
-    "9999222111",
-    "9999222222"
-  ],
-  "type": [
-    "SELL"
-  ]
-}
-
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"registerID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"mainMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9999222333"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"merchants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"9999222111"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"9999222222"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"SELL"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <table>
   <thead>
@@ -963,21 +943,19 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 
 <h3 id="response-7">Response</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-{
-  "legalEntityNumber": "01234567890",
-  "mainMerchantId": 9999111222,
-  "registerID": 12345,
-  "merchants": [
-    9999222333,
-    9999111222
-  ],
-  "type": [
-    "SELL"
-  ]
-}
-
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"legalEntityNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01234567890"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"mainMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9999111222</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"registerID"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"merchants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">9999222333</span><span class="p">,</span><span class="w">
+    </span><span class="mi">9999111222</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"SELL"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <table>
   <thead>
@@ -1063,15 +1041,13 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   </table>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-{
-  "legalEntityNumer": "12314314",
-  "mainMerchantId": 9999111222,
-  "registerID": 12345,
-  "acknowledge": "COMPLETED"
-}
-
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"legalEntityNumer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12314314"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"mainMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9999111222</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"registerID"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"acknowledge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COMPLETED"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <table>
   <thead>
@@ -1123,20 +1099,18 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   <p><strong>GET</strong> /merchantgroup</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-{
-    "legalEntityNumber": "67625512",
-    "branches": [
-        {
-            "merchantID": "2006907071",
-            "legalEntityNumber": "67.625.512/0001-14",
-            "businessName": "MERCHANTI",
-            "status": "UNAVAILABLE"
-        }
-    ]
-}
-
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"legalEntityNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67625512"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"branches"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"merchantID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2006907071"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"legalEntityNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67.625.512/0001-14"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"businessName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCHANTI"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UNAVAILABLE"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Com isso, será necessário efetuar um novo GET para saber se você pode ou não vincular essa cadeia de merchant a sua conciliadora, que nesse caso é o GET /mainmerchants, se você obter o status “available” no campo “editStatus”, significa que você poderá fazer a duplicação de matriz via API.</p>
 
@@ -1144,24 +1118,22 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   <p><strong>GET</strong> /mainmerchants</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-[
-    {
-        "registerID": "38724",
-        "mainMerchantID": "2006907071",
-        "merchants": [
-            "2006907071"
-        ],
-        "type": [
-            "SELL",
-            "ASSIGNMENT",
-            "BALANCE"
-        ],
-        "editStatus": "AVAILABLE"
-    }
-]
-
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"registerID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"38724"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"mainMerchantID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2006907071"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"merchants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"2006907071"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"SELL"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ASSIGNMENT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"BALANCE"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"editStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AVAILABLE"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
 
 <blockquote>
   <p>GET /mainmerchants pode retornar mais de um objeto, com isso, se o objeto estiver como “available”, será necessário efetuar uma chamada de PUT para cada objeto. Os objetos que retornarem “unavailable”, será necessário solicitar a duplicação manual através do edi@cielo.com.br (lembrando que isso representa apenas 10% dos casos, após a implementação da duplicação através do método PUT).</p>
@@ -1173,21 +1145,22 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
   <p><strong>PUT</strong> /edi</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-{
-    "mainMerchantID": "2006907071",
-    "registerID": "38724",
-        "merchants": [
-        "2006907071"
-    ],
-    "type": ["SELL", "ASSIGNMENT"]
-}
-
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"mainMerchantID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2006907071"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"registerID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"38724"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"merchants"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"2006907071"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"SELL"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ASSIGNMENT"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <blockquote>
-  <p>O header de todas essas requisições permanecem da mesma forma, deve ser informado o Authorization, como nas demais chamadas desta API.</p>
+  <p>O header de todas essas requisições permanecem da mesma forma, deve ser informado o Authorization, como nas demais chamadas desta API.
+Com base no retorno do GET /mainmerchants, será necessário informar o registerID, mainMerchantID e as filiais no array de merchants da chamada de PUT.</p>
 </blockquote>
+
+<aside class="warning"> Observação: Caso do retorno do GET /merchantgroup (1ºPASSO) seja "available" significa que esse merchant está disponível para registro, com isso, é necessário fazer a chamada de POST /registers.</aside>
 
 <h1 id="tipos-de-extrato-eletrônico">Tipos de Extrato Eletrônico</h1>
 
