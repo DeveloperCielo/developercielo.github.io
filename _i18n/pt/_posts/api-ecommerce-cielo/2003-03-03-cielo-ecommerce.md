@@ -4949,13 +4949,13 @@ Existem duas variáveis a serem preenchidas na URL do Javascript. O `org_id` e o
 |Variável|Descrição|SuperMID|Advanced ou Enterprise|
 |:-|:-|
 |`org_id`|para Sandbox = 1snn5n9w <br/> para Produção = k8vif92e|-|-|
-|`session_id`|SuperMID, utilizar o valaor padrão `cielo_webservice` <br/> Advanced ou Enterprise, solicitar junto a Cielo <br/> `ProviderMerchantId` = Identificador da sua loja na Cybersource <br/> `Payment.FraudAnalysis.Browser.BrowserFingerprint` = Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.|
+|`session_id`|SuperMID, utilizar o valaor padrão `cielo_webservice` <br/> Advanced ou Enterprise, solicitar junto a Cielo <br/> `ProviderMerchantId` = Identificador da sua loja na Cybersource (Caso não tenha uma ID próprio, use cielo_webservice)<br/> `Payment.FraudAnalysis.Browser.BrowserFingerprint` = Identificador utilizado para cruzar informações obtidas do dispositivo do comprador. <br/> Obs.: Este identificador poderá ser qualquer valor ou o número do pedido, mas deverá ser único durante 48 horas.|
 
 **Aplicação**
 
 O modelo do Javascript é o seguinte:
 
-![Exemplo Código]({{ site.baseurl_root }}/images/braspag/af/exemploscriptdfp.png)
+![Exemplo Código]({{ site.baseurl_root }}/images/af/exemploscriptdfp.png)
 
 As variáveis, quando devidamente preenchidas, forneceriam uma URL semelhante ao exemplo abaixo:
 
