@@ -492,7 +492,7 @@ Endpoint é a URL para onde as requisições com os dados do carrinho serão env
 
 |Campo|Tipo|Obrigatório|Tamanho|Descrição|Condicional|
 |---|---|---|---|---|---|
-|`OrderNumber`|Alphanumeric|Opcional|64|Número do pedido da loja.||
+|`OrderNumber`|Alphanumeric|Opcional|64|Número do pedido da loja. Este campo não é retornado nos arquivos de conciliação EDI.||
 |`SoftDescriptor`|Alphanumeric|Opcional|13|Texto exibido na fatura do comprador. Sem caracteres especiais ou espaços. EX: `NOMEDALOJA123`||
 |`Cart.Discount.Type`|Alphanumeric|Condicional|255|Tipo do desconto a ser aplicado: `Amount` ou `Percent`.|Obrigatório caso Cart.Discount.Value for maior ou igual a zero.|
 |`Cart.Discount.Value`|Numeric|Condicional|18|Valor do desconto a ser aplicado: Valor ou Percentual|Obrigatório caso Cart.Discount.Type for `Amount` ou `Percent`.|
@@ -1139,6 +1139,8 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
 | `product_expiration_date`            | Data de validade do botão/Link de pagamento                                                                  | Alfanumérico  | 12             |
 | `product_quantity`                   | Numero de transações restantes até que o link deixe de funcionar                                             | Alfanumérico  | 2              |
 | `product_description`                | Descrição do link de pagamentos registrada pelo lojista                                                      | texto         | 256            |
+| `nsu`                                | NSU - Número sequencial único da transação.                                                                  | Alfanumérico  | 6              |
+| `authorization_code`                 | Código de autorização.                                                                                       | Alfanumérico  | 8              |
 
 **Tipos de productID**
 
