@@ -914,7 +914,7 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td>Alphanumeric</td>
       <td>Opcional</td>
       <td>64</td>
-      <td>Número do pedido da loja.</td>
+      <td>Número do pedido da loja. Este campo não é retornado nos arquivos de conciliação EDI.</td>
       <td> </td>
     </tr>
     <tr>
@@ -2608,6 +2608,18 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
       <td>Descrição do link de pagamentos registrada pelo lojista</td>
       <td>texto</td>
       <td>256</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">nsu</code></td>
+      <td>NSU - Número sequencial único da transação.</td>
+      <td>Alfanumérico</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">authorization_code</code></td>
+      <td>Código de autorização.</td>
+      <td>Alfanumérico</td>
+      <td>8</td>
     </tr>
   </tbody>
 </table>

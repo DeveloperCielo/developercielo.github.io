@@ -1378,6 +1378,18 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
       <td>texto</td>
       <td>256</td>
     </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">nsu</code></td>
+      <td>NSU - Número sequencial único da transação.</td>
+      <td>Alfanumérico</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">authorization_code</code></td>
+      <td>Código de autorização.</td>
+      <td>Alfanumérico</td>
+      <td>8</td>
+    </tr>
   </tbody>
 </table>
 
@@ -2094,6 +2106,20 @@ O response possuirá o <code class="language-plaintext highlighter-rouge">Checko
       <td>256</td>
       <td>Descrição do status do antifraude</td>
       <td>Exemplo: Lojista optou não realizar a análise do antifraude</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.type</code></td>
+      <td>Texto</td>
+      <td>11</td>
+      <td>Tipo de meio de pagamento</td>
+      <td>Exemplo: CreditCard (lista completa (https://developercielo.github.io/manual/linkdepagamentos5#payment_method_type) )</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.errocode</code></td>
+      <td>Numérico</td>
+      <td>2</td>
+      <td>Código de retorno</td>
+      <td>Exemplo: 00, 51, 57, etc (lista completa (https://developercielo.github.io/manual/linkdepagamentos5#c%C3%B3digos-de-retorno-(abecs)) )</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
