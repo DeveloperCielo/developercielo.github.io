@@ -641,7 +641,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
 | `shipping_address_city`              | Cidade do endereço de entrega                                                                                | Alfanumérico  | 64             |
 | `shipping_address_state`             | Estado de endereço de entrega                                                                                | Alfanumérico  | 64             |
 | `shipping_address_line1`             | Endereço de entrega                                                                                          | Alfanumérico  | 256            |
-| `shipping_address_line2`             | Complemento do endereço de entrega                                                                           | Alfanumérico  | 14            |
+| `shipping_address_line2`             | Complemento do endereço de entrega                                                                           | Alfanumérico  | 14             |
 | `shipping_address_number`            | Número do endereço de entrega                                                                                | Numérico      | 8              |
 | `payment_method_type`                | Cód. do tipo de meio de pagamento                                                                            | Numérico      | 1              |
 | `payment_method_brand`               | Bandeira (somente para transações com meio de pagamento cartão de crédito)                                   | Numérico      | 1              |
@@ -661,6 +661,8 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
 | `product_expiration_date`            | Data de validade do botão/Link de pagamento                                                                  | Alfanumérico  | 12             |
 | `product_quantity`                   | Numero de transações restantes até que o link deixe de funcionar                                             | Alfanumérico  | 2              |
 | `product_description`                | Descrição do link de pagamentos registrada pelo lojista                                                      | texto         | 256            |
+| `nsu`                                | NSU - Número sequencial único da transação.                                                                  | Alfanumérico  | 6              |
+| `authorization_code`                 | Código de autorização.                                                                                       | Alfanumérico  | 8              |
 
 #### Tipos de productID
 
@@ -918,6 +920,8 @@ Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realiza
 |`Payment.brand`|Texto|10|Bandeira do cartão|Exemplo: Visa|
 |`Payment.antifraud.antifraudeResult`|Numeric|1|Status do antifraude|Exemplo: 1|
 |`Payment.antifraud.description`|Texto|256|Descrição do status do antifraude|Exemplo: Lojista optou não realizar a análise do antifraude|
+|`Payment.type`|Texto|11|Tipo de meio de pagamento|Exemplo: CreditCard (lista completa (https://developercielo.github.io/manual/linkdepagamentos5#payment_method_type) )|
+|`Payment.errocode`|Numérico|2|Código de retorno|Exemplo: 00, 51, 57, etc (lista completa (https://developercielo.github.io/manual/linkdepagamentos5#c%C3%B3digos-de-retorno-(abecs)) )|
 |`Customer.Identity`|Numérico|14|CPF ou CNPJ do comprador.|Exemplo: 12345678909|
 |`Customer.FullName`|Texto|256|Nome completo do comprador.|Exemplo: Fulano da Silva|
 |`Customer.Email`|Texto|64|Email do comprador.|Exemplo: exemplo@email.com.br|
