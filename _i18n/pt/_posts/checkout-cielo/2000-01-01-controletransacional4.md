@@ -277,6 +277,8 @@ Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realiza
 |`Payment.brand`|Texto|10|Bandeira do cartão|Exemplo: Visa|
 |`Payment.antifraud.antifraudeResult`|Numeric|1|Status do antifraude|Exemplo: 1|
 |`Payment.antifraud.description`|Texto|256|Descrição do status do antifraude|Exemplo: Lojista optou não realizar a análise do antifraude|
+|`Payment.type`|Texto|11|Tipo de meio de pagamento|Exemplo: CreditCard (lista completa (https://developercielo.github.io/manual/linkdepagamentos5#payment_method_type) )|
+|`Payment.errocode`|Numérico|2|Código de retorno|Exemplo: 00, 51, 57, etc (lista completa (https://developercielo.github.io/manual/linkdepagamentos5#c%C3%B3digos-de-retorno-(abecs)) )|
 |`Customer.Identity`|Numérico|14|CPF ou CNPJ do comprador.|Exemplo: 12345678909|
 |`Customer.FullName`|Texto|256|Nome completo do comprador.|Exemplo: Fulano da Silva|
 |`Customer.Email`|Texto|64|Email do comprador.|Exemplo: exemplo@email.com.br|
