@@ -619,7 +619,7 @@ Grupo de vendas, ajustes ou cobrança de serviços. Permite identificar a origem
 |024|025|2|Num.|Tipo de Transação|Código que identifica a transação vide Tabela II.|
 |026|031|6|Num.|Data de apresentação|AAMMDD Data em que o RO foi transmitido para a Cielo.|
 |032|037|6|Num.|Data prevista de pagamento|AAMMDD Data prevista de pagamento. Na recuperação, pode ser atualizada após o processamento da transação ou ajuste.|
-|038|043|6|Num.|Data de envio ao banco|AAMMDD Data em que o arquivo de pagamento foi enviado ao banco. Na recuperação, pode ser atualizada após o processamento da transação ou ajuste.|
+|038|043|6|Num.|Data de vencimento original|AAMMDD Data de vencimento original.|
 |044|044|1|Alfa|Sinal do valor bruto|`+` - identifica valor a crédito. <br> `-` - identifica valor a débito.|
 |045|057|13|Num.|Valor bruto `(*)`| Somatória dos valores de venda.|
 |058|058|1|Alfa|Sinal da taxa administrativa|`+` - identifica valor a crédito. <br> `-` - identifica valor a débito.|
@@ -633,7 +633,8 @@ Grupo de vendas, ajustes ou cobrança de serviços. Permite identificar a origem
 |109|122|14|Alfanum.|Conta-corrente / poupança|Conta-corrente / poupança na qual os valores foram depositados.
 |123|124|2|Num.|Status do pagamento| Identifica a situação em que se encontram os créditos enviados ao banco vide Tabela III. Na recuperação, o status é atualizado de acordo com o envio e retorno de confirmação de pagamento por parte do banco.|
 |125|130|6|Num.|Quantidade de CVs aceitos|Quantidades de vendas aceitas no RO.|
-|131|132|2|Num.|Código do Produto (Desconsiderar)|A partir de 01/03/2014, o Identificador do produto passou a ser enviado nas posições 233-235 com três caracteres.|
+|131|131|1|Alfanum.|Indicador Receba Rápido|“S” – Sim, possui Receba Rápido; <br> “N” – Não possui Receba Rápido|
+|132|132|1|Alfanum.|Indicador Taxa Mínima|“S” – Sim, possui CVs com Taxa Mínima aplicada; <br> “N” – Não possui CVs com Taxa Mínima aplicada|.
 |133|138|6|Num.|Quantidades de CVs rejeitados|Quantidade de vendas rejeitadas no RO.|
 |139|139|1|Alfa|Identificador de revenda/aceleração|Identifica as ocorrências de manutenção em transações parceladas na loja: <br>`R` - Revenda <br>`A` - Aceleração <br> `""` - Brancos (nenhuma ocorrência).
 |140|145|6|Num.|Data de captura da transação|AAMMDD - Data em que a transação foi capturada pela Cielo. Na recuperação, pode ser atualizada após o processamento da transação ou ajuste.|
@@ -647,7 +648,7 @@ Grupo de vendas, ajustes ou cobrança de serviços. Permite identificar a origem
 |188|209|22|Num.|Número Único do RO| Número Único de identificação do RO formatado da seguinte forma: <br>Primeira parte (fixa) 15 posições fixas: identifica o resumo mantendo o seu histórico na Cielo; <br> Segunda parte (variável) 07 posições variáveis: Identifica as alterações realizadas no RO.|
 |210|213|4|Num.|Taxa Administrativa `(*)`| Percentual de taxa administrativa aplicado no valor da transação.|
 |214|218|5|Num.|Tarifa Administrativa `(*)`| Tarifa cobrada por transação.|
-|219|222|4|Num.|Taxa de Garantia `(*)`| Percentual de desconto aplicado sobre transações Electron Pré-Datado.|
+|219|222|4|Num.|Taxa Receba Rápido `(*)`| Percentual de taxa receba rápido aplicado no valor da transação. Este campo é informativo e está somado à taxa administrativa nas posições 210 a 213.|
 |223|224|2|Num.|Meio de Captura|Vide tabela VII. Caso a venda tenha sido reprocessada, o sistema enviará o meio de captura 06: Meio de captura manual. Neste caso, desconsiderar o valor informado no número lógico do terminal.|
 |225|232|8|Alfanum.|Número lógico do terminal|Número lógico do terminal onde foi efetuada a venda. Quando o meio de captura for igual a 06, desconsiderar o número lógico do terminal, pois este será um número interno da Cielo.|
 |233|235|3|Num.|Código do Produto|Código que identifica o produto vide Tabela IV.|
@@ -655,7 +656,7 @@ Grupo de vendas, ajustes ou cobrança de serviços. Permite identificar a origem
 |246|246|1|Alfa|Reenvio de Pagamento|`S` - identifica que este resumo está sendo reenviado no extrato. Desconsiderar o pagamento enviado anteriormente. `N` - não refere-se à reenvio de pagamento.
 |247|247|1|Alfa|Conceito aplicado|Identifica o conceito aplicado no resumo apresentado: <br>`" "` - Antigo <br> `"N"` - Novo|
 |248|249|2|Alfanum.|Grupo de Cartões| Identifica o grupo de cartões conforme abaixo: <br> - Brancos. Serviço não atribuído <br> 01 - Cartão emitido no Brasil <br> 02 - Cartão emitido no exterior <br> 03 - MDR por Tipo de Cartão - Inicial <br> 04 - MDR por Tipo de Cartão - Intermediário 05 - MDR por Tipo de Cartão - Superior|
-|250|250|1|Alfanum.|Uso Cielo|Em Branco. Reservado para Cielo.|
+|250|250|1|Alfanum.|Indicador Saldo em Aberto|“D” saldo débito / “R” saldo rotativo / “P” saldo parcelado. Este campo é preenchido somente nos arquivos CIELO09 – Saldo em Aberto e CIELO14 – Saldo em Aberto Alelo. “Brancos” para demais tipos de arquivos.|
 
 ### Registro 2 - Detalhe do Comprovante de Venda (CV)
 
