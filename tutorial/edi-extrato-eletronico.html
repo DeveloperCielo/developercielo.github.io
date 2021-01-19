@@ -1382,6 +1382,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <th>Tipo</th>
       <th>Descrição</th>
       <th>Edição dos Dados</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -1392,6 +1393,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Num.</td>
       <td>Tipo de registro</td>
       <td>Constante 1 - Identifica o tipo de registro detalhe do RO.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>002</td>
@@ -1400,6 +1402,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Num.</td>
       <td>Estabelecimento</td>
       <td>Submissor Número do estabelecimento e/ou filial onde a venda foi realizada.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>012</td>
@@ -1408,6 +1411,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Num.</td>
       <td>Número do RO</td>
       <td>Número do resumo de operação. Contêm informações referentes a um grupo de vendas realizadas em uma determinada data.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>019</td>
@@ -1416,6 +1420,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Num.</td>
       <td>Parcela</td>
       <td>No caso de venda parcelada, será formatado com o número da parcela que está sendo liberada na data do envio do arquivo. No caso de venda à vista, será formatado com brancos.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>021</td>
@@ -1424,6 +1429,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Alfa</td>
       <td>Filler</td>
       <td><code class="language-plaintext highlighter-rouge">"/"</code> - Para vendas parceladas. <br /> <code class="language-plaintext highlighter-rouge">"a"</code> - aceleração das parcelas. <br /> <code class="language-plaintext highlighter-rouge">" "</code> - demais situações.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>022</td>
@@ -1432,6 +1438,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Alfanum.</td>
       <td>Plano</td>
       <td>No caso de venda parcelada, será formatado com o maior número de parcelas encontradas naquele grupo de vendas. Se o RO tiver vendas em 03, 04 ou 06 parcelas, será preenchido com 06. Se for uma aceleração de parcelas, será formatado com a maior parcela acelerada.<br /> Exemplo: (posições 019 a 023) <br /> 02A02 indica a aceleração da parcela 02 até a 02, ou seja, somente uma parcela. <br /> 03A08 indica a aceleração da parcela 03 até a parcela 08 do plano da venda, ou seja, foram aceleradas 06 parcelas. <br /> No caso de venda à vista, será formatado com brancos.<br /></td>
+      <td> </td>
     </tr>
     <tr>
       <td>024</td>
@@ -1440,6 +1447,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Num.</td>
       <td>Tipo de Transação</td>
       <td>Código que identifica a transação vide Tabela II.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>026</td>
@@ -1448,6 +1456,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Num.</td>
       <td>Data de apresentação</td>
       <td>AAMMDD Data em que o RO foi transmitido para a Cielo.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>032</td>
@@ -1456,14 +1465,16 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Num.</td>
       <td>Data prevista de pagamento</td>
       <td>AAMMDD Data prevista de pagamento. Na recuperação, pode ser atualizada após o processamento da transação ou ajuste.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>038</td>
       <td>043</td>
       <td>6</td>
       <td>Num.</td>
-      <td>Data de envio ao banco</td>
-      <td>AAMMDD Data em que o arquivo de pagamento foi enviado ao banco. Na recuperação, pode ser atualizada após o processamento da transação ou ajuste.</td>
+      <td>Data de vencimento original</td>
+      <td>AAMMDD Data de vencimento original.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>044</td>
@@ -1472,6 +1483,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Alfa</td>
       <td>Sinal do valor bruto</td>
       <td><code class="language-plaintext highlighter-rouge">+</code> - identifica valor a crédito. <br /> <code class="language-plaintext highlighter-rouge">-</code> - identifica valor a débito.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>045</td>
@@ -1480,6 +1492,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Num.</td>
       <td>Valor bruto <code class="language-plaintext highlighter-rouge">(*)</code></td>
       <td>Somatória dos valores de venda.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>058</td>
@@ -1488,6 +1501,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Alfa</td>
       <td>Sinal da taxa administrativa</td>
       <td><code class="language-plaintext highlighter-rouge">+</code> - identifica valor a crédito. <br /> <code class="language-plaintext highlighter-rouge">-</code> - identifica valor a débito.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>059</td>
@@ -1496,6 +1510,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Num.</td>
       <td>Valor da taxa administrativa <code class="language-plaintext highlighter-rouge">(*)</code></td>
       <td>Valor da taxa administrativa descontada sobre as vendas.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>072</td>
@@ -1504,6 +1519,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Alfa</td>
       <td>Sinal do valor rejeitado</td>
       <td><code class="language-plaintext highlighter-rouge">+</code> identifica valor a crédito.<br /> <code class="language-plaintext highlighter-rouge">-</code> - identifica valor a débito.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>073</td>
@@ -1512,6 +1528,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Num.</td>
       <td>Valor rejeitado <code class="language-plaintext highlighter-rouge">(*)</code></td>
       <td>Se houver rejeição, será preenchido com a somatória das transações rejeitadas.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>086</td>
@@ -1520,6 +1537,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Alfa</td>
       <td>Sinal do valor líquido</td>
       <td><code class="language-plaintext highlighter-rouge">+</code> identifica o valor a crédito. <br /> <code class="language-plaintext highlighter-rouge">-</code> - identifica o valor a débito.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>087</td>
@@ -1528,6 +1546,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Num.</td>
       <td>Valor líquido <code class="language-plaintext highlighter-rouge">(*)</code></td>
       <td>Valor das vendas descontado o valor da taxa administrativa.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>100</td>
@@ -1536,6 +1555,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Alfanum.</td>
       <td>Banco</td>
       <td>Código do banco no qual os valores foram depositados.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>104</td>
@@ -1544,6 +1564,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Alfanum.</td>
       <td>Agência</td>
       <td>Código da agência na qual os valores foram depositados.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>109</td>
@@ -1552,6 +1573,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Alfanum.</td>
       <td>Conta-corrente / poupança</td>
       <td>Conta-corrente / poupança na qual os valores foram depositados.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>123</td>
@@ -1560,6 +1582,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Num.</td>
       <td>Status do pagamento</td>
       <td>Identifica a situação em que se encontram os créditos enviados ao banco vide Tabela III. Na recuperação, o status é atualizado de acordo com o envio e retorno de confirmação de pagamento por parte do banco.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>125</td>
@@ -1568,14 +1591,25 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Num.</td>
       <td>Quantidade de CVs aceitos</td>
       <td>Quantidades de vendas aceitas no RO.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>131</td>
+      <td>131</td>
+      <td>1</td>
+      <td>Alfanum.</td>
+      <td>Indicador Receba Rápido</td>
+      <td>“S” – Sim, possui Receba Rápido; <br /> “N” – Não possui Receba Rápido</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>132</td>
-      <td>2</td>
-      <td>Num.</td>
-      <td>Código do Produto (Desconsiderar)</td>
-      <td>A partir de 01/03/2014, o Identificador do produto passou a ser enviado nas posições 233-235 com três caracteres.</td>
+      <td>132</td>
+      <td>1</td>
+      <td>Alfanum.</td>
+      <td>Indicador Taxa Mínima</td>
+      <td>“S” – Sim, possui CVs com Taxa Mínima aplicada; <br /> “N” – Não possui CVs com Taxa Mínima aplicada</td>
+      <td>.</td>
     </tr>
     <tr>
       <td>133</td>
@@ -1584,6 +1618,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Num.</td>
       <td>Quantidades de CVs rejeitados</td>
       <td>Quantidade de vendas rejeitadas no RO.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>139</td>
@@ -1592,6 +1627,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Alfa</td>
       <td>Identificador de revenda/aceleração</td>
       <td>Identifica as ocorrências de manutenção em transações parceladas na loja: <br /><code class="language-plaintext highlighter-rouge">R</code> - Revenda <br /><code class="language-plaintext highlighter-rouge">A</code> - Aceleração <br /> <code class="language-plaintext highlighter-rouge">""</code> - Brancos (nenhuma ocorrência).</td>
+      <td> </td>
     </tr>
     <tr>
       <td>140</td>
@@ -1600,6 +1636,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Num.</td>
       <td>Data de captura da transação</td>
       <td>AAMMDD - Data em que a transação foi capturada pela Cielo. Na recuperação, pode ser atualizada após o processamento da transação ou ajuste.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>146</td>
@@ -1608,6 +1645,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Alfanum.</td>
       <td>Origem do ajuste</td>
       <td>Identifica o tipo de ajuste vide Tabela V. Preenchido se o tipo de transação for: <br /> 02 Ajuste crédito <br /> 03 Ajuste débito <br /> 04 Ajuste aluguel</td>
+      <td> </td>
     </tr>
     <tr>
       <td>148</td>
@@ -1616,6 +1654,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Num.</td>
       <td>Valor complementar</td>
       <td>Valor do saque quando o produto for igual a 36 ou valor do Agro Electron para transações dos produtos 22 23 ou 25 apresentados na Tabela IV.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>161</td>
@@ -1623,6 +1662,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>1</td>
       <td>Alfa</td>
       <td>Identificador de Antecipação Identificador de antecipação do RO:<br /> <code class="language-plaintext highlighter-rouge">" "</code> - Não antecipado;<br /> <code class="language-plaintext highlighter-rouge">"A"</code> - Antecipado Cielo ou Alelo;<br /> <code class="language-plaintext highlighter-rouge">C</code> - Antecipado no banco - Cessão de Recebíveis.</td>
+      <td> </td>
       <td> </td>
     </tr>
     <tr>
@@ -1632,6 +1672,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Num.</td>
       <td>Número da operação de Antecipação</td>
       <td>Identifica o número da operação de Antecipação apresentada no registro tipo 5 campo 12 ao 20, associada ao RO antecipado na Cielo/Alelo ou cedido no banco.<br /> Conterá zeros, caso o RO não tenha sido antecipado.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>171</td>
@@ -1640,6 +1681,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Alfa</td>
       <td>Sinal do valor Bruto antecipado</td>
       <td><code class="language-plaintext highlighter-rouge">+</code> identifica valor a crédito. <code class="language-plaintext highlighter-rouge">-</code> - identifica valor a débito.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>172</td>
@@ -1648,6 +1690,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Num.</td>
       <td>Valor Bruto Antecipado <code class="language-plaintext highlighter-rouge">(*)</code></td>
       <td>Valor bruto antecipado, fornecido quando o RO for antecipado/cedido. Será preenchido com zeros quando não houver antecipação.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>185</td>
@@ -1656,6 +1699,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Num.</td>
       <td>Bandeira</td>
       <td>Código da Bandeira vide tabela VI.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>188</td>
@@ -1664,6 +1708,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Num.</td>
       <td>Número Único do RO</td>
       <td>Número Único de identificação do RO formatado da seguinte forma: <br />Primeira parte (fixa) 15 posições fixas: identifica o resumo mantendo o seu histórico na Cielo; <br /> Segunda parte (variável) 07 posições variáveis: Identifica as alterações realizadas no RO.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>210</td>
@@ -1672,6 +1717,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Num.</td>
       <td>Taxa Administrativa <code class="language-plaintext highlighter-rouge">(*)</code></td>
       <td>Percentual de taxa administrativa aplicado no valor da transação.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>214</td>
@@ -1680,14 +1726,16 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Num.</td>
       <td>Tarifa Administrativa <code class="language-plaintext highlighter-rouge">(*)</code></td>
       <td>Tarifa cobrada por transação.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>219</td>
       <td>222</td>
       <td>4</td>
       <td>Num.</td>
-      <td>Taxa de Garantia <code class="language-plaintext highlighter-rouge">(*)</code></td>
-      <td>Percentual de desconto aplicado sobre transações Electron Pré-Datado.</td>
+      <td>Taxa Receba Rápido <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Percentual de taxa receba rápido aplicado no valor da transação. Este campo é informativo e está somado à taxa administrativa nas posições 210 a 213.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>223</td>
@@ -1696,6 +1744,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Num.</td>
       <td>Meio de Captura</td>
       <td>Vide tabela VII. Caso a venda tenha sido reprocessada, o sistema enviará o meio de captura 06: Meio de captura manual. Neste caso, desconsiderar o valor informado no número lógico do terminal.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>225</td>
@@ -1704,6 +1753,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Alfanum.</td>
       <td>Número lógico do terminal</td>
       <td>Número lógico do terminal onde foi efetuada a venda. Quando o meio de captura for igual a 06, desconsiderar o número lógico do terminal, pois este será um número interno da Cielo.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>233</td>
@@ -1712,6 +1762,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Num.</td>
       <td>Código do Produto</td>
       <td>Código que identifica o produto vide Tabela IV.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>236</td>
@@ -1720,6 +1771,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Num.</td>
       <td>Matriz de Pagamento</td>
       <td>Estabelecimento matriz de pagamento.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>246</td>
@@ -1728,6 +1780,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Alfa</td>
       <td>Reenvio de Pagamento</td>
       <td><code class="language-plaintext highlighter-rouge">S</code> - identifica que este resumo está sendo reenviado no extrato. Desconsiderar o pagamento enviado anteriormente. <code class="language-plaintext highlighter-rouge">N</code> - não refere-se à reenvio de pagamento.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>247</td>
@@ -1736,6 +1789,7 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Alfa</td>
       <td>Conceito aplicado</td>
       <td>Identifica o conceito aplicado no resumo apresentado: <br /><code class="language-plaintext highlighter-rouge">" "</code> - Antigo <br /> <code class="language-plaintext highlighter-rouge">"N"</code> - Novo</td>
+      <td> </td>
     </tr>
     <tr>
       <td>248</td>
@@ -1744,14 +1798,16 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Alfanum.</td>
       <td>Grupo de Cartões</td>
       <td>Identifica o grupo de cartões conforme abaixo: <br /> - Brancos. Serviço não atribuído <br /> 01 - Cartão emitido no Brasil <br /> 02 - Cartão emitido no exterior <br /> 03 - MDR por Tipo de Cartão - Inicial <br /> 04 - MDR por Tipo de Cartão - Intermediário 05 - MDR por Tipo de Cartão - Superior</td>
+      <td> </td>
     </tr>
     <tr>
       <td>250</td>
       <td>250</td>
       <td>1</td>
       <td>Alfanum.</td>
-      <td>Uso Cielo</td>
-      <td>Em Branco. Reservado para Cielo.</td>
+      <td>Indicador Saldo em Aberto</td>
+      <td>“D” saldo débito / “R” saldo rotativo / “P” saldo parcelado. Este campo é preenchido somente nos arquivos CIELO09 – Saldo em Aberto e CIELO14 – Saldo em Aberto Alelo. “Brancos” para demais tipos de arquivos.</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -2559,6 +2615,7 @@ geração do arquivo.</p>
       <td>Num.</td>
       <td>Tipo de registro</td>
       <td>Constante Identifica o tipo de registro de detalhe trailer (final do arquivo).</td>
+      <td> </td>
     </tr>
     <tr>
       <td>002</td>
@@ -2567,6 +2624,7 @@ geração do arquivo.</p>
       <td>Num.</td>
       <td>Total de registro</td>
       <td>Número total de registros, os quais não incluem header e trailer.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>013</td>
@@ -2575,6 +2633,7 @@ geração do arquivo.</p>
       <td>Alfa</td>
       <td>Sinal Valor Líquido da soma de todos os CVs</td>
       <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifica valor positivo. <code class="language-plaintext highlighter-rouge">"-"</code> - identifica valor negativo.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>014</td>
@@ -2583,6 +2642,7 @@ geração do arquivo.</p>
       <td>Num.</td>
       <td>Valor Líquido da soma de todos os CVs</td>
       <td>Valor Líquido da soma de todos os CVs.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>031</td>
@@ -2591,14 +2651,70 @@ geração do arquivo.</p>
       <td>Num.</td>
       <td>Quantidade total de CVs</td>
       <td>Quantidade total de CVs.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>042</td>
+      <td>042</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal Valor Bruto da soma de todos os ROs</td>
+      <td><code class="language-plaintext highlighter-rouge">“+”</code> identifica valor positivo. <code class="language-plaintext highlighter-rouge">“-”</code> identifica valor negativo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>043</td>
+      <td>059</td>
+      <td>17</td>
+      <td>Num.</td>
+      <td>Valor Bruto da soma de todos os ROs</td>
+      <td>Valor Bruto da soma de todos os ROs</td>
+      <td>Valor Bruto da soma de todos os ROs.</td>
+    </tr>
+    <tr>
+      <td>060</td>
+      <td>060</td>
+      <td>1</td>
+      <td>Alfa.</td>
+      <td>Sinal Valor Bruto Antecipado da soma de todos os ROs</td>
+      <td><code class="language-plaintext highlighter-rouge">“+”</code> identifica valor positivo. <code class="language-plaintext highlighter-rouge">“-”</code> identifica valor negativo.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>061</td>
+      <td>077</td>
+      <td>17</td>
+      <td>Num</td>
+      <td>Valor Bruto Antecipado da soma de todos os ROs</td>
+      <td>Valor Bruto Antecipado da soma de todos os ROs.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>078</td>
+      <td>078</td>
+      <td>1</td>
+      <td>Alfa.</td>
+      <td>Sinal soma de Valores Negociados</td>
+      <td><code class="language-plaintext highlighter-rouge">“+”</code> identifica valor positivo. <code class="language-plaintext highlighter-rouge">“-”</code> identifica valor negativo.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>079</td>
+      <td>095</td>
+      <td>17</td>
+      <td>Alfa.</td>
+      <td>Soma de Valores Negociados</td>
+      <td>Soma de Valores Negociados.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>096</td>
       <td>250</td>
       <td>209</td>
       <td>Alfanum.</td>
       <td>Uso Cielo</td>
       <td>Em Branco. Reservado para Cielo.</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
