@@ -1189,22 +1189,28 @@ Com base no retorno do GET /mainmerchants, será necessário informar o register
       <td>Conferir origem do pagamento recebido (tipo de venda, bandeira e cliente/estabelecimento que efetuou a venda).<br />Conciliação com a conta corrente.</td>
     </tr>
     <tr>
+      <td><strong>06 Antecipação de Recebíveis Cielo</strong></td>
+      <td>Operação de ARV realizada pela Cielo no dia anterior ao envio do arquivo e respectivo detalhe dos ROs e CVs que foram antecipados.</td>
+      <td>0 - Header <br /> 5 - Detalhe de ARV <br /> 6 - Detalhe ROs antecipados <br /> 2 - Detalhe CV <br /> 7 - Detalhe dos débitos de ROs Antecipados <br /> 2 - Detalhe CV <br /> 9 - Trailer <br /> Obs.: Será demonstrado o registro tipo 5 para cada operação realizada.</td>
+      <td>Atualizar o fluxo de caixa, considerando os valores já recebidos através da antecipação.</td>
+    </tr>
+    <tr>
+      <td><strong>07 Cessão de Recebíveis</strong></td>
+      <td>Operação de cessão realizada no banco Bradesco no dia anterior ao envio do arquivo e respectivo detalhe dos ROs cedidos. <br /> Não é demonstrada a condição comercial negociada ou parcela cedida</td>
+      <td>0 - Header <br /> 5 - Detalhe de ARV <br /> 6 -  Detalhe ROs antecipados 9 - Trailer <br /> Obs.: Será demonstrado o registro tipo 5 para cada operação realizada.</td>
+      <td>Atualizar o fluxo de caixa, considerando os valores já recebidos através da operação de cessão.</td>
+    </tr>
+    <tr>
       <td><strong>09 Saldo em Aberto</strong></td>
       <td>Valores a receber com a Cielo, contemplando as transações realizadas, capturadas e processadas, vendas a débito, crédito e parceladas ainda não liquidadas no movimento fechado no mês anterior. O arquivo é disponibilizado mensalmente.</td>
       <td>0 - Header <br /> 1 - Detalhe RO <br /> 9 - Trailer</td>
       <td>Atualizar a previsão futura de recebimentos. Este extrato é o analítico da Carta Saldo (Carta de Circularização) encaminhado para fins de auditoria. Não deve ser utilizado para conciliação.</td>
     </tr>
     <tr>
-      <td><strong>15 Negociação de Recebíveis</strong></td>
-      <td>Operação de negociação de recebíveis realizada no dia anterior.</td>
-      <td>0 - Header <br /> A - Resumo Negociação de Recebíveis <br /> B - Detalhe Negociação de Recebíveis <br /> C - Conta de Recebimento <br /> 9 - Trailer</td>
-      <td>Conferir as negociações que foram realizadas</td>
-    </tr>
-    <tr>
-      <td><strong>16 Transações PIX</strong></td>
-      <td>Vendas (transferências) e Ajustes (devoluções) realizados no dia anterior</td>
-      <td>0 - Header <br /> 8 - Detalhe Transação PIX <br /> 9 - Trailer</td>
-      <td>Conferir as transações que foram realizadas na modalidade PIX</td>
+      <td><strong>10 Antecipação de Recebíveis Alelo</strong></td>
+      <td>Operação de ARV realizada pela Alelo no dia anterior ao envio do arquivo e respectivo detalhe dos ROs e CVs que foram antecipados.</td>
+      <td>0 - Header <br /> 5 - Detalhe de ARV <br /> 6 - Detalhe ROs antecipados <br /> 2 - Detalhe CV <br /> 7 - Detalhe dos débitos de ROs Antecipados <br /> 2 - Detalhe CV <br /> 9 - Trailer <br /> Obs.: Será demonstrado o registro tipo 5 para cada operação realizada.</td>
+      <td>Atualizar o fluxo de caixa, considerando os valores já recebidos através da antecipação.</td>
     </tr>
   </tbody>
 </table>
@@ -4412,7 +4418,7 @@ Caso ocorra alguma inconsistência na transmissão do(s) arquivo(s), o cliente d
 
 <p><a href="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14.pdf">Manual de Extrato Eletrônico</a></p>
 
-<p>[Atualização de Layout EE - Registro de Recebíveis + PIX]Atualizacao_layout_EE_-_Registro_de_Recebiveis_PIX.pdf)</p>
+<p><a href="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis_PIX.pdf">Atualização de Layout EE - Registro de Recebíveis + PIX</a></p>
 
 </div>
 
