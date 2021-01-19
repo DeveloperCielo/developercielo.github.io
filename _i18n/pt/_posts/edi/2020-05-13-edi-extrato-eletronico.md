@@ -783,7 +783,13 @@ Indica o final do arquivo.
 |013|013|1|Alfa|Sinal Valor Líquido da soma de todos os CVs| `"+"` - identifica valor positivo. `"-"` - identifica valor negativo.|
 |014|030|17|Num.|Valor Líquido da soma de todos os CVs| Valor Líquido da soma de todos os CVs.|
 |031|041|11|Num.|Quantidade total de CVs| Quantidade total de CVs.|
-|042|250|209|Alfanum.|Uso Cielo|Em Branco. Reservado para Cielo.|
+|042|042|1|Alfa|Sinal Valor Bruto da soma de todos os ROs| `“+”` identifica valor positivo. `“-”` identifica valor negativo|
+|043|059|17|Num.|Valor Bruto da soma de todos os ROs | Valor Bruto da soma de todos os ROs|Valor Bruto da soma de todos os ROs.|
+|060|060|1|Alfa.|Sinal Valor Bruto Antecipado da soma de todos os ROs| `“+”` identifica valor positivo. `“-”` identifica valor negativo.|
+|061|077|17|Num|Valor Bruto Antecipado da soma de todos os ROs | Valor Bruto Antecipado da soma de todos os ROs.|
+|078|078|1|Alfa.|Sinal soma de Valores Negociados| `“+”` identifica valor positivo. `“-”` identifica valor negativo.|
+|079|095|17|Alfa.|Soma de Valores Negociados| Soma de Valores Negociados.|
+|096|250|209|Alfanum.|Uso Cielo|Em Branco. Reservado para Cielo.|
 
 Observação: os campos reservados para a Cielo poderão ser utilizados para a inclusão de novas informações. Também poderá ser necessário incluir novos tipos de registros. Por conta disso, sugerimos que a solução de conciliação despreze os registros não relacionados nesta especificação.
 
