@@ -1266,6 +1266,6 @@ MASTERCARD: a data de apresentação da 1ª parcela também será a data base pa
 
 > Observação: as atualizações citadas abaixo, estarão disponíveis a partir do dia 17 de fevereiro de 2021. 
 
-[Manual de Extrato Eletrônico](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Manual_Extrato_Eletronico.zip)
+[Manual de Extrato Eletrônico](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14.pdf)
 
-[Atualização de Layout EE - Registro de Recebíveis](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis.pdf)
+[Atualização de Layout EE - Registro de Recebíveis + PIX]Atualizacao_layout_EE_-_Registro_de_Recebiveis_PIX.pdf)
