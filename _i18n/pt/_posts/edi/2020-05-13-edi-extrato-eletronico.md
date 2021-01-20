@@ -796,6 +796,37 @@ Apresenta os débitos compensados nas datas antecipadas.
 |129|141|13|Num.|Valor do saldo do RO antecipado| Resultado do total de débito valor compensado.|
 |142|250|109|Alfanum.| Uso Cielo| Em Branco. Reservado para Cielo.|
 
+### Registro 8 - Detalhe Transação PIX
+
+Apresenta as transações realizadas na modalidade PIX.
+
+|001|001|1|Num.|Tipo de registro|Constante 7 identifica o tipo de registro que apresenta as informações de um RO que foi antecipado.|
+|002|011|10|Num.|Estabelecimento Submissor|Número do estabelecimento e/ou filial onde a venda foi realizada.|
+|012|013|2|Num.|Tipo de transação|Código que identifica a transação – vide Tabela II.|
+|014|019|6|Num.|Data da transação|AAMMDD – Data em que a transação foi realizada.|
+|020|025|6|Num.|Hora da transação|Hora da transação apresentada no formato HHMMSS.|
+|026|061|36|Alfanum.|ID PIX Código que identifica a transação PIX.|
+|062|067|6|Alfanum.|NSU/DOC| Número sequencial, também conhecido como DOC (número do documento), que identifica a transação no dia em que ela foi realizada. Este número não é único e pode se repetir. Caso a venda tenha sido reprocessada, o NSU pode ser alterado.|
+|068|073|6|Num.|Data de pagamento|AAMMDD – Data de pagamento. No reprocessamento, pode ser atualizada após o processamento da transação ou ajuste.|
+|074|074|1|Alfa|Sinal do valor bruto|`“+”` identifica valor a crédito. <br>`“-”` identifica valor a débito.|
+|075|087|13|Num.| Valor bruto `(*)`| Valor bruto da transação.|
+|088|088|1|Alfa| Sinal da taxa administrativa| “+” identifica valor a crédito. <br> `“-”` identifica valor a débito.|
+|089|101|13|Num.| Valor da taxa administrativa `(*)`| Valor da taxa administrativa descontada sobre a transação.|
+|102|102|1|Alfa| Sinal do valor líquido| `“+”` identifica o valor a crédito. <br> `“-”` identifica o valor a débito.|
+|103|115|13|Num.| Valor líquido `(*)`|Valor da transação descontado a taxa|
+|116|119|4|Alfanum.|Banco|Código do banco no qual os valores foram depositados.|
+|120|124|5|Alfanum.|Agência|Código da agência na qual os valores foram depositados.|
+|125|144|20|Alfanum.|Conta|Conta na qual os valores foram depositados.|
+|145|150|6|Num.|Data de captura da transação|AAMMDD - Data em que a transação foi capturada pela Cielo. No reprocessamento, pode ser atualizada após o processamento da transação ou ajuste.|
+|151|154|4|Num.|Taxa Administrativa `(*)`|Percentual de taxa administrativa aplicado no valor da transação.|
+|155|159|5|Num.|Tarifa Administrativa `(*)`|Tarifa cobrada por transação.|
+|160|161|2|Num.|Meio de Captura| Vide tabela VII. Caso a venda tenha sido reprocessada, o sistema enviará o meio de captura 06: Meio de captura manual. Neste caso, desconsiderar o valor informado no número lógico do terminal.|
+|162|169|8|Alfanum.|Número lógico do terminal|Número lógico do terminal onde foi efetuada a venda. Quando o meio de captura for igual a 06, desconsiderar o número lógico do terminal, pois este será um número interno da Cielo.|
+|170|175|6|Num.|Data da transação original|AAMMDD – Data em que a transação original foi realizada.|
+|176|181|6|Num.|Hora da transação original|Hora da transação original apresentada no formato HHMMSS.|
+|182|217|36|Alfanum.|ID PIX original|Código que identifica a transação PIX original.|
+|218|250|33|Alfanum.|Uso Cielo|Em Branco. Reservado para Cielo.|
+
 ### Registro 9 - Trailer
 
 Indica o final do arquivo.
