@@ -2054,6 +2054,55 @@ Conforme regras de segurança, todos os registros que possuírem número de cart
   </tbody>
 </table>
 
+<h3 id="registro-3----operação-de-recebíveis">Registro 3 -  Operação de recebíveis</h3>
+
+<p>Permite identificar a origem das operações realizadas com os recebíveis.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Tipo de registro</td>
+      <td>Constante <code class="language-plaintext highlighter-rouge">"5"</code> identifica o tipo de registro que apresenta as informações de uma operação de antecipação.</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>011</td>
+      <td>10</td>
+      <td>Num.</td>
+      <td>Estabelecimento de pagamento ou submissão</td>
+      <td>Número do estabelecimento.</td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>031</td>
+      <td>20</td>
+      <td>Alfanum.</td>
+      <td>Código Operação</td>
+      <td>Código Operação</td>
+    </tr>
+    <tr>
+      <td>032</td>
+      <td>045</td>
+      <td>14</td>
+      <td>Alfanum.</td>
+      <td>CPF / CNPJ Titular</td>
+      <td>Número do CPF/CNPJ do titular.</td>
+    </tr>
+    <tr>
+      <td>046</td>
+      <td>059</td>
+      <td>14</td>
+      <td>Alfanum.</td>
+      <td>CPF / CNPJ Recebedor</td>
+      <td>Número do CPF / CNPJ Recebedor.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="registro-5---detalhe-da-operação-de-antecipação-de-recebíveis">Registro 5 - Detalhe da Operação de Antecipação de Recebíveis</h3>
 
 <p>Apresenta a operação de antecipação realizada na Cielo / Alelo ou de cessão de recebíveis (Banco Bradesco) realizada no dia anterior à
