@@ -864,6 +864,14 @@ Permite conferir o detalhe das negociações que foram realizadas.
 
 ### Registro C - Conta de Recebimento
 
+|001|001|1|Num.|Tipo de registro|Constante “C” – identifica o tipo de registro.|
+|002|005|4|Alfanum.|Banco|Código do banco no qual os valores foram depositados.|
+|006|010|5|Alfanum.|Agência|Código da agência na qual os valores foram depositados.|
+|011|030|20|Alfanum.|Conta|Conta na qual os valores foram depositados.|
+|031|031|1|Alfa|Sinal Valor depositado.|
+|032|044|13|Num.|Valor depositado `(*)`|Valor depositado.|
+|045|250|206|Alfanum.|Uso Cielo|Em Branco. Reservado para Cielo.|
+
 ### Registro 9 - Trailer
 
 Indica o final do arquivo.
