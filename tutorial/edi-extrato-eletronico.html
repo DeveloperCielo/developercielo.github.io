@@ -2971,6 +2971,226 @@ Conforme regras de segurança, todos os registros que possuírem número de cart
   </tbody>
 </table>
 
+<h3 id="registro-a---resumo-negociação-de-recebíveis">Registro A - Resumo Negociação de Recebíveis</h3>
+
+<p>Permite conferir as negociações que foram realizadas.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Tipo de registro</td>
+      <td>Constante “A” – identifica o tipo de registro.</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>007</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Data da negociação</td>
+      <td>AAMMDD – Data da negociação.</td>
+    </tr>
+    <tr>
+      <td>008</td>
+      <td>013</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Data de Pagamento</td>
+      <td>AAMMDD – Data de pagamento.</td>
+    </tr>
+    <tr>
+      <td>014</td>
+      <td>027</td>
+      <td>14</td>
+      <td>Alfanum.</td>
+      <td>CPF / CNPJ</td>
+      <td>Número do CPF/CNPJ.</td>
+    </tr>
+    <tr>
+      <td>028</td>
+      <td>030</td>
+      <td>3</td>
+      <td>Num.</td>
+      <td>Prazo médio</td>
+      <td>Prazo médio.</td>
+    </tr>
+    <tr>
+      <td>031</td>
+      <td>035</td>
+      <td>5</td>
+      <td>Num.</td>
+      <td>Taxa Nominal <code class="language-plaintext highlighter-rouge">(**)</code></td>
+      <td>Taxa nominal.</td>
+    </tr>
+    <tr>
+      <td>036</td>
+      <td>036</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor bruto</td>
+      <td><code class="language-plaintext highlighter-rouge">“+”</code> identifica valor a crédito. <br /> <code class="language-plaintext highlighter-rouge">“-”</code> identifica valor a débito.</td>
+    </tr>
+    <tr>
+      <td>037</td>
+      <td>049</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor bruto <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Valor bruto.</td>
+    </tr>
+    <tr>
+      <td>050</td>
+      <td>050</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor líquido</td>
+      <td><code class="language-plaintext highlighter-rouge">“+”</code> identifica valor a crédito. <br /> <code class="language-plaintext highlighter-rouge">“-”</code> identifica valor a débito.</td>
+    </tr>
+    <tr>
+      <td>051</td>
+      <td>063</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor líquido <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Valor líquido.</td>
+    </tr>
+    <tr>
+      <td>064</td>
+      <td>083</td>
+      <td>20</td>
+      <td>Alfanum.</td>
+      <td>Código da Operação</td>
+      <td>Código da Operação.</td>
+    </tr>
+    <tr>
+      <td>084</td>
+      <td>250</td>
+      <td>167Alfanum.</td>
+      <td>Uso Cielo</td>
+      <td>Em Branco. Reservado para Cielo.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="registro-b---detalhe-negociação-de-recebíveis">Registro B - Detalhe Negociação de Recebíveis</h3>
+
+<p>Permite conferir o detalhe das negociações que foram realizadas.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Tipo de registro</td>
+      <td>Constante “B” – identifica o tipo de registro.</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>007</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Data da negociação</td>
+      <td>AAMMDD – Data da negociação.</td>
+    </tr>
+    <tr>
+      <td>008</td>
+      <td>013</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Data de vencimento original</td>
+      <td>AAMMDD – Data de vencimento original.</td>
+    </tr>
+    <tr>
+      <td>014</td>
+      <td>027</td>
+      <td>14</td>
+      <td>Alfanum.</td>
+      <td>CPF / CNPJ</td>
+      <td>Número do CPF/CNPJ.</td>
+    </tr>
+    <tr>
+      <td>028</td>
+      <td>030</td>
+      <td>3</td>
+      <td>Num.</td>
+      <td>Bandeira</td>
+      <td>Código da Bandeira – vide tabela VI.</td>
+    </tr>
+    <tr>
+      <td>031</td>
+      <td>033</td>
+      <td>3</td>
+      <td>Num.</td>
+      <td>Tipo de liquidação</td>
+      <td>“000” – não identificado <br /> “001” – crédito <br /> “002” – débito</td>
+    </tr>
+    <tr>
+      <td>034</td>
+      <td>034</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor bruto</td>
+      <td>“+” identifica valor a crédito. <br /> “-” identifica valor a débito.</td>
+    </tr>
+    <tr>
+      <td>035</td>
+      <td>047</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor bruto <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Valor bruto.</td>
+    </tr>
+    <tr>
+      <td>048</td>
+      <td>048</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor líquido</td>
+      <td>“+” identifica valor a crédito. <br /> “-” identifica valor a débito.</td>
+    </tr>
+    <tr>
+      <td>049</td>
+      <td>061</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor líquido <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Valor líquido.</td>
+    </tr>
+    <tr>
+      <td>062</td>
+      <td>066</td>
+      <td>5</td>
+      <td>Num.</td>
+      <td>Taxa efetiva <code class="language-plaintext highlighter-rouge">(**)</code></td>
+      <td>Taxa efetiva.</td>
+    </tr>
+    <tr>
+      <td>067</td>
+      <td>116</td>
+      <td>50</td>
+      <td>Alfanum.</td>
+      <td>Instituição Financeira Instituição financeira.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>117</td>
+      <td>250</td>
+      <td>134</td>
+      <td>Alfanum.</td>
+      <td>Uso Cielo</td>
+      <td>Em Branco. Reservado para Cielo.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="registro-c---conta-de-recebimento">Registro C - Conta de Recebimento</h3>
+
 <h3 id="registro-9---trailer">Registro 9 - Trailer</h3>
 
 <p>Indica o final do arquivo.</p>
