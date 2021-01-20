@@ -827,6 +827,43 @@ Apresenta as transações realizadas na modalidade PIX.
 |182|217|36|Alfanum.|ID PIX original|Código que identifica a transação PIX original.|
 |218|250|33|Alfanum.|Uso Cielo|Em Branco. Reservado para Cielo.|
 
+### Registro A - Resumo Negociação de Recebíveis
+
+Permite conferir as negociações que foram realizadas.
+
+|001|001|1|Num.|Tipo de registro|Constante “A” – identifica o tipo de registro.|
+|002|007|6|Num.|Data da negociação|AAMMDD – Data da negociação.|
+|008|013|6|Num.|Data de Pagamento|AAMMDD – Data de pagamento.|
+|014|027|14|Alfanum.|CPF / CNPJ|Número do CPF/CNPJ.|
+|028|030|3|Num.| Prazo médio|Prazo médio.|
+|031|035|5|Num.|Taxa Nominal `(**)`|Taxa nominal.|
+|036|036|1|Alfa|Sinal do valor bruto|`“+”` identifica valor a crédito. <br> `“-”` identifica valor a débito.|
+|037|049|13|Num.|Valor bruto `(*)`|Valor bruto.|
+|050|050|1|Alfa|Sinal do valor líquido|`“+”` identifica valor a crédito. <br> `“-”` identifica valor a débito.|
+|051|063|13|Num.|Valor líquido `(*)`|Valor líquido.|
+|064|083|20|Alfanum.|Código da Operação|Código da Operação.|
+|084|250|167Alfanum.|Uso Cielo|Em Branco. Reservado para Cielo.|
+
+### Registro B - Detalhe Negociação de Recebíveis
+
+Permite conferir o detalhe das negociações que foram realizadas.
+
+|001|001|1|Num.|Tipo de registro|Constante “B” – identifica o tipo de registro.|
+|002|007|6|Num.|Data da negociação|AAMMDD – Data da negociação.|
+|008|013|6|Num.|Data de vencimento original|AAMMDD – Data de vencimento original.|
+|014|027|14|Alfanum.|CPF / CNPJ|Número do CPF/CNPJ.|
+|028|030|3|Num.|Bandeira|Código da Bandeira – vide tabela VI.|
+|031|033|3|Num.|Tipo de liquidação|“000” – não identificado <br> “001” – crédito <br> “002” – débito|
+|034|034|1|Alfa|Sinal do valor bruto|“+” identifica valor a crédito. <br> “-” identifica valor a débito.|
+|035|047|13|Num.|Valor bruto `(*)`| Valor bruto.
+|048|048|1|Alfa|Sinal do valor líquido| “+” identifica valor a crédito. <br> “-” identifica valor a débito.|
+|049|061|13|Num.|Valor líquido `(*)`| Valor líquido.|
+|062|066|5|Num.|Taxa efetiva `(**)`| Taxa efetiva.|
+|067|116|50|Alfanum.|Instituição Financeira Instituição financeira.|
+|117|250|134|Alfanum.|Uso Cielo|Em Branco. Reservado para Cielo.|
+
+### Registro C - Conta de Recebimento
+
 ### Registro 9 - Trailer
 
 Indica o final do arquivo.
