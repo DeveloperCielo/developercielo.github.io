@@ -2754,6 +2754,223 @@ Conforme regras de segurança, todos os registros que possuírem número de cart
   </tbody>
 </table>
 
+<h3 id="registro-8---detalhe-transação-pix">Registro 8 - Detalhe Transação PIX</h3>
+
+<p>Apresenta as transações realizadas na modalidade PIX.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Tipo de registro</td>
+      <td>Constante 7 identifica o tipo de registro que apresenta as informações de um RO que foi antecipado.</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>011</td>
+      <td>10</td>
+      <td>Num.</td>
+      <td>Estabelecimento Submissor</td>
+      <td>Número do estabelecimento e/ou filial onde a venda foi realizada.</td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>013</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Tipo de transação</td>
+      <td>Código que identifica a transação – vide Tabela II.</td>
+    </tr>
+    <tr>
+      <td>014</td>
+      <td>019</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Data da transação</td>
+      <td>AAMMDD – Data em que a transação foi realizada.</td>
+    </tr>
+    <tr>
+      <td>020</td>
+      <td>025</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Hora da transação</td>
+      <td>Hora da transação apresentada no formato HHMMSS.</td>
+    </tr>
+    <tr>
+      <td>026</td>
+      <td>061</td>
+      <td>36</td>
+      <td>Alfanum.</td>
+      <td>ID PIX Código que identifica a transação PIX.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>062</td>
+      <td>067</td>
+      <td>6</td>
+      <td>Alfanum.</td>
+      <td>NSU/DOC</td>
+      <td>Número sequencial, também conhecido como DOC (número do documento), que identifica a transação no dia em que ela foi realizada. Este número não é único e pode se repetir. Caso a venda tenha sido reprocessada, o NSU pode ser alterado.</td>
+    </tr>
+    <tr>
+      <td>068</td>
+      <td>073</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Data de pagamento</td>
+      <td>AAMMDD – Data de pagamento. No reprocessamento, pode ser atualizada após o processamento da transação ou ajuste.</td>
+    </tr>
+    <tr>
+      <td>074</td>
+      <td>074</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor bruto</td>
+      <td><code class="language-plaintext highlighter-rouge">“+”</code> identifica valor a crédito. <br /><code class="language-plaintext highlighter-rouge">“-”</code> identifica valor a débito.</td>
+    </tr>
+    <tr>
+      <td>075</td>
+      <td>087</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor bruto <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Valor bruto da transação.</td>
+    </tr>
+    <tr>
+      <td>088</td>
+      <td>088</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal da taxa administrativa</td>
+      <td>“+” identifica valor a crédito. <br /> <code class="language-plaintext highlighter-rouge">“-”</code> identifica valor a débito.</td>
+    </tr>
+    <tr>
+      <td>089</td>
+      <td>101</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor da taxa administrativa <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Valor da taxa administrativa descontada sobre a transação.</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>102</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal do valor líquido</td>
+      <td><code class="language-plaintext highlighter-rouge">“+”</code> identifica o valor a crédito. <br /> <code class="language-plaintext highlighter-rouge">“-”</code> identifica o valor a débito.</td>
+    </tr>
+    <tr>
+      <td>103</td>
+      <td>115</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor líquido <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Valor da transação descontado a taxa</td>
+    </tr>
+    <tr>
+      <td>116</td>
+      <td>119</td>
+      <td>4</td>
+      <td>Alfanum.</td>
+      <td>Banco</td>
+      <td>Código do banco no qual os valores foram depositados.</td>
+    </tr>
+    <tr>
+      <td>120</td>
+      <td>124</td>
+      <td>5</td>
+      <td>Alfanum.</td>
+      <td>Agência</td>
+      <td>Código da agência na qual os valores foram depositados.</td>
+    </tr>
+    <tr>
+      <td>125</td>
+      <td>144</td>
+      <td>20</td>
+      <td>Alfanum.</td>
+      <td>Conta</td>
+      <td>Conta na qual os valores foram depositados.</td>
+    </tr>
+    <tr>
+      <td>145</td>
+      <td>150</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Data de captura da transação</td>
+      <td>AAMMDD - Data em que a transação foi capturada pela Cielo. No reprocessamento, pode ser atualizada após o processamento da transação ou ajuste.</td>
+    </tr>
+    <tr>
+      <td>151</td>
+      <td>154</td>
+      <td>4</td>
+      <td>Num.</td>
+      <td>Taxa Administrativa <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Percentual de taxa administrativa aplicado no valor da transação.</td>
+    </tr>
+    <tr>
+      <td>155</td>
+      <td>159</td>
+      <td>5</td>
+      <td>Num.</td>
+      <td>Tarifa Administrativa <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Tarifa cobrada por transação.</td>
+    </tr>
+    <tr>
+      <td>160</td>
+      <td>161</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Meio de Captura</td>
+      <td>Vide tabela VII. Caso a venda tenha sido reprocessada, o sistema enviará o meio de captura 06: Meio de captura manual. Neste caso, desconsiderar o valor informado no número lógico do terminal.</td>
+    </tr>
+    <tr>
+      <td>162</td>
+      <td>169</td>
+      <td>8</td>
+      <td>Alfanum.</td>
+      <td>Número lógico do terminal</td>
+      <td>Número lógico do terminal onde foi efetuada a venda. Quando o meio de captura for igual a 06, desconsiderar o número lógico do terminal, pois este será um número interno da Cielo.</td>
+    </tr>
+    <tr>
+      <td>170</td>
+      <td>175</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Data da transação original</td>
+      <td>AAMMDD – Data em que a transação original foi realizada.</td>
+    </tr>
+    <tr>
+      <td>176</td>
+      <td>181</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Hora da transação original</td>
+      <td>Hora da transação original apresentada no formato HHMMSS.</td>
+    </tr>
+    <tr>
+      <td>182</td>
+      <td>217</td>
+      <td>36</td>
+      <td>Alfanum.</td>
+      <td>ID PIX original</td>
+      <td>Código que identifica a transação PIX original.</td>
+    </tr>
+    <tr>
+      <td>218</td>
+      <td>250</td>
+      <td>33</td>
+      <td>Alfanum.</td>
+      <td>Uso Cielo</td>
+      <td>Em Branco. Reservado para Cielo.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="registro-9---trailer">Registro 9 - Trailer</h3>
 
 <p>Indica o final do arquivo.</p>
