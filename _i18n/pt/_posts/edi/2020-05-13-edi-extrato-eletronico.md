@@ -702,11 +702,23 @@ Permite identificar a origem das operações realizadas com os recebíveis.
 |012|031|20|Alfanum.|Código Operação|Código Operação|
 |032|045|14|Alfanum.|CPF / CNPJ Titular|Número do CPF/CNPJ do titular.|
 |046|059|14|Alfanum.|CPF / CNPJ Recebedor|Número do CPF / CNPJ Recebedor.|
+|060|073|14|Alfanum.|CPF / CNPJ Titular Conta|Número do CPF/CNPJ do titular da conta.|
+|074|081|8|Num.|Data de Pagamento|AAAAMMDD – Data de pagamento.|
+|082|089|8|Num.|Data de vencimento original|AAAAMMDD – Data de vencimento original.|
+|090|091|2|Alfanum.|Tipo de Operação| “CE” – cessão <br> “GR” – gravame|
+|092|094|3|Alfanum.|Bandeira| Código da bandeira – vide tabela VI.|
+|095|097|3|Alfanum.|Tipo de liquidação| “000” – não identificado <br> “001” – crédito <br> “002” – débito|
+|098|098|1|Alfanum.|Sinal do valor da Operação|“+” identifica valor a crédito. <br> “-” identifica valor a débito.|
+|099|115|17|Num.|Valor da operação*|Valor da operação.|
+|116|118|3|Num.|Código da moeda|“986” – real <br> “840” – dolar|
+|119|122|4|Alfanum.|Banco|Código do banco.|
+|123|127|5|Alfanum.|Agência|Código da agência.|
+|128|141|14|Alfanum.|Conta|Código da conta.|
+|142|250|109|Alfanum.|Uso Cielo|Em Branco. Reservado para Cielo.|
 
-### Registro 5 - Detalhe da Operação de Antecipação de Recebíveis
+### Registro 5 - Detalhe da Operação de Antecipação Alelo
 
-Apresenta a operação de antecipação realizada na Cielo / Alelo ou de cessão de recebíveis (Banco Bradesco) realizada no dia anterior à
-geração do arquivo.
+Apresenta a operação de antecipação Alelo realizada no dia anterior à geração do arquivo.
 
 |001|001|1|Num.|Tipo de registro|Constante `"5"` identifica o tipo de registro que apresenta as informações de uma operação de antecipação.|
 |002|011|10|Num.|Estabelecimento de pagamento ou submissão|Número do estabelecimento.|
@@ -738,12 +750,12 @@ geração do arquivo.
 |184|192|9|Num.|Tarifa| Valor da tarifa cobrada por operação. Se não houver cobrança de tarifa, o campo será preenchido em branco.|
 |193|250|58|Alfanum.|Uso Cielo| Em Branco. Reservado para Cielo.|
 
-### Registro 6 - Detalhe dos ROs Antecipados
+### Registro 6 - Detalhe dos ROs Antecipados Alelo
 
-Apresenta o detalhamento da operação de Antecipação demonstrando os ROs antecipados/cedidos.
+Apresenta o detalhamento da operação de Antecipação demonstrando os ROs antecipados Alelo.
 
 |001|001|1|Num.|Tipo de registro|Constante 6 identifica o tipo de registro que apresenta as informações de um RO que foi antecipado.|
-|002|011|10|Num.|Estabelecimento|Submissor Número do estabelecimento e/ou filial onde a venda foi realizada.|
+|002|011|10|Num.|Estabelecimento Submissor|Número do estabelecimento e/ou filial onde a venda foi realizada.|
 |012|020|9|Num.|Número da operação de antecipação|Número da operação de antecipação.|
 |021|028|8|Num.|Data de vencimento do RO|AAAAMMDD Data de vencimento original do RO que foi antecipado.|
 |029|035|7|Num.|Número do RO antecipado|Número do RO antecipado.|
