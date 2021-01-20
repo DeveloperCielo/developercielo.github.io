@@ -693,6 +693,16 @@ Conforme regras de segurança, todos os registros que possuírem número de cart
 |221|235|15|Alfanum.|Código da Venda |dentifica o código da venda. (somente conceito novo).|
 |236|250|15|Alfanum.|Código Interno do Ajuste|Identifica o código de agrupamento dos ajustes. (somente conceito novo).|
 
+### Registro 3 -  Operação de recebíveis
+
+Permite identificar a origem das operações realizadas com os recebíveis.
+
+|001|001|1|Num.|Tipo de registro|Constante `"5"` identifica o tipo de registro que apresenta as informações de uma operação de antecipação.|
+|002|011|10|Num.|Estabelecimento de pagamento ou submissão|Número do estabelecimento.|
+|012|031|20|Alfanum.|Código Operação|Código Operação|
+|032|045|14|Alfanum.|CPF / CNPJ Titular|Número do CPF/CNPJ do titular.|
+|046|059|14|Alfanum.|CPF / CNPJ Recebedor|Número do CPF / CNPJ Recebedor.|
+
 ### Registro 5 - Detalhe da Operação de Antecipação de Recebíveis
 
 Apresenta a operação de antecipação realizada na Cielo / Alelo ou de cessão de recebíveis (Banco Bradesco) realizada no dia anterior à
