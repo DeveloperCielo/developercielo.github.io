@@ -3191,6 +3191,67 @@ Conforme regras de segurança, todos os registros que possuírem número de cart
 
 <h3 id="registro-c---conta-de-recebimento">Registro C - Conta de Recebimento</h3>
 
+<table>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Tipo de registro</td>
+      <td>Constante “C” – identifica o tipo de registro.</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>005</td>
+      <td>4</td>
+      <td>Alfanum.</td>
+      <td>Banco</td>
+      <td>Código do banco no qual os valores foram depositados.</td>
+    </tr>
+    <tr>
+      <td>006</td>
+      <td>010</td>
+      <td>5</td>
+      <td>Alfanum.</td>
+      <td>Agência</td>
+      <td>Código da agência na qual os valores foram depositados.</td>
+    </tr>
+    <tr>
+      <td>011</td>
+      <td>030</td>
+      <td>20</td>
+      <td>Alfanum.</td>
+      <td>Conta</td>
+      <td>Conta na qual os valores foram depositados.</td>
+    </tr>
+    <tr>
+      <td>031</td>
+      <td>031</td>
+      <td>1</td>
+      <td>Alfa</td>
+      <td>Sinal Valor depositado.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>032</td>
+      <td>044</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Valor depositado <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Valor depositado.</td>
+    </tr>
+    <tr>
+      <td>045</td>
+      <td>250</td>
+      <td>206</td>
+      <td>Alfanum.</td>
+      <td>Uso Cielo</td>
+      <td>Em Branco. Reservado para Cielo.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="registro-9---trailer">Registro 9 - Trailer</h3>
 
 <p>Indica o final do arquivo.</p>
