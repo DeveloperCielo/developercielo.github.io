@@ -893,39 +893,31 @@ Observação: os campos reservados para a Cielo poderão ser utilizados para a i
 
 ## Tabelas
 
-### Tabela I - Tipos de Arquivos
+### Tabela I - Opção de Extrato
 
-|Type|Codigo Tabela I|Descrição|
-|---|---|---|
-|SELL|03|Vendas com Plano Parcelado|
-|PAYMENT|04|Pagamentos|
-|ANTECIPATION_CIELO|06|Antecipação de Recebíveis Cielo|
-|ASSIGNMENT|07|Cessão de Recebíveis|
-|BALANCE|09|Saldo em aberto|
-|ANTECIPATION_ALELO|10|Antecipação de Recebíveis Alelo|
-
-### Tabela II - Opção de Extrato
-
-|Código|Descrição|
-|---|---| 
+|Codigo|Descrição|
+|---|---|
 |03|Vendas com Plano Parcelado|
 |04|Pagamentos|
-|06|Antecipação de Recebíveis Cielo|
-|07|Cessão de Recebíveis|
 |09|Saldo em Aberto|
 |10|Antecipação de Recebíveis Alelo|
+|12|Vendas Alelo|
+|13|Pagamentos Alelo|
+|14|Saldo em Aberto Alelo|
+|15|Negociação de Recebíveis|
+|16|Transações PIX|
 
-### Tabela III - Tipo de Transação
+### Tabela II - Tipo de Transação
 
-|Código|Descrição|
-|---|---| 
+|Codigo|Descrição|
+|---|---|
 |01|Venda|
 |02|Ajuste a Crédito|
 |03|Ajuste a Débito|
 |04|Plano Cielo|
 |05|Reagendamento|
 
-### Tabela IV - Status do Pagamento
+### Tabela III - Status do Pagamento
 
 |Código|Descrição|
 |---|---| 
@@ -936,7 +928,7 @@ Observação: os campos reservados para a Cielo poderão ser utilizados para a i
 
 Quando um valor a crédito estiver em processo de compensação com um valor a débito, ambos serão enviados no arquivo de pagamento na data da compensação, posterior a data prevista de pagamento. O status enviado para o banco poder ser novamente apresentado no extrato de pagamento, quando o banco domicílio devolver uma ordem de crédito (reenvio de pagamento)
 
-### Tabela V - Código do Produto
+### Tabela IV - Código do Produto
 
 |Código|Descrição|
 |---|---| 
@@ -1036,7 +1028,7 @@ Quando um valor a crédito estiver em processo de compensação com um valor a d
 |380|Mastercard Crédito Conversor de Moeda |
 |433|JCB parcelado loja                    |
 
-### Tabela VI - Origem do Ajuste
+### Tabela V - Origem do Ajuste
 
 |Código|Descrição|Tipo Ajuste|                                                  |
 |---|---|---|                                                                   |
@@ -1119,7 +1111,7 @@ Quando um valor a crédito estiver em processo de compensação com um valor a d
 |86|Cielo Controle (Franquia)| Acerto/Cobrança                                  |
 |93|Meliuz |Acerto/Cobrança                                                     |           
 
-### Tabela VII - Bandeira
+### Tabela VI - Bandeira
 
 |Código|Descrição|                                                 |
 |---|---|                                                                   |
@@ -1140,7 +1132,7 @@ Quando um valor a crédito estiver em processo de compensação com um valor a d
 |072|Hiper       |
 |075|Ourocard    |
 
-### Tabela VIII - Meio de Captura
+### Tabela VII - Meio de Captura
 
 |Código|Descrição|
 |---|---|                                                               
@@ -1156,7 +1148,7 @@ Quando um valor a crédito estiver em processo de compensação com um valor a d
 |09|Moedeiro Eletrônico em Rede|
 |99|Não identificado|
 
-### Tabela IX - Motivo da Rejeição
+### Tabela VIII - Motivo da Rejeição
 
 |Código|Descrição|
 |---|---|                                                               
@@ -1212,7 +1204,7 @@ Quando um valor a crédito estiver em processo de compensação com um valor a d
 |147|Parcelado emissor não habilitado               |
 |150|Estabelecimento não financeiro                 |
 
-### Tabela X - Modo de Entrada do Cartão
+### Tabela IX - Modo de Entrada do Cartão
 
 |Código|Descrição|
 |---|---|  
@@ -1229,7 +1221,7 @@ Quando um valor a crédito estiver em processo de compensação com um valor a d
 |91|Contactless emulando tarja|
 |95|Chip offline|
 
-### Tabela XI - Grupo de Cartões 
+### Tabela X - Grupo de Cartões 
 
 |Código|Descrição|
 |---|---|  
@@ -1240,7 +1232,7 @@ Quando um valor a crédito estiver em processo de compensação com um valor a d
 |04 MDR por Tipo de Cartão - Intermediário|
 |05 MDR por Tipo de Cartão - Superior|
 
-### Tabela XII - Tipo de Cartão
+### Tabela XI - Tipo de Cartão
 
 |Código|Descrição|
 |---|---|  
