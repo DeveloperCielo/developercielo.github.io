@@ -3373,56 +3373,12 @@ Conforme regras de segurança, todos os registros que possuírem número de cart
 
 <h2 id="tabelas">Tabelas</h2>
 
-<h3 id="tabela-i---tipos-de-arquivos">Tabela I - Tipos de Arquivos</h3>
+<h3 id="tabela-i---opção-de-extrato">Tabela I - Opção de Extrato</h3>
 
 <table>
   <thead>
     <tr>
-      <th>Type</th>
-      <th>Codigo Tabela I</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>SELL</td>
-      <td>03</td>
-      <td>Vendas com Plano Parcelado</td>
-    </tr>
-    <tr>
-      <td>PAYMENT</td>
-      <td>04</td>
-      <td>Pagamentos</td>
-    </tr>
-    <tr>
-      <td>ANTECIPATION_CIELO</td>
-      <td>06</td>
-      <td>Antecipação de Recebíveis Cielo</td>
-    </tr>
-    <tr>
-      <td>ASSIGNMENT</td>
-      <td>07</td>
-      <td>Cessão de Recebíveis</td>
-    </tr>
-    <tr>
-      <td>BALANCE</td>
-      <td>09</td>
-      <td>Saldo em aberto</td>
-    </tr>
-    <tr>
-      <td>ANTECIPATION_ALELO</td>
-      <td>10</td>
-      <td>Antecipação de Recebíveis Alelo</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="tabela-ii---opção-de-extrato">Tabela II - Opção de Extrato</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Código</th>
+      <th>Codigo</th>
       <th>Descrição</th>
     </tr>
   </thead>
@@ -3434,14 +3390,6 @@ Conforme regras de segurança, todos os registros que possuírem número de cart
     <tr>
       <td>04</td>
       <td>Pagamentos</td>
-    </tr>
-    <tr>
-      <td>06</td>
-      <td>Antecipação de Recebíveis Cielo</td>
-    </tr>
-    <tr>
-      <td>07</td>
-      <td>Cessão de Recebíveis</td>
     </tr>
     <tr>
       <td>09</td>
@@ -3451,15 +3399,35 @@ Conforme regras de segurança, todos os registros que possuírem número de cart
       <td>10</td>
       <td>Antecipação de Recebíveis Alelo</td>
     </tr>
+    <tr>
+      <td>12</td>
+      <td>Vendas Alelo</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Pagamentos Alelo</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Saldo em Aberto Alelo</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Negociação de Recebíveis</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Transações PIX</td>
+    </tr>
   </tbody>
 </table>
 
-<h3 id="tabela-iii---tipo-de-transação">Tabela III - Tipo de Transação</h3>
+<h3 id="tabela-ii---tipo-de-transação">Tabela II - Tipo de Transação</h3>
 
 <table>
   <thead>
     <tr>
-      <th>Código</th>
+      <th>Codigo</th>
       <th>Descrição</th>
     </tr>
   </thead>
@@ -3487,7 +3455,7 @@ Conforme regras de segurança, todos os registros que possuírem número de cart
   </tbody>
 </table>
 
-<h3 id="tabela-iv---status-do-pagamento">Tabela IV - Status do Pagamento</h3>
+<h3 id="tabela-iii---status-do-pagamento">Tabela III - Status do Pagamento</h3>
 
 <table>
   <thead>
@@ -3518,7 +3486,7 @@ Conforme regras de segurança, todos os registros que possuírem número de cart
 
 <p>Quando um valor a crédito estiver em processo de compensação com um valor a débito, ambos serão enviados no arquivo de pagamento na data da compensação, posterior a data prevista de pagamento. O status enviado para o banco poder ser novamente apresentado no extrato de pagamento, quando o banco domicílio devolver uma ordem de crédito (reenvio de pagamento)</p>
 
-<h3 id="tabela-v---código-do-produto">Tabela V - Código do Produto</h3>
+<h3 id="tabela-iv---código-do-produto">Tabela IV - Código do Produto</h3>
 
 <table>
   <thead>
@@ -3911,7 +3879,7 @@ Conforme regras de segurança, todos os registros que possuírem número de cart
   </tbody>
 </table>
 
-<h3 id="tabela-vi---origem-do-ajuste">Tabela VI - Origem do Ajuste</h3>
+<h3 id="tabela-v---origem-do-ajuste">Tabela V - Origem do Ajuste</h3>
 
 <table>
   <thead>
@@ -4394,7 +4362,7 @@ Conforme regras de segurança, todos os registros que possuírem número de cart
   </tbody>
 </table>
 
-<h3 id="tabela-vii---bandeira">Tabela VII - Bandeira</h3>
+<h3 id="tabela-vi---bandeira">Tabela VI - Bandeira</h3>
 
 <table>
   <thead>
@@ -4488,7 +4456,7 @@ Conforme regras de segurança, todos os registros que possuírem número de cart
   </tbody>
 </table>
 
-<h3 id="tabela-viii---meio-de-captura">Tabela VIII - Meio de Captura</h3>
+<h3 id="tabela-vii---meio-de-captura">Tabela VII - Meio de Captura</h3>
 
 <table>
   <thead>
@@ -4545,7 +4513,7 @@ Conforme regras de segurança, todos os registros que possuírem número de cart
   </tbody>
 </table>
 
-<h3 id="tabela-ix---motivo-da-rejeição">Tabela IX - Motivo da Rejeição</h3>
+<h3 id="tabela-viii---motivo-da-rejeição">Tabela VIII - Motivo da Rejeição</h3>
 
 <table>
   <thead>
@@ -4762,7 +4730,7 @@ Conforme regras de segurança, todos os registros que possuírem número de cart
   </tbody>
 </table>
 
-<h3 id="tabela-x---modo-de-entrada-do-cartão">Tabela X - Modo de Entrada do Cartão</h3>
+<h3 id="tabela-ix---modo-de-entrada-do-cartão">Tabela IX - Modo de Entrada do Cartão</h3>
 
 <table>
   <thead>
@@ -4823,7 +4791,7 @@ Conforme regras de segurança, todos os registros que possuírem número de cart
   </tbody>
 </table>
 
-<h3 id="tabela-xi---grupo-de-cartões">Tabela XI - Grupo de Cartões</h3>
+<h3 id="tabela-x---grupo-de-cartões">Tabela X - Grupo de Cartões</h3>
 
 <table>
   <thead>
@@ -4860,7 +4828,7 @@ Conforme regras de segurança, todos os registros que possuírem número de cart
   </tbody>
 </table>
 
-<h3 id="tabela-xii---tipo-de-cartão">Tabela XII - Tipo de Cartão</h3>
+<h3 id="tabela-xi---tipo-de-cartão">Tabela XI - Tipo de Cartão</h3>
 
 <table>
   <thead>
