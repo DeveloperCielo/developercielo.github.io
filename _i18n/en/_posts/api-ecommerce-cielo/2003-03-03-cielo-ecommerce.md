@@ -9671,7 +9671,7 @@ Below we explain them in the order in which they can occur:
 |404|Resource Not Found|
 |500|Internal Server Error|
 
-## Return codes (ABECS)
+## Return codes ABECS
 
 The Brazilian Association of Credit Card and Services Companies (ABECS) establishes as of July 15, 2020, the standardization of the return code of refused sales authorizations for both the physical payment and e-commerce solutions of the Brazilian market .
 
