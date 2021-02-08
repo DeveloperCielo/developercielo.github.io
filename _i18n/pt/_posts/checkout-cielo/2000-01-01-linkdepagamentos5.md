@@ -923,7 +923,7 @@ Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realiza
 |`Payment.antifraud.antifraudeResult`|Numeric|1|Status do antifraude|Exemplo: 1|
 |`Payment.antifraud.description`|Texto|256|Descrição do status do antifraude|Exemplo: Lojista optou não realizar a análise do antifraude|
 |`Payment.type`|Texto|11|Tipo de meio de pagamento|Exemplo: CreditCard [lista completa](https://developercielo.github.io/manual/linkdepagamentos5#payment_method_type)|
-|`Payment.errocode`|Numérico|2|Código de retorno|Exemplo: 00, 51, 57, etc [lista completa](https://developercielo.github.io/manual/linkdepagamentos5#c%C3%B3digos-de-retorno-(abecs))|
+|`Payment.errocode`|Numérico|2|Código de retorno|Exemplo: 00, 51, 57, etc [lista completa](https://developercielo.github.io/manual/linkdepagamentos5#c%C3%B3digos-de-retorno-abecs)|
 |`Customer.Identity`|Numérico|14|CPF ou CNPJ do comprador.|Exemplo: 12345678909|
 |`Customer.FullName`|Texto|256|Nome completo do comprador.|Exemplo: Fulano da Silva|
 |`Customer.Email`|Texto|64|Email do comprador.|Exemplo: exemplo@email.com.br|
@@ -1059,7 +1059,7 @@ O Checkout possui um Status próprios, diferente do SITE CIELO ou da API Cielo e
 | 7     | `Autorizado`        | somente para Cartão de Crédito   | Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta                  |
 | 8     | `Chargeback`        | somente para Cartão de Crédito   | Transação cancelada pelo consumidor junto ao emissor do cartão. O Dinheiro não será depositado em conta.                      |
 
-## Códigos de retorno (ABECS)
+## Códigos de retorno - ABECS
 
 A Associação Brasileira das Empresas de Cartão de Crédito e Serviços (ABECS) estabelece a partir do dia 15 de Julho de 2020 a padronização do código de retorno das autorizações de vendas recusadas tanto para as soluções pagamento do mundo físico e e-commerce do mercado brasileiro.
 
