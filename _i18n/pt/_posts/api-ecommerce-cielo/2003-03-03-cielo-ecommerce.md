@@ -308,6 +308,45 @@ Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos cam
 |PaymentFacilitator.SubEstablishment.PhoneNumber|Numérico|13|Obrigatório para facilitadores|Número de telefone do sub Merchant.|
 |Payment.Softdescriptor|Texto|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
 
+### Transações CBPS
+
+Atualmente, os consumidores geralmente precisam fazer login em diversos sites de cobrança para pagar suas contas, muitos dos quais não aceitam pagamentos de cartão. Os fornecedores do Serviço de Pagamento de Contas para Consumidores (CBPS) simplificam o processo ao permitir que os consumidores façam todos os pagamentos de contas com cartão e em um único canal. Geralmente os fornecedores CBPS oferecem um aplicativo móvel ou um comercio eletrônico para o portador fazer a gestão e efetuar os pagamentos.
+
+A Visa solicita que os provedores deste tipo de serviço passem a informar quais transações são CBPS a partir de Out20. Para isso, é necessário enviar o campo **“IsCustomerBillPaymentService”** como TRUE conforme exemplo abaixo.
+
+#### Requisição
+
+```json
+{
+   "MerchantOrderId":"2014111703",
+   "Customer":{
+      "Name":"Comprador crédito simples"
+   },
+   "Payment":{
+      "Type":"CreditCard",
+      "Amount":15700,
+      "Installments":1,
+      "SoftDescriptor":"123456789ABCD",
+      "CreditCard":{
+         "CardNumber":"1234123412341231",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"123",
+         "Brand":"Visa",
+         "CardOnFile":{
+            "Usage":"Used",
+            "Reason":"Unscheduled"
+         }
+      },
+      "IsCustomerBillPaymentService":true
+   }
+}
+```
+
+|Propriedade                   |Tipo     | Tamanho | Obrigatório | Descrição                                                                                        |
+|------------------------------|---------|---------|-------------|--------------------------------------------------------------------------------------------------|
+| IsCustomerBillPaymentService | Boolean | ---     | Não         | True ou false. Indica se é uma transação CBPS (Serviço de Pagamento de Contas para Consumidores) |
+
 # Certificados e segurança
 
 ## O que é Certificado SSL?
