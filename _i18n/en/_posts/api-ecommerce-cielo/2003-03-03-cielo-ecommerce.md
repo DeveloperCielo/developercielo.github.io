@@ -307,6 +307,45 @@ The new fields are contained within the Payment Facilitator node. In addition to
 |PaymentFacilitator.SubEstablishment.PhoneNumber|Number|13|Required for facilitators|Sub Merchant Phone Number.|
 |Payment.Softdescriptor|Text|13|Required for facilitators|Text printed on buyer bank invoice. Must be completed according to the data of the sub Merchant.|
 
+### CBPS Transactions
+
+Actually, consumers often need to log in to several billing sites to pay their bills, many of which don't accept card payments. Suppliers of the Account Payment Service for Consumers (CBPS) simplify the process by allowing consumers to make all bill payments with a card and in a single channel. Generally, CBPS providers offer a mobile application or electronic commerce for the bearer to manage and make payments.
+
+Visa requests that providers of this type of service start to inform which transactions are CBPS as of Oct20. For this, it's necessary to send the field **“IsCustomerBillPaymentService”** as TRUE as the example below.
+
+#### Request
+
+```json
+{
+   "MerchantOrderId":"2014111703",
+   "Customer":{
+      "Name":"Comprador crédito simples"
+   },
+   "Payment":{
+      "Type":"CreditCard",
+      "Amount":15700,
+      "Installments":1,
+      "SoftDescriptor":"123456789ABCD",
+      "CreditCard":{
+         "CardNumber":"1234123412341231",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"123",
+         "Brand":"Visa",
+         "CardOnFile":{
+            "Usage":"Used",
+            "Reason":"Unscheduled"
+         }
+      },
+      "IsCustomerBillPaymentService":true
+   }
+}
+```
+
+|Property                      | Type    | Size    | Required    | Description                                                                              |
+|------------------------------|---------|---------|-------------|------------------------------------------------------------------------------------------|
+| IsCustomerBillPaymentService | Boolean | ---     | No         | True ou false. Indicates whether it's a CBPS (Consumer Bill Payment Service) transaction |
+
 # Extended Validation Certificate
 
 ## What is the SSL Certificate?
