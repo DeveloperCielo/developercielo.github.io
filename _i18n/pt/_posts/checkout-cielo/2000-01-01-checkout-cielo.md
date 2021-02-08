@@ -1540,7 +1540,7 @@ Com os dados inclusos na tela, o comprador pode finalizar a transação
 |-|-|
 |![]({{ site.baseurl_root }}/images/checkout/wallet4.png)|![]({{ site.baseurl_root }}/images/checkout/wallet5.png)|
 
-# Códigos de retorno - ABECS
+# Códigos de retorno ABECS
 
 A Associação Brasileira das Empresas de Cartão de Crédito e Serviços (ABECS) estabelece a partir do dia 15 de Julho de 2020 a padronização do código de retorno das autorizações de vendas recusadas tanto para as soluções pagamento do mundo físico e e-commerce do mercado brasileiro.
 
