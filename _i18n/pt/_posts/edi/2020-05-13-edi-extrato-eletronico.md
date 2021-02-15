@@ -655,7 +655,7 @@ Grupo de vendas, ajustes ou cobrança de serviços. Permite identificar a origem
 |236|245|10|Num.| Matriz de Pagamento|Estabelecimento matriz de pagamento.|
 |246|246|1|Alfa|Reenvio de Pagamento|`S` - identifica que este resumo está sendo reenviado no extrato. Desconsiderar o pagamento enviado anteriormente. `N` - não refere-se à reenvio de pagamento.
 |247|247|1|Alfa|Conceito aplicado|Identifica o conceito aplicado no resumo apresentado: <br>`" "` - Antigo <br> `"N"` - Novo|
-|248|249|2|Alfanum.|Grupo de Cartões| Identifica o grupo de cartões conforme abaixo: <br> - Brancos. Serviço não atribuído <br> 01 - Cartão emitido no Brasil <br> 02 - Cartão emitido no exterior <br> 03 - MDR por Tipo de Cartão - Inicial <br> 04 - MDR por Tipo de Cartão - Intermediário 05 - MDR por Tipo de Cartão - Superior|
+|248|249|2|Alfanum.|Grupo de Cartões| Identifica o grupo de cartões conforme abaixo: <br> 00 - Serviço não atribuído <br> 01 - Cartão emitido no Brasil <br> 02 - Cartão emitido no exterior <br> 03 - MDR por Tipo de Cartão - Inicial <br> 04 - MDR por Tipo de Cartão - Intermediário 05 - MDR por Tipo de Cartão - Superior|
 |250|250|1|Alfanum.|Indicador Saldo em Aberto|“D” saldo débito / “R” saldo rotativo / “P” saldo parcelado. Este campo é preenchido somente nos arquivos CIELO09 – Saldo em Aberto e CIELO14 – Saldo em Aberto Alelo. “Brancos” para demais tipos de arquivos.|
 
 ### Registro 2 - Detalhe do Comprovante de Venda (CV)
@@ -1371,6 +1371,8 @@ MASTERCARD: a data de apresentação da 1ª parcela também será a data base pa
 
 > Observação: as atualizações citadas abaixo, estarão disponíveis a partir do dia 17 de fevereiro de 2021. 
 
-[Manual de Extrato Eletrônico](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14.pdf)
+[Manual de Extrato Eletrônico](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_0.pdf)
 
-[Atualização de Layout EE - Registro de Recebíveis + PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis_PIX.pdf)
+[Electronic Statement Manual - English version](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_-_English_-_Version_14.pdf)
+
+[Atualização de Layout EE - Registro de Recebíveis + PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis_PIX_0.pdf)
