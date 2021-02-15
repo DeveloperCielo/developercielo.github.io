@@ -566,9 +566,9 @@ Com isso, deverá ser feita uma chamada de PUT /edi no qual, irá fazer a duplic
 
 |Tipo de Arquivo|Informação|Tipo de Registro|Objetivo|
 |---|---|---|---|
-|**03 Vendas com Plano Parcelado**|Vendas concluídas (capturadas) no dia anterior, ajustes e transações rejeitadas, com a previsão de  pagamento. Todo o plano parcelado da venda realizada no dia anterior.| 0 - Header <br> 1 - Detalhe RO (com a primeira parcela) <br> 2 - Detalhe CV <br> 1 - Detalhe RO (previsão da segunda parcela em diante) <br> 9 - Trailer <br> |Conferir se todas as vendas realizadas foram recebidas pela Cielo e as previsões de pagamento.|
-|**04 Pagamentos**| Valores pagos na conta-corrente no dia do envio do Extrato: detalha os ROs e ajustes compensados no dia. <br> Transações compensadas, já antecipadas ou cedidas anteriormente e pagamentos de parcelas em aberto.| 0 - Header <br> 1 - Detalhe RO <br> 2 - Detalhe CV <br> 9 - Trailer <br> |Conferir origem do pagamento recebido (tipo de venda, bandeira e cliente/estabelecimento que efetuou a venda).<br>Conciliação com a conta corrente. |
-|**09 Saldo em Aberto**|Valores a receber com a Cielo, contemplando as transações realizadas, capturadas e processadas, vendas a débito, crédito e parceladas ainda não liquidadas no movimento fechado no mês anterior. O arquivo é disponibilizado mensalmente.| 0 - Header <br> 1 - Detalhe RO <br> 9 - Trailer |Atualizar a previsão futura de recebimentos. Este extrato é o analítico da Carta Saldo (Carta de Circularização) encaminhado para fins de auditoria. Não deve ser utilizado para conciliação. |
+|**03 Vendas com Plano Parcelado**|Vendas concluídas (capturadas) no dia anterior, ajustes e transações rejeitadas, com a previsão de  pagamento. Todo o plano parcelado da venda realizada no dia anterior.| 0 - Header <br> 1 - Detalhe RO (com a primeira parcela) <br> 2 - Detalhe CV <br> 1 - Detalhe RO (previsão da segunda parcela em diante) <br> 3 - Operação de Recebíveis <br> 9 - Trailer <br> |Conferir se todas as vendas realizadas foram recebidas pela Cielo e as previsões de pagamento.|
+|**04 Pagamentos**| Valores pagos na conta-corrente no dia do envio do Extrato: detalha os ROs e ajustes compensados no dia. <br> Transações compensadas, já antecipadas ou cedidas anteriormente e pagamentos de parcelas em aberto.| 0 - Header <br> 1 - Detalhe RO <br> 2 - Detalhe CV <br> 3 - Operação de Recebíveis <br> 9 - Trailer <br> |Conferir origem do pagamento recebido (tipo de venda, bandeira e cliente/estabelecimento que efetuou a venda).<br>Conciliação com a conta corrente. |
+|**09 Saldo em Aberto**|Valores a receber com a Cielo, contemplando as transações realizadas, capturadas e processadas, vendas a débito, crédito e parceladas ainda não liquidadas no movimento fechado no mês anterior. O arquivo é disponibilizado mensalmente.| 0 - Header <br> 1 - Detalhe RO <br> 3 - Operação de Recebíveis <br> 9 - Trailer |Atualizar a previsão futura de recebimentos. Não deve ser utilizado para conciliação. |
 |**15 Negociação de Recebíveis**| Operação de negociação de recebíveis realizada no dia anterior.|0 - Header <br> A - Resumo Negociação de Recebíveis <br> B - Detalhe Negociação de Recebíveis <br> C - Conta de Recebimento <br> 9 - Trailer|Conferir as negociações que foram realizadas.| 
 |**16 Transações PIX**| Vendas (transferências) e Ajustes (devoluções) realizados no dia anterior|0 - Header <br> 8 - Detalhe Transação PIX <br> 9 - Trailer|Conferir as transações que foram realizadas na modalidade PIX.| 
 
@@ -887,7 +887,7 @@ Indica o final do arquivo.
 |061|077|17|Num|Valor Bruto Antecipado da soma de todos os ROs | Valor Bruto Antecipado da soma de todos os ROs.|
 |078|078|1|Alfa.|Sinal soma de Valores Negociados| `“+”` identifica valor positivo. `“-”` identifica valor negativo.|
 |079|095|17|Alfa.|Soma de Valores Negociados| Soma de Valores Negociados.|
-|096|250|209|Alfanum.|Uso Cielo|Em Branco. Reservado para Cielo.|
+|096|250|155|Alfanum.|Uso Cielo|Em Branco. Reservado para Cielo.|
 
 Observação: os campos reservados para a Cielo poderão ser utilizados para a inclusão de novas informações. Também poderá ser necessário incluir novos tipos de registros. Por conta disso, sugerimos que a solução de conciliação despreze os registros não relacionados nesta especificação.
 
