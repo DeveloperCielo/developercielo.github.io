@@ -1369,7 +1369,7 @@ MASTERCARD: a data de apresentação da 1ª parcela também será a data base pa
 
 # Importante
 
-> Observação: as atualizações citadas abaixo, estarão disponíveis a partir do dia 17 de fevereiro de 2021. 
+> Observação: as atualizações citadas abaixo, estarão disponíveis a partir do dia 07 de junho de 2021. 
 
 [Manual de Extrato Eletrônico](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_0.pdf)
 
