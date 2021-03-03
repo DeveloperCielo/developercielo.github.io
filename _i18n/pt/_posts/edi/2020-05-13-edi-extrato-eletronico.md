@@ -1110,6 +1110,7 @@ Quando um valor a crédito estiver em processo de compensação com um valor a d
 |85|Cielo Controle (Excedente)| Acerto/Cobrança                                 |
 |86|Cielo Controle (Franquia)| Acerto/Cobrança                                  |
 |93|Meliuz |Acerto/Cobrança                                                     |           
+|99|Repasse de Tarifas Excesso de retentativas |Acerto                          |
 
 ### Tabela VI - Bandeira
 
