@@ -2843,7 +2843,7 @@ curls
 
 ```json
 {
-    "Payment": [
+    "Payments": [
         {
             "PaymentId": "5fb4d606-bb63-4423-a683-c966e15399e8",
             "ReceveidDate": "2015-04-06T10:13:39.42"
@@ -2861,7 +2861,7 @@ curls
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
 {
-    "Payment": [
+    "Payments": [
         {
             "PaymentId": "5fb4d606-bb63-4423-a683-c966e15399e8",
             "ReceveidDate": "2015-04-06T10:13:39.42"
