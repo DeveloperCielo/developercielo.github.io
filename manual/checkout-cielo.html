@@ -279,7 +279,7 @@ A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo
   </tbody>
 </table>
 
-<p><strong>OBS</strong>: Limite maximo de parcelas do Checkout Cielo é 12X.</p>
+<p><strong>OBS</strong>: Limite máximo de parcelas do Checkout Cielo é 12X.</p>
 
 <aside class="notice">* Apenas Auxílio Emergencial da Caixa Econômica Federal (Corona Voucher)</aside>
 
@@ -724,10 +724,10 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
 
 <h2 id="sdks-e-postman">SDKs e POSTMAN</h2>
 
-<p>O Checkout Cielo possui uma coleção POSTMAN de testes exclusiva com todos os parametros e opções descritas neste manual.
-Basta acessar nosso <a href="https://developercielo.github.io/tutorial/postman">Tutorial</a> para obter informações sobre a utilização da ferramenta.</p>
+<p>O Checkout Cielo possui uma coleção POSTMAN de testes exclusiva com todos os parâmetros e opções descritas neste manual.
+Basta acessar nosso <a href="https://developercielo.github.io/Tutorial/postman">Tutorial</a> para obter informações sobre a utilização da ferramenta.</p>
 
-<p>No postman é possivel criar exemplos de sua integração em:</p>
+<p>No postman é possível criar exemplos de sua integração em:</p>
 
 <ul>
   <li>PHP</li>
@@ -1173,7 +1173,7 @@ Esses dados são separados nos seguintes “nós principais”:</p>
 
 <h3 id="funcionalidades-adicionais">Funcionalidades Adicionais</h3>
 
-<p>Nos items a seguir, será explicado o comportamento de algumas das funcionalidades da integração via API. Essas funcionalidades possuem regras especificas para utilização e não estão disponíveis na integração via Botão.</p>
+<p>Nos itens a seguir, será explicado o comportamento de algumas das funcionalidades da integração via API. Essas funcionalidades possuem regras especificas para utilização e não estão disponíveis na integração via Botão.</p>
 
 <ul>
   <li><strong>Tipos de “Desconto”</strong></li>
@@ -1362,7 +1362,7 @@ Os descontos disponíveis no Checkout Cielo são:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Free</code></td>
-      <td>Não realiza calculo de frete e exibe na tela transacional “Frete Grátis”</td>
+      <td>Não realiza cálculo de frete e exibe na tela transacional “Frete Grátis”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">WithoutShippingPickUp</code></td>
@@ -1374,7 +1374,7 @@ Os descontos disponíveis no Checkout Cielo são:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Correios</code></td>
-      <td>Utiliza a API dos correios para realizar o calculo do custo. O valor do calculo dependerá o contrato utilizado (Escolhido no Backoffice do checkout) e do tipo de integração para calculo: <strong>Frete com Volume</strong> ou <strong>Frete sem Volume</strong></td>
+      <td>Utiliza a API dos correios para realizar o cálculo do custo. O valor do cálculo dependerá o contrato utilizado (Escolhido no Backoffice do checkout) e do tipo de integração para cálculo: <strong>Frete com Volume</strong> ou <strong>Frete sem Volume</strong></td>
     </tr>
   </tbody>
 </table>
@@ -1719,7 +1719,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
     </tr>
     <tr>
       <td><strong>Criação de pedidos</strong></td>
-      <td>Um botão gera vários pedidos independentes, ou seja, para limitar a quantidade de pedidos gerados por um botão, QRCODE ou Link criado, é necessario definir uma quantidade minimas de itens em “estoque” no momento de cadastro. O Botão é um método de chamadas à API Checkout. Cada vez que ele é acionado, uma nova requisição é feita a API, criando assim um novo pedido</td>
+      <td>Um botão gera vários pedidos independentes, ou seja, para limitar a quantidade de pedidos gerados por um botão, QRCODE ou Link criado, é necessário definir uma quantidade mínimas de itens em “estoque” no momento de cadastro. O Botão é um método de chamadas à API Checkout. Cada vez que ele é acionado, uma nova requisição é feita a API, criando assim um novo pedido</td>
     </tr>
   </tbody>
 </table>
@@ -1832,7 +1832,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Quantidade</code></td>
-      <td>Define a quantidade maxima de pedidos que o Botão pode gerar. Se não definido, o botão poderá gerar um numero infinito de pedidos</td>
+      <td>Define a quantidade máxima de pedidos que o Botão pode gerar. Se não definido, o botão poderá gerar um número infinito de pedidos</td>
       <td>n/a</td>
       <td>n/a</td>
       <td>Não</td>
@@ -1840,7 +1840,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
   </tbody>
 </table>
 
-<aside class="warning">**imitação de Pedidos Gerados** Durante o processo de cadastro do botão, o item "Quantidade" definirá quantos pedidos poderão ser gerados pelo Botão. Essa "quantidade" diz respeito ao numero de de Itens em estoque/vendas são desejadas pelo lojista. Uma vez esgotadas, o Checkout passará a apresentar uma tela de erro quando o Botão/Link de pagamentos for acionado. **A "quantidade" não está disponivel para vendas Recorrentes.**</aside>
+<aside class="warning">**imitação de Pedidos Gerados** Durante o processo de cadastro do botão, o item "Quantidade" definirá quantos pedidos poderão ser gerados pelo Botão. Essa "quantidade" diz respeito ao número de Itens em estoque/vendas são desejadas pelo lojista. Uma vez esgotadas, o Checkout passará a apresentar uma tela de erro quando o Botão/Link de pagamentos for acionado. **A "quantidade" não está disponível para vendas Recorrentes.**</aside>
 
 <h3 id="exemplo-de-botão">Exemplo de Botão:</h3>
 
@@ -1924,7 +1924,7 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
     <tr>
       <td>N/A</td>
       <td><strong>CHARGEBACK</strong></td>
-      <td>Status não automatico. Caso o lojista seja notificado de ChargeBack, ele pode marcar esta transação como perdida.<br /> Este Status é apenas uma marcação, não afetando processos de pagamento</td>
+      <td>Status não automático. Caso o lojista seja notificado de ChargeBack, ele pode marcar esta transação como perdida.<br /> Este Status é apenas uma marcação, não afetando processos de pagamento</td>
     </tr>
   </tbody>
 </table>
@@ -1935,12 +1935,13 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
 
 <h3 id="análise-de-fraude">Análise de Fraude</h3>
 
-<p>Transações de crédito <strong>“AUTORIZADAS”</strong> serão enviadas para análise da ferramenta de antifraude caso o parametro <code class="language-plaintext highlighter-rouge">Options.AntifraudEnabled</code> esteja definido como <code class="language-plaintext highlighter-rouge">TRUE</code>.
-O Antifraude possui o conceito de <code class="language-plaintext highlighter-rouge">Status</code> e <code class="language-plaintext highlighter-rouge">SubStatus</code>, onde o primeiro representa o nivel de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
-A análise indicará um grau de <strong>RISCO</strong>, especificado pelo <code class="language-plaintext highlighter-rouge">Status</code>, para a venda em questão.
-Esse grau de risco é o que deve guiar a decisão do lojista de capturar ou cancelar a venda.</p>
+<p>Transações de crédito <strong>“AUTORIZADAS”</strong> serão enviadas para análise da ferramenta de antifraude caso o parâmetro <code class="language-plaintext highlighter-rouge">Options.AntifraudEnabled</code> esteja definido como <code class="language-plaintext highlighter-rouge">TRUE</code>.
+O Antifraude possui o conceito de <code class="language-plaintext highlighter-rouge">Status</code> e <code class="language-plaintext highlighter-rouge">SubStatus</code>, onde o primeiro representa o nível de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
+A análise indicará um grau de <strong>RISCO</strong>, especificado pelo <code class="language-plaintext highlighter-rouge">Status</code>, para a venda em questão.</p>
 
-<p>Para que as transações sejam analisadas pelo antifraude, é necessario que a loja Checkout possua:</p>
+<p>Esse grau de risco é o que deve guiar a decisão do lojista de capturar ou cancelar a venda.</p>
+
+<p>Para que as transações sejam analisadas pelo antifraude, é necessário que a loja Checkout possua:</p>
 <ul>
   <li>Enviar via contrato <code class="language-plaintext highlighter-rouge">Options.AntifraudEnabled</code> como <code class="language-plaintext highlighter-rouge">true</code></li>
   <li>Valor da compra deve ser MAIOR que o valor mínimo configurado - Ver em Tutotial Backoffice Checkout</li>
@@ -1990,7 +1991,7 @@ Esse grau de risco é o que deve guiar a decisão do lojista de capturar ou canc
     <tr>
       <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>AF Dispensado</td>
-      <td>Antifraude dispensado via contrato ou inferior ao valor mínimo de antifrade parametrizado backoffice no lojista</td>
+      <td>Antifraude dispensado via contrato ou inferior ao valor mínimo de antifraude parametrizado backoffice no lojista</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
@@ -2067,7 +2068,7 @@ Esse grau de risco é o que deve guiar a decisão do lojista de capturar ou canc
   </tbody>
 </table>
 
-<p>Ao Acessar a tela transacional, o comprador obterá pelo pagamento via Cartão de débito, e será redirecionado ao ambiente bancário para Autenticação e Autorização.</p>
+<p>Ao acessar a tela transacional, o comprador obterá pelo pagamento via Cartão de débito, e será redirecionado ao ambiente bancário para Autenticação e Autorização.</p>
 
 <p>Transações de cartão de débito serão incluídas no <a href="https://developercielo.github.io/https://developercielo.github.io/tutorial/checkout-tutoriais">Backoffice Cielo Checkout</a> como PENDENTE, PAGO, NÃO AUTORIZADO ou NÃO FINALIZADO, dependendo do resultado da autorização junto ao Banco.</p>
 
@@ -2105,7 +2106,7 @@ Esse meio de pagamento precisa ser cadastrado pelo Suporte Cielo para que seja d
   </tbody>
 </table>
 
-<p>Ao Acessar a tela transacional, o comprador obterá pelo pagamento via Boleto.</p>
+<p>Ao acessar a tela transacional, o comprador obterá pelo pagamento via Boleto.</p>
 
 <p>Transações de boleto  serão incluídas no <a href="https://developercielo.github.io/https://developercielo.github.io/tutorial/checkout-tutoriais">Backoffice Cielo Checkout</a> como NÃO FINALIZADO ou PAGO.
 Diferentemente de outros meios de pagamento, o boleto não possui atualização de Status. Caberá ao Lojista acessar o Backoffice e modificar o status do boleto manualmente.</p>
@@ -2705,7 +2706,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
       <td>6</td>
       <td><code class="language-plaintext highlighter-rouge">Não Finalizado</code></td>
       <td>Todos os meios de pagamento</td>
-      <td>Pagamento esperando Status - Pode indicar erro ou falha de processamento. Entre em contato com o Suporte cielo</td>
+      <td>Pagamento esperando Status - Pode indicar erro ou falha de processamento. Entre em contato com o Suporte Cielo</td>
     </tr>
     <tr>
       <td>7</td>
@@ -2764,19 +2765,19 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
       <td>N/A</td>
       <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>Autenticado</td>
-      <td>Transações autenticadas pelo banco - <strong>Não são analisaveis pelo AF</strong></td>
+      <td>Transações autenticadas pelo banco - <strong>Não são analisáveis pelo AF</strong></td>
     </tr>
     <tr>
       <td>N/A</td>
       <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>AF Não contratado</td>
-      <td>Antifraude não habilitado no plano do lojista - <strong>Não são analisaveis pelo AF</strong></td>
+      <td>Antifraude não habilitado no plano do lojista - <strong>Não são analisáveis pelo AF</strong></td>
     </tr>
     <tr>
       <td>N/A</td>
       <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>AF Dispensado</td>
-      <td>Antifraude dispensado via contrato ou inferior ao valor mínimo de antifrade parametrizado backoffice no lojista</td>
+      <td>Antifraude dispensado via contrato ou inferior ao valor mínimo de antifraude parametrizado backoffice no lojista</td>
     </tr>
     <tr>
       <td>N/A</td>
@@ -2794,7 +2795,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
       <td>N/A</td>
       <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>Transação negada</td>
-      <td>Venda a crédito foi negada - <strong>Não são analisaveis pelo AF</strong></td>
+      <td>Venda a crédito foi negada - <strong>Não são analisáveis pelo AF</strong></td>
     </tr>
   </tbody>
 </table>
@@ -2949,7 +2950,7 @@ Existem dois métodos de parcelamento:</p>
   <li><strong>Parcelamento via API</strong> - O Lojista limita o número de parcelas a serem apresentadas no backoffice</li>
 </ul>
 
-<p><strong>OBS:</strong> O Checkout é limitado a parcelamentos de 12X, mesmo que sua afiliação cielo suporte valores superiores. Caso o valor apresentando em seu backoffice seja menor que 12, entre em cotato com o Suporte Cielo e verifique a configuração de sua Afiliação.</p>
+<p><strong>OBS:</strong> O Checkout é limitado a parcelamentos de 12X, mesmo que sua afiliação Cielo suporte valores superiores. Caso o valor apresentando em seu backoffice seja menor que 12, entre em contato com o Suporte Cielo e verifique a configuração de sua Afiliação.</p>
 
 <h2 id="parcelamento-via-backoffice">Parcelamento via backoffice</h2>
 
@@ -3084,7 +3085,7 @@ Alguns exemplos de negócios são:</p>
       <td>Alphanumeric</td>
       <td>Sim</td>
       <td>10</td>
-      <td>Intervalo entre cada transação da recorrencia</td>
+      <td>Intervalo entre cada transação da recorrência</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.EndDate</code></td>
@@ -3231,7 +3232,7 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
 
 <p><strong>OBS</strong>: Esse processo visa manter obter uma resposta positiva do processo de autorização, impedindo o lojista de perder a venda. O Processo de retentativa gera pedidos duplicados dentro do Backoffice, pois o pedido original, negado, será apresentado na lista de Pedidos, junto com a nova transação autorizada</p>
 
-<p><strong>ATENÇÃO:</strong>A regra da retentativa não pode ser modificada pelo lojista.</p>
+<p><strong>ATENÇÃO:</strong> A regra da retentativa não pode ser modificada pelo lojista.</p>
 
 <h2 id="consultando-transações">Consultando transações</h2>
 
@@ -3278,7 +3279,7 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
 
 <h2 id="edição-da-recorrência">Edição da Recorrência</h2>
 
-<p>O Checkout Cielo permite que o lojista modifique 3 dados da recorrencia:</p>
+<p>O Checkout Cielo permite que o lojista modifique 3 dados da recorrência:</p>
 
 <ul>
   <li><strong>Ativação</strong> - Uma recorrência pode ser ativada ou cancelada.</li>
