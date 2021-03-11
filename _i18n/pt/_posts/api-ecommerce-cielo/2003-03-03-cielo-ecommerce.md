@@ -3546,7 +3546,7 @@ curl
 
 A **Captura** é passo exclusivo para transações de Cartões de Crédito.
 
-Ao realizar uma captura, o lojita confirma que o valor autorizado no cartão poderá ser cobrado pela insituição financeira emissora do cartão.
+Ao realizar uma captura, o lojista confirma que o valor autorizado no cartão poderá ser cobrado pela insituição financeira emissora do cartão.
 
 O que a captura gera:
 
