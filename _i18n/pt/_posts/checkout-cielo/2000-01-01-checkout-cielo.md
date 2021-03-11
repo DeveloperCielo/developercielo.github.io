@@ -59,7 +59,7 @@ A versão atual do Checkout Cielo possui suporte aos seguintes meios de pagament
 | Aura             | Sim             | Sim                    | Não    | Não     |
 | Hipercard        | Sim             | Sim                    | Não    | Não     |
 
-**OBS**: Limite maximo de parcelas do Checkout Cielo é 12X.
+**OBS**: Limite máximo de parcelas do Checkout Cielo é 12X.
 
 <aside class="notice">* Apenas Auxílio Emergencial da Caixa Econômica Federal (Corona Voucher)</aside>
 
@@ -364,10 +364,10 @@ Essas transações terão o símbolo de teste as diferenciando de suas outras tr
 
 ## SDKs e POSTMAN
 
-O Checkout Cielo possui uma coleção POSTMAN de testes exclusiva com todos os parametros e opções descritas neste manual.
-Basta acessar nosso [Tutorial](https://developercielo.github.io/tutorial/postman) para obter informações sobre a utilização da ferramenta.
+O Checkout Cielo possui uma coleção POSTMAN de testes exclusiva com todos os parâmetros e opções descritas neste manual.
+Basta acessar nosso [Tutorial](https://developercielo.github.io/Tutorial/postman) para obter informações sobre a utilização da ferramenta.
 
-No postman é possivel criar exemplos de sua integração em:
+No postman é possível criar exemplos de sua integração em:
 
 * PHP
 * RUBY
@@ -561,7 +561,7 @@ Existem apenas duas opções de resposta na integração da API: Sucesso / Erro
 
 ### Funcionalidades Adicionais
 
-Nos items a seguir, será explicado o comportamento de algumas das funcionalidades da integração via API. Essas funcionalidades possuem regras especificas para utilização e não estão disponíveis na integração via Botão.
+Nos itens a seguir, será explicado o comportamento de algumas das funcionalidades da integração via API. Essas funcionalidades possuem regras especificas para utilização e não estão disponíveis na integração via Botão.
 
 * **Tipos de "Desconto"**
 * **Tipos de "Frete"**
@@ -637,10 +637,10 @@ O Checkout cielo possui diferentes tipos de frete.
 |Campo|Descrição|
 |---|---|
 |`FixedAmount`|Valor fixo enviado pelo lojista. Utilizado caso o Lojista possua um método de entrega próprio|
-|`Free`|Não realiza calculo de frete e exibe na tela transacional "Frete Grátis"|
+|`Free`|Não realiza cálculo de frete e exibe na tela transacional "Frete Grátis"|
 |`WithoutShippingPickUp`|Considerado "Retirada na loja"|
 |`WithoutShipping`|Sem cobrança de frete (aplicável para serviços e produtos digitais).|
-|`Correios`|Utiliza a API dos correios para realizar o calculo do custo. O valor do calculo dependerá o contrato utilizado (Escolhido no Backoffice do checkout) e do tipo de integração para calculo: **Frete com Volume** ou **Frete sem Volume**|
+|`Correios`|Utiliza a API dos correios para realizar o cálculo do custo. O valor do cálculo dependerá o contrato utilizado (Escolhido no Backoffice do checkout) e do tipo de integração para cálculo: **Frete com Volume** ou **Frete sem Volume**|
 
  Abaixo, como cada opção é demonstrada na tela transacional
 
@@ -748,7 +748,7 @@ Cada botão possui um código único que só permite comprar aquele determinado 
 |---|---|
 |**Específico**|Cada botão gerado serve somente para um determinado produto ou grupo de produtos. A quantidade e volume de produtos vendido é definido no cadastro do Botão, não sendo possível altera a quantidade na tela transacional <br>**Exemplo:** Será necessário criar Um botão para vender 1 camisa. Se o comprador desejar 2 camisas, ele precisará usar o botão 2X ou O lojista deverá criar um botão com 2 camisas|
 |**Número do Pedido do Checkout**|O botão não permite o cadastro do número de pedido do Lojista. Como será a Cielo a acionar o próprio Checkout, será gerado um número de pedido (um `GUID`) único. O Lojista receberá esse número de pedido como link a venda realizada|
-|**Criação de pedidos**|Um botão gera vários pedidos independentes, ou seja, para limitar a quantidade de pedidos gerados por um botão, QRCODE ou Link criado, é necessario definir uma quantidade minimas de itens em "estoque" no momento de cadastro. O Botão é um método de chamadas à API Checkout. Cada vez que ele é acionado, uma nova requisição é feita a API, criando assim um novo pedido|
+|**Criação de pedidos**|Um botão gera vários pedidos independentes, ou seja, para limitar a quantidade de pedidos gerados por um botão, QRCODE ou Link criado, é necessário definir uma quantidade mínimas de itens em "estoque" no momento de cadastro. O Botão é um método de chamadas à API Checkout. Cada vez que ele é acionado, uma nova requisição é feita a API, criando assim um novo pedido|
 
  **Abaixo, o fluxo de pagamento via Botão:**
 
@@ -781,9 +781,9 @@ Abaixo a listagem de itens que devem ser cadastrados para a criação do botão:
 | `Valor do Frete`  | Esse campo só aparece para o frete tipo Frete Fixo, e deve ser preenchido com o valor que o lojista especificar para seus produtos.            | n/a          | n/a          | Sim         |
 | `Método de envio` | Esse campo só aparece para Tipo Produto igual a Material Físico e Tipo de Frete igual a Frete Fixo.                                            | n/a          | n/a          | Sim         |
 | `URL`             | Esse campo só aparece para Tipo Produto igual a Digital.                                                                                       | n/a          | n/a          | Sim         |
-| `Quantidade`      | Define a quantidade maxima de pedidos que o Botão pode gerar. Se não definido, o botão poderá gerar um numero infinito de pedidos              | n/a          | n/a          | Não         |
+| `Quantidade`      | Define a quantidade máxima de pedidos que o Botão pode gerar. Se não definido, o botão poderá gerar um número infinito de pedidos              | n/a          | n/a          | Não         |
 
-<aside class="warning">**imitação de Pedidos Gerados** Durante o processo de cadastro do botão, o item "Quantidade" definirá quantos pedidos poderão ser gerados pelo Botão. Essa "quantidade" diz respeito ao numero de de Itens em estoque/vendas são desejadas pelo lojista. Uma vez esgotadas, o Checkout passará a apresentar uma tela de erro quando o Botão/Link de pagamentos for acionado. **A "quantidade" não está disponivel para vendas Recorrentes.**</aside>
+<aside class="warning">**imitação de Pedidos Gerados** Durante o processo de cadastro do botão, o item "Quantidade" definirá quantos pedidos poderão ser gerados pelo Botão. Essa "quantidade" diz respeito ao número de Itens em estoque/vendas são desejadas pelo lojista. Uma vez esgotadas, o Checkout passará a apresentar uma tela de erro quando o Botão/Link de pagamentos for acionado. **A "quantidade" não está disponível para vendas Recorrentes.**</aside>
 
 ### Exemplo de Botão:
 
@@ -829,7 +829,7 @@ Transações de cartão de crédito serão incluídas no [Backoffice Cielo Check
 |2|**AUTORIZADO / NEGADO**|Resultado do processo de autorização. <br>**AUTORIZADO** - Crédito foi reservado para a compra <br> **NEGADO** - Cartão não autorizado pelo emissor a continuar a transação|
 |3|**PAGO**|Ocorre pós captura. Indica que o crédito reservado no cartão será depositado na conta do lojista|
 |N/A|**EXPIRADO**|Ocorre caso a transação não seja capturada em 15 dias pós autorização. Nessa situação a transação é perdida.|
-|N/A|**CHARGEBACK**|Status não automatico. Caso o lojista seja notificado de ChargeBack, ele pode marcar esta transação como perdida.<br> Este Status é apenas uma marcação, não afetando processos de pagamento|
+|N/A|**CHARGEBACK**|Status não automático. Caso o lojista seja notificado de ChargeBack, ele pode marcar esta transação como perdida.<br> Este Status é apenas uma marcação, não afetando processos de pagamento|
 
 **Atenção - Cartões Internacionais:** O Checkout Cielo aceita cartões emitidos fora do Brasil, entretanto esses cartões não possuem a capacidade de pagar vendas parceladas. Essa é uma limitação imposta pelo banco emissor.
 
@@ -837,12 +837,13 @@ Transações de cartão de crédito serão incluídas no [Backoffice Cielo Check
 
 ### Análise de Fraude
 
-Transações de crédito **“AUTORIZADAS”** serão enviadas para análise da ferramenta de antifraude caso o parametro `Options.AntifraudEnabled` esteja definido como `TRUE`.
-O Antifraude possui o conceito de `Status` e `SubStatus`, onde o primeiro representa o nivel de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
+Transações de crédito **“AUTORIZADAS”** serão enviadas para análise da ferramenta de antifraude caso o parâmetro `Options.AntifraudEnabled` esteja definido como `TRUE`.
+O Antifraude possui o conceito de `Status` e `SubStatus`, onde o primeiro representa o nível de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
 A análise indicará um grau de **RISCO**, especificado pelo `Status`, para a venda em questão.
+
 Esse grau de risco é o que deve guiar a decisão do lojista de capturar ou cancelar a venda.
 
- Para que as transações sejam analisadas pelo antifraude, é necessario que a loja Checkout possua:
+ Para que as transações sejam analisadas pelo antifraude, é necessário que a loja Checkout possua:
  * Enviar via contrato `Options.AntifraudEnabled` como `true`
  * Valor da compra deve ser MAIOR que o valor mínimo configurado - Ver em Tutotial Backoffice Checkout
  * Possuir um Plano que inclua a ferramenta de analise.
@@ -856,7 +857,7 @@ Esse grau de risco é o que deve guiar a decisão do lojista de capturar ou canc
 |`Não finalizado`|Não finalizado|Não foi possível finalizar a consulta|
 |`N/A`|Autenticado|Transações autenticadas pelo banco - **Não são analisáveis pelo AF**|
 |`N/A`|AF Não contratado|Antifraude não habilitado no plano do lojista - **Não são analisáveis pelo AF**|
-|`N/A`|AF Dispensado|Antifraude dispensado via contrato ou inferior ao valor mínimo de antifrade parametrizado backoffice no lojista|
+|`N/A`|AF Dispensado|Antifraude dispensado via contrato ou inferior ao valor mínimo de antifraude parametrizado backoffice no lojista|
 |`N/A`|Não aplicável|Meio de pagamento não analisável como cartões de débito, boleto e débito online|
 |`N/A`|Transação de recorrência|Transação de crédito seja posterior a transação de agendamento. **Somente o Agendamento é analisado**|
 |`N/A`|Transação negada|Venda a crédito foi negada - **Não são analisáveis pelo AF**|
@@ -886,7 +887,7 @@ Bancos Suportados:
 |Caixa|N/A|
 |BancooB|N/A|
 
-Ao Acessar a tela transacional, o comprador obterá pelo pagamento via Cartão de débito, e será redirecionado ao ambiente bancário para Autenticação e Autorização.
+Ao acessar a tela transacional, o comprador obterá pelo pagamento via Cartão de débito, e será redirecionado ao ambiente bancário para Autenticação e Autorização.
 
 Transações de cartão de débito serão incluídas no [Backoffice Cielo Checkout]({{ site.baseurl_root }}{% post_url 2000-01-01-checkout-tutoriais%}) como PENDENTE, PAGO, NÃO AUTORIZADO ou NÃO FINALIZADO, dependendo do resultado da autorização junto ao Banco.
 
@@ -911,7 +912,7 @@ Bancos Suportados:
 |Bradesco|
 |Banco do Brasil|
 
-Ao Acessar a tela transacional, o comprador obterá pelo pagamento via Boleto.
+Ao acessar a tela transacional, o comprador obterá pelo pagamento via Boleto.
 
 Transações de boleto  serão incluídas no [Backoffice Cielo Checkout]({{ site.baseurl_root }}{% post_url 2000-01-01-checkout-tutoriais%}) como NÃO FINALIZADO ou PAGO.
 Diferentemente de outros meios de pagamento, o boleto não possui atualização de Status. Caberá ao Lojista acessar o Backoffice e modificar o status do boleto manualmente.
@@ -1163,7 +1164,7 @@ O Checkout possui um Status próprios, diferente do SITE CIELO ou da API Cielo e
 |3|`Negado`|Somente para Cartão Crédito|Transação não autorizada pelo responsável do meio de pagamento|
 |4|`Expirado`|Cartões de Crédito e Boleto|Transação deixa de ser válida para captura - **15 dias pós Autorização**|
 |5|`Cancelado`|Para cartões de crédito|Transação foi cancelada pelo lojista|
-|6|`Não Finalizado`|Todos os meios de pagamento|Pagamento esperando Status - Pode indicar erro ou falha de processamento. Entre em contato com o Suporte cielo|
+|6|`Não Finalizado`|Todos os meios de pagamento|Pagamento esperando Status - Pode indicar erro ou falha de processamento. Entre em contato com o Suporte Cielo|
 |7|`Autorizado`|somente para Cartão de Crédito|Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta|
 |8|`Chargeback`|somente para Cartão de Crédito|Transação cancelada pelo consumidor junto ao emissor do cartão. O Dinheiro não será depositado em conta.|
 
@@ -1177,12 +1178,12 @@ O Antifraude possui o conceito de `Status` e `SubStatus`, onde o primeiro repres
 |3|`Médio Risco`|Médio Risco|Médio risco de ser uma transação fraudulenta|
 |2|`Alto Risco`|Alto Risco|Alto risco de ser uma transação fraudulenta|
 |4|`Não finalizado`|Não finalizado|Não foi possível finalizar a consulta|
-|N/A|`N/A`|Autenticado|Transações autenticadas pelo banco - **Não são analisaveis pelo AF**|
-|N/A|`N/A`|AF Não contratado|Antifraude não habilitado no plano do lojista - **Não são analisaveis pelo AF**|
-|N/A|`N/A`|AF Dispensado|Antifraude dispensado via contrato ou inferior ao valor mínimo de antifrade parametrizado backoffice no lojista|
+|N/A|`N/A`|Autenticado|Transações autenticadas pelo banco - **Não são analisáveis pelo AF**|
+|N/A|`N/A`|AF Não contratado|Antifraude não habilitado no plano do lojista - **Não são analisáveis pelo AF**|
+|N/A|`N/A`|AF Dispensado|Antifraude dispensado via contrato ou inferior ao valor mínimo de antifraude parametrizado backoffice no lojista|
 |N/A|`N/A`|Não aplicável|Meio de pagamento não analisável como cartões de débito, boleto e débito online|
 |N/A|`N/A`|Transação de recorrência|Transação de crédito seja posterior a transação de agendamento. **Somente o Agendamento é analisado**|
-|N/A|`N/A`|Transação negada|Venda a crédito foi negada - **Não são analisaveis pelo AF**|
+|N/A|`N/A`|Transação negada|Venda a crédito foi negada - **Não são analisáveis pelo AF**|
 
 **Payment_method_type**
 
@@ -1237,7 +1238,7 @@ Existem dois métodos de parcelamento:
 * **Parcelamento via backoffice** - é o método padrão de parcelamento do Checkout. Cada bandeira possui uma configuração de parcelamento até 12X. O Valor do Carrinho (Produtos + Frete) é dividido igualmente pelo número de parcelas.
 * **Parcelamento via API** - O Lojista limita o número de parcelas a serem apresentadas no backoffice
 
-**OBS:** O Checkout é limitado a parcelamentos de 12X, mesmo que sua afiliação cielo suporte valores superiores. Caso o valor apresentando em seu backoffice seja menor que 12, entre em cotato com o Suporte Cielo e verifique a configuração de sua Afiliação.
+**OBS:** O Checkout é limitado a parcelamentos de 12X, mesmo que sua afiliação Cielo suporte valores superiores. Caso o valor apresentando em seu backoffice seja menor que 12, entre em contato com o Suporte Cielo e verifique a configuração de sua Afiliação.
 
 ## Parcelamento via backoffice
 
@@ -1321,7 +1322,7 @@ Uma transação de recorrência no Checkout Cielo possui duas configurações: `
 
 |Campo|Tipo|Obrigatório|Tamanho|Descrição|
 |---|---|---|---|---|
-|`Payment.RecurrentPayment.Interval`|Alphanumeric|Sim|10|Intervalo entre cada transação da recorrencia|
+|`Payment.RecurrentPayment.Interval`|Alphanumeric|Sim|10|Intervalo entre cada transação da recorrência|
 |`Payment.RecurrentPayment.EndDate`|YYYY-MM-DD|Não|255|Data onde a Recorrência se encerrará; Se não enviado a recorrência se encerra somente se cancelada|
 
 |Intervalo|Descrição|
@@ -1436,7 +1437,7 @@ Caso uma das transações da recorrência não seja autorizada, o Checkout Cielo
 
 **OBS**: Esse processo visa manter obter uma resposta positiva do processo de autorização, impedindo o lojista de perder a venda. O Processo de retentativa gera pedidos duplicados dentro do Backoffice, pois o pedido original, negado, será apresentado na lista de Pedidos, junto com a nova transação autorizada
 
-**ATENÇÃO:**A regra da retentativa não pode ser modificada pelo lojista.
+**ATENÇÃO:** A regra da retentativa não pode ser modificada pelo lojista.
 
 ## Consultando transações
 
@@ -1477,7 +1478,7 @@ Na tela acima, há duas opções de Cancelamento pelos botões:
 
 ## Edição da Recorrência
 
-O Checkout Cielo permite que o lojista modifique 3 dados da recorrencia:
+O Checkout Cielo permite que o lojista modifique 3 dados da recorrência:
 
 * **Ativação** - Uma recorrência pode ser ativada ou cancelada.
 * **Intervalo** - É possivel modificar o intervalo de execução.
