@@ -12,6 +12,7 @@ tags:
 language_tabs:
   json: JSON
   shell: cURL
+  
 ---
 
 # Visão geral - API Cielo eCommerce 
@@ -1414,15 +1415,17 @@ Esse meio de pagamento é liberado automaticamente junto a afiliação de Cielo,
 | Caixa           | N/A             |
 | BancooB         | N/A             |
 
-### Autenticação Débito - 3DS 1.0
+### Autenticação Débito
 
 Por regra de mercado, todas as transações online realizadas com cartão de débito devem ser autenticadas através de um protocolo chamado 3DS, obrigatoriamente. Atualmente existem 2 versões: 3DS 1.0 e 3DS 2.0.
 
-Na versão 1, o portador será direcionado para o ambiente bancário, onde será desafiado pelo emissor do cartão, digitando a sua senha e concluindo a autenticação. Essa versão não é compatível com dispositivos mobile e ocorrerá desafio em 100% dos casos. Existe a possibilidade de não autenticar transações de débito no e-Commerce, o que é conhecido como “Débito sem Senha”, porém, cabe aos Bancos Emissores do cartão aprovarem tal modelo, pois **não é uma permissão concedida pela Cielo.**
+Na versão 1, o portador é direcionado para o ambiente bancário, onde é desafiado pelo emissor do cartão, digitando a sua senha e concluindo a autenticação. Essa versão não é compatível com dispositivos mobile e ocorre desafio em 100% dos casos. Existe a possibilidade de não autenticar transações de débito no e-Commerce, o que é conhecido como “Débito sem Senha”, porém, cabe aos Bancos Emissores do cartão aprovarem tal modelo, pois **não é uma permissão concedida pela Cielo.**
 
-A autenticação é um processo que é mandatório para transações de débito no eCommerce, porém, é possível utilizá-la também para transações de crédito. Fica à critério do lojista autenticar transações de crédito no e-Commerce.
+A autenticação é um processo que é mandatório para transações de débito no eCommerce, porém, é possível utilizá-la também para transações de crédito. Fica a critério do lojista autenticar transações de crédito no e-Commerce.
 
-Recentemente, houve o lançamento da nova versão do 3DS 2.0 pelas bandeiras no mercado, permitindo a Cielo e emissores o desenvolvimento dessa solução, que já está disponível para integração. A tendência é que cada vez mais seja utilizada, considerando as suas diversas melhorias e benefícios. Para conhecer o 3DS 2.0, acesse [https://developercielo.github.io/manual/emv3ds](https://developercielo.github.io/manual/emv3ds).
+Considerando as diversas melhorias e benefícios disponíveis na versão 2.0, a tendência é que cada vez mais seja utilizada. Para conhecer o 3DS 2.0, acesse [https://developercielo.github.io/manual/emv3ds](https://developercielo.github.io/manual/emv3ds).
+
+<aside class="warning">IMPORTANTE: O 3DS 1.0 deverá ser descontinuado a partir de Outubro de 2021 e não recomendamos, portanto, sua integração.</aside>
 
 #### MPI – Merchant Plug-in
 
