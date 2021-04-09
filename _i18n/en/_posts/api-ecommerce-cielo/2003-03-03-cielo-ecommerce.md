@@ -7729,7 +7729,7 @@ A `GET` request must be sent containing the BIN to be checked:
 
 |Field|Description|
 |-----|---------|
-|`BIN`|First 6 digits of the payment card<br>_To simulate the request obtaining `ForeignCard=false` result, the third digit must be 1 and the fifth must not be 2 or 3.<br>Examples:001040, 501010, 401050_ |
+|`BIN`|First 9 digits of the payment card<br>_To simulate the request obtaining `ForeignCard=false` result, the third digit must be 1 and the fifth must not be 2 or 3.<br>Examples:001040, 501010, 401050_ |
 
 ``` json
 https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
