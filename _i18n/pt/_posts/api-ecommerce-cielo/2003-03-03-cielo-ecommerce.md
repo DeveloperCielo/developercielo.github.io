@@ -7819,7 +7819,7 @@ Basta realizar um `GET` enviado o BIN a nossa URL de consulta:
 
 |Campo|Descrição|
 |-----|---------|
-|`BIN`|6 primeiros dígitos do cartão<br>_Para simular uma consulta em SandBox com retorno `ForeignCard=false`, o terceiro dígito do BIN deve ser 1, e o quinto dígito deve ser diferente de 2 e 3.<br>Exemplos:001040, 501010, 401050_ |
+|`BIN`|9 primeiros dígitos do cartão<br>_Para simular uma consulta em SandBox com retorno `ForeignCard=false`, o terceiro dígito do BIN deve ser 1, e o quinto dígito deve ser diferente de 2 e 3.<br>Exemplos:001040, 501010, 401050_ |
 
 ``` json
 https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
