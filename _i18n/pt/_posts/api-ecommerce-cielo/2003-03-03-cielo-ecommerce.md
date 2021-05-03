@@ -3165,6 +3165,8 @@ Como qualquer transação de débito no e-commerce, as transações de Carnê pr
 
 ### Requisição
 
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
 ```json
 {
    "MerchantOrderId":"2014111703",
