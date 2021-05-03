@@ -3154,6 +3154,49 @@ curl
 https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={Valor}&serviceTaxAmount=xxx
 ```
 
+## Carnê
+
+Carnê is a debit transaction used to pay an account. This modality can be used by customers who <strong>issue their own booklets and Private Label card invoices </strong>. The Carnê product allows the <strong>separation of sales</strong> related to <strong>product purchases and payment for services</strong>, facilitating the reporting of values to the Tax Authorities.
+
+Like any e-commerce debit transaction, Carnê transactions need to be authenticated via the 3DS 2.0 protocol. More information regarding the authentication protocol can be obtained [** click here**](https://developercielo.github.io/manual/3ds#autentica%C3%A7%C3%A3o-3ds-2.0).
+
+### Request
+
+```json
+{
+   "MerchantOrderId":"2014111703",
+   "Customer":{
+      "Name":"Comprador Carnet simples"
+   },
+   "Payment":{
+      "Type":"DebitCard",
+      "Provider":"CieloSandbox",
+      "Amount":15700,
+      "Installments":1,
+      "Authenticate":true,
+      "SoftDescriptor":"123456789ABCD",
+      "DebitCard":{
+         "CardNumber":"4551870000000183",
+         "Holder":"Test Holder",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"123",
+         "Brand":"Visa"
+      },
+      "ExternalAuthentication":{
+         "Cavv":"123456789",
+         "Xid":"987654321",
+         "Eci":"5"
+      },
+      "IsCryptoCurrencyNegotiation":true,
+      "IsCarneTransaction":true
+   }
+}
+```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|`Payment.IsCarneTransaction`|Boolean|---|No (default false)|Must be sent with a value of “true” in the case of a Carnê service payment transaction|
+
 ## Integration Errors
 
 In case of integration errors in any of the payment methods, a "response" will be returned containing an error code and a description.
