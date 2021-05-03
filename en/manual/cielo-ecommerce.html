@@ -6150,7 +6150,7 @@ PaymentIds associated with the identifier.</p>
 
 <p>Carnê is a debit transaction used to pay an account. This modality can be used by customers who issue their own booklets and Private Label card invoices . The Carnê product allows the separation of sales related to product purchases and payment for services, facilitating the reporting of values to the Tax Authorities.</p>
 
-<p>Like any e-commerce debit transaction, Carnê transactions need to be authenticated via the 3DS 2.0 protocol. More information regarding the authentication protocol can be obtained <a href="https://developercielo.github.io/manual/3ds#autentica%C3%A7%C3%A3o-3ds-2.0">** click here**</a>.</p>
+<p>Like any e-commerce debit transaction, Carnê transactions need to be authenticated via the 3DS 2.0 protocol. More information regarding the authentication protocol can be obtained <a href="https://developercielo.github.io/manual/3ds#autentica%C3%A7%C3%A3o-3ds-2.0"><strong>click here</strong></a>.</p>
 
 <h3 id="request-13">Request</h3>
 
@@ -22428,6 +22428,1752 @@ If this code is displayed, the request contains errors (e.g: size/conditions/reg
 <p>To know and/or change the name of the store that is registered, contact the Cielo relationship center.</p>
 
 <h1 id="questions-and-support">Questions and Support</h1>
+
+<p>If you have any questions or any other technical information, contact Cielo e-Commerce Web Support at the following channels:</p>
+
+<ul>
+  <li><strong>E-mail:</strong> <a href="mailto:cieloeCommerce@cielo.com.br">cieloeCommerce@cielo.com.br</a></li>
+  <li><strong>Capitals:</strong> 4002-9700</li>
+  <li><strong>Other Cities:</strong> 0800 570 1700</li>
+</ul>
+
+<p>Opening hours: 24 hours a day, 7 days a week.
+x 08007285090.|Unauthorized transaction. Guide the carrier to contact AmEx Call Center.|Unauthorized transaction. Contact the AmEx Call Center at the phone number 08007285090|No|
+|GA|Wait for contact|Unauthorized transaction. Referred by Lynx Online in a preventive way.|Unauthorized transaction. Contact the merchant.|No|
+|GD|Transaction not allowed.|Transaction can not be processed in the establishment. Contact Cielo for more details.|Transaction not allowed. Contact the virtual store|No|
+|HJ|Transaction not allowed. Invalid operation code.|Transaction not allowed. Invalid Coban operation code.|Transaction not allowed. Invalid Coban operation code. Contact the merchant.|No|
+|IA|Transaction not allowed. Invalid operation indicator.|Transaction not allowed. Invalid Coban operation indicator.|Transaction not allowed. Invalid Coban operation indicator. Contact the merchant.|No|
+|KA|Transaction not allowed. Data validation failed.|Transaction not allowed. There was a failure in data validation. Ask the carrier to review the data and try again. If the error persists, check the communication between virtual store and Cielo.|Transaction not allowed. There was a failure in data validation. Review the reported data and try again. If the error persists, contact the Virtual Store.|No|
+|KB|Transaction not allowed. Incurred option selected.|Transaction not allowed. Wrong option selected. Ask the carrier to review the data and try again. If the error persists, the communication between virtual store and Cielo must be checked.|Transaction not allowed. Wrong option selected. Try again. If the error persists, contact the Virtual Store.|No|
+|KE|Unauthorized transaction. Data validation failed.|Unauthorized transaction. Data validation failed. Selected option is not enabled. Check the options available to the carrier.|Unauthorized transaction. Data validation failed. Selected option is not enabled. Contact the virtual store.|No|
+|N7|Unauthorized transaction. Invalid security code.|Unauthorized transaction. Invalid security code. Guide the carrier to correct the data and try again.|Unauthorized transaction. Review the data and enter again.|No|
+|U3|Transaction not allowed. Data validation failed.|Transaction not allowed. There was a failure in data validation. Ask the carrier to review the data and try again. If the error persists, check the communication between virtual store and Cielo.|Transaction not allowed. There was a failure in data validation. Review the reported data and try again. If the error persists, contact the Virtual Store.|No|</p>
+
+<h2 id="status-transactional-1">Status transactional</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Status</th>
+      <th>Means of payment</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td><strong>NotFinished</strong></td>
+      <td>ALL</td>
+      <td>Waiting for status update</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td><strong>Authorized</strong></td>
+      <td>ALL</td>
+      <td>Payment apt to be captured or defined as paid</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>PaymentConfirmed</strong></td>
+      <td>ALL</td>
+      <td>Confirmed and finalized payment</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>Declined</strong></td>
+      <td>CC + CD + TF</td>
+      <td>Payment declined by Authorizer</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td><strong>Voided</strong></td>
+      <td>ALL</td>
+      <td>Canceled payment</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td><strong>Refunded</strong></td>
+      <td>CC + CD</td>
+      <td>Payment canceled after 11:59 pm on the authorization day</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td><strong>Pending</strong></td>
+      <td>ALL</td>
+      <td>Waiting for financial institution status</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td><strong>Aborted</strong></td>
+      <td>ALL</td>
+      <td>Payment canceled due to processing failure</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td><strong>Scheduled</strong></td>
+      <td>CC</td>
+      <td>Scheduled recurrence</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>-</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Payment method</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ALL</strong></td>
+      <td>All</td>
+    </tr>
+    <tr>
+      <td><strong>CC</strong></td>
+      <td>Credit Card</td>
+    </tr>
+    <tr>
+      <td><strong>CD</strong></td>
+      <td>Debit Card</td>
+    </tr>
+    <tr>
+      <td><strong>TF</strong></td>
+      <td>Electronic Transfer</td>
+    </tr>
+    <tr>
+      <td><strong>BOL</strong></td>
+      <td>Bank slip</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="integration-errors-2">Integration errors</h2>
+
+<blockquote>
+  <p><strong>API Errors</strong> - These codes are the responses to <strong>validation of the content of the data sent</strong>. <br />
+If this code is displayed, the request contains errors (e.g: size/conditions/registration errors) which prevent the creation of the transaction <br /><em>Returned at the time of request to the API</em></p>
+</blockquote>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">126</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit Card Expiration Date is invalid"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="api-error-codes-1">API Error Codes</h3>
+
+<p>Codes returned in case of error, identifying the reason for the error and its respective messages.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Message</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Internal error</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>RequestId is required</td>
+      <td>Sent field is empty or invalid</td>
+    </tr>
+    <tr>
+      <td>101</td>
+      <td>MerchantId is required</td>
+      <td>Sent field is empty or invalid</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>Payment Type is required</td>
+      <td>Sent field is empty or invalid</td>
+    </tr>
+    <tr>
+      <td>103</td>
+      <td>Payment Type can only contain letters</td>
+      <td>Special characters not allowed</td>
+    </tr>
+    <tr>
+      <td>104</td>
+      <td>Customer Identity is required</td>
+      <td>Sent field is empty or invalid</td>
+    </tr>
+    <tr>
+      <td>105</td>
+      <td>Customer Name is required</td>
+      <td>Sent field is empty or invalid</td>
+    </tr>
+    <tr>
+      <td>106</td>
+      <td>Transaction ID is required</td>
+      <td>Sent field is empty or invalid</td>
+    </tr>
+    <tr>
+      <td>107</td>
+      <td>OrderId is invalid or does not exists</td>
+      <td>Sent field exceeds size or contains special characters</td>
+    </tr>
+    <tr>
+      <td>108</td>
+      <td>Amount must be greater or equal to zero</td>
+      <td>Transaction value must be greater than “0”</td>
+    </tr>
+    <tr>
+      <td>109</td>
+      <td>Payment Currency is required</td>
+      <td>Sent field is empty or invalid</td>
+    </tr>
+    <tr>
+      <td>110</td>
+      <td>Invalid Payment Currency</td>
+      <td>Sent field is empty or invalid</td>
+    </tr>
+    <tr>
+      <td>111</td>
+      <td>Payment Country is required</td>
+      <td>Sent field is empty or invalid</td>
+    </tr>
+    <tr>
+      <td>112</td>
+      <td>Invalid Payment Country</td>
+      <td>Sent field is empty or invalid</td>
+    </tr>
+    <tr>
+      <td>113</td>
+      <td>Invalid Payment Code</td>
+      <td>Sent field is empty or invalid</td>
+    </tr>
+    <tr>
+      <td>114</td>
+      <td>The provided MerchantId is not in correct format</td>
+      <td>The sent MerchantId is not a GUID</td>
+    </tr>
+    <tr>
+      <td>115</td>
+      <td>The provided MerchantId was not found</td>
+      <td>MerchantID does not exist or belongs to another environment (e.g. Sandbox)</td>
+    </tr>
+    <tr>
+      <td>116</td>
+      <td>The provided MerchantId is blocked</td>
+      <td>Locked store, contact Cielo support</td>
+    </tr>
+    <tr>
+      <td>117</td>
+      <td>Credit Card Holder is required</td>
+      <td>Sent field is empty or invalid</td>
+    </tr>
+    <tr>
+      <td>118</td>
+      <td>Credit Card Number is required</td>
+      <td>Sent field is empty or invalid</td>
+    </tr>
+    <tr>
+      <td>119</td>
+      <td>At least one Payment is required</td>
+      <td>“Payment” node not sent</td>
+    </tr>
+    <tr>
+      <td>120</td>
+      <td>Request IP not allowed. Check your IP White List</td>
+      <td>IP blocked for security reasons</td>
+    </tr>
+    <tr>
+      <td>121</td>
+      <td>Customer is required</td>
+      <td>“Customer” node not sent</td>
+    </tr>
+    <tr>
+      <td>122</td>
+      <td>MerchantOrderId is required</td>
+      <td>Sent field is empty or invalid</td>
+    </tr>
+    <tr>
+      <td>123</td>
+      <td>Installments must be greater or equal to one</td>
+      <td>Number of installments must be greater than 1</td>
+    </tr>
+    <tr>
+      <td>124</td>
+      <td>Credit Card is Required</td>
+      <td>Sent field is empty or invalid</td>
+    </tr>
+    <tr>
+      <td>125</td>
+      <td>Credit Card Expiration Date is required</td>
+      <td>Sent field is empty or invalid</td>
+    </tr>
+    <tr>
+      <td>126</td>
+      <td>Credit Card Expiration Date is invalid</td>
+      <td>Sent field is empty or invalid</td>
+    </tr>
+    <tr>
+      <td>127</td>
+      <td>You must provide CreditCard Number</td>
+      <td>Credit card number is required</td>
+    </tr>
+    <tr>
+      <td>128</td>
+      <td>Card Number length exceeded</td>
+      <td>Card number greater than 16 digits</td>
+    </tr>
+    <tr>
+      <td>129</td>
+      <td>Affiliation not found</td>
+      <td>Payment means not linked to store or invalid Provider</td>
+    </tr>
+    <tr>
+      <td>130</td>
+      <td>Could not get Credit Card</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>131</td>
+      <td>MerchantKey is required</td>
+      <td>Sent field is empty or invalid</td>
+    </tr>
+    <tr>
+      <td>132</td>
+      <td>MerchantKey is invalid</td>
+      <td>Sent Merchantkey is not a valid one</td>
+    </tr>
+    <tr>
+      <td>133</td>
+      <td>Provider is not supported for this Payment Type</td>
+      <td>Sent Provider does not exist</td>
+    </tr>
+    <tr>
+      <td>134</td>
+      <td>FingerPrint length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>135</td>
+      <td>MerchantDefinedFieldValue length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>136</td>
+      <td>ItemDataName length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>137</td>
+      <td>ItemDataSKU length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>138</td>
+      <td>PassengerDataName length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>139</td>
+      <td>PassengerDataStatus length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>140</td>
+      <td>PassengerDataEmail length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>141</td>
+      <td>PassengerDataPhone length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>142</td>
+      <td>TravelDataRoute length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>143</td>
+      <td>TravelDataJourneyType length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>144</td>
+      <td>TravelLegDataDestination length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>145</td>
+      <td>TravelLegDataOrigin length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>146</td>
+      <td>SecurityCode length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>147</td>
+      <td>Address Street length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>148</td>
+      <td>Address Number length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>149</td>
+      <td>Address Complement length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>150</td>
+      <td>Address ZipCode length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>151</td>
+      <td>Address City length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>152</td>
+      <td>Address State length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>153</td>
+      <td>Address Country length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>154</td>
+      <td>Address District length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>155</td>
+      <td>Customer Name length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>156</td>
+      <td>Customer Identity length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>157</td>
+      <td>Customer IdentityType length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>158</td>
+      <td>Customer Email length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>159</td>
+      <td>ExtraData Name length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>160</td>
+      <td>ExtraData Value length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>161</td>
+      <td>Boleto Instructions length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>162</td>
+      <td>Boleto Demostrative length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>163</td>
+      <td>Return Url is required</td>
+      <td>Return URL is not valid - No pagination or extensions are accepted (e.g. .PHP) in the return URL</td>
+    </tr>
+    <tr>
+      <td>166</td>
+      <td>AuthorizeNow is required</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>167</td>
+      <td>Antifraud not configured</td>
+      <td>Antifraud not linked to the merchant’s registry</td>
+    </tr>
+    <tr>
+      <td>168</td>
+      <td>Recurrent Payment not found</td>
+      <td>Recurrence not found</td>
+    </tr>
+    <tr>
+      <td>169</td>
+      <td>Recurrent Payment is not active</td>
+      <td>Recurrence is not active. Paralyzed execution</td>
+    </tr>
+    <tr>
+      <td>170</td>
+      <td>Protected Card not configured</td>
+      <td>Protected card not linked to merchant’s registry</td>
+    </tr>
+    <tr>
+      <td>171</td>
+      <td>Affiliation data not sent</td>
+      <td>Order processing failed - Contact Cielo support</td>
+    </tr>
+    <tr>
+      <td>172</td>
+      <td>Credential Code is required</td>
+      <td>Failed to validate the sent credentials</td>
+    </tr>
+    <tr>
+      <td>173</td>
+      <td>Payment method is not enabled</td>
+      <td>Means of payment not linked to the merchant’s registry</td>
+    </tr>
+    <tr>
+      <td>174</td>
+      <td>Card Number is required</td>
+      <td>Sent field is empty or invalid</td>
+    </tr>
+    <tr>
+      <td>175</td>
+      <td>EAN is required</td>
+      <td>Sent field is empty or invalid</td>
+    </tr>
+    <tr>
+      <td>176</td>
+      <td>Payment Currency is not supported</td>
+      <td>Sent field is empty or invalid</td>
+    </tr>
+    <tr>
+      <td>177</td>
+      <td>Card Number is invalid</td>
+      <td>Sent field is empty or invalid</td>
+    </tr>
+    <tr>
+      <td>178</td>
+      <td>EAN is invalid</td>
+      <td>Sent field is empty or invalid</td>
+    </tr>
+    <tr>
+      <td>179</td>
+      <td>The max number of installments allowed for recurring payment is 1</td>
+      <td>Sent field is empty or invalid</td>
+    </tr>
+    <tr>
+      <td>180</td>
+      <td>The provided Card PaymentToken was not found</td>
+      <td>Protected Card Token not found</td>
+    </tr>
+    <tr>
+      <td>181</td>
+      <td>The MerchantIdJustClick is not configured</td>
+      <td>Protected Card Token locked</td>
+    </tr>
+    <tr>
+      <td>182</td>
+      <td>Brand is required</td>
+      <td>Card issuer not sent</td>
+    </tr>
+    <tr>
+      <td>183</td>
+      <td>Invalid customer bithdate</td>
+      <td>Invalid or future date of birth</td>
+    </tr>
+    <tr>
+      <td>184</td>
+      <td>Request could not be empty</td>
+      <td>Failure of the request format. Check the sent code</td>
+    </tr>
+    <tr>
+      <td>185</td>
+      <td>Brand is not supported by selected provider</td>
+      <td>Card issuer not supported by API Cielo</td>
+    </tr>
+    <tr>
+      <td>186</td>
+      <td>The selected provider does not support the options provided (Capture, Authenticate, Recurrent or Installments)</td>
+      <td>Payment means does not support the sent command</td>
+    </tr>
+    <tr>
+      <td>187</td>
+      <td>ExtraData Collection contains one or more duplicated names</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>193</td>
+      <td>Split Amount must be greater than zero</td>
+      <td>Value for SPLIT realization must be greater than 0</td>
+    </tr>
+    <tr>
+      <td>194</td>
+      <td>Split Establishment is Required</td>
+      <td>SPLIT not enabled for store registration</td>
+    </tr>
+    <tr>
+      <td>195</td>
+      <td>The PlataformId is required</td>
+      <td>Platforms validated not sent</td>
+    </tr>
+    <tr>
+      <td>196</td>
+      <td>DeliveryAddress is required</td>
+      <td>Required field not sent</td>
+    </tr>
+    <tr>
+      <td>197</td>
+      <td>Street is required</td>
+      <td>Required field not sent</td>
+    </tr>
+    <tr>
+      <td>198</td>
+      <td>Number is required</td>
+      <td>Required field not sent</td>
+    </tr>
+    <tr>
+      <td>199</td>
+      <td>ZipCode is required</td>
+      <td>Required field not sent</td>
+    </tr>
+    <tr>
+      <td>200</td>
+      <td>City is required</td>
+      <td>Required field not sent</td>
+    </tr>
+    <tr>
+      <td>201</td>
+      <td>State is required</td>
+      <td>Required field not sent</td>
+    </tr>
+    <tr>
+      <td>202</td>
+      <td>District is required</td>
+      <td>Required field not sent</td>
+    </tr>
+    <tr>
+      <td>203</td>
+      <td>Cart item Name is required</td>
+      <td>Required field not sent</td>
+    </tr>
+    <tr>
+      <td>204</td>
+      <td>Cart item Quantity is required</td>
+      <td>Required field not sent</td>
+    </tr>
+    <tr>
+      <td>205</td>
+      <td>Cart item type is required</td>
+      <td>Required field not sent</td>
+    </tr>
+    <tr>
+      <td>206</td>
+      <td>Cart item name length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>207</td>
+      <td>Cart item description length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>208</td>
+      <td>Cart item sku length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>209</td>
+      <td>Shipping addressee sku length exceeded</td>
+      <td>Sent data exceeds field size</td>
+    </tr>
+    <tr>
+      <td>210</td>
+      <td>Shipping data cannot be null</td>
+      <td>Required field not sent</td>
+    </tr>
+    <tr>
+      <td>211</td>
+      <td>WalletKey is invalid</td>
+      <td>Invalid Visa Checkout data</td>
+    </tr>
+    <tr>
+      <td>212</td>
+      <td>Merchant Wallet Configuration not found</td>
+      <td>Sent Wallet data is not valid</td>
+    </tr>
+    <tr>
+      <td>213</td>
+      <td>Credit Card Number is invalid</td>
+      <td>Sent credit card is invalid</td>
+    </tr>
+    <tr>
+      <td>214</td>
+      <td>Credit Card Holder Must Have Only Letters</td>
+      <td>Card carrier must not contain special characters</td>
+    </tr>
+    <tr>
+      <td>215</td>
+      <td>Agency is required in Boleto Credential</td>
+      <td>Required field not sent</td>
+    </tr>
+    <tr>
+      <td>216</td>
+      <td>Customer IP address is invalid</td>
+      <td>IP blocked for security reasons</td>
+    </tr>
+    <tr>
+      <td>300</td>
+      <td>MerchantId was not found</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>301</td>
+      <td>Request IP is not allowed</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>302</td>
+      <td>Sent MerchantOrderId is duplicated</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>303</td>
+      <td>Sent OrderId does not exist</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>304</td>
+      <td>Customer Identity is required</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>306</td>
+      <td>Merchant is blocked</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>307</td>
+      <td>Transaction not found</td>
+      <td>Transaction not found or does not exist in the environment.</td>
+    </tr>
+    <tr>
+      <td>308</td>
+      <td>Transaction not available to capture</td>
+      <td>Transaction can not be captured - Contact Cielo support</td>
+    </tr>
+    <tr>
+      <td>309</td>
+      <td>Transaction not available to void</td>
+      <td>Transaction can not be canceled - Contact Cielo support</td>
+    </tr>
+    <tr>
+      <td>310</td>
+      <td>Payment method doest not support this operation</td>
+      <td>Sent command not supported by payment means</td>
+    </tr>
+    <tr>
+      <td>311</td>
+      <td>Refund is not enabled for this merchant</td>
+      <td>Cancellation after 24 hours not released to the merchant</td>
+    </tr>
+    <tr>
+      <td>312</td>
+      <td>Transaction not available to refund</td>
+      <td>Transaction does not allow cancellation after 24 hours</td>
+    </tr>
+    <tr>
+      <td>313</td>
+      <td>Recurrent Payment not found</td>
+      <td>Recurrent transaction not found or not available in the environment</td>
+    </tr>
+    <tr>
+      <td>314</td>
+      <td>Invalid Integration</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>315</td>
+      <td>Cannot change NextRecurrency with pending payment</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>316</td>
+      <td>Cannot set NextRecurrency to past date</td>
+      <td>It is not allowed to change the recurrence date to a past date</td>
+    </tr>
+    <tr>
+      <td>317</td>
+      <td>Invalid Recurrency Day</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>318</td>
+      <td>No transaction found</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>319</td>
+      <td>Smart recurrency is not enabled</td>
+      <td>Recurrence not linked to the merchant’s registration</td>
+    </tr>
+    <tr>
+      <td>320</td>
+      <td>Can not Update Affiliation Because this Recurrency not Affiliation saved</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>321</td>
+      <td>Can not set EndDate to before next recurrency.</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>322</td>
+      <td>Zero Dollar Auth is not enabled</td>
+      <td>Zero Dollar not linked to the merchant’s registration</td>
+    </tr>
+    <tr>
+      <td>323</td>
+      <td>Bin Query is not enabled</td>
+      <td>Bins query not linked to the merchant’s registration</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-reason-codes-1">Return Reason Codes</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Reason Code</th>
+      <th>Reason Message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Successful</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>AffiliationNotFound</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>IssuficientFunds</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>CouldNotGetCreditCard</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>ConnectionWithAcquirerFailed</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>InvalidTransactionType</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>InvalidPaymentPlan</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Denied</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Scheduled</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Waiting</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Authenticated</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>NotAuthenticated</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>ProblemsWithCreditCard</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>CardCanceled</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>BlockedCreditCard</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>CardExpired</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>AbortedByFraud</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>CouldNotAntifraud</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>TryAgain</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>InvalidAmount</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>ProblemsWithIssuer</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>InvalidCardNumber</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>TimeOut</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>CartaoProtegidoIsNotEnabled</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>PaymentMethodIsNotEnabled</td>
+    </tr>
+    <tr>
+      <td>98</td>
+      <td>InvalidRequest</td>
+    </tr>
+    <tr>
+      <td>99</td>
+      <td>InternalError</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="annexes-1">Annexes</h1>
+
+<h2 id="affiliate-settings-1">Affiliate Settings.</h2>
+
+<p>Some transaction types require that their Affiliation is properly set up with Cielo. We suggest that, by default, you validate with our call center if your affiliation is able to transact in any of the scenarios below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Scenario</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Recurrence</td>
+    </tr>
+    <tr>
+      <td>Transaction without CVV</td>
+    </tr>
+    <tr>
+      <td>Customizing the validity of a transaction</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="list-of-providers-1">List of Providers</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Means of payment</th>
+      <th>Provider</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Credit card</td>
+      <td><code class="language-plaintext highlighter-rouge">Cielo</code></td>
+    </tr>
+    <tr>
+      <td>Debit card</td>
+      <td><code class="language-plaintext highlighter-rouge">Cielo</code></td>
+    </tr>
+    <tr>
+      <td>Bank slip - Not registered</td>
+      <td><code class="language-plaintext highlighter-rouge">Bradesco</code>  /  <code class="language-plaintext highlighter-rouge">BancodoBrasil</code></td>
+    </tr>
+    <tr>
+      <td>Bank slip - Registered</td>
+      <td><code class="language-plaintext highlighter-rouge">Bradesco2</code> /  <code class="language-plaintext highlighter-rouge">BancodoBrasil2</code></td>
+    </tr>
+    <tr>
+      <td>Electronic Transfer</td>
+      <td><code class="language-plaintext highlighter-rouge">Bradesco</code>  /  <code class="language-plaintext highlighter-rouge">BancodoBrasil</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="types-of-means-of-payment-1">Types of means of payment</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>MEANS OF PAYMENT</th>
+      <th>PAYMENT.TYPE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Credit card</td>
+      <td>CreditCard</td>
+    </tr>
+    <tr>
+      <td>Debit cardo</td>
+      <td>DebitCard</td>
+    </tr>
+    <tr>
+      <td>Bank slip</td>
+      <td>Bank slip</td>
+    </tr>
+    <tr>
+      <td>Electronic Transfer</td>
+      <td>EletronicTransfer</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="merchant-defined-data-1">Merchant Defined Data</h2>
+
+<p>The table below lists all possible codes to be sent in the MerchantDefinedData parameter and respective type of information that must be filled in.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Data</th>
+      <th>Description</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Customer logged in</td>
+      <td>If the final customer logged in on the site to buy, send: their login. If the customer made a purchase as a visitor, send: “Guest”. If the sale was made direct by a third party, an agent for example, do not send the field</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Customer of the establishment since: #days</td>
+      <td>Number of days</td>
+      <td>Number</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Purchase Made in (installments)</td>
+      <td>Number of installments</td>
+      <td>Number</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Sales Channel</td>
+      <td>Values: “Call Center” = purchase by phone <br /> “Web” = purchase by  web <br /> “Portal” = an agent making the purchase for the customer <br /> “Kiosk” = Purchases in kiosks <br /> “Mobile” = Purchases made on smartphones or tablets</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Coupon Code/Discount</td>
+      <td>If the buyer is to use coupon, send the coupon code</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Last purchase made</td>
+      <td>MM DD YYYY</td>
+      <td>Date</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Affiliation</td>
+      <td>Name or code of dealer or broker</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Attempts to Purchase</td>
+      <td>Number of times tried to make the order payment. Different attempted credit cards and/or other means of payments attempted. For the same order.</td>
+      <td>Number</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Customer will withdraw the product in a Store</td>
+      <td>Values: “YES”, “NO” In the case of an agency, if you are going to withdraw any voucher and/or ticket physically</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Payment made by third party</td>
+      <td>Values: “YES”, “NO” Whether or not the payer is present on the trip or package</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Hotel Category</td>
+      <td>Values: 1, 2, 3, 4, 5 How many stars has the hotel</td>
+      <td>Number</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Hotel Check-in date</td>
+      <td>MM DD YYYY</td>
+      <td>Date</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Hotel Check-out date</td>
+      <td>MM DD YYYY</td>
+      <td>Date</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Travel/Package</td>
+      <td>Values: “National”, “International”, “National/International”</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Name of Airline/Car Rental/Hotel</td>
+      <td>Send the name of each company, separated by “/”</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>PNR</td>
+      <td>Send the reservation PNR number. When there is a change in the reservation for this PNR with anticipation of the flight date, it is important to do a new analysis of fraud by sending this PNR again.</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>There was anticipation of reservation?</td>
+      <td>Values: “YES”, “NO” Indicate whether the flight was remarked to a date earlier than the original. It is also important to send the PNR field</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>(reserved)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>(reserved)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>(reserved)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>(reserved)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>(reserved)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>(reserved)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>(reserved)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>(reserved)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Credit Card Bin</td>
+      <td>Send the bin - 6 first digits of the card</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>(reserved)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>(reserved)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>(reserved)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>(reserved)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>Number of Credit Cards exchanges</td>
+      <td>Number of times the buyer has exchanged the credit card to make the payment of the order</td>
+      <td>Number</td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>E-mail pasted or typed</td>
+      <td>Values: “Typed”, “Pasted” Report whether the e-mail address was typed or pasted into the field</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <td>Card Number pasted or typed</td>
+      <td>Values: “Typed”, “Pasted” Report whether the credit card number was typed or pasted into the field</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>34</td>
+      <td>E-mail confirmed</td>
+      <td>If there is an e-mail confirmation routine for account activation. Values: “YES”. In case of negative, do not send the MDD</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>Customer type (local or tourist)</td>
+      <td>Values: “Local”, “Tourist”. Do not send the MDD in the case of not having this information</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>36</td>
+      <td>Use gift card at purchase ($)</td>
+      <td>Report if Gift Card was used (Gift Card) at purchase. Values: “YES”. In case of negative, do not send the MDD</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>37</td>
+      <td>Shipping method</td>
+      <td>Values: “Sedex”, “Sedex 10”, “1 Day”, “2 Days”, “Motoboy”, “Same Day”, etc. If there is no shipping, do not send the MDD</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>38</td>
+      <td>Caller ID number</td>
+      <td>Inform the identified phone number, with DDD</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <td>(reserved)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>(reserved)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>41 a 95</td>
+      <td>Free Field</td>
+      <td>The fields are reserved for sending merchant data, according to the business rule.</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>96</td>
+      <td>(reserved)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>97</td>
+      <td>(reserved)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>98</td>
+      <td>(reserved)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>99</td>
+      <td>(reserved)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>Document</td>
+      <td>Document (CPF, RG, etc.)</td>
+      <td>String</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="fraud-analysis-values-1">Fraud Analysis Values</h2>
+
+<h3 id="fraudanalysisstatus-1">FraudAnalysis.status</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Started</td>
+      <td>Transaction received by Cielo.</td>
+    </tr>
+    <tr>
+      <td>Accept</td>
+      <td>Transaction accepted after fraud analysis.</td>
+    </tr>
+    <tr>
+      <td>Review</td>
+      <td>Transaction under review after fraud analysis.</td>
+    </tr>
+    <tr>
+      <td>Reject</td>
+      <td>Transaction rejected after fraud analysis.</td>
+    </tr>
+    <tr>
+      <td>Unfinished</td>
+      <td>Transaction not finalized due to some internal error in the system.</td>
+    </tr>
+    <tr>
+      <td>Pendent</td>
+      <td>Transaction waiting for analysis</td>
+    </tr>
+    <tr>
+      <td>ProviderError</td>
+      <td>Transaction with error in antifraud provider.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fraudanalysisitemsgiftcategory-1">FraudAnalysis.Items.GiftCategory</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Yes</td>
+      <td>In case of divergence between billing and delivery addresses, mark as small risk.</td>
+    </tr>
+    <tr>
+      <td>No</td>
+      <td>In case of divergence between billing and delivery addresses, mark as high risk.</td>
+    </tr>
+    <tr>
+      <td>Off</td>
+      <td>Ignores risk analysis for divergent addresses.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fraudanalysisitemshosthedge-1">FraudAnalysis.Items.HostHedge</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Low</td>
+      <td>Low importance of e-mail and IP address in risk analysis.</td>
+    </tr>
+    <tr>
+      <td>Normal</td>
+      <td>Average importance of e-mail and IP address in risk analysis.</td>
+    </tr>
+    <tr>
+      <td>High</td>
+      <td>High importance of e-mail and IP address in risk analysis.</td>
+    </tr>
+    <tr>
+      <td>Off</td>
+      <td>E-mail and IP address do not affect the risk analysis.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fraudanalysisitemsnonsensicalhedge-1">FraudAnalysis.Items.NonSensicalHedge</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Low</td>
+      <td>Low importance of the verification made on the buyer’s order, in the risk analysis.</td>
+    </tr>
+    <tr>
+      <td>Normal</td>
+      <td>Average importance of the verification made on the buyer’s order, in the risk analysis.</td>
+    </tr>
+    <tr>
+      <td>High</td>
+      <td>High importance of the verification made on the buyer’s order, in the risk analysis.</td>
+    </tr>
+    <tr>
+      <td>Off</td>
+      <td>Verification of buyer’s order does not affect risk analysis.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fraudanalysisitemsobscenitieshedge-1">FraudAnalysis.Items.ObscenitiesHedge</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Low</td>
+      <td>Low importance of obscenities verification of buyer’s order, in the risk analysis.</td>
+    </tr>
+    <tr>
+      <td>Normal</td>
+      <td>Average importance of obscenities verification of buyer’s order, in the risk analysis.</td>
+    </tr>
+    <tr>
+      <td>High</td>
+      <td>High importance of obscenities verification of buyer’s order, in the risk analysis.</td>
+    </tr>
+    <tr>
+      <td>Off</td>
+      <td>Obscenity verification of buyer’s order does not affect risk analysis.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fraudanalysisitemsphonehedge-1">FraudAnalysis.Items.PhoneHedge</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Low</td>
+      <td>Low importance on tests performed with telephone numbers.</td>
+    </tr>
+    <tr>
+      <td>Normal</td>
+      <td>Average importance on tests performed with telephone numbers.</td>
+    </tr>
+    <tr>
+      <td>High</td>
+      <td>High importance on tests performed with telephone numbers.</td>
+    </tr>
+    <tr>
+      <td>Off</td>
+      <td>Phone number tests do not affect risk analysis.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fraudanalysisitemsrisk-1">FraudAnalysis.Items.Risk</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Low</td>
+      <td>The product has a history of few chargebacks.</td>
+    </tr>
+    <tr>
+      <td>Normal</td>
+      <td>The product has a history of chargebacks considered normal.</td>
+    </tr>
+    <tr>
+      <td>High</td>
+      <td>Product has an above average chargeback history.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fraudanalysisitemstimehedge-1">FraudAnalysis.Items.TimeHedge</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Low</td>
+      <td>Low importance of the time of day when the purchase was made, for the risk analysis.</td>
+    </tr>
+    <tr>
+      <td>Normal</td>
+      <td>Average importance of the time of day when the purchase was made, for the risk analysis.</td>
+    </tr>
+    <tr>
+      <td>High</td>
+      <td>High importance of the time of day when the purchase was made, for the risk analysis.</td>
+    </tr>
+    <tr>
+      <td>Off</td>
+      <td>Purchase time does not affect risk analysis.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fraudanalysisitemstype-1">FraudAnalysis.Items.Type</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CN</td>
+      <td>Business buyer</td>
+    </tr>
+    <tr>
+      <td>CP</td>
+      <td>Private buyer</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fraudanalysisitemsvelocityhedge-1">FraudAnalysis.Items.VelocityHedge</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Low</td>
+      <td>Low importance on the number of purchases made by the customer in the last 15 minutes.</td>
+    </tr>
+    <tr>
+      <td>Normal</td>
+      <td>Average importance on the number of purchases made by the customer in the last 15 minutes.</td>
+    </tr>
+    <tr>
+      <td>High</td>
+      <td>High importance on the number of purchases made by the customer in the last 15 minutes.</td>
+    </tr>
+    <tr>
+      <td>Off</td>
+      <td>The frequency of purchases made by the customer does not affect the fraud analysis.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fraudanalysisitemspassengerrating-1">FraudAnalysis.Items.Passenger.Rating</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Adult</td>
+      <td>Adult passenger.</td>
+    </tr>
+    <tr>
+      <td>Child</td>
+      <td>Child passenger.</td>
+    </tr>
+    <tr>
+      <td>Infant</td>
+      <td>Infant passenger.</td>
+    </tr>
+    <tr>
+      <td>Youth</td>
+      <td>Teenage passenger.</td>
+    </tr>
+    <tr>
+      <td>Student</td>
+      <td>Student passenger.</td>
+    </tr>
+    <tr>
+      <td>SeniorCitizen</td>
+      <td>Elderly passenger.</td>
+    </tr>
+    <tr>
+      <td>Military</td>
+      <td>Military passenger.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="fraudanalysisshippingmethod-1">FraudAnalysis.Shipping.Method</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>SameDay</td>
+    </tr>
+    <tr>
+      <td>OneDay</td>
+    </tr>
+    <tr>
+      <td>TwoDay</td>
+    </tr>
+    <tr>
+      <td>ThreeDay</td>
+    </tr>
+    <tr>
+      <td>LowCost</td>
+    </tr>
+    <tr>
+      <td>Pickup</td>
+    </tr>
+    <tr>
+      <td>Other</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="values-list---paymentchargebacksnstatus-1">Values List - Payment.Chargebacks[n].Status</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Received</td>
+      <td style="text-align: left">Chargeback received from acquirer</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">AcceptedByMerchant</td>
+      <td style="text-align: left">Chargeback accepted by establishment. In this case the establishment understands that it has indeed suffered a chargeback and will not hold the contestation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ContestedByMerchant</td>
+      <td style="text-align: left">Chargeback contested by establishment. In this case the establishment has sent the necessary documents to try to reverse the chargeback</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="service-tax-amount---boarding-fee-1">Service Tax Amount - BOARDING FEE</h2>
+
+<p><strong>The boarding fee</strong> (servicetaxamount) is an information field that defines the total amount of the transaction that should be used to pay the fee to Infraero. The value of the boarding fee is not accumulated at the value of the authorization.</p>
+
+<ul>
+  <li><em>e.g.</em>: In an airline ticket sale of R$200,00 with boarding fee of R$25,00, the field <code class="language-plaintext highlighter-rouge">Payment.ServiceTaxAmount</code> must be sent as 2500</li>
+</ul>
+
+<p><strong>Rules</strong></p>
+
+<ul>
+  <li>Available only for Visa, Mastercard and Amex issuers.</li>
+  <li>The value of the boarding fee is not added to the value of the authorization, i.e. it is only informative.</li>
+</ul>
+
+<p>There are specific rules for the requisition of capture with boarding fee, available in the item Total and Partial Capture.</p>
+
+<h2 id="soft-descriptor-1">Soft Descriptor</h2>
+
+<p>It allows the merchant to send a supplementary text that will be printed on the buyer’s invoice along with the identification of the store name that appears in Cielo register.</p>
+
+<p><strong>Rules</strong></p>
+<ul>
+  <li>Maximum field size: 13 characters.</li>
+  <li>Available only for Visa and MasterCard issuers.</li>
+  <li>Can not contain special characters.</li>
+</ul>
+
+<p>To know and/or change the name of the store that is registered, contact the Cielo relationship center.</p>
+
+<h1 id="questions-and-support-1">Questions and Support</h1>
 
 <p>If you have any questions or any other technical information, contact Cielo e-Commerce Web Support at the following channels:</p>
 
