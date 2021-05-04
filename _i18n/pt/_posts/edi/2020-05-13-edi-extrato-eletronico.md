@@ -1109,8 +1109,15 @@ Quando um valor a crédito estiver em processo de compensação com um valor a d
 |81|Cielo e-Commerce| Acerto/Cobrança                                           |
 |85|Cielo Controle (Excedente)| Acerto/Cobrança                                 |
 |86|Cielo Controle (Franquia)| Acerto/Cobrança                                  |
-|93|Meliuz |Acerto/Cobrança                                                     |           
-|99|Repasse de Tarifas Excesso de retentativas |Acerto                          |
+|90|Débito/crédito compensação de valores| Acerto                               |
+|91|Estorno debito/crédito de cessão| Acerto                                    |
+|92|Estorno débito/crédito de gravame| Acerto                                   |
+|93|Meliuz |Acerto/Cobrança                                                     |
+|94|Débito/crédito compensação cancelamento de transação em operação/Acerto     |
+|95|Débito/crédito de penhora| Acerto                                           |
+|96|Estorno de crédito/débito de penhora| Acerto                                |
+|97|Débito/crédito compensação cancelamento em operação| Acerto                 |
+|99|Tarifa por retentativa de transações (bandeiras) |Acerto                    |
 
 ### Tabela VI - Bandeira
 
@@ -1372,8 +1379,8 @@ MASTERCARD: a data de apresentação da 1ª parcela também será a data base pa
 
 > Observação: as atualizações citadas abaixo, estarão disponíveis a partir do dia 07 de junho de 2021. 
 
-[Manual de Extrato Eletrônico](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_0.pdf)
+[Manual de Extrato Eletrônico](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_1.pdf)
 
-[Electronic Statement Manual - English version](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_-_English_-_Version_14.pdf)
+[Electronic Statement Manual - English version](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_-_English_-_Version_14_0.pdf)
 
 [Atualização de Layout EE - Registro de Recebíveis + PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis_PIX_0.pdf)
