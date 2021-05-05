@@ -659,6 +659,7 @@ curl
 |---|---|---|---|---|
 |`MerchantId`|Guid|36|Sim|Identificador da loja na Cielo.|
 |`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Cielo.|
+|`Content-Type`|Header|40|Sim|application/json (obrigatório o envio deste).|
 |`RequestId`|Guid|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
 |`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido.|
 |`Customer.Name`|Texto|255|Não|Nome do Comprador.|
@@ -943,6 +944,7 @@ curl
 |---|---|---|---|---|
 |`MerchantId`|Guid|36|Sim|Identificador da loja na Cielo.|
 |`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Cielo.|
+|`Content-Type`|Header|40|Sim|application/json (obrigatório o envio deste).|
 |`RequestId`|Guid|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
 |`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido.|
 |`Customer.Name`|Texto|255|Não|Nome do Comprador.|
@@ -1248,6 +1250,7 @@ curl
 |---|---|---|---|---|
 |`MerchantId`|Guid|36|Sim|Identificador da loja na Cielo.|
 |`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Cielo.|
+|`Content-Type`|Header|40|Sim|application/json (obrigatório o envio deste).|
 |`RequestId`|Guid|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
 |`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido.|
 |`Customer.Name`|Texto|255|Não|Nome do Comprador.|
@@ -1527,6 +1530,7 @@ curl
 |---|---|---|---|---|
 |`MerchantId`|Guid|36|Sim|Identificador da loja na Cielo.|
 |`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Cielo.|
+|`Content-Type`|Header|40|Sim|application/json (obrigatório o envio deste).|
 |`RequestId`|Guid|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
 |`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido.|
 |`Customer.Name`|Texto|255|Não|Nome do Comprador.|
@@ -2576,6 +2580,7 @@ curl
 |---|---|---|---|---|
 |`MerchantId`|Guid|36|Sim|Identificador da loja na Cielo.|
 |`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Cielo.|
+|`Content-Type`|Header|40|Sim|application/json (obrigatório o envio deste).|
 |`RequestId`|Guid|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
 |`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido.|
 |`Customer.Name`|Texto|255|Não|Nome do Comprador.|
@@ -6906,6 +6911,7 @@ curl
 |---|---|---|---|---|
 |`MerchantId`|Guid|36|Sim|Identificador da loja na Cielo.|
 |`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Cielo.|
+|`Content-Type`|Header|40|Sim|application/json (obrigatório o envio deste).|
 |`RequestId`|Guid|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
 |`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido.|
 |`Customer.Name`|Texto|255|Não|Nome do Comprador.|
@@ -7225,6 +7231,7 @@ curl
 |---|---|---|---|---|
 |`MerchantId`|Guid|36|Sim|Identificador da loja na Cielo.|
 |`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Cielo.|
+|`Content-Type`|Header|40|Sim|application/json (obrigatório o envio deste).|
 |`RequestId`|Guid|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
 |`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido.|
 |`Customer.Name`|Texto|255|Não|Nome do Comprador.|
