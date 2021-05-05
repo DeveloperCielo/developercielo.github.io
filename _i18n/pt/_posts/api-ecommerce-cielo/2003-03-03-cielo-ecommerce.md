@@ -587,6 +587,8 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
 
 <aside class="notice"><strong>Atenção:</strong> Não é possivel realizar uma transação com valor (`Amount`) 0.</aside>
 
+<aside class="notice"><strong>Atenção:</strong> Deve-se Utilizar no header da requisição o Content-Type application/json .</aside>
+
 #### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
