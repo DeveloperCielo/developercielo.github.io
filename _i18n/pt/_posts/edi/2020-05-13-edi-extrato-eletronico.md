@@ -206,7 +206,7 @@ Executa a lista de clientes abaixo do access_token informado. O filtro pode ser 
 
 ### Response
 
-> **GET** {{host}}/edi/merchantgroup
+> **GET** {{host}} /merchantgroup
 >
 > **Headers**
 >
@@ -274,7 +274,7 @@ Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da 
 
 ### Request
 
-> **POST** {{host}}/edi/registers
+> **POST** {{host}}/registers
 >
 > **Headers**
 >
@@ -336,7 +336,7 @@ Recupere o status de registro do EDI.
 
 ### Response
 
-> **GET** {{host}}/edi/registers/{registerID}
+> **GET** {{host}}/registers/{registerID}
 >
 > **Headers**
 >
