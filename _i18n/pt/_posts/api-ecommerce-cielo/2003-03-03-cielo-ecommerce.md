@@ -3176,32 +3176,35 @@ Como qualquer transação de débito no e-commerce, as transações de Carnê pr
 
 ```json
 {
-   "MerchantOrderId":"2014111703",
-   "Customer":{
-      "Name":"Comprador Carnet simples"
-   },
-   "Payment":{
-      "Type":"DebitCard",
-      "Provider":"CieloSandbox",
-      "Amount":15700,
-      "Installments":1,
-      "Authenticate":true,
-      "SoftDescriptor":"123456789ABCD",
-      "DebitCard":{
-         "CardNumber":"4551870000000183",
-         "Holder":"Test Holder",
-         "ExpirationDate":"12/2030",
-         "SecurityCode":"123",
-         "Brand":"Visa"
-      },
-      "ExternalAuthentication":{
-         "Cavv":"123456789",
-         "Xid":"987654321",
-         "Eci":"5"
-      },
-      "IsCryptoCurrencyNegotiation":true,
-      "IsCarneTransaction":true
-   }
+"MerchantOrderId": "2014111704",
+"Customer": {
+"Name": "Comprador Carnet simples"
+},
+"Payment": {
+"Provider": "CieloSandbox",
+"Authenticate": true,
+"Installments": 1,
+"Amount": 100,
+"Type": "DebitCard",
+"SoftDescriptor": "123456789ABCD",
+"DebitCard": {
+"ExpirationDate": "05/2024",
+"CardNumber": "1234567891234567",
+"Holder": "Test Holder",
+"Brand": "Visa",
+"SecurityCode": "123",
+"CardOnFile": {
+"Reason": "Unscheduled",
+"Usage": "first"
+}
+},
+"ExternalAuthentication": {
+"Eci": "05",
+"Cavv": "AAABAWFlmQAAAABjRWWZEEFgFz+=",
+"Xid": "blNhMmtMUWg4RDFoV2JaM1RRbjA="
+},
+"iscarnetransaction": true
+}
 }
 ```
 
