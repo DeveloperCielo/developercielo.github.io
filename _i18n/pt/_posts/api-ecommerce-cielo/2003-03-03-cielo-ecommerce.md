@@ -1428,7 +1428,7 @@ Na versão 1, o portador é direcionado para o ambiente bancário, onde é desaf
 
 A autenticação é um processo que é mandatório para transações de débito no eCommerce, porém, é possível utilizá-la também para transações de crédito. Fica a critério do lojista autenticar transações de crédito no e-Commerce.
 
-Considerando as diversas melhorias e benefícios disponíveis na versão 2.0, a tendência é que cada vez mais seja utilizada. Para conhecer o 3DS 2.0, acesse [https://developercielo.github.io/manual/emv3ds](https://developercielo.github.io/manual/emv3ds).
+Considerando as diversas melhorias e benefícios disponíveis na versão 2.0, a tendência é que cada vez mais seja utilizada. Para conhecer o 3DS 2.0, acesse [https://developercielo.github.io/manual/3ds](https://developercielo.github.io/manual/3ds).
 
 <aside class="warning">IMPORTANTE: O 3DS 1.0 deverá ser descontinuado a partir de Outubro de 2021 e não recomendamos, portanto, sua integração.</aside>
 
