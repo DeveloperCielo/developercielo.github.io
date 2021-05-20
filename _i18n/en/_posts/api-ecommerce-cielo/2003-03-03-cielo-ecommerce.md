@@ -1419,8 +1419,8 @@ As a market rule, all the online debit card transactions must be authenticated t
 In the version 1, the carrier will be directed to the banking environment, where it will be challenged by the card issuer, typing the password and completing the authentication. This version is not compatible with mobile devices and the challenge will happen in 100% of the cases. There is the possibility of not authenticating debit transactions in e-Commerce, which is known as "Debt without password", however, it is up to the card issuing banks to approve this model, because **the permission is not granted by Cielo**.
 
 Authentication is a process that is mandatory for eCommerce debit transactions, but, it can also be used for credit transactions. It's up to the merchant to authenticate credit transactions in e-Commerce.
+Recently, the new version of 3DS 2.0 was release by the brands in the market, allowing Cielo and issuers to develop this solution, that is already available for integration. The tendency is to be increasingly used, considering its many improvements and benefits. To learn about 3DS 2.0, access [https://developercielo.github.io/en/manual/3ds](https://developercielo.github.io/en/manual/3ds).
 
-Recently, the new version of 3DS 2.0 was release by the brands in the market, allowing Cielo and issuers to develop this solution, that is already available for integration. The tendency is to be increasingly used, considering its many improvements and benefits. To learn about 3DS 2.0, access [https://developercielo.github.io/en/manual/emv3ds](https://developercielo.github.io/en/manual/emv3ds).
 
 #### MPI – Merchant Plug-in
 
