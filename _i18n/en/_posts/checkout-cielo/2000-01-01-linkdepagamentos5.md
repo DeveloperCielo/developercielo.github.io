@@ -17,6 +17,8 @@ language_tabs:
 
 # Proposal
 
+This manual will guide the developer in the integration with Cielo's Super Link API. After performing the described integrations, it will be possible to:
+
 # About the Super Link
 
 # Test Mode
