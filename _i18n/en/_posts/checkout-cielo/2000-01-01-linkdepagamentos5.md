@@ -39,6 +39,16 @@ Its main objective is to allow stores to create payment links (Buttons or QR Cod
 
 ## Sandbox
 
+As it is a non-financial request, the Super Link API does not have a Sandbox to test the creation of links. Links must be created from the production environment. Accreditation can be done through the cielo website or through the ecommerce center.
+
+<aside class="warning"><b>Central Contacts:<br>
+credenciamentoecommerce@cielo.com.br<br>
++55 11 4002-9700<br>
+0800-570-1700
+</b></aside>
+
+Financial tests can be performed by activating the test mode in your store settings.
+
 ## Enabling Test Mode
 
 ## Transacting in Test Mode
