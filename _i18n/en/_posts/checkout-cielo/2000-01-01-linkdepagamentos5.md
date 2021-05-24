@@ -59,6 +59,10 @@ When the option is saved, a red stripe will appear at the top of the screen. It 
 
 This label indicates that your Checkout Cielo store is now operating in a test environment, that is, the entire transaction carried out in this mode will be considered as a test.
 
+|Backoffice|Transactional|
+|---|---|
+|![Red stripe - Backoffice]({{ site.baseurl_root }}/images/checkout/tmbackoffice.png)|![Red stripe - Transactional]({{ site.baseurl_root }}/images/checkout/tmtransacional.png)
+
 ## Transacting in Test Mode
 
 # Cielo OAUTH
