@@ -444,3 +444,27 @@ Cielo Checkout has two types of notifications that the shopkeeper can use accord
 | `JSON` | Notification where the merchant makes an appointment. A `POST` containing information for making a query (`GET`) for the checkout transactions |
 
 To use both models, the merchant will need to access the Cielo Backoffice and configure both the `NOTIFICATION URL` and the` STATUS CHANGE URL`.
+
+# Transactional Control
+
+Consultation of transactions via API can be done up to 45 days after the sale has been made.
+
+The control of orders originating from a payment link can be done through the transactional control API. The order inquiry can be done in 3 different ways:
+
+## Por Merchant_Order_Number
+
+### Request
+
+### Response
+
+## Por Checkout_Cielo_Order_Number
+
+### Request
+
+### Response
+
+## Por ID do link de pagamento
+
+### Request
+
+### Response
