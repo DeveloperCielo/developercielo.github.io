@@ -22,7 +22,7 @@ This manual will guide the developer in the integration with Cielo's Super Link 
 * Create and edit Payment Links via API
 * Receive payment notifications
 * Consult payments
-* Set up your store properly
+* Set up your store properly 
 
 # About the Super Link
 
