@@ -51,6 +51,12 @@ Financial tests can be performed by activating the test mode in your store setti
 
 ## Enabling Test Mode
 
+The test mode can be activated in the **Settings** tab, where there is a checkbox, which, when checked, will enable the test mode of Checkout Cielo. The mode will only start when the selection is saved.
+
+When the option is saved, a red stripe will appear at the top of the screen. It will be displayed on all [Backoffice Cielo Checkout] screens ({{site.baseurl_root}} {% post_url 2000-01-01-checkout-tutorials%}) and on the transactional screen for Checkout Cielo.
+
+This label indicates that your Checkout Cielo store is now operating in a test environment, that is, the entire transaction carried out in this mode will be considered as a test.
+
 ## Transacting in Test Mode
 
 # Cielo OAUTH
