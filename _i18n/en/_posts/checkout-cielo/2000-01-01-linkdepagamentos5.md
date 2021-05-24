@@ -37,6 +37,12 @@ Its main objective is to allow stores to create payment links (Buttons or QR Cod
 
 # Test Mode
 
+## Sandbox
+
+## Enabling Test Mode
+
+## Transacting in Test Mode
+
 # Cielo OAUTH
 
 Cielo OAUTH is an authentication process used in Cielo APIs that are correlated to E-commerce products. It uses the **[OAUTH2](https://oauth.net/2/)** protocol, where it is first necessary to obtain an access token, using its credentials, which should then be sent to the CieloOAuth API
