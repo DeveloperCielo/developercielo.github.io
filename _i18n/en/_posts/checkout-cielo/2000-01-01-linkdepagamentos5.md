@@ -429,13 +429,3 @@ To delete an existing link, simply perform a `GET` informing the link `ID`.
 ### Response
 
 > HTTP Status: 204 – No Content
-
-## HTTP Status Codes
-
-| CODE                            | DESCRIPTION                                                  |
-| ------------------------------- | ------------------------------------------------------------ |
-| **200 - OK**                    | Everything worked correctly.                                 |
-| **400 – Bad Request**           | The request was not accepted. Some parameter was not informed or was incorrectly informed. |
-| **401 - Unauthorized**          | The access token sent in the request header is not valid.    |
-| **404 – Not Found**             | The resource being accessed does not exist. Occurs when attempting to update, query, or delete a nonexistent link. |
-| **500 – Internal Server Error** | A system error ocurred.                                      |
