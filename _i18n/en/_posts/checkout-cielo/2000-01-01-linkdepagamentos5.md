@@ -19,10 +19,10 @@ language_tabs:
 
 This manual will guide the developer in the integration with Cielo's Super Link API. After performing the described integrations, it will be possible to:
 
-Create and edit Payment Links via API
-Receive payment notifications
-Consult payments
-Set up your store properly
+1. Create and edit Payment Links via API
+2. Receive payment notifications
+3. Consult payments
+4. Set up your store properly
 
 # About the Super Link
 
