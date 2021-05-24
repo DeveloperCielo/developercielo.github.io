@@ -848,6 +848,35 @@ credenciamentoecommerce@cielo.com.br<br />
   <p>HTTP Status: 204 – No Content</p>
 </blockquote>
 
+<h1 id="payment-notifications">Payment Notifications</h1>
+
+<p>The transactional notification process in Checkout Cielo takes place via the inclusion of a URL to which data from transactions carried out on the platform will be directed. It is worth mentioning that Checkout notifies you only when a transaction is considered finalized, that is, the buyer has filled in all the data on the payment screen and clicked on “Finalize”.</p>
+
+<h2 id="notification-types">Notification Types</h2>
+
+<p>Cielo Checkout has two types of notifications that the shopkeeper can use according to his needs:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">POST</code></td>
+      <td>Notification where the merchant is passive. Two <code class="language-plaintext highlighter-rouge">HTTP POST</code> are triggered, one informing sales data and the other transaction status change</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">JSON</code></td>
+      <td>Notification where the merchant makes an appointment. A <code class="language-plaintext highlighter-rouge">POST</code> containing information for making a query (<code class="language-plaintext highlighter-rouge">GET</code>) for the checkout transactions</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>To use both models, the merchant will need to access the Cielo Backoffice and configure both the <code class="language-plaintext highlighter-rouge">NOTIFICATION URL</code> and the<code class="language-plaintext highlighter-rouge"> STATUS CHANGE URL</code>.</p>
+
 </div>
 
 
