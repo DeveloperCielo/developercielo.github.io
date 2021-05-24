@@ -26,6 +26,15 @@ This manual will guide the developer in the integration with Cielo's Super Link 
 
 # About the Super Link
 
+The Payment Link API allows the merchant to create, edit and consult payment links.
+Its main objective is to allow stores to create payment links (Buttons or QR Codes), through their own systems, without the need to access the Backoffice and share with their customers.
+
+> **Attention**:
+>
+> The payments link is not a **ORDER/TRANSACTION** URL. It is a "cart" that can be reused over and over again. <br>
+> To receive notifications about transactions originating from Payment Links, **MANDATORY** is required to register the **Notification URL** in the Checkout backoffice. <br>
+> The query of transactions carried out through Super Link can be done through the **Transactional Control API *. <br>
+
 # Test Mode
 
 # Cielo OAUTH
