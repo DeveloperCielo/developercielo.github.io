@@ -19,6 +19,8 @@ language_tabs:
 
 This manual will guide the developer in the integration with Cielo's Super Link API. After performing the described integrations, it will be possible to:
 
+* Create and edit Payment Links via API
+
 # About the Super Link
 
 # Test Mode
