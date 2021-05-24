@@ -429,3 +429,18 @@ To delete an existing link, simply perform a `GET` informing the link `ID`.
 ### Response
 
 > HTTP Status: 204 – No Content
+
+# Payment Notifications
+
+The transactional notification process in Checkout Cielo takes place via the inclusion of a URL to which data from transactions carried out on the platform will be directed. It is worth mentioning that Checkout notifies you only when a transaction is considered finalized, that is, the buyer has filled in all the data on the payment screen and clicked on “Finalize”.
+
+## Notification Types
+
+Cielo Checkout has two types of notifications that the shopkeeper can use according to his needs:
+
+|Type|Description|
+|---|---|
+|`POST`| Notification where the merchant is passive. Two `HTTP POST` are triggered, one informing sales data and the other transaction status change|
+| `JSON` | Notification where the merchant makes an appointment. A `POST` containing information for making a query (`GET`) for the checkout transactions |
+
+To use both models, the merchant will need to access the Cielo Backoffice and configure both the `NOTIFICATION URL` and the` STATUS CHANGE URL`.
