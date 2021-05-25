@@ -885,9 +885,45 @@ credenciamentoecommerce@cielo.com.br<br />
 
 <h2 id="por-merchant_order_number">Por Merchant_Order_Number</h2>
 
+<p>The query for transactions by <code class="language-plaintext highlighter-rouge">Merchant_Order_Number</code> returns a list of transactions with the same number of orders, this is because the Checkout Cielo does not prevent the duplication of OrderNumbers by the merchant. The response will have the <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code> that should be used to query a specific transaction.</p>
+
 <h3 id="request-5">Request</h3>
 
+<p>To consult a transaction through <code class="language-plaintext highlighter-rouge">Merchant_Order_Number</code>, just perform a<code class="language-plaintext highlighter-rouge"> GET</code>.</p>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/merchantOrderNumber/{merchantordernumber}</span></aside>
+
 <h3 id="response-5">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"checkoutOrderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a58995ce24fd4f1cb025701e95a51478"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-30T12:09:33.57"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/a58995ce24fd4f1cb025701e95a51478"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"checkoutOrderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"438f3391860a4bedbae9a868180dda6e"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-30T12:05:41.317"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/438f3391860a4bedbae9a868180dda6e"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
 
 <h2 id="por-checkout_cielo_order_number">Por Checkout_Cielo_Order_Number</h2>
 
