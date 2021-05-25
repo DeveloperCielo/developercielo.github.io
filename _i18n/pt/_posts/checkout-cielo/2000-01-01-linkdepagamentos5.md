@@ -761,6 +761,7 @@ Para consultas a Brand é retornado no campo Payment.Brand e vem preenchida com 
 |`checkout_cielo_order_number`|Identificador único gerado pelo CHECKOUT CIELO|Alfanumérico|32|
 |`amount`|Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)|Numérico|10|
 |`order_number`|Número do pedido enviado pela loja|Alfanumérico|32|
+|`payment_method_brand`|Bandeira- somente para transações com meio de pagamento cartão de crédito.[Lista Completa](https://developercielo.github.io/manual/linkdepagamentos5#payment_method_brand)|Numérico|1|
 |`payment_status`|Status da transação.[Lista Completa](https://developercielo.github.io/manual/linkdepagamentos5#payment_status)|Numérico|1|
 |`test_transaction`|Indica se a transação foi gerada com o Modo de teste ativado|Boolean|32|
 |`nsu`|NSU - Número sequencial único da transação.|Alfanumérico|6|
