@@ -1169,6 +1169,8 @@ O Checkout possui um Status próprios, diferente do SITE CIELO ou da API Cielo e
 |7|`Autorizado`|Authorized|somente para Cartão de Crédito|Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta|
 |8|`Chargeback`|Chargeback|somente para Cartão de Crédito|Transação cancelada pelo consumidor junto ao emissor do cartão. O Dinheiro não será depositado em conta.|
 
+Obs: Para consultas de pedido, o campo payment.status será retornado no formato texto, sempre em inglês (coluna Transaction Status).
+
 **Payment_antifrauderesult**
 
 O Antifraude possui o conceito de `Status` e `SubStatus`, onde o primeiro representa o nível de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
