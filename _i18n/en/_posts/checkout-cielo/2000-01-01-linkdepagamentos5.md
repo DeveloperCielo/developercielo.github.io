@@ -587,6 +587,21 @@ To check a transaction through `Checkout_Cielo_Order_Number`, just perform a` GE
 }
 ```
 
+|Field|Type|Size|Description|Format|
+|---|---|---|---|---|
+|`merchantId`|GUID|36|Checkout merchant Id|Example: c89fdfbb-dbe2-4e77-806a-6d75cd397dac|
+|`orderNumber`|Text|32|Merchant order number.|Example: 123456|
+|`softDescriptor`|Text|13|Text displayed on the buyer's invoice. No special characters or spaces|Example: `Merchant_ABC_1234`|
+|`cart.items.name`|Text|128|Cart item name.|Example: Pedido ABC|
+|`cart.items.description`|Text|256|Cart item description.|Example: 50 canetas - R$30,00|
+|`cart.items.unitPrice`|Numeric|18|Unit price of the product in cents|Example: R$ 1,00 = 100|
+|`cart.items.quantity`|Numeric|9|Quantity of the item in the cart.|Example: 1|
+|`cart.items.type`|Text|255|Type of item in cart|`Asset`<br>`Digital`<br>`Service`<br>`Payment`|
+|`shipping.type`|Numeric|36|Shipping type|Example: 1|
+|`shipping.services.name`|Text|128|Shipping method|Example: Casa Principal|
+|`shipping.services.price`|Numeric|10|Shipping service value, in cents|Example: R$ 10,00 = 1000|
+|`shipping.address.street`|Text|256|Delivery address|Example: Rua João da Silva|
+
 ## Por ID do link de pagamento
 
 ### Request
