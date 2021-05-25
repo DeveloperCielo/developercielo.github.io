@@ -713,13 +713,16 @@ O Antifraude possui o conceito de `Status` e `SubStatus`, onde o primeiro repres
 
 O Checkout permite apenas um tipo de `Boleto` ou `Débito Online` por lojista, sendo assim não é retornado se o método usado foi Bradesco ou Banco do Brasil, pois apenas um deles estará ativado na afiliação.
 
-|Valor|Descrição|
-|---|---|
-|1|Cartão de Crédito|
-|2|Boleto Bancário|
-|3|Débito Online|
-|4|Cartão de Débito|
-|5|QR Code|
+|Valor|Descrição|Description|
+|---|---|---|
+|1|Cartão de Crédito|CreditCard|
+|2|Boleto Bancário|Boleto|
+|3|Débito Online|OnlineDebit|
+|4|Cartão de Débito|DebitCard|
+|5|QR Code|QrCode|
+|6|Pix|Pix|
+
+OBS: Para consultas o Type é retornado no campo Payment.Type e vem preenchida com o valor literal (Description)
 
 #### Payment_method_brand
 
