@@ -1719,6 +1719,63 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
   </tbody>
 </table>
 
+<h4 id="mudança-de-status">Mudança de status</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Descrição</th>
+      <th>Tipo do Campo</th>
+      <th>Tamanho Máximo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code></td>
+      <td>Identificador único gerado pelo CHECKOUT CIELO</td>
+      <td>Alfanumérico</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">amount</code></td>
+      <td>Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)</td>
+      <td>Numérico</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">order_number</code></td>
+      <td>Número do pedido enviado pela loja</td>
+      <td>Alfanumérico</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">payment_status</code></td>
+      <td>Status da transação.<a href="https://developercielo.github.io/manual/linkdepagamentos5#payment_status">Lista Completa</a></td>
+      <td>Numérico</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">test_transaction</code></td>
+      <td>Indica se a transação foi gerada com o Modo de teste ativado</td>
+      <td>Boolean</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">nsu</code></td>
+      <td>NSU - Número sequencial único da transação.</td>
+      <td>Alfanumérico</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">authorization_code</code></td>
+      <td>Código de autorização.</td>
+      <td>Alfanumérico</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="controle-transacional">Controle Transacional</h1>
 
 <p>A consulta de transações via API pode ser feita até 45 dias após a venda ter sido realizada.</p>
