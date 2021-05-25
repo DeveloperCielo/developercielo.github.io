@@ -508,6 +508,12 @@ To consult a transaction through `Merchant_Order_Number`, just perform a` GET`.
 
 ### Request
 
+To check a transaction through `Checkout_Cielo_Order_Number`, just perform a` GET`.
+
+>**Header:** Authorization: Bearer {access_token}
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/{checkout_cielo_order_number}</span></aside>
+
 ### Response
 
 ## Por ID do link de pagamento
