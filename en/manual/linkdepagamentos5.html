@@ -1251,6 +1251,76 @@ credenciamentoecommerce@cielo.com.br<br />
       <td>Transaction end date</td>
       <td>Example: AAAA-MM-DDTHH:mm:SS.ss</td>
     </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.cardMaskedNumber</code></td>
+      <td>Text</td>
+      <td>19</td>
+      <td>Masked card number</td>
+      <td>Example: 123456<em>**</em>2007</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.brand</code></td>
+      <td>Text</td>
+      <td>10</td>
+      <td>Card brand</td>
+      <td>Example: Visa <a href="https://developercielo.github.io/manual/linkdepagamentos5#payment_method_brand">Lista Completa</a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.antifraud.antifraudeResult</code></td>
+      <td>Numeric</td>
+      <td>1</td>
+      <td>Anti-fraud status</td>
+      <td>Example: 1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.antifraud.description</code></td>
+      <td>Text</td>
+      <td>256</td>
+      <td>Description of anti-fraud status</td>
+      <td>Example: Merchant chose not to perform anti-fraud analysis</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.type</code></td>
+      <td>Text</td>
+      <td>11</td>
+      <td>Type of payment method</td>
+      <td>Example: CreditCard <a href="https://developercielo.github.io/manual/linkdepagamentos5#payment_method_type">full list</a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.errocode</code></td>
+      <td>Numeric</td>
+      <td>2</td>
+      <td>Return code</td>
+      <td>Example: 00, 51, 57, etc <a href="https://developercielo.github.io/manual/linkdepagamentos5#c%C3%B3digos-de-retorno-abecs">full list</a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
+      <td>Numeric</td>
+      <td>14</td>
+      <td>CPF or CNPJ of the buyer.</td>
+      <td>Example: 12345678909</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.FullName</code></td>
+      <td>Text</td>
+      <td>256</td>
+      <td>Buyer’s full name.</td>
+      <td>Example: Fulano da Silva</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
+      <td>Text</td>
+      <td>64</td>
+      <td>Buyer’s email.</td>
+      <td>Example: example@email.com.br</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Phone</code></td>
+      <td>Numeric</td>
+      <td>11</td>
+      <td>Buyer’s phone.</td>
+      <td>Example: 11123456789</td>
+    </tr>
   </tbody>
 </table>
 
