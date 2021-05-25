@@ -679,16 +679,16 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
 
 O Checkout possui um Status próprios, diferente do SITE CIELO ou da API Cielo ecommerce. Veja abaixo a lista completa.
 
-|Valor|Status de transação|Meios de pagamento|Descrição|
-|---|---|---|---|
-|1|`Pendente`|Para todos os meios de pagamento|Indica que o pagamento ainda está sendo processado; OBS: Boleto - Indica que o boleto não teve o status alterado pelo lojista|
-|2|`Pago`|Para todos os meios de pagamento|Transação capturada e o dinheiro será depositado em conta.|
-|3|`Negado`|Somente para Cartão Crédito|Transação não autorizada pelo responsável do meio de pagamento|
-|4|`Expirado`|Cartões de Crédito e Boleto|Transação deixa de ser válida para captura - **15 dias pós Autorização**|
-|5|`Cancelado`|Para cartões de crédito|Transação foi cancelada pelo lojista|
-|6|`Não Finalizado`|Todos os meios de pagamento|Pagamento esperando Status - Pode indicar erro ou falha de processamento. Entre em contato com o Suporte cielo|
-|7|`Autorizado`|somente para Cartão de Crédito|Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta|
-|8|`Chargeback`|somente para Cartão de Crédito|Transação cancelada pelo consumidor junto ao emissor do cartão. O Dinheiro não será depositado em conta.|
+|Valor|Status de transação|Transaction Status|Meios de pagamento|Descrição|
+|---|---|---|---|---|
+|1|`Pendente`|Pending|Para todos os meios de pagamento|Indica que o pagamento ainda está sendo processado; OBS: Boleto - Indica que o boleto não teve o status alterado pelo lojista|
+|2|`Pago`|Paid|Para todos os meios de pagamento|Transação capturada e o dinheiro será depositado em conta.|
+|3|`Negado`|Denied|Somente para Cartão Crédito|Transação não autorizada pelo responsável do meio de pagamento|
+|4|`Expirado`|Expired|Cartões de Crédito e Boleto|Transação deixa de ser válida para captura - **15 dias pós Autorização**|
+|5|`Cancelado`|Voided|Para cartões de crédito|Transação foi cancelada pelo lojista|
+|6|`Não Finalizado`|NotFinalized|Todos os meios de pagamento|Pagamento esperando Status - Pode indicar erro ou falha de processamento. Entre em contato com o Suporte cielo|
+|7|`Autorizado`|Authorized|somente para Cartão de Crédito|Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta|
+|8|`Chargeback`|Chargeback|somente para Cartão de Crédito|Transação cancelada pelo consumidor junto ao emissor do cartão. O Dinheiro não será depositado em conta.|
 
 #### Payment_antifrauderesult
 
