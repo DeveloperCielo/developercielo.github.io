@@ -628,4 +628,40 @@ To check a transaction through `Checkout_Cielo_Order_Number`, just perform a` GE
 
 ### Request
 
+To check a transaction through `id`, just perform a` GET`.
+
+>**Header:** Authorization: Bearer {access_token}
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}/payments</span></aside>
+
 ### Response
+
+``` json
+{
+   "$id": "1",
+   "productId": "9487e3a9-f204-4188-96c5-a5a3013b2517",
+   "createdDate": "2019-07-11T10:35:04.947",
+   "orders": [
+       {
+           "$id": "2",
+           "orderNumber": "b74df3e3c1ac49ccb7ad89fde2d787f7",
+           "createdDate": "2019-07-11T10:37:23.447",
+           "payment": {
+               "$id": "3",
+               "price": 11500,
+               "numberOfPayments": 6,
+               "createdDate": "2019-07-11T10:37:23.447",
+               "status": "Denied"
+           },
+           "links": [
+               {
+                   "$id": "4",
+                   "method": "GET",
+                   "rel": "self",
+                   "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/b74df3e3c1ac49ccb7ad89fde2d787f7"
+               }
+           ]
+       }
+   ]
+}
+```
