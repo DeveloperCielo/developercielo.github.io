@@ -601,6 +601,18 @@ To check a transaction through `Checkout_Cielo_Order_Number`, just perform a` GE
 |`shipping.services.name`|Text|128|Shipping method|Example: Casa Principal|
 |`shipping.services.price`|Numeric|10|Shipping service value, in cents|Example: R$ 10,00 = 1000|
 |`shipping.address.street`|Text|256|Delivery address|Example: Rua João da Silva|
+|`shipping.address.number`|Numeric|8|Delivery address number|Example: 123|
+|`shipping.address.complement`|Text|64|Complement of delivery address|Example: Casa|
+|`shipping.address.district`|Text|64|Neighborhood of delivery address|Example: Alphaville|
+|`shipping.address.city`|Text|64|City of delivery address|Example: São Paulo|
+|`shipping.address.state`|Text|2|Delivery address state|Example: SP|
+|`Payment.status`|Text|10|Transaction status|Example: Paid [Lista Completa](https://developercielo.github.io/manual/linkdepagamentos5#payment_status)|
+|`Payment.tid`|Text|32|Cielo TID generated at the time of the transaction authorization|Example: 10127355487AK2C3EOTB|
+|`Payment.nsu`|Text|6|NSU Cielo generated at the time of authorization of the transaction|Example: 123456|
+|`Payment.authorizationCode`|Text|3|Authorization code.|Example: 456789|
+|`Payment.numberOfPayments`|Numeric|6|Number of installments.|Example: 123456|
+|`Payment.createdDate`|Text|22|Transaction creation date|Example: AAAA-MM-DDTHH:mm:SS.ss|
+|`Payment.finishedDate`|Text|22|Transaction end date|Example: AAAA-MM-DDTHH:mm:SS.ss|
 
 ## Por ID do link de pagamento
 
