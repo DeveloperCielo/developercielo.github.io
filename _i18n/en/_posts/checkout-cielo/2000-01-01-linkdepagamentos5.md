@@ -516,6 +516,77 @@ To check a transaction through `Checkout_Cielo_Order_Number`, just perform a` GE
 
 ### Response
 
+``` json
+{ 
+    "merchantId": "c89fdfbb-dbe2-4e77-806a-6d75cd397dac", 
+    "orderNumber": "054f5b509f7149d6aec3b4023a6a2957", 
+    "softDescriptor": "Pedido1234", 
+    "cart": { 
+        "items": [ 
+            { 
+                "name": "Pedido ABC", 
+                "description": "50 canetas - R$30,00 | 10 cadernos - R$50,00 | 10 Borrachas - R$10,00", 
+                "unitPrice": 9000, 
+                "quantity": 1, 
+                "type": "1" 
+            } 
+        ] 
+    }, 
+    "shipping": { 
+        "type": "FixedAmount", 
+        "services": [ 
+            { 
+              "name": "Entrega Rápida", 
+                "price": 2000 
+            } 
+        ], 
+        "address": { 
+            "street": "Estrada Caetano Monteiro", 
+            "number": "391A", 
+            "complement": "BL 10 AP 208", 
+            "district": "Badu", 
+            "city": "Niterói", 
+            "state": "RJ" 
+        } 
+    }, 
+    "payment": { 
+        "status": "Paid", 
+        "tid": "10127355487AK2C3EOTB",
+        "nsu": "149111",
+        "authorizationCode": "294551",
+        "numberOfPayments": 1,
+        "createdDate": "2018-03-02T14:29:43.767",
+        "finishedDate": "2018-03-02T14:29:46.117",
+        "cardMaskedNumber": "123456******2007",
+        "brand": "Visa",
+        "type": "creditCard",
+        "errorcode": "00",
+        "antifraud": { 
+            "antifraudeResult": 0,
+            "description": "Lojista optou não realizar a análise do antifraude." 
+        } 
+    }, 
+    "customer": { 
+        "identity": "12345678911", 
+        "fullName": "Fulano da Silva", 
+        "email": "exemplo@email.com.br", 
+        "phone": "11123456789" 
+    }, 
+    "links": [ 
+        { 
+            "method": "GET", 
+            "rel": "self", 
+            "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/054f5b509f7149d6aec3b4023a6a2957" 
+        }, 
+        { 
+            "method": "PUT", 
+            "rel": "void", 
+            "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/054f5b509f7149d6aec3b4023a6a2957/void" 
+        } 
+    ] 
+}
+```
+
 ## Por ID do link de pagamento
 
 ### Request
