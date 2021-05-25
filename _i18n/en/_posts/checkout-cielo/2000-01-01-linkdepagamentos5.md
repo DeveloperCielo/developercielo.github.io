@@ -453,9 +453,46 @@ The control of orders originating from a payment link can be done through the tr
 
 ## Por Merchant_Order_Number
 
+The query for transactions by `Merchant_Order_Number` returns a list of transactions with the same number of orders, this is because the Checkout Cielo does not prevent the duplication of OrderNumbers by the merchant. The response will have the `Checkout_Cielo_Order_Number` that should be used to query a specific transaction.
+
 ### Request
 
+To consult a transaction through `Merchant_Order_Number`, just perform a` GET`.
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/merchantOrderNumber/{merchantordernumber}</span></aside>
+
 ### Response
+
+``` json
+[
+    {
+        "$id": "1",
+        "checkoutOrderNumber": "a58995ce24fd4f1cb025701e95a51478",
+        "createdDate": "2018-04-30T12:09:33.57",
+        "links": [
+            {
+                "$id": "2",
+                "method": "GET",
+                "rel": "self",
+                "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/a58995ce24fd4f1cb025701e95a51478"
+            }
+        ]
+    },
+    {
+        "$id": "3",
+        "checkoutOrderNumber": "438f3391860a4bedbae9a868180dda6e",
+        "createdDate": "2018-04-30T12:05:41.317",
+        "links": [
+            {
+                "$id": "4",
+                "method": "GET",
+                "rel": "self",
+                "href": "https://cieloecommerce.cielo.com.br/api/public/v2/orders/438f3391860a4bedbae9a868180dda6e"
+            }
+        ]
+    }
+]
+```
 
 ## Por Checkout_Cielo_Order_Number
 
