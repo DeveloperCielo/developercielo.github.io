@@ -1205,14 +1205,16 @@ O Checkout permite apenas um tipo de `Boleto` ou `Débito Online` por lojista, s
 |Valor|Descrição|
 |---|---|
 |1|Visa|
-|2|Mastercad|
+|2|Master|
 |3|AmericanExpress|
 |4|Diners|
 |5|Elo|
 |6|Aura|
 |7|JCB|
 |8|Discover|
-|9|Hipercard|
+|9|HiperCard|
+
+OBS: Para consultas a Brand é retornado no campo Payment.Brand e vem preenchida com o valor literal.
 
 **Payment_method_bank**
 
