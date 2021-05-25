@@ -724,14 +724,16 @@ O Checkout permite apenas um tipo de `Boleto` ou `Débito Online` por lojista, s
 |Valor|Descrição|
 |---|---|
 |1|Visa|
-|2|Mastercad|
+|2|Master|
 |3|AmericanExpress|
 |4|Diners|
 |5|Elo|
 |6|Aura|
 |7|JCB|
 |8|Discover|
-|9|Hipercard|
+|9|HiperCard|
+
+Para consultas a Brand é retornado no campo Payment.Brand e vem preenchida com o valor literal.
 
 #### Payment_method_bank
 
@@ -920,7 +922,7 @@ Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realiza
 |`Payment.createdDate`|Texto|22|Data de criação da transação|Exemplo: AAAA-MM-DDTHH:mm:SS.ss|
 |`Payment.finishedDate`|Texto|22|Data de finalização da transação|Exemplo: AAAA-MM-DDTHH:mm:SS.ss|
 |`Payment.cardMaskedNumber`|Texto|19|Número do cartão mascarado|Exemplo: 123456******2007|
-|`Payment.brand`|Texto|10|Bandeira do cartão|Exemplo: Visa|
+|`Payment.brand`|Texto|10|Bandeira do cartão|Exemplo: Visa [Lista Completa](https://developercielo.github.io/manual/linkdepagamentos5#payment_method_brand)|
 |`Payment.antifraud.antifraudeResult`|Numeric|1|Status do antifraude|Exemplo: 1|
 |`Payment.antifraud.description`|Texto|256|Descrição do status do antifraude|Exemplo: Lojista optou não realizar a análise do antifraude|
 |`Payment.type`|Texto|11|Tipo de meio de pagamento|Exemplo: CreditCard [lista completa](https://developercielo.github.io/manual/linkdepagamentos5#payment_method_type)|
@@ -984,7 +986,7 @@ Para consultar uma transação pelo `id`, basta realizar um `GET`.
 |`orders.payment.price`|Valor da pedido, sem pontuação|Numérico|-|Exemplo: R$ 1,00 = 100|
 |`orders.payment.numberOfPayments`|Número de parcelas|-|Exemplo: 3|
 |`orders.payment.createdDate`|Data da transação (pagamento) |Data|-|AAAA-MM-DDTHH:mm:SS.ss|
-|`orders.payment.status`|Status da Transação|Texto|Exemplo: Denied|
+|`orders.payment.status`|Status da Transação|Texto|-|Exemplo: Denied [Lista Completa](https://developercielo.github.io/manual/linkdepagamentos5#payment_status)|
 |`links.$id`|Id do nó|Numérico|-|Exemplo: 1|
 |`links.method`|Método para consumo da operação|Texto|10|Exmeplos: GET, POST, PUT|
 |`links.rel`|Relação para consumo da operação|Texto|10|Exemplo: self|
