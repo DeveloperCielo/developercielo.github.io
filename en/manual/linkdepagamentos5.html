@@ -1072,6 +1072,104 @@ credenciamentoecommerce@cielo.com.br<br />
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Description</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">merchantId</code></td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Checkout merchant Id</td>
+      <td>Example: c89fdfbb-dbe2-4e77-806a-6d75cd397dac</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">orderNumber</code></td>
+      <td>Text</td>
+      <td>32</td>
+      <td>Merchant order number.</td>
+      <td>Example: 123456</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">softDescriptor</code></td>
+      <td>Text</td>
+      <td>13</td>
+      <td>Text displayed on the buyer’s invoice. No special characters or spaces</td>
+      <td>Example: <code class="language-plaintext highlighter-rouge">Merchant_ABC_1234</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cart.items.name</code></td>
+      <td>Text</td>
+      <td>128</td>
+      <td>Cart item name.</td>
+      <td>Example: Pedido ABC</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cart.items.description</code></td>
+      <td>Text</td>
+      <td>256</td>
+      <td>Cart item description.</td>
+      <td>Example: 50 canetas - R$30,00</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cart.items.unitPrice</code></td>
+      <td>Numeric</td>
+      <td>18</td>
+      <td>Unit price of the product in cents</td>
+      <td>Example: R$ 1,00 = 100</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cart.items.quantity</code></td>
+      <td>Numeric</td>
+      <td>9</td>
+      <td>Quantity of the item in the cart.</td>
+      <td>Example: 1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cart.items.type</code></td>
+      <td>Text</td>
+      <td>255</td>
+      <td>Type of item in cart</td>
+      <td><code class="language-plaintext highlighter-rouge">Asset</code><br /><code class="language-plaintext highlighter-rouge">Digital</code><br /><code class="language-plaintext highlighter-rouge">Service</code><br /><code class="language-plaintext highlighter-rouge">Payment</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping.type</code></td>
+      <td>Numeric</td>
+      <td>36</td>
+      <td>Shipping type</td>
+      <td>Example: 1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping.services.name</code></td>
+      <td>Text</td>
+      <td>128</td>
+      <td>Shipping method</td>
+      <td>Example: Casa Principal</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping.services.price</code></td>
+      <td>Numeric</td>
+      <td>10</td>
+      <td>Shipping service value, in cents</td>
+      <td>Example: R$ 10,00 = 1000</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping.address.street</code></td>
+      <td>Text</td>
+      <td>256</td>
+      <td>Delivery address</td>
+      <td>Example: Rua João da Silva</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="por-id-do-link-de-pagamento">Por ID do link de pagamento</h2>
 
 <h3 id="request-7">Request</h3>
