@@ -2376,7 +2376,7 @@ Essa modalidade de notificação é baseada em um <code class="language-plaintex
 <p>Tanto na Notificação via POST HTTP ou POST JSON, o conteúdo dos dados retornados é o mesmo.
 Abaixo são descritos todos os campos retornados, assim como suas definições e tamanhos:</p>
 
-<p><strong>Conteúdo do POST de NOTIFICAÇÃO:</strong></p>
+<h3 id="conteúdo-do-post-de-notificação">Conteúdo do POST de NOTIFICAÇÃO:</h3>
 
 <table>
   <thead>
@@ -2625,7 +2625,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
   </tbody>
 </table>
 
-<p><strong>Tipos de productID</strong></p>
+<h3 id="tipos-de-productid">Tipos de productID</h3>
 
 <table>
   <thead>
@@ -2658,7 +2658,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
   </tbody>
 </table>
 
-<p><strong>Payment_status</strong></p>
+<h3 id="payment_status">Payment_status</h3>
 
 <p>O Checkout possui um Status próprios, diferente do SITE CIELO ou da API Cielo ecommerce. Veja abaixo a lista completa.</p>
 
@@ -2734,7 +2734,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
 
 <p>Obs: Para consultas de pedido, o campo payment.status será retornado no formato texto, sempre em inglês (coluna Transaction Status).</p>
 
-<p><strong>Payment_antifrauderesult</strong></p>
+<h3 id="payment_antifrauderesult">Payment_antifrauderesult</h3>
 
 <p>O Antifraude possui o conceito de <code class="language-plaintext highlighter-rouge">Status</code> e <code class="language-plaintext highlighter-rouge">SubStatus</code>, onde o primeiro representa o nível de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.</p>
 
@@ -2811,7 +2811,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
   </tbody>
 </table>
 
-<p><strong>Payment_method_type</strong></p>
+<h3 id="payment_method_type">Payment_method_type</h3>
 
 <p>O Checkout permite apenas um tipo de <code class="language-plaintext highlighter-rouge">Boleto</code> ou <code class="language-plaintext highlighter-rouge">Débito Online</code> por lojista, sendo assim não é retornado se o método usado foi Bradesco ou Banco do Brasil, pois apenas um deles estará ativado na afiliação.</p>
 
@@ -2846,7 +2846,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
   </tbody>
 </table>
 
-<p><strong>Payment_method_brand</strong></p>
+<h4 id="payment_method_brand">Payment_method_brand</h4>
 
 <table>
   <thead>
@@ -2897,7 +2897,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
 
 <p>OBS: Para consultas a Brand é retornado no campo Payment.Brand e vem preenchida com o valor literal.</p>
 
-<p><strong>Payment_method_bank</strong></p>
+<h3 id="payment_method_bank">Payment_method_bank</h3>
 
 <table>
   <thead>
@@ -2918,7 +2918,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
   </tbody>
 </table>
 
-<p><strong>Shipping_type</strong></p>
+<h3 id="shipping_type">Shipping_type</h3>
 
 <table>
   <thead>
@@ -2947,6 +2947,69 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
     <tr>
       <td>5</td>
       <td>Sem cobrança de frete (serviços ou produtos digitais)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="mudança-de-status">Mudança de status</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Descrição</th>
+      <th>Tipo do Campo</th>
+      <th>Tamanho Máximo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code></td>
+      <td>Identificador único gerado pelo CHECKOUT CIELO</td>
+      <td>Alfanumérico</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">amount</code></td>
+      <td>Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)</td>
+      <td>Numérico</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">order_number</code></td>
+      <td>Número do pedido enviado pela loja</td>
+      <td>Alfanumérico</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">payment_method_brand</code></td>
+      <td>Bandeira- somente para transações com meio de pagamento cartão de crédito.<a href="https://developercielo.github.io/manual/linkdepagamentos5#payment_method_brand">Lista Completa</a></td>
+      <td>Numérico</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">payment_status</code></td>
+      <td>Status da transação.<a href="https://developercielo.github.io/manual/linkdepagamentos5#payment_status">Lista Completa</a></td>
+      <td>Numérico</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">test_transaction</code></td>
+      <td>Indica se a transação foi gerada com o Modo de teste ativado</td>
+      <td>Boolean</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">nsu</code></td>
+      <td>NSU - Número sequencial único da transação.</td>
+      <td>Alfanumérico</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">authorization_code</code></td>
+      <td>Código de autorização.</td>
+      <td>Alfanumérico</td>
+      <td>8</td>
     </tr>
   </tbody>
 </table>
