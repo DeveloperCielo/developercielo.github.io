@@ -1100,7 +1100,7 @@ Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acess
 Tanto na Notificação via POST HTTP ou POST JSON, o conteúdo dos dados retornados é o mesmo.
 Abaixo são descritos todos os campos retornados, assim como suas definições e tamanhos:
 
-**Conteúdo do POST de NOTIFICAÇÃO:**
+### Conteúdo do POST de NOTIFICAÇÃO:
 
 | Parâmetro                            | Descrição                                                                                                    | Tipo do campo | Tamanho máximo |
 |--------------------------------------|--------------------------------------------------------------------------------------------------------------|---------------|----------------|
@@ -1144,7 +1144,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
 | `nsu`                                | NSU - Número sequencial único da transação.                                                                  | Alfanumérico  | 6              |
 | `authorization_code`                 | Código de autorização.                                                                                       | Alfanumérico  | 8              |
 
-**Tipos de productID**
+### Tipos de productID
 
 |Tipo de Link de pagamento|Enun|
 |-|-|
@@ -1154,7 +1154,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
 |Pagamento|4|
 |Recorrência|5|
 
-**Payment_status**
+### Payment_status
 
 O Checkout possui um Status próprios, diferente do SITE CIELO ou da API Cielo ecommerce. Veja abaixo a lista completa.
 
@@ -1171,7 +1171,7 @@ O Checkout possui um Status próprios, diferente do SITE CIELO ou da API Cielo e
 
 Obs: Para consultas de pedido, o campo payment.status será retornado no formato texto, sempre em inglês (coluna Transaction Status).
 
-**Payment_antifrauderesult**
+### Payment_antifrauderesult
 
 O Antifraude possui o conceito de `Status` e `SubStatus`, onde o primeiro representa o nível de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
 
@@ -1188,7 +1188,7 @@ O Antifraude possui o conceito de `Status` e `SubStatus`, onde o primeiro repres
 |N/A|`N/A`|Transação de recorrência|Transação de crédito seja posterior a transação de agendamento. **Somente o Agendamento é analisado**|
 |N/A|`N/A`|Transação negada|Venda a crédito foi negada - **Não são analisáveis pelo AF**|
 
-**Payment_method_type**
+### Payment_method_type
 
 O Checkout permite apenas um tipo de `Boleto` ou `Débito Online` por lojista, sendo assim não é retornado se o método usado foi Bradesco ou Banco do Brasil, pois apenas um deles estará ativado na afiliação.
 
@@ -1200,7 +1200,7 @@ O Checkout permite apenas um tipo de `Boleto` ou `Débito Online` por lojista, s
 |4|Cartão de Débito|
 |5|QR Code|
 
-**Payment_method_brand**
+#### Payment_method_brand
 
 |Valor|Descrição|
 |---|---|
@@ -1216,14 +1216,14 @@ O Checkout permite apenas um tipo de `Boleto` ou `Débito Online` por lojista, s
 
 OBS: Para consultas a Brand é retornado no campo Payment.Brand e vem preenchida com o valor literal.
 
-**Payment_method_bank**
+### Payment_method_bank
 
 |Valor|Descrição|
 |---|---|
 |1|Banco do Brasil|
 |2|Bradesco|
 
-**Shipping_type**
+### Shipping_type
 
 |Valor|Descrição|
 |---|---|
@@ -1232,6 +1232,19 @@ OBS: Para consultas a Brand é retornado no campo Payment.Brand e vem preenchida
 |3|Frete grátis|
 |4|Retirar em mãos/loja|
 |5|Sem cobrança de frete (serviços ou produtos digitais)|
+
+#### Mudança de status
+
+|Parâmetro|Descrição|Tipo do Campo|Tamanho Máximo|
+|---|---|---|---|
+|`checkout_cielo_order_number`|Identificador único gerado pelo CHECKOUT CIELO|Alfanumérico|32|
+|`amount`|Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)|Numérico|10|
+|`order_number`|Número do pedido enviado pela loja|Alfanumérico|32|
+|`payment_method_brand`|Bandeira- somente para transações com meio de pagamento cartão de crédito.[Lista Completa](https://developercielo.github.io/manual/linkdepagamentos5#payment_method_brand)|Numérico|1|
+|`payment_status`|Status da transação.[Lista Completa](https://developercielo.github.io/manual/linkdepagamentos5#payment_status)|Numérico|1|
+|`test_transaction`|Indica se a transação foi gerada com o Modo de teste ativado|Boolean|32|
+|`nsu`|NSU - Número sequencial único da transação.|Alfanumérico|6|
+|`authorization_code`|Código de autorização.|Alfanumérico|8|
 
 # Parcelamentos do Checkout Cielo
 
