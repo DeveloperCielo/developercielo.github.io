@@ -912,7 +912,7 @@ Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realiza
 |`shipping.address.district`|Texto|64|Bairro do endereço de entrega|Exemplo: Alphaville|
 |`shipping.address.city`|Texto|64|Cidade do endereço de entrega|Exemplo: São Paulo|
 |`shipping.address.state`|Texto|2|Estado de endereço de entrega|Exemplo: SP|
-|`Payment.status`|Texto|10|Status da transação|Exemplo: Paid|
+|`Payment.status`|Texto|10|Status da transação|Exemplo: Paid [Lista Completa](https://developercielo.github.io/manual/linkdepagamentos5#payment_status)|
 |`Payment.tid`|Texto|32|TID Cielo gerado no momento da autorização da transação|Exemplo: 10127355487AK2C3EOTB|
 |`Payment.nsu`|Texto|6|NSU Cielo gerado no momento da autorização da transação|Exemplo: 123456|
 |`Payment.authorizationCode`|Texto|3|Código de autorização.|Exemplo: 456789|
