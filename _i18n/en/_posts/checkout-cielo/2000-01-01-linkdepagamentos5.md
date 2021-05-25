@@ -613,6 +613,16 @@ To check a transaction through `Checkout_Cielo_Order_Number`, just perform a` GE
 |`Payment.numberOfPayments`|Numeric|6|Number of installments.|Example: 123456|
 |`Payment.createdDate`|Text|22|Transaction creation date|Example: AAAA-MM-DDTHH:mm:SS.ss|
 |`Payment.finishedDate`|Text|22|Transaction end date|Example: AAAA-MM-DDTHH:mm:SS.ss|
+|`Payment.cardMaskedNumber`|Text|19|Masked card number|Example: 123456****2007|
+|`Payment.brand`|Text|10|Card brand|Example: Visa [Lista Completa](https://developercielo.github.io/manual/linkdepagamentos5#payment_method_brand)|
+|`Payment.antifraud.antifraudeResult`|Numeric|1|Anti-fraud status|Example: 1|
+|`Payment.antifraud.description`|Text|256|Description of anti-fraud status|Example: Merchant chose not to perform anti-fraud analysis|
+|`Payment.type`|Text|11|Type of payment method|Example: CreditCard [full list](https://developercielo.github.io/manual/linkdepagamentos5#payment_method_type)|
+|`Payment.errocode`|Numeric|2|Return code|Example: 00, 51, 57, etc [full list](https://developercielo.github.io/manual/linkdepagamentos5#c%C3%B3digos-de-retorno-abecs)|
+|`Customer.Identity`|Numeric|14|CPF or CNPJ of the buyer.|Example: 12345678909|
+|`Customer.FullName`|Text|256|Buyer's full name.|Example: Fulano da Silva|
+|`Customer.Email`|Text|64|Buyer's email.|Example: example@email.com.br|
+|`Customer.Phone`|Numeric|11|Buyer's phone.|Example: 11123456789|
 
 ## Por ID do link de pagamento
 
