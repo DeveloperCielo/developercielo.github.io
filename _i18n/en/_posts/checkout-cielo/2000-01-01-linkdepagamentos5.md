@@ -695,6 +695,14 @@ The `Checkout_Cielo_Order_Number` is generated only when the payment is finalize
 
 # Merchant Settings
 
+Your store settings can be made within the Cielo website. In this environment you have access to several options, among them:
+
+1. Key generation to use the API;
+2. Configuration of logo and background color of the payment screen;
+3. Modification of payment methods;
+4. Return URL’s configuration;
+5. Other actions;
+
 # Self-fraud
 
 ## Prerequisites
