@@ -686,8 +686,8 @@ To check a transaction through `id`, just perform a` GET`.
 
 To perform transactional control at Checkout Cielo it is MANDATORY that the merchant has one of the two notification templates configured below:
 
-* Notification URL via **POST**
-* Notification URL via **JSON**
+1. Notification URL via **POST**
+2. Notification URL via **JSON**
 
 Notification is mandatory because all API commands (Consult / Capture / Cancel) use the unique transaction identifier, called `Checkout_Cielo_Order_Number`.
 
