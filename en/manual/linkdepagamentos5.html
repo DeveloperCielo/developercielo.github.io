@@ -1486,6 +1486,27 @@ credenciamentoecommerce@cielo.com.br<br />
   </tbody>
 </table>
 
+<p>To perform transactional control at Checkout Cielo it is MANDATORY that the merchant has one of the two notification templates configured below:</p>
+
+<ol>
+  <li>Notification URL via <strong>POST</strong></li>
+  <li>Notification URL via <strong>JSON</strong></li>
+</ol>
+
+<p>Notification is mandatory because all API commands (Consult / Capture / Cancel) use the unique transaction identifier, called <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code>.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code> is generated only when the payment is finalized on the transactional screen. It is sent only by the Notification URL and not by the Response of creating the transactional screen.</p>
+
+<h1 id="merchant-settings">Merchant Settings</h1>
+
+<h1 id="self-fraud">Self-fraud</h1>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<h2 id="simplified-flowchart">Simplified flowchart</h2>
+
+<h3 id="integration-step-by-step">Integration step by step</h3>
+
 </div>
 
 
