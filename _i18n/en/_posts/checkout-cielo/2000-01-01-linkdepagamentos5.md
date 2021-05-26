@@ -683,3 +683,12 @@ To check a transaction through `id`, just perform a` GET`.
 |`links.method`|Operation consumption method|Texto|10|Example: GET, POST, PUT|
 |`links.rel`|Operation consumption relation|Texto|10|Example: self|
 |`links.href`|Endpoint for consumption of the operation|Texto|512|Example: https://cieloecommerce.cielo.com.br/api/public/v2/orders/438f3391860a4bedbae9a868180dda6e|
+
+To perform transactional control at Checkout Cielo it is MANDATORY that the merchant has one of the two notification templates configured below:
+
+* Notification URL via **POST**
+* Notification URL via **JSON**
+
+Notification is mandatory because all API commands (Consult / Capture / Cancel) use the unique transaction identifier, called `Checkout_Cielo_Order_Number`.
+
+The `Checkout_Cielo_Order_Number` is generated only when the payment is finalized on the transactional screen. It is sent only by the Notification URL and not by the Response of creating the transactional screen.
