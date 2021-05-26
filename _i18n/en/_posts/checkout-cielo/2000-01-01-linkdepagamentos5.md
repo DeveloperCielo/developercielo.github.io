@@ -665,3 +665,7 @@ To check a transaction through `id`, just perform a` GET`.
    ]
 }
 ```
+
+|Property|Description|Type|Size|Format|
+|---|---|---|---|---|
+|`$id`|Node id|Numeric|-|Example: 1|
