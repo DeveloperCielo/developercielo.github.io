@@ -1509,13 +1509,84 @@ credenciamentoecommerce@cielo.com.br<br />
   <li>Other actions;</li>
 </ol>
 
+<p>For more details see the tutorial Super Link and Checkout Cielo.</p>
+
 <h1 id="self-fraud">Self-fraud</h1>
+
+<p>This topic will teach you how to create an integration between Super Link Cielo and an own / third party anti-fraud.</p>
 
 <h2 id="prerequisites">Prerequisites</h2>
 
+<ol>
+  <li>Integration with Super Link APIs;</li>
+  <li>Subsequent capture of transactions;</li>
+  <li>Negotiation with Anti-Fraud provider;</li>
+</ol>
+
 <h2 id="simplified-flowchart">Simplified flowchart</h2>
 
+<p><img src="https://developercielo.github.io/images/checkout/fluxogramasimplificadoantifraude.png" alt="Fluxograma simplificado Antifraude próprios" /></p>
+
 <h3 id="integration-step-by-step">Integration step by step</h3>
+
+<h1 id="status-e-códigos">Status e Códigos</h1>
+
+<h2 id="códigos-de-retorno-abecs">Códigos de retorno ABECS</h2>
+
+<h3 id="outros-códigos-de-retorno">Outros códigos de retorno</h3>
+
+<h2 id="anti-fraud-status">Anti-Fraud Status</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Field</th>
+      <th>Definition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">** 0 **</td>
+      <td>N \ A</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">** 1 **</td>
+      <td>Low risk</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">** 2 **</td>
+      <td>High Risk</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">** 3 **</td>
+      <td>Not finalized</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">** 4 **</td>
+      <td>Moderate risk</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">** 5 **</td>
+      <td>Authenticated</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">** 6 **</td>
+      <td>Not hired</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">** 7 **</td>
+      <td>Dismissed</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">** 8 **</td>
+      <td>Not Applicable</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">** 9 **</td>
+      <td>Recurrence Transaction</td>
+    </tr>
+  </tbody>
+</table>
 
 </div>
 
