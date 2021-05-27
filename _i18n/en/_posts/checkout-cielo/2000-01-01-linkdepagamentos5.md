@@ -703,10 +703,41 @@ Your store settings can be made within the Cielo website. In this environment yo
 4. Return URL’s configuration;
 5. Other actions;
 
+For more details see the tutorial Super Link and Checkout Cielo.
+
 # Self-fraud
+
+This topic will teach you how to create an integration between Super Link Cielo and an own / third party anti-fraud.
 
 ## Prerequisites
 
+1. Integration with Super Link APIs;
+2. Subsequent capture of transactions;
+3. Negotiation with Anti-Fraud provider;
+
 ## Simplified flowchart
 
+![Fluxograma simplificado Antifraude próprios]({{ site.baseurl_root }}/images/checkout/fluxogramasimplificadoantifraude.png)
+
 ### Integration step by step
+
+# Status e Códigos
+
+## Códigos de retorno ABECS
+
+### Outros códigos de retorno
+
+## Anti-Fraud Status
+
+|Field|Definition|
+|:-----:|--------------------------|
+|** 0 **|N \ A|
+|** 1 **|Low risk|
+|** 2 **|High Risk|
+|** 3 **|Not finalized|
+|** 4 **|Moderate risk|
+|** 5 **|Authenticated|
+|** 6 **|Not hired|
+|** 7 **|Dismissed|
+|** 8 **|Not Applicable|
+|** 9 **|Recurrence Transaction|
