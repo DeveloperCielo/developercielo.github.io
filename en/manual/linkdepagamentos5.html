@@ -1531,21 +1531,87 @@ credenciamentoecommerce@cielo.com.br<br />
 
 <ol>
   <li>
-    <p>Create the links via the Super Link API
-Links can be created directly via API calls. The default request and response are found in the manual payment link topic. [Click here] (https://developercielo.github.io/manual/linkdepagamentos5#link-de-pagamento) to learn more.</p>
+    <p>Create the links via the Super Link API. Links can be created directly via API calls. The default request and response are found in the manual payment link topic. [Click here] (https://developercielo.github.io/manual/linkdepagamentos5#link-de-pagamento) to learn more.</p>
   </li>
   <li>
-    <p>Send the link to the cardholder to make the payment
-The payment link must be sent through social networks for the payment to be made. The sale/transaction only starts after filling in the payment screen.</p>
+    <p>Send the link to the cardholder to make the payment. The payment link must be sent through social networks for the payment to be made. The sale/transaction only starts after filling in the payment screen.</p>
   </li>
   <li>
-    <p>Receive payment details via Notification Post
-The payment confirmation is sent via Webhook to a URL of the merchant’s choice. See how to set up a URL to receive the notification [here] (https://developercielo.github.io/manual/linkdepagamentos5#tipos-de-url-de-notifica%C3%A7%C3%A3o).
+    <p>Receive payment details via Notification Post. The payment confirmation is sent via Webhook to a URL of the merchant’s choice. See how to set up a URL to receive the notification [here] (https://developercielo.github.io/manual/linkdepagamentos5#tipos-de-url-de-notifica%C3%A7%C3%A3o).
 The information returned via the Notification Post can be found in the topic [Content of the notification] (https://developercielo.github.io/manual/linkdepagamentos5#conteúd-da-notificação).</p>
+  </li>
+  <li>
+    <p>Send the payment details to the contracted Anti-Fraud. The information returned in the Notification Post must be sent to your Anti-Fraud. If necessary you can enrich the information returned with registration information of the customer who is executing that payment. Consult your Anti-Fraud provider to find out which fields can be submitted for analysis. Cielo does not participate in sending this information. All questions related to the integration process between the Merchant and Anti-Fraud should be sent to the Support of the anti-fraud provider.</p>
+  </li>
+  <li>
+    <p>Capture or cancel sales. According to the return of your anti-fraud provider, capture or cancel the sale. Sales capture and cancellation can be done via the transactional control API. See how to make the transactional control of your sales [here] (https://developercielo.github.io/manual/controletransacional4#capturar-transa%C3%A7%C3%A3o).</p>
   </li>
 </ol>
 
 <h1 id="status-e-códigos">Status e Códigos</h1>
+
+<p>Checkout has its own Status, different from CIELO SITE or Cielo ecommerce API. See the full list below.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Transaction status</th>
+      <th>Payment method</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><code class="language-plaintext highlighter-rouge">Pending</code></td>
+      <td>For all the payment method</td>
+      <td>Indicates that the payment is still being processed; OBS: Boleto - Indicates that the boleto has not had its status changed by the merchant</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="language-plaintext highlighter-rouge">Paid</code></td>
+      <td>For all the payment method</td>
+      <td>Transaction captured and the money will be deposited in an account.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><code class="language-plaintext highlighter-rouge">Denied</code></td>
+      <td>Credit Card Only</td>
+      <td>Transaction not authorized by the person responsible for the payment method</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><code class="language-plaintext highlighter-rouge">Expired</code></td>
+      <td>Credit Cards and Boleto</td>
+      <td>Transaction is no longer valid for capture - ** 15 days after Authorization **</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><code class="language-plaintext highlighter-rouge">Canceled</code></td>
+      <td>For credit cards</td>
+      <td>Transaction was canceled by the merchant</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><code class="language-plaintext highlighter-rouge">Not finished</code></td>
+      <td>For all the payment method</td>
+      <td>Payment waiting for Status - May indicate error or processing failure. Contact Cielo Support</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><code class="language-plaintext highlighter-rouge">Authorized</code></td>
+      <td>Credit Card Only</td>
+      <td>Transaction authorized by the card issuer. Must be captured in order for the money to be deposited in an account</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td><code class="language-plaintext highlighter-rouge">Chargeback</code></td>
+      <td>Credit Card Only</td>
+      <td>Transaction canceled by the consumer with the card issuer. Money will not be deposited into an account.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="códigos-de-retorno-abecs">Códigos de retorno ABECS</h2>
 
