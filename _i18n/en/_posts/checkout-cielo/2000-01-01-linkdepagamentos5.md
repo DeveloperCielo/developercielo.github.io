@@ -721,16 +721,16 @@ This topic will teach you how to create an integration between Super Link Cielo 
 
 ### Integration step by step
 
-1. Create the links via the Super Link API. Links can be created directly via API calls. The default request and response are found in the manual payment link topic. [Click here] (https://developercielo.github.io/manual/linkdepagamentos5#link-de-pagamento) to learn more.
+1. Create the links via the Super Link API. Links can be created directly via API calls. The default request and response are found in the manual payment link topic. [Click here](https://developercielo.github.io/manual/linkdepagamentos5#link-de-pagamento) to learn more.
 
 2. Send the link to the cardholder to make the payment. The payment link must be sent through social networks for the payment to be made. The sale/transaction only starts after filling in the payment screen.
 
-3. Receive payment details via Notification Post. The payment confirmation is sent via Webhook to a URL of the merchant's choice. See how to set up a URL to receive the notification [here] (https://developercielo.github.io/manual/linkdepagamentos5#tipos-de-url-de-notifica%C3%A7%C3%A3o).
-The information returned via the Notification Post can be found in the topic [Content of the notification] (https://developercielo.github.io/manual/linkdepagamentos5#conteúd-da-notificação).
+3. Receive payment details via Notification Post. The payment confirmation is sent via Webhook to a URL of the merchant's choice. See how to set up a URL to receive the notification [here](https://developercielo.github.io/manual/linkdepagamentos5#tipos-de-url-de-notifica%C3%A7%C3%A3o).
+The information returned via the Notification Post can be found in the topic [Content of the notification](https://developercielo.github.io/manual/linkdepagamentos5#conteúd-da-notificação).
 
 4. Send the payment details to the contracted Anti-Fraud. The information returned in the Notification Post must be sent to your Anti-Fraud. If necessary you can enrich the information returned with registration information of the customer who is executing that payment. Consult your Anti-Fraud provider to find out which fields can be submitted for analysis. Cielo does not participate in sending this information. All questions related to the integration process between the Merchant and Anti-Fraud should be sent to the Support of the anti-fraud provider.
 
-5. Capture or cancel sales. According to the return of your anti-fraud provider, capture or cancel the sale. Sales capture and cancellation can be done via the transactional control API. See how to make the transactional control of your sales [here] (https://developercielo.github.io/manual/controletransacional4#capturar-transa%C3%A7%C3%A3o).
+5. Capture or cancel sales. According to the return of your anti-fraud provider, capture or cancel the sale. Sales capture and cancellation can be done via the transactional control API. See how to make the transactional control of your sales [here](https://developercielo.github.io/manual/controletransacional4#capturar-transa%C3%A7%C3%A3o).
 
 # Status e Códigos
 
