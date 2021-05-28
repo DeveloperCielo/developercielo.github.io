@@ -57,8 +57,45 @@ No cadastro da chave somente é inserido o KSI que possui 5 caracteres numérico
 
 A autenticação é uma operação necessária para obtenção do token que será utilizado nas demais chamadas de APIs.
 
+> **URL**: https://authsandbox.cieloecommerce.cielo.com.br
+
 |Security scheme type:|OAuth2|
-|clientCredentials OAuth Flow|**Token URL:** https://authsandbox.cieloecommerce.cielo.com.br/oauth2/token<br><br>**Scopes:**<br><br>* `Administrator` - Admin everything<br><br>* `AnalyticsApiOverview` - See the analytics<br><br>* `AdminBackoffice` - Use the backoffice|
+|clientCredentials OAuth Flow|**Username:** ClientId<br><br>**Password:** ClientSecret<br>**Scopes:**<br><br>* `PhysicalCieloMaster` - Cadastrar de Lojas e Terminais<br><br>* `PhysicalCieloTransactional` - Transacionar e consultar<br><br>* Se não solicitar um escopo ele é atribuido por padrão|
+
+Para testes em sandbox você pode gerar uma credencial a qualquer momento através do site abaixo.
+
+> **URL**: https://omnichannelcadastrosandbox.cieloecommerce.cielo.com.br/
+
+## Criar Token
+
+> **POST** https://authsandbox.cieloecommerce.cielo.com.br/oauth2/token
+>
+>| Key | Value |
+>|---|---|
+>|**AUTHORIZATION** |*Username{Auth_ClientId}*|
+>|**AUTHORIZATION** |*Password{Auth_ClientSecret}*|
+>|**HEADERS** |*Content-Type text/plain*|
+>|**BODY** |*grant_type client_credentials*|
+>|**scope** |*{scope}*|
+
+### Request
+
+```shell
+curl --location --request POST 'https://authsandbox.cieloecommerce.cielo.com.br/oauth2/token' \
+--header 'Content-Type: text/plain' \
+--header 'Authorization: Basic {base64(ClientId:ClientSecret)}' \
+--data-urlencode 'grant_type=client_credentials'
+```
+
+### Response
+
+```json
+{
+  "access_token": "{Auth_AccessToken}",
+  "token_type": "bearer",
+  "expires_in": 86399
+}
+```
 
 # Pagamento
 
