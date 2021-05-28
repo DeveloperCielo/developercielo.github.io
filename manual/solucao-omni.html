@@ -4303,14 +4303,7 @@
       <td>String</td>
       <td>—</td>
       <td>Sim</td>
-      <td>Tipo de encriptação utilizada<br /></td>
-    </tr>
-    <tr>
-      <td>Enum:<br />“DukptDes” = 1,<br />“MasterKey” = 2,<br />“Dukpt3Des” = 3,<br />“Dukpt3DesCBC” = 4</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
+      <td>Tipo de encriptação utilizada<br />Enum:<br />“DukptDes” = 1,<br />“MasterKey” = 2 &lt;br<br />“Dukpt3Des” = 3,<br />“Dukpt3DesCBC” = 4</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.EncryptedCardData.CardNumberKSN</code></td>
@@ -4381,6 +4374,55 @@
       <td>—</td>
       <td>Sim</td>
       <td>Enum: NoPassword OnlineAuthentication OfflineAuthentication<br />Método de autenticação<br />- Se o cartão foi lido a partir da digitação verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1;<br />- Se o cartão foi lido a partir da trilha verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, deve ser verificado o bit 2 do mesmo campo. Se este estiver com valor 1 deve ser capturada a senha. Se estiver com valor 0 a captura da senha vai depender do último dígito do service code;<br />- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2.<br />1 - Sem senha = “NoPassword”;<br />2 - Senha online = “Online Authentication”;<br />3 - Senha off-line = “Offline Authentication”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.TruncateCardNumberWhenPrinting</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Indica se o número do cartão será truncado no momento da impressão do comprovante. A solução de captura deve tomar essa decisão com base no confParamOp03 presente nas tabelas BIN TABLE, PARAMETER TABLE e ISSUER TABLE.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Identifica se vai salvar/tokenizar o cartão.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.IsFallback</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Identifica se é uma transação de fallback.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PinPadInformation.TerminalId</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Número Lógico definido no Concentrador Cielo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PinPadInformation.SerialNumber</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Número de Série do Equipamento.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PinPadInformation.PhysicalCharacteristics</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Enum: WithoutPinPad PinPadWithoutChipReader PinPadWithChipReaderWithoutSamModule<br /> PinPadWithChipReaderWithSamModule NotCertifiedPinPad PinPadWithChipReaderWithoutSamAndContactless<br />PinPadWithChipReaderWithSamModuleAndContactless<br />SemPIN-pad = WithoutPinPad;PIN-pad sem leitor de Chip = PinpadWithoutChipReader;<br />PIN-pad com leitor de Chip sem módulo SAM = PinPadWithChipReaderWithoutSamModule;<br />PIN-pad com leitor de Chip com módulo SAM = PinPadWithChipReaderWithSamModule;<br />PIN-pad não homologado = NotCertifiedPinPad;<br />PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = PinpadWithChipReaderWithoutSamAndContactless;<br />PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = PinpadWithChipReaderWithSamAndContactless.<br />Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PinPadInformation.ReturnDataInfo</code></td>
+      <td>String</td>
+      <td>—Sim</td>
+      <td>Retorno da função PP_GetInfo() da biblioteca compartilhada</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
