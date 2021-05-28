@@ -3459,6 +3459,15 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 | 1 | Ao recuperar o pan do cartão, buscar na tabela `Bins` um que o bin esteja entre os valores `InitialBin` e `FinalBin` (considerar sempre a faixa de Bins mais específica) e recuperar o produto associado no campo `ProductId`; 
 | 2 | Recuperar os produtos que tem o mesmo `ProductType` (tabela `Products`) que iniciado na transação (DÉBITO, CRÉDITO...) e o mesmo fluxo do host (campo `HostFlow`) que os definido pela Cielo.
 
+**Simular respostas:**
+
+|Amount (valor dos centavos)|Retorno simulado do Pagamento|Exemplo de valor simulado|
+|---|---|---|
+|10|Aprovado|5010 = R$50,10|
+|11|Negado|20011 = R$200,11|
+|12|Timeout|3512 = R$35,12|
+|19|Erro|1019 = R$10,19|
+
 # Baixa de parâmetros
 
 Essa operação é necessária para que o parceiro de negócio / Subadquirente receba todas as tabelas de parâmetros necessários para que a solução de captura possa efetuar as transações via chamada de API. Essa informação será recebida através de API e deverá ser instalada na BC.
