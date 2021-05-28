@@ -4219,6 +4219,81 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<table>
+  <tbody>
+    <tr>
+      <td>Propriedade</td>
+      <td>Tipo</td>
+      <td>Tamanho</td>
+      <td>Obrigatório</td>
+      <td>Descrição</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Value: PhysicalCreditCard / Tipo da Transação</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
+      <td>String</td>
+      <td>13</td>
+      <td>—</td>
+      <td>Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.PaymentDateTime</code></td>
+      <td>String</td>
+      <td>date-time</td>
+      <td>Sim</td>
+      <td>Data e Hora da captura da transação</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Integer(int64)</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Valor da transação (1079 = R$10,79)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Default: <code class="language-plaintext highlighter-rouge">ByMerchant</code> <br /> Enum: <code class="language-plaintext highlighter-rouge">ByMerchant</code> <code class="language-plaintext highlighter-rouge">ByIssuer</code> <br /> Tipo de Parcelamento: <br /> - Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado. <br /> - Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ProductId</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Código do produto identificado através do bin do cartão.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="venda-com-cartão-de-crédito-com-leitura-de-tarja-e-senha">Venda com cartão de crédito com leitura de tarja e senha</h3>
 
 <h4 id="requisição-4">Requisição</h4>
