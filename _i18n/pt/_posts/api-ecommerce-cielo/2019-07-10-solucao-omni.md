@@ -99,15 +99,17 @@ curl --location --request POST 'https://authsandbox.cieloecommerce.cielo.com.br/
 
 # Pagamento
 
+## Autorização
+
 Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Payment.Status) na resposta para certificar-se que o pagamento foi gerado com sucesso ou se houve alguma falha.
 
 | SandBox                                             | Produção                                      |
 |:---------------------------------------------------:|:---------------------------------------------:|
 | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
 
-## Venda com cartão de crédito digitado e sem senha
+### Venda com cartão de crédito digitado e sem senha
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -513,9 +515,9 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`SplitErrors.Code`|---|---|---|---|
 |`SplitErrors.Message`|---|---|---|---|
 
-## Venda com cartão de crédito digitado e sem senha com recorrência
+### Venda com cartão de crédito digitado e sem senha com recorrência
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -587,7 +589,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`RecurrentPayment.EndDate`|---|---|---|---|
 |`RecurrentPayment.Interval`|---|---|---|---|
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -927,9 +929,9 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`SplitErrors.Code`|---|---|---|---|
 |`SplitErrors.Message`|---|---|---|---|
 
-## Venda com cartão de crédito digitado e sem senha com dados de comprador
+### Venda com cartão de crédito digitado e sem senha com dados de comprador
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -1039,7 +1041,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`PinPadInformation.PhysicalCharacteristics`|String|---|Sim|Enum: `WithoutPinPad` `PinPadWithoutChipReader` `PinPadWithChipReaderWithoutSamModule` `PinPadWithChipReaderWithSamModule` `NotCertifiedPinPad` `PinPadWithChipReaderWithoutSamAndContactless` `PinPadWithChipReaderWithSamModuleAndContactless` <br><br> Sem PIN-pad = `WithoutPinPad`; <br><br> PIN-pad sem leitor de Chip = `PinpadWithoutChipReader`; <br><br>PIN-pad com leitor de Chip sem módulo SAM = `PinPadWithChipReaderWithoutSamModule`; <br><br> PIN-pad com leitor de Chip com módulo SAM = `PinPadWithChipReaderWithSamModule`; <br><br> PIN-pad não homologado = `NotCertifiedPinPad`; <br><br> PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = `PinpadWithChipReaderWithoutSamAndContactless`; <br><br> PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = `PinpadWithChipReaderWithSamAndContactless`. <br><br><br> Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.|
 |`PinPadInformation.ReturnDataInfo`|String|---|Sim|Retorno da função PP_GetInfo() da biblioteca compartilhada|
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -1379,9 +1381,9 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`SplitErrors.Code`|---|---|---|---|
 |`SplitErrors.Message`|---|---|---|---|
 
-## Venda com cartão de crédito com leitura de tarja e senha
+### Venda com cartão de crédito com leitura de tarja e senha
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -1454,7 +1456,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`PinPadInformation.PhysicalCharacteristics`|String|---|Sim|Enum: `WithoutPinPad` `PinPadWithoutChipReader` `PinPadWithChipReaderWithoutSamModule` `PinPadWithChipReaderWithSamModule` `NotCertifiedPinPad` `PinPadWithChipReaderWithoutSamAndContactless` `PinPadWithChipReaderWithSamModuleAndContactless` <br><br> Sem PIN-pad = `WithoutPinPad`; <br><br> PIN-pad sem leitor de Chip = `PinpadWithoutChipReader`; <br><br>PIN-pad com leitor de Chip sem módulo SAM = `PinPadWithChipReaderWithoutSamModule`; <br><br> PIN-pad com leitor de Chip com módulo SAM = `PinPadWithChipReaderWithSamModule`; <br><br> PIN-pad não homologado = `NotCertifiedPinPad`; <br><br> PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = `PinpadWithChipReaderWithoutSamAndContactless`; <br><br> PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = `PinpadWithChipReaderWithSamAndContactless`. <br><br><br> Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.|
 |`PinPadInformation.ReturnDataInfo`|String|---|Sim|Retorno da função PP_GetInfo() da biblioteca compartilhada|
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -1794,9 +1796,9 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`SplitErrors.Code`|---|---|---|---|
 |`SplitErrors.Message`|---|---|---|---|
 
-## Venda com cartão de débito com leitura de tarja e senha
+### Venda com cartão de débito com leitura de tarja e senha
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -1863,7 +1865,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`PinPadInformation.PhysicalCharacteristics`|String|---|Sim|Enum: `WithoutPinPad` `PinPadWithoutChipReader` `PinPadWithChipReaderWithoutSamModule` `PinPadWithChipReaderWithSamModule` `NotCertifiedPinPad` `PinPadWithChipReaderWithoutSamAndContactless` `PinPadWithChipReaderWithSamModuleAndContactless` <br><br> Sem PIN-pad = `WithoutPinPad`; <br><br> PIN-pad sem leitor de Chip = `PinpadWithoutChipReader`; <br><br>PIN-pad com leitor de Chip sem módulo SAM = `PinPadWithChipReaderWithoutSamModule`; <br><br> PIN-pad com leitor de Chip com módulo SAM = `PinPadWithChipReaderWithSamModule`; <br><br> PIN-pad não homologado = `NotCertifiedPinPad`; <br><br> PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = `PinpadWithChipReaderWithoutSamAndContactless`; <br><br> PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = `PinpadWithChipReaderWithSamAndContactless`. <br><br><br> Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.|
 |`PinPadInformation.ReturnDataInfo`|String|---|Sim|Retorno da função PP_GetInfo() da biblioteca compartilhada|
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -2203,9 +2205,9 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`SplitErrors.Code`|---|---|---|---|
 |`SplitErrors.Message`|---|---|---|---|
 
-## Venda com cartão de crédito com EMV com senha online
+### Venda com cartão de crédito com EMV com senha online
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -2275,7 +2277,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`PinPadInformation.PhysicalCharacteristics`|String|---|Sim|Enum: `WithoutPinPad` `PinPadWithoutChipReader` `PinPadWithChipReaderWithoutSamModule` `PinPadWithChipReaderWithSamModule` `NotCertifiedPinPad` `PinPadWithChipReaderWithoutSamAndContactless` `PinPadWithChipReaderWithSamModuleAndContactless` <br><br> Sem PIN-pad = `WithoutPinPad`; <br><br> PIN-pad sem leitor de Chip = `PinpadWithoutChipReader`; <br><br>PIN-pad com leitor de Chip sem módulo SAM = `PinPadWithChipReaderWithoutSamModule`; <br><br> PIN-pad com leitor de Chip com módulo SAM = `PinPadWithChipReaderWithSamModule`; <br><br> PIN-pad não homologado = `NotCertifiedPinPad`; <br><br> PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = `PinpadWithChipReaderWithoutSamAndContactless`; <br><br> PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = `PinpadWithChipReaderWithSamAndContactless`. <br><br><br> Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.|
 |`PinPadInformation.ReturnDataInfo`|String|---|Sim|Retorno da função PP_GetInfo() da biblioteca compartilhada|
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -2615,7 +2617,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`SplitErrors.Code`|---|---|---|---|
 |`SplitErrors.Message`|---|---|---|---|
 
-## Venda com cartão de débito com EMV e senha online
+### Venda com cartão de débito com EMV e senha online
 
 ### Requisição
 
@@ -3021,9 +3023,9 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`SplitErrors.Code`|---|---|---|---|
 |`SplitErrors.Message`|---|---|---|---|
 
-## Venda com vale alimentação (cartão de voucher) com EMV e senha online
+### Venda com vale alimentação (cartão de voucher) com EMV e senha online
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -3087,7 +3089,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`PinPadInformation.PhysicalCharacteristics`|String|---|Sim|Enum: `WithoutPinPad` `PinPadWithoutChipReader` `PinPadWithChipReaderWithoutSamModule` `PinPadWithChipReaderWithSamModule` `NotCertifiedPinPad` `PinPadWithChipReaderWithoutSamAndContactless` `PinPadWithChipReaderWithSamModuleAndContactless` <br><br> Sem PIN-pad = `WithoutPinPad`; <br><br> PIN-pad sem leitor de Chip = `PinpadWithoutChipReader`; <br><br>PIN-pad com leitor de Chip sem módulo SAM = `PinPadWithChipReaderWithoutSamModule`; <br><br> PIN-pad com leitor de Chip com módulo SAM = `PinPadWithChipReaderWithSamModule`; <br><br> PIN-pad não homologado = `NotCertifiedPinPad`; <br><br> PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = `PinpadWithChipReaderWithoutSamAndContactless`; <br><br> PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = `PinpadWithChipReaderWithSamAndContactless`. <br><br><br> Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.|
 |`PinPadInformation.ReturnDataInfo`|String|---|Sim|Retorno da função PP_GetInfo() da biblioteca compartilhada|
 
-### Resposta
+#### Resposta
 
 ```json
 {
