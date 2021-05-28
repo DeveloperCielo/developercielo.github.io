@@ -299,7 +299,7 @@
   </tbody>
 </table>
 
-<h3 id="venda-com-cartão-de-crédito-digitado-e-sem-senha">Venda com cartão de crédito digitado e sem senha</h3>
+<h3 id="crédito-digitado">Crédito Digitado</h3>
 
 <h4 id="requisição">Requisição</h4>
 
@@ -477,14 +477,14 @@
       <td>Indica se o número do cartão será truncado no momento da impressão do comprovante. A solução de captura deve tomar essa decisão com base no <code class="language-plaintext highlighter-rouge">confParamOp03</code> presente nas tabelas BIN TABLE, PARAMETER TABLE e ISSUER TABLE.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">SaveCard</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">IsFallback</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.IsFallback</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
@@ -1577,7 +1577,7 @@
   </tbody>
 </table>
 
-<h3 id="venda-com-cartão-de-crédito-digitado-e-sem-senha-com-recorrência">Venda com cartão de crédito digitado e sem senha com recorrência</h3>
+<h3 id="crédito-digitado-com-recorrência">Crédito Digitado com Recorrência</h3>
 
 <h4 id="requisição-1">Requisição</h4>
 
@@ -2784,7 +2784,7 @@
   </tbody>
 </table>
 
-<h3 id="venda-com-cartão-de-crédito-digitado-e-sem-senha-com-dados-de-comprador">Venda com cartão de crédito digitado e sem senha com dados de comprador</h3>
+<h3 id="crédito-digitado-com-dados-de-comprador">Crédito Digitado com dados de Comprador</h3>
 
 <h4 id="requisição-2">Requisição</h4>
 
@@ -4131,9 +4131,97 @@
   </tbody>
 </table>
 
-<h3 id="venda-com-cartão-de-crédito-com-leitura-de-tarja-e-senha">Venda com cartão de crédito com leitura de tarja e senha</h3>
+<h3 id="crédito-digitado-com-cartão-criptografado">Crédito digitado com cartão criptografado</h3>
 
 <h4 id="requisição-3">Requisição</h4>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1596226820548"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador crédito completo"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11225468954"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"compradorteste@teste.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Birthday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1991-01-02"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Teste"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AP 123"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Teste"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AP 123"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PhysicalCreditCard"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PaymentDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-15T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15798</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"encrypted1234567812345678encrypted"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"EncryptedCardData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"EncryptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DUKPT3DES"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"CardNumberKSN"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KSNforCardNumber"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2020"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SecurityCodeStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Collected"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">1230</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"BrandId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IssuerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"InputMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Typed"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AuthenticationMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NoPassword"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TruncateCardNumberWhenPrinting"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IsFallback"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"PinPadInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"TerminalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10000001"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SerialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC123"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"PhysicalCharacteristics"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PinPadWithChipReaderWithSamModule"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReturnDataInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"RecurrentPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-12-01"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SemiAnnual"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"PaymentFacilitator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678901"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SubEstablishment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789012345"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Mcc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890abcdefghji12"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890abc"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ab"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PostalCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890123"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CountryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"076"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cpf"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678901"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="venda-com-cartão-de-crédito-com-leitura-de-tarja-e-senha">Venda com cartão de crédito com leitura de tarja e senha</h3>
+
+<h4 id="requisição-4">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -5503,7 +5591,7 @@
 
 <h3 id="venda-com-cartão-de-débito-com-leitura-de-tarja-e-senha">Venda com cartão de débito com leitura de tarja e senha</h3>
 
-<h4 id="requisição-4">Requisição</h4>
+<h4 id="requisição-5">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -6742,7 +6830,7 @@
 
 <h3 id="venda-com-cartão-de-crédito-com-emv-com-senha-online">Venda com cartão de crédito com EMV com senha online</h3>
 
-<h4 id="requisição-5">Requisição</h4>
+<h4 id="requisição-6">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -7852,7 +7940,7 @@
 
 <h3 id="venda-com-cartão-de-débito-com-emv-e-senha-online">Venda com cartão de débito com EMV e senha online</h3>
 
-<h4 id="requisição-6">Requisição</h4>
+<h4 id="requisição-7">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -9027,7 +9115,7 @@
 
 <h3 id="venda-com-vale-alimentação-cartão-de-voucher-com-emv-e-senha-online">Venda com vale alimentação (cartão de voucher) com EMV e senha online</h3>
 
-<h4 id="requisição-7">Requisição</h4>
+<h4 id="requisição-8">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -10358,7 +10446,7 @@
 
 <p>Solicita as tabelas e parametros para operação do terminal</p>
 
-<h3 id="requisição-8">Requisição</h3>
+<h3 id="requisição-9">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/initialization/{SubordinatedMerchantId}/{TerminalId}</span></aside>
 
@@ -11676,7 +11764,7 @@
 
 <p>Solicita as tabelas e parametros para operação do terminal. Como não foi informado o <code class="language-plaintext highlighter-rouge">SubordinatedMerchantId</code>, será assumida a loja principal do facilitador, isto é, a loja que tem o ID igual ao <code class="language-plaintext highlighter-rouge">ClientId</code> usado para a autenticação. Esta loja é criada automaticamente durante o processo de cadastro do facilitador executado pela Cielo.</p>
 
-<h3 id="requisição-9">Requisição</h3>
+<h3 id="requisição-10">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/initialization/{TerminalId}</span></aside>
 
@@ -13015,7 +13103,7 @@
 
 <h2 id="confirmação-de-pagamento-usando-cartão-digitado">Confirmação de pagamento usando cartão digitado</h2>
 
-<h3 id="requisição-10">Requisição</h3>
+<h3 id="requisição-11">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/confirmation</span></aside>
 
@@ -13088,7 +13176,7 @@
 
 <h2 id="confirmação-de-pagamento-usando-cartão-emv">Confirmação de pagamento usando cartão EMV</h2>
 
-<h3 id="requisição-11">Requisição</h3>
+<h3 id="requisição-12">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/confirmation</span></aside>
 
@@ -13209,7 +13297,7 @@
 
 <h2 id="cancelamento-de-pagamento-com-cartão-digitado">Cancelamento de pagamento com cartão digitado</h2>
 
-<h3 id="requisição-12">Requisição</h3>
+<h3 id="requisição-13">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/</span></aside>
 
@@ -13566,7 +13654,7 @@
 
 <h2 id="cancelamento-de-pagamento-com-cartão-presente">Cancelamento de pagamento com cartão presente</h2>
 
-<h3 id="requisição-13">Requisição</h3>
+<h3 id="requisição-14">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/</span></aside>
 
@@ -13770,7 +13858,7 @@
   </tbody>
 </table>
 
-<h3 id="requisição-14">Requisição</h3>
+<h3 id="requisição-15">Requisição</h3>
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}</span></aside>
 
@@ -13825,7 +13913,7 @@
   </tbody>
 </table>
 
-<h3 id="requisição-15">Requisição</h3>
+<h3 id="requisição-16">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/undo</span></aside>
 
@@ -13901,7 +13989,7 @@
   </tbody>
 </table>
 
-<h3 id="requisição-16">Requisição</h3>
+<h3 id="requisição-17">Requisição</h3>
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}</span></aside>
 
@@ -13990,7 +14078,7 @@
   </tbody>
 </table>
 
-<h3 id="requisição-17">Requisição</h3>
+<h3 id="requisição-18">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/undo</span></aside>
 
@@ -14100,7 +14188,7 @@
   </tbody>
 </table>
 
-<h3 id="requisição-18">Requisição</h3>
+<h3 id="requisição-19">Requisição</h3>
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}</span></aside>
 
@@ -14163,7 +14251,7 @@
   </tbody>
 </table>
 
-<h3 id="requisição-19">Requisição</h3>
+<h3 id="requisição-20">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}/undo</span></aside>
 
@@ -14247,7 +14335,7 @@
   </tbody>
 </table>
 
-<h3 id="requisição-20">Requisição</h3>
+<h3 id="requisição-21">Requisição</h3>
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}</span></aside>
 
@@ -14344,7 +14432,7 @@
   </tbody>
 </table>
 
-<h3 id="requisição-21">Requisição</h3>
+<h3 id="requisição-22">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}/undo</span></aside>
 
@@ -14445,7 +14533,7 @@
 
 <h2 id="desfaz-um-cancelamento">Desfaz um cancelamento</h2>
 
-<h3 id="requisição-22">Requisição</h3>
+<h3 id="requisição-23">Requisição</h3>
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/{VoidId}</span></aside>
 
@@ -14515,7 +14603,7 @@
 
 <h2 id="desfaz-um-cancelamento-1">Desfaz um cancelamento</h2>
 
-<h3 id="requisição-23">Requisição</h3>
+<h3 id="requisição-24">Requisição</h3>
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/merchantVoidId/{MerchantVoidId}</span></aside>
 
@@ -14956,7 +15044,7 @@
 
 <h3 id="cria-um-novo-terminal">Cria um novo terminal</h3>
 
-<h4 id="requisição-24">Requisição</h4>
+<h4 id="requisição-25">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals</span></aside>
 
@@ -15082,7 +15170,7 @@
 
 <h3 id="desabilita-um-terminal-removendo-o-vínculo-com-um-equipamento-físico">Desabilita um terminal removendo o vínculo com um equipamento físico.</h3>
 
-<h4 id="requisição-25">Requisição</h4>
+<h4 id="requisição-26">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals/disable</span></aside>
 
@@ -15126,7 +15214,7 @@
 
 <p>Consulta um pagamento</p>
 
-<h3 id="requisição-26">Requisição</h3>
+<h3 id="requisição-27">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/physicalSales/{PaymentId}</span></aside>
 
@@ -15712,7 +15800,7 @@
 
 <p>Consulta um cancelamento</p>
 
-<h3 id="requisição-27">Requisição</h3>
+<h3 id="requisição-28">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/{VoidId}</span></aside>
 
