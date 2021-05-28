@@ -1480,6 +1480,23 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Payment.Installments`|Integer|—|—|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
 |`Payment.Interest`|String|---|---|Default: `ByMerchant` <br><br> Enum: `ByMerchant` `ByIssuer` <br><br> Tipo de Parcelamento: <br><br> - Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado. <br><br> - Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.|
 |`Payment.ProductId`|Integer|—|Sim|Código do produto identificado através do bin do cartão.|
+|`CreditCard.CardNumber`|String|—|—|Número do cartão (PAN) criptografado|
+|`CreditCard.EncryptedCardData.EncryptionType`|String|—|Sim|Tipo de encriptação utilizada<br><br>
+Enum:<br><br>"DukptDes" = 1,<br><br>"MasterKey" = 2,<br><br>"Dukpt3Des" = 3,<br><br>"Dukpt3DesCBC" = 4|
+|`CreditCard.EncryptedCardData.CardNumberKSN`|String|—|—|Identificador KSN da criptografia do número do cartão|
+|`CreditCard.EncryptedCardData.IsDataInTLVFormat`|Bool|—|Não|Identifica se os dados criptografados estão no formato TLV (tag / length / value).|
+|`CreditCard.EncryptedCardData.InitializationVector`|String|—|Sim|Vetor de inicialização da encryptação|
+|`CreditCard.ExpirationDate`|String|MM/yyyy|Sim|Data de validade do cartão.<br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação.|
+|`CreditCard.SecurityCodeStatus`|String|—|—|Enum: Collected Unreadable Nonexistent<br><br>Status da coleta de código de segurança (CVV)|
+|`CreditCard.SecurityCode`|String|3 ou 4|—|Código de segurança (CVV)|
+|`CreditCard.BrandId|Integer`|—|Sim|Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE.|
+|`CreditCard.IssuerId`|Integer|—|Sim|Código do emissor obtido através do campo IssuerId da BIN TABLE.|
+|CreditCard.InputMode|String|—|Sim|Enum: Typed MagStripe Emv<br><br>Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função<br><br> PP_GetCard da BC.<br><br>“00” – Magnético<br><br>“01” - Moedeiro VISA Cash sobre TIBC v1<br><br>“02” - Moedeiro VISA Cash sobre TIBC v3<br><br>“03” – EMV com contato<br><br>“04” - Easy-Entry sobre TIBC v1<br><br>“05” - Chip sem contato simulando tarja<br><br>“06” - EMV sem contato.<br><br>|
+|`CreditCard.AuthenticationMethod`|String|—|Sim|Enum: NoPassword OnlineAuthentication OfflineAuthentication<br><br>
+Método de autenticação<br><br>
+- Se o cartão foi lido a partir da digitação verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1;<br><br>
+- Se o cartão foi lido a partir da trilha verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, deve ser verificado o bit 2 do mesmo campo. Se este estiver com valor 1 deve ser capturada a senha. Se estiver com valor 0 a captura da senha vai depender do último dígito do service code;<br><br>
+- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2.<br><br>1 - Sem senha = “NoPassword”;<br><br>2 - Senha online = “Online Authentication”;<br><br>3 - Senha off-line = “Offline Authentication”.|
 
 ### Venda com cartão de crédito com leitura de tarja e senha
 
