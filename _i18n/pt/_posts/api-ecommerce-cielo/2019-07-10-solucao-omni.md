@@ -107,7 +107,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |:---------------------------------------------------:|:---------------------------------------------:|
 | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
 
-### Venda com cartão de crédito digitado e sem senha
+### Crédito Digitado
 
 #### Requisição
 
@@ -168,8 +168,8 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`CreditCard.InputMode`|String|---|Sim|Enum: `Typed` `MagStripe` `Emv` <br><br>Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. <br><br>"00" – Magnético <br><br>"01" - Moedeiro VISA Cash sobre TIBC v1 <br><br>"02" - Moedeiro VISA Cash sobre TIBC v3 <br><br>"03" – EMV com contato <br><br>"04" - Easy-Entry sobre TIBC v1 <br><br>"05" - Chip sem contato simulando tarja <br><br> "06" - EMV sem contato.|
 |`CreditCard.AuthenticationMethod`|String|---|Sim|Enum: `NoPassword` `OnlineAuthentication` `OfflineAuthentication` <br><br>Método de autenticação <br><br>- Se o cartão foi lido a partir da digitação verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1; <br><br>- Se o cartão foi lido a partir da trilha verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, deve ser verificado o bit 2 do mesmo campo. Se este estiver com valor 1 deve ser capturada a senha. Se estiver com valor 0 a captura da senha vai depender do último dígito do service code; <br><br>- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2. <br><br>1 - Sem senha = “NoPassword”; <br><br>2 - Senha online = “Online Authentication”; <br><br>3 - Senha off-line = “Offline Authentication”.|
 |`CreditCard.TruncateCardNumberWhenPrinting`|Booleano|---|---|Indica se o número do cartão será truncado no momento da impressão do comprovante. A solução de captura deve tomar essa decisão com base no `confParamOp03` presente nas tabelas BIN TABLE, PARAMETER TABLE e ISSUER TABLE.|
-|`SaveCard`|---|---|---|
-|`IsFallback`|---|---|---|
+|`CreditCard.SaveCard`|---|---|---|
+|`CreditCard.IsFallback`|---|---|---|
 |`PinPadInformation.TerminalId`|String|---|Sim|Número Lógico definido no Concentrador Cielo.|
 |`PinPadInformation.SerialNumber`|String|---|Sim|Número de Série do Equipamento.|
 |`PinPadInformation.PhysicalCharacteristics`|String|---|Sim|Enum: `WithoutPinPad` `PinPadWithoutChipReader` `PinPadWithChipReaderWithoutSamModule` `PinPadWithChipReaderWithSamModule` `NotCertifiedPinPad` `PinPadWithChipReaderWithoutSamAndContactless` `PinPadWithChipReaderWithSamModuleAndContactless` <br><br> Sem PIN-pad = `WithoutPinPad`; <br><br> PIN-pad sem leitor de Chip = `PinpadWithoutChipReader`; <br><br>PIN-pad com leitor de Chip sem módulo SAM = `PinPadWithChipReaderWithoutSamModule`; <br><br> PIN-pad com leitor de Chip com módulo SAM = `PinPadWithChipReaderWithSamModule`; <br><br> PIN-pad não homologado = `NotCertifiedPinPad`; <br><br> PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = `PinpadWithChipReaderWithoutSamAndContactless`; <br><br> PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = `PinpadWithChipReaderWithSamAndContactless`. <br><br><br> Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.|
@@ -515,7 +515,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`SplitErrors.Code`|---|---|---|---|
 |`SplitErrors.Message`|---|---|---|---|
 
-### Venda com cartão de crédito digitado e sem senha com recorrência
+### Crédito Digitado com Recorrência
 
 #### Requisição
 
@@ -929,7 +929,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`SplitErrors.Code`|---|---|---|---|
 |`SplitErrors.Message`|---|---|---|---|
 
-### Venda com cartão de crédito digitado e sem senha com dados de comprador
+### Crédito Digitado com dados de Comprador
 
 #### Requisição
 
@@ -1380,6 +1380,95 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`SplitPayments.Fares.Fee`|---|---|---|---|
 |`SplitErrors.Code`|---|---|---|---|
 |`SplitErrors.Message`|---|---|---|---|
+
+### Crédito digitado com cartão criptografado
+
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
+
+```json
+{
+  "MerchantOrderId": "1596226820548",
+  "Customer": {
+    "Name": "Comprador crédito completo",
+    "Identity": "11225468954",
+    "IdentityType": "CPF",
+    "Email": "compradorteste@teste.com",
+    "Birthday": "1991-01-02",
+    "Address": {
+      "Street": "Rua Teste",
+      "Number": "123",
+      "Complement": "AP 123",
+      "ZipCode": "12345987",
+      "City": "São Paulo",
+      "State": "SP",
+      "Country": "BRA"
+    },
+    "DeliveryAddress": {
+      "Street": "Rua Teste",
+      "Number": "123",
+      "Complement": "AP 123",
+      "ZipCode": "12345987",
+      "City": "São Paulo",
+      "State": "SP",
+      "Country": "BRA"
+    }
+  },
+  "Payment": {
+    "Type": "PhysicalCreditCard",
+    "SoftDescriptor": "Description",
+    "PaymentDateTime": "2019-04-15T12:00:00Z",
+    "Amount": 15798,
+    "Installments": 1,
+    "Capture": true,
+    "Interest": "ByMerchant",
+    "ProductId": 1,
+    "CreditCard": {
+      "CardNumber": "encrypted1234567812345678encrypted",
+      "EncryptedCardData": {
+          "EncryptionType": "DUKPT3DES",
+          "CardNumberKSN": "KSNforCardNumber"
+      },
+      "ExpirationDate": "12/2020",
+      "SecurityCodeStatus": "Collected",
+      "SecurityCode": 1230,
+      "BrandId": 1,
+      "IssuerId": 2,
+      "InputMode": "Typed",
+      "AuthenticationMethod": "NoPassword",
+      "TruncateCardNumberWhenPrinting": true,
+      "SaveCard": false,
+      "IsFallback": false
+    },
+    "PinPadInformation": {
+      "TerminalId": "10000001",
+      "SerialNumber": "ABC123",
+      "PhysicalCharacteristics": "PinPadWithChipReaderWithSamModule",
+      "ReturnDataInfo": "00"
+    },
+    "RecurrentPayment": {
+      "EndDate": "2019-12-01",
+      "Interval": "SemiAnnual"
+    },
+    "PaymentFacilitator": {
+      "EstablishmentCode": "12345678901",
+      "SubEstablishment": {
+        "EstablishmentCode": "123456789012345",
+        "Mcc": "1234",
+        "Address": "1234567890abcdefghji12",
+        "City": "1234567890abc",
+        "State": "ab",
+        "PostalCode": "123456789",
+        "PhoneNumber": "1234567890123",
+        "CountryCode": "076",
+        "DocumentType": "Cpf",
+        "DocumentNumber": "12345678901"
+      }
+    }
+  }
+}
+```
 
 ### Venda com cartão de crédito com leitura de tarja e senha
 
