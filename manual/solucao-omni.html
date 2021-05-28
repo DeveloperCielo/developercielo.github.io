@@ -280,6 +280,8 @@
 
 <h1 id="pagamento">Pagamento</h1>
 
+<h2 id="autorização">Autorização</h2>
+
 <p>Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Payment.Status) na resposta para certificar-se que o pagamento foi gerado com sucesso ou se houve alguma falha.</p>
 
 <table>
@@ -297,9 +299,9 @@
   </tbody>
 </table>
 
-<h2 id="venda-com-cartão-de-crédito-digitado-e-sem-senha">Venda com cartão de crédito digitado e sem senha</h2>
+<h3 id="venda-com-cartão-de-crédito-digitado-e-sem-senha">Venda com cartão de crédito digitado e sem senha</h3>
 
-<h3 id="requisição">Requisição</h3>
+<h4 id="requisição">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -1575,9 +1577,9 @@
   </tbody>
 </table>
 
-<h2 id="venda-com-cartão-de-crédito-digitado-e-sem-senha-com-recorrência">Venda com cartão de crédito digitado e sem senha com recorrência</h2>
+<h3 id="venda-com-cartão-de-crédito-digitado-e-sem-senha-com-recorrência">Venda com cartão de crédito digitado e sem senha com recorrência</h3>
 
-<h3 id="requisição-1">Requisição</h3>
+<h4 id="requisição-1">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -1815,7 +1817,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta-1">Resposta</h3>
+<h4 id="resposta-1">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20180204"</span><span class="p">,</span><span class="w">
@@ -2782,9 +2784,9 @@
   </tbody>
 </table>
 
-<h2 id="venda-com-cartão-de-crédito-digitado-e-sem-senha-com-dados-de-comprador">Venda com cartão de crédito digitado e sem senha com dados de comprador</h2>
+<h3 id="venda-com-cartão-de-crédito-digitado-e-sem-senha-com-dados-de-comprador">Venda com cartão de crédito digitado e sem senha com dados de comprador</h3>
 
-<h3 id="requisição-2">Requisição</h3>
+<h4 id="requisição-2">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -3162,7 +3164,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta-2">Resposta</h3>
+<h4 id="resposta-2">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20180204"</span><span class="p">,</span><span class="w">
@@ -4129,9 +4131,9 @@
   </tbody>
 </table>
 
-<h2 id="venda-com-cartão-de-crédito-com-leitura-de-tarja-e-senha">Venda com cartão de crédito com leitura de tarja e senha</h2>
+<h3 id="venda-com-cartão-de-crédito-com-leitura-de-tarja-e-senha">Venda com cartão de crédito com leitura de tarja e senha</h3>
 
-<h3 id="requisição-3">Requisição</h3>
+<h4 id="requisição-3">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -4532,7 +4534,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta-3">Resposta</h3>
+<h4 id="resposta-3">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20180204"</span><span class="p">,</span><span class="w">
@@ -5499,9 +5501,9 @@
   </tbody>
 </table>
 
-<h2 id="venda-com-cartão-de-débito-com-leitura-de-tarja-e-senha">Venda com cartão de débito com leitura de tarja e senha</h2>
+<h3 id="venda-com-cartão-de-débito-com-leitura-de-tarja-e-senha">Venda com cartão de débito com leitura de tarja e senha</h3>
 
-<h3 id="requisição-4">Requisição</h3>
+<h4 id="requisição-4">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -5860,7 +5862,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta-4">Resposta</h3>
+<h4 id="resposta-4">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20180204"</span><span class="p">,</span><span class="w">
@@ -6738,9 +6740,9 @@
   </tbody>
 </table>
 
-<h2 id="venda-com-cartão-de-crédito-com-emv-com-senha-online">Venda com cartão de crédito com EMV com senha online</h2>
+<h3 id="venda-com-cartão-de-crédito-com-emv-com-senha-online">Venda com cartão de crédito com EMV com senha online</h3>
 
-<h3 id="requisição-5">Requisição</h3>
+<h4 id="requisição-5">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -6970,7 +6972,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta-5">Resposta</h3>
+<h4 id="resposta-5">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20180204"</span><span class="p">,</span><span class="w">
@@ -7848,7 +7850,7 @@
   </tbody>
 </table>
 
-<h2 id="venda-com-cartão-de-débito-com-emv-e-senha-online">Venda com cartão de débito com EMV e senha online</h2>
+<h3 id="venda-com-cartão-de-débito-com-emv-e-senha-online">Venda com cartão de débito com EMV e senha online</h3>
 
 <h3 id="requisição-6">Requisição</h3>
 
@@ -9023,9 +9025,9 @@
   </tbody>
 </table>
 
-<h2 id="venda-com-vale-alimentação-cartão-de-voucher-com-emv-e-senha-online">Venda com vale alimentação (cartão de voucher) com EMV e senha online</h2>
+<h3 id="venda-com-vale-alimentação-cartão-de-voucher-com-emv-e-senha-online">Venda com vale alimentação (cartão de voucher) com EMV e senha online</h3>
 
-<h3 id="requisição-7">Requisição</h3>
+<h4 id="requisição-7">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -9231,7 +9233,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta-7">Resposta</h3>
+<h4 id="resposta-7">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20180204"</span><span class="p">,</span><span class="w">
