@@ -749,6 +749,17 @@ Checkout has its own Status, different from CIELO SITE or Cielo ecommerce API. S
 
 ## Códigos de retorno ABECS
 
+The Brazilian Association of Credit Card and Services Companies (ABECS) establishes as of July 15, 2020 the standardization of the return code of refused sales authorizations for both the physical payment and e-commerce solutions of the Brazilian market .
+
+This normative measure seeks to bring benefits to the entire payments market, providing greater transparency in understanding the reason for refusal of transactions, in addition to enabling greater assertiveness in the adoption of sales retry strategies.
+
+Cielo informs its customers that it is prepared to process transactions following this new market standard, as follows the table of codes standardized by ABECS.
+
+<aside class="notice">The AMEX brand codes have undergone a to/from in order to maintain two digits. We reinforce that this measure does not change the reasons for return.</aside>
+
+|Message| Code Type | ELO | VISA | MASTERCARD/HIPER | AMEX | AMEX - from/to Cielo | Message POS/Ecommerce |
+|---|---|---|---|---|---|---|---|
+
 ### Outros códigos de retorno
 
 ## Anti-Fraud Status
