@@ -14,7 +14,7 @@ language_tabs:
   shell: cURL
 ---
 
-# Visão geral - API Solução Omni
+# Visão geral - API Cielo Conecta
 
 # Objetivo
 
