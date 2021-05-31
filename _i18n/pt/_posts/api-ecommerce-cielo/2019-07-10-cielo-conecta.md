@@ -1507,10 +1507,10 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |---|---|---|---|---|
 |`MerchantOrderId`|String|---|---|Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.|
 |`Customer.Name`|String|---|---|---|
-|`Customer.Identity`|---|---|---|-|
-|`Customer.IdentityType`|---|---|---|-|
-|`Customer.Email`|---|---|---|-|
-|`Customer.Birthday`|---|---|---|-|
+|`Customer.Identity`|---|---|---|---|
+|`Customer.IdentityType`|---|---|---|---|
+|`Customer.Email`|---|---|---|---|
+|`Customer.Birthday`|---|---|---|---|
 |`Address.Street`|String|---|---|---|
 |`Address.Number`|String|---|---|---|
 |`Address.Complement`|String|---|---|---|
@@ -1535,7 +1535,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`CreditCard.InputMode`|String|---|Sim|Enum: Typed MagStripe Emv<br><br>Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC.<br><br>“00” – Magnético<br><br>“01” - Moedeiro VISA Cash sobre TIBC v1<br><br>“02” - Moedeiro VISA Cash sobre TIBC v3<br><br>“03” – EMV com contato<br><br>“04” - Easy-Entry sobre TIBC v1<br><br>“05” - Chip sem contato simulando tarja<br><br>|“06” - EMV sem contato.
 |`CreditCard.AuthenticationMethod`|String|---|Sim|Enum: `NoPassword` `OnlineAuthentication` `OfflineAuthentication` <br><br>Método de autenticação <br><br>- Se o cartão foi lido a partir da digitação verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1; <br><br>- Se o cartão foi lido a partir da trilha verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, deve ser verificado o bit 2 do mesmo campo. Se este estiver com valor 1 deve ser capturada a senha. Se estiver com valor 0 a captura da senha vai depender do último dígito do service code; <br><br>- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2. <br><br>1 - Sem senha = “NoPassword”; <br><br>2 - Senha online = “Online Authentication”; <br><br>3 - Senha off-line = “Offline Authentication”.|
 |`CreditCard.EmvData`|String|---|---|Dados da transação EMV<br><br>Obtidos através do comando PP_GoOnChip na BC|
-|`PinBlock.EncryptedPinBlock`|---|---|---|-|
+|`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|String|---|---|---|
 |`PinBlock.KsnIdentification`|String|---|---|---|
 |`CreditCard.PanSequenceNumber`|Number|---|---|Número sequencial do cartão, utilizado para identificar a conta corrente do cartão adicional. Mandatório para transações com cartões Chip EMV e que possuam PAN Sequence Number (Tag 5F34).|
@@ -1555,9 +1555,9 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Payment.Provider`|String|-|---|---|
 |`Payment.ConfirmationStatus`|-|---|---|---|
 |`Payment.InitializationVersion`|-|---|---|---|
-|`Payment.EmvResponseData`|-|---|---|---|
+|`Payment.EmvResponseData`|---|---|---|---|
 |`Payment.Status`|---|---|---|---|
-|`Payment.IsSplitted`|Booleano|-|---|---|---|
+|`Payment.IsSplitted`|Booleano|---|---|---|---|
 |`Payment.ReturnCode`|---|---|---|---|
 |`Payment.ReturnMessage`|String|---|---|---|
 |`Payment.PaymentId`|---|---|---|---|
@@ -1580,7 +1580,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Receipt.TransactionMode`|---|---|---|---|
 |`Receipt.InputMethod`|---|---|---|---|
 |`Receipt.Value`|---|---|---|---|
-|`Receipt.SoftDescriptor`|-|---|---|---|
+|`Receipt.SoftDescriptor`|---|---|---|---|
 |`RecurrentPayment.RecurrentPaymentId`|---|---|---|---|
 |`RecurrentPayment.ReasonCode`|---|---|---|---|
 |`RecurrentPayment.ReasonMessage`|---|---|---|---|
