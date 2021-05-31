@@ -2526,11 +2526,6 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`DeliveryAddress.Country`|String|---|---|---|
 |`Payment.Installments`|Integer|---|---|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
 |`Payment.Capture`|Booleano|---|---|Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.|
-|`CreditCard.ExpirationDate`|String|MM/yyyy|Sim	Data de validade do cartão.<br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação.|
-|`CreditCard.BrandId`|Integer|---|Sim|Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE.|
-|`CreditCard.IssuerId`|Integer|---|Sim|Código do emissor obtido através do campo IssuerId da BIN TABLE.|
-|`CreditCard.TruncateCardNumberWhenPrinting`|Booleano|---|---|Indica se o número do cartão será truncado no momento da impressão do comprovante. A solução de captura deve tomar essa decisão com base no confParamOp03 presente nas tabelas BIN TABLE, PARAMETER TABLE e ISSUER TABLE.|
-|`CreditCard.InputMode`|String|---|Sim|Enum: Typed MagStripe Emv<br><br>Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC.<br><br>“00” – Magnético<br><br>“01” - Moedeiro VISA Cash sobre TIBC v1<br><br>“02” - Moedeiro VISA Cash sobre TIBC v3<br><br>“03” – EMV com contato<br><br>“04” - Easy-Entry sobre TIBC v1<br><br>“05” - Chip sem contato simulando tarja<br><br>“06” - EMV sem contato.|
 
 ### Venda com cartão de crédito com EMV com senha online
 
