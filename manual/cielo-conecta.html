@@ -8176,6 +8176,14 @@
       <td> </td>
     </tr>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">PinPadInformation.PhysicalCharacteristics</code></td>
+      <td>String</td>
+      <td>-</td>
+      <td>Sim</td>
+      <td>Enum: <code class="language-plaintext highlighter-rouge">WithoutPinPad</code> <code class="language-plaintext highlighter-rouge">PinPadWithoutChipReader</code> <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithoutSamModule</code> <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithSamModule</code> <code class="language-plaintext highlighter-rouge">NotCertifiedPinPad</code> <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithoutSamAndContactless</code> <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithSamModuleAndContactless</code> <br /> Sem PIN-pad = <code class="language-plaintext highlighter-rouge">WithoutPinPad</code>; <br /> PIN-pad sem leitor de Chip = <code class="language-plaintext highlighter-rouge">PinpadWithoutChipReader</code>; <br />PIN-pad com leitor de Chip sem módulo SAM = <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithoutSamModule</code>; <br /> PIN-pad com leitor de Chip com módulo SAM = <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithSamModule</code>; <br /> PIN-pad não homologado = <code class="language-plaintext highlighter-rouge">NotCertifiedPinPad</code>; <br /> PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = <code class="language-plaintext highlighter-rouge">PinpadWithChipReaderWithoutSamAndContactless</code>; <br /> PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = <code class="language-plaintext highlighter-rouge">PinpadWithChipReaderWithSamAndContactless</code>. <br /> Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">PinPadInformation.SerialNumber</code></td>
       <td>String</td>
       <td>—</td>
@@ -8425,6 +8433,118 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Receipt.InputMethod</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.Value</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.SoftDescriptor</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPayment.RecurrentPaymentId</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPayment.ReasonCode</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPayment.ReasonMessage</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPayment.NextRecurrency</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPayment.EndDate</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPayment.Interval</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.SubordinateMerchantId</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Amount</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Fares.Mdr</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Fares.Fee</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SplitErrors.Code</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SplitErrors.Message</code></td>
       <td>—</td>
       <td>—</td>
       <td>—</td>
