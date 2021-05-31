@@ -7969,6 +7969,86 @@
       <td>Enum: <code class="language-plaintext highlighter-rouge">NoPassword</code> <code class="language-plaintext highlighter-rouge">OnlineAuthentication</code> <code class="language-plaintext highlighter-rouge">OfflineAuthentication</code> <br />Método de autenticação <br />- Se o cartão foi lido a partir da digitação verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1; <br />- Se o cartão foi lido a partir da trilha verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, deve ser verificado o bit 2 do mesmo campo. Se este estiver com valor 1 deve ser capturada a senha. Se estiver com valor 0 a captura da senha vai depender do último dígito do service code; <br />- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2. <br />1 - Sem senha = “NoPassword”; <br />2 - Senha online = “Online Authentication”; <br />3 - Senha off-line = “Offline Authentication”.</td>
       <td> </td>
     </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.EmvData</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Dados da transação EMV <br />Obtidos através do comando PP_GoOnChip na BC</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PinBlock.EncryptedPinBlock</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PinBlock.EncryptionType</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PinBlock.KsnIdentification</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.PanSequenceNumber</code></td>
+      <td>Number</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Número sequencial do cartão, utilizado para identificar a conta corrente do cartão adicional. Mandatório para transações com cartões Chip EMV e que possuam PAN Sequence Number (Tag 5F34).</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.IsFallback</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.PaymentDateTime</code></td>
+      <td>String</td>
+      <td>date-time</td>
+      <td>Sim</td>
+      <td>Data e Hora da captura da transação</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ServiceTaxAmount</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
+      <td>String</td>
+      <td>13</td>
+      <td>—</td>
+      <td>Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.</td>
+      <td> </td>
+    </tr>
   </tbody>
 </table>
 
