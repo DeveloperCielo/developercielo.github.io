@@ -2525,7 +2525,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`DeliveryAddress.State`|String|---|---|---|
 |`DeliveryAddress.Country`|String|---|---|---|
 |`Payment.Installments`|Integer|---|---|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
-|`Payment.Capture`|Booleano|---|---|Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.
+|`Payment.Capture`|Booleano|---|---|Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.|
 |`CreditCard.ExpirationDate`|String|MM/yyyy|Sim	Data de validade do cartão.<br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação.|
 |`CreditCard.BrandId`|Integer|---|Sim|Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE.|
 |`CreditCard.IssuerId`|Integer|---|Sim|Código do emissor obtido através do campo IssuerId da BIN TABLE.|
@@ -2550,7 +2550,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Payment.Amount	Integer`|(int64)|---|Sim|Valor da transação (1079 = R$10,79)|
 |`Payment.ReceivedDate`|---|---|---|---|
 |`Payment.CapturedAmount`|---|---|---|---|
-|`Payment.Provider`|String	---	---	---
+|`Payment.Provider`|String|---|---|---|
 |`Payment.ConfirmationStatus`|---|---|---|---|
 |`Payment.InitializationVersion`|---|---|---|---|
 |`Payment.EmvResponseData`|---|---|---|---|
