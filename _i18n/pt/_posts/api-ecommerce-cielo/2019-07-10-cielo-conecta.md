@@ -1592,7 +1592,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`SplitErrors.Code`|-|—|—|—|
 |`SplitErrors.Message`|-|—|—|—|
 
-### Venda com cartão de crédito com leitura de tarja e senha
+### Crédito por tarja e senha
 
 #### Requisição
 
@@ -1640,7 +1640,8 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantOrderId`|String|---|---| Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.||`Payment.Type`|String|---|Sim|Value: `PhysicalCreditCard` / Tipo da Transação|
+|`MerchantOrderId`|String|---|---| Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.|
+|`Payment.Type`|String|---|Sim|Value: PhysicalCreditCard / Tipo da Transação|
 |`Payment.SoftDescriptor`|String|13|---|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
 |`Payment.PaymentDateTime`|String|date-time|Sim|Data e Hora da captura da transação|
 |`Payment.Amount`|Integer(int64)|---|Sim|Valor da transação (1079 = R$10,79)|
