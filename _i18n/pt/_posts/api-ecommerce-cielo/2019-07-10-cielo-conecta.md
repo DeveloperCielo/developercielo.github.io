@@ -2553,12 +2553,6 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`PinBlock.EncryptedPinBlock`|---|---|---|---|
 |`PinBlock.EncryptionType`|String|---|---|---|
 |`PinBlock.KsnIdentification`|String|---|---|---|
-|`CreditCard.PanSequenceNumber`|Number|---|---|Número sequencial do cartão, utilizado para identificar a conta corrente do cartão adicional. Mandatório para transações com cartões Chip EMV e que possuam PAN Sequence Number (Tag 5F34).|
-|`CreditCard.SaveCard`|---|---|---|---|
-|`CreditCard.IsFallback`|---|---|---|---|
-|`Payment.PaymentDateTime`|String|date-time|Sim|Data e Hora da captura da transação|
-|`Payment.ServiceTaxAmount`|---|---|---|---|
-|`Payment.SoftDescriptor`|String|13|---|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
 
 ### Venda com cartão de crédito com EMV com senha online
 
