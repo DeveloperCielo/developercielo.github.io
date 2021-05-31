@@ -1556,6 +1556,41 @@ PinPadInformation.SerialNumber|String|—|Sim|Número de Série do Equipamento.|
 |`Payment.EmvResponseData`|-|—|—|—|
 |`Payment.Status`|-|—|—|—|
 |`Payment.IsSplitted`|Booleano|-|—|—|—|
+|`Payment.ReturnCode`|-|—|—|—|
+|`Payment.ReturnMessage`|String|-|—|—|
+|`Payment.PaymentId`|-|—|—|—|
+|`Payment.Type`|String|—|Sim|Value: PhysicalCreditCard / Tipo da Transação|
+|`Payment.Currency`|String|—|—|Default: “BRL” / Value: “BRL” / Moeda (Preencher com “BRL”)|
+|`Payment.Country`|String|—|—|Default: “BRA” / Value: “BRA” / País (Preencher com “BRA”)|
+|`Receipt.MerchantName`|-|—|—|—|
+|`Receipt.MerchantAddress`|-|—|—|—|
+|`Receipt.MerchantCity`|-|—|—|—|
+|`Receipt.MerchantState`|-|—|—|—|
+|`Receipt.MerchantCode`|-|—|—|—|
+|`Receipt.Terminal`|-|—|—|—|
+|`Receipt.Nsu`|-|—|—|—|
+|`Receipt.Date`|-|—|—|—|
+|`Receipt.Hour`|-|—|—|—|
+|`Receipt.IssuerName`|-|—|—|—|
+|`Receipt.CardNumber`|-|—|—|—|
+|`Receipt.TransactionType`|-|—|—|—|
+|`Receipt.AuthorizationCode`|-|—|—|—|
+|`Receipt.TransactionMode`|-|—|—|—|
+|`Receipt.InputMethod`|-|—|—|—|
+|`Receipt.Value`|-|—|—|—|
+|`Receipt.SoftDescriptor`|-|—|—|—|
+|`RecurrentPayment.RecurrentPaymentId`|-|—|—|—|
+|`RecurrentPayment.ReasonCode`|-|—|—|—|
+|`RecurrentPayment.ReasonMessage`|-|—|—|—|
+|`RecurrentPayment.NextRecurrency`|-|—|—|—|
+|`RecurrentPayment.EndDate`|-|—|—|—|
+|`RecurrentPayment.Interval`|-|—|—|—|
+|`SplitPayments.SubordinateMerchantId`|-|—|—|—|
+|`SplitPayments.Amount`|-|—|—|—|
+|`SplitPayments.Fares.Mdr`|-|—|—|—|
+|`SplitPayments.Fares.Fee`|-|—|—|—|
+|`SplitErrors.Code`|-|—|—|—|
+|`SplitErrors.Message`|-|—|—|—|
 
 ### Venda com cartão de crédito com leitura de tarja e senha
 
