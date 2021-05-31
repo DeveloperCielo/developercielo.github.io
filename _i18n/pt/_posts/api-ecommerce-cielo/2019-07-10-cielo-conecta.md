@@ -1514,7 +1514,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Address.Complement`|String|—|—|—|
 |`Address.ZipCode`|String|—|—|—|
 |`Address.City`|String|—|—|—|
-|Address.State|String|—|—|—|
+|`Address.State`|String|—|—|—|
 |`Address.Country`|String|—|—|—|
 |`DeliveryAddress.Street`|String|—|—|—|
 |`DeliveryAddress.Number`|String|—|—|—|
@@ -1544,7 +1544,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Payment.SoftDescriptor`|String|13|—|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
 |`Payment.ProductId`|Integer|—|Sim|Código do produto identificado através do bin do cartão.|
 |`PinPadInformation.TerminalId`|String|—|Sim|Número Lógico definido no Concentrador Cielo.|
-PinPadInformation.SerialNumber|String|—|Sim|Número de Série do Equipamento.|
+|`PinPadInformation.SerialNumber`|String|—|Sim|Número de Série do Equipamento.|
 |`PinPadInformation.PhysicalCharacteristics`|String|-|Sim|Enum: `WithoutPinPad` `PinPadWithoutChipReader` `PinPadWithChipReaderWithoutSamModule` `PinPadWithChipReaderWithSamModule` `NotCertifiedPinPad` `PinPadWithChipReaderWithoutSamAndContactless` `PinPadWithChipReaderWithSamModuleAndContactless` <br><br> Sem PIN-pad = `WithoutPinPad`; <br><br> PIN-pad sem leitor de Chip = `PinpadWithoutChipReader`; <br><br>PIN-pad com leitor de Chip sem módulo SAM = `PinPadWithChipReaderWithoutSamModule`; <br><br> PIN-pad com leitor de Chip com módulo SAM = `PinPadWithChipReaderWithSamModule`; <br><br> PIN-pad não homologado = `NotCertifiedPinPad`; <br><br> PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = `PinpadWithChipReaderWithoutSamAndContactless`; <br><br> PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = `PinpadWithChipReaderWithSamAndContactless`. <br><br><br> Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.|
 |`PinPadInformation.ReturnDataInfo`|String|—|Sim|Retorno da função PP_GetInfo() da biblioteca compartilhada|
 |`Payment.Amount|Integer`|(int64)|—|Sim|Valor da transação (1079 = R$10,79)|
