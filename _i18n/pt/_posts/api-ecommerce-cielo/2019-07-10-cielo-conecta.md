@@ -483,8 +483,8 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Payment.ReturnMessage`|String|---|---|---|
 |`Payment.PaymentId`|---|---|---|---|
 |`Payment.Type`|String|---|Sim|Value: `PhysicalCreditCard` / Tipo da Transação|
-|`Payment.Currency`|String|---|---|Default: "BRL" / Value: "BRL" / Moeda (Preencher com “BRL”)|
-|`Payment.Country`|String|---|---|Default: "BRA" / Value: "BRA" / País (Preencher com “BRA”)|
+|`Payment.Currency`|String|---|---|Default: "BRL" / Value: "BRL" / Moeda (Preencher com “BRL”).|
+|`Payment.Country`|String|---|---|Default: "BRA" / Value: "BRA" / País (Preencher com “BRA”).|
 |`Receipt.MerchantName`|---|---|---|---|
 |`Receipt.MerchantAddress`|---|---|---|---|
 |`Receipt.MerchantCity`|---|---|---|---|
