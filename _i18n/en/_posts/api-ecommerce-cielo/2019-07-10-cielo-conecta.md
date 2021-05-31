@@ -13,7 +13,7 @@ language_tabs:
   shell: cURL
 ---
 
-# Overview - API Omni Solution
+# Overview - API Cielo Connect
 
 # Proposal
 
