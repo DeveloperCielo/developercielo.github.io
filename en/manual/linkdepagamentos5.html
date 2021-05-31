@@ -1623,8 +1623,112 @@ The information returned via the Notification Post can be found in the topic <a 
 
 <aside class="notice">The AMEX brand codes have undergone a to/from in order to maintain two digits. We reinforce that this measure does not change the reasons for return.</aside>
 
-<p>|Message| Code Type | ELO | VISA | MASTERCARD/HIPER | AMEX | AMEX - from/to Cielo | Message POS/Ecommerce |
-|—|—|—|—|—|—|—|—|</p>
+<table>
+  <thead>
+    <tr>
+      <th>Message</th>
+      <th>Code Type</th>
+      <th>ELO</th>
+      <th>VISA</th>
+      <th>MASTERCARD/HIPER</th>
+      <th>AMEX</th>
+      <th>AMEX - from/to Cielo</th>
+      <th>Message POS/Ecommerce</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>GENERIC</td>
+      <td>REVERSIBLE</td>
+      <td>05</td>
+      <td>05</td>
+      <td>05</td>
+      <td>100</td>
+      <td>FA</td>
+      <td>CONTACT YOUR CARD CENTER</td>
+    </tr>
+    <tr>
+      <td>INSUFFICIENT BALANCE/LIMIT</td>
+      <td>REVERSIBLE</td>
+      <td>51</td>
+      <td>51</td>
+      <td>51</td>
+      <td>116</td>
+      <td>A5</td>
+      <td>NOT ALLOWED</td>
+    </tr>
+    <tr>
+      <td>INVALID PASSWORD</td>
+      <td>REVERSIBLE</td>
+      <td>55</td>
+      <td>55 ou 86</td>
+      <td>55</td>
+      <td>117</td>
+      <td>A6</td>
+      <td>INVALID PASSWORD</td>
+    </tr>
+    <tr>
+      <td>TRANSACTION NOT ALLOWED FOR THE CARD</td>
+      <td>IRREVERSIBLE</td>
+      <td>57</td>
+      <td>57</td>
+      <td>57</td>
+      <td>200</td>
+      <td>FD</td>
+      <td>TRANSACTION NOT ALLOWED FOR CARD- DO NOT TRY AGAIN</td>
+    </tr>
+    <tr>
+      <td>CARD NUMBER DOES NOT BELONG TO THE ISSUER | INVALID CARD NUMBER</td>
+      <td>IRREVERSIBLE</td>
+      <td>14 ou 56</td>
+      <td>06</td>
+      <td>14 ou 01</td>
+      <td>122</td>
+      <td>08</td>
+      <td>CHECK THE CARD DATA</td>
+    </tr>
+    <tr>
+      <td>SECURITY BREACH</td>
+      <td>IRREVERSIBLE</td>
+      <td>63</td>
+      <td>06</td>
+      <td>14</td>
+      <td>122</td>
+      <td>08</td>
+      <td>CHECK THE CARD DATA</td>
+    </tr>
+    <tr>
+      <td>SUSPECTED FRAUD</td>
+      <td>REVERSIBLE</td>
+      <td>59</td>
+      <td>59</td>
+      <td>63</td>
+      <td>100</td>
+      <td>FA</td>
+      <td>CONTACT YOUR CARD CENTER</td>
+    </tr>
+    <tr>
+      <td>INVALID MERCHANT</td>
+      <td>IRREVERSIBLE</td>
+      <td>58</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>03</td>
+      <td>109</td>
+      <td>DA</td>
+      <td>TRANSACTION NOT ALLOWED - DO NOT TRY AGAIN</td>
+    </tr>
+    <tr>
+      <td>INVALID MERCHANT</td>
+      <td>REVERSIBLE</td>
+      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>03</td>
+      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>TRANSACTION NOT ALLOWED</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="outros-códigos-de-retorno">Outros códigos de retorno</h3>
 
