@@ -2505,10 +2505,10 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantOrderId`|String|---|---|Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.|
-|`Customer.Name`|String|---	---	---|
+|`Customer.Name`|String|---|---|---|
 |`Customer.Identity`|---|---|---|---|
 |`Customer.IdentityType`|---|---|---|---|
-|`Customer.Email`|---|---|---	|---|
+|`Customer.Email`|---|---|---|---|
 |`Customer.Birthday`|---|---|---|---|
 |`Address.Street`|String|---|---|---|
 |`Address.Number`|String|---|---|---|
