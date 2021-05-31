@@ -2010,7 +2010,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`SplitErrors.Code`|---|---|---|---|
 |`SplitErrors.Message`|---|---|---|---|
 
-### Venda com cartão de débito com leitura de tarja e senha
+### Débito por tarja e senha
 
 #### Requisição
 
