@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Integration Manual Omni Solution
+title: Integration Manual Cielo Conecta
 description: API para integração de vendas no físico e OnLine
 search: true
 translated: true
