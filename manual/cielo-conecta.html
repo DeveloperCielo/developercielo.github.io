@@ -7522,225 +7522,6 @@
       <th>Tamanho</th>
       <th>Obrigatório</th>
       <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>Sim</td>
-      <td>Value: PhysicalCreditCard / Tipo da Transação</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
-      <td>String</td>
-      <td>13</td>
-      <td>—</td>
-      <td>Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.PaymentDateTime</code></td>
-      <td>String</td>
-      <td>date-time</td>
-      <td>Sim</td>
-      <td>Data e Hora da captura da transação</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Integer(int64)</td>
-      <td>—</td>
-      <td>Sim</td>
-      <td>Valor da transação (1079 = R$10,79)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.ProductId</code></td>
-      <td>Integer</td>
-      <td>—</td>
-      <td>Sim</td>
-      <td>Código do produto identificado através do bin do cartão.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.ExpirationDate</code></td>
-      <td>String</td>
-      <td>MM/yyyy</td>
-      <td>Sim</td>
-      <td>Data de validade do cartão.<br />Dado obtido através do comando PP_GetCard na BC no momento da captura da transação.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.SecurityCodeStatus</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Enum: Collected Unreadable Nonexistent<br />Status da coleta de código de segurança (CVV)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.BrandId</code></td>
-      <td>Integer</td>
-      <td>—Sim</td>
-      <td>Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.IssuerId</code></td>
-      <td>Integer</td>
-      <td>—</td>
-      <td>Sim</td>
-      <td>Código do emissor obtido através do campo IssuerId da BIN TABLE.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.InputMode</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>Sim</td>
-      <td>Enum: Typed MagStripe Emv<br />Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função<br /> PP_GetCard da BC.<br />“00” – Magnético<br />“01” - Moedeiro VISA Cash sobre TIBC v1<br />“02” - Moedeiro VISA Cash sobre TIBC v3<br />“03” – EMV com contato<br />“04” - Easy-Entry sobre TIBC v1<br />“05” - Chip sem contato simulando tarja<br />“06” - EMV sem contato.<br /></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.AuthenticationMethod</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>Sim</td>
-      <td>Enum: <code class="language-plaintext highlighter-rouge">NoPassword</code> <code class="language-plaintext highlighter-rouge">OnlineAuthentication</code> <code class="language-plaintext highlighter-rouge">OfflineAuthentication</code> <br />Método de autenticação <br />- Se o cartão foi lido a partir da digitação verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1; <br />- Se o cartão foi lido a partir da trilha verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, deve ser verificado o bit 2 do mesmo campo. Se este estiver com valor 1 deve ser capturada a senha. Se estiver com valor 0 a captura da senha vai depender do último dígito do service code; <br />- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2. <br />1 - Sem senha = “NoPassword”; <br />2 - Senha online = “Online Authentication”; <br />3 - Senha off-line = “Offline Authentication”.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.TrackOneData</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Dados da trilha 1 criptografados<br />Obtidos através do comando PP_GetCard na BC no momento da captura da transação</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.TrackTwoData</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Dados da trilha 2 criptografados<br />Obtidos através do comando PP_GetCard na BC no momento da captura da transação</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.EncryptedCardData.EncryptionType</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>Sim</td>
-      <td>Tipo de encriptação utilizada<br />Enum:<br />“DukptDes” = 1,<br />“MasterKey” = 2 &lt;br<br />“Dukpt3Des” = 3,<br />“Dukpt3DesCBC” = 4</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.EncryptedCardData.TrackOneDataKSN</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Identificador KSN da criptografia da trilha 1 do cartão</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.EncryptedCardData.TrackTwoDataKSN</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Identificador KSN da criptografia da trilha 2 do cartão</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.EncryptedCardData.IsDataInTLVFormat</code></td>
-      <td>Booleano</td>
-      <td>—</td>
-      <td>Não Identifica se os dados criptografados estão no formato TLV (tag / length / value).</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.EncryptedCardData.InitializationVector</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>Sim</td>
-      <td>Vetor de inicialização da encryptação</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PinBlock.EncryptedPinBlock</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>Sim</td>
-      <td>PINBlock Criptografado<br />- Para transações EMV, esse campo é obtido através do retorno da função PP_GoOnChip(), mais especificamente das posições 007 até a posição 022;<br />- Para transações digitadas e com tarja magnética, verificar as posições 001 até 016 do retorno da função PP_GetPin().</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PinBlock.EncryptionType</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>Sim</td>
-      <td>Tipo de Criptografia<br />Enum:<br />“DukptDes”<br />“Dukpt3Des”<br />“MasterKey”</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PinBlock.KsnIdentification</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>Sim</td>
-      <td>Identificação do KSN<br />- Para transações EMV esse campo é obtido através do retorno da função PP_GoOnChip() nas posições 023 até 042;<br />- Para transações digitadas e com tarja magnética, verificar as posições 017 até 036 do retorno da função PP_GetPin().</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.PanSequenceNumber</code></td>
-      <td>Number</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Número sequencial do cartão, utilizado para identificar a conta corrente do cartão adicional. Mandatório para transações com cartões Chip EMV e que possuam PAN Sequence Number (Tag 5F34).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.SaveCard</code></td>
-      <td>Booleano</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Identifica se vai salvar/tokenizar o cartão</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.IsFallback</code></td>
-      <td>Booleano</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Identifica se é uma transação de fallback.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PinPadInformation.TerminalId</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>Sim</td>
-      <td>Número Lógico definido no Concentrador Cielo.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PinPadInformation.SerialNumber</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>Sim</td>
-      <td>Número de Série do Equipamento.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PinPadInformation.PhysicalCharacteristics</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>Sim</td>
-      <td>Enum: WithoutPinPad PinPadWithoutChipReader PinPadWithChipReaderWithoutSamModule<br /> PinPadWithChipReaderWithSamModule NotCertifiedPinPad PinPadWithChipReaderWithoutSamAndContactless<br />PinPadWithChipReaderWithSamModuleAndContactless<br />SemPIN-pad = WithoutPinPad;PIN-pad sem leitor de Chip = PinpadWithoutChipReader;<br />PIN-pad com leitor de Chip sem módulo SAM = PinPadWithChipReaderWithoutSamModule;<br />PIN-pad com leitor de Chip com módulo SAM = PinPadWithChipReaderWithSamModule;<br />PIN-pad não homologado = NotCertifiedPinPad;<br />PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = PinpadWithChipReaderWithoutSamAndContactless;<br />PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = PinpadWithChipReaderWithSamAndContactless.<br />Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PinPadInformation.ReturnDataInfo</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>Sim</td>
-      <td>Retorno da função PP_GetInfo() da biblioteca compartilhada</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="resposta-6">Resposta</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
       <th> </th>
     </tr>
   </thead>
@@ -8048,6 +7829,211 @@
       <td>—</td>
       <td>Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.</td>
       <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-6">Resposta</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Birthday</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.Street</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.Number</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.Complement</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.ZipCode</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.City</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.State</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.Country</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DeliveryAddress.Street</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DeliveryAddress.Number</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DeliveryAddress.Complement</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DeliveryAddress.ZipCode</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DeliveryAddress.City</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DeliveryAddress.State</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DeliveryAddress.Country</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Default: <code class="language-plaintext highlighter-rouge">ByMerchant</code> <br /> Enum: <code class="language-plaintext highlighter-rouge">ByMerchant</code> <code class="language-plaintext highlighter-rouge">ByIssuer</code> <br /> Tipo de Parcelamento: <br /> - Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado. <br /> - Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DebitCard.ExpirationDate</code></td>
+      <td>String</td>
+      <td>MM/yyyy</td>
+      <td>Sim</td>
+      <td>Data de validade do cartão. <br />Dado obtido através do comando PP_GetCard na BC no momento da captura da transação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DebitCard.BrandId</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DebitCard.IssuerId</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Código do emissor obtido através do campo IssuerId da BIN TABLE.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DebitCard.TruncateCardNumberWhenPrinting</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Indica se o número do cartão será truncado no momento da impressão do comprovante. A solução de captura deve tomar essa decisão com base no <code class="language-plaintext highlighter-rouge">confParamOp03</code> presente nas tabelas BIN TABLE, PARAMETER TABLE e ISSUER TABLE.</td>
     </tr>
   </tbody>
 </table>
