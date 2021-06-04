@@ -3173,7 +3173,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`SplitErrors.Code`|---|---|---|---|
 |`SplitErrors.Message`|---|---|---|---|
 
-### Débito por chip e senha onlinene
+### Débito por chip e senha online
 
 #### Requisição
 
@@ -3955,6 +3955,132 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Payment.Type`|String|---|Sim|Value: `PhysicalCreditCard` / Tipo da Transação|
 |`Payment.Currency`|String|---|---|Default: "BRL" / Value: "BRL" / Moeda (Preencher com “BRL”)|
 |`Payment.Country`|String|---|---|Default: "BRA" / Value: "BRA" / País (Preencher com “BRA”)|
+|`Receipt.MerchantName`|---|---|---|---|
+|`Receipt.MerchantAddress`|---|---|---|---|
+|`Receipt.MerchantCity`|---|---|---|---|
+|`Receipt.MerchantState`|---|---|---|---|
+|`Receipt.MerchantCode`|---|---|---|---|
+|`Receipt.Terminal`|---|---|---|---|
+|`Receipt.Nsu`|---|---|---|---|
+|`Receipt.Date`|---|---|---|---|
+|`Receipt.Hour`|---|---|---|---|
+|`Receipt.IssuerName`|---|---|---|---|
+|`Receipt.CardNumber`|---|---|---|---|
+|`Receipt.TransactionType`|---|---|---|---|
+|`Receipt.AuthorizationCode`|---|---|---|---|
+|`Receipt.TransactionMode`|---|---|---|---|
+|`Receipt.InputMethod`|---|---|---|---|
+|`Receipt.Value`|---|---|---|---|
+|`Receipt.SoftDescriptor`|---|---|---|---|
+|`RecurrentPayment.RecurrentPaymentId`|---|---|---|---|
+|`RecurrentPayment.ReasonCode`|---|---|---|---|
+|`RecurrentPayment.ReasonMessage`|---|---|---|---|
+|`RecurrentPayment.NextRecurrency`|---|---|---|---|
+|`RecurrentPayment.EndDate`|---|---|---|---|
+|`RecurrentPayment.Interval`|---|---|---|---|
+|`SplitPayments.SubordinateMerchantId`|---|---|---|---|
+|`SplitPayments.Amount`|---|---|---|---|
+|`SplitPayments.Fares.Mdr`|---|---|---|---|
+|`SplitPayments.Fares.Fee`|---|---|---|---|
+|`SplitErrors.Code`|---|---|---|---|
+|`SplitErrors.Message`|---|---|---|---|
+
+### Crédito a vista com QRCode
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
+
+### Requsição
+
+```json
+{
+	"MerchantOrderId": "1596226820548",
+	"Payment":{
+		"SubordinatedMerchantId": "{Auth_ClientId}",
+		"Type": "PhysicalCreditCard",
+        "SoftDescriptor": "Description",
+		"PaymentDateTime": "2020-07-31T20:20:20.548Z",
+		"Amount": 200,
+		"Installments": 1,
+		"Interest": "ByMerchant",
+    	"Capture": true,
+		"ProductId": 1,
+		"CreditCard":{
+			"InputMode": "QRCode",
+			"QRCodeData": "180313001B1D4349",
+		    "PinBlock": {
+		        "EncryptedPinBlock": "2280F6BDFD0C038D",
+		        "EncryptionType": "Dukpt3Des",
+		        "KsnIdentification": "fffff9999900522000d6"
+		    }
+		},
+		"PinPadInformation":{
+			"TerminalId": "12345678",
+			"SerialNumber": "6C651996",
+			"PhysicalCharacteristics": "PinPadWithChipReaderWithSamModuleAndContactless",
+			"ReturnDataInfo": "00"
+		}
+	}
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantOrderId`|String|---|---| Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.|
+|`Payment.Type`|String|---|Sim|Value: `PhysicalCreditCard` / Tipo da Transação|
+|`Payment.SoftDescriptor`|String|13|---|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
+|`Payment.PaymentDateTime`|String|date-time|Sim|Data e Hora da captura da transação|
+|`Payment.Amount`|Integer(int64)|---|Sim|Valor da transação (1079 = R$10,79)|
+|`Payment.Capture`|Booleano|---|---|Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.|
+|`Payment.Installments`|Integer|---|---|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
+|`Payment.Interest`|String|---|---|Default: `ByMerchant` <br><br> Enum: `ByMerchant` `ByIssuer` <br><br> Tipo de Parcelamento: <br><br> - Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado. <br><br> - Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.|
+|`Payment.ProductId`|Integer|---|Sim|Código do produto identificado através do bin do cartão.|
+|`CreditCard.InputMode`|String|---|Sim|Enum: `Typed` `MagStripe` `Emv` <br><br>Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. <br><br>"00" – Magnético <br><br>"01" - Moedeiro VISA Cash sobre TIBC v1 <br><br>"02" - Moedeiro VISA Cash sobre TIBC v3 <br><br>"03" – EMV com contato <br><br>"04" - Easy-Entry sobre TIBC v1 <br><br>"05" - Chip sem contato simulando tarja <br><br> "06" - EMV sem contato.|
+|`CreditCard.QRCodeData`|String|---|Sim|QRCodeData|
+|`CreditCard.PinBlock.EncryptedPinBlock`|String|---|Sim|PINBlock Criptografado<br><br>- Para transações EMV, esse campo é obtido através do retorno da função PP_GoOnChip(), mais especificamente das posições 007 até a posição 022;<br><br>- Para transações digitadas e com tarja magnética, verificar as posições 001 até 016 do retorno da função PP_GetPin().|
+|`CreditCard.PinBlock.EncryptionType`|String|---|Sim|Tipo de Criptografia<br><br>Enum:<br><br>"DukptDes"<br><br>"Dukpt3Des"<br><br>"MasterKey"|
+|`CreditCard.PinBlock.KsnIdentification`|String|---|Sim|Identificação do KSN<br><br>- Para transações EMV esse campo é obtido através do retorno da função PP_GoOnChip() nas posições 023 até 042;<br><br>- Para transações digitadas e com tarja magnética, verificar as posições 017 até 036 do retorno da função PP_GetPin().|
+|`PinPadInformation.TerminalId`|String|---|Sim|Número Lógico definido no Concentrador Cielo.|
+|`PinPadInformation.SerialNumber`|String|---|Sim|Número de Série do Equipamento.|
+|`PinPadInformation.PhysicalCharacteristics`|String|---|Sim|Enum: `WithoutPinPad` `PinPadWithoutChipReader` `PinPadWithChipReaderWithoutSamModule` `PinPadWithChipReaderWithSamModule` `NotCertifiedPinPad` `PinPadWithChipReaderWithoutSamAndContactless` `PinPadWithChipReaderWithSamModuleAndContactless` <br><br> Sem PIN-pad = `WithoutPinPad`; <br><br> PIN-pad sem leitor de Chip = `PinpadWithoutChipReader`; <br><br>PIN-pad com leitor de Chip sem módulo SAM = `PinPadWithChipReaderWithoutSamModule`; <br><br> PIN-pad com leitor de Chip com módulo SAM = `PinPadWithChipReaderWithSamModule`; <br><br> PIN-pad não homologado = `NotCertifiedPinPad`; <br><br> PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = `PinpadWithChipReaderWithoutSamAndContactless`; <br><br> PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = `PinpadWithChipReaderWithSamAndContactless`. <br><br><br> Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.|
+|`PinPadInformation.ReturnDataInfo`|String|---|Sim|Retorno da função PP_GetInfo() da biblioteca compartilhada|
+
+#### Resposta
+
+|`Payment.Capture`|Booleano|---|---|Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.|
+|`CreditCard.ExpirationDate`|String|MM/yyyy|Sim|Data de validade do cartão.<br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação.|
+|`CreditCard.BrandId`|Integer|---|Sim|Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE.|
+|`CreditCard.IssuerId`|Integer|---|Sim|Código do emissor obtido através do campo IssuerId da BIN TABLE.|
+|`CreditCard.TruncateCardNumberWhenPrinting`|Booleano|---|---|Indica se o número do cartão será truncado no momento da impressão do comprovante. A solução de captura deve tomar essa decisão com base no confParamOp03 presente nas tabelas BIN TABLE, PARAMETER TABLE e ISSUER TABLE.|
+|`CreditCard.InputMode`|String|---|Sim|Enum: Typed MagStripe Emv<br><br>Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC.<br><br>“00” – Magnético<br><br>“01” - Moedeiro VISA Cash sobre TIBC v1<br><br>“02” - Moedeiro VISA Cash sobre TIBC v3<br><br>“03” – EMV com contato<br><br>“04” - Easy-Entry sobre TIBC v1<br><br>“05” - Chip sem contato simulando tarja<br><br>|“06” - EMV sem contato.|
+|`CreditCard.EmvData`|String|---|---|Dados da transação EMV <br><br>Obtidos através do comando PP_GoOnChip na BC.|
+|`PinBlock.EncryptedPinBlock`|---|---|---|---|
+|`PinBlock.EncryptionType`|String|---|---|---|
+|`PinBlock.KsnIdentification`|String|---|---|---|
+|`CreditCard.PanSequenceNumber`|Number|---|---|Número sequencial do cartão, utilizado para identificar a conta corrente do cartão adicional. Mandatório para transações com cartões Chip EMV e que possuam PAN Sequence Number (Tag 5F34).|
+|`CreditCard.SaveCard`|---|---|---|---|
+|`CreditCard.IsFallback`|---|---|---|---|
+|`Payment.PaymentDateTime`|String|date-time|Sim|Data e Hora da captura da transação|
+|`Payment.ServiceTaxAmount`|---|---|---|---|
+|`Payment.SoftDescriptor`|String|13|---|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
+|`Payment.ProductId|Integer`|---|Sim|Código do produto identificado através do bin do cartão.|
+|`PinPadInformation.TerminalId`|String|---|Sim|Número Lógico definido no Concentrador Cielo.|
+|`PinPadInformation.SerialNumber`|String|---|Sim|Número de Série do Equipamento.|
+|`PinPadInformation.ReturnDataInfo`|String|---|Sim|Retorno da função PP_GetInfo() da biblioteca compartilhada|
+|`Payment.Amount|Integer`|(int64)|---|Sim|Valor da transação (1079 = R$10,79)|
+|`Payment.ReceivedDate`|---|---|---|---|
+|`Payment.CapturedAmount`|---|---|---|---|
+|`Payment.Provider`|String	---	---	---
+|`Payment.ConfirmationStatus`|---|---|---|---|
+|`Payment.InitializationVersion`|---|---|---|---|
+|`Payment.EmvResponseData`|---|---|---|---|
+|`Payment.Status`|---|---|---|---|
+|`Payment.IsSplitted`|Booleano|---|---|---|
+|`Payment.ReturnCode`|---|---|---|---|
+|`Payment.ReturnMessage`|String|---|---|---|
+|`Payment.PaymentId`|---|---|---|---|
+|`Payment.Type`|String|---|Sim|Value: PhysicalCreditCard / Tipo da Transação|
+|`Payment.Currency`|String|---|---|Default: “BRL” / Value: “BRL” / Moeda (Preencher com “BRL”)|
+|`Payment.Country`|String|---|---|Default: “BRA” / Value: “BRA” / País (Preencher com “BRA”)|
 |`Receipt.MerchantName`|---|---|---|---|
 |`Receipt.MerchantAddress`|---|---|---|---|
 |`Receipt.MerchantCity`|---|---|---|---|
