@@ -4014,7 +4014,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 		    }
 		},
 		"PinPadInformation":{
-			"TerminalId": "12345678",
+			"TerminalId": "1234578",
 			"SerialNumber": "6C651996",
 			"PhysicalCharacteristics": "PinPadWithChipReaderWithSamModuleAndContactless",
 			"ReturnDataInfo": "00"
