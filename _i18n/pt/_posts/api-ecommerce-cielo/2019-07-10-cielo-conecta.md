@@ -4018,6 +4018,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 			"ReturnDataInfo": "00"
 		}
 	}
+}
 ```
 
 ## Fluxo de pagamento (Biblioteca Compartilhada)
