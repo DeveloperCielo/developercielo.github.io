@@ -19941,7 +19941,9 @@
 
 <h2 id="desfazimento">Desfazimento</h2>
 
-<h3 id="desfazimento-de-pagamento-de-cartão-digitado">Desfazimento de pagamento de cartão digitado.</h3>
+<h3 id="desfazimento-por-paymentid">Desfazimento por PaymentId</h3>
+
+<h4 id="cartao-digitado">Cartao digitado.</h4>
 
 <p>O pagamento retornou com sucesso e pode ser desfeito.</p>
 
@@ -19962,11 +19964,11 @@
   </tbody>
 </table>
 
-<h4 id="requisição-18">Requisição</h4>
+<h5 id="requisição-18">Requisição</h5>
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}</span></aside>
 
-<h4 id="resposta-18">Resposta</h4>
+<h5 id="resposta-18">Resposta</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"ConfirmationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -20017,11 +20019,11 @@
   </tbody>
 </table>
 
-<h4 id="requisição-19">Requisição</h4>
+<h5 id="requisição-19">Requisição</h5>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/undo</span></aside>
 
-<h4 id="resposta-19">Resposta</h4>
+<h5 id="resposta-19">Resposta</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"ConfirmationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -20271,7 +20273,7 @@
   </tbody>
 </table>
 
-<h3 id="desfazimento-de-pagamento-de-cartão-digitado-1">Desfazimento de pagamento de cartão digitado</h3>
+<h3 id="desfazimento-de-pagamento-de-cartão-digitado">Desfazimento de pagamento de cartão digitado</h3>
 
 <p>Quando o pagamento não retornar, o mesmo deve ser desfeito.</p>
 
