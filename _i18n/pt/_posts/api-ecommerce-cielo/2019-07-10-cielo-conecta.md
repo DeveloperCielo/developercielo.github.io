@@ -5754,7 +5754,7 @@ Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pa
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`ConfirmationStatus`|Integer int16|---|---|Status da confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
-|`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado<br><br>13 = Abortado|
+|`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado<br <br>13 = Abortado|
 |`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
 |`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
 |`ReasonCode`|Integer|int16|---|---|Código de referência para análises.|
@@ -5813,11 +5813,11 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}/undo</span></aside>
 
+**Path Parameters:**
+
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantOrderId`|String|—|Sim|Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.|
-
-**Path Parameters:**
 
 ##### Resposta
 
