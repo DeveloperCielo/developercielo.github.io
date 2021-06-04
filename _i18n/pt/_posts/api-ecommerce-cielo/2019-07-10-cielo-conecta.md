@@ -5585,7 +5585,9 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 ## Desfazimento
 
-### Desfazimento de pagamento de cartão digitado.
+### Desfazimento por PaymentId
+
+#### Cartao digitado.
 
 O pagamento retornou com sucesso e pode ser desfeito.
 
@@ -5595,11 +5597,11 @@ Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pa
 |:---------------------------------------------------:|:---------------------------------------------:|
 | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
 
-#### Requisição
+##### Requisição
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}</span></aside>
 
-#### Resposta
+##### Resposta
 
 ```json
 {
@@ -5622,11 +5624,11 @@ Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pa
 |`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado<br><br>13 = Abortado|
 |`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
 
-#### Requisição
+##### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/undo</span></aside>
 
-#### Resposta
+##### Resposta
 
 ```json
 {
