@@ -5622,6 +5622,13 @@ Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pa
 |---|---|---|---|---|
 |`ConfirmationStatus`|Integer int16|---|---|Status da confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
 |`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado<br><br>13 = Abortado|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
+|`ReasonCode`|Integer|int16|---|---|Código de referência para análises.|
+|`ReasonMessage`|String|---|---|Mensagem explicativa para análise.|
+|`Links.Method`|String|---|---|Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|	String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
 
 ##### Requisição
 
@@ -5648,6 +5655,13 @@ Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pa
 |---|---|---|---|---|
 |`ConfirmationStatus`|Integer int16|---|---|Status da confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
 |`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado<br><br>13 = Abortado|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
+|`ReasonCode`|Integer|int16|---|---|Código de referência para análises.|
+|`ReasonMessage`|String|---|---|Mensagem explicativa para análise.|
+|`Links.Method`|String|---|---|Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|	String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
 
 #### Cartao com chip
 
@@ -5696,6 +5710,13 @@ Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pa
 |---|---|---|---|---|
 |`ConfirmationStatus`|Integer int16|---|---|Status da confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
 |`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado<br><br>13 = Abortado|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
+|`ReasonCode`|Integer|int16|---|---|Código de referência para análises.|
+|`ReasonMessage`|String|---|---|Mensagem explicativa para análise.|
+|`Links.Method`|String|---|---|Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|	String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
 
 ##### Requisição
 
@@ -5734,6 +5755,13 @@ Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pa
 |---|---|---|---|---|
 |`ConfirmationStatus`|Integer int16|---|---|Status da confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
 |`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado<br <br>13 = Abortado|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
+|`ReasonCode`|Integer|int16|---|---|Código de referência para análises.|
+|`ReasonMessage`|String|---|---|Mensagem explicativa para análise.|
+|`Links.Method`|String|---|---|Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|	String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
 
 ## Desfazimento por OrderId
 
@@ -5773,6 +5801,13 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 |---|---|---|---|---|
 |`ConfirmationStatus`|Integer int16|---|---|Status da confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
 |`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado<br><br>13 = Abortado|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
+|`ReasonCode`|Integer|int16|---|---|Código de referência para análises.|
+|`ReasonMessage`|String|---|---|Mensagem explicativa para análise.|
+|`Links.Method`|String|---|---|Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|	String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
 
 ##### Requisição
 
@@ -5806,6 +5841,13 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 |---|---|---|---|---|
 |`ConfirmationStatus`|Integer int16|---|---|Status da confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
 |`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado<br><br>13 = Abortado|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
+|`ReasonCode`|Integer|int16|---|---|Código de referência para análises.|
+|`ReasonMessage`|String|---|---|Mensagem explicativa para análise.|
+|`Links.Method`|String|---|---|Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|	String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
 
 #### Cartão com chip
 
@@ -5855,6 +5897,13 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 |---|---|---|---|---|
 |`ConfirmationStatus`|Integer int16|---|---|Status da confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
 |`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado<br><br>13 = Abortado|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
+|`ReasonCode`|Integer|int16|---|---|Código de referência para análises.|
+|`ReasonMessage`|String|---|---|Mensagem explicativa para análise.|
+|`Links.Method`|String|---|---|Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|	String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
 
 ##### Requisição
 
@@ -5898,6 +5947,13 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 |---|---|---|---|---|
 |`ConfirmationStatus`|Integer int16|---|---|Status da confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
 |`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado<br><br>13 = Abortado|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
+|`ReasonCode`|Integer|int16|---|---|Código de referência para análises.|
+|`ReasonMessage`|String|---|---|Mensagem explicativa para análise.|
+|`Links.Method`|String|---|---|Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|	String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
 
 ## Consultas
 
