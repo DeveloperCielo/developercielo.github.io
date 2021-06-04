@@ -3989,7 +3989,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
-### Requsição
+#### Requsição
 
 ```json
 {
