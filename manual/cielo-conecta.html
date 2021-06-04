@@ -10429,7 +10429,7 @@
   </tbody>
 </table>
 
-<h3 id="venda-com-cartão-de-débito-com-emv-e-senha-online">Venda com cartão de débito com EMV e senha online</h3>
+<h3 id="débito-por-chip-e-senha-onlinene">Débito por chip e senha onlinene</h3>
 
 <h4 id="requisição-9">Requisição</h4>
 
@@ -10566,24 +10566,24 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PinBlock.EncryptedPinBlock</code></td>
+      <td>String</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Sim</td>
+      <td>PINBlock Criptografado<br />- Para transações EMV, esse campo é obtido através do retorno da função PP_GoOnChip(), mais especificamente das posições 007 até a posição 022;<br />- Para transações digitadas e com tarja magnética, verificar as posições 001 até 016 do retorno da função PP_GetPin().</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PinBlock.EncryptionType</code></td>
+      <td>String</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Sim</td>
+      <td>Tipo de Criptografia<br />Enum:<br />“DukptDes”<br />“Dukpt3Des”<br />“MasterKey”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PinBlock.KsnIdentification</code></td>
+      <td>String</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Sim</td>
+      <td>Identificação do KSN<br />- Para transações EMV esse campo é obtido através do retorno da função PP_GoOnChip() nas posições 023 até 042;<br />- Para transações digitadas e com tarja magnética, verificar as posições 017 até 036 do retorno da função PP_GetPin().</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.PanSequenceNumber</code></td>
@@ -10593,18 +10593,18 @@
       <td>Número sequencial do cartão, utilizado para identificar a conta corrente do cartão adicional. Mandatório para transações com cartões Chip EMV e que possuam PAN Sequence Number (Tag 5F34).</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.SaveCard</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DebitrCard.SaveCard</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Identifica se vai salvar/tokenizar o cartão.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.IsFallback</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Identifica se é uma transação de fallback.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PinPadInformation.TerminalId</code></td>
@@ -11139,26 +11139,26 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PinBlock.EncryptedPinBlock</code></td>
+      <td>String</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Sim</td>
+      <td>PINBlock Criptografado<br />- Para transações EMV, esse campo é obtido através do retorno da função PP_GoOnChip(), mais especificamente das posições 007 até a posição 022;<br />- Para transações digitadas e com tarja magnética, verificar as posições 001 até 016 do retorno da função PP_GetPin().</td>
       <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PinBlock.EncryptionType</code></td>
       <td>String</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Sim</td>
+      <td>Tipo de Criptografia<br />Enum:<br />“DukptDes”<br />“Dukpt3Des”<br />“MasterKey”</td>
       <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PinBlock.KsnIdentification</code></td>
       <td>String</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Sim</td>
+      <td>Identificação do KSN<br />- Para transações EMV esse campo é obtido através do retorno da função PP_GoOnChip() nas posições 023 até 042;<br />- Para transações digitadas e com tarja magnética, verificar as posições 017 até 036 do retorno da função PP_GetPin().</td>
       <td> </td>
     </tr>
     <tr>
@@ -11170,19 +11170,19 @@
       <td> </td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DebitCard.SaveCard</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Identifica se vai salvar/tokenizar o cartão.</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.IsFallback</code></td>
+      <td><code class="language-plaintext highlighter-rouge">DebitCard.IsFallback</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Identifica se é uma transação de fallback.</td>
       <td> </td>
     </tr>
     <tr>
@@ -11604,7 +11604,7 @@
   </tbody>
 </table>
 
-<h3 id="venda-com-vale-alimentação-cartão-de-voucher-com-emv-e-senha-online">Venda com vale alimentação (cartão de voucher) com EMV e senha online</h3>
+<h3 id="voucher-por-chip-e-senha-online">Voucher por chip e senha online</h3>
 
 <h4 id="requisição-10">Requisição</h4>
 
@@ -11741,24 +11741,24 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PinBlock.EncryptedPinBlock</code></td>
+      <td>String</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Sim</td>
+      <td>PINBlock Criptografado<br />- Para transações EMV, esse campo é obtido através do retorno da função PP_GoOnChip(), mais especificamente das posições 007 até a posição 022;<br />- Para transações digitadas e com tarja magnética, verificar as posições 001 até 016 do retorno da função PP_GetPin().</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PinBlock.EncryptionType</code></td>
+      <td>String</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Sim</td>
+      <td>Tipo de Criptografia<br />Enum:<br />“DukptDes”<br />“Dukpt3Des”<br />“MasterKey”</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PinBlock.KsnIdentification</code></td>
+      <td>String</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Sim</td>
+      <td>Identificação do KSN<br />- Para transações EMV esse campo é obtido através do retorno da função PP_GoOnChip() nas posições 023 até 042;<br />- Para transações digitadas e com tarja magnética, verificar as posições 017 até 036 do retorno da função PP_GetPin().</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">VoucherCard.PanSequenceNumber</code></td>
@@ -11769,17 +11769,17 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">VoucherCard.SaveCard</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Identifica se vai salvar/tokenizar o cartão.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">VoucherCard.IsFallback</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Identifica se é uma transação de fallback.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PinPadInformation.TerminalId</code></td>
@@ -12314,26 +12314,26 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PinBlock.EncryptedPinBlock</code></td>
+      <td>String</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Sim</td>
+      <td>PINBlock Criptografado<br />- Para transações EMV, esse campo é obtido através do retorno da função PP_GoOnChip(), mais especificamente das posições 007 até a posição 022;<br />- Para transações digitadas e com tarja magnética, verificar as posições 001 até 016 do retorno da função PP_GetPin().</td>
       <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PinBlock.EncryptionType</code></td>
       <td>String</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Sim</td>
+      <td>Tipo de Criptografia<br />Enum:<br />“DukptDes”<br />“Dukpt3Des”<br />“MasterKey”</td>
       <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PinBlock.KsnIdentification</code></td>
       <td>String</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Sim</td>
+      <td>Identificação do KSN<br />- Para transações EMV esse campo é obtido através do retorno da função PP_GoOnChip() nas posições 023 até 042;<br />- Para transações digitadas e com tarja magnética, verificar as posições 017 até 036 do retorno da função PP_GetPin().</td>
       <td> </td>
     </tr>
     <tr>
@@ -12345,19 +12345,19 @@
       <td> </td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
+      <td><code class="language-plaintext highlighter-rouge">VoucherCard.SaveCard</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Identifica se vai salvar/tokenizar o cartão.</td>
       <td> </td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.IsFallback</code></td>
+      <td><code class="language-plaintext highlighter-rouge">VoucherCard.IsFallback</code></td>
+      <td>Booleano</td>
       <td>—</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Identifica se é uma transação de fallback.</td>
       <td> </td>
     </tr>
     <tr>
