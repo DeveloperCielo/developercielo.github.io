@@ -3985,44 +3985,6 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`SplitErrors.Code`|---|---|---|---|
 |`SplitErrors.Message`|---|---|---|---|
 
-### Crédito a vista com QRCode
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
-
-#### Requsição
-
-```json
-{
-	"MerchantOrderId": "1596226820548",
-	"Payment":{
-		"SubordinatedMerchantId": "{Auth_ClientId}",
-		"Type": "PhysicalCreditCard",
-        "SoftDescriptor": "Description",
-		"PaymentDateTime": "2020-07-31T20:20:20.548Z",
-		"Amount": 200,
-		"Installments": 1,
-		"Interest": "ByMerchant",
-    	"Capture": true,
-		"ProductId": 1,
-		"CreditCard":{
-			"InputMode": "QRCode",
-			"QRCodeData": "180313001B1D4349",
-		    "PinBlock": {
-		        "EncryptedPinBlock": "2280F6BDFD0C038D",
-		        "EncryptionType": "Dukpt3Des",
-		        "KsnIdentification": "fffff9999900522000d6"
-		    }
-		},
-		"PinPadInformation":{
-			"TerminalId": "1234578",
-			"SerialNumber": "6C651996",
-			"PhysicalCharacteristics": "PinPadWithChipReaderWithSamModuleAndContactless",
-			"ReturnDataInfo": "00"
-		}
-	}
-}
-```
-
 ## Fluxo de pagamento (Biblioteca Compartilhada)
 
 **Exemplo fluxo (Biblioteca Compartilhada):**
