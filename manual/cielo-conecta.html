@@ -9562,9 +9562,876 @@
   </tbody>
 </table>
 
-<h3 id="venda-com-cartão-de-débito-com-emv-e-senha-online">Venda com cartão de débito com EMV e senha online</h3>
+<h3 id="crédito-por-chip-com-cartão-criptografado">Crédito por chip com cartão criptografado</h3>
 
 <h4 id="requisição-8">Requisição</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1596226820548"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PhysicalCreditCard"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PaymentDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-15T12:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15798</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2020"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"BrandId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IssuerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"InputMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emv"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AuthenticationMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OnlineAuthentication"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TrackTwoData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0123456789012345=012345678901234"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"EncryptedCardData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"EncryptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DUKPT3DES"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"TrackTwoDataKSN"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KSNforTrackTwoData"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"EmvData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"PinBlock"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"EncryptedPinBlock"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2280F6BDFD0C038D"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"EncryptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dukpt3Des"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"KsnIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1231vg31fv231313123"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"PanSequenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IsFallback"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"PinPadInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"TerminalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10000001"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SerialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC123"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"PhysicalCharacteristics"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PinPadWithChipReaderWithSamModule"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReturnDataInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Value: <code class="language-plaintext highlighter-rouge">PhysicalCreditCard</code> / Tipo da Transação</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
+      <td>String</td>
+      <td>13</td>
+      <td>—</td>
+      <td>Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.PaymentDateTime</code></td>
+      <td>String</td>
+      <td>date-time</td>
+      <td>Sim</td>
+      <td>Data e Hora da captura da transação</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Integer(int64)</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Valor da transação (1079 = R$10,79)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Default: <code class="language-plaintext highlighter-rouge">ByMerchant</code> <br /> Enum: <code class="language-plaintext highlighter-rouge">ByMerchant</code> <code class="language-plaintext highlighter-rouge">ByIssuer</code> <br /> Tipo de Parcelamento: <br /> - Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado. <br /> - Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ProductId</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Código do produto identificado através do bin do cartão.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td>String</td>
+      <td>MM/yyyy</td>
+      <td>Sim</td>
+      <td>Data de validade do cartão. <br />Dado obtido através do comando PP_GetCard na BC no momento da captura da transação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.BrandId</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.IssuerId</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Código do emissor obtido através do campo IssuerId da BIN TABLE.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.InputMode</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Enum: <code class="language-plaintext highlighter-rouge">Typed</code> <code class="language-plaintext highlighter-rouge">MagStripe</code> <code class="language-plaintext highlighter-rouge">Emv</code> <br />Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. <br />“00” – Magnético <br />“01” - Moedeiro VISA Cash sobre TIBC v1 <br />“02” - Moedeiro VISA Cash sobre TIBC v3 <br />“03” – EMV com contato <br />“04” - Easy-Entry sobre TIBC v1 <br />“05” - Chip sem contato simulando tarja <br /> “06” - EMV sem contato.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.AuthenticationMethod</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Enum: <code class="language-plaintext highlighter-rouge">NoPassword</code> <code class="language-plaintext highlighter-rouge">OnlineAuthentication</code> <code class="language-plaintext highlighter-rouge">OfflineAuthentication</code> <br />Método de autenticação <br />- Se o cartão foi lido a partir da digitação verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1; <br />- Se o cartão foi lido a partir da trilha verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, deve ser verificado o bit 2 do mesmo campo. Se este estiver com valor 1 deve ser capturada a senha. Se estiver com valor 0 a captura da senha vai depender do último dígito do service code; <br />- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2. <br />1 - Sem senha = “NoPassword”; <br />2 - Senha online = “Online Authentication”; <br />3 - Senha off-line = “Offline Authentication”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.EmvData</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Dados da transação EMV <br />Obtidos através do comando PP_GoOnChip na BC</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PinBlock.EncryptedPinBlock</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>PINBlock Criptografado<br />- Para transações EMV, esse campo é obtido através do retorno da função PP_GoOnChip(), mais especificamente das posições 007 até a posição 022;<br />- Para transações digitadas e com tarja magnética, verificar as posições 001 até 016 do retorno da função PP_GetPin().</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PinBlock.EncryptionType</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Tipo de Criptografia<br />Enum:<br />“DukptDes”<br />“Dukpt3Des”<br />“MasterKey”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PinBlock.KsnIdentification</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Identificação do KSN<br />- Para transações EMV esse campo é obtido através do retorno da função PP_GoOnChip() nas posições 023 até 042;<br />- Para transações digitadas e com tarja magnética, verificar as posições 017 até 036 do retorno da função PP_GetPin().</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.PanSequenceNumber</code></td>
+      <td>Number</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Número sequencial do cartão, utilizado para identificar a conta corrente do cartão adicional. Mandatório para transações com cartões Chip EMV e que possuam PAN Sequence Number (Tag 5F34).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Identifica se vai salvar/tokenizar o cartão.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.IsFallback</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Identifica se é uma transação de fallback.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PinPadInformation.TerminalId</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Número Lógico definido no Concentrador Cielo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PinPadInformation.SerialNumber</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Número de Série do Equipamento.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PinPadInformation.PhysicalCharacteristics</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Enum: <code class="language-plaintext highlighter-rouge">WithoutPinPad</code> <code class="language-plaintext highlighter-rouge">PinPadWithoutChipReader</code> <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithoutSamModule</code> <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithSamModule</code> <code class="language-plaintext highlighter-rouge">NotCertifiedPinPad</code> <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithoutSamAndContactless</code> <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithSamModuleAndContactless</code> <br /> Sem PIN-pad = <code class="language-plaintext highlighter-rouge">WithoutPinPad</code>; <br /> PIN-pad sem leitor de Chip = <code class="language-plaintext highlighter-rouge">PinpadWithoutChipReader</code>; <br />PIN-pad com leitor de Chip sem módulo SAM = <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithoutSamModule</code>; <br /> PIN-pad com leitor de Chip com módulo SAM = <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithSamModule</code>; <br /> PIN-pad não homologado = <code class="language-plaintext highlighter-rouge">NotCertifiedPinPad</code>; <br /> PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = <code class="language-plaintext highlighter-rouge">PinpadWithChipReaderWithoutSamAndContactless</code>; <br /> PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = <code class="language-plaintext highlighter-rouge">PinpadWithChipReaderWithSamAndContactless</code>. <br /> Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PinPadInformation.ReturnDataInfo</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Retorno da função PP_GetInfo() da biblioteca compartilhada</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-8">Resposta</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Birthday</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.Street</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.Number</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.Complement</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.ZipCode</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.City</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.State</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.Country</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DeliveryAddress.Street</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DeliveryAddress.Number</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DeliveryAddress.Complement</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DeliveryAddress.ZipCode</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DeliveryAddress.City</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DeliveryAddress.State</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DeliveryAddress.Country</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Default: <code class="language-plaintext highlighter-rouge">ByMerchant</code> <br /> Enum: <code class="language-plaintext highlighter-rouge">ByMerchant</code> <code class="language-plaintext highlighter-rouge">ByIssuer</code> <br /> Tipo de Parcelamento: <br /> - Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado. <br /> - Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td>String</td>
+      <td>MM/yyyy</td>
+      <td>Sim</td>
+      <td>Data de validade do cartão. <br />Dado obtido através do comando PP_GetCard na BC no momento da captura da transação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.BrandId</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.IssuerId</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Código do emissor obtido através do campo IssuerId da BIN TABLE.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.TruncateCardNumberWhenPrinting</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Indica se o número do cartão será truncado no momento da impressão do comprovante. A solução de captura deve tomar essa decisão com base no <code class="language-plaintext highlighter-rouge">confParamOp03</code> presente nas tabelas BIN TABLE, PARAMETER TABLE e ISSUER TABLE.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.InputMode</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Enum: <code class="language-plaintext highlighter-rouge">Typed</code> <code class="language-plaintext highlighter-rouge">MagStripe</code> <code class="language-plaintext highlighter-rouge">Emv</code> <br />Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. <br />“00” – Magnético <br />“01” - Moedeiro VISA Cash sobre TIBC v1 <br />“02” - Moedeiro VISA Cash sobre TIBC v3 <br />“03” – EMV com contato <br />“04” - Easy-Entry sobre TIBC v1 <br />“05” - Chip sem contato simulando tarja <br /> “06” - EMV sem contato.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.AuthenticationMethod</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Enum: <code class="language-plaintext highlighter-rouge">NoPassword</code> <code class="language-plaintext highlighter-rouge">OnlineAuthentication</code> <code class="language-plaintext highlighter-rouge">OfflineAuthentication</code> <br />Método de autenticação <br />- Se o cartão foi lido a partir da digitação verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1; <br />- Se o cartão foi lido a partir da trilha verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, deve ser verificado o bit 2 do mesmo campo. Se este estiver com valor 1 deve ser capturada a senha. Se estiver com valor 0 a captura da senha vai depender do último dígito do service code; <br />- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2. <br />1 - Sem senha = “NoPassword”; <br />2 - Senha online = “Online Authentication”; <br />3 - Senha off-line = “Offline Authentication”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.EmvData</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Dados da transação EMV <br />Obtidos através do comando PP_GoOnChip na BC</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PinBlock.EncryptedPinBlock</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>PINBlock Criptografado<br />- Para transações EMV, esse campo é obtido através do retorno da função PP_GoOnChip(), mais especificamente das posições 007 até a posição 022;<br />- Para transações digitadas e com tarja magnética, verificar as posições 001 até 016 do retorno da função PP_GetPin().</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PinBlock.EncryptionType</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Tipo de Criptografia<br />Enum:<br />“DukptDes”<br />“Dukpt3Des”<br />“MasterKey”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PinBlock.KsnIdentification</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Identificação do KSN<br />- Para transações EMV esse campo é obtido através do retorno da função PP_GoOnChip() nas posições 023 até 042;<br />- Para transações digitadas e com tarja magnética, verificar as posições 017 até 036 do retorno da função PP_GetPin().</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.PanSequenceNumber</code></td>
+      <td>Number</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Número sequencial do cartão, utilizado para identificar a conta corrente do cartão adicional. Mandatório para transações com cartões Chip EMV e que possuam PAN Sequence Number (Tag 5F34).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Identifica se vai salvar/tokenizar o cartão.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.IsFallback</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Identifica se é uma transação de fallback.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.PaymentDateTime</code></td>
+      <td>String</td>
+      <td>date-time</td>
+      <td>Sim</td>
+      <td>Data e Hora da captura da transação</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ServiceTaxAmount</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
+      <td>String</td>
+      <td>13</td>
+      <td>—</td>
+      <td>Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ProductId</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Código do produto identificado através do bin do cartão.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PinPadInformation.TerminalId</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Número Lógico definido no Concentrador Cielo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PinPadInformation.SerialNumber</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Número de Série do Equipamento.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PinPadInformation.PhysicalCharacteristics</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Enum: <code class="language-plaintext highlighter-rouge">WithoutPinPad</code> <code class="language-plaintext highlighter-rouge">PinPadWithoutChipReader</code> <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithoutSamModule</code> <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithSamModule</code> <code class="language-plaintext highlighter-rouge">NotCertifiedPinPad</code> <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithoutSamAndContactless</code> <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithSamModuleAndContactless</code> <br /> Sem PIN-pad = <code class="language-plaintext highlighter-rouge">WithoutPinPad</code>; <br /> PIN-pad sem leitor de Chip = <code class="language-plaintext highlighter-rouge">PinpadWithoutChipReader</code>; <br />PIN-pad com leitor de Chip sem módulo SAM = <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithoutSamModule</code>; <br /> PIN-pad com leitor de Chip com módulo SAM = <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithSamModule</code>; <br /> PIN-pad não homologado = <code class="language-plaintext highlighter-rouge">NotCertifiedPinPad</code>; <br /> PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = <code class="language-plaintext highlighter-rouge">PinpadWithChipReaderWithoutSamAndContactless</code>; <br /> PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = <code class="language-plaintext highlighter-rouge">PinpadWithChipReaderWithSamAndContactless</code>. <br /> Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PinPadInformation.ReturnDataInfo</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Retorno da função PP_GetInfo() da biblioteca compartilhada</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Integer(int64)</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Valor da transação (1079 = R$10,79)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ReceivedDate</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CapturedAmount</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ConfirmationStatus</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.InitializationVersion</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.EmvResponseData</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Status</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.IsSplitted</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ReturnCode</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ReturnMessage</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.PaymentId</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Value: <code class="language-plaintext highlighter-rouge">PhysicalCreditCard</code> / Tipo da Transação</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Default: “BRL” / Value: “BRL” / Moeda (Preencher com “BRL”)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Country</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Default: “BRA” / Value: “BRA” / País (Preencher com “BRA”)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.MerchantName</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.MerchantAddress</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.MerchantCity</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.MerchantState</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.MerchantCode</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.Terminal</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.Nsu</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.Date</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.Hour</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.IssuerName</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.CardNumber</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.TransactionType</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.AuthorizationCode</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.TransactionMode</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.InputMethod</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.Value</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.SoftDescriptor</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPayment.RecurrentPaymentId</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPayment.ReasonCode</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPayment.ReasonMessage</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPayment.NextRecurrency</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPayment.EndDate</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPayment.Interval</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.SubordinateMerchantId</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Amount</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Fares.Mdr</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Fares.Fee</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SplitErrors.Code</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SplitErrors.Message</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="venda-com-cartão-de-débito-com-emv-e-senha-online">Venda com cartão de débito com EMV e senha online</h3>
+
+<h4 id="requisição-9">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -9770,7 +10637,7 @@
   </tbody>
 </table>
 
-<h4 id="resposta-8">Resposta</h4>
+<h4 id="resposta-9">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20180204"</span><span class="p">,</span><span class="w">
@@ -10739,7 +11606,7 @@
 
 <h3 id="venda-com-vale-alimentação-cartão-de-voucher-com-emv-e-senha-online">Venda com vale alimentação (cartão de voucher) com EMV e senha online</h3>
 
-<h4 id="requisição-9">Requisição</h4>
+<h4 id="requisição-10">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
@@ -10945,7 +11812,7 @@
   </tbody>
 </table>
 
-<h4 id="resposta-9">Resposta</h4>
+<h4 id="resposta-10">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20180204"</span><span class="p">,</span><span class="w">
@@ -12070,11 +12937,11 @@
 
 <p>Solicita as tabelas e parametros para operação do terminal</p>
 
-<h3 id="requisição-10">Requisição</h3>
+<h3 id="requisição-11">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/initialization/{SubordinatedMerchantId}/{TerminalId}</span></aside>
 
-<h3 id="resposta-10">Resposta</h3>
+<h3 id="resposta-11">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -13388,11 +14255,11 @@
 
 <p>Solicita as tabelas e parametros para operação do terminal. Como não foi informado o <code class="language-plaintext highlighter-rouge">SubordinatedMerchantId</code>, será assumida a loja principal do facilitador, isto é, a loja que tem o ID igual ao <code class="language-plaintext highlighter-rouge">ClientId</code> usado para a autenticação. Esta loja é criada automaticamente durante o processo de cadastro do facilitador executado pela Cielo.</p>
 
-<h3 id="requisição-11">Requisição</h3>
+<h3 id="requisição-12">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/initialization/{TerminalId}</span></aside>
 
-<h3 id="resposta-11">Resposta</h3>
+<h3 id="resposta-12">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -14727,14 +15594,14 @@
 
 <h2 id="confirmação-de-pagamento-usando-cartão-digitado">Confirmação de pagamento usando cartão digitado</h2>
 
-<h3 id="requisição-12">Requisição</h3>
+<h3 id="requisição-13">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/confirmation</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kc">null</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="resposta-12">Resposta</h3>
+<h3 id="resposta-13">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"ConfirmationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -14800,7 +15667,7 @@
 
 <h2 id="confirmação-de-pagamento-usando-cartão-emv">Confirmação de pagamento usando cartão EMV</h2>
 
-<h3 id="requisição-13">Requisição</h3>
+<h3 id="requisição-14">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/confirmation</span></aside>
 
@@ -14838,7 +15705,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta-13">Resposta</h3>
+<h3 id="resposta-14">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"ConfirmationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -14921,7 +15788,7 @@
 
 <h2 id="cancelamento-de-pagamento-com-cartão-digitado">Cancelamento de pagamento com cartão digitado</h2>
 
-<h3 id="requisição-14">Requisição</h3>
+<h3 id="requisição-15">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/</span></aside>
 
@@ -14977,7 +15844,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta-14">Resposta</h3>
+<h3 id="resposta-15">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"VoidId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f15889ea-5719-4e1a-a2da-f4e50d5bd702"</span><span class="p">,</span><span class="w">
@@ -15278,7 +16145,7 @@
 
 <h2 id="cancelamento-de-pagamento-com-cartão-presente">Cancelamento de pagamento com cartão presente</h2>
 
-<h3 id="requisição-15">Requisição</h3>
+<h3 id="requisição-16">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/</span></aside>
 
@@ -15342,7 +16209,7 @@
   </tbody>
 </table>
 
-<h3 id="resposta-15">Resposta</h3>
+<h3 id="resposta-16">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"VoidId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f15889ea-5719-4e1a-a2da-f4e50d5bd702"</span><span class="p">,</span><span class="w">
@@ -15482,11 +16349,11 @@
   </tbody>
 </table>
 
-<h3 id="requisição-16">Requisição</h3>
+<h3 id="requisição-17">Requisição</h3>
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}</span></aside>
 
-<h3 id="resposta-16">Resposta</h3>
+<h3 id="resposta-17">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"ConfirmationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -15537,11 +16404,11 @@
   </tbody>
 </table>
 
-<h3 id="requisição-17">Requisição</h3>
+<h3 id="requisição-18">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/undo</span></aside>
 
-<h3 id="resposta-17">Resposta</h3>
+<h3 id="resposta-18">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"ConfirmationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -15613,98 +16480,9 @@
   </tbody>
 </table>
 
-<h3 id="requisição-18">Requisição</h3>
-
-<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}</span></aside>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"EmvData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"IssuerScriptsResults"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">EmvData</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Dados da transação EMV <br />Dados obtidos através do comando PP_GoOnChip na BC</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">IssuerScriptsResults</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Resultado dos scripts EMV do emissor</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="resposta-18">Resposta</h3>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"ConfirmationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ConfirmationStatus</code></td>
-      <td>Integer int16</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Status da confirmação. <br />0 = Pendente <br />1 = Confirmado <br />2 = Desfeito</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Integer int16</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Status da transação <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Pago <br />3 = Negado <br />10 = Cancelado<br />13 = Abortado</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Código de erro/resposta da transação da Adquirência.</td>
-    </tr>
-  </tbody>
-</table>
-
 <h3 id="requisição-19">Requisição</h3>
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/undo</span></aside>
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"EmvData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800"</span><span class="p">,</span><span class="w">
@@ -15791,6 +16569,95 @@
   </tbody>
 </table>
 
+<h3 id="requisição-20">Requisição</h3>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/undo</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"EmvData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"IssuerScriptsResults"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">EmvData</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Dados da transação EMV <br />Dados obtidos através do comando PP_GoOnChip na BC</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">IssuerScriptsResults</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Resultado dos scripts EMV do emissor</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="resposta-20">Resposta</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ConfirmationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ConfirmationStatus</code></td>
+      <td>Integer int16</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Status da confirmação. <br />0 = Pendente <br />1 = Confirmado <br />2 = Desfeito</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Integer int16</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Status da transação <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Pago <br />3 = Negado <br />10 = Cancelado<br />13 = Abortado</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Código de erro/resposta da transação da Adquirência.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="desfazimento-de-pagamento-de-cartão-digitado-1">Desfazimento de pagamento de cartão digitado</h2>
 
 <p>Quando o pagamento não retornar, o mesmo deve ser desfeito.</p>
@@ -15812,11 +16679,11 @@
   </tbody>
 </table>
 
-<h3 id="requisição-20">Requisição</h3>
+<h3 id="requisição-21">Requisição</h3>
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}</span></aside>
 
-<h3 id="resposta-20">Resposta</h3>
+<h3 id="resposta-21">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"ConfirmationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -15875,11 +16742,11 @@
   </tbody>
 </table>
 
-<h3 id="requisição-21">Requisição</h3>
+<h3 id="requisição-22">Requisição</h3>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}/undo</span></aside>
 
-<h3 id="resposta-21">Resposta</h3>
+<h3 id="resposta-22">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"ConfirmationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -15959,106 +16826,9 @@
   </tbody>
 </table>
 
-<h3 id="requisição-22">Requisição</h3>
-
-<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}</span></aside>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"EmvData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"IssuerScriptsResults"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">EmvData</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Dados da transação EMV <br />Dados obtidos através do comando PP_GoOnChip na BC</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">IssuerScriptsResults</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Resultado dos scripts EMV do emissor</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="resposta-22">Resposta</h3>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"ConfirmationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ConfirmationStatus</code></td>
-      <td>Integer int16</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Status da confirmação. <br />0 = Pendente <br />1 = Confirmado <br />2 = Desfeito</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Integer int16</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Status da transação <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Pago <br />3 = Negado <br />10 = Cancelado<br />13 = Abortado</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Código de erro/resposta da transação da Adquirência.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Mensagem de erro/resposta da transação da Adquirência.</td>
-    </tr>
-  </tbody>
-</table>
-
 <h3 id="requisição-23">Requisição</h3>
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}/undo</span></aside>
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"EmvData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800"</span><span class="p">,</span><span class="w">
@@ -16153,15 +16923,112 @@
   </tbody>
 </table>
 
+<h3 id="requisição-24">Requisição</h3>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}/undo</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"EmvData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"IssuerScriptsResults"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">EmvData</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Dados da transação EMV <br />Dados obtidos através do comando PP_GoOnChip na BC</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">IssuerScriptsResults</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Resultado dos scripts EMV do emissor</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="resposta-24">Resposta</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ConfirmationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ConfirmationStatus</code></td>
+      <td>Integer int16</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Status da confirmação. <br />0 = Pendente <br />1 = Confirmado <br />2 = Desfeito</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Integer int16</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Status da transação <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Pago <br />3 = Negado <br />10 = Cancelado<br />13 = Abortado</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Código de erro/resposta da transação da Adquirência.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Mensagem de erro/resposta da transação da Adquirência.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="desfazimento-de-cancelamento">Desfazimento de cancelamento</h1>
 
 <h2 id="desfaz-um-cancelamento">Desfaz um cancelamento</h2>
 
-<h3 id="requisição-24">Requisição</h3>
+<h3 id="requisição-25">Requisição</h3>
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/{VoidId}</span></aside>
 
-<h3 id="resposta-24">Resposta</h3>
+<h3 id="resposta-25">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"CancellationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
@@ -16227,11 +17094,11 @@
 
 <h2 id="desfaz-um-cancelamento-1">Desfaz um cancelamento</h2>
 
-<h3 id="requisição-25">Requisição</h3>
+<h3 id="requisição-26">Requisição</h3>
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/merchantVoidId/{MerchantVoidId}</span></aside>
 
-<h3 id="resposta-25">Resposta</h3>
+<h3 id="resposta-26">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"CancellationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
@@ -16668,7 +17535,7 @@
 
 <h3 id="cria-um-novo-terminal">Cria um novo terminal</h3>
 
-<h4 id="requisição-26">Requisição</h4>
+<h4 id="requisição-27">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals</span></aside>
 
@@ -16730,7 +17597,7 @@
   </tbody>
 </table>
 
-<h4 id="resposta-26">Resposta</h4>
+<h4 id="resposta-27">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Terminal"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -16794,7 +17661,7 @@
 
 <h3 id="desabilita-um-terminal-removendo-o-vínculo-com-um-equipamento-físico">Desabilita um terminal removendo o vínculo com um equipamento físico.</h3>
 
-<h4 id="requisição-27">Requisição</h4>
+<h4 id="requisição-28">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals/disable</span></aside>
 
@@ -16838,11 +17705,11 @@
 
 <p>Consulta um pagamento</p>
 
-<h3 id="requisição-28">Requisição</h3>
+<h3 id="requisição-29">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/physicalSales/{PaymentId}</span></aside>
 
-<h3 id="resposta-27">Resposta</h3>
+<h3 id="resposta-28">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20180204"</span><span class="p">,</span><span class="w">
@@ -17424,11 +18291,11 @@
 
 <p>Consulta um cancelamento</p>
 
-<h3 id="requisição-29">Requisição</h3>
+<h3 id="requisição-30">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/{VoidId}</span></aside>
 
-<h3 id="resposta-28">Resposta</h3>
+<h3 id="resposta-29">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"VoidId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a4bc7892-b455-4cd1-b902-c791802cd72b"</span><span class="p">,</span><span class="w">
