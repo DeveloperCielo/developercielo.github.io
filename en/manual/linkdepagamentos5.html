@@ -2232,6 +2232,41 @@ The information returned via the Notification Post can be found in the topic <a 
 
 <h3 id="outros-códigos-de-retorno">Outros códigos de retorno</h3>
 
+<table>
+  <thead>
+    <tr>
+      <th>Response Code</th>
+      <th>Definition</th>
+      <th>Meaning</th>
+      <th>Action</th>
+      <th>Allows Retry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>00</td>
+      <td>Transaction authorized successfully.</td>
+      <td>Transaction authorized successfully.</td>
+      <td>Transação autorizada com sucesso.</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>02</td>
+      <td>Unauthorized transaction. Referred transaction.</td>
+      <td>Unauthorized transaction. Referred (suspected fraud) by the issuing bank.</td>
+      <td>Unauthorized transaction. Contact your issuing bank.</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>09</td>
+      <td>Transaction canceled partially successfully.</td>
+      <td>Transaction canceled partially successfully.</td>
+      <td>Transaction canceled partially successfully.</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="anti-fraud-status">Anti-Fraud Status</h2>
 
 <table>
