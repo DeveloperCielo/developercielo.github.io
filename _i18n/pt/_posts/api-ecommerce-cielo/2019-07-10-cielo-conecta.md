@@ -5623,6 +5623,12 @@ Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pa
 |`ConfirmationStatus`|Integer int16|---|---|Status da confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
 |`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado<br><br>13 = Abortado|
 |`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
+|`ReasonCode`|	Integer int16	---	---	Código de referência para análises.|
+|`ReasonMessage`|String|	---	---	Mensagem explicativa para análise.|
+|`Links.Method`|String	---	---	Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|	String	---	---	Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
 
 ##### Requisição
 
@@ -5651,7 +5657,7 @@ Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pa
 |`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado<br><br>13 = Abortado|
 |`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
 
-### Desfazimento de pagamento de cartão EMV.
+#### Cartao com chip
 
 O pagamento retornou com sucesso e pode ser desfeito.
 
@@ -5661,7 +5667,7 @@ Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pa
 |:---------------------------------------------------:|:---------------------------------------------:|
 | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
 
-#### Requisição
+##### Requisição
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}</span></aside>
 
@@ -5677,7 +5683,7 @@ Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pa
 |`EmvData`|String|---|---|Dados da transação EMV <br><br>Dados obtidos através do comando PP_GoOnChip na BC|
 |`IssuerScriptsResults`|String|---|---|Resultado dos scripts EMV do emissor|
 
-#### Resposta
+##### Resposta
 
 ```json
 {
@@ -5699,8 +5705,14 @@ Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pa
 |`ConfirmationStatus`|Integer int16|---|---|Status da confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
 |`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado<br><br>13 = Abortado|
 |`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
+|`ReasonCode`|	Integer int16	---	---	Código de referência para análises.|
+|`ReasonMessage`|String|	---	---	Mensagem explicativa para análise.|
+|`Links.Method`|String	---	---	Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|	String	---	---	Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
 
-#### Requisição
+##### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/undo</span></aside>
 
@@ -5716,7 +5728,7 @@ Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pa
 |`EmvData`|String|---|---|Dados da transação EMV <br><br>Dados obtidos através do comando PP_GoOnChip na BC|
 |`IssuerScriptsResults`|String|---|---|Resultado dos scripts EMV do emissor|
 
-#### Resposta
+##### Resposta
 
 ```json
 {
@@ -5738,8 +5750,16 @@ Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pa
 |`ConfirmationStatus`|Integer int16|---|---|Status da confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
 |`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado<br><br>13 = Abortado|
 |`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
+|`ReasonCode`|	Integer int16	---	---	Código de referência para análises.|
+|`ReasonMessage`|String|	---	---	Mensagem explicativa para análise.|
+|`Links.Method`|String	---	---	Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|	String	---	---	Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
 
-### Desfazimento de pagamento de cartão digitado
+## Desfazimento por OrderId
+
+#### Cartão digitado
 
 Quando o pagamento não retornar, o mesmo deve ser desfeito.
 
@@ -5749,11 +5769,11 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 |:---------------------------------------------------:|:---------------------------------------------:|
 | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
 
-#### Requisição
+##### Requisição
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}</span></aside>
 
-#### Resposta
+##### Resposta
 
 ```json
 {
@@ -5777,12 +5797,23 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 |`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado<br><br>13 = Abortado|
 |`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
 |`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
+|`ReasonCode`|	Integer int16	---	---	Código de referência para análises.|
+|`ReasonMessage`|String|	---	---	Mensagem explicativa para análise.|
+|`Links.Method`|String	---	---	Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|	String	---	---	Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
 
-#### Requisição
+##### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}/undo</span></aside>
 
-#### Resposta
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantOrderId`|String|—|Sim|Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.|
+
+**Path Parameters:**
+
+##### Resposta
 
 ```json
 {
@@ -5806,8 +5837,13 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 |`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado<br><br>13 = Abortado|
 |`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
 |`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
+|`ReasonCode`|	Integer int16	---	---	Código de referência para análises.|
+|`ReasonMessage`|String|	---	---	Mensagem explicativa para análise.|
+|`Links.Method`|String	---	---	Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|	String	---	---	Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
 
-### Desfazimento de pagamento de cartão EMV
+#### Cartão com chip
 
 Quando o pagamento não retornar, o mesmo deve ser desfeito.
 
@@ -5817,7 +5853,7 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 |:---------------------------------------------------:|:---------------------------------------------:|
 | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
 
-#### Requisição
+##### Requisição
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}</span></aside>
 
@@ -5833,7 +5869,7 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 |`EmvData`|String|---|---|Dados da transação EMV <br><br>Dados obtidos através do comando PP_GoOnChip na BC|
 |`IssuerScriptsResults`|String|---|---|Resultado dos scripts EMV do emissor|
 
-#### Resposta
+##### Resposta
 
 ```json
 {
@@ -5858,9 +5894,13 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 |`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
 |`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
 
-#### Requisição
+##### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/orderId/{MerchantOrderId}/undo</span></aside>
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantOrderId`|String|—|Sim|Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.|
 
 ```json
 {
@@ -5874,7 +5914,7 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 |`EmvData`|String|---|---|Dados da transação EMV <br><br>Dados obtidos através do comando PP_GoOnChip na BC|
 |`IssuerScriptsResults`|String|---|---|Resultado dos scripts EMV do emissor|
 
-#### Resposta
+##### Resposta
 
 ```json
 {
@@ -5898,6 +5938,11 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 |`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado<br><br>13 = Abortado|
 |`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
 |`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
+|`ReasonCode`|	Integer int16	---	---	Código de referência para análises.|
+|`ReasonMessage`|String|	---	---	Mensagem explicativa para análise.|
+|`Links.Method`|String	---	---	Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|	String	---	---	Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
 
 ## Consultas
 
