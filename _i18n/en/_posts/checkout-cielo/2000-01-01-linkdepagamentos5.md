@@ -831,7 +831,7 @@ Cielo informs its customers that it is prepared to process transactions followin
 |22|Invalid installment. Number of invalid installments.|Unable to process transaction. Number of invalid installments. If the error persists, contact Cielo.|The transaction could not be processed. Invalid value. Redo the transaction confirming the data entered. If the error persists, contact the virtual store.|No|
 |24|Invalid amount of installments. | Unable to process the transaction. Invalid amount of installments. If the error persists, contact Cielo.|The transaction could not be processed. Invalid amount of installments. Redo the transaction confirming the data entered. If the error persists, contact the virtual store.|No|
 
-## Anti-Fraud Status
+## Anti-Fraud Status 
 
 |Field|Definition|
 |:-----:|--------------------------|
