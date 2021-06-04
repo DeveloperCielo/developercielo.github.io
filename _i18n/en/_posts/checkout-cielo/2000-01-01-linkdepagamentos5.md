@@ -826,6 +826,10 @@ Cielo informs its customers that it is prepared to process transactions followin
 | 00              | Transaction authorized successfully.            | Transaction authorized successfully.                                        | Transação autorizada com sucesso.                                 | No                  |
 | 02              | Unauthorized transaction. Referred transaction. | Unauthorized transaction. Referred (suspected fraud) by the issuing bank.   |Unauthorized transaction. Contact your issuing bank.               | No                  |
 |09|Transaction canceled partially successfully.                    | Transaction canceled partially successfully.                                | Transaction canceled partially successfully.                      | No                  |
+|11|Successfully authorized transaction for card issued abroad|Successfully authorized transaction.|Successfully authorized transaction.|No|
+|21|Cancellation not made. Transaction not found.|Unable to process cancellation. If the error persists, contact Cielo.|Unable to process cancellation. Try again later. If the error persists, contact the virtual store.|No|
+|22|Invalid installment. Number of invalid installments.|Unable to process transaction. Number of invalid installments. If the error persists, contact Cielo.|The transaction could not be processed. Invalid value. Redo the transaction confirming the data entered. If the error persists, contact the virtual store.|No|
+|24|Invalid amount of installments. | Unable to process the transaction. Invalid amount of installments. If the error persists, contact Cielo.|The transaction could not be processed. Invalid amount of installments. Redo the transaction confirming the data entered. If the error persists, contact the virtual store.|No|
 
 ## Anti-Fraud Status
 
