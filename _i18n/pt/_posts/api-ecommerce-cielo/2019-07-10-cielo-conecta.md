@@ -5703,7 +5703,7 @@ Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pa
 |`Links.Rel`|String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
 |`Links.Href`|String|---|---|Endereço de URL de chamada da API|
 
-## Desfazimento por OrderId
+### Desfazimento por OrderId
 
 #### Cartão digitado
 
