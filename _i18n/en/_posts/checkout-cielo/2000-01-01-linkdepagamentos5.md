@@ -821,6 +821,12 @@ Cielo informs its customers that it is prepared to process transactions followin
 
 ### Outros códigos de retorno
 
+| Response Code   | Definition                                      | Meaning                                                                     | Action                                                            | Allows Retry        |
+|-----------------|-------------------------------------------------|-----------------------------------------------------------------------------|-------------------------------------------------------------------|---------------------|
+| 00              | Transaction authorized successfully.            | Transaction authorized successfully.                                        | Transação autorizada com sucesso.                                 | No                  |
+| 02              | Unauthorized transaction. Referred transaction. | Unauthorized transaction. Referred (suspected fraud) by the issuing bank.   |Unauthorized transaction. Contact your issuing bank.               | No                  |
+|09|Transaction canceled partially successfully.                    | Transaction canceled partially successfully.                                | Transaction canceled partially successfully.                      | No                  |
+
 ## Anti-Fraud Status
 
 |Field|Definition|
