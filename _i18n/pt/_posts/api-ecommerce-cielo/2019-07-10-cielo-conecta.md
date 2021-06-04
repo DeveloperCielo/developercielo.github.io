@@ -5719,7 +5719,7 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`MerchantOrderId`|String|—|Sim|Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.|
+|`MerchantOrderId`|String|—|Sim|Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos|
 
 ##### Resposta
 
