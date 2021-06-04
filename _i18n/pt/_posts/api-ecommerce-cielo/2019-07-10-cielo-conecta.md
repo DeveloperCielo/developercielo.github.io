@@ -4213,6 +4213,301 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 #### Resposta
 
+```json
+{
+   "MerchantOrderId": "1593196632858",
+   "Customer": {
+      "Name": "[Guest]"
+   },
+   "Payment": {
+      "Installments": 1,
+      "Interest": "ByMerchant",
+      "Capture": true,
+      "CreditCard": {
+         "ExpirationDate": "12/2021",
+         "BrandId": 1,
+         "IssuerId": 401,
+         "TruncateCardNumberWhenPrinting": true,
+         "PanSequenceNumber": 1,
+         "InputMode": "Emv",
+         "AuthenticationMethod": "OnlineAuthentication",
+         "TrackOneData": "B3764 361234 56006^NOME NOME NOME NOME NOME N^0905060640431",
+         "TrackTwoData": "1111222233334444=09050606404312376450",
+         "EmvData": "",
+         "IsFallback": false,
+         "PinBlock": {
+            "EncryptedPinBlock": "2280F6BDFD0C038D",
+            "EncryptionType": "Dukpt3Des",
+            "KsnIdentification": "fffff9999900522000d6"
+         },
+         "BrandInformation": {
+            "Type": "aq?t?{zgk",
+            "Name": "f?b}wbrxa}",
+            "Description": "zmhm|mhpxh?s{mphntbv|~?wvr~tp"
+         },
+         "SaveCard": false
+      },
+      "Amount": 300,
+      "ReceivedDate": "2020-06-26T18:37:12Z",
+      "CapturedAmount": 300,
+      "CapturedDate": "2020-06-26T18:37:13Z",
+      "Provider": "Cielo",
+      "Status": 2,
+      "IsSplitted": false,
+      "ReturnMessage": "APROVADA 075551",
+      "ReturnCode": "000",
+      "PaymentId": "ef7530c9-ace3-4143-a7d2-c80ff70c9e93",
+      "Type": "PhysicalCreditCard",
+      "Currency": "BRL",
+      "Country": "BRA",
+      "Links": [
+         {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/ef7530c9-ace3-4143-a7d2-c80ff70c9e93"
+         },
+         {
+            "Method": "PUT",
+            "Rel": "confirm",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/ef7530c9-ace3-4143-a7d2-c80ff70c9e93/confirmation"
+         },
+         {
+            "Method": "DELETE",
+            "Rel": "reverse",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/ef7530c9-ace3-4143-a7d2-c80ff70c9e93"
+         }
+      ],
+      "PaymentDateTime": "2020-06-26T18:37:12.858Z",
+      "ServiceTaxAmount": 0,
+      "SoftDescriptor": "Description",
+      "ProductId": 1,
+      "PinPadInformation": {
+         "TerminalId": "42004558",
+         "SerialNumber": "6C651996",
+         "PhysicalCharacteristics": "PinPadWithChipReaderWithSamModuleAndContactless",
+         "ReturnDataInfo": "00"
+      },
+      "PrintMessage": [
+         {
+            "Position": "Top",
+            "Message": "yglxgftc{w"
+         },
+         {
+            "Position": "Middle",
+            "Message": "aji~?n?ckp"
+         },
+         {
+            "Position": "Bottom",
+            "Message": "uyai?|?{s?"
+         }
+      ],
+      "ReceiptInformation": [
+         {
+            "Field": "MERCHANT_NAME",
+            "Label": "NOME DO ESTABELECIMENTO",
+            "Content": "ipwa~jpkpg~ee?h?shzgo?h{??|w{bsj}gf}fnggnmw?m?mbhrqypsogdjps~q|v?fa}zbm?yatu?"
+         },
+         {
+            "Field": "MERCHANT_CITY",
+            "Label": "CIDADE DO ESTABELECIMENTO",
+            "Content": "odw{piu~?x{wcd{xu?kr{lirpey|?hyg~}oih|bhnbd?ijaqyzy?mkr?}qfcey?oo???fxxsqt?h"
+         },
+         {
+            "Field": "INPUT_METHOD",
+            "Label": "MODO DE ENTRADA",
+            "Content": "oq?p{nket|skqp{v?dyfyvlmekabfr~mktluzm{o|?wcovyi??rpkbz?udvckcnkbg??dg?wmko}?i?"
+         },
+         {
+            "Field": "TERMINAL",
+            "Label": "POS",
+            "Content": "56712930"
+         },
+         {
+            "Field": "ISSUER_NAME",
+            "Label": "EMISSOR",
+            "Content": "j~qaw{ydyslbiv{e{a?caw??lgcqs?elxe{exgj?yg{kxhz??xniekaw?tyqxivzoand?wqu|?o?wjd"
+         },
+         {
+            "Field": "NSU",
+            "Label": "DOC",
+            "Content": "415858"
+         },
+         {
+            "Field": "MERCHANT_CODE",
+            "Label": "COD.ESTAB.",
+            "Content": "13112148245096"
+         },
+         {
+            "Field": "MERCHANT_ADDRESS",
+            "Label": "ENDEREÇO DO ESTABELECIMENTO",
+            "Content": "wcjh~qf?gzjjv?sx{fr~a?|nld?{?i?zwjclx|pbq?n???z~o~xl??zso??~uwleqldoc|ubnp"
+         },
+         {
+            "Field": "AUTHORIZATION_CODE",
+            "Label": "AUTORIZAÇÃO",
+            "Content": "41101"
+         },
+         {
+            "Field": "CARD_HOLDER",
+            "Label": "NOME DO CLIENTE",
+            "Content": "obl}oh|q|b?xr?uoiuzjr|qmcjv?qptpn~t|j~??zlmfdcb}bhwo|wwu?{fw~amsrjxq}fox}txqeg?"
+         },
+         {
+            "Field": "TRANSACTION_TYPE",
+            "Label": "TIPO DE TRANSAÇÃO",
+            "Content": "gtfph?bwh?hkd|k??ypva?}?vi?gq}|?cyvfvqxqtvl?sx~rjre|?eto?pnh{{rl~hii~jig?coa"
+         },
+         {
+            "Field": "MERCHANT_STATE",
+            "Label": "ESTADO DO ESTABELECIMENTO",
+            "Content": "rc"
+         },
+         {
+            "Field": "DATE",
+            "Label": "DATA",
+            "Content": "6/26/2020"
+         },
+         {
+            "Field": "HOUR",
+            "Label": "HORA",
+            "Content": "3:37 PM"
+         },
+         {
+            "Field": "VALUE",
+            "Label": "VALOR",
+            "Content": "300"
+         },
+         {
+            "Field": "TRANSACTION_MODE",
+            "Label": "MODO DA TRANSAÇÃO",
+            "Content": "dug"
+         },
+         {
+            "Field": "CARD_NUMBER",
+            "Label": "CARTÃO"
+         }
+      ],
+      "Receipt": {
+         "MerchantName": "ipwa~jpkpg~ee?h?shzgo?h{??|w{bsj}gf}fnggnmw?m?mbhrqypsogdjps~q|v?fa}zbm?yatu?",
+         "MerchantCity": "odw{piu~?x{wcd{xu?kr{lirpey|?hyg~}oih|bhnbd?ijaqyzy?mkr?}qfcey?oo???fxxsqt?h",
+         "InputMethod": "oq?p{nket|skqp{v?dyfyvlmekabfr~mktluzm{o|?wcovyi??rpkbz?udvckcnkbg??dg?wmko}?i?",
+         "Terminal": "56712930",
+         "IssuerName": "j~qaw{ydyslbiv{e{a?caw??lgcqs?elxe{exgj?yg{kxhz??xniekaw?tyqxivzoand?wqu|?o?wjd",
+         "Nsu": "415858",
+         "MerchantCode": "13112148245096",
+         "MerchantAddress": "wcjh~qf?gzjjv?sx{fr~a?|nld?{?i?zwjclx|pbq?n???z~o~xl??zso??~uwleqldoc|ubnp",
+         "AuthorizationCode": "41101",
+         "CardHolder": "obl}oh|q|b?xr?uoiuzjr|qmcjv?qptpn~t|j~??zlmfdcb}bhwo|wwu?{fw~amsrjxq}fox}txqeg?",
+         "TransactionType": "gtfph?bwh?hkd|k??ypva?}?vi?gq}|?cyvfvqxqtvl?sx~rjre|?eto?pnh{{rl~hii~jig?coa",
+         "MerchantState": "rc",
+         "Date": "6/26/2020",
+         "Hour": "3:37 PM",
+         "Value": "300",
+         "TransactionMode": "dug",
+         "CardNumber": null
+      },
+      "AuthorizationCode": "075551",
+      "ProofOfSale": "441836",
+      "InitializationVersion": 1593196200000,
+      "ConfirmationStatus": 0,
+      "EmvResponseData": "956648280",
+      "SubordinatedMerchantId": "b99a463f-88db-442a-b5fa-982187b68f5c",
+      "OfflinePaymentType": "OfflineWithoutAttemptOnline"
+   }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantOrderId`|String|---|---| Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.|
+|`Customer.Name`|String|---|---|---|
+|`Customer.Identity`|---|---|---|---|
+|`Customer.IdentityType`|---|---|---|---|
+|`Customer.Email`|---|---|---|---|
+|`Customer.Birthday`|---|---|---|---|
+|`Address.Street`|String|---|---|---|
+|`Address.Number`|String|---|---|---|
+|`Address.Complement`|String|---|---||---|
+|`Address.ZipCode`|String|---|---|---|
+|`Address.City`|String|---|---|---|
+|`Address.State`|String|---|---|---|
+|`Address.Country`|String|---|---|---|
+|`DeliveryAddress.Street`|String|---|---|---|
+|`DeliveryAddress.Number`|String|---|---|---|
+|`DeliveryAddress.Complement`|String|---|---||---|
+|`DeliveryAddress.ZipCode`|String|---|---|---|
+|`DeliveryAddress.City`|String|---|---|---|
+|`DeliveryAddress.State`|String|---|---|---|
+|`DeliveryAddress.Country`|String|---|---|---|
+|`Payment.Installments`|Integer|---|---|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos maxOfPayments1, maxOfPayments2, maxOfPayments3 e minValOfPayments da tabela productTable.|
+|`Payment.Interest`|String|---|---|Default: `ByMerchant` <br><br> Enum: `ByMerchant` `ByIssuer` <br><br> Tipo de Parcelamento: <br><br> - Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado. <br><br> - Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.|
+|`Payment.Capture`|Booleano|---|---|Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.|
+|`CreditCard.ExpirationDate`|String|MM/yyyy|Sim|Data de validade do cartão. <br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação.|
+|`CreditCard.BrandId`|Integer|---|Sim|Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE.|
+|`CreditCard.IssuerId`|Integer|---|Sim|Código do emissor obtido através do campo IssuerId da BIN TABLE.|
+|`CreditCard.TruncateCardNumberWhenPrinting`|Booleano|---|---|Indica se o número do cartão será truncado no momento da impressão do comprovante. A solução de captura deve tomar essa decisão com base no `confParamOp03` presente nas tabelas BIN TABLE, PARAMETER TABLE e ISSUER TABLE.|
+|`CreditCard.InputMode`|String|---|Sim|Enum: `Typed` `MagStripe` `Emv` <br><br>Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. <br><br>"00" – Magnético <br><br>"01" - Moedeiro VISA Cash sobre TIBC v1 <br><br>"02" - Moedeiro VISA Cash sobre TIBC v3 <br><br>"03" – EMV com contato <br><br>"04" - Easy-Entry sobre TIBC v1 <br><br>"05" - Chip sem contato simulando tarja <br><br> "06" - EMV sem contato.|
+|`CreditCard.AuthenticationMethod`|String|---|Sim|Enum: `NoPassword` `OnlineAuthentication` `OfflineAuthentication` <br><br>Método de autenticação <br><br>- Se o cartão foi lido a partir da digitação verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1; <br><br>- Se o cartão foi lido a partir da trilha verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, deve ser verificado o bit 2 do mesmo campo. Se este estiver com valor 1 deve ser capturada a senha. Se estiver com valor 0 a captura da senha vai depender do último dígito do service code; <br><br>- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2. <br><br>1 - Sem senha = “NoPassword”; <br><br>2 - Senha online = “Online Authentication”; <br><br>3 - Senha off-line = “Offline Authentication”.|
+|`CreditCard.EmvData`|String|---|---|Dados da transação EMV <br><br>Obtidos através do comando PP_GoOnChip na BC|
+|`PinBlock.EncryptedPinBlock`|---|---|---|---|
+|`PinBlock.EncryptionType`|String|---|---|---|
+|`PinBlock.KsnIdentification`|String|---|---|---|
+|`CreditCard.PanSequenceNumber`|Number|---|---|Número sequencial do cartão, utilizado para identificar a conta corrente do cartão adicional. Mandatório para transações com cartões Chip EMV e que possuam PAN Sequence Number (Tag 5F34).|
+|`CreditCard.SaveCard`|---|---|---|---|
+|`CreditCard.IsFallback`|---|---|---|---|
+|`Payment.PaymentDateTime`|String|date-time|Sim|Data e Hora da captura da transação|
+|`Payment.ServiceTaxAmount`|---|---|---|---|
+|`Payment.SoftDescriptor`|String|13|---|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
+|`Payment.ProductId`|Integer|---|Sim|Código do produto identificado através do bin do cartão.|
+|`PinPadInformation.TerminalId`|String|---|Sim|Número Lógico definido no Concentrador Cielo.|
+|`PinPadInformation.SerialNumber`|String|---|Sim|Número de Série do Equipamento.|
+|`PinPadInformation.PhysicalCharacteristics`|String|---|Sim|Enum: `WithoutPinPad` `PinPadWithoutChipReader` `PinPadWithChipReaderWithoutSamModule` `PinPadWithChipReaderWithSamModule` `NotCertifiedPinPad` `PinPadWithChipReaderWithoutSamAndContactless` `PinPadWithChipReaderWithSamModuleAndContactless` <br><br> Sem PIN-pad = `WithoutPinPad`; <br><br> PIN-pad sem leitor de Chip = `PinpadWithoutChipReader`; <br><br>PIN-pad com leitor de Chip sem módulo SAM = `PinPadWithChipReaderWithoutSamModule`; <br><br> PIN-pad com leitor de Chip com módulo SAM = `PinPadWithChipReaderWithSamModule`; <br><br> PIN-pad não homologado = `NotCertifiedPinPad`; <br><br> PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = `PinpadWithChipReaderWithoutSamAndContactless`; <br><br> PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = `PinpadWithChipReaderWithSamAndContactless`. <br><br><br> Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.|
+|`PinPadInformation.ReturnDataInfo`|String|---|Sim|Retorno da função PP_GetInfo() da biblioteca compartilhada|
+|`Payment.Amount`|Integer(int64)|---|Sim|Valor da transação (1079 = R$10,79)|
+|`Payment.ReceivedDate`|---|---|---|---|
+|`Payment.CapturedAmount`|---|---|---|---|
+|`Payment.Provider`|String|---|---|---|
+|`Payment.ConfirmationStatus`|---|---|---|---|
+|`Payment.InitializationVersion`|---|---|---|---|
+|`Payment.EmvResponseData`|---|---|---|---|
+|`Payment.Status`|---|---|---|---|
+|`Payment.IsSplitted`|Booleano|---|---|---|
+|`Payment.ReturnCode`|---|---|---|---|
+|`Payment.ReturnMessage`|String|---|---|---|
+|`Payment.PaymentId`|---|---|---|---|
+|`Payment.Type`|String|---|Sim|Value: `PhysicalCreditCard` / Tipo da Transação|
+|`Payment.Currency`|String|---|---|Default: "BRL" / Value: "BRL" / Moeda (Preencher com “BRL”)|
+|`Payment.Country`|String|---|---|Default: "BRA" / Value: "BRA" / País (Preencher com “BRA”)|
+|`Receipt.MerchantName`|---|---|---|---|
+|`Receipt.MerchantAddress`|---|---|---|---|
+|`Receipt.MerchantCity`|---|---|---|---|
+|`Receipt.MerchantState`|---|---|---|---|
+|`Receipt.MerchantCode`|---|---|---|---|
+|`Receipt.Terminal`|---|---|---|---|
+|`Receipt.Nsu`|---|---|---|---|
+|`Receipt.Date`|---|---|---|---|
+|`Receipt.Hour`|---|---|---|---|
+|`Receipt.IssuerName`|---|---|---|---|
+|`Receipt.CardNumber`|---|---|---|---|
+|`Receipt.TransactionType`|---|---|---|---|
+|`Receipt.AuthorizationCode`|---|---|---|---|
+|`Receipt.TransactionMode`|---|---|---|---|
+|`Receipt.InputMethod`|---|---|---|---|
+|`Receipt.Value`|---|---|---|---|
+|`Receipt.SoftDescriptor`|---|---|---|---|
+|`RecurrentPayment.RecurrentPaymentId`|---|---|---|---|
+|`RecurrentPayment.ReasonCode`|---|---|---|---|
+|`RecurrentPayment.ReasonMessage`|---|---|---|---|
+|`RecurrentPayment.NextRecurrency`|---|---|---|---|
+|`RecurrentPayment.EndDate`|---|---|---|---|
+|`RecurrentPayment.Interval`|---|---|---|---|
+|`SplitPayments.SubordinateMerchantId`|---|---|---|---|
+|`SplitPayments.Amount`|---|---|---|---|
+|`SplitPayments.Fares.Mdr`|---|---|---|---|
+|`SplitPayments.Fares.Fee`|---|---|---|---|
+|`SplitErrors.Code`|---|---|---|---|
+|`SplitErrors.Message`|---|---|---|---|
+
 ## Fluxo de pagamento (Biblioteca Compartilhada)
 
 **Exemplo fluxo (Biblioteca Compartilhada):**
