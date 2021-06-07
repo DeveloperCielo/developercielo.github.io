@@ -7488,11 +7488,11 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
       "InputMode": "MagStripe",
       "TrackOneData": "A1234567890123456^FULANO OLIVEIRA SA ^12345678901234567890123",
       "TrackTwoData": "0123456789012345=012345678901234",
-       "EncryptedCardData": {
-        "EncryptionType": "DUKPT3DES",
-        "TrackOneDataKSN": "KSNforTrackOneData",
-        "TrackTwoDataKSN": "KSNforTrackTwoData"
-    }
+      "EncryptedCardData": {
+         "EncryptionType": "DUKPT3DES",
+         "TrackOneDataKSN": "KSNforTrackOneData",
+         "TrackTwoDataKSN": "KSNforTrackTwoData"
+      }
    }
 }
 ```
@@ -7510,7 +7510,6 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 |`Card.EncryptedCardData.IsDataInTLVFormat`|Booleano|---|Não Identifica se os dados criptografados estão no formato TLV (tag / length / value).|
 |`Card.EncryptedCardData.InitializationVector`|String|---|Sim|Vetor de inicialização da encryptação|
 |`CreditCard.AuthenticationMethod`|String|---|Sim|Enum: "NoPassword", , "OnlineAuthentication", "OfflineAuthentication"<br><br>Método de autenticação<br><br>1 - Sem senha = “NoPassword”;<br><br>2 - Senha online = “Online Authentication”;<br><br>3 - Senha off-line = “Offline Authentication”.|
-
 
 # Desfazimento de cancelamento
 
