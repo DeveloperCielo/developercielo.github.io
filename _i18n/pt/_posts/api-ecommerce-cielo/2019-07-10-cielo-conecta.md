@@ -7197,7 +7197,7 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 |`Card.EncryptedCardData.CardNumberKSN`|String|---|---|Identificador KSN da criptografia do número do cartão
 |`Card.EncryptedCardData.IsDataInTLVFormat`|Bool|---|Não|Identifica se os dados criptografados estão no formato TLV (tag / length / value).|
 |`Card.EncryptedCardData.InitializationVector`|String|---|Sim|Vetor de inicialização da encryptação|
-|`Card.ExpirationDate|String`|---|SimData de expiração do cartão.|
+|`Card.ExpirationDate|String`|---|Sim|Data de expiração do cartão.|
 
 ### Resposta
 
@@ -7278,9 +7278,196 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`VoidId`|String - uuid|---|---|Identificador do cancelamento|
-|`Status`|Integer int16|---|---|Status do cancelamento. <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Negado <br><br>3 = Confirmado <br><br>4 = Desfeito|
+|`InitializationVersion`|Integer int16|---|---|Número de versão dos parametros baixados na inicialização do equipamento.|
+|`PrintMessage.Position`|String|---|---|Default: "Top"<br><br>Enum: "Top", "Middle", "Bottom"<br><br>Posição da mensagem no comprovante:<br><br>Top - Início do comprovante, antes do código do estabelecimento<br><br>Middle - Meio do comprovante, após a descrição dos valores<br><br>Bottom - Final do comprovante|
+|`PrintMessage.Message`|String|---|---|Indica a mensagem que deve ser impressa no comprovante de acordo com a posição indicada no campo Position|
+|`Status`|Integerint16|---|---|Status da transação.<br><br>0 = Não Finalizado<br><br>1 = Autorizado<br><br>2 = Pago<br><br>3 = Negado<br><br>10 = Cancelado<br><br>13 = Abortado|
+|`CancellationStatus`|Integer int16|---|---|Status do cancelamento.<br><br>0 = Não Finalizado<br><br>1 = Autorizado<br><br>2 = Negado<br><br>3 = Confirmado<br><br>4 = Desfeito|
+|`ReasonCode`|Integer int16|---|---|Código de referência para análises.|
+|`ReasonMessage`|String|---|---|Mensagem explicativa para análise.|
 |`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
 |`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
+|`Receipt.MerchantName`|---|---|---|---|
+|`Receipt.MerchantAddress`|---|---|---|---|
+|`Receipt.MerchantCity`|---|---|---|---|
+|`Receipt.MerchantState`|---|---|---|---|
+|`Receipt.MerchantCode`|---|---|---|---|
+|`Receipt.Terminal`|---|---|---|---|
+|`Receipt.Nsu`|---|---|---|---|
+|`Receipt.Date`|---|---|---|---|
+|`Receipt.Hour`|---|---|---|---|
+|`Receipt.IssuerName`|---|---|---|---|
+|`Receipt.CardNumber`|---|---|---|---|
+|`Receipt.TransactionType`|---|---|---|---|
+|`Receipt.AuthorizationCode`|---|---|---|---|
+|`Receipt.TransactionMode`|---|---|---|---|
+|`Receipt.InputMethod`|---|---|---|---|
+|`Receipt.CancelValue`|---|---|---|---|
+|`Receipt.OriginalTransactonData`|---|---|---|---|
+|`Receipt.OriginalTransactonType`|---|---|---|---|
+|`Receipt.OriginalTransactonNsu`|---|---|---|---|
+|`Receipt.OriginalTransactonAuthCode`|---|---|---|---|
+|`Receipt.OriginalTransactionDate`|---|---|---|---|
+|`Receipt.OriginalTransactionHour`|---|---|---|---|
+|`Receipt.OrignalTransactionValue`|---|---|---|---|
+|`Receipt.OrignalTransactionCardHolder`|---|---|---|---|
+|`Receipt.OriginalTransactionMode`|---|---|---|---|
+|`Receipt.OriginalInputMethod`|---|---|---|---|
+|`Links.Method`|String|---|---|Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
+
+## Cartão por tarja
+
+### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/</span></aside>
+
+**Path Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`PaymentId`|String uuid|---|Sim|Código do Pagamento|
+
+```json
+{
+  "MerchantVoidId": 2019042204,
+  "MerchantVoidDate": "2019-04-15T12:00:00Z",
+  "Card": {
+    "InputMode": "MagStripe",
+    "TrackOneData": "A1234567890123456^FULANO OLIVEIRA SA ^12345678901234567890123",
+    "TrackTwoData": "0123456789012345=012345678901234"
+  }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantVoidId`|String|---|Sim|Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal|
+|`MerchantVoidDate`|String|---|Sim|Data do cancelamento.|
+|`Card.InputMode`|String|---|Sim|Enum: "Typed", "MagStripe", "Emv", "ContactlessMagStripe", "ContactlessEmv"|
+|`Card.InputMode`|String|---|Sim|Enum: "Typed", "MagStripe", "Emv", "ContactlessMagStripe", "ContactlessEmv"|
+|`Card.TrackOneData`|String|---|Sim|Dados da trilha 1<br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação|
+|`Card.TrackTwoData`|String|---|Sim	Dados da trilha 2<br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação|
+|`Card.AuthenticationMethod`|String|---|Não|Enum: "NoPassword", "OnlineAuthentication", "OfflineAuthentication"<br><br>Método de autenticação<br><br>1 - Sem senha “NoPassword”;<br><br>2 - Senha online = “Online Authentication”;<br><br>3 - Senha off-line = “Offline Authentication”.|
+
+### Resposta
+
+```json
+{
+  "VoidId": "f15889ea-5719-4e1a-a2da-f4e50d5bd702",
+  "InitializationVersion": 1558708320029,
+  "PrintMessage": [
+    {
+      "Position": "Top",
+      "Message": "Transação autorizada"
+    },
+    {
+      "Position": "Middle",
+      "Message": "Informação adicional"
+    },
+    {
+      "Position": "Bottom",
+      "Message": "Obrigado e volte sempre!"
+    }
+  ],
+  "Receipt": {
+    "MerchantName": "Estabelecimento",
+    "MerchantAddress": "Rua Sem Saida, 0",
+    "MerchantCity": "Cidade",
+    "MerchantState": "WA",
+    "MerchantCode": 549798965249,
+    "Terminal": 12345678,
+    "Nsu": 123456,
+    "Date": "01/01/20",
+    "Hour": 720,
+    "IssuerName": "VISA  PROD-I",
+    "CardNumber": 1111222233334444,
+    "TransactionType": "CANCELAMENTO DE TRANSACAO",
+    "AuthorizationCode": 123456,
+    "TransactionMode": "ONL",
+    "InputMethod": "C",
+    "CancelValue": "3,00",
+    "OriginalTransactonData": "DADOS DO PAGAMENTO ORIGNAL",
+    "OriginalTransactonType": "VENDA A CREDITO",
+    "OriginalTransactonNsu": 5349,
+    "OriginalTransactonAuthCode": 543210,
+    "OriginalTransactionDate": "01/01/20",
+    "OriginalTransactionHour": 720,
+    "OrignalTransactionValue": "3,00",
+    "OrignalTransactionCardHolder": "NOME NOME NOME NOME NOME N",
+    "OriginalTransactionMode": "ONL",
+    "OriginalInputMethod": "C"
+  },
+  "Status": 10,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    },
+    {
+      "Method": "POST",
+      "Rel": "void",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids"
+    },
+    {
+      "Method": "DELETE",
+      "Rel": "reverse",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids/e5c889ea-5719-4e1a-a2da-f4f50d5bd7ca"
+    },
+    {
+      "Method": "PUT",
+      "Rel": "confirm",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids/e5c889ea-5719-4e1a-a2da-f4f50d5bd7ca/confirmation"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`VoidId`|String - uuid|---|---|Identificador do cancelamento|
+|`InitializationVersion`|Integer int16|---|---|Número de versão dos parametros baixados na inicialização do equipamento.|
+|`PrintMessage.Position`|String|---|---|Default: "Top"<br><br>Enum: "Top", "Middle", "Bottom"<br><br>Posição da mensagem no comprovante:<br><br>Top - Início do comprovante, antes do código do estabelecimento<br><br>Middle - Meio do comprovante, após a descrição dos valores<br><br>Bottom - Final do comprovante|
+|`PrintMessage.Message`|String|---|---|Indica a mensagem que deve ser impressa no comprovante de acordo com a posição indicada no campo Position|
+|`Status`|Integerint16|---|---|Status da transação.<br><br>0 = Não Finalizado<br><br>1 = Autorizado<br><br>2 = Pago<br><br>3 = Negado<br><br>10 = Cancelado<br><br>13 = Abortado|
+|`CancellationStatus`|Integer int16|---|---|Status do cancelamento.<br><br>0 = Não Finalizado<br><br>1 = Autorizado<br><br>2 = Negado<br><br>3 = Confirmado<br><br>4 = Desfeito|
+|`ReasonCode`|Integer int16|---|---|Código de referência para análises.|
+|`ReasonMessage`|String|---|---|Mensagem explicativa para análise.|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
+|`Receipt.MerchantName`|---|---|---|---|
+|`Receipt.MerchantAddress`|---|---|---|---|
+|`Receipt.MerchantCity`|---|---|---|---|
+|`Receipt.MerchantState`|---|---|---|---|
+|`Receipt.MerchantCode`|---|---|---|---|
+|`Receipt.Terminal`|---|---|---|---|
+|`Receipt.Nsu`|---|---|---|---|
+|`Receipt.Date`|---|---|---|---|
+|`Receipt.Hour`|---|---|---|---|
+|`Receipt.IssuerName`|---|---|---|---|
+|`Receipt.CardNumber`|---|---|---|---|
+|`Receipt.TransactionType`|---|---|---|---|
+|`Receipt.AuthorizationCode`|---|---|---|---|
+|`Receipt.TransactionMode`|---|---|---|---|
+|`Receipt.InputMethod`|---|---|---|---|
+|`Receipt.CancelValue`|---|---|---|---|
+|`Receipt.OriginalTransactonData`|---|---|---|---|
+|`Receipt.OriginalTransactonType`|---|---|---|---|
+|`Receipt.OriginalTransactonNsu`|---|---|---|---|
+|`Receipt.OriginalTransactonAuthCode`|---|---|---|---|
+|`Receipt.OriginalTransactionDate`|---|---|---|---|
+|`Receipt.OriginalTransactionHour`|---|---|---|---|
+|`Receipt.OrignalTransactionValue`|---|---|---|---|
+|`Receipt.OrignalTransactionCardHolder`|---|---|---|---|
+|`Receipt.OriginalTransactionMode`|---|---|---|---|
+|`Receipt.OriginalInputMethod`|---|---|---|---|
+|`Links.Method`|String|---|---|Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
 
 # Desfazimento de cancelamento
 
