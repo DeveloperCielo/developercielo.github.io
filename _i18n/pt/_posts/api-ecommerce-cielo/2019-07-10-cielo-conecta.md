@@ -7346,7 +7346,6 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 |`MerchantVoidId`|String|---|Sim|Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal|
 |`MerchantVoidDate`|String|---|Sim|Data do cancelamento.|
 |`Card.InputMode`|String|---|Sim|Enum: "Typed", "MagStripe", "Emv", "ContactlessMagStripe", "ContactlessEmv"|
-|`Card.InputMode`|String|---|Sim|Enum: "Typed", "MagStripe", "Emv", "ContactlessMagStripe", "ContactlessEmv"|
 |`Card.TrackOneData`|String|---|Sim|Dados da trilha 1<br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação|
 |`Card.TrackTwoData`|String|---|Sim	Dados da trilha 2<br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação|
 |`Card.AuthenticationMethod`|String|---|Não|Enum: "NoPassword", "OnlineAuthentication", "OfflineAuthentication"<br><br>Método de autenticação<br><br>1 - Sem senha “NoPassword” <br><br>2 - Senha online = “Online Authentication”;<br><br>3 - Senha off-line = “Offline Authentication”.|
