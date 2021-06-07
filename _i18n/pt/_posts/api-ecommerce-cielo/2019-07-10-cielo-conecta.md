@@ -7002,11 +7002,29 @@ Solicita as tabelas e parametros para operação do terminal. Como não foi info
 |:---------------------------------------------------:|:---------------------------------------------:|
 | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
 
-## Cancelamento de pagamento com cartão digitado
+**Simular respostas:**
 
-### Requisição
+Para simular alguma resposta especifica utilize o campo Amount, onde de acordo com o valor dos centavos informado nesse campo é possivel receber uma resposta conforme descrito na tabela abaixo:
+
+|Amount (valor dos centados)|	Retorno simulado do Cancelamento|	Exemplo de valor simulado|
+|40|Aprovado|5040 = R$50,40|
+|41|Negado|20041 = R$200,41|
+|42|Timeout|3542 = R$35,42|
+|49|Erro|1049 = R$10,49|
+
+## Cancelamento de Pagamento
+
+### Cartao Digitado
+
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/</span></aside>
+
+**Path Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`PaymentId`|String uuid|---|Sim|Código do Pagamento|
 
 ```json
 {
@@ -7023,10 +7041,11 @@ Solicita as tabelas e parametros para operação do terminal. Como não foi info
 |---|---|---|---|---|
 |`MerchantVoidId`|String|---|Sim|Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal|
 |`MerchantVoidDate`|String|---|Sim|Data do cancelamento.|
-|`Card.InputMode`|---|---|---|---|
+|`Card.InputMode`|---|---|---|Enum: "Typed", "MagStripe", "Emv", "ContactlessMagStripe", "ContactlessEmv"|
 |`Card.CardNumber`|String|---|---|Número do cartão <br><br>Requerido quando a transação for digitada.|
+|`Card.ExpirationDate`|String|---|Sim|Data de expiração do cartão.|
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -7105,6 +7124,15 @@ Solicita as tabelas e parametros para operação do terminal. Como não foi info
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`VoidId`|String - uuid|---|---|Identificador do cancelamento|
+|`InitializationVersion`|Integer int16|---|---|Número de versão dos parametros baixados na inicialização do equipamento.|
+|`PrintMessage.Position`|String|---|---|Default: "Top"<br><br>Enum: "Top", "Middle", "Bottom"<br><br>Posição da mensagem no comprovante:<br><br>Top - Início do comprovante, antes do código do estabelecimento<br><br>Middle - Meio do comprovante, após a descrição dos valores<br><br>Bottom - Final do comprovante|
+|`PrintMessage.Message`|String|---|---|Indica a mensagem que deve ser impressa no comprovante de acordo com a posição indicada no campo Position|
+|`Status`|Integer int16|---|---|Status da transação.<br><br>0 = Não Finalizado<br><br>1 = Autorizado<br><br>2 = Pago<br><br>3 = Negado<br><br>10 = Cancelado<br><br>13 = Abortado|
+|`CancellationStatus`|Integer int16|---|---|Status do cancelamento.<br><br>0 = Não Finalizado<br><br>1 = Autorizado<br><br>2 = Negado<br><br>3 = Confirmado<br><br>4 = Desfeito|
+|`ReasonCode`|Integer int16|---|---|Código de referência para análises.|
+|`ReasonMessage`|String|—|—|Mensagem explicativa para análise.|
+|`ReturnCode`|String|—|—|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|—|—|Mensagem de erro/resposta da transação da Adquirência.|
 |`Receipt.MerchantName`|---|---|---|---|
 |`Receipt.MerchantAddress`|---|---|---|---|
 |`Receipt.MerchantCity`|---|---|---|---|
@@ -7131,9 +7159,9 @@ Solicita as tabelas e parametros para operação do terminal. Como não foi info
 |`Receipt.OrignalTransactionCardHolder`|---|---|---|---|
 |`Receipt.OriginalTransactionMode`|---|---|---|---|
 |`Receipt.OriginalInputMethod`|---|---|---|---|
-|`Status`|Integer int16|---|---|Status do cancelamento. <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Negado <br><br>3 = Confirmado <br><br>4 = Desfeito|
-|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
-|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
+|`Links.Method`|String|---|---|Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
 
 ## Cancelamento de pagamento com cartão presente
 
