@@ -7131,7 +7131,7 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 |`CancellationStatus`|Integer int16|---|---|Status do cancelamento.<br><br>0 = Não Finalizado<br><br>1 = Autorizado<br><br>2 = Negado<br><br>3 = Confirmado<br><br>4 = Desfeito|
 |`ReasonCode`|Integer int16|---|---|Código de referência para análises.|
 |`ReasonMessage`|String|---|---|Mensagem explicativa para análise.|
-|`ReturnCode`|String|---|---Código de erro/resposta da transação da Adquirência.|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
 |`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
 |`Receipt.MerchantName`|---|---|---|---|
 |`Receipt.MerchantAddress`|---|---|---|---|
@@ -7163,31 +7163,29 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 |`Links.Rel`|String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
 |`Links.Href`|String|---|---|Endereço de URL de chamada da API|
 
-## Cancelamento de pagamento com cartão presente
+## Cartão digitado com cartão criptografado
 
 ### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/</span></aside>
 
-```json
-{
-  "MerchantVoidId": 2019042204,
-  "MerchantVoidDate": "2019-04-15T12:00:00Z",
-  "Card": {
-    "InputMode": "MagStripe",
-    "TrackOneData": "A1234567890123456^FULANO OLIVEIRA SA ^12345678901234567890123",
-    "TrackTwoData": "0123456789012345=012345678901234"
-  }
-}
-```
+**Path Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`PaymentId`|String uuid|---|Sim|Código do Pagamento|
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantVoidId`|String|---|Sim|Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal|
 |`MerchantVoidDate`|String|---|Sim|Data do cancelamento.|
-|`Card.InputMode`|---|---|---|---|
-|`Card.TrackOneData`|String|---|---|Dados da trilha 1 <br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação|
-|`Card.TrackTwoData`|String|---|---|Dados da trilha 2 <br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação|
+|`Card.InputMode`|String|---|Sim|Enum: "Typed", "MagStripe", "Emv", "ContactlessMagStripe", "ContactlessEmv"|
+|`Card.CardNumber`|String|---|Sim|Número do cartão<br><br>Requerido quando a transação for digitada.|
+|`Card.EncryptedCardData.EncryptionType`|String|---|Sim|Tipo de encriptação utilizada<br><br>Enum:<br><br>"DukptDes" = 1,<br><br>"MasterKey" = 2,<br><br>"Dukpt3Des" = 3|
+|`Card.EncryptedCardData.CardNumberKSN`|String|---|---|Identificador KSN da criptografia do número do cartão
+|`Card.EncryptedCardData.IsDataInTLVFormat`|Bool|---|Não|Identifica se os dados criptografados estão no formato TLV (tag / length / value).|
+|`Card.EncryptedCardData.InitializationVector`|String|---|Sim|Vetor de inicialização da encryptação|
+|`Card.ExpirationDate|String`|---|SimData de expiração do cartão.|
 
 ### Resposta
 
