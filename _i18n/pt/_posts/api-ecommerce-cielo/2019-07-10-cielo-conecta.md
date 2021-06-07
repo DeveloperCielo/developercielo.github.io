@@ -7629,6 +7629,44 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 |`Links.Rel`|String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
 |`Links.Href`|String|---|---|Endereço de URL de chamada da API|
 
+### Cartão por chip
+
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/</span></aside>
+
+**Path Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`PaymentId`|String uuid|---|Sim|Código do Pagamento|
+
+```json
+{
+  "MerchantVoidId": 2019042204,
+  "MerchantVoidDate": "2019-04-15T12:00:00Z",
+  "Card": {
+    "InputMode": "MagStripe",
+    "EmvData": "112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800",
+    "TrackOneData": "A1234567890123456^FULANO OLIVEIRA SA ^12345678901234567890123",
+    "TrackTwoData": "0123456789012345=012345678901234"
+  }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantVoidId`|String|---|Sim|Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal|
+|`MerchantVoidDate`|String|---|Sim|Data do cancelamento.|
+|`Card.InputMode`|String|---|Sim|Enum: "Typed", "MagStripe", "Emv", "ContactlessMagStripe", "ContactlessEmv"|
+|`Card.TrackOneData`|String|---|---|Dados da trilha 1 <br><br>Obtidos através do comando PP_GetCard na BC no momento da captura da transação|
+|`Card.TrackTwoData`|String|---|---|Dados da trilha 2 <br><br>Obtidos através do comando PP_GetCard na BC no momento da captura da transação|
+|`Card.EmvData`|String|---|---|Dados da transação EMV|
+|`Card.AuthenticationMethod`|String|---|Sim|Enum: "NoPassword", , "OnlineAuthentication", "OfflineAuthentication"<br><br>Método de autenticação<br><br>1 - Sem senha = “NoPassword”;<br><br>2 - Senha online = “Online Authentication”;<br><br>3 - Senha off-line = “Offline Authentication”.|
+|`PinBlock.EncryptedPinBlock`|String|---|Sim|PINBlock Criptografado<br><br>- Para transações EMV, esse campo é obtido através do retorno da função PP_GoOnChip(), mais especificamente das posições 007 até a posição 022;<br><br>- Para transações digitadas e com tarja magnética, verificar as posições 001 até 016 do retorno da função PP_GetPin().|
+|`Card.EncryptedCardData.EncryptionType`|String|---|Sim|Tipo de encriptação utilizada<br><br>Enum:<br><br>"DukptDes" = 1,<br><br>"MasterKey" = 2 <br<br>"Dukpt3Des" = 3,<br><br>"Dukpt3DesCBC" = 4|
+|`PinBlock.EmvData`|String|—|Sim|Identificação do KSN<br><br>- Para transações EMV esse campo é obtido através do retorno da função PP_GoOnChip() nas posições 023 até 042;<br><br>- Para transações digitadas e com tarja magnética, verificar as posições 017 até 036 do retorno da função PP_GetPin().|
+
 # Desfazimento de cancelamento
 
 ## Desfaz um cancelamento
