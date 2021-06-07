@@ -26795,6 +26795,111 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantVoidId</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantVoidDate</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Data do cancelamento.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Card.InputMode</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Enum: “Typed”, “MagStripe”, “Emv”, “ContactlessMagStripe”, “ContactlessEmv”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Card.EmvData</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Dados de cancelamento EMV</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Card.TrackTwoData</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Dados da trilha 2 <br />Obtidos através do comando PP_GetCard na BC no momento da captura da transação</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Card.EncryptedCardData.EncryptionType</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Tipo de encriptação utilizada<br />Enum:<br />“DukptDes” = 1,<br />“MasterKey” = 2 &lt;br<br />“Dukpt3Des” = 3 &lt;br<br />“Dukpt3DesCBC” = 4</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Card.EncryptedCardData.TrackTwoDataKSN</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Identificador KSN da criptografia da trilha 2 do cartão</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Card.EncryptedCardData.IsDataInTLVFormat</code></td>
+      <td>Bool</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Identifica se os dados criptografados estão no formato TLV (tag / length / value).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Card.EncryptedCardData.InitializationVector</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Vetor de inicialização da encryptação</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Card.AuthenticationMethod</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Enum: “NoPassword”, “OnlineAuthentication”, “OfflineAuthentication”<br />Método de autenticação<br />1 - Sem senha = “NoPassword”;<br />2 - Senha online = “Online Authentication”;<br />3 - Senha off-line = “Offline Authentication”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PinBlock.EncryptedPinBlock</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>PINBlock Criptografado<br />- Para transações EMV, esse campo é obtido através do retorno da função PP_GoOnChip(), mais especificamente das posições 007 até a posição 022;<br />- Para transações digitadas e com tarja magnética, verificar as posições 001 até 016 do retorno da função PP_GetPin().</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PinBlock.EncryptionType</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Tipo de Criptografia<br />Enum:<br />“DukptDes”<br />“Dukpt3Des”<br />“MasterKey”</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PinBlock.EmvData</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Identificação do KSN<br />- Para transações EMV esse campo é obtido através do retorno da função PP_GoOnChip() nas posições 023 até 042;<br />-Para transações digitadas e com tarja magnética, verificar as posições 017 até 036 do retorno da função PP_GetPin().</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="desfazimento-de-cancelamento">Desfazimento de cancelamento</h1>
 
 <h2 id="desfaz-um-cancelamento">Desfaz um cancelamento</h2>
