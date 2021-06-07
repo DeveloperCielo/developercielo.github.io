@@ -24942,8 +24942,8 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.ExpirationDate|String</code></td>
       <td>—</td>
-      <td>SimData de expiração do cartão.</td>
-      <td> </td>
+      <td>Sim</td>
+      <td>Data de expiração do cartão.</td>
       <td> </td>
     </tr>
   </tbody>
@@ -25043,11 +25043,53 @@
       <td>Identificador do cancelamento</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">InitializationVersion</code></td>
       <td>Integer int16</td>
       <td>—</td>
       <td>—</td>
-      <td>Status do cancelamento. <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Negado <br />3 = Confirmado <br />4 = Desfeito</td>
+      <td>Número de versão dos parametros baixados na inicialização do equipamento.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PrintMessage.Position</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Default: “Top”<br />Enum: “Top”, “Middle”, “Bottom”<br />Posição da mensagem no comprovante:<br />Top - Início do comprovante, antes do código do estabelecimento<br />Middle - Meio do comprovante, após a descrição dos valores<br />Bottom - Final do comprovante</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PrintMessage.Message</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Indica a mensagem que deve ser impressa no comprovante de acordo com a posição indicada no campo Position</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Integerint16</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Status da transação.<br />0 = Não Finalizado<br />1 = Autorizado<br />2 = Pago<br />3 = Negado<br />10 = Cancelado<br />13 = Abortado</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CancellationStatus</code></td>
+      <td>Integer int16</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Status do cancelamento.<br />0 = Não Finalizado<br />1 = Autorizado<br />2 = Negado<br />3 = Confirmado<br />4 = Desfeito</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
+      <td>Integer int16</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Código de referência para análises.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Mensagem explicativa para análise.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
@@ -25063,6 +25105,284 @@
       <td>—</td>
       <td>Mensagem de erro/resposta da transação da Adquirência.</td>
     </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.MerchantName</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.MerchantAddress</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.MerchantCity</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.MerchantState</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.MerchantCode</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.Terminal</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.Nsu</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.Date</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.Hour</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.IssuerName</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.CardNumber</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.TransactionType</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.AuthorizationCode</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.TransactionMode</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.InputMethod</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.CancelValue</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactonData</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactonType</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactonNsu</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactonAuthCode</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactionDate</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactionHour</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.OrignalTransactionValue</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.OrignalTransactionCardHolder</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactionMode</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.OriginalInputMethod</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Links.Method</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Enum: “POST”, “GET”, “PUT”.<br />Método HTTP a ser utilizado na operação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Links.Rel</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Enum: “self”, “cancel”, “confirm”.<br />Referência da operação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Links.Href</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Endereço de URL de chamada da API</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="cartão-por-tarja">Cartão por tarja</h2>
+
+<h3 id="requisição-30">Requisição</h3>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/</span></aside>
+
+<p><strong>Path Parameters:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
+      <td>String uuid</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Código do Pagamento</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"MerchantVoidId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2019042204</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"MerchantVoidDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-15T12:00:00Z"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"InputMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MagStripe"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TrackOneData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1234567890123456^FULANO OLIVEIRA SA ^12345678901234567890123"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TrackTwoData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0123456789012345=012345678901234"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantVoidId</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantVoidDate</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Data do cancelamento.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Card.InputMode</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Enum: “Typed”, “MagStripe”, “Emv”, “ContactlessMagStripe”, “ContactlessEmv”</td>
+    </tr>
   </tbody>
 </table>
 
@@ -25070,7 +25390,7 @@
 
 <h2 id="desfaz-um-cancelamento">Desfaz um cancelamento</h2>
 
-<h3 id="requisição-30">Requisição</h3>
+<h3 id="requisição-31">Requisição</h3>
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/{VoidId}</span></aside>
 
@@ -25140,7 +25460,7 @@
 
 <h2 id="desfaz-um-cancelamento-1">Desfaz um cancelamento</h2>
 
-<h3 id="requisição-31">Requisição</h3>
+<h3 id="requisição-32">Requisição</h3>
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/merchantVoidId/{MerchantVoidId}</span></aside>
 
@@ -25581,7 +25901,7 @@
 
 <h3 id="cria-um-novo-terminal">Cria um novo terminal</h3>
 
-<h4 id="requisição-32">Requisição</h4>
+<h4 id="requisição-33">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals</span></aside>
 
@@ -25707,7 +26027,7 @@
 
 <h3 id="desabilita-um-terminal-removendo-o-vínculo-com-um-equipamento-físico">Desabilita um terminal removendo o vínculo com um equipamento físico.</h3>
 
-<h4 id="requisição-33">Requisição</h4>
+<h4 id="requisição-34">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals/disable</span></aside>
 
