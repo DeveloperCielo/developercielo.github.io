@@ -7175,6 +7175,18 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 |---|---|---|---|---|
 |`PaymentId`|String uuid|---|Sim|Código do Pagamento|
 
+```json
+{
+  "MerchantVoidId": 2019042204,
+  "MerchantVoidDate": "2019-04-15T12:00:00Z",
+  "Card": {
+    "InputMode": "Typed",
+    "CardNumber": 1234567812345678,
+    "ExpirationDate": "12/2020"
+  }
+}
+```
+
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantVoidId`|String|---|Sim|Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal|
