@@ -5803,6 +5803,148 @@ Para solicitar o desfazimento é necessário informar o MerchantOrderId enviado 
 |`Links.Rel`|String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
 |`Links.Href`|String|---|---|Endereço de URL de chamada da API|
 
+## Confirmação
+
+Quando o pagamento retornar sucesso e pode ser confirmado.
+
+Esta operação requer o PaymentId recebido no retorno do pagamento, além dos dados EmvData se o pagamento foi realizado atráves de Chip.
+
+A confirmação somente é necessária para pagamentos feitos através do POS.
+
+| SandBox                                             | Produção                                      |
+|:---------------------------------------------------:|:---------------------------------------------:|
+| https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
+
+**Simular Respostas:**
+
+Para simular alguma resposta especifica utilize o campo Amount, onde de acordo com o valor dos centavos informado nesse campo é possivel receber uma resposta conforme descrito na tabela abaixo:
+
+|Amount(valor dos centados)|Retorno simulado da Confirmação|Exemplo de valor simulado|
+|---|---|---|
+|20|Aprovado|5020 = R$50,20|
+|21|Negado|20021 = R$200,21|
+|22|Timeout|3522 = R$35,22|
+|29|Erro|1029 = R$10,29|
+
+Também é possivel simular respostas de uma confirmação de autorização negada. Para deixar claro esse fluxo segue os passos abaixo:
+1 - Cliente faz uma requisição de autorização e recebe a resposta de autorização negada;
+2 - Cliente faz uma requisição de confirmação para essa autorização negada e recebe a resposta simulada.
+
+Para simular respostas de uma confirmação de autorização negada, segue a tabela abaixo:
+
+|Amount(valor dos centados)|Retorno simulado da Confirmação|Exemplo de valor simulado|
+|---|---|---|
+|30|Aprovado|5030 = R$50,30|
+|31|Negado|20031 = R$200,31|
+|32|Timeout|3532 = R$35,32|
+|39|Erro|1039 = R$10,39|
+
+### Cartao Digitado
+
+#### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/confirmation</span></aside>
+
+**Path Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`PaymentId`|String uuid|---|Sim|Código do Pagamento|
+
+```json
+null
+```
+
+#### Resposta
+
+```json
+{
+  "ConfirmationStatus": 1,
+  "Status": 2,
+  "ReturnCode": 0,
+  "ReturnMessage": "Successful",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    },
+    {
+      "Method": "POST",
+      "Rel": "void",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`ConfirmationStatus`|Integer int16|---|---|Status da confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
+|`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado <br><br>13 = Abortado|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência|
+|`Links.Method`|String|---|---|Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
+
+### Cartao com chip
+
+#### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/confirmation</span></aside>
+
+**Path Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`PaymentId`|String uuid|---|Sim|Código do Pagamento|
+
+```json
+{
+  "EmvData": "112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800",
+  "IssuerScriptResults": "0000"
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`EmvData`|String|---|---|Dados da transação EMV <br><br>Dados obtidos através do comando PP_GoOnChip na BC|
+|`IssuerScriptResults`|String|---|---|Resultado dos scripts EMV do emissor|
+
+#### Resposta
+
+```json
+{
+  "ConfirmationStatus": 1,
+  "Status": 2,
+  "ReturnCode": 0,
+  "ReturnMessage": "Successful",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    },
+    {
+      "Method": "POST",
+      "Rel": "void",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`ConfirmationStatus`|Integer int16|---|---|Status da confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
+|`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado <br><br>13 = Abortado|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência|
+|`Links.Method`|String|---|---|Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
+
 ## Consultas
 
 ### Consulta de Pagamento
@@ -6866,11 +7008,41 @@ A confirmação somente é necessária para pagamentos feitos através do POS.
 |:---------------------------------------------------:|:---------------------------------------------:|
 | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
 
-## Confirmação de pagamento usando cartão digitado
+**Simular Respostas:**
+
+Para simular alguma resposta especifica utilize o campo Amount, onde de acordo com o valor dos centavos informado nesse campo é possivel receber uma resposta conforme descrito na tabela abaixo:
+
+|Amount(valor dos centados)|Retorno simulado da Confirmação|Exemplo de valor simulado|
+|---|---|---|
+|20|Aprovado|5020 = R$50,20|
+|21|Negado|20021 = R$200,21|
+|22|Timeout|3522 = R$35,22|
+|29|Erro|1029 = R$10,29|
+
+Também é possivel simular respostas de uma confirmação de autorização negada. Para deixar claro esse fluxo segue os passos abaixo:
+1 - Cliente faz uma requisição de autorização e recebe a resposta de autorização negada;
+2 - Cliente faz uma requisição de confirmação para essa autorização negada e recebe a resposta simulada.
+
+Para simular respostas de uma confirmação de autorização negada, segue a tabela abaixo:
+
+|Amount(valor dos centados)|Retorno simulado da Confirmação|Exemplo de valor simulado|
+|---|---|---|
+|30|Aprovado|5030 = R$50,30|
+|31|Negado|20031 = R$200,31|
+|32|Timeout|3532 = R$35,32|
+|39|Erro|1039 = R$10,39|
+
+## Cartao Digitado
 
 ### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/confirmation</span></aside>
+
+**Path Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`PaymentId`|String uuid|---|Sim|Código do Pagamento|
 
 ```json
 null
@@ -6905,12 +7077,21 @@ null
 |`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado <br><br>13 = Abortado|
 |`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
 |`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência|
+|`Links.Method`|String|---|---|Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
 
-## Confirmação de pagamento usando cartão EMV
+## Cartao com chip
 
 ### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/physicalSales/{PaymentId}/confirmation</span></aside>
+
+**Path Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`PaymentId`|String uuid|---|Sim|Código do Pagamento|
 
 ```json
 {
@@ -6953,6 +7134,9 @@ null
 |`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado <br><br>13 = Abortado|
 |`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
 |`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência|
+|`Links.Method`|String|---|---|Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
 
 # Cancelamento
 
