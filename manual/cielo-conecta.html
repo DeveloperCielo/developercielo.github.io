@@ -25992,81 +25992,277 @@
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantVoidId</code></td>
-      <td>String</td>
+      <td><code class="language-plaintext highlighter-rouge">VoidId</code></td>
+      <td>String - uuid</td>
       <td>—</td>
-      <td>Sim</td>
-      <td>Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal</td>
+      <td>—</td>
+      <td>Identificador do cancelamento</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantVoidDate</code></td>
-      <td>String</td>
+      <td><code class="language-plaintext highlighter-rouge">InitializationVersion</code></td>
+      <td>Integer int16</td>
       <td>—</td>
-      <td>Sim</td>
-      <td>Data do cancelamento.</td>
+      <td>—</td>
+      <td>Número de versão dos parametros baixados na inicialização do equipamento.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Card.InputMode</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>Sim</td>
-      <td>Enum: “Typed”, “MagStripe”, “Emv”, “ContactlessMagStripe”, “ContactlessEmv”</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Card.TrackOneData</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PrintMessage.Position</code></td>
       <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>Dados da trilha 1 <br />Obtidos através do comando PP_GetCard na BC no momento da captura da transação</td>
+      <td>Default: “Top”<br />Enum: “Top”, “Middle”, “Bottom”<br />Posição da mensagem no comprovante:<br />Top - Início do comprovante, antes do código do estabelecimento<br />Middle - Meio do comprovante, após a descrição dos valores<br />Bottom - Final do comprovante</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Card.TrackTwoData</code></td>
+      <td><code class="language-plaintext highlighter-rouge">PrintMessage.Message</code></td>
       <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>Dados da trilha 2 <br />Obtidos através do comando PP_GetCard na BC no momento da captura da transação</td>
+      <td>Indica a mensagem que deve ser impressa no comprovante de acordo com a posição indicada no campo Position</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Card.EncryptedCardData.EncryptionType</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Integerint16</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Status da transação.<br />0 = Não Finalizado<br />1 = Autorizado<br />2 = Pago<br />3 = Negado<br />10 = Cancelado<br />13 = Abortado</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CancellationStatus</code></td>
+      <td>Integer int16</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Status do cancelamento.<br />0 = Não Finalizado<br />1 = Autorizado<br />2 = Negado<br />3 = Confirmado<br />4 = Desfeito</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
+      <td>Integer int16</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Código de referência para análises.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
       <td>String</td>
       <td>—</td>
-      <td>Sim</td>
-      <td>Tipo de encriptação utilizada<br />Enum:<br />“DukptDes” = 1,<br />“MasterKey” = 2 &lt;br<br />“Dukpt3Des” = 3,<br />“Dukpt3DesCBC” = 4</td>
+      <td>—</td>
+      <td>Mensagem explicativa para análise.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Card.EncryptedCardData.TrackOneDataKSN</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
       <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>Identificador KSN da criptografia da trilha 1 do cartão</td>
+      <td>Código de erro/resposta da transação da Adquirência.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Card.EncryptedCardData.TrackTwoDataKSN</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
       <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>Identificador KSN da criptografia da trilha 2 do cartão</td>
+      <td>Mensagem de erro/resposta da transação da Adquirência.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Card.EncryptedCardData.IsDataInTLVFormat</code></td>
-      <td>Booleano</td>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.MerchantName</code></td>
       <td>—</td>
-      <td>Não Identifica se os dados criptografados estão no formato TLV (tag / length / value).</td>
-      <td> </td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Card.EncryptedCardData.InitializationVector</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.MerchantAddress</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.MerchantCity</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.MerchantState</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.MerchantCode</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.Terminal</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.Nsu</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.Date</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.Hour</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.IssuerName</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.CardNumber</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.TransactionType</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.AuthorizationCode</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.TransactionMode</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.InputMethod</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.CancelValue</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactonData</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactonType</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactonNsu</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactonAuthCode</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactionDate</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactionHour</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.OrignalTransactionValue</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.OrignalTransactionCardHolder</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactionMode</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.OriginalInputMethod</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Links.Method</code></td>
       <td>String</td>
       <td>—</td>
-      <td>Sim</td>
-      <td>Vetor de inicialização da encryptação</td>
+      <td>—</td>
+      <td>Enum: “POST”, “GET”, “PUT”.<br />Método HTTP a ser utilizado na operação.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.AuthenticationMethod</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Links.Rel</code></td>
       <td>String</td>
       <td>—</td>
-      <td>Sim</td>
-      <td>Enum: “NoPassword”, , “OnlineAuthentication”, “OfflineAuthentication”<br />Método de autenticação<br />1 - Sem senha = “NoPassword”;<br />2 - Senha online = “Online Authentication”;<br />3 - Senha off-line = “Offline Authentication”.</td>
+      <td>—</td>
+      <td>Enum: “self”, “cancel”, “confirm”.<br />Referência da operação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Links.Href</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Endereço de URL de chamada da API</td>
     </tr>
   </tbody>
 </table>
