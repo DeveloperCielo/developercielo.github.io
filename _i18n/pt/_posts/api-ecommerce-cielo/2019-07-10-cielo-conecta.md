@@ -7502,9 +7502,99 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 |`MerchantVoidId`|String|---|Sim|Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal|
 |`MerchantVoidDate`|String|---|Sim|Data do cancelamento.|
 |`Card.InputMode`|String|---|Sim|Enum: "Typed", "MagStripe", "Emv", "ContactlessMagStripe", "ContactlessEmv"|
-|`CreditCard.TrackOneData`|String|---|---|Dados da trilha 1 <br><br>Obtidos através do comando PP_GetCard na BC no momento da captura da transação|
-|`CreditCard.TrackTwoData`|String|---|---|Dados da trilha 2 <br><br>Obtidos através do comando PP_GetCard na BC no momento da captura da transação|
-|`CreditCard.EncryptedCardData.EncryptionType`|String|---|Sim|Tipo de encriptação utilizada<br><br>Enum:<br><br>"DukptDes" = 1,<br><br>"MasterKey" = 2 <br<br>"Dukpt3Des" = 3,<br><br>"Dukpt3DesCBC" = 4|
+|`Card.TrackOneData`|String|---|---|Dados da trilha 1 <br><br>Obtidos através do comando PP_GetCard na BC no momento da captura da transação|
+|`Card.TrackTwoData`|String|---|---|Dados da trilha 2 <br><br>Obtidos através do comando PP_GetCard na BC no momento da captura da transação|
+|`Card.EncryptedCardData.EncryptionType`|String|---|Sim|Tipo de encriptação utilizada<br><br>Enum:<br><br>"DukptDes" = 1,<br><br>"MasterKey" = 2 <br<br>"Dukpt3Des" = 3,<br><br>"Dukpt3DesCBC" = 4|
+|`Card.EncryptedCardData.TrackOneDataKSN`|String|---|---|Identificador KSN da criptografia da trilha 1 do cartão|
+|`Card.EncryptedCardData.TrackTwoDataKSN`|String|---|---|Identificador KSN da criptografia da trilha 2 do cartão|
+|`Card.EncryptedCardData.IsDataInTLVFormat`|Booleano|---|Não Identifica se os dados criptografados estão no formato TLV (tag / length / value).|
+|`Card.EncryptedCardData.InitializationVector`|String|---|Sim|Vetor de inicialização da encryptação|
+|`CreditCard.AuthenticationMethod`|String|---|Sim|Enum: "NoPassword", , "OnlineAuthentication", "OfflineAuthentication"<br><br>Método de autenticação<br><br>1 - Sem senha = “NoPassword”;<br><br>2 - Senha online = “Online Authentication”;<br><br>3 - Senha off-line = “Offline Authentication”.|
+
+#### Resposta
+
+```json
+{
+  "VoidId": "f15889ea-5719-4e1a-a2da-f4e50d5bd702",
+  "InitializationVersion": 1558708320029,
+  "PrintMessage": [
+    {
+      "Position": "Top",
+      "Message": "Transação autorizada"
+    },
+    {
+      "Position": "Middle",
+      "Message": "Informação adicional"
+    },
+    {
+      "Position": "Bottom",
+      "Message": "Obrigado e volte sempre!"
+    }
+  ],
+  "Receipt": {
+    "MerchantName": "Estabelecimento",
+    "MerchantAddress": "Rua Sem Saida, 0",
+    "MerchantCity": "Cidade",
+    "MerchantState": "WA",
+    "MerchantCode": 549798965249,
+    "Terminal": 12345678,
+    "Nsu": 123456,
+    "Date": "01/01/20",
+    "Hour": 720,
+    "IssuerName": "VISA  PROD-I",
+    "CardNumber": 1111222233334444,
+    "TransactionType": "CANCELAMENTO DE TRANSACAO",
+    "AuthorizationCode": 123456,
+    "TransactionMode": "ONL",
+    "InputMethod": "C",
+    "CancelValue": "3,00",
+    "OriginalTransactonData": "DADOS DO PAGAMENTO ORIGNAL",
+    "OriginalTransactonType": "VENDA A CREDITO",
+    "OriginalTransactonNsu": 5349,
+    "OriginalTransactonAuthCode": 543210,
+    "OriginalTransactionDate": "01/01/20",
+    "OriginalTransactionHour": 720,
+    "OrignalTransactionValue": "3,00",
+    "OrignalTransactionCardHolder": "NOME NOME NOME NOME NOME N",
+    "OriginalTransactionMode": "ONL",
+    "OriginalInputMethod": "C"
+  },
+  "Status": 10,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    },
+    {
+      "Method": "POST",
+      "Rel": "void",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids"
+    },
+    {
+      "Method": "DELETE",
+      "Rel": "reverse",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids/e5c889ea-5719-4e1a-a2da-f4f50d5bd7ca"
+    },
+    {
+      "Method": "PUT",
+      "Rel": "confirm",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids/e5c889ea-5719-4e1a-a2da-f4f50d5bd7ca/confirmation"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantVoidId`|String|---|Sim|Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal|
+|`MerchantVoidDate`|String|---|Sim|Data do cancelamento.|
+|`Card.InputMode`|String|---|Sim|Enum: "Typed", "MagStripe", "Emv", "ContactlessMagStripe", "ContactlessEmv"|
+|`Card.TrackOneData`|String|---|---|Dados da trilha 1 <br><br>Obtidos através do comando PP_GetCard na BC no momento da captura da transação|
+|`Card.TrackTwoData`|String|---|---|Dados da trilha 2 <br><br>Obtidos através do comando PP_GetCard na BC no momento da captura da transação|
+|`Card.EncryptedCardData.EncryptionType`|String|---|Sim|Tipo de encriptação utilizada<br><br>Enum:<br><br>"DukptDes" = 1,<br><br>"MasterKey" = 2 <br<br>"Dukpt3Des" = 3,<br><br>"Dukpt3DesCBC" = 4|
 |`Card.EncryptedCardData.TrackOneDataKSN`|String|---|---|Identificador KSN da criptografia da trilha 1 do cartão|
 |`Card.EncryptedCardData.TrackTwoDataKSN`|String|---|---|Identificador KSN da criptografia da trilha 2 do cartão|
 |`Card.EncryptedCardData.IsDataInTLVFormat`|Booleano|---|Não Identifica se os dados criptografados estão no formato TLV (tag / length / value).|
