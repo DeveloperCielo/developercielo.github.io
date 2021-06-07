@@ -7349,7 +7349,7 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 |`Card.InputMode`|String|---|Sim|Enum: "Typed", "MagStripe", "Emv", "ContactlessMagStripe", "ContactlessEmv"|
 |`Card.TrackOneData`|String|---|Sim|Dados da trilha 1<br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação|
 |`Card.TrackTwoData`|String|---|Sim	Dados da trilha 2<br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação|
-|`Card.AuthenticationMethod`|String|---|Não|Enum: "NoPassword", "OnlineAuthentication", "OfflineAuthentication"<br><br>Método de autenticação<br><br>1 - Sem senha “NoPassword”;<br><br>2 - Senha online = “Online Authentication”;<br><br>3 - Senha off-line = “Offline Authentication”.|
+|`Card.AuthenticationMethod`|String|---|Não|Enum: "NoPassword", "OnlineAuthentication", "OfflineAuthentication"<br><br>Método de autenticação<br><br>1 - Sem senha “NoPassword” <br><br>2 - Senha online = “Online Authentication”;<br><br>3 - Senha off-line = “Offline Authentication”.|
 
 ### Resposta
 
@@ -7426,48 +7426,6 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
   ]
 }
 ```
-
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
-|---|---|---|---|---|
-|`VoidId`|String - uuid|---|---|Identificador do cancelamento|
-|`InitializationVersion`|Integer int16|---|---|Número de versão dos parametros baixados na inicialização do equipamento.|
-|`PrintMessage.Position`|String|---|---|Default: "Top"<br><br>Enum: "Top", "Middle", "Bottom"<br><br>Posição da mensagem no comprovante:<br><br>Top - Início do comprovante, antes do código do estabelecimento<br><br>Middle - Meio do comprovante, após a descrição dos valores<br><br>Bottom - Final do comprovante|
-|`PrintMessage.Message`|String|---|---|Indica a mensagem que deve ser impressa no comprovante de acordo com a posição indicada no campo Position|
-|`Status`|Integerint16|---|---|Status da transação.<br><br>0 = Não Finalizado<br><br>1 = Autorizado<br><br>2 = Pago<br><br>3 = Negado<br><br>10 = Cancelado<br><br>13 = Abortado|
-|`CancellationStatus`|Integer int16|---|---|Status do cancelamento.<br><br>0 = Não Finalizado<br><br>1 = Autorizado<br><br>2 = Negado<br><br>3 = Confirmado<br><br>4 = Desfeito|
-|`ReasonCode`|Integer int16|---|---|Código de referência para análises.|
-|`ReasonMessage`|String|---|---|Mensagem explicativa para análise.|
-|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
-|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
-|`Receipt.MerchantName`|---|---|---|---|
-|`Receipt.MerchantAddress`|---|---|---|---|
-|`Receipt.MerchantCity`|---|---|---|---|
-|`Receipt.MerchantState`|---|---|---|---|
-|`Receipt.MerchantCode`|---|---|---|---|
-|`Receipt.Terminal`|---|---|---|---|
-|`Receipt.Nsu`|---|---|---|---|
-|`Receipt.Date`|---|---|---|---|
-|`Receipt.Hour`|---|---|---|---|
-|`Receipt.IssuerName`|---|---|---|---|
-|`Receipt.CardNumber`|---|---|---|---|
-|`Receipt.TransactionType`|---|---|---|---|
-|`Receipt.AuthorizationCode`|---|---|---|---|
-|`Receipt.TransactionMode`|---|---|---|---|
-|`Receipt.InputMethod`|---|---|---|---|
-|`Receipt.CancelValue`|---|---|---|---|
-|`Receipt.OriginalTransactonData`|---|---|---|---|
-|`Receipt.OriginalTransactonType`|---|---|---|---|
-|`Receipt.OriginalTransactonNsu`|---|---|---|---|
-|`Receipt.OriginalTransactonAuthCode`|---|---|---|---|
-|`Receipt.OriginalTransactionDate`|---|---|---|---|
-|`Receipt.OriginalTransactionHour`|---|---|---|---|
-|`Receipt.OrignalTransactionValue`|---|---|---|---|
-|`Receipt.OrignalTransactionCardHolder`|---|---|---|---|
-|`Receipt.OriginalTransactionMode`|---|---|---|---|
-|`Receipt.OriginalInputMethod`|---|---|---|---|
-|`Links.Method`|String|---|---|Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
-|`Links.Rel`|String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
-|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
 
 # Desfazimento de cancelamento
 
