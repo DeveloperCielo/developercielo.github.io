@@ -24616,8 +24616,8 @@
       <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
       <td>String</td>
       <td>—</td>
-      <td>—Código de erro/resposta da transação da Adquirência.</td>
-      <td> </td>
+      <td>—</td>
+      <td>Código de erro/resposta da transação da Adquirência.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
@@ -24832,22 +24832,34 @@
   </tbody>
 </table>
 
-<h2 id="cancelamento-de-pagamento-com-cartão-presente">Cancelamento de pagamento com cartão presente</h2>
+<h2 id="cartão-digitado-com-cartão-criptografado">Cartão digitado com cartão criptografado</h2>
 
 <h3 id="requisição-29">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/</span></aside>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"MerchantVoidId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2019042204</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"MerchantVoidDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-15T12:00:00Z"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"InputMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MagStripe"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"TrackOneData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1234567890123456^FULANO OLIVEIRA SA ^12345678901234567890123"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"TrackTwoData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0123456789012345=012345678901234"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
+<p><strong>Path Parameters:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
+      <td>String uuid</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Código do Pagamento</td>
+    </tr>
+  </tbody>
+</table>
 
 <table>
   <thead>
@@ -24876,24 +24888,52 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Card.InputMode</code></td>
+      <td>String</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Sim</td>
+      <td>Enum: “Typed”, “MagStripe”, “Emv”, “ContactlessMagStripe”, “ContactlessEmv”</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Card.TrackOneData</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Card.CardNumber</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Número do cartão<br />Requerido quando a transação for digitada.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Card.EncryptedCardData.EncryptionType</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Tipo de encriptação utilizada<br />Enum:<br />“DukptDes” = 1,<br />“MasterKey” = 2,<br />“Dukpt3Des” = 3</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Card.EncryptedCardData.CardNumberKSN</code></td>
       <td>String</td>
       <td>—</td>
       <td>—</td>
-      <td>Dados da trilha 1 <br />Dado obtido através do comando PP_GetCard na BC no momento da captura da transação</td>
+      <td>Identificador KSN da criptografia do número do cartão</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Card.TrackTwoData</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Card.EncryptedCardData.IsDataInTLVFormat</code></td>
+      <td>Bool</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Identifica se os dados criptografados estão no formato TLV (tag / length / value).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Card.EncryptedCardData.InitializationVector</code></td>
       <td>String</td>
       <td>—</td>
+      <td>Sim</td>
+      <td>Vetor de inicialização da encryptação</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Card.ExpirationDate|String</code></td>
       <td>—</td>
-      <td>Dados da trilha 2 <br />Dado obtido através do comando PP_GetCard na BC no momento da captura da transação</td>
+      <td>SimData de expiração do cartão.</td>
+      <td> </td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
