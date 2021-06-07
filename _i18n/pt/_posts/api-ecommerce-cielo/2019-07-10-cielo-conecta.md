@@ -7006,7 +7006,7 @@ Solicita as tabelas e parametros para operação do terminal. Como não foi info
 
 Para simular alguma resposta especifica utilize o campo Amount, onde de acordo com o valor dos centavos informado nesse campo é possivel receber uma resposta conforme descrito na tabela abaixo:
 
-|Amount (valor dos centados)|	Retorno simulado do Cancelamento|	Exemplo de valor simulado|
+|Amount (valor dos centados)|Retorno simulado do Cancelamento|Exemplo de valor simulado|
 |40|Aprovado|5040 = R$50,40|
 |41|Negado|20041 = R$200,41|
 |42|Timeout|3542 = R$35,42|
@@ -7124,15 +7124,6 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`VoidId`|String - uuid|---|---|Identificador do cancelamento|
-|`InitializationVersion`|Integer int16|---|---|Número de versão dos parametros baixados na inicialização do equipamento.|
-|`PrintMessage.Position`|String|---|---|Default: "Top"<br><br>Enum: "Top", "Middle", "Bottom"<br><br>Posição da mensagem no comprovante:<br><br>Top - Início do comprovante, antes do código do estabelecimento<br><br>Middle - Meio do comprovante, após a descrição dos valores<br><br>Bottom - Final do comprovante|
-|`PrintMessage.Message`|String|---|---|Indica a mensagem que deve ser impressa no comprovante de acordo com a posição indicada no campo Position|
-|`Status`|Integer int16|---|---|Status da transação.<br><br>0 = Não Finalizado<br><br>1 = Autorizado<br><br>2 = Pago<br><br>3 = Negado<br><br>10 = Cancelado<br><br>13 = Abortado|
-|`CancellationStatus`|Integer int16|---|---|Status do cancelamento.<br><br>0 = Não Finalizado<br><br>1 = Autorizado<br><br>2 = Negado<br><br>3 = Confirmado<br><br>4 = Desfeito|
-|`ReasonCode`|Integer int16|---|---|Código de referência para análises.|
-|`ReasonMessage`|String|—|—|Mensagem explicativa para análise.|
-|`ReturnCode`|String|—|—|Código de erro/resposta da transação da Adquirência.|
-|`ReturnMessage`|String|—|—|Mensagem de erro/resposta da transação da Adquirência.|
 |`Receipt.MerchantName`|---|---|---|---|
 |`Receipt.MerchantAddress`|---|---|---|---|
 |`Receipt.MerchantCity`|---|---|---|---|
