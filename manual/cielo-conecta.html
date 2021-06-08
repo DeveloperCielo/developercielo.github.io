@@ -27420,11 +27420,41 @@
   </tbody>
 </table>
 
-<h3 id="desfaz-um-cancelamento">Desfaz um cancelamento</h3>
+<h3 id="desfaz-por-merchantvoidid">Desfaz por MerchantVoidId</h3>
 
 <h4 id="requisição-35">Requisição</h4>
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/merchantVoidId/{MerchantVoidId}</span></aside>
+
+<p><strong>Path Parameters:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
+      <td>String guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Código do Pagamento</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantVoidId</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Número do documento gerado automáticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal</td>
+    </tr>
+  </tbody>
+</table>
 
 <h4 id="resposta-35">Resposta</h4>
 
@@ -27465,6 +27495,13 @@
       <td>—</td>
       <td>—</td>
       <td>Status do cancelamento. <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Negado <br />3 = Confirmado <br />4 = Desfeito</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ConfirmationStatuss</code></td>
+      <td>Integer</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Status do confirmação. <br />0 = Pendente <br />1 = Confirmado <br />2 = Desfeito</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
