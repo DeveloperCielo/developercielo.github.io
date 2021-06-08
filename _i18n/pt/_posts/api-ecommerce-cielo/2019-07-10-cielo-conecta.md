@@ -7944,15 +7944,36 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 |`Links.Rel`|String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
 |`Links.Href`|String|---|---|Endereço de URL de chamada da API|
 
-# Desfazimento de cancelamento
+## Desfazimento de cancelamento
 
-## Desfaz um cancelamento
+| SandBox                                             | Produção                                      |
+|:---------------------------------------------------:|:---------------------------------------------:|
+| https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
 
-### Requisição
+**Simular respostas:**
+
+Para simular alguma resposta especifica utilize o campo Amount, onde de acordo com o valor dos centavos informado nesse campo é possivel receber uma resposta conforme descrito na tabela abaixo:
+
+|Amount (valor dos centados)|Retorno simulado do Cancelamento|Exemplo de valor simulado|
+|50|Aprovado|5050 = R$50,40|
+|51|Negado|20051 = R$200,41|
+|52|Timeout|3552 = R$35,42|
+|59|Erro|1059 = R$10,49|
+
+### Desfaz por VoidId
+
+#### Requisição
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/{VoidId}</span></aside>
 
-### Resposta
+**Path Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`PaymentId`|String guid|36|Sim|Código do Pagamento|
+|`MerchantVoidId`|String|---|Sim|Número do documento gerado automáticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal|
+
+#### Resposta
 
 ```json
 {
@@ -7977,18 +7998,19 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`CancellationStatus`|Integer int16|---|---|Status do cancelamento. <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Negado <br><br>3 = Confirmado <br><br>4 = Desfeito|
-|`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado <br><br>13 = Abortado|
-|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
-|`ReturnMessage`|---|---|---|Mensagem de erro/resposta da transação da Adquirência.|
+|`CancellationStatus`|Integer|2|Sim|Status do cancelamento. <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Negado <br><br>3 = Confirmado <br><br>4 = Desfeito|
+|`ConfirmationStatuss`|Integer|2|Sim|Status do confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
+|`Status`|Integer|2|Sim|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado <br><br>13 = Abortado|
+|`ReturnCode`|String|3|Sim|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|Sim|Mensagem de erro/resposta da transação da Adquirência.|
 
-## Desfaz um cancelamento
+### Desfaz um cancelamento
 
-### Requisição
+#### Requisição
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/merchantVoidId/{MerchantVoidId}</span></aside>
 
-### Resposta
+#### Resposta
 
 ```json
 {
