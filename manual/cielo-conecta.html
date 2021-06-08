@@ -27262,15 +27262,94 @@
   </tbody>
 </table>
 
-<h1 id="desfazimento-de-cancelamento">Desfazimento de cancelamento</h1>
+<h2 id="desfazimento-de-cancelamento">Desfazimento de cancelamento</h2>
 
-<h2 id="desfaz-um-cancelamento">Desfaz um cancelamento</h2>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">SandBox</th>
+      <th style="text-align: center">Produção</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">https://apisandbox.cieloecommerce.cielo.com.br</td>
+      <td style="text-align: center">https://api.cieloecommerce.cielo.com.br/</td>
+    </tr>
+  </tbody>
+</table>
 
-<h3 id="requisição-34">Requisição</h3>
+<p><strong>Simular respostas:</strong></p>
+
+<p>Para simular alguma resposta especifica utilize o campo Amount, onde de acordo com o valor dos centavos informado nesse campo é possivel receber uma resposta conforme descrito na tabela abaixo:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Amount (valor dos centados)</td>
+      <td>Retorno simulado do Cancelamento</td>
+      <td>Exemplo de valor simulado</td>
+    </tr>
+    <tr>
+      <td>50</td>
+      <td>Aprovado</td>
+      <td>5050 = R$50,40</td>
+    </tr>
+    <tr>
+      <td>51</td>
+      <td>Negado</td>
+      <td>20051 = R$200,41</td>
+    </tr>
+    <tr>
+      <td>52</td>
+      <td>Timeout</td>
+      <td>3552 = R$35,42</td>
+    </tr>
+    <tr>
+      <td>59</td>
+      <td>Erro</td>
+      <td>1059 = R$10,49</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="desfaz-por-voidid">Desfaz por VoidId</h3>
+
+<h4 id="requisição-34">Requisição</h4>
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/{VoidId}</span></aside>
 
-<h3 id="resposta-34">Resposta</h3>
+<p><strong>Path Parameters:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
+      <td>String guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Código do Pagamento</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantVoidId</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Número do documento gerado automáticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-34">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"CancellationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
@@ -27305,42 +27384,49 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CancellationStatus</code></td>
-      <td>Integer int16</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Integer</td>
+      <td>2</td>
+      <td>Sim</td>
       <td>Status do cancelamento. <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Negado <br />3 = Confirmado <br />4 = Desfeito</td>
     </tr>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">ConfirmationStatuss</code></td>
+      <td>Integer</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Status do confirmação. <br />0 = Pendente <br />1 = Confirmado <br />2 = Desfeito</td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Integer int16</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Integer</td>
+      <td>2</td>
+      <td>Sim</td>
       <td>Status da transação <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Pago <br />3 = Negado <br />10 = Cancelado <br />13 = Abortado</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
       <td>String</td>
-      <td>—</td>
-      <td>—</td>
+      <td>3</td>
+      <td>Sim</td>
       <td>Código de erro/resposta da transação da Adquirência.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
+      <td>String</td>
       <td>—</td>
-      <td>—</td>
-      <td>—</td>
+      <td>Sim</td>
       <td>Mensagem de erro/resposta da transação da Adquirência.</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="desfaz-um-cancelamento-1">Desfaz um cancelamento</h2>
+<h3 id="desfaz-um-cancelamento">Desfaz um cancelamento</h3>
 
-<h3 id="requisição-35">Requisição</h3>
+<h4 id="requisição-35">Requisição</h4>
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/merchantVoidId/{MerchantVoidId}</span></aside>
 
-<h3 id="resposta-35">Resposta</h3>
+<h4 id="resposta-35">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"CancellationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
