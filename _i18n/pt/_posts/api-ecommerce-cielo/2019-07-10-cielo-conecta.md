@@ -8101,6 +8101,14 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 }
 ```
 
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`CancellationStatus`|Integer|2|Sim|Status do cancelamento. <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Negado <br><br>3 = Confirmado <br><br>4 = Desfeito|
+|`ConfirmationStatuss`|Integer|2|Sim|Status do confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
+|`Status`|Integer|2|Sim|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado <br><br>13 = Abortado|
+|`ReturnCode`|String|3|Sim|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|Sim|Mensagem de erro/resposta da transação da Adquirência.|
+
 # Lojas
 
 Essa operação permite o cadastro de lojas e terminais , viabilizando modelos de negócios onde o facilitador necessite segmentar sua operação.
