@@ -6203,30 +6203,6 @@ null
 |`Receipt.Value`|---|---|---|---|
 |`Receipt.SoftDescriptor`|---|---|---|---|
 
-### Cancelamento
-
-Consulta um cancelamento
-
-#### Requisição
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/{VoidId}</span></aside>
-
-#### Resposta
-
-```json
-{
-  "VoidId": "a4bc7892-b455-4cd1-b902-c791802cd72b",
-  "CancellationStatus": 1,
-  "Status": 10
-}
-```
-
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
-|---|---|---|---|---|
-|`VoidId`|---|---|---|---|
-|`CancellationStatus`|---|---|---|---|
-|`Status`|---|---|---|---|
-
 ## Fluxo de pagamento (Biblioteca Compartilhada)
 
 **Exemplo fluxo (Biblioteca Compartilhada):**
@@ -8108,6 +8084,39 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 |`Status`|Integer|2|Sim|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado <br><br>13 = Abortado|
 |`ReturnCode`|String|3|Sim|Código de erro/resposta da transação da Adquirência.|
 |`ReturnMessage`|String|---|Sim|Mensagem de erro/resposta da transação da Adquirência.|
+
+## Consultas
+
+### Consulta de Cancelamento
+
+Consulta um cancelamento
+
+#### Requisição
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/{VoidId}</span></aside>
+
+**Path Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`PaymentId`|String guid|36|Sim|Código do Pagamento|
+|`VoidId`|String guid|36|Sim|Identificador do cancelamento a ser desfeito|
+
+#### Resposta
+
+```json
+{
+  "VoidId": "a4bc7892-b455-4cd1-b902-c791802cd72b",
+  "CancellationStatus": 1,
+  "Status": 10
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`VoidId`|String guid|36|Sim|Identificador do cancelamento a ser desfeito|
+|`CancellationStatus`|Integer|2|Sim|Status do cancelamento. <br><br>0 = NotFinished  <br><br>1 = Authorized  <br><br>2 = Denied  <br><br>3 = Confirmed  <br><br>4 = Reversed |
+|`Status`|Integer|2|Sim|Status da transação.<br><br>NotFinished = 0,<br><br>Authorized = 1,<br><br>PaymentConfirmed = 2,<br><br>Denied = 3,<br><br>Voided = 10,<br><br>Refunded = 11,<br><br>Pending = 12,<br><br>Aborted = 13,<br><br>Scheduled = 20|
 
 # Lojas
 
