@@ -8004,11 +8004,18 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 |`ReturnCode`|String|3|Sim|Código de erro/resposta da transação da Adquirência.|
 |`ReturnMessage`|String|---|Sim|Mensagem de erro/resposta da transação da Adquirência.|
 
-### Desfaz um cancelamento
+### Desfaz por MerchantVoidId
 
 #### Requisição
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/merchantVoidId/{MerchantVoidId}</span></aside>
+
+**Path Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`PaymentId`|String guid|36|Sim|Código do Pagamento|
+|`MerchantVoidId`|String|---|Sim|Número do documento gerado automáticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal|
 
 #### Resposta
 
@@ -8036,6 +8043,7 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`CancellationStatus`|Integer int16|---|---|Status do cancelamento. <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Negado <br><br>3 = Confirmado <br><br>4 = Desfeito|
+|`ConfirmationStatuss`|Integer|2|Sim|Status do confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
 |`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado <br><br>13 = Abortado|
 |`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
 |`ReturnMessage`|---|---|---|Mensagem de erro/resposta da transação da Adquirência.|
