@@ -27313,11 +27313,11 @@
   </tbody>
 </table>
 
-<h3 id="desfaz-por-voidid">Desfaz por VoidId</h3>
+<h3 id="desfaz-por-merchantvoidid">Desfaz por MerchantVoidId</h3>
 
 <h4 id="requisição-34">Requisição</h4>
 
-<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/{VoidId}</span></aside>
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/merchantVoidId/{MerchantVoidId}</span></aside>
 
 <p><strong>Path Parameters:</strong></p>
 
@@ -27350,6 +27350,113 @@
 </table>
 
 <h4 id="resposta-34">Resposta</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"CancellationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde/voids"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CancellationStatus</code></td>
+      <td>Integer int16</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Status do cancelamento. <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Negado <br />3 = Confirmado <br />4 = Desfeito</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ConfirmationStatuss</code></td>
+      <td>Integer</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Status do confirmação. <br />0 = Pendente <br />1 = Confirmado <br />2 = Desfeito</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Integer int16</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Status da transação <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Pago <br />3 = Negado <br />10 = Cancelado <br />13 = Abortado</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Código de erro/resposta da transação da Adquirência.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Mensagem de erro/resposta da transação da Adquirência.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="desfaz-por-voidid">Desfaz por VoidId</h3>
+
+<h4 id="requisição-35">Requisição</h4>
+
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/{VoidId}</span></aside>
+
+<p><strong>Path Parameters:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
+      <td>String guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Código do Pagamento</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">VoidId</code></td>
+      <td>String guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificador do cancelamento a ser desfeito</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-35">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"CancellationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
@@ -27420,11 +27527,62 @@
   </tbody>
 </table>
 
-<h3 id="desfaz-por-merchantvoidid">Desfaz por MerchantVoidId</h3>
+<h2 id="confirmação-de-cancelamento">Confirmação de Cancelamento</h2>
 
-<h4 id="requisição-35">Requisição</h4>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">SandBox</th>
+      <th style="text-align: center">Produção</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">https://apisandbox.cieloecommerce.cielo.com.br</td>
+      <td style="text-align: center">https://api.cieloecommerce.cielo.com.br/</td>
+    </tr>
+  </tbody>
+</table>
 
-<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/merchantVoidId/{MerchantVoidId}</span></aside>
+<p><strong>Simular respostas:</strong></p>
+
+<p>Para simular alguma resposta especifica utilize o campo Amount, onde de acordo com o valor dos centavos informado nesse campo é possivel receber uma resposta conforme descrito na tabela abaixo:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Amount (valor dos centados)</td>
+      <td>Retorno simulado do Cancelamento</td>
+      <td>Exemplo de valor simulado</td>
+    </tr>
+    <tr>
+      <td>50</td>
+      <td>Aprovado</td>
+      <td>5050 = R$50,40</td>
+    </tr>
+    <tr>
+      <td>51</td>
+      <td>Negado</td>
+      <td>20051 = R$200,41</td>
+    </tr>
+    <tr>
+      <td>52</td>
+      <td>Timeout</td>
+      <td>3552 = R$35,42</td>
+    </tr>
+    <tr>
+      <td>59</td>
+      <td>Erro</td>
+      <td>1059 = R$10,49</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="confirma">Confirma</h3>
+
+<h4 id="requisição-36">Requisição</h4>
+
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/{VoidId}/confirmation</span></aside>
 
 <p><strong>Path Parameters:</strong></p>
 
@@ -27447,19 +27605,20 @@
       <td>Código do Pagamento</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantVoidId</code></td>
-      <td>String</td>
-      <td>—</td>
+      <td><code class="language-plaintext highlighter-rouge">VoidId</code></td>
+      <td>String guid</td>
+      <td>36</td>
       <td>Sim</td>
-      <td>Número do documento gerado automáticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal</td>
+      <td>Identificador do cancelamento a ser desfeito</td>
     </tr>
   </tbody>
 </table>
 
-<h4 id="resposta-35">Resposta</h4>
+<h4 id="resposta-36">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"CancellationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ConfirmatinoStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
   </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
@@ -27477,55 +27636,6 @@
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CancellationStatus</code></td>
-      <td>Integer int16</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Status do cancelamento. <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Negado <br />3 = Confirmado <br />4 = Desfeito</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ConfirmationStatuss</code></td>
-      <td>Integer</td>
-      <td>2</td>
-      <td>Sim</td>
-      <td>Status do confirmação. <br />0 = Pendente <br />1 = Confirmado <br />2 = Desfeito</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Integer int16</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Status da transação <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Pago <br />3 = Negado <br />10 = Cancelado <br />13 = Abortado</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Código de erro/resposta da transação da Adquirência.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Mensagem de erro/resposta da transação da Adquirência.</td>
-    </tr>
-  </tbody>
-</table>
 
 <h1 id="lojas">Lojas</h1>
 
@@ -27900,7 +28010,7 @@
 
 <h3 id="cria-um-novo-terminal">Cria um novo terminal</h3>
 
-<h4 id="requisição-36">Requisição</h4>
+<h4 id="requisição-37">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals</span></aside>
 
@@ -27962,7 +28072,7 @@
   </tbody>
 </table>
 
-<h4 id="resposta-36">Resposta</h4>
+<h4 id="resposta-37">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Terminal"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -28026,7 +28136,7 @@
 
 <h3 id="desabilita-um-terminal-removendo-o-vínculo-com-um-equipamento-físico">Desabilita um terminal removendo o vínculo com um equipamento físico.</h3>
 
-<h4 id="requisição-37">Requisição</h4>
+<h4 id="requisição-38">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals/disable</span></aside>
 
