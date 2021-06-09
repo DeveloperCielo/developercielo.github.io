@@ -819,7 +819,7 @@ Cielo informs its customers that it is prepared to process transactions followin
 | CANNOT FIND THE RECORD IN THE FILE | IRREVERSIBLE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | 25 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | CONTACT YOUR CARD CENTER - DO NOT TRY AGAIN |
 | FILE NOT AVAILABLE FOR UPDATE| IRREVERSIBLE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | 28 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | CONTACT YOUR CARD CENTER - DO NOT TRY AGAIN |
 
-### Other return codes
+### Other return codes 
 
 | Response Code   | Definition                                      | Meaning                                                                     | Action                                                            | Allows Retry        |
 |-----------------|-------------------------------------------------|-----------------------------------------------------------------------------|-------------------------------------------------------------------|---------------------|
