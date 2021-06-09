@@ -835,7 +835,7 @@ Cielo informs its customers that it is prepared to process transactions followin
 |70|Unauthorized transaction. Limit exceeded/no balance.|Unauthorized transaction. Limit exceeded/no balance.|Unauthorized transaction. Contact your issuing bank.|From the following day, only 4 times in 16 days.|
 |72|Cancellation not made. Insufficient balance available for cancellation.|Cancellation not made. Insufficient balance available for cancellation. If the error persists, contact Cielo.|Cancellation not made. Try again later. If the error persists, contact the online store.|No|
 
-## Anti-Fraud Status 
+## Anti-Fraud Status  
 
 |Field|Definition|
 |:-----:|--------------------------|
