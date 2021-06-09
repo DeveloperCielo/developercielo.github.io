@@ -819,7 +819,7 @@ Cielo informs its customers that it is prepared to process transactions followin
 | CANNOT FIND THE RECORD IN THE FILE | IRREVERSIBLE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | 25 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | CONTACT YOUR CARD CENTER - DO NOT TRY AGAIN |
 | FILE NOT AVAILABLE FOR UPDATE| IRREVERSIBLE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | 28 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | CONTACT YOUR CARD CENTER - DO NOT TRY AGAIN |
 
-### Outros códigos de retorno
+### Other return codes
 
 | Response Code   | Definition                                      | Meaning                                                                     | Action                                                            | Allows Retry        |
 |-----------------|-------------------------------------------------|-----------------------------------------------------------------------------|-------------------------------------------------------------------|---------------------|
@@ -830,6 +830,10 @@ Cielo informs its customers that it is prepared to process transactions followin
 |21|Cancellation not made. Transaction not found.|Unable to process cancellation. If the error persists, contact Cielo.|Unable to process cancellation. Try again later. If the error persists, contact the virtual store.|No|
 |22|Invalid installment. Number of invalid installments.|Unable to process transaction. Number of invalid installments. If the error persists, contact Cielo.|The transaction could not be processed. Invalid value. Redo the transaction confirming the data entered. If the error persists, contact the virtual store.|No|
 |24|Invalid amount of installments. | Unable to process the transaction. Invalid amount of installments. If the error persists, contact Cielo.|The transaction could not be processed. Invalid amount of installments. Redo the transaction confirming the data entered. If the error persists, contact the virtual store.|No|
+|60|Unauthorized transaction.|Unauthorized transaction. Try again. If the error persists, the holder must contact the issuing bank.|Unable to process transaction. Try again later. If the error persists, contact your issuing bank.|Only 4 times in 16 days.|
+|67|Unauthorized transaction. Card blocked for purchases today.|Unauthorized transaction. Card blocked for purchases today. Blocking may have occurred due to too many invalid attempts. The card will automatically unlock at midnight.|Transaction not authorized. Card temporarily blocked. Contact your issuing bank.|From the next day, only 4 times in 16 days.|
+|70|Unauthorized transaction. Limit exceeded/no balance.|Unauthorized transaction. Limit exceeded/no balance.|Unauthorized transaction. Contact your issuing bank.|From the following day, only 4 times in 16 days.|
+|72|Cancellation not made. Insufficient balance available for cancellation.|Cancellation not made. Insufficient balance available for cancellation. If the error persists, contact Cielo.|Cancellation not made. Try again later. If the error persists, contact the online store.|No|
 
 ## Anti-Fraud Status 
 
