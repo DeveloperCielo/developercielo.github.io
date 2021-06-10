@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Manual de Integração Cielo Conecta T
+title: Manual de Integração Cielo Conecta
 description: API para integração de vendas no físico e OnLine
 search: true
 translated: true
@@ -14,7 +14,7 @@ language_tabs:
   shell: cURL
 ---
 
-# Visão geral - API Cielo Conecta
+# Visão geral - API Cielo Conecta T
 
 # Objetivo
 
