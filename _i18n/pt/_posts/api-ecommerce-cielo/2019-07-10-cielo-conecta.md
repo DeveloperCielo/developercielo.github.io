@@ -14,7 +14,7 @@ language_tabs:
   shell: cURL
 ---
 
-# Visão geral - API Cielo Conecta Cielo T
+# Visão geral - API Cielo Conecta Cielo AS
 
 # Objetivo
 
