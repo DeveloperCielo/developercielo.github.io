@@ -9125,3 +9125,12 @@ Encontra uma loja subordinada pelo seu ID.
 Consulta Lojas de forma paginada
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/merchants/paged?{documentnumber}&{email}&{pageSize}&{page}</span></aside>
+
+**Query Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`email`|String|45|Sim|O email de cadastro da Loja|
+|`DocumentNumber`|String|15|Não|Número da documentacao da Loja/Lojista. CPF ou CNPJ sem máscara|
+|`pageSize`|Integer|3|Não|Número de itens por página. Máximo de 100 por página.|
+|`page`|Integer|---|Não|Retorna os registros da página informada. Deve ser utilizado quando a quantidade de páginas
