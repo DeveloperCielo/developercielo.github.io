@@ -31669,6 +31669,245 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Page</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Número da página atual</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TotalPages</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Quantidade total de páginas</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TotalElements</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Quantidade total de itens encontrados</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Size</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Quantidade de itens por página</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.SubordinatedMerchantId</code></td>
+      <td>String (Guid)</td>
+      <td>36</td>
+      <td>Não ID que a loja subordinada deve assumir.</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.Address.ZipCode</code></td>
+      <td>String</td>
+      <td>9</td>
+      <td>Sim</td>
+      <td>CEP</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.Address.Street</code></td>
+      <td>String</td>
+      <td>120</td>
+      <td>Não</td>
+      <td>Localização</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.Address.Number</code></td>
+      <td>String</td>
+      <td>9</td>
+      <td>Sim</td>
+      <td>Número do endereço</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.Address.Complement</code></td>
+      <td>String</td>
+      <td>120</td>
+      <td>Não</td>
+      <td>Complemento do endereço</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.TradeName</code></td>
+      <td>String</td>
+      <td>35</td>
+      <td>Sim</td>
+      <td>Nome</td>
+      <td>fantasia</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.CompanyName</code></td>
+      <td>String</td>
+      <td>35</td>
+      <td>Não</td>
+      <td>Razão social. Obrigatório quando o DocumentType for “Cnpj” - Pessoa Jurídica</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.Email</code></td>
+      <td>String</td>
+      <td>45</td>
+      <td>Sim</td>
+      <td>Endereço de email da loja</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.PhoneNumber</code></td>
+      <td>String</td>
+      <td>30</td>
+      <td>Sim</td>
+      <td>Telefone da loja</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.Mcc</code></td>
+      <td>Integer</td>
+      <td>4</td>
+      <td>Sim</td>
+      <td>Ramo de Atividade (MCC), obtido através de consultar ramos de atividade na tabela MCC.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.DocumentNumber</code></td>
+      <td>String</td>
+      <td>20</td>
+      <td>Sim</td>
+      <td>CPF ou CNPJ da Loja</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.DocumentType</code></td>
+      <td>String</td>
+      <td>4</td>
+      <td>Sim</td>
+      <td>Enum: “Cpf” ou “Cnpj”</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.SoftDescriptor</code></td>
+      <td>String</td>
+      <td>13</td>
+      <td>Não</td>
+      <td>Descrição da fatura</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.Owner.Name</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Nome do proprietario</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.Owner.Email</code></td>
+      <td>String</td>
+      <td>45</td>
+      <td>Sim</td>
+      <td>Email do proprietário</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.Owner.PhoneNumber</code></td>
+      <td>String</td>
+      <td>30</td>
+      <td>Sim</td>
+      <td>Telefone do proprietário</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.Owner.MessengerPhone</code></td>
+      <td>String</td>
+      <td>30</td>
+      <td>Sim</td>
+      <td>Whatsapp do proprietário</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.Owner.Gender</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Enum: “Male” ou “Female”</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.MerchantGroup</code></td>
+      <td>array[String]</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Lista de objetos do tipo MerchantGroup</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.MerchantGroup.Name</code></td>
+      <td>string</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Nome do grupo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.MerchantGroup.SubAcquirer</code></td>
+      <td>string</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Subadquirente</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.MerchantGroup.Origin</code></td>
+      <td>string</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Origem</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.MerchantGroup.Id</code></td>
+      <td>string</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Id do grupo do Lojista</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.MerchantGroupName</code></td>
+      <td>array[string]</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Lista de nomes dos grupos do Lojista</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 
