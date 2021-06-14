@@ -6834,6 +6834,7 @@ Solicita as tabelas e parametros para operação do terminal. Como não foi info
   "InitializationVersion": 1558708320029
 }
 ```
+
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantId`|String|---|---|Identificador da loja|
@@ -7635,6 +7636,7 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/</span></aside>
 
 **Path Parameters:**
+
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`PaymentId`|String uuid|---|Sim|Código do Pagamento|
@@ -7784,6 +7786,7 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 |`Links.Href`|String|---|---|Endereço de URL de chamada da API|
 
 ### Cartão por chip com cartão criptografado
+
 #### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/</span></aside>
