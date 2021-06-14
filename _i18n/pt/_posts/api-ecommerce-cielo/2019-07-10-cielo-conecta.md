@@ -1504,33 +1504,211 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 #### Resposta
 
 ```json
-         },
-         {
-            "Field":"SOFT_DESCRIPTOR",
-            "Label":"SOFT DESCRIPTOR",
-            "Content":"Simulado"
-         }
-      ],
-      "Receipt":{
-         "MerchantName":"Estabelecimento",
-         "MerchantAddress":"Rua Sem Saida, 0",
-         "MerchantCity":"Cidade",
-         "MerchantState":"WA",
-         "MerchantCode":1234567890123456,
-         "Terminal":12345678,
-         "Nsu":123456,
-         "Date":"01/01/20",
-         "Hour":"01:01",
-         "IssuerName":"NOME DO EMISSOR",
-         "CardNumber":5432123454321234,
-         "TransactionType":"VENDA A CREDITO",
-         "AuthorizationCode":123456,
-         "TransactionMode":"ONL",
-         "InputMethod":"X",
-         "Value":"1,23",
-         "SoftDescriptor":"Simulado"
+ {
+  "MerchantOrderId": "1593196602533",
+  "Customer": {
+    "Name": "[Guest]"
+  },
+  "Payment": {
+    "Installments": 1,
+    "Interest": "ByMerchant",
+    "Capture": true,
+    "CreditCard": {
+      "ExpirationDate": "12/2021",
+      "BrandId": 1,
+      "IssuerId": 401,
+      "TruncateCardNumberWhenPrinting": true,
+      "PanSequenceNumber": 1,
+      "InputMode": "ContactlessEmv",
+      "AuthenticationMethod": "OnlineAuthentication",
+      "TrackOneData": "B3764 361234 56006^NOME NOME NOME NOME NOME N^0905060640431",
+      "TrackTwoData": "1111222233334444=09050606404312376450",
+      "EmvData": "",
+      "IsFallback": false,
+      "PinBlock": {
+        "EncryptedPinBlock": "2280F6BDFD0C038D",
+        "EncryptionType": "Dukpt3Des",
+        "KsnIdentification": "fffff9999900522000d6"
+      },
+      "BrandInformation": {
+        "Type": "dzk?eitx?o",
+        "Name": "pcttwvacr?",
+        "Description": "tsyhydj|w"
+      },
+      "SaveCard": false
+    },
+    "Amount": 0,
+    "ReceivedDate": "2020-06-26T18:36:42Z",
+    "CapturedAmount": 0,
+    "CapturedDate": "2020-06-26T18:36:42Z",
+    "Provider": "Cielo",
+    "Status": 2,
+    "IsSplitted": false,
+    "ReturnMessage": "APROVADA 497683",
+    "ReturnCode": "000",
+    "PaymentId": "e84bbb1c-c6e0-4172-a3be-3118bf801e81",
+    "Type": "PhysicalCreditCard",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/e84bbb1c-c6e0-4172-a3be-3118bf801e81"
+      },
+      {
+        "Method": "PUT",
+        "Rel": "confirm",
+        "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/e84bbb1c-c6e0-4172-a3be-3118bf801e81/confirmation"
+      },
+      {
+        "Method": "DELETE",
+        "Rel": "reverse",
+        "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/e84bbb1c-c6e0-4172-a3be-3118bf801e81"
       }
-   }
+    ],
+    "PaymentDateTime": "2020-06-26T18:36:42.533Z",
+    "ServiceTaxAmount": 0,
+    "SoftDescriptor": "Description",
+    "ProductId": 1,
+    "PinPadInformation": {
+      "TerminalId": "42004558",
+      "SerialNumber": "6C651996",
+      "PhysicalCharacteristics": "PinPadWithChipReaderWithSamModuleAndContactless",
+      "ReturnDataInfo": "00"
+    },
+    "PrintMessage": [
+      {
+        "Position": "Top",
+        "Message": "awd?"
+      },
+      {
+        "Position": "Middle",
+        "Message": "ytp?stmbuv"
+      },
+      {
+        "Position": "Bottom",
+        "Message": "qzycn~{t?f"
+      }
+    ],
+    "ReceiptInformation": [
+      {
+        "Field": "MERCHANT_NAME",
+        "Label": "NOME DO ESTABELECIMENTO",
+        "Content": "jp|hbpizwx|{e"
+      },
+      {
+        "Field": "MERCHANT_CITY",
+        "Label": "CIDADE DO ESTABELECIMENTO",
+        "Content": "fvc?t|tsisxcopucksey"
+      },
+      {
+        "Field": "INPUT_METHOD",
+        "Label": "MODO DE ENTRADA",
+        "Content": "ual?jq?r?yk|o?r?o"
+      },
+      {
+        "Field": "TERMINAL",
+        "Label": "POS",
+        "Content": "18605058"
+      },
+      {
+        "Field": "ISSUER_NAME",
+        "Label": "EMISSOR",
+        "Content": "|?xfgpgmltuasuxjrckrzmqjcamfkqq"
+      },
+      {
+        "Field": "NSU",
+        "Label": "DOC",
+        "Content": "770120"
+      },
+      {
+        "Field": "MERCHANT_CODE",
+        "Label": "COD.ESTAB.",
+        "Content": "80523210785618"
+      },
+      {
+        "Field": "MERCHANT_ADDRESS",
+        "Label": "ENDEREÇO DO ESTABELECIMENTO",
+        "Content": "dj?jiernlfi?eczuw?eg?c"
+      },
+      {
+        "Field": "AUTHORIZATION_CODE",
+        "Label": "AUTORIZAÇÃO",
+        "Content": "62976"
+      },
+      {
+        "Field": "CARD_HOLDER",
+        "Label": "NOME DO CLIENTE",
+        "Content": "{igk?}v?oyo??l{megr"
+      },
+      {
+        "Field": "TRANSACTION_TYPE",
+        "Label": "TIPO DE TRANSAÇÃO",
+        "Content": "bwpvavrb~eeyedr"
+      },
+      {
+        "Field": "MERCHANT_STATE",
+        "Label": "ESTADO DO ESTABELECIMENTO",
+        "Content": "py"
+      },
+      {
+        "Field": "DATE",
+        "Label": "DATA",
+        "Content": "6/26/2020"
+      },
+      {
+        "Field": "HOUR",
+        "Label": "HORA",
+        "Content": "3:36 PM"
+      },
+      {
+        "Field": "VALUE",
+        "Label": "VALOR",
+        "Content": "0"
+      },
+      {
+        "Field": "TRANSACTION_MODE",
+        "Label": "MODO DA TRANSAÇÃO",
+        "Content": "e?g"
+      },
+      {
+        "Field": "CARD_NUMBER",
+        "Label": "CARTÃO"
+      }
+    ],
+    "Receipt": {
+      "MerchantName": "{{v??~f?}dsfbxukw?jnu?yjp|hbpizwx|{e",
+      "MerchantCity": "ucy{~l{dt|tsisxcopucksey}gyk??tbgp?qa",
+      "InputMethod": "ual?jq?r?yk|o?r??}?whsm~vgbkjwxqo",
+      "Terminal": "18605058",
+      "IssuerName": "xbenr?megq|?xfgpgmltuasuxjrckrzmqjcamfkqq",
+      "Nsu": "770120",
+      "MerchantCode": "80523210785618",
+      "MerchantAddress": "jsjkoaht?k??eczuw?eg?c",
+      "AuthorizationCode": "62976",
+      "CardHolder": "{igk?}v?oyo??l{megopnnzloe?ulw?ldmrk|??csdk?i?j?g{ucsjkn|}",
+      "TransactionType": "c~}~bd}?ddirqtcfc|b|fq~hmakx|p?{xcz?kaq{xyafcp~t}?odbwpvavrb~eeyern~d?bkldr",
+      "MerchantState": "py",
+      "Date": "6/26/2020",
+      "Hour": "3:36 PM",
+      "Value": "0",
+      "TransactionMode": "e?g",
+      "CardNumber": null
+    },
+    "AuthorizationCode": "497683",
+    "ProofOfSale": "217781",
+    "InitializationVersion": 1593196200000,
+    "ConfirmationStatus": 0,
+    "EmvResponseData": "904461146",
+    "SubordinatedMerchantId": "b99a463f-88db-442a-b5fa-982187b68f5c",
+    "MassTransit": {
+      "IsDebtRecovery": false,
+      "IsKnownValue": false,
+      "FirstTravelDate": "2018-01-01T04:12:00"
+    },
+    "OfflinePaymentType": "Online"
+  }
 }
 ```
 
@@ -4595,7 +4773,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
          },
          "BrandInformation":{
             "Type":"fwxueo?k}e",
-            "Name":"|pqbcb?t~",
+            "Name":"b?t~",
             "Description":"?gqcoumet?~l}m?u?~grqusz?c|tmi"
          },
          "SaveCard":false,
@@ -4659,17 +4837,17 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
          {
             "Field":"MERCHANT_NAME",
             "Label":"NOME DO ESTABELECIMENTO",
-            "Content":"fxwjkqxebkfi{bnny|dl}~}l|gxhhvywbbl}?jotpxrcd??wg|{dhqmm?lrd}p?qvshyzvpomu?fl{h"
+            "Content":"fxwjkqxebkfi{bnny|dl}~}l"
          },
          {
             "Field":"MERCHANT_CITY",
             "Label":"CIDADE DO ESTABELECIMENTO",
-            "Content":"lbbp?upuz??w}l{?{bqvzh?vml{wtgafew}{oruacw?{y~wb~?okjwfdfqdu~as?|rft?vjqpsdhg?s"
+            "Content":"lbbp?upuz??w}l{?{bqvzh?vml{s"
          },
          {
             "Field":"INPUT_METHOD",
             "Label":"MODO DE ENTRADA",
-            "Content":"yz}w}{?rryv?nagjwq}?lrr~mf~~db??tu?ean{h?ay?ox?qjjr|oahhh?kx?bnp}wo~ecii{ual}wpz"
+            "Content":"yz}w}{?rryv?nagjwq}?lrr~mf~~db?}wpz"
          },
          {
             "Field":"TERMINAL",
@@ -4679,7 +4857,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
          {
             "Field":"ISSUER_NAME",
             "Label":"EMISSOR",
-            "Content":"ny?bdckwjc|iclgaib??ovtvntqtxc?pqghfxjgyttxqhbo~lc{trjlrry|ncopzmw?a~dou}h?b?"
+            "Content":"ny?brjlrry|ncopzmw?a~dou}h?b?"
          },
          {
             "Field":"NSU",
@@ -4694,7 +4872,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
          {
             "Field":"MERCHANT_ADDRESS",
             "Label":"ENDEREÇO DO ESTABELECIMENTO",
-            "Content":"?eugn?iyf{knjvmsjkl?o?yyfcqqc?v{???vlz|k?fvx~vfkpiskjkuf?sh?}ic|yxnxn??vuv?inb"
+            "Content":"?eugn?iyf{knjvm"
          },
          {
             "Field":"AUTHORIZATION_CODE",
@@ -4704,12 +4882,12 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
          {
             "Field":"CARD_HOLDER",
             "Label":"NOME DO CLIENTE",
-            "Content":"rlrwn{}rsyc?ghr?tj?zyml|xx?wiiknf|jsgfe{cjftbymphquuv~jcd?f??puvaqipne}?vd"
+            "Content":"rlaqipne}?vd"
          },
          {
             "Field":"TRANSACTION_TYPE",
             "Label":"TIPO DE TRANSAÇÃO",
-            "Content":"gi}?kso|xz|mrhpk?j?g~k?qx?h}dq|whg??cgumryh~y?b?cesdpj?jmlolwyg?eellui~zszfdew?"
+            "Content":"gi}?kso|xz|mrhpkszfdew?"
          },
          {
             "Field":"MERCHANT_STATE",
@@ -4742,17 +4920,17 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
          }
       ],
       "Receipt":{
-         "MerchantName":"fxwjkqxebkfi{bnny|dl}~}l|gxhhvywbbl}?jotpxrcd??wg|{dhqmm?lrd}p?qvshyzvpomu?fl{h",
-         "MerchantCity":"lbbp?upuz??w}l{?{bqvzh?vml{wtgafew}{oruacw?{y~wb~?okjwfdfqdu~as?|rft?vjqpsdhg?s",
-         "InputMethod":"yz}w}{?rryv?nagjwq}?lrr~mf~~db??tu?ean{h?ay?ox?qjjr|oahhh?kx?bnp}wo~ecii{ual}wpz",
+         "MerchantName":"fxwjkqomu?",
+         "MerchantCity":"lbbp?upuz??w}l{?{bqvzhhg?s",
+         "InputMethod":"yz}w}{?rryv?nagjwz",
          "Terminal":"23585155",
-         "IssuerName":"ny?bdckwjc|iclgaib??ovtvntqtxc?pqghfxjgyttxqhbo~lc{trjlrry|ncopzmw?a~dou}h?b?",
+         "IssuerName":"ny?bdncopzmw?a~dou}h?b?",
          "Nsu":"114075",
          "MerchantCode":"53391876948611",
-         "MerchantAddress":"?eugn?iyf{knjvmsjkl?o?yyfcqqc?v{???vlz|k?fvx~vfkpiskjkuf?sh?}ic|yxnxn??vuv?inb",
+         "MerchantAddress":"?eugn?iyf{knj",
          "AuthorizationCode":"59108",
-         "CardHolder":"rlrwn{}rsyc?ghr?tj?zyml|xx?wiiknf|jsgfe{cjftbymphquuv~jcd?f??puvaqipne}?vd",
-         "TransactionType":"gi}?kso|xz|mrhpk?j?g~k?qx?h}dq|whg??cgumryh~y?b?cesdpj?jmlolwyg?eellui~zszfdew?",
+         "CardHolder":"re}?vd",
+         "TransactionType":"gi}?kso|xz|mrhpk?jlolwyg?eellui~zszfdew?",
          "MerchantState":"?f",
          "Date":"6/26/2020",
          "Hour":"3:39 PM",
@@ -5518,7 +5696,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
          "BrandInformation":{
             "Type":"y|vtdz?pqw",
             "Name":"ytuaflq}nw",
-            "Description":"rbgbjn?glw?s}dur?xhkn?uekk?pw"
+            "Description":"rbgbjn?glw?s}dur?xw"
          },
          "SaveCard":false
       },
@@ -5565,7 +5743,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
       "PrintMessage":[
          {
             "Position":"Top",
-            "Message":"qto?kmo|}"
+            "Message":"qtkmo|}"
          },
          {
             "Position":"Middle",
@@ -5580,17 +5758,17 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
          {
             "Field":"MERCHANT_NAME",
             "Label":"NOME DO ESTABELECIMENTO",
-            "Content":"?zpeg{rqxo}udiuqc|?ne|z?e?i??ushvnys{?etso|h?gsktiyrj}?z?akssvd?v?zub{dxp?{?rc"
+            "Content":"?zpv?zub{dxp?{?rc"
          },
          {
             "Field":"MERCHANT_CITY",
             "Label":"CIDADE DO ESTABELECIMENTO",
-            "Content":"?n?pwz~zmv{}?~b?~ylkg}{ss|bcnc?i~c?uc?nc?xdi?e~o??lf|{vh?e?}x?t|tb??q?ljotz?j"
+            "Content":"?n?pwz~zmvlkg}{ss|bcnc?i~c?ujotz?j"
          },
          {
             "Field":"INPUT_METHOD",
             "Label":"MODO DE ENTRADA",
-            "Content":"wwixrfxdbllme~ojjyudyi???c??nh?lysmu?qoeq?uwe~a??fe}u|om{tdxhxepaplczjif?i?xj~"
+            "Content":"wwixrfxdbllme~ojjyu|om{tdxhxepaplczjif?i?xj~"
          },
          {
             "Field":"TERMINAL",
@@ -5600,7 +5778,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
          {
             "Field":"ISSUER_NAME",
             "Label":"EMISSOR",
-            "Content":"e|?hi?lqjlqhdnzk?w?~l?{d?pbulp{xrluerblr?tgb{|livm{}z}?helrj???ztvbf{}kelmmtb"
+            "Content":"e|?hi?lqjelmmtb"
          },
          {
             "Field":"NSU",
@@ -5615,7 +5793,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
          {
             "Field":"MERCHANT_ADDRESS",
             "Label":"ENDEREÇO DO ESTABELECIMENTO",
-            "Content":"se{gs}rqxnptxcetvj}zx~sq~pfqt{myctc?t}?wthocfjlu?c?|?|khzznm?exdusc??~mggppql"
+            "Content":"se{gs}rqxnptc??~mggppql"
          },
          {
             "Field":"AUTHORIZATION_CODE",
@@ -5625,7 +5803,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
          {
             "Field":"CARD_HOLDER",
             "Label":"NOME DO CLIENTE",
-            "Content":"|v}ly|z~dtjtd{?ky}sccgozvp?|ofj|tx?scilhf{~?wmyqalcoougc{j??p?kraqriq?g??qv~?"
+            "Content":"|v}ly|z~dtjtd{?ky}siq?g??qv~?"
          },
          {
             "Field":"TRANSACTION_TYPE",
@@ -5663,16 +5841,16 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
          }
       ],
       "Receipt":{
-         "MerchantName":"?zpeg{rqxo}udiuqc|?ne|z?e?i??ushvnys{?etso|h?gsktiyrj}?z?akssvd?v?zub{dxp?{?rc",
-         "MerchantCity":"?n?pwz~zmv{}?~b?~ylkg}{ss|bcnc?i~c?uc?nc?xdi?e~o??lf|{vh?e?}x?t|tb??q?ljotz?j",
-         "InputMethod":"wwixrfxdbllme~ojjyudyi???c??nh?lysmu?qoeq?uwe~a??fe}u|om{tdxhxepaplczjif?i?xj~",
+         "MerchantName":"?zpiuqc|?ne|z?e?i??ushvnys{?etso|h?gj}?z?akssvd?v?zub{dxp?{?rc",
+         "MerchantCity":"?n?pwz~zm?e~o??lf|{vh?e?}x?t|tjotz?j",
+         "InputMethod":"wwixrfxdbllme~ojjyudlczjif?i?xj~",
          "Terminal":"10082375",
-         "IssuerName":"e|?hi?lqjlqhdnzk?w?~l?{d?pbulp{xrluerblr?tgb{|livm{}z}?helrj???ztvbf{}kelmmtb",
+         "IssuerName":"e|?hi?lqjlqhdnzk?w?~l?{d?pbulp{xrluerelmmtb",
          "Nsu":"167371",
          "MerchantCode":"08756937855064",
-         "MerchantAddress":"se{gs}rqxnptxcetvj}zx~sq~pfqt{myctc?t}?wthocfjlu?c?|?|khzznm?exdusc??~mggppql",
+         "MerchantAddress":"se{gs}rqxnptxc??~mggppql",
          "AuthorizationCode":"51544",
-         "CardHolder":"|v}ly|z~dtjtd{?ky}sccgozvp?|ofj|tx?scilhf{~?wmyqalcoougc{j??p?kraqriq?g??qv~?",
+         "CardHolder":"|v}ly|z~dtjtd??qv~?",
          "TransactionType":"dhkok?yeill?supi{}tov?~?}on?trevj|gyxawm}?htfi?n|whxbonhnlw?u~v|h{{{o{uzfgvzyk~t",
          "MerchantState":"r?",
          "Date":"6/26/2020",
@@ -5900,7 +6078,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
          "BrandInformation":{
             "Type":"dzk?eitx?o",
             "Name":"pcttwvacr?",
-            "Description":"?doos?quratsyh}gfdo?ya}sydj|w"
+            "Description":"?doos}gfdo?ya}sydj|w"
          },
          "SaveCard":false
       },
@@ -5947,7 +6125,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
       "PrintMessage":[
          {
             "Position":"Top",
-            "Message":"{?a?yawd?"
+            "Message":"{awd?"
          },
          {
             "Position":"Middle",
@@ -5962,17 +6140,17 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
          {
             "Field":"MERCHANT_NAME",
             "Label":"NOME DO ESTABELECIMENTO",
-            "Content":"{{v?v?tl~p??d?kdv??uz?nljvu?itgzxidcgwej??hi|h?~f?}dsfbxukw?jnu?yjp|hbpizwx|{e"
+            "Content":"{{v?v?t~f?}dsfbxukw?jnu?yjp|hbpizwx|{e"
          },
          {
             "Field":"MERCHANT_CITY",
             "Label":"CIDADE DO ESTABELECIMENTO",
-            "Content":"ucy{~l{dgrhqr??g?unlur|gwesto?sj?p{ujttjfvc?t|tsisxcopucksey}gyk??tbgp?qadg?pw"
+            "Content":"ucy{~l{dgrhqr??g?unlur|gwesto?s"
          },
          {
             "Field":"INPUT_METHOD",
             "Label":"MODO DE ENTRADA",
-            "Content":"ual?jq?r?yk|o?r??}?whsm~vgbkjwxq?ke}?}bsbcgsfgcfwhbw?awcxrlcpvhia~?e|yce|qufmyo"
+            "Content":"ual?jq?r?yk|o?r??}?whsm~vgbkjwxq?ko"
          },
          {
             "Field":"TERMINAL",
@@ -5982,7 +6160,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
          {
             "Field":"ISSUER_NAME",
             "Label":"EMISSOR",
-            "Content":"xbenr?cq?rlk?o?f??oqqz~~??u?gyaiaqzuyx}odlpnmegq|?xfgpgmltuasuxjrckrzmqjcamfkqq"
+            "Content":"xbenr?cqzuyx}odlpnmegq|?xfgpgmltuasuxjrckrzmqjcamfkqq"
          },
          {
             "Field":"NSU",
@@ -5997,7 +6175,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
          {
             "Field":"MERCHANT_ADDRESS",
             "Label":"ENDEREÇO DO ESTABELECIMENTO",
-            "Content":"jy{oqodfcacc~ippniwazgndlgkereuh?dm{~w|?sjkocjuqdj?jiernlfi~aht?k??eczuw?eg?c"
+            "Content":"jeczuw?eg?c"
          },
          {
             "Field":"AUTHORIZATION_CODE",
@@ -6007,12 +6185,12 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
          {
             "Field":"CARD_HOLDER",
             "Label":"NOME DO CLIENTE",
-            "Content":"{igk?}v?oyo??l{megopnnzloe?ulw?ldmrk|??csdk?i?j?g{ucsjkns??~bx|}cs~pueil?kcdr"
+            "Content":"{igk?}v?oyo??l{megopnnzloe?udr"
          },
          {
             "Field":"TRANSACTION_TYPE",
             "Label":"TIPO DE TRANSAÇÃO",
-            "Content":"dnvc~}~bd}?ddirqtcfc|b|fq~hmakx|p?{xcz?kaq{xyafcp~t}?odbwpvavrb~eeyern~d?bkldr"
+            "Content":"dnvc~}~bd}?ddirqt?bkldr"
          },
          {
             "Field":"MERCHANT_STATE",
@@ -6045,17 +6223,17 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
          }
       ],
       "Receipt":{
-         "MerchantName":"{{v?v?tl~p??d?kdv??uz?nljvu?itgzxidcgwej??hi|h?~f?}dsfbxukw?jnu?yjp|hbpizwx|{e",
-         "MerchantCity":"ucy{~l{dgrhqr??g?unlur|gwesto?sj?p{ujttjfvc?t|tsisxcopucksey}gyk??tbgp?qadg?pw",
-         "InputMethod":"ual?jq?r?yk|o?r??}?whsm~vgbkjwxq?ke}?}bsbcgsfgcfwhbw?awcxrlcpvhia~?e|yce|qufmyo",
+         "MerchantName":"{{v?vu?yjp|hbpizwx|{e",
+         "MerchantCity":"ucy{~l{dgrhqr??g?unlur|gw",
+         "InputMethod":"ual?jq?r?yk|o?r??}?whsm~vgbkjwxq?ke}?}bsbcgsfyo",
          "Terminal":"18605058",
-         "IssuerName":"xbenr?cq?rlk?o?f??oqqz~~??u?gyaiaqzuyx}odlpnmegq|?xfgpgmltuasuxjrckrzmqjcamfkqq",
+         "IssuerName":"xbenyaiaqzuyx}odlpnmegq|?xfgpgmltuasuxjrckrzmqjcamfkqq",
          "Nsu":"770120",
          "MerchantCode":"80523210785618",
-         "MerchantAddress":"jy{oqodfcacc~ippniwazgndlgkereuh?dm{~w|?sjkocjuqdj?jiernlfi~aht?k??eczuw?eg?c",
+         "MerchantAddress":"j|?sjkocjuqdj?jiernlfi~aht?k??eczuw?eg?c",
          "AuthorizationCode":"62976",
-         "CardHolder":"{igk?}v?oyo??l{megopnnzloe?ulw?ldmrk|??csdk?i?j?g{ucsjkns??~bx|}cs~pueil?kcdr",
-         "TransactionType":"dnvc~}~bd}?ddirqtcfc|b|fq~hmakx|p?{xcz?kaq{xyafcp~t}?odbwpvavrb~eeyern~d?bkldr",
+         "CardHolder":"{igk?}v?oyo??l{megopnnzloer",
+         "TransactionType":"nv?bkldr",
          "MerchantState":"py",
          "Date":"6/26/2020",
          "Hour":"3:36 PM",
