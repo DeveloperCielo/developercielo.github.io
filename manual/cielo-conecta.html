@@ -27778,6 +27778,115 @@
 
 <p><strong>TABELA MCC:</strong></p>
 
+<h3 id="criar-nova-loja">Criar nova Loja</h3>
+
+<p>Cria um novo merchant.</p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/merchants</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"TradeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"CompanyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"PhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Mcc"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cpf"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"SubordinatedMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Owner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"MessengerPhone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Other"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SubordinatedMerchantId</code></td>
+      <td>String(Guid)</td>
+      <td>36</td>
+      <td>—</td>
+      <td>O ID que a loja subordinada deve assumir.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.ZipCode</code></td>
+      <td>String</td>
+      <td>9</td>
+      <td>Sim</td>
+      <td>CEP</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.Street</code></td>
+      <td>String</td>
+      <td>120</td>
+      <td>Não</td>
+      <td>Localização</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.Number</code></td>
+      <td>String</td>
+      <td>9</td>
+      <td>Sim</td>
+      <td>Número do endereço</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.Complement</code></td>
+      <td>String</td>
+      <td>120</td>
+      <td>Não</td>
+      <td>Complemento do endereço</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TradeName</code></td>
+      <td>String</td>
+      <td>35</td>
+      <td>Sim</td>
+      <td>Nome fantasia</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CompanyName</code></td>
+      <td>String</td>
+      <td>35</td>
+      <td>Não</td>
+      <td>Razão social. Obrigatório quando o DocumentType for “Cnpj” - Pessoa Jurídica</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Email</code></td>
+      <td>String</td>
+      <td>45</td>
+      <td>Sim</td>
+      <td>Endereço de email da loja</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PhoneNumber</code></td>
+      <td>String</td>
+      <td>4</td>
+      <td>Sim</td>
+      <td>Telefone da loja</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 
