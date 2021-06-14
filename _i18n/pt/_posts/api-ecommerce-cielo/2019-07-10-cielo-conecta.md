@@ -9217,34 +9217,3 @@ Encontra uma loja subordinada pelo seu ID.
   "Size": 10
 }
 ```
-
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
-|---|---|---|---|---|
-|`Page`|Integer|---|Sim	Número da página atual|
-|`TotalPages`|Integer|---|Sim|Quantidade total de páginas|
-|`TotalElements`|Integer|---|Sim|Quantidade total de itens encontrados|
-|`Size`|Integer|---|Sim|Quantidade de itens por página|
-|`Content.SubordinatedMerchantId`|String (Guid)|36|Não ID que a loja subordinada deve assumir.|
-|`Content.Address.ZipCode`|String|9|Sim|CEP|
-|`Content.Address.Street`|String|120|Não|Localização|
-|`Content.Address.Number`|String|9|Sim|Número do endereço|
-|`Content.Address.Complement`|String|120|Não|Complemento do endereço|
-|`Content.TradeName`|String|35|Sim|Nome|fantasia|
-|`Content.CompanyName`|String|35|Não|Razão social. Obrigatório quando o DocumentType for "Cnpj" - Pessoa Jurídica|
-|`Content.Email`|String|45|Sim|Endereço de email da loja|
-|`Content.PhoneNumber`|String|30|Sim|Telefone da loja|
-|`Content.Mcc`|Integer|4|Sim|Ramo de Atividade (MCC), obtido através de consultar ramos de atividade na tabela MCC.|
-|`Content.DocumentNumber`|String|20|Sim|CPF ou CNPJ da Loja|
-|`Content.DocumentType`|String|4|Sim|Enum: "Cpf" ou "Cnpj"|
-|`Content.SoftDescriptor`|String|13|Não|Descrição da fatura|
-|`Content.Owner.Name`|String|50|Sim|Nome do proprietario|
-|`Content.Owner.Email`|String|45|Sim|Email do proprietário|
-|`Content.Owner.PhoneNumber`|String|30|Sim|Telefone do proprietário|
-|`Content.Owner.MessengerPhone`|String|30|Sim|Whatsapp do proprietário|
-|`Content.Owner.Gender`|String|---|Não|Enum: "Male" ou "Female"|
-|`Content.MerchantGroup`|array[String]|---|Não|Lista de objetos do tipo MerchantGroup|
-|`Content.MerchantGroup.Name`|string|---|Sim|Nome do grupo|
-|`Content.MerchantGroup.SubAcquirer`|string|---|Sim|Subadquirente|
-|`Content.MerchantGroup.Origin`|string|---|Sim|Origem|
-|`Content.MerchantGroup.Id`|string|---|Sim|Id do grupo do Lojista|
-|`Content.MerchantGroupName`|array[string]|---|Não|Lista de nomes dos grupos do Lojista|
