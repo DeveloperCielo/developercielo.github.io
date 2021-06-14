@@ -31590,6 +31590,50 @@
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/merchants/paged?{documentnumber}&amp;{email}&amp;{pageSize}&amp;{page}</span></aside>
 
+<p><strong>Query Parameters:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">email</code></td>
+      <td>String</td>
+      <td>45</td>
+      <td>Sim</td>
+      <td>O email de cadastro da Loja</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DocumentNumber</code></td>
+      <td>String</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Número da documentacao da Loja/Lojista. CPF ou CNPJ sem máscara</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">pageSize</code></td>
+      <td>Integer</td>
+      <td>3</td>
+      <td>Não</td>
+      <td>Número de itens por página. Máximo de 100 por página.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">page</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Retorna os registros da página informada. Deve ser utilizado quando a quantidade de páginas</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 
