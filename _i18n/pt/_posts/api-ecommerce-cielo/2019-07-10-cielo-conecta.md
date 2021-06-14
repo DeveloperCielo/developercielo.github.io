@@ -9105,5 +9105,5 @@ Encontra uma loja subordinada pelo seu ID.
 |`MerchantGroup.Name`|string|---|Sim|Nome do grupo|
 |`MerchantGroup.SubAcquirer`|string|---|Sim|Subadquirente|
 |`MerchantGroup.Origin`|string|---|Sim|Origem|
-|`MerchantGroup.Id`	string|---|Sim|Id do grupo do Lojista|
+|`MerchantGroup.Id`|string|---|Sim|Id do grupo do Lojista|
 |`MerchantGroupName`|array[string]|---|Não|Lista de nomes dos grupos do Lojista|
