@@ -9013,27 +9013,27 @@ Cria um novo merchant.
 
 ```json
 {
-	"Owner": {
-		"Name": "teste",
-		"Email": "teste123@mail.com.br",
-		"PhoneNumber": "11900000000",
-		"MessengerPhone": "11900000000",
-		"Gender": "Male",
-		"DocumentNumber": "33572628099"
-	},
-	"Address": {
-		"ZipCode": "58015260",
-		"Street": "",
-		"Number": "123",
-		"Complement": ""
-	},
-	"TradeName": "TradeName",
-	"CompanyName": "CompanyName",
-	"Email": "teste@email.com.br",
-	"PhoneNumber": "11900000099",
-	"Mcc": 26,
-	"DocumentNumber": "07399049000199",
-	"DocumentType": "Cnpj"
+   "Owner":{
+      "Name":"teste",
+      "Email":"teste123@mail.com.br",
+      "PhoneNumber":"11900000000",
+      "MessengerPhone":"11900000000",
+      "Gender":"Male",
+      "DocumentNumber":"33572628099"
+   },
+   "Address":{
+      "ZipCode":"58015260",
+      "Street":"",
+      "Number":"123",
+      "Complement":""
+   },
+   "TradeName":"TradeName",
+   "CompanyName":"CompanyName",
+   "Email":"teste@email.com.br",
+   "PhoneNumber":"11900000099",
+   "Mcc":26,
+   "DocumentNumber":"07399049000199",
+   "DocumentType":"Cnpj"
 }
 ```
 
@@ -9066,30 +9066,30 @@ Encontra uma loja subordinada pelo seu ID.
 
 ```json
 {
-  "Merchant": {
-    "SubordinatedMerchantId": "string",
-    "Owner": {
-      "Name": "string",
-      "Email": "string",
-      "PhoneNumber": "string",
-      "MessengerPhone": "string",
-      "Gender": "Male",
-      "DocumentNumber": "string"
-    },
-    "SoftDescriptor": "description 1",
-    "MerchantGroup": [
-      {
-        "Name": "New Merchant",
-        "SubAcquirer": "SubAquirer",
-        "Origin": "123",
-        "Id": "123"
-      }
-    ],
-    "MerchantGroupNames": [
-      "name1",
-      "name2"
-    ]
-  }
+   "Merchant":{
+      "SubordinatedMerchantId":"string",
+      "Owner":{
+         "Name":"string",
+         "Email":"string",
+         "PhoneNumber":"string",
+         "MessengerPhone":"string",
+         "Gender":"Male",
+         "DocumentNumber":"string"
+      },
+      "SoftDescriptor":"description 1",
+      "MerchantGroup":[
+         {
+            "Name":"New Merchant",
+            "SubAcquirer":"SubAquirer",
+            "Origin":"123",
+            "Id":"123"
+         }
+      ],
+      "MerchantGroupNames":[
+         "name1",
+         "name2"
+      ]
+   }
 }
 ```
 
@@ -9119,8 +9119,3 @@ Encontra uma loja subordinada pelo seu ID.
 |`MerchantGroup.Origin`|string|---|Sim|Origem|
 |`MerchantGroup.Id`|string|---|Sim|Id do grupo do Lojista|
 |`MerchantGroupName`|array[string]|---|Não|Lista de nomes dos grupos do Lojista|
-
-### Consulta paginada de Lojas
-
-Encontra uma loja subordinada pelo seu ID.
-
