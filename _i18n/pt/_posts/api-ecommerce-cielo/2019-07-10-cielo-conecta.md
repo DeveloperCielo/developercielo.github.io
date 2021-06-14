@@ -8194,12 +8194,3 @@ Cria um novo merchant.
 |`CompanyName`|String|35|Não|Razão social. Obrigatório quando o DocumentType for "Cnpj" - Pessoa Jurídica|
 |`Email`|String|45|Sim|Endereço de email da loja|
 |`PhoneNumber`|String|4|Sim|Telefone da loja|
-|`Mcc`|Integer|4|Sim|Ramo de Atividade (MCC), obtido através de consultar ramos de atividade na tabela MCC.|
-|`DocumentNumber`|String|20|Sim|CPF ou CNPJ da Loja|
-|`DocumentType`|String|4|Sim|Enum: `Cpf` `Cnpj`|
-|`SoftDescriptor`|String|	13|Não|Descrição da fatura|
-|`Owner.Name`|String|50|Sim|Nome do proprietario|
-|`Owner.Email`|String|45|Sim|Email do proprietário|
-|`Owner.PhoneNumber`|String|30|Sim|Telefone do proprietário|
-|`Owner.MessengerPhone`|String|30|Sim|Whatsapp do proprietário|
-|`Owner.Gender`|String|7|Não|Enum: `Other` `Male` `Female`|
