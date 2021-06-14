@@ -8148,11 +8148,7 @@ Essa operação permite o cadastro de lojas e terminais , viabilizando modelos d
 
 ## Loja
 
-| SandBox                                             |
-|:---------------------------------------------------:|
-|https://merchantapisandbox.cieloecommerce.cielo.com.br| 
-
-**TABELA MCC**:
+**TABELA MCC:**
 
 ### Criar nova Loja
 
