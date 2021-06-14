@@ -8152,7 +8152,7 @@ Essa operação permite o cadastro de lojas e terminais , viabilizando modelos d
 |:---------------------------------------------------:|
 |https://merchantapisandbox.cieloecommerce.cielo.com.br| 
 
-**TABELA MCC:
+**TABELA MCC**:
 
 |MCC|Descrição|
 |---|---|
