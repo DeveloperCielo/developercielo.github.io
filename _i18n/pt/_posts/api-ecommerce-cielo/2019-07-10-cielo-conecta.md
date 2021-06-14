@@ -8155,6 +8155,7 @@ Essa operação permite o cadastro de lojas e terminais , viabilizando modelos d
 **TABELA MCC:
 
 |MCC|Descrição|
+|---|---|
 |742|VETERINARIA|
 |744|Carefree Resorts|
 |763|COOPERATIVA AGRÍCOLA|
