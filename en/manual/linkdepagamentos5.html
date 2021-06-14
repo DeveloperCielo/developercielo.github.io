@@ -2230,7 +2230,7 @@ The information returned via the Notification Post can be found in the topic <a 
   </tbody>
 </table>
 
-<h3 id="outros-códigos-de-retorno">Outros códigos de retorno</h3>
+<h3 id="other-return-codes">Other return codes</h3>
 
 <table>
   <thead>
@@ -2290,6 +2290,34 @@ The information returned via the Notification Post can be found in the topic <a 
       <td>Invalid amount of installments.</td>
       <td>Unable to process the transaction. Invalid amount of installments. If the error persists, contact Cielo.</td>
       <td>The transaction could not be processed. Invalid amount of installments. Redo the transaction confirming the data entered. If the error persists, contact the virtual store.</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>60</td>
+      <td>Unauthorized transaction.</td>
+      <td>Unauthorized transaction. Try again. If the error persists, the holder must contact the issuing bank.</td>
+      <td>Unable to process transaction. Try again later. If the error persists, contact your issuing bank.</td>
+      <td>Only 4 times in 16 days.</td>
+    </tr>
+    <tr>
+      <td>67</td>
+      <td>Unauthorized transaction. Card blocked for purchases today.</td>
+      <td>Unauthorized transaction. Card blocked for purchases today. Blocking may have occurred due to too many invalid attempts. The card will automatically unlock at midnight.</td>
+      <td>Transaction not authorized. Card temporarily blocked. Contact your issuing bank.</td>
+      <td>From the next day, only 4 times in 16 days.</td>
+    </tr>
+    <tr>
+      <td>70</td>
+      <td>Unauthorized transaction. Limit exceeded/no balance.</td>
+      <td>Unauthorized transaction. Limit exceeded/no balance.</td>
+      <td>Unauthorized transaction. Contact your issuing bank.</td>
+      <td>From the following day, only 4 times in 16 days.</td>
+    </tr>
+    <tr>
+      <td>72</td>
+      <td>Cancellation not made. Insufficient balance available for cancellation.</td>
+      <td>Cancellation not made. Insufficient balance available for cancellation. If the error persists, contact Cielo.</td>
+      <td>Cancellation not made. Try again later. If the error persists, contact the online store.</td>
       <td>No</td>
     </tr>
   </tbody>
