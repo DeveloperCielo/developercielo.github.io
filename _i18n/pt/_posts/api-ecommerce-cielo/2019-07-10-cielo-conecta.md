@@ -9013,28 +9013,27 @@ Cria um novo merchant.
 
 ```json
 {
-  "Address": {
-    "ZipCode": "string",
-    "Street": "string",
-    "Number": "string",
-    "Complement": "string"
-  },
-  "TradeName": "string",
-  "CompanyName": "string",
-  "Email": "string",
-  "PhoneNumber": "string",
-  "Mcc": 0,
-  "DocumentNumber": "string",
-  "DocumentType": "Cpf",
-  "SubordinatedMerchantId": "string",
-  "Owner": {
-    "Name": "string",
-    "Email": "string",
-    "PhoneNumber": "string",
-    "MessengerPhone": "string",
-    "Gender": "Other",
-    "DocumentNumber": "string"
-  }
+	"Owner": {
+		"Name": "teste",
+		"Email": "teste123@mail.com.br",
+		"PhoneNumber": "11900000000",
+		"MessengerPhone": "11900000000",
+		"Gender": "Male",
+		"DocumentNumber": "33572628099"
+	},
+	"Address": {
+		"ZipCode": "58015260",
+		"Street": "",
+		"Number": "123",
+		"Complement": ""
+	},
+	"TradeName": "TradeName",
+	"CompanyName": "CompanyName",
+	"Email": "teste@email.com.br",
+	"PhoneNumber": "11900000099",
+	"Mcc": 26,
+	"DocumentNumber": "07399049000199",
+	"DocumentType": "Cnpj"
 }
 ```
 
@@ -9074,9 +9073,22 @@ Encontra uma loja subordinada pelo seu ID.
       "Email": "string",
       "PhoneNumber": "string",
       "MessengerPhone": "string",
-      "Gender": "Other",
+      "Gender": "Male",
       "DocumentNumber": "string"
-    }
+    },
+    "SoftDescriptor": "description 1",
+    "MerchantGroup": [
+      {
+        "Name": "New Merchant",
+        "SubAcquirer": "SubAquirer",
+        "Origin": "123",
+        "Id": "123"
+      }
+    ],
+    "MerchantGroupNames": [
+      "name1",
+      "name2"
+    ]
   }
 }
 ```
@@ -9107,3 +9119,132 @@ Encontra uma loja subordinada pelo seu ID.
 |`MerchantGroup.Origin`|string|---|Sim|Origem|
 |`MerchantGroup.Id`|string|---|Sim|Id do grupo do Lojista|
 |`MerchantGroupName`|array[string]|---|Não|Lista de nomes dos grupos do Lojista|
+
+### Consulta paginada de Lojas
+
+Encontra uma loja subordinada pelo seu ID.
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/merchants/paged?{documentnumber}&{email}&{pageSize}&{page}</span></aside>
+
+**Query Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`email`|String|45|Sim|O email de cadastro da Loja|
+|`DocumentNumber`|String|15|Não|Número da documentacao da Loja/Lojista. CPF ou CNPJ sem máscara|
+|`pageSize`|Integer|3|Não|Número de itens por página. Máximo de 100 por página.|
+|`page`|Integer|---|Não|Retorna os registros da página informada. Deve ser utilizado quando a quantidade de páginas na resposta for maior que 1. Página inicial: 1.|
+
+```json
+{
+  "Page": 1,
+  "TotalPages": 1,
+  "TotalElements": 2,
+  "Content": [
+    {
+      "Owner": {
+        "Name": "nome sobrenome",
+        "Email": "owner@email.com",
+        "PhoneNumber": "1234567",
+        "MessengerPhone": "1234567",
+        "Gender": "Male"
+      },
+      "SubordinatedMerchantId": "12345678-1234-1234-1234-123456789012",
+      "Address": {
+        "ZipCode": "999999",
+        "Street": "endereco",
+        "Number": "123",
+        "Complement": ""
+      },
+      "TradeName": "nome descricao",
+      "CompanyName": "nome da loja",
+      "Email": "loja@email.com.br",
+      "PhoneNumber": "1234567",
+      "Mcc": 412,
+      "DocumentNumber": "1234567",
+      "SoftDescriptor": "description 1",
+      "DocumentType": "Cpf",
+      "MerchantGroup": [
+        {
+          "Name": "grupo",
+          "SubAcquirer": "SubAquirer",
+          "Origin": "123",
+          "Id": "123"
+        }
+      ],
+      "MerchantGroupNames": [
+        "name1",
+        "name2"
+      ]
+    },
+    {
+      "Owner": {
+        "Name": "nome sobrenome",
+        "Email": "owner@email.com",
+        "PhoneNumber": "1234567",
+        "MessengerPhone": "1234567",
+        "Gender": "Male"
+      },
+      "SubordinatedMerchantId": "12345678-1234-1234-1234-123456789012",
+      "Address": {
+        "ZipCode": "999999",
+        "Street": "endereco",
+        "Number": "123",
+        "Complement": ""
+      },
+      "TradeName": "nome descricao",
+      "CompanyName": "nome da loja",
+      "Email": "loja@email.com",
+      "PhoneNumber": "1234567",
+      "Mcc": 412,
+      "DocumentNumber": "1234567",
+      "DocumentType": "Cpf",
+      "SoftDescriptor": "description 2",
+      "MerchantGroup": [
+        {
+          "Name": "grupo",
+          "SubAcquirer": "SubAquirer",
+          "Origin": "123",
+          "Id": "123"
+        }
+      ],
+      "MerchantGroupNames": [
+        "name1",
+        "name2"
+      ]
+    }
+  ],
+  "Size": 10
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`Page`|Integer|---|Sim	Número da página atual|
+|`TotalPages`|Integer|---|Sim|Quantidade total de páginas|
+|`TotalElements`|Integer|---|Sim|Quantidade total de itens encontrados|
+|`Size`|Integer|---|Sim|Quantidade de itens por página|
+|`Content.SubordinatedMerchantId`|String (Guid)|36|Não ID que a loja subordinada deve assumir.|
+|`Content.Address.ZipCode`|String|9|Sim|CEP|
+|`Content.Address.Street`|String|120|Não|Localização|
+|`Content.Address.Number`|String|9|Sim|Número do endereço|
+|`Content.Address.Complement`|String|120|Não|Complemento do endereço|
+|`Content.TradeName`|String|35|Sim|Nome|fantasia|
+|`Content.CompanyName`|String|35|Não|Razão social. Obrigatório quando o DocumentType for "Cnpj" - Pessoa Jurídica|
+|`Content.Email`|String|45|Sim|Endereço de email da loja|
+|`Content.PhoneNumber`|String|30|Sim|Telefone da loja|
+|`Content.Mcc`|Integer|4|Sim|Ramo de Atividade (MCC), obtido através de consultar ramos de atividade na tabela MCC.|
+|`Content.DocumentNumber`|String|20|Sim|CPF ou CNPJ da Loja|
+|`Content.DocumentType`|String|4|Sim|Enum: "Cpf" ou "Cnpj"|
+|`Content.SoftDescriptor`|String|13|Não|Descrição da fatura|
+|`Content.Owner.Name`|String|50|Sim|Nome do proprietario|
+|`Content.Owner.Email`|String|45|Sim|Email do proprietário|
+|`Content.Owner.PhoneNumber`|String|30|Sim|Telefone do proprietário|
+|`Content.Owner.MessengerPhone`|String|30|Sim|Whatsapp do proprietário|
+|`Content.Owner.Gender`|String|---|Não|Enum: "Male" ou "Female"|
+|`Content.MerchantGroup`|array[String]|---|Não|Lista de objetos do tipo MerchantGroup|
+|`Content.MerchantGroup.Name`|string|---|Sim|Nome do grupo|
+|`Content.MerchantGroup.SubAcquirer`|string|---|Sim|Subadquirente|
+|`Content.MerchantGroup.Origin`|string|---|Sim|Origem|
+|`Content.MerchantGroup.Id`|string|---|Sim|Id do grupo do Lojista|
+|`Content.MerchantGroupName`|array[string]|---|Não|Lista de nomes dos grupos do Lojista|
