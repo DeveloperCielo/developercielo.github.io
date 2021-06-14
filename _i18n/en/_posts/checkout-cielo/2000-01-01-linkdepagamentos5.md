@@ -219,7 +219,7 @@ To create Checkout payments link, simply send a POST with the Link data to the e
 | `recurrent.interval` | Recurrence Charge Interval.<br><br>**Monthly** - Monthly<br>**Bimonthly** - Bimonthly<br>**Quarterly** - Quarterly<br>**SemiAnnual** - Semi Annual<br>**Annual** – Annual<br> | string | 128  | No       |
 | `recurrrent.endDate` | Recurrence charge end date. If not informed the recurrence will not end, the charging will happen according to the interval selected indefinitely. | string | 128  | No       |
 
-### Response
+### Response 
 
 > "HTTP Status": 201 – Created
 
