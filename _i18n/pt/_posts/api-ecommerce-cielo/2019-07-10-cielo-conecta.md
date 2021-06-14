@@ -9124,6 +9124,3 @@ Encontra uma loja subordinada pelo seu ID.
 
 Encontra uma loja subordinada pelo seu ID.
 
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/merchants/paged?{documentnumber}&{email}&{pageSize}&{page}</span></aside>
-
-**Query Parameters:**
