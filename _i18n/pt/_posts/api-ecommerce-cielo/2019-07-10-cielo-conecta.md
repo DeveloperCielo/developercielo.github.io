@@ -6127,4 +6127,2024 @@ null
       "MerchantName": "Estabelecimento",
       "MerchantAddress": "Rua Sem Saida, 0",
       "MerchantCity": "Cidade",
-      "Mer
+      "MerchantState": "WA",
+      "MerchantCode": 1234567890123456,
+      "Terminal": 12345678,
+      "Nsu": 123456,
+      "Date": "01/01/20",
+      "Hour": "01:01",
+      "IssuerName": "NOME DO EMISSOR",
+      "CardNumber": 5432123454321234,
+      "TransactionType": "VENDA A CREDITO",
+      "AuthorizationCode": 123456,
+      "TransactionMode": "ONL",
+      "InputMethod": "X",
+      "Value": "1,23",
+      "SoftDescriptor": "Simulado"
+    }
+  }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantOrderId`|---|---|---|---|
+|`Customer.Name`|---|---|---|---|
+|`Payment.Installments`|---|---|---|---|
+|`Payment.Interest`|---|---|---|---|
+|`CreditCard.ExpirationDate`|---|---|---|---|
+|`CreditCard.BrandId`|---|---|---|---|
+|`CreditCard.IssuerId`|---|---|---|---|
+|`CreditCard.TruncateCardNumberWhenPrinting`|---|---|---|---|
+|`CreditCard.InputMode`|---|---|---|---|
+|`CreditCard.AuthenticationMethod`|---|---|---|---|
+|`CreditCard.EmvData`|---|---|---|---|
+|`PinBlock.EncryptedPinBlock`|---|---|---|---|
+|`PinBlock.EncryptionType`|---|---|---|---|
+|`PinBlock.KsnIdentification`|---|---|---|---|
+|`Payment.PaymentDateTime`|---|---|---|---|
+|`Payment.ServiceTaxAmount`|---|---|---|---|
+|`Payment.SoftDescriptor`|---|---|---|---|
+|`Payment.ProductId`|---|---|---|---|
+|`PinPadInformation.TerminalId`|---|---|---|---|
+|`PinPadInformation.SerialNumber`|---|---|---|---|
+|`PinPadInformation.PhysicalCharacteristics`|---|---|---|---|
+|`PinPadInformation.ReturnDataInfo`|---|---|---|---|
+|`Payment.Amount`|---|---|---|---|
+|`Payment.ReceivedDate`|---|---|---|---|
+|`Payment.CapturedAmount`|---|---|---|---|
+|`Payment.Provider`|---|---|---|---|
+|`Payment.ConfirmationStatus`|---|---|---|---|
+|`Payment.InitializationVersion`|---|---|---|---|
+|`Payment.EmvResponseData`|---|---|---|---|
+|`Payment.Status`|---|---|---|---|
+|`Payment.IsSplitted`|---|---|---|---|
+|`Payment.ReturnCode`|---|---|---|---|
+|`Payment.ReturnMessage`|---|---|---|---|
+|`Payment.PaymentId`|---|---|---|---|
+|`Payment.Type`|---|---|---|---|
+|`Payment.Currency`|---|---|---|---|
+|`Payment.Country`|---|---|---|---|
+|`Receipt.MerchantName`|---|---|---|---|
+|`Receipt.MerchantAddress`|---|---|---|---|
+|`Receipt.MerchantCity`|---|---|---|---|
+|`Receipt.MerchantState`|---|---|---|---|
+|`Receipt.MerchantCode`|---|---|---|---|
+|`Receipt.Terminal`|---|---|---|---|
+|`Receipt.Nsu`|---|---|---|---|
+|`Receipt.Date`|---|---|---|---|
+|`Receipt.Hour`|---|---|---|---|
+|`Receipt.IssuerName`|---|---|---|---|
+|`Receipt.CardNumber`|---|---|---|---|
+|`Receipt.TransactionType`|---|---|---|---|
+|`Receipt.AuthorizationCode`|---|---|---|---|
+|`Receipt.TransactionMode`|---|---|---|---|
+|`Receipt.InputMethod`|---|---|---|---|
+|`Receipt.Value`|---|---|---|---|
+|`Receipt.SoftDescriptor`|---|---|---|---|
+
+### Cancelamento
+
+Consulta um cancelamento
+
+#### Requisição
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/{VoidId}</span></aside>
+
+#### Resposta
+
+```json
+{
+  "VoidId": "a4bc7892-b455-4cd1-b902-c791802cd72b",
+  "CancellationStatus": 1,
+  "Status": 10
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`VoidId`|---|---|---|---|
+|`CancellationStatus`|---|---|---|---|
+|`Status`|---|---|---|---|
+
+## Fluxo de pagamento (Biblioteca Compartilhada)
+
+**Exemplo fluxo (Biblioteca Compartilhada):**
+
+|ID|Descrição do Fluxo|
+|---|---|
+| 1 | Inserção do valor da transação (campo `Amount` do request da transação) |
+| 2 | Recuperar Data/Hora da transação (campo `PaymentDateTime` do request da transação) |
+| 3 | Seleção do tipo de pagamento (débito, crédito, voucher...) (campo `Type` do request da transação) |
+| 4 | Chamada do PP_StartGetCard passando os valores: |
+| 4.1 | Identificador da rede adquirente (Cielo `03`) |
+| 4.2 | Tipo de aplicação (relacionado ao item 3) |
+| 4.3 | Valor inicial da transação (item 1) |
+| 4.4 | Data da transação (item 2) |
+| 4.5 | Hora da transação (item 2) |
+| 5 | Caso tenha sido utilizado um cartão com chip, recuperar o aid através da tag 4F no retorno da PP_getCard. |
+| 6 | Seleção de produtos (campo "ProductId" do request da transação): 
+
+**Transações com chip:**
+
+|ID|Descrição do Fluxo|
+|---|---|
+|1| Realizar a busca na tabela "Emv" pelo AID do cartão (campo `Aid`) e selecionar os produtos associados através do campo `ProductIds` |
+|2| Nos produtos associados, recuperar aqueles que possuem o mesmo `ProductType` (tabela `Products`) que iniciado na transação (DÉBITO, CRÉDITO..) e o mesmo fluxo do host (campo `HostFlow`) que os definido pela Cielo. |
+
+**Transações com tarja/digitada:**
+
+|ID|Descrição do Fluxo|
+|---|---|
+| 1 | Ao recuperar o pan do cartão, buscar na tabela `Bins` um que o bin esteja entre os valores `InitialBin` e `FinalBin` (considerar sempre a faixa de Bins mais específica) e recuperar o produto associado no campo `ProductId`; 
+| 2 | Recuperar os produtos que tem o mesmo `ProductType` (tabela `Products`) que iniciado na transação (DÉBITO, CRÉDITO...) e o mesmo fluxo do host (campo `HostFlow`) que os definido pela Cielo.
+
+**Simular respostas:**
+
+|Amount (valor dos centavos)|Retorno simulado do Pagamento|Exemplo de valor simulado|
+|---|---|---|
+|10|Aprovado|5010 = R$50,10|
+|11|Negado|20011 = R$200,11|
+|12|Timeout|3512 = R$35,12|
+|19|Erro|1019 = R$10,19|
+
+# Baixa de parâmetros
+
+Essa operação é necessária para que o parceiro de negócio / Subadquirente receba todas as tabelas de parâmetros necessários para que a solução de captura possa efetuar as transações via chamada de API. Essa informação será recebida através de API e deverá ser instalada na BC.
+
+| SandBox                                             | Produção                                      |
+|:---------------------------------------------------:|:---------------------------------------------:|
+| https://parametersdownloadsandbox.cieloecommerce.cielo.com.br/api/v0.1      | https://parametersdownload.cieloecommerce.cielo.com.br/api/v0.1      |
+
+## Baixa parâmetros de inicialização
+
+Solicita as tabelas e parametros para operação do terminal
+
+### Requisição
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/initialization/{SubordinatedMerchantId}/{TerminalId}</span></aside>
+
+### Resposta
+
+```json
+{
+  "MerchantId": "string",
+  "TerminalId": "string",
+  "Acquirer": {
+    "EnableContaclessCardReader": true,
+    "LockAppFunctionsExceptInitialization": true,
+    "HasChipReader": true,
+    "HasMagneticTrackReader": true,
+    "HasKeyboard": true
+  },
+  "Merchant": {
+    "MerchantId": "string",
+    "NetworkName": "string",
+    "MerchantName": "string",
+    "MerchantAddress": "string",
+    "NationalId": "string"
+  },
+  "Bins": [
+    {
+      "InitialBin": "string",
+      "FinalBin": "string",
+      "ProductId": 0,
+      "Type": 0,
+      "AllowFallbackWhenChipReadingFails": true,
+      "AllowChargingMoedeiroFromCash": true,
+      "AllowPurchaseWithCompreESaque": true,
+      "AllowOfflineFunctionExceptForEMVCard": true,
+      "AllowTypingCardNumber": true,
+      "MaskCardNumberUsingLast4Digits": true,
+      "MaskCardNumberUsingFirst6AndLast4Digits": true,
+      "AllowPrintCardHolderBalance": true,
+      "AllowDisplayCardHolderBalance": true,
+      "AllowPrintingPartialCardNumberInReceipt": true,
+      "RestrictSaleWithDuplicateValueWhenPostdated": true,
+      "RestrictSaleWithDuplicateValue": true,
+      "RequiresPassword": true,
+      "InterpretsLastDigitOfSecurityCode": true,
+      "RequiresPasswordExceptForEMVCard": true,
+      "EnableAdditionalSecurityCodeOptions_Unreadable_NoCode": true,
+      "RequiresSecurityCodeWhenMagneticTrackIsRead": true,
+      "RequiresSecurityCodeWhenCardNumberIsTyped": true,
+      "RequiresTypingLast4Digits": true,
+      "AllowCaptureOfFirstInstallmentValue": true,
+      "AllowCaptureOfDownpaymentValue": true,
+      "AllowGuaranteeHandling": true,
+      "AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery": true,
+      "AllowPostdating": true,
+      "AllowCDCSale": true,
+      "AllowFinancingByStore": true,
+      "AllowFinancingByCreditCardCompany": true,
+      "ValidateCardTrack1": true,
+      "DoNotValidateCardModule10": true,
+      "CheckExpiryDateWhenCardNumberIsTyped": true,
+      "CheckExpiryDateWhenMagneticTrackIsRead": true,
+      "IssuerId": 0
+    }
+  ],
+  "Products": [
+    {
+      "ProductId": 0,
+      "ProductName": "string",
+      "ProductType": 0,
+      "BrandId": "string",
+      "AllowTransactionWithContactlessCard": true,
+      "IsFinancialProduct": true,
+      "AllowOfflineAuthorizationForEMVCard": true,
+      "AllowReprintReceipt": true,
+      "AllowPrintReceipt": true,
+      "AllowOfflineAuthorizationForContactlessCard": true,
+      "AllowCancel": true,
+      "AllowUndo": true,
+      "AllowCaptureOfFirstInstallmentValue": true,
+      "AllowCaptureOfDownpaymentValue": true,
+      "AllowGuaranteeHandling": true,
+      "AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery": true,
+      "AllowPostdating": true,
+      "AllowCDCSale": true,
+      "AllowFinancingByStore": true,
+      "AllowFinancingByCreditCardCompany": true,
+      "MaximumNumberOfInstallmentsWhenFinancingByCreditCardCompany": 0,
+      "MaximumNumberOfInstallmentsWhenFinancingByStore": 0,
+      "MaximumNumberOfinstallmentsForSaleAndCDCQuery": 0,
+      "MinimumNumberOfInstallmentsWhenFinancingByStore": 0,
+      "PostdatedSaleGuaranteeType": "DoNotAllowSalesWithGuarantee",
+      "PostdatedDayCountLimit": 0,
+      "FirstInstallmentDayCountLimit": 0
+    }
+  ],
+  "Emv": [
+    {
+      "Aid": "string",
+      "TagsFirst": "string",
+      "TagsSecond": "string",
+      "IdxRecord": 0,
+      "Type": 0,
+      "RCodeFirst": "string",
+      "RCodeSecond": "string",
+      "InvalidateFunctionIfCardIsOnBlacklist": true,
+      "RequireBINToBeInCardRangeTable": true,
+      "StoreTransactionsRejectedByTerminalAppAndSendToHost": true,
+      "AllowOnlineAuthorizationTransactionRequest": true,
+      "AllowExtendedCardHolderName": true,
+      "NatEmvConctactRiskFloorLimit": 0,
+      "NatEmvConctactRiskMinValue": 0,
+      "NatEmvConctactRiskMinPercent": 0,
+      "NatEmvConctactRiskMaxPercent": 0,
+      "IntEmvConctactRiskFloorLimit": 0,
+      "IntEmvConctactRiskMinValue": 0,
+      "IntEmvConctactRiskMinPercent": 0,
+      "IntEmvConctactRiskMaxPercent": 0,
+      "ProductIds": [
+        0
+      ]
+    }
+  ],
+  "Parameters": [
+    {
+      "Currency": "string",
+      "AllowFallbackWhenChipReadingFails": true,
+      "AllowChargingMoedeiroFromCash": true,
+      "AllowPurchaseWithCompreESaque": true,
+      "AllowOfflineFunctionExceptForEMVCard": true,
+      "AllowTypingCardNumber": true,
+      "MaskCardNumberUsingLast4Digits": true,
+      "MaskCardNumberUsingFirst6AndLast4Digits": true,
+      "AllowPrintCardHolderBalance": true,
+      "AllowDisplayCardHolderBalance": true,
+      "AllowPrintingPartialCardNumberInReceipt": true,
+      "RestrictSaleWithDuplicateValueWhenPostdated": true,
+      "RestrictSaleWithDuplicateValue": true,
+      "RequiresPassword": true,
+      "InterpretsLastDigitOfSecurityCode": true,
+      "RequiresPasswordExceptForEMVCard": true,
+      "EnableAdditionalSecurityCodeOptions_Unreadable_NoCode": true,
+      "RequiresSecurityCodeWhenMagneticTrackIsRead": true,
+      "RequiresSecurityCodeWhenCardNumberIsTyped": true,
+      "RequiresTypingLast4Digits": true,
+      "CapturesServiceFee": true,
+      "AllowCancellationWithValueGreaterThanTheValueOfTheSale": true,
+      "CaptureBoardingFee": true
+    }
+  ],
+  "Issuers": [
+    {
+      "IssuerId": 0,
+      "IssuerName": "string",
+      "AllowFallbackWhenChipReadingFails": true,
+      "AllowChargingMoedeiroFromCash": true,
+      "AllowPurchaseWithCompreESaque": true,
+      "AllowOfflineFunctionExceptForEMVCard": true,
+      "AllowTypingCardNumber": true,
+      "MaskCardNumberUsingLast4Digits": true,
+      "MaskCardNumberUsingFirst6AndLast4Digits": true,
+      "AllowPrintCardHolderBalance": true,
+      "AllowDisplayCardHolderBalance": true,
+      "Option03BiAllowPrintingPartialCardNumberInReceipt07": true,
+      "RestrictSaleWithDuplicateValueWhenPostdated": true,
+      "RestrictSaleWithDuplicateValue": true,
+      "RequiresPassword": true,
+      "InterpretsLastDigitOfSecurityCode": true,
+      "RequiresPasswordExceptForEMVCard": true,
+      "EnableAdditionalSecurityCodeOptions_Unreadable_NoCode": true,
+      "RequiresSecurityCodeWhenMagneticTrackIsRead": true,
+      "RequiresSecurityCodeWhenCardNumberIsTyped": true,
+      "RequiresTypingLast4Digits": true,
+      "AllowCaptureOfFirstInstallmentValue": true,
+      "AllowCaptureOfDownpaymentValue": true,
+      "AllowGuaranteeHandling": true,
+      "AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery": true,
+      "AllowPostdating": true,
+      "AllowCDCSale": true,
+      "AllowFinancingByStore": true,
+      "AllowFinancingByCreditCardCompany": true,
+      "RequiresChipReader": true,
+      "RequiresPinpad": true,
+      "LimitDayforReversal": 0,
+      "LimitValueforReversal": "string",
+      "LimitPercentforReversal": 0,
+      "IssuerNameForDisplay": "string",
+      "IssuerNameForPrint": "string"
+    }
+  ],
+  "AidParameters": "string",
+  "PublicKeys": "string",
+  "InitializationVersion": 1558708320029
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantId`|String|---|---|Identificador da loja|
+|`TerminalId`|String|---|---|Identificador do terminal|
+|`Acquirer.EnableContaclessCardReader`|Booleano|---|---|Habilita Leitora Cartão Sem Contato|
+|`Acquirer.LockAppFunctionsExceptInitialization`|Booleano|---|---|Bloquear as funções do aplicativo, com exceção da Inicialização|
+|`Acquirer.HasChipReader`|Booleano|---|---|Indica que tem leitora de Chip-Card|
+|`Acquirer.HasMagneticTrackReader`|Booleano|---|---|Indica que tem leitor da trilha magnética|
+|`Acquirer.HasKeyboard`|Booleano|---|---|Indica que tem teclado para digitação|
+|`Merchant.MerchantId`|String|---|---|Código do Lojista na PayStore, definido no momento da criação do lojista.|
+|`Merchant.NetworkName`|String|---|---|Nome da rede da sub-adquirente cadastrado pelo Gestor da PayStore.|
+|`Merchant.MerchantName`|String|---|---|Nome fantasia do lojista, definido no momento da criação do mesmo no portal da PayStore.|
+|`Merchant.MerchantAddress`|String|---|---|Endereço do lojista obtido a partir da digitação do CEP momento da criação do mesmo no portal da PayStore.|
+|`Merchant.NationalId`|String|---|---|CPF ou CNPJ, definido no momento da criação do Lojista no portal da PayStore.|
+|`Bins.InitialBin`|String|---|---|Início do range de BIN’s.|
+|`Bins.FinalBin`|String|---|---|Final do range de BIN’s.|
+|`Bins.ProductId`|Integer int32|---|---|Chave estrangeira de “PRODUCT TABLE”.|
+|`Bins.Type`|Integer int32|---|---|Admite os seguintes valores <br><br>0 - ESPECÍFICO <br><br>1 – GENERICO.|
+|`Bins.AllowFallbackWhenChipReadingFails`|Booleano|---|---|Permite fallback se houver erro na leitura do Chip.|
+|`Bins.AllowChargingMoedeiroFromCash`|Booleano|---|---|Permite carga de moedeiro a partir de dinheiro em espécie.|
+|`Bins.AllowPurchaseWithCompreESaque`|Booleano|---|---|Permite venda com Compre & Saque.|
+|`Bins.AllowOfflineFunctionExceptForEMVCard`|Booleano|---|---|Permite função offline, exceto cartão EMV.|
+|`Bins.AllowTypingCardNumber`|Booleano|---|---|Permite digitação do número do cartão.|
+|`Bins.MaskCardNumberUsingLast4Digits`|Booleano|---|---|Imprimir apenas os 4 últimos dígitos do cartão.|
+|`Bins.MaskCardNumberUsingFirst6AndLast4Digits`|Booleano|---|---|Imprimir os 6 primeiros e os 4 últimos dígitos do cartão.|
+|`Bins.AllowPrintCardHolderBalance`|Booleano|---|---|Permite imprimir o saldo do portador.|
+|`Bins.AllowDisplayCardHolderBalance`|Booleano|---|---|Permite exibir no display o saldo do portador.|
+|`Bins.AllowPrintingPartialCardNumberInReceipt`|Booleano|---|---|Permite impressão parcial do número do cartão no comprovante das transações.|
+|`Bins.RestrictSaleWithDuplicateValueWhenPostdated`|Booleano|---|---|Impede venda com valor duplicado para prédatamento.|
+|`Bins.RestrictSaleWithDuplicateValueWhenPostdated`|Booleano|---|---|Impede venda com valor duplicado.|
+|`Bins.RequiresPassword`|Booleano|---|---|Solicita senha.|
+|`Bins.InterpretsLastDigitOfSecurityCode`|Booleano|---|---|Interpreta último dígito do Código de Serviço.|
+|`Bins.RequiresPasswordExceptForEMVCard`|Booleano|---|---|Solicita senha, exceto cartão EMV.|
+|`Bins.EnableAdditionalSecurityCodeOptions_Unreadable_NoCode`|Booleano|---|---|Habilita opções “Ilegível” e “Não Possui” para Código de Segurança.|
+|`Bins.RequiresSecurityCodeWhenMagneticTrackIsRead`|Booleano|---|---|Solicita Código de Segurança na leitura de trilha.|
+|`Bins.RequiresSecurityCodeWhenCardNumberIsTyped`|Booleano|---|---|Solicita Código de Segurança para cartão digitado.|
+|`Bins.RequiresTypingLast4Digits`|Booleano|---|---|Solicita digitação dos últimos 4 dígitos.|
+|`Bins.AllowCaptureOfFirstInstallmentValue`|Booleano|---|---|Permite captura do valor da primeira parcela.|
+|`Bins.AllowCaptureOfDownpaymentValue`|Booleano|---|---|Permite captura do valor de entrada.|
+|`Bins.AllowGuaranteeHandling`|Booleano|---|---|Permite tratamento de garantia.|
+|`Bins.AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery`|Booleano|---|---|Permite pré-datar a primeira parcela para venda e consulta CDC.|
+|`Bins.AllowPostdating`|Booleano|---|---|Permite pré-datamento.|
+|`Bins.AllowCDCSale`|Booleano|---|---|Permite venda CDC.|
+|`Bins.AllowFinancingByStore`|Booleano|---|---|Permite financiamento pela Loja.|
+|`Bins.AllowFinancingByCreditCardCompany`|Booleano|---|---|Permite financiamento pela Administradora.|
+|`Bins.ValidateCardTrack1`|Booleano|---|---|Verifica Trilha 1 do cartão.|
+|`Bins.DoNotValidateCardModule10`|Booleano|---|---|Não validar o Módulo 10 do cartão.|
+|`Bins.CheckExpiryDateWhenCardNumberIsTyped`|Booleano|---|---|Verifica data de validade do cartão digitado.|
+|`Bins.CheckExpiryDateWhenMagneticTrackIsRead`|Booleano|---|---|Verifica data de validade da trilha.|
+|`Bins.IssuerId`|Integer int32|---|---|Chave estrangeira de “ISSUER TABLE”.|
+|`Products.ProductId`|Integer int32|---|---|Identificador do produto.|
+|`Products.ProductName`|String|---|---|Nome do produto.|
+|`Products.ProductType`|Integer int32|---|---|Admite os seguintes valores <br><br>0 - CREDITO <br><br>1 – DEBITO|
+|`Products.BrandId`|String|---|---|Identificador da bandeira do cartão.|
+|`Products.AllowTransactionWithContactlessCard`|Booleano|---|---|Permite Transação com Cartão Sem Contato.|
+|`Products.IsFinancialProduct`|Booleano|---|---|Produto Financeiro.|
+|`Products.AllowOfflineAuthorizationForEMVCard`|Booleano|---|---|Permite Autorização Offline EMV.|
+|`Products.AllowReprintReceipt`|Booleano|---|---|Permite Reimpressão do comprovante.|
+|`Products.AllowPrintReceipt`|Booleano|---|---|Permite Impressão do comprovante.|
+|`Products.AllowOfflineAuthorizationForContactlessCard`|Booleano|---|---|Permite Autorização Offline para Cartão Sem Contato.|
+|`Products.AllowCancel`|Booleano|---|---|Permite Cancelamento.|
+|`Products.AllowUndo`|Booleano|---|---|Permite Desfazimento.|
+|`Products.AllowCaptureOfFirstInstallmentValue`|Booleano|---|---|Permite captura do valor da primeira parcela.|
+|`Products.AllowCaptureOfDownpaymentValue`|Booleano|---|---|Permite captura do valor de entrada.|
+|`Products.AllowGuaranteeHandling`|Booleano|---|---|Permite tratamento de garantia.|
+|`Products.AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery`|Booleano|---|---|Permite pré-datar a primeira parcela para venda e consulta CDC.|
+|`Products.AllowPostdating`|Booleano|---|---|Permite pré-datamento.|
+|`Products.AllowCDCSale`|Booleano|---|---|Permite venda CDC.|
+|`Products.AllowFinancingByStore`|Booleano|---|---|Permite financiamento pela Loja.|
+|`Products.AllowFinancingByCreditCardCompany`|Booleano|---|---|Permite financiamento pela Administradora.|
+|`Products.MaximumNumberOfInstallmentsWhenFinancingByCreditCardCompany`|Integer int32|---|---|Número máximo de parcelas para financiamento ADM.|
+|`Products.MaximumNumberOfInstallmentsWhenFinancingByStore`|Integer int32|---|---|Número máximo de parcelas para financiamento Loja.|
+|`Products.MaximumNumberOfinstallmentsForSaleAndCDCQuery`|Integer int32|---|---|Número máximo de parcelas para venda e consulta CDC.|
+|`Products.MinimumNumberOfInstallmentsWhenFinancingByStore`|Integer int64|---|---|Valor mínimo de parcelas para financiamento Loja.|
+|`Products.PostdatedSaleGuaranteeType`|String|---|---|Tipo de Garantia para o Pré-datado. <br><br>Admite os seguintes valores <br><br>00 – Não permite tratamento de Garantia (Venda Garantida); <br><br>05 – Permite transações Pré-datadas Garantidas; <br><br>07 – Permite transações Pré-datadas Garantidas e Sem Garantia.|
+|`Products.PostdatedDayCountLimit`|Integer int32|---|---|Limite máximo em dias para pré-datar a partir da data atual. <br><br>00 – Não aceita. <br><br>XX - Pré-datado.|
+|`Products.FirstInstallmentDayCountLimit`|Integer int32|---|---|Limite da data de primeira parcela. <br><br>00 – Não aceita. <br><br>XX - Limite de dias.|
+|`Emv.Aid`|String|---|---|Identificador da aplicação EMV.|
+|`Emv.TagsFirst`|String|---|---|Conjunto de tags obrigatórias enviadas o 1º Generate AC.|
+|`Emv.TagsSecond`|String|---|---|Conjunto de tags obrigatórias enviadas o 2º Generate AC.|
+|`Emv.IdxRecord`|Integer int32|---|---|---|
+|`Emv.Type`|Integer int32|---|---|Admite os seguintes valores <br><br>0 - CREDITO <br><br>1 – DEBITO|
+|`Emv.RCodeFirst`|String|---|---|---|
+|`Emv.RCodeSecond`|String|---|---|---|
+|`Emv.InvalidateFunctionIfCardIsOnBlacklist`|Booleano|---|---|Invalida a função se o cartão consta na Lista Negra.|
+|`Emv.RequireBINToBeInCardRangeTable`|Booleano|---|---|Obriga que o BIN esteja na tabela de Range de Cartões (tipo 2B).|
+|`Emv.StoreTransactionsRejectedByTerminalAppAndSendToHost`|Booleano|---|---|Armazena e envia para o Host as transações rejeitadas pelo aplicativo do terminal.|
+|`Emv.AllowOnlineAuthorizationTransactionRequest`|Booleano|---|---|---|
+|`Emv.AllowExtendedCardHolderName`|Booleano|---|---|---|
+|`Emv.NatEmvConctactRiskFloorLimit`|Integer int32|---|---|Valor máximo de verificação para autorização offline das transações. As transações realizadas com a leitura do Chip EMV e com valor acima do “Floor limit”, deverão ser autorizadas no modo online.|
+|`Emv.NatEmvConctactRiskMinValue`|Integer int32|---|---|Valor mínimo para o cálculo de seleção aleatória para autorização offline. Conforme processo definido na Especificação EMV.|
+|`Emv.NatEmvConctactRiskMinPercent`|Integer int32|---|---|Porcentagem mínima para seleção aleatória. Utilizar apenas o conteúdo do último byte.|
+|`Emv.NatEmvConctactRiskMaxPercent`|Integer int32|---|---|Porcentagem máxima para seleção aleatória. Utilizar apenas o conteúdo do último byte.|
+|`Emv.IntEmvConctactRiskFloorLimit`|Integer int32|---|---|Valor máximo de verificação para autorização offline das transações. As transações realizadas com a leitura do Chip EMV e com valor acima do “Floor limit”, deverão ser autorizadas no modo online.|
+|`Emv.IntEmvConctactRiskMinValue`|Integer int32|---|---|Valor mínimo para o cálculo de seleção aleatória para autorização offline. Conforme processo definido na Especificação EMV.|
+|`Emv.IntEmvConctactRiskMinPercent`|Integer int32|---|---|Porcentagem mínima para seleção aleatória. Utilizar apenas o conteúdo do último byte.|
+|`Emv.IntEmvConctactRiskMaxPercent`|Integer int32|---|---|Porcentagem máxima para seleção aleatória. Utilizar apenas o conteúdo do último byte.|
+|`Emv.ProductIds`|Array of integers int32|---|---|Produtos habilitados para esta aplicação EMV.|
+|`Parameters.Currency`|String|---|---|---|
+|`Parameters.AllowFallbackWhenChipReadingFails`|Booleano|---|---|Permite fallback se houver erro na leitura do Chip.|
+|`Parameters.AllowChargingMoedeiroFromCash`|Booleano|---|---|Permite carga de moedeiro a partir de dinheiro em espécie.|
+|`Parameters.AllowPurchaseWithCompreESaque`|Booleano|---|---|Permite venda com Compre & Saque.|
+|`Parameters.AllowOfflineFunctionExceptForEMVCard`|Booleano|---|---|Permite função offline, exceto cartão EMV.|
+|`Parameters.AllowTypingCardNumber`|Booleano|---|---|Permite entrada manual do número do cartão.|
+|`Parameters.MaskCardNumberUsingLast4Digits`|Booleano|---|---|Imprimir apenas os 4 últimos dígitos do cartão.|
+|`Parameters.MaskCardNumberUsingFirst6AndLast4Digits`|Booleano|---|---|Imprimir os 6 primeiros e os 4 últimos dígitos do cartão.|
+|`Parameters.AllowPrintCardHolderBalance`|Booleano|---|---|Permite imprimir o saldo do portador.|
+|`Parameters.AllowDisplayCardHolderBalance`|Booleano|---|---|Permite exibir no display o saldo do portador.|
+|`Parameters.AllowPrintingPartialCardNumberInReceipt`|Booleano|---|---|Permite impressão parcial do número do cartão no comprovante das transações.|
+|`Parameters.RestrictSaleWithDuplicateValueWhenPostdated`|Booleano|---|---|Impede venda com valor duplicado para pré-datamento.|
+|`Parameters.RestrictSaleWithDuplicateValue`|Booleano|---|---|Impede venda com valor duplicado.|
+|`Parameters.RequiresPassword`|Booleano|---|---|Solicita senha.|
+|`Parameters.InterpretsLastDigitOfSecurityCode`|Booleano|---|---|Interpreta último dígito do Código de Serviço.|
+|`Parameters.RequiresPasswordExceptForEMVCard`|Booleano|---|---|Solicita senha, exceto cartão EMV.|
+|`Parameters.EnableAdditionalSecurityCodeOptions_Unreadable_NoCode`|Booleano|---|---|Habilita opções “Ilegível” e “Não Possui” para Código de Segurança.|
+|`Parameters.RequiresSecurityCodeWhenMagneticTrackIsRead`|Booleano|---|---|Solicita Código de Segurança na leitura de trilha.|
+|`Parameters.RequiresSecurityCodeWhenCardNumberIsTyped`|Booleano|---|---|Solicita Código de Segurança para cartão digitado.|
+|`Parameters.RequiresTypingLast4Digits`|Booleano|---|---|Solicita digitação dos últimos 4 dígitos.|
+|`Parameters.CapturesServiceFee`|Booleano|---|---|Captura Taxa de Serviço.|
+|`Parameters.AllowCancellationWithValueGreaterThanTheValueOfTheSale`|Booleano|---|---|Permite valor do Cancelamento maior que o valor da venda original.|
+|`Parameters.CaptureBoardingFee`|Booleano|---|---|Captura Taxa de Embarque.|
+|`Issuers.IssuerId`|integer int32|---|---|Identificador do emissor.|
+|`Issuers.IssuerName`|String|---|---|Nome do emissor.|
+|`Issuers.AllowFallbackWhenChipReadingFails`|Booleano|---|---|Permite fallback se houver erro na leitura do Chip.|
+|`Issuers.AllowChargingMoedeiroFromCash`|Booleano|---|---|Permite fallback se houver erro na leitura do Chip.|
+|`Issuers.AllowPurchaseWithCompreESaque`|Booleano|---|---|Permite venda com Compre & Saque.|
+|`Issuers.AllowOfflineFunctionExceptForEMVCard`|Booleano|---|---|Permite função offline, exceto cartão EMV.|
+|`Issuers.AllowTypingCardNumber`|Booleano|---|---|Permite digitação do número do cartão.|
+|`Issuers.MaskCardNumberUsingLast4Digits`|Booleano|---|---|Imprimir apenas os 4 últimos dígitos do cartão.|
+|`Issuers.MaskCardNumberUsingFirst6AndLast4Digits`|Booleano|---|---|Imprimir os 6 primeiros e os 4 últimos dígitos do cartão.|
+|`Issuers.AllowPrintCardHolderBalance`|Booleano|---|---|Permite imprimir o saldo do portador.|
+|`Issuers.AllowDisplayCardHolderBalance`|Booleano|---|---|Permite exibir no display o saldo do portador.|
+|`Issuers.Option03BiAllowPrintingPartialCardNumberInReceipt07`|Booleano|---|---|Permite impressão parcial do número do cartão no comprovante das transações.|
+|`Issuers.RestrictSaleWithDuplicateValueWhenPostdated`|Booleano|---|---|Impede venda com valor duplicado para pré-datamento.|
+|`Issuers.RestrictSaleWithDuplicateValue`|Booleano|---|---|Impede venda com valor duplicado.|
+|`Issuers.RequiresPassword`|Booleano|---|---|Solicita senha.|
+|`Issuers.InterpretsLastDigitOfSecurityCode`|Booleano|---|---|Interpreta último dígito do Código de Serviço.|
+|`Issuers.RequiresPasswordExceptForEMVCard`|Booleano|---|---|Solicita senha, exceto cartão EMV.|
+|`Issuers.EnableAdditionalSecurityCodeOptions_Unreadable_NoCode`|Booleano|---|---|Habilita opções “Ilegível” e “Não Possui” para Código de Segurança.|
+|`Issuers.RequiresSecurityCodeWhenMagneticTrackIsRead`|Booleano|---|---|Solicita Código de Segurança na leitura de trilha.|
+|`Issuers.RequiresSecurityCodeWhenCardNumberIsTyped`|Booleano|---|---|Solicita Código de Segurança para cartão digitado.|
+|`Issuers.RequiresTypingLast4Digits`|Booleano|---|---|Solicita digitação dos últimos 4 dígitos.|
+|`Issuers.AllowCaptureOfFirstInstallmentValue`|Booleano|---|---|Permite captura do valor da primeira parcela.|
+|`Issuers.AllowCaptureOfDownpaymentValue`|Booleano|---|---|Permite captura do valor de entrada.|
+|`Issuers.AllowGuaranteeHandling`|Booleano|---|---|Permite tratamento de garantia.|
+|`Issuers.AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery`|Booleano|---|---|Permite pré-datar a primeira parcela para venda e consulta CDC.|
+|`Issuers.AllowPostdating`|Booleano|---|---|Permite pré-datamento.|
+|`Issuers.AllowCDCSale`|Booleano|---|---|Permite venda CDC.|
+|`Issuers.AllowFinancingByStore`|Booleano|---|---|Permite financiamento pela Loja.|
+|`Issuers.AllowFinancingByCreditCardCompany`|Booleano|---|---|Permite financiamento pela Administradora.|
+|`Issuers.RequiresChipReader`|Booleano|---|---|Exige a existência de Leitor de Chip.|
+|`Issuers.RequiresPinpad`|Booleano|---|---|Exige a existência de PIN-pad.|
+|`Issuers.LimitDayforReversal`|integer int32|---|---|Data limite em dias para permitir Cancelamento.|
+|`Issuers.LimitValueforReversal`|String|---|---|Valor máximo para Cancelamento.|
+|`Issuers.LimitPercentforReversal`|integer int64|---|---|Percentual máximo para Cancelamento.|
+|`Issuers.IssuerNameForDisplay`|String|---|---|Nome do Issuer para o Display.|
+|`Issuers.IssuerNameForPrint`|String|---|---|Nome do Issuer para Impressão.|
+|`AidParameters`|---|---|---|---|
+|`PublicKeys`|---|---|---|---|
+|`InitializationVersion`|---|---|---|---|
+
+## Baixa parâmetros de inicialização (loja padrão)
+
+Solicita as tabelas e parametros para operação do terminal. Como não foi informado o `SubordinatedMerchantId`, será assumida a loja principal do facilitador, isto é, a loja que tem o ID igual ao `ClientId` usado para a autenticação. Esta loja é criada automaticamente durante o processo de cadastro do facilitador executado pela Cielo.
+
+### Requisição
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/initialization/{TerminalId}</span></aside>
+
+### Resposta
+
+```json
+{
+  "MerchantId": "string",
+  "TerminalId": "string",
+  "Acquirer": {
+    "EnableContaclessCardReader": true,
+    "LockAppFunctionsExceptInitialization": true,
+    "HasChipReader": true,
+    "HasMagneticTrackReader": true,
+    "HasKeyboard": true
+  },
+  "Merchant": {
+    "MerchantId": "string",
+    "NetworkName": "string",
+    "MerchantName": "string",
+    "MerchantAddress": "string",
+    "NationalId": "string"
+  },
+  "Bins": [
+    {
+      "InitialBin": "string",
+      "FinalBin": "string",
+      "ProductId": 0,
+      "Type": 0,
+      "AllowFallbackWhenChipReadingFails": true,
+      "AllowChargingMoedeiroFromCash": true,
+      "AllowPurchaseWithCompreESaque": true,
+      "AllowOfflineFunctionExceptForEMVCard": true,
+      "AllowTypingCardNumber": true,
+      "MaskCardNumberUsingLast4Digits": true,
+      "MaskCardNumberUsingFirst6AndLast4Digits": true,
+      "AllowPrintCardHolderBalance": true,
+      "AllowDisplayCardHolderBalance": true,
+      "AllowPrintingPartialCardNumberInReceipt": true,
+      "RestrictSaleWithDuplicateValueWhenPostdated": true,
+      "RestrictSaleWithDuplicateValue": true,
+      "RequiresPassword": true,
+      "InterpretsLastDigitOfSecurityCode": true,
+      "RequiresPasswordExceptForEMVCard": true,
+      "EnableAdditionalSecurityCodeOptions_Unreadable_NoCode": true,
+      "RequiresSecurityCodeWhenMagneticTrackIsRead": true,
+      "RequiresSecurityCodeWhenCardNumberIsTyped": true,
+      "RequiresTypingLast4Digits": true,
+      "AllowCaptureOfFirstInstallmentValue": true,
+      "AllowCaptureOfDownpaymentValue": true,
+      "AllowGuaranteeHandling": true,
+      "AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery": true,
+      "AllowPostdating": true,
+      "AllowCDCSale": true,
+      "AllowFinancingByStore": true,
+      "AllowFinancingByCreditCardCompany": true,
+      "ValidateCardTrack1": true,
+      "DoNotValidateCardModule10": true,
+      "CheckExpiryDateWhenCardNumberIsTyped": true,
+      "CheckExpiryDateWhenMagneticTrackIsRead": true,
+      "IssuerId": 0
+    }
+  ],
+  "Products": [
+    {
+      "ProductId": 0,
+      "ProductName": "string",
+      "ProductType": 0,
+      "BrandId": "string",
+      "AllowTransactionWithContactlessCard": true,
+      "IsFinancialProduct": true,
+      "AllowOfflineAuthorizationForEMVCard": true,
+      "AllowReprintReceipt": true,
+      "AllowPrintReceipt": true,
+      "AllowOfflineAuthorizationForContactlessCard": true,
+      "AllowCancel": true,
+      "AllowUndo": true,
+      "AllowCaptureOfFirstInstallmentValue": true,
+      "AllowCaptureOfDownpaymentValue": true,
+      "AllowGuaranteeHandling": true,
+      "AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery": true,
+      "AllowPostdating": true,
+      "AllowCDCSale": true,
+      "AllowFinancingByStore": true,
+      "AllowFinancingByCreditCardCompany": true,
+      "MaximumNumberOfInstallmentsWhenFinancingByCreditCardCompany": 0,
+      "MaximumNumberOfInstallmentsWhenFinancingByStore": 0,
+      "MaximumNumberOfinstallmentsForSaleAndCDCQuery": 0,
+      "MinimumNumberOfInstallmentsWhenFinancingByStore": 0,
+      "PostdatedSaleGuaranteeType": "DoNotAllowSalesWithGuarantee",
+      "PostdatedDayCountLimit": 0,
+      "FirstInstallmentDayCountLimit": 0
+    }
+  ],
+  "Emv": [
+    {
+      "Aid": "string",
+      "TagsFirst": "string",
+      "TagsSecond": "string",
+      "IdxRecord": 0,
+      "Type": 0,
+      "RCodeFirst": "string",
+      "RCodeSecond": "string",
+      "InvalidateFunctionIfCardIsOnBlacklist": true,
+      "RequireBINToBeInCardRangeTable": true,
+      "StoreTransactionsRejectedByTerminalAppAndSendToHost": true,
+      "AllowOnlineAuthorizationTransactionRequest": true,
+      "AllowExtendedCardHolderName": true,
+      "NatEmvConctactRiskFloorLimit": 0,
+      "NatEmvConctactRiskMinValue": 0,
+      "NatEmvConctactRiskMinPercent": 0,
+      "NatEmvConctactRiskMaxPercent": 0,
+      "IntEmvConctactRiskFloorLimit": 0,
+      "IntEmvConctactRiskMinValue": 0,
+      "IntEmvConctactRiskMinPercent": 0,
+      "IntEmvConctactRiskMaxPercent": 0,
+      "ProductIds": [
+        0
+      ]
+    }
+  ],
+  "Parameters": [
+    {
+      "Currency": "string",
+      "AllowFallbackWhenChipReadingFails": true,
+      "AllowChargingMoedeiroFromCash": true,
+      "AllowPurchaseWithCompreESaque": true,
+      "AllowOfflineFunctionExceptForEMVCard": true,
+      "AllowTypingCardNumber": true,
+      "MaskCardNumberUsingLast4Digits": true,
+      "MaskCardNumberUsingFirst6AndLast4Digits": true,
+      "AllowPrintCardHolderBalance": true,
+      "AllowDisplayCardHolderBalance": true,
+      "AllowPrintingPartialCardNumberInReceipt": true,
+      "RestrictSaleWithDuplicateValueWhenPostdated": true,
+      "RestrictSaleWithDuplicateValue": true,
+      "RequiresPassword": true,
+      "InterpretsLastDigitOfSecurityCode": true,
+      "RequiresPasswordExceptForEMVCard": true,
+      "EnableAdditionalSecurityCodeOptions_Unreadable_NoCode": true,
+      "RequiresSecurityCodeWhenMagneticTrackIsRead": true,
+      "RequiresSecurityCodeWhenCardNumberIsTyped": true,
+      "RequiresTypingLast4Digits": true,
+      "CapturesServiceFee": true,
+      "AllowCancellationWithValueGreaterThanTheValueOfTheSale": true,
+      "CaptureBoardingFee": true
+    }
+  ],
+  "Issuers": [
+    {
+      "IssuerId": 0,
+      "IssuerName": "string",
+      "AllowFallbackWhenChipReadingFails": true,
+      "AllowChargingMoedeiroFromCash": true,
+      "AllowPurchaseWithCompreESaque": true,
+      "AllowOfflineFunctionExceptForEMVCard": true,
+      "AllowTypingCardNumber": true,
+      "MaskCardNumberUsingLast4Digits": true,
+      "MaskCardNumberUsingFirst6AndLast4Digits": true,
+      "AllowPrintCardHolderBalance": true,
+      "AllowDisplayCardHolderBalance": true,
+      "Option03BiAllowPrintingPartialCardNumberInReceipt07": true,
+      "RestrictSaleWithDuplicateValueWhenPostdated": true,
+      "RestrictSaleWithDuplicateValue": true,
+      "RequiresPassword": true,
+      "InterpretsLastDigitOfSecurityCode": true,
+      "RequiresPasswordExceptForEMVCard": true,
+      "EnableAdditionalSecurityCodeOptions_Unreadable_NoCode": true,
+      "RequiresSecurityCodeWhenMagneticTrackIsRead": true,
+      "RequiresSecurityCodeWhenCardNumberIsTyped": true,
+      "RequiresTypingLast4Digits": true,
+      "AllowCaptureOfFirstInstallmentValue": true,
+      "AllowCaptureOfDownpaymentValue": true,
+      "AllowGuaranteeHandling": true,
+      "AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery": true,
+      "AllowPostdating": true,
+      "AllowCDCSale": true,
+      "AllowFinancingByStore": true,
+      "AllowFinancingByCreditCardCompany": true,
+      "RequiresChipReader": true,
+      "RequiresPinpad": true,
+      "LimitDayforReversal": 0,
+      "LimitValueforReversal": "string",
+      "LimitPercentforReversal": 0,
+      "IssuerNameForDisplay": "string",
+      "IssuerNameForPrint": "string"
+    }
+  ],
+  "AidParameters": "string",
+  "PublicKeys": "string",
+  "InitializationVersion": 1558708320029
+}
+```
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantId`|String|---|---|Identificador da loja|
+|`TerminalId`|String|---|---|Identificador do terminal|
+|`Acquirer.EnableContaclessCardReader`|Booleano|---|---|Habilita Leitora Cartão Sem Contato|
+|`Acquirer.LockAppFunctionsExceptInitialization`|Booleano|---|---|Bloquear as funções do aplicativo, com exceção da Inicialização|
+|`Acquirer.HasChipReader`|Booleano|---|---|Indica que tem leitora de Chip-Card|
+|`Acquirer.HasMagneticTrackReader`|Booleano|---|---|Indica que tem leitor da trilha magnética|
+|`Acquirer.HasKeyboard`|Booleano|---|---|Indica que tem teclado para digitação|
+|`Merchant.MerchantId`|String|---|---|Código do Lojista na PayStore, definido no momento da criação do lojista.|
+|`Merchant.NetworkName`|String|---|---|Nome da rede da sub-adquirente cadastrado pelo Gestor da PayStore.|
+|`Merchant.MerchantName`|String|---|---|Nome fantasia do lojista, definido no momento da criação do mesmo no portal da PayStore.|
+|`Merchant.MerchantAddress`|String|---|---|Endereço do lojista obtido a partir da digitação do CEP momento da criação do mesmo no portal da PayStore.|
+|`Merchant.NationalId`|String|---|---|CPF ou CNPJ, definido no momento da criação do Lojista no portal da PayStore.|
+|`Bins.InitialBin`|String|---|---|Início do range de BIN’s.|
+|`Bins.FinalBin`|String|---|---|Final do range de BIN’s.|
+|`Bins.ProductId`|Integer int32|---|---|Chave estrangeira de “PRODUCT TABLE”.|
+|`Bins.Type`|Integer int32|---|---|Admite os seguintes valores <br><br>0 - ESPECÍFICO <br><br>1 – GENERICO.|
+|`Bins.AllowFallbackWhenChipReadingFails`|Booleano|---|---|Permite fallback se houver erro na leitura do Chip.|
+|`Bins.AllowChargingMoedeiroFromCash`|Booleano|---|---|Permite carga de moedeiro a partir de dinheiro em espécie.|
+|`Bins.AllowPurchaseWithCompreESaque`|Booleano|---|---|Permite venda com Compre & Saque.|
+|`Bins.AllowOfflineFunctionExceptForEMVCard`|Booleano|---|---|Permite função offline, exceto cartão EMV.|
+|`Bins.AllowTypingCardNumber`|Booleano|---|---|Permite digitação do número do cartão.|
+|`Bins.MaskCardNumberUsingLast4Digits`|Booleano|---|---|Imprimir apenas os 4 últimos dígitos do cartão.|
+|`Bins.MaskCardNumberUsingFirst6AndLast4Digits`|Booleano|---|---|Imprimir os 6 primeiros e os 4 últimos dígitos do cartão.|
+|`Bins.AllowPrintCardHolderBalance`|Booleano|---|---|Permite imprimir o saldo do portador.|
+|`Bins.AllowDisplayCardHolderBalance`|Booleano|---|---|Permite exibir no display o saldo do portador.|
+|`Bins.AllowPrintingPartialCardNumberInReceipt`|Booleano|---|---|Permite impressão parcial do número do cartão no comprovante das transações.|
+|`Bins.RestrictSaleWithDuplicateValueWhenPostdated`|Booleano|---|---|Impede venda com valor duplicado para prédatamento.|
+|`Bins.RestrictSaleWithDuplicateValueWhenPostdated`|Booleano|---|---|Impede venda com valor duplicado.|
+|`Bins.RequiresPassword`|Booleano|---|---|Solicita senha.|
+|`Bins.InterpretsLastDigitOfSecurityCode`|Booleano|---|---|Interpreta último dígito do Código de Serviço.|
+|`Bins.RequiresPasswordExceptForEMVCard`|Booleano|---|---|Solicita senha, exceto cartão EMV.|
+|`Bins.EnableAdditionalSecurityCodeOptions_Unreadable_NoCode`|Booleano|---|---|Habilita opções “Ilegível” e “Não Possui” para Código de Segurança.|
+|`Bins.RequiresSecurityCodeWhenMagneticTrackIsRead`|Booleano|---|---|Solicita Código de Segurança na leitura de trilha.|
+|`Bins.RequiresSecurityCodeWhenCardNumberIsTyped`|Booleano|---|---|Solicita Código de Segurança para cartão digitado.|
+|`Bins.RequiresTypingLast4Digits`|Booleano|---|---|Solicita digitação dos últimos 4 dígitos.|
+|`Bins.AllowCaptureOfFirstInstallmentValue`|Booleano|---|---|Permite captura do valor da primeira parcela.|
+|`Bins.AllowCaptureOfDownpaymentValue`|Booleano|---|---|Permite captura do valor de entrada.|
+|`Bins.AllowGuaranteeHandling`|Booleano|---|---|Permite tratamento de garantia.|
+|`Bins.AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery`|Booleano|---|---|Permite pré-datar a primeira parcela para venda e consulta CDC.|
+|`Bins.AllowPostdating`|Booleano|---|---|Permite pré-datamento.|
+|`Bins.AllowCDCSale`|Booleano|---|---|Permite venda CDC.|
+|`Bins.AllowFinancingByStore`|Booleano|---|---|Permite financiamento pela Loja.|
+|`Bins.AllowFinancingByCreditCardCompany`|Booleano|---|---|Permite financiamento pela Administradora.|
+|`Bins.ValidateCardTrack1`|Booleano|---|---|Verifica Trilha 1 do cartão.|
+|`Bins.DoNotValidateCardModule10`|Booleano|---|---|Não validar o Módulo 10 do cartão.|
+|`Bins.CheckExpiryDateWhenCardNumberIsTyped`|Booleano|---|---|Verifica data de validade do cartão digitado.|
+|`Bins.CheckExpiryDateWhenMagneticTrackIsRead`|Booleano|---|---|Verifica data de validade da trilha.|
+|`Bins.IssuerId`|Integer int32|---|---|Chave estrangeira de “ISSUER TABLE”.|
+|`Products.ProductId`|Integer int32|---|---|Identificador do produto.|
+|`Products.ProductName`|String|---|---|Nome do produto.|
+|`Products.ProductType`|Integer int32|---|---|Admite os seguintes valores <br><br>0 - CREDITO <br><br>1 – DEBITO|
+|`Products.BrandId`|String|---|---|Identificador da bandeira do cartão.|
+|`Products.AllowTransactionWithContactlessCard`|Booleano|---|---|Permite Transação com Cartão Sem Contato.|
+|`Products.IsFinancialProduct`|Booleano|---|---|Produto Financeiro.|
+|`Products.AllowOfflineAuthorizationForEMVCard`|Booleano|---|---|Permite Autorização Offline EMV.|
+|`Products.AllowReprintReceipt`|Booleano|---|---|Permite Reimpressão do comprovante.|
+|`Products.AllowPrintReceipt`|Booleano|---|---|Permite Impressão do comprovante.|
+|`Products.AllowOfflineAuthorizationForContactlessCard`|Booleano|---|---|Permite Autorização Offline para Cartão Sem Contato.|
+|`Products.AllowCancel`|Booleano|---|---|Permite Cancelamento.|
+|`Products.AllowUndo`|Booleano|---|---|Permite Desfazimento.|
+|`Products.AllowCaptureOfFirstInstallmentValue`|Booleano|---|---|Permite captura do valor da primeira parcela.|
+|`Products.AllowCaptureOfDownpaymentValue`|Booleano|---|---|Permite captura do valor de entrada.|
+|`Products.AllowGuaranteeHandling`|Booleano|---|---|Permite tratamento de garantia.|
+|`Products.AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery`|Booleano|---|---|Permite pré-datar a primeira parcela para venda e consulta CDC.|
+|`Products.AllowPostdating`|Booleano|---|---|Permite pré-datamento.|
+|`Products.AllowCDCSale`|Booleano|---|---|Permite venda CDC.|
+|`Products.AllowFinancingByStore`|Booleano|---|---|Permite financiamento pela Loja.|
+|`Products.AllowFinancingByCreditCardCompany`|Booleano|---|---|Permite financiamento pela Administradora.|
+|`Products.MaximumNumberOfInstallmentsWhenFinancingByCreditCardCompany`|Integer int32|---|---|Número máximo de parcelas para financiamento ADM.|
+|`Products.MaximumNumberOfInstallmentsWhenFinancingByStore`|Integer int32|---|---|Número máximo de parcelas para financiamento Loja.|
+|`Products.MaximumNumberOfinstallmentsForSaleAndCDCQuery`|Integer int32|---|---|Número máximo de parcelas para venda e consulta CDC.|
+|`Products.MinimumNumberOfInstallmentsWhenFinancingByStore`|Integer int64|---|---|Valor mínimo de parcelas para financiamento Loja.|
+|`Products.PostdatedSaleGuaranteeType`|String|---|---|Tipo de Garantia para o Pré-datado. <br><br>Admite os seguintes valores <br><br>00 – Não permite tratamento de Garantia (Venda Garantida); <br><br>05 – Permite transações Pré-datadas Garantidas; <br><br>07 – Permite transações Pré-datadas Garantidas e Sem Garantia.|
+|`Products.PostdatedDayCountLimit`|Integer int32|---|---|Limite máximo em dias para pré-datar a partir da data atual. <br><br>00 – Não aceita. <br><br>XX - Pré-datado.|
+|`Products.FirstInstallmentDayCountLimit`|Integer int32|---|---|Limite da data de primeira parcela. <br><br>00 – Não aceita. <br><br>XX - Limite de dias.|
+|`Emv.Aid`|String|---|---|Identificador da aplicação EMV.|
+|`Emv.TagsFirst`|String|---|---|Conjunto de tags obrigatórias enviadas o 1º Generate AC.|
+|`Emv.TagsSecond`|String|---|---|Conjunto de tags obrigatórias enviadas o 2º Generate AC.|
+|`Emv.IdxRecord`|Integer int32|---|---|---|
+|`Emv.Type`|Integer int32|---|---|Admite os seguintes valores <br><br>0 - CREDITO <br><br>1 – DEBITO|
+|`Emv.RCodeFirst`|String|---|---|---|
+|`Emv.RCodeSecond`|String|---|---|---|
+|`Emv.InvalidateFunctionIfCardIsOnBlacklist`|Booleano|---|---|Invalida a função se o cartão consta na Lista Negra.|
+|`Emv.RequireBINToBeInCardRangeTable`|Booleano|---|---|Obriga que o BIN esteja na tabela de Range de Cartões (tipo 2B).|
+|`Emv.StoreTransactionsRejectedByTerminalAppAndSendToHost`|Booleano|---|---|Armazena e envia para o Host as transações rejeitadas pelo aplicativo do terminal.|
+|`Emv.AllowOnlineAuthorizationTransactionRequest`|Booleano|---|---|---|
+|`Emv.AllowExtendedCardHolderName`|Booleano|---|---|---|
+|`Emv.NatEmvConctactRiskFloorLimit`|Integer int32|---|---|Valor máximo de verificação para autorização offline das transações. As transações realizadas com a leitura do Chip EMV e com valor acima do “Floor limit”, deverão ser autorizadas no modo online.|
+|`Emv.NatEmvConctactRiskMinValue`|Integer int32|---|---|Valor mínimo para o cálculo de seleção aleatória para autorização offline. Conforme processo definido na Especificação EMV.|
+|`Emv.NatEmvConctactRiskMinPercent`|Integer int32|---|---|Porcentagem mínima para seleção aleatória. Utilizar apenas o conteúdo do último byte.|
+|`Emv.NatEmvConctactRiskMaxPercent`|Integer int32|---|---|Porcentagem máxima para seleção aleatória. Utilizar apenas o conteúdo do último byte.|
+|`Emv.IntEmvConctactRiskFloorLimit`|Integer int32|---|---|Valor máximo de verificação para autorização offline das transações. As transações realizadas com a leitura do Chip EMV e com valor acima do “Floor limit”, deverão ser autorizadas no modo online.|
+|`Emv.IntEmvConctactRiskMinValue`|Integer int32|---|---|Valor mínimo para o cálculo de seleção aleatória para autorização offline. Conforme processo definido na Especificação EMV.|
+|`Emv.IntEmvConctactRiskMinPercent`|Integer int32|---|---|Porcentagem mínima para seleção aleatória. Utilizar apenas o conteúdo do último byte.|
+|`Emv.IntEmvConctactRiskMaxPercent`|Integer int32|---|---|Porcentagem máxima para seleção aleatória. Utilizar apenas o conteúdo do último byte.|
+|`Emv.ProductIds`|Array of integers int32|---|---|Produtos habilitados para esta aplicação EMV.|
+|`Parameters.Currency`|String|---|---|---|
+|`Parameters.AllowFallbackWhenChipReadingFails`|Booleano|---|---|Permite fallback se houver erro na leitura do Chip.|
+|`Parameters.AllowChargingMoedeiroFromCash`|Booleano|---|---|Permite carga de moedeiro a partir de dinheiro em espécie.|
+|`Parameters.AllowPurchaseWithCompreESaque`|Booleano|---|---|Permite venda com Compre & Saque.|
+|`Parameters.AllowOfflineFunctionExceptForEMVCard`|Booleano|---|---|Permite função offline, exceto cartão EMV.|
+|`Parameters.AllowTypingCardNumber`|Booleano|---|---|Permite entrada manual do número do cartão.|
+|`Parameters.MaskCardNumberUsingLast4Digits`|Booleano|---|---|Imprimir apenas os 4 últimos dígitos do cartão.|
+|`Parameters.MaskCardNumberUsingFirst6AndLast4Digits`|Booleano|---|---|Imprimir os 6 primeiros e os 4 últimos dígitos do cartão.|
+|`Parameters.AllowPrintCardHolderBalance`|Booleano|---|---|Permite imprimir o saldo do portador.|
+|`Parameters.AllowDisplayCardHolderBalance`|Booleano|---|---|Permite exibir no display o saldo do portador.|
+|`Parameters.AllowPrintingPartialCardNumberInReceipt`|Booleano|---|---|Permite impressão parcial do número do cartão no comprovante das transações.|
+|`Parameters.RestrictSaleWithDuplicateValueWhenPostdated`|Booleano|---|---|Impede venda com valor duplicado para pré-datamento.|
+|`Parameters.RestrictSaleWithDuplicateValue`|Booleano|---|---|Impede venda com valor duplicado.|
+|`Parameters.RequiresPassword`|Booleano|---|---|Solicita senha.|
+|`Parameters.InterpretsLastDigitOfSecurityCode`|Booleano|---|---|Interpreta último dígito do Código de Serviço.|
+|`Parameters.RequiresPasswordExceptForEMVCard`|Booleano|---|---|Solicita senha, exceto cartão EMV.|
+|`Parameters.EnableAdditionalSecurityCodeOptions_Unreadable_NoCode`|Booleano|---|---|Habilita opções “Ilegível” e “Não Possui” para Código de Segurança.|
+|`Parameters.RequiresSecurityCodeWhenMagneticTrackIsRead`|Booleano|---|---|Solicita Código de Segurança na leitura de trilha.|
+|`Parameters.RequiresSecurityCodeWhenCardNumberIsTyped`|Booleano|---|---|Solicita Código de Segurança para cartão digitado.|
+|`Parameters.RequiresTypingLast4Digits`|Booleano|---|---|Solicita digitação dos últimos 4 dígitos.|
+|`Parameters.CapturesServiceFee`|Booleano|---|---|Captura Taxa de Serviço.|
+|`Parameters.AllowCancellationWithValueGreaterThanTheValueOfTheSale`|Booleano|---|---|Permite valor do Cancelamento maior que o valor da venda original.|
+|`Parameters.CaptureBoardingFee`|Booleano|---|---|Captura Taxa de Embarque.|
+|`Issuers.IssuerId`|integer int32|---|---|Identificador do emissor.|
+|`Issuers.IssuerName`|String|---|---|Nome do emissor.|
+|`Issuers.AllowFallbackWhenChipReadingFails`|Booleano|---|---|Permite fallback se houver erro na leitura do Chip.|
+|`Issuers.AllowChargingMoedeiroFromCash`|Booleano|---|---|Permite fallback se houver erro na leitura do Chip.|
+|`Issuers.AllowPurchaseWithCompreESaque`|Booleano|---|---|Permite venda com Compre & Saque.|
+|`Issuers.AllowOfflineFunctionExceptForEMVCard`|Booleano|---|---|Permite função offline, exceto cartão EMV.|
+|`Issuers.AllowTypingCardNumber`|Booleano|---|---|Permite digitação do número do cartão.|
+|`Issuers.MaskCardNumberUsingLast4Digits`|Booleano|---|---|Imprimir apenas os 4 últimos dígitos do cartão.|
+|`Issuers.MaskCardNumberUsingFirst6AndLast4Digits`|Booleano|---|---|Imprimir os 6 primeiros e os 4 últimos dígitos do cartão.|
+|`Issuers.AllowPrintCardHolderBalance`|Booleano|---|---|Permite imprimir o saldo do portador.|
+|`Issuers.AllowDisplayCardHolderBalance`|Booleano|---|---|Permite exibir no display o saldo do portador.|
+|`Issuers.Option03BiAllowPrintingPartialCardNumberInReceipt07`|Booleano|---|---|Permite impressão parcial do número do cartão no comprovante das transações.|
+|`Issuers.RestrictSaleWithDuplicateValueWhenPostdated`|Booleano|---|---|Impede venda com valor duplicado para pré-datamento.|
+|`Issuers.RestrictSaleWithDuplicateValue`|Booleano|---|---|Impede venda com valor duplicado.|
+|`Issuers.RequiresPassword`|Booleano|---|---|Solicita senha.|
+|`Issuers.InterpretsLastDigitOfSecurityCode`|Booleano|---|---|Interpreta último dígito do Código de Serviço.|
+|`Issuers.RequiresPasswordExceptForEMVCard`|Booleano|---|---|Solicita senha, exceto cartão EMV.|
+|`Issuers.EnableAdditionalSecurityCodeOptions_Unreadable_NoCode`|Booleano|---|---|Habilita opções “Ilegível” e “Não Possui” para Código de Segurança.|
+|`Issuers.RequiresSecurityCodeWhenMagneticTrackIsRead`|Booleano|---|---|Solicita Código de Segurança na leitura de trilha.|
+|`Issuers.RequiresSecurityCodeWhenCardNumberIsTyped`|Booleano|---|---|Solicita Código de Segurança para cartão digitado.|
+|`Issuers.RequiresTypingLast4Digits`|Booleano|---|---|Solicita digitação dos últimos 4 dígitos.|
+|`Issuers.AllowCaptureOfFirstInstallmentValue`|Booleano|---|---|Permite captura do valor da primeira parcela.|
+|`Issuers.AllowCaptureOfDownpaymentValue`|Booleano|---|---|Permite captura do valor de entrada.|
+|`Issuers.AllowGuaranteeHandling`|Booleano|---|---|Permite tratamento de garantia.|
+|`Issuers.AllowPostdatingTheFirstInstallmentForSaleAndCDCQuery`|Booleano|---|---|Permite pré-datar a primeira parcela para venda e consulta CDC.|
+|`Issuers.AllowPostdating`|Booleano|---|---|Permite pré-datamento.|
+|`Issuers.AllowCDCSale`|Booleano|---|---|Permite venda CDC.|
+|`Issuers.AllowFinancingByStore`|Booleano|---|---|Permite financiamento pela Loja.|
+|`Issuers.AllowFinancingByCreditCardCompany`|Booleano|---|---|Permite financiamento pela Administradora.|
+|`Issuers.RequiresChipReader`|Booleano|---|---|Exige a existência de Leitor de Chip.|
+|`Issuers.RequiresPinpad`|Booleano|---|---|Exige a existência de PIN-pad.|
+|`Issuers.LimitDayforReversal`|integer int32|---|---|Data limite em dias para permitir Cancelamento.|
+|`Issuers.LimitValueforReversal`|String|---|---|Valor máximo para Cancelamento.|
+|`Issuers.LimitPercentforReversal`|integer int64|---|---|Percentual máximo para Cancelamento.|
+|`Issuers.IssuerNameForDisplay`|String|---|---|Nome do Issuer para o Display.|
+|`Issuers.IssuerNameForPrint`|String|---|---|Nome do Issuer para Impressão.|
+|`AidParameters`|---|---|---|---|
+|`PublicKeys`|---|---|---|---|
+|`InitializationVersion`|---|---|---|---|
+
+# Cancelamento
+
+| SandBox                                             | Produção                                      |
+|:---------------------------------------------------:|:---------------------------------------------:|
+| https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
+
+**Simular respostas:**
+
+Para simular alguma resposta especifica utilize o campo Amount, onde de acordo com o valor dos centavos informado nesse campo é possivel receber uma resposta conforme descrito na tabela abaixo:
+
+|Amount (valor dos centados)|Retorno simulado do Cancelamento|Exemplo de valor simulado|
+|40|Aprovado|5040 = R$50,40|
+|41|Negado|20041 = R$200,41|
+|42|Timeout|3542 = R$35,42|
+|49|Erro|1049 = R$10,49|
+
+## Cancelamento de Pagamento
+
+### Cartao Digitado
+
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/</span></aside>
+
+**Path Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`PaymentId`|String uuid|---|Sim|Código do Pagamento|
+
+```json
+{
+  "MerchantVoidId": 2019042204,
+  "MerchantVoidDate": "2019-04-15T12:00:00Z",
+  "Card": {
+    "InputMode": "Typed",
+    "CardNumber": 1234567812345678
+  }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantVoidId`|String|---|Sim|Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal|
+|`MerchantVoidDate`|String|---|Sim|Data do cancelamento.|
+|`Card.InputMode`|---|---|---|Enum: "Typed", "MagStripe", "Emv", "ContactlessMagStripe", "ContactlessEmv"|
+|`Card.CardNumber`|String|---|---|Número do cartão <br><br>Requerido quando a transação for digitada.|
+|`Card.ExpirationDate`|String|---|Sim|Data de expiração do cartão.|
+
+#### Resposta
+
+```json
+{
+  "VoidId": "f15889ea-5719-4e1a-a2da-f4e50d5bd702",
+  "InitializationVersion": 1558708320029,
+  "PrintMessage": [
+    {
+      "Position": "Top",
+      "Message": "Transação autorizada"
+    },
+    {
+      "Position": "Middle",
+      "Message": "Informação adicional"
+    },
+    {
+      "Position": "Bottom",
+      "Message": "Obrigado e volte sempre!"
+    }
+  ],
+  "Receipt": {
+    "MerchantName": "Estabelecimento",
+    "MerchantAddress": "Rua Sem Saida, 0",
+    "MerchantCity": "Cidade",
+    "MerchantState": "WA",
+    "MerchantCode": 549798965249,
+    "Terminal": 12345678,
+    "Nsu": 123456,
+    "Date": "01/01/20",
+    "Hour": 720,
+    "IssuerName": "VISA  PROD-I",
+    "CardNumber": 1111222233334444,
+    "TransactionType": "CANCELAMENTO DE TRANSACAO",
+    "AuthorizationCode": 123456,
+    "TransactionMode": "ONL",
+    "InputMethod": "C",
+    "CancelValue": "3,00",
+    "OriginalTransactonData": "DADOS DO PAGAMENTO ORIGNAL",
+    "OriginalTransactonType": "VENDA A CREDITO",
+    "OriginalTransactonNsu": 5349,
+    "OriginalTransactonAuthCode": 543210,
+    "OriginalTransactionDate": "01/01/20",
+    "OriginalTransactionHour": 720,
+    "OrignalTransactionValue": "3,00",
+    "OrignalTransactionCardHolder": "NOME NOME NOME NOME NOME N",
+    "OriginalTransactionMode": "ONL",
+    "OriginalInputMethod": "C"
+  },  
+  "Status": 10,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    },
+    {
+      "Method": "POST",
+      "Rel": "void",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids"
+    },
+    {
+      "Method": "DELETE",
+      "Rel": "reverse",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids/e5c889ea-5719-4e1a-a2da-f4f50d5bd7ca"
+    },
+    {
+      "Method": "PUT",
+      "Rel": "confirm",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids/e5c889ea-5719-4e1a-a2da-f4f50d5bd7ca/confirmation"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`VoidId`|String - uuid|---|---|Identificador do cancelamento|
+|`InitializationVersion`|Integer int16|---|---|Número de versão dos parametros baixados na inicialização do equipamento.|
+|`PrintMessage.Position`|String|---|---|Default: "Top"<br><br>Enum: "Top", "Middle", "Bottom"<br><br>Posição da mensagem no comprovante:<br><br>Top - Início do comprovante, antes do código do estabelecimento<br><br>Middle - Meio do comprovante, após a descrição dos valores<br><br>Bottom - Final do comprovante|
+|`PrintMessage.Message`|String|---|---|Indica a mensagem que deve ser impressa no comprovante de acordo com a posição indicada no campo Position|
+|`Status`|Integerint16|---|---|Status da transação.<br><br>0 = Não Finalizado<br><br>1 = Autorizado<br><br>2 = Pago<br><br>3 = Negado<br><br>10 = Cancelado<br><br>13 = Abortado|
+|`CancellationStatus`|Integer int16|---|---|Status do cancelamento.<br><br>0 = Não Finalizado<br><br>1 = Autorizado<br><br>2 = Negado<br><br>3 = Confirmado<br><br>4 = Desfeito|
+|`ReasonCode`|Integer int16|---|---|Código de referência para análises.|
+|`ReasonMessage`|String|---|---|Mensagem explicativa para análise.|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
+|`Receipt.MerchantName`|---|---|---|---|
+|`Receipt.MerchantAddress`|---|---|---|---|
+|`Receipt.MerchantCity`|---|---|---|---|
+|`Receipt.MerchantState`|---|---|---|---|
+|`Receipt.MerchantCode`|---|---|---|---|
+|`Receipt.Terminal`|---|---|---|---|
+|`Receipt.Nsu`|---|---|---|---|
+|`Receipt.Date`|---|---|---|---|
+|`Receipt.Hour`|---|---|---|---|
+|`Receipt.IssuerName`|---|---|---|---|
+|`Receipt.CardNumber`|---|---|---|---|
+|`Receipt.TransactionType`|---|---|---|---|
+|`Receipt.AuthorizationCode`|---|---|---|---|
+|`Receipt.TransactionMode`|---|---|---|---|
+|`Receipt.InputMethod`|---|---|---|---|
+|`Receipt.CancelValue`|---|---|---|---|
+|`Receipt.OriginalTransactonData`|---|---|---|---|
+|`Receipt.OriginalTransactonType`|---|---|---|---|
+|`Receipt.OriginalTransactonNsu`|---|---|---|---|
+|`Receipt.OriginalTransactonAuthCode`|---|---|---|---|
+|`Receipt.OriginalTransactionDate`|---|---|---|---|
+|`Receipt.OriginalTransactionHour`|---|---|---|---|
+|`Receipt.OrignalTransactionValue`|---|---|---|---|
+|`Receipt.OrignalTransactionCardHolder`|---|---|---|---|
+|`Receipt.OriginalTransactionMode`|---|---|---|---|
+|`Receipt.OriginalInputMethod`|---|---|---|---|
+|`Links.Method`|String|---|---|Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
+
+### Cartão digitado com cartão criptografado
+
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/</span></aside>
+
+**Path Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`PaymentId`|String uuid|---|Sim|Código do Pagamento|
+
+```json
+{
+  "MerchantVoidId": 2019042204,
+  "MerchantVoidDate": "2019-04-15T12:00:00Z",
+  "Card": {
+    "InputMode": "Typed",
+    "CardNumber": 1234567812345678,
+    "ExpirationDate": "12/2020"
+  }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantVoidId`|String|---|Sim|Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal|
+|`MerchantVoidDate`|String|---|Sim|Data do cancelamento.|
+|`Card.InputMode`|String|---|Sim|Enum: "Typed", "MagStripe", "Emv", "ContactlessMagStripe", "ContactlessEmv"|
+|`Card.CardNumber`|String|---|Sim|Número do cartão<br><br>Requerido quando a transação for digitada.|
+|`Card.EncryptedCardData.EncryptionType`|String|---|Sim|Tipo de encriptação utilizada<br><br>Enum:<br><br>"DukptDes" = 1,<br><br>"MasterKey" = 2,<br><br>"Dukpt3Des" = 3|
+|`Card.EncryptedCardData.CardNumberKSN`|String|---|---|Identificador KSN da criptografia do número do cartão
+|`Card.EncryptedCardData.IsDataInTLVFormat`|Bool|---|Não|Identifica se os dados criptografados estão no formato TLV (tag / length / value).|
+|`Card.EncryptedCardData.InitializationVector`|String|---|Sim|Vetor de inicialização da encryptação|
+|`Card.ExpirationDate|String`|---|Sim|Data de expiração do cartão.|
+
+#### Resposta
+
+```json
+{
+  "VoidId": "f15889ea-5719-4e1a-a2da-f4e50d5bd702",
+  "InitializationVersion": 1558708320029,
+  "PrintMessage": [
+    {
+      "Position": "Top",
+      "Message": "Transação autorizada"
+    },
+    {
+      "Position": "Middle",
+      "Message": "Informação adicional"
+    },
+    {
+      "Position": "Bottom",
+      "Message": "Obrigado e volte sempre!"
+    }
+  ],
+  "Receipt": {
+    "MerchantName": "Estabelecimento",
+    "MerchantAddress": "Rua Sem Saida, 0",
+    "MerchantCity": "Cidade",
+    "MerchantState": "WA",
+    "MerchantCode": 549798965249,
+    "Terminal": 12345678,
+    "Nsu": 123456,
+    "Date": "01/01/20",
+    "Hour": 720,
+    "IssuerName": "VISA  PROD-I",
+    "CardNumber": 1111222233334444,
+    "TransactionType": "CANCELAMENTO DE TRANSACAO",
+    "AuthorizationCode": 123456,
+    "TransactionMode": "ONL",
+    "InputMethod": "C",
+    "CancelValue": "3,00",
+    "OriginalTransactonData": "DADOS DO PAGAMENTO ORIGNAL",
+    "OriginalTransactonType": "VENDA A CREDITO",
+    "OriginalTransactonNsu": 5349,
+    "OriginalTransactonAuthCode": 543210,
+    "OriginalTransactionDate": "01/01/20",
+    "OriginalTransactionHour": 720,
+    "OrignalTransactionValue": "3,00",
+    "OrignalTransactionCardHolder": "NOME NOME NOME NOME NOME N",
+    "OriginalTransactionMode": "ONL",
+    "OriginalInputMethod": "C"
+  },
+  "Status": 10,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    },
+    {
+      "Method": "POST",
+      "Rel": "void",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids"
+    },
+    {
+      "Method": "DELETE",
+      "Rel": "reverse",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids/e5c889ea-5719-4e1a-a2da-f4f50d5bd7ca"
+    },
+    {
+      "Method": "PUT",
+      "Rel": "confirm",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids/e5c889ea-5719-4e1a-a2da-f4f50d5bd7ca/confirmation"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`VoidId`|String - uuid|---|---|Identificador do cancelamento|
+|`InitializationVersion`|Integer int16|---|---|Número de versão dos parametros baixados na inicialização do equipamento.|
+|`PrintMessage.Position`|String|---|---|Default: "Top"<br><br>Enum: "Top", "Middle", "Bottom"<br><br>Posição da mensagem no comprovante:<br><br>Top - Início do comprovante, antes do código do estabelecimento<br><br>Middle - Meio do comprovante, após a descrição dos valores<br><br>Bottom - Final do comprovante|
+|`PrintMessage.Message`|String|---|---|Indica a mensagem que deve ser impressa no comprovante de acordo com a posição indicada no campo Position|
+|`Status`|Integerint16|---|---|Status da transação.<br><br>0 = Não Finalizado<br><br>1 = Autorizado<br><br>2 = Pago<br><br>3 = Negado<br><br>10 = Cancelado<br><br>13 = Abortado|
+|`CancellationStatus`|Integer int16|---|---|Status do cancelamento.<br><br>0 = Não Finalizado<br><br>1 = Autorizado<br><br>2 = Negado<br><br>3 = Confirmado<br><br>4 = Desfeito|
+|`ReasonCode`|Integer int16|---|---|Código de referência para análises.|
+|`ReasonMessage`|String|---|---|Mensagem explicativa para análise.|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
+|`Receipt.MerchantName`|---|---|---|---|
+|`Receipt.MerchantAddress`|---|---|---|---|
+|`Receipt.MerchantCity`|---|---|---|---|
+|`Receipt.MerchantState`|---|---|---|---|
+|`Receipt.MerchantCode`|---|---|---|---|
+|`Receipt.Terminal`|---|---|---|---|
+|`Receipt.Nsu`|---|---|---|---|
+|`Receipt.Date`|---|---|---|---|
+|`Receipt.Hour`|---|---|---|---|
+|`Receipt.IssuerName`|---|---|---|---|
+|`Receipt.CardNumber`|---|---|---|---|
+|`Receipt.TransactionType`|---|---|---|---|
+|`Receipt.AuthorizationCode`|---|---|---|---|
+|`Receipt.TransactionMode`|---|---|---|---|
+|`Receipt.InputMethod`|---|---|---|---|
+|`Receipt.CancelValue`|---|---|---|---|
+|`Receipt.OriginalTransactonData`|---|---|---|---|
+|`Receipt.OriginalTransactonType`|---|---|---|---|
+|`Receipt.OriginalTransactonNsu`|---|---|---|---|
+|`Receipt.OriginalTransactonAuthCode`|---|---|---|---|
+|`Receipt.OriginalTransactionDate`|---|---|---|---|
+|`Receipt.OriginalTransactionHour`|---|---|---|---|
+|`Receipt.OrignalTransactionValue`|---|---|---|---|
+|`Receipt.OrignalTransactionCardHolder`|---|---|---|---|
+|`Receipt.OriginalTransactionMode`|---|---|---|---|
+|`Receipt.OriginalInputMethod`|---|---|---|---|
+|`Links.Method`|String|---|---|Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
+
+### Cartão por tarja
+
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/</span></aside>
+
+**Path Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`PaymentId`|String uuid|---|Sim|Código do Pagamento|
+
+```json
+{
+   "MerchantVoidId": 2019042204,
+   "MerchantVoidDate": "2019-04-15T12:00:00Z",
+   "Card": {
+      "InputMode": "MagStripe",
+      "TrackOneData": "A1234567890123456^FULANO OLIVEIRA SA ^12345678901234567890123",
+      "TrackTwoData": "0123456789012345=012345678901234"
+   }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantVoidId`|String|---|Sim|Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal|
+|`MerchantVoidDate`|String|---|Sim|Data do cancelamento.|
+|`Card.InputMode`|String|---|Sim|Enum: "Typed", "MagStripe", "Emv", "ContactlessMagStripe", "ContactlessEmv"|
+|`Card.TrackOneData`|String|---|Sim|Dados da trilha 1<br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação|
+|`Card.TrackTwoData`|String|---|Sim|Dados da trilha 2<br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação|
+|`Card.AuthenticationMethod`|String|---|Não|Enum: "NoPassword", "OnlineAuthentication", "OfflineAuthentication"<br><br>Método de autenticação<br><br>1 - Sem senha “NoPassword” <br><br>2 - Senha online = “Online Authentication”;<br><br>3 - Senha off-line = “Offline Authentication”.|
+
+#### Resposta
+
+```json
+{
+  "VoidId": "f15889ea-5719-4e1a-a2da-f4e50d5bd702",
+  "InitializationVersion": 1558708320029,
+  "PrintMessage": [
+    {
+      "Position": "Top",
+      "Message": "Transação autorizada"
+    },
+    {
+      "Position": "Middle",
+      "Message": "Informação adicional"
+    },
+    {
+      "Position": "Bottom",
+      "Message": "Obrigado e volte sempre!"
+    }
+  ],
+  "Receipt": {
+    "MerchantName": "Estabelecimento",
+    "MerchantAddress": "Rua Sem Saida, 0",
+    "MerchantCity": "Cidade",
+    "MerchantState": "WA",
+    "MerchantCode": 549798965249,
+    "Terminal": 12345678,
+    "Nsu": 123456,
+    "Date": "01/01/20",
+    "Hour": 720,
+    "IssuerName": "VISA  PROD-I",
+    "CardNumber": 1111222233334444,
+    "TransactionType": "CANCELAMENTO DE TRANSACAO",
+    "AuthorizationCode": 123456,
+    "TransactionMode": "ONL",
+    "InputMethod": "C",
+    "CancelValue": "3,00",
+    "OriginalTransactonData": "DADOS DO PAGAMENTO ORIGNAL",
+    "OriginalTransactonType": "VENDA A CREDITO",
+    "OriginalTransactonNsu": 5349,
+    "OriginalTransactonAuthCode": 543210,
+    "OriginalTransactionDate": "01/01/20",
+    "OriginalTransactionHour": 720,
+    "OrignalTransactionValue": "3,00",
+    "OrignalTransactionCardHolder": "NOME NOME NOME NOME NOME N",
+    "OriginalTransactionMode": "ONL",
+    "OriginalInputMethod": "C"
+  },
+  "Status": 10,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    },
+    {
+      "Method": "POST",
+      "Rel": "void",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids"
+    },
+    {
+      "Method": "DELETE",
+      "Rel": "reverse",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids/e5c889ea-5719-4e1a-a2da-f4f50d5bd7ca"
+    },
+    {
+      "Method": "PUT",
+      "Rel": "confirm",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids/e5c889ea-5719-4e1a-a2da-f4f50d5bd7ca/confirmation"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`VoidId`|String - uuid|---|---|Identificador do cancelamento|
+|`InitializationVersion`|Integer int16|---|---|Número de versão dos parametros baixados na inicialização do equipamento.|
+|`PrintMessage.Position`|String|---|---|Default: "Top"<br><br>Enum: "Top", "Middle", "Bottom"<br><br>Posição da mensagem no comprovante:<br><br>Top - Início do comprovante, antes do código do estabelecimento<br><br>Middle - Meio do comprovante, após a descrição dos valores<br><br>Bottom - Final do comprovante|
+|`PrintMessage.Message`|String|---|---|Indica a mensagem que deve ser impressa no comprovante de acordo com a posição indicada no campo Position|
+|`Status`|Integerint16|---|---|Status da transação.<br><br>0 = Não Finalizado<br><br>1 = Autorizado<br><br>2 = Pago<br><br>3 = Negado<br><br>10 = Cancelado<br><br>13 = Abortado|
+|`CancellationStatus`|Integer int16|---|---|Status do cancelamento.<br><br>0 = Não Finalizado<br><br>1 = Autorizado<br><br>2 = Negado<br><br>3 = Confirmado<br><br>4 = Desfeito|
+|`ReasonCode`|Integer int16|---|---|Código de referência para análises.|
+|`ReasonMessage`|String|---|---|Mensagem explicativa para análise.|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
+|`Receipt.MerchantName`|---|---|---|---|
+|`Receipt.MerchantAddress`|---|---|---|---|
+|`Receipt.MerchantCity`|---|---|---|---|
+|`Receipt.MerchantState`|---|---|---|---|
+|`Receipt.MerchantCode`|---|---|---|---|
+|`Receipt.Terminal`|---|---|---|---|
+|`Receipt.Nsu`|---|---|---|---|
+|`Receipt.Date`|---|---|---|---|
+|`Receipt.Hour`|---|---|---|---|
+|`Receipt.IssuerName`|---|---|---|---|
+|`Receipt.CardNumber`|---|---|---|---|
+|`Receipt.TransactionType`|---|---|---|---|
+|`Receipt.AuthorizationCode`|---|---|---|---|
+|`Receipt.TransactionMode`|---|---|---|---|
+|`Receipt.InputMethod`|---|---|---|---|
+|`Receipt.CancelValue`|---|---|---|---|
+|`Receipt.OriginalTransactonData`|---|---|---|---|
+|`Receipt.OriginalTransactonType`|---|---|---|---|
+|`Receipt.OriginalTransactonNsu`|---|---|---|---|
+|`Receipt.OriginalTransactonAuthCode`|---|---|---|---|
+|`Receipt.OriginalTransactionDate`|---|---|---|---|
+|`Receipt.OriginalTransactionHour`|---|---|---|---|
+|`Receipt.OrignalTransactionValue`|---|---|---|---|
+|`Receipt.OrignalTransactionCardHolder`|---|---|---|---|
+|`Receipt.OriginalTransactionMode`|---|---|---|---|
+|`Receipt.OriginalInputMethod`|---|---|---|---|
+|`Links.Method`|String|---|---|Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
+
+### Cartão por tarja com cartão criptografado
+
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/</span></aside>
+
+**Path Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`PaymentId`|String uuid|---|Sim|Código do Pagamento|
+
+```json
+{
+   "MerchantVoidId": 2019042204,
+   "MerchantVoidDate": "2019-04-15T12:00:00Z",
+   "Card": {
+      "InputMode": "MagStripe",
+      "TrackOneData": "A1234567890123456^FULANO OLIVEIRA SA ^12345678901234567890123",
+      "TrackTwoData": "0123456789012345=012345678901234",
+      "EncryptedCardData": {
+         "EncryptionType": "DUKPT3DES",
+         "TrackOneDataKSN": "KSNforTrackOneData",
+         "TrackTwoDataKSN": "KSNforTrackTwoData"
+      }
+   }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantVoidId`|String|---|Sim|Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal|
+|`MerchantVoidDate`|String|---|Sim|Data do cancelamento.|
+|`Card.InputMode`|String|---|Sim|Enum: "Typed", "MagStripe", "Emv", "ContactlessMagStripe", "ContactlessEmv"|
+|`Card.TrackOneData`|String|---|---|Dados da trilha 1 <br><br>Obtidos através do comando PP_GetCard na BC no momento da captura da transação|
+|`Card.TrackTwoData`|String|---|---|Dados da trilha 2 <br><br>Obtidos através do comando PP_GetCard na BC no momento da captura da transação|
+|`Card.EncryptedCardData.EncryptionType`|String|---|Sim|Tipo de encriptação utilizada<br><br>Enum:<br><br>"DukptDes" = 1,<br><br>"MasterKey" = 2 <br<br>"Dukpt3Des" = 3,<br><br>"Dukpt3DesCBC" = 4|
+|`Card.EncryptedCardData.TrackOneDataKSN`|String|---|---|Identificador KSN da criptografia da trilha 1 do cartão|
+|`Card.EncryptedCardData.TrackTwoDataKSN`|String|---|---|Identificador KSN da criptografia da trilha 2 do cartão|
+|`Card.EncryptedCardData.IsDataInTLVFormat`|Booleano|---|Não Identifica se os dados criptografados estão no formato TLV (tag / length / value).|
+|`Card.EncryptedCardData.InitializationVector`|String|---|Sim|Vetor de inicialização da encryptação|
+|`Card.AuthenticationMethod`|String|---|Sim|Enum: "NoPassword", , "OnlineAuthentication", "OfflineAuthentication"<br><br>Método de autenticação<br><br>1 - Sem senha = “NoPassword”;<br><br>2 - Senha online = “Online Authentication”;<br><br>3 - Senha off-line = “Offline Authentication”.|
+
+#### Resposta
+
+```json
+{
+  "VoidId": "f15889ea-5719-4e1a-a2da-f4e50d5bd702",
+  "InitializationVersion": 1558708320029,
+  "PrintMessage": [
+    {
+      "Position": "Top",
+      "Message": "Transação autorizada"
+    },
+    {
+      "Position": "Middle",
+      "Message": "Informação adicional"
+    },
+    {
+      "Position": "Bottom",
+      "Message": "Obrigado e volte sempre!"
+    }
+  ],
+  "Receipt": {
+    "MerchantName": "Estabelecimento",
+    "MerchantAddress": "Rua Sem Saida, 0",
+    "MerchantCity": "Cidade",
+    "MerchantState": "WA",
+    "MerchantCode": 549798965249,
+    "Terminal": 12345678,
+    "Nsu": 123456,
+    "Date": "01/01/20",
+    "Hour": 720,
+    "IssuerName": "VISA  PROD-I",
+    "CardNumber": 1111222233334444,
+    "TransactionType": "CANCELAMENTO DE TRANSACAO",
+    "AuthorizationCode": 123456,
+    "TransactionMode": "ONL",
+    "InputMethod": "C",
+    "CancelValue": "3,00",
+    "OriginalTransactonData": "DADOS DO PAGAMENTO ORIGNAL",
+    "OriginalTransactonType": "VENDA A CREDITO",
+    "OriginalTransactonNsu": 5349,
+    "OriginalTransactonAuthCode": 543210,
+    "OriginalTransactionDate": "01/01/20",
+    "OriginalTransactionHour": 720,
+    "OrignalTransactionValue": "3,00",
+    "OrignalTransactionCardHolder": "NOME NOME NOME NOME NOME N",
+    "OriginalTransactionMode": "ONL",
+    "OriginalInputMethod": "C"
+  },
+  "Status": 10,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    },
+    {
+      "Method": "POST",
+      "Rel": "void",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids"
+    },
+    {
+      "Method": "DELETE",
+      "Rel": "reverse",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids/e5c889ea-5719-4e1a-a2da-f4f50d5bd7ca"
+    },
+    {
+      "Method": "PUT",
+      "Rel": "confirm",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids/e5c889ea-5719-4e1a-a2da-f4f50d5bd7ca/confirmation"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`VoidId`|String - uuid|---|---|Identificador do cancelamento|
+|`InitializationVersion`|Integer int16|---|---|Número de versão dos parametros baixados na inicialização do equipamento.|
+|`PrintMessage.Position`|String|---|---|Default: "Top"<br><br>Enum: "Top", "Middle", "Bottom"<br><br>Posição da mensagem no comprovante:<br><br>Top - Início do comprovante, antes do código do estabelecimento<br><br>Middle - Meio do comprovante, após a descrição dos valores<br><br>Bottom - Final do comprovante|
+|`PrintMessage.Message`|String|---|---|Indica a mensagem que deve ser impressa no comprovante de acordo com a posição indicada no campo Position|
+|`Status`|Integerint16|---|---|Status da transação.<br><br>0 = Não Finalizado<br><br>1 = Autorizado<br><br>2 = Pago<br><br>3 = Negado<br><br>10 = Cancelado<br><br>13 = Abortado|
+|`CancellationStatus`|Integer int16|---|---|Status do cancelamento.<br><br>0 = Não Finalizado<br><br>1 = Autorizado<br><br>2 = Negado<br><br>3 = Confirmado<br><br>4 = Desfeito|
+|`ReasonCode`|Integer int16|---|---|Código de referência para análises.|
+|`ReasonMessage`|String|---|---|Mensagem explicativa para análise.|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
+|`Receipt.MerchantName`|---|---|---|---|
+|`Receipt.MerchantAddress`|---|---|---|---|
+|`Receipt.MerchantCity`|---|---|---|---|
+|`Receipt.MerchantState`|---|---|---|---|
+|`Receipt.MerchantCode`|---|---|---|---|
+|`Receipt.Terminal`|---|---|---|---|
+|`Receipt.Nsu`|---|---|---|---|
+|`Receipt.Date`|---|---|---|---|
+|`Receipt.Hour`|---|---|---|---|
+|`Receipt.IssuerName`|---|---|---|---|
+|`Receipt.CardNumber`|---|---|---|---|
+|`Receipt.TransactionType`|---|---|---|---|
+|`Receipt.AuthorizationCode`|---|---|---|---|
+|`Receipt.TransactionMode`|---|---|---|---|
+|`Receipt.InputMethod`|---|---|---|---|
+|`Receipt.CancelValue`|---|---|---|---|
+|`Receipt.OriginalTransactonData`|---|---|---|---|
+|`Receipt.OriginalTransactonType`|---|---|---|---|
+|`Receipt.OriginalTransactonNsu`|---|---|---|---|
+|`Receipt.OriginalTransactonAuthCode`|---|---|---|---|
+|`Receipt.OriginalTransactionDate`|---|---|---|---|
+|`Receipt.OriginalTransactionHour`|---|---|---|---|
+|`Receipt.OrignalTransactionValue`|---|---|---|---|
+|`Receipt.OrignalTransactionCardHolder`|---|---|---|---|
+|`Receipt.OriginalTransactionMode`|---|---|---|---|
+|`Receipt.OriginalInputMethod`|---|---|---|---|
+|`Links.Method`|String|---|---|Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
+
+### Cartão por chip
+
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/</span></aside>
+
+**Path Parameters:**
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`PaymentId`|String uuid|---|Sim|Código do Pagamento|
+
+```json
+{
+  "MerchantVoidId": 2019042204,
+  "MerchantVoidDate": "2019-04-15T12:00:00Z",
+  "Card": {
+    "InputMode": "MagStripe",
+    "EmvData": "112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800",
+    "TrackOneData": "A1234567890123456^FULANO OLIVEIRA SA ^12345678901234567890123",
+    "TrackTwoData": "0123456789012345=012345678901234"
+  }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantVoidId`|String|---|Sim|Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal|
+|`MerchantVoidDate`|String|---|Sim|Data do cancelamento.|
+|`Card.InputMode`|String|---|Sim|Enum: "Typed", "MagStripe", "Emv", "ContactlessMagStripe", "ContactlessEmv"|
+|`Card.TrackOneData`|String|---|---|Dados da trilha 1 <br><br>Obtidos através do comando PP_GetCard na BC no momento da captura da transação|
+|`Card.TrackTwoData`|String|---|---|Dados da trilha 2 <br><br>Obtidos através do comando PP_GetCard na BC no momento da captura da transação|
+|`Card.EmvData`|String|---|---|Dados de cancelamento EMV|
+|`Card.AuthenticationMethod`|String|---|Sim|Enum: "NoPassword", , "OnlineAuthentication", "OfflineAuthentication"<br><br>Método de autenticação<br><br>1 - Sem senha = “NoPassword”;<br><br>2 - Senha online = “Online Authentication”;<br><br>3 - Senha off-line = “Offline Authentication”.|
+|`PinBlock.EncryptedPinBlock`|String|---|Sim|PINBlock Criptografado<br><br>- Para transações EMV, esse campo é obtido através do retorno da função PP_GoOnChip(), mais especificamente das posições 007 até a posição 022;<br><br>- Para transações digitadas e com tarja magnética, verificar as posições 001 até 016 do retorno da função PP_GetPin().|
+|`Card.EncryptedCardData.EncryptionType`|String|---|Sim|Tipo de encriptação utilizada<br><br>Enum:<br><br>"DukptDes" = 1,<br><br>"MasterKey" = 2 <br<br>"Dukpt3Des" = 3,<br><br>"Dukpt3DesCBC" = 4|
+|`PinBlock.EmvData`|String|—|Sim|Identificação do KSN<br><br>- Para transações EMV esse campo é obtido através do retorno da função PP_GoOnChip() nas posições 023 até 042;<br><br>- Para transações digitadas e com tarja magnética, verificar as posições 017 até 036 do retorno da função PP_GetPin().|
+
+#### Resposta
+
+```json
+{
+  "VoidId": "f15889ea-5719-4e1a-a2da-f4e50d5bd702",
+  "InitializationVersion": 1558708320029,
+  "PrintMessage": [
+    {
+      "Position": "Top",
+      "Message": "Transação autorizada"
+    },
+    {
+      "Position": "Middle",
+      "Message": "Informação adicional"
+    },
+    {
+      "Position": "Bottom",
+      "Message": "Obrigado e volte sempre!"
+    }
+  ],
+  "Receipt": {
+    "MerchantName": "Estabelecimento",
+    "MerchantAddress": "Rua Sem Saida, 0",
+    "MerchantCity": "Cidade",
+    "MerchantState": "WA",
+    "MerchantCode": 549798965249,
+    "Terminal": 12345678,
+    "Nsu": 123456,
+    "Date": "01/01/20",
+    "Hour": 720,
+    "IssuerName": "VISA  PROD-I",
+    "CardNumber": 1111222233334444,
+    "TransactionType": "CANCELAMENTO DE TRANSACAO",
+    "AuthorizationCode": 123456,
+    "TransactionMode": "ONL",
+    "InputMethod": "C",
+    "CancelValue": "3,00",
+    "OriginalTransactonData": "DADOS DO PAGAMENTO ORIGNAL",
+    "OriginalTransactonType": "VENDA A CREDITO",
+    "OriginalTransactonNsu": 5349,
+    "OriginalTransactonAuthCode": 543210,
+    "OriginalTransactionDate": "01/01/20",
+    "OriginalTransactionHour": 720,
+    "OrignalTransactionValue": "3,00",
+    "OrignalTransactionCardHolder": "NOME NOME NOME NOME NOME N",
+    "OriginalTransactionMode": "ONL",
+    "OriginalInputMethod": "C"
+  },
+  "Status": 10,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    },
+    {
+      "Method": "POST",
+      "Rel": "void",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids"
+    },
+    {
+      "Method": "DELETE",
+      "Rel": "reverse",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids/e5c889ea-5719-4e1a-a2da-f4f50d5bd7ca"
+    },
+    {
+      "Method": "PUT",
+      "Rel": "confirm",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids/e5c889ea-5719-4e1a-a2da-f4f50d5bd7ca/confirmation"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`VoidId`|String - uuid|---|---|Identificador do cancelamento|
+|`InitializationVersion`|Integer int16|---|---|Número de versão dos parametros baixados na inicialização do equipamento.|
+|`PrintMessage.Position`|String|---|---|Default: "Top"<br><br>Enum: "Top", "Middle", "Bottom"<br><br>Posição da mensagem no comprovante:<br><br>Top - Início do comprovante, antes do código do estabelecimento<br><br>Middle - Meio do comprovante, após a descrição dos valores<br><br>Bottom - Final do comprovante|
+|`PrintMessage.Message`|String|---|---|Indica a mensagem que deve ser impressa no comprovante de acordo com a posição indicada no campo Position|
+|`Status`|Integerint16|---|---|Status da transação.<br><br>0 = Não Finalizado<br><br>1 = Autorizado<br><br>2 = Pago<br><br>3 = Negado<br><br>10 = Cancelado<br><br>13 = Abortado|
+|`CancellationStatus`|Integer int16|---|---|Status do cancelamento.<br><br>0 = Não Finalizado<br><br>1 = Autorizado<br><br>2 = Negado<br><br>3 = Confirmado<br><br>4 = Desfeito|
+|`ReasonCode`|Integer int16|---|---|Código de referência para análises.|
+|`ReasonMessage`|String|---|---|Mensagem explicativa para análise.|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
+|`Receipt.MerchantName`|---|---|---|---|
+|`Receipt.MerchantAddress`|---|---|---|---|
+|`Receipt.MerchantCity`|---|---|---|---|
+|`Receipt.MerchantState`|---|---|---|---|
+|`Receipt.MerchantCode`|---|---|---|---|
+|`Receipt.Terminal`|---|---|---|---|
+|`Receipt.Nsu`|---|---|---|---|
+|`Receipt.Date`|---|---|---|---|
+|`Receipt.Hour`|---|---|---|---|
+|`Receipt.IssuerName`|---|---|---|---|
+|`Receipt.CardNumber`|---|---|---|---|
+|`Receipt.TransactionType`|---|---|---|---|
+|`Receipt.AuthorizationCode`|---|---|---|---|
+|`Receipt.TransactionMode`|---|---|---|---|
+|`Receipt.InputMethod`|---|---|---|---|
+|`Receipt.CancelValue`|---|---|---|---|
+|`Receipt.OriginalTransactonData`|---|---|---|---|
+|`Receipt.OriginalTransactonType`|---|---|---|---|
+|`Receipt.OriginalTransactonNsu`|---|---|---|---|
+|`Receipt.OriginalTransactonAuthCode`|---|---|---|---|
+|`Receipt.OriginalTransactionDate`|---|---|---|---|
+|`Receipt.OriginalTransactionHour`|---|---|---|---|
+|`Receipt.OrignalTransactionValue`|---|---|---|---|
+|`Receipt.OrignalTransactionCardHolder`|---|---|---|---|
+|`Receipt.OriginalTransactionMode`|---|---|---|---|
+|`Receipt.OriginalInputMethod`|---|---|---|---|
+|`Links.Method`|String|---|---|Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
+
+### Cartão por chip com cartão criptografado
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/</span></aside>
+
+**Path Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`PaymentId`|String uuid|---|Sim|Código do Pagamento|
+
+```json
+{
+  "MerchantVoidId": 2019042204,
+  "MerchantVoidDate": "2019-04-15T12:00:00Z",
+  "Card": {
+    "InputMode": "MagStripe",
+    "EmvData": "112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800",
+    "TrackOneData": "A1234567890123456^FULANO OLIVEIRA SA ^12345678901234567890123",
+    "TrackTwoData": "0123456789012345=012345678901234"
+  }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantVoidId`|String|---|Sim|Número do documento gerado automáticamente pelo terminal e incrementado de 1 acada transação realizada no terminal|
+|`MerchantVoidDate`|String|---|Sim|Data do cancelamento.|
+|`Card.InputMode`|String|---|Sim|Enum: "Typed", "MagStripe", "Emv", "ContactlessMagStripe", "ContactlessEmv"|
+|`Card.EmvData`|String|---|---|Dados de cancelamento EMV|
+|`Card.TrackTwoData`|String|---|---|Dados da trilha 2 <br><br>Obtidos através do comando PP_GetCard na BC no momento da captura da transação|
+|`Card.EncryptedCardData.EncryptionType`|String|---|Sim|Tipo de encriptação utilizada<br><br>Enum:<br><br>"DukptDes" = 1,<br><br>"MasterKey" = 2 <br<br>"Dukpt3Des" = 3 <br<br>"Dukpt3DesCBC" = 4|
+|`Card.EncryptedCardData.TrackTwoDataKSN`|String|---|---|Identificador KSN da criptografia da trilha 2 do cartão|
+|`Card.EncryptedCardData.IsDataInTLVFormat`|Bool|---|Não|Identifica se os dados criptografados estão no formato TLV (tag / length / value).|
+|`Card.EncryptedCardData.InitializationVector`|String|---|Sim|Vetor de inicialização da encryptação|
+|`Card.AuthenticationMethod`|String|---|Sim|Enum: "NoPassword", "OnlineAuthentication", "OfflineAuthentication"<br><br>Método de autenticação<br><br>1 - Sem senha = “NoPassword”;<br><br>2 - Senha online = “Online Authentication”;<br><br>3 - Senha off-line = “Offline Authentication”.|
+|`PinBlock.EncryptedPinBlock`|String|---|Sim|PINBlock Criptografado<br><br>- Para transações EMV, esse campo é obtido através do retorno da função PP_GoOnChip(), mais especificamente das posições 007 até a posição 022;<br><br>- Para transações digitadas e com tarja magnética, verificar as posições 001 até 016 do retorno da função PP_GetPin().|
+|`PinBlock.EncryptionType`|String|---|Sim|Tipo de Criptografia<br><br>Enum:<br><br>"DukptDes"<br><br>"Dukpt3Des"<br><br>"MasterKey"|
+|`PinBlock.EmvData`|String|---|Sim|Identificação do KSN<br><br>- Para transações EMV esse campo é obtido através do retorno da função PP_GoOnChip() nas posições 023 até 042;<br><br>-Para transações digitadas e com tarja magnética, verificar as posições 017 até 036 do retorno da função PP_GetPin().|
+
+#### Resposta
+
+```json
+{
+  "VoidId": "f15889ea-5719-4e1a-a2da-f4e50d5bd702",
+  "InitializationVersion": 1558708320029,
+  "PrintMessage": [
+    {
+      "Position": "Top",
+      "Message": "Transação autorizada"
+    },
+    {
+      "Position": "Middle",
+      "Message": "Informação adicional"
+    },
+    {
+      "Position": "Bottom",
+      "Message": "Obrigado e volte sempre!"
+    }
+  ],
+  "Receipt": {
+    "MerchantName": "Estabelecimento",
+    "MerchantAddress": "Rua Sem Saida, 0",
+    "MerchantCity": "Cidade",
+    "MerchantState": "WA",
+    "MerchantCode": 549798965249,
+    "Terminal": 12345678,
+    "Nsu": 123456,
+    "Date": "01/01/20",
+    "Hour": 720,
+    "IssuerName": "VISA  PROD-I",
+    "CardNumber": 1111222233334444,
+    "TransactionType": "CANCELAMENTO DE TRANSACAO",
+    "AuthorizationCode": 123456,
+    "TransactionMode": "ONL",
+    "InputMethod": "C",
+    "CancelValue": "3,00",
+    "OriginalTransactonData": "DADOS DO PAGAMENTO ORIGNAL",
+    "OriginalTransactonType": "VENDA A CREDITO",
+    "OriginalTransactonNsu": 5349,
+    "OriginalTransactonAuthCode": 543210,
+    "OriginalTransactionDate": "01/01/20",
+    "OriginalTransactionHour": 720,
+    "OrignalTransactionValue": "3,00",
+    "OrignalTransactionCardHolder": "NOME NOME NOME NOME NOME N",
+    "OriginalTransactionMode": "ONL",
+    "OriginalInputMethod": "C"
+  },
+  "Status": 10,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702"
+    },
+    {
+      "Method": "POST",
+      "Rel": "void",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids"
+    },
+    {
+      "Method": "DELETE",
+      "Rel": "reverse",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids/e5c889ea-5719-4e1a-a2da-f4f50d5bd7ca"
+    },
+    {
+      "Method": "PUT",
+      "Rel": "confirm",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/f15889ea-5719-4e1a-a2da-f4e50d5bd702/voids/e5c889ea-5719-4e1a-a2da-f4f50d5bd7ca/confirmation"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`VoidId`|String - uuid|---|---|Identificador do cancelamento|
+|`InitializationVersion`|Integer int16|---|---|Número de versão dos parametros baixados na inicialização do equipamento.|
+|`PrintMessage.Position`|String|---|---|Default: "Top"<br><br>Enum: "Top", "Middle", "Bottom"<br><br>Posição da mensagem no comprovante:<br><br>Top - Início do comprovante, antes do código do estabelecimento<br><br>Middle - Meio do comprovante, após a descrição dos valores<br><br>Bottom - Final do comprovante|
+|`PrintMessage.Message`|String|---|---|Indica a mensagem que deve ser impressa no comprovante de acordo com a posição indicada no campo Position|
+|`Status`|Integerint16|---|---|Status da transação.<br><br>0 = Não Finalizado<br><br>1 = Autorizado<br><br>2 = Pago<br><br>3 = Negado<br><br>10 = Cancelado<br><br>13 = Abortado|
+|`CancellationStatus`|Integer int16|---|---|Status do cancelamento.<br><br>0 = Não Finalizado<br><br>1 = Autorizado<br><br>2 = Negado<br><br>3 = Confirmado<br><br>4 = Desfeito|
+|`ReasonCode`|Integer int16|---|---|Código de referência para análises.|
+|`ReasonMessage`|String|---|---|Mensagem explicativa para análise.|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|---|Mensagem de erro/resposta da transação da Adquirência.|
+|`Receipt.MerchantName`|---|---|---|---|
+|`Receipt.MerchantAddress`|---|---|---|---|
+|`Receipt.MerchantCity`|---|---|---|---|
+|`Receipt.MerchantState`|---|---|---|---|
+|`Receipt.MerchantCode`|---|---|---|---|
+|`Receipt.Terminal`|---|---|---|---|
+|`Receipt.Nsu`|---|---|---|---|
+|`Receipt.Date`|---|---|---|---|
+|`Receipt.Hour`|---|---|---|---|
+|`Receipt.IssuerName`|---|---|---|---|
+|`Receipt.CardNumber`|---|---|---|---|
+|`Receipt.TransactionType`|---|---|---|---|
+|`Receipt.AuthorizationCode`|---|---|---|---|
+|`Receipt.TransactionMode`|---|---|---|---|
+|`Receipt.InputMethod`|---|---|---|---|
+|`Receipt.CancelValue`|---|---|---|---|
+|`Receipt.OriginalTransactonData`|---|---|---|---|
+|`Receipt.OriginalTransactonType`|---|---|---|---|
+|`Receipt.OriginalTransactonNsu`|---|---|---|---|
+|`Receipt.OriginalTransactonAuthCode`|---|---|---|---|
+|`Receipt.OriginalTransactionDate`|---|---|---|---|
+|`Receipt.OriginalTransactionHour`|---|---|---|---|
+|`Receipt.OrignalTransactionValue`|---|---|---|---|
+|`Receipt.OrignalTransactionCardHolder`|---|---|---|---|
+|`Receipt.OriginalTransactionMode`|---|---|---|---|
+|`Receipt.OriginalInputMethod`|---|---|---|---|
+|`Links.Method`|String|---|---|Enum: "POST", "GET", "PUT".<br><br>Método HTTP a ser utilizado na operação.|
+|`Links.Rel`|String|---|---|Enum: "self", "cancel", "confirm".<br><br>Referência da operação.|
+|`Links.Href`|String|---|---|Endereço de URL de chamada da API|
+
+## Desfazimento de cancelamento
+
+| SandBox                                             | Produção                                      |
+|:---------------------------------------------------:|:---------------------------------------------:|
+| https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
+
+**Simular respostas:**
+
+Para simular alguma resposta especifica utilize o campo Amount, onde de acordo com o valor dos centavos informado nesse campo é possivel receber uma resposta conforme descrito na tabela abaixo:
+
+|Amount (valor dos centados)|Retorno simulado do Cancelamento|Exemplo de valor simulado|
+|50|Aprovado|5050 = R$50,40|
+|51|Negado|20051 = R$200,41|
+|52|Timeout|3552 = R$35,42|
+|59|Erro|1059 = R$10,49|
+
+### Desfaz por MerchantVoidId
+
+#### Requisição
+
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/merchantVoidId/{MerchantVoidId}</span></aside>
+
+**Path Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`PaymentId`|String guid|36|Sim|Código do Pagamento|
+|`MerchantVoidId`|String|---|Sim|Número do documento gerado automáticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal|
+
+#### Resposta
+
+```json
+{
+  "CancellationStatus": 4,
+  "Status": 2,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde"
+    },
+    {
+      "Method": "POST",
+      "Rel": "void",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde/voids"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`CancellationStatus`|Integer int16|---|---|Status do cancelamento. <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Negado <br><br>3 = Confirmado <br><br>4 = Desfeito|
+|`ConfirmationStatuss`|Integer|2|Sim|Status do confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
+|`Status`|Integer int16|---|---|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado <br><br>13 = Abortado|
+|`ReturnCode`|String|---|---|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|---|---|---|Mensagem de erro/resposta da transação da Adquirência.|
+
+### Desfaz por VoidId
+
+#### Requisição
+
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/{VoidId}</span></aside>
+
+**Path Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`PaymentId`|String guid|36|Sim|Código do Pagamento|
+|`VoidId`|String guid|36|Sim|Identificador do cancelamento a ser desfeito|
+
+#### Resposta
+
+```json
+{
+  "CancellationStatus": 4,
+  "Status": 2,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde"
+    },
+    {
+      "Method": "POST",
+      "Rel": "void",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde/voids"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`CancellationStatus`|Integer|2|Sim|Status do cancelamento. <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Negado <br><br>3 = Confirmado <br><br>4 = Desfeito|
+|`ConfirmationStatuss`|Integer|2|Sim|Status do confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
+|`Status`|Integer|2|Sim|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado <br><br>13 = Abortado|
+|`ReturnCode`|String|3|Sim|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|Sim|Mensagem de erro/resposta da transação da Adquirência.|
+
+## Confirmação de Cancelamento
+
+| SandBox                                             | Produção                                      |
+|:---------------------------------------------------:|:---------------------------------------------:|
+| https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
+
+**Simular respostas:**
+
+Para simular alguma resposta especifica utilize o campo Amount, onde de acordo com o valor dos centavos informado nesse campo é possivel receber uma resposta conforme descrito na tabela abaixo:
+
+|Amount (valor dos centados)|Retorno simulado do Cancelamento|Exemplo de valor simulado|
+|50|Aprovado|5050 = R$50,40|
+|51|Negado|20051 = R$200,41|
+|52|Timeout|3552 = R$35,42|
+|59|Erro|1059 = R$10,49|
+
+### Confirma
+
+#### Requisição
+
+<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/{VoidId}/confirmation</span></aside>
+
+**Path Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`PaymentId`|String guid|36|Sim|Código do Pagamento|
+|`VoidId`|String guid|36|Sim|Identificador do cancelamento a ser desfeito|
+
+#### Resposta
+
+```json
+{
+  "CancellationStatus": 4,
+  "ConfirmatinoStatus": 1,
+  "Status": 2,
+  "ReturnCode": 0,
+  "ReturnMessage": "Success",
+  "Links": [
+    {
+      "Method": "GET",
+      "Rel": "self",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde"
+    },
+    {
+      "Method": "POST",
+      "Rel": "void",
+      "Href": "https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde/voids"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`CancellationStatus`|Integer|2|Sim|Status do cancelamento. <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Negado <br><br>3 = Confirmado <br><br>4 = Desfeito|
+|`ConfirmationStatuss`|Integer|2|Sim|Status do confirmação. <br><br>0 = Pendente <br><br>1 = Confirmado <br><br>2 = Desfeito|
+|`Status`|Integer|2|Sim|Status da transação <br><br>0 = Não Finalizado <br><br>1 = Autorizado <br><br>2 = Pago <br><br>3 = Negado <br><br>10 = Cancelado <br><br>13 = Abortado|
+|`ReturnCode`|String|3|Sim|Código de erro/resposta da transação da Adquirência.|
+|`ReturnMessage`|String|---|Sim|Mensagem de erro/resposta da transação da Adquirência.|
+
+## Consultas
+
+### Consulta de Cancelamento
+
+Consulta um cancelamento
+
+#### Requisição
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/{VoidId}</span></aside>
+
+**Path Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`PaymentId`|String guid|36|Sim|Código do Pagamento|
+|`VoidId`|String guid|36|Sim|Identificador do cancelamento a ser desfeito|
+
+#### Resposta
+
+```json
+{
+  "VoidId": "a4bc7892-b455-4cd1-b902-c791802cd72b",
+  "CancellationStatus": 1,
+  "Status": 10
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`VoidId`|String guid|36|Sim|Identificador do cancelamento a ser desfeito|
+|`CancellationStatus`|Integer|2|Sim|Status do cancelamento. <br><br>0 = NotFinished  <br><br>1 = Authorized  <br><br>2 = Denied  <br><br>3 = Confirmed  <br><br>4 = Reversed |
+|`Status`|Integer|2|Sim|Status da transação.<br><br>NotFinished = 0,<br><br>Authorized = 1,<br><br>PaymentConfirmed = 2,<br><br>Denied = 3,<br><br>Voided = 10,<br><br>Refunded = 11,<br><br>Pending = 12,<br><br>Aborted = 13,<br><br>Scheduled = 20|
+
+# Lojas
+
+Essa operação permite o cadastro de lojas e terminais , viabilizando modelos de negócios onde o facilitador necessite segmentar sua operação.
+
+## Merchant
+
+### POST Merchant - Requisição
+
+Cria um novo merchant
