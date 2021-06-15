@@ -16697,209 +16697,45 @@
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1593194474343"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[Guest]"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"BrandId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"IssuerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">401</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"TruncateCardNumberWhenPrinting"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"InputMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ContactlessEmv"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"AuthenticationMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OnlineAuthentication"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"TrackOneData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B3764 361234 56006^NOME NOME NOME NOME NOME N^0905060640431"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"TrackTwoData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1111222233334444=09050606404312376450"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"EmvData"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"IsFallback"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"PinBlock"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"EncryptedPinBlock"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2280F6BDFD0C038D"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"EncryptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dukpt3Des"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"KsnIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fffff9999900522000d6"</span><span class="w">
+   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1596226820548"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PhysicalCreditCard"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"PaymentDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-31T20:20:20.548Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"InputMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ContactlessEmv"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"BrandId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"IssuerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">401</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"TruncateCardNumberWhenPrinting"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2020"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"EmvSequenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"EmvData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"TrackOneData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1234567890123456^FULANO OLIVEIRA SA ^12345678901234567890123"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"TrackTwoData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0123456789012345=012345678901234"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"AuthenticationMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OnlineAuthentication"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"PinBlock"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"EncryptedPinBlock"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2280F6BDFD0C038D"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"EncryptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dukpt3Des"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"KsnIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fffff9999900522000d6"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"BrandInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"y|vtdz?pqw"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ytuaflq}nw"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rbgbjn?glw?s}dur?xhkn?uekk?pw"</span><span class="w">
+      </span><span class="nl">"PinPadInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"TerminalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"SerialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6C651996"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"PhysicalCharacteristics"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PinPadWithChipReaderWithSamModuleAndContactless"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ReturnDataInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-26T18:01:14Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"CapturedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"CapturedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-26T18:01:14Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"IsSplitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APROVADA 198585"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1ba69380-81da-430e-8ed0-7df92f26dbaf"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PhysicalCreditCard"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/1ba69380-81da-430e-8ed0-7df92f26dbaf"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"confirm"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/1ba69380-81da-430e-8ed0-7df92f26dbaf/confirmation"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reverse"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/1ba69380-81da-430e-8ed0-7df92f26dbaf"</span><span class="w">
+      </span><span class="nl">"MassTransit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"IsDebtRecovery"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"IsKnownValue"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"FirstTravelDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01 04:12"</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"PaymentDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-26T18:01:14.343Z"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"PinPadInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"TerminalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42004558"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"SerialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6C651996"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"PhysicalCharacteristics"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PinPadWithChipReaderWithSamModuleAndContactless"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ReturnDataInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"PrintMessage"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Top"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"q?kmo|}"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Middle"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"?jpmosh?ab"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bottom"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rs?~xtdrco"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"ReceiptInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCHANT_NAME"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOME DO ESTABELECIMENTO"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"?zprj}?z?akssvd?v?zub{dxp?{?rc"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCHANT_CITY"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CIDADE DO ESTABELECIMENTO"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"?n?pwz~zmvh?e?}x?otz?j"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INPUT_METHOD"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MODO DE ENTRADA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wwixrfxdbllme~ojjytdxhxepaplczjif?i?xj~"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TERMINAL"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POS"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10082375"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ISSUER_NAME"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMISSOR"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e|?hi?lqjlqhdnkelmmtb"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NSU"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DOC"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"167371"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCHANT_CODE"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COD.ESTAB."</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08756937855064"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCHANT_ADDRESS"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ENDEREÇO DO ESTABELECIMENTO"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"se{gs}rqxnptxcsc??~mggppql"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUTHORIZATION_CODE"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUTORIZAÇÃO"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"51544"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CARD_HOLDER"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOME DO CLIENTE"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"|v}ly|z~dtjtd{?ky}sccgozvp?|ofj|tq?g??qv~?"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSACTION_TYPE"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TIPO DE TRANSAÇÃO"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dhkok?yeill?supi{}tov?~uzfgvzyk~t"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCHANT_STATE"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ESTADO DO ESTABELECIMENTO"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"r?"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DATE"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DATA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6/26/2020"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HOUR"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HORA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3:01 PM"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VALUE"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VALOR"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"300"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSACTION_MODE"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MODO DA TRANSAÇÃO"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e?j"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CARD_NUMBER"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CARTÃO"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"Receipt"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"MerchantName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"?zpkssvd?v?zub{dxp?{?rc"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"MerchantCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"?n?pwz~zmv{jotz?j"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"InputMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wwixrfxdbllme~ojjyuaplczjif?i?xj~"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Terminal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10082375"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"IssuerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e|?hi?lqjlqhdnelmmtb"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"167371"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"MerchantCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08756937855064"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"MerchantAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"se{gs}rqxnptc??~mggppql"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"51544"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"CardHolder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"|v}ly|z~dtjtd{?ky}sccgv~?"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"TransactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dhkok?yeill?supi{}tov?~?}on?trevj|gzyk~t"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"MerchantState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"r?"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6/26/2020"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3:01 PM"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"300"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"TransactionMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e?j"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"198585"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"915916"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"InitializationVersion"</span><span class="p">:</span><span class="w"> </span><span class="mi">1593194400000</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ConfirmationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"EmvResponseData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"147988740"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"SubordinatedMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b99a463f-88db-442a-b5fa-982187b68f5c"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"MassTransit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"IsDebtRecovery"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"IsKnownValue"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"FirstTravelDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01T04:12:00"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"OfflinePaymentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Online"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -17116,45 +16952,209 @@
 <h3 id="resposta-14">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1596226820548"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PhysicalCreditCard"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"PaymentDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-31T20:20:20.548Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-         </span><span class="nl">"InputMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ContactlessEmv"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"BrandId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"IssuerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">401</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"TruncateCardNumberWhenPrinting"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2020"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"EmvSequenceNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"EmvData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"112233445566778899011AABBC012D3456789E0123FF45678AB901234C5D112233445566778800"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"TrackOneData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1234567890123456^FULANO OLIVEIRA SA ^12345678901234567890123"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"TrackTwoData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0123456789012345=012345678901234"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"AuthenticationMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OnlineAuthentication"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"PinBlock"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"EncryptedPinBlock"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2280F6BDFD0C038D"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"EncryptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dukpt3Des"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"KsnIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fffff9999900522000d6"</span><span class="w">
-         </span><span class="p">}</span><span class="w">
+  </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1593194474343"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[Guest]"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"BrandId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IssuerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">401</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TruncateCardNumberWhenPrinting"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"InputMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ContactlessEmv"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AuthenticationMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OnlineAuthentication"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TrackOneData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B3764 361234 56006^NOME NOME NOME NOME NOME N^0905060640431"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TrackTwoData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1111222233334444=09050606404312376450"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"EmvData"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IsFallback"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"PinBlock"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"EncryptedPinBlock"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2280F6BDFD0C038D"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"EncryptionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dukpt3Des"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"KsnIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fffff9999900522000d6"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"PinPadInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-         </span><span class="nl">"TerminalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"SerialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6C651996"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"PhysicalCharacteristics"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PinPadWithChipReaderWithSamModuleAndContactless"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"ReturnDataInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="w">
+      </span><span class="nl">"BrandInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"y|vtdz?pqw"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ytuaflq}nw"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rbgbjn?glw?s}dur?xhkn?uekk?pw"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"MassTransit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-         </span><span class="nl">"IsDebtRecovery"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"IsKnownValue"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"FirstTravelDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01 04:12"</span><span class="w">
+      </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-26T18:01:14Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CapturedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CapturedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-26T18:01:14Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"IsSplitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APROVADA 198585"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1ba69380-81da-430e-8ed0-7df92f26dbaf"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PhysicalCreditCard"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/1ba69380-81da-430e-8ed0-7df92f26dbaf"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"confirm"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/1ba69380-81da-430e-8ed0-7df92f26dbaf/confirmation"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reverse"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/1ba69380-81da-430e-8ed0-7df92f26dbaf"</span><span class="w">
       </span><span class="p">}</span><span class="w">
-   </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"PaymentDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-26T18:01:14.343Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Description"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ProductId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"PinPadInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"TerminalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42004558"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SerialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6C651996"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"PhysicalCharacteristics"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PinPadWithChipReaderWithSamModuleAndContactless"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReturnDataInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"PrintMessage"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Top"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"qtkmo|}"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Middle"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"?jpmosh?ab"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Position"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bottom"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rs?~xtdrco"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"ReceiptInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCHANT_NAME"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOME DO ESTABELECIMENTO"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"?zpb{dxp?{?rc"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCHANT_CITY"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CIDADE DO ESTABELECIMENTO"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"?n?pwz~zmv{jotz?j"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INPUT_METHOD"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MODO DE ENTRADA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wwixrfxdbllme~ojjyudxhxepaplczjif?i?xj~"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TERMINAL"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POS"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10082375"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ISSUER_NAME"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMISSOR"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e|?hi?lqjlqkelmmtb"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NSU"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DOC"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"167371"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCHANT_CODE"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COD.ESTAB."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08756937855064"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCHANT_ADDRESS"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ENDEREÇO DO ESTABELECIMENTO"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"se{gs}rqxnptxx~mggppql"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUTHORIZATION_CODE"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUTORIZAÇÃO"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"51544"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CARD_HOLDER"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NOME DO CLIENTE"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"|v}ly|z~dtjtd{?ky}sccgozvp?|?g??qv~?"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSACTION_TYPE"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TIPO DE TRANSAÇÃO"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dhkok?yeill?supi{}tov?~?}ozfgvzyk~t"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MERCHANT_STATE"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ESTADO DO ESTABELECIMENTO"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"r?"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DATE"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DATA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6/26/2020"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HOUR"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HORA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3:01 PM"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VALUE"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VALOR"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"300"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRANSACTION_MODE"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MODO DA TRANSAÇÃO"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e?j"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CARD_NUMBER"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CARTÃO"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"Receipt"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"MerchantName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"?zpxp?{?rc"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"MerchantCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"?n?pwz~zmjotz?j"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"InputMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wwixrfxdbllme~ojjy?lysmu?qoeq?uwxepaplczjif?i?xj~"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Terminal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10082375"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IssuerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e|?hi?lqjlqhdnzelmmtb"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"167371"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"MerchantCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08756937855064"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"MerchantAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"se{gs}rqxnpt~sq~pfqt{myctc?ggppql"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"51544"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CardHolder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"|v}ly|z~dtjtd{?ky}sccgozvp?|ofj|tx?sg??qv~?"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TransactionType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dhkok?yeill?supi{}tov?~?}on?tt"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"MerchantState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"r?"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6/26/2020"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Hour"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3:01 PM"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"300"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TransactionMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e?j"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"198585"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"915916"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"InitializationVersion"</span><span class="p">:</span><span class="w"> </span><span class="mi">1593194400000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ConfirmationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"EmvResponseData"</span><span class="p">:</span><span class="w"> </span><span class="s2">"147988740"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"SubordinatedMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b99a463f-88db-442a-b5fa-982187b68f5c"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"MassTransit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"IsDebtRecovery"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IsKnownValue"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"FirstTravelDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01T04:12:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"OfflinePaymentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Online"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
