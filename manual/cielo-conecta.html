@@ -3017,6 +3017,141 @@
 
 <h1 id="pagamentos">Pagamentos</h1>
 
+<h2 id="fluxo-de-pagamento">Fluxo de pagamento</h2>
+
+<p><strong>Exemplo fluxo (Biblioteca Compartilhada):</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Descrição do Fluxo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Inserção do valor da transação (campo <code class="language-plaintext highlighter-rouge">Amount</code> do request da transação)</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Recuperar Data/Hora da transação (campo <code class="language-plaintext highlighter-rouge">PaymentDateTime</code> do request da transação)</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Seleção do tipo de pagamento (débito, crédito, voucher…) (campo <code class="language-plaintext highlighter-rouge">Type</code> do request da transação)</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Chamada do PP_StartGetCard passando os valores:</td>
+    </tr>
+    <tr>
+      <td>4.1</td>
+      <td>Identificador da rede adquirente (Cielo <code class="language-plaintext highlighter-rouge">03</code>)</td>
+    </tr>
+    <tr>
+      <td>4.2</td>
+      <td>Tipo de aplicação (relacionado ao item 3)</td>
+    </tr>
+    <tr>
+      <td>4.3</td>
+      <td>Valor inicial da transação (item 1)</td>
+    </tr>
+    <tr>
+      <td>4.4</td>
+      <td>Data da transação (item 2)</td>
+    </tr>
+    <tr>
+      <td>4.5</td>
+      <td>Hora da transação (item 2)</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Caso tenha sido utilizado um cartão com chip, recuperar o aid através da tag 4F no retorno da PP_getCard.</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Seleção de produtos (campo “ProductId” do request da transação):</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Transações com chip:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Descrição do Fluxo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Realizar a busca na tabela “Emv” pelo AID do cartão (campo <code class="language-plaintext highlighter-rouge">Aid</code>) e selecionar os produtos associados através do campo <code class="language-plaintext highlighter-rouge">ProductIds</code></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Nos produtos associados, recuperar aqueles que possuem o mesmo <code class="language-plaintext highlighter-rouge">ProductType</code> (tabela <code class="language-plaintext highlighter-rouge">Products</code>) que iniciado na transação (DÉBITO, CRÉDITO..) e o mesmo fluxo do host (campo <code class="language-plaintext highlighter-rouge">HostFlow</code>) que os definido pela Cielo.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Transações com tarja/digitada:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Descrição do Fluxo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Ao recuperar o pan do cartão, buscar na tabela <code class="language-plaintext highlighter-rouge">Bins</code> um que o bin esteja entre os valores <code class="language-plaintext highlighter-rouge">InitialBin</code> e <code class="language-plaintext highlighter-rouge">FinalBin</code> (considerar sempre a faixa de Bins mais específica) e recuperar o produto associado no campo <code class="language-plaintext highlighter-rouge">ProductId</code>;</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Recuperar os produtos que tem o mesmo <code class="language-plaintext highlighter-rouge">ProductType</code> (tabela <code class="language-plaintext highlighter-rouge">Products</code>) que iniciado na transação (DÉBITO, CRÉDITO…) e o mesmo fluxo do host (campo <code class="language-plaintext highlighter-rouge">HostFlow</code>) que os definido pela Cielo.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Simular respostas:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Amount (valor dos centavos)</th>
+      <th>Retorno simulado do Pagamento</th>
+      <th>Exemplo de valor simulado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>10</td>
+      <td>Aprovado</td>
+      <td>5010 = R$50,10</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Negado</td>
+      <td>20011 = R$200,11</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Timeout</td>
+      <td>3512 = R$35,12</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>Erro</td>
+      <td>1019 = R$10,19</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="autorização">Autorização</h2>
 
 <p>Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Payment.Status) na resposta para certificar-se que o pagamento foi gerado com sucesso ou se houve alguma falha.</p>
@@ -25984,141 +26119,6 @@
       <td>—</td>
       <td>—</td>
       <td>—</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="fluxo-de-pagamento-biblioteca-compartilhada">Fluxo de pagamento (Biblioteca Compartilhada)</h2>
-
-<p><strong>Exemplo fluxo (Biblioteca Compartilhada):</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Descrição do Fluxo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>Inserção do valor da transação (campo <code class="language-plaintext highlighter-rouge">Amount</code> do request da transação)</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Recuperar Data/Hora da transação (campo <code class="language-plaintext highlighter-rouge">PaymentDateTime</code> do request da transação)</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Seleção do tipo de pagamento (débito, crédito, voucher…) (campo <code class="language-plaintext highlighter-rouge">Type</code> do request da transação)</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>Chamada do PP_StartGetCard passando os valores:</td>
-    </tr>
-    <tr>
-      <td>4.1</td>
-      <td>Identificador da rede adquirente (Cielo <code class="language-plaintext highlighter-rouge">03</code>)</td>
-    </tr>
-    <tr>
-      <td>4.2</td>
-      <td>Tipo de aplicação (relacionado ao item 3)</td>
-    </tr>
-    <tr>
-      <td>4.3</td>
-      <td>Valor inicial da transação (item 1)</td>
-    </tr>
-    <tr>
-      <td>4.4</td>
-      <td>Data da transação (item 2)</td>
-    </tr>
-    <tr>
-      <td>4.5</td>
-      <td>Hora da transação (item 2)</td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>Caso tenha sido utilizado um cartão com chip, recuperar o aid através da tag 4F no retorno da PP_getCard.</td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>Seleção de produtos (campo “ProductId” do request da transação):</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Transações com chip:</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Descrição do Fluxo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>Realizar a busca na tabela “Emv” pelo AID do cartão (campo <code class="language-plaintext highlighter-rouge">Aid</code>) e selecionar os produtos associados através do campo <code class="language-plaintext highlighter-rouge">ProductIds</code></td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Nos produtos associados, recuperar aqueles que possuem o mesmo <code class="language-plaintext highlighter-rouge">ProductType</code> (tabela <code class="language-plaintext highlighter-rouge">Products</code>) que iniciado na transação (DÉBITO, CRÉDITO..) e o mesmo fluxo do host (campo <code class="language-plaintext highlighter-rouge">HostFlow</code>) que os definido pela Cielo.</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Transações com tarja/digitada:</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Descrição do Fluxo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>Ao recuperar o pan do cartão, buscar na tabela <code class="language-plaintext highlighter-rouge">Bins</code> um que o bin esteja entre os valores <code class="language-plaintext highlighter-rouge">InitialBin</code> e <code class="language-plaintext highlighter-rouge">FinalBin</code> (considerar sempre a faixa de Bins mais específica) e recuperar o produto associado no campo <code class="language-plaintext highlighter-rouge">ProductId</code>;</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Recuperar os produtos que tem o mesmo <code class="language-plaintext highlighter-rouge">ProductType</code> (tabela <code class="language-plaintext highlighter-rouge">Products</code>) que iniciado na transação (DÉBITO, CRÉDITO…) e o mesmo fluxo do host (campo <code class="language-plaintext highlighter-rouge">HostFlow</code>) que os definido pela Cielo.</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Simular respostas:</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Amount (valor dos centavos)</th>
-      <th>Retorno simulado do Pagamento</th>
-      <th>Exemplo de valor simulado</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>10</td>
-      <td>Aprovado</td>
-      <td>5010 = R$50,10</td>
-    </tr>
-    <tr>
-      <td>11</td>
-      <td>Negado</td>
-      <td>20011 = R$200,11</td>
-    </tr>
-    <tr>
-      <td>12</td>
-      <td>Timeout</td>
-      <td>3512 = R$35,12</td>
-    </tr>
-    <tr>
-      <td>19</td>
-      <td>Erro</td>
-      <td>1019 = R$10,19</td>
     </tr>
   </tbody>
 </table>
