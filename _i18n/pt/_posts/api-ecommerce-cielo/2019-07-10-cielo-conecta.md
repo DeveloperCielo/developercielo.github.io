@@ -11069,7 +11069,7 @@ Salva alterações em na loja subordinado com o ID especificado.
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`CommunicationType`|String|---|Sim|Perfil de Comunicação|
-|`EquipmentModel`|	Integer|---|Sim|Modelo do equipamento previamente cadastrado. Campo obrigatorio quando EquipmentSerialNumber é informado|
+|`EquipmentModel`|Integer|---|Sim|Modelo do equipamento previamente cadastrado. Campo obrigatorio quando EquipmentSerialNumber é informado|
 |`EquipmentSerialNumber`|String|---|Sim|Número serial do equipamento previamente cadastrado. Campo obrigatorio quando EquipmentModel é informado|
 |`TerminalId`|String|8|Sim|Identificação do Terminal Lógico na PayStore. Identificação única para o mesmo Lojista.|
 |`SubordinatedMerchantId`|String (Guid)|36|Sim|ID da loja subordinada vinculada ao terminal|
