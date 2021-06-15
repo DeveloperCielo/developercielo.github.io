@@ -4732,6 +4732,206 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 #### Resposta
 
+```json
+{
+  "MerchantOrderId": "1593196763217",
+  "Customer": {
+    "Name": "[Guest]"
+  },
+  "Payment": {
+    "Installments": 1,
+    "Interest": "ByMerchant",
+    "Capture": true,
+    "CreditCard": {
+      "BrandId": 0,
+      "IssuerId": 0,
+      "TruncateCardNumberWhenPrinting": false,
+      "InputMode": "QRCode",
+      "EmvData": "",
+      "IsFallback": false,
+      "PinBlock": {
+        "EncryptedPinBlock": "2280F6BDFD0C038D",
+        "EncryptionType": "Dukpt3Des",
+        "KsnIdentification": "fffff9999900522000d6"
+      },
+      "BrandInformation": {
+        "Type": "fwxueo?k}e",
+        "Name": "|pqbb?t~",
+        "Description": "?gqcoumet?~l}m?u?~grqusz?c|tmi"
+      },
+      "SaveCard": false,
+      "QrCodeData": "180313001B1D4349"
+    },
+    "Amount": 200,
+    "ReceivedDate": "2020-06-26T18:39:23Z",
+    "CapturedAmount": 200,
+    "CapturedDate": "2020-06-26T18:39:24Z",
+    "Provider": "Cielo",
+    "Status": 2,
+    "IsSplitted": false,
+    "ReturnMessage": "APROVADA 775251",
+    "ReturnCode": "000",
+    "PaymentId": "cc0ff29e-875b-4155-9600-789704a290af",
+    "Type": "PhysicalCreditCard",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/cc0ff29e-875b-4155-9600-789704a290af"
+      },
+      {
+        "Method": "PUT",
+        "Rel": "confirm",
+        "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/cc0ff29e-875b-4155-9600-789704a290af/confirmation"
+      },
+      {
+        "Method": "DELETE",
+        "Rel": "reverse",
+        "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/cc0ff29e-875b-4155-9600-789704a290af"
+      }
+    ],
+    "PaymentDateTime": "2020-06-26T18:39:23.217Z",
+    "ServiceTaxAmount": 0,
+    "SoftDescriptor": "Description",
+    "ProductId": 1,
+    "PinPadInformation": {
+      "TerminalId": "42004558",
+      "SerialNumber": "6C651996",
+      "PhysicalCharacteristics": "PinPadWithChipReaderWithSamModuleAndContactless",
+      "ReturnDataInfo": "00"
+    },
+    "PrintMessage": [
+      {
+        "Position": "Top",
+        "Message": "it}?awz?ga"
+      },
+      {
+        "Position": "Middle",
+        "Message": "??a?yux{p~"
+      },
+      {
+        "Position": "Bottom",
+        "Message": "l~uzd}e{lq"
+      }
+    ],
+    "ReceiptInformation": [
+      {
+        "Field": "MERCHANT_NAME",
+        "Label": "NOME DO ESTABELECIMENTO",
+        "Content": "fxwjkqxebkfi{bnny|dl}~}l|gxh"
+      },
+      {
+        "Field": "MERCHANT_CITY",
+        "Label": "CIDADE DO ESTABELECIMENTO",
+        "Content": "lbbp?upuz??w}l{?{bqvzh?vml{jqpsdhg?s"
+      },
+      {
+        "Field": "INPUT_METHOD",
+        "Label": "MODO DE ENTRADA",
+        "Content": "yz}w}{?rryv?nagjwq}?lrrecii{ual}wpz"
+      },
+      {
+        "Field": "TERMINAL",
+        "Label": "POS",
+        "Content": "23585155"
+      },
+      {
+        "Field": "ISSUER_NAME",
+        "Label": "EMISSOR",
+        "Content": "ny?bdc|ncopzmw?a~dou}h?b?"
+      },
+      {
+        "Field": "NSU",
+        "Label": "DOC",
+        "Content": "114075"
+      },
+      {
+        "Field": "MERCHANT_CODE",
+        "Label": "COD.ESTAB.",
+        "Content": "53391876948611"
+      },
+      {
+        "Field": "MERCHANT_ADDRESS",
+        "Label": "ENDEREÇO DO ESTABELECIMENTO",
+        "Content": "?eugn?iyf{knjvmsjkl"
+      },
+      {
+        "Field": "AUTHORIZATION_CODE",
+        "Label": "AUTORIZAÇÃO",
+        "Content": "59108"
+      },
+      {
+        "Field": "CARD_HOLDER",
+        "Label": "NOME DO CLIENTE",
+        "Content": "rlrqipne}?vd"
+      },
+      {
+        "Field": "TRANSACTION_TYPE",
+        "Label": "TIPO DE TRANSAÇÃO",
+        "Content": "gi}?kso|xz|mrhpk?j?g~k?qsdpj?jmlolwyg?eellui~zszfdew?"
+      },
+      {
+        "Field": "MERCHANT_STATE",
+        "Label": "ESTADO DO ESTABELECIMENTO",
+        "Content": "?f"
+      },
+      {
+        "Field": "DATE",
+        "Label": "DATA",
+        "Content": "6/26/2020"
+      },
+      {
+        "Field": "HOUR",
+        "Label": "HORA",
+        "Content": "3:39 PM"
+      },
+      {
+        "Field": "VALUE",
+        "Label": "VALOR",
+        "Content": "200"
+      },
+      {
+        "Field": "TRANSACTION_MODE",
+        "Label": "MODO DA TRANSAÇÃO",
+        "Content": "}al"
+      },
+      {
+        "Field": "CARD_NUMBER",
+        "Label": "CARTÃO"
+      }
+    ],
+    "Receipt": {
+      "MerchantName": "fxwjkqxebkfi{bnny|dl}~}",
+      "MerchantCity": "lbbp?upuz??w}l{?{bqvzh?vml{wthg?s",
+      "InputMethod": "yz}w}{?rryv?nagjwq}?lrr~mf~~db??tu?ean{o~ecii{ual}wpz",
+      "Terminal": "23585155",
+      "IssuerName": "ny?bdclrry|ncopzmw?a~dou}h?b?",
+      "Nsu": "114075",
+      "MerchantCode": "53391876948611",
+      "MerchantAddress": "?eugn?iyf{knjvmvx~vfkpiskjkuf?sh?",
+      "AuthorizationCode": "59108",
+      "CardHolder": "rlrhr?tj?zyml|qipne}?vd",
+      "TransactionType": "gi}?kso|xz|mrhpk?j?g~k?qx?h}dq|whg??wyg?eellui~zszfdew?",
+      "MerchantState": "?f",
+      "Date": "6/26/2020",
+      "Hour": "3:39 PM",
+      "Value": "200",
+      "TransactionMode": "}al",
+      "CardNumber": null
+    },
+    "AuthorizationCode": "775251",
+    "ProofOfSale": "325230",
+    "InitializationVersion": 1593196200000,
+    "ConfirmationStatus": 0,
+    "EmvResponseData": "331657110",
+    "SubordinatedMerchantId": "b99a463f-88db-442a-b5fa-982187b68f5c",
+    "OfflinePaymentType": "Online"
+  }
+}
+```
+
 |Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`MerchantOrderId`|String|---|---| Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.|
