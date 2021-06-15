@@ -34392,6 +34392,148 @@
   </tbody>
 </table>
 
+<h4 id="resposta-44">Resposta</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Page</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Número da página atual</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TotalPages</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Quantidade total de páginas</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TotalElements</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Quantidade total de itens encontrados</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Size</code></td>
+      <td>Integer</td>
+      <td>3</td>
+      <td>Sim</td>
+      <td>Quantidade de itens por página</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.SubordinatedMerchantId</code></td>
+      <td>String (Guid)</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>ID da loja subordinada vinculada ao terminal</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.TerminalId</code></td>
+      <td>String</td>
+      <td>8</td>
+      <td>Sim</td>
+      <td>ID do terminal</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.Status</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Estado atual do terminal</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.EquipmentSerialNumber</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Número de série do equipamento vinculado a este terminal</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.EquipmentModelName</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Nome do equipamento vinculado a este terminal</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.EquipmentModelManufacturer</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Nome do fabricante do equipamento vinculado a este terminal</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.EquipmentModelType</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Tipo do equipamento vinculado a este terminal</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.CommunicationType</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Perfil de comunicação do equipamento vinculado a este terminal</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.TefConfigs.TefAcquirer</code></td>
+      <td>String</td>
+      <td>1</td>
+      <td>Sim</td>
+      <td>Identificado do adquirente (4 = Cielo) para o terminal</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.TefConfigs.TefTerminal</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Número utilizado pelo adquirente para identificar o terminal</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.TefConfigs.MerchantConfig.TefAcquirer</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Identificado do adquirente (4 = Cielo) para o merchant</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.TefConfigs.MerchantConfig.SpecificId</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Número do estabelecimento no adquirente</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.TefConfigs.MerchantConfig.Enabled</code></td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Indica se o lojista está habilitado no cliente</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content.TefConfigs.MerchantConfig.Priority</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Prioridade do Adquirente (1 é o valor com maior prioridade)</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 
