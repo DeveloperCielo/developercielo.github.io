@@ -11207,3 +11207,27 @@ Consulta terminais de forma paginada
 |`Content.TefConfigs.MerchantConfig.SpecificId`|String|---|Não|Número do estabelecimento no adquirente|
 |`Content.TefConfigs.MerchantConfig.Enabled`|Boolean|---|Não|Indica se o lojista está habilitado no cliente|
 |`Content.TefConfigs.MerchantConfig.Priority`|Integer|---|Não|Prioridade do Adquirente (1 é o valor com maior prioridade)|
+
+## Equipamento
+
+### Consulta Equipamento
+
+Fornece os dados de um equipamento, a partir do modelo do equipamento e de seu número serial.
+
+#### Requisição
+
+<aside class="request"><span class="method put">GET</span> <span class="endpoint"/equipments/{modelId}/{serialNumber}</span></aside>
+
+**Path Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`modelId`|integer|---|Sim|Código de identificação do modelo do equipamento.|
+|`serialNumber`|String (Guid)|---|Sim|Número serial do equipamento.|
+
+```json
+{
+   "SubordinatedMerchantId":"{{SubordinatedMerchantId}}",
+   "TerminalId":"12345678"
+}
+```
