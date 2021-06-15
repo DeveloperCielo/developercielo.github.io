@@ -11160,3 +11160,27 @@ Desabilita um terminal removendo o vínculo com um equipamento físico.
 |`Activation.Token`|String|---|Sim|Token de ativação de terminal|
 |`Activation.CreateDate`|String (Date-time)|---|Sim|Data da geração do token|
 |`Activation.ExpireDate`|String (Date-time)|---|Sim|Data da expiração do token|
+
+### Consulta Terminais
+
+Consulta terminais de forma paginada
+
+#### Requisição
+
+<aside class="request"><span class="method put">GET</span> <span class="endpoint"/terminals?page=13&pageSize=10&subordinatedMerchantId={SubordinatedMerchantId}</span></aside>
+
+```json
+{
+   "SubordinatedMerchantId":"{{SubordinatedMerchantId}}",
+   "TerminalId":"12345678"
+}
+```
+
+**Query Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`TerminalId`|String|8|Sim|Identificação do Terminal Lógico na PayStore. Identificação única para o mesmo Lojista.|
+|`SubordinatedMerchantId`|String (Guid)|36|Sim|ID da loja subordinada vinculada ao terminal|
+|`pageSize`|Integer|3|Não|Tamanho da página (Máximo = 100 registros por página)|
+|`page`|Integer|---|Não|Retorna os registros da página informada. Deve ser utilizado quando a quantidade de páginas na resposta for maior que 1. Página inicial: 1|
