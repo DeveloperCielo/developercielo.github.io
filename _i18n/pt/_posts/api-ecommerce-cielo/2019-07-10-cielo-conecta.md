@@ -109,10 +109,10 @@ Essa operação é necessária para que o parceiro de negócio / Subadquirente r
 
 Para simular uma resposta especifica utilize o campo TerminalId, onde de acordo com os quatro ultimos digitos finais do valor informado é possivel receber uma resposta conforme a tabela abaixo:
 
-|TerminalId (ultimos digitos)|Retorno simulad|Exemplo do valor do TerminalId|
-|---|---|---|
-|0404|TERMINAL|INEXISTENTE|71990404|
-|Demais|valores	SUCESSO|82990566|
+|TerminalId(ultimos digitos)|---|Retorno simulado|Exemplo do valor do TerminalId|
+|---|---|---|---|
+|0404|TERMINAL INEXISTENTE|71990404|---|
+|Demais valores|SUCESSO|82990566|---|
 
 ## Inicialização
 
