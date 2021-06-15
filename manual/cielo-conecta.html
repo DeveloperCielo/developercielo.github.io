@@ -34334,6 +34334,64 @@
   </tbody>
 </table>
 
+<h3 id="consulta-terminais">Consulta Terminais</h3>
+
+<p>Consulta terminais de forma paginada</p>
+
+<h4 id="requisição-44">Requisição</h4>
+
+<aside class="request"><span class="method put">GET</span> &lt;span class="endpoint"/terminals?page=13&amp;pageSize=10&amp;subordinatedMerchantId={SubordinatedMerchantId}&lt;/span&gt;</aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"SubordinatedMerchantId"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"TerminalId"</span><span class="p">:</span><span class="s2">"12345678"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Query Parameters:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TerminalId</code></td>
+      <td>String</td>
+      <td>8</td>
+      <td>Sim</td>
+      <td>Identificação do Terminal Lógico na PayStore. Identificação única para o mesmo Lojista.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SubordinatedMerchantId</code></td>
+      <td>String (Guid)</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>ID da loja subordinada vinculada ao terminal</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">pageSize</code></td>
+      <td>Integer</td>
+      <td>3</td>
+      <td>Não</td>
+      <td>Tamanho da página (Máximo = 100 registros por página)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">page</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Retorna os registros da página informada. Deve ser utilizado quando a quantidade de páginas na resposta for maior que 1. Página inicial: 1</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 
