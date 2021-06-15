@@ -11100,3 +11100,23 @@ Salva alterações em na loja subordinado com o ID especificado.
 |`Terminal.SubordinatedMerchantId`|String (Guid)|36|Sim|ID da loja subordinada vinculada ao terminal|
 |`Terminal.SkipEquipment`|boolean|---|Sim|Default: false<br><br>Se não desejar informar o equipamento relacionado ao terminal|
 |`Terminal.AcquirerIds`|Array of integers|---|---|Lista de identifcadores de adquirentes configurados no terminal. Cielo = 4.|
+
+### Desabilita um Terminal
+
+Desabilita um terminal removendo o vínculo com um equipamento físico.
+
+#### Requisição
+
+<aside class="request"><span class="method put">POST</span> <span class="endpoint"/terminals/disable</span></aside>
+
+```json
+{
+  "SubordinatedMerchantId": "{{SubordinatedMerchantId}}",
+  "TerminalId": "12345678"
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`SubordinatedMerchantId`|String (Guid)|36|Sim|ID da loja subordinada vinculada ao terminal|
+|`TerminalId`|String|8|Sim|Identificação do Terminal Lógico na PayStore. Identificação única para o mesmo Lojista.|
