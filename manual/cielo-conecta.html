@@ -32913,6 +32913,8 @@
 
 <p>Cria um novo merchant.</p>
 
+<h4 id="requisição-38">Requisição</h4>
+
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/merchants</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -33080,9 +33082,153 @@
   </tbody>
 </table>
 
+<h4 id="resposta-38">Resposta</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SubordinatedMerchantId</code></td>
+      <td>String(Guid)</td>
+      <td>36</td>
+      <td>—</td>
+      <td>O ID que a loja subordinada deve assumir.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.ZipCode</code></td>
+      <td>String</td>
+      <td>9</td>
+      <td>Sim</td>
+      <td>CEP</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.Street</code></td>
+      <td>String</td>
+      <td>120</td>
+      <td>Não</td>
+      <td>Localização</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.Number</code></td>
+      <td>String</td>
+      <td>9</td>
+      <td>Sim</td>
+      <td>Número do endereço</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.Complement</code></td>
+      <td>String</td>
+      <td>120</td>
+      <td>Não</td>
+      <td>Complemento do endereço</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TradeName</code></td>
+      <td>String</td>
+      <td>35</td>
+      <td>Sim</td>
+      <td>Nome fantasia</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CompanyName</code></td>
+      <td>String</td>
+      <td>35</td>
+      <td>Não</td>
+      <td>Razão social. Obrigatório quando o DocumentType for “Cnpj” - Pessoa Jurídica</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Email</code></td>
+      <td>String</td>
+      <td>45</td>
+      <td>Sim</td>
+      <td>Endereço de email da loja</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PhoneNumber</code></td>
+      <td>String</td>
+      <td>4</td>
+      <td>Sim</td>
+      <td>Telefone da loja</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Mcc</code></td>
+      <td>Integer</td>
+      <td>4</td>
+      <td>Sim</td>
+      <td>Ramo de Atividade (MCC), obtido através de consultar ramos de atividade na tabela MCC.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DocumentNumber</code></td>
+      <td>String</td>
+      <td>20</td>
+      <td>Sim</td>
+      <td>CPF ou CNPJ da Loja</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DocumentType</code></td>
+      <td>String</td>
+      <td>4</td>
+      <td>Sim</td>
+      <td>Enum: <code class="language-plaintext highlighter-rouge">Cpf</code> <code class="language-plaintext highlighter-rouge">Cnpj</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
+      <td>String</td>
+      <td>13</td>
+      <td>Não</td>
+      <td>Descrição da fatura</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Owner.Name</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Nome do proprietario</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Owner.Email</code></td>
+      <td>String</td>
+      <td>45</td>
+      <td>Sim</td>
+      <td>Email do proprietário</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Owner.PhoneNumber</code></td>
+      <td>String</td>
+      <td>30</td>
+      <td>Sim</td>
+      <td>Telefone do proprietário</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Owner.MessengerPhone</code></td>
+      <td>String</td>
+      <td>30</td>
+      <td>Sim</td>
+      <td>Whatsapp do proprietário</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Owner.Gender</code></td>
+      <td>String</td>
+      <td>7</td>
+      <td>Não</td>
+      <td>Enum: <code class="language-plaintext highlighter-rouge">Other</code> <code class="language-plaintext highlighter-rouge">Male</code> <code class="language-plaintext highlighter-rouge">Female</code></td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="consulta-loja">Consulta Loja</h3>
 
 <p>Encontra uma loja subordinada pelo seu ID.</p>
+
+<h4 id="resposta-39">Resposta</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/merchants/{subordinatedMerchantId}</span></aside>
 
@@ -33381,6 +33527,8 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<h4 id="resposta-40">Resposta</h4>
+
 <table>
   <thead>
     <tr>
@@ -33624,6 +33772,8 @@
 
 <p>Salva alterações em na loja subordinado com o ID especificado.</p>
 
+<h4 id="requisição-39">Requisição</h4>
+
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/merchants/{subordinatedMerchantId}</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -33743,7 +33893,11 @@
 
 <h2 id="terminal">Terminal</h2>
 
+<h3 id="criar-terminal-sem-equipamento">Criar Terminal sem Equipamento</h3>
+
 <p>Salva alterações em na loja subordinado com o ID especificado.</p>
+
+<h4 id="requisição-40">Requisição</h4>
 
 <aside class="request"><span class="method put">POST</span> &lt;span class="endpoint"/terminals&lt;/span&gt;</aside>
 
