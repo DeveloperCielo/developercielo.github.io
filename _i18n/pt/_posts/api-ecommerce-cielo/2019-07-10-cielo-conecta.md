@@ -11076,19 +11076,3 @@ Salva alterações em na loja subordinado com o ID especificado.
 |`SkipEquipment`|boolean|---|Não|Default:false. Se não desejar informar o equipamento ao terminal|
 
 #### Resposta
-
-```json
-{
-   "Terminal":{
-      "SubordinatedMerchantId":"cb7c0ca4-54e7-43fa-ab79-aab33662a41a",
-      "SkipEquipment":false,
-      "CommunicationType":"S920_WIFI",
-      "EquipmentModel":1,
-      "EquipmentSerialNumber":"01020i",
-      "TerminalId":"abcd000i",
-      "AcquirerIds":[
-         
-      ]
-   }
-}
-```
