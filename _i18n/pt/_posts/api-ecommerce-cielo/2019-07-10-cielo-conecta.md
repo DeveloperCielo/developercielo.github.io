@@ -1682,13 +1682,13 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
       "MerchantCity": "ucy{~l{dt|tsisxcopucksey}gyk??tbgp?qa",
       "InputMethod": "ual?jq?r?yk|o?r??}?whsm~vgbkjwxqo",
       "Terminal": "18605058",
-      "IssuerName": "xbenr?megq|?xfgpgmltuasuxjrckrzmqjcamfkqq",
+      "IssuerName": "xbenr?megq|?xfgpgmqq",
       "Nsu": "770120",
       "MerchantCode": "80523210785618",
       "MerchantAddress": "jsjkoaht?k??eczuw?eg?c",
       "AuthorizationCode": "62976",
       "CardHolder": "{igk?}v?oyo??l{megopnnzloe?ulw?ldmrk|??csdk?i?j?g{ucsjkn|}",
-      "TransactionType": "c~}~bd}?ddirqtcfc|b|fq~hmakx|p?{xcz?kaq{xyafcp~t}?odbwpvavrb~eeyern~d?bkldr",
+      "TransactionType": "c~}~bd}?ddirqtcfc|b|ldr",
       "MerchantState": "py",
       "Date": "6/26/2020",
       "Hour": "3:36 PM",
@@ -5808,7 +5808,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
          {
             "Field":"TRANSACTION_TYPE",
             "Label":"TIPO DE TRANSAÇÃO",
-            "Content":"dhkok?yeill?supi{}tov?~?}on?trevj|gyxawm}?htfi?n|whxbonhnlw?u~v|h{{{o{uzfgvzyk~t"
+            "Content":"dhkok?yeill?supi{}tov?~gvzyk~t"
          },
          {
             "Field":"MERCHANT_STATE",
@@ -5845,7 +5845,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
          "MerchantCity":"?n?pwz~zm?e~o??lf|{vh?e?}x?t|tjotz?j",
          "InputMethod":"wwixrfxdbllme~ojjyudlczjif?i?xj~",
          "Terminal":"10082375",
-         "IssuerName":"e|?hi?lqjlqhdnzk?w?~l?{d?pbulp{xrluerelmmtb",
+         "IssuerName":"e|?hi?lqjlqhdd?pbulp{xrluerelmmtb",
          "Nsu":"167371",
          "MerchantCode":"08756937855064",
          "MerchantAddress":"se{gs}rqxnptxc??~mggppql",
@@ -6160,7 +6160,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
          {
             "Field":"ISSUER_NAME",
             "Label":"EMISSOR",
-            "Content":"xbenr?cqzuyx}odlpnmegq|?xfgpgmltuasuxjrckrzmqjcamfkqq"
+            "Content":"xbenr?cqzuyx}ockrzmqjcamfkqq"
          },
          {
             "Field":"NSU",
@@ -6190,7 +6190,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
          {
             "Field":"TRANSACTION_TYPE",
             "Label":"TIPO DE TRANSAÇÃO",
-            "Content":"dnvc~}~bd}?ddirqt?bkldr"
+            "Content":"~bd}?ddirqt?bkldr"
          },
          {
             "Field":"MERCHANT_STATE",
