@@ -34232,6 +34232,108 @@
   </tbody>
 </table>
 
+<h3 id="criar-token-de-ativação">Criar Token de ativação</h3>
+
+<h4 id="requisição-43">Requisição</h4>
+
+<aside class="request"><span class="method put">POST</span> &lt;span class="endpoint"/token&lt;/span&gt;</aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"SubordinatedMerchantId"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"TerminalId"</span><span class="p">:</span><span class="s2">"12345678"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TerminalId</code></td>
+      <td>String</td>
+      <td>8</td>
+      <td>Sim</td>
+      <td>Identificação do Terminal Lógico na PayStore. Identificação única para o mesmo Lojista.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SubordinatedMerchantId</code></td>
+      <td>String (Guid)</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>ID da loja subordinada vinculada ao terminal</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-43">Resposta</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"TerminalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd000j"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"SubordinatedMerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cb7c0ca4-54e7-43fa-ab79-aab33662a41a"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Activation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vEVOvnSl"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CreateDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-28T12:12:06.088-02:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ExpireDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-28T13:12:06.088-02:00"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Terminal.TerminalId</code></td>
+      <td>String</td>
+      <td>8</td>
+      <td>Sim</td>
+      <td>Identificação do Terminal Lógico na PayStore. Identificação única para o mesmo Lojista.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SubordinatedMerchantId</code></td>
+      <td>String (Guid)</td>
+      <td>36</td>
+      <td>Não</td>
+      <td>ID da loja subordinada vinculada ao terminal</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Activation.Token</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Token de ativação de terminal</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Activation.CreateDate</code></td>
+      <td>String (Date-time)</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Data da geração do token</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Activation.ExpireDate</code></td>
+      <td>String (Date-time)</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Data da expiração do token</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 
