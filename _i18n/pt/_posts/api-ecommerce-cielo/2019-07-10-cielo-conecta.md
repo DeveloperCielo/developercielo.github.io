@@ -10960,3 +10960,25 @@ Salva alterações em na loja subordinado com o ID especificado.
 |`DocumentNumber`|String|20|Sim|CPF ou CNPJ da Loja|
 |`DocumentType`|String|4|Sim|Enum: `Cpf` `Cnpj`|
 |`SoftDescriptor`|String|13|Não|Descrição da fatura|
+
+## Terminal
+
+Salva alterações em na loja subordinado com o ID especificado.
+
+<aside class="request"><span class="method put">POST</span> <span class="endpoint"/terminals</span></aside>
+
+```json
+{
+	"SubordinatedMerchantId": "{{SubordinatedMerchantId}}",
+	"CommunicationType": "S920_WIFI",
+	"SkipEquipment": true,
+	"TerminalId": "12345678"
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`CommunicationType`|String|---|Sim|Perfil de Comunicação|
+|`TerminalId`|String|8|Sim|Identificação do Terminal Lógico na PayStore. Identificação única para o mesmo Lojista.|
+|`SubordinatedMerchantId`|String (Guid)|36|Sim|ID da loja subordinada vinculada ao terminal|
+|`SkipEquipment`|boolean|---|Não|Default:false. Se não desejar informar o equipamento ao terminal|
