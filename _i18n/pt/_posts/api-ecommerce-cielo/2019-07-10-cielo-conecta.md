@@ -10729,6 +10729,8 @@ Essa operação permite o cadastro de lojas e terminais , viabilizando modelos d
 
 Cria um novo merchant.
 
+#### Requisição
+
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/merchants</span></aside>
 
 ```json
@@ -10778,9 +10780,34 @@ Cria um novo merchant.
 |`Owner.MessengerPhone`|String|30|Sim|Whatsapp do proprietário|
 |`Owner.Gender`|String|7|Não|Enum: `Other` `Male` `Female`|
 
+#### Resposta
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`SubordinatedMerchantId`|String(Guid)|36|---|O ID que a loja subordinada deve assumir.|
+|`Address.ZipCode`|String|9|Sim|CEP|
+|`Address.Street`|String|120|Não|Localização|
+|`Address.Number`|String|9|Sim|Número do endereço|
+|`Address.Complement`|String|120|Não|Complemento do endereço|
+|`TradeName`|String|35|Sim|Nome fantasia|
+|`CompanyName`|String|35|Não|Razão social. Obrigatório quando o DocumentType for "Cnpj" - Pessoa Jurídica|
+|`Email`|String|45|Sim|Endereço de email da loja|
+|`PhoneNumber`|String|4|Sim|Telefone da loja|
+|`Mcc`|Integer|4|Sim|Ramo de Atividade (MCC), obtido através de consultar ramos de atividade na tabela MCC.|
+|`DocumentNumber`|String|20|Sim|CPF ou CNPJ da Loja|
+|`DocumentType`|String|4|Sim|Enum: `Cpf` `Cnpj`|
+|`SoftDescriptor`|String|13|Não|Descrição da fatura|
+|`Owner.Name`|String|50|Sim|Nome do proprietario|
+|`Owner.Email`|String|45|Sim|Email do proprietário|
+|`Owner.PhoneNumber`|String|30|Sim|Telefone do proprietário|
+|`Owner.MessengerPhone`|String|30|Sim|Whatsapp do proprietário|
+|`Owner.Gender`|String|7|Não|Enum: `Other` `Male` `Female`|
+
 ### Consulta Loja
 
 Encontra uma loja subordinada pelo seu ID.
+
+#### Resposta
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/merchants/{subordinatedMerchantId}</span></aside>
 
@@ -10891,6 +10918,8 @@ Consulta Lojas de forma paginada
 }
 ```
 
+#### Resposta
+
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`Page`|Integer|---|Sim|Número da página atual|
@@ -10925,6 +10954,8 @@ Consulta Lojas de forma paginada
 ### Atualiza uma Loja
 
 Salva alterações em na loja subordinado com o ID especificado.
+
+#### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/merchants/{subordinatedMerchantId}</span></aside>
 
@@ -10963,7 +10994,11 @@ Salva alterações em na loja subordinado com o ID especificado.
 
 ## Terminal
 
+### Criar Terminal sem Equipamento
+
 Salva alterações em na loja subordinado com o ID especificado.
+
+#### Requisição
 
 <aside class="request"><span class="method put">POST</span> <span class="endpoint"/terminals</span></aside>
 
