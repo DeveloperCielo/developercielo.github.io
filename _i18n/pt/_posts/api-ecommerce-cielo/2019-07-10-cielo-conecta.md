@@ -849,6 +849,47 @@ Solicita as tabelas e parametros para operação do terminal. Como não foi info
 
 # Pagamentos
 
+## Fluxo de pagamento
+
+**Exemplo fluxo (Biblioteca Compartilhada):**
+
+|ID|Descrição do Fluxo|
+|---|---|
+| 1 | Inserção do valor da transação (campo `Amount` do request da transação) |
+| 2 | Recuperar Data/Hora da transação (campo `PaymentDateTime` do request da transação) |
+| 3 | Seleção do tipo de pagamento (débito, crédito, voucher...) (campo `Type` do request da transação) |
+| 4 | Chamada do PP_StartGetCard passando os valores: |
+| 4.1 | Identificador da rede adquirente (Cielo `03`) |
+| 4.2 | Tipo de aplicação (relacionado ao item 3) |
+| 4.3 | Valor inicial da transação (item 1) |
+| 4.4 | Data da transação (item 2) |
+| 4.5 | Hora da transação (item 2) |
+| 5 | Caso tenha sido utilizado um cartão com chip, recuperar o aid através da tag 4F no retorno da PP_getCard. |
+| 6 | Seleção de produtos (campo "ProductId" do request da transação): 
+
+**Transações com chip:**
+
+|ID|Descrição do Fluxo|
+|---|---|
+|1| Realizar a busca na tabela "Emv" pelo AID do cartão (campo `Aid`) e selecionar os produtos associados através do campo `ProductIds` |
+|2| Nos produtos associados, recuperar aqueles que possuem o mesmo `ProductType` (tabela `Products`) que iniciado na transação (DÉBITO, CRÉDITO..) e o mesmo fluxo do host (campo `HostFlow`) que os definido pela Cielo. |
+
+**Transações com tarja/digitada:**
+
+|ID|Descrição do Fluxo|
+|---|---|
+| 1 | Ao recuperar o pan do cartão, buscar na tabela `Bins` um que o bin esteja entre os valores `InitialBin` e `FinalBin` (considerar sempre a faixa de Bins mais específica) e recuperar o produto associado no campo `ProductId`; 
+| 2 | Recuperar os produtos que tem o mesmo `ProductType` (tabela `Products`) que iniciado na transação (DÉBITO, CRÉDITO...) e o mesmo fluxo do host (campo `HostFlow`) que os definido pela Cielo.
+
+**Simular respostas:**
+
+|Amount (valor dos centavos)|Retorno simulado do Pagamento|Exemplo de valor simulado|
+|---|---|---|
+|10|Aprovado|5010 = R$50,10|
+|11|Negado|20011 = R$200,11|
+|12|Timeout|3512 = R$35,12|
+|19|Erro|1019 = R$10,19|
+
 ## Autorização
 
 Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Payment.Status) na resposta para certificar-se que o pagamento foi gerado com sucesso ou se houve alguma falha.
@@ -8696,47 +8737,6 @@ Consulta um cancelamento
 |`VoidId`|---|---|---|---|
 |`CancellationStatus`|---|---|---|---|
 |`Status`|---|---|---|---|
-
-## Fluxo de pagamento (Biblioteca Compartilhada)
-
-**Exemplo fluxo (Biblioteca Compartilhada):**
-
-|ID|Descrição do Fluxo|
-|---|---|
-| 1 | Inserção do valor da transação (campo `Amount` do request da transação) |
-| 2 | Recuperar Data/Hora da transação (campo `PaymentDateTime` do request da transação) |
-| 3 | Seleção do tipo de pagamento (débito, crédito, voucher...) (campo `Type` do request da transação) |
-| 4 | Chamada do PP_StartGetCard passando os valores: |
-| 4.1 | Identificador da rede adquirente (Cielo `03`) |
-| 4.2 | Tipo de aplicação (relacionado ao item 3) |
-| 4.3 | Valor inicial da transação (item 1) |
-| 4.4 | Data da transação (item 2) |
-| 4.5 | Hora da transação (item 2) |
-| 5 | Caso tenha sido utilizado um cartão com chip, recuperar o aid através da tag 4F no retorno da PP_getCard. |
-| 6 | Seleção de produtos (campo "ProductId" do request da transação): 
-
-**Transações com chip:**
-
-|ID|Descrição do Fluxo|
-|---|---|
-|1| Realizar a busca na tabela "Emv" pelo AID do cartão (campo `Aid`) e selecionar os produtos associados através do campo `ProductIds` |
-|2| Nos produtos associados, recuperar aqueles que possuem o mesmo `ProductType` (tabela `Products`) que iniciado na transação (DÉBITO, CRÉDITO..) e o mesmo fluxo do host (campo `HostFlow`) que os definido pela Cielo. |
-
-**Transações com tarja/digitada:**
-
-|ID|Descrição do Fluxo|
-|---|---|
-| 1 | Ao recuperar o pan do cartão, buscar na tabela `Bins` um que o bin esteja entre os valores `InitialBin` e `FinalBin` (considerar sempre a faixa de Bins mais específica) e recuperar o produto associado no campo `ProductId`; 
-| 2 | Recuperar os produtos que tem o mesmo `ProductType` (tabela `Products`) que iniciado na transação (DÉBITO, CRÉDITO...) e o mesmo fluxo do host (campo `HostFlow`) que os definido pela Cielo.
-
-**Simular respostas:**
-
-|Amount (valor dos centavos)|Retorno simulado do Pagamento|Exemplo de valor simulado|
-|---|---|---|
-|10|Aprovado|5010 = R$50,10|
-|11|Negado|20011 = R$200,11|
-|12|Timeout|3512 = R$35,12|
-|19|Erro|1019 = R$10,19|
 
 # Cancelamento
 
