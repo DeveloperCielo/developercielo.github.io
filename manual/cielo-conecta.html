@@ -297,13 +297,72 @@
   </tbody>
 </table>
 
-<h2 id="baixa-parâmetros-de-inicialização">Baixa parâmetros de inicialização</h2>
+<p><strong>Simular respostas:</strong></p>
+
+<p>Para simular uma resposta especifica utilize o campo TerminalId, onde de acordo com os quatro ultimos digitos finais do valor informado é possivel receber uma resposta conforme a tabela abaixo:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>TerminalId(ultimos digitos)</th>
+      <th>—</th>
+      <th>Retorno simulado</th>
+      <th>Exemplo do valor do TerminalId</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0404</td>
+      <td>TERMINAL INEXISTENTE</td>
+      <td>71990404</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Demais valores</td>
+      <td>SUCESSO</td>
+      <td>82990566</td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="inicialização">Inicialização</h2>
 
 <p>Solicita as tabelas e parametros para operação do terminal</p>
 
 <h3 id="requisição">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/initialization/{SubordinatedMerchantId}/{TerminalId}</span></aside>
+
+<p><strong>Path Parameters:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SubordinatedMerchantId</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Identificador da loja</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TerminalId</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Identificador do terminal</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="resposta">Resposta</h3>
 
