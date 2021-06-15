@@ -105,13 +105,29 @@ Essa operação é necessária para que o parceiro de negócio / Subadquirente r
 |:---------------------------------------------------:|:---------------------------------------------:|
 | https://parametersdownloadsandbox.cieloecommerce.cielo.com.br/api/v0.1      | https://parametersdownload.cieloecommerce.cielo.com.br/api/v0.1      |
 
-## Baixa parâmetros de inicialização
+**Simular respostas:**
+
+Para simular uma resposta especifica utilize o campo TerminalId, onde de acordo com os quatro ultimos digitos finais do valor informado é possivel receber uma resposta conforme a tabela abaixo:
+
+|TerminalId (ultimos digitos)|Retorno simulad|Exemplo do valor do TerminalId|
+|---|---|---|
+|0404|TERMINAL|INEXISTENTE|71990404|
+|Demais|valores	SUCESSO|82990566|
+
+## Inicialização
 
 Solicita as tabelas e parametros para operação do terminal
 
 ### Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/initialization/{SubordinatedMerchantId}/{TerminalId}</span></aside>
+
+**Path Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`SubordinatedMerchantId`|String|---|Sim|Identificador da loja|
+|`TerminalId`|String|---|Sim|Identificador do terminal|
 
 ### Resposta
 
