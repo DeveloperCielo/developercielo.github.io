@@ -239,7 +239,7 @@ Executa a lista de clientes abaixo do access_token informado. O filtro pode ser 
 
 Retorna configurações existentes agrupadas por mainMerchantID.
 
-### Response
+### Response 
 
 > **GET** {{host}}/mainmerchants
 >
@@ -270,7 +270,7 @@ Retorna configurações existentes agrupadas por mainMerchantID.
 }
 ```
 
-## **POST** Registrar merchantID
+## **POST** Registrar merchantID 
 
 Registre o ID do lojista(apenas um, uma lista ou todos), com base no número da entidade.
 
