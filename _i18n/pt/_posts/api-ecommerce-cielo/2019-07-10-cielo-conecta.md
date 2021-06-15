@@ -11189,7 +11189,7 @@ Consulta terminais de forma paginada
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`Page`|Integer|---|Sim|Número da página atual
+|`Page`|Integer|---|Sim|Número da página atual|
 |`TotalPages`|Integer|---|Sim|Quantidade total de páginas|
 |`TotalElements`|Integer|---|Sim|Quantidade total de itens encontrados|
 |`Size`|Integer|3|Sim|Quantidade de itens por página|
