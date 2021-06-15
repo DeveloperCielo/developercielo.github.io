@@ -33953,6 +33953,24 @@
 
 <h4 id="resposta-41">Resposta</h4>
 
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"Terminal"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"SubordinatedMerchantId"</span><span class="p">:</span><span class="s2">"cb7c0ca4-54e7-43fa-ab79-aab33662a41a"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SkipEquipment"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CommunicationType"</span><span class="p">:</span><span class="s2">"PERFIL_PADRAO"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"TerminalId"</span><span class="p">:</span><span class="s2">"abcde001"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AcquirerIds"</span><span class="p">:[</span><span class="w">
+         
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"Activation"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"Token"</span><span class="p">:</span><span class="s2">"vEVOvnSl"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CreateDate"</span><span class="p">:</span><span class="s2">"2021-06-04T16:04:41.5438878-03:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ExpireDate"</span><span class="p">:</span><span class="s2">"2021-06-04T17:04:41.5439834-03:00"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
 <table>
   <thead>
     <tr>
@@ -34022,6 +34040,21 @@
     </tr>
   </tbody>
 </table>
+
+<h3 id="criar-terminal-com-equipamento">Criar Terminal com Equipamento</h3>
+
+<h4 id="requisição-41">Requisição</h4>
+
+<aside class="request"><span class="method put">POST</span> &lt;span class="endpoint"/terminals&lt;/span&gt;</aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"SubordinatedMerchantId"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"CommunicationType"</span><span class="p">:</span><span class="s2">"S920_WIFI"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"EquipmentModel"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"EquipmentSerialNumber"</span><span class="p">:</span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"TerminalId"</span><span class="p">:</span><span class="s2">"12345678"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 </div>
 
