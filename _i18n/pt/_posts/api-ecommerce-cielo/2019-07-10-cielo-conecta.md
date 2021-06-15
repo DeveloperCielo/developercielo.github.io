@@ -11234,8 +11234,65 @@ Fornece os dados de um equipamento, a partir do modelo do equipamento e de seu n
 
 #### Resposta
 
+```json
+{
+  "Model": 0,
+  "SerialNumber": "string",
+  "ModelName": "string",
+  "ModelManufacturer": "string",
+  "ModelType": "string"
+}
+```
+
 |`Model`|integer2|Sim|Código do Equipamento.|
 |`SerialNumber`|string|---|Sim|Número serial do equipamento.|
 |`ModelName`|string|---|Sim|Modelo do equipamento.|
 |`ModelManufacturer`|string|---|Não|Modelo do equipamento.|
 |`ModelType`|string|---|Não|Tipo do equipamento.|
+
+### Consulta paginada de Equipamentos
+
+Fornece os dados, de forma paginada, de equipamentos cadastrados no sistema
+
+#### Requisição
+
+<aside class="request"><span class="method put">GET</span> <span class="endpoint"equipments/paged?pageSize=10&page=1</span></aside>
+
+**Query Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`pageSize`|Integer|3|Não|Tamanho da página (Máximo = 100 registros por página)|
+|`page`|Integer|---|Não|Retorna os registros da página informada. Deve ser utilizado quando a quantidade de páginas na resposta for maior que 1. Página inicial: 1|
+
+#### Resposta
+
+```json
+{
+  "Page": 0,
+  "TotalPages": 0,
+  "TotalElements": 0,
+  "Size": 0,
+  "Equipments": [
+    {
+      "Model": 0,
+      "SerialNumber": "string",
+      "ModelName": "string",
+      "ModelManufacturer": "string",
+      "ModelType": "string"
+    }
+  ]
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`Page`|Integer|---|Sim|Número da página atual|
+|`TotalPages`|Integer|---|Sim|Quantidade total de páginas|
+|`TotalElements`|Integer|---|Sim|Quantidade total de itens encontrados|
+|`Size`|Integer|3|Sim|Quantidade de itens por página|
+|`Equipments.Model`|integer|2|Sim|Código do Equipamento.|
+|`Equipments.SerialNumber`|string|---|Sim|Número serial do equipamento.|
+|`Equipments.ModelName`|string|---|Sim|	Modelo do equipamento.|
+|`Equipments.ModelManufacturer`|string|---|Não|Modelo do equipamento.|
+|`Equipments.ModelType`|string|---|Não|Tipo do equipamento.|
