@@ -11200,7 +11200,7 @@ Consulta terminais de forma paginada
 |`Content.EquipmentModelName`|String|---|Sim|Nome do equipamento vinculado a este terminal|
 |`Content.EquipmentModelManufacturer`|String|---|Não|Nome do fabricante do equipamento vinculado a este terminal|
 |`Content.EquipmentModelType`|String|---|Não|Tipo do equipamento vinculado a este terminal|
-|`Content.CommunicationType`|String	---|Não|Perfil de comunicação do equipamento vinculado a este terminal|
+|`Content.CommunicationType`|String|---|Não|Perfil de comunicação do equipamento vinculado a este terminal|
 |`Content.TefConfigs.TefAcquirer`|String|1|Sim|Identificado do adquirente (4 = Cielo) para o terminal|
 |`Content.TefConfigs.TefTerminal`|String|---|Não|Número utilizado pelo adquirente para identificar o terminal|
 |`Content.TefConfigs.MerchantConfig.TefAcquirer`|String|---|Não|Identificado do adquirente (4 = Cielo) para o merchant|
