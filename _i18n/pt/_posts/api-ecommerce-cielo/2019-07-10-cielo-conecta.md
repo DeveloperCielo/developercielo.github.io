@@ -10969,10 +10969,10 @@ Salva alterações em na loja subordinado com o ID especificado.
 
 ```json
 {
-	"SubordinatedMerchantId": "{{SubordinatedMerchantId}}",
-	"CommunicationType": "S920_WIFI",
-	"SkipEquipment": true,
-	"TerminalId": "12345678"
+   "SubordinatedMerchantId":"{{SubordinatedMerchantId}}",
+   "CommunicationType":"S920_WIFI",
+   "SkipEquipment":true,
+   "TerminalId":"12345678"
 }
 ```
 
