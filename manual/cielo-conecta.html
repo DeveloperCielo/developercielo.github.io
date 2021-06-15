@@ -33951,6 +33951,78 @@
   </tbody>
 </table>
 
+<h4 id="resposta-41">Resposta</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Terminal.CommunicationType</code></td>
+      <td>String</td>
+      <td>—Sim</td>
+      <td>Perfil de Comunicação</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Terminal.TerminalId</code></td>
+      <td>String</td>
+      <td>8</td>
+      <td>Sim</td>
+      <td>Identificação do Terminal Lógico na PayStore. Identificação única para o mesmo Lojista.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Terminal.SubordinatedMerchantId</code></td>
+      <td>String (Guid)36</td>
+      <td>Sim</td>
+      <td>ID da loja subordinada vinculada ao terminal</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Terminal.SkipEquipment</code></td>
+      <td>boolean</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Default: false<br />Se não desejar informar o equipamento relacionado ao terminal</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Terminal.AcquirerIds</code></td>
+      <td>Array of integers</td>
+      <td>—</td>
+      <td>—</td>
+      <td>Lista de identifcadores de adquirentes configurados no terminal. Cielo = 4.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Activation.Token</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Token de ativação de terminal</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Activation.CreateDate</code></td>
+      <td>String (DateTime)</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Data da geração do token</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Activation.ExpireDate</code></td>
+      <td>String (DateTime)</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Data da expiração do token</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 
