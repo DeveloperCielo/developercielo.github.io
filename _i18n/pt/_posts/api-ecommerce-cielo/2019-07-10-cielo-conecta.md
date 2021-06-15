@@ -10930,18 +10930,18 @@ Salva alterações em na loja subordinado com o ID especificado.
 
 ```json
 {
-	"Address": {
-		"ZipCode": "58015260",
-		"Street": "",
-		"Number": "123",
-		"Complement": ""
-	},
-  	"TradeName": "TradeName",
-	"CompanyName": "CompanyName",
-	"Email": "teste@email.com.br",
-	"PhoneNumber": "11900000099",
-	"Mcc": 26,
-	"DocumentNumber": "07399049000199",
-	"DocumentType": "Cnpj"  
+   "Address":{
+      "ZipCode":"58015260",
+      "Street":"",
+      "Number":"123",
+      "Complement":""
+   },
+   "TradeName":"TradeName",
+   "CompanyName":"CompanyName",
+   "Email":"teste@email.com.br",
+   "PhoneNumber":"11900000099",
+   "Mcc":26,
+   "DocumentNumber":"07399049000199",
+   "DocumentType":"Cnpj"
 }
 ```
