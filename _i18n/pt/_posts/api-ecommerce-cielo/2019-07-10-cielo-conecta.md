@@ -11184,3 +11184,24 @@ Consulta terminais de forma paginada
 |`SubordinatedMerchantId`|String (Guid)|36|Sim|ID da loja subordinada vinculada ao terminal|
 |`pageSize`|Integer|3|Não|Tamanho da página (Máximo = 100 registros por página)|
 |`page`|Integer|---|Não|Retorna os registros da página informada. Deve ser utilizado quando a quantidade de páginas na resposta for maior que 1. Página inicial: 1|
+
+#### Resposta
+
+|`Page`|Integer|---|Sim|Número da página atual
+|`TotalPages`|Integer|---|Sim|Quantidade total de páginas|
+|`TotalElements`|Integer|---|Sim|Quantidade total de itens encontrados|
+|`Size`|Integer|3|Sim|Quantidade de itens por página|
+|`Content.SubordinatedMerchantId`|String (Guid)|36|Sim|ID da loja subordinada vinculada ao terminal|
+|`Content.TerminalId`|String|8|Sim|ID do terminal|
+|`Content.Status`|String|---|Sim|Estado atual do terminal|
+|`Content.EquipmentSerialNumber`|String|---|Não|Número de série do equipamento vinculado a este terminal|
+|`Content.EquipmentModelName`|String|---|Sim|Nome do equipamento vinculado a este terminal|
+|`Content.EquipmentModelManufacturer`|String|---|Não|Nome do fabricante do equipamento vinculado a este terminal|
+|`Content.EquipmentModelType`|String|---|Não|Tipo do equipamento vinculado a este terminal|
+|`Content.CommunicationType`|String	---|Não|Perfil de comunicação do equipamento vinculado a este terminal|
+|`Content.TefConfigs.TefAcquirer`|String|1|Sim|Identificado do adquirente (4 = Cielo) para o terminal|
+|`Content.TefConfigs.TefTerminal`|String|---|Não|Número utilizado pelo adquirente para identificar o terminal|
+|`Content.TefConfigs.MerchantConfig.TefAcquirer`|String|---|Não|Identificado do adquirente (4 = Cielo) para o merchant|
+|`Content.TefConfigs.MerchantConfig.SpecificId`|String|---|Não|Número do estabelecimento no adquirente|
+|`Content.TefConfigs.MerchantConfig.Enabled`|Boolean|---|Não|Indica se o lojista está habilitado no cliente|
+|`Content.TefConfigs.MerchantConfig.Priority`|Integer|---|Não|Prioridade do Adquirente (1 é o valor com maior prioridade)|
