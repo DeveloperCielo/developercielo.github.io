@@ -34582,6 +34582,15 @@
 
 <h4 id="resposta-45">Resposta</h4>
 
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"Model"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"SerialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ModelName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ModelManufacturer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ModelType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
 <table>
   <tbody>
     <tr>
@@ -34621,6 +34630,63 @@
     </tr>
   </tbody>
 </table>
+
+<h3 id="consulta-paginada-de-equipamentos">Consulta paginada de Equipamentos</h3>
+
+<p>Fornece os dados, de forma paginada, de equipamentos cadastrados no sistema</p>
+
+<h4 id="requisição-46">Requisição</h4>
+
+<aside class="request"><span class="method put">GET</span> &lt;span class="endpoint"equipments/paged?pageSize=10&amp;page=1&lt;/span&gt;</aside>
+
+<p><strong>Query Parameters:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">pageSize</code></td>
+      <td>Integer</td>
+      <td>3</td>
+      <td>Não</td>
+      <td>Tamanho da página (Máximo = 100 registros por página)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">page</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Retorna os registros da página informada. Deve ser utilizado quando a quantidade de páginas na resposta for maior que 1. Página inicial: 1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-46">Resposta</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"Page"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"TotalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"TotalElements"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Size"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Equipments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Model"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SerialNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ModelName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ModelManufacturer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ModelType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 </div>
 
