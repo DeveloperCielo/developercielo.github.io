@@ -11017,3 +11017,16 @@ Salva alterações em na loja subordinado com o ID especificado.
 |`TerminalId`|String|8|Sim|Identificação do Terminal Lógico na PayStore. Identificação única para o mesmo Lojista.|
 |`SubordinatedMerchantId`|String (Guid)|36|Sim|ID da loja subordinada vinculada ao terminal|
 |`SkipEquipment`|boolean|---|Não|Default:false. Se não desejar informar o equipamento ao terminal|
+
+#### Resposta
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`Terminal.CommunicationType`|String|---Sim|Perfil de Comunicação|
+|`Terminal.TerminalId`|String|8|Sim|Identificação do Terminal Lógico na PayStore. Identificação única para o mesmo Lojista.|
+|`Terminal.SubordinatedMerchantId`|String (Guid)36|Sim|ID da loja subordinada vinculada ao terminal|
+|`Terminal.SkipEquipment`|boolean|---|Sim|Default: false<br><br>Se não desejar informar o equipamento relacionado ao terminal|
+|`Terminal.AcquirerIds`|Array of integers|---|---|Lista de identifcadores de adquirentes configurados no terminal. Cielo = 4.|
+|`Activation.Token`|String|---|Sim|Token de ativação de terminal|
+|`Activation.CreateDate`|String (DateTime)|---|Sim|Data da geração do token|
+|`Activation.ExpireDate`|String (DateTime)|---|Sim|Data da expiração do token|
