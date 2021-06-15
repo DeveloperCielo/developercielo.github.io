@@ -11231,3 +11231,11 @@ Fornece os dados de um equipamento, a partir do modelo do equipamento e de seu n
    "TerminalId":"12345678"
 }
 ```
+
+#### Resposta
+
+|`Model`|integer2|Sim|Código do Equipamento.|
+|`SerialNumber`|string|---|Sim|Número serial do equipamento.|
+|`ModelName`|string|---|Sim|Modelo do equipamento.|
+|`ModelManufacturer`|string|---|Não|Modelo do equipamento.|
+|`ModelType`|string|---|Não|Tipo do equipamento.|
