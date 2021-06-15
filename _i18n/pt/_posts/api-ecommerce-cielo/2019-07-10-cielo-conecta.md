@@ -11284,3 +11284,15 @@ Fornece os dados, de forma paginada, de equipamentos cadastrados no sistema
   ]
 }
 ```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`Page`|Integer|---|Sim|Número da página atual|
+|`TotalPages`|Integer|---|Sim|Quantidade total de páginas|
+|`TotalElements`|Integer|---|Sim|Quantidade total de itens encontrados|
+|`Size`|Integer|3|Sim|Quantidade de itens por página|
+|`Equipments.Model`|integer|2|Sim|Código do Equipamento.|
+|`Equipments.SerialNumber`|string|---|Sim|Número serial do equipamento.|
+|`Equipments.ModelName`|string|---|Sim|Modelo do equipamento.|
+|`Equipments.ModelManufacturer`|string|---|Não|Modelo do equipamento.|
+|`Equipments.ModelType`|string|---|Não|Tipo do equipamento.|
