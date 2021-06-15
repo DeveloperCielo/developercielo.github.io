@@ -481,13 +481,19 @@ Solicita as tabelas e parametros para operação do terminal
 |`PublicKeys`|---|---|---|---|
 |`InitializationVersion`|---|---|---|---|
 
-## Baixa parâmetros de inicialização (loja padrão)
+## Inicialização (loja padrão)
 
 Solicita as tabelas e parametros para operação do terminal. Como não foi informado o `SubordinatedMerchantId`, será assumida a loja principal do facilitador, isto é, a loja que tem o ID igual ao `ClientId` usado para a autenticação. Esta loja é criada automaticamente durante o processo de cadastro do facilitador executado pela Cielo.
 
 ### Requisição
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/initialization/{TerminalId}</span></aside>
+
+**Path Parameters:**
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`TerminalId`|String|---|Sim|Identificador do terminal|
 
 ### Resposta
 
@@ -9850,6 +9856,10 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 ### Consulta de Cancelamento
 
 Consulta um cancelamento
+
+| SandBox                                             | Produção                                      |
+|:---------------------------------------------------:|:---------------------------------------------:|
+| https://apiquerysandbox.cieloecommerce.cielo.com.br     | https://apiquery.cieloecommerce.cielo.com.br      |
 
 #### Requisição
 
