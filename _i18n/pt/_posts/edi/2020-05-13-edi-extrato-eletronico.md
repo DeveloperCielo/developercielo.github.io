@@ -262,7 +262,9 @@ Retorna configurações existentes agrupadas por mainMerchantID.
       "ANTECIPATION_CIELO",
       "ASSIGNMENT",
       "BALANCE",
-      "ANTECIPATION_ALELO"
+      "ANTECIPATION_ALELO",
+      "NRC",
+      "PIX"
    ],
    "editStatus":"AVAILABLE"
 }
