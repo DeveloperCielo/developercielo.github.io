@@ -11120,3 +11120,43 @@ Desabilita um terminal removendo o vínculo com um equipamento físico.
 |---|---|---|---|---|
 |`SubordinatedMerchantId`|String (Guid)|36|Sim|ID da loja subordinada vinculada ao terminal|
 |`TerminalId`|String|8|Sim|Identificação do Terminal Lógico na PayStore. Identificação única para o mesmo Lojista.|
+
+### Criar Token de ativação
+
+#### Requisição
+
+<aside class="request"><span class="method put">POST</span> <span class="endpoint"/token</span></aside>
+
+```json
+{
+	"SubordinatedMerchantId": "{{SubordinatedMerchantId}}",
+	"TerminalId": "12345678"
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`TerminalId`|String|8|Sim|Identificação do Terminal Lógico na PayStore. Identificação única para o mesmo Lojista.|
+|`SubordinatedMerchantId`|String (Guid)|36|Sim|ID da loja subordinada vinculada ao terminal|
+
+#### Resposta
+
+```json
+{
+  "TerminalId": "abcd000j",
+  "SubordinatedMerchantId": "cb7c0ca4-54e7-43fa-ab79-aab33662a41a",
+  "Activation": {
+    "Token": "vEVOvnSl",
+    "CreateDate": "2017-11-28T12:12:06.088-02:00",
+    "ExpireDate": "2017-11-28T13:12:06.088-02:00"
+  }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`Terminal.TerminalId`|String|8|Sim|Identificação do Terminal Lógico na PayStore. Identificação única para o mesmo Lojista.|
+|`SubordinatedMerchantId`|String (Guid)|36|Não|ID da loja subordinada vinculada ao terminal|
+|`Activation.Token`|String|---|Sim|Token de ativação de terminal|
+|`Activation.CreateDate`|String (Date-time)|---|Sim|Data da geração do token|
+|`Activation.ExpireDate`|String (Date-time)|---|Sim|Data da expiração do token|
