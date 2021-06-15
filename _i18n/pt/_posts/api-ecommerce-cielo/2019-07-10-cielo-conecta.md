@@ -6753,7 +6753,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
       {
         "Field": "CARD_HOLDER",
         "Label": "NOME DO CLIENTE",
-        "Content": "???q{y}?|vvztfgq?soj?swi?wteppswlaluwyjqcxnubwx?jtq?stqjytix?"
+        "Content": "???q{y}?|vvztfgq?soj?sluwyjqcxnubwx?jtq?stqjytix?"
       },
       {
         "Field": "TRANSACTION_TYPE",
