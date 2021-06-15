@@ -5476,6 +5476,216 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 #### Resposta
 
+```json
+{
+  "MerchantOrderId": "1593196457169",
+  "Customer": {
+    "Name": "[Guest]"
+  },
+  "Payment": {
+    "Installments": 1,
+    "Interest": "ByMerchant",
+    "Capture": true,
+    "CreditCard": {
+      "ExpirationDate": "12/2021",
+      "BrandId": 1,
+      "IssuerId": 401,
+      "TruncateCardNumberWhenPrinting": true,
+      "PanSequenceNumber": 1,
+      "InputMode": "ContactlessEmv",
+      "AuthenticationMethod": "OnlineAuthentication",
+      "TrackOneData": "B3764 361234 56006^NOME NOME NOME NOME NOME N^0905060640431",
+      "TrackTwoData": "1111222233334444=09050606404312376450",
+      "EmvData": "",
+      "IsFallback": false,
+      "PinBlock": {
+        "EncryptedPinBlock": "2280F6BDFD0C038D",
+        "EncryptionType": "Dukpt3Des",
+        "KsnIdentification": "fffff9999900522000d6"
+      },
+      "BrandInformation": {
+        "Type": "?ywqhiw",
+        "Name": "s{mn{u?lvy",
+        "Description": "ovhfsq?l?s?{bfewz"
+      },
+      "SaveCard": false
+    },
+    "Amount": 100,
+    "ReceivedDate": "2020-06-26T18:34:17Z",
+    "CapturedAmount": 100,
+    "CapturedDate": "2020-06-26T18:34:17Z",
+    "Provider": "Cielo",
+    "Status": 2,
+    "IsSplitted": false,
+    "ReturnMessage": "APROVADA 627553",
+    "ReturnCode": "000",
+    "PaymentId": "014b6fae-e4bb-4ce6-830e-28ff502beeec",
+    "Type": "PhysicalCreditCard",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/physicalSales/014b6fae-e4bb-4ce6-830e-28ff502beeec"
+      },
+      {
+        "Method": "PUT",
+        "Rel": "confirm",
+        "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/014b6fae-e4bb-4ce6-830e-28ff502beeec/confirmation"
+      },
+      {
+        "Method": "DELETE",
+        "Rel": "reverse",
+        "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/physicalSales/014b6fae-e4bb-4ce6-830e-28ff502beeec"
+      }
+    ],
+    "PaymentDateTime": "2020-06-26T18:34:17.169Z",
+    "ServiceTaxAmount": 0,
+    "SoftDescriptor": "Description",
+    "ProductId": 1,
+    "PinPadInformation": {
+      "TerminalId": "42004558",
+      "SerialNumber": "6C651996",
+      "PhysicalCharacteristics": "PinPadWithChipReaderWithSamModuleAndContactless",
+      "ReturnDataInfo": "00"
+    },
+    "PrintMessage": [
+      {
+        "Position": "Top",
+        "Message": "jajrxy~z??"
+      },
+      {
+        "Position": "Middle",
+        "Message": "t?bp~?hor?"
+      },
+      {
+        "Position": "Bottom",
+        "Message": "qtgapip?fj"
+      }
+    ],
+    "ReceiptInformation": [
+      {
+        "Field": "MERCHANT_NAME",
+        "Label": "NOME DO ESTABELECIMENTO",
+        "Content": "km}}?k??a|pn?vnqdlv?{|krogvnfeerb?olnme}uxog~"
+      },
+      {
+        "Field": "MERCHANT_CITY",
+        "Label": "CIDADE DO ESTABELECIMENTO",
+        "Content": "mukn?wcggd?l?xevoehq??cld{rrcfmfhqfa{uqv?jq?jwkjzz}yp?lke{ynh?"
+      },
+      {
+        "Field": "INPUT_METHOD",
+        "Label": "MODO DE ENTRADA",
+        "Content": "xa|{dpxsdcqqh|nmy{le?bd?s?uqgrny?"
+      },
+      {
+        "Field": "TERMINAL",
+        "Label": "POS",
+        "Content": "94183614"
+      },
+      {
+        "Field": "ISSUER_NAME",
+        "Label": "EMISSOR",
+        "Content": "|k|et|vembaqw~wyegjmtu?szb?b?mmgdnhgm?g"
+      },
+      {
+        "Field": "NSU",
+        "Label": "DOC",
+        "Content": "860163"
+      },
+      {
+        "Field": "MERCHANT_CODE",
+        "Label": "COD.ESTAB.",
+        "Content": "95802805227896"
+      },
+      {
+        "Field": "MERCHANT_ADDRESS",
+        "Label": "ENDEREÇO DO ESTABELECIMENTO",
+        "Content": "fod?do?kqyuettwj{rme}thyxqfzfl}sq"
+      },
+      {
+        "Field": "AUTHORIZATION_CODE",
+        "Label": "AUTORIZAÇÃO",
+        "Content": "18786"
+      },
+      {
+        "Field": "CARD_HOLDER",
+        "Label": "NOME DO CLIENTE",
+        "Content": "h}vmlaqzndfg~?hp}xue?|ld|qc?zlu|"
+      },
+      {
+        "Field": "TRANSACTION_TYPE",
+        "Label": "TIPO DE TRANSAÇÃO",
+        "Content": "awmi}m?nljsfm{y{sxz{pdxmq?|grozte??zseg|j??x?ir}b"
+      },
+      {
+        "Field": "MERCHANT_STATE",
+        "Label": "ESTADO DO ESTABELECIMENTO",
+        "Content": "it"
+      },
+      {
+        "Field": "DATE",
+        "Label": "DATA",
+        "Content": "6/26/2020"
+      },
+      {
+        "Field": "HOUR",
+        "Label": "HORA",
+        "Content": "3:34 PM"
+      },
+      {
+        "Field": "VALUE",
+        "Label": "VALOR",
+        "Content": "100"
+      },
+      {
+        "Field": "TRANSACTION_MODE",
+        "Label": "MODO DA TRANSAÇÃO",
+        "Content": "a}d"
+      },
+      {
+        "Field": "CARD_NUMBER",
+        "Label": "CARTÃO"
+      }
+    ],
+    "Receipt": {
+      "MerchantName": "km}}?k??a|pn?vnqdlv?{|krogvnfefrb?olnme}uxog~",
+      "MerchantCity": "mukn?wcg?fxmhjgc}eyq{gd?jzz}yp?lke{ynh?",
+      "InputMethod": "xa|{dpsgtbd?s?uqgrny?",
+      "Terminal": "94183614",
+      "IssuerName": "|k|et|vembaqw~wyegjmta~?b?mmgdnhgm?g",
+      "Nsu": "860163",
+      "MerchantCode": "95802805227896",
+      "MerchantAddress": "fod?do?kqyuettwj{rme}q??vqky~eqloiapucahpwehrfmr??sjs~?yodnxdkqlhjzkthyxqfzfl}sq",
+      "AuthorizationCode": "18786",
+      "CardHolder": "h}vmlaqzndfg~?hpb?x|ld|qc?zlu|",
+      "TransactionType": "?~ewv?nljsfm{y{sxz{pdxmq?|grozte??zseg|j??x?ir}b",
+      "MerchantState": "it",
+      "Date": "6/26/2020",
+      "Hour": "3:34 PM",
+      "Value": "100",
+      "TransactionMode": "a}d",
+      "CardNumber": null
+    },
+    "AuthorizationCode": "627553",
+    "ProofOfSale": "289216",
+    "InitializationVersion": 1593196200000,
+    "ConfirmationStatus": 0,
+    "EmvResponseData": "016522017",
+    "SubordinatedMerchantId": "b99a463f-88db-442a-b5fa-982187b68f5c",
+    "MassTransit": {
+      "IsDebtRecovery": false,
+      "IsKnownValue": false,
+      "FirstTravelDate": "2018-01-01T04:12:00",
+      "ApprovedByThreshold": false
+    },
+    "OfflinePaymentType": "Online"
+  }
+}
+```
+
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantOrderId`|String|---|---| Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. Aceita apenas valores numéricos de 1 a 15 dígitos.|
