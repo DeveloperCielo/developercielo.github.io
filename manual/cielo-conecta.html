@@ -34534,6 +34534,52 @@
   </tbody>
 </table>
 
+<h2 id="equipamento">Equipamento</h2>
+
+<h3 id="consulta-equipamento">Consulta Equipamento</h3>
+
+<p>Fornece os dados de um equipamento, a partir do modelo do equipamento e de seu número serial.</p>
+
+<h4 id="requisição-45">Requisição</h4>
+
+<aside class="request"><span class="method put">GET</span> &lt;span class="endpoint"/equipments/{modelId}/{serialNumber}&lt;/span&gt;</aside>
+
+<p><strong>Path Parameters:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">modelId</code></td>
+      <td>integer</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Código de identificação do modelo do equipamento.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">serialNumber</code></td>
+      <td>String (Guid)</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Número serial do equipamento.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"SubordinatedMerchantId"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"TerminalId"</span><span class="p">:</span><span class="s2">"12345678"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
 </div>
 
 
