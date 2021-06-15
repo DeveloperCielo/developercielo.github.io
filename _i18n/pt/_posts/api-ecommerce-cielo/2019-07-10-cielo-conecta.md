@@ -11129,8 +11129,8 @@ Desabilita um terminal removendo o vínculo com um equipamento físico.
 
 ```json
 {
-	"SubordinatedMerchantId": "{{SubordinatedMerchantId}}",
-	"TerminalId": "12345678"
+   "SubordinatedMerchantId":"{{SubordinatedMerchantId}}",
+   "TerminalId":"12345678"
 }
 ```
 
