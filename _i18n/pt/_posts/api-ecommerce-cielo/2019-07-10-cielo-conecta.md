@@ -10921,3 +10921,43 @@ Consulta Lojas de forma paginada
 |`Content.MerchantGroup.Origin`|string|---|Sim|Origem|
 |`Content.MerchantGroup.Id`|string|---|Sim|Id do grupo do Lojista|
 |`Content.MerchantGroupName`|array[string]|---|Não|Lista de nomes dos grupos do Lojista|
+
+### Atualiza uma Loja
+
+Salva alterações em na loja subordinado com o ID especificado.
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/merchants/{subordinatedMerchantId}</span></aside>
+
+```json
+{
+	"Address": {
+		"ZipCode": "58015260",
+		"Street": "",
+		"Number": "123",
+		"Complement": ""
+	},
+  	"TradeName": "TradeName",
+	"CompanyName": "CompanyName",
+	"Email": "teste@email.com.br",
+	"PhoneNumber": "11900000099",
+	"Mcc": 26,
+	"DocumentNumber": "07399049000199",
+	"DocumentType": "Cnpj"  
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|---|---|---|---|---|
+|`Address.ZipCode`|String|9|Sim|CEP|
+|`Address.Street`|String|120|Não|Localização|
+|`Address.Number`|String|9|Sim|Número do endereço|
+|`Address.Complement`|String|120|Não|Complemento do endereço|
+|`TradeName`|String|35|Sim|Nome fantasia|
+|`CompanyName`|String|35|Não|Razão social. Obrigatório quando o DocumentType for "Cnpj" - Pessoa Jurídica|
+|`Email`|String|45|Sim|Endereço de email da loja|
+|`PhoneNumber`|String|4|Sim|Telefone da loja|
+|`Mcc`|Integer|4|Sim|Ramo de Atividade (MCC), obtido através de consultar ramos de atividade na tabela MCC.|
+|`DocumentNumber`|String|20|Sim|CPF ou CNPJ da Loja|
+|`DocumentType`|String|4|Sim|Enum: `Cpf` `Cnpj`|
+|`SoftDescriptor`|String|13|Não|Descrição da fatura|
