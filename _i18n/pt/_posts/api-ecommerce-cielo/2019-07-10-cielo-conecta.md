@@ -10948,7 +10948,6 @@ Salva alterações em na loja subordinado com o ID especificado.
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|---|---|---|---|---|
 |`Address.ZipCode`|String|9|Sim|CEP|
 |`Address.Street`|String|120|Não|Localização|
 |`Address.Number`|String|9|Sim|Número do endereço|
