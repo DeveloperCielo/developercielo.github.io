@@ -34056,6 +34056,62 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CommunicationType</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Perfil de Comunicação</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">EquipmentModel</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Modelo do equipamento previamente cadastrado. Campo obrigatorio quando EquipmentSerialNumber é informado</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">EquipmentSerialNumber</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Número serial do equipamento previamente cadastrado. Campo obrigatorio quando EquipmentModel é informado</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TerminalId</code></td>
+      <td>String</td>
+      <td>8</td>
+      <td>Sim</td>
+      <td>Identificação do Terminal Lógico na PayStore. Identificação única para o mesmo Lojista.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SubordinatedMerchantId</code></td>
+      <td>String (Guid)</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>ID da loja subordinada vinculada ao terminal</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SkipEquipment</code></td>
+      <td>boolean</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Default:false. Se não desejar informar o equipamento ao terminal</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 
