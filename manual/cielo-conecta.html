@@ -1674,13 +1674,36 @@
   </tbody>
 </table>
 
-<h2 id="baixa-parâmetros-de-inicialização-loja-padrão">Baixa parâmetros de inicialização (loja padrão)</h2>
+<h2 id="inicialização-loja-padrão">Inicialização (loja padrão)</h2>
 
 <p>Solicita as tabelas e parametros para operação do terminal. Como não foi informado o <code class="language-plaintext highlighter-rouge">SubordinatedMerchantId</code>, será assumida a loja principal do facilitador, isto é, a loja que tem o ID igual ao <code class="language-plaintext highlighter-rouge">ClientId</code> usado para a autenticação. Esta loja é criada automaticamente durante o processo de cadastro do facilitador executado pela Cielo.</p>
 
 <h3 id="requisição-1">Requisição</h3>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/initialization/{TerminalId}</span></aside>
+
+<p><strong>Path Parameters:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TerminalId</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Identificador do terminal</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="resposta-1">Resposta</h3>
 
@@ -29462,6 +29485,21 @@
 <h3 id="consulta-de-cancelamento">Consulta de Cancelamento</h3>
 
 <p>Consulta um cancelamento</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">SandBox</th>
+      <th style="text-align: center">Produção</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">https://apiquerysandbox.cieloecommerce.cielo.com.br</td>
+      <td style="text-align: center">https://apiquery.cieloecommerce.cielo.com.br</td>
+    </tr>
+  </tbody>
+</table>
 
 <h4 id="requisição-37">Requisição</h4>
 
