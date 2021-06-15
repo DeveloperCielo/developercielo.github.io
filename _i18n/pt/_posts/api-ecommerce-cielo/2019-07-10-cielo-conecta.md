@@ -10927,21 +10927,3 @@ Consulta Lojas de forma paginada
 Salva alterações em na loja subordinado com o ID especificado.
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/merchants/{subordinatedMerchantId}</span></aside>
-
-```json
-{
-	"Address": {
-		"ZipCode": "58015260",
-		"Street": "",
-		"Number": "123",
-		"Complement": ""
-	},
-  	"TradeName": "TradeName",
-	"CompanyName": "CompanyName",
-	"Email": "teste@email.com.br",
-	"PhoneNumber": "11900000099",
-	"Mcc": 26,
-	"DocumentNumber": "07399049000199",
-	"DocumentType": "Cnpj"  
-}
-```
