@@ -834,6 +834,9 @@ Cielo informs its customers that it is prepared to process transactions followin
 |67|Unauthorized transaction. Card blocked for purchases today.|Unauthorized transaction. Card blocked for purchases today. Blocking may have occurred due to too many invalid attempts. The card will automatically unlock at midnight.|Transaction not authorized. Card temporarily blocked. Contact your issuing bank.|From the next day, only 4 times in 16 days.|
 |70|Unauthorized transaction. Limit exceeded/no balance.|Unauthorized transaction. Limit exceeded/no balance.|Unauthorized transaction. Contact your issuing bank.|From the following day, only 4 times in 16 days.|
 |72|Cancellation not made. Insufficient balance available for cancellation.|Cancellation not made. Insufficient balance available for cancellation. If the error persists, contact Cielo.|Cancellation not made. Try again later. If the error persists, contact the online store.|No|
+|80|Unauthorized transaction. Differences in transaction/payment date.|Unauthorized transaction. Invalid transaction date or first payment date.|Unauthorized transaction. Redo the transaction confirming the data.|No|
+|83|Unauthorized transaction. Password control error|Unauthorized transaction. Password control error|Unauthorized transaction. Redo the transaction confirming the data. If the error persists, contact your issuing bank.|No|
+|85|Transaction not allowed. Operation failed.|Transaction not allowed. There was an error in the processing. Ask the cardholder to re-enter the card details, if the error persists there may be a problem in the merchant's terminal, in which case the merchant must contact Cielo.|Transaction not allowed. Enter the card details again. If the error persists, contact the online store.|No|
 
 ## Anti-Fraud Status  
 
