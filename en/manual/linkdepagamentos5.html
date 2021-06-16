@@ -2425,6 +2425,34 @@ The information returned via the Notification Post can be found in the topic <a 
       <td>Transaction not allowed. Credit or debit transaction in an operation that only allows Private Label. Please try again and select the Private Label option. In case of a new error, contact the online store.</td>
       <td>No</td>
     </tr>
+    <tr>
+      <td>AV</td>
+      <td>Unauthorized transaction. Invalid Data</td>
+      <td>Transaction data validation failed. Instruct the holder to review the data and try again.</td>
+      <td>Data validation failed. Please review the data entered and try again.</td>
+      <td>Only 4 times in 16 days.</td>
+    </tr>
+    <tr>
+      <td>BD</td>
+      <td>Transaction not allowed. Operation failed.</td>
+      <td>Transaction not allowed. There was an error in the processing. Ask the cardholder to re-enter the card details, if the error persists there may be a problem in the merchant’s terminal, in which case the merchant must contact Cielo.</td>
+      <td>Transaction not allowed. Enter the card details again. If the error persists, contact the online store.</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>BL</td>
+      <td>Unauthorized transaction. Daily limit exceeded.</td>
+      <td>Unauthorized transaction. Daily limit exceeded. Ask the bearer to contact your issuing bank.</td>
+      <td>Unauthorized transaction. Daily limit exceeded. Contact your issuing bank.</td>
+      <td>From the next day, only 4 times in 16 days.</td>
+    </tr>
+    <tr>
+      <td>BM</td>
+      <td>Unauthorized transaction. Invalid Card</td>
+      <td>Transaction not authorized. Invalid card. It could be card blocking at the issuing bank or incorrect data. Try using Lhum’s Algorithm (Mod 10) to prevent unauthorized transactions for this reason.</td>
+      <td>Unauthorized transaction. Invalid card. Redo the transaction confirming the data entered.</td>
+      <td>No</td>
+    </tr>
   </tbody>
 </table>
 
