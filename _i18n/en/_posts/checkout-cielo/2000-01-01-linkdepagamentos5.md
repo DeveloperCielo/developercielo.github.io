@@ -837,6 +837,12 @@ Cielo informs its customers that it is prepared to process transactions followin
 |80|Unauthorized transaction. Differences in transaction/payment date.|Unauthorized transaction. Invalid transaction date or first payment date.|Unauthorized transaction. Redo the transaction confirming the data.|No|
 |83|Unauthorized transaction. Password control error|Unauthorized transaction. Password control error|Unauthorized transaction. Redo the transaction confirming the data. If the error persists, contact your issuing bank.|No|
 |85|Transaction not allowed. Operation failed.|Transaction not allowed. There was an error in the processing. Ask the cardholder to re-enter the card details, if the error persists there may be a problem in the merchant's terminal, in which case the merchant must contact Cielo.|Transaction not allowed. Enter the card details again. If the error persists, contact the online store.|No|
+|89|Transaction error.|Unauthorized transaction. Transaction error. The holder must try again and if the error persists, contact the issuing bank.|Transaction not authorized. Transaction error. Please try again and if the error persists, contact your issuing bank.|Only 4 times in 16 days.|
+|90|Transaction not allowed. Operation failed.|Transaction not allowed. There was an error in the processing. Ask the cardholder to re-enter the card details, if the error persists there may be a problem in the merchant's terminal, in which case the merchant must contact Cielo.|Transaction not allowed. Enter the card details again. If the error persists, contact the online store.|No|
+|97|Value not allowed for this transaction.|Transaction not authorized. Amount not allowed for this transaction.|Unauthorized transaction. Amount not allowed for this transaction.|No|
+|98|System/communication unavailable.|Transaction not authorized. Sender system without communication. If general, check SITEF, GATEWAY and/or Connectivity.|Your Transaction cannot be processed, Please try again later. If the error persists, contact the webshop.|Only 4 times in 16 days.|
+|475|Cancellation Timeout|The application did not respond within the expected time.|Retry after a few seconds. Persisting, contact Support.|No|
+|999|System/communication unavailable.|Transaction not authorized. Sender system without communication. Try later. It may be error in SITEF, please check !|Your Transaction cannot be processed, Please try again later. If the error persists, contact the online store.|From the next day, only 4 times in 16 days.|
 
 ## Anti-Fraud Status  
 
