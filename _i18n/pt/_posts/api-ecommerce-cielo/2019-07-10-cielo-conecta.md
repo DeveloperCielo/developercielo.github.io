@@ -11300,7 +11300,7 @@ Fornece os dados, de forma paginada, de equipamentos cadastrados no sistema
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`pageSize`|Integer|3|Não|Tamanho da página (Máximo = 100 registros por página)|
+|`pageSize`|Integer|3|Não|Tamanho da página (Máximo = 100 registros por página).|
 |`page`|Integer|---|Não|Retorna os registros da página informada. Deve ser utilizado quando a quantidade de páginas na resposta for maior que 1. Página inicial: 1|
 
 #### Resposta
