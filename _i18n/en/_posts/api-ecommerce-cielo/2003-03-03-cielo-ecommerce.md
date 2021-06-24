@@ -13,7 +13,7 @@ language_tabs:
   shell: cURL
 ---
 
-# Overview - API Cielo eCommerce  
+# Overview - API Cielo eCommerce
 
 The purpose of this documentation is to guide the developer on how to integrate with Cielo's API Cielo eCommerce, describing the features, methods to be used, listing information to be sent and received, and providing examples.
 
