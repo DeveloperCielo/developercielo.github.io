@@ -11040,7 +11040,7 @@ Salva alterações em na loja subordinado com o ID especificado.
 
 #### Requisição
 
-<aside class="request"><span class="method put">POST</span> <span class="endpoint"/terminals</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals</span></aside>
 
 ```json
 {
@@ -11094,7 +11094,7 @@ Salva alterações em na loja subordinado com o ID especificado.
 
 #### Requisição
 
-<aside class="request"><span class="method put">POST</span> <span class="endpoint"/terminals</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals</span></aside>
 
 ```json
 {
@@ -11147,7 +11147,7 @@ Desabilita um terminal removendo o vínculo com um equipamento físico.
 
 #### Requisição
 
-<aside class="request"><span class="method put">POST</span> <span class="endpoint"/terminals/disable</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals/disable</span></aside>
 
 ```json
 {
@@ -11165,7 +11165,7 @@ Desabilita um terminal removendo o vínculo com um equipamento físico.
 
 #### Requisição
 
-<aside class="request"><span class="method put">POST</span> <span class="endpoint"/token</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals</span></aside>
 
 ```json
 {
@@ -11207,7 +11207,7 @@ Consulta terminais de forma paginada
 
 #### Requisição
 
-<aside class="request"><span class="method put">GET</span> <span class="endpoint"/terminals?page=13&pageSize=10&subordinatedMerchantId={SubordinatedMerchantId}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/terminals?page=13&pageSize=10&subordinatedMerchantId={SubordinatedMerchantId}</span></aside>
 
 ```json
 {
