@@ -11138,7 +11138,7 @@ Salva alterações em na loja subordinado com o ID especificado.
 |`Terminal.EquipmentSerialNumber`|String|---|Sim|Número serial do equipamento previamente cadastrado. Campo obrigatorio quando EquipmentModel é informado|
 |`Terminal.TerminalId`|String|8|Sim|Identificação do Terminal Lógico na PayStore. Identificação única para o mesmo Lojista.|
 |`Terminal.SubordinatedMerchantId`|String (Guid)|36|Sim|ID da loja subordinada vinculada ao terminal|
-|`Terminal.SkipEquipment`|boolean|---|Sim|Default: false<br><br>Se não desejar informar o equipamento relacionado ao terminal|
+|`Terminal.SkipEquipment`|boolean|---|Sim|Default: false<br><br>Se não desejar informar o equipamento relacionado ao terminal.|
 |`Terminal.AcquirerIds`|Array of integers|---|---|Lista de identifcadores de adquirentes configurados no terminal. Cielo = 4.|
 
 ### Desabilita um Terminal
