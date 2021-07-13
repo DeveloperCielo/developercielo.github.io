@@ -9703,10 +9703,10 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 Para simular alguma resposta especifica utilize o campo Amount, onde de acordo com o valor dos centavos informado nesse campo é possivel receber uma resposta conforme descrito na tabela abaixo:
 
 |Amount (valor dos centados)|Retorno simulado do Cancelamento|Exemplo de valor simulado|
-|50|Aprovado|5050 = R$50,40|
-|51|Negado|20051 = R$200,41|
-|52|Timeout|3552 = R$35,42|
-|59|Erro|1059 = R$10,49|
+|50|Aprovado|5050 = R$50,50|
+|51|Negado|20051 = R$200,51|
+|52|Timeout|3552 = R$35,52|
+|59|Erro|1059 = R$10,59|
 
 ### Desfaz por MerchantVoidId
 
@@ -9807,10 +9807,10 @@ Para simular alguma resposta especifica utilize o campo Amount, onde de acordo c
 Para simular alguma resposta especifica utilize o campo Amount, onde de acordo com o valor dos centavos informado nesse campo é possivel receber uma resposta conforme descrito na tabela abaixo:
 
 |Amount (valor dos centados)|Retorno simulado do Cancelamento|Exemplo de valor simulado|
-|50|Aprovado|5050 = R$50,40|
-|51|Negado|20051 = R$200,41|
-|52|Timeout|3552 = R$35,42|
-|59|Erro|1059 = R$10,49|
+|50|Aprovado|5050 = R$50,50|
+|51|Negado|20051 = R$200,51|
+|52|Timeout|3552 = R$35,52|
+|59|Erro|1059 = R$10,59|
 
 ### Confirma
 
