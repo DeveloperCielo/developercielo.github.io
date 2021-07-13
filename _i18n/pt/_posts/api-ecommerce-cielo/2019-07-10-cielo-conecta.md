@@ -8220,6 +8220,8 @@ Deve-se solicitar o desfazimento através do PaymentId recebido no retorno do pa
 
 ### Desfazimento por OrderId
 
+Em casos onde não foi possível receber a resposta do pagamento e portanto não temos o PaymentId. Nesta situação existe a possibilidade de solicitar o desfazimento pelo número identificado no pagamento como MerchantOrderId.
+
 #### Cartão digitado
 
 Quando o pagamento não retornar, o mesmo deve ser desfeito.
