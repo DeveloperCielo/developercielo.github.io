@@ -883,6 +883,8 @@ Solicita as tabelas e parametros para operação do terminal. Como não foi info
 
 **Simular respostas:**
 
+Para simular alguma resposta especifica utilize o campo `Amount`, onde de acordo com o valor dos centavos informado nesse campo é possivel receber uma resposta conforme descrito na tabela abaixo:
+
 |Amount (valor dos centavos)|Retorno simulado do Pagamento|Exemplo de valor simulado|
 |---|---|---|
 |10|Aprovado|5010 = R$50,10|
