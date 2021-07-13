@@ -4241,6 +4241,8 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 #### Requisição
 
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/physicalSales/</span></aside>
+
 ```json
 {
   "MerchantOrderId": "1596226820548",
