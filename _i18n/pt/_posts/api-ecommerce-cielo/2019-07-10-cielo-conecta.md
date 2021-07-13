@@ -11165,7 +11165,7 @@ Desabilita um terminal removendo o vínculo com um equipamento físico.
 
 #### Requisição
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals/token</span></aside>
 
 ```json
 {
@@ -11260,7 +11260,7 @@ Fornece os dados de um equipamento, a partir do modelo do equipamento e de seu n
 
 #### Requisição
 
-<aside class="request"><span class="method put">GET</span> <span class="endpoint"/equipments/{modelId}/{serialNumber}</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/equipments/{modelId}/{serialNumber}</span></aside>
 
 **Path Parameters:**
 
@@ -11300,7 +11300,7 @@ Fornece os dados, de forma paginada, de equipamentos cadastrados no sistema
 
 #### Requisição
 
-<aside class="request"><span class="method put">GET</span> <span class="endpoint"equipments/paged?pageSize=10&page=1</span></aside>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/equipments/paged?pageSize=10&page=1</span></aside>
 
 **Query Parameters:**
 
