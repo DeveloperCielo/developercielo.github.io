@@ -419,6 +419,10 @@
 
 <p>Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos campos deste novo nó, os facilitadores terão também de enviar obrigatoriamente o campo softdescriptor do nó payment. Segue abaixo exemplo do envio e da resposta.</p>
 
+<blockquote>
+  <p><strong>Atenção:</strong> O não envio dos dados obrigatórios na mensageria transacional, as bandeiras ao identificarem a inconformidade, aplicarão multas à Cielo as quais serão repassadas ao Facilitador responsável pelo envio dos dados transacionais.</p>
+</blockquote>
+
 <h4 id="requisição">Requisição</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -503,7 +507,7 @@
       <td>Numérico</td>
       <td>11</td>
       <td>Obrigatório para facilitadores</td>
-      <td>Código do estabelecimento do Facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras)</td>
+      <td>Código do estabelecimento do Facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras)<br />O código é diferente por bandeira, podendo variar inclusive o tamanho do campo:<br />Bandeira Mastercard –06 dígitos<br />Bandeira Visa –08 dígitos<br />Bandeira ELO –de 04 à 05 dígitos<br />Bandeira Hipercard –06 dígitos<br />Para demais bandeiras, como Amex e JCB, o campo pode ser preenchido com “0” zeros.</td>
     </tr>
     <tr>
       <td>PaymentFacilitator.SubEstablishment.EstablishmentCode</td>
@@ -690,7 +694,7 @@
       <td>Numérico</td>
       <td>11</td>
       <td>Obrigatório para facilitadores</td>
-      <td>Código do estabelecimento do Facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras)</td>
+      <td>Código do estabelecimento do Facilitador. “Facilitator ID” (Cadastro do facilitador com as bandeiras)<br />O código é diferente por bandeira, podendo variar inclusive o tamanho do campo:<br />Bandeira Mastercard –06 dígitos<br />Bandeira Visa –08 dígitos<br />Bandeira ELO –de 04 à 05 dígitos<br />Bandeira Hipercard –06 dígitos<br />Para demais bandeiras, como Amex e JCB, o campo pode ser preenchido com “0” zeros.</td>
     </tr>
     <tr>
       <td>PaymentFacilitator.SubEstablishment.EstablishmentCode</td>
@@ -16204,7 +16208,8 @@ O Submergível pode usar a consulta bins no carrinho para alertar compradores in
 </ul>
 
 <blockquote>
-  <p>Caso outras bandeiras sejam enviadas, o erro <strong>57-Bandeira inválida</strong> será exibido.</p>
+  <p>Caso outras bandeiras sejam enviadas, o erro <strong>57-Bandeira inválida</strong> será exibido.
+<strong>Atenção:</strong> Para os casos que seja utilizado algum valor diferente de “0” zero (com valor inferior a 1 dólar seguido do cancelamento da transação), as bandeiras ao identificarem a ação aplicarão tarifas à Cielo, as quais serão repassadas aos estabelecimentos que estiverem em inconformidade. A bandeira Mastercard por exemplo, está cobrando uma tarifa no valor de R$ 0,21 centavos por transação</p>
 </blockquote>
 
 <h2 id="caso-de-uso-3">Caso de uso</h2>
