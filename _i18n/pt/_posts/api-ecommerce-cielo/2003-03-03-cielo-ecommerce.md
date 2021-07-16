@@ -115,6 +115,8 @@ Todos os clientes de E-Commerce que são **Facilitadores de Pagamento, por obrig
 
 Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos campos deste novo nó, os facilitadores terão também de enviar obrigatoriamente o campo softdescriptor do nó payment. Segue abaixo exemplo do envio e da resposta.
 
+> **Atenção:** O não envio dos dados obrigatórios na mensageria transacional, as bandeiras ao identificarem a inconformidade, aplicarão multas à Cielo as quais serão repassadas ao Facilitador responsável pelo envio dos dados transacionais.
+
 #### Requisição
 
 ```json
@@ -186,7 +188,7 @@ Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos cam
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|PaymentFacilitator.EstablishmentCode|Numérico|11|Obrigatório para facilitadores|Código do estabelecimento do Facilitador. "Facilitator ID” (Cadastro do facilitador com as bandeiras)|
+|PaymentFacilitator.EstablishmentCode|Numérico|11|Obrigatório para facilitadores|Código do estabelecimento do Facilitador. "Facilitator ID” (Cadastro do facilitador com as bandeiras)<br>O código é diferente por bandeira, podendo variar inclusive o tamanho do campo:<br>Bandeira Mastercard –06 dígitos<br>Bandeira Visa –08 dígitos<br>Bandeira ELO –de 04 à 05 dígitos<br>Bandeira Hipercard –06 dígitos<br>Para demais bandeiras, como Amex e JCB, o campo pode ser preenchido com “0” zeros.|
 |PaymentFacilitator.SubEstablishment.EstablishmentCode|Numérico|15|Obrigatório para facilitadores|Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)|
 |PaymentFacilitator.SubEstablishment.Identity|Numérico|14|Obrigatório para facilitadores|CNPJ ou CPF do sub-merchant.|
 |PaymentFacilitator.SubEstablishment.Mcc|Numérico|4|Obrigatório para facilitadores|MCC do sub Merchant.|
@@ -297,7 +299,7 @@ Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos cam
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|PaymentFacilitator.EstablishmentCode|Numérico|11|Obrigatório para facilitadores|Código do estabelecimento do Facilitador. "Facilitator ID” (Cadastro do facilitador com as bandeiras)|
+|PaymentFacilitator.EstablishmentCode|Numérico|11|Obrigatório para facilitadores|Código do estabelecimento do Facilitador. "Facilitator ID” (Cadastro do facilitador com as bandeiras)<br>O código é diferente por bandeira, podendo variar inclusive o tamanho do campo:<br>Bandeira Mastercard –06 dígitos<br>Bandeira Visa –08 dígitos<br>Bandeira ELO –de 04 à 05 dígitos<br>Bandeira Hipercard –06 dígitos<br>Para demais bandeiras, como Amex e JCB, o campo pode ser preenchido com “0” zeros.|
 |PaymentFacilitator.SubEstablishment.EstablishmentCode|Numérico|15|Obrigatório para facilitadores|Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)|
 |PaymentFacilitator.SubEstablishment.Identity|Numérico|14|Obrigatório para facilitadores|CNPJ ou CPF do sub-merchant.|
 |PaymentFacilitator.SubEstablishment.Mcc|Numérico|4|Obrigatório para facilitadores|MCC do sub Merchant.|
@@ -7930,6 +7932,8 @@ O Zero Auth suporta as seguintes bandeiras:
 * **Elo**
 
 > Caso outras bandeiras sejam enviadas, o erro **57-Bandeira inválida** será exibido.
+
+> **Atenção:** Para os casos que seja utilizado algum valor diferente de “0” zero (com valor inferior a 1 dólar seguido do cancelamento da transação), as bandeiras ao identificarem a ação aplicarão tarifas à Cielo, as quais serão repassadas aos estabelecimentos que estiverem em inconformidade. A bandeira Mastercard por exemplo, está cobrando uma tarifa no valor de R$ 0,21 centavos por transação
 
 ## Caso de uso
 
