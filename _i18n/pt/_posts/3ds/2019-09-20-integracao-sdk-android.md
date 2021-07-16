@@ -418,16 +418,23 @@ Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o
 
 # Cartões de Teste
 
-Utilize os cartões de **teste** abaixo para simular diversos cenários no ambiente de **SANDBOX**
+Utilize os cartões de **teste** abaixo para simular diversos cenários no ambiente de **SANDBOX**.
 
-| **Cartão** | **Resultado** | **Descrição** |
-| --- | --- | --- |
-| 4000000000001000 | SUCCESS | Autenticação Silenciosa e portador autenticou com sucesso |
-| 4000000000001018 | FAILURE | Autenticação Silenciosa e portador finalizou com falha|
-| 4000000000001034 | UNENROLLED | Cartão não elegível para autenticação |
-| 4000000000001091 | SUCCESS | Autenticação com desafio e portador autenticou com sucesso|
-| 4000000000001117 | UNENROLLED | Autenticação com desafio e Cartão não elegível |
-| 4000000000001109 | FAILURE | Autenticação com desafio e portador falhou na autenticação |
+## Cartões de Teste com Desafio
+
+|**CARTÃO**|**BANDEIRA**|**RESULTADO**|**DESCRIÇÃO**|  
+|---|---|---|---|     
+|4000000000001091<br>5200000000001096<br>6505050000001091|VISA<br>MASTER<br>ELO|SUCCESS|Autenticação com desafio e portador autenticou com sucesso|  
+|4000000000001109<br>5200000000001104<br>6505050000001109|VISA<br>MASTER<br>ELO|FAILURE|Autenticação com desafio e portador autenticou com falha|  
+|4000000000001117<br>5200000000001112<br>6505050000001117|VISA<br>MASTER<br>ELO|UNENROLLED|Autenticação com desafio indisponível no momento|  
+|4000000000001125<br>5200000000001120<br>6505050000001125|VISA<br>MASTER<br>ELO|UNENROLLED|Erro de sistema durante a etapa de autenticação|  
+
+## Cartões de Teste sem Desafio
+
+|**CARTÃO**|**BANDEIRA**|**RESULTADO**|**DESCRIÇÃO**|  
+|---|---|---|---|     
+|4000000000001000<br>5200000000001005<br>6505050000001000|VISA<br>MASTER<br>ELO|SUCCESS|Autenticação sem desafio e portador autenticou com sucesso|  
+|4000000000001018<br>5200000000001013<br>6505050000001018|VISA<br>MASTER<br>ELO|FAILURE|Autenticação sem desafio e portador autenticou com falha| 
 
 ## Autorização com Autenticação
 
