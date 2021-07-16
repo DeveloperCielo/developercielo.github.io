@@ -1196,46 +1196,70 @@ Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o
 
 <h1 id="cartões-de-teste">Cartões de Teste</h1>
 
-<p>Utilize os cartões de <strong>teste</strong> abaixo para simular diversos cenários no ambiente de <strong>SANDBOX</strong></p>
+<p>Utilize os cartões de <strong>teste</strong> abaixo para simular diversos cenários no ambiente de <strong>SANDBOX</strong>.</p>
+
+<h2 id="cartões-de-teste-com-desafio">Cartões de Teste com Desafio</h2>
 
 <table>
   <thead>
     <tr>
-      <th><strong>Cartão</strong></th>
-      <th><strong>Resultado</strong></th>
-      <th><strong>Descrição</strong></th>
+      <th><strong>CARTÃO</strong></th>
+      <th><strong>BANDEIRA</strong></th>
+      <th><strong>RESULTADO</strong></th>
+      <th><strong>DESCRIÇÃO</strong></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>4000000000001000</td>
-      <td>SUCCESS</td>
-      <td>Autenticação Silenciosa e portador autenticou com sucesso</td>
-    </tr>
-    <tr>
-      <td>4000000000001018</td>
-      <td>FAILURE</td>
-      <td>Autenticação Silenciosa e portador finalizou com falha</td>
-    </tr>
-    <tr>
-      <td>4000000000001034</td>
-      <td>UNENROLLED</td>
-      <td>Cartão não elegível para autenticação</td>
-    </tr>
-    <tr>
-      <td>4000000000001091</td>
+      <td>4000000000001091<br />5200000000001096<br />6505050000001091</td>
+      <td>VISA<br />MASTER<br />ELO</td>
       <td>SUCCESS</td>
       <td>Autenticação com desafio e portador autenticou com sucesso</td>
     </tr>
     <tr>
-      <td>4000000000001117</td>
-      <td>UNENROLLED</td>
-      <td>Autenticação com desafio e Cartão não elegível</td>
+      <td>4000000000001109<br />5200000000001104<br />6505050000001109</td>
+      <td>VISA<br />MASTER<br />ELO</td>
+      <td>FAILURE</td>
+      <td>Autenticação com desafio e portador autenticou com falha</td>
     </tr>
     <tr>
-      <td>4000000000001109</td>
+      <td>4000000000001117<br />5200000000001112<br />6505050000001117</td>
+      <td>VISA<br />MASTER<br />ELO</td>
+      <td>UNENROLLED</td>
+      <td>Autenticação com desafio indisponível no momento</td>
+    </tr>
+    <tr>
+      <td>4000000000001125<br />5200000000001120<br />6505050000001125</td>
+      <td>VISA<br />MASTER<br />ELO</td>
+      <td>UNENROLLED</td>
+      <td>Erro de sistema durante a etapa de autenticação</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="cartões-de-teste-sem-desafio">Cartões de Teste sem Desafio</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>CARTÃO</strong></th>
+      <th><strong>BANDEIRA</strong></th>
+      <th><strong>RESULTADO</strong></th>
+      <th><strong>DESCRIÇÃO</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4000000000001000<br />5200000000001005<br />6505050000001000</td>
+      <td>VISA<br />MASTER<br />ELO</td>
+      <td>SUCCESS</td>
+      <td>Autenticação sem desafio e portador autenticou com sucesso</td>
+    </tr>
+    <tr>
+      <td>4000000000001018<br />5200000000001013<br />6505050000001018</td>
+      <td>VISA<br />MASTER<br />ELO</td>
       <td>FAILURE</td>
-      <td>Autenticação com desafio e portador falhou na autenticação</td>
+      <td>Autenticação sem desafio e portador autenticou com falha</td>
     </tr>
   </tbody>
 </table>
