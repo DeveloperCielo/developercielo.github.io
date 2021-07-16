@@ -7914,6 +7914,9 @@ https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
 
 O **Zero Auth** é uma ferramenta de validação de cartões da API Cielo. A validação permite que o lojista saiba se o cartão é valido ou não antes de enviar a transação para autorização, antecipando o motivo de uma provável não autorização..
 
+> **Atenção:** Para os casos que seja utilizado algum valor diferente de “0” zero (com valor inferior a 1 dólar seguido do cancelamento da transação), as bandeiras ao identificarem a ação aplicarão tarifas à Cielo, as quais serão repassadas aos estabelecimentos que estiverem em inconformidade. A bandeira Mastercard por exemplo, está cobrando uma tarifa no valor de R$ 0,21 centavos por transação
+
+
 O **Zero Auth** pode ser usado de 2 maneiras:
 
 1. **Padrão** - Envio de um cartão padrão, sem tokenização ou analises adicionais
@@ -7932,7 +7935,6 @@ O Zero Auth suporta as seguintes bandeiras:
 * **Elo**
 
 > Caso outras bandeiras sejam enviadas, o erro **57-Bandeira inválida** será exibido.
-> **Atenção:** Para os casos que seja utilizado algum valor diferente de “0” zero (com valor inferior a 1 dólar seguido do cancelamento da transação), as bandeiras ao identificarem a ação aplicarão tarifas à Cielo, as quais serão repassadas aos estabelecimentos que estiverem em inconformidade. A bandeira Mastercard por exemplo, está cobrando uma tarifa no valor de R$ 0,21 centavos por transação
 
 ## Caso de uso
 
