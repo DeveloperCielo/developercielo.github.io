@@ -9848,9 +9848,9 @@ Cielo informs its customers that it's prepared to process transactions following
 |KE|Unauthorized transaction. Data validation failed.|Unauthorized transaction. Data validation failed. Selected option is not enabled. Check the options available to the carrier.|Unauthorized transaction. Data validation failed. Selected option is not enabled. Contact the virtual store.|No|
 |N7|Unauthorized transaction. Invalid security code.|Unauthorized transaction. Invalid security code. Guide the carrier to correct the data and try again.|Unauthorized transaction. Review the data and enter again.|No|
 |U3|Transaction not allowed. Data validation failed.|Transaction not allowed. There was a failure in data validation. Ask the carrier to review the data and try again. If the error persists, check the communication between virtual store and Cielo.|Transaction not allowed. There was a failure in data validation. Review the reported data and try again. If the error persists, contact the Virtual Store.|No|
-|BR|Transação não autorizada. Conta encerrada|A conta do portador está encerrada. Solicite ao portador que entre em contato com seu banco emissor.|A conta do portador está encerrada. Solicite ao portador que entre em contato com seu banco emissor.|Não|
-|46|Transação não autorizada. Conta encerrada|A conta do portador está encerrada. Solicite ao portador que entre em contato com seu banco emissor.|A conta do portador está encerrada. Solicite ao portador que entre em contato com seu banco emissor.|Não|
-|6P|Transação não autorizada. Dados Inválidos|Falha na validação dos dados da transação. Oriente o portador a rever os dados e tentar novamente.|Falha na validação dos dados. Reveja os dados informados e tente novamente.|Apenas 4 vezes em 16 dias.|
+|BR|Unauthorized transaction. Account closed|The bearer's account is closed. Ask the bearer to contact your issuing bank.|The bearer's account is closed. Ask the bearer to contact your issuing bank.|No|
+|46|Unauthorized transaction. Account closed|The bearer's account is closed. Ask the bearer to contact your issuing bank.|The bearer's account is closed. Ask the bearer to contact your issuing bank.|No|
+|6P|Unauthorized transaction. Invalid data|Transaction data validation failed. Instruct the holder to review the data and try again.|Data validation failed. Review the data entered and try again.|Only 4 times in 16 days.|
 
 ## Status transactional
 
