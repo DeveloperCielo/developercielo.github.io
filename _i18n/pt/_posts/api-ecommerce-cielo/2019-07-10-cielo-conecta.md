@@ -10774,7 +10774,6 @@ Cria um novo merchant.
       "Email":"teste123@mail.com.br",
       "PhoneNumber":"11900000000",
       "MessengerPhone":"11900000000",
-      "Gender":"Male",
       "DocumentNumber":"33572628099"
    },
    "Address":{
@@ -10812,7 +10811,6 @@ Cria um novo merchant.
 |`Owner.Email`|String|45|Sim|Email do proprietário|
 |`Owner.PhoneNumber`|String|30|Sim|Telefone do proprietário|
 |`Owner.MessengerPhone`|String|30|Sim|Whatsapp do proprietário|
-|`Owner.Gender`|String|7|Não|Enum: `Other` `Male` `Female`|
 
 #### Resposta
 
@@ -10835,7 +10833,6 @@ Cria um novo merchant.
 |`Owner.Email`|String|45|Sim|Email do proprietário|
 |`Owner.PhoneNumber`|String|30|Sim|Telefone do proprietário|
 |`Owner.MessengerPhone`|String|30|Sim|Whatsapp do proprietário|
-|`Owner.Gender`|String|7|Não|Enum: `Other` `Male` `Female`|
 
 ### Consulta Loja
 
@@ -10854,7 +10851,6 @@ Encontra uma loja subordinada pelo seu ID.
          "Email":"string",
          "PhoneNumber":"string",
          "MessengerPhone":"string",
-         "Gender":"Male",
          "DocumentNumber":"string"
       },
       "SoftDescriptor":"description 1",
@@ -10893,7 +10889,6 @@ Encontra uma loja subordinada pelo seu ID.
 |`Owner.Email`|String|45|Sim|Email do proprietário|
 |`Owner.PhoneNumber`|String|30|Sim|Telefone do proprietário|
 |`Owner.MessengerPhone`|String|30|Sim|Whatsapp do proprietário|
-|`Owner.Gender`|String|7|Não|Enum: `Other` `Male` `Female`|
 |`MerchantGroup`|array[String]|---|Não|Lista de objetos do tipo MerchantGroup|
 |`MerchantGroup.Name`|string|---|Sim|Nome do grupo|
 |`MerchantGroup.SubAcquirer`|string|---|Sim|Subadquirente|
@@ -10917,38 +10912,83 @@ Consulta Lojas de forma paginada
 |`page`|Integer|---|Não|Retorna os registros da página informada. Deve ser utilizado quando a quantidade de páginas
 
 ```json
-            "Gender":"Male"
-         },
-         "SubordinatedMerchantId":"12345678-1234-1234-1234-123456789012",
-         "Address":{
-            "ZipCode":"999999",
-            "Street":"endereco",
-            "Number":"123",
-            "Complement":""
-         },
-         "TradeName":"nome descricao",
-         "CompanyName":"nome da loja",
-         "Email":"loja@email.com",
-         "PhoneNumber":"1234567",
-         "Mcc":412,
-         "DocumentNumber":"1234567",
-         "DocumentType":"Cpf",
-         "SoftDescriptor":"description 2",
-         "MerchantGroup":[
-            {
-               "Name":"grupo",
-               "SubAcquirer":"SubAquirer",
-               "Origin":"123",
-               "Id":"123"
-            }
-         ],
-         "MerchantGroupNames":[
-            "name1",
-            "name2"
-         ]
-      }
-   ],
-   "Size":10
+{
+  "Page": 1,
+  "TotalPages": 1,
+  "TotalElements": 2,
+  "Content": [
+    {
+      "Owner": {
+        "Name": "nome sobrenome",
+        "Email": "owner@email.com",
+        "PhoneNumber": "1234567",
+        "MessengerPhone": "1234567"
+      },
+      "SubordinatedMerchantId": "12345678-1234-1234-1234-123456789012",
+      "Address": {
+        "ZipCode": "999999",
+        "Street": "endereco",
+        "Number": "123",
+        "Complement": ""
+      },
+      "TradeName": "nome descricao",
+      "CompanyName": "nome da loja",
+      "Email": "loja@email.com.br",
+      "PhoneNumber": "1234567",
+      "Mcc": 412,
+      "DocumentNumber": "1234567",
+      "SoftDescriptor": "description 1",
+      "DocumentType": "Cpf",
+      "MerchantGroup": [
+        {
+          "Name": "grupo",
+          "SubAcquirer": "SubAquirer",
+          "Origin": "123",
+          "Id": "123"
+        }
+      ],
+      "MerchantGroupNames": [
+        "name1",
+        "name2"
+      ]
+    },
+    {
+      "Owner": {
+        "Name": "nome sobrenome",
+        "Email": "owner@email.com",
+        "PhoneNumber": "1234567",
+        "MessengerPhone": "1234567"
+      },
+      "SubordinatedMerchantId": "12345678-1234-1234-1234-123456789012",
+      "Address": {
+        "ZipCode": "999999",
+        "Street": "endereco",
+        "Number": "123",
+        "Complement": ""
+      },
+      "TradeName": "nome descricao",
+      "CompanyName": "nome da loja",
+      "Email": "loja@email.com",
+      "PhoneNumber": "1234567",
+      "Mcc": 412,
+      "DocumentNumber": "1234567",
+      "DocumentType": "Cpf",
+      "SoftDescriptor": "description 2",
+      "MerchantGroup": [
+        {
+          "Name": "grupo",
+          "SubAcquirer": "SubAquirer",
+          "Origin": "123",
+          "Id": "123"
+        }
+      ],
+      "MerchantGroupNames": [
+        "name1",
+        "name2"
+      ]
+    }
+  ],
+  "Size": 10
 }
 ```
 
@@ -10977,7 +11017,6 @@ Consulta Lojas de forma paginada
 |`Content.Owner.Email`|String|45|Sim|Email do proprietário|
 |`Content.Owner.PhoneNumber`|String|30|Sim|Telefone do proprietário|
 |`Content.Owner.MessengerPhone`|String|30|Sim|Whatsapp do proprietário|
-|`Content.Owner.Gender`|String|---|Não|Enum: "Male" ou "Female"|
 |`Content.MerchantGroup`|array[String]|---|Não|Lista de objetos do tipo MerchantGroup|
 |`Content.MerchantGroup.Name`|string|---|Sim|Nome do grupo|
 |`Content.MerchantGroup.SubAcquirer`|string|---|Sim|Subadquirente|
