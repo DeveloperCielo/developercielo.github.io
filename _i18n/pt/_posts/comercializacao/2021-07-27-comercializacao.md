@@ -85,7 +85,7 @@ e pontos de atenção importantes.
   * a.Processo obrigatório para canais cadastrados como auto afiliação.
   * b.O momento ideal para realizar a consulta de documentos para opt-in é após o envio do pedido dado que todos os dadoscadastrais já estarão coletados.
 * **9.Notificações de alterações de status do pedido via webhook**
-          
+
 # Glossário
 
 * **MDR (Merchant Discount Rate)** é a taxa que os estabelecimentos pagam para as credenciadoras de cartão de crédito para que eles possam aceitar pagamentos via cartão de crédito ou débito;
