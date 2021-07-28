@@ -19,16 +19,25 @@ e pontos de atenção importantes.
 
 # Funcionalidades contempladas atualmente na API:
 
-1. Consulta de ramos de atividade permitidos (aplicável apenas a Pessoa Física)
+1. **Consulta de ramos de atividade permitidos (aplicável apenas a Pessoa Física)**
   * No caso de PJ, consideraremos o ramo declarado na receita federal (CNAE Primário)
-2. Consulta de bancos permitidos para liquidação
-3. Consulta de tipos de negócio e respectivos filtros de oferta:
+2. **Consulta de bancos permitidos para liquidação**
+3. **Consulta de tipos de negócio e respectivos filtros de oferta:**
   * a. Exemplos de filtros de ofertas:
     * i. Faturamento Mensal
     * ii. Ramo de atividade (apenas PF)
     * iii. CEP Comercial
     * iv. Indicador de Receba Rápido (RR)
     * Caso seja escolhido receber ofertas com Receba Rápido, será necessário informar um indicador adicional:Indicador de Liquidação via Cartão Pré-Pago. Esse campo irá influenciar, principalmente, na geração de ofertas do tipo D0 ou D2.
+    * v. Indicador de meta de faturamento
+    * vi. entre outros
+  * b. Exemplos de tipos de negócio:
+   * i. Pagamentos com máquina de cartão
+   * ii. Pagamentos por meios digitais
+    * 1 . Pagamentos para vendas pontuais e através de redes sociais
+    * 2. Pagamentos para sua loja virtual
+    * 3. Pagamentos para seu e-commerce customizado
+   * entre outros
 
 # Glossário
 
