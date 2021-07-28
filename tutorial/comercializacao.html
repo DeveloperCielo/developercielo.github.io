@@ -306,12 +306,12 @@ Segurança: a troca de informações se dá sempre entre o Servidor do parceiro/
 
 <p><strong>Authorization Basic Base64(client_id e client_secret concatenado com “:” e codificado em base64)</strong></p>
 
-<pre><code class="language-curl">curl --location --request POST 'https://api2.cielo.com.br/v2/oauth/token'
-\
---header 'Authorization: Basic base64 \
---header 'Content-Type: text/plain' \
---data-raw '{"grant_type": "client_credentials"}'
-</code></pre>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">curl</span><span class="w"> </span><span class="err">--location</span><span class="w"> </span><span class="err">--request</span><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="err">'https://api</span><span class="mi">2</span><span class="err">.cielo.com.br/v</span><span class="mi">2</span><span class="err">/oauth/token'</span><span class="w">
+</span><span class="err">\</span><span class="w">
+</span><span class="err">--header</span><span class="w"> </span><span class="err">'Authorization:</span><span class="w"> </span><span class="err">Basic</span><span class="w"> </span><span class="err">base</span><span class="mi">64</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="err">--header</span><span class="w"> </span><span class="err">'Content-Type:</span><span class="w"> </span><span class="err">text/plain'</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="err">--data-raw</span><span class="w"> </span><span class="err">'</span><span class="p">{</span><span class="nl">"grant_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client_credentials"</span><span class="p">}</span><span class="err">'</span><span class="w">
+</span></code></pre></div></div>
 
 <h2 id="respose">Respose</h2>
 
