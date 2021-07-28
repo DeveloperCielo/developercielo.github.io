@@ -126,100 +126,37 @@ e pontos de atenção importantes.</p>
 <h1 id="funcionalidades-contempladas-atualmente-na-api">Funcionalidades contempladas atualmente na API:</h1>
 
 <ul>
-  <li>Consulta de ramos de atividade permitidos (aplicável apenas a Pessoa Física)</li>
-  <li>No caso de PJ, consideraremos o ramo declarado na receita federal (CNAE Primário)</li>
-  <li>Consulta de bancos permitidos para liquidação</li>
-  <li>Consulta de tipos de negócio e respectivos filtros de oferta:
-    <ul>
-      <li>Exemplos de filtros de ofertas:
+  <li>
+    <ol>
+      <li>Consulta de ramos de atividade permitidos (aplicável apenas a Pessoa Física)
         <ul>
-          <li>Faturamento Mensal</li>
-          <li>Ramo de atividade (apenas PF)</li>
-          <li>CEP Comercial</li>
-          <li>Indicador de Receba Rápido (RR)</li>
-          <li>Indicador de meta de faturamento</li>
-          <li>entre outros</li>
+          <li>No caso de PJ, consideraremos o ramo declarado na receita federal (CNAE Primário)</li>
         </ul>
       </li>
-    </ul>
+    </ol>
   </li>
-  <li>Exemplos de tipos de negócio:
-    <ul>
-      <li>Pagamentos com máquina de cartão</li>
-      <li>Pagamentos por meios digitais
-        <ul>
-          <li>Pagamentos para vendas pontuais e através de redes sociais</li>
-          <li>Pagamentos para sua loja virtual</li>
-          <li>Pagamentos para seu e-commerce customizado</li>
-          <li>entre outros</li>
-        </ul>
-      </li>
-    </ul>
+  <li>
+    <ol>
+      <li>Consulta de bancos permitidos para liquidação</li>
+    </ol>
   </li>
-  <li>Disponibilização de ofertas ao canal
-    <ul>
-      <li>O canal irá receber ofertas conforme filtros e tipo de negócio escolhido</li>
-      <li>Tipos de negócio:
+  <li>
+    <ol>
+      <li>Consulta de tipos de negócio e respectivos filtros de oferta:
         <ul>
-          <li>Pagamentos com máquina de cartão
+          <li>a. Exemplos de filtros de ofertas:
             <ul>
-              <li>Disponibilizar uma máquina de cartão com cobrança de aluguel
-                <ul>
-                  <li>Catálogo com 3 ofertas, conforme perfil do cliente (p. exemplo faturamento e ramo de atividade), podendo envolver MDR, RR, valor do aluguel, meta de faturamento e modelo de maquina de cartão</li>
-                  <li>Aplicável apenas para clientes que não tenham nenhum cadastro na Cielo de maquina de cartão com cobrança de aluguel</li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li>Pagamentos por meios digitais
-            <ul>
-              <li>Pagamentos para vendas pontuais e através de redes sociais
-                <ul>
-                  <li>Disponibilizar credenciais para geração de link de pagamento
-                    <ul>
-                      <li>Catálogo com planos de benefício (emissão de boleto e consulta antifraude): gratuito, inicial,mega e especial</li>
-                      <li>As condições comerciais serão aplicadas conforme o ramo de atividade do cliente, podendo envolver MDR e valor do plano de benefício</li>
-                      <li>Aplicável apenas para clientes que não tenham nenhum cadastro na Cielo de link de pagamento</li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li>Pagamentos para sua loja virtual
-            <ul>
-              <li>Disponibilizar credenciais para API de checkout
-                <ul>
-                  <li>Catálogo com planos de benefício (emissão de boleto e consulta antifraude): gratuito, inicial,mega e especial</li>
-                  <li>As condições comerciais serão aplicadas conforme o ramo de atividade do cliente, podendoenvolver MDR e valor do plano de benefício</li>
-                  <li>Aplicável apenas para clientes que não tenham nenhum cadastro na Cielo de API Checkout</li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li>Pagamentos para seu e-commerce customizado
-            <ul>
-              <li>Disponibilizar credenciais para API e-commerce 3.0
-                <ul>
-                  <li>As condições comerciais serão aplicadas conforme o ramo de atividade do cliente, podendo envolver MDR</li>
-                  <li>Aplicável apenas para clientes que não tenham nenhum cadastro na Cielo de API e-commerce 3.0</li>
-                </ul>
-              </li>
+              <li>i. Faturamento Mensal</li>
+              <li>ii. Ramo de atividade (apenas PF)</li>
+              <li>iii. CEP Comercial</li>
+              <li>iv. Indicador de Receba Rápido (RR)</li>
+              <li>Caso seja escolhido receber ofertas com Receba Rápido, será necessário informar um indicador adicional:Indicador de Liquidação via Cartão Pré-Pago. Esse campo irá influenciar, principalmente, na geração de ofertas do tipo D0 ou D2.</li>
             </ul>
           </li>
         </ul>
       </li>
-    </ul>
+    </ol>
   </li>
-  <li>Criação de pedido com base em uma oferta escolhida
-    <ul>
-      <li>Deverão ser enviadas as informações cadastrais do cliente junto com a oferta escolhida</li>
-    </ul>
-  </li>
-  <li>Consulta de pedido</li>
-  <li>Tracking de pedido</li>
-  <li>Coleta de consentimento</li>
-  <li>Notificações de alterações de status do pedido via webhook</li>
 </ul>
 
 <h1 id="glossário">Glossário</h1>
