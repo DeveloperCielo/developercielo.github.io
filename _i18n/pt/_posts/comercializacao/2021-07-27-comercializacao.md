@@ -56,6 +56,6 @@ e pontos de atenção importantes.
         * As condições comerciais serão aplicadas conforme o ramo de atividade do cliente, podendoenvolver MDR e valor do plano de benefício
         * Aplicável apenas para clientes que não tenham nenhum cadastro na Cielo de API Checkout
     * Pagamentos para seu e-commerce customizado
-      *  Disponibilizar credenciais para API e-commerce 3.0
+      * Disponibilizar credenciais para API e-commerce 3.0
         * As condições comerciais serão aplicadas conforme o ramo de atividade do cliente, podendo envolver MDR
         * Aplicável apenas para clientes que não tenham nenhum cadastro na Cielo de API e-commerce 3.0
