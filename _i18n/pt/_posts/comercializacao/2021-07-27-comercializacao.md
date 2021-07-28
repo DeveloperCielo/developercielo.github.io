@@ -37,7 +37,7 @@ e pontos de atenção importantes.
     * 1. Pagamentos para vendas pontuais e através de redes sociais
     * 2. Pagamentos para sua loja virtual
     * 3. Pagamentos para seu e-commerce customizado
-   * iii. entre outros
+  * iii. entre outros
 * 4. Disponibilização de ofertas ao canal
   * a. O canal irá receber ofertas conforme filtros e tipo de negócio escolhido
   * b. Tipos de negócio:
