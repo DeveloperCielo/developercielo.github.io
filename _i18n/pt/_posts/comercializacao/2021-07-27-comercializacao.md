@@ -19,53 +19,50 @@ e pontos de atenção importantes.
 
 # Funcionalidades contempladas atualmente na API:
 
-* Consulta de ramos de atividade permitidos (aplicável apenas a Pessoa Física)
-* No caso de PJ, consideraremos o ramo declarado na receita federal (CNAE Primário)
-* Consulta de bancos permitidos para liquidação
-* Consulta de tipos de negócio e respectivos filtros de oferta:
-  * Exemplos de filtros de ofertas:
-    * Faturamento Mensal
-    * Ramo de atividade (apenas PF)
-    * CEP Comercial
-    * Indicador de Receba Rápido (RR)
-    * Indicador de meta de faturamento
-    * entre outros
-* Exemplos de tipos de negócio:
-  * Pagamentos com máquina de cartão
-  * Pagamentos por meios digitais
-    * Pagamentos para vendas pontuais e através de redes sociais
-    * Pagamentos para sua loja virtual
-    * Pagamentos para seu e-commerce customizado
-    * entre outros
-* Disponibilização de ofertas ao canal
-  * O canal irá receber ofertas conforme filtros e tipo de negócio escolhido
-  * Tipos de negócio:
-    * Pagamentos com máquina de cartão
-      * Disponibilizar uma máquina de cartão com cobrança de aluguel
-        * Catálogo com 3 ofertas, conforme perfil do cliente (p. exemplo faturamento e ramo de atividade), podendo envolver MDR, RR, valor do aluguel, meta de faturamento e modelo de maquina de cartão
-        * Aplicável apenas para clientes que não tenham nenhum cadastro na Cielo de maquina de cartão com cobrança de aluguel
-    * Pagamentos por meios digitais
-      * Pagamentos para vendas pontuais e através de redes sociais
+* 1. Consulta de ramos de atividade permitidos (aplicável apenas a Pessoa Física)
+  * No caso de PJ, consideraremos o ramo declarado na receita federal (CNAE Primário)
+* 2. Consulta de bancos permitidos para liquidação
+* 3. Consulta de tipos de negócio e respectivos filtros de oferta:
+  * a. Exemplos de filtros de ofertas:
+    * i. Faturamento Mensal
+    * ii. Ramo de atividade (apenas PF)
+    * iii. CEP Comercial
+    * iv. Indicador de Receba Rápido (RR)
+      * Caso seja escolhido receber ofertas com Receba Rápido, será necessário informar um indicador adicional:Indicador de Liquidação via Cartão Pré-Pago. Esse campo irá influenciar, principalmente, na geração de ofertasdo tipo D0 ou D2.
+    * v. Indicador de meta de faturamento
+    * vi. entre outros
+* b. Exemplos de tipos de negócio:
+  * i. Pagamentos com máquina de cartão
+  * ii. Pagamentos por meios digitais
+    * 1. Pagamentos para vendas pontuais e através de redes sociais
+    * 2. Pagamentos para sua loja virtual
+    * 3. Pagamentos para seu e-commerce customizado
+   * iii. entre outros
+* 4. Disponibilização de ofertas ao canal
+  * a. O canal irá receber ofertas conforme filtros e tipo de negócio escolhido
+  * b. Tipos de negócio:
+    * i. Pagamentos com máquina de cartão
+      * 1. Disponibilizar uma máquina de cartão com cobrança de aluguel
+        * 1. Catálogo com 3 ofertas, conforme perfil do cliente (p. exemplo faturamento e ramo de atividade), podendo envolver MDR, RR, valor do aluguel, meta de faturamento e modelo de maquina de cartão
+        * 2. Aplicável apenas para clientes que não tenham nenhum cadastro na Cielo de maquina de cartão com cobrança de aluguel
+    * ii. Pagamentos por meios digitais
+      * 1. Pagamentos para vendas pontuais e através de redes sociais
         * Disponibilizar credenciais para geração de link de pagamento
-          * Catálogo com planos de benefício (emissão de boleto e consulta antifraude): gratuito, inicial,mega e especial
-          * As condições comerciais serão aplicadas conforme o ramo de atividade do cliente, podendo envolver MDR e valor do plano de benefício
-          * Aplicável apenas para clientes que não tenham nenhum cadastro na Cielo de link de pagamento
-    * Pagamentos para sua loja virtual
-      * Disponibilizar credenciais para API de checkout
-        * Catálogo com planos de benefício (emissão de boleto e consulta antifraude): gratuito, inicial,mega e especial
-        * As condições comerciais serão aplicadas conforme o ramo de atividade do cliente, podendoenvolver MDR e valor do plano de benefício
-        * Aplicável apenas para clientes que não tenham nenhum cadastro na Cielo de API Checkout
-    * Pagamentos para seu e-commerce customizado
-      * Disponibilizar credenciais para API e-commerce 3.0
-        * As condições comerciais serão aplicadas conforme o ramo de atividade do cliente, podendo envolver MDR
-        * Aplicável apenas para clientes que não tenham nenhum cadastro na Cielo de API e-commerce 3.0
-* Criação de pedido com base em uma oferta escolhida
-  * Deverão ser enviadas as informações cadastrais do cliente junto com a oferta escolhida
-* Consulta de pedido
-* Tracking de pedido
-* Coleta de consentimento
-* Notificações de alterações de status do pedido via webhook
-
+          * a. Catálogo com planos de benefício (emissão de boleto e consulta antifraude): gratuito, inicial,mega e especial
+          * b. As condições comerciais serão aplicadas conforme o ramo de atividade do cliente, podendo envolver MDR e valor do plano de benefício
+          * c. Aplicável apenas para clientes que não tenham nenhum cadastro na Cielo de link de pagamento
+      * 2. Pagamentos para sua loja virtual
+        * Disponibilizar credenciais para API de checkout
+          * a. Catálogo com planos de benefício (emissão de boleto e consulta antifraude): gratuito, inicial,mega e especial
+          * b. As condições comerciais serão aplicadas conforme o ramo de atividade do cliente, podendoenvolver MDR e valor do plano de benefício
+          * c. Aplicável apenas para clientes que não tenham nenhum cadastro na Cielo de API Checkout
+      * 3. Pagamentos para seu e-commerce customizado
+        * Disponibilizar credenciais para API e-commerce 3.0
+          * a. As condições comerciais serão aplicadas conforme o ramo de atividade do cliente, podendo envolver MDR
+          * b. Aplicável apenas para clientes que não tenham nenhum cadastro na Cielo de API e-commerce 3.0
+* 5. Criação de pedido com base em uma oferta escolhida
+  * a. Deverão ser enviadas as informações cadastrais do cliente junto com a oferta escolhida
+  
 # Glossário
 
 * **MDR (Merchant Discount Rate)** é a taxa que os estabelecimentos pagam para as credenciadoras de cartão de crédito para que eles possam aceitar pagamentos via cartão de crédito ou débito;
