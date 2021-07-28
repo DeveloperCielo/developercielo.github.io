@@ -126,13 +126,13 @@ e pontos de atenção importantes.</p>
 <h1 id="funcionalidades-contempladas-atualmente-na-api">Funcionalidades contempladas atualmente na API:</h1>
 
 <ul>
-  <li>1.<strong>Consulta de ramos de atividade permitidos (aplicável apenas a Pessoa Física)</strong>
+  <li><strong>1.Consulta de ramos de atividade permitidos (aplicável apenas a Pessoa Física)</strong>
     <ul>
       <li>No caso de PJ, consideraremos o ramo declarado na receita federal (CNAE Primário)</li>
     </ul>
   </li>
-  <li>2.<strong>Consulta de bancos permitidos para liquidação</strong></li>
-  <li>3.<strong>Consulta de tipos de negócio e respectivos filtros de oferta:</strong>
+  <li><strong>2.Consulta de bancos permitidos para liquidação</strong></li>
+  <li><strong>3.Consulta de tipos de negócio e respectivos filtros de oferta:</strong>
     <ul>
       <li>a.Exemplos de filtros de ofertas:
         <ul>
@@ -163,7 +163,7 @@ e pontos de atenção importantes.</p>
       </li>
     </ul>
   </li>
-  <li>4.<strong>Disponibilização de ofertas ao canal</strong>
+  <li><strong>4.Disponibilização de ofertas ao canal</strong>
     <ul>
       <li>a.O canal irá receber ofertas conforme filtros e tipo de negócio escolhido</li>
       <li>b.Tipos de negócio:
@@ -207,9 +207,7 @@ e pontos de atenção importantes.</p>
                   <li>Disponibilizar credenciais para API e-commerce 3.0
                     <ul>
                       <li>a.As condições comerciais serão aplicadas conforme o ramo de atividade do cliente, podendoenvolver MDR</li>
-                      <li>b.Aplicável apenas para clientes que não tenham nenhum cadastro na Cielo de API e-commerce 3.0
-                        <h1 id="glossário">Glossário</h1>
-                      </li>
+                      <li>b.Aplicável apenas para clientes que não tenham nenhum cadastro na Cielo de API e-commerce 3.0</li>
                     </ul>
                   </li>
                 </ul>
@@ -220,6 +218,66 @@ e pontos de atenção importantes.</p>
       </li>
     </ul>
   </li>
+  <li><strong>5.Criação de pedido com base em uma oferta escolhida</strong>
+    <ul>
+      <li>a.Deverão ser enviadas as informações cadastrais do cliente junto com a oferta escolhida</li>
+      <li>b.As informações passarão por validações cadastrais regulatórias e de negócio.</li>
+      <li>c.É preciso que algumas consistências sejam levadas em consideração no envio das informações para que o pedido possa ser criado com sucesso:
+        <ul>
+          <li>i.Geral:
+            <ul>
+              <li>É necessários que todos os campos obrigatórios sejam enviados e estejam com os formatos esperados.</li>
+            </ul>
+          </li>
+          <li>ii.Dados principais - CPF/CNPJ
+            <ul>
+              <li>Não serão aceitos pedidos com CPF/CNPJ distintos daqueles enviados no momento da consulta da oferta.</li>
+            </ul>
+          </li>
+          <li>iii.Oferta:
+            <ul>
+              <li>É necessário que o ID da oferta enviado seja equivalente aos IDs disponibilizados anteriormente.</li>
+            </ul>
+          </li>
+          <li>iv.Dados de Pagamento:
+            <ul>
+              <li>1.Se a oferta escolhida for com o tipo de recebimento em D0, a escolha para o método de pagamento das vendas deverá ser de Conta Digital.
+                <ul>
+                  <li>Para Conta Digital, existem restrições de Natureza Jurídica (clientes PJ).</li>
+                </ul>
+              </li>
+              <li>2.Se a oferta escolhida for com o tipo de recebimento em D2 ou sem antecipação de recebíveis, a escolha para o método de pagamento das vendas deverá ser de Domicílio Bancário.</li>
+            </ul>
+          </li>
+          <li>v.Endereços
+            <ul>
+              <li>1.O estabelecimento a ser credenciado poderá escolher por uma opção de entrega distinta do endereço comercial. Para isto, o endereço de entrega deverá ser contemplado no campo “deliveryData”.</li>
+              <li>2.Não serão aceitos pedidos com CEP comercial distinto daqueles enviados no momento da consulta da oferta.</li>
+            </ul>
+          </li>
+          <li>vi.Telefones
+            <ul>
+              <li>É obrigatório enviar pelo menos um telefone do tipo celular</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>6.Consulta de pedido</strong></li>
+  <li><strong>7.Tracking de pedido</strong></li>
+  <li><strong>8.Coleta de consentimento</strong>
+    <ul>
+      <li>a.Processo obrigatório para canais cadastrados como auto afiliação.</li>
+      <li>b.O momento ideal para realizar a consulta de documentos para opt-in é após o envio do pedido dado que todos os dadoscadastrais já estarão coletados.</li>
+    </ul>
+  </li>
+  <li><strong>9.Notificações de alterações de status do pedido via webhook</strong></li>
+</ul>
+
+<h1 id="glossário">Glossário</h1>
+
+<ul>
   <li><strong>MDR (Merchant Discount Rate)</strong> é a taxa que os estabelecimentos pagam para as credenciadoras de cartão de crédito para que eles possam aceitar pagamentos via cartão de crédito ou débito;</li>
   <li><strong>MCC (Merchant Category Code)</strong> é um número de quatro dígitos registrado na ISO 18245 para serviços financeiros de varejo. O MCC é utilizado para classificar o negócio pelo tipo fornecido de bens ou serviços;</li>
   <li><strong>RR (Receba Rápido)</strong> é uma taxa que os estabelecimentos pagam para receber suas vendas antes do fluxo padrão de liquidação;</li>
