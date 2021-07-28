@@ -115,9 +115,10 @@ A solução API foi desenvolvida com a tecnologia REST, que é padrão de mercad
 
 Entre outras características, os atributos que mais se destacam na plataforma Cielo de Comercialização Unificada:
 
-* **Simplicidade**: o protocolo utilizado é puramente o HTTPS.
-* **Credenciais de acesso**: o parceiro e/ou canal receberá credenciais de acesso (cliente ID e client Secret), disponibilizado pela Cielo, e deverá informar em toda solicitação.
+* **Simplicidade:** o protocolo utilizado é puramente o HTTPS.
+* **Credenciais de acesso:** o parceiro e/ou canal receberá credenciais de acesso (cliente ID e client Secret), disponibilizado pela Cielo, e deverá informar em toda solicitação.
 Segurança: a troca de informações se dá sempre entre o Servidor do parceiro/canal e da Cielo.
+* **Segurança:** a troca de informações se dá sempre entre o Servidor do parceiro/canal e da Cielo.
 
 # Ambientes Disponíveis
 
@@ -133,13 +134,13 @@ Para solicitar credenciais, entre em contato com o ponto focal do time comercial
 
 # Autenticação
 
-Para realizar qualquer acesso às APIs será necessário obter um token de segurança a partir de autenticação oAuth, utilizando o **client_id** e **client_secret**. Este token de segurança deverá ser enviado no header das demais operações, e deve ser renovado periodicamente.
+Para realizar qualquer acesso às APIs será necessário obter um token de segurança a partir de autenticação oAuth, utilizando o `client_id` e `client_secret`. Este token de segurança deverá ser enviado no header das demais operações, e deve ser renovado periodicamente.
 
 Segue um exemplo de requisição de obtenção do token de segurança:
 
 ## Request
 
-**Authorization Basic Base64(client_id e client_secret concatenado com ":" e codificado em base64)**
+**Authorization Basic Base64(`client_id` e `client_secret` concatenado com ":" e codificado em base64)**
 
 ```json
 curl --location --request POST 'https://api2.cielo.com.br/v2/oauth/token'
@@ -164,16 +165,16 @@ curl --location --request POST 'https://api2.cielo.com.br/v2/oauth/token'
 
 A API de comercialização foi modelada com base nos conceitos de ofertas e pedidos. Atendendo a esses conceitos básicos, é permitido que o canal seja flexível para oferecer uma experiência diferenciada ao usuário. As necessidades de interação com o cliente serão detalhadas a seguir:
 
-## Consulta e apresentação de ofertas para um cliente ou prospect
+## 1 - Consulta e apresentação de ofertas para um cliente ou prospect
 
-O canal deverá utilizar a operação **GET /offers** para obter as ofertas disponíveis para determinado estabelecimento. Uma oferta irá conter toda alista de serviços e produtos com suas respectivas condições. Caberá ao canal coletar as informações de entrada para a consulta e com o retorno,apresentar as condições de cada oferta para que o usuário possa escolher entre uma delas.
+O canal deverá utilizar a operação `GET /offers` para obter as ofertas disponíveis para determinado estabelecimento. Uma oferta irá conter toda alista de serviços e produtos com suas respectivas condições. Caberá ao canal coletar as informações de entrada para a consulta e com o retorno,apresentar as condições de cada oferta para que o usuário possa escolher entre uma delas.
 
 ### Dados de entrada:
 
 Para que seja possível direcionar a melhor oferta para o cliente, alguns dados de entrada são obrigatórios para essa operação, e deverão serobtidos pelo canal junto ao cliente, prospect ou intermediador:
 
 * `taxId`: CPF ou CNPJ do estabelecimento;
-* `businessTypeCode`: É o código do tipo de negócio pelo qual o estabelecimento está interessado. A lista completa de tipos de negócio pode ser consultada pela operação **GET /business-types** 
+* `businessTypeCode`: É o código do tipo de negócio pelo qual o estabelecimento está interessado. A lista completa de tipos de negócio pode ser consultada pela operação `GET /business-types` 
 
 * Exemplo de um tipo de negócio:
 
@@ -208,11 +209,10 @@ Cada tipo de negócio pode possuir campos específicos obrigatórios (mandatoryF
   * **RENT**(aluguel);
   * **SALE**(venda);
 * `totalPaymentValue`: É o valor de faturamento mensal estimado em reais;
-
 * `zipCode`: É o CEP do endereço do estabelecimento;
-* `merchantCategoryCode`: É o código do ramo de atividade do estabelecimento. O canal poderá acessar a lista de todos os ramos de atividades permitidos para pessoas físicas pela operação **GET /merchant-category-codes**. Essa informação será obrigatória apenas para pessoa física, visto que para pessoa jurídica será coletada a informação cadastrada na Receita Federal (CNAE Primário); 
+* `merchantCategoryCode`: É o código do ramo de atividade do estabelecimento. O canal poderá acessar a lista de todos os ramos de atividades permitidos para pessoas físicas pela operação `GET /merchant-category-codes`. Essa informação será obrigatória apenas para pessoa física, visto que para pessoa jurídica será coletada a informação cadastrada na Receita Federal (CNAE Primário); 
  
-Cada tipo de negócio também possui filtros adicionais (**filters**). Caso sejam informados, poderão direcionar uma oferta mais personalizada para o cliente.
+Cada tipo de negócio também possui filtros adicionais (`filters`). Caso sejam informados, poderão direcionar uma oferta mais personalizada para o cliente.
 
 Exemplo: Se enviarmos os query params abaixo, a API irá filtrar ofertas com o serviço “Receba Rápido” e com “Meta por faturamento”:
-/v1/offers?filter=**RECEBA_RAPIDO**&filter=**META_POR_FATURAMENTO**
+/v1/offers?filter=`RECEBA_RAPIDO`&filter=`META_POR_FATURAMENTO`
