@@ -311,9 +311,10 @@ e pontos de atenção importantes.</p>
 <p>Entre outras características, os atributos que mais se destacam na plataforma Cielo de Comercialização Unificada:</p>
 
 <ul>
-  <li><strong>Simplicidade</strong>: o protocolo utilizado é puramente o HTTPS.</li>
-  <li><strong>Credenciais de acesso</strong>: o parceiro e/ou canal receberá credenciais de acesso (cliente ID e client Secret), disponibilizado pela Cielo, e deverá informar em toda solicitação.
+  <li><strong>Simplicidade:</strong> o protocolo utilizado é puramente o HTTPS.</li>
+  <li><strong>Credenciais de acesso:</strong> o parceiro e/ou canal receberá credenciais de acesso (cliente ID e client Secret), disponibilizado pela Cielo, e deverá informar em toda solicitação.
 Segurança: a troca de informações se dá sempre entre o Servidor do parceiro/canal e da Cielo.</li>
+  <li><strong>Segurança:</strong> a troca de informações se dá sempre entre o Servidor do parceiro/canal e da Cielo.</li>
 </ul>
 
 <h1 id="ambientes-disponíveis">Ambientes Disponíveis</h1>
@@ -351,13 +352,13 @@ Segurança: a troca de informações se dá sempre entre o Servidor do parceiro/
 
 <h1 id="autenticação">Autenticação</h1>
 
-<p>Para realizar qualquer acesso às APIs será necessário obter um token de segurança a partir de autenticação oAuth, utilizando o <strong>client_id</strong> e <strong>client_secret</strong>. Este token de segurança deverá ser enviado no header das demais operações, e deve ser renovado periodicamente.</p>
+<p>Para realizar qualquer acesso às APIs será necessário obter um token de segurança a partir de autenticação oAuth, utilizando o <code class="language-plaintext highlighter-rouge">client_id</code> e <code class="language-plaintext highlighter-rouge">client_secret</code>. Este token de segurança deverá ser enviado no header das demais operações, e deve ser renovado periodicamente.</p>
 
 <p>Segue um exemplo de requisição de obtenção do token de segurança:</p>
 
 <h2 id="request">Request</h2>
 
-<p><strong>Authorization Basic Base64(client_id e client_secret concatenado com “:” e codificado em base64)</strong></p>
+<p><strong>Authorization Basic Base64(<code class="language-plaintext highlighter-rouge">client_id</code> e <code class="language-plaintext highlighter-rouge">client_secret</code> concatenado com “:” e codificado em base64)</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">curl</span><span class="w"> </span><span class="err">--location</span><span class="w"> </span><span class="err">--request</span><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="err">'https://api</span><span class="mi">2</span><span class="err">.cielo.com.br/v</span><span class="mi">2</span><span class="err">/oauth/token'</span><span class="w">
 </span><span class="err">\</span><span class="w">
@@ -380,9 +381,9 @@ Segurança: a troca de informações se dá sempre entre o Servidor do parceiro/
 
 <p>A API de comercialização foi modelada com base nos conceitos de ofertas e pedidos. Atendendo a esses conceitos básicos, é permitido que o canal seja flexível para oferecer uma experiência diferenciada ao usuário. As necessidades de interação com o cliente serão detalhadas a seguir:</p>
 
-<h2 id="consulta-e-apresentação-de-ofertas-para-um-cliente-ou-prospect">Consulta e apresentação de ofertas para um cliente ou prospect</h2>
+<h2 id="1---consulta-e-apresentação-de-ofertas-para-um-cliente-ou-prospect">1 - Consulta e apresentação de ofertas para um cliente ou prospect</h2>
 
-<p>O canal deverá utilizar a operação <strong>GET /offers</strong> para obter as ofertas disponíveis para determinado estabelecimento. Uma oferta irá conter toda alista de serviços e produtos com suas respectivas condições. Caberá ao canal coletar as informações de entrada para a consulta e com o retorno,apresentar as condições de cada oferta para que o usuário possa escolher entre uma delas.</p>
+<p>O canal deverá utilizar a operação <code class="language-plaintext highlighter-rouge">GET /offers</code> para obter as ofertas disponíveis para determinado estabelecimento. Uma oferta irá conter toda alista de serviços e produtos com suas respectivas condições. Caberá ao canal coletar as informações de entrada para a consulta e com o retorno,apresentar as condições de cada oferta para que o usuário possa escolher entre uma delas.</p>
 
 <h3 id="dados-de-entrada">Dados de entrada:</h3>
 
@@ -391,7 +392,7 @@ Segurança: a troca de informações se dá sempre entre o Servidor do parceiro/
 <ul>
   <li><code class="language-plaintext highlighter-rouge">taxId</code>: CPF ou CNPJ do estabelecimento;</li>
   <li>
-    <p><code class="language-plaintext highlighter-rouge">businessTypeCode</code>: É o código do tipo de negócio pelo qual o estabelecimento está interessado. A lista completa de tipos de negócio pode ser consultada pela operação <strong>GET /business-types</strong></p>
+    <p><code class="language-plaintext highlighter-rouge">businessTypeCode</code>: É o código do tipo de negócio pelo qual o estabelecimento está interessado. A lista completa de tipos de negócio pode ser consultada pela operação <code class="language-plaintext highlighter-rouge">GET /business-types</code></p>
   </li>
   <li>Exemplo de um tipo de negócio:</li>
 </ul>
@@ -429,17 +430,15 @@ Segurança: a troca de informações se dá sempre entre o Servidor do parceiro/
       <li><strong>SALE</strong>(venda);</li>
     </ul>
   </li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">totalPaymentValue</code>: É o valor de faturamento mensal estimado em reais;</p>
-  </li>
+  <li><code class="language-plaintext highlighter-rouge">totalPaymentValue</code>: É o valor de faturamento mensal estimado em reais;</li>
   <li><code class="language-plaintext highlighter-rouge">zipCode</code>: É o CEP do endereço do estabelecimento;</li>
-  <li><code class="language-plaintext highlighter-rouge">merchantCategoryCode</code>: É o código do ramo de atividade do estabelecimento. O canal poderá acessar a lista de todos os ramos de atividades permitidos para pessoas físicas pela operação <strong>GET /merchant-category-codes</strong>. Essa informação será obrigatória apenas para pessoa física, visto que para pessoa jurídica será coletada a informação cadastrada na Receita Federal (CNAE Primário);</li>
+  <li><code class="language-plaintext highlighter-rouge">merchantCategoryCode</code>: É o código do ramo de atividade do estabelecimento. O canal poderá acessar a lista de todos os ramos de atividades permitidos para pessoas físicas pela operação <code class="language-plaintext highlighter-rouge">GET /merchant-category-codes</code>. Essa informação será obrigatória apenas para pessoa física, visto que para pessoa jurídica será coletada a informação cadastrada na Receita Federal (CNAE Primário);</li>
 </ul>
 
-<p>Cada tipo de negócio também possui filtros adicionais (<strong>filters</strong>). Caso sejam informados, poderão direcionar uma oferta mais personalizada para o cliente.</p>
+<p>Cada tipo de negócio também possui filtros adicionais (<code class="language-plaintext highlighter-rouge">filters</code>). Caso sejam informados, poderão direcionar uma oferta mais personalizada para o cliente.</p>
 
 <p>Exemplo: Se enviarmos os query params abaixo, a API irá filtrar ofertas com o serviço “Receba Rápido” e com “Meta por faturamento”:
-/v1/offers?filter=<strong>RECEBA_RAPIDO</strong>&amp;filter=<strong>META_POR_FATURAMENTO</strong></p>
+/v1/offers?filter=<code class="language-plaintext highlighter-rouge">RECEBA_RAPIDO</code>&amp;filter=<code class="language-plaintext highlighter-rouge">META_POR_FATURAMENTO</code></p>
 
 </div>
 
