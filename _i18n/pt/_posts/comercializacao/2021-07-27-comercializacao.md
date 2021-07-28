@@ -28,7 +28,7 @@ e pontos de atenção importantes.
     * ii. Ramo de atividade (apenas PF)
     * iii. CEP Comercial
     * iv. Indicador de Receba Rápido (RR)
-     * Caso seja escolhido receber ofertas com Receba Rápido, será necessário informar um indicador adicional:Indicador de Liquidação via Cartão Pré-Pago. Esse campo irá influenciar, principalmente, na geração de ofertas do tipo D0 ou D2.
+    * Caso seja escolhido receber ofertas com Receba Rápido, será necessário informar um indicador adicional:Indicador de Liquidação via Cartão Pré-Pago. Esse campo irá influenciar, principalmente, na geração de ofertas do tipo D0 ou D2.
 
 # Glossário
 
