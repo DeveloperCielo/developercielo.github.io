@@ -20,13 +20,13 @@ e pontos de atenção importantes.
 # Funcionalidades contempladas atualmente na API:
 
 * Consulta de ramos de atividade permitidos (aplicável apenas a Pessoa Física)
-** No caso de PJ, consideraremos o ramo declarado na receita federal (CNAE Primário)
+* No caso de PJ, consideraremos o ramo declarado na receita federal (CNAE Primário)
 * Consulta de bancos permitidos para liquidação
 * Consulta de tipos de negócio e respectivos filtros de oferta:
-** Exemplos de filtros de ofertas:
-*** Faturamento Mensal
-*** Ramo de atividade (apenas PF)
-*** CEP Comercial
-*** Indicador de Receba Rápido (RR)
-*** Indicador de meta de faturamento
-*** entre outros
+  * Exemplos de filtros de ofertas:
+  * Faturamento Mensal
+  * Ramo de atividade (apenas PF)
+  * CEP Comercial
+  * Indicador de Receba Rápido (RR)
+  * Indicador de meta de faturamento
+  * entre outros
