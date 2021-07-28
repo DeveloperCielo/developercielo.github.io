@@ -80,3 +80,21 @@ e pontos de atenção importantes.
 * **Merchants ou ECs** são os estabelecimentos comerciais cadastrados na Cielo; Canal de comercialização é a ferramenta pelo qual o estabelecimento poderá realizar a contratação de produtos e serviços na Cielo. Exemplos: Site da Cielo, App de clientes, App da área comercial;
 * **Parceiro** é a entidade ou agente externo que está autorizado e facilita a comercialização de produtos e serviços da Cielo;
 * **Webhook** é um recurso usado na internet para que uma ferramenta (ou aplicativo) se comunique com outra ferramenta, fornecendo dados em tempo real sempre que um evento acontecer. Desta forma os dois sistemas realizam troca de informações sem que nenhuma ação externa precise ser realizada.
+
+# Característica da API
+
+A solução API foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como:
+* ASP
+* Net
+* Java
+* PHP
+* Ruby
+* Python
+
+> Não deve ser enviado no formato XML.
+
+Entre outras características, os atributos que mais se destacam na plataforma Cielo de Comercialização Unificada:
+
+* **Simplicidade**: o protocolo utilizado é puramente o HTTPS.
+* **Credenciais de acesso**: o parceiro e/ou canal receberá credenciais de acesso (cliente ID e client Secret), disponibilizado pela Cielo, e deverá informar em toda solicitação.
+Segurança: a troca de informações se dá sempre entre o Servidor do parceiro/canal e da Cielo.
