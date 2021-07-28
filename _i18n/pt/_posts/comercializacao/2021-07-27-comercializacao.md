@@ -154,10 +154,10 @@ curl --location --request POST 'https://api2.cielo.com.br/v2/oauth/token'
 
 ```json
 {
-"access_token": "{access_token}",
-"refresh_token": "{refresh_token}",
-"token_type": "access_token",
-"expires_in": {expiration_time}
+   "access_token":"{access_token}",
+   "refresh_token":"{refresh_token}",
+   "token_type":"access_token",
+   "expires_in":"{expiration_time}"
 }
 ```
 
@@ -180,25 +180,25 @@ Para que seja possível direcionar a melhor oferta para o cliente, alguns dados 
 
 ```json
 {
-"code": "CARD_MACHINE_PAYMENTS",
-"description": "Pagamento por meio de máquina de cartão",
-"mandatoryFields": [
-"taxId",
-"dealTypeFilter",
-"totalPaymentVolume",
-"zipCode",
-"merchantCategoryCode"
-],
-"filters": [
-{
-"code": "RECEBA_RAPIDO",
-"description": "Ofertas com Receba Rápido"
-},
-{
-"code": "META_FATURAMENTO",
-"description": "Ofertas com meta de faturamento mensal"
-}
-]
+   "code":"CARD_MACHINE_PAYMENTS",
+   "description":"Pagamento por meio de máquina de cartão",
+   "mandatoryFields":[
+      "taxId",
+      "dealTypeFilter",
+      "totalPaymentVolume",
+      "zipCode",
+      "merchantCategoryCode"
+   ],
+   "filters":[
+      {
+         "code":"RECEBA_RAPIDO",
+         "description":"Ofertas com Receba Rápido"
+      },
+      {
+         "code":"META_FATURAMENTO",
+         "description":"Ofertas com meta de faturamento mensal"
+      }
+   ]
 }
 ```
 
