@@ -98,3 +98,14 @@ Entre outras características, os atributos que mais se destacam na plataforma C
 * **Simplicidade**: o protocolo utilizado é puramente o HTTPS.
 * **Credenciais de acesso**: o parceiro e/ou canal receberá credenciais de acesso (cliente ID e client Secret), disponibilizado pela Cielo, e deverá informar em toda solicitação.
 Segurança: a troca de informações se dá sempre entre o Servidor do parceiro/canal e da Cielo.
+
+# Ambientes Disponíveis
+Para utilizar as APIs, as requisições devem ser executadas utilizando as respectivas credenciais dos ambientes de Labs, Sandbox e Produção.
+
+Para solicitar credenciais, entre em contato com o ponto focal do time comercial da Cielo e informe para quais ambientes são necessárias credenciais. Será necessário informar o nome e e-mail da pessoa ou caixa de e-mail do grupo de pessoas que precisam receber essa credencial para o acesso à API. Esse mesmo e-mail deverá ser utilizado para a criação de uma nova conta em nosso portal de desenvolvedores (https://desenvolvedores.cielo.com.br/api-portal/ ). Para verificar qual foi a credencial gerada, acesse a conta criada e verifique o seu o Client-Id.
+
+|Ambiente|Descrição|Endpoint|
+|---|---|---|
+|**Labs**|Destinado à realização de testes com parceiros e demais canais da Cielo. Utiliza mocks para simular o retorno das operações. As operações não são executadas em ambientes reais.|https://api2.cielo.com.br/labs/commercialization-api/v1|
+|**Sandbox**|Destinado à realização de testes com parceiros e demais canaisda Cielo. As operações são executadas em ambiente real, porém não produtivo.|https://api2.cielo.com.br/sandbox/commercialization-api/v1|
+|**Produção**|É o ambiente transacional integrado ao ambiente da Cielo. As operações realizadas nesse ambiente são reais e não podem ser desfeitas.|https://api2.cielo.com.br/commercialization-api/v1|
