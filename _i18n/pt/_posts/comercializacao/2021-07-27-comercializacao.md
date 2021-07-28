@@ -110,3 +110,32 @@ Para solicitar credenciais, entre em contato com o ponto focal do time comercial
 |**Labs**|Destinado à realização de testes com parceiros e demais canais da Cielo. Utiliza mocks para simular o retorno das operações. As operações não são executadas em ambientes reais.|https://api2.cielo.com.br/labs/commercialization-api/v1|
 |**Sandbox**|Destinado à realização de testes com parceiros e demais canaisda Cielo. As operações são executadas em ambiente real, porém não produtivo.|https://api2.cielo.com.br/sandbox/commercialization-api/v1|
 |**Produção**|É o ambiente transacional integrado ao ambiente da Cielo. As operações realizadas nesse ambiente são reais e não podem ser desfeitas.|https://api2.cielo.com.br/commercialization-api/v1|
+
+# Autenticação
+
+Para realizar qualquer acesso às APIs será necessário obter um token de segurança a partir de autenticação oAuth, utilizando o **client_id** e **client_secret**. Este token de segurança deverá ser enviado no header das demais operações, e deve ser renovado periodicamente.
+
+Segue um exemplo de requisição de obtenção do token de segurança:
+
+## Request
+
+**Authorization Basic Base64(client_id e client_secret concatenado com ":" e codificado em base64)**
+
+```curl
+curl --location --request POST 'https://api2.cielo.com.br/v2/oauth/token'
+\
+--header 'Authorization: Basic base64 \
+--header 'Content-Type: text/plain' \
+--data-raw '{"grant_type": "client_credentials"}'
+```
+
+## Respose
+
+```json
+{
+"access_token": "{access_token}",
+"refresh_token": "{refresh_token}",
+"token_type": "access_token",
+"expires_in": {expiration_time}
+}
+```
