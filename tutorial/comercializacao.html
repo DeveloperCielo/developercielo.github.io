@@ -370,10 +370,10 @@ Segurança: a troca de informações se dá sempre entre o Servidor do parceiro/
 <h2 id="respose">Respose</h2>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-</span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{access_token}"</span><span class="p">,</span><span class="w">
-</span><span class="nl">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{refresh_token}"</span><span class="p">,</span><span class="w">
-</span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"access_token"</span><span class="p">,</span><span class="w">
-</span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">expiration_time</span><span class="p">}</span><span class="w">
+   </span><span class="nl">"access_token"</span><span class="p">:</span><span class="s2">"{access_token}"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"refresh_token"</span><span class="p">:</span><span class="s2">"{refresh_token}"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"token_type"</span><span class="p">:</span><span class="s2">"access_token"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="s2">"{expiration_time}"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -398,25 +398,25 @@ Segurança: a troca de informações se dá sempre entre o Servidor do parceiro/
 </ul>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-</span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CARD_MACHINE_PAYMENTS"</span><span class="p">,</span><span class="w">
-</span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pagamento por meio de máquina de cartão"</span><span class="p">,</span><span class="w">
-</span><span class="nl">"mandatoryFields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-</span><span class="s2">"taxId"</span><span class="p">,</span><span class="w">
-</span><span class="s2">"dealTypeFilter"</span><span class="p">,</span><span class="w">
-</span><span class="s2">"totalPaymentVolume"</span><span class="p">,</span><span class="w">
-</span><span class="s2">"zipCode"</span><span class="p">,</span><span class="w">
-</span><span class="s2">"merchantCategoryCode"</span><span class="w">
-</span><span class="p">],</span><span class="w">
-</span><span class="nl">"filters"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-</span><span class="p">{</span><span class="w">
-</span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RECEBA_RAPIDO"</span><span class="p">,</span><span class="w">
-</span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ofertas com Receba Rápido"</span><span class="w">
-</span><span class="p">},</span><span class="w">
-</span><span class="p">{</span><span class="w">
-</span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"META_FATURAMENTO"</span><span class="p">,</span><span class="w">
-</span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ofertas com meta de faturamento mensal"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+   </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"CARD_MACHINE_PAYMENTS"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Pagamento por meio de máquina de cartão"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"mandatoryFields"</span><span class="p">:[</span><span class="w">
+      </span><span class="s2">"taxId"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"dealTypeFilter"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"totalPaymentVolume"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"zipCode"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"merchantCategoryCode"</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nl">"filters"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"RECEBA_RAPIDO"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Ofertas com Receba Rápido"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"META_FATURAMENTO"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Ofertas com meta de faturamento mensal"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
