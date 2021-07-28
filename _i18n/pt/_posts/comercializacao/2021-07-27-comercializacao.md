@@ -24,9 +24,9 @@ e pontos de atenção importantes.
 * Consulta de bancos permitidos para liquidação
 * Consulta de tipos de negócio e respectivos filtros de oferta:
   * Exemplos de filtros de ofertas:
-  * Faturamento Mensal
-  * Ramo de atividade (apenas PF)
-  * CEP Comercial
-  * Indicador de Receba Rápido (RR)
-  * Indicador de meta de faturamento
-  * entre outros
+    * Faturamento Mensal
+    * Ramo de atividade (apenas PF)
+    * CEP Comercial
+    * Indicador de Receba Rápido (RR)
+    * Indicador de meta de faturamento
+    * entre outros
