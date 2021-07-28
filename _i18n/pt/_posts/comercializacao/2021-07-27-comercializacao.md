@@ -19,10 +19,10 @@ e pontos de atenção importantes.
 
 # Funcionalidades contempladas atualmente na API:
 
-* 1.**Consulta de ramos de atividade permitidos (aplicável apenas a Pessoa Física)**
+* **1.Consulta de ramos de atividade permitidos (aplicável apenas a Pessoa Física)**
   * No caso de PJ, consideraremos o ramo declarado na receita federal (CNAE Primário)
-* 2.**Consulta de bancos permitidos para liquidação**
-* 3.**Consulta de tipos de negócio e respectivos filtros de oferta:**
+* **2.Consulta de bancos permitidos para liquidação**
+* **3.Consulta de tipos de negócio e respectivos filtros de oferta:**
   * a.Exemplos de filtros de ofertas:
     * i.Faturamento Mensal
     * ii.Ramo de atividade (apenas PF)
@@ -38,7 +38,7 @@ e pontos de atenção importantes.
       * 2.Pagamentos para sua loja virtual
       * 3.Pagamentos para seu e-commerce customizado
     * iii.entre outros
-* 4.**Disponibilização de ofertas ao canal**
+* **4.Disponibilização de ofertas ao canal**
   * a.O canal irá receber ofertas conforme filtros e tipo de negócio escolhido
   * b.Tipos de negócio:
     * i.Pagamentos com máquina de cartão
@@ -60,6 +60,32 @@ e pontos de atenção importantes.
         * Disponibilizar credenciais para API e-commerce 3.0
           * a.As condições comerciais serão aplicadas conforme o ramo de atividade do cliente, podendoenvolver MDR
           * b.Aplicável apenas para clientes que não tenham nenhum cadastro na Cielo de API e-commerce 3.0
+* **5.Criação de pedido com base em uma oferta escolhida**
+  * a.Deverão ser enviadas as informações cadastrais do cliente junto com a oferta escolhida
+  * b.As informações passarão por validações cadastrais regulatórias e de negócio.
+  * c.É preciso que algumas consistências sejam levadas em consideração no envio das informações para que o pedido possa ser criado com sucesso:
+    * i.Geral:
+      * É necessários que todos os campos obrigatórios sejam enviados e estejam com os formatos esperados.
+    * ii.Dados principais - CPF/CNPJ
+      * Não serão aceitos pedidos com CPF/CNPJ distintos daqueles enviados no momento da consulta da oferta.
+    * iii.Oferta:
+      * É necessário que o ID da oferta enviado seja equivalente aos IDs disponibilizados anteriormente.
+    * iv.Dados de Pagamento:
+      * 1.Se a oferta escolhida for com o tipo de recebimento em D0, a escolha para o método de pagamento das vendas deverá ser de Conta Digital.
+        * Para Conta Digital, existem restrições de Natureza Jurídica (clientes PJ).
+      * 2.Se a oferta escolhida for com o tipo de recebimento em D2 ou sem antecipação de recebíveis, a escolha para o método de pagamento das vendas deverá ser de Domicílio Bancário.
+    * v.Endereços
+      * 1.O estabelecimento a ser credenciado poderá escolher por uma opção de entrega distinta do endereço comercial. Para isto, o endereço de entrega deverá ser contemplado no campo “deliveryData”.
+      * 2.Não serão aceitos pedidos com CEP comercial distinto daqueles enviados no momento da consulta da oferta.
+    * vi.Telefones
+      * É obrigatório enviar pelo menos um telefone do tipo celular
+* **6.Consulta de pedido**
+* **7.Tracking de pedido**
+* **8.Coleta de consentimento**
+  * a.Processo obrigatório para canais cadastrados como auto afiliação.
+  * b.O momento ideal para realizar a consulta de documentos para opt-in é após o envio do pedido dado que todos os dadoscadastrais já estarão coletados.
+* **9.Notificações de alterações de status do pedido via webhook**
+          
 # Glossário
 
 * **MDR (Merchant Discount Rate)** é a taxa que os estabelecimentos pagam para as credenciadoras de cartão de crédito para que eles possam aceitar pagamentos via cartão de crédito ou débito;
