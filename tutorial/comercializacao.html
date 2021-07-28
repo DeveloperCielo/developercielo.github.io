@@ -323,6 +323,71 @@ Segurança: a troca de informações se dá sempre entre o Servidor do parceiro/
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<h1 id="utilização">Utilização</h1>
+
+<p>A API de comercialização foi modelada com base nos conceitos de ofertas e pedidos. Atendendo a esses conceitos básicos, é permitido que o canal seja flexível para oferecer uma experiência diferenciada ao usuário. As necessidades de interação com o cliente serão detalhadas a seguir:</p>
+
+<h2 id="consulta-e-apresentação-de-ofertas-para-um-cliente-ou-prospect">Consulta e apresentação de ofertas para um cliente ou prospect</h2>
+
+<p>O canal deverá utilizar a operação <strong>GET /offers</strong> para obter as ofertas disponíveis para determinado estabelecimento. Uma oferta irá conter toda alista de serviços e produtos com suas respectivas condições. Caberá ao canal coletar as informações de entrada para a consulta e com o retorno,apresentar as condições de cada oferta para que o usuário possa escolher entre uma delas.</p>
+
+<h3 id="dados-de-entrada">Dados de entrada:</h3>
+
+<p>Para que seja possível direcionar a melhor oferta para o cliente, alguns dados de entrada são obrigatórios para essa operação, e deverão serobtidos pelo canal junto ao cliente, prospect ou intermediador:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">taxId</code>: CPF ou CNPJ do estabelecimento;</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">businessTypeCode</code>: É o código do tipo de negócio pelo qual o estabelecimento está interessado. A lista completa de tipos de negócio pode ser consultada pela operação <strong>GET /business-types</strong></p>
+  </li>
+  <li>Exemplo de um tipo de negócio:</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CARD_MACHINE_PAYMENTS"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pagamento por meio de máquina de cartão"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"mandatoryFields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="s2">"taxId"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"dealTypeFilter"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"totalPaymentVolume"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"zipCode"</span><span class="p">,</span><span class="w">
+</span><span class="s2">"merchantCategoryCode"</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nl">"filters"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RECEBA_RAPIDO"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ofertas com Receba Rápido"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"META_FATURAMENTO"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ofertas com meta de faturamento mensal"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Cada tipo de negócio pode possuir campos específicos obrigatórios (mandatoryFields) que devem ser também coletados para possibilitar a consulta de ofertas. Segue abaixo a relação dos possíveis campos obrigatórios que podem ser solicitados de acordo com o tipo de negócio escolhido:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">dealType</code>: É o tipo de modalidade de negociação de um produto. Opções disponíveis:
+    <ul>
+      <li><strong>LENDING</strong> (comodato);</li>
+      <li><strong>RENT</strong>(aluguel);</li>
+      <li><strong>SALE</strong>(venda);</li>
+    </ul>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">totalPaymentValue</code>: É o valor de faturamento mensal estimado em reais;</p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">zipCode</code>: É o CEP do endereço do estabelecimento;</li>
+  <li><code class="language-plaintext highlighter-rouge">merchantCategoryCode</code>: É o código do ramo de atividade do estabelecimento. O canal poderá acessar a lista de todos os ramos de atividades permitidos para pessoas físicas pela operação <strong>GET /merchant-category-codes</strong>. Essa informação será obrigatória apenas para pessoa física, visto que para pessoa jurídica será coletada a informação cadastrada na Receita Federal (CNAE Primário);</li>
+</ul>
+
+<p>Cada tipo de negócio também possui filtros adicionais (<strong>filters</strong>). Caso sejam informados, poderão direcionar uma oferta mais personalizada para o cliente.</p>
+
+<p>Exemplo: Se enviarmos os query params abaixo, a API irá filtrar ofertas com o serviço “Receba Rápido” e com “Meta por faturamento”:
+/v1/offers?filter=<strong>RECEBA_RAPIDO</strong>&amp;filter=<strong>META_POR_FATURAMENTO</strong></p>
+
 </div>
 
 
