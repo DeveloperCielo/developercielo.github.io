@@ -45,3 +45,17 @@ e pontos de atenção importantes.
         * Catálogo com 3 ofertas, conforme perfil do cliente (p. exemplo faturamento e ramo de atividade), podendo envolver MDR, RR, valor do aluguel, meta de faturamento e modelo de maquina de cartão
         * Aplicável apenas para clientes que não tenham nenhum cadastro na Cielo de maquina de cartão com cobrança de aluguel
   * Pagamentos por meios digitais
+    * Pagamentos para vendas pontuais e através de redes sociais
+      * Disponibilizar credenciais para geração de link de pagamento
+        * Catálogo com planos de benefício (emissão de boleto e consulta antifraude): gratuito, inicial,mega e especial
+        * As condições comerciais serão aplicadas conforme o ramo de atividade do cliente, podendo envolver MDR e valor do plano de benefício
+        * Aplicável apenas para clientes que não tenham nenhum cadastro na Cielo de link de pagamento
+  * Pagamentos para sua loja virtual
+    * Disponibilizar credenciais para API de checkout
+      * Catálogo com planos de benefício (emissão de boleto e consulta antifraude): gratuito, inicial,mega e especial
+      * As condições comerciais serão aplicadas conforme o ramo de atividade do cliente, podendoenvolver MDR e valor do plano de benefício
+      * Aplicável apenas para clientes que não tenham nenhum cadastro na Cielo de API Checkout
+  * Pagamentos para seu e-commerce customizado
+    *  Disponibilizar credenciais para API e-commerce 3.0
+       * As condições comerciais serão aplicadas conforme o ramo de atividade do cliente, podendo envolver MDR
+       * Aplicável apenas para clientes que não tenham nenhum cadastro na Cielo de API e-commerce 3.0
