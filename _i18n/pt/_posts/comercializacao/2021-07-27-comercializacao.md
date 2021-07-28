@@ -33,7 +33,15 @@ e pontos de atenção importantes.
 * Exemplos de tipos de negócio:
   * Pagamentos com máquina de cartão
   * Pagamentos por meios digitais
-   * Pagamentos para vendas pontuais e através de redes sociais
-   * Pagamentos para sua loja virtual
-   * Pagamentos para seu e-commerce customizado
-   * entre outros
+    * Pagamentos para vendas pontuais e através de redes sociais
+    * Pagamentos para sua loja virtual
+    * Pagamentos para seu e-commerce customizado
+    * entre outros
+* Disponibilização de ofertas ao canal
+  * O canal irá receber ofertas conforme filtros e tipo de negócio escolhido
+  * Tipos de negócio:
+    * Pagamentos com máquina de cartão
+      * Disponibilizar uma máquina de cartão com cobrança de aluguel
+        * Catálogo com 3 ofertas, conforme perfil do cliente (p. exemplo faturamento e ramo de atividade), podendo envolver MDR, RR, valor do aluguel, meta de faturamento e modelo de maquina de cartão
+        * Aplicável apenas para clientes que não tenham nenhum cadastro na Cielo de maquina de cartão com cobrança de aluguel
+  * Pagamentos por meios digitais
