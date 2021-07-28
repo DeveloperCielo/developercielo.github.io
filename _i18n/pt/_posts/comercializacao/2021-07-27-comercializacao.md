@@ -219,7 +219,7 @@ Exemplo: Se enviarmos os query params abaixo, a API irá filtrar ofertas com o s
 
 > **Atenção**Todos os campos são de preenchimento obrigatório para solicitações de pessoa jurídica (exceto o zipCode e merchantCategoryCode) e pessoa física vinculadas aos tipos de negócio pagamento com máquina de cartão e pagamento digital.
 
-## Dados saida
+### Dados saida
 
 Ao executar a operação, deverá ser retornada uma lista de ofertas com os seguintes campos:
 
@@ -260,6 +260,39 @@ meta de faturamento",
 "description":"Cobrança de aluguel sem atingimento de
 meta de faturamento",
 "monthlyPayment": 123.45
+}
+]
+```
+  * Cobrança de taxa (`rate`): valor que será cobrado de forma unitária
+
+```json
+[
+{
+"description":"Cobrança de taxa de antecipação sobre
+vendas",
+"rate":2.01
+}
+]
+```
+
+  * Cobrança mensal (`monthlyPayment`): valor que será cobrado mensalmente durante a validade do contrato/oferta
+
+```json
+[
+{
+"description":"Cobrança de aluguel",
+"monthlyPayment":100.01
+}
+]
+```
+
+  * Pagamento único (`price`): valor que será cobrado uma única vez e após aceite da oferta
+
+```json
+[
+{
+"description":"Pagamento único",
+"price":1234.01
 }
 ]
 ```
