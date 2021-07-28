@@ -30,3 +30,10 @@ e pontos de atenção importantes.
     * Indicador de Receba Rápido (RR)
     * Indicador de meta de faturamento
     * entre outros
+* Exemplos de tipos de negócio:
+  * Pagamentos com máquina de cartão
+  * Pagamentos por meios digitais
+   * Pagamentos para vendas pontuais e através de redes sociais
+   * Pagamentos para sua loja virtual
+   * Pagamentos para seu e-commerce customizado
+   * entre outros
