@@ -121,7 +121,7 @@ Segue um exemplo de requisição de obtenção do token de segurança:
 
 **Authorization Basic Base64(client_id e client_secret concatenado com ":" e codificado em base64)**
 
-```curl
+```json
 curl --location --request POST 'https://api2.cielo.com.br/v2/oauth/token'
 \
 --header 'Authorization: Basic base64 \
