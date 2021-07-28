@@ -169,7 +169,7 @@ A API de comercialização foi modelada com base nos conceitos de ofertas e pedi
 
 O canal deverá utilizar a operação `GET /offers` para obter as ofertas disponíveis para determinado estabelecimento. Uma oferta irá conter toda alista de serviços e produtos com suas respectivas condições. Caberá ao canal coletar as informações de entrada para a consulta e com o retorno,apresentar as condições de cada oferta para que o usuário possa escolher entre uma delas.
 
-### Dados de entrada:
+### Dados de entrada
 
 Para que seja possível direcionar a melhor oferta para o cliente, alguns dados de entrada são obrigatórios para essa operação, e deverão serobtidos pelo canal junto ao cliente, prospect ou intermediador:
 
@@ -216,3 +216,50 @@ Cada tipo de negócio também possui filtros adicionais (`filters`). Caso sejam 
 
 Exemplo: Se enviarmos os query params abaixo, a API irá filtrar ofertas com o serviço “Receba Rápido” e com “Meta por faturamento”:
 /v1/offers?filter=`RECEBA_RAPIDO`&filter=`META_POR_FATURAMENTO`
+
+> **Atenção**Todos os campos são de preenchimento obrigatório para solicitações de pessoa jurídica (exceto o zipCode e merchantCategoryCode) e pessoa física vinculadas aos tipos de negócio pagamento com máquina de cartão e pagamento digital.
+
+## Dados saida
+
+Ao executar a operação, deverá ser retornada uma lista de ofertas com os seguintes campos:
+
+> **Atenção** Consulte o ponto focal da Cielo para verificar qual o limite mínimo de faturamento de cada modalidade/dealtype para liberação/recebimento
+de oferta. Não serão todos os clientes, principalmente com faturamento baixo, que terão ofertas para qualquer modalidade/dealtype.
+
+* `offerId`: identificador da oferta
+* `expirationDate`: data de expiração da oferta
+* `description`: descrição da oferta
+* `registrationRequired`: indica que o canal deverá solicitar os dados cadastrais ao cliente e submetê-los ao na criação do pedido (`POST
+/order`)
+* `items`: listados os princiais produtos e serviços ofertados, com a seguinte estrutura:
+* `itemId`: identificador do item
+* `name`: nome do item
+* `imageUrl`: url da imagem do produto ou serviço
+* `allowedPayoutMethods`: tipos de domicílios permitidos para a liquidação
+* `mandatoryConfiguration`: lista dos campos de configuração obrigatórias para o item (a serem informados no momento da criação
+do pedido)
+* `dealStatus`: status de contratação de cada item (principais e adicionais). Essa informação poderá ser utilizada para comunicação mais assertiva ao cliente/agente credenciador.
+  * Abaixo opções:
+    * NEW (contratação de novo produto ou serviço)
+    * UPDATE (cliente já possui o produto ou serviço e sofrerá alterações caso aceite a oferta)
+    * REMOVAL (cliente já possui o produto ou serviço, mas será removido/substituido caso aceite a oferta)
+    * NO_CHANGES (cliente já possui o produto ou serviço e não sofrerá alterações caso aceite a oferta)
+* `additionalItems`: lista de itens adicionais e complementares da oferta/item principal (herda a mesma estrutura de um item)
+* `conditions`: lista de condições de contratação do item. Existem diferentes possibilidades de formato da condição, para informar a forma de cobrança, tempo de vigência, limites, etc. Seguem alguns Exemplos de condições:
+  * Valor de faturamento mínimo (`minimumTotalPaymentVolume`): Para ofertas baseadas em meta de faturamento, esta condição pode informar o limite para que a condição seja aplicada:
+
+```json
+[
+{
+"description":"Cobrança de aluguel com atingimento de
+meta de faturamento",
+"monthlyPayment": 0,
+"minimumTotalPaymentVolume": 10000
+},
+{
+"description":"Cobrança de aluguel sem atingimento de
+meta de faturamento",
+"monthlyPayment": 123.45
+}
+]
+```
