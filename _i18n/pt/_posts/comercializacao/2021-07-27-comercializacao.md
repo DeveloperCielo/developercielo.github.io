@@ -139,3 +139,60 @@ curl --location --request POST 'https://api2.cielo.com.br/v2/oauth/token'
 "expires_in": {expiration_time}
 }
 ```
+
+# Utilização
+
+A API de comercialização foi modelada com base nos conceitos de ofertas e pedidos. Atendendo a esses conceitos básicos, é permitido que o canal seja flexível para oferecer uma experiência diferenciada ao usuário. As necessidades de interação com o cliente serão detalhadas a seguir:
+
+## Consulta e apresentação de ofertas para um cliente ou prospect
+
+O canal deverá utilizar a operação **GET /offers** para obter as ofertas disponíveis para determinado estabelecimento. Uma oferta irá conter toda alista de serviços e produtos com suas respectivas condições. Caberá ao canal coletar as informações de entrada para a consulta e com o retorno,apresentar as condições de cada oferta para que o usuário possa escolher entre uma delas.
+
+### Dados de entrada:
+
+Para que seja possível direcionar a melhor oferta para o cliente, alguns dados de entrada são obrigatórios para essa operação, e deverão serobtidos pelo canal junto ao cliente, prospect ou intermediador:
+
+* `taxId`: CPF ou CNPJ do estabelecimento;
+* `businessTypeCode`: É o código do tipo de negócio pelo qual o estabelecimento está interessado. A lista completa de tipos de negócio pode ser consultada pela operação **GET /business-types** 
+
+* Exemplo de um tipo de negócio:
+
+```json
+{
+"code": "CARD_MACHINE_PAYMENTS",
+"description": "Pagamento por meio de máquina de cartão",
+"mandatoryFields": [
+"taxId",
+"dealTypeFilter",
+"totalPaymentVolume",
+"zipCode",
+"merchantCategoryCode"
+],
+"filters": [
+{
+"code": "RECEBA_RAPIDO",
+"description": "Ofertas com Receba Rápido"
+},
+{
+"code": "META_FATURAMENTO",
+"description": "Ofertas com meta de faturamento mensal"
+}
+]
+}
+```
+
+Cada tipo de negócio pode possuir campos específicos obrigatórios (mandatoryFields) que devem ser também coletados para possibilitar a consulta de ofertas. Segue abaixo a relação dos possíveis campos obrigatórios que podem ser solicitados de acordo com o tipo de negócio escolhido:
+
+* `dealType`: É o tipo de modalidade de negociação de um produto. Opções disponíveis:
+  * **LENDING** (comodato);
+  * **RENT**(aluguel);
+  * **SALE**(venda);
+* `totalPaymentValue`: É o valor de faturamento mensal estimado em reais;
+
+* `zipCode`: É o CEP do endereço do estabelecimento;
+* `merchantCategoryCode`: É o código do ramo de atividade do estabelecimento. O canal poderá acessar a lista de todos os ramos de atividades permitidos para pessoas físicas pela operação **GET /merchant-category-codes**. Essa informação será obrigatória apenas para pessoa física, visto que para pessoa jurídica será coletada a informação cadastrada na Receita Federal (CNAE Primário); 
+ 
+Cada tipo de negócio também possui filtros adicionais (**filters**). Caso sejam informados, poderão direcionar uma oferta mais personalizada para o cliente.
+
+Exemplo: Se enviarmos os query params abaixo, a API irá filtrar ofertas com o serviço “Receba Rápido” e com “Meta por faturamento”:
+/v1/offers?filter=**RECEBA_RAPIDO**&filter=**META_POR_FATURAMENTO**
