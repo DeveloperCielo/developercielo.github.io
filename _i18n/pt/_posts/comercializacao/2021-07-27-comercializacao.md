@@ -246,7 +246,8 @@ do pedido)
     * NO_CHANGES (cliente já possui o produto ou serviço e não sofrerá alterações caso aceite a oferta)
 * `additionalItems`: lista de itens adicionais e complementares da oferta/item principal (herda a mesma estrutura de um item)
 * `conditions`: lista de condições de contratação do item. Existem diferentes possibilidades de formato da condição, para informar a forma de cobrança, tempo de vigência, limites, etc. Seguem alguns Exemplos de condições:
-  * Valor de faturamento mínimo (`minimumTotalPaymentVolume`): Para ofertas baseadas em meta de faturamento, esta condição pode informar o limite para que a condição seja aplicada:
+
+* Valor de faturamento mínimo (`minimumTotalPaymentVolume`): Para ofertas baseadas em meta de faturamento, esta condição pode informar o limite para que a condição seja aplicada:
 
 ```json
 [
@@ -263,7 +264,8 @@ meta de faturamento",
 }
 ]
 ```
-  * Cobrança de taxa (`rate`): valor que será cobrado de forma unitária
+
+* Cobrança de taxa (`rate`): valor que será cobrado de forma unitária
 
 ```json
 [
@@ -275,7 +277,7 @@ vendas",
 ]
 ```
 
-  * Cobrança mensal (`monthlyPayment`): valor que será cobrado mensalmente durante a validade do contrato/oferta
+* Cobrança mensal (`monthlyPayment`): valor que será cobrado mensalmente durante a validade do contrato/oferta
 
 ```json
 [
@@ -286,7 +288,7 @@ vendas",
 ]
 ```
 
-  * Pagamento único (`price`): valor que será cobrado uma única vez e após aceite da oferta
+* Pagamento único (`price`): valor que será cobrado uma única vez e após aceite da oferta
 
 ```json
 [
