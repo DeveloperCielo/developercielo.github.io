@@ -296,6 +296,33 @@ Segurança: a troca de informações se dá sempre entre o Servidor do parceiro/
   </tbody>
 </table>
 
+<h1 id="autenticação">Autenticação</h1>
+
+<p>Para realizar qualquer acesso às APIs será necessário obter um token de segurança a partir de autenticação oAuth, utilizando o <strong>client_id</strong> e <strong>client_secret</strong>. Este token de segurança deverá ser enviado no header das demais operações, e deve ser renovado periodicamente.</p>
+
+<p>Segue um exemplo de requisição de obtenção do token de segurança:</p>
+
+<h2 id="request">Request</h2>
+
+<p><strong>Authorization Basic Base64(client_id e client_secret concatenado com “:” e codificado em base64)</strong></p>
+
+<pre><code class="language-curl">curl --location --request POST 'https://api2.cielo.com.br/v2/oauth/token'
+\
+--header 'Authorization: Basic base64 \
+--header 'Content-Type: text/plain' \
+--data-raw '{"grant_type": "client_credentials"}'
+</code></pre>
+
+<h2 id="respose">Respose</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{access_token}"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{refresh_token}"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"access_token"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">expiration_time</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
 </div>
 
 
