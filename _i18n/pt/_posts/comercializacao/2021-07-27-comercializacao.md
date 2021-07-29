@@ -217,14 +217,14 @@ Cada tipo de negócio também possui filtros adicionais (`filters`). Caso sejam 
 Exemplo: Se enviarmos os query params abaixo, a API irá filtrar ofertas com o serviço “Receba Rápido” e com “Meta por faturamento”:
 /v1/offers?filter=`RECEBA_RAPIDO`&filter=`META_POR_FATURAMENTO`
 
-> **Atenção**Todos os campos são de preenchimento obrigatório para solicitações de pessoa jurídica (exceto o zipCode e merchantCategoryCode) e pessoa física vinculadas aos tipos de negócio pagamento com máquina de cartão e pagamento digital.
+> Todos os campos são de preenchimento obrigatório para solicitações de pessoa jurídica (exceto o zipCode e merchantCategoryCode) e pessoa física vinculadas aos tipos de negócio pagamento com máquina de cartão e pagamento digital.
 
 ### Dados saida
 
 Ao executar a operação, deverá ser retornada uma lista de ofertas com os seguintes campos:
 
-> **Atenção** Consulte o ponto focal da Cielo para verificar qual o limite mínimo de faturamento de cada modalidade/dealtype para liberação/recebimento
-de oferta. Não serão todos os clientes, principalmente com faturamento baixo, que terão ofertas para qualquer modalidade/dealtype.
+<aside class="warning"><b>Consulte o ponto focal da Cielo para verificar qual o limite mínimo de faturamento de cada modalidade/dealtype para liberação/recebimento
+de oferta. Não serão todos os clientes, principalmente com faturamento baixo, que terão ofertas para qualquer modalidade/dealtype.</b></aside>
 
 * `offerId`: identificador da oferta
 * `expirationDate`: data de expiração da oferta
@@ -466,11 +466,11 @@ CREDIT_IN_INSTALLMENTS",
 
 * Quantidade de dias para liquidação (`settlementTiming`): quantidade de dias que o cliente receberá suas venda em seu domicílio
 
-> **Atenção:** Sempre que o campo `settlementTiming` for retornado em uma oferta, será cobrada uma taxa referente a antecipação do prazo de
+> Sempre que o campo `settlementTiming` for retornado em uma oferta, será cobrada uma taxa referente a antecipação do prazo de
 recebimento (campo `anticipationRates`).
 
-> **Atenção:** Quando o campo `settlementTiming` não constar na oferta, o cliente receberá no prazo padrão e conforme parcelamento, ou seja, venda
-parcelada em 3x, receberá em 30/60/90 dias
+<aside class="warning"><b>Quando o campo `settlementTiming` não constar na oferta, o cliente receberá no prazo padrão e conforme parcelamento, ou seja, venda
+parcelada em 3x, receberá em 30/60/90 dias.</b></aside>
 
 ```json
 [
