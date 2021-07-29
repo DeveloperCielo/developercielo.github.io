@@ -790,10 +790,12 @@ parcelada em 3x, receberá em 30/60/90 dias.</aside>
 
 <p><strong>Possíveis tipos de configuração:Possíveis tipos de configuração:</strong></p>
 
-<p><code class="language-plaintext highlighter-rouge">websiteUrl</code>: URL do site (e-commerce)
-<code class="language-plaintext highlighter-rouge">isMerchantProcessRecurringPayments</code>: indica se o estabelecimento utilizará o serviço para processar pagamentos recorrentes com seus clientes
-<code class="language-plaintext highlighter-rouge">isMerchantPaymentsFacilitator</code>: indica se o estabelecimento utilizará o serviço para atuação como facilitador de pagamentos.
-<code class="language-plaintext highlighter-rouge">payoutData</code>: são os dados necessários para liquidação (recebimento das vendas) conforme tipo de domicílio identificado na ofertas (allowed <code class="language-plaintext highlighter-rouge">PayoutMethods</code>). Atualmente a Cielo permite o recebimento por meio de um domicílio bancário ou cartão pré-pago</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">websiteUrl</code>: URL do site (e-commerce)</li>
+  <li><code class="language-plaintext highlighter-rouge">isMerchantProcessRecurringPayments</code>: indica se o estabelecimento utilizará o serviço para processar pagamentos recorrentes com seus clientes</li>
+  <li><code class="language-plaintext highlighter-rouge">isMerchantPaymentsFacilitator</code>: indica se o estabelecimento utilizará o serviço para atuação como facilitador de pagamentos.</li>
+  <li><code class="language-plaintext highlighter-rouge">payoutData</code>: são os dados necessários para liquidação (recebimento das vendas) conforme tipo de domicílio identificado na ofertas (allowed <code class="language-plaintext highlighter-rouge">PayoutMethods</code>). Atualmente a Cielo permite o recebimento por meio de um domicílio bancário ou cartão pré-pago</li>
+</ul>
 
 <blockquote>
   <p>Caso na oferta venha a opção <code class="language-plaintext highlighter-rouge">BANK_ACCOUNT</code>, deverá ser consumido o serviço <code class="language-plaintext highlighter-rouge">GET/payout-eligible-banks</code> para escolha do domicílio bancários mais adequado ao cliente.</p>
