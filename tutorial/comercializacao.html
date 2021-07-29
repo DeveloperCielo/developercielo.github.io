@@ -749,6 +749,45 @@ parcelada em 3x, receberá em 30/60/90 dias.</aside>
 
 <p>No header da requisição deverão ser informados os seguintes dados:</p>
 
+<p><code class="language-plaintext highlighter-rouge">externalId</code>: é o identificação da requisição de criação do pedido, deve ser um único para cada pedido, e gerado e controlado peloconsumidor da API. Será utilizado para controle de idempotência.
+<code class="language-plaintext highlighter-rouge">intermediaryId</code>: é o identificador da pessoa que negocia a comercialização em nome do prospect ou cliente.</p>
+
+<p>O body da requisição contém as seguintes informações</p>
+
+<p><code class="language-plaintext highlighter-rouge">offerId</code>: id da oferta escolhida (recebido na etapa 1 - consulta de ofertas);
+<code class="language-plaintext highlighter-rouge">itemsConfiguration</code>: lista de configurações dos itens da oferta escolhida. Verificar o campo <code class="language-plaintext highlighter-rouge">mandatoryConfiguration</code> da oferta para identificar quais informações são necessárias.</p>
+
+<p>Exemplo:</p>
+
+<p>No item abaixo que consta na oferta escolhida, é solicitado o campo <code class="language-plaintext highlighter-rouge">payoutData</code> (dados de liquidação):</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"itemId"</span><span class="p">:</span><span class="s2">"2d4e212f-545f-4d97-a07a-0bb01a9b3345"</span><span class="err">,</span><span class="w">
+</span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Vendas com máquina de cartão de crédito e débito"</span><span class="err">,</span><span class="w">
+</span><span class="nl">"mandatoryConfiguration"</span><span class="p">:[</span><span class="w">
+</span><span class="s2">"payoutData"</span><span class="w">
+</span><span class="p">]</span><span class="err">,</span><span class="w">
+</span><span class="err">...</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Dessa forma, devemos formatar o campo <code class="language-plaintext highlighter-rouge">itemsConfiguration</code> com o campo solicitado:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"itemsConfiguration"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"itemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2d4e212f-545f-4d97-a07a-0bb01a9b3345"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"payoutData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"payoutMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BANK_ACCOUNT"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"targetBankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"bankNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"237"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"bankBranchNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12249"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"accountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14623-7"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"accountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHECKING"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
 </div>
 
 
