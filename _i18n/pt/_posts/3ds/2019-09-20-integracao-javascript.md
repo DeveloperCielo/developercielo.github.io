@@ -289,17 +289,17 @@ Utilize os cartões de **teste** abaixo para simular diversos cenários no ambie
 
 |**CARTÃO**|**BANDEIRA**|**RESULTADO**|**DESCRIÇÃO**|  
 |---|---|---|---|     
-|4000 0000 0000 1091<br>5200 0000 0000 1096<br>6505 0500 0000 1091|VISA<br>MASTER<br>ELO|SUCCESS|Autenticação com desafio e portador autenticou com sucesso|  
-|4000 0000 0000 1109<br>5200 0000 0000 1104<br>6505 0500 0000 1109|VISA<br>MASTER<br>ELO|FAILURE|Autenticação com desafio e portador autenticou com falha|  
-|4000 0000 0000 1117<br>5200 0000 0000 1112<br>6505 0500 0000 1117|VISA<br>MASTER<br>ELO|UNENROLLED|Autenticação com desafio indisponível no momento|  
-|4000 0000 0000 1125<br>5200 0000 0000 1120<br>6505 0500 0000 1125|VISA<br>MASTER<br>ELO|UNENROLLED|Erro de sistema durante a etapa de autenticação|  
+|4000000000001091<br>5200000000001096<br>6505050000001091|VISA<br>MASTER<br>ELO|SUCCESS|Autenticação com desafio e portador autenticou com sucesso|  
+|4000000000001109<br>5200000000001104<br>6505050000001109|VISA<br>MASTER<br>ELO|FAILURE|Autenticação com desafio e portador autenticou com falha|  
+|4000000000001117<br>5200000000001112<br>6505050000001117|VISA<br>MASTER<br>ELO|UNENROLLED|Autenticação com desafio indisponível no momento|  
+|4000000000001125<br>5200000000001120<br>6505050000001125|VISA<br>MASTER<br>ELO|UNENROLLED|Erro de sistema durante a etapa de autenticação|  
 
 ## Cartões de Teste sem Desafio
 
 |**CARTÃO**|**BANDEIRA**|**RESULTADO**|**DESCRIÇÃO**|  
 |---|---|---|---|     
-|4000 0000 0000 1000<br>5200 0000 0000 1005<br>6505 0500 0000 1000|VISA<br>MASTER<br>ELO|SUCCESS|Autenticação sem desafio e portador autenticou com sucesso|  
-|4000 0000 0000 1018<br>5200 0000 0000 1013<br>6505 0500 0000 1018|VISA<br>MASTER<br>ELO|FAILURE|Autenticação sem desafio e portador autenticou com falha| 
+|4000000000001000<br>5200000000001005<br>6505050000001000|VISA<br>MASTER<br>ELO|SUCCESS|Autenticação sem desafio e portador autenticou com sucesso|  
+|4000000000001018<br>5200000000001013<br>6505050000001018|VISA<br>MASTER<br>ELO|FAILURE|Autenticação sem desafio e portador autenticou com falha| 
 
 ## Autorização com Autenticação
 
