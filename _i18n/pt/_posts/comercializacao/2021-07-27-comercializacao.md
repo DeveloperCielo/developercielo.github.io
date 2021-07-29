@@ -506,3 +506,44 @@ A operação `POST /orders` deverá ser utilizada para criar o pedido.
 Após a escolha da oferta, o canal precisará coletar as informações necessárias para a criação do pedido. Parte das informações que o canal deverá solicitar são informados no próprio payload da oferta.
 
 No header da requisição deverão ser informados os seguintes dados:
+
+`externalId`: é o identificação da requisição de criação do pedido, deve ser um único para cada pedido, e gerado e controlado peloconsumidor da API. Será utilizado para controle de idempotência.
+`intermediaryId`: é o identificador da pessoa que negocia a comercialização em nome do prospect ou cliente.
+
+O body da requisição contém as seguintes informações
+
+`offerId`: id da oferta escolhida (recebido na etapa 1 - consulta de ofertas);
+`itemsConfiguration`: lista de configurações dos itens da oferta escolhida. Verificar o campo `mandatoryConfiguration` da oferta para identificar quais informações são necessárias.
+
+Exemplo:
+
+No item abaixo que consta na oferta escolhida, é solicitado o campo `payoutData` (dados de liquidação):
+
+```json
+"itemId":"2d4e212f-545f-4d97-a07a-0bb01a9b3345",
+"name":"Vendas com máquina de cartão de crédito e débito",
+"mandatoryConfiguration":[
+"payoutData"
+],
+...
+```
+
+Dessa forma, devemos formatar o campo `itemsConfiguration` com o campo solicitado:
+
+```json
+"itemsConfiguration": [
+{
+"itemId": "2d4e212f-545f-4d97-a07a-0bb01a9b3345",
+"payoutData": {
+"payoutMethod": "BANK_ACCOUNT",
+"targetBankAccount": {
+"bankNumber": "237",
+"bankBranchNumber": "12249",
+"accountNumber": "14623-7",
+"accountType": "CHECKING"
+}
+}
+}
+...
+]
+```
