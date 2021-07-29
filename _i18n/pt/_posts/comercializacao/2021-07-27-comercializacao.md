@@ -381,7 +381,7 @@ CREDIT_IN_INSTALLMENTS",
 ]
 ```
 
-* Lista de taxas segmentadas de antecipação (anticipationRates): taxas, por bandeira/brand, produto/transactionProfile (crédito a vista e crédito parcelado) e número de parcela/installments, referente a antecipação do recebimento do cliente em seu domicílio
+* Lista de taxas segmentadas de antecipação (`anticipationRates`): taxas, por bandeira/brand, produto/transactionProfile (crédito a vista e crédito parcelado) e número de parcela/installments, referente a antecipação do recebimento do cliente em seu domicílio
 
 ```json
 [
@@ -463,3 +463,46 @@ CREDIT_IN_INSTALLMENTS",
 }
 ]
 ```
+
+* Quantidade de dias para liquidação (`settlementTiming`): quantidade de dias que o cliente receberá suas venda em seu domicílio
+
+> **Atenção:** Sempre que o campo `settlementTiming` for retornado em uma oferta, será cobrada uma taxa referente a antecipação do prazo de
+recebimento (campo `anticipationRates`).
+
+> **Atenção:** Quando o campo `settlementTiming` não constar na oferta, o cliente receberá no prazo padrão e conforme parcelamento, ou seja, venda
+parcelada em 3x, receberá em 30/60/90 dias
+
+```json
+[
+{
+"description": "Taxa de Receba Rápido",
+"rate": 2.1,
+"settlementTiming": 2,
+"conditionDuration": 12
+}
+]
+```
+
+* Quantidade em meses de duração da condição (`conditionDuration`): prazo de duração da oferta, em meses, após aceite e efetivação
+
+```json
+[
+{
+"description": "Taxa de Receba Rápido",
+"settlementTiming": 2,
+"conditionDuration": 12
+}
+]
+```
+
+## 2 - Criação de pedido a partir de uma oferta
+
+O canal precisará coletar a oferta escolhida pelo cliente e, também os dados cadastrais e configurações adicionais de cada serviço que consta na oferta.
+
+A operação `POST /orders` deverá ser utilizada para criar o pedido.
+
+### Dados de Entrada
+
+Após a escolha da oferta, o canal precisará coletar as informações necessárias para a criação do pedido. Parte das informações que o canal deverá solicitar são informados no próprio payload da oferta.
+
+No header da requisição deverão ser informados os seguintes dados:
