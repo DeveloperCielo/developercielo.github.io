@@ -550,10 +550,10 @@ Dessa forma, devemos formatar o campo `itemsConfiguration` com o campo solicitad
 
 **Possíveis tipos de configuração:Possíveis tipos de configuração:**
 
-`websiteUrl`: URL do site (e-commerce)
-`isMerchantProcessRecurringPayments`: indica se o estabelecimento utilizará o serviço para processar pagamentos recorrentes com seus clientes
-`isMerchantPaymentsFacilitator`: indica se o estabelecimento utilizará o serviço para atuação como facilitador de pagamentos.
-`payoutData`: são os dados necessários para liquidação (recebimento das vendas) conforme tipo de domicílio identificado na ofertas (allowed `PayoutMethods`). Atualmente a Cielo permite o recebimento por meio de um domicílio bancário ou cartão pré-pago
+* `websiteUrl`: URL do site (e-commerce)
+* `isMerchantProcessRecurringPayments`: indica se o estabelecimento utilizará o serviço para processar pagamentos recorrentes com seus clientes
+* `isMerchantPaymentsFacilitator`: indica se o estabelecimento utilizará o serviço para atuação como facilitador de pagamentos.
+* `payoutData`: são os dados necessários para liquidação (recebimento das vendas) conforme tipo de domicílio identificado na ofertas (allowed `PayoutMethods`). Atualmente a Cielo permite o recebimento por meio de um domicílio bancário ou cartão pré-pago
 
 > Caso na oferta venha a opção `BANK_ACCOUNT`, deverá ser consumido o serviço `GET/payout-eligible-banks` para escolha do domicílio bancários mais adequado ao cliente.
 
