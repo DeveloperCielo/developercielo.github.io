@@ -441,17 +441,15 @@ Segurança: a troca de informações se dá sempre entre o Servidor do parceiro/
 /v1/offers?filter=<code class="language-plaintext highlighter-rouge">RECEBA_RAPIDO</code>&amp;filter=<code class="language-plaintext highlighter-rouge">META_POR_FATURAMENTO</code></p>
 
 <blockquote>
-  <p><strong>Atenção</strong>Todos os campos são de preenchimento obrigatório para solicitações de pessoa jurídica (exceto o zipCode e merchantCategoryCode) e pessoa física vinculadas aos tipos de negócio pagamento com máquina de cartão e pagamento digital.</p>
+  <p>Todos os campos são de preenchimento obrigatório para solicitações de pessoa jurídica (exceto o zipCode e merchantCategoryCode) e pessoa física vinculadas aos tipos de negócio pagamento com máquina de cartão e pagamento digital.</p>
 </blockquote>
 
 <h3 id="dados-saida">Dados saida</h3>
 
 <p>Ao executar a operação, deverá ser retornada uma lista de ofertas com os seguintes campos:</p>
 
-<blockquote>
-  <p><strong>Atenção</strong> Consulte o ponto focal da Cielo para verificar qual o limite mínimo de faturamento de cada modalidade/dealtype para liberação/recebimento
-de oferta. Não serão todos os clientes, principalmente com faturamento baixo, que terão ofertas para qualquer modalidade/dealtype.</p>
-</blockquote>
+<aside class="warning">Consulte o ponto focal da Cielo para verificar qual o limite mínimo de faturamento de cada modalidade/dealtype para liberação/recebimento
+de oferta. Não serão todos os clientes, principalmente com faturamento baixo, que terão ofertas para qualquer modalidade/dealtype.</aside>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">offerId</code>: identificador da oferta</li>
@@ -621,7 +619,7 @@ CREDIT_IN_INSTALLMENTS"</span><span class="p">,</span><span class="w">
 </span></code></pre></div></div>
 
 <ul>
-  <li>Lista de taxas segmentadas de antecipação (anticipationRates): taxas, por bandeira/brand, produto/transactionProfile (crédito a vista e crédito parcelado) e número de parcela/installments, referente a antecipação do recebimento do cliente em seu domicílio</li>
+  <li>Lista de taxas segmentadas de antecipação (<code class="language-plaintext highlighter-rouge">anticipationRates</code>): taxas, por bandeira/brand, produto/transactionProfile (crédito a vista e crédito parcelado) e número de parcela/installments, referente a antecipação do recebimento do cliente em seu domicílio</li>
 </ul>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
@@ -703,6 +701,53 @@ CREDIT_IN_INSTALLMENTS"</span><span class="p">,</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
+
+<ul>
+  <li>Quantidade de dias para liquidação (<code class="language-plaintext highlighter-rouge">settlementTiming</code>): quantidade de dias que o cliente receberá suas venda em seu domicílio</li>
+</ul>
+
+<blockquote>
+  <p>Sempre que o campo <code class="language-plaintext highlighter-rouge">settlementTiming</code> for retornado em uma oferta, será cobrada uma taxa referente a antecipação do prazo de
+recebimento (campo <code class="language-plaintext highlighter-rouge">anticipationRates</code>).</p>
+</blockquote>
+
+<aside class="warning">Quando o campo `settlementTiming` não constar na oferta, o cliente receberá no prazo padrão e conforme parcelamento, ou seja, venda
+parcelada em 3x, receberá em 30/60/90 dias.</aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Taxa de Receba Rápido"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.1</span><span class="p">,</span><span class="w">
+</span><span class="nl">"settlementTiming"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+</span><span class="nl">"conditionDuration"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>Quantidade em meses de duração da condição (<code class="language-plaintext highlighter-rouge">conditionDuration</code>): prazo de duração da oferta, em meses, após aceite e efetivação</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Taxa de Receba Rápido"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"settlementTiming"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+</span><span class="nl">"conditionDuration"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="2---criação-de-pedido-a-partir-de-uma-oferta">2 - Criação de pedido a partir de uma oferta</h2>
+
+<p>O canal precisará coletar a oferta escolhida pelo cliente e, também os dados cadastrais e configurações adicionais de cada serviço que consta na oferta.</p>
+
+<p>A operação <code class="language-plaintext highlighter-rouge">POST /orders</code> deverá ser utilizada para criar o pedido.</p>
+
+<h3 id="dados-de-entrada-1">Dados de Entrada</h3>
+
+<p>Após a escolha da oferta, o canal precisará coletar as informações necessárias para a criação do pedido. Parte das informações que o canal deverá solicitar são informados no próprio payload da oferta.</p>
+
+<p>No header da requisição deverão ser informados os seguintes dados:</p>
 
 </div>
 
