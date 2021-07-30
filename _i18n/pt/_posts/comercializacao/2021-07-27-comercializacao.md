@@ -752,3 +752,62 @@ Após o canal enviar o pedido, será enviado um dos eventos abaixo:
       "newStatus":"CRIADO"
    }
 ```
+
+* `order-rejected`: informará se o pedido foi rejeitado pela Cielo e o(s) seu(s) respectivo(s) motivo(s)
+
+```json
+{
+   "eventType":"order-created",
+   "eventCreateDate":"2019-04-25T09:27:54.783Z",
+   "eventDetails":{
+      "eventId":"162d8827-ae23-471b-bfa6-2ec7064e40f",
+      "externalId":"uk4231y412hjh2134u12h",
+      "reasons":[
+         {
+            "code":1,
+            "message":"example reason"
+         }
+      ]
+   }
+```
+
+Se o pedido for aceito (`order-created`), o canal poderá acompanhar o tracking do pedido através do evento:
+
+* `order-updated`: informará o andamento/detalhes das etapas do pedido
+
+```json
+{
+   "eventType":"order-updated",
+   "eventCreateDate":"2019-04-25T09:27:54.783Z",
+   "eventDetails":{
+      "eventId":"162d8827-ae23-471b-bfa6-2ec7064e40f",
+      "externalId":"uk4231y412hjh2134u12h",
+      "orderId":"194492435235",
+      "newStatus":"INSUCESSO",
+      "reasons":[
+         {
+            "code":123,
+            "description":"Domicilio bancário inválido"
+         }
+      ],
+      "merchantId":"2323232323",
+      "merchantKey":"kwfmkmfkmfkfw",
+      "clientId":"kwfmkmfkmfkfw",
+      "clientSecret":"afmladfm",
+      "logicalNumbers":[
+         "314431-1",
+         "314431-2"
+      ]
+   }
+}
+```
+
+* `healthcheck`: utilizado para verificar a disponibilidade do serviço do canal para envio dos eventos. Em caso de falha, será suspenso o envio das
+notificações até estabilização; posterior a isso, serão enviadas todas as informações represadas.
+
+```json
+{
+   "eventType":"healthcheck",
+   "eventCreateDate":"2019-04-25T09:27:54.783Z"
+}
+```
