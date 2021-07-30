@@ -1109,6 +1109,166 @@ notificações até estabilização; posterior a isso, serão enviadas todas as 
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<p><strong>Consulta de pedido</strong></p>
+
+<p>O canal poderá utilizar a operação GET /orders para consultar todas as informações do pedido como status, etapas, eventos, alterações de status e seus respectivos itens.</p>
+
+<h3 id="tracking-do-pedido-e-do-item">Tracking do pedido e do item</h3>
+
+<p>O tracking contém as informações de andamento do pedido ou do item do pedido. As informações retornadas no tracking são listadas abaixo:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">currentStatus</code>: Status atual do pedido ou do item</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"currentStatus"</span><span class="p">:{</span><span class="w">
+   </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Sucesso"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">events</code>: Lista de eventos relevantes que demarcam uma mudança de status e de etapa. Todo evento pode possuir uma data e hora de
+ocorrência (<code class="language-plaintext highlighter-rouge">occurrenceTime</code>), status anterior (<code class="language-plaintext highlighter-rouge">previousStatus</code>), status posterior (<code class="language-plaintext highlighter-rouge">nextStatus</code>), etapa anterior (<code class="language-plaintext highlighter-rouge">previousStep</code>) e etapa posterior (
+<code class="language-plaintext highlighter-rouge">nextStep</code>)</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"events"</span><span class="p">:[</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"occurenceTime"</span><span class="p">:</span><span class="s2">"2012-04-23T18:25:43.511Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Pedido criado"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"nextStatus"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Em validação"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"nextStep"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"stepId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Validação"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"occurenceTime"</span><span class="p">:</span><span class="s2">"2012-04-23T18:26:43.511Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Validação concluída"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"previousStatus"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Em validação"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"nextStatus"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Aguardando pagamento"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"previousStep"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"stepId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Validação"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"nextStep"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"stepId"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Pagamento"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"occurenceTime"</span><span class="p">:</span><span class="s2">"2012-04-23T18:26:43.511Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Pagamento realizado"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"previousStatus"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Aguardando pagamento"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"nextStatus"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Em atualização de cadastro"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"previousStep"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"stepId"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Pagamento"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"nextStep"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"stepId"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Cadastro"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"occurenceTime"</span><span class="p">:</span><span class="s2">"2012-04-23T18:27:43.511Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Cadastro concluído"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"previousStatus"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Em atualização de cadastro"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"nextStatus"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Em processamento"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"previousStep"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"stepId"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Cadastro"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"nextStep"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"stepId"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Processamento"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"occurenceTime"</span><span class="p">:</span><span class="s2">"2012-04-23T18:28:43.511Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Processamento concluído"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"previousStatus"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Em processamento"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"nextStatus"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Sucesso"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"previousStep"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"stepId"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Cadastro"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">steps</code>: Lista de etapas que o pedido ou item executou ou irá executar, com seus respectivos status atual (<code class="language-plaintext highlighter-rouge">status</code>) e sequência (<code class="language-plaintext highlighter-rouge">sequence</code>)</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"steps"</span><span class="p">:[</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"stepId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Validação"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sequence"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Sucesso"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"stepId"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Pagamento"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sequence"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Sucesso"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"stepId"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Cadastro"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sequence"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Sucesso"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"stepId"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Processamento"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sequence"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Sucesso"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
 </div>
 
 
