@@ -974,6 +974,79 @@ i. O número deverá conter 9 dígitos e iniciar com 9 | Expressão regular suge
 
 <h2 id="3--coleta-e-registro-de-consentimento">3- Coleta e registro de consentimento</h2>
 
+<p>Para canais de autoatendimento, após a criação do pedido, será necessário realizar a coleta do consentimento do cliente nos termos e no contrato (p. exemplo: política de privacidade, termo de credenciamento, entre outros). Utilize a operação <code class="language-plaintext highlighter-rouge">GET /agreements</code> para listar todos os aceites e termos que devem ser coletados e utilize a operação <code class="language-plaintext highlighter-rouge">POST /agreements</code> para registrar.</p>
+
+<aside class="warning">Para canais de autoatendimento, o pedido não será concluído até o envio do consentimento.<br />Consulte seu ponto focal da Cielo para verificar qual o perfil do canal.</aside>
+
+<blockquote>
+  <p><strong>Observação:</strong> Nos canais operados por um intermediador, a coleta do consentimento será feita em um momento posterior, e diretamente pelo cliente, por meio de outro canal (como por exemplo a área logada do Site da Cielo).<br />Além disso, terá limitação no compartilhamento de informação após a conclusão do pedido, visto que não houve o OPTIN/consentimento nos termos e contratos. Por exemplo: não será compartilhado, via API, as chaves de acesso dos cadastros de e-commerce. Essa
+informação será enviada diretamente por email ao cliente.</p>
+</blockquote>
+
+<h2 id="4--tracking-e-informações-do-pedido">4- Tracking e informações do pedido</h2>
+
+<p>A API de comercialização provê 2 mecanismos para que o canal possa informar o cliente, prospect ou intermediador do andamento do pedido:</p>
+
+<h3 id="notificações-via-webhook">Notificações via webhook</h3>
+
+<p>O parceiro deverá implementar um webhook para receber notificações assíncronas de atualizações de status do pedido.</p>
+
+<ul>
+  <li><strong>Estrutura dos eventos</strong></li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">eventType</code></td>
+      <td>enum</td>
+      <td>S</td>
+      <td>Identificador do evento. Nesse caso os valores possíveis são: order-status-change. Caso o valor for healthcheck, o endpoint deverá responder HTTP 200 indicando que está on-line.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">eventCreateDate</code></td>
+      <td>datetime</td>
+      <td>S</td>
+      <td>Data de criação do evento</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">eventDetails</code></td>
+      <td>Objeto</td>
+      <td>N</td>
+      <td>Este objeto contém detalhes do evento.</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Exemplos de eventos:</li>
+</ul>
+
+<p>Após o canal enviar o pedido, será enviado um dos eventos abaixo:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">order-created</code>: informará se o pedido foi aceito pela Cielo</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"eventType"</span><span class="p">:</span><span class="s2">"order-created"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"eventCreateDate"</span><span class="p">:</span><span class="s2">"2019-04-25T09:27:54.783Z"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"eventDetails"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"eventId"</span><span class="p">:</span><span class="s2">"162d8827-ae23-471b-bfa6-2ec7064e40f"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"externalId"</span><span class="p">:</span><span class="s2">"uk4231y412hjh2134u12h"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"orderId"</span><span class="p">:</span><span class="s2">"194492435235"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"newStatus"</span><span class="p">:</span><span class="s2">"CRIADO"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
 </div>
 
 
