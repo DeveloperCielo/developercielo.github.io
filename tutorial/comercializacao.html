@@ -1047,6 +1047,68 @@ informação será enviada diretamente por email ao cliente.</p>
    </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">order-rejected</code>: informará se o pedido foi rejeitado pela Cielo e o(s) seu(s) respectivo(s) motivo(s)</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"eventType"</span><span class="p">:</span><span class="s2">"order-created"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"eventCreateDate"</span><span class="p">:</span><span class="s2">"2019-04-25T09:27:54.783Z"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"eventDetails"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"eventId"</span><span class="p">:</span><span class="s2">"162d8827-ae23-471b-bfa6-2ec7064e40f"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"externalId"</span><span class="p">:</span><span class="s2">"uk4231y412hjh2134u12h"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reasons"</span><span class="p">:[</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"code"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"message"</span><span class="p">:</span><span class="s2">"example reason"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Se o pedido for aceito (<code class="language-plaintext highlighter-rouge">order-created</code>), o canal poderá acompanhar o tracking do pedido através do evento:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">order-updated</code>: informará o andamento/detalhes das etapas do pedido</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"eventType"</span><span class="p">:</span><span class="s2">"order-updated"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"eventCreateDate"</span><span class="p">:</span><span class="s2">"2019-04-25T09:27:54.783Z"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"eventDetails"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"eventId"</span><span class="p">:</span><span class="s2">"162d8827-ae23-471b-bfa6-2ec7064e40f"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"externalId"</span><span class="p">:</span><span class="s2">"uk4231y412hjh2134u12h"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"orderId"</span><span class="p">:</span><span class="s2">"194492435235"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"newStatus"</span><span class="p">:</span><span class="s2">"INSUCESSO"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reasons"</span><span class="p">:[</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"code"</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Domicilio bancário inválido"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"merchantId"</span><span class="p">:</span><span class="s2">"2323232323"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"merchantKey"</span><span class="p">:</span><span class="s2">"kwfmkmfkmfkfw"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"clientId"</span><span class="p">:</span><span class="s2">"kwfmkmfkmfkfw"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"clientSecret"</span><span class="p">:</span><span class="s2">"afmladfm"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"logicalNumbers"</span><span class="p">:[</span><span class="w">
+         </span><span class="s2">"314431-1"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"314431-2"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">healthcheck</code>: utilizado para verificar a disponibilidade do serviço do canal para envio dos eventos. Em caso de falha, será suspenso o envio das
+notificações até estabilização; posterior a isso, serão enviadas todas as informações represadas.</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"eventType"</span><span class="p">:</span><span class="s2">"healthcheck"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"eventCreateDate"</span><span class="p">:</span><span class="s2">"2019-04-25T09:27:54.783Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
 </div>
 
 
