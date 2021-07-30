@@ -880,19 +880,19 @@ rejeitado pela Cielo.</aside>
   <li><code class="language-plaintext highlighter-rouge">registrationData</code>: grupo de informações com os dados cadastrais do cliente. É obrigatório se na oferta escolhida o campo <code class="language-plaintext highlighter-rouge">registrationRequired</code> estiver como <code class="language-plaintext highlighter-rouge">true</code>.</li>
 </ul>
 
-<aside class="warning">O parceiro/canal deverá garantir que o formato/informações abaixo tenha validação no formulário/APP e que sejam enviadas corretamente (passível de rejeição):
-  1. CPF/CNPJ Cliente: ser o mesmo informado na oferta;
-  2. CPF Proprietário (apenas PJ): ter obrigatoriamente 11 dígitos;
-  3. Inscrição estadual: apenas dado numérico e, em caso de isenção, deixar o campo em branco;
-  4. Nome Proprietário/Nome da Mãe: ter ao menos 2 nomes;
-  5. Data de nascimento: cliente deverá ser maior de 18 anos;
-  5. Email: deve ser um email válido e atendendo a expressão regular ^(("[\w-\s]+")|([\w-]+(?:.[\w-]+))|("[\w-\s]+")([\w-]+(?:.[\w-]+)))(@((?:[\w-]+.)*\w[\w-]{0,66}).([a-z]{2,6}(?:.[a-z]{2})?)$)|(@[?((25[0-5].|2[0-4][0-9].|1[0-9]{2}.|[0-9]{1,2}.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2}).){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})]?$)
-    a. Exemplo: teste@cielo.com.br ou teste@cielo.com
-    b. Email do proprietário: não tem preenchimento obrigatório, porém, se enviado, deverá seguir as validações acima
-    c. Email da companhia: tem preenchimento obrigatório e será validado conforme regras acima
-  7. Telefone: garantir o preenchimento de todas as informações (DDD e número) e atender às seguintes regras:
-    a. Será limitado a 1 número de telefone do tipo celular (mobilePhone = true) e 1 número de telefone do tipo comercial/fixo(mobilePhone = false);
-    b. É obrigatório o envio de número do tipo celular (mobilePhone = true), atendendo aos requisitos:
+<aside class="warning">O parceiro/canal deverá garantir que o formato/informações abaixo tenha validação no formulário/APP e que sejam enviadas corretamente (passível de rejeição):<br />&lt;/br&gt;
+  1. CPF/CNPJ Cliente: ser o mesmo informado na oferta;<br />&lt;/br&gt;
+  2. CPF Proprietário (apenas PJ): ter obrigatoriamente 11 dígitos;<br />&lt;/br&gt;
+  3. Inscrição estadual: apenas dado numérico e, em caso de isenção, deixar o campo em branco;<br />&lt;/br&gt;
+  4. Nome Proprietário/Nome da Mãe: ter ao menos 2 nomes;<br />&lt;/br&gt;
+  5. Data de nascimento: cliente deverá ser maior de 18 anos;<br />&lt;/br&gt;
+  5. Email: deve ser um email válido e atendendo a expressão regular ^(("[\w-\s]+")|([\w-]+(?:.[\w-]+))|("[\w-\s]+")([\w-]+(?:.[\w-]+)))(@((?:[\w-]+.)*\w[\w-]{0,66}).([a-z]{2,6}(?:.[a-z]{2})?)$)|(@[?((25[0-5].|2[0-4][0-9].|1[0-9]{2}.|[0-9]{1,2}.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2}).){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})]?$)<br />&lt;/br&gt;
+    a. Exemplo: teste@cielo.com.br ou teste@cielo.com<br />&lt;/br&gt;
+    b. Email do proprietário: não tem preenchimento obrigatório, porém, se enviado, deverá seguir as validações acima<br />&lt;/br&gt;
+    c. Email da companhia: tem preenchimento obrigatório e será validado conforme regras acima<br />&lt;/br&gt;
+  7. Telefone: garantir o preenchimento de todas as informações (DDD e número) e atender às seguintes regras:<br />&lt;/br&gt;
+    a. Será limitado a 1 número de telefone do tipo celular (mobilePhone = true) e 1 número de telefone do tipo comercial/fixo(mobilePhone = false);<br />&lt;/br&gt;
+    b. É obrigatório o envio de número do tipo celular (mobilePhone = true), atendendo aos requisitos:<br />&lt;/br&gt;
         i. O número deverá conter 9 dígitos e iniciar com 9 | Expressão regular sugerida para validação do campo no formulário: ^[9]{1}[0-9]{8}$.</aside>
 
 </div>
