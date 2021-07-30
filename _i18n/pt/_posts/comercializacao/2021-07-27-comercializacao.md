@@ -620,18 +620,94 @@ rejeitado pela Cielo.</b></aside>
 
 * `registrationData`: grupo de informações com os dados cadastrais do cliente. É obrigatório se na oferta escolhida o campo `registrationRequired` estiver como `true`.
 
-<aside class="warning"><b>O parceiro/canal deverá garantir que o formato/informações abaixo tenha validação no formulário/APP e que sejam enviadas corretamente (passível de rejeição):<br>
+<aside class="warning"><b>O parceiro/canal deverá garantir que o formato/informações abaixo tenha validação no formulário/APP e que sejam enviadas corretamente (passível de rejeição):<br><br>
   
-1.CPF/CNPJ Cliente: ser o mesmo informado na oferta;<br>
-2.CPF Proprietário (apenas PJ): ter obrigatoriamente 11 dígitos;<br>
-3.Inscrição estadual: apenas dado numérico e, em caso de isenção, deixar o campo em branco;<br>
-4.Nome Proprietário/Nome da Mãe: ter ao menos 2 nomes;<br>
-5.Data de nascimento: cliente deverá ser maior de 18 anos;<br>
-6.Email: deve ser um email válido e atendendo a expressão regular ^(("[\w-\s]+")|([\w-]+(?:.[\w-]+))|("[\w-\s]+")([\w-]+(?:.[\w-]+)))(@((?:[\w-]+.)*\w[\w-]{0,66}).([a-z]{2,6}(?:.[a-z]{2})?)$)|(@[?((25[0-5].|2[0-4][0-9].|1[0-9]{2}.|[0-9]{1,2}.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2}).){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})]?$)<br>
-a.Exemplo: teste@cielo.com.br ou teste@cielo.com<br>
-b.Email do proprietário: não tem preenchimento obrigatório, porém, se enviado, deverá seguir as validações acima<br>
-c.Email da companhia: tem preenchimento obrigatório e será validado conforme regras acima<br>
+1. CPF/CNPJ Cliente: ser o mesmo informado na oferta;<br>
+2. CPF Proprietário (apenas PJ): ter obrigatoriamente 11 dígitos;<br>
+3. Inscrição estadual: apenas dado numérico e, em caso de isenção, deixar o campo em branco;<br>
+4. Nome Proprietário/Nome da Mãe: ter ao menos 2 nomes;<br>
+5. Data de nascimento: cliente deverá ser maior de 18 anos;<br>
+6. Email: deve ser um email válido e atendendo a expressão regular ^(("[\w-\s]+")|([\w-]+(?:.[\w-]+))|("[\w-\s]+")([\w-]+(?:.[\w-]+)))(@((?:[\w-]+.)*\w[\w-]{0,66}).([a-z]{2,6}(?:.[a-z]{2})?)$)|(@[?((25[0-5].|2[0-4][0-9].|1[0-9]{2}.|[0-9]{1,2}.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2}).){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})]?$)<br>
+a. Exemplo: teste@cielo.com.br ou teste@cielo.com<br>
+b. Email do proprietário: não tem preenchimento obrigatório, porém, se enviado, deverá seguir as validações acima<br>
+c. Email da companhia: tem preenchimento obrigatório e será validado conforme regras acima<br>
 7. Telefone: garantir o preenchimento de todas as informações (DDD e número) e atender às seguintes regras:<br>
 a. Será limitado a 1 número de telefone do tipo celular (mobilePhone = true) e 1 número de telefone do tipo comercial/fixo(mobilePhone = false);<br>
 b. É obrigatório o envio de número do tipo celular (mobilePhone = true), atendendo aos requisitos:<br>
 i. O número deverá conter 9 dígitos e iniciar com 9 | Expressão regular sugerida para validação do campo no formulário: ^[9]{1}[0-9]{8}$.</b></aside>
+
+* Exemplo de Pessoa Física:
+
+```json
+"registrationData": {
+"individual": {
+"taxId": "34013415020",
+"fullName": "Joaquim Antônio da Cunha Pavão",
+"birthDate": "1976-09-09",
+"motherName": "Maria Dolores Antônio da Cunha",
+"email": "myname@company.com"
+},
+"phones": [
+{
+"countryCode": 55,
+"areaCode": 11,
+"number": 918273645,
+"mobilePhone": true
+}
+],
+"address": {
+"name": "Paulista",
+"type": "Avenida",
+"number": "1200",
+"extraLine": "Apto 251",
+"neighborhood": "Jardins",
+"city": "Sao Paulo",
+"state": "SP",
+"country": "BR",
+"zipCode": "01539010"
+}
+}
+```
+
+* Exemplo de Pessoa Jurídica:
+
+```json
+"registrationData": {
+"company": {
+"taxId": "60957392000103",
+"companyName": "Green Burguers",
+"stateRegistration": "347213796222",
+"email": "mycompany@company.com",
+"companyOwners": [
+{
+"taxId": "34013415020",
+"fullName": "Joaquim Antônio da Cunha Pavão",
+"birthDate": "1976-09-09",
+"motherName": "Maria Dolores Antônio da Cunha",
+"email": "myname@company.com"
+}
+]
+},
+"phones": [
+{
+"countryCode": 55,
+"areaCode": 11,
+"number": 918273645,
+"mobilePhone": true
+}
+],
+"address": {
+"name": "Paulista",
+"type": "Avenida",
+"number": "1200",
+"extraLine": "Apto 251",
+"neighborhood": "Jardins",
+"city": "Sao Paulo",
+"state": "SP",
+"country": "BR",
+"zipCode": "01539010"
+}
+}
+```
+
+### 3- Coleta e registro de consentimento
