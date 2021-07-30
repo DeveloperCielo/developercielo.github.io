@@ -710,4 +710,4 @@ i. O número deverá conter 9 dígitos e iniciar com 9 | Expressão regular suge
 }
 ```
 
-### 3- Coleta e registro de consentimento
+## 3- Coleta e registro de consentimento
