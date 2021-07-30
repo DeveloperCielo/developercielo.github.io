@@ -882,19 +882,97 @@ rejeitado pela Cielo.</aside>
 
 <aside class="warning">O parceiro/canal deverá garantir que o formato/informações abaixo tenha validação no formulário/APP e que sejam enviadas corretamente (passível de rejeição):<br />
   
-1.CPF/CNPJ Cliente: ser o mesmo informado na oferta;<br />
-2.CPF Proprietário (apenas PJ): ter obrigatoriamente 11 dígitos;<br />
-3.Inscrição estadual: apenas dado numérico e, em caso de isenção, deixar o campo em branco;<br />
-4.Nome Proprietário/Nome da Mãe: ter ao menos 2 nomes;<br />
-5.Data de nascimento: cliente deverá ser maior de 18 anos;<br />
-6.Email: deve ser um email válido e atendendo a expressão regular ^(("[\w-\s]+")|([\w-]+(?:.[\w-]+))|("[\w-\s]+")([\w-]+(?:.[\w-]+)))(@((?:[\w-]+.)*\w[\w-]{0,66}).([a-z]{2,6}(?:.[a-z]{2})?)$)|(@[?((25[0-5].|2[0-4][0-9].|1[0-9]{2}.|[0-9]{1,2}.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2}).){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})]?$)<br />
-a.Exemplo: teste@cielo.com.br ou teste@cielo.com<br />
-b.Email do proprietário: não tem preenchimento obrigatório, porém, se enviado, deverá seguir as validações acima<br />
-c.Email da companhia: tem preenchimento obrigatório e será validado conforme regras acima<br />
+1. CPF/CNPJ Cliente: ser o mesmo informado na oferta;<br />
+2. CPF Proprietário (apenas PJ): ter obrigatoriamente 11 dígitos;<br />
+3. Inscrição estadual: apenas dado numérico e, em caso de isenção, deixar o campo em branco;<br />
+4. Nome Proprietário/Nome da Mãe: ter ao menos 2 nomes;<br />
+5. Data de nascimento: cliente deverá ser maior de 18 anos;<br />
+6. Email: deve ser um email válido e atendendo a expressão regular ^(("[\w-\s]+")|([\w-]+(?:.[\w-]+))|("[\w-\s]+")([\w-]+(?:.[\w-]+)))(@((?:[\w-]+.)*\w[\w-]{0,66}).([a-z]{2,6}(?:.[a-z]{2})?)$)|(@[?((25[0-5].|2[0-4][0-9].|1[0-9]{2}.|[0-9]{1,2}.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2}).){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})]?$)<br />
+a. Exemplo: teste@cielo.com.br ou teste@cielo.com<br />
+b. Email do proprietário: não tem preenchimento obrigatório, porém, se enviado, deverá seguir as validações acima<br />
+c. Email da companhia: tem preenchimento obrigatório e será validado conforme regras acima<br />
 7. Telefone: garantir o preenchimento de todas as informações (DDD e número) e atender às seguintes regras:<br />
 a. Será limitado a 1 número de telefone do tipo celular (mobilePhone = true) e 1 número de telefone do tipo comercial/fixo(mobilePhone = false);<br />
 b. É obrigatório o envio de número do tipo celular (mobilePhone = true), atendendo aos requisitos:<br />
 i. O número deverá conter 9 dígitos e iniciar com 9 | Expressão regular sugerida para validação do campo no formulário: ^[9]{1}[0-9]{8}$.</aside>
+
+<ul>
+  <li>Exemplo de Pessoa Física:</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"registrationData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"individual"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"taxId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34013415020"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"fullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joaquim Antônio da Cunha Pavão"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1976-09-09"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"motherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Maria Dolores Antônio da Cunha"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myname@company.com"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"phones"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"countryCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">55</span><span class="p">,</span><span class="w">
+</span><span class="nl">"areaCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+</span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">918273645</span><span class="p">,</span><span class="w">
+</span><span class="nl">"mobilePhone"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paulista"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Avenida"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1200"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"extraLine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apto 251"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jardins"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sao Paulo"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"zipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01539010"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>Exemplo de Pessoa Jurídica:</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"registrationData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"taxId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60957392000103"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"companyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Green Burguers"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"stateRegistration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"347213796222"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mycompany@company.com"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"companyOwners"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"taxId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34013415020"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"fullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joaquim Antônio da Cunha Pavão"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1976-09-09"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"motherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Maria Dolores Antônio da Cunha"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myname@company.com"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"phones"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"countryCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">55</span><span class="p">,</span><span class="w">
+</span><span class="nl">"areaCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+</span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">918273645</span><span class="p">,</span><span class="w">
+</span><span class="nl">"mobilePhone"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paulista"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Avenida"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1200"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"extraLine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apto 251"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jardins"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sao Paulo"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"zipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01539010"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="3--coleta-e-registro-de-consentimento">3- Coleta e registro de consentimento</h3>
 
 </div>
 
