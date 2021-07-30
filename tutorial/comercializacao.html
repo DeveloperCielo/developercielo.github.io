@@ -806,6 +806,80 @@ parcelada em 3x, receberá em 30/60/90 dias.</aside>
 <aside class="warning">Caso na oferta venha apenas a opção `BANK_ACCOUNT`, não poderá ser enviado domicílio cartão pré-pago, caso contrário o pedido será
 rejeitado pela Cielo.</aside>
 
+<ul>
+  <li>Exemplo para recebimento em domicílio bancário:</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"payoutData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"payoutMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BANK_ACCOUNT"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"targetBankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"bankNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"237"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"bankBranchNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12249"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"accountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14623-7"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"accountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHECKING"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>Exemplo para recebimento em cartão pré-pago:</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"payoutData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"payoutMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PREPAID_CARD"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">deliveryData</code>: informações sobre entrega / logística
+    <ul>
+      <li>Existem 2 opções:
+        <ul>
+          <li>In Person: entrega da maquina de imediato pelo agente credenciador mediante aprovação do credenciamento. Neste cenário não teria necessidade de informa o endereço de entrega;</li>
+          <li>Courier Service: entrega da máquina no domicílio do cliente/lojista mediante aprovação do credenciamento. Neste cenário, é obrigatório informar o endereço de entrega.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>Consulte o ponto focal da Cielo para verificar quais perfis de entrega que serão utilizados</p>
+</blockquote>
+
+<ul>
+  <li>Exemplo In Person:</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"deliveryData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"deliveryType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN_PERSON"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>Exemplo Courier Service:</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"deliveryData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"deliveryType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COURIER_SERVICE"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"deliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paulista"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Avenida"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1200"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"extraLine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apto 251"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jardins"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sao Paulo"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"zipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01539010"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">registrationData</code>: grupo de informações com os dados cadastrais do cliente. É obrigatório se na oferta escolhida o campo <code class="language-plaintext highlighter-rouge">registrationRequired</code> estiver como <code class="language-plaintext highlighter-rouge">true</code>.</li>
+</ul>
+
 </div>
 
 
