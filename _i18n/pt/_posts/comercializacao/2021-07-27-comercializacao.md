@@ -501,7 +501,7 @@ O canal precisará coletar a oferta escolhida pelo cliente e, também os dados c
 
 A operação `POST /orders` deverá ser utilizada para criar o pedido.
 
-### Dados de Entrada
+### Dados de Entrada:
 
 Após a escolha da oferta, o canal precisará coletar as informações necessárias para a criação do pedido. Parte das informações que o canal deverá solicitar são informados no próprio payload da oferta.
 
