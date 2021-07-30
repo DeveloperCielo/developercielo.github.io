@@ -561,3 +561,61 @@ Dessa forma, devemos formatar o campo `itemsConfiguration` com o campo solicitad
 
 <aside class="warning"><b>Caso na oferta venha apenas a opção `BANK_ACCOUNT`, não poderá ser enviado domicílio cartão pré-pago, caso contrário o pedido será
 rejeitado pela Cielo.</b></aside>
+
+* Exemplo para recebimento em domicílio bancário:
+
+```json
+"payoutData": {
+"payoutMethod": "BANK_ACCOUNT",
+"targetBankAccount": {
+"bankNumber": "237",
+"bankBranchNumber": "12249",
+"accountNumber": "14623-7",
+"accountType": "CHECKING"
+}
+}
+```
+
+* Exemplo para recebimento em cartão pré-pago:
+
+```json
+"payoutData": {
+"payoutMethod": "PREPAID_CARD"
+}
+```
+
+* `deliveryData`: informações sobre entrega / logística
+  * Existem 2 opções:
+    * In Person: entrega da maquina de imediato pelo agente credenciador mediante aprovação do credenciamento. Neste cenário não teria necessidade de informa o endereço de entrega;
+    * Courier Service: entrega da máquina no domicílio do cliente/lojista mediante aprovação do credenciamento. Neste cenário, é obrigatório informar o endereço de entrega.
+
+> Consulte o ponto focal da Cielo para verificar quais perfis de entrega que serão utilizados
+
+* Exemplo In Person:
+
+```json
+"deliveryData": {
+"deliveryType": "IN_PERSON"
+}
+```
+
+* Exemplo Courier Service:
+
+```json
+"deliveryData": {
+"deliveryType": "COURIER_SERVICE",
+"deliveryAddress": {
+"name": "Paulista",
+"type": "Avenida",
+"number": "1200",
+"extraLine": "Apto 251",
+"neighborhood": "Jardins",
+"city": "Sao Paulo",
+"state": "SP",
+"country": "BR",
+"zipCode": "01539010"
+}
+}
+```
+
+* `registrationData`: grupo de informações com os dados cadastrais do cliente. É obrigatório se na oferta escolhida o campo `registrationRequired` estiver como `true`.
