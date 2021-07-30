@@ -711,3 +711,44 @@ i. O número deverá conter 9 dígitos e iniciar com 9 | Expressão regular suge
 ```
 
 ## 3- Coleta e registro de consentimento
+
+Para canais de autoatendimento, após a criação do pedido, será necessário realizar a coleta do consentimento do cliente nos termos e no contrato (p. exemplo: política de privacidade, termo de credenciamento, entre outros). Utilize a operação `GET /agreements` para listar todos os aceites e termos que devem ser coletados e utilize a operação `POST /agreements` para registrar.
+
+<aside class="warning"><b>Para canais de autoatendimento, o pedido não será concluído até o envio do consentimento.<br>Consulte seu ponto focal da Cielo para verificar qual o perfil do canal.</b></aside>
+
+> **Observação:** Nos canais operados por um intermediador, a coleta do consentimento será feita em um momento posterior, e diretamente pelo cliente, por meio de outro canal (como por exemplo a área logada do Site da Cielo).<br>Além disso, terá limitação no compartilhamento de informação após a conclusão do pedido, visto que não houve o OPTIN/consentimento nos termos e contratos. Por exemplo: não será compartilhado, via API, as chaves de acesso dos cadastros de e-commerce. Essa
+informação será enviada diretamente por email ao cliente.
+
+## 4- Tracking e informações do pedido
+
+A API de comercialização provê 2 mecanismos para que o canal possa informar o cliente, prospect ou intermediador do andamento do pedido:
+
+### Notificações via webhook
+
+O parceiro deverá implementar um webhook para receber notificações assíncronas de atualizações de status do pedido.
+
+* **Estrutura dos eventos**
+
+|Campo|Tipo|Obrigatório|Descrição|
+|---|---|---|---|
+|`eventType`|enum|S|Identificador do evento. Nesse caso os valores possíveis são: order-status-change. Caso o valor for healthcheck, o endpoint deverá responder HTTP 200 indicando que está on-line.|
+|`eventCreateDate`|datetime|S|Data de criação do evento|
+|`eventDetails`|Objeto|N|Este objeto contém detalhes do evento.|
+
+* Exemplos de eventos:
+
+Após o canal enviar o pedido, será enviado um dos eventos abaixo:
+
+* `order-created`: informará se o pedido foi aceito pela Cielo
+
+```json
+{
+   "eventType":"order-created",
+   "eventCreateDate":"2019-04-25T09:27:54.783Z",
+   "eventDetails":{
+      "eventId":"162d8827-ae23-471b-bfa6-2ec7064e40f",
+      "externalId":"uk4231y412hjh2134u12h",
+      "orderId":"194492435235",
+      "newStatus":"CRIADO"
+   }
+```
