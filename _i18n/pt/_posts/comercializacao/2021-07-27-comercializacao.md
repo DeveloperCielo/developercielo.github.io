@@ -811,3 +811,160 @@ notificações até estabilização; posterior a isso, serão enviadas todas as 
    "eventCreateDate":"2019-04-25T09:27:54.783Z"
 }
 ```
+
+**Consulta de pedido**
+
+O canal poderá utilizar a operação GET /orders para consultar todas as informações do pedido como status, etapas, eventos, alterações de status e seus respectivos itens.
+
+### Tracking do pedido e do item
+
+O tracking contém as informações de andamento do pedido ou do item do pedido. As informações retornadas no tracking são listadas abaixo:
+
+* `currentStatus`: Status atual do pedido ou do item
+
+```json
+"currentStatus":{
+   "statusCode":5,
+   "statusMessage":"Sucesso"
+}
+```
+
+* `events`: Lista de eventos relevantes que demarcam uma mudança de status e de etapa. Todo evento pode possuir uma data e hora de
+ocorrência (`occurrenceTime`), status anterior (`previousStatus`), status posterior (`nextStatus`), etapa anterior (`previousStep`) e etapa posterior (
+`nextStep`)
+
+```json
+"events":[
+   {
+      "occurenceTime":"2012-04-23T18:25:43.511Z",
+      "description":"Pedido criado",
+      "nextStatus":{
+         "statusCode":1,
+         "statusMessage":"Em validação"
+      },
+      "nextStep":{
+         "stepId":1,
+         "description":"Validação"
+      }
+   },
+   {
+      "occurenceTime":"2012-04-23T18:26:43.511Z",
+      "description":"Validação concluída",
+      "previousStatus":{
+         "statusCode":1,
+         "statusMessage":"Em validação"
+      },
+      "nextStatus":{
+         "statusCode":2,
+         "statusMessage":"Aguardando pagamento"
+      },
+      "previousStep":{
+         "stepId":1,
+         "description":"Validação"
+      },
+      "nextStep":{
+         "stepId":2,
+         "description":"Pagamento"
+      }
+   },
+   {
+      "occurenceTime":"2012-04-23T18:26:43.511Z",
+      "description":"Pagamento realizado",
+      "previousStatus":{
+         "statusCode":2,
+         "statusMessage":"Aguardando pagamento"
+      },
+      "nextStatus":{
+         "statusCode":3,
+         "statusMessage":"Em atualização de cadastro"
+      },
+      "previousStep":{
+         "stepId":2,
+         "description":"Pagamento"
+      },
+      "nextStep":{
+         "stepId":3,
+         "description":"Cadastro"
+      }
+   },
+   {
+      "occurenceTime":"2012-04-23T18:27:43.511Z",
+      "description":"Cadastro concluído",
+      "previousStatus":{
+         "statusCode":3,
+         "statusMessage":"Em atualização de cadastro"
+      },
+      "nextStatus":{
+         "statusCode":4,
+         "statusMessage":"Em processamento"
+      },
+      "previousStep":{
+         "stepId":3,
+         "description":"Cadastro"
+      },
+      "nextStep":{
+         "stepId":4,
+         "description":"Processamento"
+      }
+   },
+   {
+      "occurenceTime":"2012-04-23T18:28:43.511Z",
+      "description":"Processamento concluído",
+      "previousStatus":{
+         "statusCode":4,
+         "statusMessage":"Em processamento"
+      },
+      "nextStatus":{
+         "statusCode":5,
+         "statusMessage":"Sucesso"
+      },
+      "previousStep":{
+         "stepId":4,
+         "description":"Cadastro"
+      }
+   }
+]
+```
+
+* `steps`: Lista de etapas que o pedido ou item executou ou irá executar, com seus respectivos status atual (`status`) e sequência (`sequence`)
+
+```json
+"steps":[
+   {
+      "stepId":1,
+      "description":"Validação",
+      "sequence":1,
+      "status":{
+         "statusCode":5,
+         "statusMessage":"Sucesso"
+      }
+   },
+   {
+      "stepId":2,
+      "description":"Pagamento",
+      "sequence":1,
+      "status":{
+         "statusCode":5,
+         "statusMessage":"Sucesso"
+      }
+   },
+   {
+      "stepId":3,
+      "description":"Cadastro",
+      "sequence":1,
+      "status":{
+         "statusCode":5,
+         "statusMessage":"Sucesso"
+      }
+   },
+   {
+      "stepId":4,
+      "description":"Processamento",
+      "sequence":1,
+      "status":{
+         "statusCode":5,
+         "statusMessage":"Sucesso"
+      }
+   }
+]
+```
