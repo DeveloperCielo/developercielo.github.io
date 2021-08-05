@@ -838,17 +838,11 @@ Transações de cartão de crédito serão incluídas no [Backoffice Cielo Check
 
 ### Análise de Fraude
 
-Transações de crédito **“AUTORIZADAS”** serão enviadas para análise da ferramenta de antifraude caso o parâmetro `Options.AntifraudEnabled` esteja definido como `TRUE`.
+Transações de crédito **“AUTORIZADAS”** serão enviadas para análise da ferramenta de antifraude. Todas as transações classificadas como alto risco serão automaticamente canceladas, sem exceção.
 O Antifraude possui o conceito de `Status` e `SubStatus`, onde o primeiro representa o nível de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
 A análise indicará um grau de **RISCO**, especificado pelo `Status`, para a venda em questão.
 
 Esse grau de risco é o que deve guiar a decisão do lojista de capturar ou cancelar a venda.
-
- Para que as transações sejam analisadas pelo antifraude, é necessário que a loja Checkout possua:
- * Enviar via contrato `Options.AntifraudEnabled` como `true`
- * Valor da compra deve ser MAIOR que o valor mínimo configurado - Ver em Tutotial Backoffice Checkout
- * Possuir um Plano que inclua a ferramenta de analise.
- * A transação de crédito deve ser AUTORIZADA
 
 |Status Antifraude|Substatus|Descrição|
 |---|---|---|
