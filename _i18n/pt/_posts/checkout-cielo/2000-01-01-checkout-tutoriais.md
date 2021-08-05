@@ -320,10 +320,6 @@ Aqui é possivel definir a automação dos processos de captura e cancelamento d
 
 ![Anti fraude]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-anti-fraude.png)
 
-Campo valor mínimo de analise AF:
-
-![Valor mínimo anti fraude]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-anti-fraude-valor-minimo.png)
-
 #### Tabela de status do Antifraude
 
 |Status Antifraude|Substatus|Descrição|
