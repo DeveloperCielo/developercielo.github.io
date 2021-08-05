@@ -1935,19 +1935,11 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
 
 <h3 id="análise-de-fraude">Análise de Fraude</h3>
 
-<p>Transações de crédito <strong>“AUTORIZADAS”</strong> serão enviadas para análise da ferramenta de antifraude caso o parâmetro <code class="language-plaintext highlighter-rouge">Options.AntifraudEnabled</code> esteja definido como <code class="language-plaintext highlighter-rouge">TRUE</code>.
+<p>Transações de crédito <strong>“AUTORIZADAS”</strong> serão enviadas para análise da ferramenta de antifraude. Todas as transações classificadas como alto risco serão automaticamente canceladas, sem exceção.
 O Antifraude possui o conceito de <code class="language-plaintext highlighter-rouge">Status</code> e <code class="language-plaintext highlighter-rouge">SubStatus</code>, onde o primeiro representa o nível de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
 A análise indicará um grau de <strong>RISCO</strong>, especificado pelo <code class="language-plaintext highlighter-rouge">Status</code>, para a venda em questão.</p>
 
 <p>Esse grau de risco é o que deve guiar a decisão do lojista de capturar ou cancelar a venda.</p>
-
-<p>Para que as transações sejam analisadas pelo antifraude, é necessário que a loja Checkout possua:</p>
-<ul>
-  <li>Enviar via contrato <code class="language-plaintext highlighter-rouge">Options.AntifraudEnabled</code> como <code class="language-plaintext highlighter-rouge">true</code></li>
-  <li>Valor da compra deve ser MAIOR que o valor mínimo configurado - Ver em Tutotial Backoffice Checkout</li>
-  <li>Possuir um Plano que inclua a ferramenta de analise.</li>
-  <li>A transação de crédito deve ser AUTORIZADA</li>
-</ul>
 
 <table>
   <thead>
