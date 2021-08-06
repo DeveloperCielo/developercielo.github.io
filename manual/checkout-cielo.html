@@ -129,7 +129,7 @@
             </div>
 
             <div class="post">
-  <h1 id="sobre-o-checkout-cielo">Sobre o Checkout Cielo.</h1>
+  <h1 id="sobre-o-checkout-cielo">Sobre o Checkout Cielo</h1>
 
 <p>O Checkout Cielo é uma solução que agrega vários serviços de processamento de pagamento, no qual o consumidor é direcionado para uma página de pagamento online segura da <em>Cielo</em>.
 A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo as normas de segurança PCI.</p>
@@ -353,7 +353,7 @@ A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo
   </tbody>
 </table>
 
-<h2 id="pré-requisitos-para-integração">Pré-requisitos para Integração.</h2>
+<h2 id="pré-requisitos-para-integração">Pré-requisitos para Integração</h2>
 
 <p>O Checkout Cielo  possui uma lista de requisitos básicos para que o processo de integração seja bem sucedido.
 Abaixo listamos pontos que devem estar prontos antes da integração:</p>
@@ -617,7 +617,7 @@ Abaixo listamos pontos que devem estar prontos antes da integração:</p>
 
 <p>O modo de teste Checkout Cielo é uma ferramenta que permite testar a integração do seu site com a plataforma. Com o modo teste, você pode realizar transações a medida que evolui com a integração e consegue simular cenários para testar diferentes meios de pagamento.</p>
 
-<h3 id="ativação-do-modo-de-teste">Ativação do Modo de Teste.</h3>
+<h3 id="ativação-do-modo-de-teste">Ativação do Modo de Teste</h3>
 
 <p>O modo de teste pode ser ativado na aba <strong>Configurações</strong>, onde existe um caixa de seleção, que quando marcada, habilitará o modo de teste do Checkout Cielo. O modo somente se iniciará quando a seleção for salva.</p>
 
@@ -642,7 +642,7 @@ Abaixo listamos pontos que devem estar prontos antes da integração:</p>
   </tbody>
 </table>
 
-<h3 id="como-transacionar-no-modo-de-teste">Como transacionar no Modo de teste.</h3>
+<h3 id="como-transacionar-no-modo-de-teste">Como transacionar no Modo de teste</h3>
 
 <p>A realização de transações no modo de teste ocorre de forma normal. As informações da transação são enviadas via POST ou API, utilizando os parâmetros como descrito no tópico <a href="#integração-por-api">Integração por API</a>, entretanto, os meios de pagamentos a serem usados serão meios simulados.</p>
 
@@ -855,10 +855,6 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       </span><span class="nl">"Email"</span><span class="p">:</span><span class="s2">"test@cielo.com.br"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Phone"</span><span class="p">:</span><span class="s2">"21987654321"</span><span class="w">
    </span><span class="p">},</span><span class="w">
-   </span><span class="nl">"Options"</span><span class="p">:{</span><span class="w">  
-     </span><span class="nl">"AntifraudEnabled"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"ReturnUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.cielo.com.br"</span><span class="w">
-   </span><span class="p">},</span><span class="w">
    </span><span class="nl">"Settings"</span><span class="p">:</span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -1060,14 +1056,6 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td>11</td>
       <td>Telefone do comprador.</td>
       <td>Não obrigatório na API, mas obrigatório na tela transacional</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Options.AntifraudEnabled</code></td>
-      <td>Boolean</td>
-      <td>Condicional</td>
-      <td>n/a</td>
-      <td>Habilitar ou não a análise de fraude para o pedido: true ou false.</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Options.ReturnUrl</code></td>
@@ -3269,9 +3257,6 @@ Alguns exemplos de negócios são:</p>
         </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fulano@email.com"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11999999999"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"Options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"AntifraudEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
