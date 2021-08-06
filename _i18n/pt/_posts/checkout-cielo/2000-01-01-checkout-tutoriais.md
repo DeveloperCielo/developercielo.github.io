@@ -328,8 +328,6 @@ Aqui é possivel definir a automação dos processos de captura e cancelamento d
 |Médio Risco|Médio Risco|Médio risco de ser uma transação fraudulenta|
 |Não finalizado|Não finalizado|Não foi possível finalizar a consulta|
 |N/A|Autenticado|Transações autenticadas pelo banco|
-|N/A|AF Não contratado|Antifraude não habilitado no plano do lojista|
-|N/A|AF Dispensado|Antifraude dispensado via contrato ou inferior ao valor mínimo de antifrade parametrizado backoffice no lojista|
 |N/A|Não aplicável|Meio de pagamento não analisável como cartões de débito, boleto e débito online|
 |N/A|Transação de recorrência|Transação de crédito seja posterior a transação de agendamento|
 |N/A|Transação negada|Venda a crédito foi negada|
