@@ -15,7 +15,7 @@ language_tabs:
   
 ---
 
-# Sobre o Checkout Cielo.
+# Sobre o Checkout Cielo
 
 O Checkout Cielo é uma solução que agrega vários serviços de processamento de pagamento, no qual o consumidor é direcionado para uma página de pagamento online segura da *Cielo*.
 A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo as normas de segurança PCI.
@@ -89,7 +89,7 @@ A versão atual do Checkout Cielo possui suporte aos seguintes meios de pagament
 |Bradesco|
 |Banco do Brasil|
 
-## Pré-requisitos para Integração.
+## Pré-requisitos para Integração
 
 O Checkout Cielo  possui uma lista de requisitos básicos para que o processo de integração seja bem sucedido.
 Abaixo listamos pontos que devem estar prontos antes da integração:
@@ -299,7 +299,7 @@ Após o portador do cartão (consumidor) selecionar suas compras e apertar o bot
 
 O modo de teste Checkout Cielo é uma ferramenta que permite testar a integração do seu site com a plataforma. Com o modo teste, você pode realizar transações a medida que evolui com a integração e consegue simular cenários para testar diferentes meios de pagamento.
 
-### Ativação do Modo de Teste.
+### Ativação do Modo de Teste
 
 O modo de teste pode ser ativado na aba **Configurações**, onde existe um caixa de seleção, que quando marcada, habilitará o modo de teste do Checkout Cielo. O modo somente se iniciará quando a seleção for salva.
 
@@ -313,7 +313,7 @@ Essa tarja indica que a sua loja Checkout Cielo está agora operando em ambiente
 |---|---|
 |![Tarja vermelha - Backoffice]({{ site.baseurl_root }}/images/checkout/tmbackoffice.png)|![Tarja vermelha - Transacional]({{ site.baseurl_root }}/images/checkout/tmtransacional.png)|
 
-### Como transacionar no Modo de teste.
+### Como transacionar no Modo de teste
 
 A realização de transações no modo de teste ocorre de forma normal. As informações da transação são enviadas via POST ou API, utilizando os parâmetros como descrito no tópico [Integração por API](#integração-por-api), entretanto, os meios de pagamentos a serem usados serão meios simulados.
 
@@ -472,10 +472,6 @@ Endpoint é a URL para onde as requisições com os dados do carrinho serão env
       "Email":"test@cielo.com.br",
       "Phone":"21987654321"
    },
-   "Options":{  
-     "AntifraudEnabled":true,
-     "ReturnUrl": "http://www.cielo.com.br"
-   },
    "Settings":null
 }
 ```
@@ -512,7 +508,6 @@ Endpoint é a URL para onde as requisições com os dados do carrinho serão env
 |`Customer.FullName`|Alphanumeric|Condicional|288|Nome completo do comprador.|Não obrigatório na API, mas obrigatório na tela transacional|
 |`Customer.Email`|Alphanumeric|Condicional|64|Email do comprador.|Não obrigatório na API, mas obrigatório na tela transacional|
 |`Customer.Phone`|Numeric|Condicional|11|Telefone do comprador.|Não obrigatório na API, mas obrigatório na tela transacional|
-|`Options.AntifraudEnabled`|Boolean|Condicional|n/a|Habilitar ou não a análise de fraude para o pedido: true ou false.||
 |`Options.ReturnUrl`|Strin|Condicional|255|Define para qual url o comprador será enviado após finalizar a compra.|Uma URL fixa pode ser registrada no Backoffice Checkout|
 
 ### Responses
@@ -1409,9 +1404,6 @@ Exceto o objeto `Payment` que contém um novo elemento específico para a recorr
         "Email": "fulano@email.com",
         "Phone": "11999999999"
     },
-    "Options": {
-        "AntifraudEnabled": false
-    }
 }
 ```
 
