@@ -846,8 +846,6 @@ Esse grau de risco é o que deve guiar a decisão do lojista de capturar ou canc
 |`Alto Risco`|Alto Risco|Alto risco de ser uma transação fraudulenta|
 |`Não finalizado`|Não finalizado|Não foi possível finalizar a consulta|
 |`N/A`|Autenticado|Transações autenticadas pelo banco - **Não são analisáveis pelo AF**|
-|`N/A`|AF Não contratado|Antifraude não habilitado no plano do lojista - **Não são analisáveis pelo AF**|
-|`N/A`|AF Dispensado|Antifraude dispensado via contrato ou inferior ao valor mínimo de antifraude parametrizado backoffice no lojista|
 |`N/A`|Não aplicável|Meio de pagamento não analisável como cartões de débito, boleto e débito online|
 |`N/A`|Transação de recorrência|Transação de crédito seja posterior a transação de agendamento. **Somente o Agendamento é analisado**|
 |`N/A`|Transação negada|Venda a crédito foi negada - **Não são analisáveis pelo AF**|
@@ -1171,8 +1169,6 @@ O Antifraude possui o conceito de `Status` e `SubStatus`, onde o primeiro repres
 |2|`Alto Risco`|Alto Risco|Alto risco de ser uma transação fraudulenta|
 |4|`Não finalizado`|Não finalizado|Não foi possível finalizar a consulta|
 |N/A|`N/A`|Autenticado|Transações autenticadas pelo banco - **Não são analisáveis pelo AF**|
-|N/A|`N/A`|AF Não contratado|Antifraude não habilitado no plano do lojista - **Não são analisáveis pelo AF**|
-|N/A|`N/A`|AF Dispensado|Antifraude dispensado via contrato ou inferior ao valor mínimo de antifraude parametrizado backoffice no lojista|
 |N/A|`N/A`|Não aplicável|Meio de pagamento não analisável como cartões de débito, boleto e débito online|
 |N/A|`N/A`|Transação de recorrência|Transação de crédito seja posterior a transação de agendamento. **Somente o Agendamento é analisado**|
 |N/A|`N/A`|Transação negada|Venda a crédito foi negada - **Não são analisáveis pelo AF**|
