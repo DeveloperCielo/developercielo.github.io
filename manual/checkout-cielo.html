@@ -900,7 +900,6 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <th>Tipo</th>
       <th>Obrigatório</th>
       <th>Tamanho</th>
-      <th>Descrição</th>
       <th>Condicional</th>
     </tr>
   </thead>
@@ -910,7 +909,6 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td>Alphanumeric</td>
       <td>Opcional</td>
       <td>64</td>
-      <td>Número do pedido da loja. Este campo não é retornado nos arquivos de conciliação EDI.</td>
       <td> </td>
     </tr>
     <tr>
@@ -918,7 +916,6 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td>Alphanumeric</td>
       <td>Opcional</td>
       <td>13</td>
-      <td>Texto exibido na fatura do comprador. Sem caracteres especiais ou espaços. EX: <code class="language-plaintext highlighter-rouge">NOMEDALOJA123</code></td>
       <td> </td>
     </tr>
     <tr>
@@ -926,7 +923,6 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td>Alphanumeric</td>
       <td>Condicional</td>
       <td>255</td>
-      <td>Tipo do desconto a ser aplicado: <code class="language-plaintext highlighter-rouge">Amount</code> ou <code class="language-plaintext highlighter-rouge">Percent</code>.</td>
       <td>Obrigatório caso Cart.Discount.Value for maior ou igual a zero.</td>
     </tr>
     <tr>
@@ -934,7 +930,6 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>18</td>
-      <td>Valor do desconto a ser aplicado: Valor ou Percentual</td>
       <td>Obrigatório caso Cart.Discount.Type for <code class="language-plaintext highlighter-rouge">Amount</code> ou <code class="language-plaintext highlighter-rouge">Percent</code>.</td>
     </tr>
     <tr>
@@ -942,7 +937,6 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td>Alphanumeric</td>
       <td>Sim</td>
       <td>128</td>
-      <td>Nome do item no carrinho.</td>
       <td> </td>
     </tr>
     <tr>
@@ -950,7 +944,6 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td>Alphanumeric</td>
       <td>Opcional</td>
       <td>256</td>
-      <td>Descrição do item no carrinho.</td>
       <td> </td>
     </tr>
     <tr>
@@ -958,7 +951,6 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td>Numeric</td>
       <td>Sim</td>
       <td>18</td>
-      <td>Preço unitário do produto em centavos. Ex: R$ 1,00 = 100</td>
       <td> </td>
     </tr>
     <tr>
@@ -966,7 +958,6 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td>Numeric</td>
       <td>Sim</td>
       <td>9</td>
-      <td>Quantidade do item no carrinho.</td>
       <td> </td>
     </tr>
     <tr>
@@ -974,7 +965,6 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td>Alphanumeric</td>
       <td>Sim</td>
       <td>255</td>
-      <td>Tipo do item no carrinho: <br /><code class="language-plaintext highlighter-rouge">Asset</code><br /><code class="language-plaintext highlighter-rouge">Digital</code><br /><code class="language-plaintext highlighter-rouge">Service</code><br /><code class="language-plaintext highlighter-rouge">Payment</code></td>
       <td> </td>
     </tr>
     <tr>
@@ -982,7 +972,6 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td>Alphanumeric</td>
       <td>Opcional</td>
       <td>32</td>
-      <td>Sku do item no carrinho.</td>
       <td> </td>
     </tr>
     <tr>
@@ -990,7 +979,6 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>9</td>
-      <td>Peso em gramas do item no carrinho.</td>
       <td>Necessário caso Shipping.Type for “Correios”.</td>
     </tr>
     <tr>
@@ -998,7 +986,6 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>3</td>
-      <td>Desconto, em porcentagem, para pagamentos a serem realizados com boleto.</td>
       <td> </td>
     </tr>
     <tr>
@@ -1006,7 +993,6 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>3</td>
-      <td>Desconto, em porcentagem, para pagamentos a serem realizados com débito online.</td>
       <td> </td>
     </tr>
     <tr>
@@ -1014,7 +1000,6 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>3</td>
-      <td>Desconto, em porcentagem, para pagamentos a serem realizados com crédito a vista.</td>
       <td> </td>
     </tr>
     <tr>
@@ -1022,7 +1007,6 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>2</td>
-      <td>Define valor máximo de parcelas apresentadas no transacional, ignorando configuração do Backoffice</td>
       <td> </td>
     </tr>
     <tr>
@@ -1030,40 +1014,35 @@ Esses dados são separados nos seguintes “nós principais”:</p>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>14</td>
-      <td>CPF ou CNPJ do comprador.</td>
-      <td>Não obrigatório na API, mas obrigatório na tela transacional</td>
+      <td>Não obrigatório na API, mas obrigatório na tela transacional.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.FullName</code></td>
       <td>Alphanumeric</td>
       <td>Condicional</td>
       <td>288</td>
-      <td>Nome completo do comprador.</td>
-      <td>Não obrigatório na API, mas obrigatório na tela transacional</td>
+      <td>Não obrigatório na API, mas obrigatório na tela transacional.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
       <td>Alphanumeric</td>
       <td>Condicional</td>
       <td>64</td>
-      <td>Email do comprador.</td>
-      <td>Não obrigatório na API, mas obrigatório na tela transacional</td>
+      <td>Não obrigatório na API, mas obrigatório na tela transacional.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Phone</code></td>
       <td>Numeric</td>
       <td>Condicional</td>
       <td>11</td>
-      <td>Telefone do comprador.</td>
-      <td>Não obrigatório na API, mas obrigatório na tela transacional</td>
+      <td>Não obrigatório na API, mas obrigatório na tela transacional.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Options.ReturnUrl</code></td>
       <td>Strin</td>
       <td>Condicional</td>
       <td>255</td>
-      <td>Define para qual url o comprador será enviado após finalizar a compra.</td>
-      <td>Uma URL fixa pode ser registrada no Backoffice Checkout</td>
+      <td>Uma URL fixa pode ser registrada no Backoffice Checkout.</td>
     </tr>
   </tbody>
 </table>
