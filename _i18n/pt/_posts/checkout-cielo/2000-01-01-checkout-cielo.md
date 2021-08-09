@@ -487,28 +487,28 @@ Endpoint é a URL para onde as requisições com os dados do carrinho serão env
 
 **Body - Detalhado**
 
-|Campo|Tipo|Obrigatório|Tamanho|Descrição|Condicional|
-|---|---|---|---|---|---|
-|`OrderNumber`|Alphanumeric|Opcional|64|Número do pedido da loja. Este campo não é retornado nos arquivos de conciliação EDI.||
-|`SoftDescriptor`|Alphanumeric|Opcional|13|Texto exibido na fatura do comprador. Sem caracteres especiais ou espaços. EX: `NOMEDALOJA123`||
-|`Cart.Discount.Type`|Alphanumeric|Condicional|255|Tipo do desconto a ser aplicado: `Amount` ou `Percent`.|Obrigatório caso Cart.Discount.Value for maior ou igual a zero.|
-|`Cart.Discount.Value`|Numeric|Condicional|18|Valor do desconto a ser aplicado: Valor ou Percentual|Obrigatório caso Cart.Discount.Type for `Amount` ou `Percent`.|
-|`Cart.Items.Name`|Alphanumeric|Sim|128|Nome do item no carrinho.||
-|`Cart.Items.Description`|Alphanumeric|Opcional|256|Descrição do item no carrinho.||
-|`Cart.Items.UnitPrice`|Numeric|Sim|18|Preço unitário do produto em centavos. Ex: R$ 1,00 = 100||
-|`Cart.Items.Quantity`|Numeric|Sim|9|Quantidade do item no carrinho.||
-|`Cart.Items.Type`|Alphanumeric|Sim|255|Tipo do item no carrinho: <br>`Asset`<br>`Digital`<br>`Service`<br>`Payment`||
-|`Cart.Items.Sku`|Alphanumeric|Opcional|32|Sku do item no carrinho.||
-|`Cart.Items.Weight`|Numeric|Condicional|9|Peso em gramas do item no carrinho.|Necessário caso Shipping.Type for "Correios".|
-|`Payment.BoletoDiscount`|Numeric|Condicional|3|Desconto, em porcentagem, para pagamentos a serem realizados com boleto.||
-|`Payment.DebitDiscount`|Numeric|Condicional|3|Desconto, em porcentagem, para pagamentos a serem realizados com débito online.||
-|`FirstInstallmentDiscount`|Numeric|Condicional|3|Desconto, em porcentagem, para pagamentos a serem realizados com crédito a vista.||
-|`MaxNumberOfInstallments`|Numeric|Condicional|2|Define valor máximo de parcelas apresentadas no transacional, ignorando configuração do Backoffice||
-|`Customer.Identity`|Numeric|Condicional|14|CPF ou CNPJ do comprador.|Não obrigatório na API, mas obrigatório na tela transacional|
-|`Customer.FullName`|Alphanumeric|Condicional|288|Nome completo do comprador.|Não obrigatório na API, mas obrigatório na tela transacional|
-|`Customer.Email`|Alphanumeric|Condicional|64|Email do comprador.|Não obrigatório na API, mas obrigatório na tela transacional|
-|`Customer.Phone`|Numeric|Condicional|11|Telefone do comprador.|Não obrigatório na API, mas obrigatório na tela transacional|
-|`Options.ReturnUrl`|Strin|Condicional|255|Define para qual url o comprador será enviado após finalizar a compra.|Uma URL fixa pode ser registrada no Backoffice Checkout|
+|Campo|Tipo|Obrigatório|Tamanho|Condicional|
+|---|---|---|---|---|
+|`OrderNumber`|Alphanumeric|Opcional|64||
+|`SoftDescriptor`|Alphanumeric|Opcional|13||
+|`Cart.Discount.Type`|Alphanumeric|Condicional|255|Obrigatório caso Cart.Discount.Value for maior ou igual a zero.|
+|`Cart.Discount.Value`|Numeric|Condicional|18|Obrigatório caso Cart.Discount.Type for `Amount` ou `Percent`.|
+|`Cart.Items.Name`|Alphanumeric|Sim|128||
+|`Cart.Items.Description`|Alphanumeric|Opcional|256||
+|`Cart.Items.UnitPrice`|Numeric|Sim|18||
+|`Cart.Items.Quantity`|Numeric|Sim|9||
+|`Cart.Items.Type`|Alphanumeric|Sim|255||
+|`Cart.Items.Sku`|Alphanumeric|Opcional|32||
+|`Cart.Items.Weight`|Numeric|Condicional|9|Necessário caso Shipping.Type for "Correios".|
+|`Payment.BoletoDiscount`|Numeric|Condicional|3||
+|`Payment.DebitDiscount`|Numeric|Condicional|3||
+|`FirstInstallmentDiscount`|Numeric|Condicional|3||
+|`MaxNumberOfInstallments`|Numeric|Condicional|2||
+|`Customer.Identity`|Numeric|Condicional|14|Não obrigatório na API, mas obrigatório na tela transacional.|
+|`Customer.FullName`|Alphanumeric|Condicional|288|Não obrigatório na API, mas obrigatório na tela transacional.|
+|`Customer.Email`|Alphanumeric|Condicional|64|Não obrigatório na API, mas obrigatório na tela transacional.|
+|`Customer.Phone`|Numeric|Condicional|11|Não obrigatório na API, mas obrigatório na tela transacional.|
+|`Options.ReturnUrl`|Strin|Condicional|255|Uma URL fixa pode ser registrada no Backoffice Checkout.|
 
 ### Responses
 
