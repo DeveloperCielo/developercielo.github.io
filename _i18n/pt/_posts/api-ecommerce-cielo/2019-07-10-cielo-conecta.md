@@ -8367,7 +8367,7 @@ Para simular respostas de uma confirmação de autorização negada, segue a tab
 |`PaymentId`|String uuid|---|Sim|Código do Pagamento|
 
 ```json
-null
+{}
 ```
 
 #### Resposta
