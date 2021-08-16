@@ -109,6 +109,40 @@ A versão atual do Webservice Cielo possui suporte às seguintes bandeiras e pro
 
 ## Últimas Implementações
 
+### Quasi cash
+
+Todos os clientes de E-commerce que transacionam  quasi cash, devem seguir a nova parametrização e encaminhar na requisição de transação a tag <quasi cash> conforme exemplo abaixo:
+
+```json
+"Payment":{
+   "Currency":"BRL",
+   "Country":"BRA",
+   "ServiceTaxAmount":0,
+   "Installments":1,
+   "Interest":"ByMerchant",
+   "Capture":true,
+   "Authenticate":false,
+   "SoftDescriptor":"123456789ABCD",
+   "CreditCard":{
+      "CardNumber":"1234123412341231",
+      "Holder":"Teste Holder",
+      "ExpirationDate":"12/2030",
+      "SecurityCode":"123",
+      "SaveCard":"false",
+      "Brand":"Visa",
+      "CardOnFile":{
+         "Usage":"Used",
+         "Reason":"Unscheduled"
+      }
+   },
+   "QuasiCash":true,
+   "Type":"CreditCard",
+   "Amount":15700,
+   "AirlineData":{
+      "TicketNumber":"AR988983"
+   }      
+```
+
 ### Facilitadores de Pagamento
 
 Todos os clientes de E-Commerce que são **Facilitadores de Pagamento, por obrigatoriedade das bandeiras e do Banco Central** deverão enviar novos campos na **mensageria transacional**.  A Cielo transmitirá as informações para as bandeiras por meio da mensageria transacional no momento da autorização.
