@@ -413,6 +413,39 @@
 
 <h2 id="últimas-implementações">Últimas Implementações</h2>
 
+<h3 id="quasi-cash">Quasi cash</h3>
+
+<p>Todos os clientes de E-commerce que transacionam  quasi cash, devem seguir a nova parametrização e encaminhar na requisição de transação a tag  conforme exemplo abaixo:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
+   </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Interest"</span><span class="p">:</span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Capture"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"CreditCard"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CardOnFile"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"Usage"</span><span class="p">:</span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Reason"</span><span class="p">:</span><span class="s2">"Unscheduled"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"QuasiCash"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"AirlineData"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"TicketNumber"</span><span class="p">:</span><span class="s2">"AR988983"</span><span class="w">
+   </span><span class="p">}</span><span class="w">      
+</span></code></pre></div></div>
+
 <h3 id="facilitadores-de-pagamento">Facilitadores de Pagamento</h3>
 
 <p>Todos os clientes de E-Commerce que são <strong>Facilitadores de Pagamento, por obrigatoriedade das bandeiras e do Banco Central</strong> deverão enviar novos campos na <strong>mensageria transacional</strong>.  A Cielo transmitirá as informações para as bandeiras por meio da mensageria transacional no momento da autorização.</p>
