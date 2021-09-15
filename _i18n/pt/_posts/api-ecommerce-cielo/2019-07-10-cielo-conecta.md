@@ -329,6 +329,7 @@ Solicita as tabelas e parametros para operação do terminal
 |`Acquirer.HasChipReader`|Booleano|---|---|Indica que tem leitora de Chip-Card|
 |`Acquirer.HasMagneticTrackReader`|Booleano|---|---|Indica que tem leitor da trilha magnética|
 |`Acquirer.HasKeyboard`|Booleano|---|---|Indica que tem teclado para digitação|
+|`Acquirer.IntervalInDaysForSendingTechnicalParameter`|---|Integer|Não|intervalo em dias de envio da Baixa Técnica, sendo:<br><br> 0 - nunca enviar<br><br>1 a 99 - intervalo em dias, exemplo: 30 = enviar a<br><br>cada 30 dias.|
 |`Merchant.MerchantId`|String|---|---|Código do Lojista na PayStore, definido no momento da criação do lojista.|
 |`Merchant.NetworkName`|String|---|---|Nome da rede da sub-adquirente cadastrado pelo Gestor da PayStore.|
 |`Merchant.MerchantName`|String|---|---|Nome fantasia do lojista, definido no momento da criação do mesmo no portal da PayStore.|
