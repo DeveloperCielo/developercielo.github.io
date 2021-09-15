@@ -11075,6 +11075,12 @@ Salva alterações em na loja subordinado com o ID especificado.
 
 Salva alterações em na loja subordinado com o ID especificado.
 
+**Atenção:** É necessário ter um terminal ID para cada terminal físico (equipamento) cadastrado na plataforma. Exemplo: Se o lojista possui 5 terminais físicos (equipamentos), ele deve ter 5 terminais ID.
+
+Nosso sistema impede que o mesmo Terminal faça mais de um pagamento simultâneo. Caso um terminal ID esteja associado a mais de um equipamento, pagamentos efetuados por esse mesmo terminal poderão ser rejeitados.
+
+Lembramos que os dados informados no cadastro de Loja/Terminal/Equipamento são de responsabilidade do cliente.
+
 #### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals</span></aside>
