@@ -12928,14 +12928,16 @@
 </span></code></pre></div></div>
 
 <table>
-  <tbody>
+  <thead>
     <tr>
-      <td>Propriedade</td>
-      <td>Tipo</td>
-      <td>Tamanho</td>
-      <td>Obrigatório</td>
-      <td>Descrição</td>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
     </tr>
+  </thead>
+  <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
       <td>String</td>
@@ -13451,64 +13453,212 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
-|—|—|—|—|—|
-|<code class="language-plaintext highlighter-rouge">MerchantOrderId</code>|String|15|Sim|Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal.|
-|<code class="language-plaintext highlighter-rouge">Customer.Name</code>|String|255|Não|Nome do comprador|
-|<code class="language-plaintext highlighter-rouge">Customer.Identity</code>|String|14|Não|Numero do cpf ou cnpj do cliente|
-|<code class="language-plaintext highlighter-rouge">Customer.IdentityType</code>|String|255|Não|Tipo de documento de identificação do comprador (CPF ou CNPJ)|
-|<code class="language-plaintext highlighter-rouge">Customer.Email</code>|String|255|Não|Email do comprador|
-|<code class="language-plaintext highlighter-rouge">Customer.Birthday</code>|String|10|Não|Data de nascimento do comprador no formato AAAA-MM-DD|
-|<code class="language-plaintext highlighter-rouge">Address.Street</code>|String|255|Não|Endereço de contato do comprador|
-|<code class="language-plaintext highlighter-rouge">Address.Number</code>|String|15|Não|Número do endereço de contato do comprador|
-|<code class="language-plaintext highlighter-rouge">Address.Complement</code>|String|50|Não|Complemento do endereço de contato do comprador|
-|<code class="language-plaintext highlighter-rouge">Address.ZipCode</code>|String|9|Não|CEP do endereço de entrega|
-|<code class="language-plaintext highlighter-rouge">Address.City</code>|String|50|Não|Cidade do endereço de entrega|
-|<code class="language-plaintext highlighter-rouge">Address.State</code>|String|2|Não-|Estado do endereço de entrega|
-|<code class="language-plaintext highlighter-rouge">Address.Country</code>|String|35|Não|País do endereço de entrega|
-|<code class="language-plaintext highlighter-rouge">Payment.Installments</code>|Integer|2|Sim|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos<br />MaximumNumberOfInstallmentsWhenFinancingByCreditCardCompany,br&gt;<br />  MaximumNumberOfInstallmentsWhenFinancingByStore,br&gt;<br />  MaximumNumberOfinstallmentsForSaleAndCDCQuery e MinimumNumberOfInstallmentsWhenFinancingByStore da objeto<br />ProductEntry da baixa de parametros.|
-|<code class="language-plaintext highlighter-rouge">Payment.Interest</code>|String|10|Não|Default: <code class="language-plaintext highlighter-rouge">ByMerchant</code> <br /> Enum: <code class="language-plaintext highlighter-rouge">ByMerchant</code> <code class="language-plaintext highlighter-rouge">ByIssuer</code> <br /> Tipo de Parcelamento: <br /> - Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado. <br /> - Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.|
-|<code class="language-plaintext highlighter-rouge">Payment.Capture</code>|Booleano|—|Não|Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.|
-|<code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code>|String|MM/yyyy|Sim|Data de validade do cartão. <br />Dado obtido através do comando PP_GetCard na BC no momento da captura da transação.|
-|<code class="language-plaintext highlighter-rouge">CreditCard.BrandId</code>|Integer|—|Sim|Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE.|
-|<code class="language-plaintext highlighter-rouge">CreditCard.IssuerId</code>|Integer|—|Sim|Código do emissor obtido através do campo IssuerId no objeto BinEntry.|
-|<code class="language-plaintext highlighter-rouge">CreditCard.TruncateCardNumberWhenPrinting</code>|Booleano|—|Não|Indica se o número do cartão será truncado no momento da impressão do comprovante. A solução de captura deve tomar essa decisão com base no campo AllowPrintingPartialCardNumberInReceipt presente nos objetos BinEntry, ParameterEntry e IssuerEntry.|
-|<code class="language-plaintext highlighter-rouge">CreditCard.InputMode</code>|String|—|Sim|Enum: <code class="language-plaintext highlighter-rouge">Typed</code> <code class="language-plaintext highlighter-rouge">MagStripe</code> <code class="language-plaintext highlighter-rouge">Emv</code> <br />Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. <br />“00” – Magnético <br />“01” - Moedeiro VISA Cash sobre TIBC v1 <br />“02” - Moedeiro VISA Cash sobre TIBC v3 <br />“03” – EMV com contato <br />“04” - Easy-Entry sobre TIBC v1 <br />“05” - Chip sem contato simulando tarja <br /> “06” - EMV sem contato.|
-|<code class="language-plaintext highlighter-rouge">CreditCard.AuthenticationMethod</code>|String|—|Sim|Enum: <code class="language-plaintext highlighter-rouge">NoPassword</code> <code class="language-plaintext highlighter-rouge">OnlineAuthentication</code> <code class="language-plaintext highlighter-rouge">OfflineAuthentication</code> <br />Método de autenticação <br />- Se o cartão foi lido a partir da digitação verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1; <br />- Se o cartão foi lido a partir da trilha verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, deve ser verificado o bit 2 do mesmo campo. Se este estiver com valor 1 deve ser capturada a senha. Se estiver com valor 0 a captura da senha vai depender do último dígito do service code; <br />- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2. <br />1 - Sem senha = “NoPassword”; <br />2 - Senha online = “Online Authentication”; <br />3 - Senha off-line = “Offline Authentication”.|
-|<code class="language-plaintext highlighter-rouge">CreditCard.EmvData</code>|String|—|Sim|Dados da transação EMV <br />Obtidos através do comando PP_GoOnChip na BC|
-|<code class="language-plaintext highlighter-rouge">PinBlock.EncryptedPinBlock</code>|String|—|Sim|PINBlock Criptografado<br />- Para transações EMV, esse campo é obtido através do retorno da função PP_GoOnChip(), mais especificamente das posições 007 até a posição 022;<br />- Para transações digitadas e com tarja magnética, verificar as posições 001 até 016 do retorno da função PP_GetPin().|
-|<code class="language-plaintext highlighter-rouge">PinBlock.EncryptionType</code>|String|—|Não|Tipo de Criptografia<br />Enum:<br />“DukptDes”<br />“Dukpt3Des”<br />“MasterKey”|
-|<code class="language-plaintext highlighter-rouge">PinBlock.KsnIdentification</code>|String|—|Sim|Identificação do KSN<br />- Para transações EMV esse campo é obtido através do retorno da função PP_GoOnChip() nas posições 023 até 042;<br />- Para transações digitadas e com tarja magnética, verificar as posições 017 até 036 do retorno da função PP_GetPin().|
-|<code class="language-plaintext highlighter-rouge">CreditCard.PanSequenceNumber</code>|Number|—|Sim|Número sequencial do cartão, utilizado para identificar a conta corrente do cartão adicional. Mandatório para transações com cartões Chip EMV e que possuam PAN Sequence Number (Tag 5F34).|
-|<code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code>|Booleano|—|Não|Identifica se vai salvar/tokenizar o cartão.|
-|<code class="language-plaintext highlighter-rouge">CreditCard.IsFallback</code>|Booleano|—|Não|Identifica se é uma transação de fallback.|
-|<code class="language-plaintext highlighter-rouge">Payment.PaymentDateTime</code>|String|date-time|Sim|Data e Hora da captura da transação|
-|<code class="language-plaintext highlighter-rouge">Payment.ServiceTaxAmount</code>|Integer|15|Não|Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|
-|<code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code>|String|13|Não|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
-|<code class="language-plaintext highlighter-rouge">Payment.ProductId</code>|Integer|—|Sim|Código do produto identificado através do bin do cartão.|
-|<code class="language-plaintext highlighter-rouge">PinPadInformation.TerminalId</code>|String|8|Sim|Número Lógico definido no Concentrador Cielo.|
-|<code class="language-plaintext highlighter-rouge">PinPadInformation.SerialNumber</code>|String|—|Sim|Número de Série do Equipamento.|
-|<code class="language-plaintext highlighter-rouge">PinPadInformation.PhysicalCharacteristics</code>|String|—|Sim|Enum: <code class="language-plaintext highlighter-rouge">WithoutPinPad</code> <code class="language-plaintext highlighter-rouge">PinPadWithoutChipReader</code> <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithoutSamModule</code> <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithSamModule</code> <code class="language-plaintext highlighter-rouge">NotCertifiedPinPad</code> <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithoutSamAndContactless</code> <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithSamModuleAndContactless</code> <br /> Sem PIN-pad = <code class="language-plaintext highlighter-rouge">WithoutPinPad</code>; <br /> PIN-pad sem leitor de Chip = <code class="language-plaintext highlighter-rouge">PinpadWithoutChipReader</code>; <br />PIN-pad com leitor de Chip sem módulo SAM = <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithoutSamModule</code>; <br /> PIN-pad com leitor de Chip com módulo SAM = <code class="language-plaintext highlighter-rouge">PinPadWithChipReaderWithSamModule</code>; <br /> PIN-pad não homologado = <code class="language-plaintext highlighter-rouge">NotCertifiedPinPad</code>; <br /> PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = <code class="language-plaintext highlighter-rouge">PinpadWithChipReaderWithoutSamAndContactless</code>; <br /> PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = <code class="language-plaintext highlighter-rouge">PinpadWithChipReaderWithSamAndContactless</code>. <br /> Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.|
-|<code class="language-plaintext highlighter-rouge">PinPadInformation.ReturnDataInfo</code>|String|—|Sim|Retorno da função PP_GetInfo() da biblioteca compartilhada|
-|<code class="language-plaintext highlighter-rouge">PinPadInformation.TechnicalParameter</code>|Object|—|Não|Objeto com os parametros da baixa tecnica|
-|<code class="language-plaintext highlighter-rouge">PinPadInformation.TechnicalParameter.KernelEmvVersion</code>|String|—|Sim|Versão kernel EMV com contato|
-|<code class="language-plaintext highlighter-rouge">PinPadInformation.TechnicalParameter.ContactlessModuleVersion</code>|String|—|Sim|Versão kernel EMV contactless|
-|<code class="language-plaintext highlighter-rouge">PinPadInformation.TechnicalParameter.KernelPayPassVersion</code>|String|—|Sim|Versão kernel contactless Mastercard PayPass / MCL|
-|<code class="language-plaintext highlighter-rouge">PinPadInformation.TechnicalParameter.KernelContactlessPayWaveVersion</code>|String|—|Sim|Versão kernel contactless Visa PayWave|
-|<code class="language-plaintext highlighter-rouge">PinPadInformation.TechnicalParameter.HardwareModel</code>|String|—|Sim|Modelo do pinpad|
-|<code class="language-plaintext highlighter-rouge">PinPadInformation.TechnicalParameter.ManufacturerName</code>|String|—||Sim|Nome do fabricante do pinpad|
-|<code class="language-plaintext highlighter-rouge">PinPadInformation.TechnicalParameter.FirmwareVersion</code>|String|—|Sim|Versão do firmware|
-|<code class="language-plaintext highlighter-rouge">PinPadInformation.TechnicalParameter.BasicLibVersion</code>|String|—|Sim|versão da aplicação básica|
-|<code class="language-plaintext highlighter-rouge">PinPadInformation.TechnicalParameter.SpecificationVersion</code>|String—|Sim|Versão da especificação|
-|<code class="language-plaintext highlighter-rouge">PinPadInformation.TechnicalParameter.AcquirerVersion</code>|String|—|Sim|Versão da rede adquirente|
-|<code class="language-plaintext highlighter-rouge">Payment.Amount</code>|Integer(int64)|—|Sim|Valor da transação (1079 = R$10,79)|
-|Payment.ReceivedDate<code class="language-plaintext highlighter-rouge">|String (DateTime)|—|Sim|Data em que a transação foi recebida. Formato "AAAA-MM-DD HH:mm:SS"|
-|</code>Payment.CapturedAmount<code class="language-plaintext highlighter-rouge">|Integer|15|Sim|Valor capturado, sem pontuação. 100 equivale a R$ 1,00|
-|</code>Payment.Provider<code class="language-plaintext highlighter-rouge">|String|15|Sim|Nome do provedor do meio de pagamento|
-|</code>Payment.ConfirmationStatus<code class="language-plaintext highlighter-rouge">|Integer|2|Não|Status da confirmação.&lt;br&gt;0 = Pendente&lt;br&gt;1 = Confirmado&lt;br&gt;2 = Desfeito|
-|</code>InitializationVersion<code class="language-plaintext highlighter-rouge">|Integer| int16|—|Sim|Número de versão dos parametros baixados na inicialização do equipamento.|
-|</code>Payment.EmvResponseData<code class="language-plaintext highlighter-rouge">|String—|Sim|Dados da transação EMV Obtidos através do comando PP_GoOnChip na BC|
-|</code>Payment.Status`|Integer|2|Sim|Status da transação<br />0 = Não Finalizado<br />1 = Autorizado<br />2 = Pago<br />3 = Negado<br />10 = Cancelado<br />13 = Abortado|</p>
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>String</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>String</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Nome do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
+      <td>String</td>
+      <td>14</td>
+      <td>Não</td>
+      <td>Numero do cpf ou cnpj do cliente</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
+      <td>String</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Tipo de documento de identificação do comprador (CPF ou CNPJ)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
+      <td>String</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Email do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Birthday</code></td>
+      <td>String</td>
+      <td>10</td>
+      <td>Não</td>
+      <td>Data de nascimento do comprador no formato AAAA-MM-DD</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.Street</code></td>
+      <td>String</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Endereço de contato do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.Number</code></td>
+      <td>String</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Número do endereço de contato do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.Complement</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Complemento do endereço de contato do comprador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.ZipCode</code></td>
+      <td>String</td>
+      <td>9</td>
+      <td>Não</td>
+      <td>CEP do endereço de entrega</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.City</code></td>
+      <td>String</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Cidade do endereço de entrega</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.State</code></td>
+      <td>String</td>
+      <td>2</td>
+      <td>Não</td>
+      <td>-</td>
+      <td>Estado do endereço de entrega</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Address.Country</code></td>
+      <td>String</td>
+      <td>35</td>
+      <td>Não</td>
+      <td>País do endereço de entrega</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Integer</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos<br />MaximumNumberOfInstallmentsWhenFinancingByCreditCardCompany,br&gt;<br />  MaximumNumberOfInstallmentsWhenFinancingByStore,br&gt;<br />  MaximumNumberOfinstallmentsForSaleAndCDCQuery e MinimumNumberOfInstallmentsWhenFinancingByStore da objeto<br />ProductEntry da baixa de parametros.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
+      <td>String</td>
+      <td>10</td>
+      <td>Não</td>
+      <td>Default: <code class="language-plaintext highlighter-rouge">ByMerchant</code> <br /> Enum: <code class="language-plaintext highlighter-rouge">ByMerchant</code> <code class="language-plaintext highlighter-rouge">ByIssuer</code> <br /> Tipo de Parcelamento: <br /> - Se o bit 6 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 6 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado. <br /> - Se o bit 7 do atributo confParamOp05, presente nas tabelas issuerTable e binTable e bit 7 do atributo confParamOp03 da tabela productTable estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td>String</td>
+      <td>MM/yyyy</td>
+      <td>Sim</td>
+      <td>Data de validade do cartão. <br />Dado obtido através do comando PP_GetCard na BC no momento da captura da transação.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.BrandId</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.IssuerId</code></td>
+      <td>Integer</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Código do emissor obtido através do campo IssuerId no objeto BinEntry.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.TruncateCardNumberWhenPrinting</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Indica se o número do cartão será truncado no momento da impressão do comprovante. A solução de captura deve tomar essa decisão com base no campo AllowPrintingPartialCardNumberInReceipt presente nos objetos BinEntry, ParameterEntry e IssuerEntry.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.InputMode</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Enum: <code class="language-plaintext highlighter-rouge">Typed</code> <code class="language-plaintext highlighter-rouge">MagStripe</code> <code class="language-plaintext highlighter-rouge">Emv</code> <br />Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. <br />“00” – Magnético <br />“01” - Moedeiro VISA Cash sobre TIBC v1 <br />“02” - Moedeiro VISA Cash sobre TIBC v3 <br />“03” – EMV com contato <br />“04” - Easy-Entry sobre TIBC v1 <br />“05” - Chip sem contato simulando tarja <br /> “06” - EMV sem contato.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.AuthenticationMethod</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Enum: <code class="language-plaintext highlighter-rouge">NoPassword</code> <code class="language-plaintext highlighter-rouge">OnlineAuthentication</code> <code class="language-plaintext highlighter-rouge">OfflineAuthentication</code> <br />Método de autenticação <br />- Se o cartão foi lido a partir da digitação verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1; <br />- Se o cartão foi lido a partir da trilha verificar o bit 3 do atributo confParamOp04 das tabelas binTable, parameterTable e issuerTable. Se todos estiverem habilitados, deve ser verificado o bit 2 do mesmo campo. Se este estiver com valor 1 deve ser capturada a senha. Se estiver com valor 0 a captura da senha vai depender do último dígito do service code; <br />- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2. <br />1 - Sem senha = “NoPassword”; <br />2 - Senha online = “Online Authentication”; <br />3 - Senha off-line = “Offline Authentication”.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.EmvData</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Dados da transação EMV <br />Obtidos através do comando PP_GoOnChip na BC</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PinBlock.EncryptedPinBlock</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>PINBlock Criptografado<br />- Para transações EMV, esse campo é obtido através do retorno da função PP_GoOnChip(), mais especificamente das posições 007 até a posição 022;<br />- Para transações digitadas e com tarja magnética, verificar as posições 001 até 016 do retorno da função PP_GetPin().</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="crédito-por-chip-com-cartão-criptografado">Crédito por chip com cartão criptografado</h3>
 
