@@ -13478,7 +13478,7 @@
 |<code class="language-plaintext highlighter-rouge">CreditCard.EmvData</code>|String|—|Sim|Dados da transação EMV <br />Obtidos através do comando PP_GoOnChip na BC|
 |<code class="language-plaintext highlighter-rouge">PinBlock.EncryptedPinBlock</code>|String|—|Sim|PINBlock Criptografado<br />- Para transações EMV, esse campo é obtido através do retorno da função PP_GoOnChip(), mais especificamente das posições 007 até a posição 022;<br />- Para transações digitadas e com tarja magnética, verificar as posições 001 até 016 do retorno da função PP_GetPin().|
 |<code class="language-plaintext highlighter-rouge">PinBlock.EncryptionType</code>|String|—|Não|Tipo de Criptografia<br />Enum:<br />“DukptDes”<br />“Dukpt3Des”<br />“MasterKey”|
-|<code class="language-plaintext highlighter-rouge">PinBlock.KsnIdentification</code>|String|—|Sim|Identificação do KSN<br />- Para transações EMV esse campo é obtido através do retorno da função PP_GoOnChip() nas posições 023 até 042;<br />- Para transações digitadas e com tarja magnética, verificar as posições 017 até 036 do retorno da função PP_GetPin().
+|<code class="language-plaintext highlighter-rouge">PinBlock.KsnIdentification</code>|String|—|Sim|Identificação do KSN<br />- Para transações EMV esse campo é obtido através do retorno da função PP_GoOnChip() nas posições 023 até 042;<br />- Para transações digitadas e com tarja magnética, verificar as posições 017 até 036 do retorno da função PP_GetPin().|
 |<code class="language-plaintext highlighter-rouge">CreditCard.PanSequenceNumber</code>|Number|—|Sim|Número sequencial do cartão, utilizado para identificar a conta corrente do cartão adicional. Mandatório para transações com cartões Chip EMV e que possuam PAN Sequence Number (Tag 5F34).|
 |<code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code>|Booleano|—|Não|Identifica se vai salvar/tokenizar o cartão.|
 |<code class="language-plaintext highlighter-rouge">CreditCard.IsFallback</code>|Booleano|—|Não|Identifica se é uma transação de fallback.|
@@ -13536,8 +13536,8 @@
 |</code>Receipt.SoftDescriptor<code class="language-plaintext highlighter-rouge">|String|13|Não|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
 |</code>RecurrentPayment.RecurrentPaymentId<code class="language-plaintext highlighter-rouge">|String (Guid)36|Não|ID que representa a recorrência, utilizada para consultas e alterações futuras.|
 |</code>RecurrentPayment.ReasonCode<code class="language-plaintext highlighter-rouge">|String|—|Não|Codigo de erro/resposta da recorrencia|
-|</code>RecurrentPayment.ReasonMessage<code class="language-plaintext highlighter-rouge">|String|—Não|Mensagem de erro/resposta da recorrencia
-|</code>RecurrentPayment.NextRecurrency<code class="language-plaintext highlighter-rouge">|String (Date)|10|Não|Data de quando acontecerá a próxima recorrência. Formato "YYYY-MM-DD"
+|</code>RecurrentPayment.ReasonMessage<code class="language-plaintext highlighter-rouge">|String|—Não|Mensagem de erro/resposta da recorrencia|
+|</code>RecurrentPayment.NextRecurrency<code class="language-plaintext highlighter-rouge">|String (Date)|10|Não|Data de quando acontecerá a próxima recorrência. Formato "YYYY-MM-DD"|
 |</code>RecurrentPayment.EndDate<code class="language-plaintext highlighter-rouge">|String|10|Não|Data para término da recorrência.|
 |</code>RecurrentPayment.Interval<code class="language-plaintext highlighter-rouge">|String|10|Não|Intervalo da recorrência. Não utilizar em conjunto com DailyInterval. Monthly (default) / Bimonthly / Quarterly / SemiAnnual Annual|
 |</code>SplitPayments.SubordinateMerchantId<code class="language-plaintext highlighter-rouge">|String (Guid)|36|Não|Identificador do Seller na Cielo.|
