@@ -13527,11 +13527,11 @@
 |</code>Receipt.Dat<code class="language-plaintext highlighter-rouge">e|String|—|Sim|Data da transação|
 |</code>Receipt.Hour<code class="language-plaintext highlighter-rouge">|String|—Sim|Horario da transação|
 |</code>Receipt.IssuerName<code class="language-plaintext highlighter-rouge">|String|—|Sim|Nome do emissor obtido através do campo IssuerId no objeto BinEntry.|
-|</code>Receipt.CardNumber<code class="language-plaintext highlighter-rouge">|String—SimNúmero do cartão|
-|</code>Receipt.TransactionType<code class="language-plaintext highlighter-rouge">|String—SimTipo de transação|
-|</code>Receipt.AuthorizationCode<code class="language-plaintext highlighter-rouge">|String—SimCódigo da autorização|
-|</code>Receipt.TransactionMode<code class="language-plaintext highlighter-rouge">|String—SimModo da transação|
-|</code>Receipt.InputMethod<code class="language-plaintext highlighter-rouge">|String—SimMetodo de entrada|
+|</code>Receipt.CardNumber<code class="language-plaintext highlighter-rouge">|String|—|Sim|Número do cartão|
+|</code>Receipt.TransactionType<code class="language-plaintext highlighter-rouge">|String|—|Sim|Tipo de transação|
+|</code>Receipt.AuthorizationCode<code class="language-plaintext highlighter-rouge">|String—Sim|Código da autorização|
+|</code>Receipt.TransactionMode<code class="language-plaintext highlighter-rouge">|String—Sim|Modo da transação|
+|</code>Receipt.InputMethod<code class="language-plaintext highlighter-rouge">|String|—|Sim|Metodo de entrada|
 |</code>Receipt.ValueString<code class="language-plaintext highlighter-rouge">|—|Sim|Valor do pagamento|
 |</code>Receipt.SoftDescriptor<code class="language-plaintext highlighter-rouge">|String|13|Não|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
 |</code>RecurrentPayment.RecurrentPaymentId<code class="language-plaintext highlighter-rouge">|String (Guid)36|Não|ID que representa a recorrência, utilizada para consultas e alterações futuras.|
@@ -13541,8 +13541,8 @@
 |</code>RecurrentPayment.EndDate<code class="language-plaintext highlighter-rouge">|String|10|Não|Data para término da recorrência.|
 |</code>RecurrentPayment.Interval<code class="language-plaintext highlighter-rouge">|String|10|Não|Intervalo da recorrência. Não utilizar em conjunto com DailyInterval. Monthly (default) / Bimonthly / Quarterly / SemiAnnual Annual|
 |</code>SplitPayments.SubordinateMerchantId<code class="language-plaintext highlighter-rouge">|String (Guid)|36|Não|Identificador do Seller na Cielo.|
-|</code>SplitPayments.Amount<code class="language-plaintext highlighter-rouge">|Integer15NãoTotal da venda do Seller específico. R$ 100,00 = 10000|
-|</code>SplitPayments.Fares.Mdr<code class="language-plaintext highlighter-rouge">|Decimal3,2|Não|Taxa aplicada pela loja Master sobre o Seller para desconto|
+|</code>SplitPayments.Amount<code class="language-plaintext highlighter-rouge">|Integer|15|Não|Total da venda do Seller específico. R$ 100,00 = 10000|
+|</code>SplitPayments.Fares.Mdr<code class="language-plaintext highlighter-rouge">|Decimal|3,2|Não|Taxa aplicada pela loja Master sobre o Seller para desconto|
 |</code>SplitPayments.Fares.Fee<code class="language-plaintext highlighter-rouge">|Integer|15|Não|Tarifa aplicada pela loja Master sobre o Seller para desconto|
 |</code>SplitErrors.Code<code class="language-plaintext highlighter-rouge">|String—Não|Código de erro/resposta da transação do Split|
 |</code>SplitErrors.Message`|String|—|Não|Mensagem de erro/resposta da transação do Split|</p>
