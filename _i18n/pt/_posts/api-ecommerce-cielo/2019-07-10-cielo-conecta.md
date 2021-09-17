@@ -4280,8 +4280,6 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 }
 ```
 
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
-
 #### Resposta
 
 ```json
