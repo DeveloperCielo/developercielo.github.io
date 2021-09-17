@@ -4637,43 +4637,6 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`InitializationVersion`|Integer| int16|—|Sim|Número de versão dos parametros baixados na inicialização do equipamento.|
 |`Payment.EmvResponseData`|String—|Sim|Dados da transação EMV Obtidos através do comando PP_GoOnChip na BC|
 |`Payment.Status`|Integer|2|Sim|Status da transação<br><br>0 = Não Finalizado<br><br>1 = Autorizado<br><br>2 = Pago<br><br>3 = Negado<br><br>10 = Cancelado<br><br>13 = Abortado|
-|`Payment.IsSplitted`|Booleano|—|Não|Indica se o pagamento tem split ou não. Default: false|
-|`Payment.ReturnCode`|String|3|Sim|Código de erro/resposta da transação da Adquirência.|
-|`Payment.ReturnMessag`|String|—|Sim|Mensagem de erro/resposta da transação da Adquirência.|
-|`Payment.PaymentId`|—|—|—|—|
-|`Payment.PaymentId`|String (Guid)|36|Sim|Código do Pagamento|
-|`Payment.Type`|String—SimValue: PhysicalCreditCard / Tipo da Transação|
-|`Payment.Currency`|String|3|Não|Default: “BRL” / Value: “BRL” / Moeda (Preencher com “BRL”)|
-|`Payment.CountryString`|3|NãoDefault: “BRA” / Value: “BRA” / País (Preencher com “BRA”)|
-|`Receipt.MerchantName`|String|—|Sim|Nome da loja|
-|`Receipt.MerchantAddress`|String|—|Sim|Endereço da loja|
-|`Receipt.MerchantCity`|String|—|Sim|Cidade da loja|
-|`Receipt.MerchantState`|String|—|Sim|Estado da loja|
-|`Receipt.MerchantCode`|String|—SimCodigo de identificação da loja|
-|`Receipt.Terminal`|String|8|Sim|Identificação do Terminal|
-|`Receipt.NsuString`|—|Sim|Numero de identificação da transação Cielo|
-|`Receipt.Dat`e|String|—|Sim|Data da transação|
-|`Receipt.Hour`|String|—Sim|Horario da transação|
-|`Receipt.IssuerName`|String|—|Sim|Nome do emissor obtido através do campo IssuerId no objeto BinEntry.|
-|`Receipt.CardNumber`|String|—|Sim|Número do cartão|
-|`Receipt.TransactionType`|String|—|Sim|Tipo de transação|
-|`Receipt.AuthorizationCode`|String—Sim|Código da autorização|
-|`Receipt.TransactionMode`|String—Sim|Modo da transação|
-|`Receipt.InputMethod`|String|—|Sim|Metodo de entrada|
-|`Receipt.ValueString`|—|Sim|Valor do pagamento|
-|`Receipt.SoftDescriptor`|String|13|Não|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
-|`RecurrentPayment.RecurrentPaymentId`|String (Guid)36|Não|ID que representa a recorrência, utilizada para consultas e alterações futuras.|
-|`RecurrentPayment.ReasonCode`|String|—|Não|Codigo de erro/resposta da recorrencia|
-|`RecurrentPayment.ReasonMessage`|String|—Não|Mensagem de erro/resposta da recorrencia|
-|`RecurrentPayment.NextRecurrency`|String (Date)|10|Não|Data de quando acontecerá a próxima recorrência. Formato "YYYY-MM-DD"|
-|`RecurrentPayment.EndDate`|String|10|Não|Data para término da recorrência.|
-|`RecurrentPayment.Interval`|String|10|Não|Intervalo da recorrência. Não utilizar em conjunto com DailyInterval. Monthly (default) / Bimonthly / Quarterly / SemiAnnual Annual|
-|`SplitPayments.SubordinateMerchantId`|String (Guid)|36|Não|Identificador do Seller na Cielo.|
-|`SplitPayments.Amount`|Integer|15|Não|Total da venda do Seller específico. R$ 100,00 = 10000|
-|`SplitPayments.Fares.Mdr`|Decimal|3,2|Não|Taxa aplicada pela loja Master sobre o Seller para desconto|
-|`SplitPayments.Fares.Fee`|Integer|15|Não|Tarifa aplicada pela loja Master sobre o Seller para desconto|
-|`SplitErrors.Code`|String—Não|Código de erro/resposta da transação do Split|
-|`SplitErrors.Message`|String|—|Não|Mensagem de erro/resposta da transação do Split|
 
 ### Crédito por chip com cartão criptografado
 
