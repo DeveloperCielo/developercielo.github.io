@@ -4606,7 +4606,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`CreditCard.EmvData`|String|---|Sim|Dados da transação EMV <br><br>Obtidos através do comando PP_GoOnChip na BC|
 |`PinBlock.EncryptedPinBlock`|String|---|Sim|PINBlock Criptografado<br><br>- Para transações EMV, esse campo é obtido através do retorno da função PP_GoOnChip(), mais especificamente das posições 007 até a posição 022;<br><br>- Para transações digitadas e com tarja magnética, verificar as posições 001 até 016 do retorno da função PP_GetPin().|
 |`PinBlock.EncryptionType`|String|---|Não|Tipo de Criptografia<br><br>Enum:<br><br>"DukptDes"<br><br>"Dukpt3Des"<br><br>"MasterKey"|
-|`PinBlock.KsnIdentification`|String|---|Sim|Identificação do KSN<br><br>- Para transações EMV esse campo é obtido através do retorno da função PP_GoOnChip() nas posições 023 até 042;<br><br>- Para transações digitadas e com tarja magnética, verificar as posições 017 até 036 do retorno da função PP_GetPin().
+|`PinBlock.KsnIdentification`|String|---|Sim|Identificação do KSN<br><br>- Para transações EMV esse campo é obtido através do retorno da função PP_GoOnChip() nas posições 023 até 042;<br><br>- Para transações digitadas e com tarja magnética, verificar as posições 017 até 036 do retorno da função PP_GetPin().|
 |`CreditCard.PanSequenceNumber`|Number|---|Sim|Número sequencial do cartão, utilizado para identificar a conta corrente do cartão adicional. Mandatório para transações com cartões Chip EMV e que possuam PAN Sequence Number (Tag 5F34).|
 |`CreditCard.SaveCard`|Booleano|---|Não|Identifica se vai salvar/tokenizar o cartão.|
 |`CreditCard.IsFallback`|Booleano|---|Não|Identifica se é uma transação de fallback.|
@@ -4664,8 +4664,8 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Receipt.SoftDescriptor`|String|13|Não|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
 |`RecurrentPayment.RecurrentPaymentId`|String (Guid)36|Não|ID que representa a recorrência, utilizada para consultas e alterações futuras.|
 |`RecurrentPayment.ReasonCode`|String|—|Não|Codigo de erro/resposta da recorrencia|
-|`RecurrentPayment.ReasonMessage`|String|—Não|Mensagem de erro/resposta da recorrencia
-|`RecurrentPayment.NextRecurrency`|String (Date)|10|Não|Data de quando acontecerá a próxima recorrência. Formato "YYYY-MM-DD"
+|`RecurrentPayment.ReasonMessage`|String|—Não|Mensagem de erro/resposta da recorrencia|
+|`RecurrentPayment.NextRecurrency`|String (Date)|10|Não|Data de quando acontecerá a próxima recorrência. Formato "YYYY-MM-DD"|
 |`RecurrentPayment.EndDate`|String|10|Não|Data para término da recorrência.|
 |`RecurrentPayment.Interval`|String|10|Não|Intervalo da recorrência. Não utilizar em conjunto com DailyInterval. Monthly (default) / Bimonthly / Quarterly / SemiAnnual Annual|
 |`SplitPayments.SubordinateMerchantId`|String (Guid)|36|Não|Identificador do Seller na Cielo.|
