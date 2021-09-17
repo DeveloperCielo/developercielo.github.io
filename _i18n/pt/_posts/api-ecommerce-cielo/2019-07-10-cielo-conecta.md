@@ -4655,11 +4655,11 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Receipt.Dat`e|String|—|Sim|Data da transação|
 |`Receipt.Hour`|String|—Sim|Horario da transação|
 |`Receipt.IssuerName`|String|—|Sim|Nome do emissor obtido através do campo IssuerId no objeto BinEntry.|
-|`Receipt.CardNumber`|String—SimNúmero do cartão|
-|`Receipt.TransactionType`|String—SimTipo de transação|
-|`Receipt.AuthorizationCode`|String—SimCódigo da autorização|
-|`Receipt.TransactionMode`|String—SimModo da transação|
-|`Receipt.InputMethod`|String—SimMetodo de entrada|
+|`Receipt.CardNumber`|String|—|Sim|Número do cartão|
+|`Receipt.TransactionType`|String|—|Sim|Tipo de transação|
+|`Receipt.AuthorizationCode`|String—Sim|Código da autorização|
+|`Receipt.TransactionMode`|String—Sim|Modo da transação|
+|`Receipt.InputMethod`|String|—|Sim|Metodo de entrada|
 |`Receipt.ValueString`|—|Sim|Valor do pagamento|
 |`Receipt.SoftDescriptor`|String|13|Não|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
 |`RecurrentPayment.RecurrentPaymentId`|String (Guid)36|Não|ID que representa a recorrência, utilizada para consultas e alterações futuras.|
@@ -4669,8 +4669,8 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`RecurrentPayment.EndDate`|String|10|Não|Data para término da recorrência.|
 |`RecurrentPayment.Interval`|String|10|Não|Intervalo da recorrência. Não utilizar em conjunto com DailyInterval. Monthly (default) / Bimonthly / Quarterly / SemiAnnual Annual|
 |`SplitPayments.SubordinateMerchantId`|String (Guid)|36|Não|Identificador do Seller na Cielo.|
-|`SplitPayments.Amount`|Integer15NãoTotal da venda do Seller específico. R$ 100,00 = 10000|
-|`SplitPayments.Fares.Mdr`|Decimal3,2|Não|Taxa aplicada pela loja Master sobre o Seller para desconto|
+|`SplitPayments.Amount`|Integer|15|Não|Total da venda do Seller específico. R$ 100,00 = 10000|
+|`SplitPayments.Fares.Mdr`|Decimal|3,2|Não|Taxa aplicada pela loja Master sobre o Seller para desconto|
 |`SplitPayments.Fares.Fee`|Integer|15|Não|Tarifa aplicada pela loja Master sobre o Seller para desconto|
 |`SplitErrors.Code`|String—Não|Código de erro/resposta da transação do Split|
 |`SplitErrors.Message`|String|—|Não|Mensagem de erro/resposta da transação do Split|
