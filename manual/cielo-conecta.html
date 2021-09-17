@@ -13508,44 +13508,7 @@
 |</code>Payment.ConfirmationStatus<code class="language-plaintext highlighter-rouge">|Integer|2|Não|Status da confirmação.&lt;br&gt;0 = Pendente&lt;br&gt;1 = Confirmado&lt;br&gt;2 = Desfeito|
 |</code>InitializationVersion<code class="language-plaintext highlighter-rouge">|Integer| int16|—|Sim|Número de versão dos parametros baixados na inicialização do equipamento.|
 |</code>Payment.EmvResponseData<code class="language-plaintext highlighter-rouge">|String—|Sim|Dados da transação EMV Obtidos através do comando PP_GoOnChip na BC|
-|</code>Payment.Status<code class="language-plaintext highlighter-rouge">|Integer|2|Sim|Status da transação&lt;br&gt;0 = Não Finalizado&lt;br&gt;1 = Autorizado&lt;br&gt;2 = Pago&lt;br&gt;3 = Negado&lt;br&gt;10 = Cancelado&lt;br&gt;13 = Abortado|
-|</code>Payment.IsSplitted<code class="language-plaintext highlighter-rouge">|Booleano|—|Não|Indica se o pagamento tem split ou não. Default: false|
-|</code>Payment.ReturnCode<code class="language-plaintext highlighter-rouge">|String|3|Sim|Código de erro/resposta da transação da Adquirência.|
-|</code>Payment.ReturnMessag<code class="language-plaintext highlighter-rouge">|String|—|Sim|Mensagem de erro/resposta da transação da Adquirência.|
-|</code>Payment.PaymentId<code class="language-plaintext highlighter-rouge">|—|—|—|—|
-|</code>Payment.PaymentId<code class="language-plaintext highlighter-rouge">|String (Guid)|36|Sim|Código do Pagamento|
-|</code>Payment.Type<code class="language-plaintext highlighter-rouge">|String—SimValue: PhysicalCreditCard / Tipo da Transação|
-|</code>Payment.Currency<code class="language-plaintext highlighter-rouge">|String|3|Não|Default: “BRL” / Value: “BRL” / Moeda (Preencher com “BRL”)|
-|</code>Payment.CountryString<code class="language-plaintext highlighter-rouge">|3|NãoDefault: “BRA” / Value: “BRA” / País (Preencher com “BRA”)|
-|</code>Receipt.MerchantName<code class="language-plaintext highlighter-rouge">|String|—|Sim|Nome da loja|
-|</code>Receipt.MerchantAddress<code class="language-plaintext highlighter-rouge">|String|—|Sim|Endereço da loja|
-|</code>Receipt.MerchantCity<code class="language-plaintext highlighter-rouge">|String|—|Sim|Cidade da loja|
-|</code>Receipt.MerchantState<code class="language-plaintext highlighter-rouge">|String|—|Sim|Estado da loja|
-|</code>Receipt.MerchantCode<code class="language-plaintext highlighter-rouge">|String|—SimCodigo de identificação da loja|
-|</code>Receipt.Terminal<code class="language-plaintext highlighter-rouge">|String|8|Sim|Identificação do Terminal|
-|</code>Receipt.NsuString<code class="language-plaintext highlighter-rouge">|—|Sim|Numero de identificação da transação Cielo|
-|</code>Receipt.Dat<code class="language-plaintext highlighter-rouge">e|String|—|Sim|Data da transação|
-|</code>Receipt.Hour<code class="language-plaintext highlighter-rouge">|String|—Sim|Horario da transação|
-|</code>Receipt.IssuerName<code class="language-plaintext highlighter-rouge">|String|—|Sim|Nome do emissor obtido através do campo IssuerId no objeto BinEntry.|
-|</code>Receipt.CardNumber<code class="language-plaintext highlighter-rouge">|String|—|Sim|Número do cartão|
-|</code>Receipt.TransactionType<code class="language-plaintext highlighter-rouge">|String|—|Sim|Tipo de transação|
-|</code>Receipt.AuthorizationCode<code class="language-plaintext highlighter-rouge">|String—Sim|Código da autorização|
-|</code>Receipt.TransactionMode<code class="language-plaintext highlighter-rouge">|String—Sim|Modo da transação|
-|</code>Receipt.InputMethod<code class="language-plaintext highlighter-rouge">|String|—|Sim|Metodo de entrada|
-|</code>Receipt.ValueString<code class="language-plaintext highlighter-rouge">|—|Sim|Valor do pagamento|
-|</code>Receipt.SoftDescriptor<code class="language-plaintext highlighter-rouge">|String|13|Não|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
-|</code>RecurrentPayment.RecurrentPaymentId<code class="language-plaintext highlighter-rouge">|String (Guid)36|Não|ID que representa a recorrência, utilizada para consultas e alterações futuras.|
-|</code>RecurrentPayment.ReasonCode<code class="language-plaintext highlighter-rouge">|String|—|Não|Codigo de erro/resposta da recorrencia|
-|</code>RecurrentPayment.ReasonMessage<code class="language-plaintext highlighter-rouge">|String|—Não|Mensagem de erro/resposta da recorrencia|
-|</code>RecurrentPayment.NextRecurrency<code class="language-plaintext highlighter-rouge">|String (Date)|10|Não|Data de quando acontecerá a próxima recorrência. Formato "YYYY-MM-DD"|
-|</code>RecurrentPayment.EndDate<code class="language-plaintext highlighter-rouge">|String|10|Não|Data para término da recorrência.|
-|</code>RecurrentPayment.Interval<code class="language-plaintext highlighter-rouge">|String|10|Não|Intervalo da recorrência. Não utilizar em conjunto com DailyInterval. Monthly (default) / Bimonthly / Quarterly / SemiAnnual Annual|
-|</code>SplitPayments.SubordinateMerchantId<code class="language-plaintext highlighter-rouge">|String (Guid)|36|Não|Identificador do Seller na Cielo.|
-|</code>SplitPayments.Amount<code class="language-plaintext highlighter-rouge">|Integer|15|Não|Total da venda do Seller específico. R$ 100,00 = 10000|
-|</code>SplitPayments.Fares.Mdr<code class="language-plaintext highlighter-rouge">|Decimal|3,2|Não|Taxa aplicada pela loja Master sobre o Seller para desconto|
-|</code>SplitPayments.Fares.Fee<code class="language-plaintext highlighter-rouge">|Integer|15|Não|Tarifa aplicada pela loja Master sobre o Seller para desconto|
-|</code>SplitErrors.Code<code class="language-plaintext highlighter-rouge">|String—Não|Código de erro/resposta da transação do Split|
-|</code>SplitErrors.Message`|String|—|Não|Mensagem de erro/resposta da transação do Split|</p>
+|</code>Payment.Status`|Integer|2|Sim|Status da transação<br />0 = Não Finalizado<br />1 = Autorizado<br />2 = Pago<br />3 = Negado<br />10 = Cancelado<br />13 = Abortado|</p>
 
 <h3 id="crédito-por-chip-com-cartão-criptografado">Crédito por chip com cartão criptografado</h3>
 
