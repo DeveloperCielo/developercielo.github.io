@@ -4247,36 +4247,36 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 ```json
 {
-  "MerchantOrderId": "1596226820548",
-  "Payment": {
-	  "SubordinatedMerchantId": "{Auth_ClientId}",
-    "Type": "PhysicalCreditCard",
-    "SoftDescriptor": "Transação API",
-    "PaymentDateTime": "2020-01-08T11:00:00",
-    "Amount": 100,
-    "Installments": 1,
-    "Interest": "ByMerchant",
-    "Capture": true,
-    "ProductId": 1,
-    "CreditCard": {
-      "CardNumber": "{{Card_Number}}",
-      "ExpirationDate": "{{Card_ExpirationDate}}",
-      "SecurityCodeStatus": "Collected",
-      "SecurityCode": "{{Card_SecurityCode}}",
-      "BrandId": 1,
-      "IssuerId": 401,
-      "InputMode": "Typed",
-      "AuthenticationMethod": "NoPassword",
-      "TruncateCardNumberWhenPrinting": true,
-      "SaveCard": true
-    },
-    "PinPadInformation": {
-      "PhysicalCharacteristics": "PinPadWithChipReaderWithoutSamAndContactless",
-      "ReturnDataInfo": "00",
-      "SerialNumber": "0820471929",
-      "TerminalId": "12345678"
-    }
-  }
+   "MerchantOrderId":"1596226820548",
+   "Payment":{
+      "SubordinatedMerchantId":"{Auth_ClientId}",
+      "Type":"PhysicalCreditCard",
+      "SoftDescriptor":"Transação API",
+      "PaymentDateTime":"2020-01-08T11:00:00",
+      "Amount":100,
+      "Installments":1,
+      "Interest":"ByMerchant",
+      "Capture":true,
+      "ProductId":1,
+      "CreditCard":{
+         "CardNumber":"{{Card_Number}}",
+         "ExpirationDate":"{{Card_ExpirationDate}}",
+         "SecurityCodeStatus":"Collected",
+         "SecurityCode":"{{Card_SecurityCode}}",
+         "BrandId":1,
+         "IssuerId":401,
+         "InputMode":"Typed",
+         "AuthenticationMethod":"NoPassword",
+         "TruncateCardNumberWhenPrinting":true,
+         "SaveCard":true
+      },
+      "PinPadInformation":{
+         "PhysicalCharacteristics":"PinPadWithChipReaderWithoutSamAndContactless",
+         "ReturnDataInfo":"00",
+         "SerialNumber":"0820471929",
+         "TerminalId":"12345678"
+      }
+   }
 }
 ```
 
