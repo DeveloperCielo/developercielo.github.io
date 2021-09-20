@@ -4640,17 +4640,17 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Payment.ReturnCode`|String|3|Sim|Código de erro/resposta da transação da Adquirência.|
 |`Payment.ReturnMessag`|String|---|Sim|Mensagem de erro/resposta da transação da Adquirência.|
 |`Payment.PaymentId`|---|---|---|---|
-|`Payment.PaymentId`|String (Guid)|36|Sim|Código do Pagamento|
+|`Payment.PaymentId`|String(Guid)|36|Sim|Código do Pagamento|
 |`Payment.Type`|String|---|Sim|Value: PhysicalCreditCard / Tipo da Transação|
 |`Payment.Currency`|String|3|Não|Default: “BRL” / Value: “BRL” / Moeda (Preencher com “BRL”)|
-|`Payment.Country`|String`|3|Não|Default: “BRA” / Value: “BRA” / País (Preencher com “BRA”)|
+|`Payment.Country`|String|3|Não|Default: “BRA” / Value: “BRA” / País (Preencher com “BRA”)|
 |`Receipt.MerchantName`|String|---|Sim|Nome da loja|
 |`Receipt.MerchantAddress`|String|---|Sim|Endereço da loja|
 |`Receipt.MerchantCity`|String|---|Sim|Cidade da loja|
 |`Receipt.MerchantState`|String|---|Sim|Estado da loja|
 |`Receipt.MerchantCode`|String|---|Sim|Codigo de identificação da loja|
 |`Receipt.Terminal`|String|8|Sim|Identificação do Terminal|
-|`Receipt.Nsu`|String`|---|Sim|Numero de identificação da transação Cielo|
+|`Receipt.Nsu`|String|---|Sim|Numero de identificação da transação Cielo|
 |`Receipt.Date`|String|---|Sim|Data da transação|
 |`Receipt.Hour`|String|---|Sim|Horario da transação|
 |`Receipt.IssuerName`|String|---|Sim|Nome do emissor obtido através do campo IssuerId no objeto BinEntry.|
@@ -4659,7 +4659,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Receipt.AuthorizationCode`|String|---|Sim|Código da autorização|
 |`Receipt.TransactionMode`|String|---|Sim|Modo da transação|
 |`Receipt.InputMethod`|String|---|Sim|Metodo de entrada|
-|`Receipt.ValueString`|---|Sim|Valor do pagamento|
+|`Receipt.Value`|String|---|Sim|Valor do pagamento|
 
 ### Crédito por chip com cartão criptografado
 
