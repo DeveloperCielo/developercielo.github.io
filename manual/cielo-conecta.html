@@ -14089,6 +14089,110 @@
       <td>Valor do pagamento</td>
       <td> </td>
     </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Receipt.SoftDescriptor</code></td>
+      <td>String</td>
+      <td>13</td>
+      <td>Não</td>
+      <td>Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPayment.RecurrentPaymentId</code></td>
+      <td>String (Guid)</td>
+      <td>36</td>
+      <td>Não</td>
+      <td>ID que representa a recorrência, utilizada para consultas e alterações futuras.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPayment.ReasonCode</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Codigo de erro/resposta da recorrencia</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPayment.ReasonMessage</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Mensagem de erro/resposta da recorrencia</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPayment.NextRecurrency</code></td>
+      <td>String (Date)</td>
+      <td>10</td>
+      <td>Não</td>
+      <td>Data de quando acontecerá a próxima recorrência. Formato “YYYY-MM-DD”</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPayment.EndDate</code></td>
+      <td>String</td>
+      <td>10</td>
+      <td>Não</td>
+      <td>Data para término da recorrência.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPayment.Interval</code></td>
+      <td>String</td>
+      <td>10</td>
+      <td>Não</td>
+      <td>Intervalo da recorrência. Não utilizar em conjunto com DailyInterval. Monthly (default) / Bimonthly / Quarterly / SemiAnnual Annual</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.SubordinateMerchantId</code></td>
+      <td>String (Guid)</td>
+      <td>36</td>
+      <td>Não</td>
+      <td>Identificador do Seller na Cielo.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Amount</code></td>
+      <td>Integer</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Total da venda do Seller específico. R$ 100,00 = 10000</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Fares.Mdr</code></td>
+      <td>Decimal</td>
+      <td>3,2</td>
+      <td>Não</td>
+      <td>Taxa aplicada pela loja Master sobre o Seller para desconto</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SplitPayments.Fares.Fee</code></td>
+      <td>Integer</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Tarifa aplicada pela loja Master sobre o Seller para desconto</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SplitErrors.Code</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Código de erro/resposta da transação do Split</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SplitErrors.Message</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Mensagem de erro/resposta da transação do Split</td>
+      <td> </td>
+    </tr>
   </tbody>
 </table>
 
