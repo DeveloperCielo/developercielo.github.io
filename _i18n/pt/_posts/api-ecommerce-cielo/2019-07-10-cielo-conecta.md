@@ -4636,6 +4636,30 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`InitializationVersion`|Integer| int16|---|Sim|Número de versão dos parametros baixados na inicialização do equipamento.|
 |`Payment.EmvResponseData`|String|---|Sim|Dados da transação EMV Obtidos através do comando PP_GoOnChip na BC|
 |`Payment.Status`|Integer|2|Sim|Status da transação<br><br>0 = Não Finalizado<br><br>1 = Autorizado<br><br>2 = Pago<br><br>3 = Negado<br><br>10 = Cancelado<br><br>13 = Abortado|
+|`Payment.IsSplitted`|Booleano|---|Não|Indica se o pagamento tem split ou não. Default: false|
+|`Payment.ReturnCode`|String|3|Sim|Código de erro/resposta da transação da Adquirência.|
+|`Payment.ReturnMessag`|String|---|Sim|Mensagem de erro/resposta da transação da Adquirência.|
+|`Payment.PaymentId`|---|---|---|---|
+|`Payment.PaymentId`|String (Guid)|36|Sim|Código do Pagamento|
+|`Payment.Type`|String|---|Sim|Value: PhysicalCreditCard / Tipo da Transação|
+|`Payment.Currency`|String|3|Não|Default: “BRL” / Value: “BRL” / Moeda (Preencher com “BRL”)|
+|`Payment.Country`|String`|3|Não|Default: “BRA” / Value: “BRA” / País (Preencher com “BRA”)|
+|`Receipt.MerchantName`|String|---|Sim|Nome da loja|
+|`Receipt.MerchantAddress`|String|---|Sim|Endereço da loja|
+|`Receipt.MerchantCity`|String|---|Sim|Cidade da loja|
+|`Receipt.MerchantState`|String|---|Sim|Estado da loja|
+|`Receipt.MerchantCode`|String|---|Sim|Codigo de identificação da loja|
+|`Receipt.Terminal`|String|8|Sim|Identificação do Terminal|
+|`Receipt.Nsu`|String`|---|Sim|Numero de identificação da transação Cielo|
+|`Receipt.Date`|String|---|Sim|Data da transação|
+|`Receipt.Hour`|String|---|Sim|Horario da transação|
+|`Receipt.IssuerName`|String|---|Sim|Nome do emissor obtido através do campo IssuerId no objeto BinEntry.|
+|`Receipt.CardNumber`|String|---|Sim|Número do cartão|
+|`Receipt.TransactionType`|String|---|Sim|Tipo de transação|
+|`Receipt.AuthorizationCode`|String|---|Sim|Código da autorização|
+|`Receipt.TransactionMode`|String|---|Sim|Modo da transação|
+|`Receipt.InputMethod`|String|---|Sim|Metodo de entrada|
+|`Receipt.ValueString`|---|Sim|Valor do pagamento|
 
 ### Crédito por chip com cartão criptografado
 
