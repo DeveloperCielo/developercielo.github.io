@@ -4645,6 +4645,21 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Payment.Currency`|String|3|Não|Default: “BRL” / Value: “BRL” / Moeda (Preencher com “BRL”)|
 |`Payment.Country`|String|3|Não|Default: “BRA” / Value: “BRA” / País (Preencher com “BRA”)|
 |`Receipt.MerchantName`|String|---|Sim|Nome da loja|
+|`Receipt.MerchantAddress`|String|---|Sim|Endereço da loja|
+|`Receipt.MerchantCity`|String|---|Sim|Cidade da loja|
+|`Receipt.MerchantState`|String|---|Sim|Estado da loja|
+|`Receipt.MerchantCode`|String|---|Sim|Codigo de identificação da loja|
+|`Receipt.Terminal`|String|8|Sim|Identificação do Terminal|
+|`Receipt.NsuString`|---|Sim|Numero de identificação da transação Cielo|
+|`Receipt.Date`|String|---|Sim|Data da transação|
+|`Receipt.Hour`|String|---|Sim|Horario da transação|
+|`Receipt.IssuerName`|String|---|Sim|Nome do emissor obtido através do campo IssuerId no objeto BinEntry.|
+|`Receipt.CardNumber`|String|---|Sim|Número do cartão|
+|`Receipt.TransactionType`|String|---|Sim|Tipo de transação|
+|`Receipt.AuthorizationCode`|String|---|Sim|Código da autorização|
+|`Receipt.TransactionMode`|String|---|Sim|Modo da transação|
+|`Receipt.InputMethod`|String|---|Sim|Metodo de entrada|
+|`Receipt.Value`|String|---|Sim|Valor do pagamento|
 
 ### Crédito por chip com cartão criptografado
 
