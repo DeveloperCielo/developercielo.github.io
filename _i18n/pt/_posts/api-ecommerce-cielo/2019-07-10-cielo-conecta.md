@@ -4660,6 +4660,19 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Receipt.TransactionMode`|String|---|Sim|Modo da transação|
 |`Receipt.InputMethod`|String|---|Sim|Metodo de entrada|
 |`Receipt.Value`|String|---|Sim|Valor do pagamento|
+|`Receipt.SoftDescriptor`|String|13|Não|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
+|`RecurrentPayment.RecurrentPaymentId`|String (Guid)|36|Não|ID que representa a recorrência, utilizada para consultas e alterações futuras.|
+|`RecurrentPayment.ReasonCode`|String|---|Não|Codigo de erro/resposta da recorrencia|
+|`RecurrentPayment.ReasonMessage`|String|---|Não|Mensagem de erro/resposta da recorrencia|
+|`RecurrentPayment.NextRecurrency`|String (Date)|10|Não|Data de quando acontecerá a próxima recorrência. Formato "YYYY-MM-DD"|
+|`RecurrentPayment.EndDate`|String|10|Não|Data para término da recorrência.|
+|`RecurrentPayment.Interval`|String|10|Não|Intervalo da recorrência. Não utilizar em conjunto com DailyInterval. Monthly (default) / Bimonthly / Quarterly / SemiAnnual Annual|
+|`SplitPayments.SubordinateMerchantId`|String (Guid)|36|Não|Identificador do Seller na Cielo.|
+|`SplitPayments.Amount`|Integer|15|Não|Total da venda do Seller específico. R$ 100,00 = 10000|
+|`SplitPayments.Fares.Mdr`|Decimal|3,2|Não|Taxa aplicada pela loja Master sobre o Seller para desconto|
+|`SplitPayments.Fares.Fee`|Integer|15|Não|Tarifa aplicada pela loja Master sobre o Seller para desconto|
+|`SplitErrors.Code`|String|---|Não|Código de erro/resposta da transação do Split|
+|`SplitErrors.Message`|String|---|Não|Mensagem de erro/resposta da transação do Split|
 
 ### Crédito por chip com cartão criptografado
 
