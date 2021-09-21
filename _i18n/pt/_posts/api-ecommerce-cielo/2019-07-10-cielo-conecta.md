@@ -329,7 +329,7 @@ Solicita as tabelas e parametros para operação do terminal
 |`Acquirer.HasChipReader`|Booleano|---|---|Indica que tem leitora de Chip-Card|
 |`Acquirer.HasMagneticTrackReader`|Booleano|---|---|Indica que tem leitor da trilha magnética|
 |`Acquirer.HasKeyboard`|Booleano|---|---|Indica que tem teclado para digitação|
-|`Acquirer.IntervalInDaysForSendingTechnicalParameter`|---|Integer|Não|intervalo em dias de envio da Baixa Técnica, sendo:<br><br> 0 - nunca enviar<br><br>1 a 99 - intervalo em dias, exemplo: 30 = enviar a<br><br>cada 30 dias.|
+|`Acquirer.IntervalInDaysForSendingTechnicalParameter`|Integer|---|Não|intervalo em dias de envio da Baixa Técnica, sendo:<br><br> 0 - nunca enviar<br><br>1 a 99 - intervalo em dias, exemplo: 30 = enviar a<br><br>cada 30 dias.|
 |`Merchant.MerchantId`|String|---|---|Código do Lojista na PayStore, definido no momento da criação do lojista.|
 |`Merchant.NetworkName`|String|---|---|Nome da rede da sub-adquirente cadastrado pelo Gestor da PayStore.|
 |`Merchant.MerchantName`|String|---|---|Nome fantasia do lojista, definido no momento da criação do mesmo no portal da PayStore.|
@@ -696,7 +696,7 @@ Solicita as tabelas e parametros para operação do terminal. Como não foi info
 |`Acquirer.HasChipReader`|Booleano|---|---|Indica que tem leitora de Chip-Card|
 |`Acquirer.HasMagneticTrackReader`|Booleano|---|---|Indica que tem leitor da trilha magnética|
 |`Acquirer.HasKeyboard`|Booleano|---|---|Indica que tem teclado para digitação|
-|`Acquirer.IntervalInDaysForSendingTechnicalParameter`|---|Integer|Não|intervalo em dias de envio da Baixa Técnica, sendo:<br><br> 0 - nunca enviar<br><br>1 a 99 - intervalo em dias, exemplo: 30 = enviar a<br><br>cada 30 dias.|
+|`Acquirer.IntervalInDaysForSendingTechnicalParameter`|Integer|---|Não|intervalo em dias de envio da Baixa Técnica, sendo:<br><br> 0 - nunca enviar<br><br>1 a 99 - intervalo em dias, exemplo: 30 = enviar a<br><br>cada 30 dias.|
 |`Merchant.MerchantId`|String|---|---|Código do Lojista na PayStore, definido no momento da criação do lojista.|
 |`Merchant.NetworkName`|String|---|---|Nome da rede da sub-adquirente cadastrado pelo Gestor da PayStore.|
 |`Merchant.MerchantName`|String|---|---|Nome fantasia do lojista, definido no momento da criação do mesmo no portal da PayStore.|
@@ -11504,6 +11504,12 @@ Salva alterações em na loja subordinado com o ID especificado.
 
 ## Terminal
 
+**Atenção:** É necessário ter um terminal ID para cada terminal físico (equipamento) cadastrado na plataforma. Exemplo: Se o lojista possui 5 terminais físicos (equipamentos), ele deve ter 5 terminais ID.
+
+Nosso sistema impede que o mesmo Terminal faça mais de um pagamento simultâneo. Caso um terminal ID esteja associado a mais de um equipamento, pagamentos efetuados por esse mesmo terminal poderão ser rejeitados.
+
+Lembramos que os dados informados no cadastro de Loja/Terminal/Equipamento são de responsabilidade do cliente.
+
 | SandBox                                             | Produção                                      |
 |:---------------------------------------------------:|:---------------------------------------------:|
 | https://merchantapisandbox.cieloecommerce.cielo.com.br      | https://merchantapi.cieloecommerce.cielo.com.br      |
@@ -11511,12 +11517,6 @@ Salva alterações em na loja subordinado com o ID especificado.
 ### Criar Terminal sem Equipamento
 
 Salva alterações em na loja subordinado com o ID especificado.
-
-**Atenção:** É necessário ter um terminal ID para cada terminal físico (equipamento) cadastrado na plataforma. Exemplo: Se o lojista possui 5 terminais físicos (equipamentos), ele deve ter 5 terminais ID.
-
-Nosso sistema impede que o mesmo Terminal faça mais de um pagamento simultâneo. Caso um terminal ID esteja associado a mais de um equipamento, pagamentos efetuados por esse mesmo terminal poderão ser rejeitados.
-
-Lembramos que os dados informados no cadastro de Loja/Terminal/Equipamento são de responsabilidade do cliente.
 
 #### Requisição
 
