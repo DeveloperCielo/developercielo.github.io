@@ -616,8 +616,8 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Acquirer.IntervalInDaysForSendingTechnicalParameter</code></td>
-      <td>—</td>
       <td>Integer</td>
+      <td>—</td>
       <td>Não</td>
       <td>intervalo em dias de envio da Baixa Técnica, sendo:<br /> 0 - nunca enviar<br />1 a 99 - intervalo em dias, exemplo: 30 = enviar a<br />cada 30 dias.</td>
     </tr>
@@ -1964,8 +1964,8 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Acquirer.IntervalInDaysForSendingTechnicalParameter</code></td>
-      <td>—</td>
       <td>Integer</td>
+      <td>—</td>
       <td>Não</td>
       <td>intervalo em dias de envio da Baixa Técnica, sendo:<br /> 0 - nunca enviar<br />1 a 99 - intervalo em dias, exemplo: 30 = enviar a<br />cada 30 dias.</td>
     </tr>
@@ -35346,6 +35346,12 @@
 
 <h2 id="terminal">Terminal</h2>
 
+<p><strong>Atenção:</strong> É necessário ter um terminal ID para cada terminal físico (equipamento) cadastrado na plataforma. Exemplo: Se o lojista possui 5 terminais físicos (equipamentos), ele deve ter 5 terminais ID.</p>
+
+<p>Nosso sistema impede que o mesmo Terminal faça mais de um pagamento simultâneo. Caso um terminal ID esteja associado a mais de um equipamento, pagamentos efetuados por esse mesmo terminal poderão ser rejeitados.</p>
+
+<p>Lembramos que os dados informados no cadastro de Loja/Terminal/Equipamento são de responsabilidade do cliente.</p>
+
 <table>
   <thead>
     <tr>
@@ -35364,12 +35370,6 @@
 <h3 id="criar-terminal-sem-equipamento">Criar Terminal sem Equipamento</h3>
 
 <p>Salva alterações em na loja subordinado com o ID especificado.</p>
-
-<p><strong>Atenção:</strong> É necessário ter um terminal ID para cada terminal físico (equipamento) cadastrado na plataforma. Exemplo: Se o lojista possui 5 terminais físicos (equipamentos), ele deve ter 5 terminais ID.</p>
-
-<p>Nosso sistema impede que o mesmo Terminal faça mais de um pagamento simultâneo. Caso um terminal ID esteja associado a mais de um equipamento, pagamentos efetuados por esse mesmo terminal poderão ser rejeitados.</p>
-
-<p>Lembramos que os dados informados no cadastro de Loja/Terminal/Equipamento são de responsabilidade do cliente.</p>
 
 <h4 id="requisição-41">Requisição</h4>
 
