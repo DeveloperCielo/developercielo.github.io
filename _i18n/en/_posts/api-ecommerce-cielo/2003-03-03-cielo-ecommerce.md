@@ -580,6 +580,8 @@ To enjoy all the features available in our API, it is important that you first u
 |**Anti fraud**|It is a fraud prevention platform that provides a detailed risk analysis of online purchases. Each transaction is submitted to more than 260 rules, besides the specific rules of each segment, and generate a risk recommendation in approximately two seconds. This process is completely transparent to the card carrier. According to the pre-established criteria, the order can be automatically accepted, rejected or sent to manual analysis.|
 |**Recurrent**|The Smart Recurrence is an indispensable feature for establishments that regularly need to charge for their products/services. It is widely used for magazine subscriptions, monthly fees, software licenses, among others. The merchants will count with differentiated features to model their charging according to their business, as all parameterization is configurable, such as: periodicity, start and end date, number of attempts, interval between them, among others.|
 
+<aside class="warning">IMPORTANT: The order identification number (MerchantOrderId) does not change, remaining the same throughout the transactional flow. However, an additional number can be generated for the order and used during the transaction. This number will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (MerchantOrderId). For reconciliation purposes, use tid.</aside>
+
 ### Creating a simple transaction
 
 To create a transaction that will use a credit card, it is necessary to send a request using the `POST` method to the Payment feature, as shown. This example covers the minimum of fields required to be submitted for authorization.
