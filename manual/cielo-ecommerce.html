@@ -1223,6 +1223,8 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
+<aside class="warning">IMPORTANTE: O número de identificação do pedido (MerchantOrderId) não sofre alteração, se mantendo o mesmo ao longo de todo o fluxo transacional. Contudo, um número adicional pode ser gerado para o pedido e utilizado durante a transação. Esse número só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (MerchantOrderId) repetidos. Para fins de conciliação, é necessário usar o tid.</aside>
+
 <h3 id="transação-simples">Transação Simples</h3>
 
 <p>Para criar uma transação que utilizará cartão de crédito, é necessário enviar uma requisição utilizando o método <code class="language-plaintext highlighter-rouge">POST</code> para o recurso Payment, conforme o exemplo. Esse exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.</p>
