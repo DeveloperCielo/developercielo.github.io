@@ -1179,6 +1179,8 @@ Below we specify any existing differences:</p>
   </tbody>
 </table>
 
+<aside class="warning">IMPORTANT: The order identification number (MerchantOrderId) does not change, remaining the same throughout the transactional flow. However, an additional number can be generated for the order and used during the transaction. This number will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (MerchantOrderId). For reconciliation purposes, use tid.</aside>
+
 <h3 id="creating-a-simple-transaction">Creating a simple transaction</h3>
 
 <p>To create a transaction that will use a credit card, it is necessary to send a request using the <code class="language-plaintext highlighter-rouge">POST</code> method to the Payment feature, as shown. This example covers the minimum of fields required to be submitted for authorization.</p>
