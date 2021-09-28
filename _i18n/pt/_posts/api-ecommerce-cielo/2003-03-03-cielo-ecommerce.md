@@ -416,7 +416,7 @@ Basta instalar os três arquivos a seguir na Trustedstore do servidor. A Cielo n
 
 * [Certificado Raiz]({{ site.baseurl }}/attachment/Root.crt)
 * [Certificado Intermediária]({{ site.baseurl }}/attachment/Intermediate1.crt)
-* [Certificado E-Commerce Cielo]({{ site.baseurl }}/attachment/ecommerce.cielo.com.br.cer.zip)
+* [Certificado E-Commerce Cielo]({{ site.baseurl }}/attachment/cieloecommerce.cert-2021-2022.zip)
 
 ## Passo a Passo para a Instalação
 
