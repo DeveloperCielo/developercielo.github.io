@@ -379,7 +379,7 @@ Just install the following three files in the server Trustedstore. Cielo does no
 * [Root Certificate]({{ site.baseurl }}/attachment/Root.crt)
 * [Intermediate 1 certificate]({{ site.baseurl }}/attachment/Intermediate1.crt)
 * [Intermediate 2 certificate]({{ site.baseurl }}/attachment/Intermediate2.crt)
-* [E-Commerce Cielo certificate]({{ site.baseurl }}/attachment/ecommerce.cielo.com.br.cer.zip)
+* [E-Commerce Cielo certificate]({{ site.baseurl }}/attachment/cieloecommerce.cert-2021-2022.zip)
 
 ## Step-by-Step for Installation
 
