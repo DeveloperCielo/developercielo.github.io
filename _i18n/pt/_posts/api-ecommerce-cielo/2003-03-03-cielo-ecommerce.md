@@ -606,8 +606,8 @@ O cartão com a numeração **4110110012341234** irá retornar os seguintes dado
 * **Tipo do cartão**: múltiplo;
 * **Nacionalidade**: nacional;
 * **Cartão corporativo**: não;
-* **Retorno da análise**: análise autorizada;
-* **Banco emissor**: Caixa. 
+* **Retorno da análise**: 00 - Análise autorizada;
+* **Banco emissor**: "104" e "Caixa". 
 
 ### Requisição
 
