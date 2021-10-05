@@ -16119,7 +16119,7 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
 
 <h1 id="consulta-bin">Consulta Bin</h1>
 
-<p>O “<strong>Consulta de Bins</strong>”  é um serviço de <strong>pesquisa de dados do cartão</strong>, de crédito ou débito, que retorna ao lojista da API Cielo e-Commerce informações que permitem validar os dados preenchidos na tela do checkout. O serviço retorna os seguintes dados sobre o cartão:</p>
+<p>O <strong>Consulta Bin</strong>  é um serviço de <strong>pesquisa de dados do cartão</strong>, de crédito ou débito, que retorna ao lojista da API Cielo e-Commerce informações que permitem validar os dados preenchidos na tela do checkout. O serviço retorna os seguintes dados sobre o cartão:</p>
 
 <ul>
   <li><strong>Bandeira do cartão:</strong> Nome da Bandeira</li>
@@ -16135,29 +16135,30 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
 
 <h2 id="caso-de-uso-2">Caso de Uso</h2>
 
-<p>Veja um exemplo de uso: <strong>Consulta Bins + recuperação de carrinho</strong></p>
+<p>Veja um exemplo de uso: <strong>Consulta Bin + recuperação de carrinho</strong></p>
 
-<p>Um marketplace chamada Submergível possui uma gama de meios de pagamento disponíveis para que suas lojas possam oferecer ao comprador, mas mesmo com toda essa oferta, ela continua com uma taxa de conversão baixa.</p>
+<p>O marketplace da empresa Submergível possui uma gama de meios de pagamento disponíveis para que suas lojas ofereçam ao comprador, mas mesmo com toda essa oferta ele continua com uma taxa de conversão baixa.</p>
 
-<p>Conhecendo a função de consulta Bins da API Cielo Ecommerce, como ela poderia evitar a perda de carrinhos?</p>
+<p>Conhecendo a função Consulta BIN da API Cielo E-commerce, como ele poderia evitar a perda de carrinhos?</p>
 
-<p>Ela pode aplicar a Consulta bins e 3 cenários!</p>
+<p>O marketplace da Submergível pode aplicar a Consulta BIN a três cenários:</p>
 
 <ol>
-  <li>Impedir erros com tipo de cartão</li>
-  <li>Oferecer recuperação de carrinhos online</li>
-  <li>Alertar sobre cartões internacionais</li>
-  <li>Impedir erros com tipo de cartão</li>
+  <li>Impedir erros referentes ao tipo de cartão;</li>
+  <li>Oferecer recuperação de carrinhos online;</li>
+  <li>Alertar sobre cartões internacionais.</li>
 </ol>
 
-<p>O Submergível pode usar a consulta bins no carrinho para identificar 2 dos principais erros no preenchimento de formulários de pagamento:</p>
+<p><strong>Impedir erros referentes ao tipo de cartão</strong></p>
+
+<p>A Submergível pode usar a Consulta BIN no carrinho para identificar dois dos principais erros no preenchimento de formulários de pagamento:</p>
 
 <ul>
   <li>
-    <p><strong>Bandeira errada</strong> e confundir cartão de crédito com débito ○ Bandeiras erradas: Ao preencher o formulário de pagamento, é possível realizar uma consulta e já definir a bandeira correta. Esse é um método muito mais seguro do que sebasear em algoritmos no formulário, pois a base de bins consultada é a da bandeira emissora do cartão.</p>
+    <p><strong>Bandeira errada:</strong> ao preencher o formulário de pagamento, é possível realizar uma consulta e já definir a bandeira correta. Esse é um método muito mais seguro do que se basear em algoritmos no formulário, pois a base de bins consultada é a da bandeira emissora do cartão.</p>
   </li>
   <li>
-    <p><strong>Confusões com cartões:</strong> Ao preencher o formulário de pagamento, é possível realizar uma consulta e avisar ao consumidor se ele está usando um cartão de  débito quando na verdade deveria usar um  de débito</p>
+    <p><strong>Confusões com cartões:</strong> ao preencher o formulário de pagamento, é possível realizar uma consulta e avisar ao consumidor se ele está usando um cartão de débito quando na verdade deveria usar um de crédito.</p>
   </li>
 </ul>
 
@@ -16165,15 +16166,16 @@ Dessa forma, quando uma transação com marcação de recorrente for submetida p
 
 <ul>
   <li>
-    <p>O Submergível pode usar a consulta bins no carrinho para oferecer um novo meio de pagamento caso a transação falhe na primeira tentativa.</p>
+    <p>A Submergível pode usar a Consulta BIN no carrinho para oferecer um novo meio de pagamento caso a transação falhe na primeira tentativa.</p>
   </li>
   <li>
-    <p>Realizando uma consulta no momento de preenchimento do formulário de pagamento, caso o cartão seja múltiplo (Crédito e Débito), o Submergível pode reter os dados do cartão, e caso a transação de crédito falhe, ele pode oferecer automaticamente ao consumidor uma transação de débito com o mesmo cartão.</p>
+    <p>Realizando uma consulta no momento de preenchimento do formulário de pagamento, caso o cartão seja múltiplo (crédito e débito), a Submergível pode reter os dados do cartão, e caso a transação de crédito falhe, ela pode oferecer automaticamente ao consumidor uma transação de débito com o mesmo cartão.</p>
   </li>
 </ul>
 
-<p><strong>Alertar sobre cartões internacionais</strong>
-O Submergível pode usar a consulta bins no carrinho para alertar compradores internacionais, que caso o cartão não esteja habilitado para transacionar no Brasil, a transação será negada</p>
+<p><strong>Alertar sobre cartões internacionais</strong></p>
+
+<p>A Submergível pode usar a Consulta BIN no carrinho para alertar compradores internacionais que caso o cartão não esteja habilitado para transacionar no Brasil, a transação será negada.</p>
 
 <h2 id="integração-2">Integração</h2>
 
