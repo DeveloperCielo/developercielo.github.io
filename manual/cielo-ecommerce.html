@@ -1154,7 +1154,7 @@ Com esse meio de pagamento é possível simular os fluxos de:</p>
 
 <p>O BIN de um cartão é composto pelos seis primeiros dígitos. Na simulação do Consulta BIN em ambiente sandbox, cada dígito vai reger um resultado simulado. É possível montar uma numeração de cartão para teste e observar o retorno esperado de acordo com diferentes cenários.</p>
 
-<p>Os seis primeiros dígitos do cartão irão retornar a bandeira, o tipo, a nacionalidade, se o cartão é corporativo ou não, o retorno da análise de BIN e o emissor do cartão. Para saber mais, leia a seção <a href="https://developercielo.github.io/manual/'?shell#consulta-bin"><strong>Consulta BIN</strong></a>.</p>
+<p>Os seis primeiros dígitos do cartão irão retornar a bandeira, o tipo, a nacionalidade, se o cartão é corporativo ou não, o retorno da análise de BIN e o emissor do cartão. Para saber mais, leia a seção <strong>Consulta BIN</strong> neste mesmo manual.</p>
 
 <p><img src="https://developercielo.github.io/images/apicieloecommerce/consulta-bin-sandbox.png" alt="Consulta BIN Sandbox" /></p>
 
@@ -1175,11 +1175,12 @@ Com esse meio de pagamento é possível simular os fluxos de:</p>
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">/1/cardBin/`BIN`</span></aside>
 
-<pre><code class="language-curl">--request GET https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/411011
---header "Content-Type: application/json"
---data-binary
---verbose
-</code></pre>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> GET https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/411011
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--data-binary</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
 
 <h3 id="resposta-1">Resposta</h3>
 
