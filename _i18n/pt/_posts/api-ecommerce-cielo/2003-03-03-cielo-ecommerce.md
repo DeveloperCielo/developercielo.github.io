@@ -588,7 +588,65 @@ O fluxo transacional do cartão de Débito funciona com o Response da transaçã
 |Não Autenticado|Negado|
 |Não usar a URL|Não Finalizado|
 
-<aside class="notice"><strong>Transferência Online:</strong> O mesmo comportamento do Cartão de débito em Sanbox é valido para cartão de débito</aside>
+<aside class="notice"><strong>Transferência Online:</strong> O mesmo comportamento do Cartão de débito em Sandbox é valido para cartão de débito</aside>
+
+## Consulta BIN - Sandbox
+
+O BIN de um cartão é composto pelos seis primeiros dígitos. Na simulação do Consulta BIN em ambiente sandbox, cada dígito vai reger um resultado simulado. É possível montar uma numeração de cartão para teste e observar o retorno esperado de acordo com diferentes cenários.
+
+Os seis primeiros dígitos do cartão irão retornar a bandeira, o tipo, a nacionalidade, se o cartão é corporativo ou não, o retorno da análise de BIN e o emissor do cartão. Para saber mais, leia a seção [**Consulta BIN**](https://developercielo.github.io/manual/'?shell#consulta-bin).
+
+![Consulta BIN Sandbox]({{ site.baseurl_root }}/images/apicieloecommerce/consulta-bin-sandbox.png)
+
+**Exemplo** 
+
+O cartão com a numeração **4110110012341234** irá retornar os seguintes dados: 
+
+* **Bandeira**: Visa;
+* **Tipo do cartão**: múltiplo;
+* **Nacionalidade**: nacional;
+* **Cartão corporativo**: não;
+* **Retorno da análise**: análise autorizada;
+* **Banco emissor**: Caixa. 
+
+### Requisição
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">/1/cardBin/`BIN`</span></aside>
+
+```curl
+--request GET https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/411011
+--header "Content-Type: application/json"
+--data-binary
+--verbose
+```
+
+### Resposta
+
+```json
+{
+    "Status": "00",
+    "Provider": "VISA",
+    "CardType": "Multiplo",
+    "ForeignCard": false,
+    "CorporateCard": false,
+    "Issuer": "Banco do Brasil",
+    "IssuerCode": "001"
+}
+```
+
+```shell
+curl
+{
+    "Status": "00",
+    "Provider": "VISA", 
+    "CardType": "Multiplo",
+    "ForeignCard": false,
+    "CorporateCard": false,
+    "Issuer": "Banco do Brasil",
+    "IssuerCode": "001"
+}
+--verbose
+```
 
 ## Outros meios de pagamento - Sandbox
 
