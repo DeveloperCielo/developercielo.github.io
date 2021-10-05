@@ -7917,7 +7917,7 @@ curl
 
 # Consulta Bin
 
-O “**Consulta de Bins**”  é um serviço de **pesquisa de dados do cartão**, de crédito ou débito, que retorna ao lojista da API Cielo e-Commerce informações que permitem validar os dados preenchidos na tela do checkout. O serviço retorna os seguintes dados sobre o cartão:
+O **Consulta Bin**  é um serviço de **pesquisa de dados do cartão**, de crédito ou débito, que retorna ao lojista da API Cielo e-Commerce informações que permitem validar os dados preenchidos na tela do checkout. O serviço retorna os seguintes dados sobre o cartão:
 
 * **Bandeira do cartão:** Nome da Bandeira
 * **Tipo de cartão:** Crédito, Débito ou Múltiplo (Crédito e Débito)
@@ -7931,37 +7931,35 @@ Essas informações permitem tomar ações no momento do checkout para melhorar 
 
 ## Caso de Uso
 
-Veja um exemplo de uso: **Consulta Bins + recuperação de carrinho**
+Veja um exemplo de uso: **Consulta Bin + recuperação de carrinho**
 
-Um marketplace chamada Submergível possui uma gama de meios de pagamento disponíveis para que suas lojas possam oferecer ao comprador, mas mesmo com toda essa oferta, ela continua com uma taxa de conversão baixa.
+O marketplace da empresa Submergível possui uma gama de meios de pagamento disponíveis para que suas lojas ofereçam ao comprador, mas mesmo com toda essa oferta ele continua com uma taxa de conversão baixa.
 
-Conhecendo a função de consulta Bins da API Cielo Ecommerce, como ela poderia evitar a perda de carrinhos?
+Conhecendo a função Consulta BIN da API Cielo E-commerce, como ele poderia evitar a perda de carrinhos?
 
-Ela pode aplicar a Consulta bins e 3 cenários!
+O marketplace da Submergível pode aplicar a Consulta BIN a três cenários:
 
-1. Impedir erros com tipo de cartão
-2. Oferecer recuperação de carrinhos online
-3. Alertar sobre cartões internacionais
-4. Impedir erros com tipo de cartão
+1. Impedir erros referentes ao tipo de cartão;
+2. Oferecer recuperação de carrinhos online;
+3. Alertar sobre cartões internacionais.
 
-O Submergível pode usar a consulta bins no carrinho para identificar 2 dos principais erros no preenchimento de formulários de pagamento: 
+**Impedir erros referentes ao tipo de cartão**
 
-* **Bandeira errada** e confundir cartão de crédito com débito ○ Bandeiras erradas: Ao preencher o formulário de pagamento, é possível realizar uma consulta e já definir a bandeira correta. Esse é um método muito mais seguro do que sebasear em algoritmos no formulário, pois a base de bins consultada é a da bandeira emissora do cartão.
+A Submergível pode usar a Consulta BIN no carrinho para identificar dois dos principais erros no preenchimento de formulários de pagamento:
 
-* **Confusões com cartões:** Ao preencher o formulário de pagamento, é possível realizar uma consulta e avisar ao consumidor se ele está usando um cartão de  débito quando na verdade deveria usar um  de débito
+* **Bandeira errada:** ao preencher o formulário de pagamento, é possível realizar uma consulta e já definir a bandeira correta. Esse é um método muito mais seguro do que se basear em algoritmos no formulário, pois a base de bins consultada é a da bandeira emissora do cartão.
 
-<br>
+* **Confusões com cartões:** ao preencher o formulário de pagamento, é possível realizar uma consulta e avisar ao consumidor se ele está usando um cartão de débito quando na verdade deveria usar um de crédito.
 
 **Oferecer recuperação de carrinhos online**
 
-* O Submergível pode usar a consulta bins no carrinho para oferecer um novo meio de pagamento caso a transação falhe na primeira tentativa.
+* A Submergível pode usar a Consulta BIN no carrinho para oferecer um novo meio de pagamento caso a transação falhe na primeira tentativa.
 
-* Realizando uma consulta no momento de preenchimento do formulário de pagamento, caso o cartão seja múltiplo (Crédito e Débito), o Submergível pode reter os dados do cartão, e caso a transação de crédito falhe, ele pode oferecer automaticamente ao consumidor uma transação de débito com o mesmo cartão.
-
-<br>
+* Realizando uma consulta no momento de preenchimento do formulário de pagamento, caso o cartão seja múltiplo (crédito e débito), a Submergível pode reter os dados do cartão, e caso a transação de crédito falhe, ela pode oferecer automaticamente ao consumidor uma transação de débito com o mesmo cartão.
 
 **Alertar sobre cartões internacionais**
-O Submergível pode usar a consulta bins no carrinho para alertar compradores internacionais, que caso o cartão não esteja habilitado para transacionar no Brasil, a transação será negada
+
+A Submergível pode usar a Consulta BIN no carrinho para alertar compradores internacionais que caso o cartão não esteja habilitado para transacionar no Brasil, a transação será negada.
 
 ## Integração
 
