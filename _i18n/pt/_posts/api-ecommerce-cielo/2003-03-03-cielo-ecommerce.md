@@ -7931,7 +7931,7 @@ Essas informações permitem tomar ações no momento do checkout para melhorar 
 
 ## Caso de Uso
 
-Veja um exemplo de uso: **Consulta Bin + recuperação de carrinho**
+Veja um exemplo de uso: **Consulta BIN + recuperação de carrinho**
 
 O marketplace da empresa Submergível possui uma gama de meios de pagamento disponíveis para que suas lojas ofereçam ao comprador, mas mesmo com toda essa oferta ele continua com uma taxa de conversão baixa.
 
@@ -7959,7 +7959,7 @@ A Submergível pode usar a Consulta BIN no carrinho para identificar dois dos pr
 
 **Alertar sobre cartões internacionais**
 
-A Submergível pode usar a Consulta BIN no carrinho para alertar compradores internacionais que caso o cartão não esteja habilitado para transacionar no Brasil, a transação será negada.
+A Submergível pode usar a Consulta BIN no carrinho para alertar a compradores internacionais que, caso o cartão não esteja habilitado para transacionar no Brasil, a transação será negada.
 
 ## Integração
 
