@@ -594,7 +594,7 @@ O fluxo transacional do cartão de Débito funciona com o Response da transaçã
 
 O BIN de um cartão é composto pelos seis primeiros dígitos. Na simulação do Consulta BIN em ambiente sandbox, cada dígito vai reger um resultado simulado. É possível montar uma numeração de cartão para teste e observar o retorno esperado de acordo com diferentes cenários.
 
-Os seis primeiros dígitos do cartão irão retornar a bandeira, o tipo, a nacionalidade, se o cartão é corporativo ou não, o retorno da análise de BIN e o emissor do cartão. Para saber mais, leia a seção **Consulta BIN** neste mesmo manual.
+Os seis primeiros dígitos do cartão irão retornar a bandeira, o tipo, a nacionalidade, se o cartão é corporativo ou não, o retorno da análise de BIN e o emissor do cartão. Para saber mais, leia a seção [**Consulta BIN**](https://developercielo.github.io/manual/cielo-ecommerce#consulta-bin) neste mesmo manual.
 
 ![Consulta BIN Sandbox]({{ site.baseurl_root }}/images/apicieloecommerce/consulta-bin-sandbox.png)
 
