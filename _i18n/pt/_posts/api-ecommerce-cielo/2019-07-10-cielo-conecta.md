@@ -499,7 +499,7 @@ Solicita as tabelas e parametros para operação do terminal.
 |`TechnicalParameter`|Object|---|Não|Objeto com os parametros da baixa tecnica|
 |`TechnicalParameter.KernelEmvVersion`|String|---|Sim|Versão kernel EMV com contato|
 |`TechnicalParameter.ContactlessModuleVersion`|String|---|Sim|Versão kernel EMV contactless|
-|`TechnicalParameter.KernelPayPassVersion`|String|---Sim|Versão kernel contactless Mastercard PayPass / MCL|
+|`TechnicalParameter.KernelPayPassVersion`|String|---|Sim|Versão kernel contactless Mastercard PayPass / MCL|
 |`TechnicalParameter.KernelContactlessPayWaveVersion`|String|---|Sim|Versão kernel contactless Visa PayWave|
 |`TechnicalParameter.HardwareModel`|String|---|Sim|Modelo do pinpad|
 |`TechnicalParameter.ManufacturerName`|String|---|Sim|Nome do fabricante do pinpad|
@@ -511,7 +511,7 @@ Solicita as tabelas e parametros para operação do terminal.
 |`TechnicalParameter.PaymentAppVersion`|String|---|Sim|Versão do App de pagamentos. No caso do SDK android será versão do PaymentsApp. Já no caso do SDK PhAST será a versão da TEF Sueite.|
 |`TechnicalParameter.SerialNumber`|String|---|Sim|Número de Série do Equipamento.|
 |`TechnicalParameter.PhysicalCharacteristics`|String|---|Sim|Enum: WithoutPinPad, PinPadWithoutChipReader, PinPadWithChipReaderWithoutSamModule,<br><br> PinPadWithChipReaderWithSamModule, NotCertifiedPinPad, PinPadWithChipReaderWithoutSamAndContactless, PinPadWithChipReaderWithSamModuleAndContactless<br><br> Sem PIN-pad = WithoutPinPad;<br><br> PIN-pad sem leitor de Chip = PinpadWithoutChipReader;<br><br> PIN-pad com leitor de Chip sem módulo SAM = PinPadWithChipReaderWithoutSamModule;<br><br>PIN-pad com leitor de Chip com módulo SAM = PinPadWithChipReaderWithSamModule;<br><br> PIN-pad não homologado = NotCertifiedPinPad;<br><br> PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = PinpadWithChipReaderWithoutSamAndContactless;<br><br> PIN-pad com leitor de Chip com SAM e Cartão Sem Contato =PinpadWithChipReaderWithSamAndContactless.<br><br> Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.|
-|`TechnicalParameter.ReturnDataInfo`|String---|Sim|Retorno da função PP_GetInfo() da biblioteca compartilhada|
+|`TechnicalParameter.ReturnDataInfo`|String|---|Sim|Retorno da função PP_GetInfo() da biblioteca compartilhada|
 
 ```json
 {
