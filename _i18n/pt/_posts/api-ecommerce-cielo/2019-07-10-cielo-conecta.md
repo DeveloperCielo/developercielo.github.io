@@ -12184,6 +12184,7 @@ Fornece os dados, de forma paginada, de equipamentos cadastrados no sistema
   ]
 }
 ```
+
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`Page`|Integer|---|Sim|Número da página atual|
