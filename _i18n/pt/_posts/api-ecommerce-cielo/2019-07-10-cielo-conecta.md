@@ -1355,20 +1355,20 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantOrderId´|String|15|Sim|Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal.|
-|`Payment.Type´|String|---|Sim|Value: PhysicalCreditCard / Tipo da Transação|
-|`Payment.SoftDescriptor´|String|13|Não|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
+|`Payment.Type`|String|---|Sim|Value: PhysicalCreditCard / Tipo da Transação|
+|`Payment.SoftDescriptor`|String|13|Não|Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura.|
 |`Payment.PaymentDateTime`|String|date-time|Sim|Data e Hora da captura da transação|
-|`Payment.Amount´|Integer(int64)|15|Sim|Valor da transação (1079 = R$10,79)|
-|`Payment.Capture´|Booleano|---|Não|Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.|
-|`Payment.Installments´|Integer|2|Sim|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos MaximumNumberOfInstallmentsWhenFinancingByCreditCardCompany, MaximumNumberOfInstallmentsWhenFinancingByStore, MaximumNumberOfinstallmentsForSaleAndCDCQuery e MinimumNumberOfInstallmentsWhenFinancingByStore da objeto ProductEntry da baixa de parametros.|
-|`Payment.Interest´|String|10|Não|Default: ByMerchant Enum: ByMerchant, ByIssuer <br><br>Tipo de Parcelamento: <br><br>- Se os campos AllowFinancingByStore presente nos objetos IssuerEntry, BinEntry e ProductEntry da baixa de parametros estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado. <br><br>- Se os campos AllowFinancingByCreditCardCompany presente nos objetos IssuerEntry, BinEntry e ProductEntry da baixa de parametros estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.|
-|`Payment.ProductId´|Integer|---|Sim|Código do produto identificado através do bin do cartão.|
-|`Payment.CreditCard.CardNumber´|String|19|Sim|Número do cartão (PAN)|
-|`Payment.CreditCard.ExpirationDate´|String|MM/yyyy|Sim|Data de validade do cartão.<br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação.|
-|`Payment.CreditCard.SecurityCodeStatus´|String|---|Sim|Enum: Collected Unreadable Nonexistent <br><br>Status da coleta de código de segurança (CVV)|
-|`Payment.CreditCard.SecurityCode´|String|4|Sim|Código de segurança (CVV)|
-|`Payment.CreditCard.BrandId´|Integer|---|Sim|Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE.|
-|`Payment.CreditCard.IssuerId´|Integer|---|Sim|Código do emissor obtido através do campo IssuerId no objeto BinEntry da baixa de parametros.|
+|`Payment.Amount`|Integer(int64)|15|Sim|Valor da transação (1079 = R$10,79)|
+|`Payment.Capture`|Booleano|---|Não|Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização.|
+|`Payment.Installments`|Integer|2|Sim|Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos MaximumNumberOfInstallmentsWhenFinancingByCreditCardCompany, MaximumNumberOfInstallmentsWhenFinancingByStore, MaximumNumberOfinstallmentsForSaleAndCDCQuery e MinimumNumberOfInstallmentsWhenFinancingByStore da objeto ProductEntry da baixa de parametros.|
+|`Payment.Interest`|String|10|Não|Default: ByMerchant Enum: ByMerchant, ByIssuer <br><br>Tipo de Parcelamento: <br><br>- Se os campos AllowFinancingByStore presente nos objetos IssuerEntry, BinEntry e ProductEntry da baixa de parametros estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado. <br><br>- Se os campos AllowFinancingByCreditCardCompany presente nos objetos IssuerEntry, BinEntry e ProductEntry da baixa de parametros estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”.|
+|`Payment.ProductId`|Integer|---|Sim|Código do produto identificado através do bin do cartão.|
+|`Payment.CreditCard.CardNumber`|String|19|Sim|Número do cartão (PAN)|
+|`Payment.CreditCard.ExpirationDate`|String|MM/yyyy|Sim|Data de validade do cartão.<br><br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação.|
+|`Payment.CreditCard.SecurityCodeStatus`|String|---|Sim|Enum: Collected Unreadable Nonexistent <br><br>Status da coleta de código de segurança (CVV)|
+|`Payment.CreditCard.SecurityCode`|String|4|Sim|Código de segurança (CVV)|
+|`Payment.CreditCard.BrandId`|Integer|---|Sim|Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE.|
+|`Payment.CreditCard.IssuerId`|Integer|---|Sim|Código do emissor obtido através do campo IssuerId no objeto BinEntry da baixa de parametros.|
 |`CreditCard.InputMode`|String|---|Sim|Enum: `Typed` `MagStripe` `Emv` <br><br>Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC. <br><br>"00" – Magnético <br><br>"01" - Moedeiro VISA Cash sobre TIBC v1 <br><br>"02" - Moedeiro VISA Cash sobre TIBC v3 <br><br>"03" – EMV com contato <br><br>"04" --- Easy---Entry sobre TIBC v1 <br><br>"05" --- Chip sem contato simulando tarja <br><br> "06" - EMV sem contato.|
 
 #### Resposta
