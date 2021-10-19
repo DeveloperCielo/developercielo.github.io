@@ -5983,6 +5983,48 @@
       <td>Não</td>
       <td>Indica se o número do cartão será truncado no momento da impressão do comprovante. A solução de captura deve tomar essa decisão com base no campo AllowPrintingPartialCardNumberInReceipt presente nos objetos BinEntry, ParameterEntry e IssuerEntry.</td>
     </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SaveCard</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Identifica se vai salvar/tokenizar o cartão.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.IsFallback</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>Não</td>
+      <td>Identifica se é uma transação de fallback.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.PinPadInformation.TerminalId</code></td>
+      <td>String</td>
+      <td>8</td>
+      <td>Sim</td>
+      <td>Número Lógico definido no Concentrador Cielo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.PinPadInformation.SerialNumber</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Número de Série do Equipamento.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.PinPadInformation.PhysicalCharacteristics</code></td>
+      <td>String</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Enum: WithoutPinPad, PinPadWithoutChipReader, PinPadWithChipReaderWithoutSamModule, PinPadWithChipReaderWithSamModule, NotCertifiedPinPad, PinPadWithChipReaderWithoutSamAndContactless, PinPadWithChipReaderWithSamModuleAndContactless<br />Sem PIN-pad = WithoutPinPad;<br />PIN-pad sem leitor de Chip = PinpadWithoutChipReader;<br />PIN-pad com leitor de Chip sem módulo SAM = PinPadWithChipReaderWithoutSamModule;<br />PIN-pad com leitor de Chip com módulo SAM = PinPadWithChipReaderWithSamModule;<br />PIN-pad não homologado = NotCertifiedPinPad;<br />PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = PinpadWithChipReaderWithoutSamAndContactless;<br />PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = PinpadWithChipReaderWithSamAndContactless.<br />Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.PinPadInformation.ReturnDataInfo</code></td>
+      <td>String`</td>
+      <td>—</td>
+      <td>Sim</td>
+      <td>Retorno da função PP_GetInfo() da biblioteca compartilhada</td>
+    </tr>
   </tbody>
 </table>
 
