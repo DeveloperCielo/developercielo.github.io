@@ -1790,7 +1790,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 |`Payment.PinPadInformation.TerminalId`|String|8|Sim|Número Lógico definido no Concentrador Cielo.|
 |`Payment.PinPadInformation.SerialNumber`|String|---|Sim|Número de Série do Equipamento.|
 |`Payment.PinPadInformation.PhysicalCharacteristics`|String|---|Sim|Enum: WithoutPinPad, PinPadWithoutChipReader, PinPadWithChipReaderWithoutSamModule, PinPadWithChipReaderWithSamModule, NotCertifiedPinPad, PinPadWithChipReaderWithoutSamAndContactless, PinPadWithChipReaderWithSamModuleAndContactless<br><br>Sem PIN-pad = WithoutPinPad;<br>PIN-pad sem leitor de Chip = PinpadWithoutChipReader;<br>PIN-pad com leitor de Chip sem módulo SAM = PinPadWithChipReaderWithoutSamModule;<br>PIN-pad com leitor de Chip com módulo SAM = PinPadWithChipReaderWithSamModule;<br>PIN-pad não homologado = NotCertifiedPinPad;<br>PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = PinpadWithChipReaderWithoutSamAndContactless;<br>PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = PinpadWithChipReaderWithSamAndContactless.<br>Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.|
-|`Payment.PinPadInformation.ReturnDataInfo|String`|---|Sim|Retorno da função PP_GetInfo() da biblioteca compartilhada|
+|`Payment.PinPadInformation.ReturnDataInfo`|String`|---|Sim|Retorno da função PP_GetInfo() da biblioteca compartilhada|
 
 #### Resposta
 
