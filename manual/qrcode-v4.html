@@ -165,10 +165,14 @@
 
 <h2 id="produção">Produção</h2>
 
-<p>|Ambiente|Endereço|Descrição|
-|—|—|—|</p>
-
 <table>
+  <thead>
+    <tr>
+      <th>Ambiente</th>
+      <th>Endereço</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
       <td>Produção</td>
@@ -221,6 +225,71 @@
 <p>Qualquer dúvida, abra um ticket via <a href="https://devcielo.zendesk.com/hc/pt-br/requests/new?ticket_form_id=360000330511">Zendesk</a></p>
 
 <h1 id="fluxo-de-geração-do-access-token-via-format-json">Fluxo de geração do Access Token (via format JSON)</h1>
+
+<p>O recurso <strong>access_token</strong> é responsável pela autenticação utilizando protocolo OAuth 2.0. Com o client_id e client_secret em mãos a requisição ao <strong>POST /access_token</strong> deve ser feita portando o <strong>authorization</strong> no <strong>Header</strong> e o <strong>grant_type</strong> no corpo da requisição, segue exemplo abaixo.</p>
+
+<p><strong>Nota: O valor do authorization deve ser composto da palavra Basic com o Base64 gerado a partir da concatenação do client_id:client_secret</strong></p>
+
+<h2 id="contrato">Contrato</h2>
+
+<blockquote>
+  <p><strong>POST</strong> /v2/oauth/token (formato url encoded)</p>
+
+  <p><strong>POST</strong> /v2/oauth/access-token (formato json)</p>
+
+  <p><strong>Headers</strong></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Authorization</strong></td>
+        <td>Basic + Base64</td>
+      </tr>
+      <tr>
+        <td><strong>Content-Type</strong></td>
+        <td>application-json</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Body</strong></p>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+"grant_type": "client_credentials"
+}
+</code></pre></div>  </div>
+</blockquote>
+
+<h3 id="exemplo-de-requisição">Exemplo de Requisição</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+curl --location --request POST 'https://api2.cielo.com.br/v2/oauth/access-token' \
+--header 'Authorization: Basic
+dERxQUs000FoSDg5dFdpUWM1ejY0REJKc2lJTFpLbzh4TG0zV0p3eHkwRkQ0Y2dZVm46ZVZUVVZJZjFZWDJkOU40M0p4MVZwNGlWVXEzTzluTTR0TGF1UzhZYWo0V1JPcTJFSXU=' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+ "grant_type": "client_credentials",
+"scopes": "qrcode_write,qrcode_read"
+}
+
+</code></pre></div></div>
+
+<h3 id="exemplo-de-resposta">Exemplo de Resposta</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+  "access_token": "5eb50e6b-2bfc-3a44-b9ba-b9ba75256e7e",
+  "token_type": "bearer",
+  "expires_in": 86400
+}
+
+</code></pre></div></div>
 
 </div>
 
