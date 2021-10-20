@@ -423,6 +423,76 @@ ZVZUVVZJZjFZWDJkOU40M0p4MVZwNGlWVXEzTzluTTR0TGF1UzhZYWo0V1JPcTJFSXU
   </table>
 </blockquote>
 
+<h1 id="geração-da-chave-pública">Geração da chave pública</h1>
+
+<p>O parceiro precisa chamar a API/publicKey para obter a chave pública necessária para o envio  dos dados do cartão de forma criptografada.</p>
+
+<h2 id="contrato-1">Contrato</h2>
+
+<blockquote>
+  <p><strong>GET</strong> /padraoq/v1/publicKey</p>
+
+  <p><strong>Headers</strong></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Authorization</strong></td>
+        <td>Bearer = access_token  (gerado pela API de Access Token)</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h3 id="exemplo-de-requisição-2">Exemplo de Requisição</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+curl --location --request GET 'https://api2.cielo.com.br/sandbox/padraoq/v1/publicKey' \
+--header 'Authorization: Bearer 83247803-585d-379d-8ea4-19dfcf4c3f75'
+
+</code></pre></div></div>
+
+<h3 id="exemplo-de-resposta-2">Exemplo de Resposta</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+    "public_key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmH7eS0n6yQSylMDZnY3c/mbDUUEJfyslrilslJKpDRG3m2YaCZdtwo5LahEUWshhBc8jckRkCyqDVVfBJ7WQN1Z1hN0ifCK8mfnh/2SAYGc4e8qydcWT64AVQo+Kay201cRuHeCt1Iyuhi5tOxTF2satd40+8eMkqiVJdhJ0Sjc1ZRezFSo96XReiT8eYz/4Rhubq1BPISlNXqqls3NuPMCxY6IFOLmjTi3xEIdcYtUT5MCfXBG4Rz6rMNrQ7JRAfEOIdvcAt++ygV9ilUxtETn+OKKNDcEUKzXM3Taop8vFXD8HWKzfmlA/usxeKxiI6eTrcWCmrVMQ2Yvf4RSU4wIDAQAB",
+    "key_id": "1b59934a-7eaa-4f90-a391-585de0ffc550",
+    "expires_in": 35853
+}
+
+</code></pre></div></div>
+
+<h2 id="criptografia">Criptografia</h2>
+
+<p>Exemplo do código Java para encriptrar o cartão através da chave pública:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import java.security.PublicKey;
+import java.util.Base64;
+import javax.crypto.Cipher;
+public class EncriptCard {
+    public String encript(PublicKey key, String cardNumber) {
+        try {
+            Cipher cipher = Cipher.getInstance("RSA");
+            cipher.init(Cipher.ENCRYPT_MODE, key);
+            byte[] encryptedBytes =
+                cipher.doFinal(cardNumber.getBytes());
+            String encryptedCard =
+                Base64.getEncoder().encodeToString(encryptedBytes);
+            return encryptedCard;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+</code></pre></div></div>
+
 </div>
 
 
