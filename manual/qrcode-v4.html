@@ -389,6 +389,36 @@ ZVZUVVZJZjFZWDJkOU40M0p4MVZwNGlWVXEzTzluTTR0TGF1UzhZYWo0V1JPcTJFSXU
         <td>Bad Request.</td>
         <td>* A requisição não é valida. Uma ou mais condições dos campos do request não foram atendidas<br />Lista das condições não atendidas</td>
       </tr>
+      <tr>
+        <td>401</td>
+        <td>Unauthorized</td>
+        <td>Falha na Autenticação do consumidor da API</td>
+      </tr>
+      <tr>
+        <td>403</td>
+        <td>Forbbiden</td>
+        <td>Consumidor da API não possui acesso a determinados recursos</td>
+      </tr>
+      <tr>
+        <td>409</td>
+        <td>Conflict</td>
+        <td>Reenvio da solicitação com informações divergentes. (Ex: Solicitação de pagamentos com CPF distintos)</td>
+      </tr>
+      <tr>
+        <td>412</td>
+        <td>Precondition Failed</td>
+        <td>001: Chave expirada<br />002: QRCode dinâmico esperado</td>
+      </tr>
+      <tr>
+        <td>422</td>
+        <td>Unprocessable Entity</td>
+        <td>A requisição é valida, porém não foi possivel realizar o processamento.</td>
+      </tr>
+      <tr>
+        <td>500</td>
+        <td>Internal Server Error</td>
+        <td>Erro interno da aplicação. Normalmente provinientes de infraestrutura</td>
+      </tr>
     </tbody>
   </table>
 </blockquote>
