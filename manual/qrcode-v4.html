@@ -117,7 +117,93 @@
             </div>
 
             <div class="post">
-  <h1 id="requerimentos-para-acesso">Requerimentos para acesso</h1>
+  <h1 id="ambientes">Ambientes</h1>
+
+<h2 id="homologação">Homologação</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ambiente</th>
+      <th>Endereço</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Homologação</td>
+      <td>api2.cielo.com.br/sandbox</td>
+      <td>Deve ser utilizado como o ambiente de desenvolvimento/testes de parceiro.</td>
+    </tr>
+    <tr>
+      <td>Homologação</td>
+      <td>api2.cielo.com.br/sandbox/v2/oauth/token</td>
+      <td>(formato url encoded)</td>
+    </tr>
+    <tr>
+      <td>Homologação</td>
+      <td>api2.cielo.com.br/sandbox/v2/oauth/access-token</td>
+      <td>(formato json)</td>
+    </tr>
+    <tr>
+      <td>Homologação</td>
+      <td>api2.cielo.com.br/sandbox/padraoq/v1/publicKey</td>
+      <td>chave pública da criptografia</td>
+    </tr>
+    <tr>
+      <td>Homologação</td>
+      <td>api2.cielo.com.br/sandbox/padraoq/v1/parsedQRCode</td>
+      <td>Uso opcional</td>
+    </tr>
+    <tr>
+      <td>Homologação</td>
+      <td>api2.cielo.com.br/sandbox/padraoq/v1/payment/card</td>
+      <td>Recurso para efetuar o pagamento</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="produção">Produção</h2>
+
+<p>|Ambiente|Endereço|Descrição|
+|—|—|—|</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Produção</td>
+      <td>api2.cielo.com.br</td>
+      <td>Deve-se utilizar quando portar as credenciais de produção e um bom nível de maturidade com o ambiente de homologação.</td>
+    </tr>
+    <tr>
+      <td>Produção</td>
+      <td>api2.cielo.com.br/v2/oauth/token</td>
+      <td>(formato url encoded)</td>
+    </tr>
+    <tr>
+      <td>Produção</td>
+      <td>api2.cielo.com.br/v2/oauth/access-token</td>
+      <td>(formato json)</td>
+    </tr>
+    <tr>
+      <td>Produção</td>
+      <td>api2.cielo.com.br/padraoq/v1/publicKey</td>
+      <td>chave pública da criptografia</td>
+    </tr>
+    <tr>
+      <td>Produção</td>
+      <td>api2.cielo.com.br/padraoq/v1/parsedQRCode</td>
+      <td>Uso opcional</td>
+    </tr>
+    <tr>
+      <td>Produção</td>
+      <td>api2.cielo.com.br/padraoq/v1/payment/card</td>
+      <td>Recurso para efetuar o pagamento</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="requerimentos-para-acesso">Requerimentos para acesso</h1>
 
 <p>Para a utilização de nossas APIs precisamos receber as seguintes informações, para a criação do cliente id e Authorization.</p>
 
@@ -133,6 +219,8 @@
 <p>Após o envio das informações acima, enviaremos ao responsável o client_id (chave que identifica a APP) e o client_secret.</p>
 
 <p>Qualquer dúvida, abra um ticket via <a href="https://devcielo.zendesk.com/hc/pt-br/requests/new?ticket_form_id=360000330511">Zendesk</a></p>
+
+<h1 id="fluxo-de-geração-do-access-token-via-format-json">Fluxo de geração do Access Token (via format JSON)</h1>
 
 </div>
 
