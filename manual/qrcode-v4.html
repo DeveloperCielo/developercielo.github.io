@@ -235,8 +235,6 @@
 <h3 id="contrato">Contrato</h3>
 
 <blockquote>
-  <p><strong>POST</strong> /v2/oauth/token (formato url encoded)</p>
-
   <p><strong>POST</strong> /v2/oauth/access-token (formato json)</p>
 
   <p><strong>Headers</strong></p>
@@ -345,6 +343,55 @@ ZVZUVVZJZjFZWDJkOU40M0p4MVZwNGlWVXEzTzluTTR0TGF1UzhZYWo0V1JPcTJFSXU
 "expires_in": 86400
 }
 </code></pre></div></div>
+
+<h1 id="códigos-de-retorno-da-api">Códigos de retorno da API</h1>
+
+<p><strong>SUCESSO</strong></p>
+
+<blockquote>
+  <table>
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>200</td>
+        <td>Ok</td>
+        <td>A solicitação foi bem sucedida para uma chamada da API, seja GET OU POST .</td>
+      </tr>
+      <tr>
+        <td>201</td>
+        <td>Created</td>
+        <td>A solicitação de criação foi bem sucedida para uma chamada da API do tipo POST</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<p><strong>EXCEÇÕES</strong></p>
+
+<blockquote>
+  <table>
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>400</td>
+        <td>Bad Request.</td>
+        <td>* A requisição não é valida. Uma ou mais condições dos campos do request não foram atendidas<br />Lista das condições não atendidas</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
 
 </div>
 
