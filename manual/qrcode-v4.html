@@ -493,6 +493,160 @@ public class EncriptCard {
 }
 </code></pre></div></div>
 
+<h1 id="fluxo-de-pagamento">Fluxo de pagamento</h1>
+
+<p>O recurso <strong>POST /payment/card</strong> é responsável por efetuar o pagamento com base nos dados contidos no payload da requisição. No header da requisição é necessário informar o <strong>Authorization</strong>. 
+O corpo da requisição é composto por dados provenientes do aplicativo e do QR Code.</p>
+
+<blockquote>
+  <p>Observação: é possível gerar cartões para teste através da ferramenta (https://namso-gen.com/), para isso é necessário apenas informar os 6 primeiros dígitos de um cartão válido. Através da ferramenta (https://8gwifi.org/RSAFunctionality?keysize=2048), é possível simular a criptografia do <code class="language-plaintext highlighter-rouge">"card_data"</code> feita utilizando o retorno obtido do  <strong>GET /publicKeys</strong>.</p>
+</blockquote>
+
+<h2 id="contrato-2">Contrato</h2>
+
+<blockquote>
+  <p><strong>POST</strong> /cielo-payment/v1/payment/card</p>
+
+  <p><strong>Headers</strong></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Authorization</strong></td>
+        <td>Bearer = access_token  (gerado pela API de Access Token)</td>
+      </tr>
+      <tr>
+        <td><strong>Content-Type</strong></td>
+        <td>application/json</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+   "key_id":"string",
+   "card_data":"string",
+   "payee_document":"string",
+   "payee_name":"string",
+   "authorization_token":"string",
+   "qrcode":"string"
+}
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Obrigatório</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">key_id</code></td>
+      <td>Identificador da chave de criptografia utilizada para criptografar o cartão. Retornado pelo recurso GET /publicKey</td>
+      <td>String</td>
+      <td>Sim</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">card_data</code></td>
+      <td>Dados do cartão criptografado pela chave publica, <a href="">Veja layout</a></td>
+      <td>String</td>
+      <td>Sim</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">payee_document</code></td>
+      <td>CPF ou CNPJ do pagador (usuário logado na wallet)</td>
+      <td>String</td>
+      <td>Sim</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">payee_name</code></td>
+      <td>Nome do pagador (usuário logado na wallet)</td>
+      <td>String</td>
+      <td>Sim</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">authorization_token</code></td>
+      <td>Token de autorização do usuário gerada pelo emissor (suporte ao pagamento no débito) * para uso futuro</td>
+      <td>String</td>
+      <td>Sim</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">qrcode</code></td>
+      <td>String do QR Code capturado pela wallet</td>
+      <td>String</td>
+      <td> </td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="layout---card-data">Layout - Card Data</h3>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/layout_carddata_qrcode.jpg" alt="Layout Card Data" /></p>
+
+<blockquote>
+  <p><strong>Observação</strong>: Encriptar todas as informações da tag “cardData” inclusive com as aspas “ { } “.</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+   "card_number":"4984XXXXXX4106",
+   "card_cvv":"123",
+   "card_holder_name":"Teste",
+   "card_expiration_date":"0127"
+}
+</code></pre></div></div>
+
+<h4 id="exemplo-de-requisição-3">Exemplo de Requisição</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+curl --location --request POST 'https://api2.cielo.com.br/sandbox/padraoq/v1/payment/card' \
+--header 'Authorization: Bearer 83247803-585d-379d-8ea4-19dfcf4c3f75' \
+--header 'Content-Type: application/json' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "key_id": "001",
+    "card_data": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmeiLngFr9h0npwe6D3ArSi10ZgdOCUCsUYT12KMuYsxImzwe9aGX8XXvzEF60E600ZjdvmYU64UnZKgfbttwNi+Tl7ZcB2cnS/oJMrfA0AbRHukJnL/fFsziHOjv0A1xRcE0ZbJRkob5A5s4GenF+jv/xCTOoIetFimZHZDiPPFux2NyrL3ZqSs7F4XJZvo2zPfCVlAcnEbVf+8vWX3goP2TEuAqZtBT543wIDAQAB+dqSzZSqZolYU1sjV7s8FzsjZYqo+AjM8BMuPlMoPEuBqgRFm4fSRIpeJIr0G9FokSU3X6MAZTC7n3YePHFsFmGxPTrKpEFrp8s28f1qMP5suTsA”,,
+    "payee_document": "25617535811",
+    "payee_name": ""Alexandre Marcelino",
+    "authorization_token": null,
+    "qr_code": ""00020101021226580014br.com.padraoq01160010000244470001020862000092030400015204030053039865406123.995802BR5909POSTO_ABC6010Barueri_SP62200516100023071641629281600014br.com.padaoq0112230120171643020400040302020402010502038204010063
+041213""
+}'
+
+</code></pre></div></div>
+
+<h4 id="exemplo-de-resposta-3">Exemplo de Resposta</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+  "reference_label": "230120171643",
+  "merchant_id": "0020060049139200",
+  "terminal_id": "62000092",
+  "authorization_code": "031581",
+  "authentication_code": "null",
+  "host_nsu": "730025",
+  "terminal_nsu": "730025",
+  "timestamp": "160620143832",
+  "card_scheme": "Master"
+}
+
+</code></pre></div></div>
+
 </div>
 
 
