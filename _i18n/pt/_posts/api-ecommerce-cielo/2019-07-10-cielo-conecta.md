@@ -3005,82 +3005,34 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 | Propriedade | Tipo | Tamanho | Obrigatório | Descrição |
 |---|---|---|---|---|
-| MerchantOrderId | String | 15 | Sim | Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. |
-| Payment.Installments | Integer | 2 | Sim | Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos MaximumNumberOfInstallmentsWhenFinancingByCreditCardCompany, MaximumNumberOfInstallmentsWhenFinancingByStore, MaximumNumberOfinstallmentsForSaleAndCDCQuery e MinimumNumberOfInstallmentsWhenFinancingByStore da objeto ProductEntry da baixa de parametros. |
-| Payment.Interest | String | 10 | Não | Default: ByMerchant<br>Enum: ByMerchant ByIssuer<br>Tipo de Parcelamento:<br>- Se os campos AllowFinancingByStore presente nos objetos IssuerEntry, BinEntry e ProductEntry estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado.<br>- Se os campos AllowFinancingByCreditCardCompany presente nos objetos IssuerEntry, BinEntry e ProductEntry estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”. |
-| Payment.Capture | Booleano | — | Não | Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização. |
-| Payment.PaymentDateTime | String | date-time | Sim | Data e Hora da captura da transação |
-| Payment.ServiceTaxAmount | Integer | 15 | Não | Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização. |
-| Payment.SoftDescriptor | String | 13 | Não | Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura. |
-| Payment.ProductId | Integer | — | Sim | Código do produto identificado através do bin do cartão. |
-| Payment.Amount | Integer(int64) | — | Sim | Valor da transação (1079 = R$10,79) |
-| Payment.ReceivedDate | String (DateTime) | — | Sim | Data em que a transação foi recebida. Formato "AAAA-MM-DD HH:mm:SS" |
-| Payment.CapturedAmount | Integer | 15 | Sim | Valor capturado, sem pontuação. 100 equivale a R$ 1,00 |
-| Payment.CapturedDate | String (DateTime) | - | Não | Data da captura |
-| Payment.Provider | String | 15 | Sim | Nome do provedor do meio de pagamento |
-| Payment.ConfirmationStatus | Integer | 2 | Não | Status da confirmação. 0 = Pendente 1 = Confirmado 2 = Desfeito |
-| Payment.InitializationVersion | Integer int16 | — | Sim | Número de versão dos parametros baixados na inicialização do equipamento. |
-| Payment.Status | Integer | 2 | Sim | Status da transação 0 = Não Finalizado 1 = Autorizado 2 = Pago 3 = Negado 10 = Cancelado 13 = Abortado |
-| Payment.IsSplitted | Booleano | — | Não | Indica se o pagamento tem split ou não. Default: false |
-| Payment.ReturnCode | String | 3 | Sim | Código de erro/resposta da transação da Adquirência. |
-| Payment.ReturnMessage | String | — | Sim | Mensagem de erro/resposta da transação da Adquirência. |
-| Payment.PaymentId | String (Guid) | 36 | Sim | Código do Pagamento |
-| Payment.Type | String | — | Sim | Value: PhysicalCreditCard / Tipo da Transação |
-| Payment.Currency | String | 3 | Não | Default: “BRL” / Value: “BRL” / Moeda (Preencher com “BRL”) |
-| Payment.Country | String | 3 | Não | Default: “BRA” / Value: “BRA” / País (Preencher com “BRA”) |
-| Payment.CreditCard.CardNumber | String | 19 | Sim | Número do cartão |
-| Payment.CreditCard.ExpirationDate | String | MM/yyyy | Sim | Data de validade do cartão.<br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação. |
-| Payment.CreditCard.SecurityCodeStatus | String | — | Sim | Enum: Collected Unreadable Nonexistent<br>Status da coleta de código de segurança (CVV) |
-| Payment.CreditCard.SecurityCode | String | 4 | Sim | retorno com valor mascarado |
-| Payment.CreditCard.BrandId | Integer | — | Sim | Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE. |
-| Payment.CreditCard.IssuerId | Integer | — | Sim | Código do emissor obtido através do campo IssuerId no objeto BinEntry. |
-| Payment.CreditCard.TruncateCardNumberWhenPrinting | Booleano | — | Não | Indica se o número do cartão será truncado no momento da impressão do comprovante. A solução de captura deve tomar essa decisão com base no campo AllowPrintingPartialCardNumberInReceipt presente nos objetos BinEntry, ParameterEntry e IssuerEntry. |
-| Payment.CreditCard.InputMode | String | — | Sim | Enum: Typed MagStripe Emv<br>Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC.<br>“00” – Magnético<br>“01” - Moedeiro VISA Cash sobre TIBC v1<br>“02” - Moedeiro VISA Cash sobre TIBC v3<br>“03” – EMV com contato<br>“04” - Easy-Entry sobre TIBC v1<br>“05” - Chip sem contato simulando tarja<br>“06” - EMV sem contato. |
-| Payment.CreditCard.AuthenticationMethod | String | — | Sim | Enum: NoPassword, OnlineAuthentication, OfflineAuthentication<br>Método de autenticação<br>- Se o cartão foi lido a partir da digitação verificar o campo RequiresPasswordExceptForEMVCard dos objetos BinEntry, ParameterEntry e IssuerEntry. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1;<br>- Se o cartão foi lido a partir da trilha verificar o campo RequiresPassword dos objetos BinEntry, ParameterEntry e IssuerEntry. Se todos estiverem habilitados deve ser capturada a senha, se algum estiver desabilitado a captura da senha vai depender do último dígito do service code;<br>- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2.<br>1 - Sem senha = “NoPassword”;<br>2 - Senha online = “Online Authentication”;<br>3 - Senha off-line = “Offline Authentication”. |
-| Payment.CreditCard.BrandInformation.Type | String | _ | Não | Tipo de venda. |
-| Payment.CreditCard.BrandInformation.Name | String | — | Não | Nome da bandeira do cartão. |
-| Payment.CreditCard.SaveCard | Booleano | — | Não | Identifica se vai salvar/tokenizar o cartão |
-| Payment.CreditCard.IsFallback | Booleano | — | Não | Identifica se é uma transação de fallback. |
-| Payment.PinPadInformation.TerminalId | String | 8 | Sim | Número Lógico definido no Concentrador Cielo. |
-| Payment.PinPadInformation.SerialNumber | String | — | Sim | Número de Série do Equipamento. |
-| Payment.PinPadInformation.PhysicalCharacteristics | String | — | Sim | Enum: WithoutPinPad PinPadWithoutChipReader PinPadWithChipReaderWithoutSamModule PinPadWithChipReaderWithSamModule NotCertifiedPinPad PinPadWithChipReaderWithoutSamAndContactless PinPadWithChipReaderWithSamModuleAndContactless<br>Sem PIN-pad = WithoutPinPad;<br>PIN-pad sem leitor de Chip = PinpadWithoutChipReader;<br>PIN-pad com leitor de Chip sem módulo SAM = PinPadWithChipReaderWithoutSamModule;<br>PIN-pad com leitor de Chip com módulo SAM = PinPadWithChipReaderWithSamModule;<br>PIN-pad não homologado = NotCertifiedPinPad;<br>PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = PinpadWithChipReaderWithoutSamAndContactless;<br>PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = PinpadWithChipReaderWithSamAndContactless.<br>Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC. |
-| Payment.PinPadInformation.ReturnDataInfo | String | — | Sim | Retorno da função PP_GetInfo() da biblioteca compartilhada |
-| Payment.Receipt.MerchantName | String | — | Sim | Nome da loja |
-| Payment.Receipt.MerchantAddress | String | — | Sim | Endereço da loja |
-| Payment.Receipt.MerchantCity | String | — | Sim | Cidade da loja |
-| Payment.Receipt.MerchantState | String | — | Sim | Estado da loja |
-| Payment.Receipt.MerchantCode | String | — | Sim | Codigo de identificação da loja |
-| Payment.Receipt.Terminal | String | 8 | Sim | Identificação do Terminal |
-| Payment.Receipt.Nsu | String | — | Sim | Numero de identificação da transação Cielo |
-| Payment.Receipt.Date | String | — | Sim | Data da transação |
-| Payment.Receipt.Hour | String | — | Sim | Horario da transação |
-| Payment.Receipt.IssuerName | String | — | Sim | Nome do emissor obtido através do campo IssuerId no objeto BinEntry. |
-| Payment.Receipt.CardNumber | String | — | Sim | Número do cartão |
-| Payment.Receipt.CardHolder | String | — | Não | Nome do titular do cartão. |
-| Payment.Receipt.Brand | String | — | Sim | Bandeira do cartão |
-| Payment.Receipt.TransactionType | String | — | Sim | Tipo de transação |
-| Payment.Receipt.AuthorizationCode | String | — | Sim | Código da autorização |
-| Payment.Receipt.TransactionMode | String | — | Sim | Modo da transação |
-| Payment.Receipt.InputMethod | String | — | Sim | Metodo de entrada |
-| Payment.Receipt.Value | String | — | Sim | Valor do pagamento |
-| Payment.Receipt.SoftDescriptor | String | 13 | Não | Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura. |
-| Payment.Links | Array[Object] | - | Não | links de navegação. |
-| Payment.Links.Method | String | - | Sim | Metodo do link de navegação. |
-| Payment.Links.Rel | String | - | Sim | Links de retorno para navegação. |
-| Payment.Links.Href | String | - | Sim | Endereço do links de navegação. |
-| Payment.PrintMessage | Array[Object] | - | Não | Dados para impressão. |
-| Payment.PrintMessage.Position | String | - | Sim | Posição para impressão. |
-| Payment.PrintMessage.Message | String | - | Sim | Mensagem para impressão. |
-| Payment.ReceiptInformation | Array[Object] | - | Não | Dados do recibo. |
-| Payment.ReceiptInformation.Field | String | - | Sim | Nome do campo do recibo. |
-| Payment.ReceiptInformation.Label | String | - | Sim | Titulo do campo do recibo. |
-| Payment.ReceiptInformation.Content | String | - | Sim | conteúdo do campo do recibo. |
-| Payment.SplitPayments.SubordinateMerchantId | String (Guid) | 36 | Não | Identificador do Seller na Cielo. |
-| Payment.SplitPayments.Amount | Integer | 15 | Não | Total da venda do Seller específico. R$ 100,00 = 10000 |
-| Payment.SplitPayments.Fares.Mdr | Decimal | 3,2 | Não | Taxa aplicada pela loja Master sobre o Seller para desconto |
-| Payment.SplitPayments.Fares.Fee | Integer | 15 | Não | Tarifa aplicada pela loja Master sobre o Seller para desconto |
-| Payment.SplitErrors.Code | String | — | Não | Código de erro/resposta da transação do Split |
-| Payment.SplitErrors.Message | String | — | Não | Mensagem de erro/resposta da transação do Split |
+| `MerchantOrderId` | String | 15 | Sim | Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. |
+| `Payment.Type` | String | — | Sim | Value: PhysicalCreditCard / Tipo da Transação |
+| `Payment.SoftDescriptor` | String | 13 | Não | Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura. |
+| `Payment.PaymentDateTime` | String | date-time | Sim | Data e Hora da captura da transação |
+| `Payment.Amount` | Integer(int64) | 15 | Sim | Valor da transação (1079 = R$10,79) |
+| `Payment.Capture` | Booleano | — | Não | Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização. |
+| `Payment.Installments` | Integer | 2 | Sim | Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos MaximumNumberOfInstallmentsWhenFinancingByCreditCardCompany, MaximumNumberOfInstallmentsWhenFinancingByStore, MaximumNumberOfinstallmentsForSaleAndCDCQuery e MinimumNumberOfInstallmentsWhenFinancingByStore da objeto ProductEntry da baixa de parametros. |
+| `Payment.Interest` | String | 10 | Não | Default: ByMerchant<br>Enum: ByMerchant, ByIssuer<br>Tipo de Parcelamento:<br>- Se os campos AllowFinancingByStore presente nos objetos IssuerEntry, BinEntry e ProductEntry da baixa de parametros estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado.<br>- Se os campos AllowFinancingByCreditCardCompany presente nos objetos IssuerEntry, BinEntry e ProductEntry da baixa de parametros estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”. |
+| `Payment.ProductId` | Integer | — | Sim | Código do produto identificado através do bin do cartão. |
+| `Payment.CreditCard.CardNumber` | String | 19 | Sim | Número do cartão (PAN) |
+| `Payment.CreditCard.ExpirationDate` | String | MM/yyyy | Sim | Data de validade do cartão.<br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação. |
+| `Payment.CreditCard.SecurityCodeStatus` | String | — | Sim | Enum: Collected Unreadable Nonexistent<br>Status da coleta de código de segurança (CVV) |
+| `Payment.CreditCard.SecurityCode` | String | 4 | Sim | Código de segurança (CVV) |
+| `Payment.CreditCard.BrandId` | Integer | — | Sim | Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE. |
+| `Payment.CreditCard.IssuerId` | Integer | — | Sim | Código do emissor obtido através do campo IssuerId no objeto BinEntry da baixa de parametros. |
+| `Payment.CreditCard.InputMode` | String | — | Sim | Enum: Typed MagStripe Emv<br>Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC.<br>“00” – Magnético<br>“01” - Moedeiro VISA Cash sobre TIBC v1<br>“02” - Moedeiro VISA Cash sobre TIBC v3<br>“03” – EMV com contato<br>“04” - Easy-Entry sobre TIBC v1<br>“05” - Chip sem contato simulando tarja<br>“06” - EMV sem contato. |
+| `Payment.CreditCard.AuthenticationMethod` | String | — | Sim | Enum: NoPassword OnlineAuthentication OfflineAuthentication<br>Método de autenticação<br>- Se o cartão foi lido a partir da digitação verificar o campo RequiresPasswordExceptForEMVCard dos objetos BinEntry, ParameterEntry e IssuerEntry da baixa de parametros. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1;<br>- Se o cartão foi lido a partir da trilha verificar o campo RequiresPassword dos objetos BinEntry, ParameterEntry e IssuerEntry da baixa de parametros. Se todos estiverem habilitados deve ser capturada a senha, se algum estiver desabilitado a captura da senha vai depender do último dígito do service code;<br>- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2.<br>1 - Sem senha = “NoPassword”;<br>2 - Senha online = “Online Authentication”;<br>3 - Senha off-line = “Offline Authentication”. |
+| `Payment.CreditCard.TruncateCardNumberWhenPrinting` | Booleano | — | Não | Indica se o número do cartão será truncado no momento da impressão do comprovante. A solução de captura deve tomar essa decisão com base no campo AllowPrintingPartialCardNumberInReceipt presente nos objetos BinEntry, ParameterEntry e IssuerEntry. |
+| `Payment.CreditCard.SaveCard` | Booleano | — | Não | Identifica se vai salvar/tokenizar o cartão. |
+| `Payment.CreditCard.IsFallback` | Booleano | — | Não | Identifica se é uma transação de fallback. |
+| `Payment.PinPadInformation.TerminalId` | String | 8 | Sim | Número Lógico definido no Concentrador Cielo. |
+| `Payment.PinPadInformation.SerialNumber` | String | — | Sim | Número de Série do Equipamento. |
+| `Payment.PinPadInformation.PhysicalCharacteristics` | String | — | Sim | Enum: WithoutPinPad, PinPadWithoutChipReader, PinPadWithChipReaderWithoutSamModule, PinPadWithChipReaderWithSamModule, NotCertifiedPinPad, PinPadWithChipReaderWithoutSamAndContactless, PinPadWithChipReaderWithSamModuleAndContactless<br>Sem PIN-pad = WithoutPinPad;<br>PIN-pad sem leitor de Chip = PinpadWithoutChipReader;<br>PIN-pad com leitor de Chip sem módulo SAM = PinPadWithChipReaderWithoutSamModule;<br>PIN-pad com leitor de Chip com módulo SAM = PinPadWithChipReaderWithSamModule;<br>PIN-pad não homologado = NotCertifiedPinPad;<br>PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = PinpadWithChipReaderWithoutSamAndContactless;<br>PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = PinpadWithChipReaderWithSamAndContactless.<br>Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC. |
+| `Payment.PinPadInformation.ReturnDataInfo` | String | — | Sim | Retorno da função PP_GetInfo() da biblioteca compartilhada |
+| `Payment.SplitPayments.SubordinateMerchantId` | String (Guid) | 36 | Não | Identificador do Seller na Cielo. |
+| `Payment.SplitPayments.Amount` | Integer | 15 | Não | Total da venda do Seller específico. R$ 100,00 = 10000 |
+| `Payment.SplitPayments.Fares.Mdr` | Decimal | 3,2 | Não | Taxa aplicada pela loja Master sobre o Seller para desconto |
+| `Payment.SplitPayments.Fares.Fee` | Integer | 15 | Não | Tarifa aplicada pela loja Master sobre o Seller para desconto |
 
 #### Resposta
 
@@ -3296,82 +3248,82 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 
 | Propriedade | Tipo | Tamanho | Obrigatório | Descrição |
 |---|---|---|---|---|
-| MerchantOrderId | String | 15 | Sim | Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. |
-| Payment.Installments | Integer | 2 | Sim | Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos MaximumNumberOfInstallmentsWhenFinancingByCreditCardCompany, MaximumNumberOfInstallmentsWhenFinancingByStore, MaximumNumberOfinstallmentsForSaleAndCDCQuery e MinimumNumberOfInstallmentsWhenFinancingByStore da objeto ProductEntry da baixa de parametros. |
-| Payment.Interest | String | 10 | Não | Default: ByMerchant<br>Enum: ByMerchant ByIssuer<br>Tipo de Parcelamento:<br>- Se os campos AllowFinancingByStore presente nos objetos IssuerEntry, BinEntry e ProductEntry estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado.<br>- Se os campos AllowFinancingByCreditCardCompany presente nos objetos IssuerEntry, BinEntry e ProductEntry estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”. |
-| Payment.Capture | Booleano | — | Não | Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização. |
-| Payment.PaymentDateTime | String | date-time | Sim | Data e Hora da captura da transação |
-| Payment.ServiceTaxAmount | Integer | 15 | Não | Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização. |
-| Payment.SoftDescriptor | String | 13 | Não | Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura. |
-| Payment.ProductId | Integer | — | Sim | Código do produto identificado através do bin do cartão. |
-| Payment.Amount | Integer(int64) | — | Sim | Valor da transação (1079 = R$10,79) |
-| Payment.ReceivedDate | String (DateTime) | — | Sim | Data em que a transação foi recebida. Formato "AAAA-MM-DD HH:mm:SS" |
-| Payment.CapturedAmount | Integer | 15 | Sim | Valor capturado, sem pontuação. 100 equivale a R$ 1,00 |
-| Payment.CapturedDate | String (DateTime) | - | Não | Data da captura |
-| Payment.Provider | String | 15 | Sim | Nome do provedor do meio de pagamento |
-| Payment.ConfirmationStatus | Integer | 2 | Não | Status da confirmação. 0 = Pendente 1 = Confirmado 2 = Desfeito |
-| Payment.InitializationVersion | Integer int16 | — | Sim | Número de versão dos parametros baixados na inicialização do equipamento. |
-| Payment.Status | Integer | 2 | Sim | Status da transação 0 = Não Finalizado 1 = Autorizado 2 = Pago 3 = Negado 10 = Cancelado 13 = Abortado |
-| Payment.IsSplitted | Booleano | — | Não | Indica se o pagamento tem split ou não. Default: false |
-| Payment.ReturnCode | String | 3 | Sim | Código de erro/resposta da transação da Adquirência. |
-| Payment.ReturnMessage | String | — | Sim | Mensagem de erro/resposta da transação da Adquirência. |
-| Payment.PaymentId | String (Guid) | 36 | Sim | Código do Pagamento |
-| Payment.Type | String | — | Sim | Value: PhysicalCreditCard / Tipo da Transação |
-| Payment.Currency | String | 3 | Não | Default: “BRL” / Value: “BRL” / Moeda (Preencher com “BRL”) |
-| Payment.Country | String | 3 | Não | Default: “BRA” / Value: “BRA” / País (Preencher com “BRA”) |
-| Payment.CreditCard.CardNumber | String | 19 | Sim | Número do cartão |
-| Payment.CreditCard.ExpirationDate | String | MM/yyyy | Sim | Data de validade do cartão.<br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação. |
-| Payment.CreditCard.SecurityCodeStatus | String | — | Sim | Enum: Collected Unreadable Nonexistent<br>Status da coleta de código de segurança (CVV) |
-| Payment.CreditCard.SecurityCode | String | 4 | Sim | retorno com valor mascarado |
-| Payment.CreditCard.BrandId | Integer | — | Sim | Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE. |
-| Payment.CreditCard.IssuerId | Integer | — | Sim | Código do emissor obtido através do campo IssuerId no objeto BinEntry. |
-| Payment.CreditCard.TruncateCardNumberWhenPrinting | Booleano | — | Não | Indica se o número do cartão será truncado no momento da impressão do comprovante. A solução de captura deve tomar essa decisão com base no campo AllowPrintingPartialCardNumberInReceipt presente nos objetos BinEntry, ParameterEntry e IssuerEntry. |
-| Payment.CreditCard.InputMode | String | — | Sim | Enum: Typed MagStripe Emv<br>Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC.<br>“00” – Magnético<br>“01” - Moedeiro VISA Cash sobre TIBC v1<br>“02” - Moedeiro VISA Cash sobre TIBC v3<br>“03” – EMV com contato<br>“04” - Easy-Entry sobre TIBC v1<br>“05” - Chip sem contato simulando tarja<br>“06” - EMV sem contato. |
-| Payment.CreditCard.AuthenticationMethod | String | — | Sim | Enum: NoPassword, OnlineAuthentication, OfflineAuthentication<br>Método de autenticação<br>- Se o cartão foi lido a partir da digitação verificar o campo RequiresPasswordExceptForEMVCard dos objetos BinEntry, ParameterEntry e IssuerEntry. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1;<br>- Se o cartão foi lido a partir da trilha verificar o campo RequiresPassword dos objetos BinEntry, ParameterEntry e IssuerEntry. Se todos estiverem habilitados deve ser capturada a senha, se algum estiver desabilitado a captura da senha vai depender do último dígito do service code;<br>- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2.<br>1 - Sem senha = “NoPassword”;<br>2 - Senha online = “Online Authentication”;<br>3 - Senha off-line = “Offline Authentication”. |
-| Payment.CreditCard.BrandInformation.Type | String | _ | Não | Tipo de venda. |
-| Payment.CreditCard.BrandInformation.Name | String | — | Não | Nome da bandeira do cartão. |
-| Payment.CreditCard.SaveCard | Booleano | — | Não | Identifica se vai salvar/tokenizar o cartão |
-| Payment.CreditCard.IsFallback | Booleano | — | Não | Identifica se é uma transação de fallback. |
-| Payment.PinPadInformation.TerminalId | String | 8 | Sim | Número Lógico definido no Concentrador Cielo. |
-| Payment.PinPadInformation.SerialNumber | String | — | Sim | Número de Série do Equipamento. |
-| Payment.PinPadInformation.PhysicalCharacteristics | String | — | Sim | Enum: WithoutPinPad PinPadWithoutChipReader PinPadWithChipReaderWithoutSamModule PinPadWithChipReaderWithSamModule NotCertifiedPinPad PinPadWithChipReaderWithoutSamAndContactless PinPadWithChipReaderWithSamModuleAndContactless<br>Sem PIN-pad = WithoutPinPad;<br>PIN-pad sem leitor de Chip = PinpadWithoutChipReader;<br>PIN-pad com leitor de Chip sem módulo SAM = PinPadWithChipReaderWithoutSamModule;<br>PIN-pad com leitor de Chip com módulo SAM = PinPadWithChipReaderWithSamModule;<br>PIN-pad não homologado = NotCertifiedPinPad;<br>PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = PinpadWithChipReaderWithoutSamAndContactless;<br>PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = PinpadWithChipReaderWithSamAndContactless.<br>Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC. |
-| Payment.PinPadInformation.ReturnDataInfo | String | — | Sim | Retorno da função PP_GetInfo() da biblioteca compartilhada |
-| Payment.Receipt.MerchantName | String | — | Sim | Nome da loja |
-| Payment.Receipt.MerchantAddress | String | — | Sim | Endereço da loja |
-| Payment.Receipt.MerchantCity | String | — | Sim | Cidade da loja |
-| Payment.Receipt.MerchantState | String | — | Sim | Estado da loja |
-| Payment.Receipt.MerchantCode | String | — | Sim | Codigo de identificação da loja |
-| Payment.Receipt.Terminal | String | 8 | Sim | Identificação do Terminal |
-| Payment.Receipt.Nsu | String | — | Sim | Numero de identificação da transação Cielo |
-| Payment.Receipt.Date | String | — | Sim | Data da transação |
-| Payment.Receipt.Hour | String | — | Sim | Horario da transação |
-| Payment.Receipt.IssuerName | String | — | Sim | Nome do emissor obtido através do campo IssuerId no objeto BinEntry. |
-| Payment.Receipt.CardNumber | String | — | Sim | Número do cartão |
-| Payment.Receipt.CardHolder | String | — | Não | Nome do titular do cartão. |
-| Payment.Receipt.Brand | String | — | Sim | Bandeira do cartão |
-| Payment.Receipt.TransactionType | String | — | Sim | Tipo de transação |
-| Payment.Receipt.AuthorizationCode | String | — | Sim | Código da autorização |
-| Payment.Receipt.TransactionMode | String | — | Sim | Modo da transação |
-| Payment.Receipt.InputMethod | String | — | Sim | Metodo de entrada |
-| Payment.Receipt.Value | String | — | Sim | Valor do pagamento |
-| Payment.Receipt.SoftDescriptor | String | 13 | Não | Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura. |
-| Payment.Links | Array[Object] | - | Não | links de navegação. |
-| Payment.Links.Method | String | - | Sim | Metodo do link de navegação. |
-| Payment.Links.Rel | String | - | Sim | Links de retorno para navegação. |
-| Payment.Links.Href | String | - | Sim | Endereço do links de navegação. |
-| Payment.PrintMessage | Array[Object] | - | Não | Dados para impressão. |
-| Payment.PrintMessage.Position | String | - | Sim | Posição para impressão. |
-| Payment.PrintMessage.Message | String | - | Sim | Mensagem para impressão. |
-| Payment.ReceiptInformation | Array[Object] | - | Não | Dados do recibo. |
-| Payment.ReceiptInformation.Field | String | - | Sim | Nome do campo do recibo. |
-| Payment.ReceiptInformation.Label | String | - | Sim | Titulo do campo do recibo. |
-| Payment.ReceiptInformation.Content | String | - | Sim | conteúdo do campo do recibo. |
-| Payment.SplitPayments.SubordinateMerchantId | String (Guid) | 36 | Não | Identificador do Seller na Cielo. |
-| Payment.SplitPayments.Amount | Integer | 15 | Não | Total da venda do Seller específico. R$ 100,00 = 10000 |
-| Payment.SplitPayments.Fares.Mdr | Decimal | 3,2 | Não | Taxa aplicada pela loja Master sobre o Seller para desconto |
-| Payment.SplitPayments.Fares.Fee | Integer | 15 | Não | Tarifa aplicada pela loja Master sobre o Seller para desconto |
-| Payment.SplitErrors.Code | String | — | Não | Código de erro/resposta da transação do Split |
-| Payment.SplitErrors.Message | String | — | Não | Mensagem de erro/resposta da transação do Split |
+| `MerchantOrderId` | String | 15 | Sim | Número do documento gerado automaticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal. |
+| `Payment.Installments` | Integer | 2 | Sim | Default: 1 / Quantidade de Parcelas: Varia de 2 a 99 para transação de financiamento. Deve ser verificado os atributos MaximumNumberOfInstallmentsWhenFinancingByCreditCardCompany, MaximumNumberOfInstallmentsWhenFinancingByStore, MaximumNumberOfinstallmentsForSaleAndCDCQuery e MinimumNumberOfInstallmentsWhenFinancingByStore da objeto ProductEntry da baixa de parametros. |
+| `Payment.Interest` | String | 10 | Não | Default: ByMerchant<br>Enum: ByMerchant ByIssuer<br>Tipo de Parcelamento:<br>- Se os campos AllowFinancingByStore presente nos objetos IssuerEntry, BinEntry e ProductEntry estiverem todos habilitados indica que o tipo de parcelamento sem juros pode ser efetuado.<br>- Se os campos AllowFinancingByCreditCardCompany presente nos objetos IssuerEntry, BinEntry e ProductEntry estiverem todos habilitados indica que o tipo de parcelamento com juros pode ser efetuado. Sem juros = “ByMerchant”; Com juros = “ByIssuer”. |
+| `Payment.Capture` | Booleano | — | Não | Default: false / Booleano que identifica que a autorização deve ser com captura automática. A autorização sem captura automática é conhecida também como pré-autorização. |
+| `Payment.PaymentDateTime` | String | date-time | Sim | Data e Hora da captura da transação |
+| `Payment.ServiceTaxAmount` | Integer | 15 | Não | Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização. |
+| `Payment.SoftDescriptor` | String | 13 | Não | Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura. |
+| `Payment.ProductId` | Integer | — | Sim | Código do produto identificado através do bin do cartão. |
+| `Payment.Amount` | Integer(int64) | — | Sim | Valor da transação (1079 = R$10,79) |
+| `Payment.ReceivedDate` | String (DateTime) | — | Sim | Data em que a transação foi recebida. Formato "AAAA-MM-DD HH:mm:SS" |
+| `Payment.CapturedAmount` | Integer | 15 | Sim | Valor capturado, sem pontuação. 100 equivale a R$ 1,00 |
+| `Payment.CapturedDate` | String (DateTime) | - | Não | Data da captura |
+| `Payment.Provider` | String | 15 | Sim | Nome do provedor do meio de pagamento |
+| `Payment.ConfirmationStatus` | Integer | 2 | Não | Status da confirmação. 0 = Pendente 1 = Confirmado 2 = Desfeito |
+| `Payment.InitializationVersion` | Integer int16 | — | Sim | Número de versão dos parametros baixados na inicialização do equipamento. |
+| `Payment.Status` | Integer | 2 | Sim | Status da transação 0 = Não Finalizado 1 = Autorizado 2 = Pago 3 = Negado 10 = Cancelado 13 = Abortado |
+| `Payment.IsSplitted` | Booleano | — | Não | Indica se o pagamento tem split ou não. Default: false |
+| `Payment.ReturnCode` | String | 3 | Sim | Código de erro/resposta da transação da Adquirência. |
+| `Payment.ReturnMessage` | String | — | Sim | Mensagem de erro/resposta da transação da Adquirência. |
+| `Payment.PaymentId` | String (Guid) | 36 | Sim | Código do Pagamento |
+| `Payment.Type` | String | — | Sim | Value: PhysicalCreditCard / Tipo da Transação |
+| `Payment.Currency` | String | 3 | Não | Default: “BRL” / Value: “BRL” / Moeda (Preencher com “BRL”) |
+| `Payment.Country` | String | 3 | Não | Default: “BRA” / Value: “BRA” / País (Preencher com “BRA”) |
+| `Payment.CreditCard.CardNumber` | String | 19 | Sim | Número do cartão |
+| `Payment.CreditCard.ExpirationDate` | String | MM/yyyy | Sim | Data de validade do cartão.<br>Dado obtido através do comando PP_GetCard na BC no momento da captura da transação. |
+| `Payment.CreditCard.SecurityCodeStatus` | String | — | Sim | Enum: Collected Unreadable Nonexistent<br>Status da coleta de código de segurança (CVV) |
+| `Payment.CreditCard.SecurityCode` | String | 4 | Sim | retorno com valor mascarado |
+| `Payment.CreditCard.BrandId` | Integer | — | Sim | Identificação da bandeira obtida através do campo BrandId da PRODUCT TABLE. |
+| `Payment.CreditCard.IssuerId` | Integer | — | Sim | Código do emissor obtido através do campo IssuerId no objeto BinEntry. |
+| `Payment.CreditCard.TruncateCardNumberWhenPrinting` | Booleano | — | Não | Indica se o número do cartão será truncado no momento da impressão do comprovante. A solução de captura deve tomar essa decisão com base no campo AllowPrintingPartialCardNumberInReceipt presente nos objetos BinEntry, ParameterEntry e IssuerEntry. |
+| `Payment.CreditCard.InputMode` | String | — | Sim | Enum: Typed MagStripe Emv<br>Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC.<br>“00” – Magnético<br>“01” - Moedeiro VISA Cash sobre TIBC v1<br>“02” - Moedeiro VISA Cash sobre TIBC v3<br>“03” – EMV com contato<br>“04” - Easy-Entry sobre TIBC v1<br>“05” - Chip sem contato simulando tarja<br>“06” - EMV sem contato. |
+| `Payment.CreditCard.AuthenticationMethod` | String | — | Sim | Enum: NoPassword, OnlineAuthentication, OfflineAuthentication<br>Método de autenticação<br>- Se o cartão foi lido a partir da digitação verificar o campo RequiresPasswordExceptForEMVCard dos objetos BinEntry, ParameterEntry e IssuerEntry. Se todos estiverem habilitados, a senha deve ser capturada e o authenticationMethod assume valor 2. Caso contrário, assume valor 1;<br>- Se o cartão foi lido a partir da trilha verificar o campo RequiresPassword dos objetos BinEntry, ParameterEntry e IssuerEntry. Se todos estiverem habilitados deve ser capturada a senha, se algum estiver desabilitado a captura da senha vai depender do último dígito do service code;<br>- Se o cartão foi lido através do chip EMV, o authenticationMethod será preenchido com base no retorno da função PP_GoOnChip(). No resultado PP_GoOnChip(), onde se o campo da posição 003 do retorno da PP_GoOnChip() estiver com valor 1 indica que o pin foi validado off-line, o authenticationMethod será 3. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valor 0, o authenticationMethod será 1. Se o campo da posição 003 e o campo da posição 006 do retorno da PP_GoOnChip() estiverem com valores 0 e 1 respectivamente, o authenticationMethod será 2.<br>1 - Sem senha = “NoPassword”;<br>2 - Senha online = “Online Authentication”;<br>3 - Senha off-line = “Offline Authentication”. |
+| `Payment.CreditCard.BrandInformation.Type` | String | _ | Não | Tipo de venda. |
+| `Payment.CreditCard.BrandInformation.Name` | String | — | Não | Nome da bandeira do cartão. |
+| `Payment.CreditCard.SaveCard` | Booleano | — | Não | Identifica se vai salvar/tokenizar o cartão |
+| `Payment.CreditCard.IsFallback` | Booleano | — | Não | Identifica se é uma transação de fallback. |
+| `Payment.PinPadInformation.TerminalId` | String | 8 | Sim | Número Lógico definido no Concentrador Cielo. |
+| `Payment.PinPadInformation.SerialNumber` | String | — | Sim | Número de Série do Equipamento. |
+| `Payment.PinPadInformation.PhysicalCharacteristics` | String | — | Sim | Enum: WithoutPinPad PinPadWithoutChipReader PinPadWithChipReaderWithoutSamModule PinPadWithChipReaderWithSamModule NotCertifiedPinPad PinPadWithChipReaderWithoutSamAndContactless PinPadWithChipReaderWithSamModuleAndContactless<br>Sem PIN-pad = WithoutPinPad;<br>PIN-pad sem leitor de Chip = PinpadWithoutChipReader;<br>PIN-pad com leitor de Chip sem módulo SAM = PinPadWithChipReaderWithoutSamModule;<br>PIN-pad com leitor de Chip com módulo SAM = PinPadWithChipReaderWithSamModule;<br>PIN-pad não homologado = NotCertifiedPinPad;<br>PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = PinpadWithChipReaderWithoutSamAndContactless;<br>PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = PinpadWithChipReaderWithSamAndContactless.<br>Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC. |
+| `Payment.PinPadInformation.ReturnDataInfo` | String | — | Sim | Retorno da função PP_GetInfo() da biblioteca compartilhada |
+| `Payment.Receipt.MerchantName` | String | — | Sim | Nome da loja |
+| `Payment.Receipt.MerchantAddress` | String | — | Sim | Endereço da loja |
+| `Payment.Receipt.MerchantCity` | String | — | Sim | Cidade da loja |
+| `Payment.Receipt.MerchantState` | String | — | Sim | Estado da loja |
+| `Payment.Receipt.MerchantCode` | String | — | Sim | Codigo de identificação da loja |
+| `Payment.Receipt.Terminal` | String | 8 | Sim | Identificação do Terminal |
+| `Payment.Receipt.Nsu` | String | — | Sim | Numero de identificação da transação Cielo |
+| `Payment.Receipt.Date` | String | — | Sim | Data da transação |
+| `Payment.Receipt.Hour` | String | — | Sim | Horario da transação |
+| `Payment.Receipt.IssuerName` | String | — | Sim | Nome do emissor obtido através do campo IssuerId no objeto BinEntry. |
+| `Payment.Receipt.CardNumber` | String | — | Sim | Número do cartão |
+| `Payment.Receipt.CardHolder` | String | — | Não | Nome do titular do cartão. |
+| `Payment.Receipt.Brand` | String | — | Sim | Bandeira do cartão |
+| `Payment.Receipt.TransactionType` | String | — | Sim | Tipo de transação |
+| `Payment.Receipt.AuthorizationCode` | String | — | Sim | Código da autorização |
+| `Payment.Receipt.TransactionMode` | String | — | Sim | Modo da transação |
+| `Payment.Receipt.InputMethod` | String | — | Sim | Metodo de entrada |
+| `Payment.Receipt.Value` | String | — | Sim | Valor do pagamento |
+| `Payment.Receipt.SoftDescriptor` | String | 13 | Não | Identificação do estabelecimento (nome reduzido) a ser impresso e identificado na fatura. |
+| `Payment.Links` | Array[Object] | - | Não | links de navegação. |
+| `Payment.Links.Method` | String | - | Sim | Metodo do link de navegação. |
+| `Payment.Links.Rel` | String | - | Sim | Links de retorno para navegação. |
+| `Payment.Links.Href` | String | - | Sim | Endereço do links de navegação. |
+| `Payment.PrintMessage` | Array[Object] | - | Não | Dados para impressão. |
+| `Payment.PrintMessage.Position` | String | - | Sim | Posição para impressão. |
+| `Payment.PrintMessage.Message` | String | - | Sim | Mensagem para impressão. |
+| `Payment.ReceiptInformation` | Array[Object] | - | Não | Dados do recibo. |
+| `Payment.ReceiptInformation.Field` | String | - | Sim | Nome do campo do recibo. |
+| `Payment.ReceiptInformation.Label` | String | - | Sim | Titulo do campo do recibo. |
+| `Payment.ReceiptInformation.Content` | String | - | Sim | conteúdo do campo do recibo. |
+| `Payment.SplitPayments.SubordinateMerchantId` | String (Guid) | 36 | Não | Identificador do Seller na Cielo. |
+| `Payment.SplitPayments.Amount` | Integer | 15 | Não | Total da venda do Seller específico. R$ 100,00 = 10000 |
+| `Payment.SplitPayments.Fares.Mdr` | Decimal | 3,2 | Não | Taxa aplicada pela loja Master sobre o Seller para desconto |
+| `Payment.SplitPayments.Fares.Fee` | Integer | 15 | Não | Tarifa aplicada pela loja Master sobre o Seller para desconto |
+| `Payment.SplitErrors.Code` | String | — | Não | Código de erro/resposta da transação do Split |
+| `Payment.SplitErrors.Message` | String | — | Não | Mensagem de erro/resposta da transação do Split |
 
 ### Crédito por tarja e senha
 
