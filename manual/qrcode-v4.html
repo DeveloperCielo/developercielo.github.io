@@ -847,6 +847,7 @@ body:
       <th>Tam</th>
       <th>Tipo</th>
       <th>Descrição</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -856,6 +857,7 @@ body:
       <td>02</td>
       <td>N</td>
       <td>Versão dos dados do QR Code utilizadana geração do código. Fixo “01”.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>01</td>
@@ -863,6 +865,7 @@ body:
       <td>02</td>
       <td>N</td>
       <td>Identificador do método QR Code gerado: Fixo “12” – QR Code Dinâmico.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>26</td>
@@ -870,41 +873,95 @@ body:
       <td>Até 76</td>
       <td>ANS</td>
       <td>Informações do Estabelecimento</td>
+      <td> </td>
     </tr>
     <tr>
       <td>26</td>
-      <td>00 Globally Unique Identifier</td>
+      <td>00 - Globally Unique Identifier</td>
       <td>14</td>
       <td>ANS</td>
       <td>Identificador global: usar fixo “br.com.padraoq”.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>26</td>
-      <td>01 Merchant Account Information</td>
+      <td>01 - Merchant Account Information</td>
       <td>16</td>
       <td>N</td>
       <td>Numero do Estabelecimento Comercial.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>26</td>
-      <td>02 Logic Number</td>
+      <td>02 - Logic Number</td>
       <td>08</td>
       <td>N</td>
       <td>Número Logico do terminal.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>26</td>
-      <td>03 ID Credenciador</td>
+      <td>03 - ID Credenciador</td>
       <td>04</td>
       <td>N</td>
       <td>Identificação do credenciador. Fixo “0001”.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>26</td>
-      <td>04 CPF/CNPJ</td>
+      <td>04 - CPF/CNPJ</td>
       <td>Até 14</td>
       <td>N</td>
       <td>Número do CPF ou CNPF do EC.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>ELO - Merchant Account Information</td>
+      <td>Até 99</td>
+      <td>ANS</td>
+      <td>Informações do Estabelecimento<br />OBS: Apesar de serem dados específicosda ELO, estem devem estar presentes emtodo as as transações de QRCode “BR Code V3 Aliança + Elo”.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>00 - Globally Unique Identifier</td>
+      <td>10</td>
+      <td>ANS</td>
+      <td>Identificador global: usar fixo “BR.COM.ELO”.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>01 - Acquirer ID</td>
+      <td>04 até 07</td>
+      <td>ANS</td>
+      <td>Código do Credenciador atribuído pela Elo. <br />No caso da Cielo utilizar o valor fixo “8384”.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>02 - Merchan Identification</td>
+      <td>Number</td>
+      <td>15</td>
+      <td>N</td>
+      <td>Número do Estabelecimento Comercial:utilizar apenas os 15 ultimos dígitos.</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>03 - Terminal ID 08 ANS Número Lógico do terminal.</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>04 - Terminal Device Type</td>
+      <td>01</td>
+      <td>ANS</td>
+      <td>Tipo de device/ambiente exibindo o QR Code:<br />“A” – ATM<br />“C” – Celular (Mobile)<br />“E” – E-commerce<br />“M” – POS Mobile<br />“P” – POS padrão<br />“T” – TEF<br /></td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
