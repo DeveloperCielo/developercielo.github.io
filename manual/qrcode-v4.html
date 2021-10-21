@@ -505,7 +505,7 @@ O corpo da requisição é composto por dados provenientes do aplicativo e do QR
 <h2 id="contrato-2">Contrato</h2>
 
 <blockquote>
-  <p><strong>POST</strong> /cielo-payment/v1/payment/card</p>
+  <p><strong>POST</strong> /v1/payment/card</p>
 
   <p><strong>Headers</strong></p>
 
@@ -644,6 +644,175 @@ curl --location --request POST 'https://api2.cielo.com.br/sandbox/padraoq/v1/pay
    "card_cvv":"123",
    "card_holder_name":"Teste",
    "card_expiration_date":"0127"
+}
+</code></pre></div></div>
+
+<h3 id="códigos-de-sucesso-payment">Códigos de sucesso Payment</h3>
+
+<blockquote>
+  <table>
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>200</td>
+        <td>Ok</td>
+        <td>A solicitação foi bem sucedida para uma chamada da API, seja GET OU POST .</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h3 id="códigos-de-erro-payment">Códigos de erro Payment</h3>
+
+<blockquote>
+  <table>
+    <thead>
+      <tr>
+        <th>Error</th>
+        <th>Code</th>
+        <th>Error</th>
+        <th>Descrição</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>422</td>
+        <td>001</td>
+        <td>O produto não foi encontrado</td>
+        <td>Erro de negócio referente a problemas com o produto informado</td>
+      </tr>
+      <tr>
+        <td>422</td>
+        <td>002</td>
+        <td>QRCode Inválido</td>
+        <td>Erro de negócio referente a problemas nos dados do QRCode enviado</td>
+      </tr>
+      <tr>
+        <td>422</td>
+        <td>003</td>
+        <td>QRCode espirado</td>
+        <td>Erro de negócio referente a expiração do tempo de validade do QRCode</td>
+      </tr>
+      <tr>
+        <td>422</td>
+        <td>004</td>
+        <td>Dados de cartão invalido</td>
+        <td>Erro de negócio referente a problemas nos dados do cartão informado</td>
+      </tr>
+      <tr>
+        <td>422</td>
+        <td>005</td>
+        <td>Não aceitamos pagamentos com o cartão cadastrado</td>
+        <td>Erro de negócio referente a aceitação do cartão cadastrado</td>
+      </tr>
+      <tr>
+        <td>422</td>
+        <td>006</td>
+        <td>Erro no autorizador/emissor</td>
+        <td>Erro de negócio retornado do autorizador ou emissor</td>
+      </tr>
+      <tr>
+        <td>422</td>
+        <td>007</td>
+        <td>Erro genérico</td>
+        <td>Outros erros de negócio</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h1 id="api-para-realizar-parse-do-qr-code-uso-opcional">API para realizar parse do QR Code (uso opcional)</h1>
+
+<h2 id="contrato-3">Contrato</h2>
+
+<blockquote>
+  <p><strong>GET</strong> /padraoq/v1/parsedQRCode</p>
+
+  <p><strong>Headers</strong></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Authorization</strong></td>
+        <td>Bearer = access_token  (gerado pela API de Access Token)</td>
+      </tr>
+      <tr>
+        <td><strong>Content-Type</strong></td>
+        <td>application/json</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+Parameter: 
+
+qrcode:"00020101021226580014br.com.padraoq011600100002444700010208620000920304000152040
+30053039865406123.995802BR5909POSTO_ABC6010Barueri_SP622005161000230716416292816000
+14br.com.padraoq0112230120171643020400040302020402010502038204010063041213"
+
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+body: 
+
+&lt;body vazio&gt;
+
+</code></pre></div></div>
+
+<h3 id="response">Response</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+   "qrcode_data":{
+      "payload_format_indicator":"01",
+      "point_of_initiation_method":"12",
+      "merchant_account_information":{
+         "gui":"br.com.padraoq",
+         "id_merchant":"1234567890123456",
+         "id_terminal":"12345678",
+         "id_credenciador":"1234",
+         "instituicao":"12345678",
+         "tipo_de_conta":"1234",
+         "agencia":"12345678",
+         "conta":"12345678901234567890"
+      },
+      "merchant_category_code":"0000",
+      "transaction_currency":"986",
+      "transaction_amount":"01.00",
+      "country_code":"BR",
+      "merchant_name":"Q Café",
+      "merchant_city":"Brasilia",
+      "additional_data_field":{
+         "reference_label":"reference label"
+      },
+      "crc16":"AC05",
+      "unreserved_templates":{
+         "gui":"br.gov.bcb.spi",
+         "url_uri":"https://br.gov.bcb.spi/"
+      },
+      "payment_information":{
+         "gui":"br.com.padraoq",
+         "timestamp":"010220120001",
+         "modalidade":"0400",
+         "parcelas":"01",
+         "tipo_de_transacao":"01",
+         "fonte_de_dados_do_pagamento":"03",
+         "campo_livre":"1234567890"
+      }
+   }
 }
 </code></pre></div></div>
 
