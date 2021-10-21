@@ -816,6 +816,99 @@ body:
 }
 </code></pre></div></div>
 
+<h1 id="qr-codetm-layout-gerado-pelo-pos-modelo-novo-br-code-elo">QR CODETM LAYOUT GERADO PELO POS (MODELO NOVO BR CODE +ELO)</h1>
+
+<p>Os dados usados para gerar o QRCode para leitura na carteira digital deve seguir como base a especificação “EMVCo-Merchant-Presented-QR-Specification-v1” utilizando os dados abaixo:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>N</td>
+      <td>Numérico – Valores representados por dígitos de “0” a “9”</td>
+    </tr>
+    <tr>
+      <td>ANS</td>
+      <td>Alfanumerico especial – Valores alfanuméricos especiais contem (96) caracteres no total, incluindo números e pontuação.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome do Campo</th>
+      <th>Tam</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>00</td>
+      <td>Payload Format Indicator</td>
+      <td>02</td>
+      <td>N</td>
+      <td>Versão dos dados do QR Code utilizadana geração do código. Fixo “01”.</td>
+    </tr>
+    <tr>
+      <td>01</td>
+      <td>Point of Initiation Method</td>
+      <td>02</td>
+      <td>N</td>
+      <td>Identificador do método QR Code gerado: Fixo “12” – QR Code Dinâmico.</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Merchant Account Information</td>
+      <td>Até 76</td>
+      <td>ANS</td>
+      <td>Informações do Estabelecimento</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>00 Globally Unique Identifier</td>
+      <td>14</td>
+      <td>ANS</td>
+      <td>Identificador global: usar fixo “br.com.padraoq”.</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>01 Merchant Account Information</td>
+      <td>16</td>
+      <td>N</td>
+      <td>Numero do Estabelecimento Comercial.</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>02 Logic Number</td>
+      <td>08</td>
+      <td>N</td>
+      <td>Número Logico do terminal.</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>03 ID Credenciador</td>
+      <td>04</td>
+      <td>N</td>
+      <td>Identificação do credenciador. Fixo “0001”.</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>04 CPF/CNPJ</td>
+      <td>Até 14</td>
+      <td>N</td>
+      <td>Número do CPF ou CNPF do EC.</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 
