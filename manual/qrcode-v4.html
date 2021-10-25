@@ -1418,6 +1418,87 @@ body:
 
 <p><strong>QR CODE:</strong></p>
 
+<p><strong>Mapa TAGs geradas em uma transação via QRCode:</strong></p>
+
+<p>0002<strong>01</strong>0102<strong>12</strong>26760014<strong>br.com.padraoq</strong>0116<strong>0010000244470001</strong>0208<strong>62000092</strong>0304<strong>0001</strong>0414<strong>01027058000191</strong>5204<strong>0300</strong>5303<strong>986</strong>5406<strong>123.99</strong>5802<strong>BR</strong>5909<strong>POSTO_ABC</strong>6010<strong>Barueri_SP</strong>62200516<strong>1000230716416292</strong>81720014<strong>br.com.padraoq</strong>0112<strong>230120171643</strong>0204<strong>0004</strong>0302<strong>02</strong>0402<strong>01</strong>0502<strong>03</strong>0602<strong>00</strong>5002<strong>00</strong>63040CE6</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>ID</td>
+      <td>Nome do Campo</td>
+      <td>Tam</td>
+      <td>Tipo</td>
+      <td>Descrição</td>
+      <td>Parse</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>00</td>
+      <td>Payload Format Indicator</td>
+      <td>02</td>
+      <td>N</td>
+      <td>Versão dos dados do QR Code utilizada na geração do código. Fixo “01”.</td>
+      <td>01</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>01</td>
+      <td>Point of Initiation Method</td>
+      <td>02</td>
+      <td>N</td>
+      <td>Identificador do método QR Code gerado: Fixo “12” – QR Code Dinâmico.</td>
+      <td>12</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Merchant Account Information</td>
+      <td>76</td>
+      <td>ANS Informações do Estabelecimento</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>00 - Globally Unique Identifier</td>
+      <td>14</td>
+      <td>ANS</td>
+      <td>Identificador global: usar fixo “br.com.padraoq”.</td>
+      <td>br.com.padraoq</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>01 - MerchantAccount Information</td>
+      <td>1</td>
+      <td>6 N</td>
+      <td>Numero do Estabelecimento</td>
+      <td>Comercial.</td>
+      <td>0010000244470001</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>02 - Logic Number</td>
+      <td>08</td>
+      <td>N</td>
+      <td>Número Logico do terminal.</td>
+      <td>62000092</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>03 - ID Credenciador</td>
+      <td>04</td>
+      <td>N</td>
+      <td>Identificação do credenciador. Fixo “0001”.</td>
+      <td>0001</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 
