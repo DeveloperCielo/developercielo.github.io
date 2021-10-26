@@ -1417,15 +1417,17 @@ C0003020104060696460801363044847</p>
 0502<strong>03</strong>0602<strong>00</strong>5002<strong>00</strong>63040CE6</p>
 
 <table>
-  <tbody>
+  <thead>
     <tr>
-      <td>ID</td>
-      <td>Nome do Campo</td>
-      <td>Tam</td>
-      <td>Tipo</td>
-      <td>Descrição</td>
-      <td>Parse</td>
+      <th>ID</th>
+      <th>Nome do Campo</th>
+      <th>Tam</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Parse</th>
     </tr>
+  </thead>
+  <tbody>
     <tr>
       <td>00</td>
       <td>Payload Format Indicator</td>
@@ -1649,6 +1651,76 @@ C0003020104060696460801363044847</p>
       <td>ANS</td>
       <td>Checksum calculado dos dados QR Code (Vide Documentação “EMV-QRCode” e “ISO13239”).</td>
       <td>8F04</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="qr-codetm-layout-gerado-pelo-pos-modelo-antigo">QR CODETM LAYOUT GERADO PELO POS (MODELO ANTIGO)</h1>
+
+<p>Os dados usados para gerar o QRCode para leitura na carteira digital deve seguir como base a especificação “EMVCo-Merchant-Presented-QR-Specification-v1” utilizando os dados abaixo:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>N</td>
+      <td>Numeric - Value represented by digits 0 from 9</td>
+    </tr>
+    <tr>
+      <td>ANS</td>
+      <td>Alphanumeric - contain 96 characters including numbers and accents</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Field name</th>
+      <th>Size</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>00</td>
+      <td>Payload format indicator</td>
+      <td>02</td>
+      <td>N</td>
+      <td>QR Code data version used at code generation. Fixe”01”</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>01</td>
+      <td>Point of initiation Method</td>
+      <td>02</td>
+      <td>N</td>
+      <td>QR Code method identifier: Fixed “12” Dynamic QR Code</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Merchant Account Information</td>
+      <td>up to 56</td>
+      <td>ANS</td>
+      <td>Merchant information</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>&gt;</td>
+      <td> </td>
+      <td>00 Globaly Unique identifier</td>
+      <td>up to 32</td>
+      <td>ANS</td>
+      <td>Global identifier. Fixed “Cielo”</td>
     </tr>
   </tbody>
 </table>
