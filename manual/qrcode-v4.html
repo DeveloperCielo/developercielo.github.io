@@ -1715,15 +1715,156 @@ C0003020104060696460801363044847</p>
       <td> </td>
     </tr>
     <tr>
-      <td>&gt;</td>
-      <td> </td>
-      <td>00 Globaly Unique identifier</td>
+      <td>26</td>
+      <td>00 - Globaly Unique identifier</td>
       <td>up to 32</td>
       <td>ANS</td>
       <td>Global identifier. Fixed “Cielo”</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>01 - Merchant Account information</td>
+      <td>16</td>
+      <td>N</td>
+      <td>Merchant number</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>02 - Logic Number</td>
+      <td>08</td>
+      <td>N</td>
+      <td>Terminal Logical Number</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>52</td>
+      <td>Merchant Category Code</td>
+      <td>04</td>
+      <td>N</td>
+      <td>Merchant Category Code (MCC)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>53</td>
+      <td>Transaction Currency</td>
+      <td>03</td>
+      <td>N</td>
+      <td>Transaction Currency</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>54</td>
+      <td>Transaction Amount</td>
+      <td>12</td>
+      <td>N</td>
+      <td>Transaction Amount</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>58</td>
+      <td>Contry Code</td>
+      <td>02</td>
+      <td>ANS</td>
+      <td>Country Code. Fixed “BR”</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>59</td>
+      <td>Merchant Name</td>
+      <td>up to 25</td>
+      <td>ANS</td>
+      <td>Merchant Name</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>59</td>
+      <td>Merchant City</td>
+      <td>up to 15</td>
+      <td>ANS</td>
+      <td>Merchant City</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>Transaction Informations</td>
+      <td>up to 120</td>
+      <td>ANS</td>
+      <td>Transaction Information</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>00 - Globally Unique Identifier</td>
+      <td>up to 80</td>
+      <td>ANS</td>
+      <td>Global Identifier: Use the fixed URL, including (“”):”https://www.cielo.com.br/qrcode”</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>01 - Transaction ID</td>
+      <td>16</td>
+      <td>ANS</td>
+      <td>Unique transaction code</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>02 - Transaction Date</td>
+      <td>12</td>
+      <td>N</td>
+      <td>Transaction’s date and time (DDMMYYHHmmss)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>03 - Main Product</td>
+      <td>04</td>
+      <td>N</td>
+      <td>Main Product</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>04 - Sub Product</td>
+      <td>04</td>
+      <td>N</td>
+      <td>Sub Product</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>05 - Payment Installments</td>
+      <td>02</td>
+      <td>N</td>
+      <td>Payment Installments</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>06</td>
+      <td>Transaction Type</td>
+      <td>02</td>
+      <td>N</td>
+      <td>Type of transaction:<br />“01” - Payment Request<br />“02” - Cancellation request</td>
+    </tr>
+    <tr>
+      <td>63</td>
+      <td>CRC</td>
+      <td>04</td>
+      <td>ANS</td>
+      <td>Calculated checksum of QrCode data (see documentation”EMV-QrCode” and “ISO13239”)</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
+
+<p>0002<strong>01</strong>0102<strong>12</strong>26410005<strong>Cielo</strong>011600100002444720100208201000015204591
+2530398654120000000010005802765923CIA BRAS MEIO PAGAMENTO6009SAO
+PAULO801010033”https://www.cielo.com.br/qrcode”01161209676128919
+232021210041809451203041000040400010502010602016304A177</p>
 
 </div>
 
