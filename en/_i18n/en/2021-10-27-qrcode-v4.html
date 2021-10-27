@@ -646,11 +646,11 @@ body:
   <tbody>
     <tr>
       <td>N</td>
-      <td>Numérico – Valores representados por dígitos de “0” a “9”</td>
+      <td>Numeric - Values represented by digits from “0” to “9”</td>
     </tr>
     <tr>
       <td>ANS</td>
-      <td>Alfanumerico especial – Valores alfanuméricos especiais contem (96) caracteres no total, incluindo números e pontuação.</td>
+      <td>Special Alphanumeric - Special alphanumeric values contain (96) characters in total, including numbers and punctuation.</td>
     </tr>
   </tbody>
 </table>
@@ -659,10 +659,10 @@ body:
   <thead>
     <tr>
       <th>ID</th>
-      <th>Nome do Campo</th>
-      <th>Tam</th>
-      <th>Tipo</th>
-      <th>Descrição</th>
+      <th>Field name</th>
+      <th>Size</th>
+      <th>Type</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
@@ -671,308 +671,308 @@ body:
       <td>Payload Format Indicator</td>
       <td>02</td>
       <td>N</td>
-      <td>Versão dos dados do QR Code utilizadana geração do código. Fixo “01”.</td>
+      <td>QR Code data version used in code generation. Fixed “01”.</td>
     </tr>
     <tr>
       <td>01</td>
       <td>Point of Initiation Method</td>
       <td>02</td>
       <td>N</td>
-      <td>Identificador do método QR Code gerado: Fixo “12” – QR Code Dinâmico.</td>
+      <td>Identifier of the generated QR Code method: Fixed “12” – Dynamic QR Code.</td>
     </tr>
     <tr>
       <td>26</td>
       <td>Merchant Account Information</td>
-      <td>Até 76</td>
+      <td>Up to 76</td>
       <td>ANS</td>
-      <td>Informações do Estabelecimento</td>
+      <td>Establishment Information</td>
     </tr>
     <tr>
       <td>26</td>
       <td>00 - Globally Unique Identifier</td>
       <td>14</td>
       <td>ANS</td>
-      <td>Identificador global: usar fixo “br.com.padraoq”.</td>
+      <td>Global identifier: use fixed “br.com.padraoq”.</td>
     </tr>
     <tr>
       <td>26</td>
       <td>01 - Merchant Account Information</td>
       <td>16</td>
       <td>N</td>
-      <td>Numero do Estabelecimento Comercial.</td>
+      <td>Commercial Establishment Number..</td>
     </tr>
     <tr>
       <td>26</td>
       <td>02 - Logic Number</td>
       <td>08</td>
       <td>N</td>
-      <td>Número Logico do terminal.</td>
+      <td>Terminal Logical Number.</td>
     </tr>
     <tr>
       <td>26</td>
-      <td>03 - ID Credenciador</td>
+      <td>03 - ID Accreditor</td>
       <td>04</td>
       <td>N</td>
-      <td>Identificação do credenciador. Fixo “0001”.</td>
+      <td>Accreditor identification. Fixed “0001”.</td>
     </tr>
     <tr>
       <td>26</td>
       <td>04 - CPF/CNPJ</td>
-      <td>Até 14</td>
+      <td>Up 14</td>
       <td>N</td>
-      <td>Número do CPF ou CNPF do EC.</td>
+      <td>CPF or CNPJ number of the EC.</td>
     </tr>
     <tr>
       <td>27</td>
       <td>ELO - Merchant Account Information</td>
-      <td>Até 99</td>
+      <td>Up 99</td>
       <td>ANS</td>
-      <td>Informações do Estabelecimento<br />OBS: Apesar de serem dados específicosda ELO, estem devem estar presentes emtodo as as transações de QRCode “BR Code V3 Aliança + Elo”.</td>
+      <td>Merchant Information<br />OBS: Although this is ELO-specific data, it must be present in all QRCode transactions “BR Code V3 Aliança + Elo”.</td>
     </tr>
     <tr>
       <td>27</td>
       <td>00 - Globally Unique Identifier</td>
       <td>10</td>
       <td>ANS</td>
-      <td>Identificador global: usar fixo “BR.COM.ELO”.</td>
+      <td>Global identifier: use fixed “BR.COM.ELO”.</td>
     </tr>
     <tr>
       <td>27</td>
       <td>01 - Acquirer ID</td>
-      <td>04 até 07</td>
+      <td>04 up 07</td>
       <td>ANS</td>
-      <td>Código do Credenciador atribuído pela Elo. <br />No caso da Cielo utilizar o valor fixo “8384”.</td>
+      <td>Accreditor Code assigned by Elo. <br />In case Cielo uses the fixed value “8384”.</td>
     </tr>
     <tr>
       <td>27</td>
       <td>02 - Merchan Identification Number</td>
       <td>15</td>
       <td>N</td>
-      <td>Número do Estabelecimento Comercial:utilizar apenas os 15 ultimos dígitos.</td>
+      <td>Commercial Establishment Number: use only the last 15 digits.</td>
     </tr>
     <tr>
       <td>27</td>
       <td>03 - Terminal ID</td>
       <td>08</td>
       <td>ANS</td>
-      <td>Número Lógico do terminal.</td>
+      <td>Terminal Logical Number.</td>
     </tr>
     <tr>
       <td>27</td>
       <td>04 - Terminal Device Type</td>
       <td>01</td>
       <td>ANS</td>
-      <td>Tipo de device/ambiente exibindo o QR Code:<br />“A” – ATM<br />“C” – Celular (Mobile)<br />“E” – E-commerce<br />“M” – POS Mobile<br />“P” – POS padrão<br />“T” – TEF<br /></td>
+      <td>Device/environment type displaying the QR Code:<br />“A” – ATM<br />“C” – Mobile (Mobile)<br />“E” – E-commerce<br /><br />“M” – POS Mobile<br />“P” – Standard POS<br />“T” – TEF<br /></td>
     </tr>
     <tr>
       <td>52</td>
       <td>Merchant Category Code</td>
       <td>04</td>
       <td>N</td>
-      <td>Ramo de atividade do Estabelecimento (MCC).</td>
+      <td>Establishment’s branch of activity (MCC).</td>
     </tr>
     <tr>
       <td>53</td>
       <td>Transaction Currency</td>
       <td>03</td>
       <td>N</td>
-      <td>Código de origem da Moeda.</td>
+      <td>Currency source code.</td>
     </tr>
     <tr>
       <td>54</td>
       <td>Transaction Amount</td>
-      <td>Até 13</td>
+      <td>Up 13</td>
       <td>ANS</td>
-      <td>Valor da transação. Ex: “123.99”</td>
+      <td>Transaction amount. Ex.: “123.99”</td>
     </tr>
     <tr>
       <td>58</td>
       <td>Country Code</td>
       <td>02</td>
       <td>ANS</td>
-      <td>Código do país: Fixo “BR”.</td>
+      <td>Country code: Fixed “BR”.</td>
     </tr>
     <tr>
       <td>59</td>
       <td>Merchant Name</td>
-      <td>Até 25</td>
+      <td>Up 25</td>
       <td>ANS</td>
-      <td>Nome Fantasia do Estabelecimento.</td>
+      <td>Business Name of the Establishment.</td>
     </tr>
     <tr>
       <td>60</td>
       <td>Merchant City</td>
       <td>Até 15</td>
       <td>ANS</td>
-      <td>Cidade do Estabelecimento.</td>
+      <td>City of Establishment.</td>
     </tr>
     <tr>
       <td>61</td>
-      <td>Código Postal</td>
+      <td>Postal Code</td>
       <td>08</td>
       <td>N</td>
-      <td>CEP da localidade do terminal retirado do Bit 63 subcampo 25 da inicialização. Para o formato de CEP brasileiro, utilizar 8 dígitos, sem hífen.</td>
+      <td>Terminal location zip code taken from Bit 63 subfield 25 of initialization. For the Brazilian ZIP code format, use 8 digits, no hyphen.</td>
     </tr>
     <tr>
       <td>62</td>
       <td>Additional Data Field</td>
-      <td>Até 29</td>
+      <td>Up 29</td>
       <td>ANS</td>
-      <td>Campo de dados Adicionais</td>
+      <td>Additional Data Field</td>
     </tr>
     <tr>
       <td>62</td>
       <td>05 - Reference Label</td>
-      <td>Até 25</td>
+      <td>Up 25</td>
       <td>ANS</td>
-      <td>Identificação do QR Code. Código único da transação, extraído BIT 31.</td>
+      <td>QR Code identification. Unique transaction code, extracted from BIT 31..</td>
     </tr>
     <tr>
       <td>81</td>
       <td>Transaction informations</td>
-      <td>Até 99</td>
+      <td>Up 99</td>
       <td>ANS</td>
-      <td><strong>Informações da transação</strong></td>
+      <td><strong>Transaction information</strong></td>
     </tr>
     <tr>
       <td>81</td>
       <td>00 - Globally Unique Identifier</td>
       <td>14</td>
       <td>ANS</td>
-      <td>Identificador global: usar fixo “br.com.padraoq”.</td>
+      <td>Global identifier: use fixed “br.com.padraoq”.</td>
     </tr>
     <tr>
       <td>81</td>
       <td>01 - Transaction Date</td>
       <td>12</td>
       <td>N</td>
-      <td>Data e hora da transação (DDMMAAHHmmss).</td>
+      <td>Transaction date and time (DDMMYYHHmmss).</td>
     </tr>
     <tr>
       <td>81</td>
-      <td>02 - Modalidade</td>
+      <td>02 - Modality</td>
       <td>04</td>
       <td>H</td>
-      <td>Códigos fixos em hexa para os fluxos de produto Matriz e produto Secundário:<br />Débito à Vista (Fluxo 08): 0001Crédito à Vista (Fluxo 04): 0002<br />Crédito parcelado Loja (Fluxo 06): 0004<br />Crédito parcelado ADM (Fluxo 05): 0008<br />Voucher (Fluxo 13): 0010<br />Frotas (Fluxo 32): 0020<br />Pré-Autorização (Fluxo 07): 0040<br />Crediário Simulação (Fluxo 11): 0200<br />Crediário Contratação (Fluxo 43): 0400<br />Outro: 0000</td>
+      <td>Fixed codes in hex for the Matrix and Secondary product flows:<br />Debit on demand (Flow 08): 0001Credit on demand (Flow 04): 0002<br />Store installment credit (Flow 06) : 0004<br />ADM Installment Credit (Flow 05): 0008<br />Voucher (Flow 13): 0010<br />Fleets (Flow 32): 0020<br />Pre -Authorization (Flow 07): 0040<br />Crediário Simulation (Flow 11): 0200<br />Crediário Hiring (Flow 43): 0400<br />Other: 0000</td>
     </tr>
     <tr>
       <td>81</td>
       <td>03 - Payment Installments</td>
       <td>02</td>
       <td>N</td>
-      <td>Número de parcelas.</td>
+      <td>Number of installments.</td>
     </tr>
     <tr>
       <td>81</td>
       <td>04 - Transaction Type</td>
       <td>02</td>
       <td>N</td>
-      <td>Tipo da transação:<br />“01” – Venda;<br />“02” – Cancelamento.</td>
+      <td>Transaction Type:<br />“01” – Sale; <br />“02” – Cancellation.</td>
     </tr>
     <tr>
       <td>81</td>
-      <td>05 - Fonte de Dados do Pagamento</td>
+      <td>05 - Payment Data Source</td>
       <td>02</td>
       <td>N</td>
-      <td>Fixo:“03” – QR Code</td>
+      <td>Fixed:”03” - QR Code</td>
     </tr>
     <tr>
       <td>81</td>
-      <td>06 - NSU da Transação Original</td>
-      <td>Até 12</td>
+      <td>06 - NOriginal Transaction NSU</td>
+      <td>Up 12</td>
       <td>N</td>
-      <td>NSU da transação atual.</td>
+      <td>NSU of current transaction</td>
     </tr>
     <tr>
       <td>81</td>
       <td>50 - RUF</td>
-      <td>Até 19</td>
+      <td>Up 19</td>
       <td>ANS</td>
       <td>RUF</td>
     </tr>
     <tr>
       <td>82</td>
       <td>Unreserved Templates – Elo Transaction Detail</td>
-      <td>56 até 88</td>
+      <td>56 Up 88</td>
       <td>ANS</td>
-      <td>ELO - Informações da transação<br />OBS: Apesar de serem dados específicosda ELO, estem devem estar presentes em todoas as transações de QRCode “BR Code V3 Aliança + Elo”.</td>
+      <td>ELO - Transaction information<br />OBS: Although this is ELO-specific data, it must be present in all QRCode transactions “BR Code V3 Aliança + Elo”</td>
     </tr>
     <tr>
       <td>82</td>
       <td>00 - Globally Unique Identifier</td>
       <td>10</td>
       <td>ANS</td>
-      <td>Identificador global QR code compartilhado: valor fixo igual a “BR.COM.ELO”.</td>
+      <td>Shared global QR code identifier: fixed value equal to “BR.COM.ELO”.</td>
     </tr>
     <tr>
       <td>82</td>
       <td>01 - Transaction Date</td>
       <td>10</td>
       <td>N</td>
-      <td>Data e hora da transação(MMDDHHmmss).</td>
+      <td>Transaction date and time(MMDDHHmmss).</td>
     </tr>
     <tr>
       <td>82</td>
       <td>02 - Product Type &amp; Installments</td>
       <td>03</td>
       <td>ANS</td>
-      <td>Posição [1]<br />Produto da transação:<br />“C” – Crédito – Fluxos: 04, 06, 05, 11 e 43<br />“D” – Débito – Fluxo: 08<br />“V” – Voucher – Fluxo: 13 e 32<br />“O” – Outros – Outros fluxos não previstos.<br />Posição [2,3]<br />Quantidade de parcelas. Para transações à vista campo deve ser enviado com o valor igual a “00”.</td>
+      <td>Position [1]<br />Product of the transaction:<br />“C” – Credit – Flows: 04, 06, 05, 11 and 43<br />“D” – Debit – Flow : 08<br />“V” – Voucher – Flow: 13 and 32<br />“O” – Others – Other unforeseen flows.<br />Position [2,3]<br /><br />Amount of parcels. For spot transactions, the field must be sent with the value equal to “00”.</td>
     </tr>
     <tr>
       <td>82</td>
       <td>03 - Transaction Type</td>
       <td>02</td>
       <td>N</td>
-      <td>Tipo da transação:<br />“01” – Compra<br />“02” – Cancelamento<br />“03” – Compra com Saque<br />“04” – Saque</td>
+      <td>Transaction Type:<br />“01” – Purchase<br />“02” – Cancellation<br />“03” – Purchase with Withdrawal<br />“04” – Withdrawal</td>
     </tr>
     <tr>
       <td>82</td>
       <td>04 - Transaction ID</td>
       <td>06</td>
       <td>N</td>
-      <td>NSU da transação atual.</td>
+      <td>NSU of the current transaction..</td>
     </tr>
     <tr>
       <td>82</td>
       <td>05-  Original Transaction ID</td>
       <td>06</td>
       <td>N</td>
-      <td>Identificador único da Transação original que será cancelada (campo Transaction ID do QR Code usado na transação original).<br />Deve ser apresentado no QR Code usado para iniciar transações de cancelamento.<br />OBS: Somente incluir este campo se for uma transação de cancelamento.</td>
+      <td>Unique identifier of the original Transaction that will be canceled (Transaction ID field of the QR Code used in the original transaction).<br />Must be presented in the QR Code used to initiate cancellation transactions.<br />NOTE: Include only this field if it is a cancellation transaction..</td>
     </tr>
     <tr>
       <td>82</td>
       <td>06 - Original Transaction Date</td>
       <td>04</td>
       <td>N</td>
-      <td>Data da transação original, que será cancelada, no formato MMDD.<br />Deve ser enviado para transações de cancelamento<br />OBS: Somente incluir este campo se for uma transação de cancelamento.</td>
+      <td>Date of the original transaction, which will be canceled, in MMDD format.<br />Must be sent for cancellation transactions<br />NOTE: Only include this field if it is a cancellation transaction.</td>
     </tr>
     <tr>
       <td>82</td>
       <td>07 - Original Transaction Terminal ID</td>
       <td>08</td>
       <td>ANS</td>
-      <td>Número Lógico do terminal.<br />Identificação do terminal do estabelecimento comercial utilizado na transação original.<br />Deve ser enviado para transações de cancelamento.<br />OBS: Somente incluir este campo se for uma transação de cancelamento.</td>
+      <td>Terminal Logical Number.<br />Identification of the merchant’s terminal used in the original transaction.<br />Must be sent for cancellation transactions.<br />NOTE: Only include this field if it is a cancellation transaction.</td>
     </tr>
     <tr>
       <td>82</td>
       <td>08 - Elo QR Code Version</td>
-      <td>Até 03</td>
+      <td>Up 03</td>
       <td>N</td>
-      <td>Identificação da versão do QR Code Elo utilizado na transação.Para este documento em questão, utilizar o valor igual a “3”.</td>
+      <td>Identification of the QR Code Link version used in the transaction. For this document, use the value equal to “3”.</td>
     </tr>
     <tr>
       <td>63</td>
       <td>CRC16</td>
       <td>04</td>
       <td>ANS</td>
-      <td>Checksum calculado dos dados QR Code(Vide Documentação “EMV-QRCode” e “ISO13239”).</td>
+      <td>Calculated checksum of QR Code data (See Documentation “EMV-QRCode” and “ISO13239).</td>
     </tr>
   </tbody>
 </table>
 
 <p>Ex.:</p>
 
-<p><strong>DADOS</strong>:</p>
+<p><strong>Data</strong>:</p>
 
 <p>00020101021226760014br.com.padraoq0116123456789012000102082009130003040001041
 40306501400093927580010BR.COM.ELO010483840215234567890120001030820091300040
@@ -985,25 +985,25 @@ C0003020104060696460801363044847</p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/qrcodepos.PNG" alt="QRCodePOS" /></p>
 
-<h1 id="qr-codetm-layout-gerado-pelo-pos-modelo-novo-br-code">QR CODETM LAYOUT GERADO PELO POS (MODELO NOVO BR CODE)</h1>
+<h1 id="qr-codetm-pos-generated-layout-new-br-code-model">QR CODETM POS GENERATED LAYOUT (NEW BR CODE MODEL)</h1>
 
-<p>Os dados usados para gerar o QRCode para leitura na carteira digital deve seguir como base aespecificação <strong>“EMVCo-Merchant-Presented-QR-Specification-v1”</strong> utilizando os dados abaixo:</p>
+<p>The data used to generate the QRCode for reading in the digital wallet must follow the specification <strong>“EMVCo-Merchant-Presented-QR-Specification-v1”</strong> using the data below:</p>
 
 <table>
   <thead>
     <tr>
-      <th>Tipo</th>
-      <th>Descrição</th>
+      <th>Type</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>N</td>
-      <td>Numérico – Valores representados por dígitos de “0” a “9”</td>
+      <td>Numeric - Values represented by digits from “0” to “9”</td>
     </tr>
     <tr>
       <td>ANS</td>
-      <td>Alfanumerico especial – Valores alfanuméricos especiais contem (96) caracteres no total, incluindo números e pontuação.</td>
+      <td>Special Alphanumeric - Special alphanumeric values contain (96) characters in total, including numbers and punctuation.</td>
     </tr>
   </tbody>
 </table>
@@ -1024,189 +1024,189 @@ C0003020104060696460801363044847</p>
       <td>Payload Format Indicator</td>
       <td>02</td>
       <td>N</td>
-      <td>Versão dos dados do QR Code utilizada na geração do código. Fixo “01”.</td>
+      <td>QR Code data version used in code generation. Fixed “01”.</td>
     </tr>
     <tr>
       <td>01</td>
       <td>Point of Initiation Method</td>
       <td>02</td>
       <td>N</td>
-      <td>Identificador do método QR Code gerado: Fixo “12” – QR Code Dinâmico.</td>
+      <td>Identifier of the generated QR Code method: Fixed “12” – Dynamic QR Code.</td>
     </tr>
     <tr>
       <td>26</td>
       <td>Merchant Account Information</td>
-      <td>Até 76</td>
+      <td>Up 76</td>
       <td>ANS</td>
-      <td><strong>Informações do Estabelecimento</strong></td>
+      <td><strong>Establishment Information</strong></td>
     </tr>
     <tr>
       <td>26</td>
       <td>00 - Globally Unique Identifier</td>
       <td>14</td>
       <td>ANS</td>
-      <td>Identificador global: usar fixo “br.com.padraoq”.</td>
+      <td>Global identifier: use fixed “br.com.padraoq”.</td>
     </tr>
     <tr>
       <td>26</td>
       <td>01 - Merchant Account Information</td>
       <td>16</td>
       <td>N</td>
-      <td>Numero do Estabelecimento Comercial.</td>
+      <td>Commercial Establishment Number.</td>
     </tr>
     <tr>
       <td>26</td>
       <td>02 - Logic Number</td>
       <td>08</td>
       <td>N</td>
-      <td>Número Logico do terminal.</td>
+      <td>Terminal Logical Number.</td>
     </tr>
     <tr>
       <td>26</td>
-      <td>03 - ID Credenciador</td>
+      <td>03 - ID Accreditor</td>
       <td>04</td>
       <td>N</td>
-      <td>Identificação do credenciador. Fixo “0001”.</td>
+      <td>Accreditor identification. Fixed “0001.</td>
     </tr>
     <tr>
       <td>26</td>
       <td>04 - CPF/CNPJ</td>
-      <td>Até 14</td>
+      <td>Up 14</td>
       <td>N</td>
-      <td>Número CPF/CNPJ do merchant</td>
+      <td>CPF/CNPJ number of the merchant</td>
     </tr>
     <tr>
       <td>52</td>
       <td>Merchant Category Code</td>
       <td>04</td>
       <td>N</td>
-      <td>Ramo de atividade do Estabelecimento (MCC).</td>
+      <td>Establishment’s branch of activity (MCC).</td>
     </tr>
     <tr>
       <td>53</td>
       <td>Transaction Currency</td>
       <td>03</td>
       <td>N</td>
-      <td>Código de origem da Moeda.</td>
+      <td>Currency source code.</td>
     </tr>
     <tr>
       <td>54</td>
       <td>Transaction Amount</td>
-      <td>Até 13</td>
+      <td>Up 13</td>
       <td>ANS</td>
-      <td>Valor da transação.<br />Ex: “123.99”</td>
+      <td>Transaction amount.<br />Ex: “123.99”</td>
     </tr>
     <tr>
       <td>58</td>
       <td>Country Code</td>
       <td>02</td>
       <td>ANS</td>
-      <td>Código do país: Fixo “BR”.</td>
+      <td>Country code: Fixed “BR”.</td>
     </tr>
     <tr>
       <td>59</td>
       <td>Merchant Name</td>
-      <td>Até 25</td>
+      <td>Up 25</td>
       <td>ANS</td>
-      <td>Nome Fantasia do Estabelecimento.</td>
+      <td>Business Name of the Establishment.</td>
     </tr>
     <tr>
       <td>60</td>
       <td>Merchant City</td>
-      <td>Até 15</td>
+      <td>Up 15</td>
       <td>ANS</td>
-      <td>Cidade do Estabelecimento.</td>
+      <td>City of Establishment.</td>
     </tr>
     <tr>
       <td>62</td>
       <td>Additional Data Field</td>
-      <td>Até 29</td>
+      <td>Up 29</td>
       <td>ANS</td>
-      <td>Campo de dados Adicionais</td>
+      <td>Additional Data Field</td>
     </tr>
     <tr>
       <td>62</td>
       <td>05- Reference Label</td>
-      <td>Até 25</td>
+      <td>Up 25</td>
       <td>ANS</td>
-      <td>Identificação do QR Code.<br />Código único da transação, extraído BIT 31.</td>
+      <td>QR Code identification.<br />Unique code of the transaction, taken from BIT 31.</td>
     </tr>
     <tr>
       <td>81</td>
       <td>Transaction informations</td>
-      <td>Até 99</td>
+      <td>Up 99</td>
       <td>ANS</td>
-      <td>Informações da transação</td>
+      <td>Transaction information</td>
     </tr>
     <tr>
       <td>81</td>
       <td>00 - Globally Unique Identifier</td>
       <td>14</td>
       <td>ANS</td>
-      <td>Identificador global: usar fixo “br.com.padraoq”.</td>
+      <td>Global identifier: use fixed “br.com.padraoq”.</td>
     </tr>
     <tr>
       <td>81</td>
       <td>01 - Transaction Date</td>
       <td>12</td>
       <td>N</td>
-      <td>Data e hora da transação(DDMMAAHHmmss).</td>
+      <td>Transaction date and time (DDMMYYHHmmss).</td>
     </tr>
     <tr>
       <td>81</td>
       <td>02 - Main Product</td>
       <td>04</td>
       <td>N</td>
-      <td>Código do produto Matriz.</td>
+      <td>Matrix product code.</td>
     </tr>
     <tr>
       <td>81</td>
       <td>03 - Payment Installments</td>
       <td>02</td>
       <td>N</td>
-      <td>Número de parcelas.</td>
+      <td>Number of installments.</td>
     </tr>
     <tr>
       <td>81</td>
       <td>04 - Transaction Type</td>
       <td>02</td>
       <td>N</td>
-      <td>Tipo da transação:<br />“01” – Venda;<br />“02” – Cancelamento.</td>
+      <td>Transaction Type:<br />“01” – Sale; <br />“02” – Cancellation.</td>
     </tr>
     <tr>
       <td>81</td>
-      <td>05 - Fonte de Dados do Pagamento</td>
+      <td>05 - Payment Data Source</td>
       <td>02</td>
       <td>N</td>
-      <td>Fixo: “03” – QR Code</td>
+      <td>Fixed: “03” - QR Code</td>
     </tr>
     <tr>
       <td>81</td>
       <td>06 - NSU Host Original</td>
-      <td>Até 12</td>
+      <td>Up 12</td>
       <td>N</td>
-      <td>NSU da transação original</td>
+      <td>NSU of the original transaction</td>
     </tr>
     <tr>
       <td>81</td>
       <td>50 - Campo livre/RUF</td>
-      <td>Até 19</td>
+      <td>Up 19</td>
       <td>ANS</td>
-      <td>Campo de utilização Livre (RUF)</td>
+      <td>Free Usage Field (RUF)</td>
     </tr>
     <tr>
       <td>63</td>
       <td>CRC16</td>
       <td>04</td>
       <td>ANS</td>
-      <td>Checksum calculado dos dados QR Code(Vide Documentação “EMV-QRCode” e “ISO13239”).</td>
+      <td>Calculated checksum of QR Code data (See Documentation “EMV-QRCode” and “ISO13239”).</td>
     </tr>
   </tbody>
 </table>
 
 <p>Ex:</p>
 
-<p><strong>DADOS:</strong></p>
+<p><strong>DATA:</strong></p>
 
 <p>00020101021226760014<strong>br.com.padraoq</strong>0116<strong>0010000244470001</strong>0208<strong>62000092</strong>0304<strong>0001</strong>041
 4<strong>01027058000191</strong>5204<strong>0300</strong>5303<strong>986</strong>5406<strong>123.99</strong>5802<strong>BR</strong>5909<strong>POSTO_ABC</strong>6010<strong>Barueri_SP</strong>6220
@@ -1217,7 +1217,7 @@ C0003020104060696460801363044847</p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/qrcodenew.PNG" alt="QRCodePOS" /></p>
 
-<p><strong>Mapa TAGs geradas em uma transação via QRCode:</strong></p>
+<p><strong>Map TAGs generated in a transaction via QRCode:</strong></p>
 
 <p>0002<strong>01</strong>0102<strong>12</strong>26760014<strong>br.com.padraoq</strong>0116<strong>0010000244470001</strong>0208<strong>62000092</strong>0304<strong>0001</strong>041
 4<strong>01027058000191</strong>5204<strong>0300</strong>5303<strong>986</strong>5406<strong>123.99</strong>5802<strong>BR</strong>5909<strong>POSTO_ABC</strong>6010<strong>Barueri_SP</strong>6220
@@ -1228,10 +1228,10 @@ C0003020104060696460801363044847</p>
   <thead>
     <tr>
       <th>ID</th>
-      <th>Nome do Campo</th>
-      <th>Tam</th>
-      <th>Tipo</th>
-      <th>Descrição</th>
+      <th>Field name</th>
+      <th>Size</th>
+      <th>Type</th>
+      <th>Description</th>
       <th>Parse</th>
     </tr>
   </thead>
@@ -1241,7 +1241,7 @@ C0003020104060696460801363044847</p>
       <td>Payload Format Indicator</td>
       <td>02</td>
       <td>N</td>
-      <td>Versão dos dados do QR Code utilizada na geração do código. Fixo “01”.</td>
+      <td>QR Code data version used in code generation. Fixed “01”.</td>
       <td>01</td>
     </tr>
     <tr>
@@ -1249,14 +1249,14 @@ C0003020104060696460801363044847</p>
       <td>Point of Initiation Method</td>
       <td>02</td>
       <td>N</td>
-      <td>Identificador do método QR Code gerado: Fixo “12” – QR Code Dinâmico.</td>
+      <td>Identifier of the generated QR Code method: Fixed “12” – Dynamic QR Code.</td>
       <td>12</td>
     </tr>
     <tr>
       <td>26</td>
       <td>Merchant Account Information</td>
       <td>76</td>
-      <td>ANS Informações do Estabelecimento</td>
+      <td>ANS Establishment Information</td>
       <td> </td>
       <td> </td>
     </tr>
@@ -1265,7 +1265,7 @@ C0003020104060696460801363044847</p>
       <td>00 - Globally Unique Identifier</td>
       <td>14</td>
       <td>ANS</td>
-      <td>Identificador global: usar fixo “br.com.padraoq”.</td>
+      <td>Global identifier: use fixed “br.com.padraoq”.</td>
       <td>br.com.padraoq</td>
     </tr>
     <tr>
@@ -1273,7 +1273,7 @@ C0003020104060696460801363044847</p>
       <td>01 - MerchantAccount Information</td>
       <td>16</td>
       <td>N</td>
-      <td>Numero do EstabelecimentoComercial.</td>
+      <td>Number of the Commercial Establishment.</td>
       <td>0010000244470001</td>
     </tr>
     <tr>
@@ -1281,7 +1281,7 @@ C0003020104060696460801363044847</p>
       <td>02 - Logic Number</td>
       <td>08</td>
       <td>N</td>
-      <td>Número Logico do terminal.</td>
+      <td>Terminal Logical Number.</td>
       <td>62000092</td>
     </tr>
     <tr>
@@ -1289,7 +1289,7 @@ C0003020104060696460801363044847</p>
       <td>03 - ID Credenciador</td>
       <td>04</td>
       <td>N</td>
-      <td>Identificação do credenciador. Fixo “0001”.</td>
+      <td>Accreditor identification. Fixed “0001”.</td>
       <td>0001</td>
     </tr>
     <tr>
@@ -1297,7 +1297,7 @@ C0003020104060696460801363044847</p>
       <td>04 - CPF/CNPJ</td>
       <td>Até 14</td>
       <td>N</td>
-      <td>Número CPF/CNPJ do merchant</td>
+      <td>CPF/CNPJ number of the merchant</td>
       <td>01027058000191</td>
     </tr>
     <tr>
@@ -1305,7 +1305,7 @@ C0003020104060696460801363044847</p>
       <td>Merchant Category Code</td>
       <td>04</td>
       <td>N</td>
-      <td>Ramo de atividade do Estabelecimento (MCC).</td>
+      <td>Establishment’s branch of activity (MCC).</td>
       <td>0300</td>
     </tr>
     <tr>
@@ -1313,7 +1313,7 @@ C0003020104060696460801363044847</p>
       <td>Transaction Currency</td>
       <td>03</td>
       <td>N</td>
-      <td>Código de origem da Moeda.</td>
+      <td>Currency source code.</td>
       <td>986</td>
     </tr>
     <tr>
@@ -1321,7 +1321,7 @@ C0003020104060696460801363044847</p>
       <td>Transaction Amount</td>
       <td>Até 13</td>
       <td>ANS</td>
-      <td>Valor da transação.Ex: “123.99”</td>
+      <td>Transaction amount. Ex: “123.99”</td>
       <td>123.99</td>
     </tr>
     <tr>
@@ -1329,47 +1329,47 @@ C0003020104060696460801363044847</p>
       <td>Country Code</td>
       <td>02</td>
       <td>ANS</td>
-      <td>Código do país: Fixo “BR”.</td>
+      <td>Country code: Fixed “BR”.</td>
       <td>BR</td>
     </tr>
     <tr>
       <td>59</td>
       <td>Merchant Name</td>
-      <td>Até 25</td>
+      <td>Up 25</td>
       <td>ANS</td>
-      <td>Nome Fantasia do Estabelecimento.</td>
+      <td>Business Name of the Establishment.</td>
       <td>POSTO_ABC</td>
     </tr>
     <tr>
       <td>60</td>
       <td>Merchant City</td>
-      <td>Até 15</td>
+      <td>Up 15</td>
       <td>ANS</td>
-      <td>Cidade do Estabelecimento. Barueri_SP</td>
-      <td> </td>
+      <td>City of Establishment.</td>
+      <td>Barueri_SP</td>
     </tr>
     <tr>
       <td>62</td>
       <td>Additional Data Field</td>
-      <td>Até 29</td>
+      <td>Up 29</td>
       <td>ANS</td>
-      <td>Campo de dados Adicionais</td>
+      <td>Additional Data Field</td>
       <td> </td>
     </tr>
     <tr>
       <td>62</td>
       <td>05 - Reference Label</td>
-      <td>Até 25</td>
-      <td>ANS Identificação do QR Code. Código único da transação,extraído BIT 31.</td>
+      <td>Up 25</td>
+      <td>ANS</td>
+      <td>QR Code identification. Unique transaction code, extracted from BIT 31.</td>
       <td>1000230716416292</td>
-      <td> </td>
     </tr>
     <tr>
       <td>81</td>
       <td>Transaction informations</td>
-      <td>Até 99(72 nesse exemplo</td>
+      <td>Up 99(72 in this example</td>
       <td>ANS</td>
-      <td>Informações da transação</td>
+      <td>Transaction information</td>
       <td> </td>
     </tr>
     <tr>
@@ -1377,7 +1377,7 @@ C0003020104060696460801363044847</p>
       <td>00 - Globally Unique Identifier</td>
       <td>14</td>
       <td>ANS</td>
-      <td>Identificador global: usar fixo “br.com.padraoq”.</td>
+      <td>Global identifier: use fixed “br.com.padraoq”.</td>
       <td>br.com.padraoq</td>
     </tr>
     <tr>
@@ -1385,7 +1385,7 @@ C0003020104060696460801363044847</p>
       <td>01 - Transaction Date</td>
       <td>12</td>
       <td>N</td>
-      <td>Data e hora da transação(DDMMAAHHmmss).</td>
+      <td>Transaction date and time (DDMMYYHHmmss).</td>
       <td>230120171643</td>
     </tr>
     <tr>
@@ -1393,7 +1393,7 @@ C0003020104060696460801363044847</p>
       <td>02 - Main Product</td>
       <td>04</td>
       <td>N</td>
-      <td>Código do produto Matriz.</td>
+      <td>Matrix product code..</td>
       <td>0004</td>
     </tr>
     <tr>
@@ -1401,7 +1401,7 @@ C0003020104060696460801363044847</p>
       <td>03 - Payment Installments</td>
       <td>02</td>
       <td>N</td>
-      <td>Número de parcelas.</td>
+      <td>Number of installments.</td>
       <td>02</td>
     </tr>
     <tr>
@@ -1409,37 +1409,37 @@ C0003020104060696460801363044847</p>
       <td>04 - Transaction Type</td>
       <td>02</td>
       <td>N</td>
-      <td>Tipo da transação: “01” – Venda;<br />“02” – Cancelamento.<br /></td>
+      <td>Transaction type: “01” – Sale;<br />“02” – Cancellation.<br /></td>
       <td>01</td>
     </tr>
     <tr>
       <td>81</td>
-      <td>05 - Fonte de Dados do Pagamento</td>
+      <td>05 - Payment Data Source</td>
       <td>02</td>
       <td>N</td>
-      <td>Fixo:“03” – QR Code</td>
+      <td>Fixed:”03” - QR Code</td>
       <td>03</td>
     </tr>
     <tr>
       <td>81</td>
       <td>06 - NSU Host Original</td>
-      <td>Até 12</td>
+      <td>Up 12</td>
       <td>N</td>
-      <td>NSU da transação original</td>
+      <td>NSU of the original transaction</td>
       <td>00</td>
     </tr>
     <tr>
       <td>81</td>
-      <td>50 - Campo livre/RUF</td>
-      <td>Até 19</td>
+      <td>50 - Free Field/RUF</td>
+      <td>Up 19</td>
       <td>ANS</td>
-      <td>Campo de utilização Livre (RUF)</td>
+      <td>Free field of use (RUF)</td>
       <td>00</td>
     </tr>
     <tr>
       <td>82</td>
       <td>RUF</td>
-      <td>Até 99</td>
+      <td>Up 99</td>
       <td>ANS</td>
       <td>RUF</td>
       <td> </td>
@@ -1447,7 +1447,7 @@ C0003020104060696460801363044847</p>
     <tr>
       <td>82</td>
       <td>01 - RUF</td>
-      <td>Até 95</td>
+      <td>Up 95</td>
       <td>ANS</td>
       <td>RUF</td>
       <td> </td>
@@ -1457,15 +1457,15 @@ C0003020104060696460801363044847</p>
       <td>CRC16</td>
       <td>04</td>
       <td>ANS</td>
-      <td>Checksum calculado dos dados QR Code (Vide Documentação “EMV-QRCode” e “ISO13239”).</td>
+      <td>Calculated checksum of QR Code data (See Documentation “EMV-QRCode” and “ISO13239”).</td>
       <td>8F04</td>
     </tr>
   </tbody>
 </table>
 
-<h1 id="qr-codetm-layout-gerado-pelo-pos-modelo-antigo">QR CODETM LAYOUT GERADO PELO POS (MODELO ANTIGO)</h1>
+<h1 id="qr-codetm-pos-generated-layout-old-model">QR CODETM POS GENERATED LAYOUT (OLD MODEL)</h1>
 
-<p>Os dados usados para gerar o QRCode para leitura na carteira digital deve seguir como base a especificação “EMVCo-Merchant-Presented-QR-Specification-v1” utilizando os dados abaixo:</p>
+<p>The data used to generate the QRCode for reading in the digital wallet must follow as a basis the specification “EMVCo-Merchant-Presented-QR-Specification-v1” using the data below:</p>
 
 <table>
   <thead>
@@ -1658,10 +1658,10 @@ PAULO</strong>801010033”https://www.cielo.com.br/qrcode”0116<strong>12096761
   <thead>
     <tr>
       <th>ID</th>
-      <th>Nome do Campo</th>
-      <th>Tam</th>
-      <th>Tipo</th>
-      <th>Descrição</th>
+      <th>Field name</th>
+      <th>Size</th>
+      <th>Type</th>
+      <th>Description</th>
       <th>Parse</th>
     </tr>
   </thead>
@@ -1671,7 +1671,7 @@ PAULO</strong>801010033”https://www.cielo.com.br/qrcode”0116<strong>12096761
       <td>Payload Format Indicator</td>
       <td>02</td>
       <td>N</td>
-      <td>Versão do QR Code valor fixo “01”</td>
+      <td>QR Code version fixed value “01”</td>
       <td>01</td>
     </tr>
     <tr>
@@ -1679,15 +1679,15 @@ PAULO</strong>801010033”https://www.cielo.com.br/qrcode”0116<strong>12096761
       <td>Point of Initiation Method</td>
       <td>02</td>
       <td>N</td>
-      <td>Identificador do método do QR Code:Fixo “12” – QR Code dinâmico</td>
+      <td>QR Code Method Identifier: Fixed “12” – Dynamic QR Code</td>
       <td>12</td>
     </tr>
     <tr>
       <td>26</td>
       <td>Merchant Account Information</td>
       <td>Up to 56</td>
-      <td>ANS Informações do estabelecimento</td>
-      <td> </td>
+      <td>ANS</td>
+      <td>Property Information</td>
       <td> </td>
     </tr>
     <tr>
@@ -1695,7 +1695,7 @@ PAULO</strong>801010033”https://www.cielo.com.br/qrcode”0116<strong>12096761
       <td>00 - Globally Unique Identifier</td>
       <td>Up to 32</td>
       <td>ANS</td>
-      <td>Identificador Global: valor fixo “Cielo”</td>
+      <td>Global identifier: fixed value “Cielo”</td>
       <td>Cielo</td>
     </tr>
     <tr>
@@ -1703,7 +1703,7 @@ PAULO</strong>801010033”https://www.cielo.com.br/qrcode”0116<strong>12096761
       <td>01 - Merchant Account Information</td>
       <td>16</td>
       <td>N</td>
-      <td>Número do estabelecimento</td>
+      <td>Establishment number</td>
       <td>0010000244472010</td>
     </tr>
     <tr>
@@ -1711,7 +1711,7 @@ PAULO</strong>801010033”https://www.cielo.com.br/qrcode”0116<strong>12096761
       <td>02 - Logic Number</td>
       <td>08</td>
       <td>N</td>
-      <td>Número do terminal</td>
+      <td>terminal number</td>
       <td>20100001</td>
     </tr>
     <tr>
@@ -1727,7 +1727,7 @@ PAULO</strong>801010033”https://www.cielo.com.br/qrcode”0116<strong>12096761
       <td>Transaction Currency</td>
       <td>03</td>
       <td>N</td>
-      <td>Código da moeda</td>
+      <td>Currency code</td>
       <td>986</td>
     </tr>
     <tr>
@@ -1735,7 +1735,7 @@ PAULO</strong>801010033”https://www.cielo.com.br/qrcode”0116<strong>12096761
       <td>Transaction Amount</td>
       <td>12</td>
       <td>N</td>
-      <td>Valor da transação</td>
+      <td>Transaction amount</td>
       <td>000000001000</td>
     </tr>
     <tr>
@@ -1743,7 +1743,7 @@ PAULO</strong>801010033”https://www.cielo.com.br/qrcode”0116<strong>12096761
       <td>Country Code</td>
       <td>02</td>
       <td>ANS</td>
-      <td>Código do País. Fixo “BR”</td>
+      <td>Country Code. Fixed “BR”</td>
       <td>76</td>
     </tr>
     <tr>
@@ -1751,7 +1751,7 @@ PAULO</strong>801010033”https://www.cielo.com.br/qrcode”0116<strong>12096761
       <td>Merchant Name</td>
       <td>Up to 25</td>
       <td>ANS</td>
-      <td>Nome do estabelecimento</td>
+      <td>Name of the establishment</td>
       <td>CIA BRAS MEIO PAGAMENTO</td>
     </tr>
     <tr>
@@ -1759,7 +1759,7 @@ PAULO</strong>801010033”https://www.cielo.com.br/qrcode”0116<strong>12096761
       <td>Merchant City</td>
       <td>Up to 15</td>
       <td>ANS</td>
-      <td>Cidade do estabelecimento</td>
+      <td>City of establishment</td>
       <td>SAO PAULO</td>
     </tr>
     <tr>
@@ -1767,7 +1767,7 @@ PAULO</strong>801010033”https://www.cielo.com.br/qrcode”0116<strong>12096761
       <td>Transaction informations</td>
       <td>Up to 120</td>
       <td>ANS</td>
-      <td>Informações da transação</td>
+      <td>Transaction information</td>
       <td> </td>
     </tr>
     <tr>
@@ -1775,7 +1775,7 @@ PAULO</strong>801010033”https://www.cielo.com.br/qrcode”0116<strong>12096761
       <td>00 - Globally Unique Identifier</td>
       <td>Up to 80</td>
       <td>ANS</td>
-      <td>Url de identificação global:fixo: “https://www.cielo.com.br/qr_code”</td>
+      <td>Global identification url:fixed:: “https://www.cielo.com.br/qr_code”</td>
       <td>“https://www.cieloid.com.br/qr_code”</td>
     </tr>
     <tr>
@@ -1783,7 +1783,7 @@ PAULO</strong>801010033”https://www.cielo.com.br/qrcode”0116<strong>12096761
       <td>01 - Transaction ID</td>
       <td>16</td>
       <td>N</td>
-      <td>Código único da transação</td>
+      <td>Unique transaction code</td>
       <td>12096761<br />28919232</td>
     </tr>
     <tr>
@@ -1791,7 +1791,7 @@ PAULO</strong>801010033”https://www.cielo.com.br/qrcode”0116<strong>12096761
       <td>02 - Transaction Date</td>
       <td>12</td>
       <td>N</td>
-      <td>Data da transação (DDMMAAHHmmss)</td>
+      <td>Transaction date (DDMMYYHHmmss)</td>
       <td>100418094512</td>
     </tr>
     <tr>
@@ -1799,7 +1799,7 @@ PAULO</strong>801010033”https://www.cielo.com.br/qrcode”0116<strong>12096761
       <td>03 - Main Product</td>
       <td>04</td>
       <td>N</td>
-      <td>Produto Principal</td>
+      <td>PMain product</td>
       <td>1000</td>
     </tr>
     <tr>
@@ -1807,7 +1807,7 @@ PAULO</strong>801010033”https://www.cielo.com.br/qrcode”0116<strong>12096761
       <td>04 - Sub Product</td>
       <td>04</td>
       <td>N</td>
-      <td>Produto secundário</td>
+      <td>Secondary product</td>
       <td>0001</td>
     </tr>
     <tr>
@@ -1815,7 +1815,7 @@ PAULO</strong>801010033”https://www.cielo.com.br/qrcode”0116<strong>12096761
       <td>05 - Payment Installments</td>
       <td>02</td>
       <td>N</td>
-      <td>Número de parcelas</td>
+      <td>Number of installments</td>
       <td>01</td>
     </tr>
     <tr>
@@ -1823,7 +1823,7 @@ PAULO</strong>801010033”https://www.cielo.com.br/qrcode”0116<strong>12096761
       <td>06 - Transaction Type</td>
       <td>02</td>
       <td>N</td>
-      <td>Tipo da transação:<br />“01” – Pagamento<br />“02” – Cancelamento<br /></td>
+      <td>Transaction Type:<br />“01” – Payment<br />“02” – Cancellation<br /></td>
       <td>01</td>
     </tr>
     <tr>
@@ -1831,17 +1831,17 @@ PAULO</strong>801010033”https://www.cielo.com.br/qrcode”0116<strong>12096761
       <td>CRC</td>
       <td>04</td>
       <td>ANS</td>
-      <td>checksum da string do QR Code</td>
+      <td>QR Code string checksum</td>
       <td>A177</td>
     </tr>
   </tbody>
 </table>
 
-<h1 id="callback-api-para-desfazimento-uso-opcional">CALLBACK API PARA DESFAZIMENTO (uso opcional)</h1>
+<h1 id="callback-api-for-undo-optional-use">CALLBACK API FOR UNDO (optional use)</h1>
 
-<p>Existe uma API de call-back para informar a carteira sobre um defazimento.</p>
+<p>There is a call-back API to inform the wallet of a defect</p>
 
-<p>O parceiro precisa desenvolver uma API para receber as informações de desfazimento seguindo o format abaixo e fornecendo a url para envio das informações:</p>
+<p>The partner needs to develop an API to receive the undo information following the format below and providing the url to send the information:</p>
 
 <p><strong>Body:</strong></p>
 
@@ -1859,7 +1859,7 @@ PAULO</strong>801010033”https://www.cielo.com.br/qrcode”0116<strong>12096761
 
 </code></pre></div></div>
 
-<h2 id="api-request-exemplo">API request (exemplo):</h2>
+<h2 id="api-request-example">API request (example):</h2>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
