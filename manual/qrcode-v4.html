@@ -1846,6 +1846,189 @@ PAULO</strong>801010033”https://www.cielo.com.br/qrcode”0116<strong>12096761
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/qrcodemodeloantigo.PNG" alt="QRCodePOS" /></p>
 
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome do Campo</th>
+      <th>Tam</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Parse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>00</td>
+      <td>Payload Format Indicator</td>
+      <td>02</td>
+      <td>N</td>
+      <td>Versão do QR Code valor fixo “01”</td>
+      <td>01</td>
+    </tr>
+    <tr>
+      <td>01</td>
+      <td>Point of Initiation Method</td>
+      <td>02</td>
+      <td>N</td>
+      <td>Identificador do método do QR Code:Fixo “12” – QR Code dinâmico</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Merchant Account Information</td>
+      <td>Up to 56</td>
+      <td>ANS Informações do estabelecimento</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>00 - Globally Unique Identifier</td>
+      <td>Up to 32</td>
+      <td>ANS</td>
+      <td>Identificador Global: valor fixo “Cielo”</td>
+      <td>Cielo</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>01 - Merchant Account Information</td>
+      <td>16</td>
+      <td>N</td>
+      <td>Número do estabelecimento</td>
+      <td>0010000244472010</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>02 - Logic Number</td>
+      <td>08</td>
+      <td>N</td>
+      <td>Número do terminal</td>
+      <td>20100001</td>
+    </tr>
+    <tr>
+      <td>52</td>
+      <td>Merchant Category Code</td>
+      <td>04</td>
+      <td>N</td>
+      <td>MCC</td>
+      <td>5912</td>
+    </tr>
+    <tr>
+      <td>53</td>
+      <td>Transaction Currency</td>
+      <td>03</td>
+      <td>N</td>
+      <td>Código da moeda</td>
+      <td>986</td>
+    </tr>
+    <tr>
+      <td>54</td>
+      <td>Transaction Amount</td>
+      <td>12</td>
+      <td>N</td>
+      <td>Valor da transação</td>
+      <td>000000001000</td>
+    </tr>
+    <tr>
+      <td>58</td>
+      <td>Country Code</td>
+      <td>02</td>
+      <td>ANS</td>
+      <td>Código do País. Fixo “BR”</td>
+      <td>76</td>
+    </tr>
+    <tr>
+      <td>59</td>
+      <td>Merchant Name</td>
+      <td>Up to 25</td>
+      <td>ANS</td>
+      <td>Nome do estabelecimento</td>
+      <td>CIA BRAS MEIO PAGAMENTO</td>
+    </tr>
+    <tr>
+      <td>60</td>
+      <td>Merchant City</td>
+      <td>Up to 15</td>
+      <td>ANS</td>
+      <td>Cidade do estabelecimento</td>
+      <td>SAO PAULO</td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>Transaction informations</td>
+      <td>Up to 120</td>
+      <td>ANS</td>
+      <td>Informações da transação</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>00 - Globally Unique Identifier</td>
+      <td>Up to 80</td>
+      <td>ANS</td>
+      <td>Url de identificação global:fixo: “https://www.cielo.com.br/qr_code”</td>
+      <td>“https://www.cieloid.com.br/qr_code”</td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>01 - Transaction ID</td>
+      <td>16</td>
+      <td>N</td>
+      <td>Código único da transação</td>
+      <td>12096761<br />28919232</td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>02 - Transaction Date</td>
+      <td>12</td>
+      <td>N</td>
+      <td>Data da transação (DDMMAAHHmmss)</td>
+      <td>100418094512</td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>03 - Main Product</td>
+      <td>04</td>
+      <td>N</td>
+      <td>Produto Principal</td>
+      <td>1000</td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>04 - Sub Product</td>
+      <td>04</td>
+      <td>N</td>
+      <td>Produto secundário</td>
+      <td>0001</td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>05 - Payment Installments</td>
+      <td>02</td>
+      <td>N</td>
+      <td>Número de parcelas</td>
+      <td>01</td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>06 - Transaction Type</td>
+      <td>02</td>
+      <td>N</td>
+      <td>Tipo da transação:<br />“01” – Pagamento<br />“02” – Cancelamento<br /></td>
+      <td>01</td>
+    </tr>
+    <tr>
+      <td>63</td>
+      <td>CRC</td>
+      <td>04</td>
+      <td>ANS</td>
+      <td>checksum da string do QR Code</td>
+      <td>A177</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 
