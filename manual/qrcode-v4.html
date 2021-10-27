@@ -2029,6 +2029,44 @@ PAULO</strong>801010033”https://www.cielo.com.br/qrcode”0116<strong>12096761
   </tbody>
 </table>
 
+<h1 id="callback-api-para-desfazimento-uso-opcional">CALLBACK API PARA DESFAZIMENTO (uso opcional)</h1>
+
+<p>Existe uma API de call-back para informar a carteira sobre um defazimento.</p>
+
+<p>O parceiro precisa desenvolver uma API para receber as informações de desfazimento seguindo o format abaixo e fornecendo a url para envio das informações:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+"transactionDate": "string",
+"terminalLogicalNumber": "string",
+"authorizationCode": “string",
+"nsu": "string",
+“merchantId“: 0,
+“amount“: 0,
+“originalTransactionType”: 0,
+“statusCode“: 0
+}
+
+
+</code></pre></div></div>
+
+<h2 id="api-request-exemplo">API request (exemplo):</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+"transactionDate": "2018-10-29T14:35:12.000+0000",
+"terminalLogicalNumber": "78257509",
+"authorizationCode": "019387",
+"nsu": "572061",
+“merchantId“: 1000000000,
+“amount“: 82.90,
+“originalTransactionType”: 1,
+“statusCode“: 3
+}
+
+</code></pre></div></div>
+
+
 </div>
 
 
