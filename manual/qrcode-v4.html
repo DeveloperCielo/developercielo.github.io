@@ -128,7 +128,7 @@
   </thead>
   <tbody>
     <tr>
-      <td>Homologação</td>
+      <td>Sandbox</td>
       <td>api2.cielo.com.br/sandbox<br />api2.cielo.com.br/sandbox/v2/oauth/token (formato url encoded)<br />api2.cielo.com.br/sandbox/v2/oauth/access-token (formato json)<br />api2.cielo.com.br/sandbox/padraoq/v1/publicKey<br />api2.cielo.com.br/sandbox/padraoq/v1/parsedQRCode<br /> api2.cielo.com.br/sandbox/padraoq/v1/payment/card</td>
     </tr>
     <tr>
@@ -444,7 +444,7 @@ O corpo da requisição é composto por dados provenientes do aplicativo e do QR
 <h2 id="contrato-2">Contrato</h2>
 
 <blockquote>
-  <p><strong>POST</strong> /v1/payment/card</p>
+  <p><strong>POST</strong> /padraoq/v1/payment/card</p>
 
   <p><strong>Headers</strong></p>
 
@@ -485,7 +485,6 @@ O corpo da requisição é composto por dados provenientes do aplicativo e do QR
       <th>Descrição</th>
       <th>Tipo</th>
       <th>Obrigatório</th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -494,41 +493,35 @@ O corpo da requisição é composto por dados provenientes do aplicativo e do QR
       <td>Identificador da chave de criptografia utilizada para criptografar o cartão. Retornado pelo recurso GET /publicKey</td>
       <td>String</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">card_data</code></td>
-      <td>Dados do cartão criptografado pela chave publica, <a href="">Veja layout</a></td>
+      <td>Dados do cartão criptografado pela chave publica, <a href="https://developercielo.github.io/manual/qrcode-v4#layout-card-data">Veja layout</a></td>
       <td>String</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">payee_document</code></td>
       <td>CPF ou CNPJ do pagador (usuário logado na wallet)</td>
       <td>String</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">payee_name</code></td>
       <td>Nome do pagador (usuário logado na wallet)</td>
       <td>String</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">authorization_token</code></td>
       <td>Token de autorização do usuário gerada pelo emissor (suporte ao pagamento no débito) * para uso futuro</td>
       <td>String</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">qrcode</code></td>
       <td>String do QR Code capturado pela wallet</td>
       <td>String</td>
-      <td> </td>
       <td>Sim</td>
     </tr>
   </tbody>
@@ -586,7 +579,7 @@ curl --location --request POST 'https://api2.cielo.com.br/sandbox/padraoq/v1/pay
 }
 </code></pre></div></div>
 
-<h3 id="códigos-de-sucesso-payment">Códigos de sucesso Payment</h3>
+<h2 id="códigos-de-sucesso-payment">Códigos de sucesso Payment</h2>
 
 <blockquote>
   <table>
@@ -607,7 +600,7 @@ curl --location --request POST 'https://api2.cielo.com.br/sandbox/padraoq/v1/pay
   </table>
 </blockquote>
 
-<h3 id="códigos-de-erro-payment">Códigos de erro Payment</h3>
+<h2 id="códigos-de-erro-payment">Códigos de erro Payment</h2>
 
 <blockquote>
   <table>
@@ -667,6 +660,8 @@ curl --location --request POST 'https://api2.cielo.com.br/sandbox/padraoq/v1/pay
 </blockquote>
 
 <h1 id="api-para-realizar-parse-do-qr-code-uso-opcional">API para realizar parse do QR Code (uso opcional)</h1>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxogramaparsedQRCode.png" alt="Fluxo Parsed QR Code" /></p>
 
 <h2 id="contrato-3">Contrato</h2>
 
@@ -1966,6 +1961,8 @@ PAULO</strong>801010033”https://www.cielo.com.br/qrcode”0116<strong>12096761
 
 <p>O parceiro precisa desenvolver uma API para receber as informações de desfazimento seguindo o format abaixo e fornecendo a url para envio das informações:</p>
 
+<p><strong>Body:</strong></p>
+
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 {
 "transactionDate": "string",
@@ -1977,7 +1974,6 @@ PAULO</strong>801010033”https://www.cielo.com.br/qrcode”0116<strong>12096761
 “originalTransactionType”: 0,
 “statusCode“: 0
 }
-
 
 </code></pre></div></div>
 
