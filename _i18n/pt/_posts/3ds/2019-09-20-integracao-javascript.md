@@ -147,7 +147,9 @@ Uma vez que a classe é mapeada em determinado campo, o script é capaz de recup
 | bpmpi_auth | Booleano que indica se a transação é submetida o não para o processo de autenticação| Booleano:<br>true – submeter à autenticação<br>false – não submeter à autenticação | Sim |
 | bpmpi_auth_notifyonly | Booleano que indica se a transação com cartão será submetida no modo "somente notificação" - **Data Only**. Neste modo, o processo de autenticação não será acionado, porém, os dados serão submetidos à bandeira. **VÁLIDO SOMENTE PARA CARTÕES MASTERCARD** | Booleano: <br>true – modo somente notificação; <br>false – modo com autenticação | Não |
 | bpmpi_auth_suppresschallenge | Booleano que indica se ignora ou não o desafio quando houver. Se uma transação autorizada após ignorar o desafio, o liability permanece com o estabelecimento.  | Booleano: <br>true – ignorar desafios se houver; <br>false – apresentar desafio se houver | Não |
-| bpmpi_accesstoken | Token gerado pela API de Token de Acesso (etapa 1) | Alfanumérico [varivável] | Sim |
+| bpmpi_accesstoken | Token gerado pela API de Token de Acesso (etapa 1) | Alfanumérico (variável) | Sim |
+| bpmpi_challenge_window_size | Parametrização do tamanho da janela do desafio | string<br>**Valores aceitos:**<br>250x400<br>390x400<br>500x600<br>600x400<br>FullPage | Não |
+
 
 | **Dados de Pedido** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
 | --- | --- | --- | --- |
