@@ -150,7 +150,6 @@ Uma vez que a classe é mapeada em determinado campo, o script é capaz de recup
 | bpmpi_accesstoken | Token gerado pela API de Token de Acesso (etapa 1) | Alfanumérico (variável) | Sim |
 | bpmpi_challenge_window_size | Parametrização do tamanho da janela do desafio | string<br>**Valores aceitos:**<br>250x400<br>390x400<br>500x600<br>600x400<br>FullPage | Não |
 
-
 | **Dados de Pedido** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
 | --- | --- | --- | --- |
 | bpmpi_ordernumber | Código do pedido no estabelecimento | Alphanumérico [até 50 posições] | Sim |
