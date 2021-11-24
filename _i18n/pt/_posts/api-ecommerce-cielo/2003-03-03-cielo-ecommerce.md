@@ -8382,7 +8382,7 @@ Exemplo de setup a ser realizado pelo estabelecimento na página de checkout:
 
 ![Pagina Checkout]({{ site.baseurl_root }}/images/html-silent-order-post.jpg)
 
-## Autenticação legada
+## Autenticação legada do SOP
 
 > Não recomendamos essa forma de autenticação, pois será descontinuada.
 
