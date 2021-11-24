@@ -8217,11 +8217,11 @@ O servidor **não trafega os dados do cartão** abertamente.
 
 ## Integração
 
-**PASSO 1**
+### PASSO 1
 
 O cliente acaba o checkout, e vai para o processamento do pagamento.
 
-**PASSO 2. Obtenção do AccessToken OAuth2**
+### PASSO 2. Obtenção do AccessToken OAuth2
 
 Quando o comprador acessa o checkout, o estabelecimento deve gerar o `AccessToken` a partir da API de autenticação da Cielo (**OAuth2**). Em caso de sucesso, a API retornará um `AccessToken` que deverá ser utilizado na próxima camada de autenticação da ferramenta.
 
@@ -8240,7 +8240,7 @@ Para obter o `AccessToken` no padrão [OAuth 2.0](https://oauth.net/2/), envie u
 
 > Para obter o "ClientID" e o "ClientSecret", envie um e-mail para *cieloecommerce@cielo.com.br* contendo o MerchantId e informando que deseja obter as credenciais "ClientID" e "ClientSecret" para o Silent Order Post.
 
-### Requisição
+**Requisição**
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
@@ -8257,7 +8257,7 @@ Para obter o `AccessToken` no padrão [OAuth 2.0](https://oauth.net/2/), envie u
 |`Content-Type`|"application/x-www-form-urlencoded"|Envio no header.|
 |`grant_type`|"client_credentials"|Envio no body.|
 
-### Resposta
+**Resposta**
 
 ``` json
 {
@@ -8281,7 +8281,7 @@ Para obter o `AccessToken` no padrão [OAuth 2.0](https://oauth.net/2/), envie u
 |`token_type`|Indica o valor do tipo de token.|
 |`expires_in`|Expiração do token de acesso, em segundos. Quando o token expira, é necessário obter um novo.|
 
-**PASSO 3. Obtenção do AccessToken SOP**
+### PASSO 3. Obtenção do AccessToken SOP
 
 Após a obtenção do AccessToken OAuth2, o estabelecimento deverá realiza um envio de requisição utilizando o VERBO HTTP **POST** para a seguinte URL:
 
@@ -8290,7 +8290,7 @@ Após a obtenção do AccessToken OAuth2, o estabelecimento deverá realiza um e
 | Sandbox | https://transactionsandbox.pagador.com.br/post/api/public/v2/accesstoken|
 | Produção | https://transaction.pagador.com.br/post/api/public/v2/accesstoken|
 
-### Requisição
+**Requisição**
 
 ```shell
 --request POST "https://transactionsandbox.pagador.com.br/post/api/public/v2/accesstoken"
@@ -8306,7 +8306,7 @@ Após a obtenção do AccessToken OAuth2, o estabelecimento deverá realiza um e
 |`MerchantId`|Identificador da loja no Pagador.|GUID |36 |Sim|
 |`Authorization`|Bearer [AccessToken OAuth2]|Texto |36 |Sim|
 
-### Resposta
+**Resposta**
 
 Como resposta, o estabelecimento receberá um json ("HTTP 201 Created") contendo, entre outras informações, o token (AccessToken SOP).
 
@@ -8338,7 +8338,7 @@ Como resposta, o estabelecimento receberá um json ("HTTP 201 Created") contendo
 |`Issued`|Data e hora da geração. |Texto|--|AAAA-MM-DDTHH:MM:SS|
 |`ExpiresIn`|Data e hora da expiração. |Texto|--|AAAA-MM-DDTHH:MM:SS|
 
-**PASSO 4**
+### PASSO 4
 
 a) O estabelecimento deverá fazer o download de um script fornecido pela Cielo, e anexá-lo a sua página de checkout. Esse script permitirá à Cielo processar todas as informações de cartão sem intervenção do estabelecimento.
 O download poderá ser realizado a partir da seguinte URL: 
