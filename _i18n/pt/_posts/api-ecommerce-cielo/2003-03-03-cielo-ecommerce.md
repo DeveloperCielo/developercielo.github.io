@@ -8221,6 +8221,175 @@ O servidor **não trafega os dados do cartão** abertamente.
 
 O cliente acaba o checkout, e vai para o processamento do pagamento.
 
+**PASSO 2. Obtenção do AccessToken OAuth2**
+
+Quando o comprador acessa o checkout, o estabelecimento deve gerar o `AccessToken` a partir da API de autenticação da Cielo (**OAuth2**). Em caso de sucesso, a API retornará um `AccessToken` que deverá ser utilizado na próxima camada de autenticação da ferramenta.
+
+Para obter o `AccessToken` no padrão [OAuth 2.0](https://oauth.net/2/), envie uma requisição utilizando o VERBO HTTP **POST** para a seguinte URL, formada pela "URL base do ambiente + endpoint", no modelo server-to-server:
+
+|Ambiente | URL base + endpoint | Authorization |
+|---|---|---|
+| **SANDBOX** | https://authsandbox.braspag.com.br/oauth2/token | "Basic *{base64}*"|
+| **PRODUÇÃO** | https://auth.braspag.com.br/oauth2/token |"Basic *{base64}*"|
+
+**Nota:** O valor "_{base64}_" para a autorização do tipo "Basic" deve ser obtido da seguinte forma:
+
+1. Concatene o "ClientId" e o "ClientSecret" (`ClientId:ClientSecret`). 
+2. Codifique o resultado da concatenação em base64.
+3. Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.
+
+> Para obter o "ClientID" e o "ClientSecret", envie um e-mail para *cieloecommerce@cielo.com.br* contendo o MerchantId e informando que deseja obter as credenciais "ClientID" e "ClientSecret" para o Silent Order Post.
+
+### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
+
+``` shell
+--request POST "https://authsandbox.braspag.com.br/oauth2/token"
+--header "Authorization: Basic {base64}"
+--header "Content-Type: application/x-www-form-urlencoded" 
+--data-binary "grant_type=client_credentials"
+```
+
+|Parâmetros|Formato|Envio|
+|---|---|---|
+|`Authorization`|"Basic *{base64}*"|Envio no header.|
+|`Content-Type`|"application/x-www-form-urlencoded"|Envio no header.|
+|`grant_type`|"client_credentials"|Envio no body.|
+
+### Resposta
+
+``` json
+{
+  "access_token": "faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw",
+  "token_type": "bearer",
+  "expires_in": 599
+}
+```
+
+```shell
+{
+  "access_token": "faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw",
+  "token_type": "bearer",
+  "expires_in": 599
+}
+```
+
+|Propriedades da Resposta|Descrição|
+|---|---|
+|`access_token`|O token de autenticação solicitado. Ele será utilizado no próximo passo.|
+|`token_type`|Indica o valor do tipo de token.|
+|`expires_in`|Expiração do token de acesso, em segundos. Quando o token expira, é necessário obter um novo.|
+
+**PASSO 3. Obtenção do AccessToken SOP**
+
+Após a obtenção do AccessToken OAuth2, o estabelecimento deverá realiza um envio de requisição utilizando o VERBO HTTP **POST** para a seguinte URL:
+
+| Ambiente | URL base + endpoint|
+| --- | --- |
+| Sandbox | https://transactionsandbox.pagador.com.br/post/api/public/v2/accesstoken|
+| Produção | https://transaction.pagador.com.br/post/api/public/v2/accesstoken|
+
+### Requisição
+
+```shell
+--request POST "https://transactionsandbox.pagador.com.br/post/api/public/v2/accesstoken"
+--header "Content-Type: application/json"
+--header "MerchantId: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+--header "Authorization: Bearer faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw"
+--data-binary
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
+|-----------|---------|----|-------|-----------|
+|`MerchantId`|Identificador da loja no Pagador.|GUID |36 |Sim|
+|`Authorization`|Bearer [AccessToken OAuth2]|Texto |36 |Sim|
+
+### Resposta
+
+Como resposta, o estabelecimento receberá um json ("HTTP 201 Created") contendo, entre outras informações, o token (AccessToken SOP).
+
+```json
+{
+    "MerchantId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "AccessToken": "MzA5YWIxNmQtYWIzZi00YmM2LWEwN2QtYTg2OTZjZjQxN2NkMDIzODk5MjI3Mg==",
+    "Issued": "2021-05-05T08:50:04",
+    "ExpiresIn": "2021-05-05T09:10:04"
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "MerchantId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "AccessToken": "MzA5YWIxNmQtYWIzZi00YmM2LWEwN2QtYTg2OTZjZjQxN2NkMDIzODk5MjI3Mg==",
+    "Issued": "2021-05-05T08:50:04",
+    "ExpiresIn": "2021-05-05T09:10:04"
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`MerchantId`|Identificador da loja no Pagador. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`AccessToken`|Token de acesso (AccessToken SOP). Por questões de segurança, este token dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo já estipulado na resposta, através do atributo *ExpiresIn* (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo token para impedir um uso futuro.|Texto|--|NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==|
+|`Issued`|Data e hora da geração. |Texto|--|AAAA-MM-DDTHH:MM:SS|
+|`ExpiresIn`|Data e hora da expiração. |Texto|--|AAAA-MM-DDTHH:MM:SS|
+
+**PASSO 4**
+
+a) O estabelecimento deverá fazer o download de um script fornecido pela Cielo, e anexá-lo a sua página de checkout. Esse script permitirá à Cielo processar todas as informações de cartão sem intervenção do estabelecimento.
+O download poderá ser realizado a partir da seguinte URL: 
+
+**SANDBOX:**
+**https://transactionsandbox.pagador.com.br/post/scripts/silentorderpost-1.0.min.js**
+
+**PRODUÇÃO:**
+**https://transaction.cieloecommerce.cielo.com.br/post/scripts/silentorderpost-1.0.min.js**
+
+b) O estabelecimento deverá decorar seus inputs do formulário com as seguintes classes:
+
+* Para o portador do cartão de crédito/débito: **bp-sop-cardholdername** 
+* Para o número do cartão de crédito/débito: **bp-sop-cardnumber** 
+* Para a validade do cartão de crédito/débito: **bp-sop-cardexpirationdate** 
+* Para o código de segurança do cartão de crédito/débito: **bp-sop-cardcvvc**
+
+c) O script fornecido pela Cielo fornece três eventos para manipulação e tratamento por parte do estabelecimento. São eles: **onSuccess** (onde será retornado o **“PaymentToken”** após processar os dados do cartão), **onError** (caso haja algum erro no consumo dos serviços da Cielo) e **onInvalid** (onde será retornado o resultado da validação dos inputs).
+
+* Na validação dos inputs, o estabelecimento poderá utilizar toda a camada de validação sobre os dados de cartão realizada pela Cielo e assim simplificar o tratamento no seu formulário de checkout. As mensagens retornadas no resultado da validação são disponibilizadas nas seguintes linguagens: português (default), inglês e espanhol.
+
+* O **PaymentToken** será o token que representará todos os dados de cartão fornecido pelo comprador. O mesmo será utilizado pelo estabelecimento para não haver necessidade de tratar e processar dados de cartão do seu lado.
+
+``` json
+},
+    "Payment": {
+    "Type": "CreditCard",
+    "Amount": 1400,
+    "Installments": 1,
+        "CreditCard": {
+        "PaymentToken": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+        "Brand": "MASTER"
+        }
+    }
+}
+```
+
+**Por questões de segurança esse PaymentToken poderá ser usado apenas para 1 autorização na Cielo 3.0. Após o processamento do mesmo, este será invalidado.**
+
+Exemplo de setup a ser realizado pelo estabelecimento na página de checkout:
+
+![Pagina Checkout]({{ site.baseurl_root }}/images/html-silent-order-post.jpg)
+
+## Autenticação legada
+
+> Não recomendamos essa forma de autenticação, pois será descontinuada.
+
+**PASSO 1**
+
+O cliente acaba o checkout, e vai para o processamento do pagamento.
+
 **PASSO 2**
 
 a) O estabelecimento deverá solicitar um ticket (server to server) enviando um POST para a seguinte URL:
@@ -8279,50 +8448,6 @@ a) Como resposta, o estabelecimento receberá um json (HTTP 201 Created) contend
 ![Response Ticket]({{ site.baseurl_root }}/images/response-ticket-silent-order-post-cielo.jpg)
 
 Por questões de segurança, este ticket dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo de já estipulado na resposta, através do atributo ExpiresIn (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo ticket para um uso futuro.
-
-**PASSO 4 ao 6**
-
-a) O estabelecimento deverá fazer o download de um script fornecido pela Cielo, e anexá-lo a sua página de checkout. Esse script permitirá à Cielo processar todas as informações de cartão sem intervenção do estabelecimento.
-O download poderá ser realizado a partir da seguinte URL: 
-
-**SANDBOX:**
-**https://transactionsandbox.pagador.com.br/post/scripts/silentorderpost-1.0.min.js**
-
-**PRODUÇÃO:**
-**https://transaction.cieloecommerce.cielo.com.br/post/scripts/silentorderpost-1.0.min.js**
-
-b) O estabelecimento deverá decorar seus inputs do formulário com as seguintes classes:
-
-* Para o portador do cartão de crédito/débito: **bp-sop-cardholdername** 
-* Para o número do cartão de crédito/débito: **bp-sop-cardnumber** 
-* Para a validade do cartão de crédito/débito: **bp-sop-cardexpirationdate** 
-* Para o código de segurança do cartão de crédito/débito: **bp-sop-cardcvvc**
-
-c) O script fornecido pela Cielo fornece três eventos para manipulação e tratamento por parte do estabelecimento. São eles: **onSuccess** (onde será retornado o **“PaymentToken”** após processar os dados do cartão), **onError** (caso haja algum erro no consumo dos serviços da Cielo) e **onInvalid** (onde será retornado o resultado da validação dos inputs).
-
-* Na validação dos inputs, o estabelecimento poderá utilizar toda a camada de validação sobre os dados de cartão realizada pela Cielo e assim simplificar o tratamento no seu formulário de checkout. As mensagens retornadas no resultado da validação são disponibilizadas nas seguintes linguagens: português (default), inglês e espanhol.
-
-* O **PaymentToken** será o token que representará todos os dados de cartão fornecido pelo comprador. O mesmo será utilizado pelo estabelecimento para não haver necessidade de tratar e processar dados de cartão do seu lado.
-
-``` json
-},
-    "Payment": {
-    "Type": "CreditCard",
-    "Amount": 1400,
-    "Installments": 1,
-        "CreditCard": {
-        "PaymentToken": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-        "Brand": "MASTER"
-        }
-    }
-}
-```
-
-**Por questões de segurança esse PaymentToken poderá ser usado apenas para 1 autorização na Cielo 3.0. Após o processamento do mesmo, este será invalidado.**
-
-Exemplo de setup a ser realizado pelo estabelecimento na página de checkout:
-
-![Pagina Checkout]({{ site.baseurl_root }}/images/html-silent-order-post.jpg)
 
 # Wallet
 
