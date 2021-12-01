@@ -16125,9 +16125,300 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
 
 <h2 id="integration-4">Integration</h2>
 
+<h2 id="step-1">STEP 1</h2>
+
+<p>The shopper finishes the checkout, and goes to payment processing.</p>
+
+<h2 id="step-2-getting-access-token-oauth2">STEP 2. Getting Access Token OAuth2</h2>
+
+<p>When the shopper accesses the checkout, the merchant must generate the AccessToken from Cielo Authentication API (OAuth). On success, the API will return an AccessToken that must be populated in the script to load on the page.</p>
+
+<p>To request AccessToken, send a request (POST) to the following endpoint in the server-to-server template:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Environment</th>
+      <th>base URL + endpoint</th>
+      <th>Authorization</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>SANDBOX</strong></td>
+      <td>https://authsandbox.braspag.com.br/oauth2/token</td>
+      <td>“Basic <em>{base64}</em>”</td>
+    </tr>
+    <tr>
+      <td><strong>PRODUCTION</strong></td>
+      <td>https://auth.braspag.com.br/oauth2/token</td>
+      <td>“Basic <em>{base64}</em>”</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>How to obtain the Base64 value:</p>
+
+<ol>
+  <li>Concatenate “ClientId” and “ClientSecret” (<code class="language-plaintext highlighter-rouge">ClientId:ClientSecret</code>).</li>
+  <li>Code the result in base64.</li>
+  <li>Send a request to the authorization server with the alphanumeric code you just created.</li>
+</ol>
+
+<blockquote>
+  <p>To request your “ClientID” and “ClientSecret”, please send an email to cieloecommerce@cielo.com.br with the following:</p>
+  <ul>
+    <li>MerchantId;</li>
+    <li>Describe that you need the credentials “ClientID” e o “ClientSecret” to use Silent Order Post.</li>
+  </ul>
+</blockquote>
+
+<h3 id="request-40">Request</h3>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://authsandbox.braspag.com.br/oauth2/token"</span>
+<span class="nt">--header</span> <span class="s2">"Authorization: Basic {base64}"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span> 
+<span class="nt">--data-binary</span> <span class="s2">"grant_type=client_credentials"</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameters</th>
+      <th>Format</th>
+      <th>Where to send</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
+      <td>“Basic <em>{base64}</em>”</td>
+      <td>Header.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td>“application/x-www-form-urlencoded”</td>
+      <td>Header.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">grant_type</code></td>
+      <td>“client_credentials”</td>
+      <td>Body.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-44">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">599</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span>
+  <span class="s2">"access_token"</span>: <span class="s2">"faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw"</span>,
+  <span class="s2">"token_type"</span>: <span class="s2">"bearer"</span>,
+  <span class="s2">"expires_in"</span>: 599
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Response Properties</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">access_token</code></td>
+      <td>The requested authentication token, that will be used in the next step.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">token_type</code></td>
+      <td>Indicates the token type value.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">expires_in</code></td>
+      <td>Access Token expiration, in seconds. When the token expires, you must request a new one.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="step-3-getting-the-sop-accesstoken">STEP 3. Getting the SOP AccessToken</h2>
+
+<p>After obtaining AccessToken OAuth2, you should send a new request (POST) to the following URL:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Environment</th>
+      <th>base URL + endpoint</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sandbox</td>
+      <td>https://transactionsandbox.pagador.com.br/post/api/public/v2/accesstoken</td>
+    </tr>
+    <tr>
+      <td>Production</td>
+      <td>https://transaction.pagador.com.br/post/api/public/v2/accesstoken</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="request-41">Request</h3>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://transactionsandbox.pagador.com.br/post/api/public/v2/accesstoken"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"</span>
+<span class="nt">--header</span> <span class="s2">"Authorization: Bearer faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw"</span>
+<span class="nt">--data-binary</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Properties</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Mandatory?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Merchant identifier at Pagador.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Authorization</code></td>
+      <td>Bearer [AccessToken OAuth2]</td>
+      <td>Text</td>
+      <td>36</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-45">Response</h3>
+
+<p>As a response, you will receive a JSON (“HTTP 201 Created”) with the SOP AccessToken and some other data.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"AccessToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MzA5YWIxNmQtYWIzZi00YmM2LWEwN2QtYTg2OTZjZjQxN2NkMDIzODk5MjI3Mg=="</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Issued"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-05T08:50:04"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ExpiresIn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-05T09:10:04"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="s2">"MerchantId"</span>: <span class="s2">"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"</span>,
+    <span class="s2">"AccessToken"</span>: <span class="s2">"MzA5YWIxNmQtYWIzZi00YmM2LWEwN2QtYTg2OTZjZjQxN2NkMDIzODk5MjI3Mg=="</span>,
+    <span class="s2">"Issued"</span>: <span class="s2">"2021-05-05T08:50:04"</span>,
+    <span class="s2">"ExpiresIn"</span>: <span class="s2">"2021-05-05T09:10:04"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Properties</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Merchant identifier at Pagador.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AccessToken</code></td>
+      <td>AccessToken SOP. For safety reasons, this token will allow the merchant to save only one card within the deadline determined in the response, through the attribute <em>Expires In</em>. The default is 20 minutes. Whatever happens first will invalidate the token to prevent it from being used again.</td>
+      <td>Texto</td>
+      <td>–</td>
+      <td>NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Issued</code></td>
+      <td>Token creation date and hour.</td>
+      <td>Texto</td>
+      <td>–</td>
+      <td>AAAA-MM-DDTHH:MM:SS</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ExpiresIn</code></td>
+      <td>Token expiration date and hour.</td>
+      <td>Texto</td>
+      <td>–</td>
+      <td>AAAA-MM-DDTHH:MM:SS</td>
+    </tr>
+  </tbody>
+</table>
+
+<aside class="warning">To see the legacy authentication process, which used the MerchantId and shopper IP address to create the `AccessToken`, [click here](#anexo).</aside>
+
+<h3 id="step-4">STEP 4</h3>
+
+<p>a) The establishment should download a script provided by Cielo, and attach it to its checkout page. This script will allow Cielo to process all the card information without intervention of the establishment.
+The download can be made from the following URL:</p>
+
+<p><strong>SANDBOX:</strong>
+<strong>https://transactionsandbox.pagador.com.br/post/scripts/silentorderpost-1.0.min.js</strong></p>
+
+<p><strong>PRODUCTION:</strong>
+<strong>https://transaction.cieloecommerce.cielo.com.br/post/scripts/silentorderpost-1.0.min.js</strong></p>
+
+<p>b) The establishment should customize its inputs of the form with the following classes:</p>
+
+<ul>
+  <li>For the credit/debit card holder: <strong>bp-sop-cardholdername</strong></li>
+  <li>For credit/debit card number: <strong>bp-sop-cardnumber</strong></li>
+  <li>For credit/debit card validity: <strong>bp-sop-cardexpirationdate</strong></li>
+  <li>For credit/debit card security code: <strong>bp-sop-cardcvvc</strong></li>
+</ul>
+
+<p>c) The script provided by Cielo provides three events for manipulation and treatment on the establishment side. They are: <strong>onSuccess</strong> (where <strong>PaymentToken</strong> will be returned after processing the card data), <strong>onError</strong> (if there is any error in the consumption of Cielo services) and <strong>onInvalid</strong> (where the result of the validation of the inputs will be returned).</p>
+
+<ul>
+  <li>
+    <p>In the input validation, the establishment can use the entire layer of validation on the card data made by Cielo and then simplify the treatment on your checkout form. The messages returned in the validation result are available in the following languages: portuguese (default), english and spanish.</p>
+  </li>
+  <li>
+    <p>The <em>PaymentToken</em> will be the token that will represent all the card data provided by the buyer. The same will be used by the establishment so there is no need to process and process card data on its side.</p>
+  </li>
+</ul>
+
+<p><strong>For security reasons this PaymentToken can only be used for 1 authorization in Cielo 3.0. After processing, it will be invalidated.</strong></p>
+
+<p>Example of setup to be performed by the establishment on the checkout page:</p>
+
+<p><img src="https://developercielo.github.io/images/html-silent-order-post.jpg" alt="Pagina Checkout" /></p>
+
+<h2 id="legacy-authentication">Legacy Authentication</h2>
+
 <p><strong>STEP 1</strong></p>
 
-<p>The buyer finishes the checkout, and goes to the payment processing.</p>
+<p>The shopper finishes the checkout, and goes to the payment processing.</p>
 
 <p><strong>STEP 2</strong></p>
 
@@ -16141,7 +16432,7 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
 
 <p>Example: https://transaction.cieloecommerce.cielo.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000</p>
 
-<h3 id="request-40">Request</h3>
+<h3 id="request-42">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v1/accesstoken?merchantid={mid_loja}</span></aside>
 
@@ -16173,7 +16464,7 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
   </tbody>
 </table>
 
-<h3 id="response-44">Response</h3>
+<h3 id="response-46">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
@@ -16238,42 +16529,7 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
 
 <p>For security reasons, this ticket will allow the establishment to save only 1 card within a deadline already stipulated in the response, using the ExpiresIn attribute (by default, 20 minutes). Whatever happens first will invalidate this same ticket for future use.</p>
 
-<p><strong>STEP 4 to 6</strong></p>
-
-<p>a) The establishment should download a script provided by Cielo, and attach it to its checkout page. This script will allow Cielo to process all the card information without intervention of the establishment.
-The download can be made from the following URL:</p>
-
-<p><strong>SANDBOX:</strong>
-<strong>https://transactionsandbox.pagador.com.br/post/scripts/silentorderpost-1.0.min.js</strong></p>
-
-<p><strong>PRODUÇÃO:</strong>
-<strong>https://transaction.cieloecommerce.cielo.com.br/post/scripts/silentorderpost-1.0.min.js</strong></p>
-
-<p>b) The establishment should customize its inputs of the form with the following classes:</p>
-
-<ul>
-  <li>For the credit/debit card holder: <strong>bp-sop-cardholdername</strong></li>
-  <li>For credit/debit card number: <strong>bp-sop-cardnumber</strong></li>
-  <li>For credit/debit card validity: <strong>bp-sop-cardexpirationdate</strong></li>
-  <li>For credit/debit card security code: <strong>bp-sop-cardcvvc</strong></li>
-</ul>
-
-<p>c) The script provided by Cielo provides three events for manipulation and treatment on the establishment side. They are: <strong>onSuccess</strong> (where <strong>PaymentToken</strong> will be returned after processing the card data), <strong>onError</strong> (if there is any error in the consumption of Cielo services) and <strong>onInvalid</strong> (where the result of the validation of the inputs will be returned).</p>
-
-<ul>
-  <li>
-    <p>In the input validation, the establishment can use the entire layer of validation on the card data made by Cielo and then simplify the treatment on your checkout form. The messages returned in the validation result are available in the following languages: portuguese (default), english and spanish.</p>
-  </li>
-  <li>
-    <p>The <em>PaymentToken</em> will be the token that will represent all the card data provided by the buyer. The same will be used by the establishment so there is no need to process and process card data on its side.</p>
-  </li>
-</ul>
-
-<p><strong>For security reasons this PaymentToken can only be used for 1 authorization in Cielo 3.0. After processing, it will be invalidated.</strong></p>
-
-<p>Example of setup to be performed by the establishment on the checkout page:</p>
-
-<p><img src="https://developercielo.github.io/images/html-silent-order-post.jpg" alt="Pagina Checkout" /></p>
+<p>Continue to STEP 4 above.</p>
 
 <h1 id="wallet">Wallet</h1>
 
@@ -16393,7 +16649,7 @@ Each Wallet has an <code class="language-plaintext highlighter-rouge">EphemeralP
 
 <h3 id="decryption">Decryption</h3>
 
-<h4 id="request-41">Request</h4>
+<h4 id="request-43">Request</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--</span><span class="w"> </span><span class="err">Decryption</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -16546,7 +16802,7 @@ Each Wallet has an <code class="language-plaintext highlighter-rouge">EphemeralP
   </tbody>
 </table>
 
-<h4 id="response-45">Response</h4>
+<h4 id="response-47">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -16717,7 +16973,7 @@ Each Wallet has an <code class="language-plaintext highlighter-rouge">EphemeralP
 
 <h3 id="sending-the-card">Sending the card</h3>
 
-<h4 id="request-42">Request</h4>
+<h4 id="request-44">Request</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--</span><span class="w"> </span><span class="err">Sending</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">card</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -16874,7 +17130,7 @@ Each Wallet has an <code class="language-plaintext highlighter-rouge">EphemeralP
   </tbody>
 </table>
 
-<h4 id="response-46">Response</h4>
+<h4 id="response-48">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -17089,7 +17345,7 @@ VKeU<br />
 
 <p>In the model below, we demonstrate how to use the Apple Pay Cielo integration by sending the WalletKey + EphemeralPublicKey returned by Apple via Payload</p>
 
-<h4 id="request-43">Request</h4>
+<h4 id="request-45">Request</h4>
 
 <p>Request Sample <em>Apple Pay</em></p>
 
@@ -17247,7 +17503,7 @@ VKeU<br />
   </tbody>
 </table>
 
-<h4 id="response-47">Response</h4>
+<h4 id="response-49">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -17420,7 +17676,7 @@ VKeU<br />
 
 <p>In the model below, we demonstrate how Apple Pay can be used with sending the card open, without the need for WalletKey.</p>
 
-<h4 id="request-44">Request</h4>
+<h4 id="request-46">Request</h4>
 
 <p>In this model, the merchant only informs that the transaction is from an Apple Pay Wallet and sends the ECI and CAVV data provided by APPLE</p>
 
@@ -17586,7 +17842,7 @@ VKeU<br />
   </tbody>
 </table>
 
-<h4 id="response-48">Response</h4>
+<h4 id="response-50">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6242-642-723"</span><span class="p">,</span><span class="w">
@@ -17776,7 +18032,7 @@ VKeU<br />
   <p><code class="language-plaintext highlighter-rouge">Walletkey</code> is the <code class="language-plaintext highlighter-rouge">CallID</code> parameter returned by VisaCheckout</p>
 </blockquote>
 
-<h4 id="request-45">Request</h4>
+<h4 id="request-47">Request</h4>
 
 <p>Default request sample <em>VisaCheckout</em></p>
 
@@ -17943,7 +18199,7 @@ VKeU<br />
   </tbody>
 </table>
 
-<h4 id="response-49">Response</h4>
+<h4 id="response-51">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
@@ -18129,7 +18385,7 @@ VKeU<br />
 
 <p>In the model below, we demonstrate how VisaCheckout can be used with the sending of the open card without a WalletKey.</p>
 
-<h4 id="request-46">Request</h4>
+<h4 id="request-48">Request</h4>
 
 <p>In this model, the merchant only informs that the transaction is from Wallet VisaCheckout and sends the ECI and CAVV data provided by Visa</p>
 
@@ -18326,7 +18582,7 @@ VKeU<br />
   </tbody>
 </table>
 
-<h4 id="response-50">Response</h4>
+<h4 id="response-52">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -18527,7 +18783,7 @@ VKeU<br />
 
 <p>To use the wallet <a href="https://developer.mastercard.com/product/masterpass"><strong>Masterpass</strong></a> it is necessary that the store is already registered with Mastercard, and integrated the search of card data of the platform.</p>
 
-<h4 id="request-47">Request</h4>
+<h4 id="request-49">Request</h4>
 
 <p>Request Sample <em>Masterpass</em></p>
 
@@ -18707,7 +18963,7 @@ VKeU<br />
   </tbody>
 </table>
 
-<h4 id="response-51">Response</h4>
+<h4 id="response-53">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
@@ -18946,7 +19202,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br />
 
 <p>In the model below, we demonstrate how to use the SamsungPay Cielo integration by sending the WalletKey + EphemeralPublicKey returned by Samsung via Payload</p>
 
-<h4 id="request-48">Request</h4>
+<h4 id="request-50">Request</h4>
 
 <p>Request Sample <em>SamsungPay</em></p>
 
@@ -19104,7 +19360,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br />
   </tbody>
 </table>
 
-<h4 id="response-52">Response</h4>
+<h4 id="response-54">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -19274,7 +19530,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br />
 
 <p>In the model below, we demonstrate how SamsungPay can be used with sending the card open, without the need for WalletKey.</p>
 
-<h4 id="request-49">Request</h4>
+<h4 id="request-51">Request</h4>
 
 <p>In this model, the merchant only informs that the transaction is from an SamsungPay and sends the ECI and CAVV data provided by Samsung</p>
 
@@ -19440,7 +19696,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br />
   </tbody>
 </table>
 
-<h4 id="response-53">Response</h4>
+<h4 id="response-55">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6242-642-723"</span><span class="p">,</span><span class="w">
