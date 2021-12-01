@@ -8303,7 +8303,7 @@ Após a obtenção do AccessToken OAuth2, o estabelecimento deverá realiza um e
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
 |-----------|---------|----|-------|-----------|
-|`MerchantId`|Identificador da loja no Pagador.|GUID |36 |Sim|
+|`MerchantId`|Identificador da loja na API Cielo E-commerce.|GUID |36 |Sim|
 |`Authorization`|Bearer [AccessToken OAuth2]|Texto |36 |Sim|
 
 **Resposta**
@@ -8333,7 +8333,7 @@ Como resposta, o estabelecimento receberá um json ("HTTP 201 Created") contendo
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |-----------|---------|----|-------|-------|
-|`MerchantId`|Identificador da loja no Pagador. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`MerchantId`|Identificador da loja na API Cielo E-commerce. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`AccessToken`|Token de acesso (AccessToken SOP). Por questões de segurança, este token dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo já estipulado na resposta, através do atributo *ExpiresIn* (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo token para impedir um uso futuro.|Texto|--|NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==|
 |`Issued`|Data e hora da geração. |Texto|--|AAAA-MM-DDTHH:MM:SS|
 |`ExpiresIn`|Data e hora da expiração. |Texto|--|AAAA-MM-DDTHH:MM:SS|
