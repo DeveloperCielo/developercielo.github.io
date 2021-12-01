@@ -8017,11 +8017,11 @@ The server **does not pass the card data** openly.
 
 ## Integration
 
-## STEP 1
+### STEP 1
 
 The shopper finishes the checkout, and goes to payment processing.
 
-## STEP 2. Getting Access Token OAuth2
+### STEP 2. Getting Access Token OAuth2
 
 When the shopper accesses the checkout, the merchant must generate the AccessToken from Cielo Authentication API (OAuth). On success, the API will return an AccessToken that must be populated in the script to load on the page.
 
@@ -8042,7 +8042,7 @@ How to obtain the Base64 value:
 * MerchantId;
 * Describe that you need the credentials "ClientID" e o "ClientSecret" to use Silent Order Post.
 
-### Request
+#### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
@@ -8059,7 +8059,7 @@ How to obtain the Base64 value:
 |`Content-Type`|"application/x-www-form-urlencoded"|Header.|
 |`grant_type`|"client_credentials"|Body.|
 
-### Response
+#### Response
 
 ``` json
 {
@@ -8083,7 +8083,7 @@ How to obtain the Base64 value:
 |`token_type`|Indicates the token type value.|
 |`expires_in`|Access Token expiration, in seconds. When the token expires, you must request a new one.|
 
-## STEP 3. Getting the SOP AccessToken
+### STEP 3. Getting the SOP AccessToken
 
 After obtaining AccessToken OAuth2, you should send a new request (POST) to the following URL:
 
@@ -8092,7 +8092,7 @@ After obtaining AccessToken OAuth2, you should send a new request (POST) to the 
 | Sandbox | https://transactionsandbox.pagador.com.br/post/api/public/v2/accesstoken|
 | Production | https://transaction.pagador.com.br/post/api/public/v2/accesstoken|
 
-### Request
+#### Request
 
 ```shell
 --request POST "https://transactionsandbox.pagador.com.br/post/api/public/v2/accesstoken"
@@ -8108,7 +8108,7 @@ After obtaining AccessToken OAuth2, you should send a new request (POST) to the 
 |`MerchantId`|Merchant identifier at Pagador.|GUID |36 |Yes|
 |`Authorization`|Bearer [AccessToken OAuth2]|Text |36 |Yes|
 
-### Response
+#### Response
 
 As a response, you will receive a JSON ("HTTP 201 Created") with the SOP AccessToken and some other data. 
 
