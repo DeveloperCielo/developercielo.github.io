@@ -16125,11 +16125,11 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
 
 <h2 id="integration-4">Integration</h2>
 
-<h2 id="step-1">STEP 1</h2>
+<h3 id="step-1">STEP 1</h3>
 
 <p>The shopper finishes the checkout, and goes to payment processing.</p>
 
-<h2 id="step-2-getting-access-token-oauth2">STEP 2. Getting Access Token OAuth2</h2>
+<h3 id="step-2-getting-access-token-oauth2">STEP 2. Getting Access Token OAuth2</h3>
 
 <p>When the shopper accesses the checkout, the merchant must generate the AccessToken from Cielo Authentication API (OAuth). On success, the API will return an AccessToken that must be populated in the script to load on the page.</p>
 
@@ -16173,7 +16173,7 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
   </ul>
 </blockquote>
 
-<h3 id="request-40">Request</h3>
+<h4 id="request-40">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
@@ -16210,7 +16210,7 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
   </tbody>
 </table>
 
-<h3 id="response-44">Response</h3>
+<h4 id="response-44">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw"</span><span class="p">,</span><span class="w">
@@ -16249,7 +16249,7 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
   </tbody>
 </table>
 
-<h2 id="step-3-getting-the-sop-accesstoken">STEP 3. Getting the SOP AccessToken</h2>
+<h3 id="step-3-getting-the-sop-accesstoken">STEP 3. Getting the SOP AccessToken</h3>
 
 <p>After obtaining AccessToken OAuth2, you should send a new request (POST) to the following URL:</p>
 
@@ -16272,7 +16272,7 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
   </tbody>
 </table>
 
-<h3 id="request-41">Request</h3>
+<h4 id="request-41">Request</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://transactionsandbox.pagador.com.br/post/api/public/v2/accesstoken"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
@@ -16310,7 +16310,7 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
   </tbody>
 </table>
 
-<h3 id="response-45">Response</h3>
+<h4 id="response-45">Response</h4>
 
 <p>As a response, you will receive a JSON (“HTTP 201 Created”) with the SOP AccessToken and some other data.</p>
 
