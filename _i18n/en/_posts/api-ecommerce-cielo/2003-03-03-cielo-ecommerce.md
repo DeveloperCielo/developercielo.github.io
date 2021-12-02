@@ -8168,6 +8168,20 @@ c) The script provided by Cielo provides three events for manipulation and treat
 
 * The *PaymentToken* will be the token that will represent all the card data provided by the buyer. The same will be used by the establishment so there is no need to process and process card data on its side.
 
+``` json
+},
+    "Payment": {
+    "Type": "CreditCard",
+    "Amount": 1400,
+    "Installments": 1,
+        "CreditCard": {
+        "PaymentToken": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+        "Brand": "MASTER"
+        }
+    }
+}
+```
+
 **For security reasons this PaymentToken can only be used for 1 authorization in Cielo 3.0. After processing, it will be invalidated.**
 
 Example of setup to be performed by the establishment on the checkout page:
