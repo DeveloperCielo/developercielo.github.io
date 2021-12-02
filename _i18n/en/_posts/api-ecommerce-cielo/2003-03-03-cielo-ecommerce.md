@@ -8140,7 +8140,7 @@ As a response, you will receive a JSON ("HTTP 201 Created") with the SOP AccessT
 |`Issued`|Token creation date and hour. |Texto|--|AAAA-MM-DDTHH:MM:SS|
 |`ExpiresIn`|Token expiration date and hour. |Texto|--|AAAA-MM-DDTHH:MM:SS|
 
-<aside class="warning">To see the legacy authentication process, which used the MerchantId and shopper IP address to create the `AccessToken`, [click here](https://developercielo.github.io/en/manual/cielo-ecommerce#legacy-authentication).</aside>
+>To see the legacy authentication process, which used the MerchantId and shopper IP address to create the `AccessToken`, [click here](https://developercielo.github.io/en/manual/cielo-ecommerce#legacy-authentication).
 
 ### STEP 4
 
