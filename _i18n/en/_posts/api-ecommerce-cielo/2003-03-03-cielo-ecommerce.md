@@ -9947,8 +9947,8 @@ Cielo informs its customers that it's prepared to process transactions following
 |72|Cancellation not done. Not enough available balance for cancellation.|Cancellation not done. Not enough available balance for cancellation. If the error persists, contact Cielo.|Cancellation not done. Try again later. If the error persists, contact the virtual store..|No|
 | 79 | Transaction not allowed / Mastercard | Transaction not allowed | Contact your bank | No |
 |80|Unauthorized transaction. Divergence on transaction/payment date.|Unauthorized transaction. Invalid transaction date or first payment date.|Unauthorized transaction. Redo the transaction confirming data.|No|
-| 82 | Transaction not allowed / Mastercard | Transaction not allowed | Contact your bank | Não |
-| 83 | Transaction not allowed / Mastercard | Transaction not allowed | Contact your bank | Não |
+| 82 | Transaction not allowed / Mastercard | Transaction not allowed | Contact your bank | No |
+| 83 | Transaction not allowed / Mastercard | Transaction not allowed | Contact your bank | No |
 |85|Transaction not allowed. Operation failed.|Transaction not allowed. There was a processing error. Ask the carrier to re-enter the card data, if there is a persistent error there may be a problem at the merchant's terminal, in which case the merchant should contact Cielo.|Transaction not allowed. Re-enter the card data. If the error persists, contact the virtual store.|No|
 |89|Transaction error.|Unauthorized transaction. Transaction error. The carrier must try again and if the error persists, contact the issuing bank.|Unauthorized transaction. Transaction error. Try again and if the error persists, contact your issuing bank.|Only 4 times in 16 days.|
 |90|Transaction not allowed. Operation failed.|Transaction not allowed. There was a processing error. Ask the carrier to re-enter the card data, if there is a persistent error there may be a problem at the merchant's terminal, in which case the merchant should contact Cielo.|Transaction not allowed. Re-enter the card data. If the error persists, contact the virtual store.|No|
