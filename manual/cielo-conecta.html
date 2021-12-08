@@ -13475,7 +13475,7 @@
       <td>String</td>
       <td>—</td>
       <td>Sim</td>
-      <td>Enum: Typed, MagStripe, Emv<br />Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC.<br />“00” – Magnético<br />“01” - Moedeiro VISA Cash sobre TIBC v1<br />“02” - Moedeiro VISA Cash sobre TIBC v3<br />“03” – EMV com contato<br />“04” - Easy-Entry sobre TIBC v1<br />“05” - Chip sem contato simulando tarja<br />“06” - EMV sem contato.</td>
+      <td>Enum: Typed, MagStripe, Emv, ContactlessEmv<br />Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC.<br />“00” – Magnético<br />“01” - Moedeiro VISA Cash sobre TIBC v1<br />“02” - Moedeiro VISA Cash sobre TIBC v3<br />“03” – EMV com contato<br />“04” - Easy-Entry sobre TIBC v1<br />“05” - Chip sem contato simulando tarja<br />“06” - EMV sem contato.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.AuthenticationMethod</code></td>
@@ -13544,28 +13544,28 @@
       <td><code class="language-plaintext highlighter-rouge">Payment.PinPadInformation.TerminalId</code></td>
       <td>String</td>
       <td>8</td>
-      <td>Não</td>
+      <td>Sim</td>
       <td>Número Lógico definido no Concentrador Cielo.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PinPadInformation.SerialNumber</code></td>
       <td>String</td>
       <td>—</td>
-      <td>Não</td>
+      <td>Sim</td>
       <td>Número de Série do Equipamento.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PinPadInformation.PhysicalCharacteristics</code></td>
       <td>String</td>
       <td>—</td>
-      <td>Não</td>
+      <td>Sim</td>
       <td>Enum: WithoutPinPad, PinPadWithoutChipReader, PinPadWithChipReaderWithoutSamModule, PinPadWithChipReaderWithSamModule, NotCertifiedPinPad, PinPadWithChipReaderWithoutSamAndContactless, PinPadWithChipReaderWithSamModuleAndContactless<br />Sem PIN-pad = WithoutPinPad;<br />PIN-pad sem leitor de Chip = PinpadWithoutChipReader;<br />PIN-pad com leitor de Chip sem módulo SAM = PinPadWithChipReaderWithoutSamModule;<br />PIN-pad com leitor de Chip com módulo SAM = PinPadWithChipReaderWithSamModule;<br />PIN-pad não homologado = NotCertifiedPinPad;<br />PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = PinpadWithChipReaderWithoutSamAndContactless;<br />PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = PinpadWithChipReaderWithSamAndContactless.<br />Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PinPadInformation.ReturnDataInfo</code></td>
       <td>String</td>
       <td>—</td>
-      <td>Não</td>
+      <td>Sim</td>
       <td>Retorno da função PP_GetInfo() da biblioteca compartilhada</td>
     </tr>
     <tr>
@@ -13933,7 +13933,7 @@
       <td>String</td>
       <td>—</td>
       <td>Sim</td>
-      <td>Enum: Typed, MagStripe, Emv<br />Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC.<br />“00” – Magnético<br />“01” - Moedeiro VISA Cash sobre TIBC v1<br />“02” - Moedeiro VISA Cash sobre TIBC v3<br />“03” – EMV com contato<br />“04” - Easy-Entry sobre TIBC v1<br />“05” - Chip sem contato simulando tarja<br />“06” - EMV sem contato.</td>
+      <td>Enum: Typed, MagStripe, Emv,ContactlessEmv <br />Identificação do modo de captura do cartão na transação. Essa informação deve ser obtida através do retorno da função PP_GetCard da BC.<br />“00” – Magnético<br />“01” - Moedeiro VISA Cash sobre TIBC v1<br />“02” - Moedeiro VISA Cash sobre TIBC v3<br />“03” – EMV com contato<br />“04” - Easy-Entry sobre TIBC v1<br />“05” - Chip sem contato simulando tarja<br />“06” - EMV sem contato.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.DebitCard.AuthenticationMethod</code></td>
@@ -13981,28 +13981,28 @@
       <td><code class="language-plaintext highlighter-rouge">Payment.PinPadInformation.TerminalId</code></td>
       <td>String</td>
       <td>8</td>
-      <td>Não</td>
+      <td>Sim</td>
       <td>Número Lógico definido no Concentrador Cielo.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PinPadInformation.SerialNumber</code></td>
       <td>String</td>
       <td>—</td>
-      <td>Não</td>
+      <td>Sim</td>
       <td>Número de Série do Equipamento.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PinPadInformation.PhysicalCharacteristics</code></td>
       <td>String</td>
       <td>—</td>
-      <td>Não</td>
+      <td>Sim</td>
       <td>Enum: WithoutPinPad, PinPadWithoutChipReader, PinPadWithChipReaderWithoutSamModule, PinPadWithChipReaderWithSamModule, NotCertifiedPinPad, PinPadWithChipReaderWithoutSamAndContactless, PinPadWithChipReaderWithSamModuleAndContactless<br />Sem PIN-pad = WithoutPinPad;<br />PIN-pad sem leitor de Chip = PinpadWithoutChipReader;<br />PIN-pad com leitor de Chip sem módulo SAM = PinPadWithChipReaderWithoutSamModule;<br />PIN-pad com leitor de Chip com módulo SAM = PinPadWithChipReaderWithSamModule;<br />PIN-pad não homologado = NotCertifiedPinPad;<br />PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = PinpadWithChipReaderWithoutSamAndContactless;<br />PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = PinpadWithChipReaderWithSamAndContactless.<br />Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.PinPadInformation.ReturnDataInfo</code></td>
       <td>String</td>
       <td>—</td>
-      <td>Não</td>
+      <td>Sim</td>
       <td>Retorno da função PP_GetInfo() da biblioteca compartilhada</td>
     </tr>
   </tbody>
