@@ -1556,13 +1556,13 @@ Para criar uma venda com cartão de crédito ou débito contendo dados de autent
     "MerchantOrderId":"2014111903",
     "Customer":
     {
-        "Name":"Comprador crédito autenticação",
+        "Name":"Comprador débito autenticação",
         "Identity":"12345678912",
         "IdentityType":"cpf"
     },
     "Payment":
     {
-        "Type":"CreditCard",
+        "Type":"DebitCard",
         "Amount":15700,
         "Installments":1,
         "Authenticate":true,
@@ -1597,12 +1597,12 @@ curl
 {  
    "MerchantOrderId":"2014111903",
    "Customer":{  
-      "Name":"Comprador crédito autenticação",
+      "Name":"Comprador débito autenticação",
       "Identity":"12345678912",
       "IdentityType":"cpf"
    },
    "Payment":{  
-      "Type":"CreditCard",
+      "Type":"DebitCard",
       "Amount":15700,
       "Installments":1,
       "Authenticate":true,
@@ -1655,7 +1655,7 @@ curl
     "MerchantOrderId":"2014111903",
     "Customer":
     {
-        "Name":"Comprador crédito autenticação",
+        "Name":"Comprador débito autenticação",
         "Identity":"12345678912",
         "IdentityType":"cpf"
     },
@@ -1678,7 +1678,7 @@ curl
         "Tid": "1006993069257E521001",
         "SoftDescriptor":"123456789ABCD",
         "PaymentId":"f2dbd5df-c2ee-482f-ab1b-7fee039108c0",
-        "Type":"CreditCard",
+        "Type":"DebitCard",
         "Amount":15700,
         "Currency":"BRL",
         "Country":"BRA",
@@ -1712,7 +1712,7 @@ curl
     "MerchantOrderId":"2014111903",
     "Customer":
     {
-        "Name":"Comprador crédito autenticação",
+        "Name":"Comprador débito autenticação",
         "Identity":"12345678912",
         "IdentityType":"cpf"
     },
@@ -1735,7 +1735,7 @@ curl
         "Tid": "1006993069257E521001",
         "SoftDescriptor":"123456789ABCD",
         "PaymentId":"f2dbd5df-c2ee-482f-ab1b-7fee039108c0",
-        "Type":"CreditCard",
+        "Type":"DebitCard",
         "Amount":15700,
         "Currency":"BRL",
         "Country":"BRA",
@@ -6562,12 +6562,11 @@ HTTP Status 200
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-## Renova Facil
+## Renova Fácil
 
-O uso desta funcionalidade permite a substituição automática de um cartão vencido .
-Dessa forma, quando uma transação com marcação de recorrente for submetida para a API e a Cielo identificar que o cartão utilizado foi substituído, sua autorização será negada e serão retornados os dados do novo cartão conforme exemplo.
+O uso desta funcionalidade permite a substituição automática de um cartão de crédito vencido. Dessa forma, quando uma transação com marcação de recorrente for submetida para a API e a Cielo identificar que o cartão utilizado foi substituído, sua autorização será negada e serão retornados os dados do novo cartão conforme exemplo.
 
-<aside class="notice"><strong>Atenção:</strong> Necessário solicitar a habilitação desta funcionalidade no cadastro  </aside>
+<aside class="notice"><strong>Atenção:</strong> É necessário solicitar a habilitação desta funcionalidade no cadastro. O Renova Fácil está disponível apenas para cartões de crédito.</aside>
 
 ### Requisição
 
@@ -6806,7 +6805,7 @@ curl
 
 ### Bandeiras e Emissores Habilitados
 
-Bandeiras e Emissores que já estão com o Renova Facil habilitados:
+Bandeiras e Emissores que já estão com o Renova Fácil habilitados:
 
 |Emissores|VISA|MASTER|ELO|
 |---|---|---|---|
@@ -8094,7 +8093,7 @@ Abaixo, a listagem de campos da Requisição:
 
 | Paramêtro        | Descrição                                                                                                                                                  | Tipo    | Tamanho | Obrigatório |
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|---------|:-----------:|
-| `CardType`       | Define o tipo de cartão utilizados:<br><br>*CreditCard*<br>*DebitCard*<br><br>Se não enviado, CreditCard como default                                                                                                                                                                                                                                                                                     | Texto   | 255     | Sim         |
+| `CardType`       | *CreditCard*                                                                                                                                                                                                               | Texto   | 255     | Sim         |
 | `CardNumber`     | Número do Cartão do Comprador                                                                                                                                                                                                                                                                                                                                                                             | Texto   | 16      | Sim         |
 | `Holder`         | Nome do Comprador impresso no cartão.                                                                                                                                                                                                                                                                                                                                                                     | Texto   | 25      | Sim         |
 | `ExpirationDate` | Data de e validade impresso no cartão.                                                                                                                                                                                                                                                                                                                                                                    | Texto   | 7       | Sim         |
