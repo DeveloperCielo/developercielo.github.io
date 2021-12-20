@@ -8175,2270 +8175,6 @@ It is possible to carry out both the total cancellation and the partial cancella
   </tbody>
 </table>
 
-<h1 id="fraud-analysis-af">Fraud Analysis (AF)</h1>
-
-<p>The Cielo e-commerce API offers an online transaction fraud risk analysis service. Cielo joins risk analysis companies, such as CyberSource, which performs validation of transactional data and purchase history data of the card holder. This analysis returns risk factors and allows the merchant to make the decision whether to continue the sale.</p>
-
-<aside class="warning">The fraud analysis offered by Cielo rate the risk of a transaction but does not link the result of the analysis to ChargeBacks coverage. Cielo does not make "guaranteed" transactions</aside>
-
-<p>To use AF, it is necessary that the service be activated with Cielo. There are 3 types of fraud analysis settings available:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Provider</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>SuperMID without BPO</strong></td>
-      <td>Analysis rules are defined by Cielo <br /> It is not possible to customize the rules in the provider <br /> There is no dedicated risk analyst</td>
-      <td>CyberSource</td>
-    </tr>
-    <tr>
-      <td><strong>SuperMID with BPO</strong></td>
-      <td>Analysis rules are defined by Cielo <br /> It is not possible to customize the rules in the supplier <br /> Dedicated risk analyst contracted by the merchant with the provider</td>
-      <td>CyberSource</td>
-    </tr>
-    <tr>
-      <td><strong>Hierarchy or Enterprise</strong></td>
-      <td>The merchant has a contract directly with the provider of the AF, with specific rules for analysis. Cielo must configure the credentials provided by the AF Provider in the Cielo E-commerce API</td>
-      <td>CyberSource</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>Fraud Analysis is available only for credit card transactions.</p>
-</blockquote>
-
-<h2 id="integration">Integration</h2>
-
-<p>To create a credit card sale and fraud analysis, , it is necessary to do a POST for the Payment feature as the example.</p>
-
-<h3 id="request-19">Request</h3>
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
-   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"201411173454307"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">  
-      </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Comprador crédito AF"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Identity"</span><span class="p">:</span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Email"</span><span class="p">:</span><span class="s2">"compradorteste@live.com"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Birthdate"</span><span class="p">:</span><span class="s2">"1991-01-02"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Mobile"</span><span class="p">:</span><span class="s2">"5521995760078"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Phone"</span><span class="p">:</span><span class="s2">"552125553669"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Address"</span><span class="p">:{</span><span class="w">  
-         </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Rua Júpter"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"174"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"AP 201"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="s2">"21241140"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"State"</span><span class="p">:</span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"DeliveryAddress"</span><span class="p">:{</span><span class="w">  
-         </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Rua Júpter"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"174"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"AP 201"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="s2">"21241140"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"State"</span><span class="p">:</span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"BillingAddress"</span><span class="p">:{</span><span class="w">
-         </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Rua Júpter"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"174"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"AP 201"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="s2">"21241140"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"State"</span><span class="p">:</span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-   </span><span class="p">},</span><span class="w">
-   </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">  
-     </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Interest"</span><span class="p">:</span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Capture"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"Mensagem"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"CreditCard"</span><span class="p">:{</span><span class="w">  
-         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"4024007197692931"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Teste accept"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"023"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="w">
-     </span><span class="p">},</span><span class="w">
-     </span><span class="nl">"FraudAnalysis"</span><span class="p">:{</span><span class="w">
-       </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"cybersource"</span><span class="p">,</span><span class="w">
-       </span><span class="nl">"Sequence"</span><span class="p">:</span><span class="s2">"AuthorizeFirst"</span><span class="p">,</span><span class="w">
-       </span><span class="nl">"SequenceCriteria"</span><span class="p">:</span><span class="s2">"OnSuccess"</span><span class="p">,</span><span class="w">
-       </span><span class="nl">"CaptureOnLowRisk"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-       </span><span class="nl">"VoidOnHighRisk"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-       </span><span class="nl">"TotalOrderAmount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
-       </span><span class="nl">"FingerPrintId"</span><span class="p">:</span><span class="s2">"074c1ee676ed4998ab66491013c565e2"</span><span class="p">,</span><span class="w">
-       </span><span class="nl">"Browser"</span><span class="p">:{</span><span class="w">
-         </span><span class="nl">"CookiesAccepted"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Email"</span><span class="p">:</span><span class="s2">"compradorteste@live.com"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"HostName"</span><span class="p">:</span><span class="s2">"Teste"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"IpAddress"</span><span class="p">:</span><span class="s2">"200.190.150.350"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"Chrome"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-       </span><span class="nl">"Cart"</span><span class="p">:{</span><span class="w">
-         </span><span class="nl">"IsGift"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"ReturnsAccepted"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Items"</span><span class="p">:[{</span><span class="w">
-           </span><span class="nl">"GiftCategory"</span><span class="p">:</span><span class="s2">"Undefined"</span><span class="p">,</span><span class="w">
-           </span><span class="nl">"HostHedge"</span><span class="p">:</span><span class="s2">"Off"</span><span class="p">,</span><span class="w">
-           </span><span class="nl">"NonSensicalHedge"</span><span class="p">:</span><span class="s2">"Off"</span><span class="p">,</span><span class="w">
-           </span><span class="nl">"ObscenitiesHedge"</span><span class="p">:</span><span class="s2">"Off"</span><span class="p">,</span><span class="w">
-           </span><span class="nl">"PhoneHedge"</span><span class="p">:</span><span class="s2">"Off"</span><span class="p">,</span><span class="w">
-           </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"ItemTeste"</span><span class="p">,</span><span class="w">
-           </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-           </span><span class="nl">"Sku"</span><span class="p">:</span><span class="s2">"201411170235134521346"</span><span class="p">,</span><span class="w">
-           </span><span class="nl">"UnitPrice"</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span><span class="w">
-           </span><span class="nl">"Risk"</span><span class="p">:</span><span class="s2">"High"</span><span class="p">,</span><span class="w">
-           </span><span class="nl">"TimeHedge"</span><span class="p">:</span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
-           </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"AdultContent"</span><span class="p">,</span><span class="w">
-           </span><span class="nl">"VelocityHedge"</span><span class="p">:</span><span class="s2">"High"</span><span class="p">,</span><span class="w">
-           </span><span class="nl">"Passenger"</span><span class="p">:{</span><span class="w">
-             </span><span class="nl">"Email"</span><span class="p">:</span><span class="s2">"compradorteste@live.com"</span><span class="p">,</span><span class="w">
-             </span><span class="nl">"Identity"</span><span class="p">:</span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
-             </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Comprador accept"</span><span class="p">,</span><span class="w">
-             </span><span class="nl">"Rating"</span><span class="p">:</span><span class="s2">"Adult"</span><span class="p">,</span><span class="w">
-             </span><span class="nl">"Phone"</span><span class="p">:</span><span class="s2">"999994444"</span><span class="p">,</span><span class="w">
-             </span><span class="nl">"Status"</span><span class="p">:</span><span class="s2">"Accepted"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-           </span><span class="p">}]</span><span class="w">
-       </span><span class="p">},</span><span class="w">
-       </span><span class="nl">"MerchantDefinedFields"</span><span class="p">:[{</span><span class="w">
-            </span><span class="nl">"Id"</span><span class="p">:</span><span class="mi">95</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Value"</span><span class="p">:</span><span class="s2">"Eu defini isso"</span><span class="w">
-        </span><span class="p">}],</span><span class="w">
-        </span><span class="nl">"Shipping"</span><span class="p">:{</span><span class="w">
-            </span><span class="nl">"Addressee"</span><span class="p">:</span><span class="s2">"Sr Comprador Teste"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Method"</span><span class="p">:</span><span class="s2">"LowCost"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Phone"</span><span class="p">:</span><span class="s2">"21114740"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"Travel"</span><span class="p">:{</span><span class="w">
-            </span><span class="nl">"DepartureTime"</span><span class="p">:</span><span class="s2">"2010-01-02"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"JourneyType"</span><span class="p">:</span><span class="s2">"Ida"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Route"</span><span class="p">:</span><span class="s2">"MAO-RJO"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Legs"</span><span class="p">:[{</span><span class="w">
-                </span><span class="nl">"Destination"</span><span class="p">:</span><span class="s2">"GYN"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Origin"</span><span class="p">:</span><span class="s2">"VCP"</span><span class="w">
-          </span><span class="p">}]</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-     </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Required</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Yes</td>
-      <td>Store identifier in API Cielo eCommerce.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Text</td>
-      <td>40</td>
-      <td>Yes</td>
-      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>No</td>
-      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Text</td>
-      <td>50</td>
-      <td>Yes</td>
-      <td>Order ID number.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>Yes</td>
-      <td>Buyer’s name.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
-      <td>Text</td>
-      <td>14</td>
-      <td>Yes</td>
-      <td>Buyer’s RG, CPF or CNPJ number.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
-      <td>Text</td>
-      <td>24</td>
-      <td>Yes</td>
-      <td>Type of buyer ID document (CFP/CNPJ).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>No</td>
-      <td>Buyer registration status in store (NEW / EXISTING).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>No</td>
-      <td>Buyer’s e-mail.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
-      <td>Date</td>
-      <td>10</td>
-      <td>No</td>
-      <td>Buyer’s date of birth in YYYY-MM-DD format.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
-      <td>Text</td>
-      <td>54</td>
-      <td>No</td>
-      <td>Buyer’s address.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>Text</td>
-      <td>5</td>
-      <td>No</td>
-      <td>Buyer’s address number.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
-      <td>Text</td>
-      <td>14</td>
-      <td>No</td>
-      <td>Buyer’s address complement.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
-      <td>Text</td>
-      <td>9</td>
-      <td>No</td>
-      <td>Buyer’s address zip code.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
-      <td>Text</td>
-      <td>50</td>
-      <td>No</td>
-      <td>Buyer’s address city.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
-      <td>Text</td>
-      <td>2</td>
-      <td>No</td>
-      <td>Buyer’s address state.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
-      <td>Text</td>
-      <td>2</td>
-      <td>No</td>
-      <td>Buyer’s address country.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
-      <td>Text</td>
-      <td>45</td>
-      <td>No</td>
-      <td>Buyer’s neighborhood.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
-      <td>Text</td>
-      <td>54</td>
-      <td>No</td>
-      <td>Buyer’s address.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
-      <td>Text</td>
-      <td>5</td>
-      <td>No</td>
-      <td>Buyer’s address number.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
-      <td>Text</td>
-      <td>14</td>
-      <td>No</td>
-      <td>Buyer’s address complement.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
-      <td>Text</td>
-      <td>9</td>
-      <td>No</td>
-      <td>Buyer’s address zip code.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.City</code></td>
-      <td>Text</td>
-      <td>50</td>
-      <td>No</td>
-      <td>Buyer’s address city.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.State</code></td>
-      <td>Text</td>
-      <td>2</td>
-      <td>No</td>
-      <td>Buyer’s address state.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
-      <td>Text</td>
-      <td>2</td>
-      <td>No</td>
-      <td>Buyer’s address country.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.District</code></td>
-      <td>Text</td>
-      <td>45</td>
-      <td>No</td>
-      <td>Buyer’s neighborhood.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.BillingAddress.Street</code></td>
-      <td>Text</td>
-      <td>54</td>
-      <td>No</td>
-      <td>Buyer’s address.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.BillingAddress.Number</code></td>
-      <td>Text</td>
-      <td>5</td>
-      <td>No</td>
-      <td>Buyer’s address number.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.BillingAddress.Complement</code></td>
-      <td>Text</td>
-      <td>14</td>
-      <td>No</td>
-      <td>Buyer’s address complement.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.BillingAddress.ZipCode</code></td>
-      <td>Text</td>
-      <td>9</td>
-      <td>No</td>
-      <td>Buyer’s address zip code.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.BillingAddress.City</code></td>
-      <td>Text</td>
-      <td>50</td>
-      <td>No</td>
-      <td>Buyer’s address city.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.BillingAddress.State</code></td>
-      <td>Text</td>
-      <td>2</td>
-      <td>No</td>
-      <td>Buyer’s address state.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.BillingAddress.Country</code></td>
-      <td>Text</td>
-      <td>2</td>
-      <td>No</td>
-      <td>Buyer’s address country.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.BillingAddress.District</code></td>
-      <td>Text</td>
-      <td>45</td>
-      <td>No</td>
-      <td>Buyer’s neighborhood.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Text</td>
-      <td>15</td>
-      <td>—</td>
-      <td>Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Text</td>
-      <td>100</td>
-      <td>Yes</td>
-      <td>Type of the payment method.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Number</td>
-      <td>15</td>
-      <td>Yes</td>
-      <td>Order Amount (to be sent in cents).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
-      <td>Text</td>
-      <td>3</td>
-      <td>No</td>
-      <td>Currency in which payment will be made (BRL).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Country</code></td>
-      <td>Text</td>
-      <td>3</td>
-      <td>No</td>
-      <td>Country where payment will be made.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.ServiceTaxAmount</code></td>
-      <td>Number</td>
-      <td>15</td>
-      <td>Yes</td>
-      <td>Applicable to airlines companies only. Amount of the authorization value/amount that should be allocated to the service fee. Note: This value is not added to the authorization value.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Number</td>
-      <td>2</td>
-      <td>Yes</td>
-      <td>Number of Installments.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
-      <td>Text</td>
-      <td>10</td>
-      <td>No</td>
-      <td>Type of installment - Store (ByMerchant) or Card (ByIssuer).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
-      <td>Boolean</td>
-      <td>—</td>
-      <td>No</td>
-      <td>Boolean that identifies that the authorization should be with automatic capture.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
-      <td>Boolean</td>
-      <td>—</td>
-      <td>No</td>
-      <td>Defines whether the buyer will be directed to the Issuing bank for card authentication</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
-      <td>Text</td>
-      <td>13</td>
-      <td>No</td>
-      <td>Text that will be printed on the carrier’s bank invoice - Available only for VISA/MASTER - does not allow special characters.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
-      <td>Text</td>
-      <td>16</td>
-      <td>Yes</td>
-      <td>Buyer’s Card Number.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
-      <td>Text</td>
-      <td>25</td>
-      <td>Yes</td>
-      <td>Buyer’s name printed on card.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
-      <td>Text</td>
-      <td>7</td>
-      <td>Yes</td>
-      <td>Expiry date printed on card.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
-      <td>Text</td>
-      <td>4</td>
-      <td>Yes</td>
-      <td>Security code printed on back of card - See Annex.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
-      <td>Boolean</td>
-      <td>—</td>
-      <td>No</td>
-      <td>Boolean that identifies whether the card will be saved to generate the CardToken.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
-      <td>Text</td>
-      <td>10</td>
-      <td>Yes</td>
-      <td>Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
-      <td>Boolean</td>
-      <td>—</td>
-      <td>No (Default false)</td>
-      <td>Boolean that identifies whether the card will be saved to generate the CardToken.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Provider</code></td>
-      <td>Text</td>
-      <td>14</td>
-      <td>Yes</td>
-      <td>Fixed “cybersource”</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Sequence</code></td>
-      <td>Text</td>
-      <td>14</td>
-      <td>Yes</td>
-      <td>Flow type to perform the fraud analysis. First Analyze (AnalyzeFirst) or First Authorization (AuthorizeFirst)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.SequenceCriteria</code></td>
-      <td>Text</td>
-      <td>9</td>
-      <td>Yes</td>
-      <td>Flow criterion. <strong>OnSuccess</strong> - Only performs the analysis if it succeeds in the transaction. <strong>Always</strong> - Always perform the analysis.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.CaptureOnLowRisk</code></td>
-      <td>Boolean</td>
-      <td>—</td>
-      <td>No</td>
-      <td>When true, the authorization must be with automatic capture when the risk of fraud is considered to be low (Accept). In cases of Reject or Review, the flow stays the same, then, the capture will happen according to the value specified in the “Capture” parameter. To use this parameter, the sequence of the risk analysis flow must be “AuthorizeFirst”. Because it depends on the risk analysis report, this parameter will only take effect when the Anti-Fraud service is hired.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.VoidOnHighRisk</code></td>
-      <td>Boolean</td>
-      <td>—</td>
-      <td>No</td>
-      <td>When true, the repayment of payment should happen automatically when the risk of fraud is considered high (Reject). In cases of Accept or Review, the flow remains the same, the, the repayment of payment must be done manually. To use this parameter, the sequence of the risk analysis flow must be “AuthorizeFirst”. Because it depends on the risk analysis report, this parameter will only take effect when the Anti-Fraud service is hired.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.TotalOrderAmount</code></td>
-      <td>Number</td>
-      <td>15</td>
-      <td>Yes</td>
-      <td>Order Amount.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.FingerPrintId</code></td>
-      <td>Text</td>
-      <td>50</td>
-      <td>Yes</td>
-      <td>Identifier used to cross information obtained by the internet browser with the data sent for analysis. This same value must be passed in the SESSIONID variable of the DeviceFingerPrint script.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Browser.CookiesAccepted</code></td>
-      <td>Boolean</td>
-      <td>—</td>
-      <td>Yes</td>
-      <td>Boolean to identify if the client browser accepts cookies.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Browser.Email</code></td>
-      <td>Text</td>
-      <td>100</td>
-      <td>No</td>
-      <td>E-mail registered in the buyer’s browser.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Browser.HostName</code></td>
-      <td>Text</td>
-      <td>60</td>
-      <td>No</td>
-      <td>Host name where the buyer was before entering the store’s website.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Browser.IpAddress</code></td>
-      <td>Text</td>
-      <td>15</td>
-      <td>Yes</td>
-      <td>IP address of the buyer. We strongly recommend sending this field.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Browser.Type</code></td>
-      <td>Text</td>
-      <td>40</td>
-      <td>No</td>
-      <td>Browser’s name used by the buyer.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Cart.IsGift</code></td>
-      <td>Boolean</td>
-      <td>—</td>
-      <td>No</td>
-      <td>Boolean that indicates whether the order is for gift or No.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Cart.ReturnsAccepted</code></td>
-      <td>Boolean</td>
-      <td>—</td>
-      <td>No</td>
-      <td>Boolean that defines whether returns are accepted for the order.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Cart.Items.GiftCategory</code></td>
-      <td>Text</td>
-      <td>9</td>
-      <td>No</td>
-      <td>Field that will evaluate the billing and delivery addresses for different cities, states or countries.<br /> <em>“Yes”</em> (In case of divergence between billing and delivery addresses, mark as small risk) <br /><em>“No”</em> (In case of divergence between billing and delivery addresses, high risk mark)<br /> <em>“Off”</em> (Ignores risk analysis for divergent addresses)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Cart.Items.HostHedge</code></td>
-      <td>Text</td>
-      <td>—</td>
-      <td>No</td>
-      <td>Level of importance of the e-mail and IP addresses of the clients at risk of scoring. <br /> <em>“Low”</em> (Low importance of e-mail and IP address in risk analysis) <br /> <em>“Normal”</em> (Average importance of the e-mail and IP address in risk analysis) <br /> <em>“High”</em> (High importance of the email and IP address in risk analysis) <br /><em>“Off”</em>(Email and IP address do not affect the risk analysis)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Cart.Items.NonSensicalHedge</code></td>
-      <td>Text</td>
-      <td>6</td>
-      <td>No</td>
-      <td>Level of the tests performed on the buyer’s data with nonsense orders <br /> <em>“Low”</em> (Low importance of the verification made on the buyer’s order, in the risk analysis) <br /> _ “Normal” _ (Average importance of the verification made on the request of the buyer, in the risk analysis) <br /> _ “High” (High importance of the verification made on the request of the buyer, in the risk analysis) <br /> _ “Off” _ (Verification of buyer’s request Does not affect risk analysis)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Cart.Items.ObscenitiesHedge</code></td>
-      <td>Text</td>
-      <td>6</td>
-      <td>No</td>
-      <td>Level of obscenity of the received orders. <br /> <em>“Low”</em> (Low importance of obscene verification of buyer’s order in risk analysis) <br /> <em>“Normal”</em> (Average importance of obscene verification of buyer’s order in risk analysis) <br /> <em>“High”</em> (High importance of obscene verification of buyer’s order in risk analysis) <br /> <em>“Off”</em> (Obscenity check at buyer’s order does not affect risk analysis)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Cart.Items.PhoneHedge</code></td>
-      <td>Text</td>
-      <td>6</td>
-      <td>No</td>
-      <td>Level of tests performed on phone numbers. <br /><em>“Low”</em> (Low importance on the tests performed with phone numbers) <br /> <em>“Normal”</em> (Average importance on tests performed with telephone numbers) <br /> <em>“High”</em> (High importance on the tests performed with phone numbers) <br /> <em>“Off”</em> (Phone numbers tests do not affect risk analysis)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Cart.Items.Name</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>Yes</td>
-      <td>Product’s name.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Cart.Items.Quantity</code></td>
-      <td>Number</td>
-      <td>15</td>
-      <td>Yes</td>
-      <td>Product’s amount to be purchased.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Cart.Items.Sku</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>Yes</td>
-      <td>Merchant code identifier of the product.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Cart.Items.UnitPrice</code></td>
-      <td>Number</td>
-      <td>15</td>
-      <td>Yes</td>
-      <td>Unit price of the product.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Cart.Items.Risk</code></td>
-      <td>Text</td>
-      <td>6</td>
-      <td>No</td>
-      <td>Product risk level. <br /> Low (The product has a history of few chargebacks) <br /> Normal (The product has a history of chargebacks considered normal) <br /> High (The product has a history above average of chargebacks)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Cart.Items.TimeHedge</code></td>
-      <td>Text</td>
-      <td>-</td>
-      <td>No</td>
-      <td>Level of importance of the time of the day of the customer’s order. <br /> Low (Low importance on the time of day when the purchase was made, for the risk analysis) <br /> Normal (Average importance on the time of day when the purchase was made, for the risk analysis) <br /> High (High importance on the time of the day the purchase was made, for the risk analysis) <br /> Off (Purchase time does not affect risk analysis)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Cart.Items.Type</code></td>
-      <td>Text</td>
-      <td>-</td>
-      <td>No</td>
-      <td>Type of product. <br />AdultContent(Adult content) <br />Coupon(Promotional code) <br /> Default (Default option for analysis in CyberSource when no other value is selected) <br /> EletronicGood (Electronic product) <br />EletronicSoftware (Software distributed electronically via download) <br /> GiftCertificate (Gift voucher) <br /> HandlingOnly (Installation fee or handling) <br />ShippingOnly (Freight) <br />Subscription (Subscription)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Cart.Items.VelocityHedge</code></td>
-      <td>Text</td>
-      <td>6</td>
-      <td>No</td>
-      <td>Customer purchase frequency importance level. <br /> Low (Low importance in the number of purchases made by the customer in the last 15 minutes) <br />Normal (Average importance in the number of purchases made by the customer in the last 15 minutes) <br />High (High importance in the number of purchases made by the customer in the last 15 minutes) <br /> Off (The frequency of purchases made by the customer does not affect fraud analysis)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Cart.Items.Passenger.Email</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>No</td>
-      <td>Passenger’s e-mail.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Cart.Items.Passenger.Identity</code></td>
-      <td>Text</td>
-      <td>32</td>
-      <td>No</td>
-      <td>Passenger’s id to who the check-in was issued.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Cart.Items.Passenger.Name</code></td>
-      <td>Text</td>
-      <td>120</td>
-      <td>No</td>
-      <td>Passenger’s name.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Cart.Items.Passenger.Rating</code></td>
-      <td>Text</td>
-      <td>-</td>
-      <td>No</td>
-      <td>Passenger’s classification. <br />Field Values: “Adult” (Adult passenger) <br />“Child” (Child passenger) <br /> “Infant” (Child Passenger) <br />“Youth” (Teenage passenger) <br />“Student” (Student passenger) <br />“SeniorCitizen” (Old passenger) <br />“Military” (Military passenger)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Cart.Items.Passenger.Phone</code></td>
-      <td>Text</td>
-      <td>15</td>
-      <td>No</td>
-      <td>Passenger phone number. For orders outside the U.S., CyberSource recommends that you include the country code. 552133665599 (Ex. Country Code 55, City Code 21, Phone 33665599)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Cart.Items.Passenger.Status</code></td>
-      <td>Text</td>
-      <td>32</td>
-      <td>No</td>
-      <td>Airline classification. You can use values ​​such as Gold or Platinum.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.MerchantDefinedFields.Id</code></td>
-      <td>Text</td>
-      <td>—</td>
-      <td>Yes (if applicable)</td>
-      <td>Id of the additional information to send.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.MerchantDefinedFields.Value</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>Yes (if applicable)</td>
-      <td>Value of the additional information to send.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Shipping.Addressee</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>No</td>
-      <td>Delivery recipient name</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Shipping.Method</code></td>
-      <td>Text</td>
-      <td>-</td>
-      <td>No</td>
-      <td>Type of product delivery service. <br />“SameDay” (Same day delivery service) <br /> “OneDay” (Night or next day delivery service) <br />“TwoDay” (Two-Day Delivery Service) <br />“ThreeDay” (Three delivery service)<br /> “LowCost” (Low cost delivery service) <br />“Pickup” (Product withdrawn from the store) <br /> “Other” (Other delivery method) <br /> “None” (No delivery service, as it is a service or subscription)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Shipping.Phone</code></td>
-      <td>Text</td>
-      <td>15</td>
-      <td>No</td>
-      <td>Phone number of the delivery recipient. Ex. 552133665599 (Country Code 55, City Code 21, Phone 33665599)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Travel.JourneyType</code></td>
-      <td>Text</td>
-      <td>32</td>
-      <td>Yes, if the Travel node is sent.</td>
-      <td>Trip type</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Travel.DepartureTime</code></td>
-      <td>DateTime</td>
-      <td>23</td>
-      <td>No</td>
-      <td>Date, hour and minute of flight departure. Ex: “2018-01-09 18:00:00”</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Travel.Passengers.Name</code></td>
-      <td>Text</td>
-      <td>120</td>
-      <td>Yes, if the Travel node is sent.</td>
-      <td>Passenger’s name.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Travel.Passengers.Identity</code></td>
-      <td>Text</td>
-      <td>32</td>
-      <td>Yes, if the Travel node is sent.</td>
-      <td>RG, CPF or CNPJ of the passenger.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Travel.Passengers.Status</code></td>
-      <td>Text</td>
-      <td>32</td>
-      <td>Yes, if the Travel node is sent.</td>
-      <td>Airline Classification. Field values: “Gold”, “Platinum”.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Travel.Passengers.Rating</code></td>
-      <td>Text</td>
-      <td>15</td>
-      <td>Yes, if the Travel node is sent.</td>
-      <td>Passenger’s classification. <br />Field Values: “Adult” (Adult passenger) <br />“Child” (Child passenger) <br /> “Infant” (Child Passenger) <br />“Youth” (Teenage passenger) “Student” (Student passenger) <br />“SeniorCitizen” (Old passenger) <br />“Military” (Military passenger)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Travel.Passengers.Email</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>Yes, if the Travel node is sent.</td>
-      <td>Passenger’s e-mail.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Travel.Passengers.Phone</code></td>
-      <td>Text</td>
-      <td>15</td>
-      <td>No</td>
-      <td>Passenger phone number. For orders outside the U.S., CyberSource recommends that you include the country code. 552133665599 (Ex. Country Code 55, City Code 21, Phone 33665599)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Travel.Passengers.TravelLegs.Origin</code></td>
-      <td>Text</td>
-      <td>3</td>
-      <td>Yes, if the Travel node is sent.</td>
-      <td>Departure airport code.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysis.Travel.Passengers.TravelLegs.Destination</code></td>
-      <td>Text</td>
-      <td>3</td>
-      <td>Yes, if the Travel node is sent.</td>
-      <td>Arrival airport code.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="response-23">Response</h3>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"201411173454307"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Comprador crédito AF"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Identity"</span><span class="p">:</span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Email"</span><span class="p">:</span><span class="s2">"compradorteste@live.com"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Birthdate"</span><span class="p">:</span><span class="s2">"1991-01-02"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"552125553669"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Rua Júpter"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"174"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"AP 201"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="s2">"21241140"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"State"</span><span class="p">:</span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Rua Júpter"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"174"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"AP 201"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="s2">"21241140"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"State"</span><span class="p">:</span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"BillingAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Rua Júpter"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"174"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"AP 201"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="s2">"21241140"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"State"</span><span class="p">:</span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"402400******2931"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste accept"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"492115"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10069930692606D31001"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"FraudAnalysis"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"cybersource"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Sequence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AuthorizeFirst"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"SequenceCriteria"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OnSuccess"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"FingerPrintId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"074c1ee676ed4998ab66491013c565e2"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"MerchantDefinedFields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="mi">95</span><span class="p">,</span><span class="w">
-                    </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Eu defini isso"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">],</span><span class="w">
-            </span><span class="nl">"Cart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"IsGift"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"ReturnsAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                    </span><span class="p">{</span><span class="w">
-                        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AdultContent"</span><span class="p">,</span><span class="w">
-                        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ItemTeste"</span><span class="p">,</span><span class="w">
-                        </span><span class="nl">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"High"</span><span class="p">,</span><span class="w">
-                        </span><span class="nl">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"201411170235134521346"</span><span class="p">,</span><span class="w">
-                        </span><span class="nl">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-                        </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                        </span><span class="nl">"HostHedge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Off"</span><span class="p">,</span><span class="w">
-                        </span><span class="nl">"NonSensicalHedge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Off"</span><span class="p">,</span><span class="w">
-                        </span><span class="nl">"ObscenitiesHedge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Off"</span><span class="p">,</span><span class="w">
-                        </span><span class="nl">"PhoneHedge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Off"</span><span class="p">,</span><span class="w">
-                        </span><span class="nl">"TimeHedge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
-                        </span><span class="nl">"VelocityHedge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"High"</span><span class="p">,</span><span class="w">
-                        </span><span class="nl">"GiftCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Undefined"</span><span class="p">,</span><span class="w">
-                        </span><span class="nl">"Passenger"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                            </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador accept"</span><span class="p">,</span><span class="w">
-                            </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
-                            </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accepted"</span><span class="p">,</span><span class="w">
-                            </span><span class="nl">"Rating"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adult"</span><span class="p">,</span><span class="w">
-                            </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"compradorteste@live.com"</span><span class="p">,</span><span class="w">
-                            </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"999994444"</span><span class="w">
-                        </span><span class="p">}</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
-                </span><span class="p">]</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"Travel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Route"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MAO-RJO"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"DepartureTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2010-01-02T00:00:00"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"JourneyType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ida"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Legs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-                    </span><span class="p">{</span><span class="w">
-                        </span><span class="nl">"Destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GYN"</span><span class="p">,</span><span class="w">
-                        </span><span class="nl">"Origin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VCP"</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
-                </span><span class="p">]</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"Browser"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"HostName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"CookiesAccepted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"compradorteste@live.com"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chrome"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"IpAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.190.150.350"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"Shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Addressee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sr Comprador Teste"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21114740"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LowCost"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0e4d0a3c-e424-4fa5-a573-4eabbd44da42"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ReplyData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"AddressInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COR-BA^MM-BIN"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"FactorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"B^D^R^Z"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Score"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"BinCountry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"us"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"CardIssuer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FIA CARD SERVICES, N.A."</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"CardScheme"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VisaCredit"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"HostSeverity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"InternetInfoCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FREE-EM^RISK-EM"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"IpRoutingMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Undefined"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"ScoreModelUsed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default_lac"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"CasePriority"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"04096cfb-3f0a-4ece-946c-3b7dc5d38f19"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ExtraDataCollection"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transação autorizada"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"capture"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Format</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
-      <td>Authorization number, identical to NSU.</td>
-      <td>Text</td>
-      <td>6</td>
-      <td>Alphanumeric text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
-      <td>Transaction Id on the acquirer.</td>
-      <td>Text</td>
-      <td>20</td>
-      <td>Alphanumeric text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
-      <td>Authorization code.</td>
-      <td>Text</td>
-      <td>6</td>
-      <td>Alphanumeric text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
-      <td>Text that will be printed on the carrier’s bank invoice - Available only for VISA/MASTER - does not allow special characters</td>
-      <td>Text</td>
-      <td>13</td>
-      <td>Alphanumeric text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Order Identifier Field.</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Id</code></td>
-      <td>Identification of the Transaction in the antifraud.</td>
-      <td>Text</td>
-      <td>300</td>
-      <td>Alphanumeric text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction Status.</td>
-      <td>Byte</td>
-      <td>—</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Score</code></td>
-      <td>Total score calculated for the order. Goes from 0 the 100 - The higher, the greater the risk.</td>
-      <td>Number</td>
-      <td>—</td>
-      <td>Number</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">BinCountry</code></td>
-      <td>Initials of the country of origin of the purchase.</td>
-      <td>Text</td>
-      <td>2</td>
-      <td>us</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CardIssuer</code></td>
-      <td>Name of the bank or issuer of the card.</td>
-      <td>Text</td>
-      <td>128</td>
-      <td>Bradesco</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ScoreModelUsed</code></td>
-      <td>Name of the used score model.</td>
-      <td>Text</td>
-      <td>20</td>
-      <td>Ex: default_lac</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CasePriority</code></td>
-      <td>If the merchant is subscribe to Enhanced Case Management, it receives this value with the priority level, with 1 being the highest and 5 being the lowest.</td>
-      <td>Number</td>
-      <td>—</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
-      <td>Return code of acquiring.</td>
-      <td>Text</td>
-      <td>32</td>
-      <td>Alphanumeric text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
-      <td>Return message of Acquiring.</td>
-      <td>Text</td>
-      <td>512</td>
-      <td>Alphanumeric text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">HostSeverity</code></td>
-      <td>Risk level of the buyer’s e-mail domain, from 0 to 5, where 0 is undetermined risk and 5 represents the highest risk.</td>
-      <td>Number</td>
-      <td>—</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CardScheme</code></td>
-      <td>Issuer type</td>
-      <td>Text</td>
-      <td>20</td>
-      <td>Ver Tabela <strong>CardScheme</strong></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">InternetInfoCode</code></td>
-      <td>Sequence of codes that indicate that there is an excessive change of buyer identities. The codes are concatenated using the ^ character.</td>
-      <td>Text</td>
-      <td>255</td>
-      <td>Ver tabela <strong>InternetInfoCode</strong></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FraudAnalysisReasonCode</code></td>
-      <td>Analysis result.</td>
-      <td>Byte</td>
-      <td>—</td>
-      <td>Ver tabela <strong>FraudAnalysisReasonCode</strong></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AddressInfoCode</code></td>
-      <td>Combination of codes indicating error in the billing address and / or delivery. The codes are concatenated using the ^ character.</td>
-      <td>Text</td>
-      <td>255</td>
-      <td>Ex: COR-BA^MM-BIN -&gt; Ver tabela <strong>AddressInfoCode</strong></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">FactorCode</code></td>
-      <td>Combination of codes that indicate the order’s score. The codes are concatenated using the ^ character.</td>
-      <td>Text</td>
-      <td>100</td>
-      <td>Ex: B^D^R^Z -  Ver tabela <strong>FactorCode</strong></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">IpRoutingMethod</code></td>
-      <td>Type of IP routing used by the computer.</td>
-      <td>Text</td>
-      <td>—</td>
-      <td><br />Anonymizer<br />AolBased<br />CacheProxy<br />Fixed<br />InternationalProxy<br />MobileGateway<br />Pop<br />RegionalProxy<br />Satellite<br />SuperPop<br /></td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="af-tables">AF Tables</h2>
-
-<h3 id="status-do-af">Status do AF</h3>
-
-<blockquote>
-  <p>The status below are displayed in the Backoffice of the Cielo E-Commerce API, inside the Cielo website</p>
-</blockquote>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Description</th>
-      <th>Note</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>‘Started’</td>
-      <td>Transaction received by Cielo.</td>
-      <td>Transaction data were accepted and submitted for review.</td>
-    </tr>
-    <tr>
-      <td>‘Accept’</td>
-      <td>Transaction accepted after fraud analysis.</td>
-      <td>Transaction approved by the risk analysis.</td>
-    </tr>
-    <tr>
-      <td>‘Review’</td>
-      <td>Transaction under review after fraud analysis.</td>
-      <td>Transaction forwarded for manual review - will be reviewed by BPO.</td>
-    </tr>
-    <tr>
-      <td>‘Reject’</td>
-      <td>Transaction rejected after fraud analysis.</td>
-      <td>Transaction rejected by risk analysis.</td>
-    </tr>
-    <tr>
-      <td>‘Unfinished’</td>
-      <td>Transaction not finalized due to some internal error in the system.</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <td>‘Pendent’</td>
-      <td>Transaction waiting for analysis</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <td>‘ProviderError’</td>
-      <td>Transaction with error in antifraud provider.</td>
-      <td>N/A</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="fraudanalysisitems">FraudAnalysis.Items</h3>
-
-<h4 id="giftcategory">GiftCategory</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Yes</td>
-      <td>In case of divergence between billing and delivery addresses, mark as small risk.</td>
-    </tr>
-    <tr>
-      <td>No</td>
-      <td>In case of divergence between billing and delivery addresses, mark as high risk.</td>
-    </tr>
-    <tr>
-      <td>Off</td>
-      <td>Ignores risk analysis for divergent addresses.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="hosthedge">HostHedge</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Low</td>
-      <td>Low importance of e-mail and IP address in risk analysis.</td>
-    </tr>
-    <tr>
-      <td>Normal</td>
-      <td>Average importance of e-mail and IP address in risk analysis.</td>
-    </tr>
-    <tr>
-      <td>High</td>
-      <td>High importance of e-mail and IP address in risk analysis.</td>
-    </tr>
-    <tr>
-      <td>Off</td>
-      <td>E-mail and IP address do not affect the risk analysis.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="nonsensicalhedge">NonSensicalHedge</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Low</td>
-      <td>Low importance of the verification made on the buyer’s order, in the risk analysis.</td>
-    </tr>
-    <tr>
-      <td>Normal</td>
-      <td>Average importance of the verification made on the buyer’s order, in the risk analysis.</td>
-    </tr>
-    <tr>
-      <td>High</td>
-      <td>High importance of the verification made on the buyer’s order, in the risk analysis.</td>
-    </tr>
-    <tr>
-      <td>Off</td>
-      <td>Verification of buyer’s order does not affect risk analysis.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="fraudanalysiscart">FraudAnalysis.Cart</h3>
-
-<h4 id="obscenitieshedge">ObscenitiesHedge</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Low</td>
-      <td>Low importance of obscenities verification of buyer’s order, in the risk analysis.</td>
-    </tr>
-    <tr>
-      <td>Normal</td>
-      <td>Average importance of obscenities verification of buyer’s order, in the risk analysis.</td>
-    </tr>
-    <tr>
-      <td>High</td>
-      <td>High importance of obscenities verification of buyer’s order, in the risk analysis.</td>
-    </tr>
-    <tr>
-      <td>Off</td>
-      <td>Obscenity verification of buyer’s order does not affect risk analysis.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="phonehedge">PhoneHedge</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Low</td>
-      <td>Low importance on tests performed with telephone numbers.</td>
-    </tr>
-    <tr>
-      <td>Normal</td>
-      <td>Average importance on tests performed with telephone numbers.</td>
-    </tr>
-    <tr>
-      <td>High</td>
-      <td>High importance on tests performed with telephone numbers.</td>
-    </tr>
-    <tr>
-      <td>Off</td>
-      <td>Phone number tests do not affect risk analysis.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="risk">Risk</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Low</td>
-      <td>The product has a history of few chargebacks.</td>
-    </tr>
-    <tr>
-      <td>Normal</td>
-      <td>The product has a history of chargebacks considered normal.</td>
-    </tr>
-    <tr>
-      <td>High</td>
-      <td>Product has an above average chargeback history.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="timehedge">TimeHedge</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Low</td>
-      <td>Low importance of the time of day when the purchase was made, for the risk analysis.</td>
-    </tr>
-    <tr>
-      <td>Normal</td>
-      <td>Average importance of the time of day when the purchase was made, for the risk analysis.</td>
-    </tr>
-    <tr>
-      <td>High</td>
-      <td>High importance of the time of day when the purchase was made, for the risk analysis.</td>
-    </tr>
-    <tr>
-      <td>Off</td>
-      <td>Purchase time does not affect risk analysis.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="type">Type</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>CN</td>
-      <td>Business buyer</td>
-    </tr>
-    <tr>
-      <td>CP</td>
-      <td>Private buyer</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="velocityhedge">VelocityHedge</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Low</td>
-      <td>Low importance on the number of purchases made by the customer in the last 15 minutes.</td>
-    </tr>
-    <tr>
-      <td>Normal</td>
-      <td>Average importance on the number of purchases made by the customer in the last 15 minutes.</td>
-    </tr>
-    <tr>
-      <td>High</td>
-      <td>High importance on the number of purchases made by the customer in the last 15 minutes.</td>
-    </tr>
-    <tr>
-      <td>Off</td>
-      <td>The frequency of purchases made by the customer does not affect the fraud analysis.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="rating">Rating</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Adult</td>
-      <td>Adult passenger.</td>
-    </tr>
-    <tr>
-      <td>Child</td>
-      <td>Child passenger.</td>
-    </tr>
-    <tr>
-      <td>Infant</td>
-      <td>Infant passenger.</td>
-    </tr>
-    <tr>
-      <td>Youth</td>
-      <td>Teenage passenger.</td>
-    </tr>
-    <tr>
-      <td>Student</td>
-      <td>Student passenger.</td>
-    </tr>
-    <tr>
-      <td>SeniorCitizen</td>
-      <td>Elderly passenger.</td>
-    </tr>
-    <tr>
-      <td>Military</td>
-      <td>Military passenger.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="fraudanalysisshipping">FraudAnalysis.Shipping</h3>
-
-<h4 id="method">Method</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>None</td>
-    </tr>
-    <tr>
-      <td>SameDay</td>
-    </tr>
-    <tr>
-      <td>OneDay</td>
-    </tr>
-    <tr>
-      <td>TwoDay</td>
-    </tr>
-    <tr>
-      <td>ThreeDay</td>
-    </tr>
-    <tr>
-      <td>LowCost</td>
-    </tr>
-    <tr>
-      <td>Pickup</td>
-    </tr>
-    <tr>
-      <td>Other</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="fraudanalysisreplydata">FraudAnalysis.ReplyData</h3>
-
-<h4 id="cardscheme">CardScheme</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Issuer type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MaestroInternational</code></td>
-      <td>International Maestro</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MaestroUkDomestic</code></td>
-      <td>Domestic UK Maestro</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MastercardCredit</code></td>
-      <td>Credit MasterCard</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MastercardDebit</code></td>
-      <td>Debit MasterCard</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VisaCredit</code></td>
-      <td>Credit Visa</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VisaDebit</code></td>
-      <td>Debit Visa</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VisaElectron</code></td>
-      <td>Visa Electron</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="addressinfocode">AddressInfoCode</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">COR-BA</code></td>
-      <td>The billing address can be normalized</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">COR-SA</code></td>
-      <td>The delivery address can be normalized</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">INTL-SA</code></td>
-      <td>The delivery country is out side of the U.S</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MIL-USA</code></td>
-      <td>This is a military address in the U.S.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MM-A</code></td>
-      <td>CONFIRM THE ADDRESS: Billing and shipping addresses are not related</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MM-BIN</code></td>
-      <td>CONFIRM THE PURCHASE WITH CARD HOLDER: Used card was issued in another country</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MM-C</code></td>
-      <td>CONFIRM THE ADDRESS: Billing and shipping addresses are not related</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MM-CO</code></td>
-      <td>CONFIRM THE ADDRESS: Billing and shipping addresses are not related</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MM-ST</code></td>
-      <td>CONFIRM THE ADDRESS: Billing and shipping addresses are not related</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MM-Z</code></td>
-      <td>CONFIRM THE ADDRESS: Billing and shipping addresses are not related</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">UNV-ADDR</code></td>
-      <td>The address is unverifiable</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="internetinfocode">InternetInfoCode</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MORPH-B</code></td>
-      <td>CAUTION: billing address was used by many different customers</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MORPH-C</code></td>
-      <td>CAUTION: the card was used by many different customers</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MORPH-E</code></td>
-      <td>CAUTION: email address was used by many different clients</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MORPH-I</code></td>
-      <td>The same IP address has been used multiple times with multiple customer identities</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MORPH-P</code></td>
-      <td>CAUTION: phone number was used by many different clients</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MORPH-S</code></td>
-      <td>CAUTION: delivery address was used by many different clients</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="fraudanalysisreasoncode">FraudAnalysisReasonCode</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Description</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">100</code></td>
-      <td>Operation successful.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">101</code></td>
-      <td>The request is missing one or more required fields. Possible action: See the missing fields in the AntiFraudResponse.MissingFieldCollection list. Resend the request with the complete information.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">102</code></td>
-      <td>One or more of the fields in the request contain invalid data. Possible action: View the invalid fields in the AntiFraudResponse.InvalidFieldCollection list. Resend the order with the correct information.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">150</code></td>
-      <td>General system failure. Possible action: Wait a few minutes and try resending the request.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">151</code></td>
-      <td>The request was received, but a time-out occurred on the server. This error does not include time-out between the client and the server. Possible action: Wait a few minutes and try resending the request.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">152</code></td>
-      <td>The request was received, but a time-out occurred. Possible action: Wait a few minutes and resubmit the request.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">202</code></td>
-      <td>Fraud Prevention declined the request because the card has expired. You can also receive this code if the expiry date does not match the date on file of the issuing bank. If the payment processor allows you to issue credits to expired cards, CyberSource does not allow this functionality. Possible action: Request a card or other form of payment.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">231</code></td>
-      <td>The account number is invalid. Possible action: Request a card or other payment method.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">234</code></td>
-      <td>There is a problem with the merchant configuration. Possible action: Do not send the request. Get in touch with the Customer Support to correct the configuration problem.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">400</code></td>
-      <td>The fraud rate exceeds its limit. Possible action: Review the customer’s request.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">480</code></td>
-      <td>The request has been marked for review by the Decision Manager.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">481</code></td>
-      <td>The request was rejected by the Decision Manager.</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="factorcode">FactorCode</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">A</code></td>
-      <td>CONFIRM THE ADDRESS: Excessive address change. The customer has changed the billing address two or more times in the last six months.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">B</code></td>
-      <td>BIN of the card or risk authorization. Risk factors are related to credit card BIN and / or card authorization checks.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">C</code></td>
-      <td>CONFIRM THE PURCHASE WITH CARD HOLDER: The customer has used more than six credit card numbers in the last few months.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">D</code></td>
-      <td>Impact of email address. The customer uses a free email provider or the email address is risky.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">E</code></td>
-      <td>Positive list. The customer is on your positive list.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">F</code></td>
-      <td>CAUTION: Some of the following information relates to a transaction that has been reported as fraudulent (card, address, or email).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">G</code></td>
-      <td>Computer location different from the location informed at the time of purchase. Attention!</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">H</code></td>
-      <td>CONFIRM THE PURCHASE WITH CARD HOLDER: The customer has changed its name two or more times in the last months.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">I</code></td>
-      <td>CONFIRM THE ADDRESS: The IP address and email domain are not consistent with the billing address.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">N</code></td>
-      <td>CONFIRM THE CARD HOLDER AND THE ADDRESS: They contain meaningless words.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">O</code></td>
-      <td>CONFIRM THE CARD HOLDER AND THE ADDRESS: They contain meaningless words.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">P</code></td>
-      <td>CONFIRM THE CARD HOLDER AND THE ADDRESS: Registered information is shared between different clients.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Q</code></td>
-      <td>Phone inconsistencies. The customer’s phone number is suspect.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">R</code></td>
-      <td>CONFIRM THE CARD HOLDER AND THE ADDRESS: There are correlated risk information in the order.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">T</code></td>
-      <td>Coverage Time. The customer is attempting an order outside of the expected time.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">U</code></td>
-      <td>Unverifiable address. The billing or delivery address can not be verified.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">V</code></td>
-      <td>CONFIRM THE PURCHASE WITH CARD HOLDER: The card has been used many times in the last 15 minutes.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">W</code></td>
-      <td>CAUTION: The address is related to a transaction that has been reported as fraudulent.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Z</code></td>
-      <td>CONFIRM THE ADDRESS: Billing and shipping addresses are not related.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="provideranalysisresultafsreplyhotlistinfocode">ProviderAnalysisResult.AfsReply.HotListInfoCode</h4>
-
-<h4 id="provideranalysisresultafsreplyvelocityinfocode">ProviderAnalysisResult.AfsReply.VelocityInfoCode</h4>
-
-<h3 id="others">Others</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">INV-EM</code></td>
-      <td>CONFIRM THE EMAIL: email is invalid.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MM-EMBCO</code></td>
-      <td>Computer location different from the location informed the time of purchase. Attention!</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MM-IPBC</code></td>
-      <td>CONFIRM THE ADDRESS: the billing address is not related to the IP location.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MM-IPBCO</code></td>
-      <td>CONFIRM THE ADDRESS: the billing address is not related to the IP location.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MM-IPBST</code></td>
-      <td>CONFIRM THE ADDRESS: the billing address is not related to the IP location.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MM-IPEM</code></td>
-      <td>CONFIRM THE ADDRESS: the billing address is not related to the IP location.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RISK-EM</code></td>
-      <td>CONFIRM PURCHASE AND THE EMAIL WITH CARD HOLDER: Email domain is high risk.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">UNV-NID</code></td>
-      <td>CONFIRM THE PURCHASE WITH CARD HOLDER: the IP used belongs to an anonymous proxy.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">UNV-RISK</code></td>
-      <td>CONFIRM THE PURCHASE WITH CARD HOLDER: the IP used is high risk.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">UNV-EMBCO</code></td>
-      <td>CONFIRM THE ADDRESS: the billing address is not related to the IP location.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CON-POSNEG</code></td>
-      <td>CAUTION: some of the following information are related to a transaction that has been reported as fraudulent (card, address, or email).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">NEG-BA</code></td>
-      <td>CAUTION: billing address related to a transaction reported as fraudulent.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">NEG-BCO</code></td>
-      <td>CAUTION: billing address related to a transaction reported as fraudulent.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">NEG-BIN</code></td>
-      <td>CAUTION: card BIN related to transactions reported as fraudulent.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">NEG-BZC</code></td>
-      <td>CAUTION: zip code of the billing address related to transactions reported as fraudulent.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">NEG-CC</code></td>
-      <td>CAUTION: card related to transactions reported as fraudulent.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">NEG-EM</code></td>
-      <td>CAUTION: email related to transactions reported as fraudulent.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">NEG-EMDOM</code></td>
-      <td>CAUTION: email domain related to transactions reported as fraudulent.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">NEG-HIST</code></td>
-      <td>CAUTION: transaction is related to a transaction that has been reported as fraudulent.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">NEG-ID</code></td>
-      <td>CAUTION: card related to transactions reported as fraudulent.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">NEG-IP</code></td>
-      <td>CAUTION: IP related to transactions reported as fraudulent.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">NEG-IP3</code></td>
-      <td>CAUTION: IP related to transactions reported as fraudulent.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">NEG-PEM</code></td>
-      <td>CAUTION: passenger email related to transactions reported as fraudulent.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">NEG-PH</code></td>
-      <td>CAUTION: phone number related to transactions reported as fraudulent.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">NEG-PID</code></td>
-      <td>CAUTION: passenger ID related to transactions reported as fraudulent.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">NEG-PPH</code></td>
-      <td>CAUTION: passenger phone number related to transactions reported as fraudulent.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">NEG-SA</code></td>
-      <td>CAUTION: shipping address related to transactions reported as fraudulent.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VEL-ADDR</code></td>
-      <td>CONFIRM THE PURCHASE AND THE ADDRESS WITH CARD HOLDER: There are many addresses related to the card or the email .</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VEL-CC</code></td>
-      <td>CONFIRM THE PURCHASE WITH CARD HOLDER: There are many cards related to the name or the email.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VEL-NAME</code></td>
-      <td>CONFIRM THE PURCHASE WITH CARD HOLDER: There are many names related to the card.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VELS-CC</code></td>
-      <td>Card used many times recently.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VELI-CC</code></td>
-      <td>Card used many times recently.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VELL-CC</code></td>
-      <td>Card used many times recently.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VELV-CC</code></td>
-      <td>Card used many times recently.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VELS-EM</code></td>
-      <td>Email used many times recently.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VELI-EM</code></td>
-      <td>Email used many times recently.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VELL-EM</code></td>
-      <td>Email used many times recently.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VELV-EM</code></td>
-      <td>Email used many times recently.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VELS-IP</code></td>
-      <td>IP used many times recently.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VELI-IP</code></td>
-      <td>IP used many times recently.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VELL-IP</code></td>
-      <td>IP used many times recently.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VELV-IP</code></td>
-      <td>IP used many times recently.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VELS-SA</code></td>
-      <td>Shipping address used many times recently.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VELI-SA</code></td>
-      <td>Shipping address used many times recently.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VELL-SA</code></td>
-      <td>Shipping address used many times recently.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VELV-SA</code></td>
-      <td>Shipping address used many times recently.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VELS-TIP</code></td>
-      <td>IP used many times recently.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VELI-TIP</code></td>
-      <td>IP used many times recently.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VELL-TIP</code></td>
-      <td>IP used many times recently.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">BAD-FP</code></td>
-      <td>CAUTION: risk device.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">INTL-BIN</code></td>
-      <td>Credit card issued outside Brazil.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MM-TZTLO</code></td>
-      <td>Device time zone is incompatible with country time zone.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MUL-EM</code></td>
-      <td>The customer used many different email addresses in various orders.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">NON-BC</code></td>
-      <td>Suspicious typing in city name.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">NON-FN</code></td>
-      <td>The first and last name of the customer are identical.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">NON-LN</code></td>
-      <td>Suspicious typing on client’s last name.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RISK-BC</code></td>
-      <td>Suspicious typing in city name.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RISK-BIN</code></td>
-      <td>CAUTION: Card BIN related to transactions reported as fraudulent.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RISK-DEV</code></td>
-      <td>CAUTION: risk device.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RISK-FN</code></td>
-      <td>Suspicious typing in customer name.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RISK-LN</code></td>
-      <td>Suspicious typing in customer last name.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RISK-PIP</code></td>
-      <td>Risk proxy IP.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RISK-SD</code></td>
-      <td>Country of shipment and billing are different.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RISK-TB</code></td>
-      <td>Suspicious order time</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RISK-TIP</code></td>
-      <td>Risk IP address.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RISK-TS</code></td>
-      <td>Suspicious order time.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="device-fingerprint">Device FingerPrint</h2>
-
-<h3 id="what-is-dfingerprint">What is D.FingerPrint</h3>
-
-<p>The Device FingerPrint is a javascript that once installed at the store checkout captures browsing data and information about the equipment used in the purchase. This information is used by AF to identify buyer non-standard purchases.</p>
-
-<h3 id="configuring-fingerprint">Configuring FingerPrint</h3>
-
-<p>It will be necessary to add two tags, the <em>script</em> inside the <em>head</em> tag for a correct performance and the <em>noscript</em> inside the <em>body</em> tag, so that the data collection of the device is performed even if the Javascript of the browser is disabled.</p>
-
-<blockquote>
-  <p><strong>IMPORTANT:</strong> If the 2 code segments are not placed on the checkout page, the results may not be accurate.</p>
-</blockquote>
-
-<h4 id="domain">Domain</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Environment</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Testing</strong></td>
-      <td>Use <strong>h.online-metrix.net</strong>,which is the DNS of the fingerprint server, as shown in the HTML example below</td>
-    </tr>
-    <tr>
-      <td><strong>Production</strong></td>
-      <td>Change the domain to a local URL, and configure your web server to redirect this URL to<strong>h.online-metrix.net</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="variables">Variables</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Variable</th>
-      <th>Description</th>
-      <th>SuperMID</th>
-      <th>Hierarchy</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>ProviderOrgId</strong></td>
-      <td>Sandbox = 1snn5n9w<br />Production = k8vif92e</td>
-      <td>Use default value <code class="language-plaintext highlighter-rouge">k8vif92e</code></td>
-      <td>Data provided exclusively by CyberSource</td>
-    </tr>
-    <tr>
-      <td><strong>ProviderMerchantId</strong></td>
-      <td>Identificador da sua loja na Cybersource. Caso não possua, entre em contato com a Cielo</td>
-      <td>Use o valor padrão <code class="language-plaintext highlighter-rouge">cielo_webservice</code></td>
-      <td>Data provided exclusively by CyberSource</td>
-    </tr>
-    <tr>
-      <td><strong>ProviderIdentifier</strong></td>
-      <td>Identifier used to cross information obtained from the buyer’s device.This same identifier must be assigned to the field <code class="language-plaintext highlighter-rouge">Customer.BrowserFingerprint</code> which will be sent at the request of the analysis. <br />Example: 123456789<br /> Note: This identifier can be any value or order number, but must be unique for 48 hours. Defined by store</td>
-      <td>Defined by store</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p><strong>Note:</strong> The result of the concatenation between the field <code class="language-plaintext highlighter-rouge">ProviderMerchantId</code> and <code class="language-plaintext highlighter-rouge">ProviderIdentifier</code>, dmust be assigned to the field session_id of the  scripts that will be included on the checkout page.</p>
-</blockquote>
-
-<p><img src="https://developercielo.github.io/images/apicieloecommerce/exemploscriptdfp.png" alt="" /></p>
-
-<blockquote>
-  <p><strong>IMPORTANT:</strong> Be sure to copy all data correctly and have replaced the variables correctly by their values.</p>
-</blockquote>
-
-<h4 id="configuring-your-web-server">Configuring your Web Server</h4>
-
-<p>All objects refer to h.online-metrix.net,which is the DNS of the fingerprint server. When you are ready for production, you must change the server name to a local URL, and configure a URL redirection on your web server to h.online-metrix.net.</p>
-
-<blockquote>
-  <p><strong>IMPORTANT:</strong> If you do not complete this section, you will not receive correct results, and the fingerprint provider’s domain (URL) will be visible, and your consumer is more likely to block it.</p>
-</blockquote>
-
 <h1 id="velocity">Velocity</h1>
 
 <h2 id="what-is-velocity">What is Velocity</h2>
@@ -10480,7 +8216,7 @@ It is possible to carry out both the total cancellation and the partial cancella
 
 <p>The functionality must be contracted separately, and later enabled in your store by the Cielo Ecommerce Support team via Admin 3.0</p>
 
-<h2 id="integration-1">Integration</h2>
+<h2 id="integration">Integration</h2>
 
 <p>Velocity works by analyzing data sent in the standard Cielo Ecommerce API integration. It is not necessary to add any additional node to the store integration for the creation of the sale, but it will be necessary to change the way the data is received <code class="language-plaintext highlighter-rouge">Response</code>.</p>
 
@@ -10849,7 +8585,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>The <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> parameter must be <code class="language-plaintext highlighter-rouge">true</code>, otherwise the transaction will be declined.</p>
 
-<h4 id="request-20">Request</h4>
+<h4 id="request-19">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -11026,7 +8762,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h4 id="response-24">Response</h4>
+<h4 id="response-23">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -11277,7 +9013,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <aside class="notice">Warning: In this recurrence mode, the first transaction must be of captured. All subsequent transactions will be automatically captured.</aside>
 
-<h4 id="request-21">Request</h4>
+<h4 id="request-20">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -11476,7 +9212,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h4 id="response-25">Response</h4>
+<h4 id="response-24">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -11665,7 +9401,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>To create a recurring sale whose first recurrence will not be authorized on the same date with the form of payment as credit card, just do a POST as the example.</p>
 
-<h3 id="request-22">Request</h3>
+<h3 id="request-21">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -11922,7 +9658,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-26">Response</h3>
+<h3 id="response-25">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -12076,7 +9812,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>To change the Recurrence buyer’s data, just do a Put as the example.</p>
 
-<h4 id="request-23">Request</h4>
+<h4 id="request-22">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
@@ -12340,7 +10076,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h4 id="response-27">Response</h4>
+<h4 id="response-26">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -12351,7 +10087,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>To change the end date of the Recurrence, just do a Put as the example.</p>
 
-<h4 id="request-24">Request</h4>
+<h4 id="request-23">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
@@ -12418,7 +10154,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h4 id="response-28">Response</h4>
+<h4 id="response-27">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -12429,7 +10165,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>To change the Recurrence Interval, just do a Put according to the example.</p>
 
-<h4 id="request-25">Request</h4>
+<h4 id="request-24">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
@@ -12496,7 +10232,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h4 id="response-29">Response</h4>
+<h4 id="response-28">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -12509,7 +10245,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <aside class="notice">Rule: If the new day informed is after the current day, we will update the recurrence day with effect on the next recurrence. E.g.: Today is day 5, and the next recurrence is day 05/25. When I upgrade to day 10, the date of the next recurrence will be day 05/10. If the new day reported is before the current day, we will update the recurrence day, but this will only take effect after the next recurrence is successfully performed. E.g.: Today is day 5, and the next recurrence is day 05/25. When I upgrade to day 3, the date of the next recurrence will remain on 05/25, and after it performs, the next one will be scheduled for day 06/03. If the new informed day is before the current day, but the next recurrence is in another month, we will update the recurrence day with effect on the next recurrence. E.g.: Today is day 5, and the next recurrence is day 09/25. When I upgrade to day 3, the next recurrence date will be 09/03</aside>
 
-<h4 id="request-26">Request</h4>
+<h4 id="request-25">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
@@ -12576,7 +10312,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h4 id="response-30">Response</h4>
+<h4 id="response-29">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -12587,7 +10323,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>To modify the value of the recurrence, just do a Put as example.</p>
 
-<h4 id="request-27">Request</h4>
+<h4 id="request-26">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Amount</span></aside>
 
@@ -12656,7 +10392,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <aside class="warning">This change only affects the payment date of the next recurrence.</aside>
 
-<h4 id="response-31">Response</h4>
+<h4 id="response-30">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -12667,7 +10403,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>To change the date of the next Payment, just do a Put as the example.</p>
 
-<h4 id="request-28">Request</h4>
+<h4 id="request-27">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
 
@@ -12734,7 +10470,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h4 id="response-32">Response</h4>
+<h4 id="response-31">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -12747,7 +10483,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <aside class="notice">Warning: This change affects all data in the Payment node. So to keep the previous data you must inform the fields that will not change with the same values that were already saved.</aside>
 
-<h4 id="request-29">Request</h4>
+<h4 id="request-28">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -12896,7 +10632,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h4 id="response-33">Response</h4>
+<h4 id="response-32">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -12907,12 +10643,79 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>To disable a recurrent order, just do a Put as the example.</p>
 
-<h4 id="request-30">Request</h4>
+<h4 id="request-29">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Deactivate</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
 <span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Deactivate"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Store identifier in API Cielo eCommerce.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
+      <td>Text</td>
+      <td>40</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Recurrence identification number.</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="response-33">Response</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
+</code></pre></div></div>
+
+<p>See the Annex <a href="#http-status-code">HTTP Status Code</a> to the list with all HTTP status codes possibly returned by the API.</p>
+
+<h3 id="rehabilitating-a-recurrent-order">Rehabilitating a Recurrent Order</h3>
+
+<p>To Rehabilitate a recurring order, just do a Put as the example.</p>
+
+<h4 id="request-30">Request</h4>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
@@ -12970,73 +10773,6 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>See the Annex <a href="#http-status-code">HTTP Status Code</a> to the list with all HTTP status codes possibly returned by the API.</p>
 
-<h3 id="rehabilitating-a-recurrent-order">Rehabilitating a Recurrent Order</h3>
-
-<p>To Rehabilitate a recurring order, just do a Put as the example.</p>
-
-<h4 id="request-31">Request</h4>
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate"</span>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="nt">--verbose</span>
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Required</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier in API Cielo eCommerce.</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
-      <td>Text</td>
-      <td>40</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
-      <td>Recurrence identification number.</td>
-      <td>Text</td>
-      <td>50</td>
-      <td>Yes</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="response-35">Response</h4>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
-</code></pre></div></div>
-
-<p>See the Annex <a href="#http-status-code">HTTP Status Code</a> to the list with all HTTP status codes possibly returned by the API.</p>
-
 <h2 id="renew-easy">Renew easy</h2>
 
 <p>The use of this feature allows the automatic replacement of an expired card .
@@ -13044,7 +10780,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 <aside class="notice">Warning: It is necessary to request enabling this feature in the register  </aside>
 
-<h3 id="request-32">Request</h3>
+<h3 id="request-31">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -13250,7 +10986,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-36">Response</h3>
+<h3 id="response-35">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -13527,7 +11263,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 <p>To save a card without authorizing it, just perform a post with the card data.</p>
 
-<h3 id="request-33">Request</h3>
+<h3 id="request-32">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/card/</span></aside>
 
@@ -13606,7 +11342,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-37">Response</h3>
+<h3 id="response-36">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"CardToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"db62dc71-d07b-4745-9969-42697b988ccb"</span><span class="p">,</span><span class="w">
@@ -13654,7 +11390,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 <p>To save a card by creating its token, just send a sales creation standard request by sending SaveCard as “true”. The response will return the card Token.</p>
 
-<h3 id="request-34">Request</h3>
+<h3 id="request-33">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -14056,7 +11792,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-38">Response</h3>
+<h3 id="response-37">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -14289,7 +12025,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 <p>Customers who card tokenize along with the Card Networks can send the information to Cielo in the transactional flow.</p>
 
-<h3 id="request-35">Request</h3>
+<h3 id="request-34">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -14700,7 +12436,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-39">Response</h3>
+<h3 id="response-38">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -14933,7 +12669,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 <p>To create a credit card sale with protected card token, it is necessary to do a POST for the Payment feature as the example.</p>
 
-<h3 id="request-36">Request</h3>
+<h3 id="request-35">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -15095,7 +12831,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-40">Response</h3>
+<h3 id="response-39">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -15298,7 +13034,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="request-37">Request</h3>
+<h3 id="request-36">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -15435,7 +13171,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-41">Response</h3>
+<h3 id="response-40">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -15678,9 +13414,9 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 <p><strong>Alert about international cards</strong>
 The Submersible can use the bin checker in the cart to alert international buyers, that if the card is not enabled to transact in Brazil, the transaction will be denied.</p>
 
-<h2 id="integration-2">Integration</h2>
+<h2 id="integration-1">Integration</h2>
 
-<h3 id="request-38">Request</h3>
+<h3 id="request-37">Request</h3>
 
 <p>A <code class="language-plaintext highlighter-rouge">GET</code> request must be sent containing the BIN to be checked:</p>
 
@@ -15704,7 +13440,7 @@ The Submersible can use the bin checker in the cart to alert international buyer
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">https://apiquerysandbox.cieloecommerce.cielo.com.br/</span><span class="mi">1</span><span class="err">/cardBin/</span><span class="mi">420020</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="response-42">Response</h3>
+<h3 id="response-41">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
@@ -15845,7 +13581,7 @@ The problem is that at the end of this period, if the card is invalid, the new r
   </li>
 </ul>
 
-<h2 id="integration-3">Integration</h2>
+<h2 id="integration-2">Integration</h2>
 
 <p>In order to use Zero Auth, the merchant must send a <code class="language-plaintext highlighter-rouge">POST</code> request to the Cielo Ecommerce API, simulating a transaction. <code class="language-plaintext highlighter-rouge">POST</code> should be done at the following URLs:</p>
 
@@ -15853,7 +13589,7 @@ The problem is that at the end of this period, if the card is invalid, the new r
 
 <p>Each type of validation requires a different technical contract. They will result in differentiated responses</p>
 
-<h3 id="request-39">Request</h3>
+<h3 id="request-38">Request</h3>
 
 <h4 id="standard">Standard</h4>
 
@@ -15996,7 +13732,7 @@ The problem is that at the end of this period, if the card is invalid, the new r
   </tbody>
 </table>
 
-<h3 id="response-43">Response</h3>
+<h3 id="response-42">Response</h3>
 
 <p>The response always returns if the card can be authorized at the moment. This information only means that <em>the card is valid to transact</em>, but does not necessarily indicate that a certain value will be authorized.</p>
 
@@ -16123,7 +13859,7 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxo-silent-order-post-cielo_-_3_en.png" alt="Transactional_Flow" /></p>
 
-<h2 id="integration-4">Integration</h2>
+<h2 id="integration-3">Integration</h2>
 
 <h3 id="step-1">STEP 1</h3>
 
@@ -16173,7 +13909,7 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
   </ul>
 </blockquote>
 
-<h4 id="request-40">Request</h4>
+<h4 id="request-39">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
@@ -16210,7 +13946,7 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
   </tbody>
 </table>
 
-<h4 id="response-44">Response</h4>
+<h4 id="response-43">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw"</span><span class="p">,</span><span class="w">
@@ -16272,7 +14008,7 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
   </tbody>
 </table>
 
-<h4 id="request-41">Request</h4>
+<h4 id="request-40">Request</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://transactionsandbox.pagador.com.br/post/api/public/v2/accesstoken"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
@@ -16310,7 +14046,7 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
   </tbody>
 </table>
 
-<h4 id="response-45">Response</h4>
+<h4 id="response-44">Response</h4>
 
 <p>As a response, you will receive a JSON (“HTTP 201 Created”) with the SOP AccessToken and some other data.</p>
 
@@ -16447,7 +14183,7 @@ The download can be made from the following URL:</p>
 
 <p>Example: https://transaction.cieloecommerce.cielo.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000</p>
 
-<h3 id="request-42">Request</h3>
+<h3 id="request-41">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v1/accesstoken?merchantid={mid_loja}</span></aside>
 
@@ -16479,7 +14215,7 @@ The download can be made from the following URL:</p>
   </tbody>
 </table>
 
-<h3 id="response-46">Response</h3>
+<h3 id="response-45">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
@@ -16664,7 +14400,7 @@ Each Wallet has an <code class="language-plaintext highlighter-rouge">EphemeralP
 
 <h3 id="decryption">Decryption</h3>
 
-<h4 id="request-43">Request</h4>
+<h4 id="request-42">Request</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--</span><span class="w"> </span><span class="err">Decryption</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -16817,7 +14553,7 @@ Each Wallet has an <code class="language-plaintext highlighter-rouge">EphemeralP
   </tbody>
 </table>
 
-<h4 id="response-47">Response</h4>
+<h4 id="response-46">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -16988,7 +14724,7 @@ Each Wallet has an <code class="language-plaintext highlighter-rouge">EphemeralP
 
 <h3 id="sending-the-card">Sending the card</h3>
 
-<h4 id="request-44">Request</h4>
+<h4 id="request-43">Request</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--</span><span class="w"> </span><span class="err">Sending</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">card</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -17145,7 +14881,7 @@ Each Wallet has an <code class="language-plaintext highlighter-rouge">EphemeralP
   </tbody>
 </table>
 
-<h4 id="response-48">Response</h4>
+<h4 id="response-47">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -17360,7 +15096,7 @@ VKeU<br />
 
 <p>In the model below, we demonstrate how to use the Apple Pay Cielo integration by sending the WalletKey + EphemeralPublicKey returned by Apple via Payload</p>
 
-<h4 id="request-45">Request</h4>
+<h4 id="request-44">Request</h4>
 
 <p>Request Sample <em>Apple Pay</em></p>
 
@@ -17518,7 +15254,7 @@ VKeU<br />
   </tbody>
 </table>
 
-<h4 id="response-49">Response</h4>
+<h4 id="response-48">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -17691,7 +15427,7 @@ VKeU<br />
 
 <p>In the model below, we demonstrate how Apple Pay can be used with sending the card open, without the need for WalletKey.</p>
 
-<h4 id="request-46">Request</h4>
+<h4 id="request-45">Request</h4>
 
 <p>In this model, the merchant only informs that the transaction is from an Apple Pay Wallet and sends the ECI and CAVV data provided by APPLE</p>
 
@@ -17857,7 +15593,7 @@ VKeU<br />
   </tbody>
 </table>
 
-<h4 id="response-50">Response</h4>
+<h4 id="response-49">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6242-642-723"</span><span class="p">,</span><span class="w">
@@ -18047,7 +15783,7 @@ VKeU<br />
   <p><code class="language-plaintext highlighter-rouge">Walletkey</code> is the <code class="language-plaintext highlighter-rouge">CallID</code> parameter returned by VisaCheckout</p>
 </blockquote>
 
-<h4 id="request-47">Request</h4>
+<h4 id="request-46">Request</h4>
 
 <p>Default request sample <em>VisaCheckout</em></p>
 
@@ -18214,7 +15950,7 @@ VKeU<br />
   </tbody>
 </table>
 
-<h4 id="response-51">Response</h4>
+<h4 id="response-50">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
@@ -18400,7 +16136,7 @@ VKeU<br />
 
 <p>In the model below, we demonstrate how VisaCheckout can be used with the sending of the open card without a WalletKey.</p>
 
-<h4 id="request-48">Request</h4>
+<h4 id="request-47">Request</h4>
 
 <p>In this model, the merchant only informs that the transaction is from Wallet VisaCheckout and sends the ECI and CAVV data provided by Visa</p>
 
@@ -18597,7 +16333,7 @@ VKeU<br />
   </tbody>
 </table>
 
-<h4 id="response-52">Response</h4>
+<h4 id="response-51">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -18798,7 +16534,7 @@ VKeU<br />
 
 <p>To use the wallet <a href="https://developer.mastercard.com/product/masterpass"><strong>Masterpass</strong></a> it is necessary that the store is already registered with Mastercard, and integrated the search of card data of the platform.</p>
 
-<h4 id="request-49">Request</h4>
+<h4 id="request-48">Request</h4>
 
 <p>Request Sample <em>Masterpass</em></p>
 
@@ -18978,7 +16714,7 @@ VKeU<br />
   </tbody>
 </table>
 
-<h4 id="response-53">Response</h4>
+<h4 id="response-52">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
@@ -19217,7 +16953,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br />
 
 <p>In the model below, we demonstrate how to use the SamsungPay Cielo integration by sending the WalletKey + EphemeralPublicKey returned by Samsung via Payload</p>
 
-<h4 id="request-50">Request</h4>
+<h4 id="request-49">Request</h4>
 
 <p>Request Sample <em>SamsungPay</em></p>
 
@@ -19375,7 +17111,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br />
   </tbody>
 </table>
 
-<h4 id="response-54">Response</h4>
+<h4 id="response-53">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -19545,7 +17281,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br />
 
 <p>In the model below, we demonstrate how SamsungPay can be used with sending the card open, without the need for WalletKey.</p>
 
-<h4 id="request-51">Request</h4>
+<h4 id="request-50">Request</h4>
 
 <p>In this model, the merchant only informs that the transaction is from an SamsungPay and sends the ECI and CAVV data provided by Samsung</p>
 
@@ -19711,7 +17447,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br />
   </tbody>
 </table>
 
-<h4 id="response-55">Response</h4>
+<h4 id="response-54">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6242-642-723"</span><span class="p">,</span><span class="w">
