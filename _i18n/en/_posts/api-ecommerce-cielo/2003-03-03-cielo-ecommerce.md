@@ -9495,40 +9495,6 @@ If you have any questions or any other technical information, contact Cielo e-Co
 * **Capitals:** 4002-9700
 * **Other Cities:** 0800 570 1700
 
-Opening hours: 24 hours a day, 7 days a week.
- a problem at the merchant's terminal, in which case the merchant should contact Cielo.|Transaction not allowed. Re-enter the card data. If the error persists, contact the virtual store.|No|
-|BL|Unauthorized transaction. Daily limit exceeded.|Unauthorized transaction. Daily limit exceeded. Ask the carrier to contact their issuing bank.|Unauthorized transaction. Daily limit exceeded. Contact your issuing bank.|From the following day, only 4 times in 16 days.|
-|BM|Unauthorized transaction. Invalid card|Unauthorized transaction. Invalid card. It may be card locking at the issuing bank or incorrect data. Try to use the Lhum Algorithm (Mod 10) to avoid unauthorized transactions for this reason.|Unauthorized transaction. Invalid card. Redo the transaction confirming the reported data.|No|
-|BN|Unauthorized transaction. Card or account locked.|Unauthorized transaction. Carrier's card or account is locked. Ask the carrier to contact their issuing bank.|Unauthorized transaction. Carrier's card or account is locked. Contact your issuing bank.|No|
-|BO|Transaction not allowed. Operation failed.|Transaction not allowed. There was a processing error. Ask the carrier to re-enter the card data, if the error persists, contact the issuing bank.|Transaction not allowed. There was a processing error. Re-enter card data, if error persists, contact issuing bank.|Only 4 times in 16 days.|
-|BP|Unauthorized transaction. Non-existent checking account.|Unauthorized transaction. The transaction could not be processed due to an error related to the carrier's card or account. Ask the carrier to contact the issuing bank.|Unauthorized transaction. Could not process the transaction due to an error related to the carrier's card or account. Contact the issuing bank.|No|
-|BP176|Transaction not allowed.|Partner should check if the onboarding process has been completed successfully.|Partner should check if the onboarding process has been completed successfully.|---|
-|C1|Transaction not allowed. Card can't process debit transactions.|Change the payment method or card used.|Change the payment method or card used.|No|
-|C2|Transaction not allowed.|Incorrect data. Please review the data on the payment screen.|Incorrect data. Please review the data on the payment screen.|No|
-|C3|Transaction not allowed.|Invalid period for this type of transaction.|Invalid period for this type of transaction.|No|
-|CF|Unauthorized transaction.C79:J79 Data validation failed.|Unauthorized transaction. Data validation failed. Ask the carrier to contact the issuing bank.|Unauthorized transaction. Data validation failed. Contact the issuing bank.|No|
-|CG|Unauthorized transaction. Data validation failed.|Unauthorized transaction. Data validation faileds. Ask the carrier to contact the issuing bank.|Unauthorized transaction. Data validation failed. Contact the issuing bank.|No|
-|DF|Transaction not allowed. Invalid card or card failure.|Transaction not allowed. Invalid card or card failure. Ask the carrier to re-enter the card data, if the error persists, contact the bank|Transaction not allowed. Invalid card or card failure. Re-enter card data, if error persists, contact bank|Only 4 times in 16 days.|
-|DM|Unauthorized transaction. Limit exceeded/no balance.|Unauthorized transaction. Limit exceeded/no balance.|Unauthorized transaction. Contact your issuing bank.|From the following day, only 4 times in 16 days.|
-|DQ|Unauthorized transaction. Data validation failed.|Unauthorized transaction. Data validation failed. Ask the carrier to contact the issuing bank.|Unauthorized transaction. Data validation failed. Contact the issuing bank.|No|
-|DS|Transaction not allowed for the card|Unauthorized transaction. Transaction not allowed for the card.|Unauthorized transaction. Contact your issuing bank.|Only 4 times in 16 days.|
-|EB|Unauthorized transaction. Daily limit exceeded.|Unauthorized transaction. Daily limit exceeded. Ask the carrier to contact their issuing bank.|Unauthorized transaction. Daily limit exceeded. Contact your issuing bank.|A partir do dia seguinte, only 4 times in 16 days.|
-|EE|Transaction not allowed. Installment value below the minimum allowed.|Transaction not allowed. Installment value below the minimum allowed. It is not permitted installments lower than R$5,00. It is necessary to revise the calculation for installments.|Transaction not allowed. Installment value is below the minimum allowed. Contact the virtual store.|No|
-|EK|Transaction not allowed for the card|Unauthorized transaction. Transaction not allowed for the card.|Unauthorized transaction. Contact your issuing bank.|Only 4 times in 16 days.|
-|FC|Unauthorized transaction. Call the Issuer|Unauthorized transaction. Guide the carrier to contact the issuing bank.|Unauthorized transaction. Contact your issuing bank.|No|
-|FE|Unauthorized transaction. Divergence on transaction/payment date.|Unauthorized transaction. Invalid transaction date or first payment date.|Unauthorized transaction. Redo the transaction confirming data.|No|
-|FF|Cancellation OK|Cancellation transaction authorized successfully. WARNING: This return is for cases of cancellations and not for cases of authorizations.|Transação de cancelamento autorizada com sucesso|No|
-|FG|Unauthorized transaction. Call AmEx 08007285090.|Unauthorized transaction. Guide the carrier to contact AmEx Call Center.|Unauthorized transaction. Contact the AmEx Call Center at the phone number 08007285090|No|
-|GA|Wait for contact|Unauthorized transaction. Referred by Lynx Online in a preventive way.|Unauthorized transaction. Contact the merchant.|No|
-|GD|Transaction not allowed.|Transaction can not be processed in the establishment. Contact Cielo for more details.|Transaction not allowed. Contact the virtual store|No|
-|HJ|Transaction not allowed. Invalid operation code.|Transaction not allowed. Invalid Coban operation code.|Transaction not allowed. Invalid Coban operation code. Contact the merchant.|No|
-|IA|Transaction not allowed. Invalid operation indicator.|Transaction not allowed. Invalid Coban operation indicator.|Transaction not allowed. Invalid Coban operation indicator. Contact the merchant.|No|
-|KA|Transaction not allowed. Data validation failed.|Transaction not allowed. There was a failure in data validation. Ask the carrier to review the data and try again. If the error persists, check the communication between virtual store and Cielo.|Transaction not allowed. There was a failure in data validation. Review the reported data and try again. If the error persists, contact the Virtual Store.|No|
-|KB|Transaction not allowed. Incurred option selected.|Transaction not allowed. Wrong option selected. Ask the carrier to review the data and try again. If the error persists, the communication between virtual store and Cielo must be checked.|Transaction not allowed. Wrong option selected. Try again. If the error persists, contact the Virtual Store.|No|
-|KE|Unauthorized transaction. Data validation failed.|Unauthorized transaction. Data validation failed. Selected option is not enabled. Check the options available to the carrier.|Unauthorized transaction. Data validation failed. Selected option is not enabled. Contact the virtual store.|No|
-|N7|Unauthorized transaction. Invalid security code.|Unauthorized transaction. Invalid security code. Guide the carrier to correct the data and try again.|Unauthorized transaction. Review the data and enter again.|No|
-|U3|Transaction not allowed. Data validation failed.|Transaction not allowed. There was a failure in data validation. Ask the carrier to review the data and try again. If the error persists, check the communication between virtual store and Cielo.|Transaction not allowed. There was a failure in data validation. Review the reported data and try again. If the error persists, contact the Virtual Store.|No|
-
 ## Status transactional
 
 |Code|Status|Means of payment|Description|
