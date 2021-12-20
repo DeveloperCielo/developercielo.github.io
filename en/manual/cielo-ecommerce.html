@@ -19769,706 +19769,6 @@ If this code is displayed, the request contains errors (e.g: size/conditions/reg
   </tbody>
 </table>
 
-<h2 id="merchant-defined-data">Merchant Defined Data</h2>
-
-<p>The table below lists all possible codes to be sent in the MerchantDefinedData parameter and respective type of information that must be filled in.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Data</th>
-      <th>Description</th>
-      <th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>Customer logged in</td>
-      <td>If the final customer logged in on the site to buy, send: their login. If the customer made a purchase as a visitor, send: “Guest”. If the sale was made direct by a third party, an agent for example, do not send the field</td>
-      <td>String</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Customer of the establishment since: #days</td>
-      <td>Number of days</td>
-      <td>Number</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Purchase Made in (installments)</td>
-      <td>Number of installments</td>
-      <td>Number</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>Sales Channel</td>
-      <td>Values: “Call Center” = purchase by phone <br /> “Web” = purchase by  web <br /> “Portal” = an agent making the purchase for the customer <br /> “Kiosk” = Purchases in kiosks <br /> “Mobile” = Purchases made on smartphones or tablets</td>
-      <td>String</td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>Coupon Code/Discount</td>
-      <td>If the buyer is to use coupon, send the coupon code</td>
-      <td>String</td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>Last purchase made</td>
-      <td>MM DD YYYY</td>
-      <td>Date</td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td>Affiliation</td>
-      <td>Name or code of dealer or broker</td>
-      <td>String</td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td>Attempts to Purchase</td>
-      <td>Number of times tried to make the order payment. Different attempted credit cards and/or other means of payments attempted. For the same order.</td>
-      <td>Number</td>
-    </tr>
-    <tr>
-      <td>9</td>
-      <td>Customer will withdraw the product in a Store</td>
-      <td>Values: “YES”, “NO” In the case of an agency, if you are going to withdraw any voucher and/or ticket physically</td>
-      <td>String</td>
-    </tr>
-    <tr>
-      <td>10</td>
-      <td>Payment made by third party</td>
-      <td>Values: “YES”, “NO” Whether or not the payer is present on the trip or package</td>
-      <td>String</td>
-    </tr>
-    <tr>
-      <td>11</td>
-      <td>Hotel Category</td>
-      <td>Values: 1, 2, 3, 4, 5 How many stars has the hotel</td>
-      <td>Number</td>
-    </tr>
-    <tr>
-      <td>12</td>
-      <td>Hotel Check-in date</td>
-      <td>MM DD YYYY</td>
-      <td>Date</td>
-    </tr>
-    <tr>
-      <td>13</td>
-      <td>Hotel Check-out date</td>
-      <td>MM DD YYYY</td>
-      <td>Date</td>
-    </tr>
-    <tr>
-      <td>14</td>
-      <td>Travel/Package</td>
-      <td>Values: “National”, “International”, “National/International”</td>
-      <td>String</td>
-    </tr>
-    <tr>
-      <td>15</td>
-      <td>Name of Airline/Car Rental/Hotel</td>
-      <td>Send the name of each company, separated by “/”</td>
-      <td>String</td>
-    </tr>
-    <tr>
-      <td>16</td>
-      <td>PNR</td>
-      <td>Send the reservation PNR number. When there is a change in the reservation for this PNR with anticipation of the flight date, it is important to do a new analysis of fraud by sending this PNR again.</td>
-      <td>String</td>
-    </tr>
-    <tr>
-      <td>17</td>
-      <td>There was anticipation of reservation?</td>
-      <td>Values: “YES”, “NO” Indicate whether the flight was remarked to a date earlier than the original. It is also important to send the PNR field</td>
-      <td>String</td>
-    </tr>
-    <tr>
-      <td>18</td>
-      <td>(reserved)</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>19</td>
-      <td>(reserved)</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>20</td>
-      <td>(reserved)</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>21</td>
-      <td>(reserved)</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>22</td>
-      <td>(reserved)</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>23</td>
-      <td>(reserved)</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>24</td>
-      <td>(reserved)</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>25</td>
-      <td>(reserved)</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>26</td>
-      <td>Credit Card Bin</td>
-      <td>Send the bin - 6 first digits of the card</td>
-      <td>String</td>
-    </tr>
-    <tr>
-      <td>27</td>
-      <td>(reserved)</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>28</td>
-      <td>(reserved)</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>29</td>
-      <td>(reserved)</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>30</td>
-      <td>(reserved)</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>31</td>
-      <td>Number of Credit Cards exchanges</td>
-      <td>Number of times the buyer has exchanged the credit card to make the payment of the order</td>
-      <td>Number</td>
-    </tr>
-    <tr>
-      <td>32</td>
-      <td>E-mail pasted or typed</td>
-      <td>Values: “Typed”, “Pasted” Report whether the e-mail address was typed or pasted into the field</td>
-      <td>String</td>
-    </tr>
-    <tr>
-      <td>33</td>
-      <td>Card Number pasted or typed</td>
-      <td>Values: “Typed”, “Pasted” Report whether the credit card number was typed or pasted into the field</td>
-      <td>String</td>
-    </tr>
-    <tr>
-      <td>34</td>
-      <td>E-mail confirmed</td>
-      <td>If there is an e-mail confirmation routine for account activation. Values: “YES”. In case of negative, do not send the MDD</td>
-      <td>String</td>
-    </tr>
-    <tr>
-      <td>35</td>
-      <td>Customer type (local or tourist)</td>
-      <td>Values: “Local”, “Tourist”. Do not send the MDD in the case of not having this information</td>
-      <td>String</td>
-    </tr>
-    <tr>
-      <td>36</td>
-      <td>Use gift card at purchase ($)</td>
-      <td>Report if Gift Card was used (Gift Card) at purchase. Values: “YES”. In case of negative, do not send the MDD</td>
-      <td>String</td>
-    </tr>
-    <tr>
-      <td>37</td>
-      <td>Shipping method</td>
-      <td>Values: “Sedex”, “Sedex 10”, “1 Day”, “2 Days”, “Motoboy”, “Same Day”, etc. If there is no shipping, do not send the MDD</td>
-      <td>String</td>
-    </tr>
-    <tr>
-      <td>38</td>
-      <td>Caller ID number</td>
-      <td>Inform the identified phone number, with DDD</td>
-      <td>String</td>
-    </tr>
-    <tr>
-      <td>39</td>
-      <td>(reserved)</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>40</td>
-      <td>(reserved)</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>41 a 95</td>
-      <td>Free Field</td>
-      <td>The fields are reserved for sending merchant data, according to the business rule.</td>
-      <td>String</td>
-    </tr>
-    <tr>
-      <td>96</td>
-      <td>(reserved)</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>97</td>
-      <td>(reserved)</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>98</td>
-      <td>(reserved)</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>99</td>
-      <td>(reserved)</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>100</td>
-      <td>Document</td>
-      <td>Document (CPF, RG, etc.)</td>
-      <td>String</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="fraud-analysis-values">Fraud Analysis Values</h2>
-
-<h3 id="fraudanalysisstatus">FraudAnalysis.status</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Started</td>
-      <td>Transaction received by Cielo.</td>
-    </tr>
-    <tr>
-      <td>Accept</td>
-      <td>Transaction accepted after fraud analysis.</td>
-    </tr>
-    <tr>
-      <td>Review</td>
-      <td>Transaction under review after fraud analysis.</td>
-    </tr>
-    <tr>
-      <td>Reject</td>
-      <td>Transaction rejected after fraud analysis.</td>
-    </tr>
-    <tr>
-      <td>Unfinished</td>
-      <td>Transaction not finalized due to some internal error in the system.</td>
-    </tr>
-    <tr>
-      <td>Pendent</td>
-      <td>Transaction waiting for analysis</td>
-    </tr>
-    <tr>
-      <td>ProviderError</td>
-      <td>Transaction with error in antifraud provider.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="fraudanalysisitemsgiftcategory">FraudAnalysis.Items.GiftCategory</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Yes</td>
-      <td>In case of divergence between billing and delivery addresses, mark as small risk.</td>
-    </tr>
-    <tr>
-      <td>No</td>
-      <td>In case of divergence between billing and delivery addresses, mark as high risk.</td>
-    </tr>
-    <tr>
-      <td>Off</td>
-      <td>Ignores risk analysis for divergent addresses.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="fraudanalysisitemshosthedge">FraudAnalysis.Items.HostHedge</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Low</td>
-      <td>Low importance of e-mail and IP address in risk analysis.</td>
-    </tr>
-    <tr>
-      <td>Normal</td>
-      <td>Average importance of e-mail and IP address in risk analysis.</td>
-    </tr>
-    <tr>
-      <td>High</td>
-      <td>High importance of e-mail and IP address in risk analysis.</td>
-    </tr>
-    <tr>
-      <td>Off</td>
-      <td>E-mail and IP address do not affect the risk analysis.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="fraudanalysisitemsnonsensicalhedge">FraudAnalysis.Items.NonSensicalHedge</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Low</td>
-      <td>Low importance of the verification made on the buyer’s order, in the risk analysis.</td>
-    </tr>
-    <tr>
-      <td>Normal</td>
-      <td>Average importance of the verification made on the buyer’s order, in the risk analysis.</td>
-    </tr>
-    <tr>
-      <td>High</td>
-      <td>High importance of the verification made on the buyer’s order, in the risk analysis.</td>
-    </tr>
-    <tr>
-      <td>Off</td>
-      <td>Verification of buyer’s order does not affect risk analysis.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="fraudanalysisitemsobscenitieshedge">FraudAnalysis.Items.ObscenitiesHedge</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Low</td>
-      <td>Low importance of obscenities verification of buyer’s order, in the risk analysis.</td>
-    </tr>
-    <tr>
-      <td>Normal</td>
-      <td>Average importance of obscenities verification of buyer’s order, in the risk analysis.</td>
-    </tr>
-    <tr>
-      <td>High</td>
-      <td>High importance of obscenities verification of buyer’s order, in the risk analysis.</td>
-    </tr>
-    <tr>
-      <td>Off</td>
-      <td>Obscenity verification of buyer’s order does not affect risk analysis.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="fraudanalysisitemsphonehedge">FraudAnalysis.Items.PhoneHedge</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Low</td>
-      <td>Low importance on tests performed with telephone numbers.</td>
-    </tr>
-    <tr>
-      <td>Normal</td>
-      <td>Average importance on tests performed with telephone numbers.</td>
-    </tr>
-    <tr>
-      <td>High</td>
-      <td>High importance on tests performed with telephone numbers.</td>
-    </tr>
-    <tr>
-      <td>Off</td>
-      <td>Phone number tests do not affect risk analysis.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="fraudanalysisitemsrisk">FraudAnalysis.Items.Risk</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Low</td>
-      <td>The product has a history of few chargebacks.</td>
-    </tr>
-    <tr>
-      <td>Normal</td>
-      <td>The product has a history of chargebacks considered normal.</td>
-    </tr>
-    <tr>
-      <td>High</td>
-      <td>Product has an above average chargeback history.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="fraudanalysisitemstimehedge">FraudAnalysis.Items.TimeHedge</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Low</td>
-      <td>Low importance of the time of day when the purchase was made, for the risk analysis.</td>
-    </tr>
-    <tr>
-      <td>Normal</td>
-      <td>Average importance of the time of day when the purchase was made, for the risk analysis.</td>
-    </tr>
-    <tr>
-      <td>High</td>
-      <td>High importance of the time of day when the purchase was made, for the risk analysis.</td>
-    </tr>
-    <tr>
-      <td>Off</td>
-      <td>Purchase time does not affect risk analysis.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="fraudanalysisitemstype">FraudAnalysis.Items.Type</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>CN</td>
-      <td>Business buyer</td>
-    </tr>
-    <tr>
-      <td>CP</td>
-      <td>Private buyer</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="fraudanalysisitemsvelocityhedge">FraudAnalysis.Items.VelocityHedge</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Low</td>
-      <td>Low importance on the number of purchases made by the customer in the last 15 minutes.</td>
-    </tr>
-    <tr>
-      <td>Normal</td>
-      <td>Average importance on the number of purchases made by the customer in the last 15 minutes.</td>
-    </tr>
-    <tr>
-      <td>High</td>
-      <td>High importance on the number of purchases made by the customer in the last 15 minutes.</td>
-    </tr>
-    <tr>
-      <td>Off</td>
-      <td>The frequency of purchases made by the customer does not affect the fraud analysis.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="fraudanalysisitemspassengerrating">FraudAnalysis.Items.Passenger.Rating</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Adult</td>
-      <td>Adult passenger.</td>
-    </tr>
-    <tr>
-      <td>Child</td>
-      <td>Child passenger.</td>
-    </tr>
-    <tr>
-      <td>Infant</td>
-      <td>Infant passenger.</td>
-    </tr>
-    <tr>
-      <td>Youth</td>
-      <td>Teenage passenger.</td>
-    </tr>
-    <tr>
-      <td>Student</td>
-      <td>Student passenger.</td>
-    </tr>
-    <tr>
-      <td>SeniorCitizen</td>
-      <td>Elderly passenger.</td>
-    </tr>
-    <tr>
-      <td>Military</td>
-      <td>Military passenger.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="fraudanalysisshippingmethod">FraudAnalysis.Shipping.Method</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Field</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>None</td>
-    </tr>
-    <tr>
-      <td>SameDay</td>
-    </tr>
-    <tr>
-      <td>OneDay</td>
-    </tr>
-    <tr>
-      <td>TwoDay</td>
-    </tr>
-    <tr>
-      <td>ThreeDay</td>
-    </tr>
-    <tr>
-      <td>LowCost</td>
-    </tr>
-    <tr>
-      <td>Pickup</td>
-    </tr>
-    <tr>
-      <td>Other</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="values-list---paymentchargebacksnstatus">Values List - Payment.Chargebacks[n].Status</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Value</th>
-      <th style="text-align: left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Received</td>
-      <td style="text-align: left">Chargeback received from acquirer</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">AcceptedByMerchant</td>
-      <td style="text-align: left">Chargeback accepted by establishment. In this case the establishment understands that it has indeed suffered a chargeback and will not hold the contestation</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">ContestedByMerchant</td>
-      <td style="text-align: left">Chargeback contested by establishment. In this case the establishment has sent the necessary documents to try to reverse the chargeback</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="service-tax-amount---boarding-fee">Service Tax Amount - BOARDING FEE</h2>
-
-<p><strong>The boarding fee</strong> (servicetaxamount) is an information field that defines the total amount of the transaction that should be used to pay the fee to Infraero. The value of the boarding fee is not accumulated at the value of the authorization.</p>
-
-<ul>
-  <li><em>e.g.</em>: In an airline ticket sale of R$200,00 with boarding fee of R$25,00, the field <code class="language-plaintext highlighter-rouge">Payment.ServiceTaxAmount</code> must be sent as 2500</li>
-</ul>
-
-<p><strong>Rules</strong></p>
-
-<ul>
-  <li>Available only for Visa, Mastercard and Amex issuers.</li>
-  <li>The value of the boarding fee is not added to the value of the authorization, i.e. it is only informative.</li>
-</ul>
-
-<p>There are specific rules for the requisition of capture with boarding fee, available in the item Total and Partial Capture.</p>
-
 <h2 id="soft-descriptor">Soft Descriptor</h2>
 
 <p>It allows the merchant to send a supplementary text that will be printed on the buyer’s invoice along with the identification of the store name that appears in Cielo register.</p>
@@ -21537,7 +20837,7 @@ If this code is displayed, the request contains errors (e.g: size/conditions/reg
   </tbody>
 </table>
 
-<h2 id="merchant-defined-data-1">Merchant Defined Data</h2>
+<h2 id="merchant-defined-data">Merchant Defined Data</h2>
 
 <p>The table below lists all possible codes to be sent in the MerchantDefinedData parameter and respective type of information that must be filled in.</p>
 
@@ -21830,9 +21130,9 @@ If this code is displayed, the request contains errors (e.g: size/conditions/reg
   </tbody>
 </table>
 
-<h2 id="fraud-analysis-values-1">Fraud Analysis Values</h2>
+<h2 id="fraud-analysis-values">Fraud Analysis Values</h2>
 
-<h3 id="fraudanalysisstatus-1">FraudAnalysis.status</h3>
+<h3 id="fraudanalysisstatus">FraudAnalysis.status</h3>
 
 <table>
   <thead>
@@ -21873,7 +21173,7 @@ If this code is displayed, the request contains errors (e.g: size/conditions/reg
   </tbody>
 </table>
 
-<h3 id="fraudanalysisitemsgiftcategory-1">FraudAnalysis.Items.GiftCategory</h3>
+<h3 id="fraudanalysisitemsgiftcategory">FraudAnalysis.Items.GiftCategory</h3>
 
 <table>
   <thead>
@@ -21898,7 +21198,7 @@ If this code is displayed, the request contains errors (e.g: size/conditions/reg
   </tbody>
 </table>
 
-<h3 id="fraudanalysisitemshosthedge-1">FraudAnalysis.Items.HostHedge</h3>
+<h3 id="fraudanalysisitemshosthedge">FraudAnalysis.Items.HostHedge</h3>
 
 <table>
   <thead>
@@ -21927,7 +21227,7 @@ If this code is displayed, the request contains errors (e.g: size/conditions/reg
   </tbody>
 </table>
 
-<h3 id="fraudanalysisitemsnonsensicalhedge-1">FraudAnalysis.Items.NonSensicalHedge</h3>
+<h3 id="fraudanalysisitemsnonsensicalhedge">FraudAnalysis.Items.NonSensicalHedge</h3>
 
 <table>
   <thead>
@@ -21956,7 +21256,7 @@ If this code is displayed, the request contains errors (e.g: size/conditions/reg
   </tbody>
 </table>
 
-<h3 id="fraudanalysisitemsobscenitieshedge-1">FraudAnalysis.Items.ObscenitiesHedge</h3>
+<h3 id="fraudanalysisitemsobscenitieshedge">FraudAnalysis.Items.ObscenitiesHedge</h3>
 
 <table>
   <thead>
@@ -21985,7 +21285,7 @@ If this code is displayed, the request contains errors (e.g: size/conditions/reg
   </tbody>
 </table>
 
-<h3 id="fraudanalysisitemsphonehedge-1">FraudAnalysis.Items.PhoneHedge</h3>
+<h3 id="fraudanalysisitemsphonehedge">FraudAnalysis.Items.PhoneHedge</h3>
 
 <table>
   <thead>
@@ -22014,7 +21314,7 @@ If this code is displayed, the request contains errors (e.g: size/conditions/reg
   </tbody>
 </table>
 
-<h3 id="fraudanalysisitemsrisk-1">FraudAnalysis.Items.Risk</h3>
+<h3 id="fraudanalysisitemsrisk">FraudAnalysis.Items.Risk</h3>
 
 <table>
   <thead>
@@ -22039,7 +21339,7 @@ If this code is displayed, the request contains errors (e.g: size/conditions/reg
   </tbody>
 </table>
 
-<h3 id="fraudanalysisitemstimehedge-1">FraudAnalysis.Items.TimeHedge</h3>
+<h3 id="fraudanalysisitemstimehedge">FraudAnalysis.Items.TimeHedge</h3>
 
 <table>
   <thead>
@@ -22068,7 +21368,7 @@ If this code is displayed, the request contains errors (e.g: size/conditions/reg
   </tbody>
 </table>
 
-<h3 id="fraudanalysisitemstype-1">FraudAnalysis.Items.Type</h3>
+<h3 id="fraudanalysisitemstype">FraudAnalysis.Items.Type</h3>
 
 <table>
   <thead>
@@ -22089,7 +21389,7 @@ If this code is displayed, the request contains errors (e.g: size/conditions/reg
   </tbody>
 </table>
 
-<h3 id="fraudanalysisitemsvelocityhedge-1">FraudAnalysis.Items.VelocityHedge</h3>
+<h3 id="fraudanalysisitemsvelocityhedge">FraudAnalysis.Items.VelocityHedge</h3>
 
 <table>
   <thead>
@@ -22118,7 +21418,7 @@ If this code is displayed, the request contains errors (e.g: size/conditions/reg
   </tbody>
 </table>
 
-<h3 id="fraudanalysisitemspassengerrating-1">FraudAnalysis.Items.Passenger.Rating</h3>
+<h3 id="fraudanalysisitemspassengerrating">FraudAnalysis.Items.Passenger.Rating</h3>
 
 <table>
   <thead>
@@ -22159,7 +21459,7 @@ If this code is displayed, the request contains errors (e.g: size/conditions/reg
   </tbody>
 </table>
 
-<h3 id="fraudanalysisshippingmethod-1">FraudAnalysis.Shipping.Method</h3>
+<h3 id="fraudanalysisshippingmethod">FraudAnalysis.Shipping.Method</h3>
 
 <table>
   <thead>
@@ -22195,7 +21495,7 @@ If this code is displayed, the request contains errors (e.g: size/conditions/reg
   </tbody>
 </table>
 
-<h2 id="values-list---paymentchargebacksnstatus-1">Values List - Payment.Chargebacks[n].Status</h2>
+<h2 id="values-list---paymentchargebacksnstatus">Values List - Payment.Chargebacks[n].Status</h2>
 
 <table>
   <thead>
@@ -22220,7 +21520,7 @@ If this code is displayed, the request contains errors (e.g: size/conditions/reg
   </tbody>
 </table>
 
-<h2 id="service-tax-amount---boarding-fee-1">Service Tax Amount - BOARDING FEE</h2>
+<h2 id="service-tax-amount---boarding-fee">Service Tax Amount - BOARDING FEE</h2>
 
 <p><strong>The boarding fee</strong> (servicetaxamount) is an information field that defines the total amount of the transaction that should be used to pay the fee to Infraero. The value of the boarding fee is not accumulated at the value of the authorization.</p>
 
