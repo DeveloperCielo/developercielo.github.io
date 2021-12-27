@@ -13,11 +13,11 @@ language_tabs:
   shell: cURL
 ---
 
-# Overview - API Cielo eCommerce 
+# Overview - API Cielo E-commerce 
 
 The purpose of this documentation is to guide the developer on how to integrate with Cielo's API Cielo eCommerce, describing the features, methods to be used, listing information to be sent and received, and providing examples.
 
-The integration mechanism with Cielo e-Commerce is simple, so only intermediate knowledge in Web programming language, HTTP/HTTPS requests and JSON file manipulation are required to successfully deploy the Cielo e-Commerce solution.
+The integration mechanism with Cielo E-commerce is simple, so only intermediate knowledge in Web programming language, HTTP/HTTPS requests and JSON file manipulation are required to successfully deploy the Cielo e-Commerce solution.
 
 In this manual, you will find the reference on all operations available on API REST of API Cielo eCommerce. These operations must be performed using its specific key (Merchant ID and Merchant Key) in the respective environment endpoints
 
