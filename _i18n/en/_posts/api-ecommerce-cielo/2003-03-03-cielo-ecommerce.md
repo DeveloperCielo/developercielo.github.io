@@ -7394,7 +7394,24 @@ b) The establishment should customize its inputs of the form with the following 
 * For credit/debit card validity: **bp-sop-cardexpirationdate**
 * For credit/debit card security code: **bp-sop-cardcvvc**
 
-<br>
+**SETTING PARAMETERS**
+
+**Script Parameters**
+
+|Property|Description|
+|-----------|---------|
+|`accessToken`|Access Token obtained via Authentication API|
+|`environment`|**sandbox** or **production**|
+|`language`|**PT** or **EN** or **ES**|
+|`enableTokenize`| **true** if you want to save the card directly on your vault in the Cartão Protegido (returns a 'cardToken' instead of a 'paymentToken'). **false** otherwise.|
+|`cvvRequired`| "false" (sets CVV as not mandatory) / "true" (sets CVV as mandatory). |
+
+**Script Response**
+
+|Property|Description|
+|-----------|---------|
+|`PaymentToken`|Payment Token in GUID format (36)|
+|`CardToken`| Permanent token to be used on a payment request on a GUID format (36) Obs.: Only works if 'enableTokenize' is **true**|
 
 c) The script provided by Cielo provides three events for manipulation and treatment on the establishment side. They are: **onSuccess** (where **PaymentToken** will be returned after processing the card data), **onError** (if there is any error in the consumption of Cielo services) and **onInvalid** (where the result of the validation of the inputs will be returned).
 
