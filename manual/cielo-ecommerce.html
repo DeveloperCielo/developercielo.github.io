@@ -14310,6 +14310,65 @@ O download poderá ser realizado a partir da seguinte URL:</p>
   <li>Para o código de segurança do cartão de crédito/débito: <strong>bp-sop-cardcvvc</strong></li>
 </ul>
 
+<p><strong>DEFININDO PARÂMETROS</strong></p>
+
+<p><strong>Parâmetros do Script</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">accessToken</code></td>
+      <td>Token de acesso obtido via API de autenticação da Braspag (AccessToken SOP).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">environment</code></td>
+      <td>Tipo de ambiente: “sandbox” / “production”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">language</code></td>
+      <td>Idioma: “pt” / “en” / “es”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">enableTokenize</code></td>
+      <td>“true” (salva o cartão diretamente no Cartão Protegido, retornando um <em>cardToken</em> ao invés de um <em>paymentToken</em>) / “false” (caso contrário).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cvvRequired</code></td>
+      <td>“false” (desliga a obrigatoriedade de envio do CVV) / “true” (caso contrário).</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Retornos do Script</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Condição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentToken</code></td>
+      <td>Token efêmero utilizado para pagamento no formato de um GUID (36).</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CardToken</code></td>
+      <td>Token permanente utilizado para pagamento no formato de um GUID (36).</td>
+      <td>Quando <em>enableTokenize</em> for “true”.</td>
+    </tr>
+  </tbody>
+</table>
+
 <p>c) O script fornecido pela Cielo fornece três eventos para manipulação e tratamento por parte do estabelecimento. São eles: <strong>onSuccess</strong> (onde será retornado o <strong>“PaymentToken”</strong> após processar os dados do cartão), <strong>onError</strong> (caso haja algum erro no consumo dos serviços da Cielo) e <strong>onInvalid</strong> (onde será retornado o resultado da validação dos inputs).</p>
 
 <ul>
