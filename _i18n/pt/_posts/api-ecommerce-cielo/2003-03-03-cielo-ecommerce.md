@@ -7528,6 +7528,25 @@ b) O estabelecimento deverá decorar seus inputs do formulário com as seguintes
 * Para a validade do cartão de crédito/débito: **bp-sop-cardexpirationdate** 
 * Para o código de segurança do cartão de crédito/débito: **bp-sop-cardcvvc**
 
+**DEFININDO PARÂMETROS**
+
+**Parâmetros do Script**
+
+|Propriedade|Descrição|
+|-----------|---------|
+|`accessToken`| Token de acesso obtido via API de autenticação da Braspag (AccessToken SOP).|
+|`environment`| Tipo de ambiente: "sandbox" / "production".|
+|`language`| Idioma: "pt" / "en" / "es". |
+|`enableTokenize`| "true" (salva o cartão diretamente no Cartão Protegido, retornando um *cardToken* ao invés de um *paymentToken*) / "false" (caso contrário). |
+|`cvvRequired`| "false" (desliga a obrigatoriedade de envio do CVV) / "true" (caso contrário). |
+
+**Retornos do Script**
+
+|Propriedade|Descrição|Condição|
+|-----------|---------|---------|
+|`PaymentToken`| Token efêmero utilizado para pagamento no formato de um GUID (36). |---|
+|`CardToken`| Token permanente utilizado para pagamento no formato de um GUID (36). |Quando *enableTokenize* for "true". |
+
 c) O script fornecido pela Cielo fornece três eventos para manipulação e tratamento por parte do estabelecimento. São eles: **onSuccess** (onde será retornado o **“PaymentToken”** após processar os dados do cartão), **onError** (caso haja algum erro no consumo dos serviços da Cielo) e **onInvalid** (onde será retornado o resultado da validação dos inputs).
 
 * Na validação dos inputs, o estabelecimento poderá utilizar toda a camada de validação sobre os dados de cartão realizada pela Cielo e assim simplificar o tratamento no seu formulário de checkout. As mensagens retornadas no resultado da validação são disponibilizadas nas seguintes linguagens: português (default), inglês e espanhol.
