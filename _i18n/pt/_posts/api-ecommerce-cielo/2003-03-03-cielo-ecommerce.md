@@ -15,13 +15,13 @@ language_tabs:
   
 ---
 
-# Visão geral - API Cielo eCommerce
+# Visão geral - API E-commerce Cielo
 
-O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a **API Cielo eCommerce da Cielo**, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.
+O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a **API E-commerce Cielo**, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.
 
-O mecanismo de integração com o Cielo eCommerce é simples, de modo que apenas conhecimentos intermediários em linguagem de programação para Web, requisições HTTP/HTTPS e manipulação de arquivos JSON, são necessários para implantar a solução Cielo eCommerce com sucesso.
+O mecanismo de integração com a API E-commerce Cielo é simples, de modo que apenas conhecimentos intermediários em linguagem de programação para Web, requisições HTTP/HTTPS e manipulação de arquivos JSON, são necessários para implantar a solução API E-commerce Cielo com sucesso.
 
-Nesse manual você encontrará a referência sobre todas as operações disponíveis na API REST da API Cielo eCommerce. Estas operações devem ser executadas utilizando sua chave específica (Merchant ID e Merchant Key) nos respectivos endpoints dos ambientes:
+Nesse manual você encontrará a referência sobre todas as operações disponíveis na API REST da API E-commerce Cielo. Estas operações devem ser executadas utilizando sua chave específica (Merchant ID e Merchant Key) nos respectivos endpoints dos ambientes:
 
 |                 | SandBox                                             | Produção                                      |
 |:----------------|:---------------------------------------------------:|:---------------------------------------------:|
