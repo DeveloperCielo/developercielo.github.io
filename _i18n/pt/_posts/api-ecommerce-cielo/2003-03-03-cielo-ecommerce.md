@@ -15,17 +15,17 @@ language_tabs:
   
 ---
 
-# Visão geral - API E-commerce Cielo
+# Visão geral - API e-commerce Cielo
 
-O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a **API E-commerce Cielo**, descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.
+O objetivo desta documentação é orientar sobre a integração da **API e-commerce Cielo**, descrevendo as funcionalidades, os métodos HTTP, listando informações a serem enviadas e recebidas e provendo exemplos.
 
-O mecanismo de integração com a API E-commerce Cielo é simples, de modo que apenas conhecimentos intermediários em linguagem de programação para Web, requisições HTTP/HTTPS e manipulação de arquivos JSON, são necessários para implantar a solução API E-commerce Cielo com sucesso.
+<aside class="notice">**Conhecimentos necessários**: recomendamos conhecimentos intermediários em linguagem de programação para web, requisições HTTP/HTTPS e manipulação de arquivos JSON.</aside>
+<br/>
+Para executar as operações da API e-commerce Cielo você deverá usar sua chave específica (`Merchant ID` e `Merchant Key`) nos respectivos endpoints dos ambientes:
 
-Nesse manual você encontrará a referência sobre todas as operações disponíveis na API REST da API E-commerce Cielo. Estas operações devem ser executadas utilizando sua chave específica (Merchant ID e Merchant Key) nos respectivos endpoints dos ambientes:
-
-|                 | SandBox                                             | Produção                                      |
+|                 | Sandbox                                             | Produção                                      |
 |:----------------|:---------------------------------------------------:|:---------------------------------------------:|
-| **Requisições** | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
+| **Transacional** | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
 | **Consultas**   | https://apiquerysandbox.cieloecommerce.cielo.com.br | https://apiquery.cieloecommerce.cielo.com.br/ |
 
 Para executar uma operação, combine a URL base do ambiente com a URL da operação desejada e envie utilizando o verbo HTTP conforme descrito na operação.
@@ -34,40 +34,38 @@ Para executar uma operação, combine a URL base do ambiente com a URL da opera�
 
 ## Características da solução
 
-A solução **API Cielo eCommerce** da plataforma Cielo eCommerce foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como: 
+A solução **API e-commerce Cielo** foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada pelo seu e-commerce. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação.
 
-* ASP
-* Net
-* Java
-* PHP
-* Ruby
-* Python
+> Para obter exemplos dessas linguagens, veja nosso [**Tutorial de conversão Postman**](https://developercielo.github.io/tutorial/postman)
 
-> Para Obter exemplos dessas linguagens, veja nosso tutorial de conversão via nosso [**Tutorial Postman**](https://developercielo.github.io/tutorial/postman)
-
-Entre outras características, os atributos que mais se destacam na plataforma Cielo eCommerce:
+Entre outras características, os atributos que mais se destacam na plataforma API e-commerce Cielo:
 
 * **Ausência de aplicativos proprietários**: não é necessário instalar aplicativos no ambiente da loja virtual em nenhuma hipótese.
 * **Simplicidade**: o protocolo utilizado é puramente o HTTPS.
 * **Facilidade de testes**: a plataforma Cielo oferece um ambiente Sandbox publicamente acessível, que permite ao desenvolvedor a criação de uma conta de testes sem a necessidade de credenciamento, facilitando e agilizando o início da integração.
-* **Credenciais**: o tratamento das credenciais do cliente (número de afiliação e chave de acesso) trafega no cabeçalho da requisição HTTP da mensagem.
+* **Credenciais**: o tratamento das credenciais do cliente, número de afiliação (`MerchantId`)e chave de acesso`(MerchantKey`) trafega no cabeçalho da requisição HTTP da mensagem.
 * **Segurança**: a troca de informações se dá sempre entre o Servidor da Loja e da Cielo, ou seja, sem o browser do comprador.
 * **Multiplataforma**: a integração é realizada através de Web Service REST.
 
-## Arquitetura 
+## Arquitetura da integração
 
-A integração é realizada através de serviços disponibilizados como Web Services. O modelo empregado é bastante simples: Existem duas URLs (endpoint), uma específica para operações que causam efeitos colaterais - como autorização, captura e cancelamento de transações, e uma URL específica para operações que não causam efeitos colaterais, como pesquisa de transações. Essas duas URLs receberão as mensagens HTTP através dos métodos POST, GET ou PUT. Cada tipo de mensagem deve ser enviada para um recurso identificado através do path.
+O modelo empregado na integração das APIs é simples e se baseia na utilização de duas URLs:
+* URL transacional - específica para operações como autorização, captura e cancelamento de transações.
+* URL de consulta - para operações consultivas, como uma pesquisa de transações.
 
-|Método|Descrição|
+<br/>Para executar uma operação:
+
+1. Combine a **base** da URL do ambiente com o **_endpoint_** da operação desejada. Ex.: https://api.braspag.com.br/*v2/sales/*.
+2. Envie a requisição para a URL utilizando o método HTTP adequado à operação.
+
+|Método HTTP|Descrição|
 |---|---|
-|**POST**|O método HTTP `POST` é utilizado na criação dos recursos ou no envio de informações que serão processadas. Por exemplo, criação de uma transação.|
-|**PUT**|O método HTTP `PUT` é utilizado para atualização de um recurso já existente. Por exemplo, captura ou cancelamento de uma transação previamente autorizada.|
-|**GET**|O método HTTP `GET` é utilizado para consultas de recursos já existentes. Por exemplo, consulta de transações.|
+|**GET**|Retorna recursos já existentes, ex.: consulta de transações.|
+|**POST**|Cria um novo recurso, ex.: criação de uma transação.|
+|**PUT**|Atualiza um recurso existente, ex.: captura ou cancelamento de uma transação previamente autorizada.|
 
-|                             | Métodos            | SandBox                                             | Produção                                      |
-|-----------------------------|--------------------|-----------------------------------------------------|-----------------------------------------------|
-| **Requisição de transação** | **POST** / **PUT** | https://apisandbox.cieloecommerce.cielo.com.br      | https://api.cieloecommerce.cielo.com.br/      |
-| **Consultas**               | **GET**            | https://apiquerysandbox.cieloecommerce.cielo.com.br | https://apiquery.cieloecommerce.cielo.com.br/ |
+Todas a operações requerem as credenciais de acesso **"Merchant ID"** e **"Merchant Key"**, que devem ser enviadas no cabeçalho (*header*) da requisição.<br>
+<br>Cada envio de requisição irá retornar um código de [Status HTTP](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code), indicando se ela foi realizada com sucesso ou não.
 
 ## Glossário 
 
@@ -79,21 +77,16 @@ Para facilitar o entendimento, listamos abaixo um pequeno glossário com os prin
 |**Autorização**|processo para verificar se uma compra pode ou não ser realizada com um cartão. Nesse momento, são feitas diversas verificações com o cartão e com o portador (ex.: adimplência, bloqueios, etc.) É também neste momento que o limite do cartão é sensibilizado com o valor da transação.|
 |**Cancelamento**|processo para cancelar uma compra realizada com cartão.|
 |**Captura**|processo que confirma uma autorização que foi realizada previamente. Somente após a captura, é que o portador do cartão poderá visualizá-la em seu extrato ou fatura.|
-|**Chave de acesso**|é um código de segurança específico de cada loja, gerado pela Cielo, usada para realizar a autenticação e comunicação em todas as mensagens trocadas com a Cielo. Também conhecido como chave de produção e key data.|
 |**Comprador**|é o aquele que efetua compra na loja virtual.|
 |**Emissor (ou banco emissor)**|É a instituição financeira que emite o cartão de crédito, débito ou voucher.|
-|**Estabelecimento comercial ou EC**|Entidade que responde pela loja virtual.|
+|**Estabelecimento comercial ou EC**|É o número de dez posições que identifica o cadastro da loja na Cielo.|
 |**Gateway de pagamentos**|Empresa responsável pelo integração técnica e processamento das transações.|
-|**Número de credenciamento**|é um número identificador que o lojista recebe após seu credenciamento junto à Cielo.|
 |**Portador**|é a pessoa que tem o porte do cartão no momento da venda.|
-|**SecureCode**|programa internacional da Mastercard para possibilitar a autenticação do comprador no momento de uma compra em ambiente eCommerce.|
 |**TID (Transaction Identifier)**|código composto por 20 caracteres que identificada unicamente uma transação Cielo eCommerce.|
-|**Transação**|é o pedido de compra do portador do cartão na Cielo.|
-|**VBV (Verified by Visa)**|Programa internacional da Visa que possibilita a autenticação do comprador no momento de uma compra em ambiente eCommerce.|
 
 ## Produtos e Bandeiras suportadas 
 
-A versão atual do Webservice Cielo possui suporte às seguintes bandeiras e produtos:
+A versão atual da API e-commerce Cielo possui suporte às seguintes bandeiras e produtos:
 
 | Bandeira         | Crédito à vista | Crédito parcelado Loja | Débito | Voucher | Internacional |
 |------------------|-----------------|------------------------|--------|---------|---------------|
