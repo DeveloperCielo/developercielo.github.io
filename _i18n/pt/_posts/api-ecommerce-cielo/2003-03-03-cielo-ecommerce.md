@@ -19,8 +19,8 @@ language_tabs:
 
 O objetivo desta documentação é orientar sobre a integração da **API e-commerce Cielo**, descrevendo as funcionalidades, os métodos HTTP, listando informações a serem enviadas e recebidas e provendo exemplos.
 
-<aside class="notice">**Conhecimentos necessários**: recomendamos conhecimentos intermediários em linguagem de programação para web, requisições HTTP/HTTPS e manipulação de arquivos JSON.</aside>
-<br/>
+>**Conhecimentos necessários**: recomendamos conhecimentos intermediários em linguagem de programação para web, requisições HTTP/HTTPS e manipulação de arquivos JSON.
+
 Para executar as operações da API e-commerce Cielo você deverá usar sua chave específica (`Merchant ID` e `Merchant Key`) nos respectivos endpoints dos ambientes:
 
 |                 | Sandbox                                             | Produção                                      |
@@ -513,69 +513,94 @@ Repita o mesmo procedimento para os 3 arquivos enviados.
 
 ## Sobre o Sandbox
 
-Para facilitar os testes durante a integração, a Cielo oferece um ambiente Sandbox que é composto por duas áreas:
+Para facilitar os testes durante a integração, a Cielo oferece um ambiente Sandbox que permite simular as mensagerias da API. O ambiente Sandbox está programado com respostas preparadas para todas as funcionalidades previstas na API Cielo E-commerce.
 
-1. Cadastro de conta de testes
-2. Endpoints transacionais
-
-|**Requisição**| https://apisandbox.cieloecommerce.cielo.com.br     |
-| **Consulta** | https://apiquerysandbox.cieloecommerce.cielo.com.br|
+|INFORMAÇÃO|URL|
+|---|---|
+|Credenciais de acesso|`MerchantId` e `MerchantKey` obtidos após criação da conta de testes em [**Cadastro do Sandbox**](https://cadastrosandbox.cieloecommerce.cielo.com.br/)|
+|Base da URL transacional|https://apisandbox.cieloecommerce.cielo.com.br|
+|Base da URL para consultas|https://apiquerysandbox.cieloecommerce.cielo.com.br|
 
 **Vantagens de utilizar o Sandbox**
 
 * Não é necessário uma afiliação para utilizar o Sandbox Cielo.
-* Basta acessar o [**Cadastro do Sandbox**](https://cadastrosandbox.cieloecommerce.cielo.com.br/) criar uma conta.
-* com o cadastro você receberá um `MerchantId` e um `MerchantKey`,que são as credenciais necessarias para os métodos da API
+* Basta acessar o [**Cadastro do Sandbox**](https://cadastrosandbox.cieloecommerce.cielo.com.br/) para criar uma conta.
 
-## Ferramenta para Integração: POSTMAN
+## Ferramenta para Integração
 
-O **Postman** é um API Client que facilita aos desenvolvedores criar, compartilhar, testar e documentar APIs. Isso é feito, permitindo aos usuários criar e salvar solicitações HTTPs simples e complexas, bem como ler suas respostas.
+Você pode usar o Postman para testar a sua integração.
 
-A Cielo oferece coleções completas de suas integrações via Postamn, o que facilita o processo de integração com a API Cielo.
+### Collections e Environments  Cielo
 
-Sugerimos que desenvolvedores acessem nosso [**Tutorial**](https://developercielo.github.io/tutorial/postman) sobre a ferramenta para compreender melhor todas as vantagens que ela oferece.
+A seguir, listamos as collections e os environments Cielo. Você pode usá-las Postman para realizar testes e integrações.
+
+#### API Cielo E-commerce
+
+##### Collection
+
+* **Link de importação** 
+
+> [https://www.postman.com/collections/7313fe78130211f5f009](https://www.postman.com/collections/7313fe78130211f5f009)
+
+|Ambiente|Endpoints|
+|---|---|
+|Sandbox|**Envio de transação**:  https://apisandbox.cieloecommerce.cielo.com.br <br> **Consulta transação**: https://apiquerysandbox.cieloecommerce.cielo.com.br/|
+|Produção|**Envio de transação**: https://api.cieloecommerce.cielo.com.br/ <br> **Consulta transação**: https://apiquery.cieloecommerce.cielo.com.br/|
+
+##### Environment
+
+Faça download do arquivo abaixo e substitua os MerchantIDs e MerchantKeys pelos os da sua Loja
+
+> [**Environment Produção e Sandbox**](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/attachment/postman/apicielo2021.rar)
 
 ## Cartão de crédito - Sandbox
 
-No sandbox, é necessario utilizar o `Provider` seja utilizado como `SIMULADO`
-
-O Simulado é uma configuração que emula a utilização de pagamentos com Cartão de Crédito. 
 Com esse meio de pagamento é possível simular os fluxos de:
 
-* Autorização
-* Captura 
-* Cancelamento.
+* Autorização;
+* Captura parcial e total;
+* Cancelamento;
+* Consulta.
 
-Para melhor utilização do Meio de Pagamento Simulado, estamos disponibilizando **cartões de testes** na tabela abaixo.
+Para melhor aproveitar o meio de pagamento Simulado, você pode criar um número de cartão usando um gerador de cartões da internet ou escolhendo números aleatórios; para qualquer opção, os 15 primeiros dígitos do cartão podem ser aleatórios e o último dígito deve ser o número correspondente ao status da transação que deseja testar.
 
+As informações de **Cód.Segurança (CVV)** e validade podem ser aleatórias, mantendo o CVV com 3 dígitos e a validade no formato MM/YYYY. 
+
+<aside class="notice">Tokenização: Se o objetivo for testar uma transação na API Cielo E-commerce salvando o número do cartão, recomendamos usar um gerador de cartões para atender a regra do mod10 (Algoritimo de Luhn), que é empregada nos ambientes Sandbox e de Produção.</aside>
+<br/>
 <aside class="notice">Os <code>status</code> das transações são definidos pelos FINAIS de cada cartão, assim como o <code>ReturnCode</code>.</aside>
 
-| Status da Transação   | Final do Cartão                            | Código de Retorno | Mensagem de Retorno               |
-|-----------------------|--------------------------------------------|-------------------|-----------------------------------|
-| Autorizado            | 0000.0000.0000.0001<br>0000.0000.0000.0004 | 4/6               | Operação realizada com sucesso    |
-| Não Autorizado        | 0000.0000.0000.0002                        | 05                | Não Autorizada                    |
-| Não Autorizado        | 0000.0000.0000.0003                        | 57                | Cartão Expirado                   |
-| Não Autorizado        | 0000.0000.0000.0005                        | 78                | Cartão Bloqueado                  |
-| Não Autorizado        | 0000.0000.0000.0006                        | 99                | Time Out                          |
-| Não Autorizado        | 0000.0000.0000.0007                        | 77                | Cartão Cancelado                  |
-| Não Autorizado        | 0000.0000.0000.0008                        | 70                | Problemas com o Cartão de Crédito |
-| Autorização Aleatória | 0000.0000.0000.0009                        | 99                | Operation Successful / Time Out   |
+|Final do Cartão      | Status da Transação   | Código de Retorno  | Mensagem de Retorno               |
+|---------------------|-----------------------|--------------------|-----------------------------------|
+| XXXX.XXXX.XXXX.XXX0<br>XXXX.XXXX.XXXX.XXX1<br>XXXX.XXXX.XXXX.XXX4 | Autorizado            |  4/6      | Operação realizada com sucesso    |
+| XXXX.XXXX.XXXX.XXX2 | Não Autorizado        |  05                | Não Autorizada                    |
+| XXXX.XXXX.XXXX.XXX3 | Não Autorizado        |  57                | Cartão Expirado                   |
+| XXXX.XXXX.XXXX.XXX5 | Não Autorizado        |  78                | Cartão Bloqueado                  |
+| XXXX.XXXX.XXXX.XXX6 | Não Autorizado        |  99                | Time Out                          |
+| XXXX.XXXX.XXXX.XXX7 | Não Autorizado        |  77                | Cartão Cancelado                  |
+| XXXX.XXXX.XXXX.XXX8 | Não Autorizado        |  70                | Problemas com o Cartão de Crédito |
+| XXXX.XXXX.XXXX.XXX9 | Autorização Aleatória |  4 a 99            | Operation Successful / Time Out   |
 
-Exemplo de um Cartão de teste - 4024.0071.5376.3191
+| O cartão de teste **4024.0071.5376.3191**, por exemplo, irá simular o status autorizado.
 
-As informações de **Cód.Segurança (CVV)** e validade podem ser aleatórias, mantendo o formato - CVV (3 dígitos) Validade (MM/YYYY).
-
-<aside class="notice"><strong>Atenção:</strong> O ambiente de **sandbox** avalia o formato e o final do cartão, caso um cartão real seja enviado, o resultado da operação será idêntico ao descrito na tabela de cartões de teste.</aside>
-
-<aside class="notice"><strong>Tokenização:</strong> transações no ambiente de simulação envolvendo tokenização não funcionaram com base em cartões de teste. Cada cartão salvo na tokenização é tratado como um cartão real, com isso não é usado no processo de simulação.</aside>
-
+<aside class="notice"><strong>Atenção:</strong> O ambiente de sandbox avalia o formato e o final do cartão. Caso um cartão real seja enviado, o resultado da operação será idêntico ao descrito na tabela de cartões de teste.</aside>
+<br/>
 <aside class="Warning"><strong>Atenção:</strong> Os Códigos de retorno em Sandbox não são os mesmos disponiveis em produção.</aside>
+
+**Para consultar os retornos em Produção**, veja os [Códigos da API](https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-da-api).
 
 ## Cartão de débito - Sandbox
 
-Cartões de débito não possuem cartões ou dados específicos simulados, como no caso do cartão de crédito. 
+Com esse meio de pagamento é possível simular os fluxos de: 
 
-O fluxo transacional do cartão de Débito funciona com o Response da transação retornando uma **URL DE AUTENTICAÇÃO** . Na tela de autenticação a opção escolhida define o status da transação.
+* Autorização;
+* Cancelamento;
+* Consulta.
+
+A transação de débito precisa passar por uma autenticação:
+
+* **Autenticação via 3DS 2.0**: aprenda a simular a autenticação 3DS 2.0 em sandbox na [documentação do 3DS](https://developercielo.github.io/manual/3ds); 
+* **URL de Autenticação**: está sendo descontinuada. 
 
 |Opção|Status|
 |---|---|
