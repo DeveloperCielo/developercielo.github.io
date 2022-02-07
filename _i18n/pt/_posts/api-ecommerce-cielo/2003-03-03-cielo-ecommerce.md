@@ -532,7 +532,7 @@ Você pode usar o Postman para testar a sua integração.
 
 ### Collections e Environments  Cielo
 
-A seguir, listamos as collections e os environments Cielo. Você pode usá-las Postman para realizar testes e integrações.
+A seguir, listamos as collections e os environments Cielo. Você pode usá-las no Postman para realizar testes e integrações.
 
 #### API Cielo E-commerce
 
