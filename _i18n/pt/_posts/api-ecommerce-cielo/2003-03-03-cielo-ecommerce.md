@@ -600,7 +600,7 @@ Com esse meio de pagamento é possível simular os fluxos de:
 A transação de débito precisa passar por uma autenticação:
 
 * **Autenticação via 3DS 2.0**: aprenda a simular a autenticação 3DS 2.0 em sandbox na [documentação do 3DS](https://developercielo.github.io/manual/3ds); 
-* **URL de Autenticação**: está sendo descontinuada. 
+* **URL de Autenticação**: está sendo descontinuada. Nesse tipo de autenticação, o fluxo transacional do cartão de débito funciona com a Resposta da transação retornando uma URL de Autenticação. Na tela de autenticação a opção escolhida define o status da transação:
 
 |Opção|Status|
 |---|---|
