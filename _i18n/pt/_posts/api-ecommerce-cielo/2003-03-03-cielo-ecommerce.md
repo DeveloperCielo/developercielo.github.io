@@ -688,14 +688,12 @@ Para que você possa disfrutar de todos os recursos disponíveis em nossa API, �
 
 |Conceito|Descrição|
 |---|---|
-|**Autorização**|A autorização (ou pré-autorização) é a principal operação no eCommerce, pois através dela é que uma venda pode ser concretizada. A pré-autorização apenas sensibiliza o limite do cliente, mas ainda não gera cobrança para o consumidor.|
-|**Captura**|Ao realizar uma pré-autorização, é necessário a confirmação desta para que a cobrança seja efetivada ao portador do cartão. Através desta operação que se efetiva uma pré-autorização, podendo esta ser executada, em normalmente, em até 5 dias após a data da pré-autorização.|
-|**Cancelamento**|O cancelamento é necessário quando, por algum motivo, não se quer mais efetivar uma venda.|
-|**Autenticação**|O processo de autenticação possibilita realizar uma venda a qual passará pelo processo de autenticação do banco emissor do cartão, assim trazendo mais segurança para a venda e transferindo para o banco, o risco de fraude.|
-|**Cartão protegido**|É uma plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografrado chamado de "token”, que poderá ser armazenado em banco de dados. Com a plataforma, a loja poderá oferecer recursos como "Compra com 1 clique” e "Retentativa de envio de transação”, sempre preservando a integridade e a confidencialidade das informações.|
-|**Recorrente**|A Recorrência Inteligente é um recurso indispensável para estabelicimentos que precisam cobrar regularmente por seus produtos/serviços. É muito utilizado para assinaturas de revistas, mensalidades, licenças de software, entre outros. Os lojistas contarão com recursos diferenciados para modelar sua cobrança de acordo com o seu negócio, pois toda parametrização é configurável, tais como: periodicidade, data de início e fim, quantidade de tentativas, intervalo entre elas, entre outros.|
+|**Autenticação**|É um processo de verificação do portador do cartão realizado pelo banco emissor para trazer mais segurança para a venda e possibilitando que a risco de fraude fique para o emissor.|
+|**Autorização**|Etapa em que a Cielo faz a conexão com o sistema do banco emissor e da bandeira para aprovar uma transação de cartão. A pré-autorização apenas sensibiliza o limite do cliente, mas ainda não gera cobrança para o consumidor. Para efetivação da cobrança é necessária a ocorrência da captura.|
+|**Captura**|Após a autorização, para que a venda seja concretizada e a cobrança seja efetivada no cartão, ocorre o movimento de captura.|
+|**Cancelamento**|O cancelamento acontece quando o estabelecimento não quer mais prosseguir com uma transação. Esse movimento pode ser realizado tanto para transações autorizadas quanto para capturadas.|
 
-<aside class="warning">IMPORTANTE: O número de identificação do pedido (MerchantOrderId) não sofre alteração, se mantendo o mesmo ao longo de todo o fluxo transacional. Contudo, um número adicional pode ser gerado para o pedido e utilizado durante a transação. Esse número só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (MerchantOrderId) repetidos. Para fins de conciliação, é necessário usar o tid.</aside>
+<aside class="warning">IMPORTANTE: O número de identificação do pedido (MerchantOrderId) não sofre alteração, se mantendo o mesmo ao longo de todo o fluxo transacional. Contudo, um número adicional pode ser gerado para o pedido e utilizado durante a transação. Esse número só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (MerchantOrderId) repetidos. Para fins de conciliação, é necessário usar o TransactionId.</aside>
 
 ### Criando uma transação de crédito
 
@@ -6499,7 +6497,7 @@ curl
 
 ## Criando uma venda com Cartão Tokenizado
 
-Para criar uma venda de cartão de crédito com token do cartão protegido, é necessário fazer um POST para o recurso Payment conforme o exemplo.
+Para criar uma venda de cartão de crédito tokenizado, é necessário fazer um POST para o recurso Payment conforme o exemplo.
 
 ### Requisição
 
@@ -9071,7 +9069,7 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 | 167    | Antifraud not configured                                                                                       | Antifraude não vinculado ao cadastro do lojista                                               |
 | 168    | Recurrent Payment not found                                                                                    | Recorrência não encontrada                                                                    |
 | 169    | Recurrent Payment is not active                                                                                | Recorrência não está ativa. Execução paralizada                                               |
-| 170    | Cartão Protegido not configured                                                                                | Cartão protegido não vinculado ao cadastro do lojista                                         |
+| 170    | Cartão Protegido not configured                                                                                | Token não vinculado ao cadastro do lojista                                         |
 | 171    | Affiliation data not sent                                                                                      | Falha no processamento do pedido - Entre em contato com o suporte Cielo                       |
 | 172    | Credential Code is required                                                                                    | Falha na validação das credenciadas enviadas                                                  |
 | 173    | Payment method is not enabled                                                                                  | Meio de pagamento não vinculado ao cadastro do lojista                                        |
@@ -9081,8 +9079,8 @@ Códigos retornados em caso de erro, identificando o motivo do erro e suas respe
 | 177    | Card Number is invalid                                                                                         | Campo enviado está vazio ou inválido                                                          |
 | 178    | EAN is invalid                                                                                                 | Campo enviado está vazio ou inválido                                                          |
 | 179    | The max number of installments allowed for recurring payment is 1                                              | Campo enviado está vazio ou inválido                                                          |
-| 180    | The provided Card PaymentToken was not found                                                                   | Token do Cartão protegido não encontrado                                                      |
-| 181    | The MerchantIdJustClick is not configured                                                                      | Token do Cartão protegido bloqueado                                                           |
+| 180    | The provided Card PaymentToken was not found                                                                   | Token não encontrado                                                      |
+| 181    | The MerchantIdJustClick is not configured                                                                      | Token bloqueado                                                           |
 | 182    | Brand is required                                                                                              | Bandeira do cartão não enviado                                                                |
 | 183    | Invalid customer bithdate                                                                                      | Data de nascimento inválida ou futura                                                         |
 | 184    | Request could not be empty                                                                                     | Falha no formado da requisição. Verifique o código enviado                                    |
