@@ -102,283 +102,6 @@ A versão atual da API e-commerce Cielo possui suporte às seguintes bandeiras e
 
 > Cartões emitidos no exterior não possuem permissão de parcelamento.
 
-## Últimas Implementações
-
-### Quasi cash
-
-Todos os clientes de E-commerce que transacionam  quasi cash, devem seguir a nova parametrização e encaminhar na requisição de transação a tag <quasi cash> conforme exemplo abaixo:
-
-```json
-"Payment":{
-   "Currency":"BRL",
-   "Country":"BRA",
-   "ServiceTaxAmount":0,
-   "Installments":1,
-   "Interest":"ByMerchant",
-   "Capture":true,
-   "Authenticate":false,
-   "SoftDescriptor":"123456789ABCD",
-   "CreditCard":{
-      "CardNumber":"1234123412341231",
-      "Holder":"Teste Holder",
-      "ExpirationDate":"12/2030",
-      "SecurityCode":"123",
-      "SaveCard":"false",
-      "Brand":"Visa",
-      "CardOnFile":{
-         "Usage":"Used",
-         "Reason":"Unscheduled"
-      }
-   },
-   "QuasiCash":true,
-   "Type":"CreditCard",
-   "Amount":15700,
-   "AirlineData":{
-      "TicketNumber":"AR988983"
-   }      
-```
-
-### Facilitadores de Pagamento
-
-Todos os clientes de E-Commerce que são **Facilitadores de Pagamento, por obrigatoriedade das bandeiras e do Banco Central** deverão enviar novos campos na **mensageria transacional**.  A Cielo transmitirá as informações para as bandeiras por meio da mensageria transacional no momento da autorização.
-
-Os novos campos estão contidos dentro do nó Payment Facilitator. Além dos campos deste novo nó, os facilitadores terão também de enviar obrigatoriamente o campo softdescriptor do nó payment. Segue abaixo exemplo do envio e da resposta.
-
-> **Atenção:** O não envio dos dados obrigatórios na mensageria transacional, as bandeiras ao identificarem a inconformidade, aplicarão multas à Cielo as quais serão repassadas ao Facilitador responsável pelo envio dos dados transacionais.
-
-#### Requisição
-
-```json
-{
-   "MerchantOrderId":"2222222222",
-   "Customer":{
-      "Name":"Comprador Teste",
-      "Identity":"11225468954",
-      "IdentityType":"CPF",
-      "Email":"compradorteste@teste.com",
-      "Birthdate":"1991-01-02",
-      "Address":{
-         "Street":"Rua Teste",
-         "Number":"123",
-         "Complement":"AP 123",
-         "ZipCode":"12345987",
-         "City":"Rio de Janeiro",
-         "State":"RJ",
-         "Country":"BRA"
-      },
-      "DeliveryAddress":{
-         "Street":"Rua Teste",
-         "Number":"123",
-         "Complement":"AP 123",
-         "ZipCode":"12345987",
-         "City":"Rio de Janeiro",
-         "State":"RJ",
-         "Country":"BRA"
-      }
-   },
-   "Payment":{
-      "Type":"CreditCard",
-      "Amount":157000,
-      "Currency":"BRL",
-      "Country":"BRA",
-      "Provider":"Cielo",
-      "ServiceTaxAmount":0,
-      "Installments":1,
-      "Interest":"ByMerchant",
-      "Capture":false,
-      "Authenticate":false,
-      "Recurrent":false,
-      "SoftDescriptor":"123456789ABCD",
-      "CreditCard":{
-         "CardNumber":"4024007197692931",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"12/2021",
-         "SecurityCode":"123",
-         "SaveCard":"false",
-         "Brand":"Visa"
-      },
-      "PaymentFacilitator":{
-         "EstablishmentCode":"1234",
-         "SubEstablishment":{
-            "EstablishmentCode":"1234",
-            "Identity":"11111111000100",
-            "Mcc":"1234",
-            "Address":"Alameda Grajau, 512",
-            "City":"Barueri",
-            "State":"SP",
-            "CountryCode":"076",
-            "PostalCode":"06455914",
-            "PhoneNumber":"1155855585"
-         }
-      }
-   }
-}
-```
-
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
-|---|---|---|---|---|
-|PaymentFacilitator.EstablishmentCode|Numérico|11|Obrigatório para facilitadores|Código do estabelecimento do Facilitador. "Facilitator ID” (Cadastro do facilitador com as bandeiras)<br>O código é diferente por bandeira, podendo variar inclusive o tamanho do campo:<br>Bandeira Mastercard –06 dígitos<br>Bandeira Visa –08 dígitos<br>Bandeira ELO –de 04 à 05 dígitos<br>Bandeira Hipercard –06 dígitos<br>Para demais bandeiras, como Amex e JCB, o campo pode ser preenchido com “0” zeros.|
-|PaymentFacilitator.SubEstablishment.EstablishmentCode|Numérico|15|Obrigatório para facilitadores|Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)|
-|PaymentFacilitator.SubEstablishment.Identity|Numérico|14|Obrigatório para facilitadores|CNPJ ou CPF do sub-merchant.|
-|PaymentFacilitator.SubEstablishment.Mcc|Numérico|4|Obrigatório para facilitadores|MCC do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.Address|Alfanumérico|22|Obrigatório para facilitadores|Endereço do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.City|Alfanumérico|13|Obrigatório para facilitadores|Cidade do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.State|Alfanumérico|2|Obrigatório para facilitadores|Estado do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.PostalCode|Numérico|9|Obrigatório para facilitadores|Código postal do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.CountryCode|Numérico|3|Obrigatório para facilitadores|Código país do sub-merchant com base no ISO 3166<br>Ex: código ISO 3166 do Brasil é o 076. [Lista completa online](https://www.iso.org/obp/ui/#search/code/).|
-|PaymentFacilitator.SubEstablishment.PhoneNumber|Numérico|13|Obrigatório para facilitadores|Número de telefone do sub Merchant.|
-|Payment.Softdescriptor|Texto|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
-
-<aside class="warning"><b>Atenção: Os campos não devem ser enviados com espaçamento a esquerda. Sujeito a rejeição na liquidação das transações.</b></aside>
-
-#### Resposta
-
-```json
-{
-   "MerchantOrderId":"2014111701",
-   "Customer":{
-      "Name":"Comprador Teste",
-      "Identity":"11225468954",
-      "IdentityType":"CPF",
-      "Email":"compradorteste@teste.com",
-      "Birthdate":"1991-01-02",
-      "Address":{
-         "Street":"Rua Teste",
-         "Number":"123",
-         "Complement":"AP 123",
-         "ZipCode":"12345987",
-         "City":"Rio de Janeiro",
-         "State":"RJ",
-         "Country":"BRA"
-      },
-      "DeliveryAddress":{
-         "Street":"Rua Teste",
-         "Number":"123",
-         "Complement":"AP 123",
-         "ZipCode":"12345987",
-         "City":"Rio de Janeiro",
-         "State":"RJ",
-         "Country":"BRA"
-      }
-   },
-   "Payment":{
-      "ServiceTaxAmount":0,
-      "Installments":1,
-      "Interest":0,
-      "Capture":false,
-      "Authenticate":false,
-      "Recurrent":false,
-      "CreditCard":{
-         "CardNumber":"402400******2931",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"12/2021",
-         "SaveCard":false,
-         "Brand":"Visa"
-      },
-      "Tid":"1223092935684",
-      "ProofOfSale":"2935684",
-      "AuthorizationCode":"065158",
-      "SoftDescriptor":"123456789ABCD",
-      "Provider":"Simulado",
-      "IsQrCode":false,
-      "PaymentFacilitator":{
-         "EstablishmentCode":"1234",
-         "SubEstablishment":{
-            "EstablishmentCode":"1234",
-            "Identity":"11111111000100",
-            "Mcc":"1234",
-            "Address":"Alameda Grajau, 512",
-            "City":"Barueri",
-            "State":"SP",
-            "CountryCode":"076",
-            "PostalCode":"06455914",
-            "PhoneNumber":"1155855585"
-         }
-      },
-      "Amount":157000,
-      "ReceivedDate":"2019-12-23 09:29:34",
-      "Status":1,
-      "IsSplitted":false,
-      "ReturnMessage":"Operation Successful",
-      "ReturnCode":"4",
-      "PaymentId":"365c3a0d-fd86-480b-9279-4ba3da21333c",
-      "Type":"CreditCard",
-      "Currency":"BRL",
-      "Country":"BRA",
-      "Links":[
-         {
-            "Method":"GET",
-            "Rel":"self",
-            "Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/365c3a0d-fd86-480b-9279-4ba3da21333c"
-         },
-         {
-            "Method":"PUT",
-            "Rel":"capture",
-            "Href":"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/365c3a0d-fd86-480b-9279-4ba3da21333c/capture"
-         },
-         {
-            "Method":"PUT",
-            "Rel":"void",
-            "Href":"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/365c3a0d-fd86-480b-9279-4ba3da21333c/void"
-         }
-      ]
-   }
-}
-```
-
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
-|---|---|---|---|---|
-|PaymentFacilitator.EstablishmentCode|Numérico|11|Obrigatório para facilitadores|Código do estabelecimento do Facilitador. "Facilitator ID” (Cadastro do facilitador com as bandeiras)<br>O código é diferente por bandeira, podendo variar inclusive o tamanho do campo:<br>Bandeira Mastercard –06 dígitos<br>Bandeira Visa –08 dígitos<br>Bandeira ELO –de 04 à 05 dígitos<br>Bandeira Hipercard –06 dígitos<br>Para demais bandeiras, como Amex e JCB, o campo pode ser preenchido com “0” zeros.|
-|PaymentFacilitator.SubEstablishment.EstablishmentCode|Numérico|15|Obrigatório para facilitadores|Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)|
-|PaymentFacilitator.SubEstablishment.Identity|Numérico|14|Obrigatório para facilitadores|CNPJ ou CPF do sub-merchant.|
-|PaymentFacilitator.SubEstablishment.Mcc|Numérico|4|Obrigatório para facilitadores|MCC do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.Address|Alfanumérico|22|Obrigatório para facilitadores|Endereço do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.City|Alfanumérico|13|Obrigatório para facilitadores|Cidade do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.State|Alfanumérico|2|Obrigatório para facilitadores|Estado do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.PostalCode|Numérico|9|Obrigatório para facilitadores|Código postal do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.CountryCode|Numérico|3|Obrigatório para facilitadores|Código país do sub-merchant com base no ISO 3166.<br>Ex: código ISO 3166 do Brasil é o 076. [Lista completa online](https://www.iso.org/obp/ui/#search/code/)|
-|PaymentFacilitator.SubEstablishment.PhoneNumber|Numérico|13|Obrigatório para facilitadores|Número de telefone do sub Merchant.|
-|Payment.Softdescriptor|Texto|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
-
-### Transações CBPS
-
-Atualmente, os consumidores geralmente precisam fazer login em diversos sites de cobrança para pagar suas contas, muitos dos quais não aceitam pagamentos de cartão. Os fornecedores do Serviço de Pagamento de Contas para Consumidores (CBPS) simplificam o processo ao permitir que os consumidores façam todos os pagamentos de contas com cartão e em um único canal. Geralmente os fornecedores CBPS oferecem um aplicativo móvel ou um comercio eletrônico para o portador fazer a gestão e efetuar os pagamentos.
-
-A Visa solicita que os provedores deste tipo de serviço passem a informar quais transações são CBPS a partir de Out20. Para isso, é necessário enviar o campo **“IsCustomerBillPaymentService”** como TRUE conforme exemplo abaixo.
-
-#### Requisição
-
-```json
-{
-   "MerchantOrderId":"2014111703",
-   "Customer":{
-      "Name":"Comprador crédito simples"
-   },
-   "Payment":{
-      "Type":"CreditCard",
-      "Amount":15700,
-      "Installments":1,
-      "SoftDescriptor":"123456789ABCD",
-      "CreditCard":{
-         "CardNumber":"1234123412341231",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"12/2030",
-         "SecurityCode":"123",
-         "Brand":"Visa",
-         "CardOnFile":{
-            "Usage":"Used",
-            "Reason":"Unscheduled"
-         }
-      },
-      "IsCustomerBillPaymentService":true
-   }
-}
-```
-
-|Propriedade                   |Tipo     | Tamanho | Obrigatório | Descrição                                                                                        |
-|------------------------------|---------|---------|-------------|--------------------------------------------------------------------------------------------------|
-| IsCustomerBillPaymentService | Boolean | ---     | Não         | True ou false. Indica se é uma transação CBPS (Serviço de Pagamento de Contas para Consumidores) |
-
 # Certificados e segurança
 
 ## O que é Certificado SSL?
@@ -3102,6 +2825,283 @@ Como qualquer transação de débito no e-commerce, as transações de Carnê pr
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`Payment.IsCarneTransaction`|Booleano|---|Não (default false)|Deve ser enviado com valor “true” caso se trate de uma transação de pagamento de serviço do tipo Carnê|
+
+## Implementações específicas
+
+### Quasi cash
+
+Todos os clientes de E-commerce que transacionam  *quasi cash*, devem usar a requisição da [transação de crédito](https://developercielo.github.io/manual/cielo-ecommerce#cart%C3%A3o-de-cr%C3%A9dito) e encaminhar a tag `QuasiCash` conforme exemplo a seguir:
+
+```json
+"Payment":{
+   "Currency":"BRL",
+   "Country":"BRA",
+   "ServiceTaxAmount":0,
+   "Installments":1,
+   "Interest":"ByMerchant",
+   "Capture":true,
+   "Authenticate":false,
+   "SoftDescriptor":"123456789ABCD",
+   "QuasiCash":true,
+   "Type":"CreditCard",
+   "Amount":15700,
+   "CreditCard":{
+      "CardNumber":"1234123412341231",
+      "Holder":"Teste Holder",
+      "ExpirationDate":"12/2030",
+      "SecurityCode":"123",
+      "SaveCard":"false",
+      "Brand":"Visa",
+      "CardOnFile":{
+         "Usage":"Used",
+         "Reason":"Unscheduled"
+   }      
+```
+
+|Parâmetro  | Descrição|Valor|Formato|Tamanho|Obrigatório|
+|-----------|----------|-----|-------|-------|-----------|
+|`QuasiCash`| Identifica o envio de saldo para a carteira digital.|"true" ou "false"|Booleano|-|Não|
+
+### Facilitadores de Pagamento
+
+Todos os clientes de E-Commerce que são **Facilitadores de Pagamento**, por **obrigatoriedade das bandeiras e do Banco Central** devem enviar campos específicos na **mensageria transacional**.  A Cielo transmitirá as informações para as bandeiras por meio da mensageria transacional no momento da autorização.
+
+Os campos específicos estão contidos dentro do nó `PaymentFacilitator`. Além dos campos deste nó, os facilitadores também precisam enviar obrigatoriamente o campo `SoftDescriptor` do nó `Payment`. Veja a seguir o exemplo do envio e da resposta.
+
+> **Atenção:** As bandeiras, ao identificarem inconformidade devido ao não envio dos dados obrigatórios na mensageria transacional, aplicarão multas à Cielo as quais serão repassadas ao Facilitador responsável pelo envio dos dados transacionais.
+
+#### Requisição
+
+```json
+{
+   "MerchantOrderId":"2222222222",
+   "Customer":{
+      "Name":"Comprador Teste",
+      "Identity":"11225468954",
+      "IdentityType":"CPF",
+      "Email":"compradorteste@teste.com",
+      "Birthdate":"1991-01-02",
+      "Address":{
+         "Street":"Rua Teste",
+         "Number":"123",
+         "Complement":"AP 123",
+         "ZipCode":"12345987",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BRA"
+      },
+      "DeliveryAddress":{
+         "Street":"Rua Teste",
+         "Number":"123",
+         "Complement":"AP 123",
+         "ZipCode":"12345987",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BRA"
+      }
+   },
+   "Payment":{
+      "Type":"CreditCard",
+      "Amount":157000,
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Provider":"Cielo",
+      "ServiceTaxAmount":0,
+      "Installments":1,
+      "Interest":"ByMerchant",
+      "Capture":false,
+      "Authenticate":false,
+      "Recurrent":false,
+      "SoftDescriptor":"123456789ABCD",
+      "CreditCard":{
+         "CardNumber":"4024007197692931",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "SaveCard":"false",
+         "Brand":"Visa"
+      },
+      "PaymentFacilitator":{
+         "EstablishmentCode":"1234",
+         "SubEstablishment":{
+            "EstablishmentCode":"1234",
+            "Identity":"11111111000100",
+            "Mcc":"1234",
+            "Address":"Alameda Grajau, 512",
+            "City":"Barueri",
+            "State":"SP",
+            "CountryCode":"076",
+            "PostalCode":"06455914",
+            "PhoneNumber":"1155855585"
+         }
+      }
+   }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|PaymentFacilitator.EstablishmentCode|Numérico|11|Obrigatório para facilitadores|Código do estabelecimento do Facilitador. "Facilitator ID” (Cadastro do facilitador com as bandeiras)<br>O código é diferente por bandeira, podendo variar inclusive o tamanho do campo:<br>Bandeira Mastercard –06 dígitos<br>Bandeira Visa –08 dígitos<br>Bandeira ELO –de 04 à 05 dígitos<br>Bandeira Hipercard –06 dígitos<br>Para demais bandeiras, como Amex e JCB, o campo pode ser preenchido com “0” zeros.|
+|PaymentFacilitator.SubEstablishment.EstablishmentCode|Numérico|15|Obrigatório para facilitadores|Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)|
+|PaymentFacilitator.SubEstablishment.Identity|Numérico|14|Obrigatório para facilitadores|CNPJ ou CPF do sub-merchant.|
+|PaymentFacilitator.SubEstablishment.Mcc|Numérico|4|Obrigatório para facilitadores|MCC do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.Address|Alfanumérico|22|Obrigatório para facilitadores|Endereço do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.City|Alfanumérico|13|Obrigatório para facilitadores|Cidade do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.State|Alfanumérico|2|Obrigatório para facilitadores|Estado do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.PostalCode|Numérico|9|Obrigatório para facilitadores|Código postal do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.CountryCode|Numérico|3|Obrigatório para facilitadores|Código país do sub-merchant com base no ISO 3166<br>Ex: código ISO 3166 do Brasil é o 076. [Lista completa online](https://www.iso.org/obp/ui/#search/code/).|
+|PaymentFacilitator.SubEstablishment.PhoneNumber|Numérico|13|Obrigatório para facilitadores|Número de telefone do sub Merchant.|
+|Payment.Softdescriptor|Texto|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
+
+<aside class="warning"><b>Atenção: Os campos não devem ser enviados com espaçamento a esquerda. Sujeito a rejeição na liquidação das transações.</b></aside>
+
+#### Resposta
+
+```json
+{
+   "MerchantOrderId":"2014111701",
+   "Customer":{
+      "Name":"Comprador Teste",
+      "Identity":"11225468954",
+      "IdentityType":"CPF",
+      "Email":"compradorteste@teste.com",
+      "Birthdate":"1991-01-02",
+      "Address":{
+         "Street":"Rua Teste",
+         "Number":"123",
+         "Complement":"AP 123",
+         "ZipCode":"12345987",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BRA"
+      },
+      "DeliveryAddress":{
+         "Street":"Rua Teste",
+         "Number":"123",
+         "Complement":"AP 123",
+         "ZipCode":"12345987",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BRA"
+      }
+   },
+   "Payment":{
+      "ServiceTaxAmount":0,
+      "Installments":1,
+      "Interest":0,
+      "Capture":false,
+      "Authenticate":false,
+      "Recurrent":false,
+      "CreditCard":{
+         "CardNumber":"402400******2931",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2021",
+         "SaveCard":false,
+         "Brand":"Visa"
+      },
+      "Tid":"1223092935684",
+      "ProofOfSale":"2935684",
+      "AuthorizationCode":"065158",
+      "SoftDescriptor":"123456789ABCD",
+      "Provider":"Simulado",
+      "IsQrCode":false,
+      "PaymentFacilitator":{
+         "EstablishmentCode":"1234",
+         "SubEstablishment":{
+            "EstablishmentCode":"1234",
+            "Identity":"11111111000100",
+            "Mcc":"1234",
+            "Address":"Alameda Grajau, 512",
+            "City":"Barueri",
+            "State":"SP",
+            "CountryCode":"076",
+            "PostalCode":"06455914",
+            "PhoneNumber":"1155855585"
+         }
+      },
+      "Amount":157000,
+      "ReceivedDate":"2019-12-23 09:29:34",
+      "Status":1,
+      "IsSplitted":false,
+      "ReturnMessage":"Operation Successful",
+      "ReturnCode":"4",
+      "PaymentId":"365c3a0d-fd86-480b-9279-4ba3da21333c",
+      "Type":"CreditCard",
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Links":[
+         {
+            "Method":"GET",
+            "Rel":"self",
+            "Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/365c3a0d-fd86-480b-9279-4ba3da21333c"
+         },
+         {
+            "Method":"PUT",
+            "Rel":"capture",
+            "Href":"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/365c3a0d-fd86-480b-9279-4ba3da21333c/capture"
+         },
+         {
+            "Method":"PUT",
+            "Rel":"void",
+            "Href":"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/365c3a0d-fd86-480b-9279-4ba3da21333c/void"
+         }
+      ]
+   }
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|PaymentFacilitator.EstablishmentCode|Numérico|11|Obrigatório para facilitadores|Código do estabelecimento do Facilitador. "Facilitator ID” (Cadastro do facilitador com as bandeiras)<br>O código é diferente por bandeira, podendo variar inclusive o tamanho do campo:<br>Bandeira Mastercard –06 dígitos<br>Bandeira Visa –08 dígitos<br>Bandeira ELO –de 04 à 05 dígitos<br>Bandeira Hipercard –06 dígitos<br>Para demais bandeiras, como Amex e JCB, o campo pode ser preenchido com “0” zeros.|
+|PaymentFacilitator.SubEstablishment.EstablishmentCode|Numérico|15|Obrigatório para facilitadores|Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)|
+|PaymentFacilitator.SubEstablishment.Identity|Numérico|14|Obrigatório para facilitadores|CNPJ ou CPF do sub-merchant.|
+|PaymentFacilitator.SubEstablishment.Mcc|Numérico|4|Obrigatório para facilitadores|MCC do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.Address|Alfanumérico|22|Obrigatório para facilitadores|Endereço do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.City|Alfanumérico|13|Obrigatório para facilitadores|Cidade do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.State|Alfanumérico|2|Obrigatório para facilitadores|Estado do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.PostalCode|Numérico|9|Obrigatório para facilitadores|Código postal do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.CountryCode|Numérico|3|Obrigatório para facilitadores|Código país do sub-merchant com base no ISO 3166.<br>Ex: código ISO 3166 do Brasil é o 076. [Lista completa online](https://www.iso.org/obp/ui/#search/code/)|
+|PaymentFacilitator.SubEstablishment.PhoneNumber|Numérico|13|Obrigatório para facilitadores|Número de telefone do sub Merchant.|
+|Payment.Softdescriptor|Texto|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
+
+### Transações CBPS
+
+Atualmente, os consumidores geralmente precisam fazer login em diversos sites de cobrança para pagar suas contas, muitos dos quais não aceitam pagamentos de cartão. Os fornecedores do Serviço de Pagamento de Contas para Consumidores (CBPS) simplificam o processo ao permitir que os consumidores façam todos os pagamentos de contas com cartão e em um único canal. Geralmente os fornecedores CBPS oferecem um aplicativo móvel ou um comercio eletrônico para o portador fazer a gestão e efetuar os pagamentos.
+
+A Visa solicita que os provedores deste tipo de serviço passem a informar quais transações são CBPS. Para isso, é necessário enviar o campo `IsCustomerBillPaymentService` como **"true"** conforme exemplo abaixo.
+
+#### Requisição
+
+```json
+{
+   "MerchantOrderId":"2014111703",
+   "Customer":{
+      "Name":"Comprador crédito simples"
+   },
+   "Payment":{
+      "Type":"CreditCard",
+      "Amount":15700,
+      "Installments":1,
+      "SoftDescriptor":"123456789ABCD",
+      "CreditCard":{
+         "CardNumber":"1234123412341231",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"123",
+         "Brand":"Visa",
+         "CardOnFile":{
+            "Usage":"Used",
+            "Reason":"Unscheduled"
+         }
+      },
+      "IsCustomerBillPaymentService":true
+   }
+}
+```
+
+|Propriedade                   |Tipo     | Tamanho | Obrigatório | Descrição                                                                                        |
+|------------------------------|---------|---------|-------------|--------------------------------------------------------------------------------------------------|
+| IsCustomerBillPaymentService | Boolean | ---     | Não         | True ou false. Indica se é uma transação CBPS (Serviço de Pagamento de Contas para Consumidores) |
 
 ## Erros de Integração
 
