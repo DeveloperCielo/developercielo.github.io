@@ -3186,7 +3186,7 @@ curl
             {
                 "Amount": 10000,
                 "CaseNumber": "123456",
-                "Date": "2017-06-04",
+                "Date": "2022-06-04",
                 "ReasonCode": "104",
                 "ReasonMessage": "Outras Fraudes - Cartao Ausente",
                 "Status": "Received",
@@ -3194,13 +3194,18 @@ curl
             }
         ],
         "FraudAlert": {
-            "Date": "2017-05-20",
+            "Date": "2022-05-20",
             "ReasonMessage": "Uso Ind Numeração",
             "IncomingChargeback": false
         },
         "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
         "Type": "CreditCard",
-        "Amount": 15700,
+        "Amount": 10000,
+        "ReceivedDate": "2022-07-29 17:16:21",
+        "CapturedAmount": 9000,
+        "CapturedDate": "2022-07-29 17:16:22",
+        "VoidedAmount": 1000,
+        "VoidedDate": "2022-05-15 16:25:38",
         "Currency": "BRL",
         "Country": "BRA",
         "ExtraDataCollection": [],
@@ -3254,7 +3259,12 @@ curl
         "AuthorizationCode": "123456",
         "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
         "Type": "CreditCard",
-        "Amount": 15700,
+        "Amount": 10000,
+        "ReceivedDate": "2022-07-29 17:16:21",
+        "CapturedAmount": 9000,
+        "CapturedDate": "2022-07-29 17:16:22",
+        "VoidedAmount": 1000,
+        "VoidedDate": "2022-05-15 16:25:38",
         "Currency": "BRL",
         "Country": "BRA",
         "ExtraDataCollection": [],
@@ -3290,6 +3300,11 @@ curl
 |`Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja (NEW / EXISTING)|
 |`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento.|
 |`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
+|`Payment.ReceivedDate`|Data em que a transação foi recebida.|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.CapturedAmount`|Valor capturado.|Número|15|10000|
+|`Payment.CapturedDate`|Data da captura.|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.VoidedAmount`|Valor cancelado/estornado, em centavos.|Número|15|10000|
+|`Payment.VoidedDate`|Data do cancelamento/estorno.|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`Payment.Provider`|Texto|15|---|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|
 |`CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do Comprador.|
 |`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
