@@ -50,8 +50,8 @@ if [ -n "$GH_TOKEN" ]; then
 
   # push
   cd _site
-  git config user.email "esilva@braspag.com.br"
-  git config user.name "Ellen Camila Silva"
+  git config user.email "fabio.albuquerque@cielo.com.br"
+  git config user.name "fabiocielo"
   git add --all
   git commit -a -m "[$TRAVIS_COMMIT]: $TRAVIS_COMMIT_MESSAGE"
   git push --force origin master
