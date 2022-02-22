@@ -129,11 +129,11 @@
             </div>
 
             <div class="post">
-  <h1 id="overview---api-cielo-ecommerce">Overview - API Cielo eCommerce</h1>
+  <h1 id="overview---api-cielo-e-commerce">Overview - API Cielo E-commerce</h1>
 
 <p>The purpose of this documentation is to guide the developer on how to integrate with Cielo’s API Cielo eCommerce, describing the features, methods to be used, listing information to be sent and received, and providing examples.</p>
 
-<p>The integration mechanism with Cielo e-Commerce is simple, so only intermediate knowledge in Web programming language, HTTP/HTTPS requests and JSON file manipulation are required to successfully deploy the Cielo e-Commerce solution.</p>
+<p>The integration mechanism with Cielo E-commerce is simple, so only intermediate knowledge in Web programming language, HTTP/HTTPS requests and JSON file manipulation are required to successfully deploy the Cielo e-Commerce solution.</p>
 
 <p>In this manual, you will find the reference on all operations available on API REST of API Cielo eCommerce. These operations must be performed using its specific key (Merchant ID and Merchant Key) in the respective environment endpoints</p>
 
@@ -14130,6 +14130,62 @@ The download can be made from the following URL:</p>
   <li>For credit/debit card validity: <strong>bp-sop-cardexpirationdate</strong></li>
   <li>For credit/debit card security code: <strong>bp-sop-cardcvvc</strong></li>
 </ul>
+
+<p><strong>SETTING PARAMETERS</strong></p>
+
+<p><strong>Script Parameters</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">accessToken</code></td>
+      <td>Access Token obtained via Authentication API</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">environment</code></td>
+      <td><strong>sandbox</strong> or <strong>production</strong></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">language</code></td>
+      <td><strong>PT</strong> or <strong>EN</strong> or <strong>ES</strong></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">enableTokenize</code></td>
+      <td><strong>true</strong> if you want to save the card directly on your vault in the Cartão Protegido (returns a ‘cardToken’ instead of a ‘paymentToken’). <strong>false</strong> otherwise.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cvvRequired</code></td>
+      <td>“false” (sets CVV as not mandatory) / “true” (sets CVV as mandatory).</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Script Response</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentToken</code></td>
+      <td>Payment Token in GUID format (36)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CardToken</code></td>
+      <td>Permanent token to be used on a payment request on a GUID format (36) Obs.: Only works if ‘enableTokenize’ is <strong>true</strong></td>
+    </tr>
+  </tbody>
+</table>
 
 <p>c) The script provided by Cielo provides three events for manipulation and treatment on the establishment side. They are: <strong>onSuccess</strong> (where <strong>PaymentToken</strong> will be returned after processing the card data), <strong>onError</strong> (if there is any error in the consumption of Cielo services) and <strong>onInvalid</strong> (where the result of the validation of the inputs will be returned).</p>
 
