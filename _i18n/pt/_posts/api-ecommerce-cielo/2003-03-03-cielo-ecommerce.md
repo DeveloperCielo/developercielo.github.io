@@ -30,7 +30,7 @@ Para executar as operações da API e-commerce Cielo você deverá usar sua chav
 
 Para executar uma operação, combine a URL base do ambiente com a URL da operação desejada e envie utilizando o verbo HTTP conforme descrito na operação.
 
-> [Faça o download do tutorial]({{ site.baseurl }}/attachment/merchantid-merchantkey-cielo.pdf) para saber como gerar seu **MerchantId** e **MerchantKey** no [portal da Cielo](https://www.cielo.com.br/).
+> [Faça o download do tutorial]({{ site.baseurl }}/attachment/merchantid-merchantkey-cielo.pdf){:target="_blank"} para saber como gerar seu **MerchantId** e **MerchantKey** no [portal da Cielo](https://www.cielo.com.br/){:target="_blank"}.
 
 ## Características da solução
 
