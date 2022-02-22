@@ -19,7 +19,7 @@ language_tabs:
 
 O objetivo desta documentação é orientar sobre a integração da **API e-commerce Cielo**, descrevendo as funcionalidades, os métodos HTTP, listando informações a serem enviadas e recebidas e provendo exemplos.
 
->**Conhecimentos necessários**: recomendamos conhecimentos intermediários em linguagem de programação para web, requisições HTTP/HTTPS e manipulação de arquivos JSON.
+**Conhecimentos necessários**: recomendamos conhecimentos intermediários em linguagem de programação para web, requisições HTTP/HTTPS e manipulação de arquivos JSON.
 
 Para executar as operações da API e-commerce Cielo você deverá usar sua chave específica (`Merchant ID` e `Merchant Key`) nos respectivos endpoints dos ambientes:
 
@@ -36,7 +36,7 @@ Para executar uma operação, combine a URL base do ambiente com a URL da opera�
 
 A solução **API e-commerce Cielo** foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada pelo seu e-commerce. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação.
 
-> Para obter exemplos dessas linguagens, veja nosso [**Tutorial de conversão Postman**](https://developercielo.github.io/tutorial/postman)
+Para obter exemplos dessas linguagens, veja nosso [**Tutorial de conversão Postman**](https://developercielo.github.io/tutorial/postman)
 
 Entre outras características, os atributos que mais se destacam na plataforma API e-commerce Cielo:
 
@@ -77,12 +77,12 @@ Para facilitar o entendimento, listamos abaixo um pequeno glossário com os prin
 |**Autorização**|processo para verificar se uma compra pode ou não ser realizada com um cartão. Nesse momento, são feitas diversas verificações com o cartão e com o portador (ex.: adimplência, bloqueios, etc.) É também neste momento que o limite do cartão é sensibilizado com o valor da transação.|
 |**Cancelamento**|processo para cancelar uma compra realizada com cartão.|
 |**Captura**|processo que confirma uma autorização que foi realizada previamente. Somente após a captura, é que o portador do cartão poderá visualizá-la em seu extrato ou fatura.|
-|**Comprador**|é o aquele que efetua compra na loja virtual.|
+|**Comprador**|É aquele que efetua compra na loja virtual.|
 |**Emissor (ou banco emissor)**|É a instituição financeira que emite o cartão de crédito, débito ou voucher.|
 |**Estabelecimento comercial ou EC**|É o número de dez posições que identifica o cadastro da loja na Cielo.|
 |**Gateway de pagamentos**|Empresa responsável pelo integração técnica e processamento das transações.|
-|**Portador**|é a pessoa que tem o porte do cartão no momento da venda.|
-|**TID (Transaction Identifier)**|código composto por 20 caracteres que identificada unicamente uma transação Cielo eCommerce.|
+|**Portador**|É a pessoa que tem o porte do cartão no momento da venda.|
+|**TID (Transaction Identifier)**|código composto por 20 caracteres que identificada unicamente uma transação e-commerce Cielo.|
 
 ## Produtos e Bandeiras suportadas 
 
@@ -100,7 +100,7 @@ A versão atual da API e-commerce Cielo possui suporte às seguintes bandeiras e
 | Aura             | Sim             | Sim                    | *Não*  | *Não*   | Sim           |
 | Hipercard        | Sim             | Sim                    | *Não*  | *Não*   | *Não*         |
 
-> Cartões emitidos no exterior não possuem permissão de parcelamento.
+<aside class="warning">Cartões emitidos no exterior não possuem permissão de parcelamento.</aside>
 
 # Certificados e segurança
 
@@ -240,41 +240,31 @@ Para facilitar os testes durante a integração, a Cielo oferece um ambiente San
 
 |INFORMAÇÃO|URL|
 |---|---|
-|Credenciais de acesso|`MerchantId` e `MerchantKey` obtidos após criação da conta de testes em [**Cadastro do Sandbox**](https://cadastrosandbox.cieloecommerce.cielo.com.br/)|
+|Credenciais de acesso|`MerchantId` e `MerchantKey` obtidos após criação da conta de testes em [**Cadastro do Sandbox**](https://cadastrosandbox.cieloecommerce.cielo.com.br/){:target="_blank"}|
 |Base da URL transacional|https://apisandbox.cieloecommerce.cielo.com.br|
 |Base da URL para consultas|https://apiquerysandbox.cieloecommerce.cielo.com.br|
 
 **Vantagens de utilizar o Sandbox**
 
 * Não é necessário uma afiliação para utilizar o Sandbox Cielo.
-* Basta acessar o [**Cadastro do Sandbox**](https://cadastrosandbox.cieloecommerce.cielo.com.br/) para criar uma conta.
+* Basta acessar o [**Cadastro do Sandbox**](https://cadastrosandbox.cieloecommerce.cielo.com.br/){:target="_blank"} para criar uma conta.
 
 ## Ferramenta para Integração
 
-Você pode usar o Postman para testar a sua integração.
+Você pode usar o Postman para testar a sua integração, usando a collection da API e-commerce Cielo.
 
-### Collections e Environments  Cielo
+### Collection
 
-A seguir, listamos as collections e os environments Cielo. Você pode usá-las no Postman para realizar testes e integrações.
-
-#### API Cielo E-commerce
-
-##### Collection
-
-* **Link de importação** 
-
-> [https://www.postman.com/collections/7313fe78130211f5f009](https://www.postman.com/collections/7313fe78130211f5f009)
+> **Link de importação**: [https://www.postman.com/collections/7313fe78130211f5f009](https://www.postman.com/collections/7313fe78130211f5f009){:target="_blank"}
 
 |Ambiente|Endpoints|
 |---|---|
 |Sandbox|**Envio de transação**:  https://apisandbox.cieloecommerce.cielo.com.br <br> **Consulta transação**: https://apiquerysandbox.cieloecommerce.cielo.com.br/|
 |Produção|**Envio de transação**: https://api.cieloecommerce.cielo.com.br/ <br> **Consulta transação**: https://apiquery.cieloecommerce.cielo.com.br/|
 
-##### Environment
+### Environment
 
-Faça download do arquivo abaixo e substitua os MerchantIDs e MerchantKeys pelos os da sua Loja
-
-> [**Environment Produção e Sandbox**](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/attachment/postman/apicielo2021.rar)
+Faça download do arquivo [**Environment Produção e Sandbox**](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/attachment/postman/apicielo2021.rar){:target="_blank"} e substitua os MerchantIDs e MerchantKeys pelos os da sua Loja.
 
 ## Cartão de crédito - Sandbox
 
@@ -283,7 +273,7 @@ Com esse meio de pagamento é possível simular os fluxos de:
 * Autorização;
 * Captura parcial e total;
 * Cancelamento;
-* Consulta.
+* Consulta.<br/>
 
 Para melhor aproveitar o meio de pagamento Simulado, você pode criar um número de cartão usando um gerador de cartões da internet ou escolhendo números aleatórios; para qualquer opção, os 15 primeiros dígitos do cartão podem ser aleatórios e o último dígito deve ser o número correspondente ao status da transação que deseja testar.
 
@@ -304,11 +294,11 @@ As informações de **Cód.Segurança (CVV)** e validade podem ser aleatórias, 
 | XXXX.XXXX.XXXX.XXX8 | Não Autorizado        |  70                | Problemas com o Cartão de Crédito |
 | XXXX.XXXX.XXXX.XXX9 | Autorização Aleatória |  4 a 99            | Operation Successful / Time Out   |
 
-| O cartão de teste **4024.0071.5376.3191**, por exemplo, irá simular o status autorizado.
+O cartão de teste **4024.0071.5376.3191**, por exemplo, irá simular o status autorizado.
 
 <aside class="notice"><strong>Atenção:</strong> O ambiente de sandbox avalia o formato e o final do cartão. Caso um cartão real seja enviado, o resultado da operação será idêntico ao descrito na tabela de cartões de teste.</aside>
 <br/>
-<aside class="Warning"><strong>Atenção:</strong> Os Códigos de retorno em Sandbox não são os mesmos disponiveis em produção.</aside>
+<aside class="Warning">Atenção:Os códigos de retorno em Sandbox não são os mesmos disponiveis em produção.</aside>
 
 **Para consultar os retornos em Produção**, veja os [Códigos da API](https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-da-api).
 
