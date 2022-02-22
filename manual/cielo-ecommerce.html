@@ -133,9 +133,7 @@
 
 <p>O objetivo desta documentação é orientar sobre a integração da <strong>API e-commerce Cielo</strong>, descrevendo as funcionalidades, os métodos HTTP, listando informações a serem enviadas e recebidas e provendo exemplos.</p>
 
-<blockquote>
-  <p><strong>Conhecimentos necessários</strong>: recomendamos conhecimentos intermediários em linguagem de programação para web, requisições HTTP/HTTPS e manipulação de arquivos JSON.</p>
-</blockquote>
+<p><strong>Conhecimentos necessários</strong>: recomendamos conhecimentos intermediários em linguagem de programação para web, requisições HTTP/HTTPS e manipulação de arquivos JSON.</p>
 
 <p>Para executar as operações da API e-commerce Cielo você deverá usar sua chave específica (<code class="language-plaintext highlighter-rouge">Merchant ID</code> e <code class="language-plaintext highlighter-rouge">Merchant Key</code>) nos respectivos endpoints dos ambientes:</p>
 
@@ -171,9 +169,7 @@
 
 <p>A solução <strong>API e-commerce Cielo</strong> foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada pelo seu e-commerce. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação.</p>
 
-<blockquote>
-  <p>Para obter exemplos dessas linguagens, veja nosso <a href="https://developercielo.github.io/tutorial/postman"><strong>Tutorial de conversão Postman</strong></a></p>
-</blockquote>
+<p>Para obter exemplos dessas linguagens, veja nosso <a href="https://developercielo.github.io/tutorial/postman"><strong>Tutorial de conversão Postman</strong></a></p>
 
 <p>Entre outras características, os atributos que mais se destacam na plataforma API e-commerce Cielo:</p>
 
@@ -256,7 +252,7 @@
     </tr>
     <tr>
       <td><strong>Comprador</strong></td>
-      <td>é o aquele que efetua compra na loja virtual.</td>
+      <td>É aquele que efetua compra na loja virtual.</td>
     </tr>
     <tr>
       <td><strong>Emissor (ou banco emissor)</strong></td>
@@ -272,11 +268,11 @@
     </tr>
     <tr>
       <td><strong>Portador</strong></td>
-      <td>é a pessoa que tem o porte do cartão no momento da venda.</td>
+      <td>É a pessoa que tem o porte do cartão no momento da venda.</td>
     </tr>
     <tr>
       <td><strong>TID (Transaction Identifier)</strong></td>
-      <td>código composto por 20 caracteres que identificada unicamente uma transação Cielo eCommerce.</td>
+      <td>código composto por 20 caracteres que identificada unicamente uma transação e-commerce Cielo.</td>
     </tr>
   </tbody>
 </table>
@@ -372,9 +368,7 @@
   </tbody>
 </table>
 
-<blockquote>
-  <p>Cartões emitidos no exterior não possuem permissão de parcelamento.</p>
-</blockquote>
+<aside class="warning">Cartões emitidos no exterior não possuem permissão de parcelamento.</aside>
 
 <h1 id="certificados-e-segurança">Certificados e segurança</h1>
 
@@ -526,7 +520,7 @@
   <tbody>
     <tr>
       <td>Credenciais de acesso</td>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code> e <code class="language-plaintext highlighter-rouge">MerchantKey</code> obtidos após criação da conta de testes em <a href="https://cadastrosandbox.cieloecommerce.cielo.com.br/"><strong>Cadastro do Sandbox</strong></a></td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code> e <code class="language-plaintext highlighter-rouge">MerchantKey</code> obtidos após criação da conta de testes em <a href="https://cadastrosandbox.cieloecommerce.cielo.com.br/" target="_blank"><strong>Cadastro do Sandbox</strong></a></td>
     </tr>
     <tr>
       <td>Base da URL transacional</td>
@@ -543,27 +537,17 @@
 
 <ul>
   <li>Não é necessário uma afiliação para utilizar o Sandbox Cielo.</li>
-  <li>Basta acessar o <a href="https://cadastrosandbox.cieloecommerce.cielo.com.br/"><strong>Cadastro do Sandbox</strong></a> para criar uma conta.</li>
+  <li>Basta acessar o <a href="https://cadastrosandbox.cieloecommerce.cielo.com.br/" target="_blank"><strong>Cadastro do Sandbox</strong></a> para criar uma conta.</li>
 </ul>
 
 <h2 id="ferramenta-para-integração">Ferramenta para Integração</h2>
 
-<p>Você pode usar o Postman para testar a sua integração.</p>
+<p>Você pode usar o Postman para testar a sua integração, usando a collection da API e-commerce Cielo.</p>
 
-<h3 id="collections-e-environments--cielo">Collections e Environments  Cielo</h3>
-
-<p>A seguir, listamos as collections e os environments Cielo. Você pode usá-las no Postman para realizar testes e integrações.</p>
-
-<h4 id="api-cielo-e-commerce">API Cielo E-commerce</h4>
-
-<h5 id="collection">Collection</h5>
-
-<ul>
-  <li><strong>Link de importação</strong></li>
-</ul>
+<h3 id="collection">Collection</h3>
 
 <blockquote>
-  <p><a href="https://www.postman.com/collections/7313fe78130211f5f009">https://www.postman.com/collections/7313fe78130211f5f009</a></p>
+  <p><strong>Link de importação</strong>: <a href="https://www.postman.com/collections/7313fe78130211f5f009" target="_blank">https://www.postman.com/collections/7313fe78130211f5f009</a></p>
 </blockquote>
 
 <table>
@@ -585,13 +569,9 @@
   </tbody>
 </table>
 
-<h5 id="environment">Environment</h5>
+<h3 id="environment">Environment</h3>
 
-<p>Faça download do arquivo abaixo e substitua os MerchantIDs e MerchantKeys pelos os da sua Loja</p>
-
-<blockquote>
-  <p><a href="https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/attachment/postman/apicielo2021.rar"><strong>Environment Produção e Sandbox</strong></a></p>
-</blockquote>
+<p>Faça download do arquivo <a href="https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/attachment/postman/apicielo2021.rar" target="_blank"><strong>Environment Produção e Sandbox</strong></a> e substitua os MerchantIDs e MerchantKeys pelos os da sua Loja.</p>
 
 <h2 id="cartão-de-crédito---sandbox">Cartão de crédito - Sandbox</h2>
 
@@ -601,7 +581,7 @@
   <li>Autorização;</li>
   <li>Captura parcial e total;</li>
   <li>Cancelamento;</li>
-  <li>Consulta.</li>
+  <li>Consulta.<br /></li>
 </ul>
 
 <p>Para melhor aproveitar o meio de pagamento Simulado, você pode criar um número de cartão usando um gerador de cartões da internet ou escolhendo números aleatórios; para qualquer opção, os 15 primeiros dígitos do cartão podem ser aleatórios e o último dígito deve ser o número correspondente ao status da transação que deseja testar.</p>
@@ -673,17 +653,11 @@
   </tbody>
 </table>
 
-<table>
-  <tbody>
-    <tr>
-      <td>O cartão de teste <strong>4024.0071.5376.3191</strong>, por exemplo, irá simular o status autorizado.</td>
-    </tr>
-  </tbody>
-</table>
+<p>O cartão de teste <strong>4024.0071.5376.3191</strong>, por exemplo, irá simular o status autorizado.</p>
 
 <aside class="notice">Atenção: O ambiente de sandbox avalia o formato e o final do cartão. Caso um cartão real seja enviado, o resultado da operação será idêntico ao descrito na tabela de cartões de teste.</aside>
 <p><br /></p>
-<aside class="Warning">Atenção: Os Códigos de retorno em Sandbox não são os mesmos disponiveis em produção.</aside>
+<aside class="Warning">Atenção:Os códigos de retorno em Sandbox não são os mesmos disponiveis em produção.</aside>
 
 <p><strong>Para consultar os retornos em Produção</strong>, veja os <a href="https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-da-api">Códigos da API</a>.</p>
 
