@@ -298,7 +298,7 @@ O cartão de teste **4024.0071.5376.3191**, por exemplo, irá simular o status a
 
 <aside class="notice"><strong>Atenção:</strong> O ambiente de sandbox avalia o formato e o final do cartão. Caso um cartão real seja enviado, o resultado da operação será idêntico ao descrito na tabela de cartões de teste.</aside>
 <br/>
-<aside class="Warning">Atenção:Os códigos de retorno em Sandbox não são os mesmos disponiveis em produção.</aside>
+<aside class="warning">Atenção: Os códigos de retorno em Sandbox não são os mesmos disponiveis em produção.</aside>
 
 **Para consultar os retornos em Produção**, veja os [Códigos da API](https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-da-api).
 
