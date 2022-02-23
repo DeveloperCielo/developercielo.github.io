@@ -2564,7 +2564,7 @@ A Data de validade do cartão possui um valor não permitido  como "08/**A**020"
 
 Para consultar uma venda de cartão de crédito, é necessário fazer um GET para o recurso Payment conforme o exemplo.
 
-<aside class="notice">São elegíveis para a consulta, apenas transações dentro dos três ultimos meses</aside>
+<aside class="notice">São elegíveis para a consulta apenas transações dentro dos três ultimos meses.</aside>
 
 #### Requisição
 
@@ -2583,82 +2583,84 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
-|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|36|Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
+|`MerchantId`|Identificador da loja na API e-commerce Cielo.|Guid|36|Sim|
+|`MerchantKey`|Chave pública para Autenticação Dupla na API e-commerce Cielo.|Texto|40|Sim|
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`PaymentId`|Numero de identificação do Pagamento.|Texto|36|Sim|
+|`PaymentId`|Numero de identificação do Pagamento.|Texto|36|Sim| 
 
 #### Resposta
 
 ```json
-{
-    "MerchantOrderId": "2014111706",
-    "Customer": {
-        "Name": "Comprador Teste",
-        "Address": {}
+}
+"MerchantOrderId": "2014111706",
+"AcquirerOrderId": "202202231037440D1BD0",
+"Customer": {
+    "Name": "Comprador Teste",
+    "Address": {}
+},
+"Payment": {
+    "ServiceTaxAmount": 0,
+    "Installments": 1,
+    "Interest": "ByMerchant",
+    "Capture": false,
+    "Authenticate": false,
+    "CreditCard": {
+        "CardNumber": "455187******0183",
+        "Holder": "Teste Holder",
+        "ExpirationDate": "12/2030",
+        "SaveCard": false,
+        "Brand": "Visa",
+        "PaymentAccountReference":"92745135160550440006111072222"
     },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": false,
-        "Authenticate": false,
-        "CreditCard": {
-            "CardNumber": "455187******0183",
-            "Holder": "Teste Holder",
-            "ExpirationDate": "12/2030",
-            "SaveCard": false,
-            "Brand": "Visa",
-            "PaymentAccountReference":"92745135160550440006111072222"
+    "ProofOfSale": "674532",
+    "Tid": "0223103744208",
+    "AuthorizationCode": "123456",
+    "Chargebacks": [
+        {
+            "Amount": 10000,
+            "CaseNumber": "123456",
+            "Date": "2022-06-04",
+            "ReasonCode": "104",
+            "ReasonMessage": "Outras Fraudes - Cartao Ausente",
+            "Status": "Received",
+            "RawData": "Client did not participate and did not authorize transaction"
+        }
+    ],
+    "FraudAlert": {
+        "Date": "2022-05-20",
+        "ReasonMessage": "Uso Ind Numeração",
+        "IncomingChargeback": false
+    },
+    "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
+    "Type": "CreditCard",
+    "Amount": 10000,
+    "ReceivedDate": "2022-07-29 17:16:21",
+    "CapturedAmount": 9000,
+    "CapturedDate": "2022-07-29 17:16:22",
+    "VoidedAmount": 1000,
+    "VoidedDate": "2022-05-15 16:25:38",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "ExtraDataCollection": [],
+    "Status": 1,
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
         },
-        "ProofOfSale": "674532",
-        "AuthorizationCode": "123456",
-        "Chargebacks": [
-            {
-                "Amount": 10000,
-                "CaseNumber": "123456",
-                "Date": "2022-06-04",
-                "ReasonCode": "104",
-                "ReasonMessage": "Outras Fraudes - Cartao Ausente",
-                "Status": "Received",
-                "RawData": "Client did not participate and did not authorize transaction"
-            }
-        ],
-        "FraudAlert": {
-            "Date": "2022-05-20",
-            "ReasonMessage": "Uso Ind Numeração",
-            "IncomingChargeback": false
+        {
+            "Method": "PUT",
+            "Rel": "capture",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
         },
-        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
-        "Type": "CreditCard",
-        "Amount": 10000,
-        "ReceivedDate": "2022-07-29 17:16:21",
-        "CapturedAmount": 9000,
-        "CapturedDate": "2022-07-29 17:16:22",
-        "VoidedAmount": 1000,
-        "VoidedDate": "2022-05-15 16:25:38",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "ExtraDataCollection": [],
-        "Status": 1,
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "capture",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-            }
-        ]
-    }
+        {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+        }
+    ]
+}
 }
 ```
 
@@ -2668,6 +2670,7 @@ curl
 --data-binary
 {
     "MerchantOrderId": "2014111706",
+    "AcquirerOrderId": "202202231037440D1BD0",
     "Customer": {
         "Name": "Comprador Teste",
         "Address": {}
@@ -2687,6 +2690,7 @@ curl
             "PaymentAccountReference":"92745135160550440006111072222"
         },
         "ProofOfSale": "674532",
+        "Tid": "0223103744208",
         "AuthorizationCode": "123456",
         "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
         "Type": "CreditCard",
@@ -2724,6 +2728,198 @@ curl
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
 |`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
+|AcquirerOrderId | Id da transação enviado ao autorizador, caso o MerchantOrderId seja maior que 20 caracteres ou tenha símbolos. | Texto | 50   | Texto alfanumérico|
+|Payment.Tid | Id da transação no provedor do meio de pagamento. | Texto | 40 | Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
+|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Status`|Status da Transação.|Byte|---|2|
+|`Customer.Name`|Texto|255|Não|Nome do Comprador.|
+|`Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja (NEW / EXISTING)|
+|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento.|
+|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
+|`Payment.ReceivedDate`|Data em que a transação foi recebida.|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.CapturedAmount`|Valor capturado.|Número|15|10000|
+|`Payment.CapturedDate`|Data da captura.|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.VoidedAmount`|Valor cancelado/estornado, em centavos.|Número|15|10000|
+|`Payment.VoidedDate`|Data do cancelamento/estorno.|Texto|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.Provider`|Texto|15|---|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|
+|`CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do Comprador.|
+|`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
+|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
+|`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
+|`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
+|`CreditCard.PaymentAccountReference`|Numérico|29|Não|O PAR(payment account reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado.|
+
+### Consulta - TID
+
+Para consultar uma venda através do número de referência único da transação no adquirente (TID), execute um GET conforme descrito a seguir.
+
+<aside class="notice">São elegíveis para a consulta apenas transações dentro dos três ultimos meses.</aside>
+
+#### Requisição
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/acquirerTid/{TID}</span></aside>
+
+```shell
+curl
+--request GET "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/acquirerTid/{TID}"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|---|---|---|---|---|
+|`MerchantId`|Identificador da loja na API e-commerce Cielo.|Guid|36|Sim|
+|`MerchantKey`|Chave pública para Autenticação Dupla na API e-commerce Cielo.|Texto|40|Sim|
+|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
+|`PaymentId`|Numero de identificação do Pagamento.|Texto|36|Sim|
+
+#### Resposta
+
+```json
+}
+"MerchantOrderId": "2014111706",
+"AcquirerOrderId": "202202231037440D1BD0",
+"Customer": {
+    "Name": "Comprador Teste",
+    "Address": {}
+},
+"Payment": {
+    "ServiceTaxAmount": 0,
+    "Installments": 1,
+    "Interest": "ByMerchant",
+    "Capture": false,
+    "Authenticate": false,
+    "CreditCard": {
+        "CardNumber": "455187******0183",
+        "Holder": "Teste Holder",
+        "ExpirationDate": "12/2030",
+        "SaveCard": false,
+        "Brand": "Visa",
+        "PaymentAccountReference":"92745135160550440006111072222"
+    },
+    "ProofOfSale": "674532",
+    "Tid": "0223103744208",
+    "AuthorizationCode": "123456",
+    "Chargebacks": [
+        {
+            "Amount": 10000,
+            "CaseNumber": "123456",
+            "Date": "2022-06-04",
+            "ReasonCode": "104",
+            "ReasonMessage": "Outras Fraudes - Cartao Ausente",
+            "Status": "Received",
+            "RawData": "Client did not participate and did not authorize transaction"
+        }
+    ],
+    "FraudAlert": {
+        "Date": "2022-05-20",
+        "ReasonMessage": "Uso Ind Numeração",
+        "IncomingChargeback": false
+    },
+    "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
+    "Type": "CreditCard",
+    "Amount": 10000,
+    "ReceivedDate": "2022-07-29 17:16:21",
+    "CapturedAmount": 9000,
+    "CapturedDate": "2022-07-29 17:16:22",
+    "VoidedAmount": 1000,
+    "VoidedDate": "2022-05-15 16:25:38",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "ExtraDataCollection": [],
+    "Status": 1,
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "capture",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+        }
+    ]
+}
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "MerchantOrderId": "2014111706",
+    "AcquirerOrderId": "202202231037440D1BD0",
+    "Customer": {
+        "Name": "Comprador Teste",
+        "Address": {}
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": false,
+        "Authenticate": false,
+        "CreditCard": {
+            "CardNumber": "455187******0183",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2030",
+            "SaveCard": false,
+            "Brand": "Visa",
+            "PaymentAccountReference":"92745135160550440006111072222"
+        },
+        "ProofOfSale": "674532",
+        "Tid": "0223103744208",
+        "AuthorizationCode": "123456",
+        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "ReceivedDate": "2022-07-29 17:16:21",
+        "CapturedAmount": 9000,
+        "CapturedDate": "2022-07-29 17:16:22",
+        "VoidedAmount": 1000,
+        "VoidedDate": "2022-05-15 16:25:38",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "ExtraDataCollection": [],
+        "Status": 1,
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "capture",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+            }
+        ]
+    }
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|---|---|---|---|---|
+|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
+|`AcquirerOrderId` | Id da transação enviado ao autorizador, caso o MerchantOrderId seja maior que 20 caracteres ou tenha símbolos. | Texto | 50   | Texto alfanumérico|
+|`Payment.Tid` | Id da transação no provedor do meio de pagamento. | Texto | 40 | Texto alfanumérico|
 |`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Status`|Status da Transação.|Byte|---|2|
