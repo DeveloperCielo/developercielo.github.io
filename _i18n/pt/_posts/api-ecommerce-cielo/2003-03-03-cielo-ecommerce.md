@@ -2586,7 +2586,9 @@ curl
 |`MerchantId`|Identificador da loja na API e-commerce Cielo.|Guid|36|Sim|
 |`MerchantKey`|Chave pública para Autenticação Dupla na API e-commerce Cielo.|Texto|40|Sim|
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`PaymentId`|Numero de identificação do Pagamento.|Texto|36|Sim| 
+|`PaymentId`|Numero de identificação do Pagamento.|Texto|36|Sim|
+|`AcquirerOrderId`|Id da transação enviado ao autorizador, caso o MerchantOrderId seja maior que 20 caracteres ou tenha símbolos. | Texto | 50   | Sim|
+|`Tid`|Numero de identificação do pagamento na adquirente.|Texto|36|Sim|
 
 #### Resposta
 
@@ -2727,14 +2729,15 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
-|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
-|AcquirerOrderId | Id da transação enviado ao autorizador, caso o MerchantOrderId seja maior que 20 caracteres ou tenha símbolos. | Texto | 50   | Texto alfanumérico|
-|Payment.Tid | Id da transação no provedor do meio de pagamento. | Texto | 40 | Texto alfanumérico|
+|`MerchantOrderId`| Número de identificação do pedido.|Texto|50|Texto alfanumérico|
+|`AcquirerOrderId` | Id da transação enviado ao autorizador, caso o MerchantOrderId seja maior que 20 caracteres ou tenha símbolos. | Texto | 50   | Texto alfanumérico|
 |`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Status`|Status da Transação.|Byte|---|2|
 |`Customer.Name`|Texto|255|Não|Nome do Comprador.|
 |`Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja (NEW / EXISTING)|
+|`Payment.ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
+|`Payment.Tid` | Id da transação no provedor do meio de pagamento. | Texto | 40 | Texto alfanumérico|
 |`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento.|
 |`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
 |`Payment.ReceivedDate`|Data em que a transação foi recebida.|Texto|19|AAAA-MM-DD HH:mm:SS|
@@ -2752,7 +2755,7 @@ curl
 
 ### Consulta - TID
 
-Para consultar uma venda através do número de referência único da transação no adquirente (TID), execute um GET conforme descrito a seguir.
+Para consultar uma venda através do número de referência único da transação na adquirente (TID), execute um GET conforme descrito a seguir.
 
 <aside class="notice">São elegíveis para a consulta apenas transações dentro dos três ultimos meses.</aside>
 
@@ -2776,7 +2779,8 @@ curl
 |`MerchantId`|Identificador da loja na API e-commerce Cielo.|Guid|36|Sim|
 |`MerchantKey`|Chave pública para Autenticação Dupla na API e-commerce Cielo.|Texto|40|Sim|
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`PaymentId`|Numero de identificação do Pagamento.|Texto|36|Sim|
+|`AcquirerOrderId`|Id da transação enviado ao autorizador, caso o MerchantOrderId seja maior que 20 caracteres ou tenha símbolos. | Texto | 50   | Sim|
+|`Tid`|Numero de identificação do pagamento na adquirente.|Texto|36|Sim|
 
 #### Resposta
 
@@ -2917,14 +2921,15 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
-|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
+|`MerchantOrderId`| Número de identificação do pedido.|Texto|50|Texto alfanumérico|
 |`AcquirerOrderId` | Id da transação enviado ao autorizador, caso o MerchantOrderId seja maior que 20 caracteres ou tenha símbolos. | Texto | 50   | Texto alfanumérico|
-|`Payment.Tid` | Id da transação no provedor do meio de pagamento. | Texto | 40 | Texto alfanumérico|
 |`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Status`|Status da Transação.|Byte|---|2|
 |`Customer.Name`|Texto|255|Não|Nome do Comprador.|
 |`Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja (NEW / EXISTING)|
+|`Payment.ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
+|`Payment.Tid` | Id da transação no provedor do meio de pagamento. | Texto | 40 | Texto alfanumérico|
 |`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento.|
 |`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
 |`Payment.ReceivedDate`|Data em que a transação foi recebida.|Texto|19|AAAA-MM-DD HH:mm:SS|
