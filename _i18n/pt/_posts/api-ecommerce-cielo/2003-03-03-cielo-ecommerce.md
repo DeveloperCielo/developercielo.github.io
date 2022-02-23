@@ -309,12 +309,12 @@ Com esse meio de pagamento é possível simular os fluxos de:
 * Autorização;
 * Cancelamento;
 * Consulta.
-
+<br/>
 A transação de débito precisa passar por uma autenticação:
 
 * **Autenticação via 3DS 2.0**: aprenda a simular a autenticação 3DS 2.0 em sandbox na [documentação do 3DS](https://developercielo.github.io/manual/3ds); 
 * **URL de Autenticação**: está sendo descontinuada. Nesse tipo de autenticação, o fluxo transacional do cartão de débito funciona com a Resposta da transação retornando uma URL de Autenticação. Na tela de autenticação a opção escolhida define o status da transação:
-
+<br/>
 |Opção|Status|
 |---|---|
 |Autenticado|Autorizado|
@@ -322,6 +322,19 @@ A transação de débito precisa passar por uma autenticação:
 |Não usar a URL|Não Finalizado|
 
 <aside class="notice"><strong>Transferência Online:</strong> O mesmo comportamento do Cartão de débito em Sandbox é valido para cartão de débito</aside>
+
+## Outros meios de pagamento - Sandbox
+
+Outros meios de pagamento não possuem cartões ou dados específicos simulados, como no caso do cartão de crédito.
+Abaixo especificamos qualquer diferença existente:
+
+|Meio de pagamento|Orientações para Sandbox|
+|---|---|
+|Boleto|Para enviar uma transação de boleto no ambiente sandbox você deve colocar o `Provider` como **"Simulado"**.<br>Não há validação bancária. O boleto se comporta como um boleto sem registro.|
+|Alelo|Use os mesmos valores da requisição do ambiente de produção para [Cartões Alelo](https://developercielo.github.io/manual/cielo-ecommerce#cart%C3%B5es-alelo).|
+|QR Code| Use os mesmos valores da requisição do ambiente de produção para [QR Code](https://developercielo.github.io/manual/cielo-ecommerce#qr-code). Não tem a conciliação bancária.|
+|Carnê|Use os mesmos valores da requisição do ambiente de produção para [Carnê](https://developercielo.github.io/manual/cielo-ecommerce#carn%C3%AA).|
+|Transferência eletrônica|O `Provider` utilizado deve ser **"Simulado"** <br><br> A URL de redirecionamento para o ambiente do banco será uma tela para escolher o estado da autenticação.|
 
 ## Consulta BIN - Sandbox
 
@@ -381,19 +394,6 @@ curl
 }
 --verbose
 ```
-
-## Outros meios de pagamento - Sandbox
-
-Outros meios de pagamento não possuem cartões ou dados específicos simulados, como no caso do cartão de crédito.
-Abaixo especificamos qualquer diferença existente:
-
-|Meio de pagamento|Orientações para Sandbox|
-|---|---|
-|Boleto|Para enviar uma transação de boleto no ambiente sandbox você deve colocar o `Provider` como **"Simulado"**.<br>Não há validação bancária. O boleto se comporta como um boleto sem registro.|
-|Alelo|Use os mesmos valores da requisição do ambiente de produção para [Cartões Alelo](https://developercielo.github.io/manual/cielo-ecommerce#cart%C3%B5es-alelo).|
-|QR Code| Use os mesmos valores da requisição do ambiente de produção para QR Code. Não tem a conciliação bancária.|
-|Carnê|Use os mesmos valores da requisição do ambiente de produção para [Carnê](https://developercielo.github.io/manual/cielo-ecommerce#carn%C3%AA).|
-|Transferência eletrônica|O `Provider` utilizado deve ser **"Simulado"** <br><br> A URL de redirecionamento para o ambiente do banco será uma tela para escolher o estado da autenticação.|
 
 # Meios de Pagamento
 
@@ -6594,7 +6594,7 @@ Caso ocorra algum erro no fluxo, onde não seja possível validar o cartão, o s
 
 # Silent Order Post
 
-Integração que a Cielo oferece aos lojistas, onde os dados de pagamentos são trafegue de forma segura, mantendo o controle total sobre a experiência de Ckeckout.
+Integração que a Cielo oferece aos lojistas, na qual os dados de pagamentos são trafegados de forma segura, mantendo o controle total sobre a experiência de checkout.
 
 Esse método possibilita o envio dos dados do pagamento do seu cliente final de forma segura diretamente em nosso sistema. Os campos de pagamento são guardados do lado da Cielo, que conta com a certificação PCI DSS 3.2.
 
@@ -6602,11 +6602,11 @@ Esse método possibilita o envio dos dados do pagamento do seu cliente final de 
 
 ## Características
 
-* Captura de dados de pagamento diretamente para os sistemas da Cielo por meio dos campos hospedados na sua página através de um script (javascript).
-* Compatibilidade com todos os meios de pagamentos disponibilizados ao Gateway (Nacional e Internacional)
-* Autenticação do comprador (disponível)
-* Redução do escopo de PCI DSS
-* Mantenha controle total sobre a experiência de check-out e elementos de gestão da sua marca.
+* Captura de dados de pagamento diretamente para os sistemas da Cielo por meio dos campos hospedados na sua página através de um script (javascript);
+* Compatibilidade com todos os meios de pagamentos disponibilizados ao Gateway (Nacional e Internacional);
+* Autenticação do comprador (disponível);
+* Redução do escopo de PCI DSS;
+* Permite manter controle total sobre a experiência de checkout e elementos de gestão da sua marca.
 
 ## Fluxo de Autorização
 
@@ -6628,15 +6628,15 @@ O servidor **não trafega os dados do cartão** abertamente.
 
 ## Integração
 
-### PASSO 1
+### Passo 1
 
 O cliente acaba o checkout, e vai para o processamento do pagamento.
 
-### PASSO 2. Obtenção do AccessToken OAuth2
+### Passo 2. Obtenção do AccessToken OAuth2
 
 Quando o comprador acessa o checkout, o estabelecimento deve gerar o `AccessToken` a partir da API de autenticação da Cielo (**OAuth2**). Em caso de sucesso, a API retornará um `AccessToken` que deverá ser utilizado na próxima camada de autenticação da ferramenta.
 
-Para obter o `AccessToken` no padrão [OAuth 2.0](https://oauth.net/2/), envie uma requisição utilizando o VERBO HTTP **POST** para a seguinte URL, formada pela "URL base do ambiente + endpoint", no modelo server-to-server:
+Para obter o `AccessToken` no padrão [OAuth 2.0](https://oauth.net/2/){:target="_blank"}, envie uma requisição utilizando o VERBO HTTP **POST** para a seguinte URL, formada pela "URL base do ambiente + endpoint", no modelo server-to-server:
 
 |Ambiente | URL base + endpoint | Authorization |
 |---|---|---|
@@ -6645,8 +6645,8 @@ Para obter o `AccessToken` no padrão [OAuth 2.0](https://oauth.net/2/), envie u
 
 **Nota:** O valor "_{base64}_" para a autorização do tipo "Basic" deve ser obtido da seguinte forma:
 
-1. Concatene o "ClientId" e o "ClientSecret" (`ClientId:ClientSecret`). 
-2. Codifique o resultado da concatenação em base64.
+1. Concatene o "ClientId" e o "ClientSecret" (`ClientId:ClientSecret`);
+2. Codifique o resultado da concatenação em base64;
 3. Realize uma requisição ao servidor de autorização utilizando o código alfanumérico gerado.
 
 > Para obter o "ClientID" e o "ClientSecret", envie um e-mail para *cieloecommerce@cielo.com.br* contendo o MerchantId e informando que deseja obter as credenciais "ClientID" e "ClientSecret" para o Silent Order Post.
@@ -6692,7 +6692,7 @@ Para obter o `AccessToken` no padrão [OAuth 2.0](https://oauth.net/2/), envie u
 |`token_type`|Indica o valor do tipo de token.|
 |`expires_in`|Expiração do token de acesso, em segundos. Quando o token expira, é necessário obter um novo.|
 
-### PASSO 3. Obtenção do AccessToken SOP
+### Passo 3. Obtenção do AccessToken SOP
 
 Após a obtenção do AccessToken OAuth2, o estabelecimento deverá realiza um envio de requisição utilizando o VERBO HTTP **POST** para a seguinte URL:
 
@@ -6749,25 +6749,25 @@ Como resposta, o estabelecimento receberá um json ("HTTP 201 Created") contendo
 |`Issued`|Data e hora da geração. |Texto|--|AAAA-MM-DDTHH:MM:SS|
 |`ExpiresIn`|Data e hora da expiração. |Texto|--|AAAA-MM-DDTHH:MM:SS|
 
-### PASSO 4
+### Passo 4
 
-a) O estabelecimento deverá fazer o download de um script fornecido pela Cielo, e anexá-lo a sua página de checkout. Esse script permitirá à Cielo processar todas as informações de cartão sem intervenção do estabelecimento.
-O download poderá ser realizado a partir da seguinte URL: 
+a) Faça o download do script fornecido pela Cielo, e anexe o script à sua página de checkout. Esse script permitirá à Cielo processar todas as informações de cartão sem intervenção do estabelecimento.
 
-**SANDBOX:**
-**https://transactionsandbox.pagador.com.br/post/scripts/silentorderpost-1.0.min.js**
+Faça o download do script correspondente ao ambiente desejado, sandbox ou produção:
 
-**PRODUÇÃO:**
-**https://transaction.cieloecommerce.cielo.com.br/post/scripts/silentorderpost-1.0.min.js**
+|AMBIENTE|URL|
+|---|---|
+|**SANDBOX**|[https://transactionsandbox.pagador.com.br/post/scripts/silentorderpost-1.0.min.js](https://transactionsandbox.pagador.com.br/post/scripts/silentorderpost-1.0.min.js){:target="_blank"}|
+|**PRODUÇÃO**|[https://transaction.cieloecommerce.cielo.com.br/post/scripts/silentorderpost-1.0.min.js](https://transaction.cieloecommerce.cielo.com.br/post/scripts/silentorderpost-1.0.min.js){:target="_blank"}|
 
-b) O estabelecimento deverá decorar seus inputs do formulário com as seguintes classes:
+b) Decore seus inputs do formulário com as seguintes classes:
 
 * Para o portador do cartão de crédito/débito: **bp-sop-cardholdername** 
 * Para o número do cartão de crédito/débito: **bp-sop-cardnumber** 
 * Para a validade do cartão de crédito/débito: **bp-sop-cardexpirationdate** 
 * Para o código de segurança do cartão de crédito/débito: **bp-sop-cardcvvc**
 
-**DEFININDO PARÂMETROS**
+#### DEFININDO PARÂMETROS
 
 **Parâmetros do Script**
 
@@ -6786,9 +6786,13 @@ b) O estabelecimento deverá decorar seus inputs do formulário com as seguintes
 |`PaymentToken`| Token efêmero utilizado para pagamento no formato de um GUID (36). |---|
 |`CardToken`| Token permanente utilizado para pagamento no formato de um GUID (36). |Quando *enableTokenize* for "true". |
 
-c) O script fornecido pela Cielo fornece três eventos para manipulação e tratamento por parte do estabelecimento. São eles: **onSuccess** (onde será retornado o **“PaymentToken”** após processar os dados do cartão), **onError** (caso haja algum erro no consumo dos serviços da Cielo) e **onInvalid** (onde será retornado o resultado da validação dos inputs).
+c) O script fornecido pela Cielo fornece três eventos para manipulação e tratamento por parte do estabelecimento. São eles: 
+  
+* **onSuccess**, onde será retornado o **“PaymentToken”** após processar os dados do cartão;
+* **onError**, caso haja algum erro no consumo dos serviços da Cielo;
+* **onInvalid**, onde será retornado o resultado da validação dos inputs.
 
-* Na validação dos inputs, o estabelecimento poderá utilizar toda a camada de validação sobre os dados de cartão realizada pela Cielo e assim simplificar o tratamento no seu formulário de checkout. As mensagens retornadas no resultado da validação são disponibilizadas nas seguintes linguagens: português (default), inglês e espanhol.
+* Na validação dos inputs, o estabelecimento poderá utilizar toda a camada de validação sobre os dados de cartão realizada pela Cielo e assim simplificar o tratamento no seu formulário de checkout. As mensagens retornadas no resultado da validação são disponibilizadas nos idiomas português (default), inglês e espanhol.
 
 * O **PaymentToken** será o token que representará todos os dados de cartão fornecido pelo comprador. O mesmo será utilizado pelo estabelecimento para não haver necessidade de tratar e processar dados de cartão do seu lado.
 
@@ -6806,7 +6810,7 @@ c) O script fornecido pela Cielo fornece três eventos para manipulação e trat
 }
 ```
 
-**Por questões de segurança esse PaymentToken poderá ser usado apenas para 1 autorização na Cielo 3.0. Após o processamento do mesmo, este será invalidado.**
+**Por questões de segurança esse PaymentToken poderá ser usado apenas para 1 autorização na Cielo 3.0. Após o processamento do token, este será invalidado.**
 
 Exemplo de setup a ser realizado pelo estabelecimento na página de checkout:
 
