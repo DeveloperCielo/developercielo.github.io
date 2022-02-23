@@ -4954,6 +4954,20 @@ Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o
       <td>36</td>
       <td>Sim</td>
     </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AcquirerOrderId</code></td>
+      <td>Id da transação enviado ao autorizador, caso o MerchantOrderId seja maior que 20 caracteres ou tenha símbolos.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
+      <td>Numero de identificação do pagamento na adquirente.</td>
+      <td>Texto</td>
+      <td>36</td>
+      <td>Sim</td>
+    </tr>
   </tbody>
 </table>
 
@@ -5104,24 +5118,17 @@ Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
-      <td>Número da autorização, identico ao NSU.</td>
-      <td>Texto</td>
-      <td>6</td>
-      <td>Texto alfanumérico</td>
-    </tr>
-    <tr>
-      <td>AcquirerOrderId</td>
-      <td>Id da transação enviado ao autorizador, caso o MerchantOrderId seja maior que 20 caracteres ou tenha símbolos.</td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Número de identificação do pedido.</td>
       <td>Texto</td>
       <td>50</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
-      <td>Payment.Tid</td>
-      <td>Id da transação no provedor do meio de pagamento.</td>
+      <td><code class="language-plaintext highlighter-rouge">AcquirerOrderId</code></td>
+      <td>Id da transação enviado ao autorizador, caso o MerchantOrderId seja maior que 20 caracteres ou tenha símbolos.</td>
       <td>Texto</td>
-      <td>40</td>
+      <td>50</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
@@ -5158,6 +5165,20 @@ Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o
       <td>255</td>
       <td>Não</td>
       <td>Status de cadastro do comprador na loja (NEW / EXISTING)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ProofOfSale</code></td>
+      <td>Número da autorização, identico ao NSU.</td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Tid</code></td>
+      <td>Id da transação no provedor do meio de pagamento.</td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
@@ -5262,7 +5283,7 @@ Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o
 
 <h3 id="consulta---tid">Consulta - TID</h3>
 
-<p>Para consultar uma venda através do número de referência único da transação no adquirente (TID), execute um GET conforme descrito a seguir.</p>
+<p>Para consultar uma venda através do número de referência único da transação na adquirente (TID), execute um GET conforme descrito a seguir.</p>
 
 <aside class="notice">São elegíveis para a consulta apenas transações dentro dos três ultimos meses.</aside>
 
@@ -5313,8 +5334,15 @@ Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o
       <td>Não</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Numero de identificação do Pagamento.</td>
+      <td><code class="language-plaintext highlighter-rouge">AcquirerOrderId</code></td>
+      <td>Id da transação enviado ao autorizador, caso o MerchantOrderId seja maior que 20 caracteres ou tenha símbolos.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
+      <td>Numero de identificação do pagamento na adquirente.</td>
       <td>Texto</td>
       <td>36</td>
       <td>Sim</td>
@@ -5469,10 +5497,10 @@ Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
-      <td>Número da autorização, identico ao NSU.</td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Número de identificação do pedido.</td>
       <td>Texto</td>
-      <td>6</td>
+      <td>50</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
@@ -5480,13 +5508,6 @@ Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o
       <td>Id da transação enviado ao autorizador, caso o MerchantOrderId seja maior que 20 caracteres ou tenha símbolos.</td>
       <td>Texto</td>
       <td>50</td>
-      <td>Texto alfanumérico</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Tid</code></td>
-      <td>Id da transação no provedor do meio de pagamento.</td>
-      <td>Texto</td>
-      <td>40</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
@@ -5523,6 +5544,20 @@ Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o
       <td>255</td>
       <td>Não</td>
       <td>Status de cadastro do comprador na loja (NEW / EXISTING)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ProofOfSale</code></td>
+      <td>Número da autorização, identico ao NSU.</td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Tid</code></td>
+      <td>Id da transação no provedor do meio de pagamento.</td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
