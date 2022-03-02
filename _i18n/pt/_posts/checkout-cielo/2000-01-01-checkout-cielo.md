@@ -1495,13 +1495,11 @@ A atualização é feita exclusivamente via o Backoffice Cielo. Acesso o [**Tuto
 
 São repositorios de cartões e dados de pagamentos para consumidores online. As Carteiras digitais permitem que um consumidor realizar o cadastro de seus dados de pagamento, assim agilizando o processo de compra em lojas habilitadas.
 
-### Wallets Disponiveis
+** Wallet Disponível**
 
-O Checkout Cielo possui integração com:
+O Checkout Cielo possui integração com [**VisaCheckout**](https://vaidevisa.visa.com.br/site/visa-checkout){:target="_blank"}, wallet da bandeira Visa que permite que o comprador salve cartões e endereços e os utilize no Checkout. 
 
-| Carteira                                                           |Descrição|Observação|
-|:------------------------------------------------------------------:|---------||
-| [**VisaCheckout**](https://vaidevisa.visa.com.br/site/visa-checkout) |Wallet da bandeira Visa, permite que o comprador salve cartões e endereços e os utilize no Checkout |Necessita que o lojista solicite ativação pela [**Cielo**](https://developercielo.github.io/manual/checkout-cielo#suporte-cielo)|
+O lojista deve solicitar ativação pela [**Cielo**](https://developercielo.github.io/manual/checkout-cielo#suporte-cielo){:target="_blank"}.
 
 ## Wallets no Checkout Cielo
 
