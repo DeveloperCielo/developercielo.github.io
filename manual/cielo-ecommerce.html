@@ -6635,6 +6635,12 @@ Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o
 
 <p>Já para transações capturadas (status transacional = 2), é possível realizar a requisição de cancelamento <strong>1 dia após a captura</strong> e em um prazo de <strong>até 360 dias</strong> após a autorização da venda. A aprovação dessa ordem de cancelamento é suscetível a avalição de saldo na agenda financeira do lojista no momento da requisição e a aprovação do banco emissor do cartão utilizado na transação.</p>
 
+<p>Para as solicitações de cancelamento da mesma transação, é necessário aguardar um período de 5 segundos entre uma solicitação e outra, para que seja realizada a consulta de saldo, reserva do valor na agenda financeira e sensibilizado o saldo. Evitando assim duplicidade de cancelamento. Esta regra vale para cancelamentos totais e/ou parciais.</p>
+
+<p>Para identificar que as solicitações de cancelamento são da mesma transação, consideramos o número do EC, número da autorização de cancelamento, data da venda, valor da venda e NSU.</p>
+
+<p>Importante salientar que para realizar qualquer solicitação de cancelamento, é necessário que o estabelecimento possua saldo suficiente na transação/em agenda</p>
+
 <h3 id="cancelando-uma-venda-via-api">Cancelando uma venda via API</h3>
 
 <p>O processo de cancelamento via API está disponivel apenas para cartão de crédito e débito.</p>
