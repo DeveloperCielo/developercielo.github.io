@@ -7510,6 +7510,12 @@ PaymentIds associated with the identifier.</p>
 
 <p>For captured transactions (transactional status = 2), it’s possible to make the cancellation request <strong>1 day after the capture</strong> and within a period of <strong>up to 360 days</strong> after the sale authorization. The approval of this cancellation order is susceptible to the assessment of the balance in the merchant’s financial agenda at the time of the requisition and the approval of the bank issuing the card used in the transaction.</p>
 
+<p>For cancellation requests for the same transaction, it is necessary to wait a period of 5 seconds between one request and another, so that the balance inquiry is carried out, the amount is reserved in the financial agenda and the balance is sensitized. Thus avoiding duplicate cancellation. This rule applies to total and/or partial cancellations.</p>
+
+<p>To identify that cancellation requests are from the same transaction, we consider the EC number, cancellation authorization number, date of sale, sale amount, and NSU.</p>
+
+<p>It is important to note that in order to make any cancellation request, it is necessary that the establishment has sufficient balance in the transaction/on the schedule</p>
+
 <h3 id="canceling-a-sale-via-api">Canceling a sale via API</h3>
 
 <p>Cancellation process via API is available only for credit and debit card.</p>
