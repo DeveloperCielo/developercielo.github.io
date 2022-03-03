@@ -3446,6 +3446,12 @@ Na API Cielo e-commerce é possível realizar a requisição de cancelamento par
 Para transações autorizadas e não capturadas (status transacional = 1), o cancelamento pode ser solicitado antes de ocorrer o desfazimento automático da transação.
 
 Já para transações capturadas (status transacional = 2), é possível realizar a requisição de cancelamento **1 dia após a captura** e em um prazo de **até 360 dias** após a autorização da venda. A aprovação dessa ordem de cancelamento é suscetível a avalição de saldo na agenda financeira do lojista no momento da requisição e a aprovação do banco emissor do cartão utilizado na transação.
+  
+Para as solicitações de cancelamento da mesma transação, é necessário aguardar um período de 5 segundos entre uma solicitação e outra, para que seja realizada a consulta de saldo, reserva do valor na agenda financeira e sensibilizado o saldo. Evitando assim duplicidade de cancelamento. Esta regra vale para cancelamentos totais e/ou parciais.
+
+Para identificar que as solicitações de cancelamento são da mesma transação, consideramos o número do EC, número da autorização de cancelamento, data da venda, valor da venda e NSU. 
+
+Importante salientar que para realizar qualquer solicitação de cancelamento, é necessário que o estabelecimento possua saldo suficiente na transação/em agenda
 
 ### Cancelando uma venda via API
 
