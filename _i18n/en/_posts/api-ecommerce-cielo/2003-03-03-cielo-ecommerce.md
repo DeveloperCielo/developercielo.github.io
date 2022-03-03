@@ -3895,6 +3895,12 @@ In the Cielo e-commerce API, it's possible to request cancellation for debit and
 For authorized and non-captured transactions (transactional status = 1), cancellation can be requested before the transaction is automatically undone.
 
 For captured transactions (transactional status = 2), it's possible to make the cancellation request **1 day after the capture** and within a period of **up to 360 days** after the sale authorization. The approval of this cancellation order is susceptible to the assessment of the balance in the merchant's financial agenda at the time of the requisition and the approval of the bank issuing the card used in the transaction.
+  
+For cancellation requests for the same transaction, it is necessary to wait a period of 5 seconds between one request and another, so that the balance inquiry is carried out, the amount is reserved in the financial agenda and the balance is sensitized. Thus avoiding duplicate cancellation. This rule applies to total and/or partial cancellations.
+
+To identify that cancellation requests are from the same transaction, we consider the EC number, cancellation authorization number, date of sale, sale amount, and NSU.
+
+It is important to note that in order to make any cancellation request, it is necessary that the establishment has sufficient balance in the transaction/on the schedule
 
 ### Canceling a sale via API
 
