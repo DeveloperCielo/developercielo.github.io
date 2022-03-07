@@ -1659,7 +1659,7 @@ Caso o lojista precise "cancelar" uma transferência Pix, é possível realizar 
 |`Status`|Status da transação. |Byte | 2 | Ex.: "1" |
 |`ReasonCode`|Código de retorno da adquirência. |Texto |32 |Texto alfanumérico|
 |`ReasonMessage`|Mensagem de retorno da adquirência. |Texto |512 |Texto alfanumérico|
-  
+
 ## Cartões Alelo
 
 Para criar uma venda que utilizará cartão de Alelo, é necessário fazer um **POST** para o recurso Payment utilizando o contrato técnico de uma venda de **Cartão de Débito**.
