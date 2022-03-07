@@ -1480,7 +1480,7 @@ Veja exemplos de envio de requisição e resposta para a geração do QR code Pi
 
 #### Requisição
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
 ```json
 { 
@@ -1599,7 +1599,7 @@ Caso o lojista precise "cancelar" uma transferência Pix, é possível realizar 
 
 #### Requisição
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/void?amount=xxx</span></aside>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=xxx</span></aside>
 
 ```shell
 --request PUT "https://(...)/sales/{PaymentId}/void?Amount=xxx"
