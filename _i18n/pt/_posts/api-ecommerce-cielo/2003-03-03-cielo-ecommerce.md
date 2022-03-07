@@ -1451,6 +1451,215 @@ curl
 |`Status`|Status da Transação.|Byte|---|0|
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
 
+## Pix
+
+No Pix, a transmissão da ordem de pagamento e a disponibilidade de fundos para o recebedor ocorrem em tempo real, 24 horas por dia e sem a necessidade de intermediários. Sendo assim, é um meio que viabiliza pagamentos rápidos e com menores custos de transação.
+
+Conheça o ciclo de vida de uma transação Pix:
+
+| SEQUÊNCIA | RESPONSÁVEL | DESCRIÇÃO | STATUS DA TRANSAÇÃO |
+|--------------|------------|------------|------------|
+|1| Loja | Geração do QR code. | 12 - Pendente |
+|2| Comprador | Pagamento do QR code. | 2 - Pago |
+|3| Loja | Recebimento da notificação de confirmação do pagamento. | 2 - Pago |
+|4| Loja | Consulta ao status da transação. | 2 - Pago |
+|5| Loja | Liberação do pedido. | 2 - Pago |
+|6| Loja | Caso necessário, solicitação da devolução da transação Pix (semelhante ao estorno do cartão). | 2 - Pago |
+|7| Loja | Recebimento da notificação de confirmação de devolução. | 11 - Estornado |
+|8| Loja | Consulta ao status da transação. | 11 - Estornado |
+
+### Criando uma Transação com QR Code Pix
+
+Para gerar um QR code Pix através da API Cielo E-commerce, basta realizar a integração conforme a especificação a seguir.
+
+O campo obrigatório `Type` deve ser enviado como "Pix". Na resposta da requisição será retornado o *código base64* da imagem do QR code Pix, que você deverá ser disponibilizar ao comprador.
+
+O comprador então realiza a leitura do QR code através de um dos aplicativos habilitados para o pagamento Pix e efetiva o pagamento. Nesta etapa não há participação da loja nem da API E-commerce Cielo.
+
+Veja exemplos de envio de requisição e resposta para a geração do QR code Pix:
+
+#### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
+
+```json
+{ 
+   "MerchantOrderId":"2020102601",
+   "Customer":{
+      "Name":"Nome do Pagador",
+      "Identity":"12345678909",
+      "IdentityType":"CPF"
+   },
+   "Payment":{ 
+      "Type":"Pix",
+      "Amount":100
+   }    
+}
+```
+
+```shell
+--request POST "https://(...)/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{ 
+   "MerchantOrderId":"2020102601",
+   "Customer":{
+      "Name":"Nome do Pagador",
+      "Identity":"CPF",
+      "IdentityType":"12345678909"
+   },
+   "Payment":{ 
+      "Type":"Pix",
+      "Amount":100
+   }    
+}
+--verbose
+```
+
+| PROPRIEDADE| DESCRIÇÃO| TIPO| TAMANHO | OBRIGATÓRIO?|
+| --- | --- | --- | --- | --- |
+| `MerchantOrderId` | Número de identificação do pedido.| Texto | 50 | Sim |
+| `Customer.Name` | Nome do pagador. | Texto | 255 | Sim |
+| `Customer.Identity` | Número do CPF ou CNPJ do cliente. | Texto | 14 | Sim |
+| `Customer.IdentityType` | Tipo de documento de identificação do comprador (CPF ou CNPJ). | Texto | 255 | Sim |
+| `Payment.Type` | Tipo do meio de pagamento. Neste caso, "Pix". | Texto | - | Sim |
+| `Payment.Amount` | Valor do pedido, em centavos.| Número | 15 | Sim |
+
+#### Resposta
+
+```json
+{
+   "MerchantOrderId":"2020102601",
+   "Customer":{
+      "Name":"Nome do Pagador"
+   },
+   "Payment":{
+      (...)   
+      "Paymentid":"1997be4d-694a-472e-98f0-e7f4b4c8f1e7",
+      "Type":"Pix",
+      "AcquirerTransactionId":"86c200c7-7cdf-4375-92dd-1f62dfa846ad",
+         "ProofOfSale":"123456",
+      "QrcodeBase64Image":"rfhviy64ak+zse18cwcmtg==[...]",
+      "QrCodeString":"00020101021226880014br.gov.bcb.pix2566qrcodes-h.cielo.com.br/pix-qr/d05b1a34-ec52-4201-ba1e-d3cc2a43162552040000530398654041.005802BR5918Merchant Teste HML6009Sao Paulo62120508000101296304031C",
+      "Amount":100,
+      "ReceivedDate":"2020-10-15 18:53:20",
+      "Status":12,
+      "ReturnCode":"0",
+      "ReturnMessage":"Pix gerado com sucesso",
+      (...)
+   }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+   "MerchantOrderId":"2020102601",
+   "Customer":{
+      "Name":"Nome do Pagador"
+   },
+   "Payment":{
+      (...)
+      "PaymentId":"1997be4d-694a-472e-98f0-e7f4b4c8f1e7",
+      "Type":"Pix",
+      "AcquirerTransactionId":"86c200c7-7cdf-4375-92dd-1f62dfa846ad",
+         "ProofOfSale":"123456",
+      "QrcodeBase64Image":"rfhviy64ak+zse18cwcmtg==[...]",
+      "QrCodeString":"00020101021226880014br.gov.bcb.pix2566qrcodes-h.cielo.com.br/pix-qr/d05b1a34-ec52-4201-ba1e-d3cc2a43162552040000530398654041.005802BR5918Merchant Teste HML6009Sao Paulo62120508000101296304031C",
+      "Amount":100,
+      "ReceivedDate":"2020-10-15 18:53:20",
+      "Status":12,
+      "ReturnCode":"0",
+      "ReturnMessage":"Pix gerado com sucesso",
+      (...)
+   }
+}
+--verbose
+```
+
+| PROPRIEDADE | DESCRIÇÃO| TIPO | TAMANHO | FORMATO |
+| --- | --- | --- | --- | --- |
+| `Payment.PaymentId` | Campo identificador do pedido. | GUID | 40 | Texto |
+| `Payment.AcquirerTransactionId` | Id da transação no provedor de meio de pagamento.| GUID | 36 | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `Payment.ProofOfSale` | NSU Pix. |Texto|20|Texto alfanumérico|
+| `Payment.QrcodeBase64Image` | Código em base64 da imagem do QR code. | Texto | - | Texto |
+| `Payment.QrCodeString`|Texto codificado para o comprador "copiar" e "colar" no campo do internet banking em pagamentos feitos no ambiente mobile.|Texto|Variável|Texto alfanumérico|
+| `Payment.Status` | Status da transação. Em caso de sucesso, o status inicial é “12” (*Pendente*). [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o) para ver lista de status.| Número | - | 12 |
+| `Payment.ReturnCode` | Código retornado pelo provedor do meio de pagamento. | Texto | 32 | 0 |
+| `Payment.ReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento. | Texto | 512 |"Pix gerado com sucesso" |
+
+### Solicitando uma Devolução Pix
+
+Caso o lojista precise "cancelar" uma transferência Pix, é possível realizar uma operação chamada de "devolução". É importante ressaltar que a devolução não é uma operação instantânea, podendo ser acatada ou não pelo provedor Pix. Quando uma devolução é acatada, uma [notificação](https://developercielo.github.io/manual/cielo-ecommerce#post-de-notifica%C3%A7%C3%A3o) é recebida pela loja.<br/>
+
+#### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/v2/sales/{PaymentId}/void?amount=xxx</span></aside>
+
+```shell
+--request PUT "https://(...)/sales/{PaymentId}/void?Amount=xxx"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|-----------|---------|----|-------|-----------|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
+|`MerchantKey`|Chave pública para autenticação dupla na API. |Texto |40 |Sim|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
+|`PaymentId`|Campo identificador do pedido. |GUID |36 |Sim|
+|`Amount`|Valor a ser cancelado/estornado, em centavos. Verifique se a adquirente contratada suporta a operação de cancelamento ou estorno.|Número |15 |Não|
+
+#### Resposta
+
+```json
+{
+   "Status": 12,
+   "ReasonCode": 0,
+   "ReasonMessage": "Successful",
+   "ReturnCode": "0",
+   "ReturnMessage": "Reembolso solicitado com sucesso",
+   "Links": [
+      {
+         "Method": "GET",
+         "Rel": "self",
+         "Href": "https://(...)/sales/{PaymentId}"
+      }
+   ]
+}
+```
+
+```shell
+{
+   "Status": 12,
+   "ReasonCode": 0,
+   "ReasonMessage": "Successful",
+   "ReturnCode": "0",
+   "ReturnMessage": "Reembolso solicitado com sucesso",
+   "Links": [
+      {
+         "Method": "GET",
+         "Rel": "self",
+         "Href": "https://(...)/sales/{PaymentId}"
+      }
+   ]
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`Status`|Status da transação. |Byte | 2 | Ex.: "1" |
+|`ReasonCode`|Código de retorno da adquirência. |Texto |32 |Texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da adquirência. |Texto |512 |Texto alfanumérico|
+  
 ## Cartões Alelo
 
 Para criar uma venda que utilizará cartão de Alelo, é necessário fazer um **POST** para o recurso Payment utilizando o contrato técnico de uma venda de **Cartão de Débito**.
