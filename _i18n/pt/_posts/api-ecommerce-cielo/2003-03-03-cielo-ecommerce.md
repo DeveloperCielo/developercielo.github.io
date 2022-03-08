@@ -1474,7 +1474,13 @@ Para gerar um QR code Pix através da API Cielo E-commerce, basta realizar a int
 
 O campo obrigatório `Type` deve ser enviado como "Pix". Na resposta da requisição será retornado o *código base64* da imagem do QR code Pix, que você deverá ser disponibilizar ao comprador.
 
-O comprador então realiza a leitura do QR code através de um dos aplicativos habilitados para o pagamento Pix e efetiva o pagamento. Nesta etapa não há participação da loja nem da API E-commerce Cielo.
+Veja abaixo a representação do **fluxo transacional** na geração do QR code Pix:
+
+![Geração do QR Code Pix]({{ site.baseurl_root }}/images/apicieloecommerce/api3-geracao-qrcode-pix.png)
+
+O comprador então realiza a leitura do QR code através de um dos aplicativos habilitados para o pagamento Pix e efetiva o pagamento. Nesta etapa não há participação da loja nem da API E-commerce Cielo, conforme demonstrado no fluxo:
+
+![Pagamento Pix]({{ site.baseurl_root }}/images/apicieloecommerce/api3-pagamento-pix.png)
 
 Veja exemplos de envio de requisição e resposta para a geração do QR code Pix:
 
@@ -1596,6 +1602,8 @@ Veja exemplos de envio de requisição e resposta para a geração do QR code Pi
 ### Solicitando uma Devolução Pix
 
 Caso o lojista precise "cancelar" uma transferência Pix, é possível realizar uma operação chamada de "devolução". É importante ressaltar que a devolução não é uma operação instantânea, podendo ser acatada ou não pelo provedor Pix. Quando uma devolução é acatada, uma [notificação](https://developercielo.github.io/manual/cielo-ecommerce#post-de-notifica%C3%A7%C3%A3o) é recebida pela loja.<br/>
+
+![Devolução Pix]({{ site.baseurl_root }}/images/apicieloecommerce/api3-devolucao-pix.png)
 
 #### Requisição
 
