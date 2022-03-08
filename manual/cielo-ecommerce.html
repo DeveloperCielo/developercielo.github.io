@@ -2910,7 +2910,13 @@ Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o
 
 <p>O campo obrigatório <code class="language-plaintext highlighter-rouge">Type</code> deve ser enviado como “Pix”. Na resposta da requisição será retornado o <em>código base64</em> da imagem do QR code Pix, que você deverá ser disponibilizar ao comprador.</p>
 
-<p>O comprador então realiza a leitura do QR code através de um dos aplicativos habilitados para o pagamento Pix e efetiva o pagamento. Nesta etapa não há participação da loja nem da API E-commerce Cielo.</p>
+<p>Veja abaixo a representação do <strong>fluxo transacional</strong> na geração do QR code Pix:</p>
+
+<p><img src="https://developercielo.github.io/images/apicieloecommerce/api3-geracao-qrcode-pix.png" alt="Geração do QR Code Pix" /></p>
+
+<p>O comprador então realiza a leitura do QR code através de um dos aplicativos habilitados para o pagamento Pix e efetiva o pagamento. Nesta etapa não há participação da loja nem da API E-commerce Cielo, conforme demonstrado no fluxo:</p>
+
+<p><img src="https://developercielo.github.io/images/apicieloecommerce/api3-pagamento-pix.png" alt="Pagamento Pix" /></p>
 
 <p>Veja exemplos de envio de requisição e resposta para a geração do QR code Pix:</p>
 
@@ -3134,6 +3140,8 @@ Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o
 <h3 id="solicitando-uma-devolução-pix">Solicitando uma Devolução Pix</h3>
 
 <p>Caso o lojista precise “cancelar” uma transferência Pix, é possível realizar uma operação chamada de “devolução”. É importante ressaltar que a devolução não é uma operação instantânea, podendo ser acatada ou não pelo provedor Pix. Quando uma devolução é acatada, uma <a href="https://developercielo.github.io/manual/cielo-ecommerce#post-de-notifica%C3%A7%C3%A3o">notificação</a> é recebida pela loja.<br /></p>
+
+<p><img src="https://developercielo.github.io/images/apicieloecommerce/api3-devolucao-pix.png" alt="Devolução Pix" /></p>
 
 <h4 id="requisição-6">Requisição</h4>
 
