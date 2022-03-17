@@ -4491,6 +4491,12 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <aside class="notice">Se a transação estiver apenas autorizada e a loja queira cancelá-la, o pedido de cancelamento não é necessário, pois após o prazo de captura expirar, ela será cancelada automaticamente pelo sistema.</aside>
 
+<p>Para as solicitações de cancelamento da mesma transação, é necessário aguardar um período de 5 segundos entre uma solicitação e outra, para que seja realizada a consulta de saldo, reserva do valor na agenda financeira e sensibilizado o saldo. Evitando assim duplicidade de cancelamento. Esta regra vale para cancelamentos totais e/ou parciais.</p>
+
+<p>Para identificar que as solicitações de cancelamento são da mesma transação, consideramos o número do EC, número da autorização de cancelamento, data da venda, valor da venda e NSU.</p>
+
+<p>Importante salientar que para realizar qualquer solicitação de cancelamento, é necessário que o estabelecimento possua saldo suficiente na transação/em agenda</p>
+
 <h3 id="cancelamento-total-e-parcial">Cancelamento Total e Parcial</h3>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
