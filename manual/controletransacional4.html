@@ -974,6 +974,12 @@ O response possuirá o <code class="language-plaintext highlighter-rouge">Checko
 
 <p>Para cancelar uma transação pelo <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code>, basta realizar um <code class="language-plaintext highlighter-rouge">PUT</code>.</p>
 
+<p>Para as solicitações de cancelamento da mesma transação, é necessário aguardar um período de 5 segundos entre uma solicitação e outra, para que seja realizada a consulta de saldo, reserva do valor na agenda financeira e sensibilizado o saldo. Evitando assim duplicidade de cancelamento. Esta regra vale para cancelamentos totais e/ou parciais.</p>
+
+<p>Para identificar que as solicitações de cancelamento são da mesma transação, consideramos o número do EC, número da autorização de cancelamento, data da venda, valor da venda e NSU.</p>
+
+<p>Importante salientar que para realizar qualquer solicitação de cancelamento, é necessário que o estabelecimento possua saldo suficiente na transação/em agenda.</p>
+
 <blockquote>
   <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
 </blockquote>
@@ -985,12 +991,6 @@ O response possuirá o <code class="language-plaintext highlighter-rouge">Checko
 <aside class="request"><span class="method put">PUT</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/`{checkout_cielo_order_number}`/void?amount={Valor}</span></aside>
 
 <p><strong>OBS</strong>: O cancelamento parcial pode ser realizada apenas após a captura. O cancelamento parcial pode ser realizado inumeras vezes até que o valor total seja cancelado.</p>
-
-<p>Para as solicitações de cancelamento da mesma transação, é necessário aguardar um período de 5 segundos entre uma solicitação e outra, para que seja realizada a consulta de saldo, reserva do valor na agenda financeira e sensibilizado o saldo. Evitando assim duplicidade de cancelamento. Esta regra vale para cancelamentos totais e/ou parciais.</p>
-
-<p>Para identificar que as solicitações de cancelamento são da mesma transação, consideramos o número do EC, número da autorização de cancelamento, data da venda, valor da venda e NSU.</p>
-
-<p>Importante salientar que para realizar qualquer solicitação de cancelamento, é necessário que o estabelecimento possua saldo suficiente na transação/em agenda.</p>
 
 <h3 id="response-5">Response</h3>
 
