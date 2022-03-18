@@ -1852,6 +1852,12 @@ The cancellation is used when the retailer decides for don't effective a purchas
 
 <aside class="notice">If the transaction is just authorized and the store want to cancel it, the cancellation order it's not necessary, because after the timeout of capture expires, it will be cancelled automatically by the system.</aside>
 
+For cancellation requests for the same transaction, it is necessary to wait a period of 5 seconds between one request and another, so that the balance inquiry is carried out, the amount is reserved in the financial agenda and the balance is sensitized. Thus avoiding duplicate cancellation. This rule applies to total and/or partial cancellations.
+
+To identify that cancellation requests are from the same transaction, we consider the EC number, cancellation authorization number, date of sale, sale amount, and NSU.
+
+It is important to note that in order to make any cancellation request, it is necessary that the establishment has sufficient balance in the transaction/on the schedule
+
 ### Total and Partial Cancellation
 
 ```xml
