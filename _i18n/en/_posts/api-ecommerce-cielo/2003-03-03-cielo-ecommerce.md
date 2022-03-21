@@ -2828,14 +2828,14 @@ curl
 
 |Property|Description|Type|Size|Format|
 |`MerchantOrderId`|Order identification number.|Text|50|Text alphanumeric|
-|`AcquirerOrderId`|	Transaction id sent to the authorizer if the MerchantOrderId is longer than 20 characters or has symbols.|	Text|50|Text alphanumeric|
+|`AcquirerOrderId`|Transaction id sent to the authorizer if the MerchantOrderId is longer than 20 characters or has symbols.|Text|50|Text alphanumeric|
 |`AuthorizationCode`|authorization code.|Text|6|Text alphanumeric|
 |`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Status`|	Transaction Status.|Byte|2|-|
+|`Status`|Transaction Status.|Byte|2|-|
 |`Customer.Name`|Nome do Comprador|Text|255|-|
 |`Customer.Status`|Buyer registration status in the store (NEW / EXISTING)|Text|255|-|
-|`Payment.ProofOfSale`|	Authorization number, identical to NSU.|Text|6|Text alphanumeric|
-|`Payment.Tid`|	Transaction ID in the payment method provider.|Text|40|Text alphanumeric|
+|`Payment.ProofOfSale`|Authorization number, identical to NSU.|Text|6|Text alphanumeric|
+|`Payment.Tid`|Transaction ID in the payment method provider.|Text|40|Text alphanumeric|
 |`Payment.Type`|Type of Payment |Text|100|-|
 |`Payment.Amount`|Order Amount (to be shipped in cents)|Number|15|-|
 |`Payment.ReceivedDate`|Date the transaction was received.|Text|19|AAAA-MM-DD HH:mm:SS|
@@ -2847,7 +2847,7 @@ curl
 |`CreditCard.CardNumber`|Buyer's Card Number|Text|19|-|
 |`CreditCard.Holder`|Buyer's name printed on card|Text|25|-|
 |`CreditCard.ExpirationDate`|Expiration date printed on card|Text|7|-|
-|`CreditCard.SecurityCode`|Security code printed on the back of the card  See attached|Text|4|-|	
+|`CreditCard.SecurityCode`|Security code printed on the back of the card See attached|Text|4|-|	
 |`CreditCard.Brand`|Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper)|Text|10|-|
 |`CreditCard.PaymentAccountReference`|PAR(payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the flag does not send the information, the field will not be returned.|Number|29|-|
 
@@ -3296,7 +3296,6 @@ curl
 |`AcquirerOrderId`|Transaction id sent to the authorizer if the MerchantOrderId is longer than 20 characters or has symbols.|Text|50|Yes|
 |`Tid`|Payment identification number at the acquirer.|Text|36|Yes|
 
-
 #### Response
 
 ```json
@@ -3304,7 +3303,7 @@ curl
 "MerchantOrderId": "2014111706",
 "AcquirerOrderId": "202202231037440D1BD0",
 "Customer": {
-    "Name": "Comprador Teste",
+    "Name": "Buyer Teste",
     "Address": {}
 },
 "Payment": {
@@ -3381,7 +3380,7 @@ curl
     "MerchantOrderId": "2014111706",
     "AcquirerOrderId": "202202231037440D1BD0",
     "Customer": {
-        "Name": "Comprador Teste",
+        "Name": "Buyer Teste",
         "Address": {}
     },
     "Payment": {
