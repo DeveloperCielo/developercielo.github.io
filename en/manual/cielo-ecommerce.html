@@ -6433,29 +6433,34 @@ PaymentIds associated with the identifier.</p>
 </code></pre></div></div>
 
 <table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Format</th>
-    </tr>
-  </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
-      <td>Authorization number, identical to NSU.</td>
+      <td>Property</td>
+      <td>Description</td>
+      <td>Type</td>
+      <td>Size</td>
+      <td>Format</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Order identification number.</td>
       <td>Text</td>
-      <td>6</td>
-      <td>Alphanumeric text</td>
+      <td>50</td>
+      <td>Text alphanumeric</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AcquirerOrderId</code></td>
+      <td>Transaction id sent to the authorizer if the MerchantOrderId is longer than 20 characters or has symbols</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Text alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
-      <td>Authorization code.</td>
+      <td>authorization code.</td>
       <td>Text</td>
       <td>6</td>
-      <td>Alphanumeric text</td>
+      <td>Text alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
@@ -6468,141 +6473,134 @@ PaymentIds associated with the identifier.</p>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td>Transaction Status.</td>
       <td>Byte</td>
-      <td>—</td>
       <td>2</td>
+      <td>-</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>Nome do Comprador</td>
       <td>Text</td>
       <td>255</td>
-      <td>No</td>
-      <td>Buyer’s name.</td>
+      <td>-</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
+      <td>Buyer registration status in the store (NEW / EXISTING)</td>
       <td>Text</td>
       <td>255</td>
-      <td>No</td>
-      <td>Buyer registration status in store (NEW / EXISTING)</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ProofOfSale</code></td>
+      <td>Authorization number, identical to NSU</td>
+      <td>Text</td>
+      <td>6</td>
+      <td>Text alphanumeric</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Tid</code></td>
+      <td>Transaction ID in the payment method provider</td>
+      <td>Text</td>
+      <td>40</td>
+      <td>Text alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Type of Payment</td>
       <td>Text</td>
       <td>100</td>
-      <td>Yes</td>
-      <td>Type of the Payment Method.</td>
+      <td>-</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Order Amount (to be shipped in cents)</td>
       <td>Number</td>
       <td>15</td>
-      <td>Yes</td>
-      <td>Order Amount (to be sent in cents).</td>
+      <td>-</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ReceivedDate</code></td>
+      <td>Date the transaction was received.</td>
       <td>Text</td>
-      <td>15</td>
-      <td>—</td>
-      <td>Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.</td>
+      <td>19</td>
+      <td>AAAA-MM-DD HH:mm:SS</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Number</td>
-      <td>2</td>
-      <td>Yes</td>
-      <td>Number of Installments.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Chargebacks[n].Amount</code></td>
-      <td>Chargeback amount</td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CapturedAmount</code></td>
+      <td>Captured value.</td>
       <td>Number</td>
       <td>15</td>
       <td>10000</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Chargebacks[n].CaseNumber</code></td>
-      <td>Chargeback case number</td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CapturedDate</code></td>
+      <td>Capture date</td>
       <td>Text</td>
-      <td>16</td>
-      <td>Alphanumeric Text</td>
+      <td>19</td>
+      <td>AAAA-MM-DD HH:mm:SS</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Chargebacks[n].Date</code></td>
-      <td>Chargeback date</td>
-      <td>Date</td>
-      <td>10</td>
-      <td>AAAA-MM-DD</td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.VoidedAmount</code></td>
+      <td>Canceled/refunded amount, in cents.</td>
+      <td>Number</td>
+      <td>15</td>
+      <td>10000</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Chargebacks[n].ReasonCode</code></td>
-      <td>Chargeback reason code</td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.VoidedDate</code></td>
+      <td>Date of cancellation/chargeback</td>
       <td>Text</td>
-      <td>10</td>
-      <td>Alphanumeric Text</td>
+      <td>19</td>
+      <td>AAAA-MM-DD HH:mm:SS</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Chargebacks[n].ReasonMessage</code></td>
-      <td>Chargeback reason message</td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Defines behavior of the means of payment (see Annex)/NOT MANDATORY FOR CREDIT</td>
       <td>Text</td>
-      <td>512</td>
-      <td>Alphanumeric Text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Chargebacks[n].Status</code></td>
-      <td>Chargegback status <br /> <a href="https://developercielo.github.io//manual/en/cielo-ecommerce#list-values-payment.chargebacks[n].status">Values List - Payment.Chargebacks{n}.Status</a></td>
-      <td>Text</td>
-      <td>32</td>
-      <td>Text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Chargebacks[n].RawData</code></td>
-      <td>Card holder or other message</td>
-      <td>Text</td>
-      <td>512</td>
-      <td>Alphanumeric Text</td>
+      <td>15</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td>Buyer’s Card Number</td>
       <td>Text</td>
       <td>19</td>
-      <td>Yes</td>
-      <td>Buyer’s Card Number.</td>
+      <td>-</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
+      <td>Buyer’s name printed on card</td>
       <td>Text</td>
       <td>25</td>
-      <td>No</td>
-      <td>Buyer’s name printed on card.</td>
+      <td>-</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td>Expiration date printed on card</td>
       <td>Text</td>
       <td>7</td>
-      <td>Yes</td>
-      <td>Expiry date printed on card.</td>
+      <td>-</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td>Security code printed on the back of the card See attached</td>
       <td>Text</td>
       <td>4</td>
-      <td>No</td>
-      <td>Security code printed on back of card - See Annex.</td>
+      <td>-</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
+      <td>Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper)</td>
       <td>Text</td>
       <td>10</td>
-      <td>Yes</td>
-      <td>Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).</td>
+      <td>-</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.PaymentAccountReference</code></td>
+      <td>PAR(payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the flag does not send the information, the field will not be returned.</td>
       <td>Number</td>
       <td>29</td>
-      <td>No</td>
-      <td>The PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the Card Networks doesn’t send the information the field will not be returned.</td>
+      <td>-</td>
     </tr>
   </tbody>
 </table>
