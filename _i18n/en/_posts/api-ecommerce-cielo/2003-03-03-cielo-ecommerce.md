@@ -3383,30 +3383,29 @@ curl
 ```
 
 |Property|Description|Type|Size|Format|
-|---|---|---|---|---|
-|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
-|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
+|`MerchantOrderId`|Order identification number.|Text|50|Text alphanumeric|
+|`AcquirerOrderId`|	Transaction id sent to the authorizer if the MerchantOrderId is longer than 20 characters or has symbols.|	Text|50|Text alphanumeric|
+|`AuthorizationCode`|authorization code.|Text|6|Text alphanumeric|
 |`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Status`|Transaction Status.|Byte|---|2|
-|`Customer.Name`|Text|255|No|Buyer's name.|
-|`Customer.Status`|Text|255|No|Buyer registration status in store (NEW / EXISTING)|
-|`Payment.Type`|Text|100|Yes|Type of the Payment Method.|
-|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
-|`Payment.Provider`|Text|15|---|Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.|
-|`Payment.Installments`|Number|2|Yes|Number of Installments.|
-|`Payment.Chargebacks[n].Amount`|Chargeback amount|Number|15|10000|
-|`Payment.Chargebacks[n].CaseNumber`|Chargeback case number|Text|16|Alphanumeric Text|
-|`Payment.Chargebacks[n].Date`|Chargeback date|Date|10|AAAA-MM-DD|
-|`Payment.Chargebacks[n].ReasonCode`|Chargeback reason code|Text|10|Alphanumeric Text|
-|`Payment.Chargebacks[n].ReasonMessage`|Chargeback reason message|Text|512|Alphanumeric Text|
-|`Payment.Chargebacks[n].Status`|Chargegback status <br/> [Values List - Payment.Chargebacks{n}.Status]({{ site.baseurl_root }}//manual/en/cielo-ecommerce#list-values-payment.chargebacks[n].status)|Text|32|Text|
-|`Payment.Chargebacks[n].RawData`|Card holder or other message|Text|512|Alphanumeric Text|
-|`CreditCard.CardNumber`|Text|19|Yes|Buyer's Card Number.|
-|`CreditCard.Holder`|Text|25|No|Buyer's name printed on card.|
-|`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
-|`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
-|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
-|`CreditCard.PaymentAccountReference`|Number|29|No|The PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the Card Networks doesn't send the information the field will not be returned.|
+|`Status`|	Transaction Status.|Byte|2|-|
+|`Customer.Name`|Nome do Comprador|Text|255|-|
+|`Customer.Status`|Buyer registration status in the store (NEW / EXISTING)|Text|255|-|
+|`Payment.ProofOfSale`|	Authorization number, identical to NSU.|Text|6|Text alphanumeric|
+|`Payment.Tid`|	Transaction ID in the payment method provider.|Text|40|Text alphanumeric|
+|`Payment.Type`|Type of Payment |Text|100|-|
+|`Payment.Amount`|Order Amount (to be shipped in cents)|Number|15|-|
+|`Payment.ReceivedDate`|Date the transaction was received.|Text|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.CapturedAmount`|Captured value.|Number|15|10000|
+|`Payment.CapturedDate`|Capture date|Text|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.VoidedAmount`|Canceled/refunded amount, in cents.|Number|15|10000|
+|`Payment.VoidedDate`|Date of cancellation/chargeback|Text|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.Provider`|Defines behavior of the means of payment (see Annex)/NOT MANDATORY FOR CREDIT|Text|15|—|
+|`CreditCard.CardNumber`|Buyer's Card Number|Text|19|-|
+|`CreditCard.Holder`|Buyer's name printed on card|Text|25|-|
+|`CreditCard.ExpirationDate`|Expiration date printed on card|Text|7|-|
+|`CreditCard.SecurityCode`|Security code printed on the back of the card - See attached|Text|4|-|	
+|`CreditCard.Brand`|Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper)|Text|10|-|
+|`CreditCard.PaymentAccountReference`|PAR(payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the flag does not send the information, the field will not be returned.|Number|29|-|
 
 ### Consult - MerchandOrderID
 
