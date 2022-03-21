@@ -6302,6 +6302,20 @@ PaymentIds associated with the identifier.</p>
       <td>36</td>
       <td>Yes</td>
     </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AcquirerOrderId</code></td>
+      <td>Transaction id sent to the authorizer if the MerchantOrderId is longer than 20 characters or has symbols.</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
+      <td>Payment identification number at the acquirer.</td>
+      <td>Text</td>
+      <td>36</td>
+      <td>Yes</td>
+    </tr>
   </tbody>
 </table>
 
@@ -6558,7 +6572,7 @@ PaymentIds associated with the identifier.</p>
       <td>Defines behavior of the means of payment (see Annex)/NOT MANDATORY FOR CREDIT</td>
       <td>Text</td>
       <td>15</td>
-      <td>—</td>
+      <td>-</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
