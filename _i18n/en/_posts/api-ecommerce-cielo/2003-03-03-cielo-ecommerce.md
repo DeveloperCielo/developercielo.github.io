@@ -2686,14 +2686,94 @@ curl
 |`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
 |`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
 |`PaymentId`|Payment identification number.|Text|36|Yes|
+|`AcquirerOrderId`|Transaction id sent to the authorizer if the MerchantOrderId is longer than 20 characters or has symbols.|Text|50|Yes|
+|`Tid`|Payment identification number at the acquirer.|Text|36|Yes|
 
 #### Response
 
 ```json
 {
+"MerchantOrderId": "2014111706",
+"AcquirerOrderId": "202202231037440D1BD0",
+"Customer": {
+    "Name": "Comprador Teste",
+    "Address": {}
+},
+"Payment": {
+    "ServiceTaxAmount": 0,
+    "Installments": 1,
+    "Interest": "ByMerchant",
+    "Capture": false,
+    "Authenticate": false,
+    "CreditCard": {
+        "CardNumber": "455187******0183",
+        "Holder": "Teste Holder",
+        "ExpirationDate": "12/2030",
+        "SaveCard": false,
+        "Brand": "Visa",
+        "PaymentAccountReference":"92745135160550440006111072222"
+    },
+    "ProofOfSale": "674532",
+    "Tid": "0223103744208",
+    "AuthorizationCode": "123456",
+    "Chargebacks": [
+        {
+            "Amount": 10000,
+            "CaseNumber": "123456",
+            "Date": "2022-06-04",
+            "ReasonCode": "104",
+            "ReasonMessage": "Outras Fraudes - Cartao Ausente",
+            "Status": "Received",
+            "RawData": "Client did not participate and did not authorize transaction"
+        }
+    ],
+    "FraudAlert": {
+        "Date": "2022-05-20",
+        "ReasonMessage": "Uso Ind Numeração",
+        "IncomingChargeback": false
+    },
+    "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
+    "Type": "CreditCard",
+    "Amount": 10000,
+    "ReceivedDate": "2022-07-29 17:16:21",
+    "CapturedAmount": 9000,
+    "CapturedDate": "2022-07-29 17:16:22",
+    "VoidedAmount": 1000,
+    "VoidedDate": "2022-05-15 16:25:38",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "ExtraDataCollection": [],
+    "Status": 1,
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "capture",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+        }
+    ]
+}
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
     "MerchantOrderId": "2014111706",
+    "AcquirerOrderId": "202202231037440D1BD0",
     "Customer": {
-        "Name": "Buyer test",
+        "Name": "Comprador Teste",
         "Address": {}
     },
     "Payment": {
@@ -2707,66 +2787,20 @@ curl
             "Holder": "Teste Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": false,
-            "Brand": "Visa"
+            "Brand": "Visa",
+            "PaymentAccountReference":"92745135160550440006111072222"
         },
         "ProofOfSale": "674532",
-        "AuthorizationCode": "123456",
-        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
-        "Type": "qrcode",
-        "Amount": 15700,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "ExtraDataCollection": [],
-        "Status": 1,
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "capture",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-            }
-        ]
-    }
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "MerchantOrderId": "2014111706",
-    "Customer": {
-        "Name": "Teste Holder",
-        "Address": {}
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": false,
-        "Authenticate": false,
-        "CreditCard": {
-            "CardNumber": "455187******0183",
-            "Holder": "Test Holder",
-            "ExpirationDate": "12/2030",
-            "SaveCard": false,
-            "Brand": "Visa"
-        },
-        "ProofOfSale": "674532",
+        "Tid": "0223103744208",
         "AuthorizationCode": "123456",
         "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
         "Type": "CreditCard",
-        "Amount": 15700,
+        "Amount": 10000,
+        "ReceivedDate": "2022-07-29 17:16:21",
+        "CapturedAmount": 9000,
+        "CapturedDate": "2022-07-29 17:16:22",
+        "VoidedAmount": 1000,
+        "VoidedDate": "2022-05-15 16:25:38",
         "Currency": "BRL",
         "Country": "BRA",
         "ExtraDataCollection": [],
@@ -2793,22 +2827,29 @@ curl
 ```
 
 |Property|Description|Type|Size|Format|
-|---|---|---|---|---|
-|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
-|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
+|`MerchantOrderId`|Order identification number.|Text|50|Text alphanumeric|
+|`AcquirerOrderId`|	Transaction id sent to the authorizer if the MerchantOrderId is longer than 20 characters or has symbols.|	Text|50|Text alphanumeric|
+|`AuthorizationCode`|authorization code.|Text|6|Text alphanumeric|
 |`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Status`|Transaction Status.|Byte|---|2|
-|`Customer.Name`|Buyer’s name|No|Text|255|
-|`Customer.Status`|Buyer registration status in store (NEW / EXISTING)|Text|255|No|
-|`Payment.Type`|Payment method.|Text|100|Yes|
-|`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
-|`Payment.Provider`|Defines behavior of the payment method (See Annex) / NOT REQUIRED FOR CREDIT.|Text|15|---|
-|`Payment.Installments`|Number of Installments.|Number|2|Yes|
-|`CreditCard.CardNumber`|Buyer’s Card Number.|Text|19|Yes|
-|`CreditCard.Holder`|Buyer’s name printed on card.|Text|25|No|
-|`CreditCard.ExpirationDate`|Expiry date printed on card.|Text|7|Yes|
-|`CreditCard.SecurityCode`|Security code printed on back of card - See Annex.|Text|4|No|
-|`CreditCard.Brand`|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|Text|10|No|
+|`Status`|	Transaction Status.|Byte|2|-|
+|`Customer.Name`|Nome do Comprador|Text|255|-|
+|`Customer.Status`|Buyer registration status in the store (NEW / EXISTING)|Text|255|-|
+|`Payment.ProofOfSale`|	Authorization number, identical to NSU.|Text|6|Text alphanumeric|
+|`Payment.Tid`|	Transaction ID in the payment method provider.|Text|40|Text alphanumeric|
+|`Payment.Type`|Type of Payment |Text|100|-|
+|`Payment.Amount`|Order Amount (to be shipped in cents)|Number|15|-|
+|`Payment.ReceivedDate`|Date the transaction was received.|Text|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.CapturedAmount`|Captured value.|Number|15|10000|
+|`Payment.CapturedDate`|Capture date|Text|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.VoidedAmount`|Canceled/refunded amount, in cents.|Number|15|10000|
+|`Payment.VoidedDate`|Date of cancellation/chargeback|Text|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.Provider`|Defines behavior of the means of payment (see Annex)/NOT MANDATORY FOR CREDIT|Text|15|—|
+|`CreditCard.CardNumber`|Buyer's Card Number|Text|19|-|
+|`CreditCard.Holder`|Buyer's name printed on card|Text|25|-|
+|`CreditCard.ExpirationDate`|Expiration date printed on card|Text|7|-|
+|`CreditCard.SecurityCode`|Security code printed on the back of the card  See attached|Text|4|-|	
+|`CreditCard.Brand`|Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper)|Text|10|-|
+|`CreditCard.PaymentAccountReference`|PAR(payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the flag does not send the information, the field will not be returned.|Number|29|-|
 
 ### Consult - MerchandOrderID
 
@@ -3255,67 +3296,80 @@ curl
 |`AcquirerOrderId`|Transaction id sent to the authorizer if the MerchantOrderId is longer than 20 characters or has symbols.|Text|50|Yes|
 |`Tid`|Payment identification number at the acquirer.|Text|36|Yes|
 
+
 #### Response
 
 ```json
 {
-    "MerchantOrderId": "2014111706",
-    "Customer": {
-        "Name": "Comprador Teste",
-        "Address": {}
+"MerchantOrderId": "2014111706",
+"AcquirerOrderId": "202202231037440D1BD0",
+"Customer": {
+    "Name": "Comprador Teste",
+    "Address": {}
+},
+"Payment": {
+    "ServiceTaxAmount": 0,
+    "Installments": 1,
+    "Interest": "ByMerchant",
+    "Capture": false,
+    "Authenticate": false,
+    "CreditCard": {
+        "CardNumber": "455187******0183",
+        "Holder": "Teste Holder",
+        "ExpirationDate": "12/2030",
+        "SaveCard": false,
+        "Brand": "Visa",
+        "PaymentAccountReference":"92745135160550440006111072222"
     },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": false,
-        "Authenticate": false,
-        "CreditCard": {
-            "CardNumber": "455187******0183",
-            "Holder": "Teste Holder",
-            "ExpirationDate": "12/2030",
-            "SaveCard": false,
-            "Brand": "Visa",
-            "PaymentAccountReference":"92745135160550440006111072222"
+    "ProofOfSale": "674532",
+    "Tid": "0223103744208",
+    "AuthorizationCode": "123456",
+    "Chargebacks": [
+        {
+            "Amount": 10000,
+            "CaseNumber": "123456",
+            "Date": "2022-06-04",
+            "ReasonCode": "104",
+            "ReasonMessage": "Outras Fraudes - Cartao Ausente",
+            "Status": "Received",
+            "RawData": "Client did not participate and did not authorize transaction"
+        }
+    ],
+    "FraudAlert": {
+        "Date": "2022-05-20",
+        "ReasonMessage": "Uso Ind Numeração",
+        "IncomingChargeback": false
+    },
+    "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
+    "Type": "CreditCard",
+    "Amount": 10000,
+    "ReceivedDate": "2022-07-29 17:16:21",
+    "CapturedAmount": 9000,
+    "CapturedDate": "2022-07-29 17:16:22",
+    "VoidedAmount": 1000,
+    "VoidedDate": "2022-05-15 16:25:38",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "ExtraDataCollection": [],
+    "Status": 1,
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
         },
-        "ProofOfSale": "674532",
-        "AuthorizationCode": "123456",
-        "Chargebacks": [
-            {
-                "Amount": 10000,
-                "CaseNumber": "123456",
-                "Date": "2017-06-04",
-                "ReasonCode": "104",
-                "ReasonMessage": "Outras Fraudes - Cartao Ausente",
-                "Status": "Received",
-                "RawData": "Client did not participate and did not authorize transaction"
-            }
-        ],
-        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
-        "Type": "CreditCard",
-        "Amount": 15700,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "ExtraDataCollection": [],
-        "Status": 1,
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "capture",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-            }
-        ]
-    }
+        {
+            "Method": "PUT",
+            "Rel": "capture",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+        }
+    ]
+}
 }
 ```
 
@@ -3325,6 +3379,7 @@ curl
 --data-binary
 {
     "MerchantOrderId": "2014111706",
+    "AcquirerOrderId": "202202231037440D1BD0",
     "Customer": {
         "Name": "Comprador Teste",
         "Address": {}
@@ -3344,21 +3399,16 @@ curl
             "PaymentAccountReference":"92745135160550440006111072222"
         },
         "ProofOfSale": "674532",
+        "Tid": "0223103744208",
         "AuthorizationCode": "123456",
-        "Chargebacks": [
-            {
-                "Amount": 10000,
-                "CaseNumber": "123456",
-                "Date": "2017-06-04",
-                "ReasonCode": "104",
-                "ReasonMessage": "Outras Fraudes - Cartao Ausente",
-                "Status": "Received",
-                "RawData": "Client did not participate and did not authorize transaction"
-            }
-        ],
         "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
         "Type": "CreditCard",
-        "Amount": 15700,
+        "Amount": 10000,
+        "ReceivedDate": "2022-07-29 17:16:21",
+        "CapturedAmount": 9000,
+        "CapturedDate": "2022-07-29 17:16:22",
+        "VoidedAmount": 1000,
+        "VoidedDate": "2022-05-15 16:25:38",
         "Currency": "BRL",
         "Country": "BRA",
         "ExtraDataCollection": [],
