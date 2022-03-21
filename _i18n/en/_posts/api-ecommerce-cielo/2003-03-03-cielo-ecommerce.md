@@ -3252,6 +3252,8 @@ curl
 |`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
 |`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
 |`PaymentId`|Payment identification number.|Text|36|Yes|
+|`AcquirerOrderId`|Transaction id sent to the authorizer if the MerchantOrderId is longer than 20 characters or has symbols.|Text|50|Yes|
+|`Tid`|Payment identification number at the acquirer.|Text|36|Yes|
 
 #### Response
 
@@ -3399,7 +3401,7 @@ curl
 |`Payment.CapturedDate`|Capture date|Text|19|AAAA-MM-DD HH:mm:SS|
 |`Payment.VoidedAmount`|Canceled/refunded amount, in cents.|Number|15|10000|
 |`Payment.VoidedDate`|Date of cancellation/chargeback|Text|19|AAAA-MM-DD HH:mm:SS|
-|`Payment.Provider`|Defines behavior of the means of payment (see Annex)/NOT MANDATORY FOR CREDIT|Text|15|—|
+|`Payment.Provider`|Defines behavior of the means of payment (see Annex)/NOT MANDATORY FOR CREDIT|Text|15|-|
 |`CreditCard.CardNumber`|Buyer's Card Number|Text|19|-|
 |`CreditCard.Holder`|Buyer's name printed on card|Text|25|-|
 |`CreditCard.ExpirationDate`|Expiration date printed on card|Text|7|-|
