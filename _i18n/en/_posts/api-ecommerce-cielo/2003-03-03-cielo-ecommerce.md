@@ -3384,7 +3384,7 @@ curl
 
 |Property|Description|Type|Size|Format|
 |`MerchantOrderId`|Order identification number.|Text|50|Text alphanumeric|
-|`AcquirerOrderId`|	Transaction id sent to the authorizer if the MerchantOrderId is longer than 20 characters or has symbols|Text|50|Text alphanumeric|
+|`AcquirerOrderId`|Transaction id sent to the authorizer if the MerchantOrderId is longer than 20 characters or has symbols|Text|50|Text alphanumeric|
 |`AuthorizationCode`|authorization code.|Text|6|Text alphanumeric|
 |`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Status`|Transaction Status.|Byte|2|-|
@@ -3403,7 +3403,7 @@ curl
 |`CreditCard.CardNumber`|Buyer's Card Number|Text|19|-|
 |`CreditCard.Holder`|Buyer's name printed on card|Text|25|-|
 |`CreditCard.ExpirationDate`|Expiration date printed on card|Text|7|-|
-|`CreditCard.SecurityCode`|Security code printed on the back of the card See attached|Text|4|-|	
+|`CreditCard.SecurityCode`|Security code printed on the back of the card See attached|Text|4|-|
 |`CreditCard.Brand`|Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper)|Text|10|-|
 |`CreditCard.PaymentAccountReference`|PAR(payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the flag does not send the information, the field will not be returned.|Number|29|-|
 
