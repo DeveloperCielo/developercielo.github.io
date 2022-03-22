@@ -584,7 +584,7 @@ curl
 |`Payment.Interest`|Texto|10|Não|Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer).|
 |`Payment.Capture`|Booleano|---|Não (Default false)|Booleano que identifica que a autorização deve ser com captura automática.|
 |`Payment.Authenticate`|Booleano|---|Não (Default false)|Define se o comprador será direcionado ao Banco emissor para autenticação do cartão|
-|``Payment.Recurrent`|Booleano|-|Não|Indica se a transação é do tipo recorrente (“true”) ou não (“false”). O valor “true” não originará uma nova recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. Authenticate deve ser “false” quando Recurrent é “true”. |
+|`Payment.Recurrent`|Booleano|-|Não|Indica se a transação é do tipo recorrente (“true”) ou não (“false”). O valor “true” não originará uma nova recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. Authenticate deve ser “false” quando Recurrent é “true”.|
 |`Payment.IsCryptocurrencyNegotiation`|Booleano|-|Não (default false)|Deve ser enviado com valor “true” caso se trate de uma transação de compra ou venda de Criptomoeda|
 |`Payment.AirlineData.TicketNumber`|alfanumérico|13|Não|Informar o número do principal bilhete aéreo da transação.|
 |`CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do Comprador.|
