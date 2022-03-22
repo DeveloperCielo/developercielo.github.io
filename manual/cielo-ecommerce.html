@@ -412,7 +412,7 @@
 
 <p>O passo a passo para a instalação do Certificado EV deverá ser contatado o suporte do fornecedor do seu servidor.</p>
 
-<aside class="warning"><b>A Cielo não oferece suporte para a instalação do Certificado.</b></aside>
+<aside class="warning">A Cielo não oferece suporte para a instalação do Certificado.</aside>
 
 <h3 id="acesso-do-cliente-à-loja-virtual">Acesso do Cliente à Loja Virtual</h3>
 
@@ -590,7 +590,7 @@
 
 <aside class="notice">Tokenização: Se o objetivo for testar uma transação na API Cielo E-commerce salvando o número do cartão, recomendamos usar um gerador de cartões para atender a regra do mod10 (Algoritimo de Luhn), que é empregada nos ambientes Sandbox e de Produção.</aside>
 <p><br /></p>
-<aside class="notice">Os <code>status</code> das transações são definidos pelos FINAIS de cada cartão, assim como o <code>ReturnCode</code>.</aside>
+<aside class="notice">Os status das transações são definidos pelos FINAIS de cada cartão, assim como o ReturnCode.</aside>
 
 <table>
   <thead>
@@ -655,7 +655,7 @@
 
 <p>O cartão de teste <strong>4024.0071.5376.3191</strong>, por exemplo, irá simular o status autorizado.</p>
 
-<aside class="notice"><strong>Atenção:</strong> O ambiente de sandbox avalia o formato e o final do cartão. Caso um cartão real seja enviado, o resultado da operação será idêntico ao descrito na tabela de cartões de teste.</aside>
+<aside class="notice">Atenção: O ambiente de sandbox avalia o formato e o final do cartão. Caso um cartão real seja enviado, o resultado da operação será idêntico ao descrito na tabela de cartões de teste.</aside>
 <p><br /></p>
 <aside class="warning">Atenção: Os códigos de retorno em Sandbox não são os mesmos disponiveis em produção.</aside>
 
@@ -683,7 +683,7 @@ A transação de débito precisa passar por uma autenticação:</p>
 |Não usar a URL|Não Finalizado|</li>
 </ul>
 
-<aside class="notice"><strong>Transferência Online:</strong> O mesmo comportamento do Cartão de débito em Sandbox é valido para cartão de débito</aside>
+<aside class="notice">Transferência Online: O mesmo comportamento do Cartão de débito em Sandbox é valido para cartão de débito</aside>
 
 <h2 id="outros-meios-de-pagamento---sandbox">Outros meios de pagamento - Sandbox</h2>
 
@@ -818,9 +818,9 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p>Para criar uma transação de cartão de crédito, envie uma requisição utilizando o método <code class="language-plaintext highlighter-rouge">POST</code> conforme o exemplo a seguir. Esse exemplo contempla todos os campos possíveis que você pode enviar na requisição; consulte quais campos são ou não obrigatórios na tabela de propriedades da requisição.</p>
 
-<aside class="notice"><strong>Atenção:</strong> Não é possivel realizar uma transação com valor (`Amount`) 0.</aside>
+<aside class="notice">Atenção: Não é possivel realizar uma transação com valor (`Amount`) 0.</aside>
 
-<aside class="notice"><strong>Atenção:</strong> No header da requisição, use o Content-Type application/json .</aside>
+<aside class="notice">Atenção: No header da requisição, use o Content-Type application/json .</aside>
 
 <h4 id="requisição-1">Requisição</h4>
 
@@ -948,55 +948,348 @@ Abaixo especificamos qualquer diferença existente:</p>
 <span class="nt">--verbose</span>
 </code></pre></div></div>
 
-<p>|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
-|—|—|—|—|—|
-|<code class="language-plaintext highlighter-rouge">MerchantId</code>|Guid|36|Sim|Identificador da loja na Cielo.|
-|<code class="language-plaintext highlighter-rouge">MerchantKey</code>|Texto|40|Sim|Chave Publica para Autenticação Dupla na Cielo.|
-|<code class="language-plaintext highlighter-rouge">Content-Type</code>|Header|40|Sim|application/json (obrigatório o envio deste).|
-|<code class="language-plaintext highlighter-rouge">RequestId</code>|Guid|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
-|<code class="language-plaintext highlighter-rouge">MerchantOrderId</code>|Texto|50|Sim|Numero de identificação do Pedido.|
-|<code class="language-plaintext highlighter-rouge">Customer.Name</code>|Texto|255|Não|Nome do Comprador.|
-|<code class="language-plaintext highlighter-rouge">Customer.Status</code>|Texto|255|Não|Status de cadastro do comprador na loja (NEW / EXISTING)|
-|<code class="language-plaintext highlighter-rouge">Customer.Identity</code>|Texto|14|Não|Número do RG, CPF ou CNPJ do Cliente.|
-|<code class="language-plaintext highlighter-rouge">Customer.IdentityType</code>|Texto|255|Não|Tipo de documento de identificação do comprador (CFP/CNPJ).|
-|<code class="language-plaintext highlighter-rouge">Customer.Email</code>|Texto|255|Não|Email do Comprador.|
-|<code class="language-plaintext highlighter-rouge">Customer.Birthdate</code>|Date|10|Não|Data de nascimento do Comprador.|
-|<code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>|Texto|255|Não|Endereço do Comprador.|
-|<code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>|Texto|15|Não|Número do endereço do Comprador.|
-|<code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>|Texto|50|Não|Complemento do endereço do Comprador.br|
-|<code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code>|Texto|9|Não|CEP do endereço do Comprador.|
-|<code class="language-plaintext highlighter-rouge">Customer.Address.City</code>|Texto|50|Não|Cidade do endereço do Comprador.|
-|<code class="language-plaintext highlighter-rouge">Customer.Address.State</code>|Texto|2|Não|Estado do endereço do Comprador.|
-|<code class="language-plaintext highlighter-rouge">Customer.Address.Country</code>|Texto|35|Não|Pais do endereço do Comprador.|
-|<code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code>|Texto|255|Não|Endereço do Comprador.|
-|<code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>|Texto|15|Não|Número do endereço do Comprador.|
-|<code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Complement</code>|Texto|50|Não|Complemento do endereço do Comprador.|
-|<code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.ZipCode</code>|Texto|9|Não|CEP do endereço do Comprador.|
-|<code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.City</code>|Texto|50|Não|Cidade do endereço do Comprador.|
-|<code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.State</code>|Texto|2|Não|Estado do endereço do Comprador.|
-|<code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Country</code>|Texto|35|Não|País do endereço do Comprador.|
-|<code class="language-plaintext highlighter-rouge">Payment.Type</code>|Texto|100|Sim|Tipo do Meio de Pagamento.|
-|<code class="language-plaintext highlighter-rouge">Payment.Amount</code>|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
-|<code class="language-plaintext highlighter-rouge">Payment.Currency</code>|Texto|3|Não|Moeda na qual o pagamento será feito (BRL).|
-|<code class="language-plaintext highlighter-rouge">Payment.Country</code>|Texto|3|Não|Pais na qual o pagamento será feito.|
-|<code class="language-plaintext highlighter-rouge">Payment.Provider</code>|Texto|15|—|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|
-|<code class="language-plaintext highlighter-rouge">Payment.ServiceTaxAmount</code>|Número|15|Não|Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|
-|<code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code>|Texto|13|Não|O complemento do nome da loja que aparecerá na fatura do cartão. Não permite caracteres especiais.|
-|<code class="language-plaintext highlighter-rouge">Payment.Installments</code>|Número|2|Sim|Número de Parcelas.|
-|<code class="language-plaintext highlighter-rouge">Payment.Interest</code>|Texto|10|Não|Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer).|
-|<code class="language-plaintext highlighter-rouge">Payment.Capture</code>|Booleano|—|Não (Default false)|Booleano que identifica que a autorização deve ser com captura automática.|
-|<code class="language-plaintext highlighter-rouge">Payment.Authenticate</code>|Booleano|—|Não (Default false)|Define se o comprador será direcionado ao Banco emissor para autenticação do cartão|
-|``Payment.Recurrent<code class="language-plaintext highlighter-rouge">|Booleano|-|Não|Indica se a transação é do tipo recorrente (“true”) ou não (“false”). O valor “true” não originará uma nova recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. Authenticate deve ser “false” quando Recurrent é “true”. |
-|</code>Payment.IsCryptocurrencyNegotiation<code class="language-plaintext highlighter-rouge">|Booleano|-|Não (default false)|Deve ser enviado com valor “true” caso se trate de uma transação de compra ou venda de Criptomoeda|
-|</code>Payment.AirlineData.TicketNumber<code class="language-plaintext highlighter-rouge">|alfanumérico|13|Não|Informar o número do principal bilhete aéreo da transação.|
-|</code>CreditCard.CardNumber<code class="language-plaintext highlighter-rouge">|Texto|19|Sim|Número do Cartão do Comprador.|
-|</code>CreditCard.Holder<code class="language-plaintext highlighter-rouge">|Texto|25|Não|Nome do Comprador impresso no cartão. Não aceita caracteres especiais ou acentuação.|
-|</code>CreditCard.ExpirationDate<code class="language-plaintext highlighter-rouge">|Texto|7|Sim|Data de validade impressa no cartão. Ex. MM/AAAA.|
-|</code>CreditCard.SecurityCode<code class="language-plaintext highlighter-rouge">|Texto|4|Não|Código de segurança impresso no verso do cartão.|
-|</code>CreditCard.SaveCard<code class="language-plaintext highlighter-rouge">|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o CardToken.|
-|</code>CreditCard.Brand<code class="language-plaintext highlighter-rouge">|Texto|10|Sim|Bandeira do cartão. Valores possíveis: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper.       |
-|</code>CreditCard.CardOnFile.Usage<code class="language-plaintext highlighter-rouge">|Texto|-|Não|**First** se o cartão foi armazenado e é seu primeiro uso.&lt;br&gt;**Used** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
-|</code>CreditCard.CardOnFile.Reason`|Texto|-|Condicional|Indica o propósito de armazenamento de cartões, caso o campo “Usage” for “Used”.<br /><strong>Recurring</strong> - Compra recorrente programada (ex. assinaturas)<br /><strong>Unscheduled</strong> - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br /><strong>Installments</strong> - Parcelamento através da recorrência.|</p>
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificador da loja na Cielo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim</td>
+      <td>Chave Publica para Autenticação Dupla na Cielo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
+      <td>Header</td>
+      <td>40</td>
+      <td>Sim</td>
+      <td>application/json (obrigatório o envio deste).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Não</td>
+      <td>Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Numero de identificação do Pedido.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Nome do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Status de cadastro do comprador na loja (NEW / EXISTING)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
+      <td>Texto</td>
+      <td>14</td>
+      <td>Não</td>
+      <td>Número do RG, CPF ou CNPJ do Cliente.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Tipo de documento de identificação do comprador (CFP/CNPJ).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Email do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
+      <td>Date</td>
+      <td>10</td>
+      <td>Não</td>
+      <td>Data de nascimento do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Endereço do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Número do endereço do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Complemento do endereço do Comprador.br</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
+      <td>Texto</td>
+      <td>9</td>
+      <td>Não</td>
+      <td>CEP do endereço do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Cidade do endereço do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Não</td>
+      <td>Estado do endereço do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
+      <td>Texto</td>
+      <td>35</td>
+      <td>Não</td>
+      <td>Pais do endereço do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Endereço do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Número do endereço do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Complemento do endereço do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
+      <td>Texto</td>
+      <td>9</td>
+      <td>Não</td>
+      <td>CEP do endereço do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.City</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Não</td>
+      <td>Cidade do endereço do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.State</code></td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Não</td>
+      <td>Estado do endereço do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
+      <td>Texto</td>
+      <td>35</td>
+      <td>Não</td>
+      <td>País do endereço do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Tipo do Meio de Pagamento.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Valor do Pedido (ser enviado em centavos).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
+      <td>Texto</td>
+      <td>3</td>
+      <td>Não</td>
+      <td>Moeda na qual o pagamento será feito (BRL).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Country</code></td>
+      <td>Texto</td>
+      <td>3</td>
+      <td>Não</td>
+      <td>Pais na qual o pagamento será feito.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Texto</td>
+      <td>15</td>
+      <td>—</td>
+      <td>Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ServiceTaxAmount</code></td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Não</td>
+      <td>Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
+      <td>Texto</td>
+      <td>13</td>
+      <td>Não</td>
+      <td>O complemento do nome da loja que aparecerá na fatura do cartão. Não permite caracteres especiais.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Número de Parcelas.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Não</td>
+      <td>Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>Não (Default false)</td>
+      <td>Booleano que identifica que a autorização deve ser com captura automática.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>Não (Default false)</td>
+      <td>Define se o comprador será direcionado ao Banco emissor para autenticação do cartão</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
+      <td>Booleano</td>
+      <td>-</td>
+      <td>Não</td>
+      <td>Indica se a transação é do tipo recorrente (“true”) ou não (“false”). O valor “true” não originará uma nova recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. Authenticate deve ser “false” quando Recurrent é “true”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.IsCryptocurrencyNegotiation</code></td>
+      <td>Booleano</td>
+      <td>-</td>
+      <td>Não (default false)</td>
+      <td>Deve ser enviado com valor “true” caso se trate de uma transação de compra ou venda de Criptomoeda</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.AirlineData.TicketNumber</code></td>
+      <td>alfanumérico</td>
+      <td>13</td>
+      <td>Não</td>
+      <td>Informar o número do principal bilhete aéreo da transação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td>Texto</td>
+      <td>19</td>
+      <td>Sim</td>
+      <td>Número do Cartão do Comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
+      <td>Texto</td>
+      <td>25</td>
+      <td>Não</td>
+      <td>Nome do Comprador impresso no cartão. Não aceita caracteres especiais ou acentuação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td>Texto</td>
+      <td>7</td>
+      <td>Sim</td>
+      <td>Data de validade impressa no cartão. Ex. MM/AAAA.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td>Texto</td>
+      <td>4</td>
+      <td>Não</td>
+      <td>Código de segurança impresso no verso do cartão.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
+      <td>Booleano</td>
+      <td>—</td>
+      <td>Não (Default false)</td>
+      <td>Booleano que identifica se o cartão será salvo para gerar o CardToken.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Sim</td>
+      <td>Bandeira do cartão. Valores possíveis: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Usage</code></td>
+      <td>Texto</td>
+      <td>-</td>
+      <td>Não</td>
+      <td><strong>First</strong> se o cartão foi armazenado e é seu primeiro uso.<br /><strong>Used</strong> se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Reason</code></td>
+      <td>Texto</td>
+      <td>-</td>
+      <td>Condicional</td>
+      <td>Indica o propósito de armazenamento de cartões, caso o campo “Usage” for “Used”.<br /><strong>Recurring</strong> - Compra recorrente programada (ex. assinaturas)<br /><strong>Unscheduled</strong> - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br /><strong>Installments</strong> - Parcelamento através da recorrência.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h4 id="resposta-1">Resposta</h4>
 
