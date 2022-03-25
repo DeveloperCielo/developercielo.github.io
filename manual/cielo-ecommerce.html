@@ -1625,64 +1625,25 @@ Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o
 
 <h2 id="cartão-de-débito">Cartão de Débito</h2>
 
-<p>Esse meio de pagamento é liberado automaticamente junto a afiliação de Cielo, podendo ser utilizado com as seguintes bandeiras e bancos:</p>
+<p>Esse meio de pagamento é liberado automaticamente junto a afiliação de Cielo.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>MASTERCARD</th>
-      <th>VISA</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Bradesco</td>
-      <td>Bradesco</td>
-    </tr>
-    <tr>
-      <td>Banco do Brasil</td>
-      <td>Banco do Brasil</td>
-    </tr>
-    <tr>
-      <td>Santander</td>
-      <td>Santander</td>
-    </tr>
-    <tr>
-      <td>Itaú</td>
-      <td>Itaú</td>
-    </tr>
-    <tr>
-      <td>CitiBank</td>
-      <td>CitiBank</td>
-    </tr>
-    <tr>
-      <td>BRB</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <td>Caixa</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <td>BancooB</td>
-      <td>N/A</td>
-    </tr>
-  </tbody>
-</table>
+<p>Há dois tipos de transação de débito, com autenticação, que é padrão para todos os e-commerces, e sem autenticação, que ocorre quando há permissão do emissor.</p>
 
-<h3 id="autenticação-débito">Autenticação Débito</h3>
+<ul>
+  <li><strong>Débito com autenticação</strong>: a autenticação de transações de débito é uma exigência dos bancos emissores e bandeiras para promover maior segurança nas transações de débito.</li>
+</ul>
 
-<p>Por regra de mercado, todas as transações online realizadas com cartão de débito devem ser autenticadas através de um protocolo chamado 3DS, obrigatoriamente. Atualmente existem 2 versões: 3DS 1.0 e 3DS 2.0.</p>
+<p>Para realizar a autenticação de uma transação de débito, usamos o protocolo EMV 3DS 2.0; esse protocolo é um script integrado ao seu e-commerce que verifica a identidade do portador do cartão enquanto mantém uma boa experiência de compra ao consumidor e reduz o risco de fraude.</p>
 
-<p>Na versão 1, o portador é direcionado para o ambiente bancário, onde é desafiado pelo emissor do cartão, digitando a sua senha e concluindo a autenticação. Essa versão não é compatível com dispositivos mobile e ocorre desafio em 100% dos casos. Existe a possibilidade de não autenticar transações de débito no e-Commerce, o que é conhecido como “Débito sem Senha”, porém, cabe aos Bancos Emissores do cartão aprovarem tal modelo, pois <strong>não é uma permissão concedida pela Cielo.</strong></p>
+<p>Para integrar a autenticação, consulte a <a href="https://developercielo.github.io/manual/3ds" target="_blank">documentação do 3DS 2.0</a>.</p>
 
-<p>A autenticação é um processo que é mandatório para transações de débito no eCommerce, porém, é possível utilizá-la também para transações de crédito. Fica a critério do lojista autenticar transações de crédito no e-Commerce.</p>
+<aside class="warning">IMPORTANTE: A Cielo não disponibiliza mais a primeira versão do protocolo de autenticação (3DS 1.0) já que as bandeiras e emissores estão descontinuando essa solução.</aside>
 
-<p>Considerando as diversas melhorias e benefícios disponíveis na versão 2.0, a tendência é que cada vez mais seja utilizada. Para conhecer o 3DS 2.0, acesse <a href="https://developercielo.github.io/manual/3ds">https://developercielo.github.io/manual/3ds</a>.</p>
+<ul>
+  <li><strong>Débito sem autenticação</strong>: conhecido também como “débito sem senha”, é permitido em casos de excessão, somente para e-commerces que têm uma negociação específica com o banco emissor. Assim, cabe aos bancos emissores do cartão aprovarem a ausência de autenticação para seu e-commerce, pois não é uma permissão concedida pela Cielo.</li>
+</ul>
 
-<aside class="warning">IMPORTANTE: O 3DS 1.0 deverá ser descontinuado a partir de Outubro de 2021 e não recomendamos, portanto, sua integração.</aside>
-
-<h4 id="mpi--merchant-plug-in">MPI – Merchant Plug-in</h4>
+<h3 id="mpi--merchant-plug-in">MPI – Merchant Plug-in</h3>
 
 <p>O Merchant plug-in, conhecido por MPI, é um serviço que permite a realização da chamada de autenticação, integrado e certificado com bandeiras para processamento de autenticação de 3DS. A Cielo permite ao lojista a integração do 3DS 1.0 ou 2.0 através do MPI Interno ou do MPI Externo.</p>
 
@@ -1695,15 +1656,15 @@ Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o
   </li>
 </ul>
 
-<h4 id="autenticação-externa--mpi-3ds-10">Autenticação Externa – MPI 3DS 1.0</h4>
+<h3 id="autenticação-externa--mpi-3ds-10">Autenticação Externa – MPI 3DS 1.0</h3>
 
 <p>Considerando a escolha por autenticar com 3DS 1.0 utilizando um serviço/fornecedor de MPI contratado (MPI Externo), a Cielo está preparada para receber essas informações na autorização.</p>
 
-<h5 id="criando-uma-venda-com-autenticação-externa">Criando uma venda com autenticação externa</h5>
+<h4 id="criando-uma-venda-com-autenticação-externa">Criando uma venda com autenticação externa</h4>
 
 <p>Para criar uma venda com cartão de crédito ou débito contendo dados de autenticação externa, é necessário enviar uma requisição utilizando o método <code class="language-plaintext highlighter-rouge">POST</code> para o recurso Payment conforme o exemplo.</p>
 
-<h6 id="requisição-2">Requisição</h6>
+<h5 id="requisição-2">Requisição</h5>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -1933,7 +1894,7 @@ Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o
   </tbody>
 </table>
 
-<h6 id="resposta-2">Resposta</h6>
+<h5 id="resposta-2">Resposta</h5>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111903"</span><span class="p">,</span><span class="w">
