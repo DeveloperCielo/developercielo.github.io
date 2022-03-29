@@ -2265,6 +2265,7 @@ Transações Quasi Cash são aquelas transações referentes a compras de fichas
 Todos os clientes de E-commerce que transacionarem quasi cash, devem usar a requisição de uma transação de débito e/ou crédito (dependendo do tipo de pagamento escolhido) e encaminhar adicionalmente a tag QuasiCash conforme exemplo a seguir:
 
 ```json
+  
 "Payment":{
    "Currency":"BRL",
    "Country":"BRA",
@@ -2287,7 +2288,7 @@ Todos os clientes de E-commerce que transacionarem quasi cash, devem usar a requ
       "CardOnFile":{
          "Usage":"Used",
          "Reason":"Unscheduled"
-   }    
+   }  
 ```
 
 |Parâmetro  | Descrição|Valor|Formato|Tamanho|Obrigatório|
