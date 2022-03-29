@@ -2542,6 +2542,49 @@ Os estabelecimentos que operam com esse serviço devem ser registrados junto a V
 | IsCustomerBillPaymentService | Boolean | ---     | Não         | True ou false. Indica se é uma transação CBPS (Serviço de Pagamento de Contas para Consumidores) |
 | Wallet.AdditionalData.Mcc | String (numérico) | 4     | Sim, para transações de CBPS| MCC do estabelecimento (EC) permitido para transações de CBPS|
 
+### Transações SDWO
+
+Se categoriza como uma SDWO (Staged Digital Wallet Operators) uma empresa que oferece serviços de carteira digital/wallet, ou seja, que permitem que o portador pague a aquisição de um produto ou serviço por meio de sua própria plataforma, seja com cadastro de cartões de crédito ou debito, ou geração de QR code.
+
+Para transacionar como SDWO, o estabelecimento precisa se registrar junto as bandeiras. Para isso, procure seu gestor comercial Cielo para mais informações.
+
+No caso de transações de ecommerce de uma SDWO com cartão de crédito ou débito (não originadas por um QR Code), é necessário que a carteira mande alguns dados adicionais na transação, para que as bandeiras possam identificar e diferenciar esse tipo de transação. Veja abaixo as especificações:
+
+**Importante:** Marcação de SDWO é apenas aceita para as seguintes modalidades e bandeiras: Visa/Elo- crédito e débito; Master - apenas crédito. Aceita cartões estrangeiros.
+  
+#### Requisição
+
+```json
+{
+   "MerchantOrderId":"2012345678",
+   "Customer":{
+      "Name":"Comprador Carteira"
+   },
+   "Payment":{
+      "Type":"CreditCard",
+      "Amount":15700,
+      "Installments":1,
+      "CreditCard":{
+         "CardNumber":"4532110000001234",
+         "Brand":"Visa",
+         "SecurityCode":"123"
+      },
+      "Wallet":{
+"PlatformOperator":"ABC",
+     "AdditionalData": {
+        "Mcc": "1234"
+     }
+      }
+   }
+}
+```
+
+|Propriedade                   |Tipo     | Tamanho | Obrigatório | Descrição                                                                                        |
+|------------------------------|---------|---------|-------------|--------------------------------------------------------------------------------------------------|
+| Wallet.PlatformOperator | String (texto)| 3     | Sim, para transações de SDWO|Sigla da carteira que está cadastrada aqui na Cielo como carteira digital (verificar sua sigla com seu gestor comercial) |
+| Wallet.AdditionalData.Mcc | String (numérico) | 4     | Sim, para transações de SDWO| 
+MCC do varejista subjacente (pra transações de compra); MCC da carteira digital (para transações de abastecimento de crédito na carteira caso aplicável – no qual é necessária a marcação de cash in também vista nessa sessão)|
+
 ## Erros de Integração
 
 Caso ocorram erros de integração em qualquer um dos meios de pagamento, um "response" será retornado contendo um código de erro e uma descrição
