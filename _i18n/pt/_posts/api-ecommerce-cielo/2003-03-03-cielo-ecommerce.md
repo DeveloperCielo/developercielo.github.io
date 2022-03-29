@@ -2585,6 +2585,48 @@ No caso de transações de ecommerce de uma SDWO com cartão de crédito ou déb
 | Wallet.AdditionalData.Mcc | String (numérico) | 4     | Sim, para transações de SDWO| 
 MCC do varejista subjacente (pra transações de compra); MCC da carteira digital (para transações de abastecimento de crédito na carteira caso aplicável – no qual é necessária a marcação de cash in também vista nessa sessão)|
 
+###Transações CASH IN
+
+Uma transação do tipo Cash In é uma operação de adição de créditos em uma carteira digital. Os estabelecimentos que operam com esse tipo de transação devem ser registrados como carteira digital junto as bandeiras e devem estar cadastrados com um dos seguintes MCCs (Códigos de categoria do estabelecimento): 6540 ou 6051.
+
+Além disso, precisam enviar alguns dados adicionais na transação, para que as bandeiras possam identificar e diferenciar esse tipo de transação. Veja abaixo as especificações:
+
+**Importante:**A marcação de Cashin é apenas aceita para as seguintes modalidades e bandeiras: Visa/Master só crédito; Elo débito e crédito. Não é aceita para cartão estrangeiro.
+
+#### Requisição
+
+```json
+{
+
+   "MerchantOrderId":"2012345678",
+   "Customer":{
+      "Name":"Comprador Carteira"
+   },
+   "Payment":{
+      "Type":"CreditCard",
+      "Amount":15700,
+      "Installments":1,
+      "CreditCard":{
+         "CardNumber":"4532110000001234",
+         "Brand":"Visa",
+         "SecurityCode":"123"
+      },
+      "Wallet":{
+"PlatformOperator":"ABC",
+     "AdditionalData": {
+       "CashIn": "true"
+     }
+      }
+   }
+}
+
+```
+
+|Propriedade                   |Tipo     | Tamanho | Obrigatório | Descrição                                                                                        |
+|------------------------------|---------|---------|-------------|--------------------------------------------------------------------------------------------------|
+| Wallet.PlatformOperator | String (texto)| 3     | Sim, para transações de Cash In|Sigla da carteira que está cadastrada aqui na Cielo como carteira digital (verificar sua sigla com seu gestor comercial) |
+| Wallet.AdditionalData.CshIn | String (texto) | -     | Sim, para transações de Cash In|Enviar como “True” se for uma transação de Cash In|
+
 ## Erros de Integração
 
 Caso ocorram erros de integração em qualquer um dos meios de pagamento, um "response" será retornado contendo um código de erro e uma descrição
