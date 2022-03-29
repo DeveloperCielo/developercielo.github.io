@@ -2498,42 +2498,49 @@ Os campos específicos estão contidos dentro do nó `PaymentFacilitator`. Além
 
 ### Transações CBPS
 
-Atualmente, os consumidores geralmente precisam fazer login em diversos sites de cobrança para pagar suas contas, muitos dos quais não aceitam pagamentos de cartão. Os fornecedores do Serviço de Pagamento de Contas para Consumidores (CBPS) simplificam o processo ao permitir que os consumidores façam todos os pagamentos de contas com cartão e em um único canal. Geralmente os fornecedores CBPS oferecem um aplicativo móvel ou um comercio eletrônico para o portador fazer a gestão e efetuar os pagamentos.
+Entidades que operam como CBPS (em português, Serviço de Pagamento de Contas para Consumidores) são empresas que oferecem serviços consolidados de pagamento de contas ao portador de cartão. A Marcação de CBPS é uma opção específica para a bandeira Visa e fornece mais visibilidade e precisão nas transações.
 
-A Visa solicita que os provedores deste tipo de serviço passem a informar quais transações são CBPS. Para isso, é necessário enviar o campo `IsCustomerBillPaymentService` como **"true"** conforme exemplo abaixo.
+Os estabelecimentos que operam com esse serviço devem ser registrados junto a Visa e para operar como tal, devem enviar algumas informações adicionais através da mensageria, que são exigidas pela bandeira. Veja abaixo:
 
 #### Requisição
 
 ```json
 {
-   "MerchantOrderId":"2014111703",
-   "Customer":{
-      "Name":"Comprador crédito simples"
-   },
-   "Payment":{
-      "Type":"CreditCard",
-      "Amount":15700,
-      "Installments":1,
-      "SoftDescriptor":"123456789ABCD",
-      "CreditCard":{
-         "CardNumber":"1234123412341231",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"12/2030",
-         "SecurityCode":"123",
-         "Brand":"Visa",
-         "CardOnFile":{
-            "Usage":"Used",
-            "Reason":"Unscheduled"
-         }
-      },
-      "IsCustomerBillPaymentService":true
-   }
+    "merchantorderid": "123456ABCD1234",
+    "customer": {
+        "name": "João das Contas accept",
+        "mobile": "5521923455678"
+    },
+    "payment": {
+        "type": "CreditCard",
+        "amount": 100,
+        "installments": 1,
+        "IsCustomerBillPaymentService":true,
+        "capture": false,
+        "authenticate": false,
+        "recurrent": false,
+        "provider": "CieloSandbox",
+        "creditcard": {
+            "cardnumber": "4532110000001234",
+            "holder": "Teste Holder",
+            "expirationdate": "12/2022",
+            "securitycode": "123",
+            "brand": "jcb",
+            "savecard": true
+        },
+        "Wallet": {
+            "AdditionalData": {
+                "Mcc": "1234"
+            }
+        }
+    }
 }
 ```
 
 |Propriedade                   |Tipo     | Tamanho | Obrigatório | Descrição                                                                                        |
 |------------------------------|---------|---------|-------------|--------------------------------------------------------------------------------------------------|
 | IsCustomerBillPaymentService | Boolean | ---     | Não         | True ou false. Indica se é uma transação CBPS (Serviço de Pagamento de Contas para Consumidores) |
+| Wallet.AdditionalData.Mcc | String (numérico) | 4     | Sim, para transações de CBPS| MCC do estabelecimento (EC) permitido para transações de CBPS|
 
 ## Erros de Integração
 
