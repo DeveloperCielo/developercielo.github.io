@@ -2256,16 +2256,15 @@ Como qualquer transação de débito no e-commerce, as transações de Carnê pr
 |---|---|---|---|---|
 |`Payment.IsCarneTransaction`|Booleano|---|Não (default false)|Deve ser enviado com valor “true” caso se trate de uma transação de pagamento de serviço do tipo Carnê|
 
-# Implementações específicas
+## Implementações específicas
 
-## Quasi cash
+### Quasi cash
   
 Transações Quasi Cash são aquelas transações referentes a compras de fichas para jogos online, compras de bilhete de lotéricas ou relacionados. Apenas alguns MCCs (Códigos de categoria de atuação) que podem processar transações desse modelo. Consulte o time Cielo para entender se o seu negócio entra nesse modelo. 
  
 Todos os clientes de E-commerce que transacionarem quasi cash, devem usar a requisição de uma transação de débito e/ou crédito (dependendo do tipo de pagamento escolhido) e encaminhar adicionalmente a tag QuasiCash conforme exemplo a seguir:
 
 ```json
-  
 "Payment":{
    "Currency":"BRL",
    "Country":"BRA",
@@ -2288,14 +2287,14 @@ Todos os clientes de E-commerce que transacionarem quasi cash, devem usar a requ
       "CardOnFile":{
          "Usage":"Used",
          "Reason":"Unscheduled"
-   }  
+   }    
 ```
 
 |Parâmetro  | Descrição|Valor|Formato|Tamanho|Obrigatório|
 |-----------|----------|-----|-------|-------|-----------|
 |`QuasiCash`| Identifica o envio de saldo para a carteira digital.|"true" ou "false"|Booleano|-|Não|
 
-## Facilitadores de Pagamento
+### Facilitadores de Pagamento
 
 Todos os clientes de E-Commerce que são **Facilitadores de Pagamento**, por **obrigatoriedade das bandeiras e do Banco Central** devem enviar campos específicos na **mensageria transacional**.  A Cielo transmitirá as informações para as bandeiras por meio da mensageria transacional no momento da autorização.
 
@@ -2303,7 +2302,7 @@ Os campos específicos estão contidos dentro do nó `PaymentFacilitator`. Além
 
 > **Atenção:** As bandeiras, ao identificarem inconformidade devido ao não envio dos dados obrigatórios na mensageria transacional, aplicarão multas à Cielo as quais serão repassadas ao Facilitador responsável pelo envio dos dados transacionais.
 
-### Requisição
+#### Requisição
 
 ```json
 {
@@ -2388,7 +2387,7 @@ Os campos específicos estão contidos dentro do nó `PaymentFacilitator`. Além
 
 <aside class="warning"><b>Atenção: Os campos não devem ser enviados com espaçamento a esquerda. Sujeito a rejeição na liquidação das transações.</b></aside>
 
-### Resposta
+#### Resposta
 
 ```json
 {
@@ -2499,49 +2498,42 @@ Os campos específicos estão contidos dentro do nó `PaymentFacilitator`. Além
 
 ### Transações CBPS
 
-Entidades que operam como CBPS (em português, Serviço de Pagamento de Contas para Consumidores) são empresas que oferecem serviços consolidados de pagamento de contas ao portador de cartão. A Marcação de CBPS é uma opção específica para a bandeira Visa e fornece mais visibilidade e precisão nas transações.
- 
-Os estabelecimentos que operam com esse serviço devem ser registrados junto a Visa e para operar como tal, devem enviar algumas informações adicionais através da mensageria, que são exigidas pela bandeira. Veja abaixo:
+Atualmente, os consumidores geralmente precisam fazer login em diversos sites de cobrança para pagar suas contas, muitos dos quais não aceitam pagamentos de cartão. Os fornecedores do Serviço de Pagamento de Contas para Consumidores (CBPS) simplificam o processo ao permitir que os consumidores façam todos os pagamentos de contas com cartão e em um único canal. Geralmente os fornecedores CBPS oferecem um aplicativo móvel ou um comercio eletrônico para o portador fazer a gestão e efetuar os pagamentos.
+
+A Visa solicita que os provedores deste tipo de serviço passem a informar quais transações são CBPS. Para isso, é necessário enviar o campo `IsCustomerBillPaymentService` como **"true"** conforme exemplo abaixo.
 
 #### Requisição
 
 ```json
 {
-    "merchantorderid": "123456ABCD1234",
-    "customer": {
-        "name": "João das Contas accept",
-        "mobile": "5521923455678"
-    },
-    "payment": {
-        "type": "CreditCard",
-        "amount": 100,
-        "installments": 1,
-        "IsCustomerBillPaymentService":true,
-        "capture": false,
-        "authenticate": false,
-        "recurrent": false,
-        "provider": "CieloSandbox",
-        "creditcard": {
-            "cardnumber": "4532110000001234",
-            "holder": "Teste Holder",
-            "expirationdate": "12/2022",
-            "securitycode": "123",
-            "brand": "jcb",
-            "savecard": true
-        },
-        "Wallet": {
-            "AdditionalData": {
-                "Mcc": "1234"
-            }
-        }
-    }
+   "MerchantOrderId":"2014111703",
+   "Customer":{
+      "Name":"Comprador crédito simples"
+   },
+   "Payment":{
+      "Type":"CreditCard",
+      "Amount":15700,
+      "Installments":1,
+      "SoftDescriptor":"123456789ABCD",
+      "CreditCard":{
+         "CardNumber":"1234123412341231",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"123",
+         "Brand":"Visa",
+         "CardOnFile":{
+            "Usage":"Used",
+            "Reason":"Unscheduled"
+         }
+      },
+      "IsCustomerBillPaymentService":true
+   }
 }
 ```
 
 |Propriedade                   |Tipo     | Tamanho | Obrigatório | Descrição                                                                                        |
 |------------------------------|---------|---------|-------------|--------------------------------------------------------------------------------------------------|
 | IsCustomerBillPaymentService | Boolean | ---     | Não         | True ou false. Indica se é uma transação CBPS (Serviço de Pagamento de Contas para Consumidores) |
-| Wallet.AdditionalData.Mcc|String (numérico)|4|Sim, para transações de CBPS|MCC do estabelecimento (EC) permitido para transações de CBPS|
 
 ## Erros de Integração
 
