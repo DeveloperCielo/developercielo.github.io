@@ -4401,7 +4401,9 @@ Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o
 
 <h3 id="quasi-cash">Quasi cash</h3>
 
-<p>Todos os clientes de E-commerce que transacionam  <em>quasi cash</em>, devem usar a requisição da <a href="https://developercielo.github.io/manual/cielo-ecommerce#cart%C3%A3o-de-cr%C3%A9dito">transação de crédito</a> e encaminhar a tag <code class="language-plaintext highlighter-rouge">QuasiCash</code> conforme exemplo a seguir:</p>
+<p>Transações Quasi Cash são aquelas transações referentes a compras de fichas para jogos online, compras de bilhete de lotéricas ou relacionados. Apenas alguns MCCs (Códigos de categoria de atuação) que podem processar transações desse modelo. Consulte o time Cielo para entender se o seu negócio entra nesse modelo.</p>
+
+<p>Todos os clientes de E-commerce que transacionarem quasi cash, devem usar a requisição de uma transação de débito e/ou crédito (dependendo do tipo de pagamento escolhido) e encaminhar adicionalmente a tag QuasiCash conforme exemplo a seguir:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
    </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
@@ -4425,7 +4427,7 @@ Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o
       </span><span class="nl">"CardOnFile"</span><span class="p">:{</span><span class="w">
          </span><span class="nl">"Usage"</span><span class="p">:</span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"Reason"</span><span class="p">:</span><span class="s2">"Unscheduled"</span><span class="w">
-   </span><span class="p">}</span><span class="w">      
+   </span><span class="p">}</span><span class="w">    
 </span></code></pre></div></div>
 
 <table>
