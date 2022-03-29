@@ -2585,7 +2585,7 @@ No caso de transações de ecommerce de uma SDWO com cartão de crédito ou déb
 | Wallet.AdditionalData.Mcc | String (numérico) | 4     | Sim, para transações de SDWO| 
 MCC do varejista subjacente (pra transações de compra); MCC da carteira digital (para transações de abastecimento de crédito na carteira caso aplicável – no qual é necessária a marcação de cash in também vista nessa sessão)|
 
-###Transações CASH IN
+### Transações CASH IN
 
 Uma transação do tipo Cash In é uma operação de adição de créditos em uma carteira digital. Os estabelecimentos que operam com esse tipo de transação devem ser registrados como carteira digital junto as bandeiras e devem estar cadastrados com um dos seguintes MCCs (Códigos de categoria do estabelecimento): 6540 ou 6051.
 
