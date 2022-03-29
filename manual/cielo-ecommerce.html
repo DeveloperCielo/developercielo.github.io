@@ -4811,35 +4811,41 @@ Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o
 
 <h3 id="transações-cbps">Transações CBPS</h3>
 
-<p>Atualmente, os consumidores geralmente precisam fazer login em diversos sites de cobrança para pagar suas contas, muitos dos quais não aceitam pagamentos de cartão. Os fornecedores do Serviço de Pagamento de Contas para Consumidores (CBPS) simplificam o processo ao permitir que os consumidores façam todos os pagamentos de contas com cartão e em um único canal. Geralmente os fornecedores CBPS oferecem um aplicativo móvel ou um comercio eletrônico para o portador fazer a gestão e efetuar os pagamentos.</p>
+<p>Entidades que operam como CBPS (em português, Serviço de Pagamento de Contas para Consumidores) são empresas que oferecem serviços consolidados de pagamento de contas ao portador de cartão. A Marcação de CBPS é uma opção específica para a bandeira Visa e fornece mais visibilidade e precisão nas transações.</p>
 
-<p>A Visa solicita que os provedores deste tipo de serviço passem a informar quais transações são CBPS. Para isso, é necessário enviar o campo <code class="language-plaintext highlighter-rouge">IsCustomerBillPaymentService</code> como <strong>“true”</strong> conforme exemplo abaixo.</p>
+<p>Os estabelecimentos que operam com esse serviço devem ser registrados junto a Visa e para operar como tal, devem enviar algumas informações adicionais através da mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
 
 <h4 id="requisição-12">Requisição</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
-      </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Comprador crédito simples"</span><span class="w">
-   </span><span class="p">},</span><span class="w">
-   </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
-      </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"CreditCard"</span><span class="p">:{</span><span class="w">
-         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"CardOnFile"</span><span class="p">:{</span><span class="w">
-            </span><span class="nl">"Usage"</span><span class="p">:</span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Reason"</span><span class="p">:</span><span class="s2">"Unscheduled"</span><span class="w">
-         </span><span class="p">}</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"IsCustomerBillPaymentService"</span><span class="p">:</span><span class="kc">true</span><span class="w">
-   </span><span class="p">}</span><span class="w">
+    </span><span class="nl">"merchantorderid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456ABCD1234"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"João das Contas accept"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5521923455678"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IsCustomerBillPaymentService"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CieloSandbox"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"creditcard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"cardnumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4532110000001234"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"expirationdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2022"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"securitycode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jcb"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"savecard"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"AdditionalData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Mcc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -4860,6 +4866,13 @@ Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o
       <td>—</td>
       <td>Não</td>
       <td>True ou false. Indica se é uma transação CBPS (Serviço de Pagamento de Contas para Consumidores)</td>
+    </tr>
+    <tr>
+      <td>Wallet.AdditionalData.Mcc</td>
+      <td>String (numérico)</td>
+      <td>4</td>
+      <td>Sim, para transações de CBPS</td>
+      <td>MCC do estabelecimento (EC) permitido para transações de CBPS</td>
     </tr>
   </tbody>
 </table>
