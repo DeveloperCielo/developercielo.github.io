@@ -2257,8 +2257,6 @@ Como qualquer transação de débito no e-commerce, as transações de Carnê pr
 |`Payment.IsCarneTransaction`|Booleano|---|Não (default false)|Deve ser enviado com valor “true” caso se trate de uma transação de pagamento de serviço do tipo Carnê|
 
 ## Implementações específicas
-  
-Implementações
 
 ### Quasi cash
   
