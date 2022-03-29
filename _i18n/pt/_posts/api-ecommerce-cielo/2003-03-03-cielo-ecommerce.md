@@ -2256,9 +2256,9 @@ Como qualquer transação de débito no e-commerce, as transações de Carnê pr
 |---|---|---|---|---|
 |`Payment.IsCarneTransaction`|Booleano|---|Não (default false)|Deve ser enviado com valor “true” caso se trate de uma transação de pagamento de serviço do tipo Carnê|
 
-## Implementações específicas
+# Implementações específicas
 
-### Quasi cash
+## Quasi cash
   
 Transações Quasi Cash são aquelas transações referentes a compras de fichas para jogos online, compras de bilhete de lotéricas ou relacionados. Apenas alguns MCCs (Códigos de categoria de atuação) que podem processar transações desse modelo. Consulte o time Cielo para entender se o seu negócio entra nesse modelo. 
  
@@ -2295,7 +2295,7 @@ Todos os clientes de E-commerce que transacionarem quasi cash, devem usar a requ
 |-----------|----------|-----|-------|-------|-----------|
 |`QuasiCash`| Identifica o envio de saldo para a carteira digital.|"true" ou "false"|Booleano|-|Não|
 
-### Facilitadores de Pagamento
+## Facilitadores de Pagamento
 
 Todos os clientes de E-Commerce que são **Facilitadores de Pagamento**, por **obrigatoriedade das bandeiras e do Banco Central** devem enviar campos específicos na **mensageria transacional**.  A Cielo transmitirá as informações para as bandeiras por meio da mensageria transacional no momento da autorização.
 
@@ -2303,7 +2303,7 @@ Os campos específicos estão contidos dentro do nó `PaymentFacilitator`. Além
 
 > **Atenção:** As bandeiras, ao identificarem inconformidade devido ao não envio dos dados obrigatórios na mensageria transacional, aplicarão multas à Cielo as quais serão repassadas ao Facilitador responsável pelo envio dos dados transacionais.
 
-#### Requisição
+### Requisição
 
 ```json
 {
@@ -2388,7 +2388,7 @@ Os campos específicos estão contidos dentro do nó `PaymentFacilitator`. Além
 
 <aside class="warning"><b>Atenção: Os campos não devem ser enviados com espaçamento a esquerda. Sujeito a rejeição na liquidação das transações.</b></aside>
 
-#### Resposta
+### Resposta
 
 ```json
 {
