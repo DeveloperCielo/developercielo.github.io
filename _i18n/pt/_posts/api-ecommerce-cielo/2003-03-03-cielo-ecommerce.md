@@ -843,11 +843,9 @@ Para integrar o método de autenticação, consulte a [documentação do 3DS 2.0
 
 #### Criando uma transação de débito
 
-Para criar uma venda que utilizará cartão de débito, é necessário fazer um POST para o recurso Payment conforme o exemplo.
+Para criar uma venda com cartão de débito, chame o método POST conforme o exemplo a seguir. O exemplo contempla o mínimo de campos necessários que devem ser enviados para a autorização.
 
 > Na transação de débito padrão (com autenticação), envie `Authenticate` = "true".
-
-O exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.
 
 ##### Requisição
 
@@ -921,8 +919,6 @@ curl
 | `DebitCard.ExpirationDate` | Data de validade impresso no cartão.                                                                  | Texto    | 7       | Sim                |
 | `DebitCard.SecurityCode`   | Código de segurança impresso no verso do cartão.                                                      | Texto    | 4       | Não                |
 | `DebitCard.Brand`          | Bandeira do cartão.                                                                                   | Texto    | 10      | Sim                |
-
-<aside class="warning">Cartões de Débito, por padrão, devem possuir `Authenticate` como TRUE </aside>
 
 ##### Resposta
 
@@ -1419,7 +1415,7 @@ curl
 
 #### Cartão de débito com autenticação
 
-A transação de débito com autenticação é o padrão para esse meio de pagamento. Siga os passos de integração do manual do 3DS e envie a requisição conforme apresentada em Criando uma Transação de Débito [link].
+A transação de débito com autenticação é o padrão para esse meio de pagamento. Siga os passos de integração do [manual do 3DS](https://developercielo.github.io/manual/3ds){:target="_blank"} e envie a requisição conforme apresentada em [Criando uma Transação de Débito](https://developercielo.github.io/manual/cielo-ecommerce#criando-uma-transa%C3%A7%C3%A3o-de-d%C3%A9bito).
 
 #### MPI Externo
 
