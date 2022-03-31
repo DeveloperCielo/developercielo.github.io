@@ -8932,7 +8932,7 @@ A Cielo informa seus clientes que está preparada para processar as transações
 | 10     | **Voided**           | Todos, exceto boleto | Pagamento cancelado.                                              |
 | 11     | **Refunded**         | Cartões de crédito e débito e e-wallets.| Pagamento cancelado após 23h59 do dia de autorização. |
 | 12     | **Pending**          | Cartões de crédito e débito (transferência eletrônica), e-wallets e pix.| Aguardandoretorno da instituição financeira.|
-| 13     | **Aborted**          | Todos                | Pagamento cancelado por falha no processamento ou por ação do AF. |
+| 13     | **Aborted**          | Todos                | Pagamento cancelado por falha no processamento ou por ação do Antifraude. |
 | 20     | **Scheduled**        | Cartão de crédito e e-wallets.| Recorrência agendada.                                    |
 
 ## Erros de integração
