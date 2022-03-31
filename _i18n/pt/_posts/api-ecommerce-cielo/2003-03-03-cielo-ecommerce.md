@@ -315,6 +315,7 @@ A transação de débito precisa passar por uma autenticação:
 * **Autenticação via 3DS 2.0**: aprenda a simular a autenticação 3DS 2.0 em sandbox na [documentação do 3DS](https://developercielo.github.io/manual/3ds); 
 * **URL de Autenticação**: está sendo descontinuada. Nesse tipo de autenticação, o fluxo transacional do cartão de débito funciona com a Resposta da transação retornando uma URL de Autenticação. Na tela de autenticação a opção escolhida define o status da transação:
 <br/>
+
 |Opção|Status|
 |---|---|
 |Autenticado|Autorizado|
@@ -397,7 +398,9 @@ curl
 
 # Meios de Pagamento
 
-## Cartão de Crédito
+## Cartões de crédito e débito
+
+### Cartão de Crédito
 
 Para que você possa disfrutar de todos os recursos disponíveis em nossa API, é importante que antes você conheça os conceitos envolvidos no processamento de uma transação de cartão de crédito.
 
@@ -410,7 +413,7 @@ Para que você possa disfrutar de todos os recursos disponíveis em nossa API, �
 
 <aside class="warning">IMPORTANTE: O número de identificação do pedido (MerchantOrderId) não sofre alteração, se mantendo o mesmo ao longo de todo o fluxo transacional. Contudo, um número adicional pode ser gerado para o pedido e utilizado durante a transação. Esse número só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (MerchantOrderId) repetidos. Para fins de conciliação, é necessário usar o TransactionId.</aside>
 
-### Criando uma transação de crédito
+#### Criando uma transação de crédito
 
 Para criar uma transação de cartão de crédito, envie uma requisição utilizando o método `POST` conforme o exemplo a seguir. Esse exemplo contempla todos os campos possíveis que você pode enviar na requisição; consulte quais campos são ou não obrigatórios na tabela de propriedades da requisição.
 
@@ -418,7 +421,9 @@ Para criar uma transação de cartão de crédito, envie uma requisição utiliz
 
 <aside class="notice"><strong>Atenção:</strong> No header da requisição, use o Content-Type application/json .</aside>
 
-#### Requisição
+Saiba como realizar uma transação de crédito com autenticação em Autenticando uma Transação.
+
+##### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -446,7 +451,17 @@ Para criar uma transação de cartão de crédito, envie uma requisição utiliz
             "City": "Rio de Janeiro",
             "State": "RJ",
             "Country": "BRA"
-        }
+        },
+        "Billing": {
+            "Street": "Rua Neturno",
+            "Number": "12345",
+            "Complement": "Sala 123",
+            "Neighborhood": "Centro",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BR",
+            "ZipCode": "20080123"
+  },
    },
    "Payment":{  
      "Currency":"BRL",
@@ -513,7 +528,17 @@ curl
             "City": "Rio de Janeiro",
             "State": "RJ",
             "Country": "BRA"
-        }
+        },
+        "Billing": {
+            "Street": "Rua Neturno",
+            "Number": "12345",
+            "Complement": "Sala 123",
+            "Neighborhood": "Centro",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BR",
+            "ZipCode": "20080123"
+  },
    },
    "Payment":{  
      "ServiceTaxAmount":0,
@@ -573,6 +598,14 @@ curl
 |`Customer.DeliveryAddress.City`|Texto|50|Não|Cidade do endereço do Comprador.|
 |`Customer.DeliveryAddress.State`|Texto|2|Não|Estado do endereço do Comprador.|
 |`Customer.DeliveryAddress.Country`|Texto|35|Não|País do endereço do Comprador.|
+|`Customer.Billing.Street`|string|24|não|Logradouro do endereço de cobrança|
+|`Customer.Billing.Number`|string|5|não|Número do endereço de cobrança|
+|`Customer.Billing.Complement`|string|14|não|Complemento do endereço de cobrança|
+|`Customer.Billing.Neighborhood`|string|15|não|Bairro do endereço de cobrança|
+|`Customer.Billing.City`|string|20|não |Cidade do endereço de cobrança|
+|`Customer.Billing.State`|string|2|não|Estado do endereço de cobrança|
+|`Customer.Billing.Country`|string|2|não| País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|
+|`Customer.Billing.ZipCode`|string|9|não|Código postal do endereço de cobrança|
 |`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento.|
 |`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
 |`Payment.Currency`|Texto|3|Não|Moeda na qual o pagamento será feito (BRL).|
@@ -596,7 +629,7 @@ curl
 |`CreditCard.CardOnFile.Usage`|Texto|-|Não|**First** se o cartão foi armazenado e é seu primeiro uso.<br>**Used** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
 |`CreditCard.CardOnFile.Reason`|Texto|-|Condicional|Indica o propósito de armazenamento de cartões, caso o campo "Usage" for "Used".<BR>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>**Installments** - Parcelamento através da recorrência.|
 
-#### Resposta
+##### Resposta
 
 ```json
 {
@@ -624,7 +657,17 @@ curl
             "City": "Rio de Janeiro",
             "State": "RJ",
             "Country": "BRA"
-        }
+        },
+        "Billing": {
+            "Street": "Rua Neturno",
+            "Number": "12345",
+            "Complement": "Sala 123",
+            "Neighborhood": "Centro",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BR",
+            "ZipCode": "20080123"
+  },
     },
     "Payment": {
         "ServiceTaxAmount": 0,
@@ -707,7 +750,17 @@ curl
             "City": "Rio de Janeiro",
             "State": "RJ",
             "Country": "BRA"
-        }
+        },
+        "Billing": {
+            "Street": "Rua Neturno",
+            "Number": "12345",
+            "Complement": "Sala 123",
+            "Neighborhood": "Centro",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BR",
+            "ZipCode": "20080123"
+  },
     },
     "Payment": {
         "ServiceTaxAmount": 0,
@@ -774,305 +827,33 @@ curl
 
 <aside class="warning">Atenção: Os retornos de autorização estão sujeitos a inserção de novos campos advindos das bandeiras/emissores. Faça sua integração de forma a prever este tipo de comportamento utilizando adequadamente as técnicas de serialização e deserialização de objetos.</aside>
 
-### Transação Autenticada
-
-A Cielo oferece o serviço do 3DS 2.0, um protocolo de autenticação de transações.
-
-1. **Integre o script do 3DS 2.0** na sua página de pagamento, conforme [manual do 3DS](https://developercielo.github.io/manual/3ds){:target="_blank"};
-2. Na **requisição das transações** de crédito ou débito, **envie os campos adicionais** referentes à autenticação.
-
-<aside class="notice">A autenticação via 3DS 1.0 está sendo descontinuada pelas bandeiras. As novas integrações devem seguir o protocolo 3DS 2.0.</aside>
-
-#### ECI (E-commerce Indicator)
-
-E-Commerce Indicator (ECI) é retornado no processo de autenticação.
-Este código é um indicador do que exatamente ocorreu no processo de autenticação da transação.
-Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o agente responsável por aquela autenticação, conforme tabela abaixo:
-
-| **Bandeira** | **ECI** | **Significado da Transação** |
-| --- | --- | --- |
-| Visa | 05 | Autenticada pelo Banco Emissor – risco de chargeback passa a ser do banco Emissor |
-| Visa | 06 | Autenticada pela Bandeira – risco de chargeback passa a ser do banco Emissor |
-| Visa | Diferente de 05 e 06 | Não autenticada – risco de chargeback permanece com o estabelecimento |
-| Mastercard | 01 | Autenticada pela Bandeira – risco de chargeback passa a ser do banco Emissor |
-| Mastercard | 02 | Autenticada pelo Banco Emissor – risco de chargeback passa a ser do banco Emissor |
-| Mastercard | 04 | Não autenticada, transação caracterizada como Data Only – risco de chargeback permanece com o estabelecimento |
-| Mastercard | Diferente de  01, 02 e 04 | Não autenticada – risco de chargeback permanece com o estabelecimento |
-| Elo | 05 | Autenticada pelo Banco Emissor – risco de chargeback passa a ser do banco Emissor |
-| Elo | 06 | Autenticada pela Bandeira – risco de chargeback passa a ser do banco Emissor |
-| Elo | 07 | Não autenticada – risco de chargeback permanece com o estabelecimento |
-
-## Cartão de Débito
+### Cartão de Débito
 
 Esse meio de pagamento é liberado automaticamente junto a afiliação de Cielo.
 
-Há dois tipos de transação de débito, com autenticação, que é padrão para todos os e-commerces, e sem autenticação, que ocorre quando há permissão do emissor.
+Todas as transações de débito devem ser autenticadas por exigência dos bancos emissores e bandeiras, com o objetivo de promover maior segurança. 
 
-* **Débito com autenticação**: a autenticação de transações de débito é uma exigência dos bancos emissores e bandeiras para promover maior segurança nas transações de débito. 
+Para autenticar uma transação de débito, usamos o protocolo EMV 3DS 2.0; esse protocolo é um script integrado ao seu e-commerce que verifica a identidade do portador do cartão enquanto mantém uma boa experiência de compra ao consumidor e reduz o risco de fraude.
 
-Para realizar a autenticação de uma transação de débito, usamos o protocolo EMV 3DS 2.0; esse protocolo é um script integrado ao seu e-commerce que verifica a identidade do portador do cartão enquanto mantém uma boa experiência de compra ao consumidor e reduz o risco de fraude.
-
-Para integrar a autenticação, consulte a [documentação do 3DS 2.0](https://developercielo.github.io/manual/3ds){:target="_blank"}.
+Para integrar o método de autenticação, consulte a [documentação do 3DS 2.0](https://developercielo.github.io/manual/3ds){:target="_blank"}.
 
 <aside class="warning">IMPORTANTE: A Cielo não disponibiliza mais a primeira versão do protocolo de autenticação (3DS 1.0) já que as bandeiras e emissores estão descontinuando essa solução.</aside>
 
-* **Débito sem autenticação**: conhecido também como “débito sem senha”, é permitido em casos de excessão, somente para e-commerces que têm uma negociação específica com o banco emissor. Assim, cabe aos bancos emissores do cartão aprovarem a ausência de autenticação para seu e-commerce, pois não é uma permissão concedida pela Cielo.
+> **Débito sem autenticação**: ou “débito sem senha”, só pode ser realizada quando o e-commerce tem autorização do banco emissor para dispensa da autenticação. Caso você tenha essa permissão, envie o campo `Authenticate` como "false" na requisição padrão de cartão de débito.
 
-### MPI – Merchant Plug-in
+#### Criando uma transação de débito
 
-O Merchant plug-in, conhecido por MPI, é um serviço que permite a realização da chamada de autenticação, integrado e certificado com bandeiras para processamento de autenticação de 3DS. A Cielo permite ao lojista a integração do 3DS 1.0 ou 2.0 através do MPI Interno ou do MPI Externo.
+Para criar uma venda que utilizará cartão de débito, é necessário fazer um POST para o recurso Payment conforme o exemplo.
 
-* MPI Interno: serviço já integrado a solução de 3DS Cielo, sem necessidade de integração e/ou contratação adicional. Em caso de utilização de MPI Interno para o 3DS 1.0 siga para a etapa "[Transação Padrão](https://developercielo.github.io/manual/cielo-ecommerce#transa%C3%A7%C3%A3o-padr%C3%A3o)"
+> Na transação de débito padrão (com autenticação), envie `Authenticate` = "true".
 
-* MPI Externo: serviço contratado pelo lojista, sem interferência da Cielo. Muito utilizado quando o lojista já possui um fornecedor de MPI contratado. Em caso de utilização de MPI Externo para o 3DS 1.0, siga a próxima etapa “Autenticação Externa 3DS 1.0”
-
-### Autenticação Externa – MPI 3DS 1.0
-
-Considerando a escolha por autenticar com 3DS 1.0 utilizando um serviço/fornecedor de MPI contratado (MPI Externo), a Cielo está preparada para receber essas informações na autorização.
-
-#### Criando uma venda com autenticação externa
-
-Para criar uma venda com cartão de crédito ou débito contendo dados de autenticação externa, é necessário enviar uma requisição utilizando o método `POST` para o recurso Payment conforme o exemplo.
+O exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.
 
 ##### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
 ```json
-{
-    "MerchantOrderId":"2014111903",
-    "Customer":
-    {
-        "Name":"Comprador débito autenticação",
-        "Identity":"12345678912",
-        "IdentityType":"cpf"
-    },
-    "Payment":
-    {
-        "Type":"DebitCard",
-        "Amount":15700,
-        "Installments":1,
-        "Authenticate":true,
-        "SoftDescriptor":"123456789ABCD",
-        "ReturnUrl":"https://www.cielo.com.br",
-        "CreditCard":
-        {
-            "CardNumber":"1234123412341231",
-            "Holder":"Teste Holder",
-            "ExpirationDate":"12/2030",
-            "SecurityCode":"123",
-            "Brand":"Visa"
-        },
-        "ExternalAuthentication":
-        {
-            "Cavv":"123456789",
-            "Xid":"987654321",
-            "Eci":"5"
-        }
-    }
-}
-```
-
-```shell
-curl
---request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{  
-   "MerchantOrderId":"2014111903",
-   "Customer":{  
-      "Name":"Comprador débito autenticação",
-      "Identity":"12345678912",
-      "IdentityType":"cpf"
-   },
-   "Payment":{  
-      "Type":"DebitCard",
-      "Amount":15700,
-      "Installments":1,
-      "Authenticate":true,
-      "ReturnUrl":"http://www.cielo.com.br",
-      "SoftDescriptor":"123456789ABCD",
-      "CreditCard":{  
-         "CardNumber":"4551870000000183",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"12/2030",
-         "SecurityCode":"123",
-         "Brand":"Visa"
-      },
-      "ExternalAuthentication":{
-         "Cavv":"123456789",
-         "Xid":"987654321",
-         "Eci":"5"
-      }
-   }
-}
---verbose
-```
-
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
-|---|---|---|---|---|
-|`MerchantId`|Guid|36|Sim|Identificador da loja na Cielo.|
-|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Cielo.|
-|`Content-Type`|Header|40|Sim|application/json (obrigatório o envio deste).|
-|`RequestId`|Guid|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
-|`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido.|
-|`Customer.Name`|Texto|255|Não|Nome do Comprador.|
-|`Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja (NEW / EXISTING)|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento.|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
-|`Payment.Provider`|Texto|15|---|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|
-|`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
-|`Payment.Authenticate`|Booleano|---|Não (Default false)|Indica se a transação deve ser autenticada (true) ou não (false). Mesmo para transações autenticadas externamente (fornecedor de autenticação de sua escolha), este campo deve ser enviado com valor “True”, e no nó ExternalAuthentication deve-se enviar os dados retornados pelo mecanismo de autenticação externa escolhido (XID, CAVV e ECI).|
-|`Payment.ExternalAuthentication.Cavv`|Texto|-|Sim|O valor Cavv é retornado pelo mecanismo de autenticação.|
-|`Payment.ExternalAuthentication.Xid`|Texto|-|Sim|O valor Xid é retornado pelo mecanismo de autenticação.|
-|`Payment.ExternalAuthentication.Eci`|Número|1|Sim|O valor Eci é retornado pelo mecanismo de autenticação.|
-|`CreditCard.CardNumber.`|Texto|19|Sim|Número do Cartão do Comprador|
-|`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
-|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
-|`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
-|`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
-
-##### Resposta
-
-```json
-{
-    "MerchantOrderId":"2014111903",
-    "Customer":
-    {
-        "Name":"Comprador débito autenticação",
-        "Identity":"12345678912",
-        "IdentityType":"cpf"
-    },
-    "Payment":
-    {
-        "ServiceTaxAmount":0,
-        "Installments":1,
-        "Interest":"ByMerchant",
-        "Capture":false,
-        "Authenticate":true,
-        "CreditCard":
-        {
-            "CardNumber":"123412******1112",
-            "Holder":"Teste Holder",
-            "ExpirationDate":"12/2030",
-            "SaveCard":false,
-            "Brand":"Visa"
-        },
-        "AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
-        "Tid": "1006993069257E521001",
-        "SoftDescriptor":"123456789ABCD",
-        "PaymentId":"f2dbd5df-c2ee-482f-ab1b-7fee039108c0",
-        "Type":"DebitCard",
-        "Amount":15700,
-        "Currency":"BRL",
-        "Country":"BRA",
-        "ExtraDataCollection":[],
-        "Status":0,
-        "ReturnCode":"0",
-        "ReturnMessage":"Transacao autorizada"
-        "ExternalAuthentication":
-        {  
-            "Cavv":"123456789",
-            "Xid":"987654321",
-            "Eci":"5"
-        },
-        "Links":
-        [
-            {
-                "Method":"GET",
-                "Rel":"self",
-                "Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{Paymentid}"
-            }
-        ]
-    }
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "MerchantOrderId":"2014111903",
-    "Customer":
-    {
-        "Name":"Comprador débito autenticação",
-        "Identity":"12345678912",
-        "IdentityType":"cpf"
-    },
-    "Payment":
-    {
-        "ServiceTaxAmount":0,
-        "Installments":1,
-        "Interest":"ByMerchant",
-        "Capture":false,
-        "Authenticate":true,
-        "CreditCard":
-        {
-            "CardNumber":"123412******1112",
-            "Holder":"Teste Holder",
-            "ExpirationDate":"12/2030",
-            "SaveCard":false,
-            "Brand":"Visa"
-        },
-        "AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
-        "Tid": "1006993069257E521001",
-        "SoftDescriptor":"123456789ABCD",
-        "PaymentId":"f2dbd5df-c2ee-482f-ab1b-7fee039108c0",
-        "Type":"DebitCard",
-        "Amount":15700,
-        "Currency":"BRL",
-        "Country":"BRA",
-        "ExtraDataCollection":[],
-        "Status":0,
-        "ReturnCode": "0",
-        "ReturnMessage":"Transacao autorizada",
-        "ExternalAuthentication":
-        {  
-            "Cavv":"123456789",
-            "Xid":"987654321",
-            "Eci":"5"
-        },
-        "Links":
-        [
-            {
-                "Method":"GET",
-                "Rel":"self",
-                "Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{Paymentid}"
-            }
-        ]
-    }
-}
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|---|---|---|---|---|
-|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
-|`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
-|`SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
-|`Status`|Status da Transação.|Byte|---|2|
-|`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
-|`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
-
-### Transação padrão
-
-Para criar uma venda que utilizará cartão de débito, é necessário fazer um POST para o recurso Payment conforme o exemplo.
-
-> Para realizar uma transação sem autenticação, basta enviar `Authenticate = FALSE`
-
-O exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.
-
-#### Requisição
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-```json
 {  
    "MerchantOrderId":"2014121201",
    "Customer":{  
@@ -1090,8 +871,6 @@ O exemplo contempla o mínimo de campos necessários a serem enviados para a aut
          "SecurityCode":"123",
          "Brand":"Visa"
      },
-     "IsCryptoCurrencyNegotiation": true
-   }
 }
 ```
 
@@ -1120,8 +899,6 @@ curl
          "SecurityCode":"123",
          "Brand":"Visa"
      },
-     "IsCryptoCurrencyNegotiation": true
-   }
 }
 --verbose
 ```
@@ -1147,7 +924,7 @@ curl
 
 <aside class="warning">Cartões de Débito, por padrão, devem possuir `Authenticate` como TRUE </aside>
 
-#### Resposta
+##### Resposta
 
 ```json
 {
@@ -1232,6 +1009,425 @@ curl
 |`ReturnUrl`|Url de retorno do lojista. URL para onde o lojista vai ser redirecionado no final do fluxo.|Texto|1024|http://www.urllogista.com.br|
 |`Status`|Status da Transação.|Byte|---|0|
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
+
+### Autenticando uma transação
+
+A Cielo oferece o serviço do 3DS 2.0, um protocolo de autenticação de transações. A autenticação é opcional para transações de cartão de crédito, e obrigatória para cartão de débito, por determinação das bandeiras e emissores.
+
+Para integrar a autenticação às suas transações:
+
+1. **Integre o script do 3DS 2.0** na sua página de pagamento, conforme [manual do 3DS](https://developercielo.github.io/manual/3ds){:target="_blank"};
+2. Na **requisição das transações** de crédito ou débito, **envie o nó adicional** `ExternalAuthentication`, conforme exemplos a seguir.
+
+<aside class="notice">A autenticação via 3DS 1.0 está sendo descontinuada pelas bandeiras. As novas integrações devem seguir o protocolo 3DS 2.0.</aside>
+
+#### Cartão de crédito com autenticação
+
+##### Requisição
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+```json
+{  
+   "MerchantOrderId":"2014111701",
+   "Customer":{  
+      "Name":"Comprador crédito completo",
+      "Email":"compradorteste@teste.com",
+      "Birthdate":"1991-01-02",
+      "Address":{  
+         "Street":"Rua Teste",
+         "Number":"123",
+         "Complement":"AP 123",
+         "ZipCode":"12345987",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BRA"
+      },
+        "DeliveryAddress": {
+            "Street": "Rua Teste",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA"
+        },
+        "Billing": {
+            "Street": "Rua Neturno",
+            "Number": "12345",
+            "Complement": "Sala 123",
+            "Neighborhood": "Centro",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BR",
+            "ZipCode": "20080123"
+  },
+   },
+   "Payment":{  
+     "Currency":"BRL",
+     "Country":"BRA",
+     "ServiceTaxAmount":0,
+     "Installments":1,
+     "Interest":"ByMerchant",
+     "Capture":true,
+     "Authenticate":"false",
+     "Payment.Recurrent":"false",
+     "SoftDescriptor":"123456789ABCD",
+     "CreditCard":{  
+         "CardNumber":"1234123412341231",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"123",
+         "SaveCard":"false",
+         "Brand":"Visa",
+         "CardOnFile":{
+            "Usage": "Used",
+            "Reason":"Unscheduled"
+         }
+     },
+     "IsCryptoCurrencyNegotiation": true,
+     "Type":"CreditCard",
+     "Amount":15700,
+     "AirlineData":{
+         "TicketNumber":"AR988983"
+     }
+   }
+}
+```
+
+```shell
+curl
+--request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+   "MerchantOrderId":"2014111701",
+   "Customer":{  
+      "Name":"Comprador crédito completo",
+      "Identity":"11225468954",
+      "IdentityType":"CPF",
+      "Email":"compradorteste@teste.com",
+      "Birthdate":"1991-01-02",
+      "Address":{  
+         "Street":"Rua Teste",
+         "Number":"123",
+         "Complement":"AP 123",
+         "ZipCode":"12345987",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BRA"
+      },
+        "DeliveryAddress": {
+            "Street": "Rua Teste",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA"
+        },
+        "Billing": {
+            "Street": "Rua Neturno",
+            "Number": "12345",
+            "Complement": "Sala 123",
+            "Neighborhood": "Centro",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BR",
+            "ZipCode": "20080123"
+  },
+   },
+   "Payment":{  
+     "ServiceTaxAmount":0,
+     "Installments":1,
+     "Interest":"ByMerchant",
+     "Capture":true,
+     "Authenticate":false,
+     "Payment.Recurrent":"false",
+     "SoftDescriptor":"123456789ABCD",
+     "CreditCard":{  
+         "CardNumber":"4551870000000183",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"123",
+         "SaveCard":"false",
+         "Brand":"Visa",
+         "CardOnFile":{
+            "Usage": "Used",
+            "Reason":"Unscheduled"
+         }
+     },
+     "IsCryptoCurrencyNegotiation": true,
+     "Type":"CreditCard",
+     "Amount":15700,
+     "AirlineData":{
+         "TicketNumber":"AR988983"
+     }
+   }
+}
+--verbose
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantId`|Guid|36|Sim|Identificador da loja na Cielo.|
+|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Cielo.|
+|`Content-Type`|Header|40|Sim|application/json (obrigatório o envio deste).|
+|`RequestId`|Guid|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
+|`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido.|
+|`Customer.Name`|Texto|255|Não|Nome do Comprador.|
+|`Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja (NEW / EXISTING)|
+|`Customer.Identity`|Texto|14|Não|Número do RG, CPF ou CNPJ do Cliente.|
+|`Customer.IdentityType`|Texto|255|Não|Tipo de documento de identificação do comprador (CFP/CNPJ).|
+|`Customer.Email`|Texto|255|Não|Email do Comprador.|
+|`Customer.Birthdate`|Date|10|Não|Data de nascimento do Comprador.|
+|`Customer.Address.Street`|Texto|255|Não|Endereço do Comprador.|
+|`Customer.Address.Number`|Texto|15|Não|Número do endereço do Comprador.|
+|`Customer.Address.Complement`|Texto|50|Não|Complemento do endereço do Comprador.br|
+|`Customer.Address.ZipCode`|Texto|9|Não|CEP do endereço do Comprador.|
+|`Customer.Address.City`|Texto|50|Não|Cidade do endereço do Comprador.|
+|`Customer.Address.State`|Texto|2|Não|Estado do endereço do Comprador.|
+|`Customer.Address.Country`|Texto|35|Não|Pais do endereço do Comprador.|
+|`Customer.DeliveryAddress.Street`|Texto|255|Não|Endereço do Comprador.|
+|`Customer.Address.Number`|Texto|15|Não|Número do endereço do Comprador.|
+|`Customer.DeliveryAddress.Complement`|Texto|50|Não|Complemento do endereço do Comprador.|
+|`Customer.DeliveryAddress.ZipCode`|Texto|9|Não|CEP do endereço do Comprador.|
+|`Customer.DeliveryAddress.City`|Texto|50|Não|Cidade do endereço do Comprador.|
+|`Customer.DeliveryAddress.State`|Texto|2|Não|Estado do endereço do Comprador.|
+|`Customer.DeliveryAddress.Country`|Texto|35|Não|País do endereço do Comprador.|
+|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento.|
+|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
+|`Payment.Currency`|Texto|3|Não|Moeda na qual o pagamento será feito (BRL).|
+|`Payment.Country`|Texto|3|Não|Pais na qual o pagamento será feito.|
+|`Payment.Provider`|Texto|15|---|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|
+|`Payment.ServiceTaxAmount`|Número|15|Não|Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|
+|`Payment.SoftDescriptor`|Texto|13|Não|O complemento do nome da loja que aparecerá na fatura do cartão. Não permite caracteres especiais.|
+|`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
+|`Payment.Interest`|Texto|10|Não|Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer).|
+|`Payment.Capture`|Booleano|---|Não (Default false)|Booleano que identifica que a autorização deve ser com captura automática.|
+|`Payment.Authenticate`|Booleano|---|Não (Default false)|Define se o comprador será direcionado ao Banco emissor para autenticação do cartão|
+|`Payment.Recurrent`|Booleano|-|Não|Indica se a transação é do tipo recorrente (“true”) ou não (“false”). O valor “true” não originará uma nova recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. Authenticate deve ser “false” quando Recurrent é “true”.|
+|`Payment.IsCryptocurrencyNegotiation`|Booleano|-|Não (default false)|Deve ser enviado com valor “true” caso se trate de uma transação de compra ou venda de Criptomoeda|
+|`Payment.AirlineData.TicketNumber`|alfanumérico|13|Não|Informar o número do principal bilhete aéreo da transação.|
+|`CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do Comprador.|
+|`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão. Não aceita caracteres especiais ou acentuação.|
+|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impressa no cartão. Ex. MM/AAAA.|
+|`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão.|
+|`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o CardToken.|
+|`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão. Valores possíveis: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper.       |
+|`CreditCard.CardOnFile.Usage`|Texto|-|Não|**First** se o cartão foi armazenado e é seu primeiro uso.<br>**Used** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
+|`CreditCard.CardOnFile.Reason`|Texto|-|Condicional|Indica o propósito de armazenamento de cartões, caso o campo "Usage" for "Used".<BR>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>**Installments** - Parcelamento através da recorrência.|
+
+##### Resposta
+
+```json
+{
+    "MerchantOrderId": "2014111706",
+    "Customer": {
+        "Name": "Comprador crédito completo",
+        "Identity":"11225468954",
+        "IdentityType":"CPF",
+        "Email": "compradorteste@teste.com",
+        "Birthdate": "1991-01-02",
+        "Address": {
+            "Street": "Rua Teste",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA"
+        },
+        "DeliveryAddress": {
+            "Street": "Rua Teste",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA"
+        },
+        "Billing": {
+            "Street": "Rua Neturno",
+            "Number": "12345",
+            "Complement": "Sala 123",
+            "Neighborhood": "Centro",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BR",
+            "ZipCode": "20080123"
+  },
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "CreditCard": {
+            "CardNumber": "455187******0183",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2030",
+            "SaveCard": false,
+            "Brand": "Visa",
+            "PaymentAccountReference":"92745135160550440006111072222",
+         "CardOnFile":{
+            "Usage": "Used",
+            "Reason":"Unscheduled"
+         }
+        },
+        "IsCryptoCurrencyNegotiation": true,
+        "TryAutomaticCancellation":true,
+        "ProofOfSale": "674532",
+        "Tid": "0305020554239",
+        "AuthorizationCode": "123456",
+        "SoftDescriptor":"123456789ABCD",
+        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
+        "Type": "CreditCard",
+        "Amount": 15700,
+        "CapturedAmount": 15700,
+        "Country": "BRA",
+        "AirlineData":{
+            "TicketNumber": "AR988983"
+        },
+        "ExtraDataCollection": [],
+        "Status": 2,
+        "ReturnCode": "6",
+        "ReturnMessage": "Operation Successful",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+            }
+        ]
+    }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "MerchantOrderId": "2014111706",
+    "Customer": {
+        "Name": "Comprador crédito completo",
+        "Identity":"11225468954",
+        "IdentityType":"CPF",
+        "Email": "compradorteste@teste.com",
+        "Birthdate": "1991-01-02",
+        "Address": {
+            "Street": "Rua Teste",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA"
+        },
+        "DeliveryAddress": {
+            "Street": "Rua Teste",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA"
+        },
+        "Billing": {
+            "Street": "Rua Neturno",
+            "Number": "12345",
+            "Complement": "Sala 123",
+            "Neighborhood": "Centro",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BR",
+            "ZipCode": "20080123"
+  },
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "CreditCard": {
+            "CardNumber": "455187******0183",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2030",
+            "SaveCard": false,
+            "Brand": "Visa",
+            "PaymentAccountReference":"92745135160550440006111072222",
+         "CardOnFile":{
+            "Usage": "Used",
+            "Reason":"Unscheduled"
+         }
+        },
+        "IsCryptoCurrencyNegotiation": true,
+        "TryAutomaticCancellation":true,
+        "ProofOfSale": "674532",
+        "Tid": "0305020554239",
+        "AuthorizationCode": "123456",
+        "SoftDescriptor":"123456789ABCD",
+        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
+        "Type": "CreditCard",
+        "Amount": 15700,
+        "CapturedAmount": 15700,
+        "Country": "BRA",
+        "ExtraDataCollection": [],
+        "Status": 2,
+        "ReturnCode": "6",
+        "ReturnMessage": "Operation Successful",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+            }
+        ]
+    }
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|---|---|---|---|---|
+|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
+|`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
+|`SoftDescriptor`|Texto impresso na fatura bancaria do portador. Não permite caracteres especiais.|Texto|13|Texto alfanumérico|
+|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
+|`Status`|Status da Transação.|Byte|---|2|
+|`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
+|`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
+|`TryAutomaticCancellation`|Caso ocorra algum erro durante a autorização (status Não Finalizada - "0"), a resposta incluirá o campo “TryAutomaticCancellation” como true. Neste caso, a transação será consultada automaticamente, e caso tenha sido autorizada será cancelada automaticamente. Esta funcionalidade deverá estar habilitada para loja. Para habilitar, entre em contato com o nosso suporte técnico. |Booleano|-|true ou false|
+|`Payment.PaymentAccountReference`|O PAR (Payment Account Reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado.|Numérico|29|---|
+
+#### Cartão de débito com autenticação
+
+A transação de débito com autenticação é o padrão para esse meio de pagamento. Siga os passos de integração do manual do 3DS e envie a requisição conforme apresentada em Criando uma Transação de Débito [link].
+
+#### MPI Externo
+
+O Merchant plug-in, conhecido por MPI, é um serviço que permite a realização da chamada de autenticação, integrado e certificado com bandeiras para processamento de autenticação de 3DS. A Cielo permite ao lojista a integração do 3DS através do MPI Interno ou do MPI Externo.
+
+* **MPI Interno**: serviço já integrado a solução de 3DS Cielo, sem necessidade de integração e/ou contratação adicional. Em caso de utilização de MPI Interno para o 3DS 1.0 siga para a etapa "[Transação Padrão](https://developercielo.github.io/manual/cielo-ecommerce#transa%C3%A7%C3%A3o-padr%C3%A3o)"
+
+* **MPI Externo**: usado quando o seu e-commerce contrata uma solução de MPI, sem participação da Cielo. Independente da versão do 3DS contratada, siga as orientações do manual [3. Autorização com Autenticação](https://developercielo.github.io/manual/autorizacao-com-autenticacao){:target="_blank"} para a integração.
 
 ## Pix
 
