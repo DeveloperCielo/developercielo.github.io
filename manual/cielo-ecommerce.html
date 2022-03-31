@@ -12,7 +12,7 @@
 
     <title>
         
-        Manual de Integração eCommerce Cielo &middot; Documentações e tutoriais
+        Manual de Integração API e-commerce Cielo &middot; Documentações e tutoriais
         
     </title>
 
@@ -119,7 +119,7 @@
                             
                                 
                                     
-                                    <li class="active">&gt; <a href="https://developercielo.github.io/manual/cielo-ecommerce">Manual de Integração eCommerce Cielo</a></li>
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/manual/cielo-ecommerce">Manual de Integração API e-commerce Cielo</a></li>
                                     
                                 
                             
@@ -18352,89 +18352,56 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:</p>
     <tr>
       <td>0</td>
       <td><strong>NotFinished</strong></td>
-      <td>ALL</td>
-      <td>Aguardando atualização de status</td>
+      <td>Todos</td>
+      <td>Aguardando atualização de status.</td>
     </tr>
     <tr>
       <td>1</td>
       <td><strong>Authorized</strong></td>
-      <td>ALL</td>
-      <td>Pagamento apto a ser capturado ou definido como pago</td>
+      <td>Todos</td>
+      <td>Pagamento apto a ser capturado ou definido como pago.</td>
     </tr>
     <tr>
       <td>2</td>
       <td><strong>PaymentConfirmed</strong></td>
-      <td>ALL</td>
-      <td>Pagamento confirmado e finalizado</td>
+      <td>Todos</td>
+      <td>Pagamento confirmado e finalizado.</td>
     </tr>
     <tr>
       <td>3</td>
       <td><strong>Denied</strong></td>
-      <td>CC + CD + TF</td>
-      <td>Pagamento negado por Autorizador</td>
+      <td>Cartões de crédito e débito (transferência eletrônica) e e-wallets.</td>
+      <td>Pagamento negado por Autorizador.</td>
     </tr>
     <tr>
       <td>10</td>
       <td><strong>Voided</strong></td>
-      <td>ALL</td>
-      <td>Pagamento cancelado</td>
+      <td>Todos, exceto boleto</td>
+      <td>Pagamento cancelado.</td>
     </tr>
     <tr>
       <td>11</td>
       <td><strong>Refunded</strong></td>
-      <td>CC + CD</td>
-      <td>Pagamento cancelado após 23:59 do dia de autorização</td>
+      <td>Cartões de crédito e débito e e-wallets.</td>
+      <td>Pagamento cancelado após 23h59 do dia de autorização.</td>
     </tr>
     <tr>
       <td>12</td>
       <td><strong>Pending</strong></td>
-      <td>ALL</td>
-      <td>Aguardando Status de instituição financeira</td>
+      <td>Cartões de crédito e débito (transferência eletrônica), e-wallets e pix.</td>
+      <td>Aguardandoretorno da instituição financeira.</td>
     </tr>
     <tr>
       <td>13</td>
       <td><strong>Aborted</strong></td>
-      <td>ALL</td>
-      <td>Pagamento cancelado por falha no processamento ou por ação do AF</td>
+      <td>Todos</td>
+      <td>Pagamento cancelado por falha no processamento ou por ação do AF.</td>
     </tr>
     <tr>
       <td>20</td>
       <td><strong>Scheduled</strong></td>
-      <td>CC</td>
-      <td>Recorrência agendada</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>-</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Meio de pagamento</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>ALL</strong></td>
-      <td>Todos</td>
-    </tr>
-    <tr>
-      <td><strong>CC</strong></td>
-      <td>Cartão de Crédito</td>
-    </tr>
-    <tr>
-      <td><strong>CD</strong></td>
-      <td>Cartão de Débito</td>
-    </tr>
-    <tr>
-      <td><strong>TF</strong></td>
-      <td>Transferencia Eletrônica</td>
-    </tr>
-    <tr>
-      <td><strong>BOL</strong></td>
-      <td>Boleto</td>
+      <td>Cartão de crédito e e-wallets.</td>
+      <td>Recorrência agendada.</td>
     </tr>
   </tbody>
 </table>
