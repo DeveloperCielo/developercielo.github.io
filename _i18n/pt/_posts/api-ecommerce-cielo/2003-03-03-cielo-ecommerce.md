@@ -2027,7 +2027,17 @@ Para criar uma venda cuja a forma de pagamento é boleto, basta fazer um POST co
           "City": "Rio de Janeiro",
           "State" : "RJ",
           "Country": "BRA"
-        }
+        },
+        "Billing": {
+           "Street": "Avenida Marechal Câmara",
+           "Number": "160",
+           "Complement": "Sala 934",
+           "Neighborhood": "Centro",
+           "City": "Rio de Janeiro",
+           "State": "RJ",
+           "Country": "BR",
+           "ZipCode": "22750012"
+  },
     },
     "Payment":
     {  
@@ -2069,7 +2079,17 @@ curl
           "City": "Rio de Janeiro",
           "State" : "RJ",
           "Country": "BRA"
-        }
+        },
+        "Billing": {
+           "Street": "Avenida Marechal Câmara",
+           "Number": "160",
+           "Complement": "Sala 934",
+           "Neighborhood": "Centro",
+           "City": "Rio de Janeiro",
+           "State": "RJ",
+           "Country": "BR",
+           "ZipCode": "22750012"
+  },
     },
     "Payment":
     {  
@@ -2131,7 +2151,17 @@ curl
         "State": "RJ",
         "Country": "BRA",
         "District": "Centro"
-        }
+        },
+      "Billing": {
+         "Street": "Avenida Marechal Câmara",
+         "Number": "160",
+         "Complement": "Sala 934",
+         "Neighborhood": "Centro",
+         "City": "Rio de Janeiro",
+         "State": "RJ",
+         "Country": "BR",
+         "ZipCode": "22750012"
+  },
     },
     "Payment":
     {
@@ -2172,7 +2202,25 @@ curl
     "Customer":
     {
         "Name": "Comprador Boleto Completo",
-        "Address": {}
+        "Address":
+        {
+        "Street": "Av Marechal Camara",
+        "Number": "160",
+        "ZipCode": "22750012",
+        "City": "Rio de Janeiro",
+        "State": "RJ",
+        "Country": "BRA",
+        "District": "Centro"
+        },
+      "Billing": {
+         "Street": "Avenida Marechal Câmara",
+         "Number": "160",
+         "Complement": "Sala 934",
+         "Neighborhood": "Centro",
+         "City": "Rio de Janeiro",
+         "State": "RJ",
+         "Country": "BR",
+         "ZipCode": "22750012"
     },
     "Payment":
     {
