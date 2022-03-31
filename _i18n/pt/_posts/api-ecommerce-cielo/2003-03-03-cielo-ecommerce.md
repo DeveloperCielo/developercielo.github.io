@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Manual de Integração eCommerce Cielo
+title: Manual de Integração API e-commerce Cielo
 description: Manual integração técnica via API
 search: true
 translated: true
@@ -8923,27 +8923,17 @@ A Cielo informa seus clientes que está preparada para processar as transações
 
 ## Status transacional
 
-| Código | Status               | Meio de pagamento | Descrição                                                        |
-|--------|----------------------|-------------------|------------------------------------------------------------------|
-| 0      | **NotFinished**      | ALL               | Aguardando atualização de status                                 |
-| 1      | **Authorized**       | ALL               | Pagamento apto a ser capturado ou definido como pago             |
-| 2      | **PaymentConfirmed** | ALL               | Pagamento confirmado e finalizado                                |
-| 3      | **Denied**           | CC + CD + TF      | Pagamento negado por Autorizador                                 |
-| 10     | **Voided**           | ALL               | Pagamento cancelado                                              |
-| 11     | **Refunded**         | CC + CD           | Pagamento cancelado após 23:59 do dia de autorização             |
-| 12     | **Pending**          | ALL               | Aguardando Status de instituição financeira                      |
-| 13     | **Aborted**          | ALL               | Pagamento cancelado por falha no processamento ou por ação do AF |
-| 20     | **Scheduled**          | CC              | Recorrência agendada                                             |
-
--
-
-|Meio de pagamento|Descrição|
-|---|---|
-|**ALL**|Todos|
-|**CC**|Cartão de Crédito|
-|**CD**|Cartão de Débito|
-|**TF**|Transferencia Eletrônica|
-|**BOL**|Boleto|
+| Código | Status               | Meio de pagamento | Descrição                                                         |
+|--------|----------------------|-------------------|-------------------------------------------------------------------|
+| 0      | **NotFinished**      | Todos               | Aguardando atualização de status.                                 |
+| 1      | **Authorized**       | Todos                | Pagamento apto a ser capturado ou definido como pago.             |
+| 2      | **PaymentConfirmed** | Todos                | Pagamento confirmado e finalizado.                                |
+| 3      | **Denied**           |Cartões de crédito e débito (transferência eletrônica) e e-wallets.| Pagamento negado por Autorizador.|
+| 10     | **Voided**           | Todos, exceto boleto | Pagamento cancelado.                                              |
+| 11     | **Refunded**         | Cartões de crédito e débito e e-wallets.| Pagamento cancelado após 23h59 do dia de autorização. |
+| 12     | **Pending**          | Cartões de crédito e débito (transferência eletrônica), e-wallets e pix.| Aguardandoretorno da instituição financeira.|
+| 13     | **Aborted**          | Todos                | Pagamento cancelado por falha no processamento ou por ação do AF. |
+| 20     | **Scheduled**        | Cartão de crédito e e-wallets.| Recorrência agendada.                                    |
 
 ## Erros de integração
 
