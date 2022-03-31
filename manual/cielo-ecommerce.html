@@ -1680,13 +1680,11 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <h4 id="criando-uma-transação-de-débito">Criando uma transação de débito</h4>
 
-<p>Para criar uma venda que utilizará cartão de débito, é necessário fazer um POST para o recurso Payment conforme o exemplo.</p>
+<p>Para criar uma venda com cartão de débito, chame o método POST conforme o exemplo a seguir. O exemplo contempla o mínimo de campos necessários que devem ser enviados para a autorização.</p>
 
 <blockquote>
   <p>Na transação de débito padrão (com autenticação), envie <code class="language-plaintext highlighter-rouge">Authenticate</code> = “true”.</p>
 </blockquote>
-
-<p>O exemplo contempla o mínimo de campos necessários a serem enviados para a autorização.</p>
 
 <h5 id="requisição-2">Requisição</h5>
 
@@ -1865,8 +1863,6 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
   </tbody>
 </table>
-
-<aside class="warning">Cartões de Débito, por padrão, devem possuir `Authenticate` como TRUE </aside>
 
 <h5 id="resposta-2">Resposta</h5>
 
@@ -2776,7 +2772,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <h4 id="cartão-de-débito-com-autenticação">Cartão de débito com autenticação</h4>
 
-<p>A transação de débito com autenticação é o padrão para esse meio de pagamento. Siga os passos de integração do manual do 3DS e envie a requisição conforme apresentada em Criando uma Transação de Débito [link].</p>
+<p>A transação de débito com autenticação é o padrão para esse meio de pagamento. Siga os passos de integração do <a href="https://developercielo.github.io/manual/3ds" target="_blank">manual do 3DS</a> e envie a requisição conforme apresentada em <a href="https://developercielo.github.io/manual/cielo-ecommerce#criando-uma-transa%C3%A7%C3%A3o-de-d%C3%A9bito">Criando uma Transação de Débito</a>.</p>
 
 <h4 id="mpi-externo">MPI Externo</h4>
 
