@@ -2000,12 +2000,6 @@ curl
 
 ## Boleto
 
-### Transação de Boletos
-
-Para criar uma venda cuja a forma de pagamento é boleto, basta fazer um POST conforme o exemplo.
-
-**OBS:** A API suporta boletos registrados e não registrados, sendo o provider o diferenciador entre eles. Sugerimos que valide com seu banco qual o tipo de boleto suportado por sua carteira. A API Aceita apenas boletos **Bradesco** e **Banco do Brasil**
-
 #### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
