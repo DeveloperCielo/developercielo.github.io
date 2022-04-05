@@ -861,10 +861,10 @@ Exemplo XMl de retorno:
     <cartao-estrangeiro>Não</cartao-estrangeiro>
     <cartao-corporativo>Não</cartao-corporativo>
     <codigo-emissor>950</codigo-emissor>
-    <pre-pago>Sim</pre-pago)
+    <pre-pago>Sim</pre-pago>
 
 </dados-bin>
-</resultado
+      </resultado>
 </retorno-consulta-bin>
 
 ```
