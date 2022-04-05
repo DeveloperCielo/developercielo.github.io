@@ -1460,6 +1460,136 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <aside class="warning">The ECI indicator is very important, because it's what defines the Chargeback's rules.</aside>
 
+<h1 id="consulta-bin">Consulta BIN</h1>
+
+<p>The <strong>Consulta Bin</strong> is a <strong>research service for card data</strong>, whether credit or debit, which returns information to the establishment that allows validating the data filled in on the payment screen. The service returns the following data about the card:</p>
+
+<ul>
+  <li><strong>Card Flag:</strong> Flag Name</li>
+  <li><strong>Type of card:</strong> Credit, Debit or Multiple (Credit and Debit)</li>
+  <li><strong>Nationality of the card:</strong> Foreign or National</li>
+  <li><strong>Corporate Card:</strong> Whether or not the card is corporate</li>
+  <li><strong>Issuing Bank:</strong> Code and Name</li>
+  <li><strong>Prepaid Card::</strong> yes or no</li>
+</ul>
+
+<p>This information allows you to take actions at checkout to improve store conversion.</p>
+
+<aside class="warning">Query Bin must be enabled by Cielo Support. Please contact the Support team and request authorization for your store.</aside>
+<blockquote>
+
+</blockquote>
+
+<h2 id="integration">Integration</h2>
+
+<h3 id="request-2">Request</h3>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+<span class="cp">&lt;?xml version="7.0" encoding="ISO-8859-1"?&gt;</span>
+<span class="nt">&lt;requisicao-consulta-bin</span> <span class="na">id=</span><span class="s">"a387cb68-b33a-4113-b7c4-9b7dfde871ec"</span> <span class="na">versao=</span><span class="s">"2.2.0"</span>
+    <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;dados-ec&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>XXXXXXXXXX
+        <span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;chave&gt;</span>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX<span class="err">&lt;</span>/chave
+    <span class="nt">&lt;/dados-ec&gt;</span>
+    <span class="nt">&lt;bin&gt;</span>506708<span class="nt">&lt;/bin&gt;</span>
+<span class="nt">&lt;/requisicao-consulta-bin&gt;</span>
+</code></pre></div></div>
+
+<h3 id="return">Return</h3>
+
+<p>XML return example:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?&gt;</span>
+<span class="nt">&lt;retorno-consulta-bin</span> <span class="na">id=</span><span class="s">"a387cb68-b33a-4113-b7c4-9b7dfde871ec"</span> <span class="na">versao=</span><span class="s">"2.2.0"</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;bin&gt;</span>506708<span class="nt">&lt;/bin&gt;</span>
+<span class="nt">&lt;resultado&gt;</span>
+<span class="nt">&lt;id&gt;</span>8d4d7aaf898bd43d1057f9627ae81003<span class="nt">&lt;/id&gt;</span>
+<span class="nt">&lt;status&gt;</span>00<span class="nt">&lt;/status&gt;</span>
+<span class="nt">&lt;dados-bin&gt;</span>
+    <span class="nt">&lt;bandeira&gt;</span>ELO<span class="nt">&lt;/bandeira&gt;</span>
+    <span class="nt">&lt;produto&gt;</span>Crédito<span class="nt">&lt;/produto&gt;</span>
+    <span class="nt">&lt;emissor&gt;</span>Informação não disponivel<span class="nt">&lt;/emissor&gt;</span>
+    <span class="nt">&lt;cartao-estrangeiro&gt;</span>Não<span class="nt">&lt;/cartao-estrangeiro&gt;</span>
+    <span class="nt">&lt;cartao-corporativo&gt;</span>Não<span class="nt">&lt;/cartao-corporativo&gt;</span>
+    <span class="nt">&lt;codigo-emissor&gt;</span>950<span class="nt">&lt;/codigo-emissor&gt;</span>
+    <span class="nt">&lt;pre-pago&gt;</span>Sim<span class="nt">&lt;/pre-pago&gt;</span>
+
+<span class="nt">&lt;/dados-bin&gt;</span>
+      <span class="nt">&lt;/resultado&gt;</span>
+<span class="nt">&lt;/retorno-consulta-bin&gt;</span>
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>size</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">result.id</code></td>
+      <td>Text</td>
+      <td>30</td>
+      <td>Requisition identification ID at Cielo</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">result.status</code></td>
+      <td>Text</td>
+      <td>2</td>
+      <td>Query status (00-Success; 01-unsupported flag; 02-unsupported product)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">data-bin.flag</code></td>
+      <td>Text</td>
+      <td>20</td>
+      <td>Card Banner Name</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">data-bin.product</code></td>
+      <td>Text</td>
+      <td>20</td>
+      <td>Card Product Type, Credit Debit or Multiple</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">data-bin.emitter</code></td>
+      <td>Text</td>
+      <td>20</td>
+      <td>Name of bank that issued the card</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">data-bin.foreign-card</code></td>
+      <td>Boolean</td>
+      <td>3</td>
+      <td>“Yes” or “No”, indicates whether the card is foreign</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">data-bin.corporate-card</code></td>
+      <td>Boolean</td>
+      <td>3</td>
+      <td>“Yes” or “No”, indicates whether the card is corporate</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">bin-data.emitter-code</code></td>
+      <td>Numeric</td>
+      <td>3</td>
+      <td>Issuer code that issued the card</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">data-bin.prepaid</code></td>
+      <td>Boolean</td>
+      <td>3</td>
+      <td>“Yes” or “No”, indicates whether the card is prepaid</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="reply-codes-catalog">Reply Codes Catalog</h1>
 
 <h2 id="authorization-codes-lr">Authorization Codes LR</h2>
@@ -3384,7 +3514,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   <li><strong>Situation 3:</strong> - <strong>THERE ISN’T</strong> storage of card data, the establishment Yesply does not send this tag.</li>
 </ul>
 
-<h4 id="request-2">Request</h4>
+<h4 id="request-3">Request</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
 <span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span> <span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
@@ -3843,7 +3973,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <p>Customers who card tokenize along with the flags can send the information to Cielo in the transactional flow.</p>
 
-<h4 id="request-3">Request</h4>
+<h4 id="request-4">Request</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
 <span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span> <span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
@@ -4204,7 +4334,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   </li>
 </ul>
 
-<h3 id="return">Return</h3>
+<h3 id="return-1">Return</h3>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;transacao</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"0378c8cf4d"</span><span class="nt">&gt;</span>
@@ -4361,7 +4491,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   </tbody>
 </table>
 
-<h4 id="return-1">Return</h4>
+<h4 id="return-2">Return</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;transacao</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"2c18f00a-3ff6-4c85-8865-a4fde599b2b2"</span><span class="nt">&gt;</span>
