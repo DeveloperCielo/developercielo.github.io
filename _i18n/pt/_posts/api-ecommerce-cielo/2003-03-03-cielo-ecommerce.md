@@ -2457,7 +2457,7 @@ Todos os clientes de E-commerce que transacionarem quasi cash, devem usar a requ
 
 |Parâmetro  | Descrição|Valor|Formato|Tamanho|Obrigatório|
 |-----------|----------|-----|-------|-------|-----------|
-|`QuasiCash`| Identifica o envio de saldo para a carteira digital.|"true" ou "false"|Booleano|-|Não|
+|`QuasiCash`| Identifica uma transação de quase cash.|"true" ou "false"|Booleano|-|Não|
 
 ### Facilitadores de Pagamento
 
