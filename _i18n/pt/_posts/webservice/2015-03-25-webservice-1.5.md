@@ -823,13 +823,13 @@ O **Consulta Bin** é um serviço de **pesquisa de dados do cartão**, seja e
 Essas informações permitem tomar ações no momento do pagamento para melhorar a conversão da loja.
   
 <aside class="warning">O Consulta Bin deve ser habilitado pelo Suporte Cielo. Entre em contato com a equipe de Suporte e solicite a habilitação para sua loja.</aside>
-  
+
 ## Integração
 
 ### Requisição
 
 ``` xml
-  
+ 
 <?xml version="7.0" encoding="ISO-8859-1"?>
 <requisicao-consulta-bin id="a387cb68-b33a-4113-b7c4-9b7dfde871ec" versao="2.2.0"
     xmlns="http://ecommerce.cbmp.com.br">
@@ -847,7 +847,7 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
 Exemplo XMl de retorno:
 
 ``` xml
-  
+
 <?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
 <retorno-consulta-bin id="a387cb68-b33a-4113-b7c4-9b7dfde871ec" versao="2.2.0" xmlns="http://ecommerce.cbmp.com.br">
 <bin>506708</bin>
@@ -866,7 +866,7 @@ Exemplo XMl de retorno:
 </dados-bin>
 </resultado
 </retorno-consulta-bin>
-  
+
 ```
 
 | Propriedade | Tipo | tamanho | descrição |
