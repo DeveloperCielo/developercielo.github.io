@@ -413,59 +413,49 @@ Os novos campos estão contidos dentro da tag **&lt;subcredenciador&gt;**. Além
 
 ### Transações CBPS
 
-Atualmente, os consumidores geralmente precisam fazer login em diversos sites de cobrança para pagar suas contas, muitos dos quais não aceitam pagamentos de cartão. Os fornecedores do Serviço de Pagamento de Contas para Consumidores (CBPS) simplificam o processo ao permitir que os consumidores façam todos os pagamentos de contas com cartão e em um único canal. Geralmente os fornecedores CBPS oferecem um aplicativo móvel ou um comercio eletrônico para o portador fazer a gestão e efetuar os pagamentos.
+Entidades que operam como CBPS (em português, Serviço de Pagamento de Contas para Consumidores) são empresas que oferecem serviços consolidados de pagamento de
+contas ao portador de cartão. A Marcação de CBPS é uma opção específica para a bandeira Visa e fornece mais visibilidade e precisão nas transações.
 
-A Visa solicita que os provedores deste tipo de serviço passem a informar quais transações são CBPS a partir de Out20. Essa informação deve ser enviado na mensageria transacional no campo “pagamento-conta” de acordo com o XML abaixo.
+Os estabelecimentos que operam com esse serviço devem ser registrados junto a Visa e para operar como tal, devem enviar algumas informações adicionais através da
+mensageria, que são exigidas pela bandeira. Veja abaixo:
 
 #### Requisição
 
 ``` xml
-<requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
-    <dados-ec>
-        <numero>2000000001</numero>
-        <chave>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</chave>
-        <subcredenciador>
-            <numero>12345678901</numero>
-            <sub-ec>
-                <numero>2000130733</numero>
-                <mcc>5542</mcc>
-                <endereco>Alameda Xingu, 512</endereco>
-                <cidade>Barueri</cidade>
-                <estado>SP</estado>
-                <codigo-postal>06537085</codigo-postal>
-                <telefone>11978962345</telefone>
-                <documento>53976428000130</documento>
-                <codigo-pais>076</codigo-pais>
-            </sub-ec>
-        </subcredenciador>
-    </dados-ec>
-    <dados-portador>
-        <numero>518605152xxxxxx5923</numero>
-        <validade>aaaamm</validade>
-        <indicador>1</indicador>
-        <codigo-seguranca>xxx</codigo-seguranca>
-        <nome-portador>Jose Luis</nome-portador>
-        <token/>
-    </dados-portador>
-    <dados-pedido>
-        <numero>54583</numero>
-        <valor>10000</valor>
-        <moeda>986</moeda>
-        <data-hora>2016-02-16T13:45:05</data-hora>
-        <descricao>Compra Online</descricao>
-        <idioma>PT</idioma>
-        <soft-descriptor>lojinha</soft-descriptor>
-        <pagamento-conta>true</pagamento-conta>
-    </dados-pedido>
-    <forma-pagamento>
-        <bandeira>mastercard</bandeira>
-        <produto>1</produto>
-        <parcelas>1</parcelas>
-    </forma-pagamento>
-    <url-retorno>http://www.cielo.com.br</url-retorno>
-    <autorizar>3</autorizar>
-    <capturar>true</capturar>
-    <gerar-token>false</gerar-token>
+<?xml version="1.0"?>
+<requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
+    <dados-ec>
+        <numero>xxxxxxxxxx</numero>
+        <chave>xxxxxxxxxxxxxxxxxxxxxxxxx</chave>
+        <mcc-dinamico>xxxx</mcc-dinamico>
+    </dados-ec>
+    <dados-portador>
+        <numero>518605152xxxxxx5923</numero>
+        <validade>aaaamm/validade>
+        <indicador>1</indicador>
+        <codigo-seguranca>***</codigo-seguranca>
+        <nome-portador>Teste Cashin</nome-portador>
+        <token/>
+    </dados-portador>
+    <dados-pedido>
+        <numero>xxxxx</numero>
+        <valor>1000</valor>
+        <moeda>986</moeda>
+        <data-hora>2021-11-26T10:00:05</data-hora>
+        <descricao>Compra Online</descricao>
+        <idioma>PT</idioma>
+        <soft-descriptor>CART*LOJAABCDE</soft-descriptor>
+<pagamento-conta>true</pagamento-conta>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>mastercard</bandeira>
+        <produto>1</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <url-retorno>http://www.cielo.com.br</url-retorno>
+    <autorizar>3</autorizar>
+    <capturar>true</capturar>
+    <gerar-token>false</gerar-token>
 </requisicao-transacao>
 ```
 
@@ -482,7 +472,8 @@ A Visa solicita que os provedores deste tipo de serviço passem a informar quais
 |sub-ec.documento|Numérico|14|Obrigatório para facilitadores|CNPJ ou CPF do sub Merchant.|
 |sub-ec.codigo-pais|Numérico|3|Obrigatório para facilitadores|Código país do sub Merchant com base no ISO 3166.|
 |dados.pedido.soft-descriptor|Texto|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
-|dados.pedido.pagamento-conta|Boolean|---|Não|True ou false. Indica se é uma transação CBPS (Serviço de Pagamento de Contas para Consumidores)|
+|dados.pedido.pagamento-conta|Boolean|---|Sim, para um estabelecimento cadastrado como CBPS junto a bandeira|True ou false. Indica se é uma transação CBPS (Serviço de Pagamento de Contas para Consumidores)|
+|dados.ec.mcc-dinamico|Numérico|4|Sim, para um estabelecimento cadastrado como CBPS junto a bandeira|MCC do estabelecimento (EC) permitido para transações de CBPS|
 
 # Criando transações
 
