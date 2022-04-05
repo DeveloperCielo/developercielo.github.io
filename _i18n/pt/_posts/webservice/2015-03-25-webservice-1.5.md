@@ -809,6 +809,78 @@ O campo ECI (Eletronic Commerce Indicator) representa o quão segura é uma tran
 
 > A transação autenticada passa por uma validação do emissor e da bandeira, em momento de autorização, podendo refletir na alteração do ECI (Eletronic Commerce Indicator), que é utilizado para determinar quem será o responsável em caso de chargeback nas modalidades fraude.
 
+# Consulta BIN
+
+O **Consulta Bin** é um serviço de **pesquisa de dados do cartão**, seja ele de crédito ou débito, que retorna ao estabelecimento informações que permitem validar os dados preenchidos na tela de pagamento. O serviço retorna os seguintes dados sobre o cartão:
+
+* **Bandeira do cartão:** Nome da Bandeira
+* **Tipo de cartão:** Crédito, Débito ou Múltiplo (Crédito e Débito)
+* **Nacionalidade do cartão:** Estrangeiro ou Nacional
+* **Cartão Corporativo:** Se o cartão é ou não é corporativo
+* **Banco Emissor:** Código e Nome
+* **Cartão pré-pago::** sim ou não
+  
+Essas informações permitem tomar ações no momento do pagamento para melhorar a conversão da loja.
+  
+<aside class="warning">O Consulta Bin deve ser habilitado pelo Suporte Cielo. Entre em contato com a equipe de Suporte e solicite a habilitação para sua loja.</aside>
+  
+## Integração
+
+### Requisição
+
+``` xml
+  
+<?xml version="7.0" encoding="ISO-8859-1"?>
+<requisicao-consulta-bin id="a387cb68-b33a-4113-b7c4-9b7dfde871ec" versao="2.2.0"
+    xmlns="http://ecommerce.cbmp.com.br">
+    <dados-ec>
+        <numero>XXXXXXXXXX
+        </nuniero>
+        <chave>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</chave
+    </dados-ec>
+    <bin>506708</bin>
+</requisicao-consulta-bin>
+```
+
+### Retorno
+
+Exemplo XMl de retorno:
+
+``` xml
+  
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<retorno-consulta-bin id="a387cb68-b33a-4113-b7c4-9b7dfde871ec" versao="2.2.0" xmlns="http://ecommerce.cbmp.com.br">
+<bin>506708</bin>
+<resultado>
+<id>8d4d7aaf898bd43d1057f9627ae81003</id>
+<status>00</status>
+<dados-bin>
+    <bandeira>ELO</bandeira>
+    <produto>Crédito</produto>
+    <emissor>Informação não disponivel</emissor>
+    <cartao-estrangeiro>Não</cartao-estrangeiro>
+    <cartao-corporativo>Não</cartao-corporativo>
+    <codigo-emissor>950</codigo-emissor>
+    <pre-pago>Sim</pre-pago)
+
+</dados-bin>
+</resultado
+</retorno-consulta-bin>
+  
+```
+
+| Propriedade | Tipo | tamanho | descrição |
+|---|---|---|---|---|---|---|---|
+|`resultado.id` | Texto | 30 | ID de identificação da requisição na Cielo |
+|`resultado.status` | Texto | 2 | Status da consulta (00-Sucesso; 01-bandeira não suportada; 02-produto não suportado)|
+|`dados-bin.bandeira` | Texto | 20 | Nome da bandeira do cartão |
+|`dados-bin.produto` | Texto | 20 | Tipo do produto do cartão, crédito débito ou múltiplo |
+|`dados-bin.emissor` | Texto | 20 | Nome do banco que emitiu o cartão |
+|`dados-bin.cartao-estrangeiro` | Boolean | 3 | "Sim" ou "Não", indica se o cartão é estrangeiro |
+|`dados-bin.cartao-corporativo` | Boolean | 3 | "Sim" ou "Não", indica se o cartão é corporativo |
+|`dados-bin.codigo-emissor` | Numérico | 3 | Código do emissor que emitiu o cartão |
+|`dados-bin.pre-pago` | Boolean | 3 | "Sim" ou "Não", indica se o cartão é pré pago |
+
 # Catálogo de códigos de resposta
 
 ## Códigos de Autorização LR
