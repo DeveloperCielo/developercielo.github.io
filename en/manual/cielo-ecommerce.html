@@ -13516,6 +13516,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   <li><strong>Card Nationality:</strong> Foreign or National (Brazil)</li>
   <li><strong>Card:</strong> Whether or not the card is corporate</li>
   <li><strong>Issuing Bank:</strong> Code and Name</li>
+  <li><strong>Prepaid card:</strong> yes or no</li>
 </ul>
 
 <p>This information makes it possible to take some actions on the checkout and increase the conversion rate.</p>
@@ -13600,6 +13601,7 @@ The Submersible can use the bin checker in the cart to alert international buyer
     </span><span class="nl">"CorporateCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Issuer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bradesco"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"IssuerCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"237"</span><span class="w">
+    </span><span class="nl">"Prepaid"</span><span class="p">:</span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -13654,6 +13656,12 @@ The Submersible can use the bin checker in the cart to alert international buyer
       <td>Text</td>
       <td>255</td>
       <td>Card issuer’s code</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Prepaid</code></td>
+      <td>Boolean</td>
+      <td>True ou False</td>
+      <td>Returns “True” if the card is prepaid.</td>
     </tr>
   </tbody>
 </table>
