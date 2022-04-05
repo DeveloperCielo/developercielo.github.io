@@ -12983,7 +12983,7 @@ HTTP Status 200
 
 <h1 id="consulta-bin">Consulta Bin</h1>
 
-<p>O <strong>Consulta Bin</strong>  é um serviço de <strong>pesquisa de dados do cartão</strong>, de crédito ou débito, que retorna ao lojista da API Cielo e-Commerce informações que permitem validar os dados preenchidos na tela do checkout. O serviço retorna os seguintes dados sobre o cartão:</p>
+<p>O <strong>Consulta Bin</strong>  é um serviço de <strong>pesquisa de dados do cartão</strong>, seja ele de crédito ou débito, que retorna ao estabelecimento informações que permitem validar os dados preenchidos na tela de pagamento. O serviço retorna os seguintes dados sobre o cartão:</p>
 
 <ul>
   <li><strong>Bandeira do cartão:</strong> Nome da Bandeira</li>
@@ -12991,9 +12991,10 @@ HTTP Status 200
   <li><strong>Nacionalidade do cartão:</strong> Estrangeiro ou Nacional</li>
   <li><strong>Cartão Corporativo:</strong> Se o cartão é ou não é corporativo</li>
   <li><strong>Banco Emissor:</strong> Código e Nome</li>
+  <li><strong>Cartão pré-pago::</strong> sim ou não</li>
 </ul>
 
-<p>Essas informações permitem tomar ações no momento do checkout para melhorar a conversão da loja.</p>
+<p>Essas informações permitem tomar ações no momento do pagamento para melhorar a conversão da loja.</p>
 
 <aside class="warning">O Consulta Bin deve ser habilitado pelo Suporte Cielo. Entre em contato com a equipe de Suporte e solicite a habilitação para sua loja.</aside>
 
@@ -13071,12 +13072,13 @@ HTTP Status 200
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MASTERCARD"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"CardType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Crédito"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ForeignCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"CorporateCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Issuer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bradesco"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"IssuerCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"237"</span><span class="w">
+    </span><span class="nl">"Prepaid"</span><span class="p">:</span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -13131,6 +13133,12 @@ HTTP Status 200
       <td>Texto</td>
       <td>255</td>
       <td>Código do emissor do cartão</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Prepaid</code></td>
+      <td>Boolean</td>
+      <td>True ou False</td>
+      <td>Retornará “True” caso o cartão seja do tipo pré pago</td>
     </tr>
   </tbody>
 </table>
