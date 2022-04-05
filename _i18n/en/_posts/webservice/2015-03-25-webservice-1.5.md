@@ -783,6 +783,78 @@ The ECI field (Eletronic Commerce Indicator) represents how safety is a transact
 
 <aside class="warning">The ECI indicator is very important, because it's what defines the Chargeback's rules.</aside>
 
+# Consulta BIN
+
+The **Consulta Bin** is a **research service for card data**, whether credit or debit, which returns information to the establishment that allows validating the data filled in on the payment screen. The service returns the following data about the card:
+
+* **Card Flag:** Flag Name
+* **Type of card:** Credit, Debit or Multiple (Credit and Debit)
+* **Nationality of the card:** Foreign or National
+* **Corporate Card:** Whether or not the card is corporate
+* **Issuing Bank:** Code and Name
+* **Prepaid Card::** yes or no
+
+This information allows you to take actions at checkout to improve store conversion.
+
+<aside class="warning">Query Bin must be enabled by Cielo Support. Please contact the Support team and request authorization for your store.</aside>>
+
+## Integration
+
+### Request
+
+``` xml
+ 
+<?xml version="7.0" encoding="ISO-8859-1"?>
+<requisicao-consulta-bin id="a387cb68-b33a-4113-b7c4-9b7dfde871ec" versao="2.2.0"
+    xmlns="http://ecommerce.cbmp.com.br">
+    <dados-ec>
+        <numero>XXXXXXXXXX
+        </numero>
+        <chave>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</chave
+    </dados-ec>
+    <bin>506708</bin>
+</requisicao-consulta-bin>
+```
+
+### Return
+
+XML return example:
+
+``` xml
+
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<retorno-consulta-bin id="a387cb68-b33a-4113-b7c4-9b7dfde871ec" versao="2.2.0" xmlns="http://ecommerce.cbmp.com.br">
+<bin>506708</bin>
+<resultado>
+<id>8d4d7aaf898bd43d1057f9627ae81003</id>
+<status>00</status>
+<dados-bin>
+    <bandeira>ELO</bandeira>
+    <produto>Crédito</produto>
+    <emissor>Informação não disponivel</emissor>
+    <cartao-estrangeiro>Não</cartao-estrangeiro>
+    <cartao-corporativo>Não</cartao-corporativo>
+    <codigo-emissor>950</codigo-emissor>
+    <pre-pago>Sim</pre-pago>
+
+</dados-bin>
+      </resultado>
+</retorno-consulta-bin>
+
+```
+
+| Property | Type | size | description |
+|---|---|---|---|---|---|---|---|
+|`result.id` | Text | 30 | Requisition identification ID at Cielo |
+|`result.status` | Text | 2 | Query status (00-Success; 01-unsupported flag; 02-unsupported product)|
+|`data-bin.flag` | Text | 20 | Card Banner Name |
+|`data-bin.product` | Text | 20 | Card Product Type, Credit Debit or Multiple |
+|`data-bin.emitter` | Text | 20 | Name of bank that issued the card |
+|`data-bin.foreign-card` | Boolean | 3 | "Yes" or "No", indicates whether the card is foreign |
+|`data-bin.corporate-card` | Boolean | 3 | "Yes" or "No", indicates whether the card is corporate |
+|`bin-data.emitter-code` | Numeric | 3 | Issuer code that issued the card |
+|`data-bin.prepaid` | Boolean | 3 | "Yes" or "No", indicates whether the card is prepaid |
+
 # Reply Codes Catalog
 
 ## Authorization Codes LR
