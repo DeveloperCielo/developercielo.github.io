@@ -835,7 +835,7 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
     xmlns="http://ecommerce.cbmp.com.br">
     <dados-ec>
         <numero>XXXXXXXXXX
-        </nuniero>
+        </numero>
         <chave>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</chave
     </dados-ec>
     <bin>506708</bin>
