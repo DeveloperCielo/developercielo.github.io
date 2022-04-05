@@ -686,58 +686,48 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
 
 <h3 id="transações-cbps">Transações CBPS</h3>
 
-<p>Atualmente, os consumidores geralmente precisam fazer login em diversos sites de cobrança para pagar suas contas, muitos dos quais não aceitam pagamentos de cartão. Os fornecedores do Serviço de Pagamento de Contas para Consumidores (CBPS) simplificam o processo ao permitir que os consumidores façam todos os pagamentos de contas com cartão e em um único canal. Geralmente os fornecedores CBPS oferecem um aplicativo móvel ou um comercio eletrônico para o portador fazer a gestão e efetuar os pagamentos.</p>
+<p>Entidades que operam como CBPS (em português, Serviço de Pagamento de Contas para Consumidores) são empresas que oferecem serviços consolidados de pagamento de
+contas ao portador de cartão. A Marcação de CBPS é uma opção específica para a bandeira Visa e fornece mais visibilidade e precisão nas transações.</p>
 
-<p>A Visa solicita que os provedores deste tipo de serviço passem a informar quais transações são CBPS a partir de Out20. Essa informação deve ser enviado na mensageria transacional no campo “pagamento-conta” de acordo com o XML abaixo.</p>
+<p>Os estabelecimentos que operam com esse serviço devem ser registrados junto a Visa e para operar como tal, devem enviar algumas informações adicionais através da
+mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
 
 <h4 id="requisição-1">Requisição</h4>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span> <span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;dados-ec&gt;</span>
-        <span class="nt">&lt;numero&gt;</span>2000000001<span class="nt">&lt;/numero&gt;</span>
-        <span class="nt">&lt;chave&gt;</span>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx<span class="nt">&lt;/chave&gt;</span>
-        <span class="nt">&lt;subcredenciador&gt;</span>
-            <span class="nt">&lt;numero&gt;</span>12345678901<span class="nt">&lt;/numero&gt;</span>
-            <span class="nt">&lt;sub-ec&gt;</span>
-                <span class="nt">&lt;numero&gt;</span>2000130733<span class="nt">&lt;/numero&gt;</span>
-                <span class="nt">&lt;mcc&gt;</span>5542<span class="nt">&lt;/mcc&gt;</span>
-                <span class="nt">&lt;endereco&gt;</span>Alameda Xingu, 512<span class="nt">&lt;/endereco&gt;</span>
-                <span class="nt">&lt;cidade&gt;</span>Barueri<span class="nt">&lt;/cidade&gt;</span>
-                <span class="nt">&lt;estado&gt;</span>SP<span class="nt">&lt;/estado&gt;</span>
-                <span class="nt">&lt;codigo-postal&gt;</span>06537085<span class="nt">&lt;/codigo-postal&gt;</span>
-                <span class="nt">&lt;telefone&gt;</span>11978962345<span class="nt">&lt;/telefone&gt;</span>
-                <span class="nt">&lt;documento&gt;</span>53976428000130<span class="nt">&lt;/documento&gt;</span>
-                <span class="nt">&lt;codigo-pais&gt;</span>076<span class="nt">&lt;/codigo-pais&gt;</span>
-            <span class="nt">&lt;/sub-ec&gt;</span>
-        <span class="nt">&lt;/subcredenciador&gt;</span>
-    <span class="nt">&lt;/dados-ec&gt;</span>
-    <span class="nt">&lt;dados-portador&gt;</span>
-        <span class="nt">&lt;numero&gt;</span>518605152xxxxxx5923<span class="nt">&lt;/numero&gt;</span>
-        <span class="nt">&lt;validade&gt;</span>aaaamm<span class="nt">&lt;/validade&gt;</span>
-        <span class="nt">&lt;indicador&gt;</span>1<span class="nt">&lt;/indicador&gt;</span>
-        <span class="nt">&lt;codigo-seguranca&gt;</span>xxx<span class="nt">&lt;/codigo-seguranca&gt;</span>
-        <span class="nt">&lt;nome-portador&gt;</span>Jose Luis<span class="nt">&lt;/nome-portador&gt;</span>
-        <span class="nt">&lt;token/&gt;</span>
-    <span class="nt">&lt;/dados-portador&gt;</span>
-    <span class="nt">&lt;dados-pedido&gt;</span>
-        <span class="nt">&lt;numero&gt;</span>54583<span class="nt">&lt;/numero&gt;</span>
-        <span class="nt">&lt;valor&gt;</span>10000<span class="nt">&lt;/valor&gt;</span>
-        <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
-        <span class="nt">&lt;data-hora&gt;</span>2016-02-16T13:45:05<span class="nt">&lt;/data-hora&gt;</span>
-        <span class="nt">&lt;descricao&gt;</span>Compra Online<span class="nt">&lt;/descricao&gt;</span>
-        <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
-        <span class="nt">&lt;soft-descriptor&gt;</span>lojinha<span class="nt">&lt;/soft-descriptor&gt;</span>
-        <span class="nt">&lt;pagamento-conta&gt;</span>true<span class="nt">&lt;/pagamento-conta&gt;</span>
-    <span class="nt">&lt;/dados-pedido&gt;</span>
-    <span class="nt">&lt;forma-pagamento&gt;</span>
-        <span class="nt">&lt;bandeira&gt;</span>mastercard<span class="nt">&lt;/bandeira&gt;</span>
-        <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
-        <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
-    <span class="nt">&lt;/forma-pagamento&gt;</span>
-    <span class="nt">&lt;url-retorno&gt;</span>http://www.cielo.com.br<span class="nt">&lt;/url-retorno&gt;</span>
-    <span class="nt">&lt;autorizar&gt;</span>3<span class="nt">&lt;/autorizar&gt;</span>
-    <span class="nt">&lt;capturar&gt;</span>true<span class="nt">&lt;/capturar&gt;</span>
-    <span class="nt">&lt;gerar-token&gt;</span>false<span class="nt">&lt;/gerar-token&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;requisicao-transacao</span><span class="err"> </span><span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span><span class="err"> </span><span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;dados-ec&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>xxxxxxxxxx<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;chave&gt;</span>xxxxxxxxxxxxxxxxxxxxxxxxx<span class="nt">&lt;/chave&gt;</span>
+        <span class="nt">&lt;mcc-dinamico&gt;</span>xxxx<span class="nt">&lt;/mcc-dinamico&gt;</span>
+    <span class="nt">&lt;/dados-ec&gt;</span>
+    <span class="nt">&lt;dados-portador&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>518605152xxxxxx5923<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;validade&gt;</span>aaaamm/validade&gt;
+        <span class="nt">&lt;indicador&gt;</span>1<span class="nt">&lt;/indicador&gt;</span>
+        <span class="nt">&lt;codigo-seguranca&gt;</span>***<span class="nt">&lt;/codigo-seguranca&gt;</span>
+        <span class="nt">&lt;nome-portador&gt;</span>Teste Cashin<span class="nt">&lt;/nome-portador&gt;</span>
+        <span class="nt">&lt;token/&gt;</span>
+    <span class="nt">&lt;/dados-portador&gt;</span>
+    <span class="nt">&lt;dados-pedido&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>xxxxx<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;valor&gt;</span>1000<span class="nt">&lt;/valor&gt;</span>
+        <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
+        <span class="nt">&lt;data-hora&gt;</span>2021-11-26T10:00:05<span class="nt">&lt;/data-hora&gt;</span>
+        <span class="nt">&lt;descricao&gt;</span>Compra Online<span class="nt">&lt;/descricao&gt;</span>
+        <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
+        <span class="nt">&lt;soft-descriptor&gt;</span>CART*LOJAABCDE<span class="nt">&lt;/soft-descriptor&gt;</span>
+<span class="nt">&lt;pagamento-conta&gt;</span>true<span class="nt">&lt;/pagamento-conta&gt;</span>
+    <span class="nt">&lt;/dados-pedido&gt;</span>
+    <span class="nt">&lt;forma-pagamento&gt;</span>
+        <span class="nt">&lt;bandeira&gt;</span>mastercard<span class="nt">&lt;/bandeira&gt;</span>
+        <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
+        <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
+    <span class="nt">&lt;/forma-pagamento&gt;</span>
+    <span class="nt">&lt;url-retorno&gt;</span>http://www.cielo.com.br<span class="nt">&lt;/url-retorno&gt;</span>
+    <span class="nt">&lt;autorizar&gt;</span>3<span class="nt">&lt;/autorizar&gt;</span>
+    <span class="nt">&lt;capturar&gt;</span>true<span class="nt">&lt;/capturar&gt;</span>
+    <span class="nt">&lt;gerar-token&gt;</span>false<span class="nt">&lt;/gerar-token&gt;</span>
 <span class="nt">&lt;/requisicao-transacao&gt;</span>
 </code></pre></div></div>
 
@@ -833,8 +823,15 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
       <td>dados.pedido.pagamento-conta</td>
       <td>Boolean</td>
       <td>—</td>
-      <td>Não</td>
+      <td>Sim, para um estabelecimento cadastrado como CBPS junto a bandeira</td>
       <td>True ou false. Indica se é uma transação CBPS (Serviço de Pagamento de Contas para Consumidores)</td>
+    </tr>
+    <tr>
+      <td>dados.ec.mcc-dinamico</td>
+      <td>Numérico</td>
+      <td>4</td>
+      <td>Sim, para um estabelecimento cadastrado como CBPS junto a bandeira</td>
+      <td>MCC do estabelecimento (EC) permitido para transações de CBPS</td>
     </tr>
   </tbody>
 </table>
