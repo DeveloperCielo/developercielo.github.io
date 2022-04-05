@@ -1487,6 +1487,133 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
   <p>A transação autenticada passa por uma validação do emissor e da bandeira, em momento de autorização, podendo refletir na alteração do ECI (Eletronic Commerce Indicator), que é utilizado para determinar quem será o responsável em caso de chargeback nas modalidades fraude.</p>
 </blockquote>
 
+<h1 id="consulta-bin">Consulta BIN</h1>
+
+<p>O <strong>Consulta Bin</strong> é um serviço de <strong>pesquisa de dados do cartão</strong>, seja ele de crédito ou débito, que retorna ao estabelecimento informações que permitem validar os dados preenchidos na tela de pagamento. O serviço retorna os seguintes dados sobre o cartão:</p>
+
+<ul>
+  <li><strong>Bandeira do cartão:</strong> Nome da Bandeira</li>
+  <li><strong>Tipo de cartão:</strong> Crédito, Débito ou Múltiplo (Crédito e Débito)</li>
+  <li><strong>Nacionalidade do cartão:</strong> Estrangeiro ou Nacional</li>
+  <li><strong>Cartão Corporativo:</strong> Se o cartão é ou não é corporativo</li>
+  <li><strong>Banco Emissor:</strong> Código e Nome</li>
+  <li><strong>Cartão pré-pago::</strong> sim ou não</li>
+</ul>
+
+<p>Essas informações permitem tomar ações no momento do pagamento para melhorar a conversão da loja.</p>
+
+<aside class="warning">O Consulta Bin deve ser habilitado pelo Suporte Cielo. Entre em contato com a equipe de Suporte e solicite a habilitação para sua loja.</aside>
+
+<h2 id="integração">Integração</h2>
+
+<h3 id="requisição-2">Requisição</h3>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+<span class="cp">&lt;?xml version="7.0" encoding="ISO-8859-1"?&gt;</span>
+<span class="nt">&lt;requisicao-consulta-bin</span> <span class="na">id=</span><span class="s">"a387cb68-b33a-4113-b7c4-9b7dfde871ec"</span> <span class="na">versao=</span><span class="s">"2.2.0"</span>
+    <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;dados-ec&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>XXXXXXXXXX
+        <span class="nt">&lt;/nuniero&gt;</span>
+        <span class="nt">&lt;chave&gt;</span>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX<span class="err">&lt;</span>/chave
+    <span class="nt">&lt;/dados-ec&gt;</span>
+    <span class="nt">&lt;bin&gt;</span>506708<span class="nt">&lt;/bin&gt;</span>
+<span class="nt">&lt;/requisicao-consulta-bin&gt;</span>
+</code></pre></div></div>
+
+<h3 id="retorno">Retorno</h3>
+
+<p>Exemplo XMl de retorno:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?&gt;</span>
+<span class="nt">&lt;retorno-consulta-bin</span> <span class="na">id=</span><span class="s">"a387cb68-b33a-4113-b7c4-9b7dfde871ec"</span> <span class="na">versao=</span><span class="s">"2.2.0"</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;bin&gt;</span>506708<span class="nt">&lt;/bin&gt;</span>
+<span class="nt">&lt;resultado&gt;</span>
+<span class="nt">&lt;id&gt;</span>8d4d7aaf898bd43d1057f9627ae81003<span class="nt">&lt;/id&gt;</span>
+<span class="nt">&lt;status&gt;</span>00<span class="nt">&lt;/status&gt;</span>
+<span class="nt">&lt;dados-bin&gt;</span>
+    <span class="nt">&lt;bandeira&gt;</span>ELO<span class="nt">&lt;/bandeira&gt;</span>
+    <span class="nt">&lt;produto&gt;</span>Crédito<span class="nt">&lt;/produto&gt;</span>
+    <span class="nt">&lt;emissor&gt;</span>Informação não disponivel<span class="nt">&lt;/emissor&gt;</span>
+    <span class="nt">&lt;cartao-estrangeiro&gt;</span>Não<span class="nt">&lt;/cartao-estrangeiro&gt;</span>
+    <span class="nt">&lt;cartao-corporativo&gt;</span>Não<span class="nt">&lt;/cartao-corporativo&gt;</span>
+    <span class="nt">&lt;codigo-emissor&gt;</span>950<span class="nt">&lt;/codigo-emissor&gt;</span>
+    <span class="nt">&lt;pre-pago&gt;</span>Sim<span class="err">&lt;</span>/pre-pago)
+
+<span class="nt">&lt;/dados-bin&gt;</span>
+<span class="err">&lt;</span>/resultado
+<span class="nt">&lt;/retorno-consulta-bin&gt;</span>
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>tamanho</th>
+      <th>descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">resultado.id</code></td>
+      <td>Texto</td>
+      <td>30</td>
+      <td>ID de identificação da requisição na Cielo</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">resultado.status</code></td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Status da consulta (00-Sucesso; 01-bandeira não suportada; 02-produto não suportado)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">dados-bin.bandeira</code></td>
+      <td>Texto</td>
+      <td>20</td>
+      <td>Nome da bandeira do cartão</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">dados-bin.produto</code></td>
+      <td>Texto</td>
+      <td>20</td>
+      <td>Tipo do produto do cartão, crédito débito ou múltiplo</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">dados-bin.emissor</code></td>
+      <td>Texto</td>
+      <td>20</td>
+      <td>Nome do banco que emitiu o cartão</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">dados-bin.cartao-estrangeiro</code></td>
+      <td>Boolean</td>
+      <td>3</td>
+      <td>“Sim” ou “Não”, indica se o cartão é estrangeiro</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">dados-bin.cartao-corporativo</code></td>
+      <td>Boolean</td>
+      <td>3</td>
+      <td>“Sim” ou “Não”, indica se o cartão é corporativo</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">dados-bin.codigo-emissor</code></td>
+      <td>Numérico</td>
+      <td>3</td>
+      <td>Código do emissor que emitiu o cartão</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">dados-bin.pre-pago</code></td>
+      <td>Boolean</td>
+      <td>3</td>
+      <td>“Sim” ou “Não”, indica se o cartão é pré pago</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="catálogo-de-códigos-de-resposta">Catálogo de códigos de resposta</h1>
 
 <h2 id="códigos-de-autorização-lr">Códigos de Autorização LR</h2>
@@ -3263,7 +3390,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
   </tbody>
 </table>
 
-<h3 id="retorno">Retorno</h3>
+<h3 id="retorno-1">Retorno</h3>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;retorno-token</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"57239017"</span><span class="nt">&gt;</span>
@@ -3471,7 +3598,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
   <li><strong>Situação 3:</strong> - <strong>NÃO HÁ</strong> armazenamento de dados do cartão, o estabelecimento simplesmente não envia esta tag.</li>
 </ul>
 
-<h4 id="requisição-2">Requisição</h4>
+<h4 id="requisição-3">Requisição</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
 <span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span> <span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
@@ -3930,7 +4057,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <p>Clientes que fazem tokenização do cartão junto com as bandeiras poderão enviar as informações para a Cielo no fluxo transacional.</p>
 
-<h4 id="requisição-3">Requisição</h4>
+<h4 id="requisição-4">Requisição</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
 <span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span> <span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
@@ -4253,7 +4380,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
   </li>
 </ul>
 
-<h4 id="requisição-4">Requisição</h4>
+<h4 id="requisição-5">Requisição</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;requisicao-consulta</span> <span class="na">id=</span><span class="s">"6fcf758e-bc60-4d6a-acf4-496593a40441"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
@@ -4316,7 +4443,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
 
 <aside class="notice">INFORMAÇÃO: A consulta por Número do Pedido deve ser usada apenas como contingência à Consulta por TID, pois esta pode não garantir unicidade da transação, tendo em vista que este campo é enviado pela loja virtual e apenas acatado pela Cielo.</aside>
 
-<h4 id="requisição-5">Requisição</h4>
+<h4 id="requisição-6">Requisição</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
 <span class="nt">&lt;requisicao-consulta-chsec</span> <span class="na">id=</span><span class="s">"a51489b1-93d5-437f-bb4f-5b932fade248"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;</span>
@@ -4417,7 +4544,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
   </li>
 </ul>
 
-<h3 id="retorno-1">Retorno</h3>
+<h3 id="retorno-2">Retorno</h3>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;transacao</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"0378c8cf4d"</span><span class="nt">&gt;</span>
@@ -4572,7 +4699,7 @@ das transações que pararam após a execução deste processo. A mensagem para 
   </tbody>
 </table>
 
-<h4 id="retorno-2">Retorno</h4>
+<h4 id="retorno-3">Retorno</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
 <span class="nt">&lt;transacao</span> <span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">id=</span><span class="s">"2c18f00a-3ff6-4c85-8865-a4fde599b2b2"</span><span class="nt">&gt;</span>
@@ -4608,7 +4735,7 @@ retorno no formato XML.</p>
 
 <aside class="notice">Após o prazo de doze horas o Estabelecimento Comercial poderá solicitar o download do arquivo de retorno.</aside>
 
-<h2 id="integração">Integração</h2>
+<h2 id="integração-1">Integração</h2>
 
 <h3 id="regras">Regras</h3>
 
