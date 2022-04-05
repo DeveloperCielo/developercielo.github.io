@@ -7038,6 +7038,7 @@ The “**BIN Checker**” is **credit or debit card data search service**, which
 * **Card Nationality:** Foreign or National (Brazil)
 * **Card:** Whether or not the card is corporate
 * **Issuing Bank:** Code and Name
+* **Prepaid card:** yes or no
 
 This information makes it possible to take some actions on the checkout and increase the conversion rate.
 
@@ -7102,6 +7103,7 @@ https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
     "CorporateCard": true,
     "Issuer": "Bradesco",
     "IssuerCode": "237"
+    "Prepaid":true
 }
 ```
 
@@ -7114,6 +7116,7 @@ https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
 | `CorporateCard` | Boolean | -     | If card is coporate type (False/True)                                                                                                                                             |
 | `Issuer` | Text | 255     | Card issuer's name                                                                                                                                        |
 | `IssuerCode` | Text | 255     | Card issuer's code                                                                                                                                           |
+| `Prepaid` | Boolean | True ou False | Returns "True" if the card is prepaid.|
 
 > **NOTE**: On testing environment (SANDBOX), the returned data is simulated, so they are not valid BIN Check results. Only fields and format must be considered. For real identification of the BIN Check, production environment must be used.
 
