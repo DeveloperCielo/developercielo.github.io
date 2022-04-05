@@ -6812,15 +6812,16 @@ curl
 
 # Consulta Bin
 
-O **Consulta Bin**  é um serviço de **pesquisa de dados do cartão**, de crédito ou débito, que retorna ao lojista da API Cielo e-Commerce informações que permitem validar os dados preenchidos na tela do checkout. O serviço retorna os seguintes dados sobre o cartão:
+O **Consulta Bin**  é um serviço de **pesquisa de dados do cartão**, seja ele de crédito ou débito, que retorna ao estabelecimento informações que permitem validar os dados preenchidos na tela de pagamento. O serviço retorna os seguintes dados sobre o cartão:
 
 * **Bandeira do cartão:** Nome da Bandeira
 * **Tipo de cartão:** Crédito, Débito ou Múltiplo (Crédito e Débito)
 * **Nacionalidade do cartão:** Estrangeiro ou Nacional
 * **Cartão Corporativo:** Se o cartão é ou não é corporativo
 * **Banco Emissor:** Código e Nome
+* **Cartão pré-pago::** sim ou não
 
-Essas informações permitem tomar ações no momento do checkout para melhorar a conversão da loja.
+Essas informações permitem tomar ações no momento do pagamento para melhorar a conversão da loja.
 
 <aside class="warning">O Consulta Bin deve ser habilitado pelo Suporte Cielo. Entre em contato com a equipe de Suporte e solicite a habilitação para sua loja.</aside>
 
@@ -6877,12 +6878,13 @@ https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
 ``` json
 {
     "Status": "00",
-    "Provider": "VISA",
+    "Provider": "MASTERCARD",
     "CardType": "Crédito",
     "ForeignCard": true,
     "CorporateCard": true,
     "Issuer": "Bradesco",
     "IssuerCode": "237"
+    "Prepaid":true
 }
 ```
 
@@ -6895,6 +6897,7 @@ https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
 | `CorporateCard` | Booleano | -     | Se o cartão é corporativo (False/True)                                                                                                                                             |
 | `Issuer` | Texto | 255     | Nome do emissor do cartão                                                                                                                                        |
 | `IssuerCode` | Texto | 255     | Código do emissor do cartão                                                                                                                                           |
+| `Prepaid` | Boolean | True ou False     | Retornará "True" caso o cartão seja do tipo pré pago|
 
 > **Atenção**: Em SANDBOX os valores retornados são simulações e não validações reais de BINS. Deve ser considerado apenas o retorno do Request e o seu formato. Para identificação real dos BINS, o ambiente de Produção deverá ser utilizado.
 
