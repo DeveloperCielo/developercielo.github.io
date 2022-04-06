@@ -677,58 +677,48 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h3 id="cbps-transactions">CBPS Transactions</h3>
 
-<p>Today, consumers often need to log in to several billing sites to pay their bills, many of which do not accept card payments. Suppliers of the Account Payment Service for Consumers (CBPS) simplify the process by allowing consumers to make all bill payments with a card and in a single channel. Generally, CBPS providers offer a mobile application or electronic commerce for the bearer to manage and make payments.</p>
+<p>Entities that operate as CBPS (in Portuguese, Bill Payment Service for Consumers) are companies that offer consolidated payment services for
+cardholder accounts. CBPS Marking is a Visa-specific option and provides more visibility and accuracy in transactions.</p>
 
-<p>Visa requests that providers of this type of service start to inform which transactions are CBPS as of Oct20. This information must be sent in the transactional message in the field “payment-account” according to the XML below.</p>
+<p>Establishments that operate with this service must be registered with Visa and to operate as such, they must submit some additional information through the
+messaging, which are required by the flag. See below:</p>
 
 <h4 id="request-1">Request</h4>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span> <span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;dados-ec&gt;</span>
-        <span class="nt">&lt;numero&gt;</span>2000000001<span class="nt">&lt;/numero&gt;</span>
-        <span class="nt">&lt;chave&gt;</span>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx<span class="nt">&lt;/chave&gt;</span>
-        <span class="nt">&lt;subcredenciador&gt;</span>
-            <span class="nt">&lt;numero&gt;</span>12345678901<span class="nt">&lt;/numero&gt;</span>
-            <span class="nt">&lt;sub-ec&gt;</span>
-                <span class="nt">&lt;numero&gt;</span>2000130733<span class="nt">&lt;/numero&gt;</span>
-                <span class="nt">&lt;mcc&gt;</span>5542<span class="nt">&lt;/mcc&gt;</span>
-                <span class="nt">&lt;endereco&gt;</span>Alameda Xingu, 512<span class="nt">&lt;/endereco&gt;</span>
-                <span class="nt">&lt;cidade&gt;</span>Barueri<span class="nt">&lt;/cidade&gt;</span>
-                <span class="nt">&lt;estado&gt;</span>SP<span class="nt">&lt;/estado&gt;</span>
-                <span class="nt">&lt;codigo-postal&gt;</span>06537085<span class="nt">&lt;/codigo-postal&gt;</span>
-                <span class="nt">&lt;telefone&gt;</span>11978962345<span class="nt">&lt;/telefone&gt;</span>
-                <span class="nt">&lt;documento&gt;</span>53976428000130<span class="nt">&lt;/documento&gt;</span>
-                <span class="nt">&lt;codigo-pais&gt;</span>076<span class="nt">&lt;/codigo-pais&gt;</span>
-            <span class="nt">&lt;/sub-ec&gt;</span>
-        <span class="nt">&lt;/subcredenciador&gt;</span>
-    <span class="nt">&lt;/dados-ec&gt;</span>
-    <span class="nt">&lt;dados-portador&gt;</span>
-        <span class="nt">&lt;numero&gt;</span>518605152xxxxxx5923<span class="nt">&lt;/numero&gt;</span>
-        <span class="nt">&lt;validade&gt;</span>aaaamm<span class="nt">&lt;/validade&gt;</span>
-        <span class="nt">&lt;indicador&gt;</span>1<span class="nt">&lt;/indicador&gt;</span>
-        <span class="nt">&lt;codigo-seguranca&gt;</span>xxx<span class="nt">&lt;/codigo-seguranca&gt;</span>
-        <span class="nt">&lt;nome-portador&gt;</span>Jose Luis<span class="nt">&lt;/nome-portador&gt;</span>
-        <span class="nt">&lt;token/&gt;</span>
-    <span class="nt">&lt;/dados-portador&gt;</span>
-    <span class="nt">&lt;dados-pedido&gt;</span>
-        <span class="nt">&lt;numero&gt;</span>54583<span class="nt">&lt;/numero&gt;</span>
-        <span class="nt">&lt;valor&gt;</span>10000<span class="nt">&lt;/valor&gt;</span>
-        <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
-        <span class="nt">&lt;data-hora&gt;</span>2016-02-16T13:45:05<span class="nt">&lt;/data-hora&gt;</span>
-        <span class="nt">&lt;descricao&gt;</span>Compra Online<span class="nt">&lt;/descricao&gt;</span>
-        <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
-        <span class="nt">&lt;soft-descriptor&gt;</span>lojinha<span class="nt">&lt;/soft-descriptor&gt;</span>
-        <span class="nt">&lt;pagamento-conta&gt;</span>true<span class="nt">&lt;/pagamento-conta&gt;</span>
-    <span class="nt">&lt;/dados-pedido&gt;</span>
-    <span class="nt">&lt;forma-pagamento&gt;</span>
-        <span class="nt">&lt;bandeira&gt;</span>mastercard<span class="nt">&lt;/bandeira&gt;</span>
-        <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
-        <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
-    <span class="nt">&lt;/forma-pagamento&gt;</span>
-    <span class="nt">&lt;url-retorno&gt;</span>http://www.cielo.com.br<span class="nt">&lt;/url-retorno&gt;</span>
-    <span class="nt">&lt;autorizar&gt;</span>3<span class="nt">&lt;/autorizar&gt;</span>
-    <span class="nt">&lt;capturar&gt;</span>true<span class="nt">&lt;/capturar&gt;</span>
-    <span class="nt">&lt;gerar-token&gt;</span>false<span class="nt">&lt;/gerar-token&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;requisicao-transacao</span><span class="err"> </span><span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span><span class="err"> </span><span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;dados-ec&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>xxxxxxxxxx<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;chave&gt;</span>xxxxxxxxxxxxxxxxxxxxxxxxx<span class="nt">&lt;/chave&gt;</span>
+        <span class="nt">&lt;mcc-dinamico&gt;</span>xxxx<span class="nt">&lt;/mcc-dinamico&gt;</span>
+    <span class="nt">&lt;/dados-ec&gt;</span>
+    <span class="nt">&lt;dados-portador&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>518605152xxxxxx5923<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;validade&gt;</span>aaaamm/validade&gt;
+        <span class="nt">&lt;indicador&gt;</span>1<span class="nt">&lt;/indicador&gt;</span>
+        <span class="nt">&lt;codigo-seguranca&gt;</span>***<span class="nt">&lt;/codigo-seguranca&gt;</span>
+        <span class="nt">&lt;nome-portador&gt;</span>Teste Cashin<span class="nt">&lt;/nome-portador&gt;</span>
+        <span class="nt">&lt;token/&gt;</span>
+    <span class="nt">&lt;/dados-portador&gt;</span>
+    <span class="nt">&lt;dados-pedido&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>xxxxx<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;valor&gt;</span>1000<span class="nt">&lt;/valor&gt;</span>
+        <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
+        <span class="nt">&lt;data-hora&gt;</span>2021-11-26T10:00:05<span class="nt">&lt;/data-hora&gt;</span>
+        <span class="nt">&lt;descricao&gt;</span>Compra Online<span class="nt">&lt;/descricao&gt;</span>
+        <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
+        <span class="nt">&lt;soft-descriptor&gt;</span>CART*LOJAABCDE<span class="nt">&lt;/soft-descriptor&gt;</span>
+<span class="nt">&lt;pagamento-conta&gt;</span>true<span class="nt">&lt;/pagamento-conta&gt;</span>
+    <span class="nt">&lt;/dados-pedido&gt;</span>
+    <span class="nt">&lt;forma-pagamento&gt;</span>
+        <span class="nt">&lt;bandeira&gt;</span>mastercard<span class="nt">&lt;/bandeira&gt;</span>
+        <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
+        <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
+    <span class="nt">&lt;/forma-pagamento&gt;</span>
+    <span class="nt">&lt;url-retorno&gt;</span>http://www.cielo.com.br<span class="nt">&lt;/url-retorno&gt;</span>
+    <span class="nt">&lt;autorizar&gt;</span>3<span class="nt">&lt;/autorizar&gt;</span>
+    <span class="nt">&lt;capturar&gt;</span>true<span class="nt">&lt;/capturar&gt;</span>
+    <span class="nt">&lt;gerar-token&gt;</span>false<span class="nt">&lt;/gerar-token&gt;</span>
 <span class="nt">&lt;/requisicao-transacao&gt;</span>
 </code></pre></div></div>
 
@@ -745,87 +735,315 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   <tbody>
     <tr>
       <td>subcredenciador.numero</td>
-      <td>Number</td>
+      <td>Numeric</td>
       <td>11</td>
       <td>Required for facilitators</td>
-      <td>Facilitator’s establishment code. “Facilitator ID” (Registration of the facilitator with the card brands)</td>
+      <td>Facilitator establishment code. “Facilitator ID” (Registration of the facilitator with the flags)</td>
     </tr>
     <tr>
       <td>sub-ec.numero</td>
-      <td>Number</td>
+      <td>Numeric</td>
       <td>15</td>
       <td>Required for facilitators</td>
-      <td>Sub Merchant establishment code. “Sub-Merchant ID” (Registration of sub-accredited with the facilitator)</td>
+      <td>Sub Merchant establishment code. “Sub-Merchant ID” (Registration of the sub-accredited with the facilitator)</td>
     </tr>
     <tr>
       <td>sub-ec.mcc</td>
-      <td>Number</td>
+      <td>Numeric</td>
       <td>4</td>
       <td>Required for facilitators</td>
-      <td>MCC do sub Merchant.</td>
+      <td>Sub Merchant MCC.</td>
     </tr>
     <tr>
       <td>sub-ec.endereco</td>
       <td>Alphanumeric</td>
       <td>22</td>
       <td>Required for facilitators</td>
-      <td>Sub Merchant Address.</td>
+      <td>Sub Merchant address.</td>
     </tr>
     <tr>
       <td>sub-ec.cidade</td>
       <td>Alphanumeric</td>
       <td>13</td>
       <td>Required for facilitators</td>
-      <td>City of the sub Merchant.</td>
+      <td>Sub Merchant city.</td>
     </tr>
     <tr>
       <td>sub-ec.estado</td>
       <td>Alphanumeric</td>
       <td>2</td>
       <td>Required for facilitators</td>
-      <td>State do sub Merchant.</td>
+      <td>Sub Merchant state.</td>
     </tr>
     <tr>
       <td>sub-ec.codigo-postal</td>
-      <td>Number</td>
+      <td>Numeric</td>
       <td>9</td>
       <td>Required for facilitators</td>
-      <td>Sub Merchant Postcode.</td>
+      <td>Sub Merchant zip code.</td>
     </tr>
     <tr>
       <td>sub-ec.telefone</td>
-      <td>Number</td>
+      <td>Numeric</td>
       <td>13</td>
       <td>Required for facilitators</td>
-      <td>Sub Merchant Phone Number.</td>
+      <td>Sub Merchant phone number.</td>
     </tr>
     <tr>
       <td>sub-ec.documento</td>
-      <td>Number</td>
+      <td>Numeric</td>
       <td>14</td>
-      <td>Required for facilitators</td>
-      <td>CNPJ or CPF of the Sub Merchant.</td>
+      <td>Mandatory for facilitators</td>
+      <td>CNPJ or CPF of the sub Merchant.</td>
     </tr>
     <tr>
       <td>sub-ec.codigo-pais</td>
-      <td>Number</td>
+      <td>Numeric</td>
       <td>3</td>
       <td>Required for facilitators</td>
       <td>Sub Merchant country code based on ISO 3166.</td>
     </tr>
     <tr>
-      <td>dados.pedido.soft-descriptor</td>
+      <td>ados.pedido.soft-descriptor</td>
       <td>Text</td>
       <td>13</td>
       <td>Required for facilitators</td>
-      <td>Text printed on buyer bank invoice. Must be completed according to the data of the sub Merchant.</td>
+      <td>Text printed on the buyer’s bank invoice. Must be filled in according to Sub Merchant data.</td>
     </tr>
     <tr>
       <td>dados.pedido.pagamento-conta</td>
       <td>Boolean</td>
       <td>—</td>
-      <td>No</td>
-      <td>True or false. Indicates whether it is a CBPS (Consumer Bill Payment Service) transaction)</td>
+      <td>Yes, for an establishment registered as CBPS with the flag</td>
+      <td>True or false. Indicates whether it is a CBPS (Consumer Bill Payment Service) transaction</td>
+    </tr>
+    <tr>
+      <td>dados.ec.mcc-dinamico</td>
+      <td>Numeric</td>
+      <td>4</td>
+      <td>Yes, for a merchant registered as a CBPS with the merchant’s flag</td>
+      <td>MCC (EC) allowed for CBPS transactions</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="quasi-cash">Quasi cash</h3>
+
+<p>Quasi Cash Transactions are those transactions referring to purchases of chips for online games, purchases of lottery tickets or related. Only a few MCCs (Actuation Category Codes) that can process transactions of this model. Consult the Cielo team to understand if your business fits this model.</p>
+
+<p>All E-commerce customers who transact <strong>quasi cash</strong>, must use the request for a debit and/or credit transaction (depending on the type of payment chosen) and additionally forward the tag quasi-cash as the following example:</p>
+
+<h4 id="request-2">Request</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;requisicao-transacao</span><span class="err"> </span><span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span><span class="err"> </span><span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;dados-ec&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>xxxxxxxxxx<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;chave&gt;</span>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx <span class="nt">&lt;/chave&gt;</span>
+    <span class="nt">&lt;/dados-ec&gt;</span>
+    <span class="nt">&lt;dados-portador&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>xxxxxxxxxxxxxxxxx<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;validade&gt;</span>xxxxxx<span class="nt">&lt;/validade&gt;</span>
+        <span class="nt">&lt;indicador&gt;</span>1<span class="nt">&lt;/indicador&gt;</span>
+        <span class="nt">&lt;codigo-seguranca&gt;</span>123<span class="nt">&lt;/codigo-seguranca&gt;</span>
+        <span class="nt">&lt;nome-portador&gt;</span>TESTE<span class="nt">&lt;/nome-portador&gt;</span>
+        <span class="nt">&lt;token/&gt;</span>
+    <span class="nt">&lt;/dados-portador&gt;</span>
+    <span class="nt">&lt;dados-pedido&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>79346<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;valor&gt;</span>35000<span class="nt">&lt;/valor&gt;</span>
+        <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
+        <span class="nt">&lt;data-hora&gt;</span>2016-02-16T13:45:05<span class="nt">&lt;/data-hora&gt;</span>
+        <span class="nt">&lt;descricao&gt;</span>Compra Online<span class="nt">&lt;/descricao&gt;</span>
+        <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
+        <span class="nt">&lt;soft-descriptor&gt;</span>soft teste<span class="nt">&lt;/soft-descriptor&gt;</span>
+        <span class="nt">&lt;quasi-cash&gt;</span>true<span class="nt">&lt;/quasi-cash&gt;</span>
+    <span class="nt">&lt;/dados-pedido&gt;</span>
+    <span class="nt">&lt;forma-pagamento&gt;</span>
+        <span class="nt">&lt;bandeira&gt;</span>visa<span class="nt">&lt;/bandeira&gt;</span>
+        <span class="nt">&lt;produto&gt;</span>A<span class="nt">&lt;/produto&gt;</span>
+        <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
+    <span class="nt">&lt;/forma-pagamento&gt;</span>
+    <span class="nt">&lt;url-retorno&gt;</span>http://www.cielo.com.br<span class="nt">&lt;/url-retorno&gt;</span>
+    <span class="nt">&lt;autorizar&gt;</span>3<span class="nt">&lt;/autorizar&gt;</span>
+    <span class="nt">&lt;capturar&gt;</span>false<span class="nt">&lt;/capturar&gt;</span>
+    <span class="nt">&lt;gerar-token&gt;</span>false<span class="nt">&lt;/gerar-token&gt;</span>
+   <span class="nt">&lt;/requisicao-transacao&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Dados-pedido.quasi-cash</td>
+      <td>Boolean</td>
+      <td>-</td>
+      <td>Yes, for merchants that operate with Quasi-cash transactions</td>
+      <td>True or false. If true, Indicates whether it is a quasi-cash transaction</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="sdwo-transactions">SDWO Transactions</h3>
+
+<p>It is categorized as an SDWO (Staged Digital Wallet Operators) a company that offers digital wallet/wallet services, that is, that allow the holder to pay for the purchase of a product or service through its own platform, either with card registration credit or debit, or QR code generation</p>
+
+<p>To transact as SDWO, the establishment needs to register with the flags. For this, contact your Cielo commercial manager for more information.</p>
+
+<p>In the case of ecommerce transactions of an SDWO with a credit or debit card (not originated by a QR Code), it is necessary for the wallet to send some additional data in the transaction, so that the brands can identify and differentiate this type of transaction. See the specifications below:</p>
+
+<p><strong>Important:</strong> SDWO marking is only accepted for the following modalities and brands: Visa/Elo- credit and debit; Master - credit only. Accepts foreign cards.</p>
+
+<h4 id="request-3">Request</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;requisicao-transacao</span><span class="err"> </span><span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span><span class="err"> </span><span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;dados-ec&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>xxxxxxxxxx<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;chave&gt;</span>xxxxxxxxxxxxxxxxxxxxxxxxx<span class="nt">&lt;/chave&gt;</span>
+        <span class="nt">&lt;mcc-dinamico&gt;</span>xxxx<span class="nt">&lt;/mcc-dinamico&gt;</span>
+    <span class="nt">&lt;/dados-ec&gt;</span>
+    <span class="nt">&lt;dados-portador&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>xxxxxxxxxxxxxx<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;validade&gt;</span>******<span class="nt">&lt;/validade&gt;</span>
+        <span class="nt">&lt;indicador&gt;</span>1<span class="nt">&lt;/indicador&gt;</span>
+        <span class="nt">&lt;codigo-seguranca&gt;</span>***<span class="nt">&lt;/codigo-seguranca&gt;</span>
+        <span class="nt">&lt;nome-portador&gt;</span>Teste Cashin<span class="nt">&lt;/nome-portador&gt;</span>
+        <span class="nt">&lt;token/&gt;</span>
+        <span class="nt">&lt;carteira&gt;</span>
+           <span class="nt">&lt;tipo&gt;</span>MASTERPASS<span class="nt">&lt;/tipo&gt;</span>
+        <span class="nt">&lt;/carteira&gt;</span>
+    <span class="nt">&lt;/dados-portador&gt;</span>
+    <span class="nt">&lt;dados-pedido&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>xxxxx<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;valor&gt;</span>1000<span class="nt">&lt;/valor&gt;</span>
+        <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
+        <span class="nt">&lt;data-hora&gt;</span>2021-11-26T10:00:05<span class="nt">&lt;/data-hora&gt;</span>
+        <span class="nt">&lt;descricao&gt;</span>Compra Online<span class="nt">&lt;/descricao&gt;</span>
+        <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
+        <span class="nt">&lt;soft-descriptor&gt;</span>CART*LOJAABCDE<span class="nt">&lt;/soft-descriptor&gt;</span>
+    <span class="nt">&lt;/dados-pedido&gt;</span>
+    <span class="nt">&lt;forma-pagamento&gt;</span>
+        <span class="nt">&lt;bandeira&gt;</span>mastercard<span class="nt">&lt;/bandeira&gt;</span>
+        <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
+        <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
+    <span class="nt">&lt;/forma-pagamento&gt;</span>
+    <span class="nt">&lt;url-retorno&gt;</span>http://www.cielo.com.br<span class="nt">&lt;/url-retorno&gt;</span>
+    <span class="nt">&lt;autorizar&gt;</span>3<span class="nt">&lt;/autorizar&gt;</span>
+    <span class="nt">&lt;capturar&gt;</span>true<span class="nt">&lt;/capturar&gt;</span>
+    <span class="nt">&lt;gerar-token&gt;</span>false<span class="nt">&lt;/gerar-token&gt;</span>
+<span class="nt">&lt;/requisicao-transacao&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Dados-ec.mcc-dinamico</td>
+      <td>Numeric</td>
+      <td>4</td>
+      <td>Yes, for underlying retailer SDWO</td>
+      <td>MCC transactions (for purchase transactions); MCC of the digital wallet (for credit supply transactions in the wallet, if applicable – in which the cash in markup also seen in this session is required)</td>
+    </tr>
+    <tr>
+      <td>Carteira.tipo</td>
+      <td>Text</td>
+      <td>3</td>
+      <td>Acronym of the portfolio that is registered here at Cielo as a digital wallet (check its acronym with your commercial manager)</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cash-in-transactions">CASH IN Transactions</h3>
+
+<p>A Cash In transaction is an operation to add credits to a digital wallet. Establishments that operate with this type of transaction must be registered as a digital wallet with the brands and must be registered with one of the following MCCs (Establishment Category Codes): 6540 or 6051.</p>
+
+<p>In addition, they need to send some additional data in the transaction, so that the brands can identify and differentiate this type of transaction. See the specifications below:</p>
+
+<p><strong>Important:</strong> Cashin booking is only accepted for the following modalities and brands: Visa/Master credit only; Link debit and credit. It is not accepted for foreign card.</p>
+
+<h4 id="request-4">Request</h4>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;requisicao-transacao</span><span class="err"> </span><span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span><span class="err"> </span><span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;dados-ec&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>xxxxxxxxxx<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;chave&gt;</span>xxxxxxxxxxxxxxxxxxxxxxxxx<span class="nt">&lt;/chave&gt;</span>
+    <span class="nt">&lt;/dados-ec&gt;</span>
+    <span class="nt">&lt;dados-portador&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>xxxxxxxxxxxxxx<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;validade&gt;</span>******<span class="nt">&lt;/validade&gt;</span>
+        <span class="nt">&lt;indicador&gt;</span>1<span class="nt">&lt;/indicador&gt;</span>
+        <span class="nt">&lt;codigo-seguranca&gt;</span>***<span class="nt">&lt;/codigo-seguranca&gt;</span>
+        <span class="nt">&lt;nome-portador&gt;</span>NOME DO PORTADOR<span class="nt">&lt;/nome-portador&gt;</span>
+        <span class="nt">&lt;token/&gt;</span>
+        <span class="nt">&lt;carteira&gt;</span>
+           <span class="nt">&lt;tipo&gt;</span>MASTERPASS<span class="nt">&lt;/tipo&gt;</span>
+        <span class="nt">&lt;/carteira&gt;</span>
+    <span class="nt">&lt;/dados-portador&gt;</span>
+    <span class="nt">&lt;dados-pedido&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>xxxxx<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;valor&gt;</span>1000<span class="nt">&lt;/valor&gt;</span>
+        <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
+        <span class="nt">&lt;data-hora&gt;</span>2021-11-26T10:00:05<span class="nt">&lt;/data-hora&gt;</span>
+        <span class="nt">&lt;descricao&gt;</span>Compra Online<span class="nt">&lt;/descricao&gt;</span>
+        <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
+        <span class="nt">&lt;soft-descriptor&gt;</span>CART*LOJAABCDE<span class="nt">&lt;/soft-descriptor&gt;</span>
+    <span class="nt">&lt;/dados-pedido&gt;</span>
+    <span class="nt">&lt;forma-pagamento&gt;</span>
+        <span class="nt">&lt;bandeira&gt;</span>mastercard<span class="nt">&lt;/bandeira&gt;</span>
+        <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
+        <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
+    <span class="nt">&lt;/forma-pagamento&gt;</span>
+    <span class="nt">&lt;url-retorno&gt;</span>http://www.cielo.com.br<span class="nt">&lt;/url-retorno&gt;</span>
+    <span class="nt">&lt;autorizar&gt;</span>3<span class="nt">&lt;/autorizar&gt;</span>
+    <span class="nt">&lt;capturar&gt;</span>true<span class="nt">&lt;/capturar&gt;</span>
+    <span class="nt">&lt;gerar-token&gt;</span>false<span class="nt">&lt;/gerar-token&gt;</span>
+    <span class="nt">&lt;cash-in&gt;</span>true<span class="nt">&lt;/cash-in&gt;</span>
+<span class="nt">&lt;/requisicao-transacao&gt;</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Carteira.tipo</td>
+      <td>Text</td>
+      <td>3</td>
+      <td>Yes, for SDWO transactions</td>
+      <td>Acronym of the wallet that is registered here at Cielo as a digital wallet (check its acronym with your commercial manager)</td>
+    </tr>
+    <tr>
+      <td>Cash-in</td>
+      <td>Boolean</td>
+      <td>-</td>
+      <td>Yes, for Cash In transactions from an SDWO</td>
+      <td>True or false. If true, it indicates if it is an SDWO cash in transaction.</td>
     </tr>
   </tbody>
 </table>
@@ -1482,7 +1700,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <h2 id="integration">Integration</h2>
 
-<h3 id="request-2">Request</h3>
+<h3 id="request-5">Request</h3>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
 <span class="cp">&lt;?xml version="7.0" encoding="ISO-8859-1"?&gt;</span>
@@ -3514,7 +3732,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
   <li><strong>Situation 3:</strong> - <strong>THERE ISN’T</strong> storage of card data, the establishment Yesply does not send this tag.</li>
 </ul>
 
-<h4 id="request-3">Request</h4>
+<h4 id="request-6">Request</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
 <span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span> <span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
@@ -3973,7 +4191,7 @@ mensagem=&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;&lt;requisicao-captura
 
 <p>Customers who card tokenize along with the flags can send the information to Cielo in the transactional flow.</p>
 
-<h4 id="request-4">Request</h4>
+<h4 id="request-7">Request</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
 <span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span> <span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
