@@ -403,76 +403,228 @@ The new fields are contained within the **&lt;subcredenciador&gt;** tag. In addi
 
 ### CBPS Transactions
 
-Today, consumers often need to log in to several billing sites to pay their bills, many of which do not accept card payments. Suppliers of the Account Payment Service for Consumers (CBPS) simplify the process by allowing consumers to make all bill payments with a card and in a single channel. Generally, CBPS providers offer a mobile application or electronic commerce for the bearer to manage and make payments.
+Entities that operate as CBPS (in Portuguese, Bill Payment Service for Consumers) are companies that offer consolidated payment services for
+cardholder accounts. CBPS Marking is a Visa-specific option and provides more visibility and accuracy in transactions.
 
-Visa requests that providers of this type of service start to inform which transactions are CBPS as of Oct20. This information must be sent in the transactional message in the field “payment-account” according to the XML below.
+Establishments that operate with this service must be registered with Visa and to operate as such, they must submit some additional information through the
+messaging, which are required by the flag. See below:
 
 #### Request
 
 ``` xml
-<requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
-    <dados-ec>
-        <numero>2000000001</numero>
-        <chave>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</chave>
-        <subcredenciador>
-            <numero>12345678901</numero>
-            <sub-ec>
-                <numero>2000130733</numero>
-                <mcc>5542</mcc>
-                <endereco>Alameda Xingu, 512</endereco>
-                <cidade>Barueri</cidade>
-                <estado>SP</estado>
-                <codigo-postal>06537085</codigo-postal>
-                <telefone>11978962345</telefone>
-                <documento>53976428000130</documento>
-                <codigo-pais>076</codigo-pais>
-            </sub-ec>
-        </subcredenciador>
-    </dados-ec>
-    <dados-portador>
-        <numero>518605152xxxxxx5923</numero>
-        <validade>aaaamm</validade>
-        <indicador>1</indicador>
-        <codigo-seguranca>xxx</codigo-seguranca>
-        <nome-portador>Jose Luis</nome-portador>
-        <token/>
-    </dados-portador>
-    <dados-pedido>
-        <numero>54583</numero>
-        <valor>10000</valor>
-        <moeda>986</moeda>
-        <data-hora>2016-02-16T13:45:05</data-hora>
-        <descricao>Compra Online</descricao>
-        <idioma>PT</idioma>
-        <soft-descriptor>lojinha</soft-descriptor>
-        <pagamento-conta>true</pagamento-conta>
-    </dados-pedido>
-    <forma-pagamento>
-        <bandeira>mastercard</bandeira>
-        <produto>1</produto>
-        <parcelas>1</parcelas>
-    </forma-pagamento>
-    <url-retorno>http://www.cielo.com.br</url-retorno>
-    <autorizar>3</autorizar>
-    <capturar>true</capturar>
-    <gerar-token>false</gerar-token>
+<?xml version="1.0"?>
+<requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
+    <dados-ec>
+        <numero>xxxxxxxxxx</numero>
+        <chave>xxxxxxxxxxxxxxxxxxxxxxxxx</chave>
+        <mcc-dinamico>xxxx</mcc-dinamico>
+    </dados-ec>
+    <dados-portador>
+        <numero>518605152xxxxxx5923</numero>
+        <validade>aaaamm/validade>
+        <indicador>1</indicador>
+        <codigo-seguranca>***</codigo-seguranca>
+        <nome-portador>Teste Cashin</nome-portador>
+        <token/>
+    </dados-portador>
+    <dados-pedido>
+        <numero>xxxxx</numero>
+        <valor>1000</valor>
+        <moeda>986</moeda>
+        <data-hora>2021-11-26T10:00:05</data-hora>
+        <descricao>Compra Online</descricao>
+        <idioma>PT</idioma>
+        <soft-descriptor>CART*LOJAABCDE</soft-descriptor>
+<pagamento-conta>true</pagamento-conta>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>mastercard</bandeira>
+        <produto>1</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <url-retorno>http://www.cielo.com.br</url-retorno>
+    <autorizar>3</autorizar>
+    <capturar>true</capturar>
+    <gerar-token>false</gerar-token>
 </requisicao-transacao>
 ```
 
 |Property|Type|Size|Required|Description|
 |---|---|---|---|---|
-|subcredenciador.numero|Number|11|Required for facilitators|Facilitator's establishment code. “Facilitator ID” (Registration of the facilitator with the card brands)|
-|sub-ec.numero|Number|15|Required for facilitators|Sub Merchant establishment code. “Sub-Merchant ID” (Registration of sub-accredited with the facilitator)|
-|sub-ec.mcc|Number|4|Required for facilitators|MCC do sub Merchant.|
-|sub-ec.endereco|Alphanumeric|22|Required for facilitators|Sub Merchant Address.|
-|sub-ec.cidade|Alphanumeric|13|Required for facilitators|City of the sub Merchant.|
-|sub-ec.estado|Alphanumeric|2|Required for facilitators|State do sub Merchant.|
-|sub-ec.codigo-postal|Number|9|Required for facilitators|Sub Merchant Postcode.|
-|sub-ec.telefone|Number|13|Required for facilitators|Sub Merchant Phone Number.|
-|sub-ec.documento|Number|14|Required for facilitators|CNPJ or CPF of the Sub Merchant.|
-|sub-ec.codigo-pais|Number|3|Required for facilitators|Sub Merchant country code based on ISO 3166.|
-|dados.pedido.soft-descriptor|Text|13|Required for facilitators|Text printed on buyer bank invoice. Must be completed according to the data of the sub Merchant.|
-|dados.pedido.pagamento-conta|Boolean|---|No|True or false. Indicates whether it is a CBPS (Consumer Bill Payment Service) transaction)|
+|subcredenciador.numero|Numeric|11|Required for facilitators|Facilitator establishment code. "Facilitator ID” (Registration of the facilitator with the flags) |
+|sub-ec.numero|Numeric|15|Required for facilitators|Sub Merchant establishment code. “Sub-Merchant ID” (Registration of the sub-accredited with the facilitator) |
+|sub-ec.mcc|Numeric|4|Required for facilitators|Sub Merchant MCC.|
+|sub-ec.endereco|Alphanumeric|22|Required for facilitators|Sub Merchant address.|
+|sub-ec.cidade|Alphanumeric|13|Required for facilitators|Sub Merchant city.|
+|sub-ec.estado|Alphanumeric|2|Required for facilitators|Sub Merchant state.|
+|sub-ec.codigo-postal|Numeric|9|Required for facilitators|Sub Merchant zip code.|
+|sub-ec.telefone|Numeric|13|Required for facilitators|Sub Merchant phone number.|
+|sub-ec.documento|Numeric|14|Mandatory for facilitators|CNPJ or CPF of the sub Merchant.|
+|sub-ec.codigo-pais|Numeric|3|Required for facilitators|Sub Merchant country code based on ISO 3166.|
+|ados.pedido.soft-descriptor|Text|13|Required for facilitators|Text printed on the buyer's bank invoice. Must be filled in according to Sub Merchant data.|
+|dados.pedido.pagamento-conta|Boolean|---|Yes, for an establishment registered as CBPS with the flag|True or false. Indicates whether it is a CBPS (Consumer Bill Payment Service) transaction |
+|dados.ec.mcc-dinamico|Numeric|4|Yes, for a merchant registered as a CBPS with the merchant's flag|MCC (EC) allowed for CBPS transactions|
+
+### Quasi cash
+
+Quasi Cash Transactions are those transactions referring to purchases of chips for online games, purchases of lottery tickets or related. Only a few MCCs (Actuation Category Codes) that can process transactions of this model. Consult the Cielo team to understand if your business fits this model. 
+
+All E-commerce customers who transact **quasi cash**, must use the request for a debit and/or credit transaction (depending on the type of payment chosen) and additionally forward the tag quasi-cash as the following example:
+
+#### Request
+
+``` xml
+<?xml version="1.0"?>
+<requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
+    <dados-ec>
+        <numero>xxxxxxxxxx</numero>
+        <chave>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx </chave>
+    </dados-ec>
+    <dados-portador>
+        <numero>xxxxxxxxxxxxxxxxx</numero>
+        <validade>xxxxxx</validade>
+        <indicador>1</indicador>
+        <codigo-seguranca>123</codigo-seguranca>
+        <nome-portador>TESTE</nome-portador>
+        <token/>
+    </dados-portador>
+    <dados-pedido>
+        <numero>79346</numero>
+        <valor>35000</valor>
+        <moeda>986</moeda>
+        <data-hora>2016-02-16T13:45:05</data-hora>
+        <descricao>Compra Online</descricao>
+        <idioma>PT</idioma>
+        <soft-descriptor>soft teste</soft-descriptor>
+        <quasi-cash>true</quasi-cash>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>visa</bandeira>
+        <produto>A</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <url-retorno>http://www.cielo.com.br</url-retorno>
+    <autorizar>3</autorizar>
+    <capturar>false</capturar>
+    <gerar-token>false</gerar-token>
+   </requisicao-transacao>
+```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|Dados-pedido.quasi-cash|Boolean|-|Yes, for merchants that operate with Quasi-cash transactions|True or false. If true, Indicates whether it is a quasi-cash transaction|
+
+### SDWO Transactions
+
+It is categorized as an SDWO (Staged Digital Wallet Operators) a company that offers digital wallet/wallet services, that is, that allow the holder to pay for the purchase of a product or service through its own platform, either with card registration credit or debit, or QR code generation
+
+To transact as SDWO, the establishment needs to register with the flags. For this, contact your Cielo commercial manager for more information.
+
+In the case of ecommerce transactions of an SDWO with a credit or debit card (not originated by a QR Code), it is necessary for the wallet to send some additional data in the transaction, so that the brands can identify and differentiate this type of transaction. See the specifications below:
+
+**Important:** SDWO marking is only accepted for the following modalities and brands: Visa/Elo- credit and debit; Master - credit only. Accepts foreign cards.
+
+#### Request
+
+``` xml
+<?xml version="1.0"?>
+<requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
+    <dados-ec>
+        <numero>xxxxxxxxxx</numero>
+        <chave>xxxxxxxxxxxxxxxxxxxxxxxxx</chave>
+        <mcc-dinamico>xxxx</mcc-dinamico>
+    </dados-ec>
+    <dados-portador>
+        <numero>xxxxxxxxxxxxxx</numero>
+        <validade>******</validade>
+        <indicador>1</indicador>
+        <codigo-seguranca>***</codigo-seguranca>
+        <nome-portador>Teste Cashin</nome-portador>
+        <token/>
+        <carteira>
+           <tipo>MASTERPASS</tipo>
+        </carteira>
+    </dados-portador>
+    <dados-pedido>
+        <numero>xxxxx</numero>
+        <valor>1000</valor>
+        <moeda>986</moeda>
+        <data-hora>2021-11-26T10:00:05</data-hora>
+        <descricao>Compra Online</descricao>
+        <idioma>PT</idioma>
+        <soft-descriptor>CART*LOJAABCDE</soft-descriptor>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>mastercard</bandeira>
+        <produto>1</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <url-retorno>http://www.cielo.com.br</url-retorno>
+    <autorizar>3</autorizar>
+    <capturar>true</capturar>
+    <gerar-token>false</gerar-token>
+</requisicao-transacao>
+```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|Dados-ec.mcc-dinamico|Numeric|4|Yes, for underlying retailer SDWO|MCC transactions (for purchase transactions); MCC of the digital wallet (for credit supply transactions in the wallet, if applicable – in which the cash in markup also seen in this session is required) |
+|Carteira.tipo|Text|3|Acronym of the portfolio that is registered here at Cielo as a digital wallet (check its acronym with your commercial manager)|
+
+### CASH IN Transactions
+
+A Cash In transaction is an operation to add credits to a digital wallet. Establishments that operate with this type of transaction must be registered as a digital wallet with the brands and must be registered with one of the following MCCs (Establishment Category Codes): 6540 or 6051.
+
+In addition, they need to send some additional data in the transaction, so that the brands can identify and differentiate this type of transaction. See the specifications below:
+
+**Important:** Cashin booking is only accepted for the following modalities and brands: Visa/Master credit only; Link debit and credit. It is not accepted for foreign card.
+
+#### Request
+
+``` xml
+<?xml version="1.0"?>
+<requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
+    <dados-ec>
+        <numero>xxxxxxxxxx</numero>
+        <chave>xxxxxxxxxxxxxxxxxxxxxxxxx</chave>
+    </dados-ec>
+    <dados-portador>
+        <numero>xxxxxxxxxxxxxx</numero>
+        <validade>******</validade>
+        <indicador>1</indicador>
+        <codigo-seguranca>***</codigo-seguranca>
+        <nome-portador>NOME DO PORTADOR</nome-portador>
+        <token/>
+        <carteira>
+           <tipo>MASTERPASS</tipo>
+        </carteira>
+    </dados-portador>
+    <dados-pedido>
+        <numero>xxxxx</numero>
+        <valor>1000</valor>
+        <moeda>986</moeda>
+        <data-hora>2021-11-26T10:00:05</data-hora>
+        <descricao>Compra Online</descricao>
+        <idioma>PT</idioma>
+        <soft-descriptor>CART*LOJAABCDE</soft-descriptor>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>mastercard</bandeira>
+        <produto>1</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <url-retorno>http://www.cielo.com.br</url-retorno>
+    <autorizar>3</autorizar>
+    <capturar>true</capturar>
+    <gerar-token>false</gerar-token>
+    <cash-in>true</cash-in>
+</requisicao-transacao>
+```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|Carteira.tipo|Text|3|Yes, for SDWO transactions|Acronym of the wallet that is registered here at Cielo as a digital wallet (check its acronym with your commercial manager)|
+|Cash-in|Boolean|-|Yes, for Cash In transactions from an SDWO|True or false. If true, it indicates if it is an SDWO cash in transaction.|
 
 # Creating transactions
 
