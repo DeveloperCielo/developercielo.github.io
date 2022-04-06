@@ -579,7 +579,7 @@ No caso de transações de ecommerce de uma SDWO com cartão de crédito ou déb
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |Dados-ec.mcc-dinamico|Numerico|4|Sim, para transações de SDWO|MCC do varejista subjacente (pra transações de compra); MCC da carteira digital (para transações de abastecimento de crédito na carteira caso aplicável – no qual é necessária a marcação de cash in também vista nessa sessão)|
-|Carteira.tipo|Texto|3|Sigla da carteira que está cadastrada aqui na Cielo como carteira digital (verificar sua sigla com seu gestor comercial)|
+|Carteira.tipo|Texto|3|Sim, para transações de SDWO|Sigla da carteira que está cadastrada aqui na Cielo como carteira digital (verificar sua sigla com seu gestor comercial)|
 
 ### Transações CASH IN
 
