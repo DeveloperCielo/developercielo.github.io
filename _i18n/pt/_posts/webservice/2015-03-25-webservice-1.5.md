@@ -475,6 +475,167 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:
 |dados.pedido.pagamento-conta|Boolean|---|Sim, para um estabelecimento cadastrado como CBPS junto a bandeira|True ou false. Indica se é uma transação CBPS (Serviço de Pagamento de Contas para Consumidores)|
 |dados.ec.mcc-dinamico|Numérico|4|Sim, para um estabelecimento cadastrado como CBPS junto a bandeira|MCC do estabelecimento (EC) permitido para transações de CBPS|
 
+### Quasi cash
+
+Transações Quasi Cash são aquelas transações referentes a compras de fichas para jogos online, compras de bilhete de lotéricas ou relacionados. Apenas alguns MCCs (Códigos de categoria de atuação) que podem processar transações desse modelo. Consulte o time Cielo para entender se o seu negócio entra nesse modelo. 
+
+Todos os clientes de E-commerce que transacionarem **quasi cash**, devem usar a requisição de uma transação de débito e/ou crédito (dependendo do tipo de pagamento escolhido) e encaminhar adicionalmente a tag quase-cash conforme exemplo a seguir:
+
+#### Requisição
+
+``` xml
+<?xml version="1.0"?>
+<requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
+    <dados-ec>
+        <numero>xxxxxxxxxx</numero>
+        <chave>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx </chave>
+    </dados-ec>
+    <dados-portador>
+        <numero>xxxxxxxxxxxxxxxxx</numero>
+        <validade>xxxxxx</validade>
+        <indicador>1</indicador>
+        <codigo-seguranca>123</codigo-seguranca>
+        <nome-portador>TESTE</nome-portador>
+        <token/>
+    </dados-portador>
+    <dados-pedido>
+        <numero>79346</numero>
+        <valor>35000</valor>
+        <moeda>986</moeda>
+        <data-hora>2016-02-16T13:45:05</data-hora>
+        <descricao>Compra Online</descricao>
+        <idioma>PT</idioma>
+        <soft-descriptor>soft teste</soft-descriptor>
+        <quasi-cash>true</quasi-cash>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>visa</bandeira>
+        <produto>A</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <url-retorno>http://www.cielo.com.br</url-retorno>
+    <autorizar>3</autorizar>
+    <capturar>false</capturar>
+    <gerar-token>false</gerar-token>
+   </requisicao-transacao>
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|Dados-pedido.quasi-cash|Boolean|-|Sim, pra estabelecimentos que operam com transações Quasi-cash|True ou false. Se true, Indica se é uma transação quasi-cash|
+
+### Transações SDWO
+
+Se categoriza como uma SDWO (Staged Digital Wallet Operators) uma empresa que oferece serviços de carteira digital/wallet, ou seja, que permitem que o portador pague a aquisição de um produto ou serviço por meio de sua própria plataforma, seja com cadastro de cartões de crédito ou debito, ou geração de QR code.
+
+Para transacionar como SDWO, o estabelecimento precisa se registrar junto as bandeiras. Para isso, procure seu gestor comercial Cielo para mais informações.
+
+No caso de transações de ecommerce de uma SDWO com cartão de crédito ou débito (não originadas por um QR Code), é necessário que a carteira mande alguns dados adicionais na transação, para que as bandeiras possam identificar e diferenciar esse tipo de transação. Veja abaixo as especificações:
+
+**Importante:** Marcação de SDWO é apenas aceita para as seguintes modalidades e bandeiras: Visa/Elo- crédito e débito; Master - apenas crédito. Aceita cartões estrangeiros.
+
+#### Requisição
+
+``` xml
+<?xml version="1.0"?>
+<requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
+    <dados-ec>
+        <numero>xxxxxxxxxx</numero>
+        <chave>xxxxxxxxxxxxxxxxxxxxxxxxx</chave>
+        <mcc-dinamico>xxxx</mcc-dinamico>
+    </dados-ec>
+    <dados-portador>
+        <numero>xxxxxxxxxxxxxx</numero>
+        <validade>******</validade>
+        <indicador>1</indicador>
+        <codigo-seguranca>***</codigo-seguranca>
+        <nome-portador>Teste Cashin</nome-portador>
+        <token/>
+        <carteira>
+           <tipo>MASTERPASS</tipo>
+        </carteira>
+    </dados-portador>
+    <dados-pedido>
+        <numero>xxxxx</numero>
+        <valor>1000</valor>
+        <moeda>986</moeda>
+        <data-hora>2021-11-26T10:00:05</data-hora>
+        <descricao>Compra Online</descricao>
+        <idioma>PT</idioma>
+        <soft-descriptor>CART*LOJAABCDE</soft-descriptor>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>mastercard</bandeira>
+        <produto>1</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <url-retorno>http://www.cielo.com.br</url-retorno>
+    <autorizar>3</autorizar>
+    <capturar>true</capturar>
+    <gerar-token>false</gerar-token>
+</requisicao-transacao>
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|Dados-ec.mcc-dinamico|Numerico|4|Sim, para transações de SDWO|MCC do varejista subjacente (pra transações de compra); MCC da carteira digital (para transações de abastecimento de crédito na carteira caso aplicável – no qual é necessária a marcação de cash in também vista nessa sessão)|
+|Carteira.tipo|Texto|3|Sigla da carteira que está cadastrada aqui na Cielo como carteira digital (verificar sua sigla com seu gestor comercial)|
+
+### Transações CASH IN
+
+Uma transação do tipo Cash In é uma operação de adição de créditos em uma carteira digital. Os estabelecimentos que operam com esse tipo de transação devem ser registrados como carteira digital junto as bandeiras e devem estar cadastrados com um dos seguintes MCCs (Códigos de categoria do estabelecimento): 6540 ou 6051.
+
+Além disso, precisam enviar alguns dados adicionais na transação, para que as bandeiras possam identificar e diferenciar esse tipo de transação. Veja abaixo as especificações:
+
+**Importante:** A marcação de Cashin é apenas aceita para as seguintes modalidades e bandeiras: Visa/Master só crédito; Elo débito e crédito. Não é aceita para cartão estrangeiro.
+
+#### Requisição
+
+``` xml
+<?xml version="1.0"?>
+<requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
+    <dados-ec>
+        <numero>xxxxxxxxxx</numero>
+        <chave>xxxxxxxxxxxxxxxxxxxxxxxxx</chave>
+    </dados-ec>
+    <dados-portador>
+        <numero>xxxxxxxxxxxxxx</numero>
+        <validade>******</validade>
+        <indicador>1</indicador>
+        <codigo-seguranca>***</codigo-seguranca>
+        <nome-portador>NOME DO PORTADOR</nome-portador>
+        <token/>
+        <carteira>
+           <tipo>MASTERPASS</tipo>
+        </carteira>
+    </dados-portador>
+    <dados-pedido>
+        <numero>xxxxx</numero>
+        <valor>1000</valor>
+        <moeda>986</moeda>
+        <data-hora>2021-11-26T10:00:05</data-hora>
+        <descricao>Compra Online</descricao>
+        <idioma>PT</idioma>
+        <soft-descriptor>CART*LOJAABCDE</soft-descriptor>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>mastercard</bandeira>
+        <produto>1</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <url-retorno>http://www.cielo.com.br</url-retorno>
+    <autorizar>3</autorizar>
+    <capturar>true</capturar>
+    <gerar-token>false</gerar-token>
+    <cash-in>true</cash-in>
+</requisicao-transacao>
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|Carteira.tipo|Texto|3|Sim, para transações de SDWO|Sigla da carteira que está cadastrada aqui na Cielo como carteira digital (verificar sua sigla com seu gestor comercial)|
+|Cash-in|Boolean|-|Sim, pra transações Cash In de uma SDWO|True ou false. Se true, Indica se é uma transação de cash in da SDWO.|
+
 # Criando transações
 
 Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) ao Web Service da Cielo com uma mensagem XML `<requisicao-transacao>`, cujo conjunto de TAGS determinam as configurações de uma transação.
