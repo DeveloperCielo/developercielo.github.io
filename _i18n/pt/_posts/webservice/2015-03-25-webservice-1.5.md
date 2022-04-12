@@ -526,13 +526,15 @@ Todos os clientes de E-commerce que transacionarem **quasi cash**, devem usar a
 
 ### Transações SDWO
 
-Se categoriza como uma SDWO (Staged Digital Wallet Operators) uma empresa que oferece serviços de carteira digital/wallet, ou seja, que permitem que o portador pague a aquisição de um produto ou serviço por meio de sua própria plataforma, seja com cadastro de cartões de crédito ou debito, ou geração de QR code.
+Se categoriza como uma SDWO (Staged Digital Wallet Operators) uma empresa que oferece serviços de carteira digital/wallet, ou seja, que permite que o portador pague a aquisição de um produto ou serviço por meio de sua própria plataforma, seja com cadastro de cartões de crédito ou debito, ou geração de QR code.
 
 Para transacionar como SDWO, o estabelecimento precisa se registrar junto as bandeiras. Para isso, procure seu gestor comercial Cielo para mais informações.
 
 No caso de transações de ecommerce de uma SDWO com cartão de crédito ou débito (não originadas por um QR Code), é necessário que a carteira mande alguns dados adicionais na transação, para que as bandeiras possam identificar e diferenciar esse tipo de transação. Veja abaixo as especificações:
 
-**Importante:** Marcação de SDWO é apenas aceita para as seguintes modalidades e bandeiras: Visa/Elo- crédito e débito; Master - apenas crédito. Aceita cartões estrangeiros.
+> Além dos campos específicos dessa modalidade, para transações SDWO também é obrigatório o envio do Soft Descriptor (campo `dados-pedido.soft-descriptor`) e CPF/CNPJ do portador (campo `dados-portador.cnpj-cpf-portador`). Confira mais detalhes desses campos na tabela de propriedades da requisição.
+
+**Importante:** A marcação de SDWO é apenas aceita para as seguintes modalidades e bandeiras: Visa/Elo- crédito e débito; Mastercard - apenas crédito. Aceita cartões estrangeiros.
 
 #### Requisição
 
@@ -549,7 +551,8 @@ No caso de transações de ecommerce de uma SDWO com cartão de crédito ou déb
         <validade>******</validade>
         <indicador>1</indicador>
         <codigo-seguranca>***</codigo-seguranca>
-        <nome-portador>Teste Cashin</nome-portador>
+        <nome-portador>NOME DO PORTADOR</nome-portador>
+        <cnpj-cpf-portador>12345678901</cnpj-cpf-portador>
         <token/>
         <carteira>
            <tipo>MASTERPASS</tipo>
@@ -578,12 +581,14 @@ No caso de transações de ecommerce de uma SDWO com cartão de crédito ou déb
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|Dados-ec.mcc-dinamico|Numerico|4|Sim, para transações de SDWO|MCC do varejista subjacente (pra transações de compra); MCC da carteira digital (para transações de abastecimento de crédito na carteira caso aplicável – no qual é necessária a marcação de cash in também vista nessa sessão)|
-|Carteira.tipo|Texto|3|Sim, para transações de SDWO|Sigla da carteira que está cadastrada aqui na Cielo como carteira digital (verificar sua sigla com seu gestor comercial)|
+|`Dados-ec.mcc-dinamico`|Numérico|4|Sim, para transações de SDWO|MCC do varejista subjacente (pra transações de compra); MCC da carteira digital (para transações de abastecimento de crédito na carteira caso aplicável – no qual é necessária a marcação de cash in também vista nessa sessão)|
+|`Carteira.tipo`|Texto|3|Sim, para transações de SDWO|Sigla da carteira que está cadastrada aqui na Cielo como carteira digital (verificar sua sigla com seu gestor comercial)|
+|`dados-portador.cnpj-cpf-portador`| Numérico| 14| Sim, para transações de SDWO | Número do CPF ou CNPJ do cliente.|
+|`Dados-pedido.soft-descriptor`| Texto| 13| Sim, para transações de SDWO | Texto que será impresso na fatura bancária do portador.<br>Não permite caracteres especiais.<br>Necessário preencher com **Nome da carteira*nome do lojista**|
 
-### Transações CASH IN
+### Transações Cash In
 
-Uma transação do tipo Cash In é uma operação de adição de créditos em uma carteira digital. Os estabelecimentos que operam com esse tipo de transação devem ser registrados como carteira digital junto as bandeiras e devem estar cadastrados com um dos seguintes MCCs (Códigos de categoria do estabelecimento): 6540 ou 6051.
+Uma transação do tipo Cash In é uma operação de adição de créditos em uma carteira digital. Os estabelecimentos que operam com esse tipo de transação devem ser registrados como carteira digital junto as bandeiras e devem estar cadastrados com um dos seguintes **MCCs** (Códigos de categoria do estabelecimento): **6540** ou **6051**.
 
 Além disso, precisam enviar alguns dados adicionais na transação, para que as bandeiras possam identificar e diferenciar esse tipo de transação. Veja abaixo as especificações:
 
