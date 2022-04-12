@@ -1005,7 +1005,11 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
 
 <p>Além disso, precisam enviar alguns dados adicionais na transação, para que as bandeiras possam identificar e diferenciar esse tipo de transação. Veja abaixo as especificações:</p>
 
-<p><strong>Importante:</strong> A marcação de Cashin é apenas aceita para as seguintes modalidades e bandeiras: Visa/Master só crédito; Elo débito e crédito. Não é aceita para cartão estrangeiro.</p>
+<blockquote>
+  <p>Além dos campos específicos dessa modalidade, para transações Cash in também é obrigatório o envio do Soft Descriptor (<code class="language-plaintext highlighter-rouge">campo dados-pedido.soft-descriptor</code>) e CPF/CNPJ do portador (campo <code class="language-plaintext highlighter-rouge">dados-portador.cnpj-cpf-portador</code>). No caso de Cash In, o campo do soft descriptor precisa ser preenchido com <strong>nome da carteira*nome do portador</strong>. Confira mais detalhes desses campos na tabela de propriedades da requisição.</p>
+</blockquote>
+
+<p><strong>Importante:</strong> A marcação de Cash In é apenas aceita para as seguintes modalidades e bandeiras: Visa/Mastercard só crédito; Elo débito e crédito. Não é aceita para cartão estrangeiro.</p>
 
 <h4 id="requisição-4">Requisição</h4>
 
@@ -1021,6 +1025,7 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
         <span class="nt">&lt;indicador&gt;</span>1<span class="nt">&lt;/indicador&gt;</span>
         <span class="nt">&lt;codigo-seguranca&gt;</span>***<span class="nt">&lt;/codigo-seguranca&gt;</span>
         <span class="nt">&lt;nome-portador&gt;</span>NOME DO PORTADOR<span class="nt">&lt;/nome-portador&gt;</span>
+        <span class="nt">&lt;cnpj-cpf-portador&gt;</span>12345678901<span class="nt">&lt;/cnpj-cpf-portador&gt;</span>
         <span class="nt">&lt;token/&gt;</span>
         <span class="nt">&lt;carteira&gt;</span>
            <span class="nt">&lt;tipo&gt;</span>MASTERPASS<span class="nt">&lt;/tipo&gt;</span>
@@ -1060,18 +1065,32 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
   </thead>
   <tbody>
     <tr>
-      <td>Carteira.tipo</td>
+      <td><code class="language-plaintext highlighter-rouge">Carteira.tipo</code></td>
       <td>Texto</td>
       <td>3</td>
       <td>Sim, para transações de SDWO</td>
       <td>Sigla da carteira que está cadastrada aqui na Cielo como carteira digital (verificar sua sigla com seu gestor comercial)</td>
     </tr>
     <tr>
-      <td>Cash-in</td>
+      <td><code class="language-plaintext highlighter-rouge">Cash-in</code></td>
       <td>Boolean</td>
       <td>-</td>
       <td>Sim, pra transações Cash In de uma SDWO</td>
       <td>True ou false. Se true, Indica se é uma transação de cash in da SDWO.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">dados-portador.cnpj-cpf-portador</code></td>
+      <td>Numérico</td>
+      <td>14</td>
+      <td>Sim, para transações de Cash in</td>
+      <td>Número do CPF ou CNPJ do Cliente.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Dados-pedido.soft-descriptor</code></td>
+      <td>Texto</td>
+      <td>13</td>
+      <td>Sim, para transações de Cash in</td>
+      <td>Texto que será impresso na fatura bancária do portador.<br />Não permite caracteres especiais.<br />Necessário preencher com <strong>Nome da carteira*nome do portador</strong>.</td>
     </tr>
   </tbody>
 </table>
