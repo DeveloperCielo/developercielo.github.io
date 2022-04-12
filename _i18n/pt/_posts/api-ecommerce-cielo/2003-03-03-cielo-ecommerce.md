@@ -2753,7 +2753,7 @@ No caso de transações de e-commerce de uma SDWO com cartão de crédito ou dé
 |------------------------------|---------|---------|-------------|--------------------------------------------------------------------------------------------------|
 | `Wallet.PlatformOperator` | String (texto)| 3     | Sim, para transações de SDWO|Sigla da carteira que está cadastrada aqui na Cielo como carteira digital (verificar sua sigla com seu gestor comercial) |
 | `Wallet.AdditionalData.Mcc` | String (numérico) | 4     | Sim, para transações de SDWO|MCC do varejista subjacente (pra transações de compra); MCC da carteira digital (para transações de abastecimento de crédito na carteira caso aplicável – no qual é necessária a marcação de cash in também vista nessa sessão)|
-|`Customer.Identity`|Texto|14	|Sim, para transações de SDWO|Número do CPF ou CNPJ do comprador.|
+|`Customer.Identity`|Texto|14|Sim, para transações de SDWO|Número do CPF ou CNPJ do comprador.|
 |`Customer.IdentityType`|Texto|255|Sim, para transações de SDWO|Tipo de documento de identificação do comprador (CPF/CNPJ).|
 |`SoftDescriptor`|Texto|13|Sim, para transações de SDWO|Texto que será impresso na fatura bancária do portador.<br> Não permite caracteres especiais.<br>Necessário preencher com **Nome da carteira*nome do lojista**.|
 
