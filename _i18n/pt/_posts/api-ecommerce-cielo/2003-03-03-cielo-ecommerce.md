@@ -2709,13 +2709,15 @@ Os estabelecimentos que operam com esse serviço devem ser registrados junto a V
 
 ### Transações SDWO
 
-Se categoriza como uma SDWO (Staged Digital Wallet Operators) uma empresa que oferece serviços de carteira digital/wallet, ou seja, que permitem que o portador pague a aquisição de um produto ou serviço por meio de sua própria plataforma, seja com cadastro de cartões de crédito ou debito, ou geração de QR code.
+Se categoriza como uma SDWO (Staged Digital Wallet Operators) uma empresa que oferece serviços de carteira digital/wallet, ou seja, que permite que o portador pague a aquisição de um produto ou serviço por meio de sua própria plataforma, seja com cadastro de cartões de crédito ou debito, ou geração de QR code.
 
 Para transacionar como SDWO, o estabelecimento precisa se registrar junto as bandeiras. Para isso, procure seu gestor comercial Cielo para mais informações.
 
-No caso de transações de ecommerce de uma SDWO com cartão de crédito ou débito (não originadas por um QR Code), é necessário que a carteira mande alguns dados adicionais na transação, para que as bandeiras possam identificar e diferenciar esse tipo de transação. Veja abaixo as especificações:
+No caso de transações de e-commerce de uma SDWO com cartão de crédito ou débito (não originadas por um QR Code), é necessário que a carteira mande alguns dados adicionais na transação, para que as bandeiras possam identificar e diferenciar esse tipo de transação. Veja abaixo as especificações:
 
-**Importante:** Marcação de SDWO é apenas aceita para as seguintes modalidades e bandeiras: Visa/Elo- crédito e débito; Master - apenas crédito. Aceita cartões estrangeiros.
+> Além dos campos específicos dessa modalidade, para transações SDWO também é obrigatório o envio do Soft Descriptor (campo `Payment.SoftDescriptor`) e CPF ou CNPJ do portador (campo `Customer.Identity` e campo `Customer.IdentityType`). Confira mais detalhes desses campos na tabela de campos da requisição.
+
+**Importante:** Marcação de SDWO é apenas aceita para as seguintes modalidades e bandeiras: Visa/Elo- crédito e débito; MasterCard - apenas crédito. Aceita cartões estrangeiros.
 
 #### Requisição
 
@@ -2723,12 +2725,15 @@ No caso de transações de ecommerce de uma SDWO com cartão de crédito ou déb
 {
    "MerchantOrderId":"2012345678",
    "Customer":{
-      "Name":"Comprador Carteira"
+      "Name":"Comprador Carteira",
+      "Identity":"11225468954",
+      "IdentityType":"CPF",
    },
    "Payment":{
       "Type":"CreditCard",
       "Amount":15700,
       "Installments":1,
+      "SoftDescriptor":"CARTEIRA*NOMELOJA",
       "CreditCard":{
          "CardNumber":"4532110000001234",
          "Brand":"Visa",
@@ -2746,8 +2751,12 @@ No caso de transações de ecommerce de uma SDWO com cartão de crédito ou déb
 
 |Propriedade                   |Tipo     | Tamanho | Obrigatório | Descrição                                                                                        |
 |------------------------------|---------|---------|-------------|--------------------------------------------------------------------------------------------------|
-| Wallet.PlatformOperator | String (texto)| 3     | Sim, para transações de SDWO|Sigla da carteira que está cadastrada aqui na Cielo como carteira digital (verificar sua sigla com seu gestor comercial) |
-| Wallet.AdditionalData.Mcc | String (numérico) | 4     | Sim, para transações de SDWO|MCC do varejista subjacente (pra transações de compra); MCC da carteira digital (para transações de abastecimento de crédito na carteira caso aplicável – no qual é necessária a marcação de cash in também vista nessa sessão)|
+| `Wallet.PlatformOperator` | String (texto)| 3     | Sim, para transações de SDWO|Sigla da carteira que está cadastrada aqui na Cielo como carteira digital (verificar sua sigla com seu gestor comercial) |
+| `Wallet.AdditionalData.Mcc` | String (numérico) | 4     | Sim, para transações de SDWO|MCC do varejista subjacente (pra transações de compra); MCC da carteira digital (para transações de abastecimento de crédito na carteira caso aplicável – no qual é necessária a marcação de cash in também vista nessa sessão)|
+|`Customer.Identity`|	Texto	|14	|Sim, para transações de SDWO|	Número do CPF ou CNPJ do comprador.|
+|`Customer.IdentityType` |	Texto	|255	| Sim, para transações de SDWO|	Tipo de documento de identificação do comprador (CPF/CNPJ)|
+|`SoftDescriptor`	|Texto	|13	|Sim, para transações de SDWO	|Texto que será impresso na fatura bancária do portador.<br> Não permite caracteres especiais.<br>Necessário preencher com **Nome da carteira*nome do lojista**.|
+
 
 ### Transações CASH IN
 
