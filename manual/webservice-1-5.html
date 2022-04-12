@@ -903,13 +903,17 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
 
 <h3 id="transações-sdwo">Transações SDWO</h3>
 
-<p>Se categoriza como uma SDWO (Staged Digital Wallet Operators) uma empresa que oferece serviços de carteira digital/wallet, ou seja, que permitem que o portador pague a aquisição de um produto ou serviço por meio de sua própria plataforma, seja com cadastro de cartões de crédito ou debito, ou geração de QR code.</p>
+<p>Se categoriza como uma SDWO (Staged Digital Wallet Operators) uma empresa que oferece serviços de carteira digital/wallet, ou seja, que permite que o portador pague a aquisição de um produto ou serviço por meio de sua própria plataforma, seja com cadastro de cartões de crédito ou debito, ou geração de QR code.</p>
 
 <p>Para transacionar como SDWO, o estabelecimento precisa se registrar junto as bandeiras. Para isso, procure seu gestor comercial Cielo para mais informações.</p>
 
 <p>No caso de transações de ecommerce de uma SDWO com cartão de crédito ou débito (não originadas por um QR Code), é necessário que a carteira mande alguns dados adicionais na transação, para que as bandeiras possam identificar e diferenciar esse tipo de transação. Veja abaixo as especificações:</p>
 
-<p><strong>Importante:</strong> Marcação de SDWO é apenas aceita para as seguintes modalidades e bandeiras: Visa/Elo- crédito e débito; Master - apenas crédito. Aceita cartões estrangeiros.</p>
+<blockquote>
+  <p>Além dos campos específicos dessa modalidade, para transações SDWO também é obrigatório o envio do Soft Descriptor (campo <code class="language-plaintext highlighter-rouge">dados-pedido.soft-descriptor</code>) e CPF/CNPJ do portador (campo <code class="language-plaintext highlighter-rouge">dados-portador.cnpj-cpf-portador</code>). Confira mais detalhes desses campos na tabela de propriedades da requisição.</p>
+</blockquote>
+
+<p><strong>Importante:</strong> A marcação de SDWO é apenas aceita para as seguintes modalidades e bandeiras: Visa/Elo- crédito e débito; Mastercard - apenas crédito. Aceita cartões estrangeiros.</p>
 
 <h4 id="requisição-3">Requisição</h4>
 
@@ -925,7 +929,8 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
         <span class="nt">&lt;validade&gt;</span>******<span class="nt">&lt;/validade&gt;</span>
         <span class="nt">&lt;indicador&gt;</span>1<span class="nt">&lt;/indicador&gt;</span>
         <span class="nt">&lt;codigo-seguranca&gt;</span>***<span class="nt">&lt;/codigo-seguranca&gt;</span>
-        <span class="nt">&lt;nome-portador&gt;</span>Teste Cashin<span class="nt">&lt;/nome-portador&gt;</span>
+        <span class="nt">&lt;nome-portador&gt;</span>NOME DO PORTADOR<span class="nt">&lt;/nome-portador&gt;</span>
+        <span class="nt">&lt;cnpj-cpf-portador&gt;</span>12345678901<span class="nt">&lt;/cnpj-cpf-portador&gt;</span>
         <span class="nt">&lt;token/&gt;</span>
         <span class="nt">&lt;carteira&gt;</span>
            <span class="nt">&lt;tipo&gt;</span>MASTERPASS<span class="nt">&lt;/tipo&gt;</span>
@@ -964,25 +969,39 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
   </thead>
   <tbody>
     <tr>
-      <td>Dados-ec.mcc-dinamico</td>
-      <td>Numerico</td>
+      <td><code class="language-plaintext highlighter-rouge">Dados-ec.mcc-dinamico</code></td>
+      <td>Numérico</td>
       <td>4</td>
       <td>Sim, para transações de SDWO</td>
       <td>MCC do varejista subjacente (pra transações de compra); MCC da carteira digital (para transações de abastecimento de crédito na carteira caso aplicável – no qual é necessária a marcação de cash in também vista nessa sessão)</td>
     </tr>
     <tr>
-      <td>Carteira.tipo</td>
+      <td><code class="language-plaintext highlighter-rouge">Carteira.tipo</code></td>
       <td>Texto</td>
       <td>3</td>
       <td>Sim, para transações de SDWO</td>
       <td>Sigla da carteira que está cadastrada aqui na Cielo como carteira digital (verificar sua sigla com seu gestor comercial)</td>
     </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">dados-portador.cnpj-cpf-portador</code></td>
+      <td>Numérico</td>
+      <td>14</td>
+      <td>Sim, para transações de SDWO</td>
+      <td>Número do CPF ou CNPJ do cliente.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Dados-pedido.soft-descriptor</code></td>
+      <td>Texto</td>
+      <td>13</td>
+      <td>Sim, para transações de SDWO</td>
+      <td>Texto que será impresso na fatura bancária do portador.<br />Não permite caracteres especiais.<br />Necessário preencher com <strong>Nome da carteira*nome do lojista</strong></td>
+    </tr>
   </tbody>
 </table>
 
-<h3 id="transações-cash-in">Transações CASH IN</h3>
+<h3 id="transações-cash-in">Transações Cash In</h3>
 
-<p>Uma transação do tipo Cash In é uma operação de adição de créditos em uma carteira digital. Os estabelecimentos que operam com esse tipo de transação devem ser registrados como carteira digital junto as bandeiras e devem estar cadastrados com um dos seguintes MCCs (Códigos de categoria do estabelecimento): 6540 ou 6051.</p>
+<p>Uma transação do tipo Cash In é uma operação de adição de créditos em uma carteira digital. Os estabelecimentos que operam com esse tipo de transação devem ser registrados como carteira digital junto as bandeiras e devem estar cadastrados com um dos seguintes <strong>MCCs</strong> (Códigos de categoria do estabelecimento): <strong>6540</strong> ou <strong>6051</strong>.</p>
 
 <p>Além disso, precisam enviar alguns dados adicionais na transação, para que as bandeiras possam identificar e diferenciar esse tipo de transação. Veja abaixo as especificações:</p>
 
