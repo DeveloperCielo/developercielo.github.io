@@ -2717,7 +2717,7 @@ No caso de transações de e-commerce de uma SDWO com cartão de crédito ou dé
 
 > Além dos campos específicos dessa modalidade, para transações SDWO também é obrigatório o envio do Soft Descriptor (campo `Payment.SoftDescriptor`) e CPF ou CNPJ do portador (campo `Customer.Identity` e campo `Customer.IdentityType`). Confira mais detalhes desses campos na tabela de campos da requisição.
 
-**Importante:** Marcação de SDWO é apenas aceita para as seguintes modalidades e bandeiras: Visa/Elo- crédito e débito; MasterCard - apenas crédito. Aceita cartões estrangeiros.
+**Importante:** A marcação de SDWO é apenas aceita para as seguintes modalidades e bandeiras: Visa/Elo- crédito e débito; Mastercard - apenas crédito. Aceita cartões estrangeiros.
 
 #### Requisição
 
@@ -2753,18 +2753,19 @@ No caso de transações de e-commerce de uma SDWO com cartão de crédito ou dé
 |------------------------------|---------|---------|-------------|--------------------------------------------------------------------------------------------------|
 | `Wallet.PlatformOperator` | String (texto)| 3     | Sim, para transações de SDWO|Sigla da carteira que está cadastrada aqui na Cielo como carteira digital (verificar sua sigla com seu gestor comercial) |
 | `Wallet.AdditionalData.Mcc` | String (numérico) | 4     | Sim, para transações de SDWO|MCC do varejista subjacente (pra transações de compra); MCC da carteira digital (para transações de abastecimento de crédito na carteira caso aplicável – no qual é necessária a marcação de cash in também vista nessa sessão)|
-|`Customer.Identity`|	Texto	|14	|Sim, para transações de SDWO|	Número do CPF ou CNPJ do comprador.|
-|`Customer.IdentityType` |	Texto	|255	| Sim, para transações de SDWO|	Tipo de documento de identificação do comprador (CPF/CNPJ)|
-|`SoftDescriptor`	|Texto	|13	|Sim, para transações de SDWO	|Texto que será impresso na fatura bancária do portador.<br> Não permite caracteres especiais.<br>Necessário preencher com **Nome da carteira*nome do lojista**.|
+|`Customer.Identity`|Texto|14	|Sim, para transações de SDWO| Número do CPF ou CNPJ do comprador.|
+|`Customer.IdentityType`|Texto|255|Sim, para transações de SDWO|	Tipo de documento de identificação do comprador (CPF/CNPJ).|
+|`SoftDescriptor`|Texto|13|Sim, para transações de SDWO|Texto que será impresso na fatura bancária do portador.<br> Não permite caracteres especiais.<br>Necessário preencher com **Nome da carteira*nome do lojista**.|
 
+### Transações Cash In
 
-### Transações CASH IN
+Uma transação do tipo Cash In é uma operação de adição de créditos em uma carteira digital. Os estabelecimentos que operam com esse tipo de transação devem ser registrados como carteira digital junto as bandeiras e devem estar cadastrados com um dos seguintes **MCCs (Códigos de categoria do estabelecimento)**: **6540** ou **6051**.
 
-Uma transação do tipo Cash In é uma operação de adição de créditos em uma carteira digital. Os estabelecimentos que operam com esse tipo de transação devem ser registrados como carteira digital junto as bandeiras e devem estar cadastrados com um dos seguintes MCCs (Códigos de categoria do estabelecimento): 6540 ou 6051.
+Além disso, precisam enviar alguns dados adicionais na transação, para que as bandeiras possam identificar e diferenciar esse tipo de transação. Veja as especificações:
 
-Além disso, precisam enviar alguns dados adicionais na transação, para que as bandeiras possam identificar e diferenciar esse tipo de transação. Veja abaixo as especificações:
+> Além dos campos específicos dessa modalidade, para transações Cash In também é obrigatório o envio do Soft Descriptor (campo `Payment.SoftDescriptor`) e CPF ou CNPJ do portador (campo `Customer.Identity` e campo `Customer.IdentityType`). No caso de Cash In, o campo do Soft Descriptor precisa ser preenchido com **nome da carteira*nome do portador**. Confira mais detalhes na tabela de campos da requisição.
 
-**Importante:**A marcação de Cashin é apenas aceita para as seguintes modalidades e bandeiras: Visa/Master só crédito; Elo débito e crédito. Não é aceita para cartão estrangeiro.
+**Importante:** A marcação de Cash In é apenas aceita para as seguintes modalidades e bandeiras: Visa/Mastercard só crédito; Elo débito e crédito. Não é aceita para cartão estrangeiro.
 
 #### Requisição
 
@@ -2773,12 +2774,15 @@ Além disso, precisam enviar alguns dados adicionais na transação, para que as
 
    "MerchantOrderId":"2012345678",
    "Customer":{
-      "Name":"Comprador Carteira"
+      "Name":"Comprador Carteira",
+      "Identity":"11225468954",
+      "IdentityType":"CPF",
    },
    "Payment":{
       "Type":"CreditCard",
       "Amount":15700,
       "Installments":1,
+      "SoftDescriptor":"CARTEIRA*NOMEPORTADOR",
       "CreditCard":{
          "CardNumber":"4532110000001234",
          "Brand":"Visa",
@@ -2799,6 +2803,9 @@ Além disso, precisam enviar alguns dados adicionais na transação, para que as
 |------------------------------|---------|---------|-------------|--------------------------------------------------------------------------------------------------|
 | Wallet.PlatformOperator | String (texto)| 3     | Sim, para transações de Cash In|Sigla da carteira que está cadastrada aqui na Cielo como carteira digital (verificar sua sigla com seu gestor comercial) |
 | Wallet.AdditionalData.CshIn | String (texto) | -     | Sim, para transações de Cash In|Enviar como “True” se for uma transação de Cash In|
+|`Customer.Identity`|Texto|14|Sim, para transações de Cash In|Número do CPF ou CNPJ do comprador.|
+|`Customer.IdentityType`|Texto|255|Sim, para transações de Cash In|Tipo de documento de identificação do comprador (CPF/CNPJ).|
+|`SoftDescriptor`|Texto|13|Sim, para transações de Cash In|Texto que será impresso na fatura bancária do portador.<br> Não permite caracteres especiais.<br>Necessário preencher com **Nome da carteira*nome do portador**.|
 
 ## Erros de Integração
 
