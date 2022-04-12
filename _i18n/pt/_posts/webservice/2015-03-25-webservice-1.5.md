@@ -592,7 +592,9 @@ Uma transação do tipo Cash In é uma operação de adição de créditos em um
 
 Além disso, precisam enviar alguns dados adicionais na transação, para que as bandeiras possam identificar e diferenciar esse tipo de transação. Veja abaixo as especificações:
 
-**Importante:** A marcação de Cashin é apenas aceita para as seguintes modalidades e bandeiras: Visa/Master só crédito; Elo débito e crédito. Não é aceita para cartão estrangeiro.
+> Além dos campos específicos dessa modalidade, para transações Cash in também é obrigatório o envio do Soft Descriptor (`campo dados-pedido.soft-descriptor`) e CPF/CNPJ do portador (campo `dados-portador.cnpj-cpf-portador`). No caso de Cash In, o campo do soft descriptor precisa ser preenchido com **nome da carteira*nome do portador**. Confira mais detalhes desses campos na tabela de propriedades da requisição.
+
+**Importante:** A marcação de Cash In é apenas aceita para as seguintes modalidades e bandeiras: Visa/Mastercard só crédito; Elo débito e crédito. Não é aceita para cartão estrangeiro.
 
 #### Requisição
 
@@ -609,6 +611,7 @@ Além disso, precisam enviar alguns dados adicionais na transação, para que as
         <indicador>1</indicador>
         <codigo-seguranca>***</codigo-seguranca>
         <nome-portador>NOME DO PORTADOR</nome-portador>
+        <cnpj-cpf-portador>12345678901</cnpj-cpf-portador>
         <token/>
         <carteira>
            <tipo>MASTERPASS</tipo>
@@ -638,8 +641,10 @@ Além disso, precisam enviar alguns dados adicionais na transação, para que as
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|Carteira.tipo|Texto|3|Sim, para transações de SDWO|Sigla da carteira que está cadastrada aqui na Cielo como carteira digital (verificar sua sigla com seu gestor comercial)|
-|Cash-in|Boolean|-|Sim, pra transações Cash In de uma SDWO|True ou false. Se true, Indica se é uma transação de cash in da SDWO.|
+|`Carteira.tipo`|Texto|3|Sim, para transações de SDWO|Sigla da carteira que está cadastrada aqui na Cielo como carteira digital (verificar sua sigla com seu gestor comercial)|
+|`Cash-in`|Boolean|-|Sim, pra transações Cash In de uma SDWO|True ou false. Se true, Indica se é uma transação de cash in da SDWO.|
+|`dados-portador.cnpj-cpf-portador`| Numérico| 14| Sim, para transações de Cash in| Número do CPF ou CNPJ do Cliente.
+|`Dados-pedido.soft-descriptor`|Texto|13|Sim, para transações de Cash in|Texto que será impresso na fatura bancária do portador.<br>Não permite caracteres especiais.<br>Necessário preencher com **Nome da carteira*nome do portador**.
 
 # Criando transações
 
