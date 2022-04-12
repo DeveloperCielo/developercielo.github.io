@@ -624,7 +624,7 @@ Além disso, precisam enviar alguns dados adicionais na transação, para que as
         <data-hora>2021-11-26T10:00:05</data-hora>
         <descricao>Compra Online</descricao>
         <idioma>PT</idioma>
-        <soft-descriptor>CART*LOJAABCDE</soft-descriptor>
+        <soft-descriptor>CARTEIRA*NOMEPORTADOR</soft-descriptor>
     </dados-pedido>
     <forma-pagamento>
         <bandeira>mastercard</bandeira>
