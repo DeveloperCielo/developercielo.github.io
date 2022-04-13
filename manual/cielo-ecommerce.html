@@ -741,24 +741,59 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <h2 id="consulta-bin---sandbox">Consulta BIN - Sandbox</h2>
 
-<p>O BIN de um cartão é composto pelos seis primeiros dígitos. Na simulação do Consulta BIN em ambiente sandbox, cada dígito vai reger um resultado simulado. É possível montar uma numeração de cartão para teste e observar o retorno esperado de acordo com diferentes cenários.</p>
+<p>O BIN de um cartão é composto pelos seis primeiros dígitos. Na simulação da Consulta BIN em ambiente sandbox, cada um dos seis primeiros dígitos vai reger um resultado simulado.</p>
 
-<p>Os seis primeiros dígitos do cartão irão retornar a bandeira, o tipo, a nacionalidade, se o cartão é corporativo ou não, o retorno da análise de BIN e o emissor do cartão. Para saber mais, leia a seção <a href="https://developercielo.github.io/manual/cielo-ecommerce#consulta-bin"><strong>Consulta BIN</strong></a> neste mesmo manual.</p>
+<p><strong>É possível montar uma numeração de cartão para teste (com 16 dígitos) e observar o retorno esperado de acordo com diferentes cenários</strong> a partir dos seis primeiros dígitos.</p>
 
-<p><img src="https://developercielo.github.io/images/apicieloecommerce/consulta-bin-sandbox.png" alt="Consulta BIN Sandbox" /></p>
+<p>O BIN de um cartão retorna a bandeira, o tipo, a nacionalidade, se o cartão é corporativo ou não, o retorno da análise de BIN e o emissor do cartão. Para saber mais, leia a seção <a href="https://developercielo.github.io/manual/cielo-ecommerce#consulta-bin"><strong>Consulta BIN</strong></a> neste mesmo manual.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dígito</th>
+      <th>O que indica</th>
+      <th>Retorno</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1º dígito</td>
+      <td>Bandeira.</td>
+      <td>Se for ‘<strong>3</strong>’ retorna “<strong>AMEX</strong>“<br />Se for ‘<strong>5</strong>’ retorna “<strong>MASTERCARD</strong>“<br />Se for ‘<strong>6</strong>’ retorna “<strong>DISCOVER</strong>“<br />Qualquer outro número retorna “<strong>VISA</strong>”.</td>
+    </tr>
+    <tr>
+      <td>2º dígito</td>
+      <td>Tipo do cartão.</td>
+      <td>Se for ‘<strong>3</strong>’ retorna “<strong>Débito</strong>“<br />Se for ‘<strong>5</strong>’ retorna “<strong>Crédito</strong>“<br />Se for ‘<strong>7</strong>’ retorna “<strong>Crédito</strong>” e retorna o campo <code class="language-plaintext highlighter-rouge">Prepaid</code>como “<strong>true</strong>“<br />Qualquer outro número retorna”<strong>Múltiplo</strong>”.</td>
+    </tr>
+    <tr>
+      <td>3º dígito</td>
+      <td>Nacionalidade do cartão.</td>
+      <td>Se for ‘<strong>1</strong>’ retorna “<strong>true</strong>” (cartão nacional)<br />Qualquer número diferente de ‘<strong>1</strong>’ retorna “<strong>false</strong>” (cartão internacional).</td>
+    </tr>
+    <tr>
+      <td>4º dígito</td>
+      <td>Se o cartão é corporativo ou não.</td>
+      <td>Se for ‘<strong>1</strong>’ retorna “<strong>true</strong>” (é cartão corporativo)<br />Qualquer número diferente de ‘<strong>1</strong>’ retorna “<strong>false</strong>” (não é cartão corporativo).</td>
+    </tr>
+    <tr>
+      <td>5º dígito</td>
+      <td>Retorno da análise.</td>
+      <td>Se for ‘<strong>2</strong>’ retorna “<strong>01 - Bandeira não suportada</strong>“<br />Se for ‘<strong>3</strong>’ retorna “<strong>02 - Voucher - Não suportado na consulta de bins</strong>“<br />Qualquer outro número retorna “<strong>00 - Analise autorizada</strong>”</td>
+    </tr>
+    <tr>
+      <td>6º dígito</td>
+      <td>Banco emissor.</td>
+      <td>Se for ‘<strong>1</strong>’ retorna “<strong>104</strong>” e “<strong>Caixa</strong>“<br />Se for ‘<strong>2</strong>’ retorna “<strong>001</strong>” e “<strong>Banco do Brasil</strong>“<br />Qualquer outro número retorna “<strong>237</strong>” e “<strong>Bradesco</strong>”</td>
+    </tr>
+  </tbody>
+</table>
 
 <p><strong>Exemplo</strong></p>
 
 <p>O cartão com a numeração <strong>4110110012341234</strong> irá retornar os seguintes dados:</p>
 
-<ul>
-  <li><strong>Bandeira</strong>: Visa;</li>
-  <li><strong>Tipo do cartão</strong>: múltiplo;</li>
-  <li><strong>Nacionalidade</strong>: nacional;</li>
-  <li><strong>Cartão corporativo</strong>: não;</li>
-  <li><strong>Retorno da análise</strong>: 00 - Análise autorizada;</li>
-  <li><strong>Banco emissor</strong>: “104” e “Caixa”.</li>
-</ul>
+<p><img src="https://developercielo.github.io/images/apicieloecommerce/consultabin-sdbx-cielo.png" alt="Consulta BIN Sandbox" /></p>
 
 <h3 id="requisição">Requisição</h3>
 
