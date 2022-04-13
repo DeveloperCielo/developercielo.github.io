@@ -5175,6 +5175,10 @@ Abaixo especificamos qualquer diferença existente:</p>
   <p>Além dos campos específicos dessa modalidade, para transações SDWO também é obrigatório o envio do Soft Descriptor (campo <code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code>) e CPF ou CNPJ do portador (campo <code class="language-plaintext highlighter-rouge">Customer.Identity</code> e campo <code class="language-plaintext highlighter-rouge">Customer.IdentityType</code>). Confira mais detalhes desses campos na tabela de campos da requisição.</p>
 </blockquote>
 
+<p>Para efetuar testes, é necessário apenas seguir as orientações do menu <a href="https://developercielo.github.io/manual/cielo-ecommerce#sandbox-e-ferramentas">Sandbox e ferramentas</a></p>
+
+<p>Para enviar o MCC do varejista na transação de SDWO, a orientação do mercado é utilizar a tabela da ABECS (Associação Brasileira das Empresas de cartões de crédito e Serviços) que realiza o de-para de CNAEs para os MCCS de toda a indústria. Essa tabela é atualizada constantemente e está disponível online no site da Abecs no seguinte link: <a href="https://www.abecs.org.br/consulta-mcc-individual">ABECS</a></p>
+
 <p><strong>Importante:</strong> A marcação de SDWO é apenas aceita para as seguintes modalidades e bandeiras: Visa/Elo- crédito e débito; Mastercard - apenas crédito. Aceita cartões estrangeiros.</p>
 
 <h4 id="requisição-12">Requisição</h4>
@@ -13039,7 +13043,7 @@ HTTP Status 200
 
 <h1 id="consulta-bin">Consulta Bin</h1>
 
-<p>O <strong>Consulta Bin</strong>  é um serviço de <strong>pesquisa de dados do cartão</strong>, seja ele de crédito ou débito, que retorna ao estabelecimento informações que permitem validar os dados preenchidos na tela de pagamento. O serviço retorna os seguintes dados sobre o cartão:</p>
+<p>O <strong>Consulta Bin</strong>  é um serviço de <strong>pesquisa de dados do cartão</strong>, seja ele de crédito ou débito, que retorna ao estabelecimento informações que permitem validar os dados preenchidos na tela de pagamento. O serviço retorna os seguintes dados sobre o cartão::</p>
 
 <ul>
   <li><strong>Bandeira do cartão:</strong> Nome da Bandeira</li>
