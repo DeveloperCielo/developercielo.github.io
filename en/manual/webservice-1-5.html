@@ -894,13 +894,21 @@ messaging, which are required by the flag. See below:</p>
 
 <h3 id="sdwo-transactions">SDWO Transactions</h3>
 
-<p>It is categorized as an SDWO (Staged Digital Wallet Operators) a company that offers digital wallet/wallet services, that is, that allow the holder to pay for the purchase of a product or service through its own platform, either with card registration credit or debit, or QR code generation</p>
+<p>It is categorized as an SDWO (Staged Digital Wallet Operators) a company that offers digital wallet/wallet services, that is, that allows the holder to pay for the purchase of a product or service through its own platform, either with card registration credit or debit, or QR code generation.</p>
 
 <p>To transact as SDWO, the establishment needs to register with the flags. For this, contact your Cielo commercial manager for more information.</p>
 
 <p>In the case of ecommerce transactions of an SDWO with a credit or debit card (not originated by a QR Code), it is necessary for the wallet to send some additional data in the transaction, so that the brands can identify and differentiate this type of transaction. See the specifications below:</p>
 
-<p><strong>Important:</strong> SDWO marking is only accepted for the following modalities and brands: Visa/Elo- credit and debit; Master - credit only. Accepts foreign cards.</p>
+<blockquote>
+  <p>In addition to the specific fields of this modality, for SDWO transactions it is also mandatory to send the Soft Descriptor (field <code class="language-plaintext highlighter-rouge">dados-pedido.soft-descriptor</code>) and CPF/CNPJ of the bearer (field <code class="language-plaintext highlighter-rouge">data-portador.cnpj-cpf-portador</code> ). See more details about these fields in the requisition properties table.</p>
+</blockquote>
+
+<p>To carry out tests, it is only necessary to follow the guidelines in the [Testing and Homologation] menu (https://developercielo.github.io/manual/webservice-1-5#testes-e-homologa%C3%A7%C3%A3o)</p>
+
+<p>To send the retailer’s MCC in the SDWO transaction, the market orientation is to use the ABECS (Brazilian Association of Credit Card and Services Companies) table that performs the de-to of CNAEs for the MCCS of the entire industry. This table is constantly updated and is available online on the Abecs website at the following link:<a href="https://www.abecs.org.br/consulta-mcc-individual">ABECS</a></p>
+
+<p><strong>Important:</strong> SDWO marking is only accepted for the following modalities and brands: Visa/Elo-credit and debit; Mastercard - credit only. Accepts foreign cards.</p>
 
 <h4 id="request-3">Request</h4>
 
@@ -967,6 +975,20 @@ messaging, which are required by the flag. See below:</p>
       <td>3</td>
       <td>Acronym of the portfolio that is registered here at Cielo as a digital wallet (check its acronym with your commercial manager)</td>
       <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">dados-portador.cnpj-cpf-portador</code></td>
+      <td>Numeric</td>
+      <td>14</td>
+      <td>Yes, for SDWO transactions</td>
+      <td>Customer’s CPF or CNPJ number.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Dados-pedido.soft-descriptor</code></td>
+      <td>Text</td>
+      <td>13</td>
+      <td>Yes, for SDWO transactions</td>
+      <td>Text that will be printed on the bearer’s bank statement.<br />No special characters allowed.<br />Must be filled in with <strong>Wallet name*shopkeeper name</strong></td>
     </tr>
   </tbody>
 </table>
