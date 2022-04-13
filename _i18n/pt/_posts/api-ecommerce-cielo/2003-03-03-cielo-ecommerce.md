@@ -339,22 +339,26 @@ Abaixo especificamos qualquer diferença existente:
 
 ## Consulta BIN - Sandbox
 
-O BIN de um cartão é composto pelos seis primeiros dígitos. Na simulação do Consulta BIN em ambiente sandbox, cada dígito vai reger um resultado simulado. É possível montar uma numeração de cartão para teste e observar o retorno esperado de acordo com diferentes cenários.
+O BIN de um cartão é composto pelos seis primeiros dígitos. Na simulação da Consulta BIN em ambiente sandbox, cada um dos seis primeiros dígitos vai reger um resultado simulado. 
 
-Os seis primeiros dígitos do cartão irão retornar a bandeira, o tipo, a nacionalidade, se o cartão é corporativo ou não, o retorno da análise de BIN e o emissor do cartão. Para saber mais, leia a seção [**Consulta BIN**](https://developercielo.github.io/manual/cielo-ecommerce#consulta-bin) neste mesmo manual.
+**É possível montar uma numeração de cartão para teste (com 16 dígitos) e observar o retorno esperado de acordo com diferentes cenários** a partir dos seis primeiros dígitos.
 
-![Consulta BIN Sandbox]({{ site.baseurl_root }}/images/apicieloecommerce/consulta-bin-sandbox.png)
+O BIN de um cartão retorna a bandeira, o tipo, a nacionalidade, se o cartão é corporativo ou não, o retorno da análise de BIN e o emissor do cartão. Para saber mais, leia a seção [**Consulta BIN**](https://developercielo.github.io/manual/cielo-ecommerce#consulta-bin) neste mesmo manual.
+
+|   Dígito  | O que indica                             | Retorno |
+|-----------|------------------------------------------|---------|
+| 1º dígito | Bandeira.                       | Se for '**3**' retorna "**AMEX**"<br>Se for '**5**' retorna "**MASTERCARD**"<br>Se for '**6**' retorna "**DISCOVER**"<br>Qualquer outro número retorna "**VISA**".|
+| 2º dígito | Tipo do cartão.                 | Se for '**3**' retorna "**Débito**"<br>Se for '**5**' retorna "**Crédito**"<br>Se for '**7**' retorna "**Crédito**" e retorna o campo `Prepaid`como "**true**"<br>Qualquer outro número retorna"**Múltiplo**".|
+| 3º dígito | Nacionalidade do cartão.        | Se for '**1**' retorna "**true**" (cartão nacional)<br>Qualquer número diferente de '**1**' retorna "**false**" (cartão internacional).|
+| 4º dígito | Se o cartão é corporativo ou não. | Se for '**1**' retorna "**true**" (é cartão corporativo)<br>Qualquer número diferente de '**1**' retorna "**false**" (não é cartão corporativo).|
+| 5º dígito | Retorno da análise.             | Se for '**2**' retorna "**01 - Bandeira não suportada**"<br>Se for '**3**' retorna "**02 - Voucher - Não suportado na consulta de bins**"<br>Qualquer outro número retorna "**00 - Analise autorizada**"|
+| 6º dígito | Banco emissor.                  | Se for '**1**' retorna "**104**" e "**Caixa**"<br>Se for '**2**' retorna "**001**" e "**Banco do Brasil**"<br>Qualquer outro número retorna "**237**" e "**Bradesco**"|
 
 **Exemplo** 
 
 O cartão com a numeração **4110110012341234** irá retornar os seguintes dados: 
 
-* **Bandeira**: Visa;
-* **Tipo do cartão**: múltiplo;
-* **Nacionalidade**: nacional;
-* **Cartão corporativo**: não;
-* **Retorno da análise**: 00 - Análise autorizada;
-* **Banco emissor**: "104" e "Caixa". 
+![Consulta BIN Sandbox]({{ site.baseurl_root }}/images/apicieloecommerce/consultabin-sdbx-cielo.png)
 
 ### Requisição
 
