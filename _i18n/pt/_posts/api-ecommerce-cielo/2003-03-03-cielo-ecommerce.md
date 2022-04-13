@@ -341,7 +341,7 @@ Abaixo especificamos qualquer diferença existente:
 
 O BIN de um cartão é composto pelos seis primeiros dígitos. Na simulação da Consulta BIN em ambiente sandbox, cada um dos seis primeiros dígitos vai reger um resultado simulado. 
 
-**É possível montar uma numeração de cartão para teste (com 16 dígitos) e observar o retorno esperado de acordo com diferentes cenários** a partir dos seis primeiros dígitos.
+É possível montar uma numeração de cartão para teste e observar o retorno esperado de acordo com diferentes cenários.
 
 O BIN de um cartão retorna a bandeira, o tipo, a nacionalidade, se o cartão é corporativo ou não, o retorno da análise de BIN e o emissor do cartão. Para saber mais, leia a seção [**Consulta BIN**](https://developercielo.github.io/manual/cielo-ecommerce#consulta-bin) neste mesmo manual.
 
