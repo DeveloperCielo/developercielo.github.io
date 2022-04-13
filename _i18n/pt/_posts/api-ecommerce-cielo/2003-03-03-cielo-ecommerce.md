@@ -2716,6 +2716,10 @@ Para transacionar como SDWO, o estabelecimento precisa se registrar junto as ban
 No caso de transações de e-commerce de uma SDWO com cartão de crédito ou débito (não originadas por um QR Code), é necessário que a carteira mande alguns dados adicionais na transação, para que as bandeiras possam identificar e diferenciar esse tipo de transação. Veja abaixo as especificações:
 
 > Além dos campos específicos dessa modalidade, para transações SDWO também é obrigatório o envio do Soft Descriptor (campo `Payment.SoftDescriptor`) e CPF ou CNPJ do portador (campo `Customer.Identity` e campo `Customer.IdentityType`). Confira mais detalhes desses campos na tabela de campos da requisição.
+  
+Para efetuar testes, é necessário apenas seguir as orientações do menu [Sandbox e ferramentas](https://developercielo.github.io/manual/cielo-ecommerce#sandbox-e-ferramentas)
+
+Para enviar o MCC do varejista na transação de SDWO, a orientação do mercado é utilizar a tabela da ABECS (Associação Brasileira das Empresas de cartões de crédito e Serviços) que realiza o de-para de CNAEs para os MCCS de toda a indústria. Essa tabela é atualizada constantemente e está disponível online no site da Abecs no seguinte link: [ABECS](https://www.abecs.org.br/consulta-mcc-individual)
 
 **Importante:** A marcação de SDWO é apenas aceita para as seguintes modalidades e bandeiras: Visa/Elo- crédito e débito; Mastercard - apenas crédito. Aceita cartões estrangeiros.
 
@@ -6828,7 +6832,7 @@ curl
 
 # Consulta Bin
 
-O **Consulta Bin**  é um serviço de **pesquisa de dados do cartão**, seja ele de crédito ou débito, que retorna ao estabelecimento informações que permitem validar os dados preenchidos na tela de pagamento. O serviço retorna os seguintes dados sobre o cartão:
+O **Consulta Bin**  é um serviço de **pesquisa de dados do cartão**, seja ele de crédito ou débito, que retorna ao estabelecimento informações que permitem validar os dados preenchidos na tela de pagamento. O serviço retorna os seguintes dados sobre o cartão::
 
 * **Bandeira do cartão:** Nome da Bandeira
 * **Tipo de cartão:** Crédito, Débito ou Múltiplo (Crédito e Débito)
