@@ -534,6 +534,10 @@ No caso de transações de ecommerce de uma SDWO com cartão de crédito ou déb
 
 > Além dos campos específicos dessa modalidade, para transações SDWO também é obrigatório o envio do Soft Descriptor (campo `dados-pedido.soft-descriptor`) e CPF/CNPJ do portador (campo `dados-portador.cnpj-cpf-portador`). Confira mais detalhes desses campos na tabela de propriedades da requisição.
 
+Para efetuar testes, é necessário apenas seguir as orientações do menu [Testes e Homologação] (https://developercielo.github.io/manual/webservice-1-5#testes-e-homologa%C3%A7%C3%A3o)
+
+Para enviar o MCC do varejista na transação de SDWO, a orientação do mercado é utilizar a tabela da ABECS (Associação Brasileira das Empresas de cartões de crédito e Serviços) que realiza o de-para de CNAEs para os MCCS de toda a indústria. Essa tabela é atualizada constantemente e está disponível online no site da Abecs no seguinte link: [ABECS] (https://www.abecs.org.br/consulta-mcc-individual)
+
 **Importante:** A marcação de SDWO é apenas aceita para as seguintes modalidades e bandeiras: Visa/Elo- crédito e débito; Mastercard - apenas crédito. Aceita cartões estrangeiros.
 
 #### Requisição
