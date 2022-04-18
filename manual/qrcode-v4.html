@@ -510,13 +510,13 @@ O corpo da requisição é composto por dados provenientes do aplicativo e do QR
       <td><code class="language-plaintext highlighter-rouge">payee_name</code></td>
       <td>Nome do pagador (usuário logado na wallet)</td>
       <td>String</td>
-      <td>Sim</td>
+      <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">authorization_token</code></td>
       <td>Token de autorização do usuário gerada pelo emissor (suporte ao pagamento no débito) * para uso futuro</td>
       <td>String</td>
-      <td>Sim</td>
+      <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">qrcode</code></td>
@@ -606,10 +606,10 @@ curl --location --request POST 'https://api2.cielo.com.br/sandbox/padraoq/v1/pay
   <table>
     <thead>
       <tr>
-        <th>Error</th>
+        <th>HTTP STATUS CODE</th>
         <th>Code</th>
-        <th>Error</th>
         <th>Descrição</th>
+        <th> </th>
       </tr>
     </thead>
     <tbody>
@@ -628,13 +628,13 @@ curl --location --request POST 'https://api2.cielo.com.br/sandbox/padraoq/v1/pay
       <tr>
         <td>422</td>
         <td>003</td>
-        <td>QRCode espirado</td>
+        <td>QRCode expirado</td>
         <td>Erro de negócio referente a expiração do tempo de validade do QRCode</td>
       </tr>
       <tr>
         <td>422</td>
         <td>004</td>
-        <td>Dados de cartão invalido</td>
+        <td>Dados de cartão inválido</td>
         <td>Erro de negócio referente a problemas nos dados do cartão informado</td>
       </tr>
       <tr>
@@ -654,6 +654,42 @@ curl --location --request POST 'https://api2.cielo.com.br/sandbox/padraoq/v1/pay
         <td>007</td>
         <td>Erro genérico</td>
         <td>Outros erros de negócio</td>
+      </tr>
+      <tr>
+        <td>422</td>
+        <td>412. 155</td>
+        <td>O documento do cliente não foi reconhecido. Ele  dever ser um CPF ou CNPJ válido</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td>400</td>
+        <td>412.101</td>
+        <td>O campo ‘key_id’ é obrigatório</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td>400</td>
+        <td>412. 102</td>
+        <td>O campo ‘card_data’ é obrigatório</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td>400</td>
+        <td>412. 104</td>
+        <td>O campo ‘qr_code’ é obrigatório</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td>400</td>
+        <td>412. 156</td>
+        <td>O CPF enviado não é válido</td>
+        <td> </td>
+      </tr>
+      <tr>
+        <td>400</td>
+        <td>412. 157</td>
+        <td>O CNPJ enviado não é válido</td>
+        <td> </td>
       </tr>
     </tbody>
   </table>
@@ -796,7 +832,211 @@ curl --location --request POST 'https://api2.cielo.com.br/sandbox/padraoq/v1/pay
         <td> </td>
         <td> </td>
         <td> </td>
-        <td>O valor informado para o NSU é   divergente do enviado na solicitação do  pagamento.</td>
+        <td>O valor informado para o NSU é divergente do enviado na solicitação do  pagamento.</td>
+      </tr>
+      <tr>
+        <td>422</td>
+        <td>422.003</td>
+        <td>QRCode expirado</td>
+        <td>Ocorre quando a data de pagamento  (timestamp) do QR Code excedeu o  tempo limite de expiração.</td>
+      </tr>
+      <tr>
+        <td>422</td>
+        <td>422.004</td>
+        <td>Dados de cartão inválido</td>
+        <td>O campo card_number do cartão  informado não é numérico.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>O campo card_holder_name do cartão  informado está em branco.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>O campo card_expiration_date do cartão  informado está em branco.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>O campo card_cvv do cartão informado  contém mais de 4 caracteres.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>O campo card_expiration_date do cartão  informado contém mês/ano menor que  o atual.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Ao realizar uma integração externa para  tokenizar o cartão houve um problema.</td>
+      </tr>
+      <tr>
+        <td>422</td>
+        <td>422.006</td>
+        <td>Erro no autorizador ou  emissor (código de   retorno)</td>
+        <td>Ao realizar uma integração externa para  efetuar o pagamento, ele não foi  efetuado com sucesso.  Obs.: A informação entre parênteses é o  código retornado pelo sistema externo,  identificando o problema.</td>
+      </tr>
+      <tr>
+        <td>422</td>
+        <td>422.007</td>
+        <td>Erro genérico  (0xd4596b31)</td>
+        <td>O campo wallet enviado no header da  requisição não foi encontrado no banco  de dados.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td>Erro genérico   (0x868cb5bb)</td>
+        <td>As chaves de criptografia não foram  encontradas no banco de dados.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td>Erro genérico   (0x14382170)</td>
+        <td>Não foi possível decodificar a chave  pública.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Não foi possível decodificar os dados do  cartão.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td>Erro genérico   (0x7f4659a6)</td>
+        <td>Não foi possível descriptografar os dados  do cartão, pois a chave pública ou  privada é inválida.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td>Erro genérico   (0x342b3019)</td>
+        <td>Não foi possível descriptografar os dados  do cartão.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td>Erro genérico   (0xf1fe2e5a)</td>
+        <td>A aplicação não pôde converter o JSON  informado com os dados do cartão.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td>Erro genérico   (0x2b31d726)</td>
+        <td>O número do cartão informado   corresponde ao BIN da Caixa, porém a  carteira enviada no header da requisição  não é Caixa.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td>Erro genérico   (0xd8dcc723)</td>
+        <td>A aplicação não pôde mapear o Tipo de  Tecnologia informado.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td>Erro genérico   (0x3a1a3fb7)</td>
+        <td>A aplicação não pôde converter o JSON  com os dados do cartão tokenizado.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td>Erro genérico   (0x2172d473)</td>
+        <td>Ao realizar uma integração externa para  efetuar o pagamento houve um   problema.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td>Erro genérico   (0x707a0b47)</td>
+        <td>A aplicação não pôde converter o CAVV  (cipheredCryptogram) para o formato  solicitado na integração externa.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td>Erro genérico   (0xddd30422)</td>
+        <td>A carteira digital da requisição é   diferente da que negou o pagamento.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td>Erro genérico  (0xljg30422)</td>
+        <td>Já existe um pagamento sendo   processado.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td>Erro genérico   (2eae5a3583)</td>
+        <td>Ao realizar uma integração externa para  efetuar o pagamento foi retornado um  erro.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td>Erro genérico   (0x27d48cd4)</td>
+        <td>Ao realizar uma integração externa para  efetuar o pagamento foi retornado um  erro.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td>Erro genérico   (0x3c10fed2)</td>
+        <td>Ao realizar uma integração externa para  efetuar o pagamento foi retornado um  erro.</td>
+      </tr>
+      <tr>
+        <td>500</td>
+        <td>422.007</td>
+        <td>Erro genérico   (0x2429cb80)</td>
+        <td>O Tipo de Tecnologia informado pela  aplicação não foi encontrado no banco  de dados.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td>Erro genérico   (0x69ad89d4)</td>
+        <td>O Tipo de Transação informado pela  aplicação não foi encontrado no banco  de dados.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td>Erro genérico   (0x6f566831)</td>
+        <td>O status do pagamento informado pela  aplicação não foi encontrado no banco  de dados.</td>
+      </tr>
+      <tr>
+        <td>500</td>
+        <td>500.050</td>
+        <td>Erro interno de sistema</td>
+        <td>Não foi possível descriptografar a chave  pública.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Data/Hora de expiração da chave pública  é menor que a atual.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Não foi possível codificar a chave  privada.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>A aplicação não pôde fazer o parse dos  dados do QRCode.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>O valor informado no Point of Initiation  Method (posição 01 do QRCode) não  existe na aplicação.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>O Tipo de Transação informado pela  aplicação não foi mapeado.</td>
       </tr>
     </tbody>
   </table>
