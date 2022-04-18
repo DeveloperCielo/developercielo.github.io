@@ -5462,9 +5462,13 @@ Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os có
 
 ## Renova Fácil
 
-O uso desta funcionalidade permite a substituição automática de um cartão de crédito vencido. Dessa forma, quando uma transação com marcação de recorrente for submetida para a API e a Cielo identificar que o cartão utilizado foi substituído, sua autorização será negada e serão retornados os dados do novo cartão conforme exemplo.
+O uso desta funcionalidade permite a substituição automática de um cartão de crédito ou débito vencido. Dessa forma, quando uma transação com marcação de recorrente for submetida para a API e a Cielo identificar que o cartão utilizado foi substituído, sua autorização será negada e serão retornados os dados do novo cartão conforme exemplo.
 
-<aside class="notice"><strong>Atenção:</strong> É necessário solicitar a habilitação desta funcionalidade no cadastro. O Renova Fácil está disponível apenas para cartões de crédito.</aside>
+<aside class="notice"><strong>Atenção:</strong> É necessário solicitar a habilitação desta funcionalidade no cadastro. O Renova Fácil está disponível apenas para cartões de crédito e débito.</aside>
+
+Não é necessário enviar nenhuma informação extra na requisição de autorização, porém a resposta terá o nó `NewCard` tanto para transação de crédito quanto para transação de débito.
+
+Veja a seguir o exemplo de requisição e resposta de uma transação de crédito com Renova Fácil.
 
 ### Requisição
 
