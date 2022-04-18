@@ -659,6 +659,149 @@ curl --location --request POST 'https://api2.cielo.com.br/sandbox/padraoq/v1/pay
   </table>
 </blockquote>
 
+<p><strong>Detalhamento dos códigos de erros do Payment</strong></p>
+
+<blockquote>
+  <table>
+    <thead>
+      <tr>
+        <th>HTTP STATUS  CODE</th>
+        <th>CODE</th>
+        <th>DESCRIPTION</th>
+        <th>CAUSE(S)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>400</td>
+        <td>412.101</td>
+        <td>O campo ‘key_id’ é   obrigatório</td>
+        <td>O campo key_id enviado no body da  requisição está em branco.</td>
+      </tr>
+      <tr>
+        <td>400</td>
+        <td>412.102</td>
+        <td>O campo ‘card_data’ é  obrigatório</td>
+        <td>O campo card_data enviado no body da  requisição está em branco.</td>
+      </tr>
+      <tr>
+        <td>400</td>
+        <td>412.104</td>
+        <td>O campo ‘qr_code’ é  obrigatório</td>
+        <td>O campo qr_code enviado no body da  requisição está em branco.</td>
+      </tr>
+      <tr>
+        <td>400</td>
+        <td>412.156</td>
+        <td>O CPF enviado não é  válido</td>
+        <td>O campo payee_document enviado no  body da requisição não é um CPF válido.</td>
+      </tr>
+      <tr>
+        <td>400</td>
+        <td>412.157</td>
+        <td>O CNPJ enviado não é  válido</td>
+        <td>O campo payee_document enviado no  body da requisição não é um CNPJ válido.</td>
+      </tr>
+      <tr>
+        <td>400</td>
+        <td>422.002</td>
+        <td>QRCode inválido</td>
+        <td>O QRCode informado contém campos  em que o tamanho da posição está maior  que a estabelecida pelo layout.</td>
+      </tr>
+      <tr>
+        <td>422</td>
+        <td>412.155</td>
+        <td>O documento do cliente  não foi reconhecido. Ele  dever ser um CPF ou  CNPJ válido</td>
+        <td>O campo payee_document enviado no  body da requisição não é um CPF ou  CNPJ.</td>
+      </tr>
+      <tr>
+        <td>422</td>
+        <td>422.001</td>
+        <td>O produto não foi   encontrado</td>
+        <td>A fonte de pagamento informada pela  aplicação não foi mapeada.</td>
+      </tr>
+      <tr>
+        <td>422</td>
+        <td>422.002</td>
+        <td>QRCode inválido</td>
+        <td>A aplicação não pôde fazer o parse dos  dados do QRCode.</td>
+      </tr>
+      <tr>
+        <td>422</td>
+        <td>422.002</td>
+        <td>QRCode inválido</td>
+        <td>A aplicação não pôde fazer o parse dos  dados do QRCode.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>O QRCode informado contém campos  em que a posição não existe no layout.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>Não foi encontrado o registro de geração  do QRCode informado no banco de  dados.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>O valor informado para o “Identificador  do Pagamento” (reference label) é  divergente do enviado na solicitação do  pagamento.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>O valor informado para o “Valor da  Transação” (transaction amount) é  divergente do enviado na solicitação do  pagamento.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>O valor informado para o “Número do  Terminal Lógico” (id terminal) é   divergente do enviado na solicitação do  pagamento.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>O valor informado para a “Data da  Transação” (transaction date) é   divergente do enviado na solicitação do  pagamento.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>O valor informado para o “Número do  EC” (id merchant) é divergente do  enviado na solicitação do pagamento.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>O valor informado para o “Nome do EC”  (merchant name) é divergente do  enviado na solicitação do pagamento.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>O valor informado para o “Código da  Categoria do EC” (merchant category  code) é divergente do enviado na  solicitação do pagamento.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>O valor informado para o “Cidade do EC”  (merchant city) é divergente do enviado  na solicitação do pagamento.</td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td> </td>
+        <td> </td>
+        <td>O valor informado para o NSU é   divergente do enviado na solicitação do  pagamento.</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
 <h1 id="api-para-realizar-parse-do-qr-code-uso-opcional">API para realizar parse do QR Code (uso opcional)</h1>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxogramaparsedQRCode.png" alt="Fluxo Parsed QR Code" /></p>
