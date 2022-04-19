@@ -1497,6 +1497,145 @@ Checkout Cielo allows the merchant to modify 3 recurrence data:
 
 The update is done exclusively via Backoffice Cielo.
 
+# ABECS return codes
+
+The Brazilian Association of Credit Card and Services Companies (ABECS) establishes as of July 15, 2020 the standardization of the return code of refused sales authorizations for both the physical payment and e-commerce solutions of the Brazilian market .
+
+This normative measure seeks to bring benefits to the entire payments market, providing greater transparency in understanding the reason for refusal of transactions, in addition to enabling greater assertiveness in the adoption of sales retry strategies.
+
+Cielo informs its customers that it is prepared to process transactions following this new market standard, as follows the table of codes standardized by ABECS.
+
+<aside class="notice">The AMEX brand codes have undergone a to/from in order to maintain two digits. We reinforce that this measure does not change the reasons for return.</aside>
+
+|Message| Code Type | ELO | VISA | MASTERCARD/HIPER | AMEX | AMEX - from/to Cielo | Message POS/Ecommerce |
+|---|---|---|---|---|---|---|---|
+| GENERIC | REVERSIBLE | 05 | 05 | 05 | 100 | FA | CONTACT YOUR CARD CENTER |   
+| INSUFFICIENT BALANCE/LIMIT | REVERSIBLE | 51 | 51 | 51 | 116 | A5 | NOT ALLOWED |
+| INVALID PASSWORD | REVERSIBLE | 55 | 55 ou 86 | 55 | 117 | A6 | INVALID PASSWORD |
+| TRANSACTION NOT ALLOWED FOR THE CARD | REVERSIBLE | 57 | 57 | 57 | 200 | FD | TRANSACTION NOT ALLOWED FOR CARD|
+| CARD NUMBER DOES NOT BELONG TO THE ISSUER \| INVALID CARD NUMBER | IRREVERSIBLE | 14 ou 56 | 06 | 14 ou 01 | 122 | 08 | CHECK THE CARD DATA |
+| SECURITY BREACH | IRREVERSIBLE | 63 | 06 | 14 | 122 | 08 | CHECK THE CARD DATA |
+| SUSPECTED FRAUD | REVERSIBLE | 59 | 59 | 63 | 100 | FA | CONTACT YOUR CARD CENTER |
+| INVALID MERCHANT | IRREVERSIBLE | 58 | SEM CÓDIGO CORRESPONDENTE | 03 | 109 | DA |  TRANSACTION NOT ALLOWED - DO NOT TRY AGAIN |
+| INVALID MERCHANT | REVERSIBLE | WITHOUT CORRESPONDING CODE | 03 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | TRANSACTION NOT ALLOWED |
+| REDO TRANSACTION (ISSUER REQUESTS RETENTATIVE) | REVERSIBLE | 4 | WITHOUT CORRESPONDING CODE | SE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | REDO TRANSACTION |
+| CONSULT ACCREDITATOR | REVERSIBLE | 6 | WITHOUT CORRESPONDING CODE | SE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | MERCHANT, CONTACT THE PURCHASER |
+| PROBLEM IN THE PURCHASER | IRREVERSIBLE | 19 | 19 | 30 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | CARD ERROR – DO NOT TRY AGAIN |
+| CARD ERROR | IRREVERSIBLE | 12 | 06 | WITHOUT CORRESPONDING CODE | 115 | A2 | CHECK THE CARD DATA |
+| FORMAT ERROR (MESSAGE) | IRREVERSIBLE | 30 | 12 | 30 | 181 | A3 | CARD ERROR - DO NOT TRY AGAIN |
+| INVALID TRANSACTION VALUE | IRREVERSIBLE | 13 | 13 | 13 | 110 | JB | TRANSACTION VALUE NOT ALLOWED - DO NOT TRY AGAIN |
+| INVALID INSTALMENTS VALUE | IRREVERSIBLE | 23 | WITHOUT CORRESPONDING CODE | 12 | 115 | A2 | INVALID INSTALMENTS - DO NOT TRY AGAIN |
+| PASSWORD ATTEMPTS EXCEEDED \| PURCHASES | REVERSIBLE | 38 | 75 | 75 | 106 | A4 | PASSWORD ATTEMPTS EXCEEDED. CONTACT YOUR CARD CENTER |
+| LOST CARD | IRREVERSIBLE | 41 | 41 | 41 | 200 | FD | TRANSACTION NOT ALLOWED - DO NOT TRY AGAIN |
+| STOLEN CARD | IRREVERSIBLE | 43 | 43 | 43 | 200 | FD | TRANSACTION NOT ALLOWED - DO NOT TRY AGAIN |
+| CARD EXPIRED / DT INVALID EXPIRATION | IRREVERSIBLE | 54 | 06 | 54 | 101 | BV | CHECK THE CARD DATA |
+| TRANSACTION NOT ALLOWED \| TERMINAL CAPACITY| IRREVERSIBLE | 57 | 58 | 58 | 116 | A5 | TRANSACTION NOT ALLOWED - DO NOT TRY AGAIN |
+| EXCESS VALUE \| WITHDRAW | REVERSIBLE | 61 | 61 ou N4 | 61 |  WITHOUT CORRESPONDING CODE |  WITHOUT CORRESPONDING CODE | EXCESS VALUE. CONTACT YOUR CARD CENTER |
+| DOMESTIC CARD - INTERNATIONAL TRANSACTION | IRREVERSIBLE | 62 | SEM CÓDIGO CORRESPONDENTE | 62 |  WITHOUT CORRESPONDING CODE |  WITHOUT CORRESPONDING CODE | CARD DOES NOT ALLOW INTERNATIONAL TRANSACTION|
+| DOMESTIC CARD - INTERNATIONAL TRANSACTION  | REVERSIBLE | WITHOUT CORRESPONDING CODE | 62 |  WITHOUT CORRESPONDING CODE |  WITHOUT CORRESPONDING CODE |  WITHOUT CORRESPONDING CODE | CARD DOES NOT ALLOW INTERNATIONAL TRANSACTION|
+| MINIMUM VALUE OF INVALID TRANSACTION | IRREVERSIBLE | 64 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | TRANSACTION VALUE NOT ALLOWED - DO NOT TRY AGAIN |
+| AMOUNT OF WITHDRAWALS EXCEEDED | REVERSIBLE   | 65 | 65 | 65 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | AMOUNT OF WITHDRAWALS EXCEEDED. CONTACT YOUR CARD CENTER |
+| PASSWORD EXPIRED / PASSWORD ENCRYPTION ERROR | IRREVERSIBLE | 74 | 74 ou 81 | 88 | 180 | A7 | INVALID PASSWORD - DO NOT TRY AGAIN |
+| PASSWORD ATTEMPTS EXCEEDED \| WITHDRAW | REVERSIBLE | 75 | 75 | 75 | 106 | A4 | PASSWORD ATTEMPTS EXCEEDED. CONTACT YOUR CARD CENTRAL |
+| INVALID OR NON-EXISTENT DESTINATION ACCOUNT | IRREVERSIBLE | 76 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | INVALID DESTINATION ACCOUNT - DO NOT TRY AGAIN |
+| INVALID OR NON-EXISTENT ORIGIN ACCOUNT | IRREVERSIBLE | 77 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | INVALID ORIGIN ACCOUNT - DO NOT TRY AGAIN |
+| NEW CARD WITHOUT UNLOCKING | REVERSIBLE | 78 | 78 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | UNLOCK THE CARD |
+| INVALID CARD (cryptogram) | IRREVERSIBLE | 82 | 82 | 88 | 180 | A7 | CARD ERROR - DO NOT TRY AGAIN |
+| ISSUER OUT OF AIR | REVERSIBLE | 91 | 91 | 91 | 912 | A1 | COMMUNICATION FAILED - TRY LATER |
+| SYSTEM FAILURE | REVERSIBLE | 96 | 96 | 96 | 911 | AE | COMMUNICATION FAILED - TRY LATER |
+| DIFFERENCE - PRE AUTHORIZATION | IRREVERSIBLE | 99 | N8 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | DIFFERENT VALUE OF PRE-AUTHORIZATION - DO NOT TRY AGAIN |
+| INCORRECT FUNCTION (DEBIT) | IRREVERSIBLE | AB | 52 ou 53 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | USE CREDIT FUNCTION |
+| INCORRECT FUNCTION (CREDIT) | IRREVERSIBLE | AC | 39 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | USE DEBIT FUNCTION |
+| PASSWORD CHANGE / UNLOCK | IRREVERSIBLE | P5 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | INVALID PASSWORD - DO NOT TRY AGAIN |
+| NEW PASSWORD NOT ACCEPTED | REVERSIBLE | P6 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | INVALID PASSWORD USE NEW PASSWORD |
+| COLLECT CARD (NO FRAUD) | IRREVERSIBLE | WITHOUT CORRESPONDING CODE | 04 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | CONTACT YOUR CARD CENTER - DO NOT TRY AGAIN |
+| ERROR DUE TO DYNAMIC KEY CHANGE | IRREVERSIBLE | WITHOUT CORRESPONDING CODE | 06 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | CARD ERROR - DO NOT TRY AGAIN |
+| CONFIRMED FRAUD | IRREVERSIBLE | 57 | 07 | 04 | 200 | FD | TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO - NÃO TENTE NOVAMENTE |
+| ISSUER NOT LOCATED - INCORRECT BIN | IRREVERSIBLE | WITHOUT CORRESPONDING CODE | 15 | 15 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | INVALID CARD DATA - DO NOT TRY AGAIN |
+| (buyer’s negative) FAILURE TO COMPLY WITH THE LAWS OF ANTE MONEY LAUNDERING | IRREVERSIBLE | WITHOUT CORRESPONDING CODE | 64 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | CONTACT YOUR CARD CENTER - DO NOT TRY AGAIN |
+| INVALID REVERSAL | IRREVERSIBLE | WITHOUT CORRESPONDING CODE | 76 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | CONTACT YOUR CARD CENTER - DO NOT TRY AGAIN |
+| NOT LOCATED BY ROUTER | IRREVERSIBLE | WITHOUT CORRESPONDING CODE | 92 | 92 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | CONTACT YOUR CARD CENTER - DO NOT TRY AGAIN |
+| TRANSACTION DENIED FOR INFRINGEMENT OF LAW | IRREVERSIBLE | 57 | WITHOUT CORRESPONDING CODE | 57 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | TRANSACTION NOT ALLOWED FOR CARD - DO NOT TRY AGAIN |
+| TRANSACTION DENIED FOR INFRINGEMENT OF LAW | REVERSIBLE | WITHOUT CORRESPONDING CODE | 93 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | TRANSACTION NOT ALLOWED FOR CARD |
+| VALUE OF TRACING DATA DUPLICATE | IRREVERSIBLE | WITHOUT CORRESPONDING CODE | 94 | 94 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | CONTACT YOUR CARD CENTER - DO NOT TRY AGAIN |
+| SURCHARGE NOT SUPPORTED | REVERSIBLE | WITHOUT CORRESPONDING CODE | B1 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | CONTACT YOUR CARD CENTER |
+| SURCHARGE NOT SUPPORTED BY DEBIT NETWORK | REVERSIBLE | WITHOUT CORRESPONDING CODE | B2 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | CONTACT YOUR CARD CENTER |
+| FORÇAR STIP | REVERSIBLE | WITHOUT CORRESPONDING CODE | N0 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | CONTACT YOUR CARD CENTER |
+| WITHDRAWAL NOT AVAILABLE | IRREVERSIBLE | WITHOUT CORRESPONDING CODE | N3 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHDRAWAL NOT AVAILABLE - DO NOT TRY AGAIN |
+| RECURRING PAYMENT SUSPENSION FOR A SERVICE | IRREVERSIBLE | WITHOUT CORRESPONDING CODE | R0 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | RECURRING PAYMENT SUSPENDED FOR SERVICE - DO NOT TRY AGAIN |
+| RECURRENT PAYMENT SUSPENSION FOR ALL SERVICE | IRREVERSIBLE | WITHOUT CORRESPONDING CODE | R1 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | RECURRING PAYMENT SUSPENDED FOR SERVICE - DO NOT TRY AGAIN |
+| TRANSACTION NOT ELIGIBLE FOR VISA PIN | IRREVERSIBLE | WITHOUT CORRESPONDING CODE | R2 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | TRANSACTION NOT ALLOWED FOR CARD - DO NOT TRY AGAIN |
+| SUSPENSION OF ALL AUTHORIZATION ORDERS | IRREVERSIBLE | WITHOUT CORRESPONDING CODE | R3 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | RECURRING PAYMENT SUSPENDED FOR SERVICE - DO NOT TRY AGAIN |
+| CANNOT FIND THE RECORD IN THE FILE | IRREVERSIBLE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | 25 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | CONTACT YOUR CARD CENTER - DO NOT TRY AGAIN |
+| FILE NOT AVAILABLE FOR UPDATE| IRREVERSIBLE | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | 28 | WITHOUT CORRESPONDING CODE | WITHOUT CORRESPONDING CODE | CONTACT YOUR CARD CENTER - DO NOT TRY AGAIN |
+
+## Other return codes 
+
+| Response Code   | Definition                                      | Meaning                                                                     | Action                                                            | Allows Retry        |
+|-----------------|-------------------------------------------------|-----------------------------------------------------------------------------|-------------------------------------------------------------------|---------------------|
+| 00              | Transaction authorized successfully.            | Transaction authorized successfully.                                        | Transação autorizada com sucesso.                                 | No                  |
+| 02              | Unauthorized transaction. Referred transaction. | Unauthorized transaction. Referred (suspected fraud) by the issuing bank.   |Unauthorized transaction. Contact your issuing bank.               | No                  |
+|09|Transaction canceled partially successfully.                    | Transaction canceled partially successfully.                                | Transaction canceled partially successfully.                      | No                  |
+|11|Successfully authorized transaction for card issued abroad|Successfully authorized transaction.|Successfully authorized transaction.|No|
+|21|Cancellation not made. Transaction not found.|Unable to process cancellation. If the error persists, contact Cielo.|Unable to process cancellation. Try again later. If the error persists, contact the virtual store.|No|
+|22|Invalid installment. Number of invalid installments.|Unable to process transaction. Number of invalid installments. If the error persists, contact Cielo.|The transaction could not be processed. Invalid value. Redo the transaction confirming the data entered. If the error persists, contact the virtual store.|No|
+|24|Invalid amount of installments. | Unable to process the transaction. Invalid amount of installments. If the error persists, contact Cielo.|The transaction could not be processed. Invalid amount of installments. Redo the transaction confirming the data entered. If the error persists, contact the virtual store.|No|
+|60|Unauthorized transaction.|Unauthorized transaction. Try again. If the error persists, the holder must contact the issuing bank.|Unable to process transaction. Try again later. If the error persists, contact your issuing bank.|Only 4 times in 16 days.|
+|67|Unauthorized transaction. Card blocked for purchases today.|Unauthorized transaction. Card blocked for purchases today. Blocking may have occurred due to too many invalid attempts. The card will automatically unlock at midnight.|Transaction not authorized. Card temporarily blocked. Contact your issuing bank.|From the next day, only 4 times in 16 days.|
+|70|Unauthorized transaction. Limit exceeded/no balance.|Unauthorized transaction. Limit exceeded/no balance.|Unauthorized transaction. Contact your issuing bank.|From the following day, only 4 times in 16 days.|
+|72|Cancellation not made. Insufficient balance available for cancellation.|Cancellation not made. Insufficient balance available for cancellation. If the error persists, contact Cielo.|Cancellation not made. Try again later. If the error persists, contact the online store.|No|
+| 79 | Transaction not allowed / Mastercard | Unauthorized transaction. Unable to process transaction due to error related to cardholder. Ask the bearer to contact the issuing bank. | Contact your bank | No |
+|80|Unauthorized transaction. Divergence on transaction/payment date.|Unauthorized transaction. Invalid transaction date or first payment date.|Unauthorized transaction. Redo the transaction confirming data.|No|
+| 82 | Transaction not allowed / Mastercard | Transaction not authorized due to issuer rules. Instruct the cardholder to contact the issuing bank. | Contact your bank | No|
+| 83 | Transaction not allowed / Mastercard | Unauthorized transaction. Suspicion of fraud by the issuing bank.| Contact your bank | No |
+|85|Transaction not allowed. Operation failed.|Transaction not allowed. There was an error in the processing. Ask the cardholder to re-enter the card details, if the error persists there may be a problem in the merchant's terminal, in which case the merchant must contact Cielo.|Transaction not allowed. Enter the card details again. If the error persists, contact the online store.|No|
+|89|Transaction error.|Unauthorized transaction. Transaction error. The holder must try again and if the error persists, contact the issuing bank.|Transaction not authorized. Transaction error. Please try again and if the error persists, contact your issuing bank.|Only 4 times in 16 days.|
+|90|Transaction not allowed. Operation failed.|Transaction not allowed. There was an error in the processing. Ask the cardholder to re-enter the card details, if the error persists there may be a problem in the merchant's terminal, in which case the merchant must contact Cielo.|Transaction not allowed. Enter the card details again. If the error persists, contact the online store.|No|
+|97|Value not allowed for this transaction.|Transaction not authorized. Amount not allowed for this transaction.|Unauthorized transaction. Amount not allowed for this transaction.|No|
+|98|System/communication unavailable.|Transaction not authorized. Sender system without communication. If general, check SITEF, GATEWAY and/or Connectivity.|Your Transaction cannot be processed, Please try again later. If the error persists, contact the webshop.|Only 4 times in 16 days.|
+|475|Cancellation Timeout|The application did not respond within the expected time.|Retry after a few seconds. Persisting, contact Support.|No|
+|999|System/communication unavailable.|Transaction not authorized. Sender system without communication. Try later. It may be error in SITEF, please check !|Your Transaction cannot be processed, Please try again later. If the error persists, contact the online store.|From the next day, only 4 times in 16 days.|
+|AA|Time Exceeded|Time exceeded in communicating with the issuing bank. Instruct the holder to try again, if the error persists it will be necessary for the holder to contact his issuing bank. | Timeout in your communication with the issuing bank, try again later. If the error persists, contact your bank.|Only 4 times in 16 days.|
+|AF|Transaction not allowed. Operation failed.|Transaction not allowed. There was an error in the processing. Ask the cardholder to re-enter the card details, if the error persists there may be a problem in the merchant's terminal, in which case the merchant must contact Cielo.|Transaction not allowed. Enter the card details again. If the error persists, contact the online store.|No|
+|AG|Transaction not allowed. Operation failed.|Transaction not allowed. There was an error in the processing. Ask the cardholder to re-enter the card details, if the error persists there may be a problem in the merchant's terminal, in which case the merchant must contact Cielo.|Transaction not allowed. Enter the card details again. If the error persists, contact the online store.|No|
+|AH|Transaction not allowed. Credit card being used with debit. Use credit function.|Transaction not allowed. Credit card being used with debit. Ask the cardholder to select the payment option Credit Card.|Unauthorized transaction. Please try again by selecting the credit card payment option.|No|
+|AI|Unauthorized transaction. Authentication was not performed.|Unauthorized transaction. Authentication has not been performed. The holder has not completed authentication. Ask the carrier to review the data and try again. If the error persists, contact Cielo informing the BIN (6 first digits of the card)|Unauthorized transaction. Authentication was not successful. Please try again and correctly enter the requested data. If the error persists, contact the retailer.|No|
+|AJ|Transaction not allowed. Credit or debit transaction in an operation that only allows Private Label. Please try again by selecting the Private Label option.|Transaction not allowed. Credit or debit transaction in an operation that only allows Private Label. Ask the holder to try again by selecting the Private Label option. If the Private Label option is not available, check with Cielo if your establishment allows this operation.|Transaction not allowed. Credit or debit transaction in an operation that only allows Private Label. Please try again and select the Private Label option. In case of a new error, contact the online store.|No|
+|AV|Unauthorized transaction. Invalid Data|Transaction data validation failed. Instruct the holder to review the data and try again.|Data validation failed. Please review the data entered and try again.|Only 4 times in 16 days.|
+|BD|Transaction not allowed. Operation failed.|Transaction not allowed. There was an error in the processing. Ask the cardholder to re-enter the card details, if the error persists there may be a problem in the merchant's terminal, in which case the merchant must contact Cielo.|Transaction not allowed. Enter the card details again. If the error persists, contact the online store.|No|
+|BL|Unauthorized transaction. Daily limit exceeded.|Unauthorized transaction. Daily limit exceeded. Ask the bearer to contact your issuing bank.|Unauthorized transaction. Daily limit exceeded. Contact your issuing bank.|From the next day, only 4 times in 16 days.|
+|BM|Unauthorized transaction. Invalid Card|Transaction not authorized. Invalid card. It could be card blocking at the issuing bank or incorrect data. Try using Lhum's Algorithm (Mod 10) to prevent unauthorized transactions for this reason.|Unauthorized transaction. Invalid card. Redo the transaction confirming the data entered.|No|
+|BN|Unauthorized transaction. Blocked card or account.|Unauthorized transaction. The card or account of the holder is blocked. Ask the bearer to contact your issuing bank.|Unauthorized transaction. The card or account of the holder is blocked. Please contact your issuing bank.|No|
+|BO|Transaction not allowed. Operation failed.|Transaction not allowed. There was an error in processing. Ask the cardholder to re-enter the card details, if the error persists, contact the issuing bank.|Transaction not allowed. There was an error in processing. Re-enter the card details, if the error persists, contact the issuing bank.|Only 4 times in 16 days.|
+|BP|Unauthorized transaction. Non-existent checking account.|Unauthorized transaction. Unable to process the transaction due to an error related to the card or account of the holder. Ask the bearer to contact the issuing bank.|Unauthorized transaction. Unable to process the transaction due to an error related to the card or account of the holder. Please contact the issuing bank.|No|
+|BP176|Transaction not allowed.|Partner must check if the integration process completed successfully.|Partner must check if the integration process completed successfully.|---|
+|C1|Transaction not allowed. Card cannot process debit transactions.|Change the method of payment or the card used.|Change the method of payment or the card used.|No|
+|C2|Transaction not allowed.|Incorrect data. Please review the data filled in on the payment screen.|Incorrect data. Please review the data filled in on the payment screen.|No|
+|C3|Transaction not allowed.|Invalid period for this transaction type.|Invalid period for this transaction type.|No|
+|CF|Transaction not authorized.C79:J79 Data validation failed.|Transaction not authorized. Data validation failed. Ask the bearer to contact the issuing bank.|Unauthorized transaction. Data validation failed. Please contact the issuing bank.|No|
+|CG|Unauthorized transaction. Data validation failed.|Unauthorized transaction. Data validation failed. Ask the bearer to contact the issuing bank.|Unauthorized transaction. Data validation failed. Please contact the issuing bank.|No|
+|DF|Transaction not allowed. Card failure or invalid card.|Transaction not allowed. Card failure or invalid card. Ask the cardholder to re-enter the card details, if the error persists, contact the bank|Transaction not allowed. Card failure or invalid card. Re-enter card details, if error persists, contact bank|Only 4 times in 16 days.|
+|DM|Unauthorized transaction. Limit exceeded/no balance.|Transaction not authorized. Limit exceeded/no balance.|Transaction not authorized. Contact your issuing bank.|From the next day, only 4 times in 16 days.|
+|DQ|Unauthorized transaction. Data validation failed.|Unauthorized transaction. Data validation failed. Ask the bearer to contact the issuing bank.|Unauthorized transaction. Data validation failed. Please contact the issuing bank.|No|
+|DQ|Unauthorized transaction. Data validation failed.|Unauthorized transaction. Data validation failed. Ask the bearer to contact the issuing bank.|Unauthorized transaction. Data validation failed. Please contact the issuing bank.|No|
+|DS|Transaction not allowed for card|Transaction not authorized. Transaction not allowed for card.|Transaction not authorized. Contact your issuing bank.|Only 4 times in 16 days.|
+|EB|Number of installments greater than Allowed.|Unauthorized transaction. Contact Cielo and check if the registration has released installments.|Unauthorized transaction. Contact Cielo and check if the registration has been released in installments.|Yes|
+|EE|Transaction not allowed. Amount of the installment less than the minimum allowed.|Transaction not allowed. Portion value less than the minimum allowed. Installments less than R$5.00 are not allowed. It is necessary to review the calculation for installments.|Transaction not allowed. The amount of the installment is below the minimum allowed. Contact the virtual store.|No|
+|EK|Transaction not allowed for card|Transaction not authorized. Transaction not allowed for card.|Transaction not authorized. Contact your issuing bank.|Only 4 times in 16 days.|
+|FC|Unauthorized transaction. Call Issuer|Transaction not authorized. Instruct the cardholder to contact the issuing bank.|Unauthorized transaction. Please contact your issuing bank.|No|
+|FE|Unauthorized transaction. Differences in transaction/payment date.|Unauthorized transaction. Invalid transaction date or first payment date.|Unauthorized transaction. Redo the transaction confirming the data.|No|
+|FF|Cancellation OK|Cancel transaction authorized successfully. ATTENTION: This return is for cases of cancellations and not for cases of authorizations. | Cancellation transaction authorized successfully | No |
+|FG|Unauthorized transaction. Call AmEx 08007285090.|Transaction not authorized. Direct the cardholder to contact the AmEx Service Center.|Unauthorized transaction. Contact the AmEx Service Center on 08007285090|No|
+|GA|Wait for Contact|Unauthorized transaction. Referred by Lynx Online preventively.|Unauthorized transaction. Contact the shopkeeper.|No|
+|GD|Transaction not allowed.|Transaction not allowed. Contact Cielo.|Transaction not allowed. Contact Cielo.|---|
+|HJ|Transaction not allowed. Invalid operation code.|Transaction not allowed. Coban operation code invalid.|Transaction not allowed. Invalid Coban operation code. Contact the shopkeeper.|No|
+|IA|Transaction not allowed. Invalid operation indicator.|Transaction not allowed. Coban operation indicator invalid.|Transaction not allowed. Invalid Coban Operation Indicator. Contact the shopkeeper.|No|
+|KA|Transaction not allowed. Data validation failed.|Transaction not allowed. Data validation failed. Ask the carrier to review the data and try again. If the error persists, check the communication between the virtual store and Cielo.|Transaction not allowed. Data validation failed. review the data entered and try again. If the error persists, contact the Virtual Store.|No|
+|KB|Transaction not allowed. Incurring option selected.|Transaction not allowed. Wrong option selected. Ask the carrier to review the data and try again. If the error persists, the communication between the virtual store and Cielo must be checked.|Transaction not allowed. Wrong option selected. Try again. If the error persists, contact the Virtual Store.|No|
+|KE|Unauthorized transaction. Data validation failed.|Unauthorized transaction. Data validation failed. Selected option is not enabled. Check the options available to the holder.|Unauthorized transaction. Data validation failed. Selected option is not enabled. Contact the virtual store.|No|
+|N7|Unauthorized transaction. Invalid security code.|Transaction not authorized. Security code is invalid. Direct the cardholder to correct the data and try again.|Unauthorized transaction. Review the data and enter again.|No|
+|U3|Transaction not allowed. Data validation failed.|Transaction not allowed. Data validation failed. Ask the carrier to review the data and try again. If the error persists, check the communication between the virtual store and Cielo.|Transaction not allowed. Data validation failed. review the data entered and try again. If the error persists, contact the Virtual Store.|No|
+
 # Cielo Support
 
 After reading this manual, if any doubts remain (technical or not), Cielo provides technical support 24 hours a day, 7 days a week in languages (Portuguese and English), in the following contacts:
