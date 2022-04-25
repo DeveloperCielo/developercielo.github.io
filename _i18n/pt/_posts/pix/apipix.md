@@ -1,13 +1,13 @@
 ---
 layout: manual
-title: Manual de Integração PIX
-description: Manual de Integração de Parceiros a APIX na Cielo
+title: Manual de integração 
+description: Integração Técnica via API
 search: true
 translated: true
 categories: manual
 sort_order: 1
 tags:
-  - API PIX
+  - PIX
 ---
 
 # Introdução
