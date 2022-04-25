@@ -1,13 +1,14 @@
 ---
-layout: manual
-title: Manual de integração 
-description: Integração Técnica via API
+layout: tutorial
+title:  API PIX
+description: API PIX Cielo
 search: true
 translated: true
-categories: manual
-sort_order: 1
+toc_footers: true
+categories: tutorial
+sort_order: 7
 tags:
-  - Pix
+  - PIX Cielo
 ---
 
 # Introdução
