@@ -1,11 +1,11 @@
 ---
-layout: tutorial
+layout: manual
 title:  API PIX
 description: API PIX Cielo
 search: true
 translated: true
 toc_footers: true
-categories: tutorial
+categories: manual
 sort_order: 7
 tags:
   - PIX Cielo
