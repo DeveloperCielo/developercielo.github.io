@@ -160,6 +160,92 @@ dados recebidos como resposta da API, apresentará um QR Code Dinâmico em algum
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxopix.png" alt="Fluxo PIX" /></p>
 
+<p>A API Pix é o componente do arranjo que visa possibilitar que o usuário pagador ou recebedor, no contexto P2B64 ou B2B65, possa automatizar a interação com seu prestador de serviços de pagamento (PSP), a fim de realizar ou receber transações no âmbito do arranjo Pix.</p>
+
+<p>Nesse contexto, a presente versão da API Pix busca automatizar a interação do usuário recebedor com seu prestador de serviços de pagamento (PSP), a fim de gerar cobranças e confirmar o recebimento do pagamento dessas cobranças por meio do Pix.</p>
+
+<p>Na <strong>figura acima</strong>, pode-se visualizar possíveis caminhos de integração dos sistemas do usuário recebedor com a API
+Pix do PSP.</p>
+
+<p>O usuário recebedor poderá, via API Pix:</p>
+
+<ul>
+  <li><strong>i.</strong> Gerar cobranças que poderão ser pagas via QR Code pelos seus clientes;</li>
+  <li><strong>ii.</strong> Alterar dados da cobrança;</li>
+  <li><strong>iii.</strong> Verificar a liquidação da cobrança por meio de Pix recebidos;</li>
+  <li><strong>iv.</strong> Realizar a conciliação dos pagamentos de maneira facilitada;</li>
+  <li><strong>v.</strong> Suportar o processo de devolução de valores, que pode ser acionado em função, por exemplo, da devolução de uma compra.</li>
+</ul>
+
+<p>A seguir são detalhados os aspectos gerais que dizem respeito à API Pix.</p>
+
+<h1 id="conceitos-gerais">Conceitos gerais</h1>
+
+<p>Para os fins deste documento, as expressões e os termos relacionados são assim definidos:</p>
+
+<ul>
+  <li><strong>I - client_ID:</strong> componente de acesso a API Pix que identifica um elemento de software cliente do usuário. Para acessar a API, é necessário utilizar, por exemplo, o Client_ID e um segredo, ambos fornecidos pelo PSP do usuário no processo de cadastramento. Pode existir mais de um elemento software cliente na infraestrutura do usuário e, portanto, para um usuário pode existir mais de um client_ID.</li>
+  <li><strong>II - Escopos:</strong> definem as autorizações associadas a cada um dos serviços da API. Por sua vez, os Client_IDs possuem acesso a um ou mais escopos, o que definirá quais serviços podem ser acessados por cada Client_ID;</li>
+  <li><strong>III – Payload JSON:</strong> conteúdo recuperado a partir da chamada à URL, lida a partir do QR Code dinâmico e que representa uma cobrança;</li>
+  <li><strong>IV - PSP Pagador:</strong> participante do Pix no qual o usuário pagador possui uma conta transacional;</li>
+  <li><strong>V – PSP Recebedor:</strong> participante do Pix no qual o usuário recebedor possui uma conta transacional que será usada para recebimentos de Pix. O PSP Recebedor que quiser disponibilizar a seus clientes uma solução de integração automatizada com o arranjo Pix deve fazê-lo por meio da API Pix, seguindo as especificações de negócio e técnicas definidas pelo Banco Central do Brasil neste documento e nos outros documentos trazidos na seção 2.</li>
+  <li><strong>VI - transactionId (txid):</strong> identificador da transação, na perspectiva do usuário recebedor. Esse número é gerado pelo usuário recebedor e repassado ao PSP recebedor na chamada da API Pix, no momento da criação da cobrança, a fim de identificar unicamente aquela cobrança66. Assim, o txid é utilizado pelo usuário recebedor, em seus processos de conciliação de pagamentos recebidos por meio de Pix. No caso das cobranças criadas por meio da API Pix, o PSP recebedor deve garantir que o txid seja único para um dado usuário recebedor (CPF/CNPJ).</li>
+  <li><strong>VII - usuário pagador:</strong> aquele que efetua o pagamento de uma cobrança por meio do Pix.</li>
+  <li><strong>VIII - usuário recebedor:</strong> pessoa natural ou jurídica que deseja receber cobranças – para pagamentos imediatos ou com vencimento – por meio do Pix e se vale da API Pix para automação dos seus processos de geração dessas cobranças e para conciliação de pagamentos recebidos por meio do Pix.</li>
+  <li><strong>IX – prestador de serviço de saque (pss):</strong> participante do Pix, que se enquadre na modalidade provedor de conta transacional e que seja autorizado a funcionar pelo Banco Central do Brasil, que, em caráter facultativo, venha a prestar serviço de saque, diretamente, ou por meio de agente de saque, mediante estabelecimento de relação contratual para essa finalidade.</li>
+</ul>
+
+<h1 id="funcionalidades-da-api-pix">Funcionalidades da API Pix</h1>
+
+<h2 id="definições-das-entidades">Definições das entidades</h2>
+
+<p>A API Pix está estruturada em torno de algumas entidades de negócio, que agrupam conjuntos de atributos, conforme definido abaixo:</p>
+
+<p><strong>I - Cobrança (/cob):</strong> representa cada uma das cobranças geradas por meio da API Pix, a fim de permitir que o usuário pagador efetue um pagamento identificado para o usuário recebedor. A cobrança é caracterizada por um conjunto de informações que são utilizadas para que o usuário pagador execute um pagamento por meio do Pix, geralmente, em função de acordo comercial entre o usuário pagador e o usuário recebedor, sem se confundir com o pagamento Pix em si. O modelo de cobrança utilizado é para pagamento imediato.</p>
+
+<p>Estados da cobrança:</p>
+
+<ul>
+  <li>a) <strong>ATIVA:</strong> indica que a cobrança foi gerada e pronta para ser paga;</li>
+  <li>b) :<strong>CONCLUÍDA::</strong> indica que a cobrança já foi paga e, por conseguinte, não pode acolher outro pagamento67;</li>
+  <li>c) <strong>REMOVIDO_PELO_USUARIO_RECEBEDOR:</strong> indica que o usuário recebedor solicitou a remoção da cobrança; e</li>
+  <li>d) <strong>REMOVIDO_PELO_PSP:</strong> indica que o PSP Recebedor solicitou a remoção da cobrança.</li>
+  <li><strong>II - Pix (/pix):</strong> representa um pagamento recebido por meio do arranjo de pagamentos Pix.</li>
+</ul>
+
+<p><strong>III - Devolução (devolução):</strong> representa uma solicitação de devolução de um Pix realizado, cujos fundos já se encontrem disponíveis na conta transacional do usuário recebedor.</p>
+
+<p>Estados da devolução:</p>
+
+<ul>
+  <li>a) <strong>EM_PROCESSAMENTO:</strong> indica que a devolução foi solicitada, mas ainda está em processamento no SPI;</li>
+  <li>b) <strong>DEVOLVIDO:</strong> indica que a devolução foi liquidada pelo SPI; e</li>
+  <li>c) <strong>NAO_REALIZADO:</strong> indica que a devolução não pode ser realizada em função de algum erro durante a liquidação (exemplo: saldo insuficiente).</li>
+</ul>
+
+<h2 id="cardinalidade-entre-as-entidades">Cardinalidade entre as entidades</h2>
+
+<ul>
+  <li>I - Uma Cobrança pode estar associada a um ou mais Pix (mesmo txid);</li>
+  <li>II - Um Pix pode estar associado a uma única Cobrança. O Pix, no entanto, pode existir independentemente da existência de uma Cobrança;</li>
+  <li>III - Um Pix pode ter uma ou mais Devoluções associadas a ele. Uma Devolução está sempre associada a um Pix.</li>
+  <li>IV – Uma Cobrança somente pode estar associada a um PayloadLocation e, num determinado momento, o
+PayloadLocation só pode estar associado a uma cobrança.</li>
+</ul>
+
+<h2 id="ciclo-de-vida-do-transactionid-txid">Ciclo de vida do TransactionID (txid)</h2>
+
+<p>Há duas situações de uso para o campo TransactionId (txid), que envolvem regras distintas para seu preenchimento, conforme tratado a seguir.</p>
+
+<h3 id="txid-no-contexto-das-cobranças">txid no contexto das Cobranças:</h3>
+
+<p>As cobranças para pagamentos imediatos ou com vencimento criadas por meio da API Pix são identificadas unicamente por meio de um txid. O txid pode ser enviado pelo usuário recebedor quando da geração da cobrança, e não poderá se repetir entre cobranças distintas, a fim de garantir a correta conciliação dos pagamentos.
+Alternativamente, no caso de cobranças para pagamento imediato, é possível que o usuário recebedor delegue a geração do txid para o seu PSP.</p>
+
+<p>Uma vez que seja solicitada a criação de uma cobrança por meio da API Pix, o PSP Recebedor deve assegurar que não exista repetição do txid para o mesmo usuário recebedor, seja ele enviado pelo usuário ou gerado pelo próprio PSP. Assim, o conjunto CNPJ ou CPF e txid deve ser único para um dado PSP.</p>
+
+<p>O txid deve ter, no mínimo, 26 caracteres e, no máximo, 35 caracteres de tamanho. Os caracteres aceitos neste contexto são: A-Z, a-z, 0-9.</p>
+
 </div>
 
 
