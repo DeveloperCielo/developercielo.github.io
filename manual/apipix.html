@@ -246,6 +246,76 @@ Alternativamente, no caso de cobranças para pagamento imediato, é possível qu
 
 <p>O txid deve ter, no mínimo, 26 caracteres e, no máximo, 35 caracteres de tamanho. Os caracteres aceitos neste contexto são: A-Z, a-z, 0-9.</p>
 
+<h2 id="grupos-de-funcionalidades">Grupos de funcionalidades</h2>
+
+<h3 id="funcionalidades-e-respectivos-endpoints">Funcionalidades e respectivos endpoints</h3>
+
+<p>As funcionalidades da API Pix, na versão atual, estão definidas em seis grupos:</p>
+
+<p>I – Gerenciamento de Cobranças com pagamento imediato (Cob), que trata do ciclo de vida da entidade Cobrança:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Criação e atualização de cobrança</td>
+      <td>PUT/cob/{txid}</td>
+    </tr>
+    <tr>
+      <td>Criação de uma cobrança sem passar txid</td>
+      <td>POST/cob</td>
+    </tr>
+    <tr>
+      <td>Consulta de uma cobrança</td>
+      <td>GET/cob/{txid}</td>
+    </tr>
+    <tr>
+      <td>Consulta de lista de cobranças</td>
+      <td>GET/cob</td>
+    </tr>
+    <tr>
+      <td>Alteração de uma cobrança</td>
+      <td>PATCH/cob/{txid}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>II – Gerenciamento de Pix Recebidos (Pix), que trata do ciclo de vida das entidades Pix e Devolução:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Solicitação de devolução</td>
+      <td>PUT/pix/{e2eid}/devolucao/{id}</td>
+    </tr>
+    <tr>
+      <td>COnsulta de devolução</td>
+      <td>GET/pix/{e2eid}/devolucao/{id}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="casos-de-uso">Casos de Uso</h1>
+
+<p>O objetivo dessa seção é trazer exemplos de como a API Pix pode ser utilizada na automação das interações entre usuários recebedores e seus respectivos PSPs em transações associadas ao Pix. Esses casos de uso NÃO pretendem esgotar as formas de utilização ou as funções disponibilizadas pela API Pix.</p>
+
+<p><strong>5.1.1 Pagamento imediato (no ato da compra) com QR Code Dinâmico</strong></p>
+
+<p><strong>Aplicação:</strong> Comerciantes com volumes de vendas médios ou altos. Comércios online.</p>
+
+<p><strong>1.</strong> O usuário pagador, ao realizar a compra, informa que deseja pagar com Pix;
+<strong>2.</strong> O software de automação utilizado pelo usuário recebedor acessa a API Pix para criação de uma cobrança e, com os dados recebidos como resposta, gera um QR Code Dinâmico, que é apresentado em um dispositivo de exibição qualquer:</p>
+<ul>
+  <li>a. em uma compra presencial, tipicamente uma tela próxima ao caixa ou mesmo um POS;</li>
+  <li>b. nas compras online, no dispositivo em uso pelo pagador.
+Serviço invocado: PUT /cob/{txid}  Devem ser informados todos os dados necessários para criação
+do payload da cobrança, conforme especificação detalhada. Alternativamente, se o usuário
+recebedor não quiser identificar a cobrança imediata com seu próprio número {txid}, pode-se optar
+por utilizar o método POST /cob.
+<strong>3.</strong> O usuário pagador lê, a seguir, o QR Code com o App do seu PSP e efetua o pagamento;
+<strong>4.</strong> O usuário recebedor, de forma automatizada, por meio de nova consulta à API Pix, verifica se o pagamento foi realizado: Serviço invocado: GET /cob/{txid};
+<strong>5.</strong> O usuário recebedor libera os produtos para o usuário pagador ou, no caso das compras online, confirma o recebimento do pagamento. Alternativamente, o passo 4 pode ser realizado com o uso de webhooks configurados no serviço correspondente. Nesse caso, o usuário recebedor seria informado pelo PSP Recebedor do crédito de um Pix associado a um txid na sua conta transacional.</li>
+</ul>
+
 </div>
 
 
