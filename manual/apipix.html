@@ -334,19 +334,19 @@ por utilizar o método POST /cob.</p>
 <p>a. Quando o Pix está associado a uma Cobrança:</p>
 
 <ul>
-  <li>Serviço invocado: GET /cob/{txid}  Como resultado, será recebida uma entidade Cobrança que contém uma relação dos Pix recebidos, cada um com a sua identificação (EndToEndId).</li>
+  <li>Serviço invocado: GET /cob/{txid} Como resultado, será recebida uma entidade Cobrança que contém uma relação dos Pix recebidos, cada um com a sua identificação (EndToEndId).</li>
 </ul>
 
 <p>b. Quando o Pix não está associado a uma Cobrança. Nesse caso, é necessário saber, por outros meios, o EndToEndId do Pix original. Alternativamente, pode ser uma consulta ampla, trazendo a relação dos Pix recebidos.</p>
 
 <ul>
-  <li>Serviço invocado: GET /pix/  Podem ser informados parâmetros para limitar a consulta temporalmente (parâmetros início e “fim” podem ser usados). Além disso, pode-se limitar a busca a um usuário pagador específico, por meio do CNPJ/CPF do pagador.</li>
+  <li>Serviço invocado: GET /pix/ Podem ser informados parâmetros para limitar a consulta temporalmente (parâmetros início e “fim” podem ser usados). Além disso, pode-se limitar a busca a um usuário pagador específico, por meio do CNPJ/CPF do pagador.</li>
 </ul>
 
 <p>O software de automação do usuário recebedor aciona a API Pix para realizar a devolução.</p>
 
 <ul>
-  <li>Serviço invocado: PUT /pix/{e2eid}/devolucao/{id}  No caso, “id” é um código gerado pelo sistema do usuário recebedor que identifica a devolução associada ao Pix original. Observar, que um Pix pode ter várias devoluções associadas a ele, desde que o montante das devoluções não ultrapasse o valor do Pix original. O “id” deve ser único por EndToEndID Pix.</li>
+  <li>Serviço invocado: PUT /pix/{e2eid}/devolucao/{id} No caso, “id” é um código gerado pelo sistema do usuário recebedor que identifica a devolução associada ao Pix original. Observar, que um Pix pode ter várias devoluções associadas a ele, desde que o montante das devoluções não ultrapasse o valor do Pix original. O “id” deve ser único por EndToEndID Pix.</li>
 </ul>
 
 <p>O software de automação do usuário recebedor aciona a API Pix para verificar se a devolução foi liquidada:</p>
@@ -365,22 +365,20 @@ por utilizar o método POST /cob.</p>
 
 <p>Para solicitar credenciais, entre em contato com o ponto focal do time comercial da Cielo e informe para quais ambientes são necessárias credenciais. Será necessário informar os seguintes dados:</p>
 
-<p>a) Nome da empresa;
-b) Nome do proprietário responsável em receber a(s) credencial(s);
-c) E-mail do proprietário responsável em receber a(s) credencial(s);
-d) Telefone do proprietário responsável;
-e) Nome da Software House do cliente = Nem todos os clientes terão parceria com uma Software House;
-f) Número do Cadastro na Cielo;
-g) Informar o(s) nº(s) lógico(s) do Cadastro na Cielo: Será criada uma credencial para cada nº lógico;
-h) Cidade do EC.</p>
+<p>a. Nome da empresa
+b. Nome do proprietário responsável em receber a(s) credencial(s)
+c. E-mail do proprietário responsável em receber a(s) credencial(s)
+d. Telefone do proprietário responsável
+e. Nome da Software House do cliente = Nem todos os clientes terão parceria com uma Software House
+f. Número do Cadastro na Cielo
+g. Informar o(s) nº(s) lógico(s) do Cadastro na Cielo: Será criada uma credencial para cada nº lógico
+h. Cidade do EC.</p>
 
 <p>Para o acesso à API, esse mesmo e-mail do proprietário (responsável por receber a credencial) deverá ser utilizado para a criação de uma nova conta no Portal de <a href="https://desenvolvedores.cielo.com.br/api-portal/">Desenvolvedores Cielo</a>. Para verificar qual foi a credencial gerada, acesse a conta criada e verifique o Client-Id.</p>
 
 <p>Após aprovação das credenciais, receberá um e-mail informando que a(s) credencial(is) gerada(s) já estão disponíveis no Portal dos Desenvolvedores Cielo e também com a orientação de como deverá realizar o cadastro no portal de <a href="https://desenvolvedores.cielo.com.br/api-portal/">Desenvolvedores Cielo</a>. para ter acesso as credenciais geradas para cada nº lógico;</p>
 
 <p>Além disso, receberá um contato telefônico para informa ló sobre a criação das credenciais e orientar a fazer o cadastro no Portal do Desenvolvedor para ter acesso às credenciais;</p>
-
-<p><a href="https://desenvolvedores.cielo.com.br/api-portal/">Desenvolvedores Cielo</a></p>
 
 <h2 id="descrição-ambiente">Descrição ambiente:</h2>
 
