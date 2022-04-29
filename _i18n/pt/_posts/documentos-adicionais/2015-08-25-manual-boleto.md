@@ -183,7 +183,7 @@ Para conciliar o boleto de forma manual, basta localizar o pedido no site Cielo 
 
 ### Checkout Cielo
 
-1. O comprador, após escolher o produto na loja, seleciona a forma de pagamento Boleto Bando do Brasil;
+1. O comprador, após escolher o produto na loja, seleciona a forma de pagamento Boleto Banco do Brasil;
 1. O Checkout exibirá a URL do Boleto
 1. O cliente acessa a URL do boleto (renderização) e então pode realizar o pagamento;
 1. A conciliação de status não está disponivel para Checkout Cielo.
