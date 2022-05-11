@@ -827,7 +827,8 @@ Apresenta as transações realizadas na modalidade PIX.
 |170|175|6|Num.|Data da transação original|AAMMDD – Data em que a transação original foi realizada.|
 |176|181|6|Num.|Hora da transação original|Hora da transação original apresentada no formato HHMMSS.|
 |182|217|36|Alfanum.|ID PIX original|Código que identifica a transação PIX original.|
-|218|250|33|Alfanum.|Uso Cielo|Em Branco. Reservado para Cielo.|
+|218|219|2|Alfanum.|Indicativo troco/saque|"TR"-Troco <br> "SQ"-Saque <br> " "-Venda|
+|220|250|31|Alfanum.|Uso Cielo|Em Branco. Reservado para Cielo.|
 
 ### Registro A - Resumo Negociação de Recebíveis
 
@@ -1047,7 +1048,7 @@ Quando um valor a crédito estiver em processo de compensação com um valor a d
 |12|Acertos diversos| Acerto                                                    |
 |13|Acordo de cobrança| Acerto                                                  |
 |14|Acordo jurídico| Acerto                                                     |
-|15|Multa do Programa de Bandeira| Acerto/Chargeback                            |
+|15|Multa do Programa de Bandeira (Master Card)| Acerto/Chargeback              |
 |16|Bloqueio de valor por ordem judicial| Bloqueio                              |
 |17|Cancelamento da venda| Cancelamento                                         |
 |18|Cobrança de tarifa Operacional| Cobrança                                    |
@@ -1071,7 +1072,7 @@ Quando um valor a crédito estiver em processo de compensação com um valor a d
 |36|Estorno de cobrança Plano Cielo| Acerto                                     |
 |37|Estorno de débito venda sem a leitura do Chip| Acerto                       |
 |38|Estorno de incentivo comercial| Acerto                                      |
-|39|Estorno de Multa Programa Monitoria Chargeback| Acerto/Chargeback           |
+|39|Multa do Programa de Bandeira (Visa)| Acerto/Chargeback                     |
 |40|Estorno de rejeição ARV| Acerto                                             |
 |41|Estorno de reversão de duplicidade do pagamento - ARV| Acerto               |
 |42|Estorno de tarifa de cadastro| Acerto                                       |
@@ -1088,6 +1089,7 @@ Quando um valor a crédito estiver em processo de compensação com um valor a d
 |53|Venda recorrente cancelada pelo consumidor| Acerto/Chargeback               |
 |54|Consumidor não reconhece a compra| Acerto/Chargeback                        |
 |55|Cartão com validade vencida| Acerto/Chargeback                              |
+|56|Tarifa por retentativa de transações (Master Card)| Acerto                  |
 |57|Mercadoria com defeito ou diferente da descrição| Acerto/Chargeback         |
 |58|Transação irregular| Acerto/Chargeback                                      |
 |59|Mercadoria não foi entregue| Acerto/Chargeback                              |
@@ -1111,15 +1113,17 @@ Quando um valor a crédito estiver em processo de compensação com um valor a d
 |81|Cielo e-Commerce| Acerto/Cobrança                                           |
 |85|Cielo Controle (Excedente)| Acerto/Cobrança                                 |
 |86|Cielo Controle (Franquia)| Acerto/Cobrança                                  |
+|89|Débito/crédito compensação de cancelamento de transação em operação de Penhora | Acerto |
 |90|Débito/crédito compensação de valores| Acerto                               |
 |91|Estorno debito/crédito de cessão| Acerto                                    |
 |92|Estorno débito/crédito de gravame| Acerto                                   |
 |93|Meliuz |Acerto/Cobrança                                                     |
-|94|Débito/crédito compensação cancelamento de transação em operação/Acerto     |
+|94|Débito/crédito compensação cancelamento de transação em operação de Cessão | Acerto |
 |95|Débito/crédito de penhora| Acerto                                           |
 |96|Estorno de crédito/débito de penhora| Acerto                                |
 |97|Débito/crédito compensação cancelamento em operação| Acerto                 |
-|99|Tarifa por retentativa de transações (bandeiras) |Acerto                    |
+|98|Débito/crédito compensação cancelamento de transação em operação de gravame | Acerto |
+|99|Tarifa por retentativa de transações (Visa) |Acerto                         |
 
 ### Tabela VI - Bandeira
 
