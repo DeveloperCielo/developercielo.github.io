@@ -1581,7 +1581,7 @@ Veja exemplos de envio de requisição e resposta para a geração do QR code Pi
 
 Caso o lojista precise cancelar uma transferência Pix, é possível realizar uma operação chamada de **devolução**. É importante ressaltar que a devolução não é uma operação instantânea, podendo ser acatada ou não pelo provedor Pix. Quando uma devolução é acatada, uma [notificação](https://developercielo.github.io/manual/cielo-ecommerce#post-de-notifica%C3%A7%C3%A3o) é recebida pela loja.<br/>
 
-> *Importante:* **A devolução ocorrerá somente se houver saldo**.
+> **Importante:** **A devolução ocorrerá somente se houver saldo**.
 
 #### Requisição
 
