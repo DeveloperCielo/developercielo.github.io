@@ -274,6 +274,7 @@ Host: eCommerce.cielo.com.br
 Content-Type: application/x-www-form-urlencoded
 Content-Length: length
 mensagem=<?xml version="1.0" encoding="ISO-8859-1"?><requisicao-captura id="3e22bdd0-2017-4756-80b7-35a532e6c973" versao="1.2.1"><tid>10069930690101012005</tid><dados-ec><numero>1006993069</numero><chave>25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3</chave></dados-ec><valor>3880</valor></requisicao-captura>
+
 ```
 
 ## Transação
@@ -294,15 +295,15 @@ Todos os clientes de E-Commerce que são **Facilitadores de Pagamento, por obrig
 
 Os novos campos estão contidos dentro da tag **&lt;subcredenciador&gt;**. Além dos campos deste novo nó, os facilitadores terão também de enviar obrigatoriamente a tag **&lt;soft-descriptor&gt;**. Segue abaixo exemplo do envio e da resposta.
 
-<aside class="warning">Atenção: Reforçamos que as informações não devem ser enviadas antes de 20 de fevereiro de 2020, havendo risco de perda de transações.</aside>
+
 
 #### Requisição
 
 ``` xml
 <requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
     <dados-ec>
-        <numero>2000000001</numero>
-        <chave>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</chave>
+        <numero>2000019700</numero>
+        <chave>8c08a0d0f00b73dedd2673a06fa725b0bd8edbf71c4c7dd0614bf408e4d16120</chave>
         <subcredenciador>
             <numero>12345678901</numero>
             <sub-ec>
@@ -319,10 +320,10 @@ Os novos campos estão contidos dentro da tag **&lt;subcredenciador&gt;**. Além
         </subcredenciador>
     </dados-ec>
     <dados-portador>
-        <numero>518605152xxxxxx5923</numero>
-        <validade>aaaamm</validade>
+        <numero>5453010000066167</numero>
+        <validade>202405</validade>
         <indicador>1</indicador>
-        <codigo-seguranca>xxx</codigo-seguranca>
+        <codigo-seguranca>123</codigo-seguranca>
         <nome-portador>Jose Luis</nome-portador>
         <token/>
     </dados-portador>
@@ -345,6 +346,7 @@ Os novos campos estão contidos dentro da tag **&lt;subcredenciador&gt;**. Além
     <capturar>true</capturar>
     <gerar-token>false</gerar-token>
 </requisicao-transacao>
+
 ```
 
 <aside class="warning"><b>Atenção: Os campos não devem ser enviados com espaçamento a esquerda. Sujeito a rejeição na liquidação das transações.</b></aside>
@@ -422,41 +424,42 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:
 #### Requisição
 
 ``` xml
-<?xml version="1.0"?>
-<requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
-    <dados-ec>
-        <numero>xxxxxxxxxx</numero>
-        <chave>xxxxxxxxxxxxxxxxxxxxxxxxx</chave>
-        <mcc-dinamico>xxxx</mcc-dinamico>
-    </dados-ec>
-    <dados-portador>
-        <numero>518605152xxxxxx5923</numero>
-        <validade>aaaamm/validade>
-        <indicador>1</indicador>
-        <codigo-seguranca>***</codigo-seguranca>
-        <nome-portador>Teste Cashin</nome-portador>
-        <token/>
-    </dados-portador>
-    <dados-pedido>
-        <numero>xxxxx</numero>
-        <valor>1000</valor>
-        <moeda>986</moeda>
-        <data-hora>2021-11-26T10:00:05</data-hora>
-        <descricao>Compra Online</descricao>
-        <idioma>PT</idioma>
-        <soft-descriptor>CART*LOJAABCDE</soft-descriptor>
+<?xml version="1.0"?>
+<requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
+    <dados-ec>
+        <numero>2000019700</numero>
+        <chave>8c08a0d0f00b73dedd2673a06fa725b0bd8edbf71c4c7dd0614bf408e4d16120</chave>
+        <mcc-dinamico>4900</mcc-dinamico>
+    </dados-ec>
+    <dados-portador>
+        <numero>4084359300407900</numero>
+        <validade>202405</validade>
+        <indicador>1</indicador>
+        <codigo-seguranca>123</codigo-seguranca>
+        <nome-portador>Teste Cashin</nome-portador>
+        <token/>
+    </dados-portador>
+    <dados-pedido>
+        <numero>12345</numero>
+        <valor>1000</valor>
+        <moeda>986</moeda>
+        <data-hora>2021-11-26T10:00:05</data-hora>
+        <descricao>Compra Online</descricao>
+        <idioma>PT</idioma>
+        <soft-descriptor>CART*LOJA</soft-descriptor>
 <pagamento-conta>true</pagamento-conta>
-    </dados-pedido>
-    <forma-pagamento>
-        <bandeira>mastercard</bandeira>
-        <produto>1</produto>
-        <parcelas>1</parcelas>
-    </forma-pagamento>
-    <url-retorno>http://www.cielo.com.br</url-retorno>
-    <autorizar>3</autorizar>
-    <capturar>true</capturar>
-    <gerar-token>false</gerar-token>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>Visa</bandeira>
+        <produto>1</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <url-retorno>http://www.cielo.com.br</url-retorno>
+    <autorizar>3</autorizar>
+    <capturar>true</capturar>
+    <gerar-token>false</gerar-token>
 </requisicao-transacao>
+
 ```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
@@ -484,40 +487,41 @@ Todos os clientes de E-commerce que transacionarem **quasi cash**, devem usar a
 #### Requisição
 
 ``` xml
-<?xml version="1.0"?>
-<requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
-    <dados-ec>
-        <numero>xxxxxxxxxx</numero>
-        <chave>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx </chave>
-    </dados-ec>
-    <dados-portador>
-        <numero>xxxxxxxxxxxxxxxxx</numero>
-        <validade>xxxxxx</validade>
-        <indicador>1</indicador>
-        <codigo-seguranca>123</codigo-seguranca>
-        <nome-portador>TESTE</nome-portador>
-        <token/>
-    </dados-portador>
-    <dados-pedido>
-        <numero>79346</numero>
-        <valor>35000</valor>
-        <moeda>986</moeda>
-        <data-hora>2016-02-16T13:45:05</data-hora>
-        <descricao>Compra Online</descricao>
-        <idioma>PT</idioma>
-        <soft-descriptor>soft teste</soft-descriptor>
-        <quasi-cash>true</quasi-cash>
-    </dados-pedido>
-    <forma-pagamento>
-        <bandeira>visa</bandeira>
-        <produto>A</produto>
-        <parcelas>1</parcelas>
-    </forma-pagamento>
-    <url-retorno>http://www.cielo.com.br</url-retorno>
-    <autorizar>3</autorizar>
-    <capturar>false</capturar>
-    <gerar-token>false</gerar-token>
-   </requisicao-transacao>
+<?xml version="1.0"?>
+<requisicao-transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0">
+    <dados-ec>
+        <numero>2000019700</numero>
+        <chave>8c08a0d0f00b73dedd2673a06fa725b0bd8edbf71c4c7dd0614bf408e4d16120</chave>
+    </dados-ec>
+    <dados-portador>
+        <numero>4084359300407900</numero>
+        <validade>202405</validade>
+        <indicador>1</indicador>
+        <codigo-seguranca>123</codigo-seguranca>
+        <nome-portador>TESTE</nome-portador>
+        <token/>
+    </dados-portador>
+    <dados-pedido>
+        <numero>79346</numero>
+        <valor>35000</valor>
+        <moeda>986</moeda>
+        <data-hora>2016-02-16T13:45:05</data-hora>
+        <descricao>Compra Online</descricao>
+        <idioma>PT</idioma>
+        <soft-descriptor>soft teste</soft-descriptor>
+        <quasi-cash>true</quasi-cash>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>visa</bandeira>
+        <produto>1</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <url-retorno>http://www.cielo.com.br</url-retorno>
+    <autorizar>3</autorizar>
+    <capturar>false</capturar>
+    <gerar-token>false</gerar-token>
+   </requisicao-transacao>
+
 ```
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
@@ -585,14 +589,29 @@ Para enviar o MCC do varejista na transação de SDWO, a orientação do mercado
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|`Dados-ec.mcc-dinamico`|Numérico|4|Sim, para transações de SDWO|MCC do varejista subjacente (pra transações de compra); MCC da carteira digital (para transações de abastecimento de crédito na carteira caso aplicável – no qual é necessária a marcação de cash in também vista nessa sessão)|
+|`Dados-ec.mcc-dinamico`|Numérico|4|Sim, para transações de SDWO|MCC do varejista subjacente (pra transações de compra)|
 |`Carteira.tipo`|Texto|3|Sim, para transações de SDWO|Sigla da carteira que está cadastrada aqui na Cielo como carteira digital (verificar sua sigla com seu gestor comercial)|
 |`dados-portador.cnpj-cpf-portador`| Numérico| 14| Sim, para transações de SDWO | Número do CPF ou CNPJ do cliente.|
 |`Dados-pedido.soft-descriptor`| Texto| 13| Sim, para transações de SDWO | Texto que será impresso na fatura bancária do portador.<br>Não permite caracteres especiais.<br>Necessário preencher com **Nome da carteira*nome do lojista**|
 
 ### Transações Cash In
 
-Uma transação do tipo Cash In é uma operação de adição de créditos em uma carteira digital. Os estabelecimentos que operam com esse tipo de transação devem ser registrados como carteira digital junto as bandeiras e devem estar cadastrados com um dos seguintes **MCCs** (Códigos de categoria do estabelecimento): **6540** ou **6051**.
+Uma transação do tipo Cash In é uma operação de adição de créditos em uma carteira digital. Os estabelecimentos que operam com esse tipo de transação devem ser registrados como carteira digital junto as bandeiras e devem estar cadastrados com um dos seguintes MCCs (Códigos de categoria do estabelecimento): 6540/6051 Master ou VISA, a bandeira ELO só opera com o MCC 6540.
+
+A massa de dados para realizar os testes neste ambiente está disposta na tabela abaixo:
+
+|Bandeira|Número do Cartão|Validade|Código de Segurança|
+|---|---|---|---|
+|Visa|4084359300407900|202405|123|
+|Elo|5067269300407900|202405|123|
+|Master|5496220000066160|202405|123|
+
+|EC|Chave|MCC|Bandeiras Aceitas|
+|---|---|---|---|
+|2000019700|8c08a0d0f00b73dedd2673a06fa725b0bd8edbf71c4c7dd0614bf408e4d16120|6051/6540|Master e Visa|
+|2000019853|8c08a0d0f00b73dedd2673a06fa725b0bd8edbf71c4c7dd0614bf408e4d16120|6540|Elo|
+
+
 
 Além disso, precisam enviar alguns dados adicionais na transação, para que as bandeiras possam identificar e diferenciar esse tipo de transação. Veja abaixo as especificações:
 
@@ -662,7 +681,7 @@ Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) 
     <chave>25fbb997438630f30b112d033ce2e621b34f3</chave>
   </dados-ec>
   <dados-portador>
-    <numero>4012001038443335</numero>
+    <numero>4084359300407900</numero>
     <validade>201508</validade>
     <indicador>1</indicador>
     <codigo-seguranca>973</codigo-seguranca>
@@ -675,34 +694,19 @@ Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) 
     <data-hora>2011-12-07T11:43:37</data-hora>
     <descricao>[origem:10.50.54.156]</descricao>
     <idioma>PT</idioma>
-    <taxa-embarque/>
     <soft-descriptor/>
-    <numero-bilhete>123456</numero-bilhete>
   </dados-pedido>
   <forma-pagamento>
     <bandeira>visa</bandeira>
-    <produto>A</produto>
+    <produto>1</produto>
     <parcelas>1</parcelas>
   </forma-pagamento>
   <url-retorno>http://localhost/lojaexemplo/retorno.jsp</url-retorno>
-  <autorizar>1</autorizar>
+  <autorizar>3</autorizar>
   <capturar>false</capturar>
-  <campo-livre>Informações extras</campo-livre>
-  <bin>455187</bin>
   <gerar-token>false</gerar-token>
-  <avs>
-  <![CDATA[
-    <dados-avs>
-      <endereco>Rua Teste AVS</endereco>
-      <complemento>Casa</complemento>
-      <numero>123</numero>
-      <bairro>Vila AVS</bairro>
-      <cep>12345-123</cep>
-      <cpf>11111111111</cpf>
-    </dados-avs>
-  ]]>
-  </avs>
 </requisicao-transacao>
+
 
 ```
 
@@ -765,7 +769,7 @@ Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) 
 |produto|Alfanumérico|Sim|1|Código do produto: **1** – Crédito à Vista, **2** – Parcelado loja, **A** – Débito.|
 |parcelas|Numérico|Sim|1..2|Número de parcelas. **Para crédito à vista ou débito, utilizar 1.**|
 
-<aside class="warning">O valor resultante da divisão do valor do pedido pelo número de parcelas não deve ser inferior a R$ 5,00. Para transações Visa, a autorização será negada. Para transações MasterCard, Elo, Diners, Discover, Aura e JCB, a transação que for aprovada, terá seu plano parcelado alterado para à vista. Para evitar reclamações, permita apenas transações parceladas com a parcela mínima acima de R$ 5,00.</aside>
+<aside class="warning">Observação: O Valor mínimo da parcela é de R$ 1,00.</aside>
 
 ## Fluxos de integração e redirecionamentos
 
