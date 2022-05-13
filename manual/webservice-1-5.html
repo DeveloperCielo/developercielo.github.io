@@ -472,6 +472,7 @@ Host: eCommerce.cielo.com.br
 Content-Type: application/x-www-form-urlencoded
 Content-Length: length
 mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span><span class="nt">&lt;requisicao-captura</span> <span class="na">id=</span><span class="s">"3e22bdd0-2017-4756-80b7-35a532e6c973"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span><span class="nt">&gt;&lt;tid&gt;</span>10069930690101012005<span class="nt">&lt;/tid&gt;&lt;dados-ec&gt;&lt;numero&gt;</span>1006993069<span class="nt">&lt;/numero&gt;&lt;chave&gt;</span>25fbb99741c739dd84d7b06ec78c9bac718838630f30b112d033ce2e621b34f3<span class="nt">&lt;/chave&gt;&lt;/dados-ec&gt;&lt;valor&gt;</span>3880<span class="nt">&lt;/valor&gt;&lt;/requisicao-captura&gt;</span>
+
 </code></pre></div></div>
 
 <h2 id="transação">Transação</h2>
@@ -492,14 +493,12 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
 
 <p>Os novos campos estão contidos dentro da tag <strong>&lt;subcredenciador&gt;</strong>. Além dos campos deste novo nó, os facilitadores terão também de enviar obrigatoriamente a tag <strong>&lt;soft-descriptor&gt;</strong>. Segue abaixo exemplo do envio e da resposta.</p>
 
-<aside class="warning">Atenção: Reforçamos que as informações não devem ser enviadas antes de 20 de fevereiro de 2020, havendo risco de perda de transações.</aside>
-
 <h4 id="requisição">Requisição</h4>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span> <span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;dados-ec&gt;</span>
-        <span class="nt">&lt;numero&gt;</span>2000000001<span class="nt">&lt;/numero&gt;</span>
-        <span class="nt">&lt;chave&gt;</span>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx<span class="nt">&lt;/chave&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>2000019700<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;chave&gt;</span>8c08a0d0f00b73dedd2673a06fa725b0bd8edbf71c4c7dd0614bf408e4d16120<span class="nt">&lt;/chave&gt;</span>
         <span class="nt">&lt;subcredenciador&gt;</span>
             <span class="nt">&lt;numero&gt;</span>12345678901<span class="nt">&lt;/numero&gt;</span>
             <span class="nt">&lt;sub-ec&gt;</span>
@@ -516,10 +515,10 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
         <span class="nt">&lt;/subcredenciador&gt;</span>
     <span class="nt">&lt;/dados-ec&gt;</span>
     <span class="nt">&lt;dados-portador&gt;</span>
-        <span class="nt">&lt;numero&gt;</span>518605152xxxxxx5923<span class="nt">&lt;/numero&gt;</span>
-        <span class="nt">&lt;validade&gt;</span>aaaamm<span class="nt">&lt;/validade&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>5453010000066167<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;validade&gt;</span>202405<span class="nt">&lt;/validade&gt;</span>
         <span class="nt">&lt;indicador&gt;</span>1<span class="nt">&lt;/indicador&gt;</span>
-        <span class="nt">&lt;codigo-seguranca&gt;</span>xxx<span class="nt">&lt;/codigo-seguranca&gt;</span>
+        <span class="nt">&lt;codigo-seguranca&gt;</span>123<span class="nt">&lt;/codigo-seguranca&gt;</span>
         <span class="nt">&lt;nome-portador&gt;</span>Jose Luis<span class="nt">&lt;/nome-portador&gt;</span>
         <span class="nt">&lt;token/&gt;</span>
     <span class="nt">&lt;/dados-portador&gt;</span>
@@ -542,6 +541,7 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
     <span class="nt">&lt;capturar&gt;</span>true<span class="nt">&lt;/capturar&gt;</span>
     <span class="nt">&lt;gerar-token&gt;</span>false<span class="nt">&lt;/gerar-token&gt;</span>
 <span class="nt">&lt;/requisicao-transacao&gt;</span>
+
 </code></pre></div></div>
 
 <aside class="warning">Atenção: Os campos não devem ser enviados com espaçamento a esquerda. Sujeito a rejeição na liquidação das transações.</aside>
@@ -694,41 +694,42 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
 
 <h4 id="requisição-1">Requisição</h4>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
-<span class="nt">&lt;requisicao-transacao</span><span class="err"> </span><span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span><span class="err"> </span><span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;dados-ec&gt;</span>
-        <span class="nt">&lt;numero&gt;</span>xxxxxxxxxx<span class="nt">&lt;/numero&gt;</span>
-        <span class="nt">&lt;chave&gt;</span>xxxxxxxxxxxxxxxxxxxxxxxxx<span class="nt">&lt;/chave&gt;</span>
-        <span class="nt">&lt;mcc-dinamico&gt;</span>xxxx<span class="nt">&lt;/mcc-dinamico&gt;</span>
-    <span class="nt">&lt;/dados-ec&gt;</span>
-    <span class="nt">&lt;dados-portador&gt;</span>
-        <span class="nt">&lt;numero&gt;</span>518605152xxxxxx5923<span class="nt">&lt;/numero&gt;</span>
-        <span class="nt">&lt;validade&gt;</span>aaaamm/validade&gt;
-        <span class="nt">&lt;indicador&gt;</span>1<span class="nt">&lt;/indicador&gt;</span>
-        <span class="nt">&lt;codigo-seguranca&gt;</span>***<span class="nt">&lt;/codigo-seguranca&gt;</span>
-        <span class="nt">&lt;nome-portador&gt;</span>Teste Cashin<span class="nt">&lt;/nome-portador&gt;</span>
-        <span class="nt">&lt;token/&gt;</span>
-    <span class="nt">&lt;/dados-portador&gt;</span>
-    <span class="nt">&lt;dados-pedido&gt;</span>
-        <span class="nt">&lt;numero&gt;</span>xxxxx<span class="nt">&lt;/numero&gt;</span>
-        <span class="nt">&lt;valor&gt;</span>1000<span class="nt">&lt;/valor&gt;</span>
-        <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
-        <span class="nt">&lt;data-hora&gt;</span>2021-11-26T10:00:05<span class="nt">&lt;/data-hora&gt;</span>
-        <span class="nt">&lt;descricao&gt;</span>Compra Online<span class="nt">&lt;/descricao&gt;</span>
-        <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
-        <span class="nt">&lt;soft-descriptor&gt;</span>CART*LOJAABCDE<span class="nt">&lt;/soft-descriptor&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span> <span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;dados-ec&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>2000019700<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;chave&gt;</span>8c08a0d0f00b73dedd2673a06fa725b0bd8edbf71c4c7dd0614bf408e4d16120<span class="nt">&lt;/chave&gt;</span>
+        <span class="nt">&lt;mcc-dinamico&gt;</span>4900<span class="nt">&lt;/mcc-dinamico&gt;</span>
+    <span class="nt">&lt;/dados-ec&gt;</span>
+    <span class="nt">&lt;dados-portador&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>4084359300407900<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;validade&gt;</span>202405<span class="nt">&lt;/validade&gt;</span>
+        <span class="nt">&lt;indicador&gt;</span>1<span class="nt">&lt;/indicador&gt;</span>
+        <span class="nt">&lt;codigo-seguranca&gt;</span>123<span class="nt">&lt;/codigo-seguranca&gt;</span>
+        <span class="nt">&lt;nome-portador&gt;</span>Teste Cashin<span class="nt">&lt;/nome-portador&gt;</span>
+        <span class="nt">&lt;token/&gt;</span>
+    <span class="nt">&lt;/dados-portador&gt;</span>
+    <span class="nt">&lt;dados-pedido&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>12345<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;valor&gt;</span>1000<span class="nt">&lt;/valor&gt;</span>
+        <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
+        <span class="nt">&lt;data-hora&gt;</span>2021-11-26T10:00:05<span class="nt">&lt;/data-hora&gt;</span>
+        <span class="nt">&lt;descricao&gt;</span>Compra Online<span class="nt">&lt;/descricao&gt;</span>
+        <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
+        <span class="nt">&lt;soft-descriptor&gt;</span>CART*LOJA<span class="nt">&lt;/soft-descriptor&gt;</span>
 <span class="nt">&lt;pagamento-conta&gt;</span>true<span class="nt">&lt;/pagamento-conta&gt;</span>
-    <span class="nt">&lt;/dados-pedido&gt;</span>
-    <span class="nt">&lt;forma-pagamento&gt;</span>
-        <span class="nt">&lt;bandeira&gt;</span>mastercard<span class="nt">&lt;/bandeira&gt;</span>
-        <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
-        <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
-    <span class="nt">&lt;/forma-pagamento&gt;</span>
-    <span class="nt">&lt;url-retorno&gt;</span>http://www.cielo.com.br<span class="nt">&lt;/url-retorno&gt;</span>
-    <span class="nt">&lt;autorizar&gt;</span>3<span class="nt">&lt;/autorizar&gt;</span>
-    <span class="nt">&lt;capturar&gt;</span>true<span class="nt">&lt;/capturar&gt;</span>
-    <span class="nt">&lt;gerar-token&gt;</span>false<span class="nt">&lt;/gerar-token&gt;</span>
+    <span class="nt">&lt;/dados-pedido&gt;</span>
+    <span class="nt">&lt;forma-pagamento&gt;</span>
+        <span class="nt">&lt;bandeira&gt;</span>Visa<span class="nt">&lt;/bandeira&gt;</span>
+        <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
+        <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
+    <span class="nt">&lt;/forma-pagamento&gt;</span>
+    <span class="nt">&lt;url-retorno&gt;</span>http://www.cielo.com.br<span class="nt">&lt;/url-retorno&gt;</span>
+    <span class="nt">&lt;autorizar&gt;</span>3<span class="nt">&lt;/autorizar&gt;</span>
+    <span class="nt">&lt;capturar&gt;</span>true<span class="nt">&lt;/capturar&gt;</span>
+    <span class="nt">&lt;gerar-token&gt;</span>false<span class="nt">&lt;/gerar-token&gt;</span>
 <span class="nt">&lt;/requisicao-transacao&gt;</span>
+
 </code></pre></div></div>
 
 <table>
@@ -844,40 +845,41 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
 
 <h4 id="requisição-2">Requisição</h4>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
-<span class="nt">&lt;requisicao-transacao</span><span class="err"> </span><span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span><span class="err"> </span><span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;dados-ec&gt;</span>
-        <span class="nt">&lt;numero&gt;</span>xxxxxxxxxx<span class="nt">&lt;/numero&gt;</span>
-        <span class="nt">&lt;chave&gt;</span>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx <span class="nt">&lt;/chave&gt;</span>
-    <span class="nt">&lt;/dados-ec&gt;</span>
-    <span class="nt">&lt;dados-portador&gt;</span>
-        <span class="nt">&lt;numero&gt;</span>xxxxxxxxxxxxxxxxx<span class="nt">&lt;/numero&gt;</span>
-        <span class="nt">&lt;validade&gt;</span>xxxxxx<span class="nt">&lt;/validade&gt;</span>
-        <span class="nt">&lt;indicador&gt;</span>1<span class="nt">&lt;/indicador&gt;</span>
-        <span class="nt">&lt;codigo-seguranca&gt;</span>123<span class="nt">&lt;/codigo-seguranca&gt;</span>
-        <span class="nt">&lt;nome-portador&gt;</span>TESTE<span class="nt">&lt;/nome-portador&gt;</span>
-        <span class="nt">&lt;token/&gt;</span>
-    <span class="nt">&lt;/dados-portador&gt;</span>
-    <span class="nt">&lt;dados-pedido&gt;</span>
-        <span class="nt">&lt;numero&gt;</span>79346<span class="nt">&lt;/numero&gt;</span>
-        <span class="nt">&lt;valor&gt;</span>35000<span class="nt">&lt;/valor&gt;</span>
-        <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
-        <span class="nt">&lt;data-hora&gt;</span>2016-02-16T13:45:05<span class="nt">&lt;/data-hora&gt;</span>
-        <span class="nt">&lt;descricao&gt;</span>Compra Online<span class="nt">&lt;/descricao&gt;</span>
-        <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
-        <span class="nt">&lt;soft-descriptor&gt;</span>soft teste<span class="nt">&lt;/soft-descriptor&gt;</span>
-        <span class="nt">&lt;quasi-cash&gt;</span>true<span class="nt">&lt;/quasi-cash&gt;</span>
-    <span class="nt">&lt;/dados-pedido&gt;</span>
-    <span class="nt">&lt;forma-pagamento&gt;</span>
-        <span class="nt">&lt;bandeira&gt;</span>visa<span class="nt">&lt;/bandeira&gt;</span>
-        <span class="nt">&lt;produto&gt;</span>A<span class="nt">&lt;/produto&gt;</span>
-        <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
-    <span class="nt">&lt;/forma-pagamento&gt;</span>
-    <span class="nt">&lt;url-retorno&gt;</span>http://www.cielo.com.br<span class="nt">&lt;/url-retorno&gt;</span>
-    <span class="nt">&lt;autorizar&gt;</span>3<span class="nt">&lt;/autorizar&gt;</span>
-    <span class="nt">&lt;capturar&gt;</span>false<span class="nt">&lt;/capturar&gt;</span>
-    <span class="nt">&lt;gerar-token&gt;</span>false<span class="nt">&lt;/gerar-token&gt;</span>
-   <span class="nt">&lt;/requisicao-transacao&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;requisicao-transacao</span> <span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span> <span class="na">versao=</span><span class="s">"1.3.0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;dados-ec&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>2000019700<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;chave&gt;</span>8c08a0d0f00b73dedd2673a06fa725b0bd8edbf71c4c7dd0614bf408e4d16120<span class="nt">&lt;/chave&gt;</span>
+    <span class="nt">&lt;/dados-ec&gt;</span>
+    <span class="nt">&lt;dados-portador&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>4084359300407900<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;validade&gt;</span>202405<span class="nt">&lt;/validade&gt;</span>
+        <span class="nt">&lt;indicador&gt;</span>1<span class="nt">&lt;/indicador&gt;</span>
+        <span class="nt">&lt;codigo-seguranca&gt;</span>123<span class="nt">&lt;/codigo-seguranca&gt;</span>
+        <span class="nt">&lt;nome-portador&gt;</span>TESTE<span class="nt">&lt;/nome-portador&gt;</span>
+        <span class="nt">&lt;token/&gt;</span>
+    <span class="nt">&lt;/dados-portador&gt;</span>
+    <span class="nt">&lt;dados-pedido&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>79346<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;valor&gt;</span>35000<span class="nt">&lt;/valor&gt;</span>
+        <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
+        <span class="nt">&lt;data-hora&gt;</span>2016-02-16T13:45:05<span class="nt">&lt;/data-hora&gt;</span>
+        <span class="nt">&lt;descricao&gt;</span>Compra Online<span class="nt">&lt;/descricao&gt;</span>
+        <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
+        <span class="nt">&lt;soft-descriptor&gt;</span>soft teste<span class="nt">&lt;/soft-descriptor&gt;</span>
+        <span class="nt">&lt;quasi-cash&gt;</span>true<span class="nt">&lt;/quasi-cash&gt;</span>
+    <span class="nt">&lt;/dados-pedido&gt;</span>
+    <span class="nt">&lt;forma-pagamento&gt;</span>
+        <span class="nt">&lt;bandeira&gt;</span>visa<span class="nt">&lt;/bandeira&gt;</span>
+        <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
+        <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
+    <span class="nt">&lt;/forma-pagamento&gt;</span>
+    <span class="nt">&lt;url-retorno&gt;</span>http://www.cielo.com.br<span class="nt">&lt;/url-retorno&gt;</span>
+    <span class="nt">&lt;autorizar&gt;</span>3<span class="nt">&lt;/autorizar&gt;</span>
+    <span class="nt">&lt;capturar&gt;</span>false<span class="nt">&lt;/capturar&gt;</span>
+    <span class="nt">&lt;gerar-token&gt;</span>false<span class="nt">&lt;/gerar-token&gt;</span>
+   <span class="nt">&lt;/requisicao-transacao&gt;</span>
+
 </code></pre></div></div>
 
 <table>
@@ -977,7 +979,7 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>Numérico</td>
       <td>4</td>
       <td>Sim, para transações de SDWO</td>
-      <td>MCC do varejista subjacente (pra transações de compra); MCC da carteira digital (para transações de abastecimento de crédito na carteira caso aplicável – no qual é necessária a marcação de cash in também vista nessa sessão)</td>
+      <td>MCC do varejista subjacente (pra transações de compra)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Carteira.tipo</code></td>
@@ -1005,7 +1007,65 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
 
 <h3 id="transações-cash-in">Transações Cash In</h3>
 
-<p>Uma transação do tipo Cash In é uma operação de adição de créditos em uma carteira digital. Os estabelecimentos que operam com esse tipo de transação devem ser registrados como carteira digital junto as bandeiras e devem estar cadastrados com um dos seguintes <strong>MCCs</strong> (Códigos de categoria do estabelecimento): <strong>6540</strong> ou <strong>6051</strong>.</p>
+<p>Uma transação do tipo Cash In é uma operação de adição de créditos em uma carteira digital. Os estabelecimentos que operam com esse tipo de transação devem ser registrados como carteira digital junto as bandeiras e devem estar cadastrados com um dos seguintes MCCs (Códigos de categoria do estabelecimento): 6540/6051 Master ou VISA, a bandeira ELO só opera com o MCC 6540.</p>
+
+<p>A massa de dados para realizar os testes neste ambiente está disposta na tabela abaixo:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bandeira</th>
+      <th>Número do Cartão</th>
+      <th>Validade</th>
+      <th>Código de Segurança</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Visa</td>
+      <td>4084359300407900</td>
+      <td>202405</td>
+      <td>123</td>
+    </tr>
+    <tr>
+      <td>Elo</td>
+      <td>5067269300407900</td>
+      <td>202405</td>
+      <td>123</td>
+    </tr>
+    <tr>
+      <td>Master</td>
+      <td>5496220000066160</td>
+      <td>202405</td>
+      <td>123</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>EC</th>
+      <th>Chave</th>
+      <th>MCC</th>
+      <th>Bandeiras Aceitas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2000019700</td>
+      <td>8c08a0d0f00b73dedd2673a06fa725b0bd8edbf71c4c7dd0614bf408e4d16120</td>
+      <td>6051/6540</td>
+      <td>Master e Visa</td>
+    </tr>
+    <tr>
+      <td>2000019853</td>
+      <td>8c08a0d0f00b73dedd2673a06fa725b0bd8edbf71c4c7dd0614bf408e4d16120</td>
+      <td>6540</td>
+      <td>Elo</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>Além disso, precisam enviar alguns dados adicionais na transação, para que as bandeiras possam identificar e diferenciar esse tipo de transação. Veja abaixo as especificações:</p>
 
@@ -1110,7 +1170,7 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
     <span class="nt">&lt;chave&gt;</span>25fbb997438630f30b112d033ce2e621b34f3<span class="nt">&lt;/chave&gt;</span>
   <span class="nt">&lt;/dados-ec&gt;</span>
   <span class="nt">&lt;dados-portador&gt;</span>
-    <span class="nt">&lt;numero&gt;</span>4012001038443335<span class="nt">&lt;/numero&gt;</span>
+    <span class="nt">&lt;numero&gt;</span>4084359300407900<span class="nt">&lt;/numero&gt;</span>
     <span class="nt">&lt;validade&gt;</span>201508<span class="nt">&lt;/validade&gt;</span>
     <span class="nt">&lt;indicador&gt;</span>1<span class="nt">&lt;/indicador&gt;</span>
     <span class="nt">&lt;codigo-seguranca&gt;</span>973<span class="nt">&lt;/codigo-seguranca&gt;</span>
@@ -1123,34 +1183,19 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
     <span class="nt">&lt;data-hora&gt;</span>2011-12-07T11:43:37<span class="nt">&lt;/data-hora&gt;</span>
     <span class="nt">&lt;descricao&gt;</span>[origem:10.50.54.156]<span class="nt">&lt;/descricao&gt;</span>
     <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
-    <span class="nt">&lt;taxa-embarque/&gt;</span>
     <span class="nt">&lt;soft-descriptor/&gt;</span>
-    <span class="nt">&lt;numero-bilhete&gt;</span>123456<span class="nt">&lt;/numero-bilhete&gt;</span>
   <span class="nt">&lt;/dados-pedido&gt;</span>
   <span class="nt">&lt;forma-pagamento&gt;</span>
     <span class="nt">&lt;bandeira&gt;</span>visa<span class="nt">&lt;/bandeira&gt;</span>
-    <span class="nt">&lt;produto&gt;</span>A<span class="nt">&lt;/produto&gt;</span>
+    <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
     <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
   <span class="nt">&lt;/forma-pagamento&gt;</span>
   <span class="nt">&lt;url-retorno&gt;</span>http://localhost/lojaexemplo/retorno.jsp<span class="nt">&lt;/url-retorno&gt;</span>
-  <span class="nt">&lt;autorizar&gt;</span>1<span class="nt">&lt;/autorizar&gt;</span>
+  <span class="nt">&lt;autorizar&gt;</span>3<span class="nt">&lt;/autorizar&gt;</span>
   <span class="nt">&lt;capturar&gt;</span>false<span class="nt">&lt;/capturar&gt;</span>
-  <span class="nt">&lt;campo-livre&gt;</span>Informações extras<span class="nt">&lt;/campo-livre&gt;</span>
-  <span class="nt">&lt;bin&gt;</span>455187<span class="nt">&lt;/bin&gt;</span>
   <span class="nt">&lt;gerar-token&gt;</span>false<span class="nt">&lt;/gerar-token&gt;</span>
-  <span class="nt">&lt;avs&gt;</span>
-  <span class="cp">&lt;![CDATA[
-    &lt;dados-avs&gt;</span>
-      <span class="nt">&lt;endereco&gt;</span>Rua Teste AVS<span class="nt">&lt;/endereco&gt;</span>
-      <span class="nt">&lt;complemento&gt;</span>Casa<span class="nt">&lt;/complemento&gt;</span>
-      <span class="nt">&lt;numero&gt;</span>123<span class="nt">&lt;/numero&gt;</span>
-      <span class="nt">&lt;bairro&gt;</span>Vila AVS<span class="nt">&lt;/bairro&gt;</span>
-      <span class="nt">&lt;cep&gt;</span>12345-123<span class="nt">&lt;/cep&gt;</span>
-      <span class="nt">&lt;cpf&gt;</span>11111111111<span class="nt">&lt;/cpf&gt;</span>
-    <span class="nt">&lt;/dados-avs&gt;</span>
-  ]]&gt;
-  <span class="nt">&lt;/avs&gt;</span>
 <span class="nt">&lt;/requisicao-transacao&gt;</span>
+
 
 </code></pre></div></div>
 
@@ -1448,7 +1493,7 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
   </tbody>
 </table>
 
-<aside class="warning">O valor resultante da divisão do valor do pedido pelo número de parcelas não deve ser inferior a R$ 5,00. Para transações Visa, a autorização será negada. Para transações MasterCard, Elo, Diners, Discover, Aura e JCB, a transação que for aprovada, terá seu plano parcelado alterado para à vista. Para evitar reclamações, permita apenas transações parceladas com a parcela mínima acima de R$ 5,00.</aside>
+<aside class="warning">Observação: O Valor mínimo da parcela é de R$ 1,00.</aside>
 
 <h2 id="fluxos-de-integração-e-redirecionamentos">Fluxos de integração e redirecionamentos</h2>
 
