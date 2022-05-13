@@ -3262,28 +3262,14 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <h2 id="cartões-alelo">Cartões Alelo</h2>
 
-<p>Para criar uma venda que utilizará cartão de Alelo, é necessário fazer um <strong>POST</strong> para o recurso Payment utilizando o contrato técnico de uma venda de <strong>Cartão de Débito</strong>.</p>
+<p>Para criar uma venda que utilizará cartão de Alelo, é use a mesma requisição de uma venda de <strong>cartão de débito</strong>.</p>
 
-<p><strong>OBS:</strong> Em transações de Cartão ALELO, os seguintes parâmetros devem possuir configurações estáticas</p>
+<p><strong>OBS:</strong> Em transações de Cartão ALELO, os seguintes parâmetros devem possuir configurações estáticas:</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Parâmetro</th>
-      <th>Padrão ALELO</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
-      <td><strong>FALSE</strong> ou não enviado</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.Brand</code></td>
-      <td>Precisa ser enviado como ELO</td>
-    </tr>
-  </tbody>
-</table>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code> precisa estar como <strong><code class="language-plaintext highlighter-rouge">false</code>“</strong> ou não ser enviado;</li>
+  <li><code class="language-plaintext highlighter-rouge">DebitCard.Brand</code> precisa ser enviada como <strong>“Elo”</strong>.</li>
+</ul>
 
 <h3 id="requisição-6">Requisição</h3>
 
@@ -3387,18 +3373,11 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Não</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>Status de cadastro do comprador na loja (NEW / EXISTING) - Utilizado pela análise de fraude.</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-    </tr>
-    <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
-      <td>Define se o comprador será direcionado ao Banco emissor para autenticação do cartão</td>
+      <td>Define se o comprador será direcionado ao Banco emissor para autenticação do cartão. <strong>Valor possível: “false”</strong> ou não enviar.</td>
       <td>Booleano</td>
       <td>—</td>
-      <td>Não (Defaul false)</td>
+      <td>Não (default =”false”)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
@@ -3430,16 +3409,23 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.CardNumber</code></td>
-      <td>Número do Cartão do Comprador.</td>
+      <td>Número do cartão do comprador.</td>
       <td>Texto</td>
       <td>19</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.Holder</code></td>
-      <td>Nome do Comprador impresso no cartão.</td>
+      <td>Nome do comprador impresso no cartão.</td>
       <td>Texto</td>
       <td>25</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DebitCard.ExpirationDate</code></td>
+      <td>Data de validade impressa no cartão. Ex. MM/AAAA.</td>
+      <td>Texto</td>
+      <td>7</td>
       <td>Sim</td>
     </tr>
     <tr>
@@ -3447,6 +3433,13 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Código de segurança impresso no verso do cartão.</td>
       <td>Texto</td>
       <td>4</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DebitCard.Brand</code></td>
+      <td>Bandeira do cartão. Precisa ser enviada como “ELO”.</td>
+      <td>Texto</td>
+      <td>10</td>
       <td>Sim</td>
     </tr>
   </tbody>
@@ -3555,13 +3548,6 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AuthenticationUrl</code></td>
-      <td>URL para qual o Lojista deve redirecionar o Cliente para o fluxo de Débito.</td>
-      <td>Texto</td>
-      <td>56</td>
-      <td>URL de Autenticação</td>
-    </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
       <td>ID da transação na adquirente.</td>
