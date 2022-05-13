@@ -837,6 +837,61 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
   </tbody>
 </table>
 
+<p>MCC’s permitidos para CBPS:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>4814 (Serviços de Telecomunicação)</td>
+    </tr>
+    <tr>
+      <td>4899 (TV à cabo, Satélite e outros Serviços de Televisão/Rádio)</td>
+    </tr>
+    <tr>
+      <td>4900 (Serviços Públicos – Eletricidade, Gás, Água, Esgoto)</td>
+    </tr>
+    <tr>
+      <td>6012 - BCOS/LJ.POUP/INST.F</td>
+    </tr>
+    <tr>
+      <td>6051 - CASAS CAMB/TRAVELEE</td>
+    </tr>
+    <tr>
+      <td>6300 (Vendas de Seguros, Subscrição e Prêmios)</td>
+    </tr>
+    <tr>
+      <td>6513 (Agentes e Gerentes de Imóveis – Aluguéis)</td>
+    </tr>
+    <tr>
+      <td>8050 (Instalações de Cuidados Pessoais ou de Enfermagem)</td>
+    </tr>
+    <tr>
+      <td>8211 (Escolas de 1º e 2º Graus)</td>
+    </tr>
+    <tr>
+      <td>8220 (Faculdades, Universidades, Escolas Profissionais e Faculdades de Curta Duração)</td>
+    </tr>
+    <tr>
+      <td>8241 (Escolas por Correspondência)</td>
+    </tr>
+    <tr>
+      <td>8244 (Escolas de Negócios e Secretariado)</td>
+    </tr>
+    <tr>
+      <td>8249 (Ensino Profissionalizante/Formação Profissional)</td>
+    </tr>
+    <tr>
+      <td>8299 (Serviços Escolares e Educacionais [Não Classificados em Nenhum Outro Lugar])</td>
+    </tr>
+    <tr>
+      <td>8351 (Serviços de Creche)</td>
+    </tr>
+    <tr>
+      <td>9311 (Pagamento de Impostos)</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="quasi-cash">Quasi cash</h3>
 
 <p>Transações Quasi Cash são aquelas transações referentes a compras de fichas para jogos online, compras de bilhete de lotéricas ou relacionados. Apenas alguns MCCs (Códigos de categoria de atuação) que podem processar transações desse modelo. Consulte o time Cielo para entender se o seu negócio entra nesse modelo.</p>
@@ -1257,32 +1312,11 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td><code class="language-plaintext highlighter-rouge">true</code> ou <code class="language-plaintext highlighter-rouge">false</code>. Define se a transação será automaticamente capturada caso seja autorizada.</td>
     </tr>
     <tr>
-      <td>campo-livre</td>
-      <td>Alfanumérico</td>
-      <td>Opcional</td>
-      <td>0..128</td>
-      <td>Campo livre disponível para o Estabelecimento.</td>
-    </tr>
-    <tr>
-      <td>bin</td>
-      <td>Numérico</td>
-      <td>Opcional</td>
-      <td>6</td>
-      <td>Seis primeiros números do cartão.</td>
-    </tr>
-    <tr>
       <td>gerar-token</td>
       <td>Boolean</td>
       <td>Opcional</td>
       <td>n/a</td>
       <td><code class="language-plaintext highlighter-rouge">true</code> ou <code class="language-plaintext highlighter-rouge">false</code>. Define se a transação atual deve gerar um token associado ao cartão.</td>
-    </tr>
-    <tr>
-      <td>avs#avs</td>
-      <td>Alfanumérico</td>
-      <td>Opcional</td>
-      <td>n/a</td>
-      <td>String contendo um bloco XML, encapsulado pelo <code class="language-plaintext highlighter-rouge">CDATA</code>, contendo as informações necessárias para realizar a consulta ao serviço.</td>
     </tr>
   </tbody>
 </table>
@@ -1431,25 +1465,11 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>Idioma do pedido: PT (português), EN (inglês) ou ES (espanhol). Com base nessa informação é definida a língua a ser utilizada nas telas da Cielo. <strong>Caso não seja enviado, o sistema assumirá “PT”</strong>.</td>
     </tr>
     <tr>
-      <td>taxa-embarque</td>
-      <td>Numérico</td>
-      <td>Opcional</td>
-      <td>1..9</td>
-      <td>Montante do valor da autorização que deve ser destinado à taxa de embarque.</td>
-    </tr>
-    <tr>
       <td>soft-descriptor</td>
       <td>Alfanumérico</td>
       <td>Opcional</td>
       <td>0..13</td>
       <td>Texto de até 13 caracteres que será exibido na fatura do portador, após o nome do Estabelecimento Comercial.</td>
-    </tr>
-    <tr>
-      <td>numero-bilhete</td>
-      <td>Alfanumérico</td>
-      <td>Não</td>
-      <td>13</td>
-      <td>Informar o número do principal bilhete aéreo da transação.</td>
     </tr>
   </tbody>
 </table>
@@ -1644,7 +1664,7 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
   <li><strong>Erros semânticos</strong>: ocorrem quando uma requisição solicita uma operação não suportada para determinada transação. Por exemplo, tentar capturar uma transação não autorizada, ou ainda, cancelar uma transação já cancelada.</li>
 </ul>
 
-<aside class="notice">As mensagens de erro sempre trazem informações adicionais que facilitam o troubleshooting. A tabela que consta no item “Anexos - 6.2. Catálogo de Erros” possui a lista completa com os códigos de erros e suas descrições que devem ser consideradas no desenvolvimento da integração.</aside>
+<aside class="notice">As mensagens de erro sempre trazem informações adicionais que facilitam o troubleshooting. A tabela que consta no item “Anexos - 6.2. Catálogo de Erros” possui a lista completa com os códigos de erros e suas descrições que devem ser consideradas no desenvolvimento da integração. https://developercielo.github.io/manual/webservice-1-5#c%C3%B3digos-de-erros</aside>
 
 <h2 id="autenticação-e-nível-de-segurança">Autenticação e nível de segurança</h2>
 
