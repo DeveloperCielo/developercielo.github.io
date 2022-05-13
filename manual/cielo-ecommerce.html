@@ -3588,7 +3588,13 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <h2 id="boleto">Boleto</h2>
 
-<h4 id="requisição-7">Requisição</h4>
+<p>Para transacionar por boleto, você precisa primeiro contratar esse serviço com o banco. Em seguida, configure o meio de pagamento boleto de acordo com as orientações do manual <a href="https://developercielo.github.io/tutorial/manual-boleto" target="_blank">Boletos</a>.</p>
+
+<blockquote>
+  <p><strong>Observação:</strong> Os boletos do Banco do Brasil não possuem o serviço de conciliação automática.</p>
+</blockquote>
+
+<h3 id="requisição-7">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -3624,7 +3630,7 @@ Abaixo especificamos qualquer diferença existente:</p>
     </span><span class="p">{</span><span class="w">  
         </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"Boleto"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"INCLUIR PROVIDER"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Bradesco2"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Teste"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"BoletoNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Assignor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa Teste"</span><span class="p">,</span><span class="w">
@@ -3675,7 +3681,7 @@ Abaixo especificamos qualquer diferença existente:</p>
     <span class="o">{</span>  
         <span class="s2">"Type"</span>:<span class="s2">"Boleto"</span>,
         <span class="s2">"Amount"</span>:15700,
-        <span class="s2">"Provider"</span>:<span class="s2">"INCLUIR PROVIDER"</span>,
+        <span class="s2">"Provider"</span>:<span class="s2">"Bradesco2"</span>,
         <span class="s2">"Address"</span>: <span class="s2">"Rua Teste"</span>,
         <span class="s2">"BoletoNumber"</span>: <span class="s2">"123"</span>,
         <span class="s2">"Assignor"</span>: <span class="s2">"Empresa Teste"</span>,
@@ -3806,7 +3812,7 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.</td>
+      <td>Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO. Valores possíveis: “Bradesco2” ou “BancoDoBrasil2”</td>
       <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
@@ -3863,7 +3869,9 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<h4 id="resposta-7">Resposta</h4>
+<h3 id="resposta-7">Resposta</h3>
+
+<p>Na resposta da transação de boleto, a API Cielo E-commerce vai enviar a URL do boleto e o código de barras, que o e-commerce deverá exibir para o comprador.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -3907,7 +3915,7 @@ Abaixo especificamos qualquer diferença existente:</p>
         </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15700</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bradesco"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bradesco2"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"ExtraDataCollection"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
         </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -3965,7 +3973,7 @@ Abaixo especificamos qualquer diferença existente:</p>
         <span class="s2">"Amount"</span>: 15700,
         <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
         <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
-        <span class="s2">"Provider"</span>: <span class="s2">"Bradesco"</span>,
+        <span class="s2">"Provider"</span>: <span class="s2">"Bradesco2"</span>,
         <span class="s2">"ExtraDataCollection"</span>: <span class="o">[]</span>,
         <span class="s2">"Status"</span>: 1,
         <span class="s2">"Links"</span>: <span class="o">[</span>
@@ -4154,7 +4162,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 </table>
 
 <blockquote>
-  <p><strong>Comentário Banco Do Brasil</strong>: Os campos <code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.District</code> devem totalizar até 60 caracteres.</p>
+  <p><strong>Obs Banco do Brasil</strong>: Os campos <code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.District</code> devem totalizar até 60 caracteres.</p>
 </blockquote>
 
 <table>
