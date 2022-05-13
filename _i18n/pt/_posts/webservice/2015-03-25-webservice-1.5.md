@@ -295,8 +295,6 @@ Todos os clientes de E-Commerce que são **Facilitadores de Pagamento, por obrig
 
 Os novos campos estão contidos dentro da tag **&lt;subcredenciador&gt;**. Além dos campos deste novo nó, os facilitadores terão também de enviar obrigatoriamente a tag **&lt;soft-descriptor&gt;**. Segue abaixo exemplo do envio e da resposta.
 
-
-
 #### Requisição
 
 ``` xml
@@ -610,8 +608,6 @@ A massa de dados para realizar os testes neste ambiente está disposta na tabela
 |---|---|---|---|
 |2000019700|8c08a0d0f00b73dedd2673a06fa725b0bd8edbf71c4c7dd0614bf408e4d16120|6051/6540|Master e Visa|
 |2000019853|8c08a0d0f00b73dedd2673a06fa725b0bd8edbf71c4c7dd0614bf408e4d16120|6540|Elo|
-
-
 
 Além disso, precisam enviar alguns dados adicionais na transação, para que as bandeiras possam identificar e diferenciar esse tipo de transação. Veja abaixo as especificações:
 
