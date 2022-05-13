@@ -1648,14 +1648,12 @@ Caso o lojista precise cancelar uma transferência Pix, é possível realizar um
 
 ## Cartões Alelo
 
-Para criar uma venda que utilizará cartão de Alelo, é necessário fazer um **POST** para o recurso Payment utilizando o contrato técnico de uma venda de **Cartão de Débito**.
+Para criar uma venda que utilizará cartão de Alelo, é use a mesma requisição de uma venda de **cartão de débito**.
 
-**OBS:** Em transações de Cartão ALELO, os seguintes parâmetros devem possuir configurações estáticas
+**OBS:** Em transações de Cartão ALELO, os seguintes parâmetros devem possuir configurações estáticas: 
 
-| Parâmetro              | Padrão ALELO                 |
-|------------------------|------------------------------|
-| `Payment.Authenticate` | **FALSE** ou não enviado     |
-| `DebitCard.Brand`      | Precisa ser enviado como ELO |
+* `Payment.Authenticate` precisa estar como **`false`"** ou não ser enviado;
+* `DebitCard.Brand` precisa ser enviada como **"Elo"**.
 
 ### Requisição
 
@@ -1721,15 +1719,16 @@ curl
 |`RequestId`               | Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT| Guid    | 36    | Não               |
 |`MerchantOrderId`         | Número de identificação do Pedido.                                                                   | Texto   | 50    | Sim               |
 |`Customer.Name`           | Nome do Comprador.                                                                                   | Texto   | 255   | Não               |
-|`Customer.Status`         | Status de cadastro do comprador na loja (NEW / EXISTING) - Utilizado pela análise de fraude.         | Texto   | 255   | Não               |
-|`Payment.Authenticate`    | Define se o comprador será direcionado ao Banco emissor para autenticação do cartão                  | Booleano| ---   | Não (Defaul false)|
+|`Payment.Authenticate`    | Define se o comprador será direcionado ao Banco emissor para autenticação do cartão. **Valor possível: "false"** ou não enviar.                  | Booleano| ---   | Não (default ="false")|
 |`Payment.Type`            | Tipo do Meio de Pagamento                                                                            | Texto   | 100   | Sim               |
 |`Payment.Amount`          | Valor do Pedido (ser enviado em centavos).                                                           | Número  | 15    | Sim               |
 |`Payment.ReturnUrl`       | URL de retorno do lojista.                                                                           | Texto   | 1024  | Sim               |
 |`Payment.ReturnUrl`       | URL para onde o usuário será redirecionado após o fim do pagamento                                   | Texto   | 1024  | Sim               |
-|`DebitCard.CardNumber`    | Número do Cartão do Comprador.                                                                       | Texto   | 19    | Sim               |
-|`DebitCard.Holder`        | Nome do Comprador impresso no cartão.                                                                | Texto   | 25    | Sim               |
+|`DebitCard.CardNumber`    | Número do cartão do comprador.                                                                       | Texto   | 19    | Sim               |
+|`DebitCard.Holder`        | Nome do comprador impresso no cartão.                                                                | Texto   | 25    | Sim               |
+|`DebitCard.ExpirationDate`| Data de validade impressa no cartão. Ex. MM/AAAA.                                                    | Texto   | 7    | Sim               |
 |`DebitCard.SecurityCode`  | Código de segurança impresso no verso do cartão.                                                     | Texto   | 4     | Sim               |
+|`DebitCard.Brand`  | Bandeira do cartão. Precisa ser enviada como "ELO".                                                         | Texto   | 10     | Sim               |
 
 ### Resposta
 
@@ -1827,7 +1826,6 @@ curl
 
 | Propriedade         | Descrição                                                                                   | Tipo  | Tamanho | Formato                              |
 |---------------------|---------------------------------------------------------------------------------------------|-------|---------|--------------------------------------|
-| `AuthenticationUrl` | URL para qual o Lojista deve redirecionar o Cliente para o fluxo de Débito.                 | Texto | 56      | URL de Autenticação                  |
 | `Tid`               | ID da transação na adquirente.                                                              | Texto | 20      | Texto alfanumérico                   |
 | `PaymentId`         | Campo Identificador do Pedido.                                                              | Guid  | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 | `ReturnUrl`         | URL de retorno do lojista. URL para onde o lojista vai ser redirecionado no final do fluxo. | Texto | 1024    | http://www.urllogista.com.br         |
