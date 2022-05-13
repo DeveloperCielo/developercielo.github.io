@@ -476,6 +476,25 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:
 |dados.pedido.pagamento-conta|Boolean|---|Sim, para um estabelecimento cadastrado como CBPS junto a bandeira|True ou false. Indica se é uma transação CBPS (Serviço de Pagamento de Contas para Consumidores)|
 |dados.ec.mcc-dinamico|Numérico|4|Sim, para um estabelecimento cadastrado como CBPS junto a bandeira|MCC do estabelecimento (EC) permitido para transações de CBPS|
 
+MCC’s permitidos para CBPS:
+
+|4814 (Serviços de Telecomunicação)|
+|4899 (TV à cabo, Satélite e outros Serviços de Televisão/Rádio)|
+|4900 (Serviços Públicos – Eletricidade, Gás, Água, Esgoto)|
+|6012 - BCOS/LJ.POUP/INST.F|
+|6051 - CASAS CAMB/TRAVELEE|
+|6300 (Vendas de Seguros, Subscrição e Prêmios)|
+|6513 (Agentes e Gerentes de Imóveis – Aluguéis)|
+|8050 (Instalações de Cuidados Pessoais ou de Enfermagem)|
+|8211 (Escolas de 1º e 2º Graus)|
+|8220 (Faculdades, Universidades, Escolas Profissionais e Faculdades de Curta Duração)|
+|8241 (Escolas por Correspondência)|
+|8244 (Escolas de Negócios e Secretariado)|
+|8249 (Ensino Profissionalizante/Formação Profissional)|
+|8299 (Serviços Escolares e Educacionais [Não Classificados em Nenhum Outro Lugar])|
+|8351 (Serviços de Creche)|
+|9311 (Pagamento de Impostos)|
+
 ### Quasi cash
 
 Transações Quasi Cash são aquelas transações referentes a compras de fichas para jogos online, compras de bilhete de lotéricas ou relacionados. Apenas alguns MCCs (Códigos de categoria de atuação) que podem processar transações desse modelo. Consulte o time Cielo para entender se o seu negócio entra nesse modelo. 
@@ -718,10 +737,7 @@ Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) 
 |[forma-pagamento](#forma-pagamento)|n/a|Sim|n/a|Forma de pagamento|
 |url-retorno|Alfanumérico|Sim|1..1024|URL da página de retorno. É para essa página que a Cielo vai direcionar o browser ao fim da autenticação ou da autorização. Não é obrigatório apenas para autorização direta, porém o campo dever ser inserido como `null`.|
 |capturar|Boolean|Sim|n/a|`true` ou `false`. Define se a transação será automaticamente capturada caso seja autorizada.|
-|campo-livre|Alfanumérico|Opcional|0..128|Campo livre disponível para o Estabelecimento.|
-|bin|Numérico|Opcional|6|Seis primeiros números do cartão.|
 |gerar-token|Boolean|Opcional|n/a|`true` ou `false`. Define se a transação atual deve gerar um token associado ao cartão.|
-|avs#avs|Alfanumérico|Opcional|n/a|String contendo um bloco XML, encapsulado pelo `CDATA`, contendo as informações necessárias para realizar a consulta ao serviço.|
 
 ## dados-ec
 
@@ -751,9 +767,7 @@ Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) 
 |data-hora|Alfanumérico|Sim|19|Data hora do pedido. **Formato**: `aaaa-MM-ddTHH24:mm:ss`|
 |descricao|Alfanumérico|Opcional|0..1024|Descrição do pedido|
 |idioma|Alfanumérico|Opcional|2|Idioma do pedido: PT (português), EN (inglês) ou ES (espanhol). Com base nessa informação é definida a língua a ser utilizada nas telas da Cielo. **Caso não seja enviado, o sistema assumirá “PT”**.|
-|taxa-embarque|Numérico|Opcional|1..9|Montante do valor da autorização que deve ser destinado à taxa de embarque.|
 |soft-descriptor|Alfanumérico|Opcional|0..13|Texto de até 13 caracteres que será exibido na fatura do portador, após o nome do Estabelecimento Comercial.|
-|numero-bilhete|Alfanumérico|Não|13|Informar o número do principal bilhete aéreo da transação.|
 
 <aside class="notice">O cadastro do cliente está habilitado para transacionar apenas com a moeda REAL, caso necessite de mais informações, contate a central de relacionamento, seu gerente comercial ou o Suporte Web Cielo eCommerce.</aside>
 
@@ -872,7 +886,7 @@ Quando a transação é inválida, podemos classificar os erros em dois tipos:
 * **Erros sintáticos**: ocorrem quando a mensagem XML não respeita as regras definidas no arquivo eCommerce.xsd. Por exemplo, uma letra em um campo numérico, ou a ausência de um valor obrigatório;
 * **Erros semânticos**: ocorrem quando uma requisição solicita uma operação não suportada para determinada transação. Por exemplo, tentar capturar uma transação não autorizada, ou ainda, cancelar uma transação já cancelada.
 
-<aside class="notice">As mensagens de erro sempre trazem informações adicionais que facilitam o troubleshooting. A tabela que consta no item “Anexos - 6.2. Catálogo de Erros” possui a lista completa com os códigos de erros e suas descrições que devem ser consideradas no desenvolvimento da integração.</aside>
+<aside class="notice">As mensagens de erro sempre trazem informações adicionais que facilitam o troubleshooting. A tabela que consta no item “Anexos - 6.2. Catálogo de Erros” possui a lista completa com os códigos de erros e suas descrições que devem ser consideradas no desenvolvimento da integração. https://developercielo.github.io/manual/webservice-1-5#c%C3%B3digos-de-erros</aside>
 
 ## Autenticação e nível de segurança
 
