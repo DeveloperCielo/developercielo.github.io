@@ -1955,6 +1955,14 @@ curl
 |`Customer.Address.District`|Bairro do Comprador.|Texto|50|Sim|
 |`Customer.Address.Street`|Endereço do Comprador.|Texto|255|Sim|
 |`Customer.Address.Number`|Número do endereço do Comprador.|Texto|15|Sim|
+|`Customer.Billing.Street`|Logradouro do endereço de cobrança|string|24|não|
+|`Customer.Billing.Number`|Número do endereço de cobrança|string|5|não|
+|`Customer.Billing.Complement`|Complemento do endereço de cobrança|string|14|não|
+|`Customer.Billing.Neighborhood`|Bairro do endereço de cobrança|string|15|não|
+|`Customer.Billing.City`|Cidade do endereço de cobranças|tring|20|não |
+|`Customer.Billing.State`|Estado do endereço de cobrança|string|2|não|
+|`Customer.Billing.Country`|País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|string|2|não|
+|`Customer.Billing.ZipCode`|Código postal do endereço de cobrança|string|9|não|
 |`Payment.Type`|Tipo do Meio de Pagamento.|Texto|100|Sim|
 |`Payment.Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
 |`Payment.Provider`|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO. Valores possíveis: "Bradesco2" ou "BancoDoBrasil2"|Texto|15|Sim|
