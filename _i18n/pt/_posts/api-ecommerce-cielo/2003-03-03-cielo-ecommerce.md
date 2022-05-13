@@ -1834,7 +1834,11 @@ curl
 
 ## Boleto
 
-#### Requisição
+Para transacionar por boleto, você precisa primeiro contratar esse serviço com o banco. Em seguida, configure o meio de pagamento boleto de acordo com as orientações do manual [Boletos](https://developercielo.github.io/tutorial/manual-boleto){:target="_blank"}.
+
+> **Observação:** Os boletos do Banco do Brasil não possuem o serviço de conciliação automática.
+
+### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -1871,7 +1875,7 @@ curl
     {  
         "Type":"Boleto",
         "Amount":15700,
-        "Provider":"INCLUIR PROVIDER",
+        "Provider":"Bradesco2",
         "Address": "Rua Teste",
         "BoletoNumber": "123",
         "Assignor": "Empresa Teste",
@@ -1923,7 +1927,7 @@ curl
     {  
         "Type":"Boleto",
         "Amount":15700,
-        "Provider":"INCLUIR PROVIDER",
+        "Provider":"Bradesco2",
         "Address": "Rua Teste",
         "BoletoNumber": "123",
         "Assignor": "Empresa Teste",
@@ -1953,7 +1957,7 @@ curl
 |`Customer.Address.Number`|Número do endereço do Comprador.|Texto|15|Sim|
 |`Payment.Type`|Tipo do Meio de Pagamento.|Texto|100|Sim|
 |`Payment.Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
-|`Payment.Provider`|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|Texto|15|Sim|
+|`Payment.Provider`|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO. Valores possíveis: "Bradesco2" ou "BancoDoBrasil2"|Texto|15|Sim|
 |`Payment.Address`|Endereço do Cedente.|Texto|255|Não|
 |`Payment.BoletoNumber`|Número do Boleto enviado pelo lojista. Usado para contar boletos emitidos ("NossoNumero").|Texto|Bradesco: 11<BR>Banco do Brasil: 9|Não|
 |`Payment.Assignor`|Nome do Cedente.|Texto|200|Não|
@@ -1962,7 +1966,9 @@ curl
 |`Payment.Identification`|Documento de identificação do Cedente.|Texto|14|Não|
 |`Payment.Instructions`|Instruções do Boleto.|Texto|255|Não|
 
-#### Resposta
+### Resposta
+
+Na resposta da transação de boleto, a API Cielo E-commerce vai enviar a URL do boleto e o código de barras, que o e-commerce deverá exibir para o comprador.
 
 ```json
 {
@@ -2007,7 +2013,7 @@ curl
         "Amount": 15700,
         "Currency": "BRL",
         "Country": "BRA",
-        "Provider": "Bradesco",
+        "Provider": "Bradesco2",
         "ExtraDataCollection": [],
         "Status": 1,
         "Links": [
@@ -2066,7 +2072,7 @@ curl
         "Amount": 15700,
         "Currency": "BRL",
         "Country": "BRA",
-        "Provider": "Bradesco",
+        "Provider": "Bradesco2",
         "ExtraDataCollection": [],
         "Status": 1,
         "Links": [
@@ -2112,7 +2118,7 @@ Quantidade de caracteres por campo e Provider:
 |`Payment.Instructions`|N/A|255|255|
 |`Payment.Demonstrative`|N/A|255|Não é enviado ao banco do Brasil|
 
-> **Comentário Banco Do Brasil**: Os campos `Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District` devem totalizar até 60 caracteres.
+> **Obs Banco do Brasil**: Os campos `Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District` devem totalizar até 60 caracteres.
 
 |Observações|Bradesco|Banco do Brasil|
 |---|---|---|
