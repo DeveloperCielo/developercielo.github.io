@@ -2112,28 +2112,36 @@ Na resposta da transação de boleto, a API Cielo E-commerce vai enviar a URL do
 
 Quantidade de caracteres por campo e Provider:
 
-|Propriedade|Observações|Bradesco|Banco do Brasil|
-|---|---|---|---|
-|`Provider`|N/A|Bradesco2|BancoDoBrasil2|
-|`MerchantOrderId`|OBS 1|27|50|
-|`Payment.BoletoNumber`|OBS 2|11|9|
-|`Customer.Name`|OBS 3|34|60|
-|`Customer.Address.Street`|OBS 4|70|OBS 3 / Ver comentário|
-|`Customer.Address.Number`|OBS 4|10|OBS 3 / Ver comentário|
-|`Customer.Address.Complement`|OBS 4|20|OBS 3 / Ver comentário|
-|`Customer.Address.District`|OBS 4|50|OBS 3 / Ver comentário|
-|`Customer.Address.City`|N/A|50 - OBS 4|18 - OBS 3|
-|`Payment.Instructions`|N/A|255|255|
-|`Payment.Demonstrative`|N/A|255|Não é enviado ao banco do Brasil|
+**Bradesco**
 
-> **Obs Banco do Brasil**: Os campos `Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District` devem totalizar até 60 caracteres.
-
-|Observações|Bradesco|Banco do Brasil|
+|Propriedade|Observações|Tamanho|
 |---|---|---|
-|**OBS 1:**|Apenas Letras, números e caracteres como "_" e "$"|Não é enviado ao banco|
-|**OBS 2:**|O dado é validado pelo banco|Quando enviado acima de 9 posições, a API Cielo trunca automaticamente, considerando os últimos 9 dígitos|
-|**OBS 3:**|A API Cielo trunca automaticamente|**Caracteres válidos:** <BR> Letras de A a Z - MAIÚSCULAS <BR> **Caracteres especiais:** hífen (-) e apóstrofo (') <BR><BR> Quando utilizados, não pode conter espaços entre as letras; <BR><BR><BR> **Exemplos corretos**: D'EL-REI, D'ALCORTIVO, SANT'ANA.<BR><BR> **Exemplos incorretos**: D'EL - REI; até um espaço em branco entre palavras|
-|**OBS 4:**|O dado é validado pela API Cielo|N/A|
+|`Provider`|N/a|Bradesco2|
+|`MerchantOrderId`|Apenas Letras, números e caracteres como "_" e "$".|27|
+|`Payment.BoletoNumber`|O dado é validado pelo banco.|11|
+|`Customer.Name`|A API Cielo trunca automaticamente.|34|
+|`Customer.Address.Street`|O dado é validado pela API Cielo.|70|
+|`Customer.Address.Number`|O dado é validado pela API Cielo.|10|
+|`Customer.Address.Complement`|O dado é validado pela API Cielo.|20|
+|`Customer.Address.District`|O dado é validado pela API Cielo.|50|
+|`Customer.Address.City`|N/a|50 - O dado é validado pela API Cielo.|
+|`Payment.Instructions`|N/a|255|
+|`Payment.Demonstrative`|N/a|255|
+
+**Banco do Brasil**
+
+|Propriedade|Observações|Tamanho|
+|---|---|---|
+|`Provider`|N/a|BancoDoBrasil2|
+|`MerchantOrderId`|Não é enviado ao banco.|50|
+|`Payment.BoletoNumber`|Quando enviado acima de 9 posições, a API Cielo trunca automaticamente, considerando os últimos 9 dígitos.|9|
+|`Customer.Name`|**Caracteres válidos:** <BR> Letras de A a Z - MAIÚSCULAS <BR> **Caracteres especiais:** hífen (-) e apóstrofo (') <BR><BR> Quando utilizados, não pode conter espaços entre as letras; <BR><BR><BR> **Exemplos corretos**: D'EL-REI, D'ALCORTIVO, SANT'ANA.<BR><BR> **Exemplos incorretos**: D'EL - REI; até um espaço em branco entre palavras.|60|
+|`Customer.Address.Street`|**Caracteres válidos:** <BR> Letras de A a Z - MAIÚSCULAS <BR> **Caracteres especiais:** hífen (-) e apóstrofo (') <BR><BR> Quando utilizados, não pode conter espaços entre as letras; <BR><BR><BR> **Exemplos corretos**: D'EL-REI, D'ALCORTIVO, SANT'ANA.<BR><BR> **Exemplos incorretos**: D'EL - REI; até um espaço em branco entre palavras| Os campos `Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District` devem totalizar até 60 caracteres.|
+|`Customer.Address.Number`|**Caracteres válidos:** <BR> Letras de A a Z - MAIÚSCULAS <BR> **Caracteres especiais:** hífen (-) e apóstrofo (') <BR><BR> Quando utilizados, não pode conter espaços entre as letras; <BR><BR><BR> **Exemplos corretos**: D'EL-REI, D'ALCORTIVO, SANT'ANA.<BR><BR> **Exemplos incorretos**: D'EL - REI; até um espaço em branco entre palavras| Os campos `Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District` devem totalizar até 60 caracteres.|
+|`Customer.Address.Complement`|**Caracteres válidos:** <BR> Letras de A a Z - MAIÚSCULAS <BR> **Caracteres especiais:** hífen (-) e apóstrofo (') <BR><BR> Quando utilizados, não pode conter espaços entre as letras; <BR><BR><BR> **Exemplos corretos**: D'EL-REI, D'ALCORTIVO, SANT'ANA.<BR><BR> **Exemplos incorretos**: D'EL - REI; até um espaço em branco entre palavras| Os campos `Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District` devem totalizar até 60 caracteres.|
+|`Customer.Address.District`|**Caracteres válidos:** <BR> Letras de A a Z - MAIÚSCULAS <BR> **Caracteres especiais:** hífen (-) e apóstrofo (') <BR><BR> Quando utilizados, não pode conter espaços entre as letras; <BR><BR><BR> **Exemplos corretos**: D'EL-REI, D'ALCORTIVO, SANT'ANA.<BR><BR> **Exemplos incorretos**: D'EL - REI; até um espaço em branco entre palavras| Os campos `Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District` devem totalizar até 60 caracteres.|
+|`Customer.Address.City`|N/a|18 caracteres.<br>**Caracteres válidos:** <BR> Letras de A a Z - MAIÚSCULAS <BR> **Caracteres especiais:** hífen (-) e apóstrofo (') <BR><BR> Quando utilizados, não pode conter espaços entre as letras; <BR><BR><BR> **Exemplos corretos**: D'EL-REI, D'ALCORTIVO, SANT'ANA.<BR><BR> **Exemplos incorretos**: D'EL - REI; até um espaço em branco entre palavras|
+|`Payment.Instructions`|N/a|255|
 
 ## QR Code
 
