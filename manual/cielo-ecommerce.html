@@ -5268,41 +5268,6 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<h2 id="erros-de-integração">Erros de Integração</h2>
-
-<p>Caso ocorram erros de integração em qualquer um dos meios de pagamento, um “response” será retornado contendo um código de erro e uma descrição</p>
-
-<h3 id="exemplo">Exemplo</h3>
-
-<p>A Data de validade do cartão possui um valor não permitido  como “08/<strong>A</strong>020” e não “08/<strong>2</strong>020”, a resposta será:</p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">126</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit Card Expiration Date is invalid"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Code</code></td>
-      <td>Código de Erro da API. <a href="https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-de-erros-da-api">Veja a lista de códigos</a></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Message</code></td>
-      <td>Descrição do erro. <a href="https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-de-erros-da-api">Veja a lista de códigos</a></td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="consulta---captura---cancelamento">Consulta - Captura - Cancelamento</h1>
 
 <h2 id="consulta-de-transações">Consulta de transações</h2>
@@ -18301,12 +18266,14 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:</p>
   </tbody>
 </table>
 
-<h2 id="erros-de-integração-1">Erros de integração</h2>
+<h2 id="erros-de-integração">Erros de integração</h2>
 
 <blockquote>
-  <p><strong>Erros da API</strong> - Esses códigos são respostas a <strong>validação do conteúdo dos dados enviados</strong>. <br />
-Se esse código for exibido, a requisição contem erros (EX: tamanho/condições/erros de cadastro) que impedem a criação da transação<br /><em>Retornado no momento da requisição a API</em></p>
+  <p><strong>Erros da API</strong> - Esses códigos são respostas à <strong>validação do conteúdo dos dados enviados no momento da requisição à API</strong>. <br />
+Se um código de erro for exibido, a requisição contém erros (como tamanho, condições ou erros de cadastro etc.) que impedem a criação da transação<br /></p>
 </blockquote>
+
+<p><strong>Exemplo</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -18315,6 +18282,25 @@ Se esse código for exibido, a requisição contem erros (EX: tamanho/condiçõe
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Code</code></td>
+      <td>Código de Erro da API. <a href="https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-de-erros-da-api">Veja a lista de códigos</a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Message</code></td>
+      <td>Descrição do erro. <a href="https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-de-erros-da-api">Veja a lista de códigos</a></td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="códigos-de-erros-da-api">Códigos de Erros da API</h3>
 
