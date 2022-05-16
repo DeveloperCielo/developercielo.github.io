@@ -4138,117 +4138,135 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p>Quantidade de caracteres por campo e Provider:</p>
 
+<p><strong>Bradesco</strong></p>
+
 <table>
   <thead>
     <tr>
       <th>Propriedade</th>
       <th>Observações</th>
-      <th>Bradesco</th>
-      <th>Banco do Brasil</th>
+      <th>Tamanho</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Provider</code></td>
-      <td>N/A</td>
+      <td>N/a</td>
       <td>Bradesco2</td>
-      <td>BancoDoBrasil2</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>OBS 1</td>
+      <td>Apenas Letras, números e caracteres como “_” e “$”.</td>
       <td>27</td>
-      <td>50</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.BoletoNumber</code></td>
-      <td>OBS 2</td>
+      <td>O dado é validado pelo banco.</td>
       <td>11</td>
-      <td>9</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>OBS 3</td>
+      <td>A API Cielo trunca automaticamente.</td>
       <td>34</td>
-      <td>60</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
-      <td>OBS 4</td>
+      <td>O dado é validado pela API Cielo.</td>
       <td>70</td>
-      <td>OBS 3 / Ver comentário</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>OBS 4</td>
+      <td>O dado é validado pela API Cielo.</td>
       <td>10</td>
-      <td>OBS 3 / Ver comentário</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
-      <td>OBS 4</td>
+      <td>O dado é validado pela API Cielo.</td>
       <td>20</td>
-      <td>OBS 3 / Ver comentário</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
-      <td>OBS 4</td>
+      <td>O dado é validado pela API Cielo.</td>
       <td>50</td>
-      <td>OBS 3 / Ver comentário</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
-      <td>N/A</td>
-      <td>50 - OBS 4</td>
-      <td>18 - OBS 3</td>
+      <td>N/a</td>
+      <td>50 - O dado é validado pela API Cielo.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Instructions</code></td>
-      <td>N/A</td>
-      <td>255</td>
+      <td>N/a</td>
       <td>255</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Demonstrative</code></td>
-      <td>N/A</td>
+      <td>N/a</td>
       <td>255</td>
-      <td>Não é enviado ao banco do Brasil</td>
     </tr>
   </tbody>
 </table>
 
-<blockquote>
-  <p><strong>Obs Banco do Brasil</strong>: Os campos <code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.District</code> devem totalizar até 60 caracteres.</p>
-</blockquote>
+<p><strong>Banco do Brasil</strong></p>
 
 <table>
   <thead>
     <tr>
+      <th>Propriedade</th>
       <th>Observações</th>
-      <th>Bradesco</th>
-      <th>Banco do Brasil</th>
+      <th>Tamanho</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>OBS 1:</strong></td>
-      <td>Apenas Letras, números e caracteres como “_” e “$”</td>
-      <td>Não é enviado ao banco</td>
+      <td><code class="language-plaintext highlighter-rouge">Provider</code></td>
+      <td>N/a</td>
+      <td>BancoDoBrasil2</td>
     </tr>
     <tr>
-      <td><strong>OBS 2:</strong></td>
-      <td>O dado é validado pelo banco</td>
-      <td>Quando enviado acima de 9 posições, a API Cielo trunca automaticamente, considerando os últimos 9 dígitos</td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Não é enviado ao banco.</td>
+      <td>50</td>
     </tr>
     <tr>
-      <td><strong>OBS 3:</strong></td>
-      <td>A API Cielo trunca automaticamente</td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.BoletoNumber</code></td>
+      <td>Quando enviado acima de 9 posições, a API Cielo trunca automaticamente, considerando os últimos 9 dígitos.</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td><strong>Caracteres válidos:</strong> <br /> Letras de A a Z - MAIÚSCULAS <br /> <strong>Caracteres especiais:</strong> hífen (-) e apóstrofo (‘) <br /> Quando utilizados, não pode conter espaços entre as letras; <br /> <strong>Exemplos corretos</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /> <strong>Exemplos incorretos</strong>: D’EL - REI; até um espaço em branco entre palavras.</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
       <td><strong>Caracteres válidos:</strong> <br /> Letras de A a Z - MAIÚSCULAS <br /> <strong>Caracteres especiais:</strong> hífen (-) e apóstrofo (‘) <br /> Quando utilizados, não pode conter espaços entre as letras; <br /> <strong>Exemplos corretos</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /> <strong>Exemplos incorretos</strong>: D’EL - REI; até um espaço em branco entre palavras</td>
+      <td>Os campos <code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.District</code> devem totalizar até 60 caracteres.</td>
     </tr>
     <tr>
-      <td><strong>OBS 4:</strong></td>
-      <td>O dado é validado pela API Cielo</td>
-      <td>N/A</td>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
+      <td><strong>Caracteres válidos:</strong> <br /> Letras de A a Z - MAIÚSCULAS <br /> <strong>Caracteres especiais:</strong> hífen (-) e apóstrofo (‘) <br /> Quando utilizados, não pode conter espaços entre as letras; <br /> <strong>Exemplos corretos</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /> <strong>Exemplos incorretos</strong>: D’EL - REI; até um espaço em branco entre palavras</td>
+      <td>Os campos <code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.District</code> devem totalizar até 60 caracteres.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
+      <td><strong>Caracteres válidos:</strong> <br /> Letras de A a Z - MAIÚSCULAS <br /> <strong>Caracteres especiais:</strong> hífen (-) e apóstrofo (‘) <br /> Quando utilizados, não pode conter espaços entre as letras; <br /> <strong>Exemplos corretos</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /> <strong>Exemplos incorretos</strong>: D’EL - REI; até um espaço em branco entre palavras</td>
+      <td>Os campos <code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.District</code> devem totalizar até 60 caracteres.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
+      <td><strong>Caracteres válidos:</strong> <br /> Letras de A a Z - MAIÚSCULAS <br /> <strong>Caracteres especiais:</strong> hífen (-) e apóstrofo (‘) <br /> Quando utilizados, não pode conter espaços entre as letras; <br /> <strong>Exemplos corretos</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /> <strong>Exemplos incorretos</strong>: D’EL - REI; até um espaço em branco entre palavras</td>
+      <td>Os campos <code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.District</code> devem totalizar até 60 caracteres.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
+      <td>N/a</td>
+      <td>18 caracteres.<br /><strong>Caracteres válidos:</strong> <br /> Letras de A a Z - MAIÚSCULAS <br /> <strong>Caracteres especiais:</strong> hífen (-) e apóstrofo (‘) <br /> Quando utilizados, não pode conter espaços entre as letras; <br /> <strong>Exemplos corretos</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /> <strong>Exemplos incorretos</strong>: D’EL - REI; até um espaço em branco entre palavras</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Instructions</code></td>
+      <td>N/a</td>
+      <td>255</td>
     </tr>
   </tbody>
 </table>
