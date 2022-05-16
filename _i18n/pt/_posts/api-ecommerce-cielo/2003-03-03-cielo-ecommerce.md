@@ -2736,28 +2736,6 @@ Além disso, precisam enviar alguns dados adicionais na transação, para que as
 |`Customer.IdentityType`|Texto|255|Sim, para transações de Cash In|Tipo de documento de identificação do comprador (CPF/CNPJ).|
 |`SoftDescriptor`|Texto|13|Sim, para transações de Cash In|Texto que será impresso na fatura bancária do portador.<br> Não permite caracteres especiais.<br>Necessário preencher com **Nome da carteira*nome do portador**.|
 
-## Erros de Integração
-
-Caso ocorram erros de integração em qualquer um dos meios de pagamento, um "response" será retornado contendo um código de erro e uma descrição
-
-### Exemplo
-
-A Data de validade do cartão possui um valor não permitido  como "08/**A**020" e não "08/**2**020", a resposta será:
-
-``` json
-[
-    {
-        "Code": 126,
-        "Message": "Credit Card Expiration Date is invalid"
-    }
-]
-```
-
-| Propriedade | Descrição                                                                                                                              |
-|-------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `Code`      | Código de Erro da API. [Veja a lista de códigos](https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-de-erros-da-api) |
-| `Message`   | Descrição do erro. [Veja a lista de códigos](https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-de-erros-da-api)     |
-
 # Consulta - Captura - Cancelamento
 
 ## Consulta de transações 
@@ -8862,8 +8840,10 @@ A Cielo informa seus clientes que está preparada para processar as transações
 
 ## Erros de integração
 
-> **Erros da API** - Esses códigos são respostas a **validação do conteúdo dos dados enviados**. <br>
-> Se esse código for exibido, a requisição contem erros (EX: tamanho/condições/erros de cadastro) que impedem a criação da transação<BR><BR>*Retornado no momento da requisição a API*
+> **Erros da API** - Esses códigos são respostas à **validação do conteúdo dos dados enviados no momento da requisição à API**. <br>
+> Se um código de erro for exibido, a requisição contém erros (como tamanho, condições ou erros de cadastro etc.) que impedem a criação da transação<BR>
+
+**Exemplo**
 
 ``` json
 [
@@ -8873,6 +8853,11 @@ A Cielo informa seus clientes que está preparada para processar as transações
     }
 ]
 ```
+
+| Propriedade | Descrição                                                                                                                              |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| `Code`      | Código de Erro da API. [Veja a lista de códigos](https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-de-erros-da-api) |
+| `Message`   | Descrição do erro. [Veja a lista de códigos](https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-de-erros-da-api)     |
 
 ### Códigos de Erros da API
 
