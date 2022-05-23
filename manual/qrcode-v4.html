@@ -600,6 +600,21 @@ curl --location --request POST 'https://api2.cielo.com.br/sandbox/padraoq/v1/pay
   </table>
 </blockquote>
 
+<p>Ao realizar uma requisição para algum dos recursos da API e os dados não forem satisfatórios para realizar o procedimento, será devolvido uma resposta contendo no corpo as seguintes informações:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "code": "422.007",
+    "description": "Generic error (0xd4596b31) "
+}
+
+</code></pre></div></div>
+
+<p>Onde:
+• code: Código de resposta interno da aplicação.
+• description: Descrição sobre o problema encontrado no processo.</p>
+
+<p>A tabela abaixo apresenta os possíveis cenários de validações realizados pela API durante o fluxo de pagamento.</p>
+
 <h2 id="códigos-de-erro-payment">Códigos de erro Payment</h2>
 
 <blockquote>
@@ -995,19 +1010,6 @@ curl --location --request POST 'https://api2.cielo.com.br/sandbox/padraoq/v1/pay
     </tbody>
   </table>
 </blockquote>
-
-<p>Ao realizar uma requisição para algum dos recursos da API e os dados não forem satisfatórios para realizar o procedimento, será devolvido uma resposta contendo no corpo as seguintes informações:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-    "code": "422.007",
-    "description": "Generic error (0xd4596b31) "
-}
-
-</code></pre></div></div>
-
-<p>Onde:
-• code: Código de resposta interno da aplicação.
-• description: Descrição sobre o problema encontrado no processo.</p>
 
 <h1 id="api-para-realizar-parse-do-qr-code-uso-opcional">API para realizar parse do QR Code (uso opcional)</h1>
 
