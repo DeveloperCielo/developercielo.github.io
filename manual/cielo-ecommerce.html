@@ -590,6 +590,8 @@
 
 <aside class="notice">Tokenização: Se o objetivo for testar uma transação na API Cielo E-commerce salvando o número do cartão, recomendamos usar um gerador de cartões para atender a regra do mod10 (Algoritimo de Luhn), que é empregada nos ambientes Sandbox e de Produção.</aside>
 <p><br /></p>
+<aside class="notice">Para simular um cenário de autorização com sucesso de uma solicitação de Zeroauth no sandbox, é necessário enviar a requisição com um número de cartão iniciado com o dígito 5, independente da bandeira (exemplo: 5XXX.XXXX.XXXX.XXX4).</aside>
+<p><br /></p>
 <aside class="notice">Os status das transações são definidos pelos FINAIS de cada cartão, assim como o ReturnCode.</aside>
 
 <table>
