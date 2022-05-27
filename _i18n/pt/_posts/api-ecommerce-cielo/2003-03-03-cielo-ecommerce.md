@@ -339,7 +339,7 @@ Abaixo especificamos qualquer diferença existente:
 
 ## Renova Fácil – Sandbox
 
-Para simular uma transação com retorno de um novo cartão, atualizado pelo nosso serviço Renova Fácil, siga as orientações abaixo. Para saber mais como funciona a funcionalidade, acesse o menu “Recorrência” e depois “Renova Fácil”.
+Para simular uma transação com retorno de um novo cartão, atualizado pelo nosso serviço [Renova Fácil]({{ site.baseurl }}https://developercielo.github.io/manual/cielo-ecommerce#renova-f%C3%A1cil){:target="_blank"}, siga as orientações abaixo. Para saber mais como funciona a funcionalidade, acesse o menu “Recorrência” e depois “Renova Fácil”.
 
 Na requisição de autorização, além dos campos já previstos para o meio de pagamento utilizado, é necessário enviar os seguintes:
 
