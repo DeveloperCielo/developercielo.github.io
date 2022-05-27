@@ -337,6 +337,16 @@ Abaixo especificamos qualquer diferença existente:
 |Carnê|Use os mesmos valores da requisição do ambiente de produção para [Carnê](https://developercielo.github.io/manual/cielo-ecommerce#carn%C3%AA).|
 |Transferência eletrônica|O `Provider` utilizado deve ser **"Simulado"** <br><br> A URL de redirecionamento para o ambiente do banco será uma tela para escolher o estado da autenticação.|
 
+## Renova Fácil – Sandbox
+
+Para simular uma transação com retorno de um novo cartão, atualizado pelo nosso serviço Renova Fácil, siga as orientações abaixo. Para saber mais como funciona a funcionalidade, acesse o menu “Recorrência” e depois “Renova Fácil”.
+
+Na requisição de autorização, além dos campos já previstos para o meio de pagamento utilizado, é necessário enviar os seguintes:
+
+* No campo `CreditCard.CardNumber`: enviar um cartão com o número final sendo 3 (que simula um cenário de cartão vencido, vide tabela de cartões simulados presente na documentação).
+* No campo `CreditCard.ExpirationDate`: enviar uma data de validade já vencida.
+* Mandar o campo `Payment.Recurrent` preenchido como true, para marcar a transação como recorrente.
+
 ## Consulta BIN - Sandbox
 
 O BIN de um cartão é composto pelos seis primeiros dígitos. Na simulação da Consulta BIN em ambiente sandbox, cada um dos seis primeiros dígitos vai reger um resultado simulado. 
