@@ -281,6 +281,8 @@ As informações de **Cód.Segurança (CVV)** e validade podem ser aleatórias, 
 
 <aside class="notice">Tokenização: Se o objetivo for testar uma transação na API Cielo E-commerce salvando o número do cartão, recomendamos usar um gerador de cartões para atender a regra do mod10 (Algoritimo de Luhn), que é empregada nos ambientes Sandbox e de Produção.</aside>
 <br/>
+<aside class="notice">Para simular um cenário de autorização com sucesso de uma solicitação de Zeroauth no sandbox, é necessário enviar a requisição com um número de cartão iniciado com o dígito 5, independente da bandeira (exemplo: <strong>5XXX.XXXX.XXXX.XXX4</strong>).</aside>
+<br/>
 <aside class="notice">Os <code>status</code> das transações são definidos pelos FINAIS de cada cartão, assim como o <code>ReturnCode</code>.</aside>
 
 |Final do Cartão      | Status da Transação   | Código de Retorno  | Mensagem de Retorno               |
