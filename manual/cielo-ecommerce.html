@@ -739,6 +739,18 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
+<h2 id="renova-fácil--sandbox">Renova Fácil – Sandbox</h2>
+
+<p>Para simular uma transação com retorno de um novo cartão, atualizado pelo nosso serviço Renova Fácil, siga as orientações abaixo. Para saber mais como funciona a funcionalidade, acesse o menu “Recorrência” e depois “Renova Fácil”.</p>
+
+<p>Na requisição de autorização, além dos campos já previstos para o meio de pagamento utilizado, é necessário enviar os seguintes:</p>
+
+<ul>
+  <li>No campo <code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code>: enviar um cartão com o número final sendo 3 (que simula um cenário de cartão vencido, vide tabela de cartões simulados presente na documentação).</li>
+  <li>No campo <code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code>: enviar uma data de validade já vencida.</li>
+  <li>Mandar o campo <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> preenchido como true, para marcar a transação como recorrente.</li>
+</ul>
+
 <h2 id="consulta-bin---sandbox">Consulta BIN - Sandbox</h2>
 
 <p>O BIN de um cartão é composto pelos seis primeiros dígitos. Na simulação da Consulta BIN em ambiente sandbox, cada um dos seis primeiros dígitos vai reger um resultado simulado.</p>
