@@ -6318,15 +6318,17 @@ Some brands have a tokenization solution that offers the storage of cards in saf
   
 The participating brands make APIs available to acquirers, gateways and partners to securely receive and store the card, with the creation of a unique and exclusive token for that card at that establishment.
   
-Cielo provides this service to customers in two ways:
+Cielo provides these services to customers in two ways:
   
-* **Easy integration:** the merchant integrates with Cielo's conventional tokenization functionality, which performs the tokenization of the flag behind it, and links these two tokens in Cielo's vault. In this way, merchants will always have a single token for that card, but Cielo will have the brand's tokens and cryptograms internally. To see how the integration with Cielo's conventional tokenization is like, go back to the [Card Tokenization] (https://developercielo.github.io/en/manual/cielo-ecommerce#tokenization-of-cards)
-**Available flags:** Visa
+* **Simple Integration:** The merchant integrates with Cielo's conventional tokenization functionality, which calls the card brand tken API from behind, and connect these two tokens in Cielo's vault. In this way, merchants will always have a single token for that card, but Cielo will have in house the tokens and cryptograms of the brands.
+* Available Brands: Visa;
+* Eligible Products: E-Commerce API 3.0 and 1.5.
+* To obtain this functionality, contact our ecommerce support channel and request them to enable the card brand token service: cieloecommerce@cielo.com.br
 
-> To obtain this functionality, contact our ecommerce support channel requesting activation: **cieloecommerce@cielo.com.br**
-
-* **Integration from the outside:** If the merchant uses a gateway or another partner that already offers the flag token solution, Cielo has the fields for the token information to be sent in the transaction, so that the flag in the processing get the token data. See more details below.
-**Available flags:** Visa, Master and Elo.
+* **External Integration:** If the merchant uses a gateway or another partner that already offers the card brand token service, Cielo already has the Fields in our APIs to receive the token information, needed to be sent in the transaction. Then, the transaction will be sent to the card brand with the token data.
+**Available brands:** Visa, Master and Elo.
+* For the External Integration, Cielo is prepared to receive token data from the three brands above, but it is necessary to check whether the brand offers the product on the market.
+* Eligible Products: E-Commerce API 3.0 and 1.5.
 
 Check below the fields to be sent in the transaction if the option chosen is the integration from the outside:
 
