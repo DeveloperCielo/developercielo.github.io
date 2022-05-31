@@ -6326,7 +6326,7 @@ Cielo provides these services to customers in two ways:
 * To obtain this functionality, contact our ecommerce support channel and request them to enable the card brand token service: cieloecommerce@cielo.com.br
 
 * **External Integration:** If the merchant uses a gateway or another partner that already offers the card brand token service, Cielo already has the Fields in our APIs to receive the token information, needed to be sent in the transaction. Then, the transaction will be sent to the card brand with the token data.
-**Available brands:** Visa, Master and Elo.
+* Available brands: Visa, Master and Elo.
 * For the External Integration, Cielo is prepared to receive token data from the three brands above, but it is necessary to check whether the brand offers the product on the market.
 * Eligible Products: E-Commerce API 3.0 and 1.5.
 
