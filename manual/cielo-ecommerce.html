@@ -17470,21 +17470,21 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:</p>
   </thead>
   <tbody>
     <tr>
-      <td>00</td>
+      <td>0</td>
       <td>Transação autorizada com sucesso.</td>
       <td>Transação autorizada com sucesso.</td>
       <td>Transação autorizada com sucesso.</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td>02</td>
+      <td>2</td>
       <td>Transação não autorizada. Transação referida.</td>
       <td>Transação não autorizada. Referida (suspeita de fraude) pelo banco emissor.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td>09</td>
+      <td>9</td>
       <td>Transação cancelada parcialmente com sucesso.</td>
       <td>Transação cancelada parcialmente com sucesso</td>
       <td>Transação cancelada parcialmente com sucesso</td>
@@ -17619,7 +17619,7 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:</p>
     <tr>
       <td>999</td>
       <td>Sistema/comunicação indisponível.</td>
-      <td>Transação não autorizada. Sistema do emissor sem comunicação. Tente mais tarde.  Pode ser erro no SITEF, favor verificar !</td>
+      <td>Transação não autorizada. Sistema do emissor sem comunicação. Tente mais tarde. Pode ser erro no SITEF, favor verificar !</td>
       <td>Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.</td>
       <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
     </tr>
@@ -17690,14 +17690,14 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:</p>
       <td>BM</td>
       <td>Transação não autorizada. Cartão Inválido</td>
       <td>Transação não autorizada. Cartão inválido. Pode ser bloqueio do cartão no banco emissor ou dados incorretos. Tente usar o Algoritmo de Lhum (Mod 10) para evitar transações não autorizadas por esse motivo.</td>
-      <td>Transação não autorizada. Cartão inválido.  Refaça a transação confirmando os dados informados.</td>
+      <td>Transação não autorizada. Cartão inválido. Refaça a transação confirmando os dados informados.</td>
       <td>Não</td>
     </tr>
     <tr>
       <td>BN</td>
       <td>Transação não autorizada. Cartão ou conta bloqueado.</td>
-      <td>Transação não autorizada. O cartão ou a conta do portador está bloqueada. Solicite ao portador que entre em contato com  seu banco emissor.</td>
-      <td>Transação não autorizada. O cartão ou a conta do portador está bloqueada. Entre em contato com  seu banco emissor.</td>
+      <td>Transação não autorizada. O cartão ou a conta do portador está bloqueada. Solicite ao portador que entre em contato com seu banco emissor.</td>
+      <td>Transação não autorizada. O cartão ou a conta do portador está bloqueada. Entre em contato com seu banco emissor.</td>
       <td>Não</td>
     </tr>
     <tr>
@@ -17844,7 +17844,14 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:</p>
       <td>GA</td>
       <td>Aguarde Contato</td>
       <td>Transação não autorizada. Referida pelo Lynx Online de forma preventiva.</td>
-      <td>Transação não autorizada. Entre em contato com o lojista.</td>
+      <td>Transação não autorizada. lojista deve aguardar contato por parte da Cielo</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>GF</td>
+      <td>Transação negada.</td>
+      <td>Transação não autorizada, verifique se o IP informado está liberado para processar a transação</td>
+      <td>Transação não permitida. Entre em contato com a Cielo.</td>
       <td>Não</td>
     </tr>
     <tr>
@@ -17904,13 +17911,6 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:</p>
       <td>Não</td>
     </tr>
     <tr>
-      <td>N7</td>
-      <td>Transação não autorizada. Código de segurança inválido.</td>
-      <td>Transação não autorizada. Código de segurança inválido. Oriente o portador corrigir os dados e tentar novamente.</td>
-      <td>Transação não autorizada. Reveja os dados e informe novamente.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
       <td>NR</td>
       <td>Transação não permitida.</td>
       <td>Transação não permitida.</td>
@@ -17936,13 +17936,6 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:</p>
       <td>Transação não permitida. Falha na validação dos dados.</td>
       <td>Transação não permitida. Houve uma falha na validação dos dados. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir verifique a comunicação entre loja virtual e Cielo.</td>
       <td>Transação não permitida. Houve uma falha na validação dos dados. reveja os dados informados e tente novamente. Se o erro persistir entre em contato com a Loja Virtual.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>46</td>
-      <td>Transação não autorizada. Conta encerrada</td>
-      <td>A conta do portador está encerrada. Solicite ao portador que entre em contato com seu banco emissor.</td>
-      <td>A conta do portador está encerrada. Solicite ao portador que entre em contato com seu banco emissor.</td>
       <td>Não</td>
     </tr>
     <tr>
