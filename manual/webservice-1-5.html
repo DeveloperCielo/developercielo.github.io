@@ -1972,18 +1972,22 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <th>AMEX</th>
       <th>AMEX - De/Para Cielo</th>
       <th>Mensagem POS/Ecommerce</th>
+      <th>Houve alteração da ABECS em 2022?</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>GENÉRICA</td>
       <td>REVERSÍVEL</td>
-      <td>05</td>
-      <td>05</td>
-      <td>05</td>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
       <td>100</td>
       <td>FA</td>
       <td>CONTATE A CENTRAL DO SEU CARTÃO</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>SALDO/LIMITE INSUFICIENTE</td>
@@ -1994,6 +1998,8 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>116</td>
       <td>A5</td>
       <td>NÃO AUTORIZADA</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>SALDO/LIMITE INSUFICIENTE</td>
@@ -2004,6 +2010,8 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>121</td>
       <td>A5</td>
       <td>NÃO AUTORIZADA</td>
+      <td>Somente na nossa Documentação</td>
+      <td> </td>
     </tr>
     <tr>
       <td>SENHA INVÁLIDA</td>
@@ -2014,36 +2022,68 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>117</td>
       <td>A6</td>
       <td>SENHA INVÁLIDA</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO</td>
       <td>REVERSÍVEL</td>
-      <td>57</td>
+      <td>-</td>
       <td>57</td>
       <td>57</td>
       <td>200</td>
       <td>FD</td>
       <td>TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO</td>
+      <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
-      <td>NÚMERO CARTÃO NÃO PERTENCE AO EMISSOR | NÚMERO CARTÃO INVÁLIDO</td>
+      <td>TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO</td>
+      <td>IREVERSÍVEL</td>
+      <td>57</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO - NÃO TENTE NOVAMENTE</td>
+      <td>Novo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>NÚMERO CARTÃO NÃO PERTENCE AO EMISSOR / NÚMERO CARTÃO INVÁLIDO</td>
       <td>IRREVERSÍVEL</td>
       <td>14 ou 56</td>
-      <td>06</td>
+      <td>14</td>
       <td>14 ou 01</td>
       <td>122</td>
-      <td>08</td>
+      <td>8</td>
       <td>VERIFIQUE OS DADOS DO CARTÃO</td>
+      <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
       <td>VIOLAÇÃO DE SEGURANÇA</td>
       <td>IRREVERSÍVEL</td>
       <td>63</td>
-      <td>06</td>
-      <td>14</td>
+      <td>63</td>
+      <td>-</td>
       <td>122</td>
-      <td>08</td>
+      <td>8</td>
       <td>VERIFIQUE OS DADOS DO CARTÃO</td>
+      <td>Sim</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>VIOLAÇÃO DE SEGURANÇA</td>
+      <td>REVERSÍVEL</td>
+      <td>-</td>
+      <td>-</td>
+      <td>63</td>
+      <td>-</td>
+      <td>-</td>
+      <td>VERIFIQUE OS DADOS DO CARTÃO</td>
+      <td>Novo</td>
+      <td> </td>
     </tr>
     <tr>
       <td>SUSPEITA DE FRAUDE</td>
@@ -2054,46 +2094,44 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>100</td>
       <td>FA</td>
       <td>CONTATE A CENTRAL DO SEU CARTÃO</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>COMERCIANTE INVÁLIDO</td>
       <td>IRREVERSÍVEL</td>
       <td>58</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>03</td>
+      <td>3</td>
+      <td>3</td>
       <td>109</td>
       <td>DA</td>
       <td>TRANSAÇÃO NÃO PERMITIDA - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>COMERCIANTE INVÁLIDO</td>
-      <td>REVERSÍVEL</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>03</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>TRANSAÇÃO NÃO PERMITIDA</td>
+      <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
       <td>REFAZER A TRANSAÇÃO (EMISSOR SOLICITA RETENTATIVA)</td>
       <td>REVERSÍVEL</td>
       <td>4</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>REFAZER A TRANSAÇÃO</td>
+      <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
       <td>CONSULTAR CREDENCIADOR</td>
       <td>REVERSÍVEL</td>
       <td>6</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>LOJISTA, CONTATE O ADQUIRENTE</td>
+      <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
       <td>PROBLEMA NO ADQUIRENTE</td>
@@ -2104,16 +2142,20 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>ERRO NO CARTÃO – NÃO TENTE NOVAMENTE</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>ERRO NO CARTÃO</td>
       <td>IRREVERSÍVEL</td>
       <td>12</td>
-      <td>06</td>
+      <td>6</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>115</td>
       <td>A2</td>
       <td>VERIFIQUE OS DADOS DO CARTÃO</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>ERRO DE FORMATO (MENSAGERIA)</td>
@@ -2124,6 +2166,8 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>181</td>
       <td>A3</td>
       <td>ERRO NO CARTÃO - NÃO TENTE NOVAMENTE</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>VALOR DA TRANSAÇÃO INVÁLIDA</td>
@@ -2134,6 +2178,8 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>110</td>
       <td>JB</td>
       <td>VALOR DA TRANSAÇÃO NÃO PERMITIDO - NÃO TENTE NOVAMENTE</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>VALOR DA PARCELA INVÁLIDA</td>
@@ -2144,9 +2190,11 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>115</td>
       <td>A2</td>
       <td>PARCELAMENTO INVÁLIDO - NÃO TENTE NOVAMENTE</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
-      <td>EXCEDIDAS TENTATIVAS DE SENHA | COMPRAS</td>
+      <td>EXCEDIDAS TENTATIVAS DE SENHA / COMPRAS</td>
       <td>REVERSÍVEL</td>
       <td>38</td>
       <td>75</td>
@@ -2154,6 +2202,8 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>106</td>
       <td>A4</td>
       <td>EXCEDIDAS TENTATIVAS DE SENHA.CONTATE A CENTRAL DO SEU CARTÃO</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>CARTÃO PERDIDO</td>
@@ -2164,6 +2214,8 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>200</td>
       <td>FD</td>
       <td>TRANSAÇÃO NÃO PERMITIDA - NÃO TENTE NOVAMENTE</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>CARTÃO ROUBADO</td>
@@ -2174,19 +2226,23 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>200</td>
       <td>FD</td>
       <td>TRANSAÇÃO NÃO PERMITIDA - NÃO TENTE NOVAMENTE</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>CARTÃO VENCIDO / DT EXPIRAÇÃO INVÁLIDA</td>
       <td>IRREVERSÍVEL</td>
       <td>54</td>
-      <td>06</td>
+      <td>54</td>
       <td>54</td>
       <td>101</td>
       <td>BV</td>
       <td>VERIFIQUE OS DADOS DO CARTÃO</td>
+      <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
-      <td>TRANSAÇÃO NÃO PERMITIDA | CAPACIDADE DO TERMINAL</td>
+      <td>TRANSAÇÃO NÃO PERMITIDA  CAPACIDADE DO TERMINAL</td>
       <td>IRREVERSÍVEL</td>
       <td>57</td>
       <td>58</td>
@@ -2194,9 +2250,11 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>116</td>
       <td>A5</td>
       <td>TRANSAÇÃO NÃO PERMITIDA - NÃO TENTE NOVAMENTE</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
-      <td>VALOR EXCESSO | SAQUE</td>
+      <td>VALOR EXCESSO / SAQUE</td>
       <td>REVERSÍVEL</td>
       <td>61</td>
       <td>61 ou N4</td>
@@ -2204,6 +2262,20 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>VALOR EXCEDIDO. CONTATE A CENTRAL DO SEU CARTÃO</td>
+      <td>Não</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>BLOQUEIO TEMPORÁRIO (EX: INADIMPLÊNCIA)</td>
+      <td>REVERSÍVEL</td>
+      <td>62</td>
+      <td>62</td>
+      <td>57</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>CONTATE A CENTRAL DO SEU CARTÃO</td>
+      <td>Novo</td>
+      <td> </td>
     </tr>
     <tr>
       <td>CARTÃO DOMÉSTICO - TRANSAÇÃO INTERNACIONAL</td>
@@ -2214,6 +2286,8 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>CARTÃO NÃO PERMITE TRANSAÇÃO INTERNACIONAL</td>
+      <td>Somente na nossa Documentação</td>
+      <td> </td>
     </tr>
     <tr>
       <td>CARTÃO DOMÉSTICO - TRANSAÇÃO INTERNACIONAL</td>
@@ -2224,16 +2298,20 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>CARTÃO NÃO PERMITE TRANSAÇÃO INTERNACIONAL</td>
+      <td>Somente na nossa Documentação</td>
+      <td> </td>
     </tr>
     <tr>
       <td>VALOR MÍNIMO DA TRANSAÇÃO INVÁLIDO</td>
       <td>IRREVERSÍVEL</td>
       <td>64</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>13</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>VALOR DA TRANSAÇÃO NÃO PERMITIDO - NÃO TENTE NOVAMENTE</td>
+      <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
       <td>QUANT. DE SAQUES EXCEDIDO</td>
@@ -2244,19 +2322,24 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>QUANTIDADE DE SAQUES EXCEDIDA. CONTATE A CENTRAL DO SEU CARTÃO</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>SENHA VENCIDA / ERRO DE CRIPTOGRAFIA DE SENHA</td>
       <td>IRREVERSÍVEL</td>
-      <td>74</td>
+      <td>83</td>
       <td>74 ou 81</td>
       <td>88</td>
       <td>180</td>
       <td>A7</td>
       <td>SENHA INVÁLIDA - NÃO TENTE NOVAMENTE</td>
+      <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
-      <td>EXCEDIDAS TENTATIVAS DE SENHA | SAQUE</td>
+      <td>EXCEDIDAS TENTATIVAS DE SENHA</td>
+      <td>SAQUE</td>
       <td>REVERSÍVEL</td>
       <td>75</td>
       <td>75</td>
@@ -2264,6 +2347,7 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>106</td>
       <td>A4</td>
       <td>EXCEDIDAS TENTATIVAS DE SENHA.CONTATE A CENTRAL DO SEU CARTÃO</td>
+      <td>Não</td>
     </tr>
     <tr>
       <td>CONTA DESTINO INVÁLIDA OU INEXISTENTE</td>
@@ -2274,6 +2358,8 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>CONTA DESTINO INVÁLIDA - NÃO TENTE NOVAMENTE</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>CONTA ORIGEM INVÁLIDA OU INEXISTENTE</td>
@@ -2284,16 +2370,32 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>CONTA ORIGEM INVÁLIDA - NÃO TENTE NOVAMENTE</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>CARTÃO NOVO SEM DESBLOQUEIO</td>
       <td>REVERSÍVEL</td>
       <td>78</td>
-      <td>78</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>-</td>
+      <td>57</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>DESBLOQUEIE O CARTÃO</td>
+      <td>Sim</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CARTÃO NOVO SEM DESBLOQUEIO</td>
+      <td>IRREVERSÍVEL</td>
+      <td>-</td>
+      <td>78</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>DESBLOQUEIE O CARTÃO</td>
+      <td>Novo</td>
+      <td> </td>
     </tr>
     <tr>
       <td>CARTÃO INVÁLIDO (criptograma)</td>
@@ -2304,6 +2406,8 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>180</td>
       <td>A7</td>
       <td>ERRO NO CARTÃO - NÃO TENTE NOVAMENTE</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>EMISSOR FORA DO AR</td>
@@ -2314,6 +2418,8 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>912</td>
       <td>A1</td>
       <td>FALHA DE COMUNICAÇÃO - TENTE MAIS TARDE</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>FALHA DO SISTEMA</td>
@@ -2324,16 +2430,20 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>911</td>
       <td>AE</td>
       <td>FALHA DE COMUNICAÇÃO - TENTE MAIS TARDE</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>DIFERENÇA - PRÉ AUTORIZAÇÃO</td>
       <td>IRREVERSÍVEL</td>
-      <td>99</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>N8</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>VALOR DIFERENTE DA PRÉ AUTORIZAÇÃO - NÃO TENTE NOVAMENTE</td>
+      <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
       <td>FUNÇÃO INCORRETA (DÉBITO)</td>
@@ -2344,6 +2454,8 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>UTILIZE FUNÇÃO CRÉDITO</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>FUNÇÃO INCORRETA (CRÉDITO)</td>
@@ -2354,6 +2466,8 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>UTILIZE FUNÇÃO DÉBITO</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>TROCA DE SENHA / DESBLOQUEIO</td>
@@ -2364,49 +2478,59 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SENHA INVÁLIDA - NÃO TENTE NOVAMENTE</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>NOVA SENHA NÃO ACEITA</td>
       <td>REVERSÍVEL</td>
       <td>P6</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>55</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SENHA INVÁLIDA UTILIZE A NOVA SENHA</td>
+      <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
       <td>RECOLHER CARTÃO (NÃO HÁ FRAUDE)</td>
       <td>IRREVERSÍVEL</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>04</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>4</td>
+      <td>4</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE</td>
+      <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
       <td>ERRO POR MUDANÇA DE CHAVE DINÂMICA</td>
       <td>IRREVERSÍVEL</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>06</td>
+      <td>N7</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>ERRO NO CARTÃO - NÃO TENTE NOVAMENTE</td>
+      <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
       <td>FRAUDE CONFIRMADA</td>
       <td>IRREVERSÍVEL</td>
       <td>57</td>
-      <td>07</td>
-      <td>04</td>
+      <td>7</td>
+      <td>4</td>
       <td>200</td>
       <td>FD</td>
       <td>TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO - NÃO TENTE NOVAMENTE</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
-      <td>EMISSOR Ñ LOCALIZADO - BIN INCORRETO</td>
+      <td>EMISSOR Ñ LOCALIZADO - BIN INCORRETO (negativa do adquirente)</td>
       <td>IRREVERSÍVEL</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>15</td>
@@ -2414,9 +2538,11 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>DADOS DO CARTÃO INVÁLIDO - NÃO TENTE NOVAMENTE</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
-      <td>(negativa do adquirente) NÃO CUMPRIMENTO PELAS LEIS DE ANTE LAVAGEM DE DINHEIRO</td>
+      <td>NÃO CUMPRIMENTO PELAS LEIS DE ANTE LAVAGEM DE DINHEIRO</td>
       <td>IRREVERSÍVEL</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>64</td>
@@ -2424,6 +2550,8 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>REVERSÃO INVÁLIDA</td>
@@ -2434,6 +2562,8 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>NÃO LOCALIZADO PELO ROTEADOR</td>
@@ -2444,26 +2574,20 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>TRANSAÇÃO NEGADA POR INFRAÇÃO DE LEI</td>
       <td>IRREVERSÍVEL</td>
       <td>57</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>57</td>
+      <td>93</td>
+      <td>62</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO - NÃO TENTE NOVAMENTE</td>
-    </tr>
-    <tr>
-      <td>TRANSAÇÃO NEGADA POR INFRAÇÃO DE LEI</td>
-      <td>REVERSÍVEL</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>93</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO</td>
+      <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
       <td>VALOR DO TRACING DATA DUPLICADO</td>
@@ -2474,6 +2598,8 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTENOVAMENTE</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>SURCHARGE NÃO SUPORTADO</td>
@@ -2484,6 +2610,8 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>CONTATE A CENTRAL DO SEU CARTÃO</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>SURCHARGE NÃO SUPORTADO PELA REDE DE DÉBITO</td>
@@ -2494,6 +2622,8 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>CONTATE A CENTRAL DO SEU CARTÃO</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>FORÇAR STIP</td>
@@ -2504,6 +2634,8 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>CONTATE A CENTRAL DO SEU CARTÃO</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>SAQUE NÃO DISPONÍVEL</td>
@@ -2514,6 +2646,8 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SAQUE NÃO DISPONÍVEL - NÃO TENTE NOVAMENTE</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>SUSPENSÃO DE PAGAMENTO RECORRENTE PARA UM SERVIÇO</td>
@@ -2524,6 +2658,8 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SUSPENSÃO DE PAGAMENTO RECORRENTE PARA SERVIÇO - NÃO TENTE NOVAMENTE</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>SUSPENSÃO DE PAGAMENTO RECORRENTE PARA TODOS SERVIÇO</td>
@@ -2534,6 +2670,8 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SUSPENSÃO DE PAGAMENTO RECORRENTE PARA SERVIÇO - NÃO TENTE NOVAMENTE</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>TRANSAÇÃO NÃO QUALIFICADA PARA VISA PIN</td>
@@ -2544,6 +2682,8 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO - NÃO TENTE NOVAMENTE</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>SUSPENSÃO DE TODAS AS ORDENS DE AUTORIZAÇÃO</td>
@@ -2554,26 +2694,68 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SUSPENSÃO DE PAGAMENTO RECORRENTE PARA SERVIÇO - NÃO TENTE NOVAMENTE</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td>NÃO É POSSÍVEL LOCALIZAR O REGISTRO NO ARQUIVO</td>
       <td>IRREVERSÍVEL</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>25</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE</td>
+      <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
       <td>ARQUIVO NÃO DISPONÍVEL PARA ATUALIZAÇÃO</td>
       <td>IRREVERSÍVEL</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
-      <td>28</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>SEM CÓDIGO CORRESPONDENTE</td>
       <td>CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE</td>
+      <td>Sim</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>CONTA ENCERRADA</td>
+      <td>IRREVERSÍVEL</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>46</td>
+      <td>62</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO - NÃO TENTE NOVAMENTE</td>
+      <td>Novo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>FALHA VALIDAÇÃO DE ID</td>
+      <td>IRREVERSÍVEL</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>6P</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>FALHA NA VERIFICAÇÃO DO ID</td>
+      <td>Novo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>UTILIZAR O CHIP</td>
+      <td>IRREVERSÍVEL</td>
+      <td>FM</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>SEM CÓDIGO CORRESPONDENTE</td>
+      <td>UTILIZE O CHIP</td>
+      <td>Novo</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -2592,17 +2774,24 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
   </thead>
   <tbody>
     <tr>
-      <td>00</td>
+      <td>0</td>
       <td>Transação autorizada com sucesso.</td>
       <td>Transação autorizada com sucesso.</td>
       <td>Transação autorizada com sucesso.</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td>02</td>
+      <td>2</td>
       <td>Transação não autorizada. Transação referida.</td>
       <td>Transação não autorizada. Referida (suspeita de fraude) pelo banco emissor.</td>
       <td>Transação não autorizada. Entre em contato com seu banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Transação cancelada parcialmente com sucesso.</td>
+      <td>Transação cancelada parcialmente com sucesso</td>
+      <td>Transação cancelada parcialmente com sucesso</td>
       <td>Não</td>
     </tr>
     <tr>
@@ -2725,9 +2914,16 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>Apenas 4 vezes em 16 dias.</td>
     </tr>
     <tr>
+      <td>475</td>
+      <td>Timeout de Cancelamento</td>
+      <td>A aplicação não respondeu dentro do tempo esperado.</td>
+      <td>Realizar uma nova tentativa após alguns segundos. Persistindo, entrar em contato com o Suporte.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
       <td>999</td>
       <td>Sistema/comunicação indisponível.</td>
-      <td>Transação não autorizada. Sistema do emissor sem comunicação. Tente mais tarde.  Pode ser erro no SITEF, favor verificar !</td>
+      <td>Transação não autorizada. Sistema do emissor sem comunicação. Tente mais tarde. Pode ser erro no SITEF, favor verificar !</td>
       <td>Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.</td>
       <td>A partir do dia seguinte, apenas 4 vezes em 16 dias.</td>
     </tr>
@@ -2798,14 +2994,14 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>BM</td>
       <td>Transação não autorizada. Cartão Inválido</td>
       <td>Transação não autorizada. Cartão inválido. Pode ser bloqueio do cartão no banco emissor ou dados incorretos. Tente usar o Algoritmo de Lhum (Mod 10) para evitar transações não autorizadas por esse motivo.</td>
-      <td>Transação não autorizada. Cartão inválido.  Refaça a transação confirmando os dados informados.</td>
+      <td>Transação não autorizada. Cartão inválido. Refaça a transação confirmando os dados informados.</td>
       <td>Não</td>
     </tr>
     <tr>
       <td>BN</td>
       <td>Transação não autorizada. Cartão ou conta bloqueado.</td>
-      <td>Transação não autorizada. O cartão ou a conta do portador está bloqueada. Solicite ao portador que entre em contato com  seu banco emissor.</td>
-      <td>Transação não autorizada. O cartão ou a conta do portador está bloqueada. Entre em contato com  seu banco emissor.</td>
+      <td>Transação não autorizada. O cartão ou a conta do portador está bloqueada. Solicite ao portador que entre em contato com seu banco emissor.</td>
+      <td>Transação não autorizada. O cartão ou a conta do portador está bloqueada. Entre em contato com seu banco emissor.</td>
       <td>Não</td>
     </tr>
     <tr>
@@ -2820,6 +3016,20 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>Transação não autorizada. Conta corrente inexistente.</td>
       <td>Transação não autorizada. Não possível processar a transação por um erro relacionado ao cartão ou conta do portador. Solicite ao portador que entre em contato com o banco emissor.</td>
       <td>Transação não autorizada. Não possível processar a transação por um erro relacionado ao cartão ou conta do portador. Entre em contato com o banco emissor.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>BP176</td>
+      <td>Transação não permitida.</td>
+      <td>Parceiro deve checar se o processo de integração foi concluído com sucesso.</td>
+      <td>Parceiro deve checar se o processo de integração foi concluído com sucesso.</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>BR</td>
+      <td>Transação não autorizada. Conta encerrada</td>
+      <td>A conta do portador está encerrada. Solicite ao portador que entre em contato com seu banco emissor.</td>
+      <td>A conta do portador está encerrada. Solicite ao portador que entre em contato com seu banco emissor.</td>
       <td>Não</td>
     </tr>
     <tr>
@@ -2938,7 +3148,14 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>GA</td>
       <td>Aguarde Contato</td>
       <td>Transação não autorizada. Referida pelo Lynx Online de forma preventiva.</td>
-      <td>Transação não autorizada. Entre em contato com o lojista.</td>
+      <td>Transação não autorizada. lojista deve aguardar contato por parte da Cielo</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>GF</td>
+      <td>Transação negada.</td>
+      <td>Transação não autorizada, verifique se o IP informado está liberado para processar a transação</td>
+      <td>Transação não permitida. Entre em contato com a Cielo.</td>
       <td>Não</td>
     </tr>
     <tr>
@@ -2947,6 +3164,20 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>Transação não permitida. Entre em contato com a Cielo.</td>
       <td>Transação não permitida. Entre em contato com a Cielo.</td>
       <td>—</td>
+    </tr>
+    <tr>
+      <td>GT</td>
+      <td>Transação negada.</td>
+      <td>Ataque de força bruta.</td>
+      <td>Transação não permitida. Entre em contato com a Cielo.</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>GK</td>
+      <td>Transação negada.</td>
+      <td>Bloqueio temporário por ataque de força bruta.</td>
+      <td>Transação não permitida. Entre em contato com a Cielo.</td>
+      <td>Não</td>
     </tr>
     <tr>
       <td>HJ</td>
@@ -2984,31 +3215,31 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>Não</td>
     </tr>
     <tr>
-      <td>N7</td>
-      <td>Transação não autorizada. Código de segurança inválido.</td>
-      <td>Transação não autorizada. Código de segurança inválido. Oriente o portador corrigir os dados e tentar novamente.</td>
-      <td>Transação não autorizada. Reveja os dados e informe novamente.</td>
-      <td>Não</td>
+      <td>NR</td>
+      <td>Transação não permitida.</td>
+      <td>Transação não permitida.</td>
+      <td>Transação não permitida. Retentar a transação após 30 dias</td>
+      <td>Retentar a transação após 30 dias.</td>
+    </tr>
+    <tr>
+      <td>RP</td>
+      <td>Transação não permitida.</td>
+      <td>Transação não permitida.</td>
+      <td>Transação não permitida. Retentar a transação após 72h</td>
+      <td>Retentar a transação após 72 horas.</td>
+    </tr>
+    <tr>
+      <td>SC</td>
+      <td>Transação não permitida.</td>
+      <td>Transação não permitida. Pagamento recorrente, serviço cancelado. Não retentar.</td>
+      <td>Transação não permitida. Pagamento recorrente, serviço cancelado. Não retentar.</td>
+      <td>Não.</td>
     </tr>
     <tr>
       <td>U3</td>
       <td>Transação não permitida. Falha na validação dos dados.</td>
       <td>Transação não permitida. Houve uma falha na validação dos dados. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir verifique a comunicação entre loja virtual e Cielo.</td>
       <td>Transação não permitida. Houve uma falha na validação dos dados. reveja os dados informados e tente novamente. Se o erro persistir entre em contato com a Loja Virtual.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>BR</td>
-      <td>Transação não autorizada. Conta encerrada</td>
-      <td>A conta do portador está encerrada. Solicite ao portador que entre em contato com seu banco emissor.</td>
-      <td>A conta do portador está encerrada. Solicite ao portador que entre em contato com seu banco emissor.</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td>46</td>
-      <td>Transação não autorizada. Conta encerrada</td>
-      <td>A conta do portador está encerrada. Solicite ao portador que entre em contato com seu banco emissor.</td>
-      <td>A conta do portador está encerrada. Solicite ao portador que entre em contato com seu banco emissor.</td>
       <td>Não</td>
     </tr>
     <tr>
