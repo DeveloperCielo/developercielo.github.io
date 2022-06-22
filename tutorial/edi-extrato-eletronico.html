@@ -147,7 +147,7 @@
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxo1_login1.jpg" alt="Login e Concessão de Acesso" /></p>
 
 <blockquote>
-  <p>O que é cielo-login-url?</p>
+  <p>O que é base-login-url?</p>
 </blockquote>
 
 <p>https://<code class="language-plaintext highlighter-rouge">{base-login-url}</code>?response_type=code
@@ -156,8 +156,12 @@
 &amp;<code class="language-plaintext highlighter-rouge">scope={scope}</code>
 &amp;<code class="language-plaintext highlighter-rouge">state={state}</code></p>
 
+<p><strong>Homologação:</strong> https://digitalhml.hdevelo.com.br/oauth/?mode=redirect&amp;client_id=<code class="language-plaintext highlighter-rouge">{client_id}</code>&amp;redirect_uri=<code class="language-plaintext highlighter-rouge">{redirect_uri}</code>&amp;state=STATE_INFO&amp;scope=profile_read,transaction_read</p>
+
+<p><strong>Produção:</strong> https://minhaconta2.cielo.com.br/oauth/?mode=redirect&amp;client_id=<code class="language-plaintext highlighter-rouge">{client_id}</code>&amp;redirect_uri=<code class="language-plaintext highlighter-rouge">{redirect_uri}</code>&amp;state=STATE_INFO&amp;scope=profile_read,transaction_read</p>
+
 <ul>
-  <li><strong>base-login-url:</strong> URL base que muda por ambiente, serão enviadas em tempo de projeto</li>
+  <li><strong>base-login-url:</strong> URL base que muda por ambiente</li>
   <li><strong>response_type:</strong> O valor deve ser fixo “code”</li>
   <li><strong>client_id:</strong> Identificador do cliente, será enviado pela Cielo em tempo de projeto</li>
   <li><strong>redirect_uri:</strong> URL do parceiro para a Cielo redirecionar o usuário quando o processo de login terminar, ou se der algum erro no processo</li>
