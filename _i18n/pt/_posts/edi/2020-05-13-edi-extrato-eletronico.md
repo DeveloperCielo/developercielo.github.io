@@ -38,7 +38,7 @@ O Extrato Eletrônico é um produto disponibilizado pela Cielo aos clientes que 
 
 ![Login e Concessão de Acesso](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxo1_login1.jpg) 
 
-> O que é cielo-login-url?
+> O que é base-login-url?
 
 https://`{base-login-url}`?response_type=code
 &`client_id={client_id}`
@@ -46,7 +46,11 @@ https://`{base-login-url}`?response_type=code
 &`scope={scope}`
 &`state={state}`
 
-* **base-login-url:** URL base que muda por ambiente, serão enviadas em tempo de projeto
+**Homologação:** https://digitalhml.hdevelo.com.br/oauth/?mode=redirect&client_id=`{client_id}`&redirect_uri=`{redirect_uri}`&state=STATE_INFO&scope=profile_read,transaction_read
+
+**Produção:** https://minhaconta2.cielo.com.br/oauth/?mode=redirect&client_id=`{client_id}`&redirect_uri=`{redirect_uri}`&state=STATE_INFO&scope=profile_read,transaction_read
+
+* **base-login-url:** URL base que muda por ambiente
 * **response_type:** O valor deve ser fixo "code"
 * **client_id:** Identificador do cliente, será enviado pela Cielo em tempo de projeto
 * **redirect_uri:** URL do parceiro para a Cielo redirecionar o usuário quando o processo de login terminar, ou se der algum erro no processo
