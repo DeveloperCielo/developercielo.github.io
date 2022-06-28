@@ -117,7 +117,7 @@ A seguir, um exemplo de requisição padrão para integração da e-wallet:
 | `Payment.Provider`|Nome do provedor do meio de pagamento. Obs.: Disponível somente para providers **Cielo** (Cielo e Cielo30).|Texto|15|Sim|
 | `Payment.Installments`|Número de parcelas.|Número|2|Sim|
 | `Wallet.Type`|Tipo de carteira: "ApplePay" / "SamsungPay" / "GooglePay" / "VisaCheckout" / "Masterpass".|Texto|--|Sim|
-| `Wallet.WalletKey`|Chave criptográfica que identifica lojas nas wallets. Consultar a tabela [WalletKey](https://braspag.github.io//manual/ewallets#walletkey) para mais informações.|Texto|--|Sim|
+| `Wallet.WalletKey`|Chave criptográfica que identifica lojas nas wallets. Consultar a tabela [WalletKey](https://developercielo.github.io/manual/e-wallets-ecommercecielo#walletkey) para mais informações.|Texto|--|Sim|
 | `Wallet.AdditionalData.EphemeralPublicKey`|Token retornado pela wallet. Deve ser enviado em integrações **ApplePay**.|Texto|--|Sim|
 | `Wallet.AdditionalData.CaptureCode`|Código informado pela **Masterpass** ao lojista.| Texto|--|Sim|
 | `Wallet.AdditionalData.Signature`|Token retornado pela wallet. Deve ser enviado em integrações **GooglePay**.|Texto|--|Sim|
@@ -295,10 +295,10 @@ Formato de `Signature` que deve ser repassado à API Cielo E-commerce:
 | `ReturnCode`        | Código de retorno da adquirência.                                                                                              | Texto | 32      | Texto alfanumérico                   |
 | `ReturnMessage`     | Mensagem de retorno da adquirência.                                                                                            | Texto | --     | Texto alfanumérico                   |
 | `Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "GooglePay" / "VisaCheckout" / "Masterpass".                      | Texto | --     | Texto alfanumérico                   |
-| `WalletKey`         | Chave criptográfica que identifica lojas nas wallets. Consulte a tabela [WalletKey](https://braspag.github.io//manual/ewallets#walletkey) para mais informações.                              | Texto | --     | Ver tabela [WalletKey](https://braspag.github.io//manual/braspag-pagador#walletkey)               |
-| `AdditionalData.EphemeralPublicKey` | Token retornado pela wallet. Deve ser enviado em Integrações: "ApplePay".                                       | Texto | --     | Ver tabela [EphemeralPublicKey](https://developercielo.github.io/manual/cielo-ecommerce#ephemeralpublickey)      |  
+| `WalletKey`         | Chave criptográfica que identifica lojas nas wallets. Consulte a tabela [WalletKey](https://developercielo.github.io/manual/e-wallets-ecommercecielo#walletkey) para mais informações.                              | Texto | --     | Ver tabela [WalletKey](https://developercielo.github.io/manual/e-wallets-ecommercecielo#walletkey)               |
+| `AdditionalData.EphemeralPublicKey` | Token retornado pela wallet. Deve ser enviado em Integrações: "ApplePay".                                       | Texto | --     | Ver tabela [EphemeralPublicKey](https://developercielo.github.io/manual/e-wallets-ecommercecielo#ephemeralpublickey)      |  
 | `AdditionalData.CaptureCode`        | Código informado pela **Masterpass** ao lojista.                                                                  | Texto | --     | 3                                    |
-| `AdditionalData.Signature` | Token retornado pela wallet. Deve ser enviado em Integrações: "GooglePay".                                               | Texto | --     | Ver tabela [Signature](https://braspag.github.io//manual/braspag-pagador#signature)      |  
+| `AdditionalData.Signature` | Token retornado pela wallet. Deve ser enviado em Integrações: "GooglePay".                                               | Texto | --     | Ver tabela [Signature](https://developercielo.github.io/manual/e-wallets-ecommercecielo#signature)      |  
 
 # Exemplos de Integração
 
@@ -698,7 +698,7 @@ Exemplo de requisição padrão Masterpass:
 |`Payment.Provider`|Nome do provedor do meio de pagamento. Disponível somente para providers **Cielo** (Cielo / Cielo30).|Texto|15|Sim|
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
 |`Wallet.Type`|Tipo de carteira: "Masterpass".|Texto|255|Sim|
-|`Wallet.WalletKey`|Chave criptográfica que representa os dados do cartão. Consultar a tabela [WalletKey](https://developercielo.github.io/manual/cielo-ecommerce#walletkey) para mais informações.|Texto|255|Sim|
+|`Wallet.WalletKey`|Chave criptográfica que representa os dados do cartão. Consultar a tabela [WalletKey](https://developercielo.github.io/manual/e-wallets-ecommercecielo#walletkey) para mais informações.|Texto|255|Sim|
 |`Wallet.AdditionalData`|Instância para dados extras informados pela **Masterpass**. Obs.: Obrigatório apenas para `Wallet.Type` "Masterpass"|---|---|---|
 |`Wallet.CaptureCode`|Código informado pela **Masterpass** ao lojista.|Texto|255|Sim|
 
@@ -894,7 +894,7 @@ curl
 | `Payment.Provider`         | Nome do provedor do meio de pagamento. Obs.: Disponível somente para providers **Cielo** (Cielo / Cielo30).  | Texto  | 15      | Sim         |
 | `Payment.Installments`     | Número de parcelas.                                                                                     | Número | 2       | Sim         |
 | `Wallet.Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "GooglePay" / "VisaCheckout" / "Masterpass". | Texto  | 255     | Sim         |
-| `Wallet.WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a tabela [WalletKey](https://braspag.github.io//manual/ewallets#walletkey) para mais informações.| Texto  | 255     | Sim         |
+| `Wallet.WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a tabela [WalletKey](https://developercielo.github.io/manual/e-wallets-ecommercecielo#walletkey) para mais informações.| Texto  | 255     | Sim         |
 
 ## Resposta
 
