@@ -3,12 +3,12 @@ layout: manual
 title: E-Wallets (Carteiras Digitais)
 description: Integração técnica via API
 search: true
-translated: true
+translated: false
 toc_footers: true
 categories: manual
-sort_order: 2
+sort_order: 3
 tags:
-  - E-Wallet
+  - E-Wallet  
 language_tabs:
   json: JSON
   shell: cURL
