@@ -40,7 +40,7 @@ API Cielo E-commerce possui suporte para as seguintes carteiras digitais:
 
 Veja abaixo a representação de um **fluxo transacional** padrão na integração de uma e-wallet:
 
-![Fluxo E-wallets]({{ site.baseurl_root }}/images/apicieloecommerce/e-wallets-cielo-100.png)
+![Fluxo E-wallets]({{ site.baseurl_root }}/images/apicieloecommerce/e-wallets/e-wallets-cielo-100.png)
 
 A seguir, um exemplo de requisição padrão para integração da e-wallet:
 
