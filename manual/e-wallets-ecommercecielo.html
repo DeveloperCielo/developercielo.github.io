@@ -174,7 +174,6 @@
    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -204,7 +203,6 @@
    <span class="s2">"Payment"</span>: <span class="o">{</span>
       <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>,
       <span class="s2">"Amount"</span>: 100,
-      <span class="s2">"Provider"</span>: <span class="s2">"Cielo"</span>,
       <span class="s2">"Installments"</span>: 1,
       <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
       <span class="s2">"Wallet"</span>: <span class="o">{</span>
@@ -282,13 +280,6 @@
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
       <td>Valor do pedido, em centavos.</td>
       <td>Número</td>
-      <td>15</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome do provedor do meio de pagamento. Obs.: Disponível somente para providers <strong>Cielo</strong> (Cielo e Cielo30).</td>
-      <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
@@ -781,7 +772,6 @@
    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo30"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -845,11 +835,6 @@
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
       <td>Valor do pedido, em centavos.</td>
       <td>Número (15)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome do provedor do meio de pagamento. Para transações Apple Pay, utilize “Cielo30”.</td>
-      <td>String (15)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
@@ -1021,7 +1006,6 @@ Para a correta integração do Google Pay via Cielo, é necessário se atentar a
   </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo30"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AndroidPay"</span><span class="p">,</span><span class="w">
@@ -1084,11 +1068,6 @@ Para a correta integração do Google Pay via Cielo, é necessário se atentar a
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
       <td>Valor do pedido, em centavos.</td>
       <td>Número (15)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome do provedor de meio de pagamento. Para transações Google Pay, utilize “Cielo30”.</td>
-      <td>String (15)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
@@ -1255,13 +1234,6 @@ Para a correta integração do Google Pay via Cielo, é necessário se atentar a
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome do provedor do meio de pagamento. Disponível somente para providers <strong>Cielo</strong> (Cielo / Cielo30).</td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
       <td>Número de parcelas.</td>
       <td>Número</td>
@@ -1321,7 +1293,6 @@ Para a correta integração do Google Pay via Cielo, é necessário se atentar a
          </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0915052536103"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
          </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Masterpass"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"Eci"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -1371,7 +1342,6 @@ Para a correta integração do Google Pay via Cielo, é necessário se atentar a
       <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
     <span class="o">}</span>,
     <span class="s2">"Tid"</span>: <span class="s2">"0915052536103"</span>,
-    <span class="s2">"Provider"</span>: <span class="s2">"Simulado"</span>,
     <span class="s2">"Wallet"</span>: <span class="o">{</span>
       <span class="s2">"Type"</span>: <span class="s2">"Masterpass"</span>,
       <span class="s2">"Eci"</span>: 0,
@@ -1512,7 +1482,6 @@ Para a correta integração do Google Pay via Cielo, é necessário se atentar a
    </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
       </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Cielo"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Wallet"</span><span class="p">:{</span><span class="w">
@@ -1540,7 +1509,6 @@ Para a correta integração do Google Pay via Cielo, é necessário se atentar a
    <span class="s2">"Payment"</span>:<span class="o">{</span>
       <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
       <span class="s2">"Amount"</span>:1,
-      <span class="s2">"Provider"</span>:<span class="s2">"Cielo"</span>,
       <span class="s2">"Installments"</span>:1,
       <span class="s2">"Currency"</span>:<span class="s2">"BRL"</span>,
       <span class="s2">"Wallet"</span>:<span class="o">{</span>
@@ -1615,13 +1583,6 @@ Para a correta integração do Google Pay via Cielo, é necessário se atentar a
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
       <td>Valor do pedido, em centavos.</td>
       <td>Número</td>
-      <td>15</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome do provedor do meio de pagamento. Obs.: Disponível somente para providers <strong>Cielo</strong> (Cielo / Cielo30).</td>
-      <td>Texto</td>
       <td>15</td>
       <td>Sim</td>
     </tr>
@@ -1989,13 +1950,6 @@ Para a correta integração do Google Pay via Cielo, é necessário se atentar a
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Nome do provedor do meio de pagamento. Obs.: Disponível somente para providers <strong>Cielo</strong> (Cielo / Cielo30).</td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
       <td>Número de parcelas.</td>
       <td>Número</td>
@@ -2052,7 +2006,6 @@ Para a correta integração do Google Pay via Cielo, é necessário se atentar a
       </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Undefined"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0915052340115"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VisaCheckout"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"WalletKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1140814777695873901"</span><span class="p">,</span><span class="w">
@@ -2098,7 +2051,6 @@ Para a correta integração do Google Pay via Cielo, é necessário se atentar a
       <span class="s2">"Brand"</span>: <span class="s2">"Undefined"</span>
     <span class="o">}</span>,
     <span class="s2">"Tid"</span>: <span class="s2">"0915052340115"</span>,
-    <span class="s2">"Provider"</span>: <span class="s2">"Simulado"</span>,
     <span class="s2">"Wallet"</span>: <span class="o">{</span>
       <span class="s2">"Type"</span>: <span class="s2">"VisaCheckout"</span>,
       <span class="s2">"WalletKey"</span>: <span class="s2">"1140814777695873901"</span>,
