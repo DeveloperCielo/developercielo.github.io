@@ -6,12 +6,11 @@ search: true
 translated: false
 toc_footers: true
 categories: manual
-sort_order: 3
+sort_order: 2
 tags:
   - E-Wallet
 language_tabs:
   json: JSON
-  shell: cURL
 ---
 
 # E-Wallet (carteira digital)
