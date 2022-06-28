@@ -11,6 +11,8 @@ tags:
   - E-Wallet
 language_tabs:
   json: JSON
+  shell: cURL
+  
 ---
 
 # E-Wallet (carteira digital)
