@@ -1,9 +1,9 @@
 ---
 layout: manual
-title: E-Wallets (Carteiras Digitais)
-description: Integração técnica via API
+title: Manual E-Wallets (Carteiras Digitais)
+description: Manual integração técnica via API
 search: true
-translated: false
+translated: true
 toc_footers: true
 categories: manual
 sort_order: 8
