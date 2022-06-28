@@ -59,7 +59,6 @@ A seguir, um exemplo de requisição padrão para integração da e-wallet:
    "Payment": {
       "Type": "CreditCard",
       "Amount": 100,
-      "Provider": "Cielo",
       "Installments": 1,
       "Currency": "BRL",
       "Wallet": {
@@ -90,7 +89,6 @@ A seguir, um exemplo de requisição padrão para integração da e-wallet:
    "Payment": {
       "Type": "CreditCard",
       "Amount": 100,
-      "Provider": "Cielo",
       "Installments": 1,
       "Currency": "BRL",
       "Wallet": {
@@ -114,7 +112,6 @@ A seguir, um exemplo de requisição padrão para integração da e-wallet:
 | `Customer.Status`|Status de cadastro do comprador na loja ("NEW" / "EXISTING").|Texto|255|Não|
 | `Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
 | `Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
-| `Payment.Provider`|Nome do provedor do meio de pagamento. Obs.: Disponível somente para providers **Cielo** (Cielo e Cielo30).|Texto|15|Sim|
 | `Payment.Installments`|Número de parcelas.|Número|2|Sim|
 | `Wallet.Type`|Tipo de carteira: "ApplePay" / "SamsungPay" / "GooglePay" / "VisaCheckout" / "Masterpass".|Texto|--|Sim|
 | `Wallet.WalletKey`|Chave criptográfica que identifica lojas nas wallets. Consultar a tabela [WalletKey](https://developercielo.github.io/manual/e-wallets-ecommercecielo#walletkey) para mais informações.|Texto|--|Sim|
@@ -416,7 +413,6 @@ A autorização com o token do Apple Pay acontece da mesma forma que a autoriza�
    "Payment": {
       "Type": "CreditCard",
       "Amount": 1000,
-      "Provider": "Cielo30",
       "Installments": 1,
       "Currency": "BRL",
       "Wallet": {
@@ -441,7 +437,6 @@ A autorização com o token do Apple Pay acontece da mesma forma que a autoriza�
 | `Customer` |  Nó com dados do comprador. |Consulte o manual da [API E-commerce Cielo](https://developercielo.github.io/manual/cielo-ecommerce#criando-uma-transa%C3%A7%C3%A3o-de-cr%C3%A9dito){:target="_blank"}. |
 | `Payment.Type` |Tipo do meio de pagamento. Possibilidades: "CreditCard" / "DebitCard". | String (100) |
 | `Payment.Amount` |Valor do pedido, em centavos.| Número (15) |
-| `Payment.Provider` |Nome do provedor do meio de pagamento. Para transações Apple Pay, utilize "Cielo30".| String (15) |
 | `Payment.Installments` | Número de parcelas. | Número (2) |
 | `Payment.Wallet.Type` | Nome do provedor do meio de pagamento. Para transações Apple Pay, utilize "ApplePay". |String (15) |
 | `Payment.Wallet.WalletKey` |Preencher com o valor do parâmetro `paymentData.data` retornado pelo Apple Pay. | String |
@@ -579,7 +574,6 @@ A autorização com o token do Google Pay acontece da mesma forma que a autoriza
   "Payment": {
     "Type": "CreditCard",
     "Amount": 100,
-    "Provider": "Cielo30",
     "Installments": 1,
     "Wallet": {
       "Type": "AndroidPay",
@@ -603,7 +597,6 @@ A autorização com o token do Google Pay acontece da mesma forma que a autoriza
 | `Customer` | Nó com dados do comprador. | Consulte o manual da [API E-commerce Cielo](https://developercielo.github.io/manual/cielo-ecommerce#criando-uma-transa%C3%A7%C3%A3o-de-cr%C3%A9dito){:target="_blank"}.|
 | `Payment.Type` | Tipo do meio de pagamento. Possibilidades: "CreditCard" / "DebitCard". | String (100) |
 | `Payment.Amount` | Valor do pedido, em centavos. | Número (15) |
-| `Payment.Provider` | Nome do provedor de meio de pagamento. Para transações Google Pay, utilize "Cielo30". | String (15) |
 | `Payment.Installments` | Número de parcelas. | Número (2) |
 | `Payment.Wallet.Type` | Nome do provedor de meio de pagamento. Para transações Google Pay, utilize "AndroidPay". | String (15) |
 | `Payment.Wallet.WalletKey` | Preencher com o valor do parâmetro `signedMessage` retornado pelo Google Pay. | String |
@@ -695,7 +688,6 @@ Exemplo de requisição padrão Masterpass:
 |`Customer.Status`|Status de cadastro do comprador na loja ("NEW" / "EXISTING").|Texto|255|Não|
 |`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
-|`Payment.Provider`|Nome do provedor do meio de pagamento. Disponível somente para providers **Cielo** (Cielo / Cielo30).|Texto|15|Sim|
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
 |`Wallet.Type`|Tipo de carteira: "Masterpass".|Texto|255|Sim|
 |`Wallet.WalletKey`|Chave criptográfica que representa os dados do cartão. Consultar a tabela [WalletKey](https://developercielo.github.io/manual/e-wallets-ecommercecielo#walletkey) para mais informações.|Texto|255|Sim|
@@ -725,7 +717,6 @@ Exemplo de requisição padrão Masterpass:
          "Brand": "Visa"
       },
       "Tid": "0915052536103",
-      "Provider": "Simulado",
       "Wallet": {
          "Type": "Masterpass",
          "Eci": 0,
@@ -776,7 +767,6 @@ Exemplo de requisição padrão Masterpass:
       "Brand": "Visa"
     },
     "Tid": "0915052536103",
-    "Provider": "Simulado",
     "Wallet": {
       "Type": "Masterpass",
       "Eci": 0,
@@ -841,7 +831,6 @@ Exemplo de requisição padrão Samsung Pay:
    "Payment":{
       "Type":"CreditCard",
       "Amount":1,
-      "Provider":"Cielo",
       "Installments":1,
       "Currency":"BRL",
       "Wallet":{
@@ -870,7 +859,6 @@ curl
    "Payment":{
       "Type":"CreditCard",
       "Amount":1,
-      "Provider":"Cielo",
       "Installments":1,
       "Currency":"BRL",
       "Wallet":{
@@ -891,7 +879,6 @@ curl
 | `Customer.Status`          | Status de cadastro do comprador na loja ("NEW" / "EXISTING").                                                | Texto  | 255     | Não         |
 | `Payment.Type`             | Tipo do meio de pagamento.                                                                              | Texto  | 100     | Sim         |
 | `Payment.Amount`           | Valor do pedido, em centavos.                                                              | Número | 15      | Sim         |
-| `Payment.Provider`         | Nome do provedor do meio de pagamento. Obs.: Disponível somente para providers **Cielo** (Cielo / Cielo30).  | Texto  | 15      | Sim         |
 | `Payment.Installments`     | Número de parcelas.                                                                                     | Número | 2       | Sim         |
 | `Wallet.Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "GooglePay" / "VisaCheckout" / "Masterpass". | Texto  | 255     | Sim         |
 | `Wallet.WalletKey`         | Chave criptográfica que representa os dados do cartão. Consultar a tabela [WalletKey](https://developercielo.github.io/manual/e-wallets-ecommercecielo#walletkey) para mais informações.| Texto  | 255     | Sim         |
@@ -1105,7 +1092,6 @@ Exemplo de requisição padrão Visa Checkout:
 |`Customer.Status`|Status de cadastro do comprador na loja ("NEW" / "EXISTING").|Texto|255|Não|
 |`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
 |`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
-|`Payment.Provider`|Nome do provedor do meio de pagamento. Obs.: Disponível somente para providers **Cielo** (Cielo / Cielo30).|Texto|15|Sim|
 |`Payment.Installments`|Número de parcelas.|Número|2|Sim|
 |`Payment.ReturnUrl`|URL para onde o usuário será redirecionado após o fim do pagamento. Obrigatório para cartão de débito.|Texto|1024|---|
 |`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
@@ -1132,7 +1118,6 @@ Exemplo de requisição padrão Visa Checkout:
       "Brand": "Undefined"
     },
     "Tid": "0915052340115",
-    "Provider": "Simulado",
     "Wallet": {
       "Type": "VisaCheckout",
       "WalletKey": "1140814777695873901",
@@ -1179,7 +1164,6 @@ Exemplo de requisição padrão Visa Checkout:
       "Brand": "Undefined"
     },
     "Tid": "0915052340115",
-    "Provider": "Simulado",
     "Wallet": {
       "Type": "VisaCheckout",
       "WalletKey": "1140814777695873901",
