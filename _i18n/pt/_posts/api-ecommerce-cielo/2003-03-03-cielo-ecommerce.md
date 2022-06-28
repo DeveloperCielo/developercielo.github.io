@@ -7121,7 +7121,7 @@ A API Cielo Ecommerce possui integração com:
 <aside class="notice"><strong>Atenção:</strong>  Devido a necessidade de utilização de Chaves efemeras para realizar operações de crédito, a Recorrnência não está disponivel para transações de Wallets </aside>
 
 ### Integração da E-Wallet
-  
+
 Consulte nosso [manual E-Wallets](https://developercielo.github.io/manual/e-wallets-ecommercecielo){:target="_blank"} e saiba mais detalhes sobre a integração dessas e-wallets em seu checkout.
 
 Com a e-wallet já totalmente integrada, o seu fluxo transacional de pagamento será o seguinte:
