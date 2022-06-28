@@ -327,13 +327,13 @@ Nesta etapa inicial, você deverá criar um **merchant identifier** para sua loj
 A criação do merchant identifier deve ser feita através do [Portal de Desenvolvedores da Apple](https://developer.apple.com/account/resources), da seguinte maneira:
 
 1. Na seção **"Certificates, Identifiers & Profiles"**, selecione **"Identifiers"** no menu lateral, e então clique no botão `(+)` ao lado do título:
-![Step1.1]({{ site.baseurl_root }}/images/braspag/pagador/applepay01.png)
+![Step1.1]({{ site.baseurl_root }}/images/apicieloecommerce/e-wallets/applepay01.png)
 2. Selecione a opção **"Merchant IDs"** e então clique em `Continue`:
-![Step1.2]({{ site.baseurl_root }}/images/braspag/pagador/applepay02.png)
+![Step1.2]({{ site.baseurl_root }}/images/apicieloecommerce/e-wallets/applepay02.png)
 3. Coloque um valor nos campos **"Description"** e **"Identifier"**, seguindo suas especificações, e clique em `Continue`:
-![Step1.3]({{ site.baseurl_root }}/images/braspag/pagador/applepay03.png)
+![Step1.3]({{ site.baseurl_root }}/images/apicieloecommerce/e-wallets/applepay03.png)
 4. Para finalizar, clique em `Register`:
-![Step1.4]({{ site.baseurl_root }}/images/braspag/pagador/applepay04.png)
+![Step1.4]({{ site.baseurl_root }}/images/apicieloecommerce/e-wallets/applepay04.png)
 
 ### Passo 2 - Solicitar o Certificado ".CSR"
 
@@ -350,19 +350,19 @@ Para criar um certificado de processamento de pagamento (".CER"), que será util
 
 1. Na seção **"Certificates, Identifiers & Profiles"**, selecione **"Identifiers"**, no menu lateral.
 2. Utilizando o filtro localizado à direita superior (**"App IDs"**), encontre o item **"Merchant IDs"**:
-![Step2.1]({{ site.baseurl_root }}/images/braspag/pagador/applepay05.png)
+![Step2.1]({{ site.baseurl_root }}/images/apicieloecommerce/e-wallets/applepay05.png)
 3. Selecione o identifier criado anteriormente:
-![Step2.2]({{ site.baseurl_root }}/images/braspag/pagador/applepay06.png)
+![Step2.2]({{ site.baseurl_root }}/images/apicieloecommerce/e-wallets/applepay06.png)
 4. No bloco **"Apple Pay Payment Processing Certificate"**, clique no botão `Create Certificate` ao final do texto explicativo:
-![Step2.3]({{ site.baseurl_root }}/images/braspag/pagador/applepay07.png)
+![Step2.3]({{ site.baseurl_root }}/images/apicieloecommerce/e-wallets/applepay07.png)
 5. Escolha a opção **"No"** em **"Edit or Configure Merchant ID"**:
-![Step2.4]({{ site.baseurl_root }}/images/braspag/pagador/applepay08.png)
+![Step2.4]({{ site.baseurl_root }}/images/apicieloecommerce/e-wallets/applepay08.png)
 6. Na caixa de diálogo, clique em `Choose File` e escolha o certificado ".CSR" enviado pela Cielo:
-![Step2.5]({{ site.baseurl_root }}/images/braspag/pagador/applepay09.png)
+![Step2.5]({{ site.baseurl_root }}/images/apicieloecommerce/e-wallets/applepay09.png)
 7. Clique em `Continue`:
-![Step2.6]({{ site.baseurl_root }}/images/braspag/pagador/applepay10.png)
+![Step2.6]({{ site.baseurl_root }}/images/apicieloecommerce/e-wallets/applepay10.png)
 8. Clique em `Download` para baixar o arquivo ".CER":
-![Step2.7]({{ site.baseurl_root }}/images/braspag/pagador/applepay11.png)
+![Step2.7]({{ site.baseurl_root }}/images/apicieloecommerce/e-wallets/applepay11.png)
 
 Para mais detalhes, acesse a [Developer Account Help](https://help.apple.com/developer-account/#/devb2e62b839){:target="_blank"} da Apple.
 
