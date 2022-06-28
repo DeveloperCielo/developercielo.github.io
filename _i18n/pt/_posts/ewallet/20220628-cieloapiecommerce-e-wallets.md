@@ -6,7 +6,7 @@ search: true
 translated: false
 toc_footers: true
 categories: manual
-sort_order: 2
+sort_order: 3
 tags:
   - E-Wallet
 language_tabs:
