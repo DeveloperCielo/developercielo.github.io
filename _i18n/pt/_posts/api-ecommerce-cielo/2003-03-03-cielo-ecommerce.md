@@ -7126,7 +7126,7 @@ Consulte nosso [manual E-Wallets](https://developercielo.github.io/manual/e-wall
 
 Com a e-wallet já totalmente integrada, o seu fluxo transacional de pagamento será o seguinte:
 
-![Fluxo E-wallets]({{ site.baseurl_root }}/images/apicieloecommerce/e-wallets-cielo-100.png)
+![Fluxo E-wallets]({{ site.baseurl_root }}/images/apicieloecommerce/e-wallets/e-wallets-cielo-100.png)
 
 # Códigos da API
 
