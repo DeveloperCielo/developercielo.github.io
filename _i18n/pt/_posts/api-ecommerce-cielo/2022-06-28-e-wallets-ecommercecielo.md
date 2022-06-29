@@ -522,7 +522,7 @@ Preencha o parâmetro `gatewayMerchantId` com o identificador de sua loja, gerad
 
 #### Definição das Bandeiras
 
-No passo *"Step 3: Define supported payment card networks"*, seguir com as bandeiras aceitas: "VISA", "MASTERCARD", "AMEX", "DISCOVER" e "JCB".
+No passo *"Step 3: Define supported payment card networks"*, configure conforme as bandeiras aceitas pela *wallet*.
 
 #### Definição do Ambiente
 
