@@ -309,42 +309,49 @@ The new fields are contained within the Payment Facilitator node. In addition to
 
 ### CBPS Transactions 
 
-Actually, consumers often need to log in to several billing sites to pay their bills, many of which don't accept card payments. Suppliers of the Account Payment Service for Consumers (CBPS) simplify the process by allowing consumers to make all bill payments with a card and in a single channel. Generally, CBPS providers offer a mobile application or electronic commerce for the bearer to manage and make payments.
+Entities that operate as CBPS (in Portuguese, Bill Payment Service for Consumers) are companies that offer consolidated bill payment services to the cardholder. CBPS Marking is a Visa-specific option and provides more visibility and accuracy in transactions.
 
-Visa requests that providers of this type of service start to inform which transactions are CBPS as of Oct20. For this, it's necessary to send the field **“IsCustomerBillPaymentService”** as TRUE as the example below.
+Establishments that operate with this service must be registered with Visa and to operate as such, they must send some additional information through messenger, which is required by the brand. See below:
 
 #### Request
 
 ```json
 {
-   "MerchantOrderId":"2014111703",
-   "Customer":{
-      "Name":"Comprador crédito simples"
-   },
-   "Payment":{
-      "Type":"CreditCard",
-      "Amount":15700,
-      "Installments":1,
-      "SoftDescriptor":"123456789ABCD",
-      "CreditCard":{
-         "CardNumber":"1234123412341231",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"12/2030",
-         "SecurityCode":"123",
-         "Brand":"Visa",
-         "CardOnFile":{
-            "Usage":"Used",
-            "Reason":"Unscheduled"
-         }
-      },
-      "IsCustomerBillPaymentService":true
-   }
+    "merchantorderid": "123456ABCD1234",
+    "customer": {
+        "name": "João das Contas accept",
+        "mobile": "5521923455678"
+    },
+    "payment": {
+        "type": "CreditCard",
+        "amount": 100,
+        "installments": 1,
+        "IsCustomerBillPaymentService":true,
+        "capture": false,
+        "authenticate": false,
+        "recurrent": false,
+        "provider": "CieloSandbox",
+        "creditcard": {
+            "cardnumber": "4532110000001234",
+            "holder": "Teste Holder",
+            "expirationdate": "12/2022",
+            "securitycode": "123",
+            "brand": "jcb",
+            "savecard": true
+        },
+        "Wallet": {
+            "AdditionalData": {
+                "Mcc": "1234"
+            }
+        }
+    }
 }
 ```
 
 |Property                      | Type    | Size    | Required    | Description                                                                              |
 |------------------------------|---------|---------|-------------|------------------------------------------------------------------------------------------|
 | IsCustomerBillPaymentService | Boolean | ---     | No         | True ou false. Indicates whether it's a CBPS (Consumer Bill Payment Service) transaction |
+| Wallet.AdditionalData.Mcc | String (number) | ---     | Yes, for CBPS transactions        | Establishment MCC (EC) allowed for CBPS transactions |
 
 # Extended Validation Certificate
 
