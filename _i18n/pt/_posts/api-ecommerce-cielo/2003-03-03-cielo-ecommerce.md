@@ -3752,7 +3752,7 @@ A loja **deverá** retornar como resposta ao notificação: **HTTP Status Code 2
 |3|Mudança de status do Antifraude|
 |4|Mudança de status do pagamento recorrente (Ex. desativação automática)|
 |5|cancelamento negado|
-|7|Notificação de chargeback <br/> Para mais detalhes [Risk Notification](https://braspag.github.io//manual/risknotification)|
+|7|Notificação de chargeback. Exclusivo para clientes integrados à [Risk Notification API](https://braspag.github.io//manual/risknotification).|
 |8|Alerta de fraude|
 
 # Velocity
