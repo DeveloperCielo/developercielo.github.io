@@ -399,8 +399,7 @@ Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisiçã
 
 # ECI (E-commerce Indicator)
 
-E-Commerce Indicator (ECI) é retornado no processo de autenticação. Este código é um indicador do que exatamente ocorreu no processo de autenticação da transação.
-
+E-Commerce Indicator (ECI) é retornado no processo de autenticação. Este código é um indicador do que exatamente ocorreu no processo de autenticação da transação. 
 Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o agente responsável por aquela autenticação. Confira a [tabela de ECI](https://developercielo.github.io/manual/autorizacao-com-autenticacao#tabela-de-eci){:target="_blank"}.
 
 # Cartões de Teste
