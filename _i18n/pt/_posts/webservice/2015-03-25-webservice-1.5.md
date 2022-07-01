@@ -355,41 +355,40 @@ Os novos campos estão contidos dentro da tag **&lt;subcredenciador&gt;**. Além
 
 ``` xml
 <?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
-<transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1"
-	xmlns=http://ecommerce.cbmp.com.br>
-	<tid>10069930691VE920A57C</tid>
-	<pan>LtEYby/oCSWVqxTgWTU8T3Lq642xUUiNI+Ue38kiQK0=</pan>
-	<dados-pedido>
-		<numero>178148599</numero>
-		<valor>1000</valor>
-		<moeda>986</moeda>
-		<data-hora>2011-12-07T11:43:37</data-hora>
-		<descricao>[origem:10.50.54.156]</descricao>
-		<idioma>PT</idioma>
-		<criptomoeda>true</criptomoeda>
-	</dados-pedido>
-	<forma-pagamento>
-		<bandeira>visa</bandeira>
-		<produto>1</produto>
-		<parcelas>1</parcelas>
-	</forma-pagamento>
-	<status>4</status>
-	<autenticacao>
-		<codigo>4</codigo>
-		<mensagem>Transacao sem autenticacao</mensagem>
-		<data-hora>2022-06-29T14:31:37.769-03:00</data-hora>
-		<valor>1000</valor>
-		<eci>7</eci>
-	</autenticacao>
-	<autorizacao>
-		<codigo>4</codigo>
-		<mensagem>Transacao autorizada</mensagem>
-		<data-hora>2022-06-29T14:31:37.769-03:00</data-hora>
-		<valor>1000</valor>
-		<lr>00</lr>
-		<arp>163940</arp>
-		<nsu>687251</nsu>
-	</autorizacao>
+<transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1" xmlns=http://ecommerce.cbmp.com.br>
+    <tid>10069930691VE920A57C</tid>
+    <pan>LtEYby/oCSWVqxTgWTU8T3Lq642xUUiNI+Ue38kiQK0=</pan>
+    <dados-pedido>
+        <numero>178148599</numero>
+        <valor>1000</valor>
+        <moeda>986</moeda>
+        <data-hora>2011-12-07T11:43:37</data-hora>
+        <descricao>[origem:10.50.54.156]</descricao>
+        <idioma>PT</idioma>
+        <criptomoeda>true</criptomoeda>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>visa</bandeira>
+        <produto>1</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <status>4</status>
+    <autenticacao>
+        <codigo>4</codigo>
+        <mensagem>Transacao sem autenticacao</mensagem>
+        <data-hora>2022-06-29T14:31:37.769-03:00</data-hora>
+        <valor>1000</valor>
+        <eci>7</eci>
+    </autenticacao>
+    <autorizacao>
+        <codigo>4</codigo>
+        <mensagem>Transacao autorizada</mensagem>
+        <data-hora>2022-06-29T14:31:37.769-03:00</data-hora>
+        <valor>1000</valor>
+        <lr>00</lr>
+        <arp>163940</arp>
+        <nsu>687251</nsu>
+    </autorizacao>
 </transacao>
 ```
 
