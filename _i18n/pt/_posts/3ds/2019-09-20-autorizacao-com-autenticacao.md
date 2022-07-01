@@ -239,3 +239,15 @@ Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisiçã
 ### Response
 
 Veja mais: [https://developercielo.github.io/manual/webservice-1-5#tipos-de-retorno](https://developercielo.github.io/manual/webservice-1-5#tipos-de-retorno)
+
+# Tabela de ECI
+
+| Bandeira | ECI | Significado da Transação |
+| --- | --- | --- |
+| Visa/Elo/Amex | 06 | Autenticada pela bandeira – risco de chargeback passa a ser do emissor. |
+| Visa/Elo/Amex  | 05 | Autenticada pelo emissor – risco de chargeback passa a ser do emissor. |
+| Visa/Elo/Amex  | Diferente de 05 e 06 | Não autenticada – risco de chargeback permanece com o estabelecimento. |
+| Mastercard | 01 | Autenticada pela bandeira – risco de chargeback passa a ser do emissor. |
+| Mastercard | 02 | Autenticada pelo emissor – risco de chargeback passa a ser do emissor. |
+| Mastercard | 04 | Não autenticada, transação caracterizada como *Data Only* – risco de chargeback permanece com o estabelecimento. |
+| Mastercard | Diferente de  01, 02 e 04 | Não autenticada – risco de chargeback permanece com o estabelecimento. |
