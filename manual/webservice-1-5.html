@@ -550,46 +550,41 @@ mensagem=<span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</spa
 
 <aside class="notice">Obs: No response do 1.5 não são retornados os dados de facilitador.</aside>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?&gt;</span>
-<span class="nt">&lt;transacao</span><span class="err"> </span><span class="na">id=</span><span class="s">"1abd5a36-fba5-4a92-9341-7c9e9d44aa1a"</span><span class="err"> </span><span class="na">versao=</span><span class="s">"1.3.0"</span><span class="err"> </span><span class="na">xmlns=</span><span class="s">"http://ecommerce.cbmp.com.br"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;tid&gt;</span>2000153601009A0OCH1E<span class="nt">&lt;/tid&gt;</span>
-    <span class="nt">&lt;pan&gt;</span>qM5R3jZDvsXFU7KUAM5fmzKg7dA7ZaG2/gc2rFeFMW0=<span class="nt">&lt;/pan&gt;</span>
-    <span class="nt">&lt;dados-pedido&gt;</span>
-        <span class="nt">&lt;numero&gt;</span>54583<span class="nt">&lt;/numero&gt;</span>
-        <span class="nt">&lt;valor&gt;</span>10000<span class="nt">&lt;/valor&gt;</span>
-        <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
-        <span class="nt">&lt;data-hora&gt;</span>2016-02-16T13:45:05<span class="nt">&lt;/data-hora&gt;</span>
-        <span class="nt">&lt;descricao&gt;</span>Compra Online<span class="nt">&lt;/descricao&gt;</span>
-        <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
-    <span class="nt">&lt;/dados-pedido&gt;</span>
-    <span class="nt">&lt;forma-pagamento&gt;</span>
-        <span class="nt">&lt;bandeira&gt;</span>mastercard<span class="nt">&lt;/bandeira&gt;</span>
-        <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
-        <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
-    <span class="nt">&lt;/forma-pagamento&gt;</span>
-    <span class="nt">&lt;status&gt;</span>6<span class="nt">&lt;/status&gt;</span>
-    <span class="nt">&lt;autenticacao&gt;</span>
-        <span class="nt">&lt;codigo&gt;</span>6<span class="nt">&lt;/codigo&gt;</span>
-        <span class="nt">&lt;mensagem&gt;</span>Transacao sem autenticacao<span class="nt">&lt;/mensagem&gt;</span>
-        <span class="nt">&lt;data-hora&gt;</span>2020-01-10T15:32:45.843-03:00<span class="nt">&lt;/data-hora&gt;</span>
-        <span class="nt">&lt;valor&gt;</span>10000<span class="nt">&lt;/valor&gt;</span>
-        <span class="nt">&lt;eci&gt;</span>0<span class="nt">&lt;/eci&gt;</span>
-    <span class="nt">&lt;/autenticacao&gt;</span>
-    <span class="nt">&lt;autorizacao&gt;</span>
-        <span class="nt">&lt;codigo&gt;</span>6<span class="nt">&lt;/codigo&gt;</span>
-        <span class="nt">&lt;mensagem&gt;</span>Transacao autorizada<span class="nt">&lt;/mensagem&gt;</span>
-        <span class="nt">&lt;data-hora&gt;</span>2020-01-10T15:32:45.844-03:00<span class="nt">&lt;/data-hora&gt;</span>
-        <span class="nt">&lt;valor&gt;</span>10000<span class="nt">&lt;/valor&gt;</span>
-        <span class="nt">&lt;lr&gt;</span>00<span class="nt">&lt;/lr&gt;</span>
-        <span class="nt">&lt;arp&gt;</span>192379<span class="nt">&lt;/arp&gt;</span>
-        <span class="nt">&lt;nsu&gt;</span>094004<span class="nt">&lt;/nsu&gt;</span>
-    <span class="nt">&lt;/autorizacao&gt;</span>
-    <span class="nt">&lt;captura&gt;</span>
-        <span class="nt">&lt;codigo&gt;</span>6<span class="nt">&lt;/codigo&gt;</span>
-        <span class="nt">&lt;mensagem&gt;</span>Transacao capturada com sucesso<span class="nt">&lt;/mensagem&gt;</span>
-        <span class="nt">&lt;data-hora&gt;</span>2020-01-10T15:32:45.844-03:00<span class="nt">&lt;/data-hora&gt;</span>
-        <span class="nt">&lt;valor&gt;</span>10000<span class="nt">&lt;/valor&gt;</span>
-    <span class="nt">&lt;/captura&gt;</span>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?&gt;</span>
+<span class="nt">&lt;transacao</span> <span class="na">id=</span><span class="s">"a97ab62a-7956-41ea-b03f-c2e9f612c293"</span> <span class="na">versao=</span><span class="s">"1.2.1"</span> <span class="na">xmlns=</span><span class="s">http://ecommerce.cbmp.com.br</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;tid&gt;</span>10069930691VE920A57C<span class="nt">&lt;/tid&gt;</span>
+    <span class="nt">&lt;pan&gt;</span>LtEYby/oCSWVqxTgWTU8T3Lq642xUUiNI+Ue38kiQK0=<span class="nt">&lt;/pan&gt;</span>
+    <span class="nt">&lt;dados-pedido&gt;</span>
+        <span class="nt">&lt;numero&gt;</span>178148599<span class="nt">&lt;/numero&gt;</span>
+        <span class="nt">&lt;valor&gt;</span>1000<span class="nt">&lt;/valor&gt;</span>
+        <span class="nt">&lt;moeda&gt;</span>986<span class="nt">&lt;/moeda&gt;</span>
+        <span class="nt">&lt;data-hora&gt;</span>2011-12-07T11:43:37<span class="nt">&lt;/data-hora&gt;</span>
+        <span class="nt">&lt;descricao&gt;</span>[origem:10.50.54.156]<span class="nt">&lt;/descricao&gt;</span>
+        <span class="nt">&lt;idioma&gt;</span>PT<span class="nt">&lt;/idioma&gt;</span>
+        <span class="nt">&lt;criptomoeda&gt;</span>true<span class="nt">&lt;/criptomoeda&gt;</span>
+    <span class="nt">&lt;/dados-pedido&gt;</span>
+    <span class="nt">&lt;forma-pagamento&gt;</span>
+        <span class="nt">&lt;bandeira&gt;</span>visa<span class="nt">&lt;/bandeira&gt;</span>
+        <span class="nt">&lt;produto&gt;</span>1<span class="nt">&lt;/produto&gt;</span>
+        <span class="nt">&lt;parcelas&gt;</span>1<span class="nt">&lt;/parcelas&gt;</span>
+    <span class="nt">&lt;/forma-pagamento&gt;</span>
+    <span class="nt">&lt;status&gt;</span>4<span class="nt">&lt;/status&gt;</span>
+    <span class="nt">&lt;autenticacao&gt;</span>
+        <span class="nt">&lt;codigo&gt;</span>4<span class="nt">&lt;/codigo&gt;</span>
+        <span class="nt">&lt;mensagem&gt;</span>Transacao sem autenticacao<span class="nt">&lt;/mensagem&gt;</span>
+        <span class="nt">&lt;data-hora&gt;</span>2022-06-29T14:31:37.769-03:00<span class="nt">&lt;/data-hora&gt;</span>
+        <span class="nt">&lt;valor&gt;</span>1000<span class="nt">&lt;/valor&gt;</span>
+        <span class="nt">&lt;eci&gt;</span>7<span class="nt">&lt;/eci&gt;</span>
+    <span class="nt">&lt;/autenticacao&gt;</span>
+    <span class="nt">&lt;autorizacao&gt;</span>
+        <span class="nt">&lt;codigo&gt;</span>4<span class="nt">&lt;/codigo&gt;</span>
+        <span class="nt">&lt;mensagem&gt;</span>Transacao autorizada<span class="nt">&lt;/mensagem&gt;</span>
+        <span class="nt">&lt;data-hora&gt;</span>2022-06-29T14:31:37.769-03:00<span class="nt">&lt;/data-hora&gt;</span>
+        <span class="nt">&lt;valor&gt;</span>1000<span class="nt">&lt;/valor&gt;</span>
+        <span class="nt">&lt;lr&gt;</span>00<span class="nt">&lt;/lr&gt;</span>
+        <span class="nt">&lt;arp&gt;</span>163940<span class="nt">&lt;/arp&gt;</span>
+        <span class="nt">&lt;nsu&gt;</span>687251<span class="nt">&lt;/nsu&gt;</span>
+    <span class="nt">&lt;/autorizacao&gt;</span>
 <span class="nt">&lt;/transacao&gt;</span>
 </code></pre></div></div>
 
@@ -1470,6 +1465,13 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:</p>
       <td>Opcional</td>
       <td>0..13</td>
       <td>Texto de até 13 caracteres que será exibido na fatura do portador, após o nome do Estabelecimento Comercial.</td>
+    </tr>
+    <tr>
+      <td>Criptomoeda</td>
+      <td>Boolean</td>
+      <td>Opcional</td>
+      <td>N/A</td>
+      <td>True ou false. Define se a transação atual foi em criptomoeda.</td>
     </tr>
   </tbody>
 </table>
