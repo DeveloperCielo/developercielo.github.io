@@ -354,46 +354,42 @@ Os novos campos estão contidos dentro da tag **&lt;subcredenciador&gt;**. Além
 <aside class="notice">Obs: No response do 1.5 não são retornados os dados de facilitador.</aside>
 
 ``` xml
-<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
-<transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0" xmlns="http://ecommerce.cbmp.com.br">
-    <tid>2000153601009A0OCH1E</tid>
-    <pan>qM5R3jZDvsXFU7KUAM5fmzKg7dA7ZaG2/gc2rFeFMW0=</pan>
-    <dados-pedido>
-        <numero>54583</numero>
-        <valor>10000</valor>
-        <moeda>986</moeda>
-        <data-hora>2016-02-16T13:45:05</data-hora>
-        <descricao>Compra Online</descricao>
-        <idioma>PT</idioma>
-    </dados-pedido>
-    <forma-pagamento>
-        <bandeira>mastercard</bandeira>
-        <produto>1</produto>
-        <parcelas>1</parcelas>
-    </forma-pagamento>
-    <status>6</status>
-    <autenticacao>
-        <codigo>6</codigo>
-        <mensagem>Transacao sem autenticacao</mensagem>
-        <data-hora>2020-01-10T15:32:45.843-03:00</data-hora>
-        <valor>10000</valor>
-        <eci>0</eci>
-    </autenticacao>
-    <autorizacao>
-        <codigo>6</codigo>
-        <mensagem>Transacao autorizada</mensagem>
-        <data-hora>2020-01-10T15:32:45.844-03:00</data-hora>
-        <valor>10000</valor>
-        <lr>00</lr>
-        <arp>192379</arp>
-        <nsu>094004</nsu>
-    </autorizacao>
-    <captura>
-        <codigo>6</codigo>
-        <mensagem>Transacao capturada com sucesso</mensagem>
-        <data-hora>2020-01-10T15:32:45.844-03:00</data-hora>
-        <valor>10000</valor>
-    </captura>
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1"
+	xmlns=http://ecommerce.cbmp.com.br>
+	<tid>10069930691VE920A57C</tid>
+	<pan>LtEYby/oCSWVqxTgWTU8T3Lq642xUUiNI+Ue38kiQK0=</pan>
+	<dados-pedido>
+		<numero>178148599</numero>
+		<valor>1000</valor>
+		<moeda>986</moeda>
+		<data-hora>2011-12-07T11:43:37</data-hora>
+		<descricao>[origem:10.50.54.156]</descricao>
+		<idioma>PT</idioma>
+		<criptomoeda>true</criptomoeda>
+	</dados-pedido>
+	<forma-pagamento>
+		<bandeira>visa</bandeira>
+		<produto>1</produto>
+		<parcelas>1</parcelas>
+	</forma-pagamento>
+	<status>4</status>
+	<autenticacao>
+		<codigo>4</codigo>
+		<mensagem>Transacao sem autenticacao</mensagem>
+		<data-hora>2022-06-29T14:31:37.769-03:00</data-hora>
+		<valor>1000</valor>
+		<eci>7</eci>
+	</autenticacao>
+	<autorizacao>
+		<codigo>4</codigo>
+		<mensagem>Transacao autorizada</mensagem>
+		<data-hora>2022-06-29T14:31:37.769-03:00</data-hora>
+		<valor>1000</valor>
+		<lr>00</lr>
+		<arp>163940</arp>
+		<nsu>687251</nsu>
+	</autorizacao>
 </transacao>
 ```
 
@@ -768,6 +764,7 @@ Todas as transações no Cielo eCommerce iniciam-se através de um POST (HTTPS) 
 |descricao|Alfanumérico|Opcional|0..1024|Descrição do pedido|
 |idioma|Alfanumérico|Opcional|2|Idioma do pedido: PT (português), EN (inglês) ou ES (espanhol). Com base nessa informação é definida a língua a ser utilizada nas telas da Cielo. **Caso não seja enviado, o sistema assumirá “PT”**.|
 |soft-descriptor|Alfanumérico|Opcional|0..13|Texto de até 13 caracteres que será exibido na fatura do portador, após o nome do Estabelecimento Comercial.|
+|Criptomoeda|Boolean|Opcional|N/A|True ou false. Define se a transação atual foi em criptomoeda.|
 
 <aside class="notice">O cadastro do cliente está habilitado para transacionar apenas com a moeda REAL, caso necessite de mais informações, contate a central de relacionamento, seu gerente comercial ou o Suporte Web Cielo eCommerce.</aside>
 
