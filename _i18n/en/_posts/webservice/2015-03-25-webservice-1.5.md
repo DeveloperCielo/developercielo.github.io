@@ -344,46 +344,41 @@ The new fields are contained within the **&lt;subcredenciador&gt;** tag. In addi
 <aside class="notice">Note: In response from 1.5, no facilitator data is returned.</aside>
 
 ``` xml
-<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
-<transacao id="1abd5a36-fba5-4a92-9341-7c9e9d44aa1a" versao="1.3.0" xmlns="http://ecommerce.cbmp.com.br">
-    <tid>2000153601009A0OCH1E</tid>
-    <pan>qM5R3jZDvsXFU7KUAM5fmzKg7dA7ZaG2/gc2rFeFMW0=</pan>
-    <dados-pedido>
-        <numero>54583</numero>
-        <valor>10000</valor>
-        <moeda>986</moeda>
-        <data-hora>2016-02-16T13:45:05</data-hora>
-        <descricao>Compra Online</descricao>
-        <idioma>PT</idioma>
-    </dados-pedido>
-    <forma-pagamento>
-        <bandeira>mastercard</bandeira>
-        <produto>1</produto>
-        <parcelas>1</parcelas>
-    </forma-pagamento>
-    <status>6</status>
-    <autenticacao>
-        <codigo>6</codigo>
-        <mensagem>Transacao sem autenticacao</mensagem>
-        <data-hora>2020-01-10T15:32:45.843-03:00</data-hora>
-        <valor>10000</valor>
-        <eci>0</eci>
-    </autenticacao>
-    <autorizacao>
-        <codigo>6</codigo>
-        <mensagem>Transacao autorizada</mensagem>
-        <data-hora>2020-01-10T15:32:45.844-03:00</data-hora>
-        <valor>10000</valor>
-        <lr>00</lr>
-        <arp>192379</arp>
-        <nsu>094004</nsu>
-    </autorizacao>
-    <captura>
-        <codigo>6</codigo>
-        <mensagem>Transacao capturada com sucesso</mensagem>
-        <data-hora>2020-01-10T15:32:45.844-03:00</data-hora>
-        <valor>10000</valor>
-    </captura>
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<transacao id="a97ab62a-7956-41ea-b03f-c2e9f612c293" versao="1.2.1" xmlns=http://ecommerce.cbmp.com.br>
+    <tid>10069930691VE920A57C</tid>
+    <pan>LtEYby/oCSWVqxTgWTU8T3Lq642xUUiNI+Ue38kiQK0=</pan>
+    <dados-pedido>
+        <numero>178148599</numero>
+        <valor>1000</valor>
+        <moeda>986</moeda>
+        <data-hora>2011-12-07T11:43:37</data-hora>
+        <descricao>[origem:10.50.54.156]</descricao>
+        <idioma>PT</idioma>
+        <criptomoeda>true</criptomoeda>
+    </dados-pedido>
+    <forma-pagamento>
+        <bandeira>visa</bandeira>
+        <produto>1</produto>
+        <parcelas>1</parcelas>
+    </forma-pagamento>
+    <status>4</status>
+    <autenticacao>
+        <codigo>4</codigo>
+        <mensagem>Transacao sem autenticacao</mensagem>
+        <data-hora>2022-06-29T14:31:37.769-03:00</data-hora>
+        <valor>1000</valor>
+        <eci>7</eci>
+    </autenticacao>
+    <autorizacao>
+        <codigo>4</codigo>
+        <mensagem>Transacao autorizada</mensagem>
+        <data-hora>2022-06-29T14:31:37.769-03:00</data-hora>
+        <valor>1000</valor>
+        <lr>00</lr>
+        <arp>163940</arp>
+        <nsu>687251</nsu>
+    </autorizacao>
 </transacao>
 ```
 
@@ -706,14 +701,14 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
 |gerar-token|Boolean|optional|n/a|`true` ou `false`. Define if the current transaction must create an associate token to card.|
 |avs#avs|alphanumeric|optional|n/a|String containing a XML block, encapsulated by CDATA, containing required information to realized a service consult.|
 
-## dados-ec
+## data-ec
 
 |Element|Type|Mandatory|Size|Description|
 |---|---|---|---|---|
 |numero|numeric|Yes|1..20|Affiliation number of Store with Cielo.|
 |chave|alphanumeric|Yes|1..100|Store's access key attributed by Cielo.|
 
-## dados-portador
+## data-bearer
 
 |Element|Type|Mandatory|Size|Description|
 |---|---|---|---|---|
@@ -724,7 +719,7 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
 |nome-portador|alphanumeric|Optional|0..50|Holder name|
 |token|Alfanumeric|Conditional|0..100|Token must be used in replacement to card data to direct authorization or recurrent. It's not allowed to send a token with the card information in the same transaction.|
 
-## dados-pedido
+## order-data
 
 |Element|Type|Mandatory|Size|Description|
 |---|---|---|---|---|
@@ -737,10 +732,11 @@ Every transaction on Cielo E-commerce starts through a POST (HTTPS) to Webservic
 |taxa-embarque|Numeric|Optional|1..9|Amount of authorization value that must be destined to boarding fee.|
 |soft-descriptor|Alphanumeric|Optional|0..13|Text until 13 characters that will be shown on holder's invoice, after the Commercial Establishment name.|
 |numero-bilhete|Alphanumeric|Optional|13|Notify the main air ticket number of the transaction.|
+|cryptocurrency|Optional||Not Apply|true or false. Defines if the current transaction was in cryptocurrency.|
 
 <aside class="notice">The customer register will be enable to transact only with REAL currency, in case you need more information, contact the service center, commercial manager or Cielo E-commerce Web Support</aside>
 
-## forma-pagamento
+## payment-method
 
 |Element|Type|Mandatory|Size|Description|
 |---|---|---|---|---|
