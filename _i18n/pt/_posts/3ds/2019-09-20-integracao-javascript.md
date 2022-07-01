@@ -265,22 +265,9 @@ O evento &quot;**bpmpi_Authenticate()**&quot; deve chamado no momento de finaliz
 
 # ECI (E-commerce Indicator)
 
-E-Commerce Indicator (ECI) é retornado no processo de autenticação.
-Este código é um indicador do que exatamente ocorreu no processo de autenticação da transação.
-Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o agente responsável por aquela autenticação, conforme tabela abaixo:
+O E-Commerce Indicator (ECI) é retornado no processo de autenticação. Este código é um indicador do que exatamente ocorreu no processo de autenticação da transação.
 
-| **Bandeira** | **ECI** | **Significado da Transação** |
-| --- | --- | --- |
-| Visa | 05 | Autenticada pelo Banco Emissor – risco de chargeback passa a ser do banco Emissor |
-| Visa | 06 | Autenticada pela Bandeira – risco de chargeback passa a ser do banco Emissor |
-| Visa | Diferente de 05 e 06 | Não autenticada – risco de chargeback permanece com o estabelecimento |
-| Mastercard | 01 | Autenticada pela Bandeira – risco de chargeback passa a ser do banco Emissor |
-| Mastercard | 02 | Autenticada pelo Banco Emissor – risco de chargeback passa a ser do banco Emissor |
-| Mastercard | 04 | Não autenticada, transação caracterizada como Data Only – risco de chargeback permanece com o estabelecimento |
-| Mastercard | Diferente de  01, 02 e 04 | Não autenticada – risco de chargeback permanece com o estabelecimento |
-| Elo | 05 | Autenticada pelo Banco Emissor – risco de chargeback passa a ser do banco Emissor |
-| Elo | 06 | Autenticada pela Bandeira – risco de chargeback passa a ser do banco Emissor |
-| Elo | 07 | Não autenticada – risco de chargeback permanece com o estabelecimento |
+Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o agente responsável por aquela autenticação. Confira a [tabela de ECI](https://developercielo.github.io/manual/autorizacao-com-autenticacao#tabela-de-eci){:target="_blank"}. 
 
 # Cartões de Teste
 
