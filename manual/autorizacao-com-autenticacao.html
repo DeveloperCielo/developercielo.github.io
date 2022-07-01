@@ -456,6 +456,55 @@ Este procedimento é válido também para estabelecimentos que realizaram a aute
 
 <p>Veja mais: <a href="https://developercielo.github.io/manual/webservice-1-5#tipos-de-retorno">https://developercielo.github.io/manual/webservice-1-5#tipos-de-retorno</a></p>
 
+<h1 id="tabela-de-eci">Tabela de ECI</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bandeira</th>
+      <th>ECI</th>
+      <th>Significado da Transação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Visa/Elo/Amex</td>
+      <td>06</td>
+      <td>Autenticada pela bandeira – risco de chargeback passa a ser do emissor.</td>
+    </tr>
+    <tr>
+      <td>Visa/Elo/Amex</td>
+      <td>05</td>
+      <td>Autenticada pelo emissor – risco de chargeback passa a ser do emissor.</td>
+    </tr>
+    <tr>
+      <td>Visa/Elo/Amex</td>
+      <td>Diferente de 05 e 06</td>
+      <td>Não autenticada – risco de chargeback permanece com o estabelecimento.</td>
+    </tr>
+    <tr>
+      <td>Mastercard</td>
+      <td>01</td>
+      <td>Autenticada pela bandeira – risco de chargeback passa a ser do emissor.</td>
+    </tr>
+    <tr>
+      <td>Mastercard</td>
+      <td>02</td>
+      <td>Autenticada pelo emissor – risco de chargeback passa a ser do emissor.</td>
+    </tr>
+    <tr>
+      <td>Mastercard</td>
+      <td>04</td>
+      <td>Não autenticada, transação caracterizada como <em>Data Only</em> – risco de chargeback permanece com o estabelecimento.</td>
+    </tr>
+    <tr>
+      <td>Mastercard</td>
+      <td>Diferente de  01, 02 e 04</td>
+      <td>Não autenticada – risco de chargeback permanece com o estabelecimento.</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 
