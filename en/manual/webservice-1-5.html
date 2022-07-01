@@ -1305,6 +1305,7 @@ messaging, which are required by the flag. See below:</p>
       <th>Mandatory</th>
       <th>Size</th>
       <th>Description</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -1314,6 +1315,7 @@ messaging, which are required by the flag. See below:</p>
       <td>Yes</td>
       <td>1..20</td>
       <td>Order number of store. <strong>We recommend just one number per order.</strong></td>
+      <td> </td>
     </tr>
     <tr>
       <td>valor</td>
@@ -1321,6 +1323,7 @@ messaging, which are required by the flag. See below:</p>
       <td>Yes</td>
       <td>1..12</td>
       <td>Amount to be charged on the order (must be also included shipping costs, package, extras costs, boarding fees, etc). This amount will be charged from customer.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>moeda</td>
@@ -1328,6 +1331,7 @@ messaging, which are required by the flag. See below:</p>
       <td>Yes</td>
       <td>3</td>
       <td>Numeric code of currency at norm ISO 4217. <strong>For “Real”, the code is 986.</strong></td>
+      <td> </td>
     </tr>
     <tr>
       <td>data-hora</td>
@@ -1335,6 +1339,7 @@ messaging, which are required by the flag. See below:</p>
       <td>Yes</td>
       <td>19</td>
       <td>Data hour of order. <strong>Format</strong>: yyyy-MM-ddTHH24:mm:ss</td>
+      <td> </td>
     </tr>
     <tr>
       <td>descricao</td>
@@ -1342,6 +1347,7 @@ messaging, which are required by the flag. See below:</p>
       <td>Optional</td>
       <td>0..1024</td>
       <td>Order description</td>
+      <td> </td>
     </tr>
     <tr>
       <td>idioma</td>
@@ -1349,6 +1355,7 @@ messaging, which are required by the flag. See below:</p>
       <td>Optional</td>
       <td>2</td>
       <td>Order language: PT (Portuguese), EN (English) or ES (Spanish). Based on this information the language is defined used on Cielo’ screens. <strong>If it won’t be sent, the system will assume “PT”.</strong></td>
+      <td> </td>
     </tr>
     <tr>
       <td>taxa-embarque</td>
@@ -1356,6 +1363,7 @@ messaging, which are required by the flag. See below:</p>
       <td>Optional</td>
       <td>1..9</td>
       <td>Amount of authorization value that must be destined to boarding fee.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>soft-descriptor</td>
@@ -1363,6 +1371,7 @@ messaging, which are required by the flag. See below:</p>
       <td>Optional</td>
       <td>0..13</td>
       <td>Text until 13 characters that will be shown on holder’s invoice, after the Commercial Establishment name.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>numero-bilhete</td>
@@ -1370,9 +1379,11 @@ messaging, which are required by the flag. See below:</p>
       <td>Optional</td>
       <td>13</td>
       <td>Notify the main air ticket number of the transaction.</td>
+      <td> </td>
     </tr>
     <tr>
       <td>cryptocurrency</td>
+      <td>Boolean</td>
       <td>Optional</td>
       <td> </td>
       <td>Not Apply</td>
