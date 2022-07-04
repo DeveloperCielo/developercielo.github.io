@@ -3172,13 +3172,22 @@ Ao realizar uma captura, o lojista confirma que o valor autorizado no cartão po
 
 <aside class="notice"><strong>Atenção:</strong> A captura é um processo com prazo de execução padrão de 15 dias. Verifique seu cadastro Cielo para confirmar o limite habilitado para a sua afiliação. Após esse periodo, não é possivel realiza a captura da transação. Se a transação não for capturada, a autorização vai expirar e assim não haverá cobrança no cartão do portador e o limite será liberado.</aside>
 
-### Captura total
+### Captura parcial ou total
 
-Para captura uma venda que utiliza cartão de crédito, é necessário fazer um PUT para o recurso Payment conforme o exemplo.
+É possível capturar um valor parcial ou o valor total da transação.
+
+A **captura parcial** é o ato de capturar um valor menor que o valor autorizado. Esse modelo de captura pode ocorrer apenas uma vez por transação. 
+
+**Após a captura, não é possível realizar capturas adicionais no mesmo pedido.**
 
 #### Requisição
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/capture</span></aside>
+* Para **captura parcial**, envie o campo `Amount`na requisição de captura com o valor desejado a capturar;
+* Para **captura total**, não envie o campo `Amount`. Será considerado o valor total da autorização.
+
+<aside class="warning">O campo `ServiceTaxAmount`é exclusivo para empresas aéreas.</aside>
+<br/>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&serviceTaxAmount={Valor}"</span></aside>
 
 ```json
 
@@ -3199,11 +3208,11 @@ curl
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
 |`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|36|Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
+|`MerchantKey`|Chave pública para Autenticação Dupla na API Cielo E-commerce.|Texto|40|Sim|
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
 |`PaymentId`|Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.|Guid|36|Sim|
-|`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
-|`ServiceTaxAmount`|Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|Número|15|Não|
+|`Amount`|Valor a ser capturado, em centavos. Se essa campo não for preenchido, o valor da captura será o valor total da autorização. |Número|15|Não|
+|`ServiceTaxAmount`|Exclusivo para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|Número|15|Não|
 
 #### Resposta
 
@@ -3261,201 +3270,12 @@ curl
 | `ProofOfSale`           | Número da autorização, identico ao NSU. | Texto | 6       | Texto alfanumérico |
 | `Tid`                   | Id da transação na adquirente.          | Texto | 20      | Texto alfanumérico |
 | `AuthorizationCode`     | Código de autorização.                  | Texto | 6       | Texto alfanumérico |
-| `ReturnCode`            | Código de retorno da adquirente.        | Texto | 32      | Texto alfanumérico |
-| `ReturnMessage`         | Mensagem de retorno da adquirente.      | Texto | 512     | Texto alfanumérico |
-
-### Captura parcial
-
-A **captura parcial** é o ato de capturar um valor menor que o valor autorizado.Esse modelo de captura pode ocorrer apenas 1 vez por transação. 
-
-**Após a captura, não é possível realizar capturas adicionais no mesmo pedido.**
-
-Basta realizar um `POST` enviando o valor a ser capturado.
-
-<aside class="notice"><strong>Atenção:</strong> Captura parcial disponível apenas para transações de crédito</aside>
-
-#### Requisição - Captura Parcial
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}</span></aside>
-
-```json
-
-https://api.cieloecommerce.cielo.com.br/1/sales/{paymentId}/capture?amount={Valor}
-
-```
-
-```shell
-curl
---request PUT "https://api.cieloecommerce.cielo.com.br/1/sales/{paymentId}/capture?amount={Valor}"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---verbose
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
-|---|---|---|---|---|
-|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|36|Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
-|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`PaymentId`|Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.|Guid|36|Sim|
-|`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
-|`ServiceTaxAmount`|Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|Número|15|Não|
-
-#### Resposta
-
-```json
-{
-    "Status": 2,
-    "Tid": "0719094510712",
-    "ProofOfSale": "4510712",
-    "AuthorizationCode": "693066",
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "6",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "6",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://api.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://api.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3/void"
-        }
-    ]
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "Status": 2,
-    "Tid": "0719094510712",
-    "ProofOfSale": "4510712",
-    "AuthorizationCode": "693066",
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "6",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "6",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://api.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://api.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3/void"
-        }
-    ]
-}
-```
-
-| Propriedade             | Descrição                               | Tipo  | Tamanho | Formato            |
-|-------------------------|-----------------------------------------|-------|---------|--------------------|
-| `Status`                | Status da Transação.                    | Byte  | ---     | 2                  |
-| `ProofOfSale`           | Número da autorização, identico ao NSU. | Texto | 6       | Texto alfanumérico |
-| `Tid`                   | Id da transação na adquirente.          | Texto | 20      | Texto alfanumérico |
-| `AuthorizationCode`     | Código de autorização.                  | Texto | 6       | Texto alfanumérico |
-| `ReasonCode`            | Código de retorno da Operação.          | Texto | 32      | Texto alfanumérico |
-| `ReasonMessage`         | Mensagem de retorno da Operação.        | Texto | 512     | Texto alfanumérico |
-| `ProviderReturnCode`    | Código de retorno do Provider.          | Texto | 32      | Texto alfanumérico |
-| `ProviderReturnMessage` | Mensagem de retorno do Provider.        | Texto | 512     | Texto alfanumérico ||
 | `ReturnCode`            | Código de retorno da adquirente.        | Texto | 32      | Texto alfanumérico |
 | `ReturnMessage`         | Mensagem de retorno da adquirente.      | Texto | 512     | Texto alfanumérico |
 
 <aside class="notice"><strong>Captura de Taxa de embarque</strong> Para realizar a captura da *taxa de embarque*, basta adicionar o valor do ServiveTaxAmount a ser capturado</aside>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&serviceTaxAmount=xxx</span></aside>
-
-#### Resposta
-
-```json
-{
-    "Status": 2,
-    "Tid": "0719094510712",
-    "ProofOfSale": "4510712",
-    "AuthorizationCode": "693066",
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "0",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "0",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://api.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://api.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"
-        }
-    ]
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "Status": 2,
-    "Tid": "0719094510712",
-    "ProofOfSale": "4510712",
-    "AuthorizationCode": "693066",
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "0",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "0",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://api.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://api.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"
-        }
-    ]
-}
-```
-
-| Propriedade             | Descrição                               | Tipo  | Tamanho | Formato            |
-|-------------------------|-----------------------------------------|-------|---------|--------------------|
-| `Status`                | Status da Transação.                    | Byte  | ---     | 2                  |
-| `ProofOfSale`           | Número da autorização, identico ao NSU. | Texto | 6       | Texto alfanumérico |
-| `Tid`                   | Id da transação na adquirente.          | Texto | 20      | Texto alfanumérico |
-| `AuthorizationCode`     | Código de autorização.                  | Texto | 6       | Texto alfanumérico |
-| `ReasonCode`            | Código de retorno da Operação.          | Texto | 32      | Texto alfanumérico |
-| `ReasonMessage`         | Mensagem de retorno da Operação.        | Texto | 512     | Texto alfanumérico |
-| `ProviderReturnCode`    | Código de retorno do Provider.          | Texto | 32      | Texto alfanumérico |
-| `ProviderReturnMessage` | Mensagem de retorno do Provider.        | Texto | 512     | Texto alfanumérico ||
-| `ReturnCode`            | Código de retorno da adquirente.        | Texto | 32      | Texto alfanumérico |
-| `ReturnMessage`         | Mensagem de retorno da adquirente.      | Texto | 512     | Texto alfanumérico ||
-
-### Captura Via Backoffice
-
-É possivel realizar tanto a captura total quanto a Captura parcial via O Backoffice Cielo.
-
-Acesse nosso [**Tutorial**](https://developercielo.github.io/Tutorial//Backoffice-3.0)  para maiores informações
 
 ## Cancelando uma venda
 
