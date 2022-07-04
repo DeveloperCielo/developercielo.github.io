@@ -6024,10 +6024,11 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <ul>
   <li>Captura automática: é solicitada na mesma <a href="">requisição de autorização da transação de crédito</a> enviando o <code class="language-plaintext highlighter-rouge">Payment.Capture</code> como “true”.</li>
-  <li>Captura posterior: é solicitada depois do envio da requisição de autorização da transação de crédito.</li>
+  <li>Captura posterior: é solicitada depois do envio da requisição de autorização da transação de crédito.
+<br />
+<br />
+<strong>Nesta seção, apresentamos as orientações para fazer a <em>captura posterior</em></strong>.</li>
 </ul>
-
-<p><strong>Nesta seção, apresentamos as orientações para fazer a <em>captura posterior</em></strong>.</p>
 
 <p>Ao realizar uma captura, o lojista confirma que o valor autorizado no cartão poderá ser cobrado pela instituição financeira emissora do cartão.</p>
 
@@ -6056,7 +6057,7 @@ Abaixo especificamos qualquer diferença existente:</p>
   <li>Para <strong>captura total</strong>, não envie o campo <code class="language-plaintext highlighter-rouge">Amount</code>. Será considerado o valor total da autorização.</li>
 </ul>
 
-<aside class="warning">O campo `ServiceTaxAmount`é exclusivo para empresas aéreas.</aside>
+<aside class="warning">O campo `ServiceTaxAmount` é exclusivo para empresas aéreas.</aside>
 <p><br /></p>
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&amp;serviceTaxAmount={Valor}"</span></aside>
 
