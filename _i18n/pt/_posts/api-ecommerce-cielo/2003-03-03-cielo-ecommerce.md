@@ -3155,17 +3155,22 @@ curl
 
 ## Captura
 
-A **captura** é procedimento exclusivo para transações de cartões de crédito.
+A **captura** é procedimento exclusivo para transações de cartões de crédito. Há dois tipos de captura:
 
-Ao realizar uma captura, o lojista confirma que o valor autorizado no cartão poderá ser cobrado pela insituição financeira emissora do cartão.
+* Captura automática: é solicitada na mesma [requisição de autorização da transação de crédito]() enviando o `Payment.Capture` como "true".  
+* Captura posterior: é solicitada depois do envio da requisição de autorização da transação de crédito.
 
-O que a captura gera:
+**Nesta seção, apresentamos as orientações para fazer a *captura posterior***.
 
-* Ela executa a cobrança do cartão
-* Ela inclui o valor da venda na fatura do comprador
-* Somente transações capturadas são pagas pela Cielo ao lojista
+Ao realizar uma captura, o lojista confirma que o valor autorizado no cartão poderá ser cobrado pela instituição financeira emissora do cartão.
 
-<aside class="notice"><strong>Atenção:</strong> A captura é um processo com prazo de execução. Verifique em sem cadastro cielo qual o limite habilitado para a sua afiliação. Após esse periodo, não é possivel realiza a Captura da transação</aside>
+**Importante**:
+
+* A captura executa a cobrança do cartão;
+* A captura inclui o valor da venda na fatura do comprador;
+* O lojista paga à Cielo somente as transações capturadas.
+
+<aside class="notice"><strong>Atenção:</strong> A captura é um processo com prazo de execução padrão de 15 dias. Verifique seu cadastro Cielo para confirmar o limite habilitado para a sua afiliação. Após esse periodo, não é possivel realiza a captura da transação. Se a transação não for capturada, a autorização vai expirar e assim não haverá cobrança no cartão do portador e o limite será liberado.</aside>
 
 ### Captura total
 
