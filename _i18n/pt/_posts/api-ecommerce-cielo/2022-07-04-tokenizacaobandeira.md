@@ -9,7 +9,7 @@ categories: tutorial
 sort_order: 2
 tags:
   - API Pagamento
-  - Checkout Cielo
+  - Checkout
   - Webservice 1.5
   - Link de Pagamento
 ---
