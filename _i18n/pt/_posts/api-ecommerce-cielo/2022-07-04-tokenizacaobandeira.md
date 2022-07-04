@@ -70,7 +70,8 @@ Nessa opção, o seu estabelecimento se integra com a funcionalidade de tokeniza
 
 **Essa solução tem custo adicional?** A solução não tem custos adicionais para clientes API E-commerce Cielo ou API 1.5, basta entrar em contato para solicitar a habilitação.
 
-<aside class="notice">Para saber mais sobre a Integração Facilitada</aside> [Clique aqui]([https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-bandeira](https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-bandeira)
+> **Para saber mais sobre a Integração Facilitada** [Clique aqui](https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-
+bandeira)
 
 ### Opção 3 - Integração por fora
 
@@ -86,7 +87,7 @@ Se o seu estabelecimento usa um gateway ou outro parceiro que já oferece a solu
 
 **Essa solução tem custo adicional?** A solução não tem custos adicionais para clientes API E-commerce Cielo ou API 1.5, basta entrar em contato para solicitar a habilitação junto ao seu parceiro.
 
-<aside class="notice"><strong>Para saber mais sobre a Integração por fora</strong>)</aside> [Clique aqui](https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-bandeira)
+> **Para saber mais sobre a Integração por fora**, [Clique aqui](https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-bandeira)
 
 # Dúvidas ?
 
