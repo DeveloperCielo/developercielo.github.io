@@ -8,7 +8,6 @@ toc_footers: true
 categories: manual
 sort_order: 2
 tags:
-  - Link de Pagamento
   - Checkout
 language_tabs:
   json: JSON
