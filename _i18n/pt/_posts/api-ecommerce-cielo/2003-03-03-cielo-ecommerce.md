@@ -1938,6 +1938,40 @@ Quantidade de caracteres por campo e Provider:
 |`Customer.Address.City`|<br>**Caracteres válidos:** <BR> Letras de A a Z - MAIÚSCULAS <BR> **Caracteres especiais:** hífen (-) e apóstrofo (') <BR><BR> Quando utilizados, não pode conter espaços entre as letras; <BR><BR><BR> **Exemplos corretos**: D'EL-REI, D'ALCORTIVO, SANT'ANA.<BR><BR> **Exemplos incorretos**: D'EL - REI; até um espaço em branco entre palavras.|18 caracteres|
 |`Payment.Instructions`|N/a|255|
 
+# E-wallets
+
+## O que são e-wallets?
+
+As *e-wallets*, ou carteiras digitais, são repositórios de cartões e dados de pagamentos para consumidores online. As e-wallets permitem que um consumidor realize o cadastro de seus dados de pagamento na carteira, tornando o processo de compra mais conveniente e seguro.
+
+> Para utilizar e-wallets na API Cielo E-commerce, o lojista deverá ter as **e-wallets integradas em seu checkout**.
+
+Entre em contato com o provedor de sua preferência para maiores informações sobre como contratar o serviço.
+
+### E-wallets disponíveis
+
+A API Cielo E-commerce possui suporte para as seguintes carteiras digitais:
+
+* [*Apple Pay*](https://www.apple.com/br/apple-pay/){:target="_blank"}
+* [*VisaCheckout*](https://vaidevisa.visa.com.br/site/visa-checkout){:target="_blank"} 
+* [*MasterPass*](https://masterpass.com/pt-br/){:target="_blank"} 
+* [*Samsung Pay*](https://www.samsung.com.br/samsungpay/){:target="_blank"} 
+* [*Google Pay*](https://pay.google.com/intl/pt-BR_br/about/){:target="_blank"}
+
+<aside class="notice"><strong>Atenção:</strong> Quando o nó “Wallet” for enviado na requisição, o nó “CreditCard” passa a ser opcional.</aside>
+
+<aside class="notice"><strong>Atenção:</strong> Para o cartão de débito, quando for enviado na requisição o nó “Wallet”, será necessário o nó “DebitCard” contendo a “ReturnUrl”.</aside>
+
+<aside class="notice"><strong>Atenção:</strong>  Devido a necessidade de utilização de chaves efêmeras para realizar operações de crédito, a Recorrência não está disponível para transações de e-wallets. </aside>
+
+### Integração da E-Wallet
+
+Consulte nosso [manual E-Wallets](https://developercielo.github.io/manual/e-wallets-ecommercecielo){:target="_blank"} e saiba mais detalhes sobre a integração desse meio de pagamento em seu checkout.
+
+Com a e-wallet já totalmente integrada, o seu fluxo transacional de pagamento será o seguinte:
+
+![Fluxo E-wallets]({{ site.baseurl_root }}/images/apicieloecommerce/e-wallets/e-wallets-cielo-100.png)
+
 ## QR Code
 
 ### Cartão de crédito via QR Code - Sandbox
@@ -7095,42 +7129,6 @@ a) Como resposta, o estabelecimento receberá um json (HTTP 201 Created) contend
 ![Response Ticket]({{ site.baseurl_root }}/images/response-ticket-silent-order-post-cielo.jpg)
 
 Por questões de segurança, este ticket dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo de já estipulado na resposta, através do atributo ExpiresIn (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo ticket para um uso futuro.
-
-# Wallet
-
-## O que são wallets?
-
-São repositorios de cartões e dados de pagamentos para consumidores online. As carteiras digitais permitem que um consumidor realizar o cadastro de seus dados de pagamento, assim agilizando o processo de compra em lojas habilitadas por possuir apenas um cadastro.
-
-> *Para utilizar carteiras na API Cielo Ecommerce, o lojista deverá possuir as carteiras integradas em seu checkout*. 
-
-Para maiores informações, sugerimos que entre em contato com o setor técnico da carteira a qual deseja implementar.
-
-### Wallets Disponiveis
-
-A API Cielo Ecommerce possui integração com:
-
-| Carteira                                                           | 
-|--------------------------------------------------------------------|
-| [*Apple Pay*](https://www.apple.com/br/apple-pay/){:target="_blank"}                 |
-| [*VisaCheckout*](https://vaidevisa.visa.com.br/site/visa-checkout){:target="_blank"} | 
-| [*MasterPass*](https://masterpass.com/pt-br/){:target="_blank"}                      | 
-| [*Samsung Pay*](https://www.samsung.com.br/samsungpay/){:target="_blank"}            | 
-| [*Google Pay*](https://developercielo.github.io/manual/google-pay){:target="_blank"} |
-
-<aside class="notice"><strong>Atenção:</strong> Quando o nó “Wallet” for enviado na requisição, o nó “CreditCard” passa a ser opcional.</aside>
-
-<aside class="notice"><strong>Atenção:</strong> Para o cartão de débito, quando for enviado na requisição o nó “Wallet”, será necessário o nó “DebitCard” contendo a “ReturnUrl”.</aside>
-
-<aside class="notice"><strong>Atenção:</strong>  Devido a necessidade de utilização de Chaves efemeras para realizar operações de crédito, a Recorrnência não está disponivel para transações de Wallets </aside>
-
-### Integração da E-Wallet
-
-Consulte nosso [manual E-Wallets](https://developercielo.github.io/manual/e-wallets-ecommercecielo){:target="_blank"} e saiba mais detalhes sobre a integração dessas e-wallets em seu checkout.
-
-Com a e-wallet já totalmente integrada, o seu fluxo transacional de pagamento será o seguinte:
-
-![Fluxo E-wallets]({{ site.baseurl_root }}/images/apicieloecommerce/e-wallets/e-wallets-cielo-100.png)
 
 # Códigos da API
 
