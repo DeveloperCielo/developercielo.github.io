@@ -3159,7 +3159,8 @@ A **captura** é procedimento exclusivo para transações de cartões de crédit
 
 * Captura automática: é solicitada na mesma [requisição de autorização da transação de crédito]() enviando o `Payment.Capture` como "true".  
 * Captura posterior: é solicitada depois do envio da requisição de autorização da transação de crédito.
-
+<br/>
+<br/>
 **Nesta seção, apresentamos as orientações para fazer a *captura posterior***.
 
 Ao realizar uma captura, o lojista confirma que o valor autorizado no cartão poderá ser cobrado pela instituição financeira emissora do cartão.
@@ -3185,7 +3186,7 @@ A **captura parcial** é o ato de capturar um valor menor que o valor autorizado
 * Para **captura parcial**, envie o campo `Amount`na requisição de captura com o valor desejado a capturar;
 * Para **captura total**, não envie o campo `Amount`. Será considerado o valor total da autorização.
 
-<aside class="warning">O campo `ServiceTaxAmount`é exclusivo para empresas aéreas.</aside>
+<aside class="warning">O campo `ServiceTaxAmount` é exclusivo para empresas aéreas.</aside>
 <br/>
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&serviceTaxAmount={Valor}"</span></aside>
 
