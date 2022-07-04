@@ -129,7 +129,9 @@
             </div>
 
             <div class="post">
-  <h1 id="visão-geral---api-e-commerce-cielo">Visão geral - API e-commerce Cielo</h1>
+  <h1 id="api-e-commerce-cielo">API E-commerce Cielo</h1>
+
+<h1 id="visão-geral">Visão geral</h1>
 
 <p>O objetivo desta documentação é orientar sobre a integração da <strong>API e-commerce Cielo</strong>, descrevendo as funcionalidades, os métodos HTTP, listando informações a serem enviadas e recebidas e provendo exemplos.</p>
 
@@ -169,7 +171,7 @@
 
 <p>A solução <strong>API e-commerce Cielo</strong> foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada pelo seu e-commerce. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação.</p>
 
-<p>Para obter exemplos dessas linguagens, veja nosso <a href="https://developercielo.github.io/tutorial/postman"><strong>Tutorial de conversão Postman</strong></a>.</p>
+<p>Para obter exemplos dessas linguagens, veja nosso <a href="https://developercielo.github.io/tutorial/postman" target="_blank"><strong>Tutorial de conversão Postman</strong></a>.</p>
 
 <p>Entre outras características, os atributos que mais se destacam na plataforma API e-commerce Cielo:</p>
 
@@ -1659,7 +1661,7 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido.</td>
+      <td>Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
@@ -2015,7 +2017,7 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido.</td>
+      <td>Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
@@ -2769,7 +2771,7 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido.</td>
+      <td>Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
@@ -3632,7 +3634,7 @@ Abaixo especificamos qualquer diferença existente:</p>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido.</td>
+      <td>Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
@@ -4121,7 +4123,7 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido, necessário para futuras operações como Consulta, Captura e Cancelamento.</td>
+      <td>Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
@@ -4892,11 +4894,11 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <h2 id="consulta-de-transações">Consulta de transações</h2>
 
-<h3 id="consulta---paymentid">Consulta - PaymentID</h3>
+<h3 id="consulta-por-paymentid">Consulta por PaymentId</h3>
 
-<p>Para consultar uma venda de cartão de crédito, é necessário fazer um GET para o recurso Payment conforme o exemplo.</p>
+<p>Para consultar uma venda de cartão de crédito via PaymentId, siga a requisição de exemplo a seguir.</p>
 
-<aside class="notice">São elegíveis para a consulta apenas transações dentro dos três ultimos meses.</aside>
+<aside class="notice">São elegíveis para a consulta apenas transações dentro dos últimos três meses.</aside>
 
 <h4 id="requisição-12">Requisição</h4>
 
@@ -4946,21 +4948,7 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Numero de identificação do Pagamento.</td>
-      <td>Texto</td>
-      <td>36</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AcquirerOrderId</code></td>
-      <td>Id da transação enviado ao autorizador, caso o MerchantOrderId seja maior que 20 caracteres ou tenha símbolos.</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
-      <td>Numero de identificação do pagamento na adquirente.</td>
+      <td>Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.</td>
       <td>Texto</td>
       <td>36</td>
       <td>Sim</td>
@@ -5278,11 +5266,11 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<h3 id="consulta---tid">Consulta - TID</h3>
+<h3 id="consulta-por-tid">Consulta por TId</h3>
 
-<p>Para consultar uma venda através do número de referência único da transação na adquirente (TID), execute um GET conforme descrito a seguir.</p>
+<p>Para consultar uma venda através do número de referência único da transação na adquirente (TId), execute um GET conforme descrito a seguir.</p>
 
-<aside class="notice">São elegíveis para a consulta apenas transações dentro dos três ultimos meses.</aside>
+<aside class="notice">São elegíveis para a consulta apenas transações dentro dos últimos três meses.</aside>
 
 <h4 id="requisição-13">Requisição</h4>
 
@@ -5516,7 +5504,7 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido.</td>
+      <td>Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento..</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
@@ -5657,11 +5645,11 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<h3 id="consulta---merchandorderid">Consulta - MerchandOrderID</h3>
+<h3 id="consulta-por-merchandorderid">Consulta por MerchandOrderId</h3>
 
-<p>Não é possível consultar diretamente uma pagamento pelo identificador enviado pela loja (MerchantOrderId), mas é possível obter todos os PaymentIds associados ao identificador.</p>
+<p>Para alguns estabelecimentos, o <code class="language-plaintext highlighter-rouge">MerchantOrderId</code> pode ter várias transações. A consulta por <code class="language-plaintext highlighter-rouge">MerchantOrderId</code> retorna o <code class="language-plaintext highlighter-rouge">PaymentId</code> de todas as transações associadas a um <code class="language-plaintext highlighter-rouge">MerchantOrderId</code>.</p>
 
-<p>Para consultar uma venda pelo identificador da loja, é necessário fazer um GET para o recuso sales conforme o exemplo.</p>
+<p>A partir disso, é possível consultar detalhes de cada transação pela consulta por <code class="language-plaintext highlighter-rouge">PaymentId</code>.</p>
 
 <h4 id="requisição-14">Requisição</h4>
 
@@ -5711,7 +5699,7 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Campo Identificador do Pedido na Loja.</td>
+      <td>Campo identificador do pedido na loja.</td>
       <td>Texto</td>
       <td>36</td>
       <td>Sim</td>
@@ -5765,7 +5753,7 @@ Abaixo especificamos qualquer diferença existente:</p>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido.</td>
+      <td>Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
@@ -5773,11 +5761,11 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<h3 id="consulta-recorrência">Consulta Recorrência</h3>
+<h3 id="consulta-de-recorrência">Consulta de Recorrência</h3>
 
-<p>Para consultar uma Recorrência de cartão de crédito, é necessário fazer um <code class="language-plaintext highlighter-rouge">GET</code>  conforme o exemplo.</p>
+<p>A Consulta de Recorrência traz dados sobre o agendamento e sobre o processo de transações que se repetem. A Consulta de Recorrência não retorna dados sobre as transações em si.</p>
 
-<p><strong>A Consulta da Recorrência traz dados sobre o agendamento e sobre o processo de transações que se repetem. Elas não retornam dados sobre as transações em si. Para isso, deve ser realizado um <code class="language-plaintext highlighter-rouge">GET</code> na transação (Disponível em “Consultando vendas)</strong></p>
+<p>Para obter informações sobre cada transação, faça a Consulta por PaymentId.</p>
 
 <h4 id="requisição-15">Requisição</h4>
 
@@ -5996,8 +5984,8 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>5</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">RecurrentTransactions.RecurrentPaymentId</code></td>
-      <td>Id da Recorrência</td>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentTransactions.PaymentId</code></td>
+      <td>Número de identificação do pagamento (que faz parte da recorrência).</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
@@ -6028,7 +6016,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <h2 id="captura">Captura</h2>
 
-<p>A <strong>Captura</strong> é passo exclusivo para transações de Cartões de Crédito.</p>
+<p>A <strong>captura</strong> é procedimento exclusivo para transações de cartões de crédito.</p>
 
 <p>Ao realizar uma captura, o lojista confirma que o valor autorizado no cartão poderá ser cobrado pela insituição financeira emissora do cartão.</p>
 
@@ -6098,7 +6086,7 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido.</td>
+      <td>Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
@@ -6286,7 +6274,7 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido.</td>
+      <td>Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
@@ -6701,7 +6689,7 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido.</td>
+      <td>Número de identificação do pagamento, necessário para operações como Consulta, Captura e Cancelamento.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
@@ -6868,7 +6856,7 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido.</td>
+      <td>Número de identificação do pagamento, necessário para operações como Consulta, Captura e Cancelamento.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
@@ -7120,7 +7108,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code>- Identificador que representa um conjunto de transações recorrentes</li>
-  <li><code class="language-plaintext highlighter-rouge">PaymentId</code>- Identificador que representa a transação</li>
+  <li><code class="language-plaintext highlighter-rouge">PaymentId</code>- Número de identificação do pagamento</li>
   <li><code class="language-plaintext highlighter-rouge">ChangeType</code> - Especifica o tipo de notificação</li>
 </ul>
 
@@ -7259,20 +7247,22 @@ Esses eventos são cadastros pela equipe de suporte Cielo, quando requisitado pe
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Identificador que representa a transação</td>
+      <td>Número de identificação do pagamento.</td>
       <td>GUID</td>
       <td>36</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ChangeType</code></td>
-      <td>Especifica o tipo de notificação. Vide tabela abaixo</td>
+      <td>Especifica o tipo de notificação. Vide tabela de Changetype.</td>
       <td>Número</td>
       <td>1</td>
       <td>Sim</td>
     </tr>
   </tbody>
 </table>
+
+<h3 id="tabela-de-changetype">Tabela de ChangeType</h3>
 
 <table>
   <thead>
@@ -11134,7 +11124,7 @@ HTTP Status 200
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido.</td>
+      <td>Número de identificação do pagamento, necessário para operações como Consulta, Captura e Cancelamento.</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
@@ -11813,7 +11803,7 @@ HTTP Status 200
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido.</td>
+      <td>Número de identificação do pagamento, necessário para operações como Consulta, Captura e Cancelamento.</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
@@ -12164,7 +12154,7 @@ HTTP Status 200
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido.</td>
+      <td>Número de identificação do pagamento, necessário para operações como Consulta, Captura e Cancelamento.</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
@@ -12511,7 +12501,7 @@ HTTP Status 200
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido.</td>
+      <td>Número de identificação do pagamento, necessário para operações como Consulta, Captura e Cancelamento.</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
