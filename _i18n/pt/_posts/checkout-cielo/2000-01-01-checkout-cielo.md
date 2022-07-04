@@ -9,6 +9,7 @@ categories: manual
 sort_order: 1
 tags:
   - Checkout Cielo
+  - Link de Pagamento
 language_tabs:
   json: JSON
   shell: cURL
