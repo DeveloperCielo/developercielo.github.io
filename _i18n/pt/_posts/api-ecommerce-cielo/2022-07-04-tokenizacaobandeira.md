@@ -6,11 +6,12 @@ search: true
 translated: true
 toc_footers: true
 categories: tutorial
-sort_order: 1
+sort_order: 2
 tags:
   - API Pagamento
   - Checkout Cielo
   - Webservice 1.5
+  - Link de Pagamento
 ---
 
 # Documentação ecommerce (api 3.0, 1.5, checkout e super link)
