@@ -8,7 +8,7 @@ toc_footers: true
 categories: manual
 sort_order: 1
 tags:
-  - API Pagamento
+  - API Cielo Conecta
 language_tabs:
   json: JSON
   shell: cURL
