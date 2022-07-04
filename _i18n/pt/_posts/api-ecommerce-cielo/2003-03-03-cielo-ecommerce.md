@@ -2095,9 +2095,13 @@ curl
 
 ## Carnê
 
-O Carnê é uma transação de débito utilizada para efetuar o pagamento de uma conta. Essa modalidade pode ser utilizada por clientes que <strong>emitem carnês próprios e faturas de cartões Private Label</strong>. O produto Carnê permite a <strong>separação das vendas</strong> relacionadas <strong>compra de produtos e pagamento de serviços</strong>, facilitando reporte de valores junto ao Fisco.
+O **carnê** é uma **transação de débito** utilizada para efetuar o pagamento de uma conta.
 
-Como qualquer transação de débito no e-commerce, as transações de Carnê precisam ser autenticadas via protocolo 3DS 2.0. Mais informações referentes ao protocolo de autenticação podem ser obtidos [**clicando aqui**](https://developercielo.github.io/manual/3ds#autentica%C3%A7%C3%A3o-3ds-2.0).
+> O carnê é um meio de pagamento válido para as bandeiras MasterCard, Visa e Elo.
+
+Essa modalidade pode ser utilizada por lojistas que **emitem carnês próprios e faturas de cartões Private Label**. O produto carnê permite a **separação das vendas** relacionadas à **compra de produtos e pagamento de serviços**, facilitando reporte de valores junto ao Fisco.
+
+Como qualquer transação de débito no e-commerce, as transações de carnê precisam ser autenticadas via protocolo 3DS 2.0. Obtenha mais informações sobre o protocolo de autenticação no [**manual do 3DS 2.0**](https://developercielo.github.io/manual/3ds#autentica%C3%A7%C3%A3o-3ds-2.0){:target="_blank"}.
 
 ### Requisição
 
