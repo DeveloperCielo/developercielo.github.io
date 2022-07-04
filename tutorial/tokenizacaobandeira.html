@@ -40,19 +40,7 @@
 
     <body>
         
-        <div class="content-container">
-            <div class="language-tabs">
-                <a class='hide-btn' id="hide-button" title="Comutar"><i class="fa fa-bars" aria-hidden="true"></i></a>
-                <ul class="language-buttons">
-                    
-                    <li><a data-language-name='json'>JSON</a></li>
-                    
-                    <li><a data-language-name='shell'>cURL</a></li>
-                    
-                </ul>
-            </div>
-            <div class="dark-box"></div>
-            <div class="overlay"></div>
+        <div class="content-container no-dark-box">
         
             <div id="submenu">
                 <div class="submenu-container">
@@ -129,11 +117,11 @@
             </div>
 
             <div class="post">
-    <p>Documentação ecommerce (api 3.0, 1.5, checkout e super link)</p>
+    <h1 id="documentação-ecommerce-api-30-15-checkout-e-super-link">Documentação ecommerce (api 3.0, 1.5, checkout e super link)</h1>
 
 <h1 id="tokenização-de-bandeira--mandate-visa">Tokenização de Bandeira – Mandate Visa</h1>
 
-<p><strong>Tokenização de Bandeira – Regra Visa</strong></p>
+<h2 id="tokenização-de-bandeira--regra-visa">Tokenização de Bandeira – Regra Visa</h2>
 
 <p><strong>Do que se trata essa nova regra da bandeira Visa?</strong></p>
 
@@ -147,16 +135,16 @@
 que acarreta possíveis aumentos na conversão de aprovação pelos bancos emissores. Veja todos os benefícios:</p>
 
 <ul>
-  <li>Maior segurança: Além da criação de um código (token ou DPAN) para substituir a informação do cartão, as bandeiras também emitem os criptogramas, que funcionam como uma senha ou assinatura da bandeira, única para aquele cartão naquele estabelecimento.</li>
-  <li>Atualização automática de cartões: Quando um novo cartão é emitido no lugar do cartão anterior, ou quando a data de expiração de um cartão muda, os bancos enviam essas informações para a base da bandeira, e a bandeira automaticamente atualiza os tokens com as novas informações. Ou seja, não tem necessidade de nenhuma ação por parte do estabelecimento.</li>
-  <li>Maior conversão de aprovação: Por conta da maior segurança com os tokens das bandeiras, os bancos emissores se sentem mais seguros em aprovar as transações.Além disso, com os dados de cartão atualizados automaticamente, mais vendas que poderiam ser negadas por dados de cartão desatualizados podem ser aprovadas</li>
+  <li><strong>Maior segurança:</strong> Além da criação de um código (token ou DPAN) para substituir a informação do cartão, as bandeiras também emitem os criptogramas, que funcionam como uma senha ou assinatura da bandeira, única para aquele cartão naquele estabelecimento.</li>
+  <li><strong>Atualização automática de cartões:</strong> Quando um novo cartão é emitido no lugar do cartão anterior, ou quando a data de expiração de um cartão muda, os bancos enviam essas informações para a base da bandeira, e a bandeira automaticamente atualiza os tokens com as novas informações. Ou seja, não tem necessidade de nenhuma ação por parte do estabelecimento.</li>
+  <li><strong>Maior conversão de aprovação:</strong> Por conta da maior segurança com os tokens das bandeiras, os bancos emissores se sentem mais seguros em aprovar as transações.Além disso, com os dados de cartão atualizados automaticamente, mais vendas que poderiam ser negadas por dados de cartão desatualizados podem ser aprovadas</li>
 </ul>
 
 <h2 id="quais-são-as-opções-para-adequação-à-regra">Quais são as opções para adequação à regra?</h2>
 
 <p>A Cielo oferece aos clientes a opção abaixo para que se preparem e evitem as cobranças da bandeira. Confira abaixo:</p>
 
-<h2 id="opção---tokenizador-cielo">Opção - Tokenizador Cielo</h2>
+<h3 id="opção---tokenizador-cielo">Opção - Tokenizador Cielo</h3>
 
 <p>Com o objetivo de reduzir esse impacto financeiro para nossos clientes, a Cielo desenvolveu uma solução interna que irá tokenizar todas as transações elegíveis automaticamente.</p>
 
@@ -168,56 +156,71 @@ que acarreta possíveis aumentos na conversão de aprovação pelos bancos emiss
 
 <p>Sim, a Cielo vai armazenar esse token de bandeira em seu sistema, para que na próxima transação não seja necessário gerar um novo token para o mesmo cartão.</p>
 
-<p><strong>Quais transações são elegíveis?</strong> Uma vez que hoje no mercado ainda existam cartões com BINs (primeiros 6 dígitos do cartão) não tokenizáveis, não será possível atendermos 100% das transações Visa. A Visa informou para a Cielo que aproximadamente 95% dos BINs Visa são elegíveis, e que haverá incidência de cobrança sobre os 5% não elegíveis. Sendo que, a Cielo irá repassar esses custos de operações com BINSs não elegíveis ao cliente.</p>
+<p><strong>Quais transações são elegíveis?</strong></p>
+
+<p>Uma vez que hoje no mercado ainda existam cartões com BINs (primeiros 6 dígitos do cartão) não tokenizáveis, não será possível atendermos 100% das transações Visa. A Visa informou para a Cielo que aproximadamente 95% dos BINs Visa são elegíveis, e que haverá incidência de cobrança sobre os 5% não elegíveis. Sendo que, a Cielo irá repassar esses custos de operações com BINSs não elegíveis ao cliente.</p>
 
 <p><strong>Produtos Elegíveis:</strong> API E-commerce Cielo, API 1.5, Super Link e Checkout Cielo.</p>
 
 <p><strong>Preciso fazer alguma modificação na integração ou solicitar a funcionalidade para a Cielo?</strong></p>
 
-<p>Não. A Cielo fará a ativação na data determinada, para você e todos os clientes, semcustos adicionais.</p>
+<p>Não. A Cielo fará a ativação na data determinada, para você e todos os clientes, semcustos adicionais.
+<strong>Quando a Cielo irá ligar essa solução para todos os clientes?</strong></p>
 
-<p><strong>Quando a Cielo irá ligar essa solução para todos os clientes?</strong></p>
-
-<p>Está previsto para que a comecemos a subir para uma parte dos clientes após a primeira quinzena de julho/22, e que até 31/07/2022 a Cielo já tenha ligado essa solução para todos os clientes da base. Essa solução funcionará por tempo indeterminado.</p>
-
-<p><strong>Qual o impacto dessa solução para clientes que já utilizam a tokenização de bandeira?</strong></p>
+<p>Está previsto para que a comecemos a subir para uma parte dos clientes após a primeira quinzena de julho/22, e que até 31/07/2022 a Cielo já tenha ligado essa solução para todos os clientes da base. Essa solução funcionará por tempo indeterminado.
+<strong>Qual o impacto dessa solução para clientes que já utilizam a tokenização de bandeira?</strong></p>
 
 <p>Caso você já esteja usando a tokenização de bandeira, a Cielo irá verificar que a transação já foi tokenizada com a bandeira Visa, e não será necessário criar um novo token pra essa transação/cartão.</p>
 
-<p>**No momento da tokenização com a Visa, caso haja algum problema sistêmico ou timeout da bandeira ou do emissor, não sendo possível que a Cielo consiga tokenizar o cartão para seguir com a transação, a Cielo irá enviar a transação para autorização sem o token, para evitar que haja perda de vendas. Por conta disso, poderá existir a incidência do custo por parte da Visa sobre essa transação enviada sem o token, no mesmo formato ao aplicado para bins não elegíveis, sendo que, a Cielo irá repassar esse custo ao cliente, como comentado anteriormente.</p>
+<p><strong>No momento da tokenização com a Visa, caso haja algum problema sistêmico ou timeout da bandeira ou do emissor, não sendo possível que a Cielo consiga tokenizar o cartão para seguir com a transação, a Cielo irá enviar a transação para autorização sem o token, para evitar que haja perda de vendas. Por conta disso, poderá existir a incidência do custo por parte da Visa sobre essa transação enviada sem o token, no mesmo formato ao aplicado para bins não elegíveis, sendo que, a Cielo irá repassar esse custo ao cliente, como comentado anteriormente.</strong></p>
 
 <p>Se preferir, você também pode optar por outras opções para fazer a gestão do token de bandeira por conta própria. Vamos conhecer melhor essas opções a seguir.</p>
 
 <p>IMPORTANTE: As próximas duas opções se encontram disponíveis somente para clientes API E-commerce Cielo e API 1.5. Para clientes Super Link e Checkout, está disponível somente a primeira opção: Tokenizador Cielo.</p>
 
-<h2 id="opção-2---integração-facilitada">Opção 2 - Integração Facilitada</h2>
+<h3 id="opção-2---integração-facilitada">Opção 2 - Integração Facilitada</h3>
 
 <p>Nessa opção, o seu estabelecimento se integra com a funcionalidade de tokenização convencional da Cielo, que também cria um token de bandeira. Dessa forma, os estabelecimentos sempre terão um único token para aquele cartão, mas a Cielo terá os tokens e criptogramas das bandeiras armazenados de forma segura.</p>
 
-<p><strong>Bandeiras Disponíveis:</strong> Visa</p>
+<p><strong>Bandeiras Disponíveis:</strong> Visa
+<strong>Produtos Elegíveis:</strong> API E-commerce Cielo e API 1.5.
+<strong>Como obter essa funcionalidade:</strong></p>
 
-<p><strong>Produtos Elegíveis:</strong> API E-commerce Cielo e API 1.5.</p>
+<p>Entre em contato com a gente pelo e-mail: cieloecommerce@cielo.com.br e solicite a habilitação.</p>
 
-<p><strong>Como obter essa funcionalidade:</strong> entre em contato com a gente pelo e-mail: cieloecommerce@cielo.com.br e solicite a habilitação.</p>
+<p><strong>Quais transações são elegíveis?</strong></p>
 
-<p><strong>Quais transações são elegíveis?</strong> Uma vez que hoje no mercado ainda existam cartões com BINs (primeiros 6 dígitos do cartão) não tokenizáveis, não será possível atendermos 100% das transações Visa. A Visa informou para a Cielo que aproximadamente 95% dos BINs Visa são elegíveis, e que haverá incidência de cobrança sobre os 5% não elegíveis. Portanto, a Cielo irá repassar esse custo ao cliente.</p>
+<p>Uma vez que hoje no mercado ainda existam cartões com BINs (primeiros 6 dígitos do cartão) não tokenizáveis, não será possível atendermos 100% das transações Visa. A Visa informou para a Cielo que aproximadamente 95% dos BINs Visa são elegíveis, e que haverá incidência de cobrança sobre os 5% não elegíveis. Portanto, a Cielo irá repassar esse custo ao cliente.</p>
 
-<p><strong>Essa solução tem custo adicional?</strong> A solução não tem custos adicionais para clientes API E-commerce Cielo ou API 1.5, basta entrar em contato para solicitar a habilitação.</p>
+<p><strong>Essa solução tem custo adicional?</strong></p>
+
+<p>A solução não tem custos adicionais para clientes API E-commerce Cielo ou API 1.5, basta entrar em contato para solicitar a habilitação.</p>
 
 <p>Para saber mais sobre a Integração Facilitada, acesse o link: https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-bandeira</p>
 
-<h2 id="opção-3---integração-por-fora">Opção 3 - Integração por fora</h2>
+<h3 id="opção-3---integração-por-fora">Opção 3 - Integração por fora</h3>
 
 <p>Se o seu estabelecimento usa um gateway ou outro parceiro que já oferece a solução de token de bandeira, você pode realizar a integração para que a bandeira receba os dados do token.</p>
 
-<p><strong>Bandeiras Disponíveis:</strong> Visa, Master e Elo (para a Integração por Fora, a Cielo está preparada para receber os dados de Token das três bandeiras, mas é necessário avaliar se a bandeira oferece o produto).
-<strong>Produtos Elegíveis:</strong> API E-commerce Cielo e API 1.5.</p>
+<p><strong>Bandeiras Disponíveis:</strong> Visa, Master e Elo (para a Integração por Fora, a Cielo está preparada para receber os dados de Token das três bandeiras, mas é necessário avaliar se a bandeira oferece o produto).</p>
 
-<p><strong>Como obter essa funcionalidade:</strong> é necessário realizar a habilitação junto ao seu parceiro, e garantir que este esteja integrado com nossa API para enviar os campos necessários.
-<strong>Quais transações são elegíveis?</strong> Uma vez que hoje no mercado ainda existam cartões com BINs (primeiros 6 dígitos do cartão) não tokenizáveis, não será possível atendermos 100% das transações Visa. A Visa informou para a Cielo que aproximadamente 95% dos BINs Visa são elegíveis, e que haverá incidência de cobrança sobre os 5% não elegíveis. Portanto, a Cielo irá repassar esse custo ao cliente.
-<strong>Essa solução tem custo adicional?</strong> A solução não tem custos adicionais para clientes API E-commerce Cielo ou API 1.5, basta entrar em contato para solicitar a habilitação junto ao seu parceiro.</p>
+<p><strong>Produtos Elegíveis:</strong> API E-commerce Cielo e API 1.5.</p>
 
-<p>Para saber mais sobre a Integração por fora, acesse o link:</p>
+<p><strong>Como obter essa funcionalidade:</strong></p>
+
+<p>É necessário realizar a habilitação junto ao seu parceiro, e garantir que este esteja integrado com nossa API para enviar os campos necessários.</p>
+
+<p><strong>Quais transações são elegíveis?</strong></p>
+
+<p>Uma vez que hoje no mercado ainda existam cartões com BINs (primeiros 6 dígitos do cartão) não tokenizáveis, não será possível atendermos 100% das transações Visa. A Visa informou para a Cielo que aproximadamente 95% dos BINs Visa são elegíveis, e que haverá incidência de cobrança sobre os 5% não elegíveis. Portanto, a Cielo irá repassar esse custo ao cliente.</p>
+
+<p><strong>Essa solução tem custo adicional?</strong></p>
+
+<p>A solução não tem custos adicionais para clientes API E-commerce Cielo ou API 1.5, basta entrar em contato para solicitar a habilitação junto ao seu parceiro.</p>
+
+<h1 id="dúvidas-">Dúvidas ?</h1>
+
+<p><strong>Para saber mais sobre a Integração por fora, acesse o link:</strong></p>
 
 <p>https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-bandeira</p>
 
@@ -272,24 +275,44 @@ Demais localidades: 0800 570 1700</p>
             
                 
                     
+                    <li><a href="https://developercielo.github.io/manual/checkout-cielo" title="Integração técnica via API">Integração Checkout Cielo</a></li>
+                
+            
+                
+                    
+                    <li><a href="https://developercielo.github.io/manual/webservice-1-5" title="Integração Técnica via XML">Manual de Integração</a></li>
+                
+            
+                
+                    
                     <li><a href="https://developercielo.github.io/manual/cielo-conecta" title="API para integração de vendas no físico e OnLine">Manual de Integração Cielo Conecta</a></li>
                 
             
                 
             
                 
-                    
-                    <li><a href="https://developercielo.github.io/manual/cielo-ecommerce" title="Manual integração técnica via API">Manual de Integração API e-commerce Cielo</a></li>
+            
                 
             
                 
                     
-                    <li><a href="https://developercielo.github.io/tutorial/tutoriais-3-0" title="O objetivo deste documento é orientar o lojista sobre como acessar Backoffice da API Cielo Ecommerce. Descrevendo as funcionalidades, os métodos a serem utilizados, listando informações necessárias e provendo exemplos.">Tutoriais</a></li>
+                    <li><a href="https://developercielo.github.io/manual/linkdepagamentos5" title="Integração técnica via API">API Super Link</a></li>
                 
             
                 
-                    
-                    <li><a href="https://developercielo.github.io/manual/prevencao-fraudes" title="Manual de prevenção contra fraudes e chargebacks">Prevenção contra Fraudes e Chargeback</a></li>
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
                 
             
                 
@@ -330,23 +353,6 @@ Demais localidades: 0800 570 1700</p>
         <script src="https://developercielo.github.io/assets/bundles/js/search.min.js"></script>
         
 
-        
-        <script>
-            let langs = '';
-            let langsArray = [];
-
-            
-            langs += "<a data-language-name='json'>JSON</a>";
-            langsArray.push('json');
-            
-            langs += "<a data-language-name='shell'>cURL</a>";
-            langsArray.push('shell');
-            
-
-            var toggleCode = 'Comutar';
-        </script>
-
-        <script src='https://developercielo.github.io/assets/bundles/js/language_buttons.min.js'></script>
         
 
         <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
