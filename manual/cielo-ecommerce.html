@@ -6041,13 +6041,24 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <aside class="notice">Atenção: A captura é um processo com prazo de execução padrão de 15 dias. Verifique seu cadastro Cielo para confirmar o limite habilitado para a sua afiliação. Após esse periodo, não é possivel realiza a captura da transação. Se a transação não for capturada, a autorização vai expirar e assim não haverá cobrança no cartão do portador e o limite será liberado.</aside>
 
-<h3 id="captura-total">Captura total</h3>
+<h3 id="captura-parcial-ou-total">Captura parcial ou total</h3>
 
-<p>Para captura uma venda que utiliza cartão de crédito, é necessário fazer um PUT para o recurso Payment conforme o exemplo.</p>
+<p>É possível capturar um valor parcial ou o valor total da transação.</p>
+
+<p>A <strong>captura parcial</strong> é o ato de capturar um valor menor que o valor autorizado. Esse modelo de captura pode ocorrer apenas uma vez por transação.</p>
+
+<p><strong>Após a captura, não é possível realizar capturas adicionais no mesmo pedido.</strong></p>
 
 <h4 id="requisição-16">Requisição</h4>
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/capture</span></aside>
+<ul>
+  <li>Para <strong>captura parcial</strong>, envie o campo <code class="language-plaintext highlighter-rouge">Amount</code>na requisição de captura com o valor desejado a capturar;</li>
+  <li>Para <strong>captura total</strong>, não envie o campo <code class="language-plaintext highlighter-rouge">Amount</code>. Será considerado o valor total da autorização.</li>
+</ul>
+
+<aside class="warning">O campo `ServiceTaxAmount`é exclusivo para empresas aéreas.</aside>
+<p><br /></p>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&amp;serviceTaxAmount={Valor}"</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
 </span><span class="err">https://api.cieloecommerce.cielo.com.br/</span><span class="mi">1</span><span class="err">/sales/</span><span class="p">{</span><span class="err">PaymentId</span><span class="p">}</span><span class="err">/capture</span><span class="w">
@@ -6083,7 +6094,7 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Chave Publica para Autenticação Dupla na API Cielo eCommerce.</td>
+      <td>Chave pública para Autenticação Dupla na API Cielo E-commerce.</td>
       <td>Texto</td>
       <td>40</td>
       <td>Sim</td>
@@ -6104,14 +6115,14 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
-      <td>Valor do Pedido (ser enviado em centavos).</td>
+      <td>Valor a ser capturado, em centavos. Se essa campo não for preenchido, o valor da captura será o valor total da autorização.</td>
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ServiceTaxAmount</code></td>
-      <td>Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
+      <td>Exclusivo para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
       <td>Número</td>
       <td>15</td>
       <td>Não</td>
@@ -6223,403 +6234,9 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<h3 id="captura-parcial">Captura parcial</h3>
-
-<p>A <strong>captura parcial</strong> é o ato de capturar um valor menor que o valor autorizado.Esse modelo de captura pode ocorrer apenas 1 vez por transação.</p>
-
-<p><strong>Após a captura, não é possível realizar capturas adicionais no mesmo pedido.</strong></p>
-
-<p>Basta realizar um <code class="language-plaintext highlighter-rouge">POST</code> enviando o valor a ser capturado.</p>
-
-<aside class="notice">Atenção: Captura parcial disponível apenas para transações de crédito</aside>
-
-<h4 id="requisição---captura-parcial">Requisição - Captura Parcial</h4>
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}</span></aside>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
-</span><span class="err">https://api.cieloecommerce.cielo.com.br/</span><span class="mi">1</span><span class="err">/sales/</span><span class="p">{</span><span class="err">paymentId</span><span class="p">}</span><span class="err">/capture?amount=</span><span class="p">{</span><span class="err">Valor</span><span class="p">}</span><span class="w">
-
-</span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> PUT <span class="s2">"https://api.cieloecommerce.cielo.com.br/1/sales/{paymentId}/capture?amount={Valor}"</span>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--verbose</span>
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Identificador da loja na API Cielo eCommerce.</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Chave Publica para Autenticação Dupla na API Cielo eCommerce.</td>
-      <td>Texto</td>
-      <td>40</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Amount</code></td>
-      <td>Valor do Pedido (ser enviado em centavos).</td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ServiceTaxAmount</code></td>
-      <td>Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Não</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="resposta-13">Resposta</h4>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0719094510712"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4510712"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"693066"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3/void"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>
-    <span class="s2">"Status"</span>: 2,
-    <span class="s2">"Tid"</span>: <span class="s2">"0719094510712"</span>,
-    <span class="s2">"ProofOfSale"</span>: <span class="s2">"4510712"</span>,
-    <span class="s2">"AuthorizationCode"</span>: <span class="s2">"693066"</span>,
-    <span class="s2">"ReasonCode"</span>: 0,
-    <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
-    <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"6"</span>,
-    <span class="s2">"ProviderReturnMessage"</span>: <span class="s2">"Operation Successful"</span>,
-    <span class="s2">"ReturnCode"</span>: <span class="s2">"6"</span>,
-    <span class="s2">"ReturnMessage"</span>: <span class="s2">"Operation Successful"</span>,
-    <span class="s2">"Links"</span>: <span class="o">[</span>
-        <span class="o">{</span>
-            <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
-            <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
-            <span class="s2">"Href"</span>: <span class="s2">"https://api.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3"</span>
-        <span class="o">}</span>,
-        <span class="o">{</span>
-            <span class="s2">"Method"</span>: <span class="s2">"PUT"</span>,
-            <span class="s2">"Rel"</span>: <span class="s2">"void"</span>,
-            <span class="s2">"Href"</span>: <span class="s2">"https://api.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3/void"</span>
-        <span class="o">}</span>
-    <span class="o">]</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Formato</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Status da Transação.</td>
-      <td>Byte</td>
-      <td>—</td>
-      <td>2</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
-      <td>Número da autorização, identico ao NSU.</td>
-      <td>Texto</td>
-      <td>6</td>
-      <td>Texto alfanumérico</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
-      <td>Id da transação na adquirente.</td>
-      <td>Texto</td>
-      <td>20</td>
-      <td>Texto alfanumérico</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
-      <td>Código de autorização.</td>
-      <td>Texto</td>
-      <td>6</td>
-      <td>Texto alfanumérico</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
-      <td>Código de retorno da Operação.</td>
-      <td>Texto</td>
-      <td>32</td>
-      <td>Texto alfanumérico</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
-      <td>Mensagem de retorno da Operação.</td>
-      <td>Texto</td>
-      <td>512</td>
-      <td>Texto alfanumérico</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Código de retorno do Provider.</td>
-      <td>Texto</td>
-      <td>32</td>
-      <td>Texto alfanumérico</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Mensagem de retorno do Provider.</td>
-      <td>Texto</td>
-      <td>512</td>
-      <td>Texto alfanumérico</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
-      <td>Código de retorno da adquirente.</td>
-      <td>Texto</td>
-      <td>32</td>
-      <td>Texto alfanumérico</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
-      <td>Mensagem de retorno da adquirente.</td>
-      <td>Texto</td>
-      <td>512</td>
-      <td>Texto alfanumérico</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <aside class="notice">Captura de Taxa de embarque Para realizar a captura da *taxa de embarque*, basta adicionar o valor do ServiveTaxAmount a ser capturado</aside>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&amp;serviceTaxAmount=xxx</span></aside>
-
-<h4 id="resposta-14">Resposta</h4>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0719094510712"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4510712"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"693066"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReasonCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReasonMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ProviderReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ProviderReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>
-    <span class="s2">"Status"</span>: 2,
-    <span class="s2">"Tid"</span>: <span class="s2">"0719094510712"</span>,
-    <span class="s2">"ProofOfSale"</span>: <span class="s2">"4510712"</span>,
-    <span class="s2">"AuthorizationCode"</span>: <span class="s2">"693066"</span>,
-    <span class="s2">"ReasonCode"</span>: 0,
-    <span class="s2">"ReasonMessage"</span>: <span class="s2">"Successful"</span>,
-    <span class="s2">"ProviderReturnCode"</span>: <span class="s2">"0"</span>,
-    <span class="s2">"ProviderReturnMessage"</span>: <span class="s2">"Operation Successful"</span>,
-    <span class="s2">"ReturnCode"</span>: <span class="s2">"0"</span>,
-    <span class="s2">"ReturnMessage"</span>: <span class="s2">"Operation Successful"</span>,
-    <span class="s2">"Links"</span>: <span class="o">[</span>
-        <span class="o">{</span>
-            <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
-            <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
-            <span class="s2">"Href"</span>: <span class="s2">"https://api.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"</span>
-        <span class="o">}</span>,
-        <span class="o">{</span>
-            <span class="s2">"Method"</span>: <span class="s2">"PUT"</span>,
-            <span class="s2">"Rel"</span>: <span class="s2">"void"</span>,
-            <span class="s2">"Href"</span>: <span class="s2">"https://api.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"</span>
-        <span class="o">}</span>
-    <span class="o">]</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Formato</th>
-      <th> </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Status da Transação.</td>
-      <td>Byte</td>
-      <td>—</td>
-      <td>2</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
-      <td>Número da autorização, identico ao NSU.</td>
-      <td>Texto</td>
-      <td>6</td>
-      <td>Texto alfanumérico</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
-      <td>Id da transação na adquirente.</td>
-      <td>Texto</td>
-      <td>20</td>
-      <td>Texto alfanumérico</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
-      <td>Código de autorização.</td>
-      <td>Texto</td>
-      <td>6</td>
-      <td>Texto alfanumérico</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
-      <td>Código de retorno da Operação.</td>
-      <td>Texto</td>
-      <td>32</td>
-      <td>Texto alfanumérico</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
-      <td>Mensagem de retorno da Operação.</td>
-      <td>Texto</td>
-      <td>512</td>
-      <td>Texto alfanumérico</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
-      <td>Código de retorno do Provider.</td>
-      <td>Texto</td>
-      <td>32</td>
-      <td>Texto alfanumérico</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
-      <td>Mensagem de retorno do Provider.</td>
-      <td>Texto</td>
-      <td>512</td>
-      <td>Texto alfanumérico</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
-      <td>Código de retorno da adquirente.</td>
-      <td>Texto</td>
-      <td>32</td>
-      <td>Texto alfanumérico</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
-      <td>Mensagem de retorno da adquirente.</td>
-      <td>Texto</td>
-      <td>512</td>
-      <td>Texto alfanumérico</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="captura-via-backoffice">Captura Via Backoffice</h3>
-
-<p>É possivel realizar tanto a captura total quanto a Captura parcial via O Backoffice Cielo.</p>
-
-<p>Acesse nosso <a href="https://developercielo.github.io/Tutorial//Backoffice-3.0"><strong>Tutorial</strong></a>  para maiores informações</p>
 
 <h2 id="cancelando-uma-venda">Cancelando uma venda</h2>
 
@@ -6715,7 +6332,7 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<h4 id="resposta-15">Resposta</h4>
+<h4 id="resposta-13">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -6882,7 +6499,7 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<h4 id="resposta-16">Resposta</h4>
+<h4 id="resposta-14">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -7901,7 +7518,7 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
   </tbody>
 </table>
 
-<h4 id="resposta-17">Resposta</h4>
+<h4 id="resposta-15">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -8351,7 +7968,7 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
   </tbody>
 </table>
 
-<h4 id="resposta-18">Resposta</h4>
+<h4 id="resposta-16">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -8797,7 +8414,7 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
   </tbody>
 </table>
 
-<h3 id="resposta-19">Resposta</h3>
+<h3 id="resposta-17">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -9215,7 +8832,7 @@ Nesse modelo, o sistema do lojista é encarregado por definir o período, os dad
   </tbody>
 </table>
 
-<h4 id="resposta-20">Resposta</h4>
+<h4 id="resposta-18">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -9297,7 +8914,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h4 id="resposta-21">Resposta</h4>
+<h4 id="resposta-19">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -9379,7 +8996,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h4 id="resposta-22">Resposta</h4>
+<h4 id="resposta-20">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -9459,7 +9076,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h4 id="resposta-23">Resposta</h4>
+<h4 id="resposta-21">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -9539,7 +9156,7 @@ HTTP Status 200
 
 <aside class="warning">Essa alteração só afeta a data de pagamento da próxima recorrência.</aside>
 
-<h4 id="resposta-24">Resposta</h4>
+<h4 id="resposta-22">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -9617,7 +9234,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h4 id="resposta-25">Resposta</h4>
+<h4 id="resposta-23">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -9779,7 +9396,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h4 id="resposta-26">Resposta</h4>
+<h4 id="resposta-24">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -9846,7 +9463,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h4 id="resposta-27">Resposta</h4>
+<h4 id="resposta-25">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -9913,7 +9530,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h4 id="resposta-28">Resposta</h4>
+<h4 id="resposta-26">Resposta</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -10136,7 +9753,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h3 id="resposta-29">Resposta</h3>
+<h3 id="resposta-27">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -10492,7 +10109,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h3 id="resposta-30">Resposta</h3>
+<h3 id="resposta-28">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"CardToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"db62dc71-d07b-4745-9969-42697b988ccb"</span><span class="p">,</span><span class="w">
@@ -10949,7 +10566,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h3 id="resposta-31">Resposta</h3>
+<h3 id="resposta-29">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -11628,7 +11245,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h3 id="resposta-32">Resposta</h3>
+<h3 id="resposta-30">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -12023,7 +11640,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h3 id="resposta-33">Resposta</h3>
+<h3 id="resposta-31">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -12363,7 +11980,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h3 id="resposta-34">Resposta</h3>
+<h3 id="resposta-32">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -12939,7 +12556,7 @@ Todas essas etapas exigem que transações sejam realizadas para obter acesso a 
   </tbody>
 </table>
 
-<h3 id="resposta-35">Resposta</h3>
+<h3 id="resposta-33">Resposta</h3>
 
 <p>A resposta sempre retorna se o cartão pode ser autorizado no momento. Essa informação apenas significa que o <em>cartão está valido a transacionar</em>, mas não necessariamente indica que um determinado valor será autorizado.</p>
 
@@ -13494,7 +13111,7 @@ O código de retorno <strong>00 representa sucesso no Zero Auth</strong>, os dem
   </tbody>
 </table>
 
-<h3 id="resposta-36">Resposta</h3>
+<h3 id="resposta-34">Resposta</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
