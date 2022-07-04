@@ -15,7 +15,9 @@ language_tabs:
   
 ---
 
-# Visão geral - API e-commerce Cielo
+# API E-commerce Cielo
+
+# Visão geral
 
 O objetivo desta documentação é orientar sobre a integração da **API e-commerce Cielo**, descrevendo as funcionalidades, os métodos HTTP, listando informações a serem enviadas e recebidas e provendo exemplos.
 
@@ -36,7 +38,7 @@ Para executar uma operação, combine a URL base do ambiente com a URL da opera�
 
 A solução **API e-commerce Cielo** foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada pelo seu e-commerce. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação.
 
-Para obter exemplos dessas linguagens, veja nosso [**Tutorial de conversão Postman**](https://developercielo.github.io/tutorial/postman).
+Para obter exemplos dessas linguagens, veja nosso [**Tutorial de conversão Postman**](https://developercielo.github.io/tutorial/postman){:target="_blank"}.
 
 Entre outras características, os atributos que mais se destacam na plataforma API e-commerce Cielo:
 
@@ -833,7 +835,7 @@ curl
 |`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
 |`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
 |`SoftDescriptor`|Texto impresso na fatura bancaria do portador. Não permite caracteres especiais.|Texto|13|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`PaymentId`|Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
 |`Status`|Status da Transação.|Byte|---|2|
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
@@ -1017,7 +1019,7 @@ curl
 |---|---|---|---|---|
 |`AuthenticationUrl`|URL para qual o Lojista deve redirecionar o Cliente para o fluxo de Débito.|Texto|56|Url de Autenticação|
 |`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`PaymentId`|Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ReturnUrl`|Url de retorno do lojista. URL para onde o lojista vai ser redirecionado no final do fluxo.|Texto|1024|http://www.urllogista.com.br|
 |`Status`|Status da Transação.|Byte|---|0|
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
@@ -1421,7 +1423,7 @@ curl
 |`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
 |`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
 |`SoftDescriptor`|Texto impresso na fatura bancaria do portador. Não permite caracteres especiais.|Texto|13|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`PaymentId`|Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
 |`Status`|Status da Transação.|Byte|---|2|
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
@@ -1891,7 +1893,7 @@ Na resposta da transação de boleto, a API Cielo E-commerce vai enviar a URL do
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`PaymentId`|Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Instructions`|Instruções do Boleto.|Texto|255|Ex: Aceitar somente até a data de vencimento, após essa data juros de 1% dia.|
 |`ExpirationDate`|Data de expiração.|Texto|10|2014-12-25|
 |`Url`|Url do Boleto gerado.|string|256|Ex:https://.../pagador/reenvia.asp/8464a692-b4bd-41e7-8003-1611a2b8ef2d|
@@ -2122,7 +2124,7 @@ curl
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
 |`QrCodeBase64Image`|QRCode codificado na base 64. Por exemplo, a imagem poderá ser apresentada na página utilizando o código HTML como este:<br><pre lang="html">&lt;img src=&quot;data:image/png;base64, código_da_imagem_na_base_64&quot;&gt;</pre>|Texto|variável|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido, necessário para futuras operações como Consulta, Captura e Cancelamento.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`PaymentId`|Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Status`|Status da Transação. No caso de uma transação de geração de QRCode de pagamento, o status inicial é 12 (Pending).|Byte|---|2|
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
 |`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
@@ -2573,11 +2575,11 @@ Além disso, precisam enviar alguns dados adicionais na transação, para que as
 
 ## Consulta de transações 
 
-### Consulta - PaymentID
+### Consulta por PaymentId
 
-Para consultar uma venda de cartão de crédito, é necessário fazer um GET para o recurso Payment conforme o exemplo.
+Para consultar uma venda de cartão de crédito via PaymentId, siga a requisição de exemplo a seguir.
 
-<aside class="notice">São elegíveis para a consulta apenas transações dentro dos três ultimos meses.</aside>
+<aside class="notice">São elegíveis para a consulta apenas transações dentro dos últimos três meses.</aside>
 
 #### Requisição
 
@@ -2599,9 +2601,7 @@ curl
 |`MerchantId`|Identificador da loja na API e-commerce Cielo.|Guid|36|Sim|
 |`MerchantKey`|Chave pública para Autenticação Dupla na API e-commerce Cielo.|Texto|40|Sim|
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`PaymentId`|Numero de identificação do Pagamento.|Texto|36|Sim|
-|`AcquirerOrderId`|Id da transação enviado ao autorizador, caso o MerchantOrderId seja maior que 20 caracteres ou tenha símbolos. | Texto | 50   | Sim|
-|`Tid`|Numero de identificação do pagamento na adquirente.|Texto|36|Sim|
+|`PaymentId`|Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.|Texto|36|Sim|
 
 #### Resposta
 
@@ -2766,11 +2766,11 @@ curl
 |`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
 |`CreditCard.PaymentAccountReference`|Numérico|29|Não|O PAR(payment account reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado.|
 
-### Consulta - TID
+### Consulta por TId
 
-Para consultar uma venda através do número de referência único da transação na adquirente (TID), execute um GET conforme descrito a seguir.
+Para consultar uma venda através do número de referência único da transação na adquirente (TId), execute um GET conforme descrito a seguir.
 
-<aside class="notice">São elegíveis para a consulta apenas transações dentro dos três ultimos meses.</aside>
+<aside class="notice">São elegíveis para a consulta apenas transações dentro dos últimos três meses.</aside>
 
 #### Requisição
 
@@ -2937,7 +2937,7 @@ curl
 |`MerchantOrderId`| Número de identificação do pedido.|Texto|50|Texto alfanumérico|
 |`AcquirerOrderId` | Id da transação enviado ao autorizador, caso o MerchantOrderId seja maior que 20 caracteres ou tenha símbolos. | Texto | 50   | Texto alfanumérico|
 |`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`PaymentId`|Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento..|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Status`|Status da Transação.|Byte|---|2|
 |`Customer.Name`|Texto|255|Não|Nome do Comprador.|
 |`Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja (NEW / EXISTING)|
@@ -2958,11 +2958,11 @@ curl
 |`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
 |`CreditCard.PaymentAccountReference`|Numérico|29|Não|O PAR(payment account reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado.|
 
-### Consulta - MerchandOrderID
+### Consulta por MerchandOrderId
 
-Não é possível consultar diretamente uma pagamento pelo identificador enviado pela loja (MerchantOrderId), mas é possível obter todos os PaymentIds associados ao identificador.
+Para alguns estabelecimentos, o `MerchantOrderId` pode ter várias transações. A consulta por `MerchantOrderId` retorna o `PaymentId` de todas as transações associadas a um `MerchantOrderId`.
 
-Para consultar uma venda pelo identificador da loja, é necessário fazer um GET para o recuso sales conforme o exemplo.
+A partir disso, é possível consultar detalhes de cada transação pela consulta por `PaymentId`.
 
 #### Requisição
 
@@ -2984,7 +2984,7 @@ curls
 |`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|36|Sim|
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`MerchantOrderId`|Campo Identificador do Pedido na Loja.|Texto|36|Sim|
+|`MerchantOrderId`|Campo identificador do pedido na loja.|Texto|36|Sim|
 
 #### Resposta
 
@@ -3023,13 +3023,13 @@ curls
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`PaymentId`|Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
-### Consulta Recorrência
+### Consulta de Recorrência
 
-Para consultar uma Recorrência de cartão de crédito, é necessário fazer um `GET`  conforme o exemplo.
+A Consulta de Recorrência traz dados sobre o agendamento e sobre o processo de transações que se repetem. A Consulta de Recorrência não retorna dados sobre as transações em si. 
 
-**A Consulta da Recorrência traz dados sobre o agendamento e sobre o processo de transações que se repetem. Elas não retornam dados sobre as transações em si. Para isso, deve ser realizado um `GET` na transação (Disponível em "Consultando vendas)** 
+Para obter informações sobre cada transação, faça a Consulta por PaymentId. 
 
 #### Requisição
 
@@ -3146,14 +3146,14 @@ curl
 |`Status`|Status do pedido recorrente|Número|1|<br>*1* - Ativo <br>*2* - Finalizado <br>*3*- Desativada pelo Lojista <br> *4* - Desativada por numero de retentativas <BR> *5* - Desativada por cartão de crédito vencido|
 |`RecurrencyDay`|O dia da recorrência|Número|2|22|
 |`SuccessfulRecurrences`|Quantidade de recorrência realizada com sucesso|Número|2|5|
-|`RecurrentTransactions.RecurrentPaymentId`|Id da Recorrência|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RecurrentTransactions.PaymentId`|Número de identificação do pagamento (que faz parte da recorrência).|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`RecurrentTransactions.TransactionId`|Payment ID da transação gerada na recorrência|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`RecurrentTransactions.PaymentNumber`|Número da Recorrência. A primeira é zero|Número|2|3|
 |`RecurrentTransactions.TryNumber`|Número da tentativa atual na recorrência específica|Número|2|1|
 
 ## Captura
 
-A **Captura** é passo exclusivo para transações de Cartões de Crédito.
+A **captura** é procedimento exclusivo para transações de cartões de crédito.
 
 Ao realizar uma captura, o lojista confirma que o valor autorizado no cartão poderá ser cobrado pela insituição financeira emissora do cartão.
 
@@ -3194,7 +3194,7 @@ curl
 |`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|36|Sim|
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|Sim|
+|`PaymentId`|Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.|Guid|36|Sim|
 |`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
 |`ServiceTaxAmount`|Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|Número|15|Não|
 
@@ -3292,7 +3292,7 @@ curl
 |`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|36|Sim|
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|Sim|
+|`PaymentId`|Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.|Guid|36|Sim|
 |`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
 |`ServiceTaxAmount`|Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|Número|15|Não|
 
@@ -3501,7 +3501,7 @@ curl
 |`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|36|Sim|
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|Sim|
+|`PaymentId`|Número de identificação do pagamento, necessário para operações como Consulta, Captura e Cancelamento.|Guid|36|Sim|
 |`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
 
 #### Resposta
@@ -3583,7 +3583,7 @@ curl
 |`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|36|Sim|
 |`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|Sim|
+|`PaymentId`|Número de identificação do pagamento, necessário para operações como Consulta, Captura e Cancelamento.|Guid|36|Sim|
 |`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
 
 #### Resposta
@@ -3702,7 +3702,7 @@ A API Cielo e-commerce oferece um sistema de notificação transacional, onde o 
 O Conteudo da notificação será formado por 3 campos:
 
 * `RecurrentPaymentId`- Identificador que representa um conjunto de transações recorrentes 
-* `PaymentId`- Identificador que representa a transação
+* `PaymentId`- Número de identificação do pagamento
 * `ChangeType` - Especifica o tipo de notificação
 
 Com os dados acima, o lojista poderá identificar a transação (via `PaymentId` ou `RecurrentPaymentId`) e a mudança sofrida por ela. Com o `PaymentId` é possivel realizar uma consulta a base transacional da API Cielo E-commerce 
@@ -3780,8 +3780,10 @@ A loja **deverá** retornar como resposta ao notificação: **HTTP Status Code 2
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
 |`RecurrentPaymentId`|Identificador que representa o pedido Recorrente (aplicável somente para ChangeType 2 ou 4)|GUID|36|Não|
-|`PaymentId`|Identificador que representa a transação|GUID|36|Sim|
-|`ChangeType`|Especifica o tipo de notificação. Vide tabela abaixo|Número|1|Sim|
+|`PaymentId`|Número de identificação do pagamento.|GUID|36|Sim|
+|`ChangeType`|Especifica o tipo de notificação. Vide tabela de Changetype.|Número|1|Sim|
+
+### Tabela de ChangeType
 
 |ChangeType|Descrição|
 |---|---|
@@ -5839,7 +5841,7 @@ curl
 |`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
 |`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
 `SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`PaymentId`|Número de identificação do pagamento, necessário para operações como Consulta, Captura e Cancelamento.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
 |`Status`|Status da Transação.|Byte|---|2|
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
@@ -6180,7 +6182,7 @@ curl
 |`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
 |`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
 `SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`PaymentId`|Número de identificação do pagamento, necessário para operações como Consulta, Captura e Cancelamento.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
 |`Status`|Status da Transação.|Byte|---|2|
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
@@ -6369,7 +6371,7 @@ curl
 |`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
 |`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
 `SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`PaymentId`|Número de identificação do pagamento, necessário para operações como Consulta, Captura e Cancelamento.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
 |`Status`|Status da Transação.|Byte|---|2|
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
@@ -6564,7 +6566,7 @@ curl
 |`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
 |`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
 `SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais|Texto|13|Texto alfanumérico|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`PaymentId`|Número de identificação do pagamento, necessário para operações como Consulta, Captura e Cancelamento.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplos: 7|
 |`Status`|Status da Transação.|Byte|---|2|
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
