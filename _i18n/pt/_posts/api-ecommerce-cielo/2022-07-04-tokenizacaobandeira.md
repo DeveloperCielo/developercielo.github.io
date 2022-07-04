@@ -115,11 +115,9 @@ A solução não tem custos adicionais para clientes API E-commerce Cielo ou API
 
 # Dúvidas ?
 
-**Para saber mais sobre a Integração por fora, acesse o link:**
+**Para saber mais sobre a Integração por fora, [Clique aqui](https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-bandeira)
 
-https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-bandeira
-
-Caso tenha dúvidas sobre as soluções de tokenização, envie um e-mail para: cieloecommerce@cielo.com.br
+Caso tenha dúvidas sobre as soluções de tokenização, envie um e-mail para: **cieloecommerce@cielo.com.br**
 
 Ou, se preferir, entre em contato com a gente pela Central de atendimento:
 
