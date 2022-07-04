@@ -2964,7 +2964,7 @@ curl
 
 Para alguns estabelecimentos, o `MerchantOrderId` pode ter várias transações. A consulta por `MerchantOrderId` retorna o `PaymentId` de todas as transações associadas a um `MerchantOrderId`.
 
-A partir disso, é possível consultar detalhes de cada transação pela consulta por `PaymentId`.
+A partir disso, é possível consultar detalhes de cada transação pela [consulta por `PaymentId`](https://developercielo.github.io/manual/cielo-ecommerce#consulta-por-paymentid).
 
 #### Requisição
 
@@ -3031,7 +3031,7 @@ curls
 
 A Consulta de Recorrência traz dados sobre o agendamento e sobre o processo de transações que se repetem. A Consulta de Recorrência não retorna dados sobre as transações em si. 
 
-Para obter informações sobre cada transação, faça a Consulta por PaymentId. 
+Para obter informações sobre cada transação, faça a [Consulta por PaymentId](https://developercielo.github.io/manual/cielo-ecommerce#consulta-por-paymentid). 
 
 #### Requisição
 
@@ -3609,7 +3609,7 @@ A loja **deverá** retornar como resposta ao notificação: **HTTP Status Code 2
 |---|---|---|---|---|
 |`RecurrentPaymentId`|Identificador que representa o pedido Recorrente (aplicável somente para ChangeType 2 ou 4)|GUID|36|Não|
 |`PaymentId`|Número de identificação do pagamento.|GUID|36|Sim|
-|`ChangeType`|Especifica o tipo de notificação. Vide tabela de Changetype.|Número|1|Sim|
+|`ChangeType`|Especifica o tipo de notificação. Veja a [tabela de Changetype](https://developercielo.github.io/manual/cielo-ecommerce#tabela-de-changetype).|Número|1|Sim|
 
 ### Tabela de ChangeType
 
