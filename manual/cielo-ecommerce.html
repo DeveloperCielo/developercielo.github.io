@@ -6020,19 +6020,26 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <h2 id="captura">Captura</h2>
 
-<p>A <strong>captura</strong> é procedimento exclusivo para transações de cartões de crédito.</p>
-
-<p>Ao realizar uma captura, o lojista confirma que o valor autorizado no cartão poderá ser cobrado pela insituição financeira emissora do cartão.</p>
-
-<p>O que a captura gera:</p>
+<p>A <strong>captura</strong> é procedimento exclusivo para transações de cartões de crédito. Há dois tipos de captura:</p>
 
 <ul>
-  <li>Ela executa a cobrança do cartão</li>
-  <li>Ela inclui o valor da venda na fatura do comprador</li>
-  <li>Somente transações capturadas são pagas pela Cielo ao lojista</li>
+  <li>Captura automática: é solicitada na mesma <a href="">requisição de autorização da transação de crédito</a> enviando o <code class="language-plaintext highlighter-rouge">Payment.Capture</code> como “true”.</li>
+  <li>Captura posterior: é solicitada depois do envio da requisição de autorização da transação de crédito.</li>
 </ul>
 
-<aside class="notice">Atenção: A captura é um processo com prazo de execução. Verifique em sem cadastro cielo qual o limite habilitado para a sua afiliação. Após esse periodo, não é possivel realiza a Captura da transação</aside>
+<p><strong>Nesta seção, apresentamos as orientações para fazer a <em>captura posterior</em></strong>.</p>
+
+<p>Ao realizar uma captura, o lojista confirma que o valor autorizado no cartão poderá ser cobrado pela instituição financeira emissora do cartão.</p>
+
+<p><strong>Importante</strong>:</p>
+
+<ul>
+  <li>A captura executa a cobrança do cartão;</li>
+  <li>A captura inclui o valor da venda na fatura do comprador;</li>
+  <li>O lojista paga à Cielo somente as transações capturadas.</li>
+</ul>
+
+<aside class="notice">Atenção: A captura é um processo com prazo de execução padrão de 15 dias. Verifique seu cadastro Cielo para confirmar o limite habilitado para a sua afiliação. Após esse periodo, não é possivel realiza a captura da transação. Se a transação não for capturada, a autorização vai expirar e assim não haverá cobrança no cartão do portador e o limite será liberado.</aside>
 
 <h3 id="captura-total">Captura total</h3>
 
