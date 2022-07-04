@@ -889,11 +889,15 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p>Para criar uma transação de cartão de crédito, envie uma requisição utilizando o método <code class="language-plaintext highlighter-rouge">POST</code> conforme o exemplo a seguir. Esse exemplo contempla todos os campos possíveis que você pode enviar na requisição; consulte quais campos são ou não obrigatórios na tabela de propriedades da requisição.</p>
 
+<blockquote>
+  <p>A <strong>captura</strong> da transação da crédito pode ser <strong>automática</strong> ou <strong>posterior</strong>. Para captura automática, envie o campo <code class="language-plaintext highlighter-rouge">Payment.Capture</code> na requisição como “true”. Para captura posterior, envie o campo como “false” e, posteriormente, faça a <a href="https://developercielo.github.io/manual/cielo-ecommerce#captura">requisição de captura</a>.</p>
+</blockquote>
+
 <aside class="notice">Atenção: Não é possivel realizar uma transação com valor (`Amount`) 0.</aside>
 
 <aside class="notice">Atenção: No header da requisição, use o Content-Type application/json .</aside>
 
-<p>Saiba como realizar uma transação de crédito com autenticação em Autenticando uma Transação.</p>
+<p>Saiba como realizar uma transação de crédito com autenticação em <a href="https://developercielo.github.io/manual/cielo-ecommerce#cart%C3%A3o-de-cr%C3%A9dito-com-autentica%C3%A7%C3%A3o">Autenticando uma Transação</a>.</p>
 
 <h5 id="requisição-1">Requisição</h5>
 
@@ -1351,7 +1355,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Booleano</td>
       <td>—</td>
       <td>Não (Default false)</td>
-      <td>Booleano que identifica que a autorização deve ser com captura automática.</td>
+      <td>Booleano que identifica que a autorização deve ser com <strong>captura automática (true)</strong> ou <strong><a href="https://developercielo.github.io/manual/cielo-ecommerce#captura">captura posterior</a> (false)</strong>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
