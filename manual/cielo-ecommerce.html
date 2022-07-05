@@ -9977,13 +9977,13 @@ HTTP Status 200
 
 <h1 id="tokenização-de-cartões">Tokenização de cartões</h1>
 
-<h2 id="o-que-é-a-tokenização-de-cartões">O que é a Tokenização de Cartões:</h2>
+<p><strong>O que é a <em>tokenização</em> de cartões?</strong></p>
 
-<p>É uma plataforma que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografrado chamado de “token”, que poderá ser armazenado em banco de dados. Com a plataforma, a loja poderá oferecer recursos como “Compra com 1 clique” e “Retentativa de envio de transação”, sempre preservando a integridade e a confidencialidade das informações.</p>
+<p>É uma criptografia que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografado chamado de <em>token</em>, que poderá ser armazenado em banco de dados. Com a tokenização, a loja poderá oferecer recursos como “Compra com um clique” e compras com <strong>recorrência</strong>, sempre preservando a integridade e a confidencialidade das informações.</p>
 
-<h2 id="criando-um-cartão-tokenizado">Criando um Cartão Tokenizado</h2>
+<h2 id="criando-um-cartão-tokenizado-antes-da-autorização">Criando um cartão tokenizado antes da autorização</h2>
 
-<p>Para salvar um cartão sem autoriza-lo, basta realizar um posto com os dados do cartão.</p>
+<p>Para salvar um cartão sem autorizar uma transação, basta realizar uma requisição de tokenização com os dados do cartão.</p>
 
 <h3 id="requisição-31">Requisição</h3>
 
@@ -10031,28 +10031,28 @@ HTTP Status 200
       <td>Texto</td>
       <td>255</td>
       <td>Sim</td>
-      <td>Nome do Comprador.</td>
+      <td>Nome do comprador.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CardNumber</code></td>
       <td>Texto</td>
       <td>16</td>
       <td>Sim</td>
-      <td>Número do Cartão do Comprador.</td>
+      <td>Número do cartão do comprador.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Holder</code></td>
       <td>Texto</td>
       <td>25</td>
       <td>Sim</td>
-      <td>Nome do Comprador impresso no cartão.</td>
+      <td>Nome do comprador impresso no cartão.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ExpirationDate</code></td>
       <td>Texto</td>
       <td>7</td>
       <td>Sim</td>
-      <td>Data de validade impresso no cartão.</td>
+      <td>Data de validade impressa no cartão.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Brand</code></td>
@@ -10100,7 +10100,7 @@ HTTP Status 200
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Cardtoken</code></td>
-      <td>Token de identificação do Cartão.</td>
+      <td>Token de identificação do cartão.</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
@@ -10108,9 +10108,45 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h2 id="criando-um-cartão-tokenizado-durante-uma-autorização">Criando um Cartão Tokenizado durante uma autorização</h2>
+<h2 id="criando-um-cartão-tokenizado-durante-uma-autorização">Criando um cartão tokenizado durante uma autorização</h2>
 
-<p>Para salvar um cartão, criando seu token, basta enviar uma requisição padrão de criação de venda, enviado SaveCard como “ true”. O response retornará o Token do cartão.</p>
+<p>Para salvar um cartão criando seu token durante a autorização da transação de crédito, envie a requisição padrão de <a href="https://developercielo.github.io/manual/cielo-ecommerce#cart%C3%A3o-de-cr%C3%A9dito">transação de crédito</a> e no campo <code class="language-plaintext highlighter-rouge">SaveCard</code> informe o valor “true”.</p>
+
+<p>A resposta da requisição retornará o token do cartão no campo <code class="language-plaintext highlighter-rouge">CardToken</code>.</p>
+
+<h2 id="tokenização-de-bandeira">Tokenização de bandeira</h2>
+
+<p>Algumas bandeiras de cartão possuem uma solução de tokenização que oferece o armazenamento de cartões em cofres na própria bandeira, de forma criptografada. Essa tokenização de bandeira tem o intuito de melhorar a segurança e qualidade das informações de cartão trafegadas, o que acarreta em possíveis aumentos na conversão de aprovação pelos bancos emissores.</p>
+
+<p>Veja todos os benefícios:</p>
+
+<ul>
+  <li><strong>Maior segurança:</strong> Além da criação de um código (token ou DPAN) para substituir a informação do cartão, as bandeiras também emitem os criptogramas, que funcionam como uma senha ou assinatura da bandeira, única para aquele cartão naquele estabelecimento;</li>
+  <li><strong>Atualização automática de cartões:</strong> Quando um novo cartão é emitido no lugar do cartão anterior, ou quando a data de expiração de um cartão muda, os bancos enviam essas informações para a base da bandeira, e a bandeira automaticamente atualiza os tokens com as novas informações. Ou seja, não tem necessidade de nenhuma ação por parte do estabelecimento;</li>
+  <li><strong>Maior conversão de aprovação:</strong> Por conta da maior segurança com os tokens das bandeiras, os bancos emissores se sentem mais seguros em aprovar as transações. Além disso, com os dados de cartão atualizados automaticamente, mais vendas que poderiam ser negadas por dados de cartão desatualizados podem ser aprovadas.</li>
+</ul>
+
+<p><strong>Como funciona?</strong></p>
+
+<p>As bandeiras participantes disponibilizam APIs para o recebimento e armazenamento do cartão de forma segura para adquirentes, gateways e parceiros, com a criação do token único e exclusivo para aquele cartão naquele estabelecimento.</p>
+
+<p>A Cielo fornece esse serviço para os clientes de duas formas:</p>
+
+<ul>
+  <li><strong>Integração facilitada:</strong> o estabelecimento se integra com a funcionalidade de tokenização convencional da Cielo, que por trás realiza a tokenização da bandeira, e relaciona esses dois tokens no cofre da Cielo. Dessa forma, os estabelecimentos sempre terão um único token para aquele cartão, mas a Cielo terá os tokens e criptogramas da bandeiras internamente. Para conferir como é a integração com a tokeniação convencional da Cielo, volte para o menu <a href="https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-cart%C3%B5es">Tokenização de cartões</a>.
+<strong>Bandeiras disponíveis:</strong> Visa</li>
+</ul>
+
+<blockquote>
+  <p>Para obter essa funcionalidade, entre em contato com nosso canal de suporte ecommerce solicitando a habilitação: <strong>cieloecommerce@cielo.com.br</strong></p>
+</blockquote>
+
+<ul>
+  <li><strong>Integração por fora:</strong> Se o estabelecimento usa um gateway ou outro parceiro que já oferece a solução de token de bandeira, a Cielo possui os campos para que sejam enviadas as informações do token na transação, para que no processamento a bandeira receba os dados do token. Veja mais detalhes na requisição a seguir.
+<strong>Bandeiras disponíveis:</strong> Visa, Master e Elo.</li>
+</ul>
+
+<p>Confira os campos a serem enviados na transação caso a opção escolhida seja a <strong>integração por fora</strong>:</p>
 
 <h3 id="requisição-32">Requisição</h3>
 
@@ -10155,6 +10191,7 @@ HTTP Status 200
      </span><span class="nl">"CreditCard"</span><span class="p">:{</span><span class="w">  
          </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Cryptogram"</span><span class="p">:</span><span class="s2">"abcdefghijklmnopqrstuvw=="</span><span class="p">,</span><span class="w">
          </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
@@ -10210,6 +10247,7 @@ HTTP Status 200
      <span class="s2">"CreditCard"</span>:<span class="o">{</span>  
          <span class="s2">"CardNumber"</span>:<span class="s2">"4551870000000183"</span>,
          <span class="s2">"Holder"</span>:<span class="s2">"Teste Holder"</span>,
+         <span class="s2">"Cryptogram"</span>:<span class="s2">"abcdefghijklmnopqrstuvw=="</span>,
          <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2030"</span>,
          <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
          <span class="s2">"SaveCard"</span>:<span class="s2">"true"</span>,
@@ -10232,287 +10270,49 @@ HTTP Status 200
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Sim</td>
-      <td>Identificador da loja na Cielo.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Texto</td>
-      <td>40</td>
-      <td>Sim</td>
-      <td>Chave Publica para Autenticação Dupla na Cielo.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
-      <td>Header</td>
-      <td>40</td>
-      <td>Sim</td>
-      <td>application/json (obrigatório o envio deste).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Não</td>
-      <td>Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
-      <td>Numero de identificação do Pedido.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Nome do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Status de cadastro do comprador na loja (NEW / EXISTING)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
-      <td>Texto</td>
-      <td>14</td>
-      <td>Não</td>
-      <td>Número do RG, CPF ou CNPJ do Cliente.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Tipo de documento de identificação do comprador (CFP/CNPJ).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Email do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
-      <td>Date</td>
-      <td>10</td>
-      <td>Não</td>
-      <td>Data de nascimento do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Número do endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Complemento do endereço do Comprador.br</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
-      <td>Texto</td>
-      <td>9</td>
-      <td>Não</td>
-      <td>CEP do endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Cidade do endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
-      <td>Texto</td>
-      <td>2</td>
-      <td>Não</td>
-      <td>Estado do endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
-      <td>Texto</td>
-      <td>35</td>
-      <td>Não</td>
-      <td>Pais do endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Número do endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Complemento do endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
-      <td>Texto</td>
-      <td>9</td>
-      <td>Não</td>
-      <td>CEP do endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.City</code></td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Cidade do endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.State</code></td>
-      <td>Texto</td>
-      <td>2</td>
-      <td>Não</td>
-      <td>Estado do endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
-      <td>Texto</td>
-      <td>35</td>
-      <td>Não</td>
-      <td>Pais do endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Texto</td>
-      <td>100</td>
-      <td>Sim</td>
-      <td>Tipo do Meio de Pagamento.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Sim</td>
-      <td>Valor do Pedido (ser enviado em centavos).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
-      <td>Texto</td>
-      <td>3</td>
-      <td>Não</td>
-      <td>Moeda na qual o pagamento será feito (BRL).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Country</code></td>
-      <td>Texto</td>
-      <td>3</td>
-      <td>Não</td>
-      <td>Pais na qual o pagamento será feito.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>—</td>
-      <td>Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Número</td>
-      <td>2</td>
-      <td>Sim</td>
-      <td>Número de Parcelas.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
-      <td>Texto</td>
-      <td>10</td>
-      <td>Não</td>
-      <td>Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
-      <td>Booleano</td>
-      <td>—</td>
-      <td>Não (Default false)</td>
-      <td>Booleano que identifica que a autorização deve ser com captura automática.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
-      <td>Booleano</td>
-      <td>—</td>
-      <td>Não (Default false)</td>
-      <td>Define se o comprador será direcionado ao Banco emissor para autenticação do cartão</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.ServiceTaxAmount</code></td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
       <td>Texto</td>
       <td>19</td>
       <td>Sim</td>
-      <td>Número do Cartão do Comprador.</td>
+      <td>Token gerado pela bandeira (DPAN). A indicação de que o <code class="language-plaintext highlighter-rouge">CardNumber</code> deve ser preenchido com o DPAN para caso de tokenização de bandeira.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Holder</code></td>
       <td>Texto</td>
       <td>25</td>
       <td>Não</td>
       <td>Nome do Comprador impresso no cartão.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Cryptogram</code></td>
+      <td>Texto</td>
+      <td>28</td>
+      <td>Não</td>
+      <td>Criptograma gerado pela bandeira.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
       <td>Texto</td>
       <td>7</td>
       <td>Sim</td>
-      <td>Data de validade impresso no cartão.</td>
+      <td>Data de validade do token gerado pela bandeira.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SecurityCode</code></td>
       <td>Texto</td>
       <td>4</td>
       <td>Não</td>
       <td>Código de segurança impresso no verso do cartão - Ver Anexo.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SaveCard</code></td>
       <td>Booleano</td>
       <td>—</td>
       <td>Não (Default false)</td>
       <td>Booleano que identifica se o cartão será salvo para gerar o CardToken.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Brand</code></td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
@@ -10750,690 +10550,11 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h2 id="tokenização-de-bandeira">Tokenização de Bandeira</h2>
+<h2 id="criando-uma-venda-com-cartão-tokenizado">Criando uma venda com cartão tokenizado</h2>
 
-<p>Algumas bandeiras possuem uma solução de tokenização que oferece o armazenamento de cartões em cofres na própria bandeira, de forma criptografada. Essa tokenização de bandeira tem o intuito de melhorar a segurança e qualidade das informações de cartão trafegadas, o que acarreta em possíveis aumentos na conversão de aprovação pelos bancos emissores. Veja todos os benefícios:</p>
-
-<ul>
-  <li><strong>Maior segurança:</strong> Além da criação de um código (token ou DPAN) para substituir a informação do cartão, as bandeiras também emitem os criptogramas, que funcionam como uma senha ou assinatura da bandeira, única para aquele cartão naquele estabelecimento.</li>
-  <li><strong>Atualização automática de cartões:</strong> Quando um novo cartão é emitido no lugar do cartão anterior, ou quando a data de expiração de um cartão muda, os bancos enviam essas informações para a base da bandeira, e a bandeira automaticamente atualiza os tokens com as novas informações.  Ou seja, não tem necessidade de nenhuma ação por parte do estabelecimento.</li>
-  <li><strong>Maior conversão de aprovação:</strong> Por conta da maior segurança com os tokens das bandeiras, os bancos emissores se sentem mais seguros em aprovar as transações. Além disso, com os dados de cartão atualizados automaticamente, mais vendas que poderiam ser negadas por dados de cartão desatualizados podem ser aprovadas</li>
-</ul>
-
-<p><strong>Como funciona ?</strong></p>
-
-<p>As bandeiras participantes disponibilizam para adquirentes, gateways e parceiros APIs para o recebimento e armazenamento do cartão de forma segura, com a criação do token único e exclusivo para aquele cartão naquele estabelecimento.</p>
-
-<p>A Cielo fornece esse serviço para os clientes de duas formas:</p>
-
-<ul>
-  <li><strong>Integração facilitada:</strong> o estabelecimento se integra com a funcionalidade de tokenização convencional da Cielo, que por trás realiza a tokenização da bandeira, e relaciona esses dois tokens no cofre da Cielo. Dessa forma, os estabelecimentos sempre terão um único token para aquele cartão, mas a Cielo terá os tokens e criptogramas da bandeiras internamente. Para conferir como é a integração com a tokeniação convencional da Cielo, volte para o menu <a href="https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-cart%C3%B5es">Tokenização de cartões</a>.
-<strong>Bandeiras disponíveis:</strong> Visa</li>
-</ul>
-
-<blockquote>
-  <p>Para obter essa funcionalidade, entre em contato com nosso canal de suporte ecommerce solicitando a habilitação: <strong>cieloecommerce@cielo.com.br</strong></p>
-</blockquote>
-
-<ul>
-  <li><strong>Integração por fora:</strong> Se o estabelecimento usa um gateway ou outro parceiro que já oferece a solução de token de bandeira, a Cielo possui os campos para que sejam enviadas as informações do token na transação, para que no processamento a bandeira receba os dados do token. Veja mais detalhes abaixo.
-<strong>Bandeiras disponíveis:</strong> Visa, Master e Elo.</li>
-</ul>
-
-<p>Confira abaixo os campos a serem enviados na transação caso a opção escolhida seja a integração por fora:</p>
+<p>Para criar uma venda de cartão de crédito tokenizado, envie uma requisição de transação de crédito com o <code class="language-plaintext highlighter-rouge">CardToken</code> conforme o exemplo a seguir.</p>
 
 <h3 id="requisição-33">Requisição</h3>
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
-   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">  
-      </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Comprador Teste"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Email"</span><span class="p">:</span><span class="s2">"compradorteste@teste.com"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Birthdate"</span><span class="p">:</span><span class="s2">"1991-01-02"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Address"</span><span class="p">:{</span><span class="w">  
-         </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Rua Teste"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"AP 123"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"State"</span><span class="p">:</span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Teste"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AP 123"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-   </span><span class="p">},</span><span class="w">
-   </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">  
-     </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Interest"</span><span class="p">:</span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Capture"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"CreditCard"</span><span class="p">:{</span><span class="w">  
-         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Cryptogram"</span><span class="p">:</span><span class="s2">"abcdefghijklmnopqrstuvw=="</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
-     </span><span class="p">}</span><span class="w">
-   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> POST <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"</span>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>  
-   <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2014111701"</span>,
-   <span class="s2">"Customer"</span>:<span class="o">{</span>  
-      <span class="s2">"Name"</span>:<span class="s2">"Comprador Teste"</span>,
-      <span class="s2">"Identity"</span>:<span class="s2">"11225468954"</span>,
-      <span class="s2">"IdentityType"</span>:<span class="s2">"CPF"</span>,
-      <span class="s2">"Email"</span>:<span class="s2">"compradorteste@teste.com"</span>,
-      <span class="s2">"Birthdate"</span>:<span class="s2">"1991-01-02"</span>,
-      <span class="s2">"Address"</span>:<span class="o">{</span>  
-         <span class="s2">"Street"</span>:<span class="s2">"Rua Teste"</span>,
-         <span class="s2">"Number"</span>:<span class="s2">"123"</span>,
-         <span class="s2">"Complement"</span>:<span class="s2">"AP 123"</span>,
-         <span class="s2">"ZipCode"</span>:<span class="s2">"12345987"</span>,
-         <span class="s2">"City"</span>:<span class="s2">"Rio de Janeiro"</span>,
-         <span class="s2">"State"</span>:<span class="s2">"RJ"</span>,
-         <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>
-      <span class="o">}</span>,
-        <span class="s2">"DeliveryAddress"</span>: <span class="o">{</span>
-            <span class="s2">"Street"</span>: <span class="s2">"Rua Teste"</span>,
-            <span class="s2">"Number"</span>: <span class="s2">"123"</span>,
-            <span class="s2">"Complement"</span>: <span class="s2">"AP 123"</span>,
-            <span class="s2">"ZipCode"</span>: <span class="s2">"12345987"</span>,
-            <span class="s2">"City"</span>: <span class="s2">"Rio de Janeiro"</span>,
-            <span class="s2">"State"</span>: <span class="s2">"RJ"</span>,
-            <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>
-        <span class="o">}</span>
-   <span class="o">}</span>,
-   <span class="s2">"Payment"</span>:<span class="o">{</span>  
-     <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
-     <span class="s2">"Amount"</span>:15700,
-     <span class="s2">"ServiceTaxAmount"</span>:0,
-     <span class="s2">"Installments"</span>:1,
-     <span class="s2">"Interest"</span>:<span class="s2">"ByMerchant"</span>,
-     <span class="s2">"Capture"</span>:true,
-     <span class="s2">"Authenticate"</span>:false,
-     <span class="s2">"SoftDescriptor"</span>:<span class="s2">"123456789ABCD"</span>,
-     <span class="s2">"CreditCard"</span>:<span class="o">{</span>  
-         <span class="s2">"CardNumber"</span>:<span class="s2">"4551870000000183"</span>,
-         <span class="s2">"Holder"</span>:<span class="s2">"Teste Holder"</span>,
-         <span class="s2">"Cryptogram"</span>:<span class="s2">"abcdefghijklmnopqrstuvw=="</span>,
-         <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2030"</span>,
-         <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
-         <span class="s2">"SaveCard"</span>:<span class="s2">"true"</span>,
-         <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
-     <span class="o">}</span>
-   <span class="o">}</span>
-<span class="o">}</span>
-<span class="nt">--verbose</span>
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Sim</td>
-      <td>Identificador da loja na Cielo.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Texto</td>
-      <td>40</td>
-      <td>Sim</td>
-      <td>Chave Publica para Autenticação Dupla na Cielo.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
-      <td>Header</td>
-      <td>40</td>
-      <td>Sim</td>
-      <td>application/json (obrigatório o envio deste).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Não</td>
-      <td>Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
-      <td>Numero de identificação do Pedido.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Nome do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Status de cadastro do comprador na loja (NEW / EXISTING)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
-      <td>Texto</td>
-      <td>14</td>
-      <td>Não</td>
-      <td>Número do RG, CPF ou CNPJ do Cliente.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Tipo de documento de identificação do comprador (CFP/CNPJ).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Email do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
-      <td>Date</td>
-      <td>10</td>
-      <td>Não</td>
-      <td>Data de nascimento do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Número do endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Complemento do endereço do Comprador.br</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
-      <td>Texto</td>
-      <td>9</td>
-      <td>Não</td>
-      <td>CEP do endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Cidade do endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
-      <td>Texto</td>
-      <td>2</td>
-      <td>Não</td>
-      <td>Estado do endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
-      <td>Texto</td>
-      <td>35</td>
-      <td>Não</td>
-      <td>Pais do endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-      <td>Endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Número do endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Complemento do endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
-      <td>Texto</td>
-      <td>9</td>
-      <td>Não</td>
-      <td>CEP do endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.City</code></td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Não</td>
-      <td>Cidade do endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.State</code></td>
-      <td>Texto</td>
-      <td>2</td>
-      <td>Não</td>
-      <td>Estado do endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
-      <td>Texto</td>
-      <td>35</td>
-      <td>Não</td>
-      <td>Pais do endereço do Comprador.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Texto</td>
-      <td>100</td>
-      <td>Sim</td>
-      <td>Tipo do Meio de Pagamento.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Sim</td>
-      <td>Valor do Pedido (ser enviado em centavos).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
-      <td>Texto</td>
-      <td>3</td>
-      <td>Não</td>
-      <td>Moeda na qual o pagamento será feito (BRL).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Country</code></td>
-      <td>Texto</td>
-      <td>3</td>
-      <td>Não</td>
-      <td>Pais na qual o pagamento será feito.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Texto</td>
-      <td>15</td>
-      <td>—</td>
-      <td>Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Número</td>
-      <td>2</td>
-      <td>Sim</td>
-      <td>Número de Parcelas.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
-      <td>Texto</td>
-      <td>10</td>
-      <td>Não</td>
-      <td>Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
-      <td>Booleano</td>
-      <td>—</td>
-      <td>Não (Default false)</td>
-      <td>Booleano que identifica que a autorização deve ser com captura automática.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
-      <td>Booleano</td>
-      <td>—</td>
-      <td>Não (Default false)</td>
-      <td>Define se o comprador será direcionado ao Banco emissor para autenticação do cartão</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.ServiceTaxAmount</code></td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Não</td>
-      <td>Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
-      <td>Texto</td>
-      <td>19</td>
-      <td>Sim</td>
-      <td>Número do Cartão do Comprador. A indicação de que o CardNumber deve ser preenchido com o DPAN para caso de tokenização de bandeira.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Holder</code></td>
-      <td>Texto</td>
-      <td>25</td>
-      <td>Não</td>
-      <td>Nome do Comprador impresso no cartão.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Cryptogram</code></td>
-      <td>Texto</td>
-      <td>28</td>
-      <td>Não</td>
-      <td>Criptograma gerado pela bandeira.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
-      <td>Texto</td>
-      <td>7</td>
-      <td>Sim</td>
-      <td>Data de validade do token gerado pela bandeira.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SecurityCode</code></td>
-      <td>Texto</td>
-      <td>4</td>
-      <td>Não</td>
-      <td>Código de segurança impresso no verso do cartão - Ver Anexo.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SaveCard</code></td>
-      <td>Booleano</td>
-      <td>—</td>
-      <td>Não (Default false)</td>
-      <td>Booleano que identifica se o cartão será salvo para gerar o CardToken.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Brand</code></td>
-      <td>Texto</td>
-      <td>10</td>
-      <td>Sim</td>
-      <td>Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="resposta-30">Resposta</h3>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador Teste"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Identity"</span><span class="p">:</span><span class="s2">"11225468954"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"compradorteste@teste.com"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Birthdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1991-01-02"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Teste"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AP 123"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Teste"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AP 123"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"455187******0183"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"CardToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d37bf475-307d-47be-b50a-8dcc38c5056c"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"674532"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0305020554239"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24bc8366-fc31-4d6c-8555-17049a836a07"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15700</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"CapturedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15700</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ExtraDataCollection"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>
-    <span class="s2">"MerchantOrderId"</span>: <span class="s2">"2014111706"</span>,
-    <span class="s2">"Customer"</span>: <span class="o">{</span>
-        <span class="s2">"Name"</span>: <span class="s2">"Comprador Teste"</span>,
-        <span class="s2">"Identity"</span>:<span class="s2">"11225468954"</span>,
-        <span class="s2">"IdentityType"</span>:<span class="s2">"CPF"</span>,
-        <span class="s2">"Email"</span>: <span class="s2">"compradorteste@teste.com"</span>,
-        <span class="s2">"Birthdate"</span>: <span class="s2">"1991-01-02"</span>,
-        <span class="s2">"Address"</span>: <span class="o">{</span>
-            <span class="s2">"Street"</span>: <span class="s2">"Rua Teste"</span>,
-            <span class="s2">"Number"</span>: <span class="s2">"123"</span>,
-            <span class="s2">"Complement"</span>: <span class="s2">"AP 123"</span>,
-            <span class="s2">"ZipCode"</span>: <span class="s2">"12345987"</span>,
-            <span class="s2">"City"</span>: <span class="s2">"Rio de Janeiro"</span>,
-            <span class="s2">"State"</span>: <span class="s2">"RJ"</span>,
-            <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>
-        <span class="o">}</span>,
-        <span class="s2">"DeliveryAddress"</span>: <span class="o">{</span>
-            <span class="s2">"Street"</span>: <span class="s2">"Rua Teste"</span>,
-            <span class="s2">"Number"</span>: <span class="s2">"123"</span>,
-            <span class="s2">"Complement"</span>: <span class="s2">"AP 123"</span>,
-            <span class="s2">"ZipCode"</span>: <span class="s2">"12345987"</span>,
-            <span class="s2">"City"</span>: <span class="s2">"Rio de Janeiro"</span>,
-            <span class="s2">"State"</span>: <span class="s2">"RJ"</span>,
-            <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>
-        <span class="o">}</span>
-    <span class="o">}</span>,
-    <span class="s2">"Payment"</span>: <span class="o">{</span>
-        <span class="s2">"ServiceTaxAmount"</span>: 0,
-        <span class="s2">"Installments"</span>: 1,
-        <span class="s2">"Interest"</span>: <span class="s2">"ByMerchant"</span>,
-        <span class="s2">"Capture"</span>: <span class="nb">true</span>,
-        <span class="s2">"Authenticate"</span>: <span class="nb">false</span>,
-        <span class="s2">"CreditCard"</span>: <span class="o">{</span>
-            <span class="s2">"CardNumber"</span>: <span class="s2">"455187******0183"</span>,
-            <span class="s2">"Holder"</span>: <span class="s2">"Teste Holder"</span>,
-            <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2030"</span>,
-            <span class="s2">"SaveCard"</span>: <span class="nb">true</span>,
-            <span class="s2">"CardToken"</span>: <span class="s2">"d37bf475-307d-47be-b50a-8dcc38c5056c"</span>
-            <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
-        <span class="o">}</span>,
-        <span class="s2">"ProofOfSale"</span>: <span class="s2">"674532"</span>,
-        <span class="s2">"Tid"</span>: <span class="s2">"0305020554239"</span>,
-        <span class="s2">"AuthorizationCode"</span>: <span class="s2">"123456"</span>,
-        <span class="s2">"SoftDescriptor"</span>:<span class="s2">"123456789ABCD"</span>,
-        <span class="s2">"PaymentId"</span>: <span class="s2">"24bc8366-fc31-4d6c-8555-17049a836a07"</span>,
-        <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>,
-        <span class="s2">"Amount"</span>: 15700,
-        <span class="s2">"CapturedAmount"</span>: 15700,
-        <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
-        <span class="s2">"ExtraDataCollection"</span>: <span class="o">[]</span>,
-        <span class="s2">"Status"</span>: 2,
-        <span class="s2">"ReturnCode"</span>: <span class="s2">"6"</span>,
-        <span class="s2">"ReturnMessage"</span>: <span class="s2">"Operation Successful"</span>,
-        <span class="s2">"Links"</span>: <span class="o">[</span>
-            <span class="o">{</span>
-                <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
-                <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
-                <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"</span>
-            <span class="o">}</span>
-            <span class="o">{</span>
-                <span class="s2">"Method"</span>: <span class="s2">"PUT"</span>,
-                <span class="s2">"Rel"</span>: <span class="s2">"void"</span>,
-                <span class="s2">"Href"</span>: <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"</span>
-            <span class="o">}</span>
-        <span class="o">]</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Formato</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
-      <td>Número da autorização, identico ao NSU.</td>
-      <td>Texto</td>
-      <td>6</td>
-      <td>Texto alfanumérico</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
-      <td>Id da transação na adquirente.</td>
-      <td>Texto</td>
-      <td>20</td>
-      <td>Texto alfanumérico</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
-      <td>Código de autorização.</td>
-      <td>Texto</td>
-      <td>6</td>
-      <td>Texto alfanumérico</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
-      <td>Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - nao permite caracteres especiais</td>
-      <td>Texto</td>
-      <td>13</td>
-      <td>Texto alfanumérico</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Número de identificação do pagamento, necessário para operações como Consulta, Captura e Cancelamento.</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ECI</code></td>
-      <td>Eletronic Commerce Indicator. Representa o quão segura é uma transação.</td>
-      <td>Texto</td>
-      <td>2</td>
-      <td>Exemplos: 7</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Status da Transação.</td>
-      <td>Byte</td>
-      <td>—</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
-      <td>Código de retorno da Adquirência.</td>
-      <td>Texto</td>
-      <td>32</td>
-      <td>Texto alfanumérico</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
-      <td>Mensagem de retorno da Adquirência.</td>
-      <td>Texto</td>
-      <td>512</td>
-      <td>Texto alfanumérico</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Cardtoken</code></td>
-      <td>Token de identificação do Cartão.</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="criando-uma-venda-com-cartão-tokenizado">Criando uma venda com Cartão Tokenizado</h2>
-
-<p>Para criar uma venda de cartão de crédito tokenizado, é necessário fazer um POST para o recurso Payment conforme o exemplo.</p>
-
-<h3 id="requisição-34">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -11495,83 +10616,6 @@ HTTP Status 200
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Identificador da loja na API Cielo eCommerce.</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Chave Publica para Autenticação Dupla na API Cielo eCommerce.</td>
-      <td>Texto</td>
-      <td>40</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Numero de identificação do Pedido.</td>
-      <td>Texto</td>
-      <td>50</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Nome do Comprador.</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>Status de cadastro do comprador na loja (NEW / EXISTING) - Utilizado pela análise de fraude</td>
-      <td>Texto</td>
-      <td>255</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Tipo do Meio de Pagamento.</td>
-      <td>Texto</td>
-      <td>100</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Valor do Pedido (ser enviado em centavos).</td>
-      <td>Número</td>
-      <td>15</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Número de Parcelas.</td>
-      <td>Número</td>
-      <td>2</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
-      <td>Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - não permite caracteres especiais</td>
-      <td>Texto</td>
-      <td>13</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.ReturnUrl</code></td>
-      <td>URI para onde o usuário será redirecionado após o fim do pagamento</td>
-      <td>Texto</td>
-      <td>1024</td>
-      <td>Sim quando Authenticate = true</td>
-    </tr>
-    <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardToken</code></td>
       <td>Token de identificação do Cartão.</td>
       <td>Guid</td>
@@ -11595,7 +10639,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h3 id="resposta-31">Resposta</h3>
+<h3 id="resposta-30">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -11798,7 +10842,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h3 id="requisição-35">Requisição</h3>
+<h3 id="requisição-34">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -11935,7 +10979,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h3 id="resposta-32">Resposta</h3>
+<h3 id="resposta-31">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -12368,7 +11412,7 @@ Todas essas etapas exigem que transações sejam realizadas para obter acesso a 
 
 <p>Cada tipo de validação necessita de um contrato tecnico diferente. Eles resultarão em <em>responses diferenciados</em>.</p>
 
-<h3 id="requisição-36">Requisição</h3>
+<h3 id="requisição-35">Requisição</h3>
 
 <h4 id="padrão">PADRÃO</h4>
 
@@ -12511,7 +11555,7 @@ Todas essas etapas exigem que transações sejam realizadas para obter acesso a 
   </tbody>
 </table>
 
-<h3 id="resposta-33">Resposta</h3>
+<h3 id="resposta-32">Resposta</h3>
 
 <p>A resposta sempre retorna se o cartão pode ser autorizado no momento. Essa informação apenas significa que o <em>cartão está valido a transacionar</em>, mas não necessariamente indica que um determinado valor será autorizado.</p>
 
@@ -13034,7 +12078,7 @@ O código de retorno <strong>00 representa sucesso no Zero Auth</strong>, os dem
 
 <p>Exemplo: https://transaction.cieloecommerce.cielo.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000</p>
 
-<h3 id="requisição-37">Requisição</h3>
+<h3 id="requisição-36">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v1/accesstoken?merchantid={mid_loja}</span></aside>
 
@@ -13066,7 +12110,7 @@ O código de retorno <strong>00 representa sucesso no Zero Auth</strong>, os dem
   </tbody>
 </table>
 
-<h3 id="resposta-34">Resposta</h3>
+<h3 id="resposta-33">Resposta</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
