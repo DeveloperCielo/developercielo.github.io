@@ -3608,35 +3608,20 @@ curl
 |3|Mudança de status do Antifraude. Exclusivo para clientes integrados ao Antifraude. |
 |4|Mudança de status do pagamento recorrente (Ex. desativação automática)|
 |5|cancelamento negado|
-|7|Notificação de chargeback. Exclusivo para clientes integrados à [Risk Notification API](https://braspag.github.io//manual/risknotification).|
+|7|Notificação de chargeback. Exclusivo para clientes integrados à [Risk Notification API](https://braspag.github.io//manual/risknotification){:target="_blank"}.|
 |8|Alerta de fraude|
 
 # Velocity
 
-## O Que é Velocity
+O **Velocity** é um tipo de mecanismo de prevenção a tentativas de fraude, que analisa a frequência que determinados dados são utilizados numa transação e se esse dados estão inscritos em uma lista de comportamentos passíveis de ações de segurança. 
 
-O Velocity é um tipo de mecanismo de prevenção à tentativas de fraude, que analisa especificamente o conceito de **“velocidade X dados transacionais”**. Ela analisa a frequência que determinados dados são utilizados e se esse dados estão inscritos em uma lista de comportamentos passiveis de ações de segurança.
+O Velocity é um aliado na avaliação de comportamentos de compra suspeitos, pois os cálculos são baseados em **elementos de rastreabilidade**.
 
-Para estabelecimentos comerciais que atuam no mercado de comércio eletrônico e eventualmente recebem transações fraudulentas, o Velocity é um produto que identificará os comportamentos suspeitos de fraude. A ferramenta tem o intuito de auxiliar na análise de fraude por um custo bem menor que uma ferramenta mais tradicional de mercado.
+> Para que suas transações sejam analisadas pelo Velocity, solicite a inclusão desse serviço ao Suporte Cielo.
 
-Ela é uma aliada na avaliação de comportamentos suspeitos de compra, pois os cálculos serão baseados em `elementos de rastreabilidade`.
+O Velocity funciona analisando dados enviados na integração padrão da API Cielo E-commerce. Assim, não é necessário incluir nenhum nó adicional na requisição de criação de transação. 
 
-O Velocity oferece 4 tipos de funcionalidades para validar dados transacionais:
-
-| Funcionalidade               | Descrição                                                                                                                                          |
-|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| Regras de segurança velocity | O Lojista defini um grupo de regras de segurança que vão avaliar se determinados dados transacionais se repetem em um intervalo de tempo suspeito  |
-| Quarentena                   | Criação de uma lista de dados que serão analisados por um periodo de tempo determinado antes de serem considerados validos ou fraudulentos         |
-| BlackList                    | Criação de uma lista de dados que ao serem identificados impedem a transação de ser executada, evitando a criação de uma transação fraudulenta     |
-| Whitelist                    | Criação de uma lista de dados que ao serem identificados permitem que a transação de seja executada, mesmo que existam regras de segurança em ação |
-
-A funcionalidade deve ser contratada à parte, e posteriormente habilitada em sua loja pela equipe de Suporte Cielo Ecommerce via o Admin 3.0 
-
-## Integração
-
-O Velocity funciona analisando dados enviados na integração padrão da API Cielo Ecommerce. Não é necessario incluir nenhuma nó adicional a integração da loja para a criação da venda, mas será necessario alterar a forma como os dados são recebidos `Response`.
-
-Quando o Velocity está ativo, a resposta da transação trará um nó específico chamado “Velocity”, com os detalhes da análise.
+Quando o Velocity está ativo, a resposta da transação trará um nó específico chamado `Velocity`, com os detalhes da análise.
 
 ``` json
 {
