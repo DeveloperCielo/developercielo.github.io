@@ -3278,41 +3278,39 @@ curl
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&serviceTaxAmount=xxx</span></aside>
 
-## Cancelando uma venda
+## Cancelamento
 
-O cancelamento é uma funcionalidade que permite ao lojista estornar um pedido de compra, seja por insuficiência de estoque, por desistência da compra pelo consumidor, ou qualquer outro motivo.
+O cancelamento é uma funcionalidade que permite ao lojista estornar um pedido de compra. O cancelamento pode ocorrer por insuficiência de estoque ou por desistência da compra pelo consumidor, entre outros motivos.
 
-Na API Cielo e-commerce é possível realizar a requisição de cancelamento para cartões de débito e crédito.
+Na API Cielo E-commerce é possível realizar a requisição de cancelamento para **cartões de débito e crédito**.
 
-Para transações autorizadas e não capturadas (status transacional = 1), o cancelamento pode ser solicitado antes de ocorrer o desfazimento automático da transação.
+* Para **transações autorizadas e não capturadas** (status transacional = 1), o cancelamento pode ser solicitado antes de ocorrer o desfazimento automático da transação.
 
-Já para transações capturadas (status transacional = 2), é possível realizar a requisição de cancelamento **1 dia após a captura** e em um prazo de **até 360 dias** após a autorização da venda. A aprovação dessa ordem de cancelamento é suscetível a avalição de saldo na agenda financeira do lojista no momento da requisição e a aprovação do banco emissor do cartão utilizado na transação.
-  
-Para as solicitações de cancelamento da mesma transação, é necessário aguardar um período de 5 segundos entre uma solicitação e outra, para que seja realizada a consulta de saldo, reserva do valor na agenda financeira e sensibilizado o saldo. Evitando assim duplicidade de cancelamento. Esta regra vale para cancelamentos totais e/ou parciais.
+* Para **transações capturadas** (status transacional = 2), o cancelamento pode ser solicitado 1 dia após a captura e em um prazo de até 360 dias após a autorização da venda. A aprovação dessa ordem de cancelamento é suscetível à avalição de saldo na agenda financeira do lojista no momento da requisição e à aprovação do banco emissor do cartão usado na transação.
 
-Para identificar que as solicitações de cancelamento são da mesma transação, consideramos o número do EC, número da autorização de cancelamento, data da venda, valor da venda e NSU. 
+Para as solicitações de cancelamento da mesma transação, é necessário aguardar um período de 5 segundos entre uma solicitação e outra, para que sejam realizadas a consulta de saldo, reserva do valor na agenda financeira e sensibilização do saldo, evitando assim duplicidade de cancelamento. Esta regra vale para cancelamentos totais e/ou parciais. Para identificar que as solicitações de cancelamento são da mesma transação, consideramos o número do EC, número da autorização de cancelamento, data da venda, valor da venda e NSU.
 
-Importante salientar que para realizar qualquer solicitação de cancelamento, é necessário que o estabelecimento possua saldo suficiente na transação/em agenda
-
-### Cancelando uma venda via API
-
-O processo de cancelamento via API está disponivel apenas para cartão de crédito e débito.
-
-Cada meio de pagamento sofre impactos diferentes quando uma ordem de cancelamento (VOID) é executada.
+> É importante salientar que, para realizar qualquer solicitação de cancelamento, é necessário que o estabelecimento possua saldo suficiente na transação e na agenda.
 
 ### Cancelamento total
 
-Para cancelar uma venda que utiliza cartão de crédito, é necessário fazer um PUT para o recurso Payment. É possível realizar o cancelamento via PaymentID ou MerchantOrderId (numero do pedido).
+É possível cancelar uma venda via PaymentID ou MerchantOrderId (numero do pedido).
 
-<aside class="notice"><strong>Atenção:</strong> O cancelamento por MerchantOrderId afeta sempre a transação mais nova, ou seja, caso haja pedidos com o numero do pedido duplicado, somente o mais atual será cancelado. O pedido anterior não poderá ser cancelado por esse método</aside>
+<aside class="notice"><strong>Atenção:</strong> O cancelamento por MerchantOrderId afeta sempre a transação mais nova, ou seja, caso haja pedidos com o número do pedido duplicado, somente o pedido mais atual será cancelado. O pedido anterior não poderá ser cancelado por esse método.</aside>
 
 #### Requisição
+
+**Cancelamento via PaymentId**
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=xxx</span></aside>
 
 ou
 
+**Cancelamento via MerchantOrderId**
+
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/OrderId/{MerchantOrderId}/void?amount=xxx</span></aside>
+
+O exemplo a seguir exibe a requisição de cancelamento via `PaymentId`.
 
 ```shell
 curl
@@ -3326,8 +3324,8 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
-|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|36|Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
+|`MerchantId`|Identificador da loja na API Cielo E-commerce.|Guid|36|Sim|
+|`MerchantKey`|Chave pública para Autenticação Dupla na API Cielo E-commerce.|Texto|40|Sim|
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
 |`PaymentId`|Número de identificação do pagamento, necessário para operações como Consulta, Captura e Cancelamento.|Guid|36|Sim|
 |`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
@@ -3384,15 +3382,13 @@ curl
 
 ### Cancelamento parcial
 
-O **cancelamento  parcial** é o ato de cancelar um valor menor que o valor total autorizado/capturado. Esse modelo de cancelamento pode ocorrer inumeras vezes, até que o valor total da transação seja cancelado. 
+O **cancelamento  parcial** é o ato de cancelar um valor menor do que o valor total que foi autorizado e capturado. Esse modelo de cancelamento pode ocorrer inúmeras vezes, até que o valor total da transação seja cancelado. 
 
- Basta realizar um `POST` enviando o valor a ser cancelado.
+> O **cancelamento parcial** está disponível apenas para **transações capturadas**.
 
-<aside class="notice"><strong>Atenção:</strong> Cancelamento parcial disponível apenas para transações *CAPTURADAS*</aside>
+<aside class="notice"><strong>Atenção:</strong> A API retorna a soma do total de cancelamentos parciais, ou seja, se você fizer três cancelamentos parciais de R$10,00, a API apresentará na resposta um total de R$30,00 cancelados.</aside>
 
-<aside class="notice"><strong>Atenção:</strong> O retorno da API soma o total de cancelamentos Parciais, ou seja, se 3 cancelamentos de R$10,00 forem realizados, a API apresentará em seu retorno um total de R$30,00 cancelados</aside>
-
-#### Requisição - cancelamento parcial
+#### Requisição
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=XXX </span></aside>
 
@@ -3408,8 +3404,8 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
-|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|36|Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
+|`MerchantId`|Identificador da loja na API Cielo E-commerce.|Guid|36|Sim|
+|`MerchantKey`|Chave pública para Autenticação Dupla na API Cielo E-commerce.|Texto|40|Sim|
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
 |`PaymentId`|Número de identificação do pagamento, necessário para operações como Consulta, Captura e Cancelamento.|Guid|36|Sim|
 |`Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Não|
@@ -3492,34 +3488,26 @@ https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={
 
 ### Códigos de Retorno de Cancelamento
 
-| RETURN CODE | DESCRIÇÃO                                                                                        |
-| 6           | Solicitação de cancelamento parcial aprovada com sucesso                                         |
-| 9           | Solicitação de cancelamento total aprovada com sucesso                                           |
-| 72          | Erro: Saldo do lojista insuficiente para cancelamento de venda                                   |
-| 77          | Erro: Venda original não encontrada para cancelamento                                            |
-| 100         | Erro: Forma de pagamento e/ou Bandeira não permitem cancelamento                                 |
-| 101         | Erro: Valor de cancelamento solicitado acima do prazo permitido para cancelar                    |
-| 102         | Erro: Cancelamento solicitado acima do valor da transação original                               |
-| 103         | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central  de Cancelamento |
-| 104         | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central  de Cancelamento |
-| 105         | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central  de Cancelamento |
-| 106         | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central  de Cancelamento |
-| 107         | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central  de Cancelamento |
-| 108         | Erro:  Número do Estabelecimento (EC) não encontrado. Por favor, verifique o número enviado      |
-| 475         | Falha no processamento. Por favor, tente novamente                                               |
+| RETURN CODE | DESCRIÇÃO                                                                                         |
+|---|---|
+| 6           | Solicitação de cancelamento parcial aprovada com sucesso.                                         |
+| 9           | Solicitação de cancelamento total aprovada com sucesso.                                           |
+| 72          | Erro: Saldo do lojista insuficiente para cancelamento de venda.                                   |
+| 77          | Erro: Venda original não encontrada para cancelamento.                                            |
+| 100         | Erro: Forma de pagamento e/ou Bandeira não permitem cancelamento.                                 |
+| 101         | Erro: Valor de cancelamento solicitado acima do prazo permitido para cancelar.                    |
+| 102         | Erro: Cancelamento solicitado acima do valor da transação original.                               |
+| 103         | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central  de Cancelamento. |
+| 104         | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central  de Cancelamento. |
+| 105         | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central  de Cancelamento. |
+| 106         | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central  de Cancelamento. |
+| 107         | Restrição Cadastral. Cancelamento não permitido. Entre em contato com a Central  de Cancelamento. |
+| 108         | Erro:  Número do Estabelecimento (EC) não encontrado. Por favor, verifique o número enviado.      |
+| 475         | Falha no processamento. Por favor, tente novamente.                                               |
 
-### Cancelamento via Backoffice
+### Cancelamento via site Cielo
 
-O Cancelamento via Backoffice é a unica opção para realizar o cancelamento de transações de Débito Online.
-É possivel realizar tanto o cancelamento total quanto o Cancelamento parcial via O Backoffice Cielo.
-
-Efeitos sobre o meio de pagamento
-
-|Meio de pagamento|Descrição|Prazo|Participação Cielo|
-|---|---|---|---|
-|Transferência Eletrônica|Cancelamento apenas na API. O retorno do valor é feito pelo proprio lojista|Definido pelo lojista|Não|
-
-Acesse nosso [**Tutorial**](https://developercielo.github.io/Tutorial//Backoffice-3.0)  para maiores informações
+O Cancelamento via Backoffice é a unica opção para realizar o cancelamento de transações de Débito Online. É possivel realizar tanto o cancelamento total quanto o cancelamento parcial.
 
 ## Post de Notificação
 
