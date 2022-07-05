@@ -3513,37 +3513,21 @@ O Cancelamento via Backoffice é a unica opção para realizar o cancelamento de
 
 ### Sobre o POST
 
-A API Cielo e-commerce oferece um sistema de notificação transacional, onde o Lojista fornece um endpoint que receberá uma notificação via `POST`
+O **Post de Notificação** é um **webhook** que envia notificações sobre mudanças no status da transação ou sobre criação de pedido recorrente.
 
-O Conteudo da notificação será formado por 3 campos:
-
-* `RecurrentPaymentId`- Identificador que representa um conjunto de transações recorrentes 
-* `PaymentId`- Número de identificação do pagamento
-* `ChangeType` - Especifica o tipo de notificação
-
-Com os dados acima, o lojista poderá identificar a transação (via `PaymentId` ou `RecurrentPaymentId`) e a mudança sofrida por ela. Com o `PaymentId` é possivel realizar uma consulta a base transacional da API Cielo E-commerce 
-
-O Post de notificação é enviado com base em uma seleção de eventos  pré-definidos no cadastro da API Cielo E-commerce.
-Esses eventos são cadastros pela equipe de suporte Cielo, quando requisitado pelo lojista
+Durante seu cadastro na Cielo, você deve configurar um endpoint para que a Cielo envie as notificações e pode também configurar os eventos para os quais deseja receber notificações.
 
 ### Eventos Notificados
 
-Os eventos passiveis de notificação são:
+Os eventos passíveis de notificação por meio de pagamento são:
 
-| Meio de Pagamento            | Evento                                                                   |
+| Meio de Pagamento            | Eventos que podem ser notificados                                        |
 |------------------------------|--------------------------------------------------------------------------|
-|**Cartão de Crédito**         | Captura                                                                  |
-|**Cartão de Crédito**         | Cancelamento                                                             |
-|**Cartão de Crédito**         | Sondagem                                                                 |
-|**Boleto**                    | Conciliação                                                              |
-|**Boleto**                    | Cancelamento Manual                                                      |
-|**Transferência eletrônica**  | Confirmadas                                                              |
+|**Cartão de Crédito**         | Captura;<br/>Cancelamento;<br/>Sondagem.                                 |
+|**Boleto**                    | Conciliação;<br/>Cancelamento manual                                     |
+|**Transferência eletrônica**  | Confirmadas                                                             |
 
-**Sobre Cartão de débito:** Não notificamos transações de Cartão de débito. Sugerimos que seja criada uma URL de RETORNO, onde o comprador será enviado se a transação for finalizada no ambiente do banco. Quando essa URL for acionada, nossa sugestão é que um `GET` seja executado, buscando informações do pedido na API Cielo</aside>
-
-<br>
-
-A notificação ocorre tambem ocorre em eventos relacionados a **Recorrência Programada Cielo**
+A notificação ocorre também ocorre em eventos relacionados a **Recorrência Programada Cielo**
 
 | Eventos da Recorrência                                                   |
 |--------------------------------------------------------------------------|
@@ -3552,26 +3536,42 @@ A notificação ocorre tambem ocorre em eventos relacionados a **Recorrência Pr
 | Finalizado / Data de finalização atingida                                |
 | Desativação                                                              |
 
+> Os eventos só são notificados quando se você solicitar o recebimento desse tipo de notificação ao Suporte Cielo.
+
 ### Endpoint de Notificação
 
-Uma `URL Status Pagamento` deve ser cadastrada pelo Suporte Cielo, para que o POST de notificação seja executado. 
+Você deve informar um endpoint (`URL Status Pagamento`) ao Suporte Cielo, para que o Post de Notificação seja executado. 
 
-Características da `URL Status Pagamento` 
+Características da `URL Status Pagamento`
 
-* Deve ser **estática**
-* Limite de 255  carácteres.
+* Deve ser **estática**;
+* Limite de 255 caracteres.
 
 Características do **Post de notificação** 
 
-* É disparado a cada 30 minutos
-* Em caso de falha, 3 novas tentativas são realizadas.Se as 3 tentativas falharem, novos envios não ocorrerão.
+* É disparado a cada 30 minutos;
+* Em caso de falha, são realizadas três novas tentativas.
 
-É possivel cadastrar uma informação para retorno do header da requisição. Basta entrar em contato com o Suporte Cielo e informar os itens abaixo
+> Para aumentar a segurança, é possível cadastrar uma informação para retorno do header para o seu endpoint. Com isso, seu endpoint só vai aceitar a notificação se a Cielo enviar o header. 
 
-* `KEY` - Nome do paramêtro 
+Para configurar as informações do header, informe ao Suporte Cielo os itens a seguir:
+
+* `KEY` - Nome do parâmetro 
 * `VALUE` - Valor estático a ser retornado
 
-Você pode cadastrar até 3 tipos de informação de retorno no header
+Você pode cadastrar até 3 tipos de informação de retorno no header.
+
+> A **loja deverá retornar** como resposta à notificação: **HTTP Status Code 200 OK**.
+
+O conteúdo da notificação será formado por três campos:
+
+* `RecurrentPaymentId`: identificador que representa um conjunto de transações recorrentes; 
+* `PaymentId`: número de identificação do pagamento;
+* `ChangeType`: especifica o tipo de notificação.
+
+Com os dados acima, você poderá identificar a transação via `PaymentId` ou `RecurrentPaymentId` e a mudança ocorrida. A partir da notificação, você pode consultar mais detalhes sobre a transação na [Consulta por PaymentId](https://developercielo.github.io/manual/cielo-ecommerce#consulta-por-paymentid) ou na [Consulta de Recorrência](https://developercielo.github.io/manual/cielo-ecommerce#consulta-de-recorr%C3%AAncia).
+
+Veja o exemplo do conteúdo do Post de Notificação:
 
 ```json
 {
@@ -3591,11 +3591,9 @@ curl
 }
 ```
 
-A loja **deverá** retornar como resposta ao notificação: **HTTP Status Code 200 OK**
-
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
-|`RecurrentPaymentId`|Identificador que representa o pedido Recorrente (aplicável somente para ChangeType 2 ou 4)|GUID|36|Não|
+|`RecurrentPaymentId`|Identificador que representa o pedido Recorrente (aplicável somente para ChangeType 2 ou 4).|GUID|36|Não|
 |`PaymentId`|Número de identificação do pagamento.|GUID|36|Sim|
 |`ChangeType`|Especifica o tipo de notificação. Veja a [tabela de Changetype](https://developercielo.github.io/manual/cielo-ecommerce#tabela-de-changetype).|Número|1|Sim|
 
@@ -3605,7 +3603,7 @@ A loja **deverá** retornar como resposta ao notificação: **HTTP Status Code 2
 |---|---|
 |1|Mudança de status do pagamento|
 |2|Recorrência criada|
-|3|Mudança de status do Antifraude|
+|3|Mudança de status do Antifraude. Exclusivo para clientes integrados ao Antifraude. |
 |4|Mudança de status do pagamento recorrente (Ex. desativação automática)|
 |5|cancelamento negado|
 |7|Notificação de chargeback. Exclusivo para clientes integrados à [Risk Notification API](https://braspag.github.io//manual/risknotification).|
@@ -3613,7 +3611,7 @@ A loja **deverá** retornar como resposta ao notificação: **HTTP Status Code 2
 
 # Velocity
 
-## O Que É Velocity
+## O Que é Velocity
 
 O Velocity é um tipo de mecanismo de prevenção à tentativas de fraude, que analisa especificamente o conceito de **“velocidade X dados transacionais”**. Ela analisa a frequência que determinados dados são utilizados e se esse dados estão inscritos em uma lista de comportamentos passiveis de ações de segurança.
 
