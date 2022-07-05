@@ -6714,52 +6714,29 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <h3 id="sobre-o-post">Sobre o POST</h3>
 
-<p>A API Cielo e-commerce oferece um sistema de notificação transacional, onde o Lojista fornece um endpoint que receberá uma notificação via <code class="language-plaintext highlighter-rouge">POST</code></p>
+<p>O <strong>Post de Notificação</strong> é um <strong>webhook</strong> que envia notificações sobre mudanças no status da transação ou sobre criação de pedido recorrente.</p>
 
-<p>O Conteudo da notificação será formado por 3 campos:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code>- Identificador que representa um conjunto de transações recorrentes</li>
-  <li><code class="language-plaintext highlighter-rouge">PaymentId</code>- Número de identificação do pagamento</li>
-  <li><code class="language-plaintext highlighter-rouge">ChangeType</code> - Especifica o tipo de notificação</li>
-</ul>
-
-<p>Com os dados acima, o lojista poderá identificar a transação (via <code class="language-plaintext highlighter-rouge">PaymentId</code> ou <code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code>) e a mudança sofrida por ela. Com o <code class="language-plaintext highlighter-rouge">PaymentId</code> é possivel realizar uma consulta a base transacional da API Cielo E-commerce</p>
-
-<p>O Post de notificação é enviado com base em uma seleção de eventos  pré-definidos no cadastro da API Cielo E-commerce.
-Esses eventos são cadastros pela equipe de suporte Cielo, quando requisitado pelo lojista</p>
+<p>Durante seu cadastro na Cielo, você deve configurar um endpoint para que a Cielo envie as notificações e pode também configurar os eventos para os quais deseja receber notificações.</p>
 
 <h3 id="eventos-notificados">Eventos Notificados</h3>
 
-<p>Os eventos passiveis de notificação são:</p>
+<p>Os eventos passíveis de notificação por meio de pagamento são:</p>
 
 <table>
   <thead>
     <tr>
       <th>Meio de Pagamento</th>
-      <th>Evento</th>
+      <th>Eventos que podem ser notificados</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><strong>Cartão de Crédito</strong></td>
-      <td>Captura</td>
-    </tr>
-    <tr>
-      <td><strong>Cartão de Crédito</strong></td>
-      <td>Cancelamento</td>
-    </tr>
-    <tr>
-      <td><strong>Cartão de Crédito</strong></td>
-      <td>Sondagem</td>
+      <td>Captura;<br />Cancelamento;<br />Sondagem.</td>
     </tr>
     <tr>
       <td><strong>Boleto</strong></td>
-      <td>Conciliação</td>
-    </tr>
-    <tr>
-      <td><strong>Boleto</strong></td>
-      <td>Cancelamento Manual</td>
+      <td>Conciliação;<br />Cancelamento manual</td>
     </tr>
     <tr>
       <td><strong>Transferência eletrônica</strong></td>
@@ -6768,9 +6745,7 @@ Esses eventos são cadastros pela equipe de suporte Cielo, quando requisitado pe
   </tbody>
 </table>
 
-<p><strong>Sobre Cartão de débito:</strong> Não notificamos transações de Cartão de débito. Sugerimos que seja criada uma URL de RETORNO, onde o comprador será enviado se a transação for finalizada no ambiente do banco. Quando essa URL for acionada, nossa sugestão é que um <code class="language-plaintext highlighter-rouge">GET</code> seja executado, buscando informações do pedido na API Cielo&lt;/aside&gt;</p>
-
-<p>A notificação ocorre tambem ocorre em eventos relacionados a <strong>Recorrência Programada Cielo</strong></p>
+<p>A notificação ocorre também ocorre em eventos relacionados a <strong>Recorrência Programada Cielo</strong></p>
 
 <table>
   <thead>
@@ -6794,32 +6769,56 @@ Esses eventos são cadastros pela equipe de suporte Cielo, quando requisitado pe
   </tbody>
 </table>
 
+<blockquote>
+  <p>Os eventos só são notificados quando se você solicitar o recebimento desse tipo de notificação ao Suporte Cielo.</p>
+</blockquote>
+
 <h3 id="endpoint-de-notificação">Endpoint de Notificação</h3>
 
-<p>Uma <code class="language-plaintext highlighter-rouge">URL Status Pagamento</code> deve ser cadastrada pelo Suporte Cielo, para que o POST de notificação seja executado.</p>
+<p>Você deve informar um endpoint (<code class="language-plaintext highlighter-rouge">URL Status Pagamento</code>) ao Suporte Cielo, para que o Post de Notificação seja executado.</p>
 
 <p>Características da <code class="language-plaintext highlighter-rouge">URL Status Pagamento</code></p>
 
 <ul>
-  <li>Deve ser <strong>estática</strong></li>
-  <li>Limite de 255  carácteres.</li>
+  <li>Deve ser <strong>estática</strong>;</li>
+  <li>Limite de 255 caracteres.</li>
 </ul>
 
 <p>Características do <strong>Post de notificação</strong></p>
 
 <ul>
-  <li>É disparado a cada 30 minutos</li>
-  <li>Em caso de falha, 3 novas tentativas são realizadas.Se as 3 tentativas falharem, novos envios não ocorrerão.</li>
+  <li>É disparado a cada 30 minutos;</li>
+  <li>Em caso de falha, são realizadas três novas tentativas.</li>
 </ul>
 
-<p>É possivel cadastrar uma informação para retorno do header da requisição. Basta entrar em contato com o Suporte Cielo e informar os itens abaixo</p>
+<blockquote>
+  <p>Para aumentar a segurança, é possível cadastrar uma informação para retorno do header para o seu endpoint. Com isso, seu endpoint só vai aceitar a notificação se a Cielo enviar o header.</p>
+</blockquote>
+
+<p>Para configurar as informações do header, informe ao Suporte Cielo os itens a seguir:</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">KEY</code> - Nome do paramêtro</li>
+  <li><code class="language-plaintext highlighter-rouge">KEY</code> - Nome do parâmetro</li>
   <li><code class="language-plaintext highlighter-rouge">VALUE</code> - Valor estático a ser retornado</li>
 </ul>
 
-<p>Você pode cadastrar até 3 tipos de informação de retorno no header</p>
+<p>Você pode cadastrar até 3 tipos de informação de retorno no header.</p>
+
+<blockquote>
+  <p>A <strong>loja deverá retornar</strong> como resposta à notificação: <strong>HTTP Status Code 200 OK</strong>.</p>
+</blockquote>
+
+<p>O conteúdo da notificação será formado por três campos:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code>: identificador que representa um conjunto de transações recorrentes;</li>
+  <li><code class="language-plaintext highlighter-rouge">PaymentId</code>: número de identificação do pagamento;</li>
+  <li><code class="language-plaintext highlighter-rouge">ChangeType</code>: especifica o tipo de notificação.</li>
+</ul>
+
+<p>Com os dados acima, você poderá identificar a transação via <code class="language-plaintext highlighter-rouge">PaymentId</code> ou <code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code> e a mudança ocorrida. A partir da notificação, você pode consultar mais detalhes sobre a transação na <a href="https://developercielo.github.io/manual/cielo-ecommerce#consulta-por-paymentid">Consulta por PaymentId</a> ou na <a href="https://developercielo.github.io/manual/cielo-ecommerce#consulta-de-recorr%C3%AAncia">Consulta de Recorrência</a>.</p>
+
+<p>Veja o exemplo do conteúdo do Post de Notificação:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"RecurrentPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
@@ -6837,8 +6836,6 @@ Esses eventos são cadastros pela equipe de suporte Cielo, quando requisitado pe
 <span class="o">}</span>
 </code></pre></div></div>
 
-<p>A loja <strong>deverá</strong> retornar como resposta ao notificação: <strong>HTTP Status Code 200 OK</strong></p>
-
 <table>
   <thead>
     <tr>
@@ -6852,7 +6849,7 @@ Esses eventos são cadastros pela equipe de suporte Cielo, quando requisitado pe
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
-      <td>Identificador que representa o pedido Recorrente (aplicável somente para ChangeType 2 ou 4)</td>
+      <td>Identificador que representa o pedido Recorrente (aplicável somente para ChangeType 2 ou 4).</td>
       <td>GUID</td>
       <td>36</td>
       <td>Não</td>
@@ -6894,7 +6891,7 @@ Esses eventos são cadastros pela equipe de suporte Cielo, quando requisitado pe
     </tr>
     <tr>
       <td>3</td>
-      <td>Mudança de status do Antifraude</td>
+      <td>Mudança de status do Antifraude. Exclusivo para clientes integrados ao Antifraude.</td>
     </tr>
     <tr>
       <td>4</td>
@@ -6917,7 +6914,7 @@ Esses eventos são cadastros pela equipe de suporte Cielo, quando requisitado pe
 
 <h1 id="velocity">Velocity</h1>
 
-<h2 id="o-que-é-velocity">O Que É Velocity</h2>
+<h2 id="o-que-é-velocity">O Que é Velocity</h2>
 
 <p>O Velocity é um tipo de mecanismo de prevenção à tentativas de fraude, que analisa especificamente o conceito de <strong>“velocidade X dados transacionais”</strong>. Ela analisa a frequência que determinados dados são utilizados e se esse dados estão inscritos em uma lista de comportamentos passiveis de ações de segurança.</p>
 
