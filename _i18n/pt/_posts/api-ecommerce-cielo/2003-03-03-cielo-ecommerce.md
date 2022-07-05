@@ -3524,8 +3524,9 @@ Os eventos passíveis de notificação por meio de pagamento são:
 | Meio de Pagamento            | Eventos que podem ser notificados                                        |
 |------------------------------|--------------------------------------------------------------------------|
 |**Cartão de Crédito**         | Captura;<br/>Cancelamento;<br/>Sondagem.                                 |
+|**Cartão de débito**          | Captura;<br/>Sondagem.                                                   |
 |**Boleto**                    | Conciliação;<br/>Cancelamento manual                                     |
-|**Transferência eletrônica**  | Confirmadas                                                             |
+|**Transferência eletrônica**  | Confirmadas                                                              |
 
 A notificação ocorre também ocorre em eventos relacionados a **Recorrência Programada Cielo**
 
@@ -3535,6 +3536,7 @@ A notificação ocorre também ocorre em eventos relacionados a **Recorrência P
 | Reabilitação                                                             |
 | Finalizado / Data de finalização atingida                                |
 | Desativação                                                              |
+| Criação da transação de recorrência do pedido recorrente.                |
 
 > Os eventos só são notificados quando se você solicitar o recebimento desse tipo de notificação ao Suporte Cielo.
 
