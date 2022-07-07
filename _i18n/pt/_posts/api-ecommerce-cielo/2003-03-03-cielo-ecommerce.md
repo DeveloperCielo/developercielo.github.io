@@ -1942,9 +1942,9 @@ Quantidade de caracteres por campo e Provider:
 |`Customer.Address.City`|<br>**Caracteres válidos:** <BR> Letras de A a Z - MAIÚSCULAS <BR> **Caracteres especiais:** hífen (-) e apóstrofo (') <BR><BR> Quando utilizados, não pode conter espaços entre as letras; <BR><BR><BR> **Exemplos corretos**: D'EL-REI, D'ALCORTIVO, SANT'ANA.<BR><BR> **Exemplos incorretos**: D'EL - REI; até um espaço em branco entre palavras.|18 caracteres|
 |`Payment.Instructions`|N/a|255|
 
-# E-wallets
+## E-wallets
 
-## O que são e-wallets?
+**O que são e-wallets?**
 
 As *e-wallets*, ou carteiras digitais, são repositórios de cartões e dados de pagamentos para consumidores online. As e-wallets permitem que um consumidor realize o cadastro de seus dados de pagamento na carteira, tornando o processo de compra mais conveniente e seguro.
 
