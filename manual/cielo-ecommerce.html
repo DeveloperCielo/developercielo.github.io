@@ -4894,6 +4894,213 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
+<h2 id="post-de-notificação">Post de Notificação</h2>
+
+<p>O <strong>Post de Notificação</strong> é um <strong>webhook</strong> que envia notificações sobre mudanças no status da transação ou sobre criação de pedido recorrente.</p>
+
+<p>Durante seu cadastro na Cielo, você deve configurar um endpoint para que a Cielo envie as notificações e pode também configurar os eventos para os quais deseja receber notificações.</p>
+
+<h3 id="eventos-notificados">Eventos Notificados</h3>
+
+<p>Os eventos passíveis de notificação por meio de pagamento são:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Meio de Pagamento</th>
+      <th>Eventos que podem ser notificados</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Cartão de Crédito</strong></td>
+      <td>Captura;<br />Cancelamento;<br />Sondagem.</td>
+    </tr>
+    <tr>
+      <td><strong>Cartão de débito</strong></td>
+      <td>Captura;<br />Sondagem.</td>
+    </tr>
+    <tr>
+      <td><strong>Boleto</strong></td>
+      <td>Conciliação;<br />Cancelamento manual</td>
+    </tr>
+    <tr>
+      <td><strong>Transferência eletrônica</strong></td>
+      <td>Confirmadas</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A notificação ocorre também ocorre em eventos relacionados a <strong>Recorrência Programada Cielo</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Eventos da Recorrência</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Desabilitado ao atingir número máximo de tentativas (transações negadas)</td>
+    </tr>
+    <tr>
+      <td>Reabilitação</td>
+    </tr>
+    <tr>
+      <td>Finalizado / Data de finalização atingida</td>
+    </tr>
+    <tr>
+      <td>Desativação</td>
+    </tr>
+    <tr>
+      <td>Criação da transação de recorrência do pedido recorrente.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>Os eventos só são notificados quando se você solicitar o recebimento desse tipo de notificação ao Suporte Cielo.</p>
+</blockquote>
+
+<h3 id="endpoint-de-notificação">Endpoint de Notificação</h3>
+
+<p>Você deve informar um endpoint (<code class="language-plaintext highlighter-rouge">URL Status Pagamento</code>) ao Suporte Cielo, para que o Post de Notificação seja executado.</p>
+
+<p>Características da <code class="language-plaintext highlighter-rouge">URL Status Pagamento</code></p>
+
+<ul>
+  <li>Deve ser <strong>estática</strong>;</li>
+  <li>Limite de 255 caracteres.</li>
+</ul>
+
+<p>Características do <strong>Post de notificação</strong></p>
+
+<ul>
+  <li>É disparado a cada 30 minutos;</li>
+  <li>Em caso de falha, são realizadas três novas tentativas.</li>
+</ul>
+
+<blockquote>
+  <p>Para aumentar a segurança, é possível cadastrar uma informação para retorno do header para o seu endpoint. Com isso, seu endpoint só vai aceitar a notificação se a Cielo enviar o header.</p>
+</blockquote>
+
+<p>Para configurar as informações do header, informe ao Suporte Cielo os itens a seguir:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">KEY</code> - Nome do parâmetro</li>
+  <li><code class="language-plaintext highlighter-rouge">VALUE</code> - Valor estático a ser retornado</li>
+</ul>
+
+<p>Você pode cadastrar até 3 tipos de informação de retorno no header.</p>
+
+<blockquote>
+  <p>A <strong>loja deverá retornar</strong> como resposta à notificação: <strong>HTTP Status Code 200 OK</strong>.</p>
+</blockquote>
+
+<p>O conteúdo da notificação será formado por três campos:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code>: identificador que representa um conjunto de transações recorrentes;</li>
+  <li><code class="language-plaintext highlighter-rouge">PaymentId</code>: número de identificação do pagamento;</li>
+  <li><code class="language-plaintext highlighter-rouge">ChangeType</code>: especifica o tipo de notificação.</li>
+</ul>
+
+<p>Com os dados acima, você poderá identificar a transação via <code class="language-plaintext highlighter-rouge">PaymentId</code> ou <code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code> e a mudança ocorrida. A partir da notificação, você pode consultar mais detalhes sobre a transação na <a href="https://developercielo.github.io/manual/cielo-ecommerce#consulta-por-paymentid">Consulta por PaymentId</a> ou na <a href="https://developercielo.github.io/manual/cielo-ecommerce#consulta-de-recorr%C3%AAncia">Consulta de Recorrência</a>.</p>
+
+<p>Veja o exemplo do conteúdo do Post de Notificação:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"RecurrentPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"ChangeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--header</span> <span class="s2">"key: value"</span>
+<span class="o">{</span>
+   <span class="s2">"RecurrentPaymentId"</span>: <span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>,
+   <span class="s2">"PaymentId"</span>: <span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>,
+   <span class="s2">"ChangeType"</span>: <span class="s2">"2"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Identificador que representa o pedido Recorrente (aplicável somente para ChangeType 2 ou 4).</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
+      <td>Número de identificação do pagamento.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ChangeType</code></td>
+      <td>Especifica o tipo de notificação. Veja a <a href="https://developercielo.github.io/manual/cielo-ecommerce#tabela-de-changetype">tabela de Changetype</a>.</td>
+      <td>Número</td>
+      <td>1</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tabela-de-changetype">Tabela de ChangeType</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>ChangeType</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Mudança de status do pagamento</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Recorrência criada</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Mudança de status do Antifraude. Exclusivo para clientes integrados ao Antifraude.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Mudança de status do pagamento recorrente (Ex. desativação automática)</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>cancelamento negado</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Notificação de chargeback. Exclusivo para clientes integrados à <a href="https://braspag.github.io//manual/risknotification" target="_blank">Risk Notification API</a>.</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Alerta de fraude</td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="consulta---captura---cancelamento">Consulta - Captura - Cancelamento</h1>
 
 <h2 id="consulta-de-transações">Consulta de transações</h2>
@@ -6708,216 +6915,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <h3 id="cancelamento-via-site-cielo">Cancelamento via site Cielo</h3>
 
-<p>O Cancelamento via Backoffice é a unica opção para realizar o cancelamento de transações de Débito Online. É possivel realizar tanto o cancelamento total quanto o cancelamento parcial.</p>
-
-<h2 id="post-de-notificação">Post de Notificação</h2>
-
-<h3 id="sobre-o-post">Sobre o POST</h3>
-
-<p>O <strong>Post de Notificação</strong> é um <strong>webhook</strong> que envia notificações sobre mudanças no status da transação ou sobre criação de pedido recorrente.</p>
-
-<p>Durante seu cadastro na Cielo, você deve configurar um endpoint para que a Cielo envie as notificações e pode também configurar os eventos para os quais deseja receber notificações.</p>
-
-<h3 id="eventos-notificados">Eventos Notificados</h3>
-
-<p>Os eventos passíveis de notificação por meio de pagamento são:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Meio de Pagamento</th>
-      <th>Eventos que podem ser notificados</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Cartão de Crédito</strong></td>
-      <td>Captura;<br />Cancelamento;<br />Sondagem.</td>
-    </tr>
-    <tr>
-      <td><strong>Cartão de débito</strong></td>
-      <td>Captura;<br />Sondagem.</td>
-    </tr>
-    <tr>
-      <td><strong>Boleto</strong></td>
-      <td>Conciliação;<br />Cancelamento manual</td>
-    </tr>
-    <tr>
-      <td><strong>Transferência eletrônica</strong></td>
-      <td>Confirmadas</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>A notificação ocorre também ocorre em eventos relacionados a <strong>Recorrência Programada Cielo</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Eventos da Recorrência</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Desabilitado ao atingir número máximo de tentativas (transações negadas)</td>
-    </tr>
-    <tr>
-      <td>Reabilitação</td>
-    </tr>
-    <tr>
-      <td>Finalizado / Data de finalização atingida</td>
-    </tr>
-    <tr>
-      <td>Desativação</td>
-    </tr>
-    <tr>
-      <td>Criação da transação de recorrência do pedido recorrente.</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>Os eventos só são notificados quando se você solicitar o recebimento desse tipo de notificação ao Suporte Cielo.</p>
-</blockquote>
-
-<h3 id="endpoint-de-notificação">Endpoint de Notificação</h3>
-
-<p>Você deve informar um endpoint (<code class="language-plaintext highlighter-rouge">URL Status Pagamento</code>) ao Suporte Cielo, para que o Post de Notificação seja executado.</p>
-
-<p>Características da <code class="language-plaintext highlighter-rouge">URL Status Pagamento</code></p>
-
-<ul>
-  <li>Deve ser <strong>estática</strong>;</li>
-  <li>Limite de 255 caracteres.</li>
-</ul>
-
-<p>Características do <strong>Post de notificação</strong></p>
-
-<ul>
-  <li>É disparado a cada 30 minutos;</li>
-  <li>Em caso de falha, são realizadas três novas tentativas.</li>
-</ul>
-
-<blockquote>
-  <p>Para aumentar a segurança, é possível cadastrar uma informação para retorno do header para o seu endpoint. Com isso, seu endpoint só vai aceitar a notificação se a Cielo enviar o header.</p>
-</blockquote>
-
-<p>Para configurar as informações do header, informe ao Suporte Cielo os itens a seguir:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">KEY</code> - Nome do parâmetro</li>
-  <li><code class="language-plaintext highlighter-rouge">VALUE</code> - Valor estático a ser retornado</li>
-</ul>
-
-<p>Você pode cadastrar até 3 tipos de informação de retorno no header.</p>
-
-<blockquote>
-  <p>A <strong>loja deverá retornar</strong> como resposta à notificação: <strong>HTTP Status Code 200 OK</strong>.</p>
-</blockquote>
-
-<p>O conteúdo da notificação será formado por três campos:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code>: identificador que representa um conjunto de transações recorrentes;</li>
-  <li><code class="language-plaintext highlighter-rouge">PaymentId</code>: número de identificação do pagamento;</li>
-  <li><code class="language-plaintext highlighter-rouge">ChangeType</code>: especifica o tipo de notificação.</li>
-</ul>
-
-<p>Com os dados acima, você poderá identificar a transação via <code class="language-plaintext highlighter-rouge">PaymentId</code> ou <code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code> e a mudança ocorrida. A partir da notificação, você pode consultar mais detalhes sobre a transação na <a href="https://developercielo.github.io/manual/cielo-ecommerce#consulta-por-paymentid">Consulta por PaymentId</a> ou na <a href="https://developercielo.github.io/manual/cielo-ecommerce#consulta-de-recorr%C3%AAncia">Consulta de Recorrência</a>.</p>
-
-<p>Veja o exemplo do conteúdo do Post de Notificação:</p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="nl">"RecurrentPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"ChangeType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--header</span> <span class="s2">"key: value"</span>
-<span class="o">{</span>
-   <span class="s2">"RecurrentPaymentId"</span>: <span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>,
-   <span class="s2">"PaymentId"</span>: <span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>,
-   <span class="s2">"ChangeType"</span>: <span class="s2">"2"</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
-      <td>Identificador que representa o pedido Recorrente (aplicável somente para ChangeType 2 ou 4).</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Número de identificação do pagamento.</td>
-      <td>GUID</td>
-      <td>36</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ChangeType</code></td>
-      <td>Especifica o tipo de notificação. Veja a <a href="https://developercielo.github.io/manual/cielo-ecommerce#tabela-de-changetype">tabela de Changetype</a>.</td>
-      <td>Número</td>
-      <td>1</td>
-      <td>Sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="tabela-de-changetype">Tabela de ChangeType</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>ChangeType</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>Mudança de status do pagamento</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Recorrência criada</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Mudança de status do Antifraude. Exclusivo para clientes integrados ao Antifraude.</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>Mudança de status do pagamento recorrente (Ex. desativação automática)</td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>cancelamento negado</td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td>Notificação de chargeback. Exclusivo para clientes integrados à <a href="https://braspag.github.io//manual/risknotification" target="_blank">Risk Notification API</a>.</td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td>Alerta de fraude</td>
-    </tr>
-  </tbody>
-</table>
+<p>É possivel realizar tanto o cancelamento total quanto o cancelamento parcial via site Cielo.</p>
 
 <h1 id="velocity">Velocity</h1>
 
