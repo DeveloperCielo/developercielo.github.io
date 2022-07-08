@@ -11166,15 +11166,15 @@ HTTP Status 200
 
 <h1 id="consulta-bin">Consulta Bin</h1>
 
-<p>O <strong>Consulta Bin</strong>  é um serviço de <strong>pesquisa de dados do cartão</strong>, seja ele de crédito ou débito, que retorna ao estabelecimento informações que permitem validar os dados preenchidos na tela de pagamento. O serviço retorna os seguintes dados sobre o cartão::</p>
+<p>O <strong>Consulta Bin</strong>  é um serviço de <strong>pesquisa de dados do cartão</strong>, seja ele de crédito ou débito, que retorna ao estabelecimento informações que permitem validar os dados preenchidos na tela de pagamento. O serviço retorna os seguintes dados sobre o cartão:</p>
 
 <ul>
-  <li><strong>Bandeira do cartão:</strong> Nome da Bandeira</li>
-  <li><strong>Tipo de cartão:</strong> Crédito, Débito ou Múltiplo (Crédito e Débito)</li>
-  <li><strong>Nacionalidade do cartão:</strong> Estrangeiro ou Nacional</li>
-  <li><strong>Cartão Corporativo:</strong> Se o cartão é ou não é corporativo</li>
-  <li><strong>Banco Emissor:</strong> Código e Nome</li>
-  <li><strong>Cartão pré-pago::</strong> sim ou não</li>
+  <li><strong>Bandeira do cartão:</strong> nome da bandeira;</li>
+  <li><strong>Tipo de cartão:</strong> crédito, débito ou múltiplo (crédito e débito);</li>
+  <li><strong>Nacionalidade do cartão:</strong> estrangeiro ou nacional;</li>
+  <li><strong>Cartão Corporativo:</strong> se o cartão é ou não é corporativo;</li>
+  <li><strong>Banco Emissor:</strong> código e nome do emissor;</li>
+  <li><strong>Cartão pré-pago:</strong> se o cartão é ou não é prá-pago.</li>
 </ul>
 
 <p>Essas informações permitem tomar ações no momento do pagamento para melhorar a conversão da loja.</p>
@@ -11191,13 +11191,7 @@ HTTP Status 200
 
 <p>O marketplace da Submergível pode aplicar a Consulta BIN a três cenários:</p>
 
-<ol>
-  <li>Impedir erros referentes ao tipo de cartão;</li>
-  <li>Oferecer recuperação de carrinhos online;</li>
-  <li>Alertar sobre cartões internacionais.</li>
-</ol>
-
-<p><strong>Impedir erros referentes ao tipo de cartão</strong></p>
+<p><strong>1. Impedir erros referentes ao tipo de cartão</strong></p>
 
 <p>A Submergível pode usar a Consulta BIN no carrinho para identificar dois dos principais erros no preenchimento de formulários de pagamento:</p>
 
@@ -11210,20 +11204,15 @@ HTTP Status 200
   </li>
 </ul>
 
-<p><strong>Oferecer recuperação de carrinhos online</strong></p>
+<p><strong>2. Oferecer recuperação de carrinhos online</strong></p>
 
 <ul>
-  <li>
-    <p>A Submergível pode usar a Consulta BIN no carrinho para oferecer um novo meio de pagamento caso a transação falhe na primeira tentativa.</p>
-  </li>
-  <li>
-    <p>Realizando uma consulta no momento de preenchimento do formulário de pagamento, caso o cartão seja múltiplo (crédito e débito), a Submergível pode reter os dados do cartão, e caso a transação de crédito falhe, ela pode oferecer automaticamente ao consumidor uma transação de débito com o mesmo cartão.</p>
-  </li>
+  <li>Realizando uma consulta no momento de preenchimento do formulário de pagamento, caso o cartão seja múltiplo (crédito e débito), a Submergível pode reter os dados do cartão, e caso a transação de crédito falhe, ela pode oferecer automaticamente ao consumidor uma transação de débito com o mesmo cartão.</li>
 </ul>
 
-<p><strong>Alertar sobre cartões internacionais</strong></p>
+<p><strong>3. Alertar sobre cartões internacionais</strong></p>
 
-<p>A Submergível pode usar a Consulta BIN no carrinho para alertar a compradores internacionais que, caso o cartão não esteja habilitado para transacionar no Brasil, a transação será negada.</p>
+<p>A Consulta BIN no carrinho pode indicar a tentativa de uso de um cartão internacional; o lojista pode escolher não aceitar cartão internacional e fazer essa configuração em seu checkout.</p>
 
 <h2 id="integração">Integração</h2>
 
@@ -11243,7 +11232,7 @@ HTTP Status 200
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">BIN</code></td>
-      <td>9 primeiros dígitos do cartão<br /><em>Para simular uma consulta em SandBox com retorno <code class="language-plaintext highlighter-rouge">ForeignCard=false</code>, o terceiro dígito do BIN deve ser 1, e o quinto dígito deve ser diferente de 2 e 3.<br />Exemplos:001040, 501010, 401050</em></td>
+      <td>São os seis ou nove primeiros dígitos do cartão.</td>
     </tr>
   </tbody>
 </table>
@@ -11279,7 +11268,7 @@ HTTP Status 200
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
       <td>Texto</td>
       <td>2</td>
-      <td>Status da requisição de análise de Bins: <br /> 00 – Analise autorizada <br /> 01 – Bandeira não suportada <br /> 02 – Cartão não suportado na consulta de bin <br /> 73 – Afiliação bloqueada</td>
+      <td>Status da requisição de análise de Bins: <br /> 00 – Análise autorizada <br /> 01 – Bandeira não suportada <br /> 02 – Cartão não suportado na consulta de bin <br /> 73 – Afiliação bloqueada</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Provider</code></td>
@@ -11327,7 +11316,7 @@ HTTP Status 200
 </table>
 
 <blockquote>
-  <p><strong>Atenção</strong>: Em SANDBOX os valores retornados são simulações e não validações reais de BINS. Deve ser considerado apenas o retorno do Request e o seu formato. Para identificação real dos BINS, o ambiente de Produção deverá ser utilizado.</p>
+  <p><strong>Atenção</strong>: Em <a href="https://developercielo.github.io/manual/cielo-ecommerce#consulta-bin-sandbox"><strong>sandbox</strong></a> os valores retornados são simulações e não validações reais de BINS. Considere apenas o retorno da requisição e o seu formato. Para identificação real dos bins, use o ambiente de produção.</p>
 </blockquote>
 
 <h1 id="zero-auth">Zero Auth</h1>
