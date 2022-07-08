@@ -6019,14 +6019,14 @@ curl
 
 # Consulta Bin
 
-O **Consulta Bin**  é um serviço de **pesquisa de dados do cartão**, seja ele de crédito ou débito, que retorna ao estabelecimento informações que permitem validar os dados preenchidos na tela de pagamento. O serviço retorna os seguintes dados sobre o cartão::
+O **Consulta Bin**  é um serviço de **pesquisa de dados do cartão**, seja ele de crédito ou débito, que retorna ao estabelecimento informações que permitem validar os dados preenchidos na tela de pagamento. O serviço retorna os seguintes dados sobre o cartão:
 
-* **Bandeira do cartão:** Nome da Bandeira
-* **Tipo de cartão:** Crédito, Débito ou Múltiplo (Crédito e Débito)
-* **Nacionalidade do cartão:** Estrangeiro ou Nacional
-* **Cartão Corporativo:** Se o cartão é ou não é corporativo
-* **Banco Emissor:** Código e Nome
-* **Cartão pré-pago::** sim ou não
+* **Bandeira do cartão:** nome da bandeira;
+* **Tipo de cartão:** crédito, débito ou múltiplo (crédito e débito);
+* **Nacionalidade do cartão:** estrangeiro ou nacional;
+* **Cartão Corporativo:** se o cartão é ou não é corporativo;
+* **Banco Emissor:** código e nome do emissor;
+* **Cartão pré-pago:** se o cartão é ou não é prá-pago.
 
 Essas informações permitem tomar ações no momento do pagamento para melhorar a conversão da loja.
 
@@ -6042,11 +6042,7 @@ Conhecendo a função Consulta BIN da API Cielo E-commerce, como ele poderia evi
 
 O marketplace da Submergível pode aplicar a Consulta BIN a três cenários:
 
-1. Impedir erros referentes ao tipo de cartão;
-2. Oferecer recuperação de carrinhos online;
-3. Alertar sobre cartões internacionais.
-
-**Impedir erros referentes ao tipo de cartão**
+**1. Impedir erros referentes ao tipo de cartão**
 
 A Submergível pode usar a Consulta BIN no carrinho para identificar dois dos principais erros no preenchimento de formulários de pagamento:
 
@@ -6054,15 +6050,13 @@ A Submergível pode usar a Consulta BIN no carrinho para identificar dois dos pr
 
 * **Confusões com cartões:** ao preencher o formulário de pagamento, é possível realizar uma consulta e avisar ao consumidor se ele está usando um cartão de débito quando na verdade deveria usar um de crédito.
 
-**Oferecer recuperação de carrinhos online**
-
-* A Submergível pode usar a Consulta BIN no carrinho para oferecer um novo meio de pagamento caso a transação falhe na primeira tentativa.
+**2. Oferecer recuperação de carrinhos online**
 
 * Realizando uma consulta no momento de preenchimento do formulário de pagamento, caso o cartão seja múltiplo (crédito e débito), a Submergível pode reter os dados do cartão, e caso a transação de crédito falhe, ela pode oferecer automaticamente ao consumidor uma transação de débito com o mesmo cartão.
 
-**Alertar sobre cartões internacionais**
+**3. Alertar sobre cartões internacionais**
 
-A Submergível pode usar a Consulta BIN no carrinho para alertar a compradores internacionais que, caso o cartão não esteja habilitado para transacionar no Brasil, a transação será negada.
+A Consulta BIN no carrinho pode indicar a tentativa de uso de um cartão internacional; o lojista pode escolher não aceitar cartão internacional e fazer essa configuração em seu checkout.
 
 ## Integração
 
@@ -6074,7 +6068,7 @@ Basta realizar um `GET` enviado o BIN a nossa URL de consulta:
 
 |Campo|Descrição|
 |-----|---------|
-|`BIN`|9 primeiros dígitos do cartão<br>_Para simular uma consulta em SandBox com retorno `ForeignCard=false`, o terceiro dígito do BIN deve ser 1, e o quinto dígito deve ser diferente de 2 e 3.<br>Exemplos:001040, 501010, 401050_ |
+|`BIN`|São os seis ou nove primeiros dígitos do cartão. |
 
 ``` json
 https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
@@ -6097,7 +6091,7 @@ https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
 
 | Paramêtro     | Tipo  | Tamanho | Descrição                                                                                                                                                                                  |
 |---------------|-------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Status`      | Texto | 2       | Status da requisição de análise de Bins: <br><br> 00 – Analise autorizada <br> 01 – Bandeira não suportada <br> 02 – Cartão não suportado na consulta de bin <br> 73 – Afiliação bloqueada |
+| `Status`      | Texto | 2       | Status da requisição de análise de Bins: <br><br> 00 – Análise autorizada <br> 01 – Bandeira não suportada <br> 02 – Cartão não suportado na consulta de bin <br> 73 – Afiliação bloqueada |
 | `Provider`    | Texto | 255     | Bandeira do cartão                                                                                                                                                                         |
 | `CardType`    | Texto | 20      | Tipo do cartão em uso : <br><br> Crédito <br> Débito <br>Multiplo                                                                                                                          |
 | `ForeingCard` | Booleano | -     | Se o cartão é emitido no exterior (False/True)                                                                                                                                             |
@@ -6106,7 +6100,7 @@ https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
 | `IssuerCode` | Texto | 255     | Código do emissor do cartão                                                                                                                                           |
 | `Prepaid` | Boolean | True ou False     | Retornará "True" caso o cartão seja do tipo pré pago|
 
-> **Atenção**: Em SANDBOX os valores retornados são simulações e não validações reais de BINS. Deve ser considerado apenas o retorno do Request e o seu formato. Para identificação real dos BINS, o ambiente de Produção deverá ser utilizado.
+> **Atenção**: Em [**sandbox**](https://developercielo.github.io/manual/cielo-ecommerce#consulta-bin-sandbox) os valores retornados são simulações e não validações reais de BINS. Considere apenas o retorno da requisição e o seu formato. Para identificação real dos bins, use o ambiente de produção.
 
 # Zero Auth
 
