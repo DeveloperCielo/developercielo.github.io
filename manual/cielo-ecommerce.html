@@ -11174,10 +11174,11 @@ HTTP Status 200
   <li><strong>Nacionalidade do cartão:</strong> estrangeiro ou nacional;</li>
   <li><strong>Cartão Corporativo:</strong> se o cartão é ou não é corporativo;</li>
   <li><strong>Banco Emissor:</strong> código e nome do emissor;</li>
-  <li><strong>Cartão pré-pago:</strong> se o cartão é ou não é prá-pago.</li>
+  <li><strong>Cartão pré-pago:</strong> se o cartão é ou não é prá-pago.
+<br />
+<br />
+Essas informações permitem tomar ações no momento do pagamento para melhorar a conversão da loja.</li>
 </ul>
-
-<p>Essas informações permitem tomar ações no momento do pagamento para melhorar a conversão da loja.</p>
 
 <aside class="warning">O Consulta Bin deve ser habilitado pelo Suporte Cielo. Entre em contato com a equipe de Suporte e solicite a habilitação para sua loja.</aside>
 
@@ -11207,16 +11208,17 @@ HTTP Status 200
 <p><strong>2. Oferecer recuperação de carrinhos online</strong></p>
 
 <ul>
-  <li>Realizando uma consulta no momento de preenchimento do formulário de pagamento, caso o cartão seja múltiplo (crédito e débito), a Submergível pode reter os dados do cartão, e caso a transação de crédito falhe, ela pode oferecer automaticamente ao consumidor uma transação de débito com o mesmo cartão.</li>
+  <li>Realizando uma consulta no momento de preenchimento do formulário de pagamento, caso o cartão seja múltiplo (crédito e débito), a Submergível pode reter os dados do cartão, e caso a transação de crédito falhe, ela pode oferecer automaticamente ao consumidor uma transação de débito com o mesmo cartão.
+<br />
+<br />
+<strong>3. Alertar sobre cartões internacionais</strong></li>
 </ul>
-
-<p><strong>3. Alertar sobre cartões internacionais</strong></p>
 
 <p>A Consulta BIN no carrinho pode indicar a tentativa de uso de um cartão internacional; o lojista pode escolher não aceitar cartão internacional e fazer essa configuração em seu checkout.</p>
 
 <h2 id="integração">Integração</h2>
 
-<h3 id="request">Request</h3>
+<h3 id="requisição-35">Requisição</h3>
 
 <p>Basta realizar um <code class="language-plaintext highlighter-rouge">GET</code> enviado o BIN a nossa URL de consulta:</p>
 
@@ -11240,7 +11242,7 @@ HTTP Status 200
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">https://apiquerysandbox.cieloecommerce.cielo.com.br/</span><span class="mi">1</span><span class="err">/cardBin/</span><span class="mi">420020</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="response">Response</h3>
+<h3 id="resposta-32">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
@@ -11401,7 +11403,7 @@ Todas essas etapas exigem que transações sejam realizadas para obter acesso a 
 
 <p>Cada tipo de validação necessita de um contrato tecnico diferente. Eles resultarão em <em>responses diferenciados</em>.</p>
 
-<h3 id="requisição-35">Requisição</h3>
+<h3 id="requisição-36">Requisição</h3>
 
 <h4 id="padrão">PADRÃO</h4>
 
@@ -11544,7 +11546,7 @@ Todas essas etapas exigem que transações sejam realizadas para obter acesso a 
   </tbody>
 </table>
 
-<h3 id="resposta-32">Resposta</h3>
+<h3 id="resposta-33">Resposta</h3>
 
 <p>A resposta sempre retorna se o cartão pode ser autorizado no momento. Essa informação apenas significa que o <em>cartão está valido a transacionar</em>, mas não necessariamente indica que um determinado valor será autorizado.</p>
 
@@ -12067,7 +12069,7 @@ O código de retorno <strong>00 representa sucesso no Zero Auth</strong>, os dem
 
 <p>Exemplo: https://transaction.cieloecommerce.cielo.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000</p>
 
-<h3 id="requisição-36">Requisição</h3>
+<h3 id="requisição-37">Requisição</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v1/accesstoken?merchantid={mid_loja}</span></aside>
 
@@ -12099,7 +12101,7 @@ O código de retorno <strong>00 representa sucesso no Zero Auth</strong>, os dem
   </tbody>
 </table>
 
-<h3 id="resposta-33">Resposta</h3>
+<h3 id="resposta-34">Resposta</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
