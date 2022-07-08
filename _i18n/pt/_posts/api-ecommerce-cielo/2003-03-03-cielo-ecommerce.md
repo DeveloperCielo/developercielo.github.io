@@ -6027,7 +6027,8 @@ O **Consulta Bin**  é um serviço de **pesquisa de dados do cartão**, seja ele
 * **Cartão Corporativo:** se o cartão é ou não é corporativo;
 * **Banco Emissor:** código e nome do emissor;
 * **Cartão pré-pago:** se o cartão é ou não é prá-pago.
-
+<br/>
+<br/>
 Essas informações permitem tomar ações no momento do pagamento para melhorar a conversão da loja.
 
 <aside class="warning">O Consulta Bin deve ser habilitado pelo Suporte Cielo. Entre em contato com a equipe de Suporte e solicite a habilitação para sua loja.</aside>
@@ -6053,14 +6054,15 @@ A Submergível pode usar a Consulta BIN no carrinho para identificar dois dos pr
 **2. Oferecer recuperação de carrinhos online**
 
 * Realizando uma consulta no momento de preenchimento do formulário de pagamento, caso o cartão seja múltiplo (crédito e débito), a Submergível pode reter os dados do cartão, e caso a transação de crédito falhe, ela pode oferecer automaticamente ao consumidor uma transação de débito com o mesmo cartão.
-
+<br/>
+<br/>
 **3. Alertar sobre cartões internacionais**
 
 A Consulta BIN no carrinho pode indicar a tentativa de uso de um cartão internacional; o lojista pode escolher não aceitar cartão internacional e fazer essa configuração em seu checkout.
 
 ## Integração
 
-### Request
+### Requisição
 
 Basta realizar um `GET` enviado o BIN a nossa URL de consulta:
 
@@ -6074,7 +6076,7 @@ Basta realizar um `GET` enviado o BIN a nossa URL de consulta:
 https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
 ```
 
-### Response
+### Resposta
 
 ``` json
 {
