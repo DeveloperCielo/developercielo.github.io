@@ -5822,6 +5822,8 @@ curl
 
 ## Criando uma venda com Cartão Tokenizado na 1.5
 
+<aside class="warning">Essa integração visa atender clientes que estejam migrando da API 1.5 para a API 3.0.</aside>
+
 Para criar uma venda de cartão de crédito com token do webservice 1.5, é necessário fazer um POST para o recurso Payment conforme o exemplo.
 
 Para uso em Sandbox, é possivel simular transações autorizadas ou negadas via tokens de teste:
