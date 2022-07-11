@@ -104,6 +104,15 @@ A versão atual da API e-commerce Cielo possui suporte às seguintes bandeiras e
 
 <aside class="warning">Cartões emitidos no exterior não possuem permissão de parcelamento.</aside>
 
+## Suporte Cielo
+
+Caso tenha dúvidas envie um e-mail para: **cieloecommerce@cielo.com.br**
+
+Ou, se preferir, entre em contato com a gente pela **Central de Atendimento**:
+
+* Capitais e regiões metropolitanas: **(11) 4002-9700** 
+* Demais localidades: **0800 570 1700**
+
 # Certificados e segurança
 
 ## O que é Certificado SSL?
