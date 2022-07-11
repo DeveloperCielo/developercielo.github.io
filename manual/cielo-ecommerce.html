@@ -11314,76 +11314,39 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
 
 <h1 id="zero-auth">Zero Auth</h1>
 
-<p>O <strong>Zero Auth</strong> é uma ferramenta de validação de cartões da API Cielo. A validação permite que o lojista saiba se o cartão é valido ou não antes de enviar a transação para autorização, antecipando o motivo de uma provável não autorização.</p>
+<p>O <strong>Zero Auth</strong> é uma ferramenta da Cielo que permite verificar se um cartão está válido para realizar uma compra antes que o pedido seja finalizado. O Zero Auth simula uma autorização sem afetar o limite de crédito ou alertar o portador do cartão sobre o teste.</p>
 
-<blockquote>
-  <p><strong>Atenção:</strong> Para os casos que seja utilizado algum valor diferente de “0” zero (com valor inferior a 1 dólar seguido do cancelamento da transação), as bandeiras ao identificarem a ação aplicarão tarifas à Cielo, as quais serão repassadas aos estabelecimentos que estiverem em inconformidade. A bandeira Mastercard por exemplo, está cobrando uma tarifa no valor de R$ 0,21 centavos por transação</p>
-</blockquote>
-
-<p>O <strong>Zero Auth</strong> pode ser usado de 2 maneiras:</p>
+<p>O Zero Auth não informa o limite ou características do cartão ou do portador, mas simula uma autorização Cielo validando dados como:</p>
 
 <ol>
-  <li><strong>Padrão</strong> - Envio de um cartão padrão, sem tokenização ou analises adicionais</li>
-  <li><strong>Com cartão Tokenizado</strong> - Envio de um TOKEN 3.0 para analise</li>
+  <li>Se o cartão está valido junto ao banco emissor;</li>
+  <li>Se o cartão possui limite disponível;</li>
+  <li>Se o cartão funciona no Brasil;</li>
+  <li>Se o número do cartão está correto;</li>
+  <li>Se o CVV é válido.</li>
 </ol>
 
-<p>É importante destacar que o Zero Auth <strong>não retorna ou analisa</strong> os seguintes itens:</p>
-
-<ol>
-  <li>Limite de crédito do cartão</li>
-  <li>Informações sobre o portador</li>
-  <li>Não aciona a base bancaria (dispara SMS so portador)</li>
-</ol>
-
-<p>O Zero Auth suporta as seguintes bandeiras:</p>
-
-<ul>
-  <li><strong>Visa</strong></li>
-  <li><strong>MasterCard</strong></li>
-  <li><strong>Elo</strong></li>
-</ul>
+<p>O Zero Auth é a forma correta de validar cartões de acordo com as recomendações das bandeiras e bancos. Antes da criação do Zero Auth, as lojas costumavam criar transações de valores baixos, como um real ou um dólar, e fazer o cancelamento em seguida; é importante saber que essa prática hoje é penalizada pelas bandeiras.</p>
 
 <blockquote>
-  <p>Caso outras bandeiras sejam enviadas, o erro <strong>57-Bandeira inválida</strong> será exibido.</p>
+  <p><strong>Atenção:</strong> Na ocorrência de transações com valor diferente de <em>zero</em> e inferior a <em>um dólar</em>, seguidas do cancelamento da transação, as bandeiras aplicarão tarifas à Cielo, que serão repassadas aos estabelecimentos que estiverem em inconformidade. A bandeira Mastercard por exemplo, está cobrando uma tarifa no valor de R$ 0,21 centavos por transação.</p>
 </blockquote>
+
+<p>O <strong>ZeroAuth</strong> faz a validação de <strong>cartões abertos ou tokenizados</strong> (envio do <code class="language-plaintext highlighter-rouge">CardToken</code> criado na API Cielo E-commerce).</p>
+
+<p><strong>Bandeiras suportadas</strong></p>
+
+<p>O Zero Auth suporta as bandeiras <strong>Visa, Mastercard</strong> e <strong>Elo</strong>.</p>
+
+<p>Caso outras bandeiras sejam enviadas, haverá um erro com o retorno “<strong>57-Bandeira inválida</strong>”.</p>
 
 <h2 id="caso-de-uso-2">Caso de uso</h2>
 
-<p>Este é um exemplo de como usar o zero auth para melhorar sua conversão de vendas.</p>
-
-<p>O Zero Auth é uma ferramenta da Cielo que permite verificar se um cartão está valido para realizar uma compra antes que o pedido seja finalizado. Ele faz isso simulando uma autorização, mas sem afetar o limite de crédito ou alertar o portados do cartão sobre o teste.</p>
-
-<p>Ela não informa o limite ou características do cartão ou portador, mas simula uma autorização Cielo, validando dados como:</p>
-
-<ol>
-  <li>Se  o cartão está valido junto ao banco emissor</li>
-  <li>Se o cartão possui limite disponível</li>
-  <li>Se o cartão funciona no Brasil</li>
-  <li>Se o número do cartão está correto</li>
-  <li>Se o CVV é valido</li>
-</ol>
-
-<p>O Zero Auth também funciona com Cartões tokenizados na Api Cielo Ecommerce</p>
-
-<p>Veja um exemplo de uso:</p>
-
-<p><strong>Zero auth como validador de cartão</strong></p>
-
-<p>Uma empresa de Streaming chamada FlixNet possui um serviço via assinatura, onde além de realizar uma recorrência, ela possui cartões salvos e recebe novas inscrições diariamente. 
-Todas essas etapas exigem que transações sejam realizadas para obter acesso a ferramenta, o que eleva o custo da FlixNet caso as transações não sejam autorizadas.</p>
-
-<p>Como ela poderia reduzir esse custo? Validando o cartão antes de envia-lo a autorizado.</p>
-
-<p>A FlixNet usa o Zero Auth em 2 momento diferente:</p>
+<p>Um serviço de assinatura com período de teste grátis e cobrança mensal (recorrência) pode usar o ZeroAuth para melhorar a sua conversão de vendas:</p>
 
 <ul>
-  <li><strong>Cadastro</strong>: é necessário incluir um cartão para ganhar 30 dias grátis no primeiro mês.</li>
-</ul>
-
-<p>O problema é que ao se encerrar esse período, se o cartão for invalido, o novo cadastro existe, mas não funciona, pois, o cartão salvo é invalido. A Flix Net resolveu esse problema testando o cartão com o Zero Auth no momento do cadastro, assim, ela já sabe se o cartão está valido e libera a criação da conta. Caso não o cartão não seja aceito, a FlixNet pode sugerir o uso de um outro cartão.</p>
-
-<ul>
-  <li><strong>Recorrência</strong>: todo mês, antes de realizar a cobrança da Assinatura, a Flixnet testa o cartão com o zero auth, assim sabendo se ele será autorizado ou não.  Isso ajuda o FlixNet a prever quais cartões serão negados, já acionando o assinante para atualização do cadastro antes do dia de pagamento.</li>
+  <li><strong>Durante um novo cadastro</strong>, para assegurar que o comprador está inserindo um cartão válido naquele momento; isso evita que, quando o período de teste terminar, a cobrança seja feita em um cartão que não está apto para autorização;</li>
+  <li><strong>Antes de cada cobrança recorrente</strong>, para identificar cartões que não serão autorizados e, assim, poder acionar o assinante para oferecer uma outra forma de pagamento antes do dia da cobrança.</li>
 </ul>
 
 <h2 id="integração-1">Integração</h2>
