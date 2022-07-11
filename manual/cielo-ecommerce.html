@@ -11164,11 +11164,11 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h1 id="consulta-bin">Consulta Bin</h1>
+<h1 id="consulta-bin">Consulta BIN</h1>
 
-<p>A <strong>Consulta Bin</strong> é um serviço de <strong>pesquisa de dados do cartão</strong>, seja ele de crédito ou débito, que identifica características do cartão com base nos primeiros dígitos e retorna informações que permitem validar os dados preenchidos na tela de pagamento.</p>
+<p>A <strong>Consulta BIN</strong> é um serviço de <strong>pesquisa de dados do cartão</strong>, seja ele de crédito ou débito, que identifica características do cartão com base nos primeiros dígitos e retorna informações que permitem validar os dados preenchidos na tela de pagamento.</p>
 
-<p>A Consulta Bin retorna os seguintes dados sobre o cartão:</p>
+<p>A Consulta BIN retorna os seguintes dados sobre o cartão:</p>
 
 <ul>
   <li><strong>Bandeira do cartão:</strong> nome da bandeira;</li>
@@ -11176,7 +11176,7 @@ HTTP Status 200
   <li><strong>Nacionalidade do cartão:</strong> estrangeiro ou nacional;</li>
   <li><strong>Cartão Corporativo:</strong> se o cartão é ou não é corporativo;</li>
   <li><strong>Banco Emissor:</strong> código e nome do emissor;</li>
-  <li><strong>Cartão pré-pago:</strong> se o cartão é ou não é prá-pago.
+  <li><strong>Cartão pré-pago:</strong> se o cartão é ou não é pré-pago.
 <br />
 <br />
 Essas informações permitem tomar ações no momento do pagamento para melhorar a conversão da loja.</li>
@@ -11186,36 +11186,26 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
 
 <h2 id="caso-de-uso-2">Caso de Uso</h2>
 
-<p>Veja um exemplo de uso: <strong>Consulta BIN + recuperação de carrinho</strong></p>
+<p>Com base no resultado da Consulta BIN você pode desenvolver funcionalidades no seu checkout para melhorar a usabilidade para quem está comprando, e assim  ajudar na recuperação de carrinhos e na melhor conversão da sua loja.</p>
 
-<p>O marketplace da empresa Submergível possui uma gama de meios de pagamento disponíveis para que suas lojas ofereçam ao comprador, mas mesmo com toda essa oferta ele continua com uma taxa de conversão baixa.</p>
-
-<p>Conhecendo a função Consulta BIN da API Cielo E-commerce, como ele poderia evitar a perda de carrinhos?</p>
-
-<p>O marketplace da Submergível pode aplicar a Consulta BIN a três cenários:</p>
-
-<p><strong>1. Impedir erros referentes ao tipo de cartão</strong></p>
-
-<p>A Submergível pode usar a Consulta BIN no carrinho para identificar dois dos principais erros no preenchimento de formulários de pagamento:</p>
+<p><strong>1. Evita erros referentes à bandeira ou ao tipo de cartão</strong>:</p>
 
 <ul>
   <li>
-    <p><strong>Bandeira errada:</strong> ao preencher o formulário de pagamento, é possível realizar uma consulta e já definir a bandeira correta. Esse é um método muito mais seguro do que se basear em algoritmos no formulário, pois a base de bins consultada é a da bandeira emissora do cartão.</p>
+    <p>A consulta BIN retorna a <strong>bandeira correta</strong> do cartão uma vez que está associada à base de BINS das bandeiras; esse é um método muito mais seguro do que se basear em algoritmos no formulário;</p>
   </li>
   <li>
-    <p><strong>Confusões com cartões:</strong> ao preencher o formulário de pagamento, é possível realizar uma consulta e avisar ao consumidor se ele está usando um cartão de débito quando na verdade deveria usar um de crédito.</p>
+    <p>No checkout da sua loja, você pode criar uma mensagem para avisar ao consumidor se ele está usando um cartão de débito quando na verdade deveria usar um de crédito.</p>
   </li>
 </ul>
 
 <p><strong>2. Oferecer recuperação de carrinhos online</strong></p>
 
-<ul>
-  <li>Realizando uma consulta no momento de preenchimento do formulário de pagamento, caso o cartão seja múltiplo (crédito e débito), a Submergível pode reter os dados do cartão, e caso a transação de crédito falhe, ela pode oferecer automaticamente ao consumidor uma transação de débito com o mesmo cartão.
-<br />
-<strong>3. Alertar sobre cartões internacionais</strong></li>
-</ul>
+<p>Você pode desenvolver um fluxo na sua aplicação para que, caso um cartão informado na tela de pagamento seja múltiplo (crédito e débito), a sua loja pode reter os dados do cartão e, caso a transação de crédito falhe, oferecer automaticamente ao consumidor uma transação de débito com o mesmo cartão.</p>
 
-<p>A Consulta BIN no carrinho pode indicar a tentativa de uso de um cartão internacional; o lojista pode escolher não aceitar cartão internacional e fazer essa configuração em seu checkout.</p>
+<p><strong>3. Alertar sobre cartões internacionais ou pré-pagos</strong></p>
+
+<p>A Consulta BIN no carrinho pode indicar a tentativa de uso de um cartão internacional ou pré-pago. Se a sua loja não deseja receber pagamentos internacionais ou de cartões pré-pagos, você pode configurar o seu checkout para informar ao consumidor que a loja não aceita o cartão informado.</p>
 
 <h2 id="integração">Integração</h2>
 
