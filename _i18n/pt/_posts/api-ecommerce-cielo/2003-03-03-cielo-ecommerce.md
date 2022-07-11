@@ -6035,11 +6035,11 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
 
 <aside class="warning">Para habilitar a Consulta Bin, entre em contato com a equipe de suporte da Cielo.</aside>
 
-## Caso de Uso
+## Casos de Uso
 
-Com base no resultado da Consulta BIN você pode desenvolver funcionalidades no seu checkout para melhorar a usabilidade para quem está comprando, e assim  ajudar na recuperação de carrinhos e na melhor conversão da sua loja.  
+Com base no resultado da Consulta BIN você pode desenvolver funcionalidades no seu checkout para melhorar a usabilidade para quem está comprando e, assim,  ajudar na recuperação de carrinhos e na melhor conversão da sua loja.  
 
-**1. Evita erros referentes à bandeira ou ao tipo de cartão**: 
+**1. Evitar erros referentes à bandeira ou ao tipo de cartão**: 
 
 * A consulta BIN retorna a **bandeira correta** do cartão uma vez que está associada à base de BINS das bandeiras; esse é um método muito mais seguro do que se basear em algoritmos no formulário;
 
@@ -6047,7 +6047,7 @@ Com base no resultado da Consulta BIN você pode desenvolver funcionalidades no 
 
 **2. Oferecer recuperação de carrinhos online**
 
-Você pode desenvolver um fluxo na sua aplicação para que, caso um cartão informado na tela de pagamento seja múltiplo (crédito e débito), a sua loja pode reter os dados do cartão e, caso a transação de crédito falhe, oferecer automaticamente ao consumidor uma transação de débito com o mesmo cartão.
+Você pode desenvolver um fluxo no seu checkout para que, caso um cartão informado na tela de pagamento seja múltiplo (crédito e débito), a sua loja pode reter os dados do cartão e, caso a transação de crédito falhe, oferecer automaticamente ao consumidor uma transação de débito com o mesmo cartão.
 
 **3. Alertar sobre cartões internacionais ou pré-pagos**
 
