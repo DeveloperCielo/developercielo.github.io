@@ -6019,7 +6019,9 @@ curl
 
 # Consulta Bin
 
-O **Consulta Bin**  é um serviço de **pesquisa de dados do cartão**, seja ele de crédito ou débito, que retorna ao estabelecimento informações que permitem validar os dados preenchidos na tela de pagamento. O serviço retorna os seguintes dados sobre o cartão:
+A **Consulta Bin** é um serviço de **pesquisa de dados do cartão**, seja ele de crédito ou débito, que identifica características do cartão com base nos primeiros dígitos e retorna informações que permitem validar os dados preenchidos na tela de pagamento. 
+
+A Consulta Bin retorna os seguintes dados sobre o cartão:
 
 * **Bandeira do cartão:** nome da bandeira;
 * **Tipo de cartão:** crédito, débito ou múltiplo (crédito e débito);
@@ -6031,7 +6033,7 @@ O **Consulta Bin**  é um serviço de **pesquisa de dados do cartão**, seja ele
 <br/>
 Essas informações permitem tomar ações no momento do pagamento para melhorar a conversão da loja.
 
-<aside class="warning">O Consulta Bin deve ser habilitado pelo Suporte Cielo. Entre em contato com a equipe de Suporte e solicite a habilitação para sua loja.</aside>
+<aside class="warning">Para habilitar a Consulta Bin, entre em contato com a equipe de suporte da Cielo.</aside>
 
 ## Caso de Uso
 
@@ -6055,7 +6057,6 @@ A Submergível pode usar a Consulta BIN no carrinho para identificar dois dos pr
 
 * Realizando uma consulta no momento de preenchimento do formulário de pagamento, caso o cartão seja múltiplo (crédito e débito), a Submergível pode reter os dados do cartão, e caso a transação de crédito falhe, ela pode oferecer automaticamente ao consumidor uma transação de débito com o mesmo cartão.
 <br/>
-<br/>
 **3. Alertar sobre cartões internacionais**
 
 A Consulta BIN no carrinho pode indicar a tentativa de uso de um cartão internacional; o lojista pode escolher não aceitar cartão internacional e fazer essa configuração em seu checkout.
@@ -6064,7 +6065,7 @@ A Consulta BIN no carrinho pode indicar a tentativa de uso de um cartão interna
 
 ### Requisição
 
-Basta realizar um `GET` enviado o BIN a nossa URL de consulta:
+Basta realizar um `GET` enviando o BIN à nossa URL de consulta:
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">/1/cardBin/`BIN`</span></aside>
 
@@ -6094,19 +6095,19 @@ https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
 | Paramêtro     | Tipo  | Tamanho | Descrição                                                                                                                                                                                  |
 |---------------|-------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `Status`      | Texto | 2       | Status da requisição de análise de Bins: <br><br> 00 – Análise autorizada <br> 01 – Bandeira não suportada <br> 02 – Cartão não suportado na consulta de bin <br> 73 – Afiliação bloqueada |
-| `Provider`    | Texto | 255     | Bandeira do cartão                                                                                                                                                                         |
+| `Provider`    | Texto | 255     | Bandeira do cartão.                                                                                                                                                                         |
 | `CardType`    | Texto | 20      | Tipo do cartão em uso : <br><br> Crédito <br> Débito <br>Multiplo                                                                                                                          |
-| `ForeingCard` | Booleano | -     | Se o cartão é emitido no exterior (False/True)                                                                                                                                             |
-| `CorporateCard` | Booleano | -     | Se o cartão é corporativo (False/True)                                                                                                                                             |
-| `Issuer` | Texto | 255     | Nome do emissor do cartão                                                                                                                                        |
-| `IssuerCode` | Texto | 255     | Código do emissor do cartão                                                                                                                                           |
-| `Prepaid` | Boolean | True ou False     | Retornará "True" caso o cartão seja do tipo pré pago|
+| `ForeingCard` | Booleano | -     | Se o cartão é emitido no exterior (False/True).                                                                                                                                             |
+| `CorporateCard` | Booleano | -     | Se o cartão é corporativo (False/True).                                                                                                                                             |
+| `Issuer` | Texto | 255     | Nome do emissor do cartão.                                                                                                                                        |
+| `IssuerCode` | Texto | 255     | Código do emissor do cartão.                                                                                                                                           |
+| `Prepaid` | Boolean | True ou False     | Retornará "True" caso o cartão seja do tipo pré pago.|
 
 > **Atenção**: Em [**sandbox**](https://developercielo.github.io/manual/cielo-ecommerce#consulta-bin-sandbox) os valores retornados são simulações e não validações reais de BINS. Considere apenas o retorno da requisição e o seu formato. Para identificação real dos bins, use o ambiente de produção.
 
 # Zero Auth
 
-O **Zero Auth** é uma ferramenta de validação de cartões da API Cielo. A validação permite que o lojista saiba se o cartão é valido ou não antes de enviar a transação para autorização, antecipando o motivo de uma provável não autorização..
+O **Zero Auth** é uma ferramenta de validação de cartões da API Cielo. A validação permite que o lojista saiba se o cartão é valido ou não antes de enviar a transação para autorização, antecipando o motivo de uma provável não autorização.
 
 > **Atenção:** Para os casos que seja utilizado algum valor diferente de “0” zero (com valor inferior a 1 dólar seguido do cancelamento da transação), as bandeiras ao identificarem a ação aplicarão tarifas à Cielo, as quais serão repassadas aos estabelecimentos que estiverem em inconformidade. A bandeira Mastercard por exemplo, está cobrando uma tarifa no valor de R$ 0,21 centavos por transação
 
