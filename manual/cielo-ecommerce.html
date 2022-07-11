@@ -11166,7 +11166,9 @@ HTTP Status 200
 
 <h1 id="consulta-bin">Consulta Bin</h1>
 
-<p>O <strong>Consulta Bin</strong>  é um serviço de <strong>pesquisa de dados do cartão</strong>, seja ele de crédito ou débito, que retorna ao estabelecimento informações que permitem validar os dados preenchidos na tela de pagamento. O serviço retorna os seguintes dados sobre o cartão:</p>
+<p>A <strong>Consulta Bin</strong> é um serviço de <strong>pesquisa de dados do cartão</strong>, seja ele de crédito ou débito, que identifica características do cartão com base nos primeiros dígitos e retorna informações que permitem validar os dados preenchidos na tela de pagamento.</p>
+
+<p>A Consulta Bin retorna os seguintes dados sobre o cartão:</p>
 
 <ul>
   <li><strong>Bandeira do cartão:</strong> nome da bandeira;</li>
@@ -11180,7 +11182,7 @@ HTTP Status 200
 Essas informações permitem tomar ações no momento do pagamento para melhorar a conversão da loja.</li>
 </ul>
 
-<aside class="warning">O Consulta Bin deve ser habilitado pelo Suporte Cielo. Entre em contato com a equipe de Suporte e solicite a habilitação para sua loja.</aside>
+<aside class="warning">Para habilitar a Consulta Bin, entre em contato com a equipe de suporte da Cielo.</aside>
 
 <h2 id="caso-de-uso-2">Caso de Uso</h2>
 
@@ -11210,7 +11212,6 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
 <ul>
   <li>Realizando uma consulta no momento de preenchimento do formulário de pagamento, caso o cartão seja múltiplo (crédito e débito), a Submergível pode reter os dados do cartão, e caso a transação de crédito falhe, ela pode oferecer automaticamente ao consumidor uma transação de débito com o mesmo cartão.
 <br />
-<br />
 <strong>3. Alertar sobre cartões internacionais</strong></li>
 </ul>
 
@@ -11220,7 +11221,7 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
 
 <h3 id="requisição-35">Requisição</h3>
 
-<p>Basta realizar um <code class="language-plaintext highlighter-rouge">GET</code> enviado o BIN a nossa URL de consulta:</p>
+<p>Basta realizar um <code class="language-plaintext highlighter-rouge">GET</code> enviando o BIN à nossa URL de consulta:</p>
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">/1/cardBin/`BIN`</span></aside>
 
@@ -11276,7 +11277,7 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
       <td><code class="language-plaintext highlighter-rouge">Provider</code></td>
       <td>Texto</td>
       <td>255</td>
-      <td>Bandeira do cartão</td>
+      <td>Bandeira do cartão.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CardType</code></td>
@@ -11288,31 +11289,31 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
       <td><code class="language-plaintext highlighter-rouge">ForeingCard</code></td>
       <td>Booleano</td>
       <td>-</td>
-      <td>Se o cartão é emitido no exterior (False/True)</td>
+      <td>Se o cartão é emitido no exterior (False/True).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CorporateCard</code></td>
       <td>Booleano</td>
       <td>-</td>
-      <td>Se o cartão é corporativo (False/True)</td>
+      <td>Se o cartão é corporativo (False/True).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Issuer</code></td>
       <td>Texto</td>
       <td>255</td>
-      <td>Nome do emissor do cartão</td>
+      <td>Nome do emissor do cartão.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">IssuerCode</code></td>
       <td>Texto</td>
       <td>255</td>
-      <td>Código do emissor do cartão</td>
+      <td>Código do emissor do cartão.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Prepaid</code></td>
       <td>Boolean</td>
       <td>True ou False</td>
-      <td>Retornará “True” caso o cartão seja do tipo pré pago</td>
+      <td>Retornará “True” caso o cartão seja do tipo pré pago.</td>
     </tr>
   </tbody>
 </table>
@@ -11323,7 +11324,7 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
 
 <h1 id="zero-auth">Zero Auth</h1>
 
-<p>O <strong>Zero Auth</strong> é uma ferramenta de validação de cartões da API Cielo. A validação permite que o lojista saiba se o cartão é valido ou não antes de enviar a transação para autorização, antecipando o motivo de uma provável não autorização..</p>
+<p>O <strong>Zero Auth</strong> é uma ferramenta de validação de cartões da API Cielo. A validação permite que o lojista saiba se o cartão é valido ou não antes de enviar a transação para autorização, antecipando o motivo de uma provável não autorização.</p>
 
 <blockquote>
   <p><strong>Atenção:</strong> Para os casos que seja utilizado algum valor diferente de “0” zero (com valor inferior a 1 dólar seguido do cancelamento da transação), as bandeiras ao identificarem a ação aplicarão tarifas à Cielo, as quais serão repassadas aos estabelecimentos que estiverem em inconformidade. A bandeira Mastercard por exemplo, está cobrando uma tarifa no valor de R$ 0,21 centavos por transação</p>
