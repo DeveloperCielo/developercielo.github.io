@@ -6016,13 +6016,7 @@ https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
 
 O **Zero Auth** é uma ferramenta da Cielo que permite verificar se um cartão está válido para realizar uma compra antes que o pedido seja finalizado. O Zero Auth simula uma autorização sem afetar o limite de crédito ou alertar o portador do cartão sobre o teste.
 
-O Zero Auth não informa o limite ou características do cartão ou do portador, mas simula uma autorização Cielo validando dados como:
-
-1. Se o cartão está válido junto ao banco emissor;
-2. Se o cartão possui limite disponível;
-3. Se o cartão funciona no Brasil;
-4. Se o número do cartão está correto;
-5. Se o CVV é válido.
+> O Zero Auth não informa o limite ou características do cartão ou do portador, apenas simula uma autorização Cielo.
 
 O Zero Auth é a forma correta de validar cartões de acordo com as recomendações das bandeiras e bancos. Antes da criação do Zero Auth, as lojas costumavam criar transações de valores baixos, como um real ou um dólar, e fazer o cancelamento em seguida; é importante saber que essa prática hoje é penalizada pelas bandeiras. 
 
@@ -6035,13 +6029,6 @@ O **ZeroAuth** faz a validação de **cartões abertos ou tokenizados** (envio d
 O Zero Auth suporta as bandeiras **Visa, Mastercard** e **Elo**.
 
 Caso outras bandeiras sejam enviadas, haverá um erro com o retorno "**57-Bandeira inválida**".
-
-## Caso de uso
-
-Um serviço de assinatura com período de teste grátis e cobrança mensal (recorrência) pode usar o ZeroAuth para melhorar a sua conversão de vendas:
-
-* **Durante um novo cadastro**, para assegurar que o comprador está inserindo um cartão válido naquele momento; isso evita que, quando o período de teste terminar, a cobrança seja feita em um cartão que não está apto para autorização;
-* **Antes de cada cobrança recorrente**, para identificar cartões que não serão autorizados e, assim, poder acionar o assinante para oferecer uma outra forma de pagamento antes do dia da cobrança.
 
 ## Integração
 
@@ -6115,7 +6102,7 @@ Os campos retornados na resposta dependem do resultado da validação. A tabela 
 | `ReturnMessage`       | Mensagem de retorno                                                                                                                                                                                                                                                                                               | Texto   | 255     |
 | `IssuerTransactionId` | Identificador de autenticação do emissor para transações de débito recorrentes. Este campo deve ser enviado nas transações subsequentes da primeira transação no modelo de recorrência própria. Já no modelo de recorrência programada, a Cielo será a responsável por enviar o campo nas transações subsequentes. | Texto   | 15      |
 
-#### POSITIVA - Cartão Válido
+#### POSITIVA - Cartão válido
 
 ``` json
 {
@@ -6149,7 +6136,7 @@ Os campos retornados na resposta dependem do resultado da validação. A tabela 
   }
 ```
 
-#### NEGATIVA - Restrição Cadastral
+#### NEGATIVA - Restrição cadastral
 
 ``` json
   {    
