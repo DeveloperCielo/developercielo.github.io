@@ -4896,7 +4896,7 @@ Bandeiras e Emissores que já estão com o Renova Fácil habilitados:
 |`CITI`|Sim|---|---|
 |`BANCO PAN`|Sim|---|---|
 
-# Consulta - Captura - Cancelamento
+# Consulta, Captura e Cancelamento
 
 ## Consulta de transações 
 
