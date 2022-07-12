@@ -6018,7 +6018,7 @@ O **Zero Auth** é uma ferramenta da Cielo que permite verificar se um cartão e
 
 O Zero Auth não informa o limite ou características do cartão ou do portador, mas simula uma autorização Cielo validando dados como:
 
-1. Se o cartão está valido junto ao banco emissor;
+1. Se o cartão está válido junto ao banco emissor;
 2. Se o cartão possui limite disponível;
 3. Se o cartão funciona no Brasil;
 4. Se o número do cartão está correto;
@@ -6045,15 +6045,15 @@ Um serviço de assinatura com período de teste grátis e cobrança mensal (reco
 
 ## Integração
 
-Para realizar a consulta ao Zero Auth, o lojista deverá enviar uma requisição `POST` para a API Cielo Ecommerce, simulando uma transação. O `POST` deverá ser realizado nas seguintes URL: 
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://api.cieloecommerce.cielo.com.br/1/zeroauth</span></aside>
-
-Cada tipo de validação necessita de um contrato tecnico diferente. Eles resultarão em _responses diferenciados_.
+Para realizar a consulta ao Zero Auth, o lojista deverá enviar uma requisição `POST` para a API Cielo Ecommerce, simulando uma transação.
 
 ### Requisição
 
-#### PADRÃO
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/zeroauth</span></aside>
+
+A validação de um cartão aberto necessita de um contrato técnico diferente da validação de um cartão tokenizado. Confira os exemplos de requisição a seguir:
+
+#### Cartão aberto
 
 ``` json
 {
@@ -6070,7 +6070,7 @@ Cada tipo de validação necessita de um contrato tecnico diferente. Eles result
 }
 ```
 
-Abaixo, a listagem de campos da Requisição:
+A seguir, a listagem de campos da Requisição:
 
 | Paramêtro        | Descrição                                                                                                                                                  | Tipo    | Tamanho | Obrigatório |
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|---------|:-----------:|
@@ -6085,7 +6085,7 @@ Abaixo, a listagem de campos da Requisição:
 | `Usage`          | **First** se o cartão foi armazenado e é seu primeiro uso.<br>**Used** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação.                                                                                                                                                                                                                                                | Texto   | ---     | Não         |
 | `Reason`         | Indica o propósito de armazenamento de cartões, caso o campo "Usage" for "Used".<BR>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>**Installments** - Parcelamento através da recorrência<br>[Veja Mais](https://developercielo.github.io/faq/faq-api-3-0#pagamento-com-credenciais-armazenadas). | Texto   | ---     | Condicional |
 
-#### COM TOKEN
+#### Cartão tokenizado
 
 ``` json
 {
@@ -6095,7 +6095,7 @@ Abaixo, a listagem de campos da Requisição:
 }
 ```
 
-Abaixo, a listagem de campos da Requisição: 
+A seguir, a listagem de campos da Requisição: 
 
 | Paramêtro        | Descrição                                                                                                             | Tipo    | Tamanho | Obrigatório |
 |------------------|-----------------------------------------------------------------------------------------------------------------------|---------|---------|:-----------:|
@@ -6104,16 +6104,16 @@ Abaixo, a listagem de campos da Requisição:
 
 ### Resposta
 
-A resposta sempre retorna se o cartão pode ser autorizado no momento. Essa informação apenas significa que o _cartão está valido a transacionar_, mas não necessariamente indica que um determinado valor será autorizado.
+A resposta sempre retorna se o cartão pode ser autorizado no momento. Essa informação apenas significa que o _cartão está válido para transacionar_, mas não indica que um determinado valor será autorizado.
 
-Abaixo os campos retornados após a validação:
+Os campos retornados na resposta dependem do resultado da validação. A tabela a seguir apresenta todos os campos possíveis; depois da tabela, confira os exemplos de cada tipo de resposta.
 
 | Paramêtro              | Descrição                                                                                                                                                                                                                                                                                                        | Tipo    | Tamanho |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|---------|
 | `Valid`               | Situação do cartão:<br> **True** – Cartão válido<BR>**False** – Cartão Inválido                                                                                                                                                                                                                                   | Boolean | ---     |
 | `ReturnCode`          | Código de retorno                                                                                                                                                                                                                                                                                                 | Texto   | 2       |
 | `ReturnMessage`       | Mensagem de retorno                                                                                                                                                                                                                                                                                               | Texto   | 255     |
-| `IssuerTransactionId` | Identificado de autenticação do Emissor para transações de débito recorrentes. Este campo deve ser enviado nas transações subsequentes da primeira transação no modelo de recorrência própria. Já no modelo de recorrência programada, a Cielo será a responsável por enviar o campo nas transações subsequentes. | Texto   | 15      |
+| `IssuerTransactionId` | Identificador de autenticação do emissor para transações de débito recorrentes. Este campo deve ser enviado nas transações subsequentes da primeira transação no modelo de recorrência própria. Já no modelo de recorrência programada, a Cielo será a responsável por enviar o campo nas transações subsequentes. | Texto   | 15      |
 
 #### POSITIVA - Cartão Válido
 
@@ -6129,7 +6129,7 @@ Abaixo os campos retornados após a validação:
 > Consulte <https://developercielo.github.io/Webservice-3.0/#códigos-de-retorno-das-vendas> para visualizar a descrição dos códigos de retorno. 
 > O código de retorno **00 representa sucesso no Zero Auth**, os demais códigos são definidos de acordo com a documentação acima.
 
-#### NEGATIVA - Cartão Inválido
+#### NEGATIVA - Cartão inválido
 
 ``` json
 {
@@ -6158,10 +6158,10 @@ Abaixo os campos retornados após a validação:
   }
 ```
 
-Caso ocorra algum erro no fluxo, onde não seja possível validar o cartão, o serviço irá retornar erro: 
+Caso ocorra algum erro no fluxo e não seja possível validar o cartão, o serviço irá retornar os erros: 
 
-* 500 – Internal Server Erro
-* 400 – Bad Request
+* *500 – Internal Server Error*
+* *400 – Bad Request*
 
 # Silent Order Post
 
