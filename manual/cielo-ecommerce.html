@@ -11197,15 +11197,9 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
 
 <p>O <strong>Zero Auth</strong> é uma ferramenta da Cielo que permite verificar se um cartão está válido para realizar uma compra antes que o pedido seja finalizado. O Zero Auth simula uma autorização sem afetar o limite de crédito ou alertar o portador do cartão sobre o teste.</p>
 
-<p>O Zero Auth não informa o limite ou características do cartão ou do portador, mas simula uma autorização Cielo validando dados como:</p>
-
-<ol>
-  <li>Se o cartão está válido junto ao banco emissor;</li>
-  <li>Se o cartão possui limite disponível;</li>
-  <li>Se o cartão funciona no Brasil;</li>
-  <li>Se o número do cartão está correto;</li>
-  <li>Se o CVV é válido.</li>
-</ol>
+<blockquote>
+  <p>O Zero Auth não informa o limite ou características do cartão ou do portador, apenas simula uma autorização Cielo.</p>
+</blockquote>
 
 <p>O Zero Auth é a forma correta de validar cartões de acordo com as recomendações das bandeiras e bancos. Antes da criação do Zero Auth, as lojas costumavam criar transações de valores baixos, como um real ou um dólar, e fazer o cancelamento em seguida; é importante saber que essa prática hoje é penalizada pelas bandeiras.</p>
 
@@ -11220,15 +11214,6 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
 <p>O Zero Auth suporta as bandeiras <strong>Visa, Mastercard</strong> e <strong>Elo</strong>.</p>
 
 <p>Caso outras bandeiras sejam enviadas, haverá um erro com o retorno “<strong>57-Bandeira inválida</strong>”.</p>
-
-<h2 id="caso-de-uso-2">Caso de uso</h2>
-
-<p>Um serviço de assinatura com período de teste grátis e cobrança mensal (recorrência) pode usar o ZeroAuth para melhorar a sua conversão de vendas:</p>
-
-<ul>
-  <li><strong>Durante um novo cadastro</strong>, para assegurar que o comprador está inserindo um cartão válido naquele momento; isso evita que, quando o período de teste terminar, a cobrança seja feita em um cartão que não está apto para autorização;</li>
-  <li><strong>Antes de cada cobrança recorrente</strong>, para identificar cartões que não serão autorizados e, assim, poder acionar o assinante para oferecer uma outra forma de pagamento antes do dia da cobrança.</li>
-</ul>
 
 <h2 id="integração-1">Integração</h2>
 
@@ -11424,7 +11409,7 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
   </tbody>
 </table>
 
-<h4 id="positiva---cartão-válido">POSITIVA - Cartão Válido</h4>
+<h4 id="positiva---cartão-válido">POSITIVA - Cartão válido</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -11457,7 +11442,7 @@ O código de retorno <strong>00 representa sucesso no Zero Auth</strong>, os dem
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="negativa---restrição-cadastral">NEGATIVA - Restrição Cadastral</h4>
+<h4 id="negativa---restrição-cadastral">NEGATIVA - Restrição cadastral</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="p">{</span><span class="w">    
       </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">389</span><span class="p">,</span><span class="w">     
