@@ -11200,7 +11200,7 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
 <p>O Zero Auth não informa o limite ou características do cartão ou do portador, mas simula uma autorização Cielo validando dados como:</p>
 
 <ol>
-  <li>Se o cartão está valido junto ao banco emissor;</li>
+  <li>Se o cartão está válido junto ao banco emissor;</li>
   <li>Se o cartão possui limite disponível;</li>
   <li>Se o cartão funciona no Brasil;</li>
   <li>Se o número do cartão está correto;</li>
@@ -11232,15 +11232,15 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
 
 <h2 id="integração-1">Integração</h2>
 
-<p>Para realizar a consulta ao Zero Auth, o lojista deverá enviar uma requisição <code class="language-plaintext highlighter-rouge">POST</code> para a API Cielo Ecommerce, simulando uma transação. O <code class="language-plaintext highlighter-rouge">POST</code> deverá ser realizado nas seguintes URL:</p>
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://api.cieloecommerce.cielo.com.br/1/zeroauth</span></aside>
-
-<p>Cada tipo de validação necessita de um contrato tecnico diferente. Eles resultarão em <em>responses diferenciados</em>.</p>
+<p>Para realizar a consulta ao Zero Auth, o lojista deverá enviar uma requisição <code class="language-plaintext highlighter-rouge">POST</code> para a API Cielo Ecommerce, simulando uma transação.</p>
 
 <h3 id="requisição-36">Requisição</h3>
 
-<h4 id="padrão">PADRÃO</h4>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/zeroauth</span></aside>
+
+<p>A validação de um cartão aberto necessita de um contrato técnico diferente da validação de um cartão tokenizado. Confira os exemplos de requisição a seguir:</p>
+
+<h4 id="cartão-aberto">Cartão aberto</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
@@ -11256,7 +11256,7 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Abaixo, a listagem de campos da Requisição:</p>
+<p>A seguir, a listagem de campos da Requisição:</p>
 
 <table>
   <thead>
@@ -11342,7 +11342,7 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
   </tbody>
 </table>
 
-<h4 id="com-token">COM TOKEN</h4>
+<h4 id="cartão-tokenizado">Cartão tokenizado</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"CardToken"</span><span class="p">:</span><span class="s2">"23712c39-bb08-4030-86b3-490a223a8cc9"</span><span class="p">,</span><span class="w">
@@ -11351,7 +11351,7 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Abaixo, a listagem de campos da Requisição:</p>
+<p>A seguir, a listagem de campos da Requisição:</p>
 
 <table>
   <thead>
@@ -11383,9 +11383,9 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
 
 <h3 id="resposta-33">Resposta</h3>
 
-<p>A resposta sempre retorna se o cartão pode ser autorizado no momento. Essa informação apenas significa que o <em>cartão está valido a transacionar</em>, mas não necessariamente indica que um determinado valor será autorizado.</p>
+<p>A resposta sempre retorna se o cartão pode ser autorizado no momento. Essa informação apenas significa que o <em>cartão está válido para transacionar</em>, mas não indica que um determinado valor será autorizado.</p>
 
-<p>Abaixo os campos retornados após a validação:</p>
+<p>Os campos retornados na resposta dependem do resultado da validação. A tabela a seguir apresenta todos os campos possíveis; depois da tabela, confira os exemplos de cada tipo de resposta.</p>
 
 <table>
   <thead>
@@ -11417,7 +11417,7 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">IssuerTransactionId</code></td>
-      <td>Identificado de autenticação do Emissor para transações de débito recorrentes. Este campo deve ser enviado nas transações subsequentes da primeira transação no modelo de recorrência própria. Já no modelo de recorrência programada, a Cielo será a responsável por enviar o campo nas transações subsequentes.</td>
+      <td>Identificador de autenticação do emissor para transações de débito recorrentes. Este campo deve ser enviado nas transações subsequentes da primeira transação no modelo de recorrência própria. Já no modelo de recorrência programada, a Cielo será a responsável por enviar o campo nas transações subsequentes.</td>
       <td>Texto</td>
       <td>15</td>
     </tr>
@@ -11439,7 +11439,7 @@ Essas informações permitem tomar ações no momento do pagamento para melhorar
 O código de retorno <strong>00 representa sucesso no Zero Auth</strong>, os demais códigos são definidos de acordo com a documentação acima.</p>
 </blockquote>
 
-<h4 id="negativa---cartão-inválido">NEGATIVA - Cartão Inválido</h4>
+<h4 id="negativa---cartão-inválido">NEGATIVA - Cartão inválido</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
        </span><span class="nl">"Valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -11465,11 +11465,11 @@ O código de retorno <strong>00 representa sucesso no Zero Auth</strong>, os dem
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Caso ocorra algum erro no fluxo, onde não seja possível validar o cartão, o serviço irá retornar erro:</p>
+<p>Caso ocorra algum erro no fluxo e não seja possível validar o cartão, o serviço irá retornar os erros:</p>
 
 <ul>
-  <li>500 – Internal Server Erro</li>
-  <li>400 – Bad Request</li>
+  <li><em>500 – Internal Server Error</em></li>
+  <li><em>400 – Bad Request</em></li>
 </ul>
 
 <h1 id="silent-order-post">Silent Order Post</h1>
