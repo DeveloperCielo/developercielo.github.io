@@ -86,7 +86,7 @@ Para facilitar o entendimento, listamos abaixo um pequeno glossário com os prin
 |**Portador**|É a pessoa que tem o porte do cartão no momento da venda.|
 |**TID (Transaction Identifier)**|código composto por 20 caracteres que identificada unicamente uma transação e-commerce Cielo.|
 
-## Produtos e Bandeiras suportadas 
+## Produtos e bandeiras suportadas 
 
 A versão atual da API e-commerce Cielo possui suporte às seguintes bandeiras e produtos:
 
