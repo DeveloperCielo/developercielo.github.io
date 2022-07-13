@@ -1657,6 +1657,8 @@ Conheça o ciclo de vida de uma transação **pix**:
 |7| Loja | Recebimento da notificação de confirmação de devolução. | 11 - Estornado |
 |8| Loja | Consulta ao status da transação. | 11 - Estornado |
 
+> **IMPORTANTE**: Para habilitar o pix no ambiente sandbox entre em contato com nosso canal de suporte e-commerce pelo e-mail *cieloecommerce@cielo.com.br*
+
 ### Criando uma transação com QR Code Pix
 
 Para gerar um QR code Pix através da API Cielo E-commerce, basta realizar a integração conforme a especificação a seguir.
