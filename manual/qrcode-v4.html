@@ -2329,6 +2329,76 @@ PAULO</strong>801010033”https://www.cielo.com.br/qrcode”0116<strong>12096761
 
 </code></pre></div></div>
 
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">transactionDate</code></td>
+      <td>Data da transação (extraída do QRCode)</td>
+      <td>Texto</td>
+      <td>36</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">terminalLogicalNumber</code></td>
+      <td>Número lógico do POS</td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">authorizationCode</code></td>
+      <td>Código de autorização da transação</td>
+      <td>Texto alfanumérico</td>
+      <td>6</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">nsu</code></td>
+      <td>Número Sequencial Único</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">merchantId</code></td>
+      <td>Identificador da loja na Cielo (extraído do QRCode)</td>
+      <td>Número</td>
+      <td>36</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">amount</code></td>
+      <td>Valor da transação</td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">originalTransactionType</code></td>
+      <td>Transação de origem. Comunica o desfazimento de uma transação do /payments.</td>
+      <td>Número</td>
+      <td>1</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">statusCode</code></td>
+      <td>1 - Pagamento / 2 - Cancelamento / 3 - Desfazimento - Quando desfazimento - statusCode = 3</td>
+      <td>Número</td>
+      <td>1</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="api-request-exemplo">API request (exemplo):</h2>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
