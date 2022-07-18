@@ -500,7 +500,7 @@ Saiba como realizar uma transação de crédito com autenticação em [Autentica
      "Interest":"ByMerchant",
      "Capture":true,
      "Authenticate":"false",
-     "Payment.Recurrent":"false",
+     "Recurrent":"false",
      "SoftDescriptor":"123456789ABCD",
      "CreditCard":{  
          "CardNumber":"1234123412341231",
@@ -575,7 +575,7 @@ curl
      "Interest":"ByMerchant",
      "Capture":true,
      "Authenticate":false,
-     "Payment.Recurrent":"false",
+     "Recurrent":"false",
      "SoftDescriptor":"123456789ABCD",
      "CreditCard":{  
          "CardNumber":"4551870000000183",
@@ -1096,7 +1096,7 @@ Para integrar a autenticação às suas transações:
      "Interest":"ByMerchant",
      "Capture":true,
      "Authenticate":"false",
-     "Payment.Recurrent":"false",
+     "Recurrent":"false",
      "SoftDescriptor":"123456789ABCD",
      "CreditCard":{  
          "CardNumber":"1234123412341231",
@@ -1171,7 +1171,7 @@ curl
      "Interest":"ByMerchant",
      "Capture":true,
      "Authenticate":false,
-     "Payment.Recurrent":"false",
+     "Recurrent":"false",
      "SoftDescriptor":"123456789ABCD",
      "CreditCard":{  
          "CardNumber":"4551870000000183",
