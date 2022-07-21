@@ -734,6 +734,7 @@ curl
         "Status": 2,
         "ReturnCode": "6",
         "ReturnMessage": "Operation Successful",
+        "Payment.MerchantAdviceCode":"1",
         "Links": [
             {
                 "Method": "GET",
@@ -824,6 +825,7 @@ curl
         "Status": 2,
         "ReturnCode": "6",
         "ReturnMessage": "Operation Successful",
+        "Payment.MerchantAdviceCode":"1",
         "Links": [
             {
                 "Method": "GET",
@@ -976,6 +978,7 @@ curl
         "ExtraDataCollection": [],
         "Status": 0,
         "ReturnCode": "0",
+        "Payment.MerchantAdviceCode":"1",
         "Links": [
             {
                 "Method": "GET",
@@ -1015,6 +1018,7 @@ curl
         "ExtraDataCollection": [],
         "Status": 0,
         "ReturnCode": "0",
+        "Payment.MerchantAdviceCode":"1",
         "Links": [
             {
                 "Method": "GET",
@@ -1322,6 +1326,7 @@ curl
         "Status": 2,
         "ReturnCode": "6",
         "ReturnMessage": "Operation Successful",
+        "Payment.MerchantAdviceCode":"1",
         "Links": [
             {
                 "Method": "GET",
@@ -1412,6 +1417,7 @@ curl
         "Status": 2,
         "ReturnCode": "6",
         "ReturnMessage": "Operation Successful",
+        "Payment.MerchantAdviceCode":"1",
         "Links": [
             {
                 "Method": "GET",
