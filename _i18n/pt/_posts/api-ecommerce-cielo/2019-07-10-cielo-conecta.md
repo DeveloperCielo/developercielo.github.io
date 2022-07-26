@@ -3325,7 +3325,7 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 | `Payment.SplitErrors.Code` | String | — | Não | Código de erro/resposta da transação do Split |
 | `Payment.SplitErrors.Message` | String | — | Não | Mensagem de erro/resposta da transação do Split |
 
-### Crédito digitado com dados do facilitador
+### Pagamento com envio dos Dados do Facilitador
 
 #### Requisição
 
@@ -3362,20 +3362,21 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
       "PhysicalCharacteristics": "PinPadWithChipReaderWithSamModule",
       "ReturnDataInfo": "00"
     },
-    "PaymentFacilitator": {
-      "EstablishmentCode": "12345678901",
-      "SubEstablishment": {
-        "EstablishmentCode": "123456789012345",
-        "Mcc": "1234",
-        "Address": "1234567890abcdefghji12",
-        "City": "1234567890abc",
-        "State": "ab",
-        "PostalCode": "123456789",
-        "PhoneNumber": "1234567890123",
-        "CountryCode": "076",
-        "DocumentType": "Cpf",
-        "DocumentNumber": "12345678901"
-      }
+    "PaymentFacilitator":{
+   "EstablishmentCode":"00123",
+   "TerminalAcquirerId":"00000001",
+   "SubEstablishment":{
+      "EstablishmentCode":"12345678",
+      "Mcc":"3412",
+      "Address":"Rua Brasil",
+      "City":"São Paulo",
+      "State":"SP",
+      "PostalCode":"123456789",
+      "PhoneNumber":"1234567890123",
+      "CountryCode":"076",
+      "DocumentType":"Cpf",
+      "DocumentNumber":"12345678901"
+   }
     }
   }
 }
@@ -3406,6 +3407,18 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 | `Payment.PinPadInformation.SerialNumber` | String | — | Não | Número de Série do Equipamento. |
 | `Payment.PinPadInformation.PhysicalCharacteristics` | String | — | Não | Enum: WithoutPinPad, PinPadWithoutChipReader, PinPadWithChipReaderWithoutSamModule, PinPadWithChipReaderWithSamModule, NotCertifiedPinPad, PinPadWithChipReaderWithoutSamAndContactless, PinPadWithChipReaderWithSamModuleAndContactless<br>Sem PIN-pad = WithoutPinPad;<br>PIN-pad sem leitor de Chip = PinpadWithoutChipReader;<br>PIN-pad com leitor de Chip sem módulo SAM = PinPadWithChipReaderWithoutSamModule;<br>PIN-pad com leitor de Chip com módulo SAM = PinPadWithChipReaderWithSamModule;<br>PIN-pad não homologado = NotCertifiedPinPad;<br>PIN-pad com leitor de Chip sem SAM e Cartão Sem Contato = PinpadWithChipReaderWithoutSamAndContactless;<br>PIN-pad com leitor de Chip com SAM e Cartão Sem Contato = PinpadWithChipReaderWithSamAndContactless.<br>Obs. Caso a aplicação não consiga informar os dados acima, deve obter tais informações através do retorno da função PP_GetInfo() da BC. |
 | `Payment.PinPadInformation.ReturnDataInfo` | String | — | Não | Retorno da função PP_GetInfo() da biblioteca compartilhada |
+| `PaymentFacilitator.EstablishmentCode` | Integer | 11 | Sim | Código do lojista - SMID - Obs: Informar o SMID do SubSeller que está realizando a transação |
+| `PaymentFacilitator.TerminalAcquirerId` | String | 8 | Sim | Código do TerminalID do SubSeller |
+| `PaymentFacilitator.SubEstablishment.EstablishmentCode` | String | 15 | Sim | Código do Subadquirente - PFID - Obs: Informar o PFID específico de cada bandeira|
+| `PaymentFacilitator.SubEstablishment.Mcc` | Integer | 4 | Sim | Ramo de atividade do SubSeller  - MCC|
+| `PaymentFacilitator.SubEstablishment.Address` | String | 50 | Sim | Endereço do SubSeller|
+| `PaymentFacilitator.SubEstablishment.City` | String | 50 | Sim | 	Cidade do SubSellerr|
+| `PaymentFacilitator.SubEstablishment.State` | String | 2 | Sim | 	Estado do SubSeller|
+| `PaymentFacilitator.SubEstablishment.PostalCode` | Integer | 9 | Sim | 	CEP do SubSeller|
+| `PaymentFacilitator.SubEstablishment.PhoneNumber` | String | 13 | Sim | Telefone do SubSeller|
+| `PaymentFacilitator.SubEstablishment.CountryCode` | String | 3 | Sim | Código do País do SubSeller - Obs: 076 - Brasil|
+| `PaymentFacilitator.SubEstablishment.DocumentType` | String | 4 | Sim | Tipo do documento do SubSeller - CPF ou CNPJ|
+| `PaymentFacilitator.SubEstablishment.DocumentNumber` | String | 14 | Sim | Número do CPF ou CNPJ do SubSeller|
 
 #### Resposta
 
@@ -3597,20 +3610,22 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
       "Value": "1,23",
       "SoftDescriptor": "Simulado"
     },
-    "PaymentFacilitator": {
-      "EstablishmentCode": "12345678901",
-      "SubEstablishment": {
-        "EstablishmentCode": "123456789012345",
-        "Mcc": "1234",
-        "Address": "1234567890abcdefghji12",
-        "City": "1234567890abc",
-        "State": "ab",
-        "PostalCode": "123456789",
-        "PhoneNumber": "1234567890123",
-        "CountryCode": "076",
-        "DocumentType": "Cpf",
-        "DocumentNumber": "12345678901"
-      }
+   "PaymentFacilitator":{
+   "TerminalAcquirerId":"00000001",
+   "SubEstablishment":{
+      "DocumentType":1,
+      "DocumentNumber":"12345678901",
+      "EstablishmentCode":"12345678",
+      "Mcc":"3412",
+      "Address":"Rua Brasil",
+      "City":"São Paulo",
+      "State":"SP",
+      "PostalCode":"123456789",
+      "PhoneNumber":"1234567890123",
+      "CountryCode":"076"
+   },
+   "EstablishmentCode":"00123"
+}
     }
   }
 }
