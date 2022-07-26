@@ -3412,8 +3412,8 @@ Quando um pagamento é criado (201 - Created), deve-se analisar o Status (Paymen
 | `PaymentFacilitator.SubEstablishment.EstablishmentCode` | String | 15 | Sim | Código do Subadquirente - PFID - Obs: Informar o PFID específico de cada bandeira|
 | `PaymentFacilitator.SubEstablishment.Mcc` | Integer | 4 | Sim | Ramo de atividade do SubSeller  - MCC|
 | `PaymentFacilitator.SubEstablishment.Address` | String | 50 | Sim | Endereço do SubSeller |
-| `PaymentFacilitator.SubEstablishment.City` | String | 50 | Sim | 	Cidade do SubSellerr |
-| `PaymentFacilitator.SubEstablishment.State` | String | 2 | Sim | 	Estado do SubSeller |
+| `PaymentFacilitator.SubEstablishment.City`|String|50|Sim| Cidade do SubSellerr|
+| `PaymentFacilitator.SubEstablishment.State`|String|2|Sim|Estado do SubSeller|
 | `PaymentFacilitator.SubEstablishment.PostalCode` | Integer | 9 | Sim | 	CEP do SubSeller |
 | `PaymentFacilitator.SubEstablishment.PhoneNumber` | String | 13 | Sim | Telefone do SubSeller |
 | `PaymentFacilitator.SubEstablishment.CountryCode` | String | 3 | Sim | Código do País do SubSeller - Obs: 076 - Brasil |
