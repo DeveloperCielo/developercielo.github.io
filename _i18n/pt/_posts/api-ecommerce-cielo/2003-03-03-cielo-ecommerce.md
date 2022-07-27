@@ -6869,7 +6869,7 @@ A Cielo informa seus clientes que está preparada para processar as transações
 
 ### Tabela de MerchantAdviceCode (MAC)
 
-O `MerchantAdviceCode` (MAC) é o código de retorno da bandeira Mastercard que define período para retentativa. A combinação do código de resposta com o MAC irá determinar se a retentativa é permitida e depois de quanto tempo.
+O `MerchantAdviceCode` (MAC) é o código de retorno da bandeira Mastercard que define o período para retentativa. A combinação do código de resposta com o MAC irá determinar se a retentativa é permitida e depois de quanto tempo.
 
 > Temporariamente, a API Cielo E-commerce vai retornar o `MerchantAdviceCode` na primeira retentativa e os códigos RP,  NR e SC a partir da segunda retentativa.
 
