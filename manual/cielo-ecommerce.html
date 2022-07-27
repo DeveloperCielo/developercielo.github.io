@@ -13465,6 +13465,49 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:</p>
   </tbody>
 </table>
 
+<h3 id="tabela-de-merchantadvicecode-mac">Tabela de MerchantAdviceCode (MAC)</h3>
+
+<p>O <code class="language-plaintext highlighter-rouge">MerchantAdviceCode</code> (MAC) é o código de retorno da bandeira Mastercard que define período para retentativa. A combinação do código de resposta com o MAC irá determinar se a retentativa é permitida e depois de quanto tempo.</p>
+
+<blockquote>
+  <p>Temporariamente, a API Cielo E-commerce vai retornar o <code class="language-plaintext highlighter-rouge">MerchantAdviceCode</code> na primeira retentativa e os códigos RP,  NR e SC a partir da segunda retentativa.</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código de retorno</th>
+      <th>MAC (primeira retentativa)</th>
+      <th>Código de/para Cielo (a partir da segunda retentativa)</th>
+      <th>Descrição</th>
+      <th>Permite retentativa?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>79<br />82<br />83<br />51</td>
+      <td>02</td>
+      <td>RP</td>
+      <td>Transação não permitida.</td>
+      <td>Sim, após 72 horas.</td>
+    </tr>
+    <tr>
+      <td>05<br />14<br />51<br />54<br />79<br />82<br />83</td>
+      <td>03</td>
+      <td>NR</td>
+      <td>Transação não permitida.</td>
+      <td>Sim, após 30 dias.</td>
+    </tr>
+    <tr>
+      <td>05</td>
+      <td>21</td>
+      <td>SC</td>
+      <td>Transação não permitida. Pagamento recorrente, serviço cancelado.</td>
+      <td>Não.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="outros-códigos-de-retorno">Outros códigos de retorno</h3>
 
 <table>
