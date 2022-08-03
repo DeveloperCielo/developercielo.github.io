@@ -1668,8 +1668,6 @@ Conheça o ciclo de vida de uma transação **pix**:
 
 > **IMPORTANTE**: Para habilitar o pix no ambiente sandbox entre em contato com nosso canal de suporte e-commerce pelo e-mail *cieloecommerce@cielo.com.br*
 
-Caso o seu estabelecimento não esteja liberado, é necessário que seja feito a habilitação nessa mesma página. Assim que concluído, você recebera um e-mail com a confirmação da habilitação.
-
 Observação: Antes de usar o PIX em Produção, certifique que o seu cadastro esteja liberado com esse serviço, para confirmar basta acessar o Site Cielo na área logada em Meu Cadastro – Autorizações – PIX
 
 ![Adesão Code Pix]({{ site.baseurl_root }}/images/apicieloecommerce/adesao-pix.jpg)
