@@ -1668,6 +1668,8 @@ Conheça o ciclo de vida de uma transação **pix**:
 
 > **IMPORTANTE**: Para habilitar o pix no ambiente sandbox entre em contato com nosso canal de suporte e-commerce pelo e-mail *cieloecommerce@cielo.com.br*
 
+Caso o seu estabelecimento não esteja liberado, é necessário que seja feito a habilitação nessa mesma página. Assim que concluído, você recebera um e-mail com a confirmação da habilitação.
+
 ### Criando uma transação com QR Code Pix
 
 Para gerar um QR code Pix através da API Cielo E-commerce, basta realizar a integração conforme a especificação a seguir.
