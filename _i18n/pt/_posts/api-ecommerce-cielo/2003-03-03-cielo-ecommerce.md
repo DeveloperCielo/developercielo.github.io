@@ -1670,7 +1670,7 @@ Conheça o ciclo de vida de uma transação **pix**:
 
 Observação: Antes de usar o PIX em Produção, certifique que o seu cadastro esteja liberado com esse serviço, para confirmar basta acessar o Site Cielo na área logada em Meu Cadastro – Autorizações – PIX
 
-![Geração do QR Code Pix]({{ site.baseurl_root }}/images/apicieloecommerce/adesao-pix.jpg)
+![Geração do QR Code Pix]({{ site.baseurl_root }}/images/apicieloecommerce/adesao-pix.png)
 
 ### Criando uma transação com QR Code Pix
 
