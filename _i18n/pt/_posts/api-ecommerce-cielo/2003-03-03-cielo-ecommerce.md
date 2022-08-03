@@ -1672,7 +1672,7 @@ Caso o seu estabelecimento não esteja liberado, é necessário que seja feito a
 
 Observação: Antes de usar o PIX em Produção, certifique que o seu cadastro esteja liberado com esse serviço, para confirmar basta acessar o Site Cielo na área logada em Meu Cadastro – Autorizações – PIX
 
-![Adesão Code Pix]({{ site.baseurl_root }}/images/apicieloecommerce/adesao_pix.jpg)
+![Adesão Code Pix]({{ site.baseurl_root }}/images/apicieloecommerce/adesao-pix.jpg)
 
 ### Criando uma transação com QR Code Pix
 
