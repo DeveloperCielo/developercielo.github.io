@@ -473,22 +473,25 @@ mensageria, que são exigidas pela bandeira. Veja abaixo:
 
 MCC’s permitidos para CBPS:
 
-|4814 (Serviços de Telecomunicação)|
-|4899 (TV à cabo, Satélite e outros Serviços de Televisão/Rádio)|
-|4900 (Serviços Públicos – Eletricidade, Gás, Água, Esgoto)|
-|6012 - BCOS/LJ.POUP/INST.F|
-|6051 - CASAS CAMB/TRAVELEE|
-|6300 (Vendas de Seguros, Subscrição e Prêmios)|
-|6513 (Agentes e Gerentes de Imóveis – Aluguéis)|
-|8050 (Instalações de Cuidados Pessoais ou de Enfermagem)|
-|8211 (Escolas de 1º e 2º Graus)|
-|8220 (Faculdades, Universidades, Escolas Profissionais e Faculdades de Curta Duração)|
-|8241 (Escolas por Correspondência)|
-|8244 (Escolas de Negócios e Secretariado)|
-|8249 (Ensino Profissionalizante/Formação Profissional)|
-|8299 (Serviços Escolares e Educacionais [Não Classificados em Nenhum Outro Lugar])|
-|8351 (Serviços de Creche)|
-|9311 (Pagamento de Impostos)|
+|4814 (Serviços de Telecomunicação)
+|4899 (TV à cabo, Satélite e outros Serviços de Televisão/Rádio)
+|4900 (Serviços Públicos – Eletricidade, Gás, Água, Esgoto)
+|6012 Instituições Financeiras - Mercadorias, Serviços e Reembolso de Dívidas
+|6051 - CASAS CAMB/TRAVELEE ( Instituições Não Financeiras - Moeda Estrangeira, Moeda Não-Fiduciária (por exemplo: Criptomoeda)
+|6300 (Vendas de Seguros, Subscrição e Prêmios)
+|6513 (Agentes e Gerentes de Imóveis – Aluguéis)
+|8011 Médicos (não classificados em outro lugar)
+|8050 (Instalações de Cuidados Pessoais ou de Enfermagem)
+|8062 Hospitais
+|8099 Serviços Médicos e Profissionais de Saúde (Não Classificados em Outros Lugares)
+|8211 (Escolas de 1º e 2º Graus)
+|8220 (Faculdades, Universidades, Escolas Profissionais e Faculdades de Curta Duração)
+|8241 (Escolas por Correspondência)
+|8244 (Escolas de Negócios e Secretariado)
+|8249 (Ensino Profissionalizante/Formação Profissional)
+|8299 (Serviços Escolares e Educacionais [Não Classificados em Nenhum Outro Lugar])
+|8351 (Serviços de Creche)
+|9311 (Pagamento de Impostos)
 
 ### Quasi cash
 
