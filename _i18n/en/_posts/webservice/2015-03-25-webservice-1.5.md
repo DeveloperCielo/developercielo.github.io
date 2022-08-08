@@ -460,6 +460,28 @@ messaging, which are required by the flag. See below:
 |dados.pedido.pagamento-conta|Boolean|---|Yes, for an establishment registered as CBPS with the flag|True or false. Indicates whether it is a CBPS (Consumer Bill Payment Service) transaction |
 |dados.ec.mcc-dinamico|Numeric|4|Yes, for a merchant registered as a CBPS with the merchant's flag|MCC (EC) allowed for CBPS transactions|
 
+MCC Permissions for CBPS:
+
+|4814 (Telecommunication Services)
+|4899 (Cable TV, Satellite and other Television/Radio Services)
+|4900 (Public Services - Electricity, Gas, Water, Sewage)
+|6012 Financial Institutions - Goods, Services and Debt Repayment
+|6051 - CASAS CAMB/TRAVELEE (Non-Financial Institutions - Foreign Currency, Non-Fiduciary Currency (for example: Cryptocurrency)
+|6300 (Insurance Sales, Subscription and Premiums)
+|6513 (Property Agents and Managers - Rentals)
+|8011 Doctors (not classified elsewhere)
+|8050 (Personal Care or Nursing Facilities)
+|8062 Hospitals
+|8099 Medical and Health Professional Services (Not Classified Elsewhere)
+|8211 (1st and 2nd Grade Schools)
+|8220 (Colleges, Universities, Vocational Schools and Short-Term Colleges)
+|8241 (Schools by Correspondence)
+|8244 (Business and Secretarial Schools)
+|8249 (Vocational Education/Professional Training)
+|8299 (School and Educational Services [Not Classified Anywhere Else])
+|8351 (Nursery Services)
+|9311 (Payment of Taxes)
+
 ### Quasi cash
 
 Quasi Cash Transactions are those transactions referring to purchases of chips for online games, purchases of lottery tickets or related. Only a few MCCs (Actuation Category Codes) that can process transactions of this model. Consult the Cielo team to understand if your business fits this model. 
