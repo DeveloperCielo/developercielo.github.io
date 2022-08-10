@@ -6189,7 +6189,7 @@ O **ZeroAuth** faz a validação de **cartões abertos ou tokenizados** (envio d
 
 **Bandeiras suportadas**
 
-O Zero Auth suporta as bandeiras **Visa, Mastercard** e **Elo**.
+O Zero Auth suporta as bandeiras **Visa, Master** e **Elo** tanto para cartões de crédito quanto de débito.
 
 Caso outras bandeiras sejam enviadas, haverá um erro com o retorno "**57-Bandeira inválida**".
 
@@ -6224,7 +6224,7 @@ A seguir, a listagem de campos da Requisição:
 
 | Paramêtro        | Descrição                                                                                                                                                  | Tipo    | Tamanho | Obrigatório |
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|---------|:-----------:|
-| `CardType`       | *CreditCard*                                                                                                                                                                                                               | Texto   | 255     | Sim         |
+| `CardType`       | *Creditcard ou DebitCard*                                                                                                                                                                                                               | Texto   | 255     | Sim         |
 | `CardNumber`     | Número do Cartão do Comprador                                                                                                                                                                                                                                                                                                                                                                             | Texto   | 16      | Sim         |
 | `Holder`         | Nome do Comprador impresso no cartão.                                                                                                                                                                                                                                                                                                                                                                     | Texto   | 25      | Sim         |
 | `ExpirationDate` | Data de e validade impresso no cartão.                                                                                                                                                                                                                                                                                                                                                                    | Texto   | 7       | Sim         |
