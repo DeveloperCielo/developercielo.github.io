@@ -8,7 +8,10 @@ toc_footers: true
 categories: tutorial
 sort_order: 8
 tags:
-  - Tokenização Bandeira
+  - API Pagamento
+  - Checkout
+  - Webservice 1.5
+  - Link de Pagamento
 ---
 
 # Programa de Retentativa das Bandeiras
