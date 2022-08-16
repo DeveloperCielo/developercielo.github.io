@@ -201,7 +201,7 @@ Um programa instituído pela Bandeira Visa que gera cobranças quando o estabele
 * Códigos reversíveis: Permitido até 15 tentativas de aprovar uma mesma transação (mesmo cartão e mesmo estabelecimento) no período de 30 dias;
 * Códigos irreversíveis: Permitido apenas 01 tentativa de aprovar uma mesma transação (mesmo cartão e mesmo estabelecimento) no período de 30 dias.
 
-- Tarifas: Ao ultrapassar os limites de tentativas estabelecidos pela bandeira, haverá uma cobrança de tarifa para cada transação excedente.
+Tarifas: Ao ultrapassar os limites de tentativas estabelecidos pela bandeira, haverá uma cobrança de tarifa para cada transação excedente.
 
 * Cartões domésticos: USD 0,10 (dólar) para cada transação doméstica excedente.
 * Cartões internacionais: USD 0,25 (dólar) para cada transação internacional excedente.
@@ -238,15 +238,15 @@ Cobranças efetuadas quando um Estabelecimento Comercial excede as regras de Ret
 |---|---|
 |Excesso de Retentativa​|R$ 1,85 por Retentativas a partir da 9ª resposta negada – mesmo cartão e mesmo dia2|R$ 1,85 por Retentativas a partir da 9ª resposta negada – mesmo cartão e mesmo mês3 de referência|
 |Retentativa de transação ASI1 (Zero Auth)|R$ 0,15 por retentativa de transação ASI após negativa do emissor – mesmo cartão e mesmo dia2|R$ 0,15 por retentativa de transação ASI após negativa do emissor – mesmo cartão e mesmo mês3 de referência|
-|Retentativa de transação irreversível|0,03% do valor da transação por retentativa​ Mínimo R$ 0,15​ Máximo R$ 0,80​ Mesmo cartão e mesmo dia2 após resposta com código irreversível|0,03% do valor da transação por retentativa​ Mínimo R$ 0,15​ Máximo R$ 0,80​ Mesmo cartão e mesmo mês3 após resposta com código irreversível|
+|Retentativa de transação irreversível|0,03% do valor da transação por retentativa Mínimo R$ 0,15 Máximo R$ 0,80​ Mesmo cartão e mesmo dia2 após resposta com código irreversível|0,03% do valor da transação por retentativa Mínimo R$ 0,15 Máximo R$ 0,80 Mesmo cartão e mesmo mês3 após resposta com código irreversível|
 
 ## PED: Programa de Excesso de Disputas
 
 **Detalhes:
 
-* Transações ASI1: são transações Account Status Inquiry, ou seja, são as transações efetuadas para consultar o status de um cartão (verificar se está ativo). Para esse fim, não devem ser usadas transações financeiras e sim transações específicas.​
+* Transações ASI1: são transações Account Status Inquiry, ou seja, são as transações efetuadas para consultar o status de um cartão (verificar se está ativo). Para esse fim, não devem ser usadas transações financeiras e sim transações específicas.
 * Tentativas por dia2: considerar para efeito do programa de Retentativas da Hipercard de 00h00 a 23h59​
-* Mês de referência3: considerar para efeito do programa de Retentativas da Hipercard dia 01 a 30 ou 31 do mês em que ocorreu a transação. A cobrança será enviada após o fechamento do mês subsequente.​
+* Mês de referência3: considerar para efeito do programa de Retentativas da Hipercard dia 01 a 30 ou 31 do mês em que ocorreu a transação. A cobrança será enviada após o fechamento do mês subsequente.
 * Os códigos de transações consideradas irreversíveis pelo emissor foram categorizados pela indústria de pagamentos e autorregulação da ABECS, por meio do Normativo 21 vigente. Códigos de retorno (ABECS)
 
 # Demais bandeiras
