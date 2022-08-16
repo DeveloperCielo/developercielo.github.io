@@ -40,18 +40,18 @@ A Bandeira Mastercard possui 2 programas de retentativas de transações?
 * **TPE (Transaction Processing Excellence)** - É o programa para monitorar as retentativas de transações, tanto compras aprovadas quanto negadas, valido para cartão presente e cartão não presente. 
 * **MAC (Merchant Advice Code Transaction Excellence)** - É o programa para monitorar as retentativas de transações negadas, valido para cartão não presente. São um conjunto de códigos que a Mastercard suporta para que os emissores comuniquem aos comerciantes os motivos para aprovar ou rejeitar uma transação.
 
-***TPE***
+###TPE###
 O que é? São cobranças efetuadas quando o estabelecimento comercial excede as regras de retentativas de transações. 
 
 |Categorias|Códigos|Tarifa Doméstica|Tarifa Internacional|Quando Ocorre|Permitido Retentar|
 |---|---|
-|**Cartão presente e Cartão não presente**|Qualquer código de negativa que é permitido retentar|R$ 2,00|-|A tarifa se aplica à 11ª nova tentativa dentro do período de 24h.|Permitido retentar após 24h.|
+|**Cartão presente e Cartão não presente**|Qualquer código de negativa que é permitido retentar|R$2,00|-|A tarifa se aplica à 11ª nova tentativa dentro do período de 24h.|Permitido retentar após 24h.|
 
 *Serão consideradas como retentativas todas as transações de pagamento no mesmo cartão, mesma validade, mesmo valor e mesmo número de estabelecimento;
 *Serão contabilizadas, também, as retentativas quando a transação já foi aprovada;
 *A partir de 01/11/2022, o excesso considerado no programa ocorrerá a partir da sétima retentativa dentro do mês de apuração* e nas condições acima descritas; 
 
-***Transação de consulta de status de conta (ASI - Account Status Inquiry)
+###Transação de consulta de status de conta (ASI - Account Status Inquiry)
 **O que é?**São Cobranças efetuadas quando o estabelecimento comercial realiza uma compra no valor de R$1,00 e depois efetua o estorno, para realizar a verificação de status de consta. 
 Para tal situação existe um tipo de transação especifica que deve ser utilizada para realizar a consulta de status de conta. Já vigente: 01 de julho 2019
 
@@ -67,7 +67,7 @@ Para tal situação existe um tipo de transação especifica que deve ser utiliz
 |---|---|
 |**1ª transação indevida**|**R$ 0,21 por transação**|
 
-***MAC***
+###MAC###
 
 **O que é?**São cobranças efetuadas quando o estabelecimento comercial realiza retentativa de envio de autorização para códigos de respostas irreversíveis com um mesmo cartão valido para cartão não presente.
 Dentro desse programa de retentativas, há programas que se destinam especificamente ao cenário de “Não tente esta transação novamente”. Para esses casos a Mastercard identifica as transações com os seguintes valores: MAC 03 e MAC 21, por exemplo.
@@ -235,15 +235,15 @@ Cobranças efetuadas quando um Estabelecimento Comercial excede as regras de Ret
 |Retentativa de transação ASI1 (Zero Auth)|R$ 0,15 por retentativa de transação ASI após negativa do emissor – mesmo cartão e mesmo dia2|R$ 0,15 por retentativa de transação ASI após negativa do emissor – mesmo cartão e mesmo mês3 de referência|
 |Retentativa de transação irreversível|0,03% do valor da transação por retentativa​ Mínimo R$ 0,15​ Máximo R$ 0,80​ Mesmo cartão e mesmo dia2 após resposta com código irreversível|0,03% do valor da transação por retentativa​ Mínimo R$ 0,15​ Máximo R$ 0,80​ Mesmo cartão e mesmo mês3 após resposta com código irreversível|
 
-***PED: Programa de Excesso de Disputas***
-**Detalhes:​**
+###PED: Programa de Excesso de Disputas###
+**Detalhes:
 
 *Transações ASI1: são transações Account Status Inquiry, ou seja, são as transações efetuadas para consultar o status de um cartão (verificar se está ativo). Para esse fim, não devem ser usadas transações financeiras e sim transações específicas.​
 *Tentativas por dia2: considerar para efeito do programa de Retentativas da Hipercard de 00h00 a 23h59​
 *Mês de referência3: considerar para efeito do programa de Retentativas da Hipercard dia 01 a 30 ou 31 do mês em que ocorreu a transação. A cobrança será enviada após o fechamento do mês subsequente.​
 *Os códigos de transações consideradas irreversíveis pelo emissor foram categorizados pela indústria de pagamentos e autorregulação da ABECS, por meio do Normativo 21 vigente. Códigos de retorno (ABECS)
 
-#Demais bandeiras
+###Demais bandeiras
 
 Códigos reversíveis: serão permitidas novas retentativas para o mesmo cliente e cartão. Não há limite e período pré-estabelecido;
 
