@@ -9,6 +9,7 @@ categories: tutorial
 sort_order: 2
 tags:
   - API Pagamento
+  - Tokenização Bandeira
   - Checkout
   - Webservice 1.5
   - Link de Pagamento
