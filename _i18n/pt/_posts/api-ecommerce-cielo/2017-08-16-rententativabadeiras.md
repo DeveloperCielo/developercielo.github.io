@@ -12,6 +12,7 @@ tags:
   - Checkout
   - Webservice 1.5
   - Link de Pagamento
+  - Retentativa Bandeiras
 ---
 
 # Programa de Retentativa das Bandeiras
