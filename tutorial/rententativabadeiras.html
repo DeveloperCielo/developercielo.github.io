@@ -282,19 +282,63 @@ A Mastercard poderá consolidar alguns códigos de respostas dos emissores, que 
 
 <p>Os códigos originais serão substituídos pelo Merchant Advice Code (MAC), que acompanharão os códigos 79, 82 e 83 para determinar se a transação pode ou não ser retentada.</p>
 
-<p>**Por exemplo:
-|Quando|Então|E o código da resposta|
-|—|—|
-|O emissor recusar a transação usando o código de resposta 54 (Cartão Expirado)|A Mastercard substituirá o código 54 para o código 79 (Recusa por ciclo de vida)|Acompanha o devido Merchant Advice Code (MAC)|</p>
+<p>**Por exemplo:</p>
 
-<p>**A tabela abaixo detalha como ocorrerá a combinação do código de resposta e do MAC:
-|Quando o código de resposta é…|E o MAC é…|A descrição do MAC será|
-|—|—|
-|79 ou 82|01|Verifique se há novas informações antes de tentar novamente.|
-|79 ou 82|03|Não foram encontradas credenciais atualizadas. Não tente novamente.|
-|83|01|Autenticação pode aumentar a probabilidade de aprovação. Tente novamente usando autenticação (Ex: 3DS).|
-|83|03|Suspeita de fraude. Não tente novamente.|
-|79,82 ou 83|02|Repita a transação mais tarde.|</p>
+<table>
+  <thead>
+    <tr>
+      <th>Quando</th>
+      <th>Então</th>
+      <th>E o código da resposta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>O emissor recusar a transação usando o código de resposta 54 (Cartão Expirado)</td>
+      <td>A Mastercard substituirá o código 54 para o código 79 (Recusa por ciclo de vida)</td>
+      <td>Acompanha o devido Merchant Advice Code (MAC)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>**A tabela abaixo detalha como ocorrerá a combinação do código de resposta e do MAC:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Quando o código de resposta é…</th>
+      <th>E o MAC é…</th>
+      <th>A descrição do MAC será</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>79 ou 82</td>
+      <td>01</td>
+      <td>Verifique se há novas informações antes de tentar novamente.</td>
+    </tr>
+    <tr>
+      <td>79 ou 82</td>
+      <td>03</td>
+      <td>Não foram encontradas credenciais atualizadas. Não tente novamente.</td>
+    </tr>
+    <tr>
+      <td>83</td>
+      <td>01</td>
+      <td>Autenticação pode aumentar a probabilidade de aprovação. Tente novamente usando autenticação (Ex: 3DS).</td>
+    </tr>
+    <tr>
+      <td>83</td>
+      <td>03</td>
+      <td>Suspeita de fraude. Não tente novamente.</td>
+    </tr>
+    <tr>
+      <td>79,82 ou 83</td>
+      <td>02</td>
+      <td>Repita a transação mais tarde.</td>
+    </tr>
+  </tbody>
+</table>
 
 <p><strong>Programa de retentativas MAC 01</strong>
 Início de vigência da regra: Já vigente
@@ -311,10 +355,22 @@ Início de vigência da tarifa: 01 de janeiro de 2023</p>
 (*) 1º ao último dia corrido do mês</li>
 </ul>
 
-<p>**Tabela de valores:
-|Número de Retentativa|Regra|
-|—|—|
-|A partir 1ª rententativa|R$ 2,50 (dois reais e cinquenta centavos) por retentativa, a partir da 1ª nova tentativa dentro do período de 24h.|</p>
+<p>**Tabela de valores:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Número de Retentativa</th>
+      <th>Regra</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>A partir 1ª rententativa</td>
+      <td>R$ 2,50 (dois reais e cinquenta centavos) por retentativa, a partir da 1ª nova tentativa dentro do período de 24h.</td>
+    </tr>
+  </tbody>
+</table>
 
 <p><strong>Programa de retentativas MAC 02</strong>
 Início de vigência da regra: Já vigente
@@ -331,10 +387,22 @@ Início de vigência da tarifa: 01 de janeiro de 2023</p>
 (*) 1º ao último dia corrido do mês</li>
 </ul>
 
-<p>**Tabela de valores:
-|Número de Retentativa|Regra|
-|—|—|
-|A partir 1ª rententativa|R$ 2,50 (dois reais e cinquenta centavos) por retentativa, a partir da 1ª nova tentativa dentro do período de 72h.|</p>
+<p>**Tabela de valores:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Número de Retentativa</th>
+      <th>Regra</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>A partir 1ª rententativa</td>
+      <td>R$ 2,50 (dois reais e cinquenta centavos) por retentativa, a partir da 1ª nova tentativa dentro do período de 72h.</td>
+    </tr>
+  </tbody>
+</table>
 
 <p><strong>Programa de retentativas MAC 03 e MAC 21</strong>
 Início de vigência da regra: Já vigente
@@ -352,10 +420,22 @@ Início de vigência da tarifa: 01 de janeiro de 2023</p>
 (*) 1º ao último dia corrido do mês</li>
 </ul>
 
-<p>**Tabela de valores:
-|Número de Retentativa|Regra|
-|—|—|
-|A partir 1ª rententativa|R$ 2,50 (dois reais e cinquenta centavos) por retentativa, a partir da 1ª|</p>
+<p>**Tabela de valores:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Número de Retentativa</th>
+      <th>Regra</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>A partir 1ª rententativa</td>
+      <td>R$ 2,50 (dois reais e cinquenta centavos) por retentativa, a partir da 1ª</td>
+    </tr>
+  </tbody>
+</table>
 
 <p><strong>Programa de retentativas MAC 01, 02 e MAC 03 – Códigos de respostas 79, 82 e 83</strong>
 Início de vigência da regra e tarifa: 03 de outubro de 2022</p>
@@ -371,10 +451,22 @@ Início de vigência da regra e tarifa: 03 de outubro de 2022</p>
 (*) 1º ao último dia corrido do mês</li>
 </ul>
 
-<p>**Tabela de valores:
-|Número de Retentativa|Regra|
-|—|—|
-|A partir 1ª rententativa|3.4 bps com valor mínimo R$0.00160 e máximo R$ 0.7700R$ por retentativa, a partir da 1ª |</p>
+<p>**Tabela de valores:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Número de Retentativa</th>
+      <th>Regra</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>A partir 1ª rententativa</td>
+      <td>3.4 bps com valor mínimo R$0.00160 e máximo R$ 0.7700R$ por retentativa, a partir da 1ª</td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="visa">VISA</h1>
 
@@ -411,11 +503,26 @@ Início de vigência da regra e tarifa: 03 de outubro de 2022</p>
 (*) 1º ao último dia corrido do mês</li>
 </ul>
 
-<p>**Tabela de valores:
-|Período|Valores|
-|—|—|
-|1º|Advertência|
-|A partir do 2º mês|R$ 0,80 (oitenta centavos) por retentativa, a partir da 16º|</p>
+<p>**Tabela de valores:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Período</th>
+      <th>Valores</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1º</td>
+      <td>Advertência</td>
+    </tr>
+    <tr>
+      <td>A partir do 2º mês</td>
+      <td>R$ 0,80 (oitenta centavos) por retentativa, a partir da 16º</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>Início de vigência: 1º de agosto de 2022</p>
 
