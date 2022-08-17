@@ -9,7 +9,6 @@ categories: manual
 sort_order: 2
 tags:
   - API Pagamento
-  - Retentativa Bandeiras
 language_tabs:
   json: JSON
   shell: cURL
