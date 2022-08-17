@@ -1074,6 +1074,8 @@ Caso tenha uma quantidade elevada de códigos de retorno que não está listado 
 
 ### Códigos de retorno ABECS
 
+Para acessar o programa de retentativa das bandeira acesse esse [Link](https://developercielo.github.io/tutorial/rententativabadeiras)
+
 A Associação Brasileira das Empresas de Cartão de Crédito e Serviços (ABECS) estabelece a partir do dia 15 de Julho de 2020 a padronização do código de retorno das autorizações de vendas recusadas tanto para as soluções pagamento do mundo físico e e-commerce do mercado brasileiro.
 
 Essa medida normativa busca trazer benefícios para todo o mercado de pagamentos, proporcionando maior transparência no entendimento do motivo de recusa das transações, além de possibilitar maior assertividade na adoção de estratégias de retentativas de vendas.
