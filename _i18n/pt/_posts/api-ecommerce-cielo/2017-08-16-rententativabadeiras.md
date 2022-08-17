@@ -6,13 +6,13 @@ search: true
 translated: true
 toc_footers: true
 categories: tutorial
-sort_order: 4
-tags:
+sort_order: 3
 tags:
   - API Pagamento
+  - Retentativa Bandeiras
   - Checkout
-  - Link de Pagamento
   - Webservice 1.5
+  - Link de Pagamento
 ---
 
 # Programa de Retentativa das Bandeiras
