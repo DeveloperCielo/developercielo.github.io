@@ -107,13 +107,15 @@ A Mastercard poderá consolidar alguns códigos de respostas dos emissores, que 
 Os códigos originais serão substituídos pelo Merchant Advice Code (MAC), que acompanharão os códigos 79, 82 e 83 para determinar se a transação pode ou não ser retentada.
 
 **Por exemplo:
+
 |Quando|Então|E o código da resposta|
-|---|---|
+|---|---|---|
 |O emissor recusar a transação usando o código de resposta 54 (Cartão Expirado)|A Mastercard substituirá o código 54 para o código 79 (Recusa por ciclo de vida)|Acompanha o devido Merchant Advice Code (MAC)|
 
 **A tabela abaixo detalha como ocorrerá a combinação do código de resposta e do MAC:
+
 |Quando o código de resposta é...|E o MAC é...|A descrição do MAC será|
-|---|---|
+|---|---|---|
 |79 ou 82|01|Verifique se há novas informações antes de tentar novamente.|
 |79 ou 82|03|Não foram encontradas credenciais atualizadas. Não tente novamente.|
 |83|01|Autenticação pode aumentar a probabilidade de aprovação. Tente novamente usando autenticação (Ex: 3DS).|
@@ -134,6 +136,7 @@ Início de vigência da tarifa: 01 de janeiro de 2023
 (*) 1º ao último dia corrido do mês
 
 **Tabela de valores:
+
 |Número de Retentativa|Regra|
 |---|---|
 |A partir 1ª rententativa|R$ 2,50 (dois reais e cinquenta centavos) por retentativa, a partir da 1ª nova tentativa dentro do período de 24h.|
@@ -152,6 +155,7 @@ Início de vigência da tarifa: 01 de janeiro de 2023
 (*) 1º ao último dia corrido do mês
 
 **Tabela de valores:
+
 |Número de Retentativa|Regra|
 |---|---|
 |A partir 1ª rententativa|R$ 2,50 (dois reais e cinquenta centavos) por retentativa, a partir da 1ª nova tentativa dentro do período de 72h.|
@@ -171,6 +175,7 @@ Início de vigência da tarifa: 01 de janeiro de 2023
 (*) 1º ao último dia corrido do mês
 
 **Tabela de valores:
+
 |Número de Retentativa|Regra|
 |---|---|
 |A partir 1ª rententativa|R$ 2,50 (dois reais e cinquenta centavos) por retentativa, a partir da 1ª|
@@ -188,6 +193,7 @@ Início de vigência da regra e tarifa: 03 de outubro de 2022
 (*) 1º ao último dia corrido do mês
 
 **Tabela de valores:
+
 |Número de Retentativa|Regra|
 |---|---|
 |A partir 1ª rententativa|3.4 bps com valor mínimo R$0.00160 e máximo R$ 0.7700R$ por retentativa, a partir da 1ª |
@@ -222,6 +228,7 @@ Trata-se de um programa instituído pela Bandeira ELO que gera cobranças quando
 (*) 1º ao último dia corrido do mês
 
 **Tabela de valores:
+
 |Período|Valores|
 |---|---|
 |1º|Advertência|
@@ -236,7 +243,7 @@ Início de vigência: 1º de agosto de 2022
 Cobranças efetuadas quando um Estabelecimento Comercial excede as regras de Retentativas de transações negadas com um mesmo cartão, mesma data ou período mensal, mesmo valor e mesmo número de Estabelecimento comercial, conforme abaixo:​ 
 
 |Programa|Cartão Presente - CP|Cartão não Presente - CNP|
-|---|---|
+|---|---|---|
 |Excesso de Retentativa​|R$ 1,85 por Retentativas a partir da 9ª resposta negada – mesmo cartão e mesmo dia2|R$ 1,85 por Retentativas a partir da 9ª resposta negada – mesmo cartão e mesmo mês3 de referência|
 |Retentativa de transação ASI1 (Zero Auth)|R$ 0,15 por retentativa de transação ASI após negativa do emissor – mesmo cartão e mesmo dia2|R$ 0,15 por retentativa de transação ASI após negativa do emissor – mesmo cartão e mesmo mês3 de referência|
 |Retentativa de transação irreversível|0,03% do valor da transação por retentativa Mínimo R$ 0,15 Máximo R$ 0,80​ Mesmo cartão e mesmo dia2 após resposta com código irreversível|0,03% do valor da transação por retentativa Mínimo R$ 0,15 Máximo R$ 0,80 Mesmo cartão e mesmo mês3 após resposta com código irreversível|
