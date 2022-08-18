@@ -6,9 +6,9 @@ search: true
 translated: true
 toc_footers: true
 categories: manual
-sort_order: 3
+sort_order: 5
 tags:
-  - Checkout Cielo
+  - Checkout
 language_tabs:
   json: JSON
   shell: cURL
