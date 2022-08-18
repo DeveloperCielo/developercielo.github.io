@@ -6,7 +6,7 @@ search: true
 translated: true
 toc_footers: true
 categories: manual
-sort_order: 5
+sort_order: 3
 tags:
   - Checkout
 language_tabs:
