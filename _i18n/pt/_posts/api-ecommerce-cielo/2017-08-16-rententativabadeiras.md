@@ -1,7 +1,7 @@
 ---
 layout: tutorial
-title: Programa de Rententativa das Badeiras
-description: Programa de Rententativa das Badeiras
+title: Programa de Rententativa das Bandeiras
+description: Programa de Rententativa das Bandeiras
 search: true
 translated: true
 toc_footers: true
@@ -123,8 +123,8 @@ Os códigos originais serão substituídos pelo Merchant Advice Code (MAC), que 
 |79,82 ou 83|02|Repita a transação mais tarde.|
 
 **Programa de retentativas MAC 01**
-Início de vigência da regra: Já vigente
-Início de vigência da tarifa: 01 de janeiro de 2023
+* Início de vigência da regra: Já vigente
+* Início de vigência da tarifa: 01 de janeiro de 2023
 
 **Forma de apuração:**
 * Serão consideradas as transações de cartão não presente;
