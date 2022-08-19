@@ -136,7 +136,7 @@ Salvar os arquivos abaixo em uma pasta nova, ou que relembre facilmente, pois se
 * [Certificado Raiz]({{ site.baseurl }}/attachment/Root.crt)
 * [Certificado Intermediária 1]({{ site.baseurl }}/attachment/intermediate1.crt)
 * [Certificado Intermediária 2]({{ site.baseurl }}/attachment/intermediate2.crt)
-* [Certificado E-Commerce Cielo]({{ site.baseurl }}/attachment/servercertificate.crt)
+* [Certificado E-Commerce Cielo]({{ site.baseurl }}/attachment/servercertificate.cer)
 
 #### 2o Passo:
 
