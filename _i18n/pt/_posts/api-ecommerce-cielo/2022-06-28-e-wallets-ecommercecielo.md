@@ -30,7 +30,6 @@ API Cielo E-commerce possui suporte para as seguintes carteiras digitais:
 * [*Apple Pay*](https://www.apple.com/br/apple-pay/){:target="_blank"}
 * [*Samsung Pay*](https://www.samsung.com.br/samsungpay/){:target="_blank"}
 * [*Google Pay*](https://pay.google.com/intl/pt-BR_br/about/){:target="_blank"}
-* [*Visa Checkout*](https://vaidevisa.visa.com.br/site/visa-checkout/){:target="_blank"}
 * [*Masterpass*](https://masterpass.com/pt-br/){:target="_blank"}
 
 <aside class="warning">Quando o nó “Wallet” é enviado na requisição, o nó “CreditCard” passa a ser opcional.</aside>
@@ -130,7 +129,6 @@ Os formatos de `WalletKey` que devem ser repassados à API Cielo E-commerce são
 | *Apple Pay*    | 9zcCAciwoTS+qBx8jWb++64eHT2QZTWBs6qMVJ0GO+AqpcDVkxGPNpOR/D1bv5AZ62+5lKvucati0+eu7hdilwUYT3n5swkHuIzX2KO80Apx/SkhoVM5dqgyKrak5VD2/drcGh9xqEanWkyd7wl200sYj4QUMbeLhyaY7bCdnnpKDJgpOY6J883fX3TiHoZorb/QlEEOpvYcbcFYs3ELZ7QVtjxyrO2LmPsIkz2BgNm5f+JaJUSAOectahgLZnZR+easdhghrsa/E9A6DwjMd0fDYnxjj0bQDfaZpBPeGGPFLu5YYn1IDc   |
 | *Samsung Pay*  | eyJhbGciOiJSU0ExXzUiLCJraWQiOiIvam1iMU9PL2hHdFRVSWxHNFpxY2VYclVEbmFOUFV1ZUR5M2FWeHBzYXVRPSIsInR5cCI6IkpPU0UiLCJjaGFubmVsU2VjdXJpdHlDb250ZXh0IjoiUlNBX1BLSSIsImVuYyI6IkExMjhHQ00ifQ.cCsGbqgFdzVb1jhXNR--gApzoXH-fdafddfa-Bo_utsmDN_DuGm69Kk2_nh6txa7ML9PCI59LFfOMniAf7ZwoZUBDCY7Oh8kx3wsZ0kxNBwfyLBCMEYzET0qcIYxePezQpkNcaZ4oogmdNSpYY-KbZGMcWpo1DKhWphDVp0lZcLxA6Q25K78e5AtarR5whN4HUAkurQ.CFjWpHkAVoLCG8q0.NcsTuauebemJXmos_mLMTyLhEHL-p5Wv6J88WkgzyjAt_DW7laiPMYw2sqRXkOiMJLwhifRzbSp8ZgJBM25IX05dKKSS4XfFjJQQjOBHw6PYtEF5pUDMLHML3jcddCrX07abfef_DuP41PqOQYsjwesLZ8XsRj-R0TH4diOZ_GQop8_oawjRIo9eJr9Wbtho0h8kAzHYpfuhamOPT718EaGAY6SSrR7t6nBkzGNkrKAmHkC7aRwe.AbZG53wRqgF0XRG3wUK_UQ|   |
 | *Google Pay*  | {\"encryptedMessage\":\"0mXBb94Cy9JZhMuwtrBhMjXb8pDslrNsN5KhcEqnowOINqJgjXHD36KcCuzpQQ4cDAe64ZLmk2N3UBGXsN9hMMyeMakXlidVmteE+QMaNZIor048oJqlUIFPD54B/ic8zCdqq3xnefUmyKQe0I03x57TcEA9xAT/E4x3rYfyqLFUAEtu2lT0GwTdwgrsT8pKoTldHIgP+wVNTjrKvJrB4xM/Bhn6JfcSmOzFyI6w37mBU71/TK761nYOSxt7z1bNWSLZ4b8xBu1dlRgen2BSlqdafuQjV3UZjr6ubSvaJ8NiCh5FD/X013kAwLuLALMS2uAFS9j8cZ6R6zNIi13fK6Fe4ACbFTHwLzSNZjQiaRDb6MlMnY8/amncPIOXzpirb5ScIz8EZUL05xd+3YWVTVfpqgFo1eaaS+wZdUyRG0QEgOsr6eLBoH8d5lfV9Rx6XdioorUuT7s1Yqc0OJZO+fhBt6X0izE9hBGTexdZyg\\u003d\\u003d\",\"ephemeralPublicKey\":\"BMdwrkJeEgCOtLevYsN3MbdP8xbOItXiTejoB6vXy0Kn0ZM10jy4Aasd6jTSxtoxoTpFydLhj5kzoOhbw2OzZu0\\u003d\",\"tag\":\"yAQIjWZ0VuCC7SWyYwc4eXOzpSUKhZduF9ip0Ji+Gj8\\u003d\"}  |
-| *Visa Checkout* | 1140812334225873901   |
 | *Masterpass* | a561da1c18a89cfdafas875f9d43fc46cd9bf3e1   |
 
 #### EphemeralPublicKey
@@ -1021,187 +1019,6 @@ curl
 | `ReturnMessage`     | Mensagem de retorno da adquirência.                                                                                            | Texto | 512     | Texto alfanumérico                   |
 | `Type`              | Tipo de carteira: "ApplePay" / "SamsungPay" / "GooglePay" / "VisaCheckout" / "Masterpass.                      | Texto | 255     | Texto alfanumérico                   |
 | `WalletKey`         | Chave criptográfica que representa os dados do cartão. Consulte a tabela [WalletKey](https://developercielo.github.io/manual/cielo-ecommerce#walletkey){:target="_blank"} para mais informações.                    | Texto | 255     | Consulte a tabela [WalletKey](https://developercielo.github.io/manual/cielo-ecommerce#walletkey){:target="_blank"}              |
-
-# Visa Checkout™
-
-Para utilizar o Visa Checkout é necessária a contratação do serviço através do contato diretamente com a Visa.
-
-## Requisição
-
-Exemplo de requisição padrão Visa Checkout:
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/sales/</span></aside>
-
-```json
-{  
-   "MerchantOrderId":"2014111703",
-   "Customer":{  
-      "Name":"Comprador Teste"
-   },
-   "Payment":{  
-      "Type":"CreditCard",
-      "Amount":15700,
-      "Installments":1,
-      "SoftDescriptor":"123456789ABCD",
-      "CreditCard":{  
-         "SecurityCode":"123"
-      },
-      "Wallet":{  
-         "Type":"VisaCheckout",
-         "WalletKey":"1140814777695873901"
-      }
-   }
-}
-```
-
-```shell
---request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{  
-   "MerchantOrderId":"2014111703",
-   "Customer":{  
-      "Name":"Comprador Teste"
-   },
-   "Payment":{  
-      "Type":"CreditCard",
-      "Amount":15700,
-      "Installments":1,
-      "SoftDescriptor":"123456789ABCD",
-      "CreditCard":{  
-         "SecurityCode":"123"
-      },
-      "Wallet":{  
-         "Type":"VisaCheckout",
-         "WalletKey":"1140814777695873901"
-      }
-   }
-}
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório?|
-|---|---|---|---|---|
-|`MerchantId`|Identificador da loja na Cielo.|GUID|36|Sim (envio no *header*)|
-|`MerchantKey`|Chave pública para autenticação dupla na Cielo.|Texto|40|Sim (envio no *header*)|
-|`RequestId`|Identificador do request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|GUID|36|Não (envio no *header*)|
-|`MerchantOrderId`|Número de identificação do pedido.|Texto|50|Sim|
-|`Customer.Name`|Nome do comprador.|Texto|255|Não|
-|`Customer.Status`|Status de cadastro do comprador na loja ("NEW" / "EXISTING").|Texto|255|Não|
-|`Payment.Type`|Tipo do meio de pagamento.|Texto|100|Sim|
-|`Payment.Amount`|Valor do pedido, em centavos.|Número|15|Sim|
-|`Payment.Installments`|Número de parcelas.|Número|2|Sim|
-|`Payment.ReturnUrl`|URL para onde o usuário será redirecionado após o fim do pagamento. Obrigatório para cartão de débito.|Texto|1024|---|
-|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
-|`Wallet.Type`|Tipo de carteira: "VisaCheckout".|Texto|255|Sim|
-|`Wallet.WalletKey`|Chave criptográfica enviada pelo **VisaCheckout**. Obs.: Obrigatório apenas para `Wallet.Type` "VisaCheckout".|Texto|255|---|
-
-## Resposta
-
-```json
-{
-  "MerchantOrderId": "2014111708",
-  "Customer": {
-    "Name": "Comprador VisaCheckout"
-  },
-  "Payment": {
-    "ServiceTaxAmount": 0,
-    "Installments": 1,
-    "Interest": 0,
-    "Capture": false,
-    "Authenticate": false,
-    "Recurrent": false,
-    "CreditCard": {
-      "SaveCard": false,
-      "Brand": "Undefined"
-    },
-    "Tid": "0915052340115",
-    "Wallet": {
-      "Type": "VisaCheckout",
-      "WalletKey": "1140814777695873901",
-      "Eci": 0
-    },
-    "PaymentId": "efdb3338-9c8f-445a-8836-2cc93d8beacf",
-    "Type": "CreditCard",
-    "Amount": 15700,
-    "ReceivedDate": "2016-09-15 17:23:39",
-    "Currency": "BRL",
-    "Country": "BRA",
-    "ReturnCode": "77",
-    "ReturnMessage": "Card Canceled",
-    "Status": 3,
-    "Links": [
-      {
-        "Method": "GET",
-        "Rel": "self",
-        "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-      }
-    ]
-  }
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-  "MerchantOrderId": "2014111708",
-  "Customer": {
-    "Name": "Comprador VisaCheckout"
-  },
-  "Payment": {
-    "ServiceTaxAmount": 0,
-    "Installments": 1,
-    "Interest": 0,
-    "Capture": false,
-    "Authenticate": false,
-    "Recurrent": false,
-    "CreditCard": {
-      "SaveCard": false,
-      "Brand": "Undefined"
-    },
-    "Tid": "0915052340115",
-    "Wallet": {
-      "Type": "VisaCheckout",
-      "WalletKey": "1140814777695873901",
-      "Eci": 0
-    },
-    "PaymentId": "efdb3338-9c8f-445a-8836-2cc93d8beacf",
-    "Type": "CreditCard",
-    "Amount": 15700,
-    "ReceivedDate": "2016-09-15 17:23:39",
-    "Currency": "BRL",
-    "Country": "BRA",
-    "ReturnCode": "77",
-    "ReturnMessage": "Card Canceled",
-    "Status": 3,
-    "Links": [
-      {
-        "Method": "GET",
-        "Rel": "self",
-        "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-      }
-    ]
-  }
-}
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Formato|
-|---|---|---|---|---|
-|`ProofOfSale`|Número da autorização, idêntico ao NSU.|Texto|6|Texto alfanumérico|
-|`Tid`|Identificador da transação na adquirente.|Texto|20|Texto alfanumérico|
-|`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
-|`SoftDescriptor`|Texto que será impresso na fatura bancária do portador. Obs.: Não permite caracteres especiais. Disponível apenas para VISA/MASTER. |Texto|13|Texto alfanumérico|
-|`PaymentId`|Campo identificador do pedido.|GUID|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ECI`|*Electronic Commerce Indicator*. Representa o quão segura é uma transação.|Texto|2|Ex.: 7|
-|`Status`|Status da transação.|Byte| 2 | Ex.: 1 |
-|`ReturnCode`|Código de retorno da adquirência.|Texto|32|Texto alfanumérico|
-|`ReturnMessage`|Mensagem de retorno da adquirência.|Texto|512|Texto alfanumérico|
-|`Type`|Tipo de carteira: "VisaCheckout" / "Masterpass"|Texto|255|Sim|
-|`CaptureCode`|Código informado pelo **VisaCheckout** ao lojista.|Texto|255|Sim|
 
 # Autorização com cartão descriptografado
 
