@@ -1938,7 +1938,7 @@ curl
 |`Payment.Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
 |`Payment.Provider`|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO. Valores possíveis: "Bradesco2" ou "BancoDoBrasil2"|Texto|15|Sim|
 |`Payment.Address`|Endereço do Cedente.|Texto|255|Não|
-|`Payment.BoletoNumber`|Número do Boleto enviado pelo lojista. Usado para contar boletos emitidos ("NossoNumero").|Texto|Bradesco: 11<BR>Banco do Brasil: 9|Não|
+|`Payment.BoletoNumber`|Número do Boleto enviado pelo lojista. Usado para contar boletos emitidos ("NossoNumero").|Número|Bradesco: 11<BR>Banco do Brasil: 9|Não|
 |`Payment.Assignor`|Nome do Cedente.|Texto|200|Não|
 |`Payment.Demonstrative`|Texto de Demonstrativo.|Texto|255|Não|
 |`Payment.ExpirationDate`|Data de expiração do Boleto. Ex. 2020-12-31 |Date|10|Não|
