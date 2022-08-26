@@ -884,32 +884,30 @@ Para criar uma venda com cartão de débito, chame o método POST conforme o exe
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
 ```json
-{  
+{
    "MerchantOrderId":"2014121201",
-   "Customer":{  
+   "Customer":{
       "Name":"Comprador Cartão de débito"
    },
-   "Payment":{  
-     "Type":"DebitCard",
-     "Authenticate": true,
-     "Amount":15700,
-     "ReturnUrl":"http://www.cielo.com.br",
-     "DebitCard":{  
+   "Payment":{
+      "Type":"DebitCard",
+      "Authenticate":true,
+      "Amount":15700,
+      "DebitCard":{
          "CardNumber":"5551870000000181",
          "Holder":"Teste Holder",
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
          "Brand":"Master"
-        },
-    "ExternalAuthentication":{
-        "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
-        "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
-        "Eci":"5",
-        "Version":"2",
-        "ReferenceID":"a24a5d87-b1a1-4aef-a37b-2f30b91274e6",
-        "dataonly": "false"
-        }
-    }
+      },
+      "ExternalAuthentication":{
+         "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
+         "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
+         "Eci":"5",
+         "Version":"2",
+         "ReferenceID":"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"
+      }
+   }
 }
 ```
 
@@ -921,32 +919,30 @@ curl
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
-{  
+{
    "MerchantOrderId":"2014121201",
-   "Customer":{  
+   "Customer":{
       "Name":"Comprador Cartão de débito"
    },
-   "Payment":{  
-     "Type":"DebitCard",
-     "Authenticate": true,
-     "Amount":15700,
-     "ReturnUrl":"http://www.cielo.com.br",
-     "DebitCard":{  
+   "Payment":{
+      "Type":"DebitCard",
+      "Authenticate":true,
+      "Amount":15700,
+      "DebitCard":{
          "CardNumber":"5551870000000181",
          "Holder":"Teste Holder",
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
          "Brand":"Master"
-        },
-    "ExternalAuthentication":{
-        "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
-        "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
-        "Eci":"5",
-        "Version":"2",
-        "ReferenceID":"a24a5d87-b1a1-4aef-a37b-2f30b91274e6",
-        "dataonly": "false"
-        }
-    }
+      },
+      "ExternalAuthentication":{
+         "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
+         "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
+         "Eci":"5",
+         "Version":"2",
+         "ReferenceID":"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"
+      }
+   }
 }
 --verbose
 ```
@@ -961,7 +957,7 @@ curl
 | `Customer.Status`          | Status de cadastro do comprador na loja (NEW / EXISTING) - Utilizado pela análise de fraude           | Texto    | 255     | Não                |
 | `Payment.Type`             | Tipo do Meio de Pagamento.                                                                            | Texto    | 100     | Sim                |
 | `Payment.Amount`           | Valor do Pedido (ser enviado em centavos).                                                            | Número   | 15      | Sim                |
-| `Payment.Authenticate`     | Define se o comprador será direcionado ao Banco emissor para autenticação do cartão                   | Booleano | ---     | Sim, no caso de transação Data Only é obrigatório enviar como "false". |
+| `Payment.Authenticate`     | Define se o comprador será direcionado ao Banco emissor para autenticação do cartão                   | Booleano | ---     | Sim |
 | `Payment.ReturnUrl`        | URI para onde o usuário será redirecionado após o fim do pagamento                                    | Texto    | 1024    | Sim                |
 |`Payment.IsCryptocurrencyNegotiation`|Deve ser enviado com valor “true” caso se trate de uma transação de compra ou venda de Criptomoeda|Booleano|-|Não (default false)|
 | `DebitCard.CardNumber`     | Número do Cartão do Comprador.                                                                        | Texto    | 19      | Sim                |
@@ -971,7 +967,6 @@ curl
 | `DebitCard.Brand`          | Bandeira do cartão.                                                                                   | Texto    | 10      | Sim                |
 | `Payment.ExternalAuthentication.Eci` | E-Commerce Indicator retornado no processo de autenticação. | Numérico |1 | Sim |
 | `Payment.ExternalAuthentication.ReferenceId` | `RequestID` retornado no processo de autenticação. | GUID | 36 | | Sim |
-| `Payment.ExternalAuthentication.DataOnly` | Booleano que define se é uma transação Data Only. | Booleano | - | Sim, no caso de transação Data Only é obrigatório enviar como "true". |
 
 ##### Resposta
 
@@ -983,29 +978,43 @@ curl
     },
     "Payment": {
         "DebitCard": {
-            "CardNumber": "453211******3703",
+            "CardNumber": "555187******0181",
             "Holder": "Teste Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": false,
-            "Brand": "Visa"
+            "Brand": "Master",
+            "PaymentAccountReference": "IC722LCXBROSHBPIBK7B44MBXO5HF"
         },
-        "IsCryptoCurrencyNegotiation": true,
-        "AuthenticationUrl": "https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?{PaymentId}",
-        "Tid": "1006993069207A31A001",
-        "PaymentId": "0309f44f-fe5a-4de1-ba39-984f456130bd",
-        "Type": "DebitCard",
+        "Provider": "Simulado",
+        "AuthorizationCode": "635288",
+        "Tid": "0826104754051",
+        "ProofOfSale": "132471",
+        "Authenticate": true,
+        "ExternalAuthentication": {
+            "Cavv": "AAABB2gHA1B5EFNjWQcDAAAAAAB=",
+            "Xid": "Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
+            "Eci": "5",
+            "Version": "2",
+            "ReferenceId": "a24a5d87-b1a1-4aef-a37b-2f30b91274e6"
+        },
+        "Recurrent": false,
         "Amount": 15700,
+        "ReceivedDate": "2022-08-26 10:47:53",
+        "CapturedAmount": 15700,
+        "CapturedDate": "2022-08-26 10:47:54",
+        "Status": 2,
+        "IsSplitted": false,
+        "ReturnMessage": "Operation Successful",
+        "ReturnCode": "6",
+        "PaymentId": "21c9a3e7-23c2-420b-b12d-b514ef271c85",
+        "Type": "DebitCard",
         "Currency": "BRL",
         "Country": "BRA",
-        "ExtraDataCollection": [],
-        "Status": 0,
-        "ReturnCode": "0",
-        "Payment.MerchantAdviceCode":"1",
         "Links": [
             {
                 "Method": "GET",
                 "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/21c9a3e7-23c2-420b-b12d-b514ef271c85"
             }
         ]
     }
@@ -1023,29 +1032,43 @@ curl
     },
     "Payment": {
         "DebitCard": {
-            "CardNumber": "453211******3703",
+            "CardNumber": "555187******0181",
             "Holder": "Teste Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": false,
-            "Brand": "Visa"
+            "Brand": "Master",
+            "PaymentAccountReference": "IC722LCXBROSHBPIBK7B44MBXO5HF"
         },
-        "IsCryptoCurrencyNegotiation": true,
-        "AuthenticationUrl": "https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?{PaymentId}",
-        "Tid": "1006993069207A31A001",
-        "PaymentId": "0309f44f-fe5a-4de1-ba39-984f456130bd",
-        "Type": "DebitCard",
+        "Provider": "Simulado",
+        "AuthorizationCode": "635288",
+        "Tid": "0826104754051",
+        "ProofOfSale": "132471",
+        "Authenticate": true,
+        "ExternalAuthentication": {
+            "Cavv": "AAABB2gHA1B5EFNjWQcDAAAAAAB=",
+            "Xid": "Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
+            "Eci": "5",
+            "Version": "2",
+            "ReferenceId": "a24a5d87-b1a1-4aef-a37b-2f30b91274e6"
+        },
+        "Recurrent": false,
         "Amount": 15700,
+        "ReceivedDate": "2022-08-26 10:47:53",
+        "CapturedAmount": 15700,
+        "CapturedDate": "2022-08-26 10:47:54",
+        "Status": 2,
+        "IsSplitted": false,
+        "ReturnMessage": "Operation Successful",
+        "ReturnCode": "6",
+        "PaymentId": "21c9a3e7-23c2-420b-b12d-b514ef271c85",
+        "Type": "DebitCard",
         "Currency": "BRL",
         "Country": "BRA",
-        "ExtraDataCollection": [],
-        "Status": 0,
-        "ReturnCode": "0",
-        "Payment.MerchantAdviceCode":"1",
         "Links": [
             {
                 "Method": "GET",
                 "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/21c9a3e7-23c2-420b-b12d-b514ef271c85"
             }
         ]
     }
