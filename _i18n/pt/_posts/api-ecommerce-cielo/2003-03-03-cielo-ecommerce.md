@@ -966,7 +966,7 @@ curl
 | `DebitCard.SecurityCode`   | Código de segurança impresso no verso do cartão.                                                      | Texto    | 4       | Não                |
 | `DebitCard.Brand`          | Bandeira do cartão.                                                                                   | Texto    | 10      | Sim                |
 | `Payment.ExternalAuthentication.Eci` | E-Commerce Indicator retornado no processo de autenticação. | Numérico |1 | Sim |
-| `Payment.ExternalAuthentication.ReferenceId` | `RequestID` retornado no processo de autenticação. | GUID | 36 | | Sim |
+| `Payment.ExternalAuthentication.ReferenceId` | `RequestID` retornado no processo de autenticação. | GUID | 36 | Sim |
 
 ##### Resposta
 
