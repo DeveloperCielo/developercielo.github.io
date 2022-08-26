@@ -1776,12 +1776,21 @@ Abaixo especificamos qualquer diferença existente:</p>
      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
      </span><span class="nl">"ReturnUrl"</span><span class="p">:</span><span class="s2">"http://www.cielo.com.br"</span><span class="p">,</span><span class="w">
      </span><span class="nl">"DebitCard"</span><span class="p">:{</span><span class="w">  
-         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"4551870000000183"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"5551870000000181"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
-     </span><span class="p">},</span><span class="w">
+         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Master"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"ExternalAuthentication"</span><span class="p">:{</span><span class="w">
+        </span><span class="nl">"Cavv"</span><span class="p">:</span><span class="s2">"AAABB2gHA1B5EFNjWQcDAAAAAAB="</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Xid"</span><span class="p">:</span><span class="s2">"Uk5ZanBHcWw2RjRCbEN5dGtiMTB="</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Eci"</span><span class="p">:</span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Version"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReferenceID"</span><span class="p">:</span><span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"dataonly"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -1803,12 +1812,21 @@ Abaixo especificamos qualquer diferença existente:</p>
      <span class="s2">"Amount"</span>:15700,
      <span class="s2">"ReturnUrl"</span>:<span class="s2">"http://www.cielo.com.br"</span>,
      <span class="s2">"DebitCard"</span>:<span class="o">{</span>  
-         <span class="s2">"CardNumber"</span>:<span class="s2">"4551870000000183"</span>,
+         <span class="s2">"CardNumber"</span>:<span class="s2">"5551870000000181"</span>,
          <span class="s2">"Holder"</span>:<span class="s2">"Teste Holder"</span>,
          <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2030"</span>,
          <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
-         <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
-     <span class="o">}</span>,
+         <span class="s2">"Brand"</span>:<span class="s2">"Master"</span>
+        <span class="o">}</span>,
+    <span class="s2">"ExternalAuthentication"</span>:<span class="o">{</span>
+        <span class="s2">"Cavv"</span>:<span class="s2">"AAABB2gHA1B5EFNjWQcDAAAAAAB="</span>,
+        <span class="s2">"Xid"</span>:<span class="s2">"Uk5ZanBHcWw2RjRCbEN5dGtiMTB="</span>,
+        <span class="s2">"Eci"</span>:<span class="s2">"5"</span>,
+        <span class="s2">"Version"</span>:<span class="s2">"2"</span>,
+        <span class="s2">"ReferenceID"</span>:<span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span>,
+        <span class="s2">"dataonly"</span>: <span class="s2">"false"</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
 <span class="o">}</span>
 <span class="nt">--verbose</span>
 </code></pre></div></div>
@@ -1821,6 +1839,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <th>Tipo</th>
       <th>Tamanho</th>
       <th>Obrigatório</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -1830,6 +1849,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Guid</td>
       <td>36</td>
       <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
@@ -1837,6 +1857,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Texto</td>
       <td>40</td>
       <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
@@ -1844,6 +1865,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Guid</td>
       <td>36</td>
       <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
@@ -1851,6 +1873,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Texto</td>
       <td>50</td>
       <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
@@ -1858,6 +1881,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Texto</td>
       <td>255</td>
       <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
@@ -1865,6 +1889,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Texto</td>
       <td>255</td>
       <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
@@ -1872,6 +1897,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
@@ -1879,13 +1905,15 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Número</td>
       <td>15</td>
       <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
       <td>Define se o comprador será direcionado ao Banco emissor para autenticação do cartão</td>
       <td>Booleano</td>
       <td>—</td>
-      <td>Sim (Default TRUE)</td>
+      <td>Sim, no caso de transação Data Only é obrigatório enviar como “false”.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReturnUrl</code></td>
@@ -1893,6 +1921,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Texto</td>
       <td>1024</td>
       <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.IsCryptocurrencyNegotiation</code></td>
@@ -1900,6 +1929,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Booleano</td>
       <td>-</td>
       <td>Não (default false)</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.CardNumber</code></td>
@@ -1907,6 +1937,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Texto</td>
       <td>19</td>
       <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.Holder</code></td>
@@ -1914,6 +1945,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Texto</td>
       <td>25</td>
       <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.ExpirationDate</code></td>
@@ -1921,6 +1953,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Texto</td>
       <td>7</td>
       <td>Sim</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.SecurityCode</code></td>
@@ -1928,6 +1961,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Texto</td>
       <td>4</td>
       <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.Brand</code></td>
@@ -1935,6 +1969,31 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Eci</code></td>
+      <td>E-Commerce Indicator retornado no processo de autenticação.</td>
+      <td>Numérico</td>
+      <td>1</td>
+      <td>Sim</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.ReferenceId</code></td>
+      <td><code class="language-plaintext highlighter-rouge">RequestID</code> retornado no processo de autenticação.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td> </td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.DataOnly</code></td>
+      <td>Booleano que define se é uma transação Data Only.</td>
+      <td>Booleano</td>
+      <td>-</td>
+      <td>Sim, no caso de transação Data Only é obrigatório enviar como “true”.</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
