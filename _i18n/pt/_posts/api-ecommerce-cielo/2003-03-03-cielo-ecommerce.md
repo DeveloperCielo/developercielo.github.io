@@ -972,7 +972,7 @@ curl
 | `Payment.ExternalAuthentication.Eci` | E-Commerce Indicator retornado no processo de autenticação. | Numérico |1 | Sim |
 | `Payment.ExternalAuthentication.ReferenceId` | `RequestID` retornado no processo de autenticação. | GUID | 36 | | Sim |
 | `Payment.ExternalAuthentication.DataOnly` | Booleano que define se é uma transação Data Only. | Booleano | - | Sim, no caso de transação Data Only é obrigatório enviar como "true". |
-  
+
 ##### Resposta
 
 ```json
