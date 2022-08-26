@@ -1765,32 +1765,30 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014121201"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">  
+   </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
       </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Comprador Cartão de débito"</span><span class="w">
    </span><span class="p">},</span><span class="w">
-   </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">  
-     </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"ReturnUrl"</span><span class="p">:</span><span class="s2">"http://www.cielo.com.br"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"DebitCard"</span><span class="p">:{</span><span class="w">  
+   </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"DebitCard"</span><span class="p">:{</span><span class="w">
          </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"5551870000000181"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Master"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"ExternalAuthentication"</span><span class="p">:{</span><span class="w">
-        </span><span class="nl">"Cavv"</span><span class="p">:</span><span class="s2">"AAABB2gHA1B5EFNjWQcDAAAAAAB="</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Xid"</span><span class="p">:</span><span class="s2">"Uk5ZanBHcWw2RjRCbEN5dGtiMTB="</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Eci"</span><span class="p">:</span><span class="s2">"5"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Version"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReferenceID"</span><span class="p">:</span><span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"dataonly"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"ExternalAuthentication"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"Cavv"</span><span class="p">:</span><span class="s2">"AAABB2gHA1B5EFNjWQcDAAAAAAB="</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Xid"</span><span class="p">:</span><span class="s2">"Uk5ZanBHcWw2RjRCbEN5dGtiMTB="</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Eci"</span><span class="p">:</span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Version"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ReferenceID"</span><span class="p">:</span><span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -1801,32 +1799,30 @@ Abaixo especificamos qualquer diferença existente:</p>
 <span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
 <span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--data-binary</span>
-<span class="o">{</span>  
+<span class="o">{</span>
    <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2014121201"</span>,
-   <span class="s2">"Customer"</span>:<span class="o">{</span>  
+   <span class="s2">"Customer"</span>:<span class="o">{</span>
       <span class="s2">"Name"</span>:<span class="s2">"Comprador Cartão de débito"</span>
    <span class="o">}</span>,
-   <span class="s2">"Payment"</span>:<span class="o">{</span>  
-     <span class="s2">"Type"</span>:<span class="s2">"DebitCard"</span>,
-     <span class="s2">"Authenticate"</span>: <span class="nb">true</span>,
-     <span class="s2">"Amount"</span>:15700,
-     <span class="s2">"ReturnUrl"</span>:<span class="s2">"http://www.cielo.com.br"</span>,
-     <span class="s2">"DebitCard"</span>:<span class="o">{</span>  
+   <span class="s2">"Payment"</span>:<span class="o">{</span>
+      <span class="s2">"Type"</span>:<span class="s2">"DebitCard"</span>,
+      <span class="s2">"Authenticate"</span>:true,
+      <span class="s2">"Amount"</span>:15700,
+      <span class="s2">"DebitCard"</span>:<span class="o">{</span>
          <span class="s2">"CardNumber"</span>:<span class="s2">"5551870000000181"</span>,
          <span class="s2">"Holder"</span>:<span class="s2">"Teste Holder"</span>,
          <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2030"</span>,
          <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
          <span class="s2">"Brand"</span>:<span class="s2">"Master"</span>
-        <span class="o">}</span>,
-    <span class="s2">"ExternalAuthentication"</span>:<span class="o">{</span>
-        <span class="s2">"Cavv"</span>:<span class="s2">"AAABB2gHA1B5EFNjWQcDAAAAAAB="</span>,
-        <span class="s2">"Xid"</span>:<span class="s2">"Uk5ZanBHcWw2RjRCbEN5dGtiMTB="</span>,
-        <span class="s2">"Eci"</span>:<span class="s2">"5"</span>,
-        <span class="s2">"Version"</span>:<span class="s2">"2"</span>,
-        <span class="s2">"ReferenceID"</span>:<span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span>,
-        <span class="s2">"dataonly"</span>: <span class="s2">"false"</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
+      <span class="o">}</span>,
+      <span class="s2">"ExternalAuthentication"</span>:<span class="o">{</span>
+         <span class="s2">"Cavv"</span>:<span class="s2">"AAABB2gHA1B5EFNjWQcDAAAAAAB="</span>,
+         <span class="s2">"Xid"</span>:<span class="s2">"Uk5ZanBHcWw2RjRCbEN5dGtiMTB="</span>,
+         <span class="s2">"Eci"</span>:<span class="s2">"5"</span>,
+         <span class="s2">"Version"</span>:<span class="s2">"2"</span>,
+         <span class="s2">"ReferenceID"</span>:<span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span>
+      <span class="o">}</span>
+   <span class="o">}</span>
 <span class="o">}</span>
 <span class="nt">--verbose</span>
 </code></pre></div></div>
@@ -1912,7 +1908,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Define se o comprador será direcionado ao Banco emissor para autenticação do cartão</td>
       <td>Booleano</td>
       <td>—</td>
-      <td>Sim, no caso de transação Data Only é obrigatório enviar como “false”.</td>
+      <td>Sim</td>
       <td> </td>
     </tr>
     <tr>
@@ -1987,14 +1983,6 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td> </td>
       <td>Sim</td>
     </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.DataOnly</code></td>
-      <td>Booleano que define se é uma transação Data Only.</td>
-      <td>Booleano</td>
-      <td>-</td>
-      <td>Sim, no caso de transação Data Only é obrigatório enviar como “true”.</td>
-      <td> </td>
-    </tr>
   </tbody>
 </table>
 
@@ -2007,29 +1995,43 @@ Abaixo especificamos qualquer diferença existente:</p>
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"DebitCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"453211******3703"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555187******0181"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
+            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Master"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"PaymentAccountReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IC722LCXBROSHBPIBK7B44MBXO5HF"</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"AuthenticationUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?{PaymentId}"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1006993069207A31A001"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0309f44f-fe5a-4de1-ba39-984f456130bd"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"635288"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0826104754051"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"132471"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ExternalAuthentication"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Cavv"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AAABB2gHA1B5EFNjWQcDAAAAAAB="</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Xid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Uk5ZanBHcWw2RjRCbEN5dGtiMTB="</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Eci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ReferenceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15700</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-26 10:47:53"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CapturedAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15700</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CapturedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-26 10:47:54"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IsSplitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21c9a3e7-23c2-420b-b12d-b514ef271c85"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ExtraDataCollection"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Payment.MerchantAdviceCode"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
                 </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"</span><span class="w">
+                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/21c9a3e7-23c2-420b-b12d-b514ef271c85"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -2046,29 +2048,43 @@ Abaixo especificamos qualquer diferença existente:</p>
     <span class="o">}</span>,
     <span class="s2">"Payment"</span>: <span class="o">{</span>
         <span class="s2">"DebitCard"</span>: <span class="o">{</span>
-            <span class="s2">"CardNumber"</span>: <span class="s2">"453211******3703"</span>,
+            <span class="s2">"CardNumber"</span>: <span class="s2">"555187******0181"</span>,
             <span class="s2">"Holder"</span>: <span class="s2">"Teste Holder"</span>,
             <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2030"</span>,
             <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
-            <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
+            <span class="s2">"Brand"</span>: <span class="s2">"Master"</span>,
+            <span class="s2">"PaymentAccountReference"</span>: <span class="s2">"IC722LCXBROSHBPIBK7B44MBXO5HF"</span>
         <span class="o">}</span>,
-        <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>,
-        <span class="s2">"AuthenticationUrl"</span>: <span class="s2">"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?{PaymentId}"</span>,
-        <span class="s2">"Tid"</span>: <span class="s2">"1006993069207A31A001"</span>,
-        <span class="s2">"PaymentId"</span>: <span class="s2">"0309f44f-fe5a-4de1-ba39-984f456130bd"</span>,
-        <span class="s2">"Type"</span>: <span class="s2">"DebitCard"</span>,
+        <span class="s2">"Provider"</span>: <span class="s2">"Simulado"</span>,
+        <span class="s2">"AuthorizationCode"</span>: <span class="s2">"635288"</span>,
+        <span class="s2">"Tid"</span>: <span class="s2">"0826104754051"</span>,
+        <span class="s2">"ProofOfSale"</span>: <span class="s2">"132471"</span>,
+        <span class="s2">"Authenticate"</span>: <span class="nb">true</span>,
+        <span class="s2">"ExternalAuthentication"</span>: <span class="o">{</span>
+            <span class="s2">"Cavv"</span>: <span class="s2">"AAABB2gHA1B5EFNjWQcDAAAAAAB="</span>,
+            <span class="s2">"Xid"</span>: <span class="s2">"Uk5ZanBHcWw2RjRCbEN5dGtiMTB="</span>,
+            <span class="s2">"Eci"</span>: <span class="s2">"5"</span>,
+            <span class="s2">"Version"</span>: <span class="s2">"2"</span>,
+            <span class="s2">"ReferenceId"</span>: <span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span>
+        <span class="o">}</span>,
+        <span class="s2">"Recurrent"</span>: <span class="nb">false</span>,
         <span class="s2">"Amount"</span>: 15700,
+        <span class="s2">"ReceivedDate"</span>: <span class="s2">"2022-08-26 10:47:53"</span>,
+        <span class="s2">"CapturedAmount"</span>: 15700,
+        <span class="s2">"CapturedDate"</span>: <span class="s2">"2022-08-26 10:47:54"</span>,
+        <span class="s2">"Status"</span>: 2,
+        <span class="s2">"IsSplitted"</span>: <span class="nb">false</span>,
+        <span class="s2">"ReturnMessage"</span>: <span class="s2">"Operation Successful"</span>,
+        <span class="s2">"ReturnCode"</span>: <span class="s2">"6"</span>,
+        <span class="s2">"PaymentId"</span>: <span class="s2">"21c9a3e7-23c2-420b-b12d-b514ef271c85"</span>,
+        <span class="s2">"Type"</span>: <span class="s2">"DebitCard"</span>,
         <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
         <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
-        <span class="s2">"ExtraDataCollection"</span>: <span class="o">[]</span>,
-        <span class="s2">"Status"</span>: 0,
-        <span class="s2">"ReturnCode"</span>: <span class="s2">"0"</span>,
-        <span class="s2">"Payment.MerchantAdviceCode"</span>:<span class="s2">"1"</span>,
         <span class="s2">"Links"</span>: <span class="o">[</span>
             <span class="o">{</span>
                 <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
                 <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
-                <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"</span>
+                <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/21c9a3e7-23c2-420b-b12d-b514ef271c85"</span>
             <span class="o">}</span>
         <span class="o">]</span>
     <span class="o">}</span>
