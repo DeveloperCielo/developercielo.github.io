@@ -895,12 +895,21 @@ Para criar uma venda com cartão de débito, chame o método POST conforme o exe
      "Amount":15700,
      "ReturnUrl":"http://www.cielo.com.br",
      "DebitCard":{  
-         "CardNumber":"4551870000000183",
+         "CardNumber":"5551870000000181",
          "Holder":"Teste Holder",
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
-         "Brand":"Visa"
-     },
+         "Brand":"Master"
+        },
+    "ExternalAuthentication":{
+        "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
+        "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
+        "Eci":"5",
+        "Version":"2",
+        "ReferenceID":"a24a5d87-b1a1-4aef-a37b-2f30b91274e6",
+        "dataonly": "false"
+        }
+    }
 }
 ```
 
@@ -923,12 +932,21 @@ curl
      "Amount":15700,
      "ReturnUrl":"http://www.cielo.com.br",
      "DebitCard":{  
-         "CardNumber":"4551870000000183",
+         "CardNumber":"5551870000000181",
          "Holder":"Teste Holder",
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
-         "Brand":"Visa"
-     },
+         "Brand":"Master"
+        },
+    "ExternalAuthentication":{
+        "Cavv":"AAABB2gHA1B5EFNjWQcDAAAAAAB=",
+        "Xid":"Uk5ZanBHcWw2RjRCbEN5dGtiMTB=",
+        "Eci":"5",
+        "Version":"2",
+        "ReferenceID":"a24a5d87-b1a1-4aef-a37b-2f30b91274e6",
+        "dataonly": "false"
+        }
+    }
 }
 --verbose
 ```
@@ -943,7 +961,7 @@ curl
 | `Customer.Status`          | Status de cadastro do comprador na loja (NEW / EXISTING) - Utilizado pela análise de fraude           | Texto    | 255     | Não                |
 | `Payment.Type`             | Tipo do Meio de Pagamento.                                                                            | Texto    | 100     | Sim                |
 | `Payment.Amount`           | Valor do Pedido (ser enviado em centavos).                                                            | Número   | 15      | Sim                |
-| `Payment.Authenticate`     | Define se o comprador será direcionado ao Banco emissor para autenticação do cartão                   | Booleano | ---     | Sim (Default TRUE) |
+| `Payment.Authenticate`     | Define se o comprador será direcionado ao Banco emissor para autenticação do cartão                   | Booleano | ---     | Sim, no caso de transação Data Only é obrigatório enviar como "false". |
 | `Payment.ReturnUrl`        | URI para onde o usuário será redirecionado após o fim do pagamento                                    | Texto    | 1024    | Sim                |
 |`Payment.IsCryptocurrencyNegotiation`|Deve ser enviado com valor “true” caso se trate de uma transação de compra ou venda de Criptomoeda|Booleano|-|Não (default false)|
 | `DebitCard.CardNumber`     | Número do Cartão do Comprador.                                                                        | Texto    | 19      | Sim                |
@@ -951,7 +969,10 @@ curl
 | `DebitCard.ExpirationDate` | Data de validade impresso no cartão.                                                                  | Texto    | 7       | Sim                |
 | `DebitCard.SecurityCode`   | Código de segurança impresso no verso do cartão.                                                      | Texto    | 4       | Não                |
 | `DebitCard.Brand`          | Bandeira do cartão.                                                                                   | Texto    | 10      | Sim                |
-
+| `Payment.ExternalAuthentication.Eci` | E-Commerce Indicator retornado no processo de autenticação. | Numérico |1 | Sim |
+| `Payment.ExternalAuthentication.ReferenceId` | `RequestID` retornado no processo de autenticação. | GUID | 36 | | Sim |
+| `Payment.ExternalAuthentication.DataOnly` | Booleano que define se é uma transação Data Only. | Booleano | - | Sim, no caso de transação Data Only é obrigatório enviar como "true". |
+  
 ##### Resposta
 
 ```json
