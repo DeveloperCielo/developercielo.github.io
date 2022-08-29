@@ -182,7 +182,7 @@
   <li>O Portador preenche os dados do cartão no checkout do estabelecimento.</li>
   <li>O Estabelecimento aciona a solução 3DS 2.0 da Cielo via script para autenticação.</li>
   <li>A solução 3DS 2.0 da Cielo envia ao MPI (plataforma de autenticação) os dados do comprador.</li>
-  <li>O MPI se comunica com a Bandeira para processar a autenticação. A Bandeira identifica o emissor do cartão, e envia dos dados do comprador para análise.</li>
+  <li>O MPI se comunica com a Bandeira para processar a autenticação. A Bandeira identifica o emissor do cartão, e envia dos dados do comprador para análise. O emissor identifica o portador como um possível risco, desta forma, exige o desafio  e retorna a URL de Autenticação.</li>
   <li>A Bandeira retorna a URL de autenticação ao MPI.</li>
   <li>O MPI retorna a URL de autenticação à solução 3DS 2.0.</li>
   <li>A solução 3DS 2.0 retorna a URL de Autenticação ao estabelecimento via script.</li>
@@ -205,7 +205,7 @@
   <li>O Portador preenche os dados do cartão no checkout do estabelecimento</li>
   <li>O Estabelecimento aciona a solução 3DS 2.0 da Cielo via script para autenticação</li>
   <li>A solução 3DS 2.0 da Cielo envia ao MPI (plataforma de autenticação) os dados do comprador</li>
-  <li>O MPI se comunica com a Bandeira para processar a autenticação. A Bandeira identifica o emissor do cartão, e envia dos dados do comprador para análise. O emissor identifica o portador como um possível risco, desta forma, exige o desafio e retorna a URL de Autenticação</li>
+  <li>O MPI se comunica com a Bandeira para processar a autenticação. A Bandeira identifica o emissor do cartão, e envia dos dados do comprador para análise.</li>
   <li>A Bandeira retorna o resultado da autenticação silenciosa (CAVV e ECI)</li>
   <li>O MPI retorna o resultado da autenticação silenciosa à solução 3DS 2.0</li>
   <li>A solução 3DS 2.0 retorna o resultado da autenticação silenciona ao estabelecimento via script</li>
