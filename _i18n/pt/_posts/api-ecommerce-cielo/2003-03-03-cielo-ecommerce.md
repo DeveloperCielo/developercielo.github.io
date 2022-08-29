@@ -603,38 +603,38 @@ curl
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantId`|Guid|36|Sim|Identificador da loja na Cielo.|
-|`MerchantKey`|Texto|40|Sim|Chave Publica para Autenticação Dupla na Cielo.|
-|`Content-Type`|Header|40|Sim|application/json (obrigatório o envio deste).|
-|`RequestId`|Guid|36|Não|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
-|`MerchantOrderId`|Texto|50|Sim|Numero de identificação do Pedido.|
-|`Customer.Name`|Texto|255|Não|Nome do Comprador.|
+|`MerchantKey`|Texto|40|Sim|Chave Pública para Autenticação Dupla na Cielo.|
+|`Content-Type`|Header|40|Sim|application/json (envio obrigatório).|
+|`RequestId`|Guid|36|Não|Identificador da Requisição, usado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
+|`MerchantOrderId`|Texto|50|Sim|Número de identificação do pedido.|
+|`Customer.Name`|Texto|255|Não|Nome do comprador.|
 |`Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja (NEW / EXISTING)|
-|`Customer.Identity`|Texto|14|Não|Número do RG, CPF ou CNPJ do Cliente.|
+|`Customer.Identity`|Texto|14|Não|Número do RG, CPF ou CNPJ do comprador.|
 |`Customer.IdentityType`|Texto|255|Não|Tipo de documento de identificação do comprador (CFP/CNPJ).|
-|`Customer.Email`|Texto|255|Não|Email do Comprador.|
-|`Customer.Birthdate`|Date|10|Não|Data de nascimento do Comprador.|
-|`Customer.Address.Street`|Texto|255|Não|Endereço do Comprador.|
-|`Customer.Address.Number`|Texto|15|Não|Número do endereço do Comprador.|
-|`Customer.Address.Complement`|Texto|50|Não|Complemento do endereço do Comprador.br|
-|`Customer.Address.ZipCode`|Texto|9|Não|CEP do endereço do Comprador.|
-|`Customer.Address.City`|Texto|50|Não|Cidade do endereço do Comprador.|
-|`Customer.Address.State`|Texto|2|Não|Estado do endereço do Comprador.|
-|`Customer.Address.Country`|Texto|35|Não|Pais do endereço do Comprador.|
-|`Customer.DeliveryAddress.Street`|Texto|255|Não|Endereço do Comprador.|
-|`Customer.Address.Number`|Texto|15|Não|Número do endereço do Comprador.|
-|`Customer.DeliveryAddress.Complement`|Texto|50|Não|Complemento do endereço do Comprador.|
-|`Customer.DeliveryAddress.ZipCode`|Texto|9|Não|CEP do endereço do Comprador.|
-|`Customer.DeliveryAddress.City`|Texto|50|Não|Cidade do endereço do Comprador.|
-|`Customer.DeliveryAddress.State`|Texto|2|Não|Estado do endereço do Comprador.|
-|`Customer.DeliveryAddress.Country`|Texto|35|Não|País do endereço do Comprador.|
-|`Customer.Billing.Street`|string|24|não|Logradouro do endereço de cobrança|
-|`Customer.Billing.Number`|string|5|não|Número do endereço de cobrança|
-|`Customer.Billing.Complement`|string|14|não|Complemento do endereço de cobrança|
-|`Customer.Billing.Neighborhood`|string|15|não|Bairro do endereço de cobrança|
-|`Customer.Billing.City`|string|20|não |Cidade do endereço de cobrança|
-|`Customer.Billing.State`|string|2|não|Estado do endereço de cobrança|
+|`Customer.Email`|Texto|255|Não|Email do comprador.|
+|`Customer.Birthdate`|Date|10|Não|Data de nascimento do comprador.|
+|`Customer.Address.Street`|Texto|255|Não|Endereço do comprador.|
+|`Customer.Address.Number`|Texto|15|Não|Número do endereço do comprador.|
+|`Customer.Address.Complement`|Texto|50|Não|Complemento do endereço do comprador|
+|`Customer.Address.ZipCode`|Texto|9|Não|CEP do endereço do comprador.|
+|`Customer.Address.City`|Texto|50|Não|Cidade do endereço do comprador.|
+|`Customer.Address.State`|Texto|2|Não|Estado do endereço do comprador.|
+|`Customer.Address.Country`|Texto|35|Não|Pais do endereço do comprador.|
+|`Customer.DeliveryAddress.Street`|Texto|255|Não|Endereço do comprador.|
+|`Customer.Address.Number`|Texto|15|Não|Número do endereço do comprador.|
+|`Customer.DeliveryAddress.Complement`|Texto|50|Não|Complemento do endereço do comprador.|
+|`Customer.DeliveryAddress.ZipCode`|Texto|9|Não|CEP do endereço do comprador.|
+|`Customer.DeliveryAddress.City`|Texto|50|Não|Cidade do endereço do comprador.|
+|`Customer.DeliveryAddress.State`|Texto|2|Não|Estado do endereço do comprador.|
+|`Customer.DeliveryAddress.Country`|Texto|35|Não|País do endereço do comprador.|
+|`Customer.Billing.Street`|string|24|não|Logradouro do endereço de cobrança.|
+|`Customer.Billing.Number`|string|5|não|Número do endereço de cobrança.|
+|`Customer.Billing.Complement`|string|14|não|Complemento do endereço de cobrança.|
+|`Customer.Billing.Neighborhood`|string|15|não|Bairro do endereço de cobrança.|
+|`Customer.Billing.City`|string|20|não |Cidade do endereço de cobrança.|
+|`Customer.Billing.State`|string|2|não|Estado do endereço de cobrança.|
 |`Customer.Billing.Country`|string|2|não| País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|
-|`Customer.Billing.ZipCode`|string|9|não|Código postal do endereço de cobrança|
+|`Customer.Billing.ZipCode`|string|9|não|Código postal do endereço de cobrança.|
 |`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento.|
 |`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
 |`Payment.Currency`|Texto|3|Não|Moeda na qual o pagamento será feito (BRL).|
