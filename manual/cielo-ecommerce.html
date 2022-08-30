@@ -11850,51 +11850,65 @@ O código de retorno <strong>00 representa sucesso no Zero Auth</strong>, os dem
 
 <h1 id="silent-order-post">Silent Order Post</h1>
 
-<p>Integração que a Cielo oferece aos lojistas, na qual os dados de pagamentos são trafegados de forma segura, mantendo o controle total sobre a experiência de checkout.</p>
+<p>Com o Silent Order Post, os dados de pagamentos são trafegados de forma segura, mantendo o controle total sobre a experiência de checkout.</p>
 
-<p>Esse método possibilita o envio dos dados do pagamento do seu cliente final de forma segura diretamente em nosso sistema. Os campos de pagamento são guardados do lado da Cielo, que conta com a certificação PCI DSS 3.2.</p>
+<p>Esse método possibilita o envio dos dados do pagamento do comprador de forma segura diretamente em nosso sistema. Os campos de pagamento são armazenados pela Cielo, que conta com a certificação PCI DSS 3.2.</p>
 
-<p>É ideal para lojistas que exigem um alto nível de segurança, sem perder a identidade de sua página. Esse método permite um alto nível de personalização na sua página de checkout.</p>
+<p>É ideal para lojistas que exigem um alto nível de segurança, sem perder a identidade de sua página.</p>
 
 <h2 id="características">Características</h2>
 
 <ul>
-  <li>Captura de dados de pagamento diretamente para os sistemas da Cielo por meio dos campos hospedados na sua página através de um script (javascript);</li>
+  <li>Captura de dados de pagamento diretamente para os sistemas da Cielo por meio dos campos hospedados na sua página através de um script (JavaScript);</li>
   <li>Compatibilidade com todos os meios de pagamentos disponibilizados ao Gateway (Nacional e Internacional);</li>
-  <li>Autenticação do comprador (disponível);</li>
   <li>Redução do escopo de PCI DSS;</li>
-  <li>Permite manter controle total sobre a experiência de checkout e elementos de gestão da sua marca.</li>
+  <li>Controle total sobre a experiência de checkout e elementos de gestão da sua marca.</li>
 </ul>
+
+<blockquote>
+  <p>O <strong>PCI Data Security Standard</strong> (PCI DSS) é um padrão global de segurança de dados de cartões, e compreende um conjunto mínimo de requisitos para
+proteger os dados do titular do cartão.</p>
+</blockquote>
 
 <h2 id="fluxo-de-autorização">Fluxo de Autorização</h2>
 
-<h3 id="fluxo-padrão-de-autorização">Fluxo Padrão de Autorização</h3>
+<p>A seguir, apresentamos como funciona um fluxo de autorização padrão e um fluxo de autorização com o Silent Order Post.</p>
+
+<h3 id="fluxo-de-autorização-padrão">Fluxo de Autorização Padrão</h3>
+
+<p>No fluxo de autorização padrão, a loja virtual recebe os dados de pagamento do comprador e, por isso, precisa estar em conformidade com o PCI DSS.</p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxo-padrao-de-autorizacao.jpg" alt="Fluxo Padrão" /></p>
 
-<p>É preciso que o estabelecimento seja <strong>PCI Compliance</strong> (PCI = Regras de segurança para manipular os dados do cartão)</p>
-
 <h3 id="fluxo-de-autorização-com-silent-order-post">Fluxo de Autorização com Silent Order POST</h3>
+
+<p>Com o Silent Order Post, o servidor da loja virtual <strong>não trafega os dados do cartão</strong> abertamente.</p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxo-de-autorizacao-com-sop.jpg" alt="Fluxo Padrão" /></p>
 
-<p>O servidor <strong>não trafega os dados do cartão</strong> abertamente.</p>
-
-<h2 id="fluxo-transacional">Fluxo Transacional</h2>
-
-<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxo-silent-order-post-cielo_new.png" alt="Fluxo Silent Order Post" /></p>
+<ol>
+  <li>A loja configura o JavaScript na tela de checkout. Na finalização da compra, o script envia os dados de pagamento diretamente para a API E-Commerce Cielo, sem passar pelo seu servidor;</li>
+  <li>A API armazena os dados do cartão para aquela compra e cria um código criptografado (token de pagamento, válido apenas para uma compra) ou armazena os dados do cartão e cria um código criptografado para o cartão (token do cartão, que pode ser usado em outras compras);</li>
+  <li>A loja envia o token do script para o próprio servidor;</li>
+  <li>A loja, por meio do seu servidor, envia a requisição de autorização com o token e os demais campos obrigatórios para uma transação.</li>
+</ol>
 
 <h2 id="integração-2">Integração</h2>
 
-<h3 id="passo-1">Passo 1</h3>
+<h3 id="passo-1-obtenção-dos-tokens-de-acesso">Passo 1. Obtenção dos tokens de acesso</h3>
 
-<p>O cliente acaba o checkout, e vai para o processamento do pagamento.</p>
+<p>Para que possa usar o Silent Order Post, você vai precisar de dois tokens:</p>
 
-<h3 id="passo-2-obtenção-do-accesstoken-oauth2">Passo 2. Obtenção do AccessToken OAuth2</h3>
+<ul>
+  <li>Token de autenticação OAuth2 (<code class="language-plaintext highlighter-rouge">access_token</code>)</li>
+  <li>Token de autenticação do Silent Order Post (<code class="language-plaintext highlighter-rouge">AccessToken</code>)</li>
+</ul>
 
-<p>Quando o comprador acessa o checkout, o estabelecimento deve gerar o <code class="language-plaintext highlighter-rouge">AccessToken</code> a partir da API de autenticação da Cielo (<strong>OAuth2</strong>). Em caso de sucesso, a API retornará um <code class="language-plaintext highlighter-rouge">AccessToken</code> que deverá ser utilizado na próxima camada de autenticação da ferramenta.</p>
+<h4 id="token-de-autenticação-oauth2">Token de autenticação OAuth2</h4>
 
-<p>Para obter o <code class="language-plaintext highlighter-rouge">AccessToken</code> no padrão <a href="https://oauth.net/2/" target="_blank">OAuth 2.0</a>, envie uma requisição utilizando o VERBO HTTP <strong>POST</strong> para a seguinte URL, formada pela “URL base do ambiente + endpoint”, no modelo server-to-server:</p>
+<p>A loja deve gerar o <code class="language-plaintext highlighter-rouge">access_token</code> a partir da API de autenticação da Cielo (<strong>OAuth2</strong>). Em caso de sucesso, a API retornará um <code class="language-plaintext highlighter-rouge">access_token</code> que deverá ser utilizado na próxima camada de autenticação da ferramenta.</p>
+
+<p>Para obter o <code class="language-plaintext highlighter-rouge">access_token</code> no padrão <a href="https://oauth.net/2/" target="_blank">OAuth 2.0</a>, envie uma requisição utilizando o VERBO HTTP <strong>POST</strong> para a URL da tabela a seguir, formada pela “URL base do ambiente + endpoint”, conforme o ambiente desejado:</p>
 
 <table>
   <thead>
@@ -11927,7 +11941,7 @@ O código de retorno <strong>00 representa sucesso no Zero Auth</strong>, os dem
 </ol>
 
 <blockquote>
-  <p>Para obter o “ClientID” e o “ClientSecret”, envie um e-mail para <em>cieloecommerce@cielo.com.br</em> contendo o MerchantId e informando que deseja obter as credenciais “ClientID” e “ClientSecret” para o Silent Order Post.</p>
+  <p>Para obter o “ClientID” e o “ClientSecret”, envie um e-mail para <em>cieloecommerce@cielo.com.br</em> contendo o <code class="language-plaintext highlighter-rouge">MerchantId</code> e informando que deseja obter as credenciais “ClientID” e “ClientSecret” para o Silent Order Post.</p>
 </blockquote>
 
 <p><strong>Requisição</strong></p>
@@ -12006,9 +12020,9 @@ O código de retorno <strong>00 representa sucesso no Zero Auth</strong>, os dem
   </tbody>
 </table>
 
-<h3 id="passo-3-obtenção-do-accesstoken-sop">Passo 3. Obtenção do AccessToken SOP</h3>
+<h4 id="token-de-autenticação-do-silent-order-post">Token de autenticação do Silent Order Post</h4>
 
-<p>Após a obtenção do AccessToken OAuth2, o estabelecimento deverá realiza um envio de requisição utilizando o VERBO HTTP <strong>POST</strong> para a seguinte URL:</p>
+<p>Após a obtenção do token de autenticação OAuth2, envie uma requisição utilizando o VERBO HTTP <strong>POST</strong> para a URL da tabela a seguir conforme o ambiente desejado:</p>
 
 <table>
   <thead>
@@ -12030,6 +12044,8 @@ O código de retorno <strong>00 representa sucesso no Zero Auth</strong>, os dem
 </table>
 
 <p><strong>Requisição</strong></p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">api/public/v2/accesstoken</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://transactionsandbox.pagador.com.br/post/api/public/v2/accesstoken"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
@@ -12069,7 +12085,7 @@ O código de retorno <strong>00 representa sucesso no Zero Auth</strong>, os dem
 
 <p><strong>Resposta</strong></p>
 
-<p>Como resposta, o estabelecimento receberá um json (“HTTP 201 Created”) contendo, entre outras informações, o token (AccessToken SOP).</p>
+<p>Como resposta, a loja receberá um json (“HTTP 201 Created”) contendo, entre outras informações, o <code class="language-plaintext highlighter-rouge">AccessToken</code> do Silent Order Post.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"</span><span class="p">,</span><span class="w">
@@ -12110,7 +12126,7 @@ O código de retorno <strong>00 representa sucesso no Zero Auth</strong>, os dem
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AccessToken</code></td>
-      <td>Token de acesso (AccessToken SOP). Por questões de segurança, este token dará permissão para o estabelecimento salvar apenas 1 cartão dentro de um prazo já estipulado na resposta, através do atributo <em>ExpiresIn</em> (por padrão, 20 minutos). O que acontecer primeiro invalidará esse mesmo token para impedir um uso futuro.</td>
+      <td>Token de acesso (<code class="language-plaintext highlighter-rouge">AccessToken</code> do Silent Order Post). O <code class="language-plaintext highlighter-rouge">AccessToken</code> obtido permitirá a realização de uma tentativa de autorização no período de 20 minutos.</td>
       <td>Texto</td>
       <td>–</td>
       <td>NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==</td>
@@ -12132,9 +12148,9 @@ O código de retorno <strong>00 representa sucesso no Zero Auth</strong>, os dem
   </tbody>
 </table>
 
-<h3 id="passo-4">Passo 4</h3>
+<h3 id="passo-2-implementação-do-script">Passo 2. Implementação do Script</h3>
 
-<p>a) Faça o download do script fornecido pela Cielo, e anexe o script à sua página de checkout. Esse script permitirá à Cielo processar todas as informações de cartão sem intervenção do estabelecimento.</p>
+<p>Faça o download do script fornecido pela Cielo, e anexe o script à sua página de checkout. Esse script permitirá à Cielo processar todas as informações de cartão sem intervenção do estabelecimento.</p>
 
 <p>Faça o download do script correspondente ao ambiente desejado, sandbox ou produção:</p>
 
@@ -12157,7 +12173,7 @@ O código de retorno <strong>00 representa sucesso no Zero Auth</strong>, os dem
   </tbody>
 </table>
 
-<p>b) Decore seus inputs do formulário com as seguintes classes:</p>
+<p>Com o script em mãos, faça a configuração do formulário com as seguintes classes:</p>
 
 <ul>
   <li>Para o portador do cartão de crédito/débito: <strong>bp-sop-cardholdername</strong></li>
@@ -12166,7 +12182,7 @@ O código de retorno <strong>00 representa sucesso no Zero Auth</strong>, os dem
   <li>Para o código de segurança do cartão de crédito/débito: <strong>bp-sop-cardcvvc</strong></li>
 </ul>
 
-<h4 id="definindo-parâmetros">DEFININDO PARÂMETROS</h4>
+<p>Além disso, defina os parâmetros a seguir:</p>
 
 <p><strong>Parâmetros do Script</strong></p>
 
@@ -12201,7 +12217,22 @@ O código de retorno <strong>00 representa sucesso no Zero Auth</strong>, os dem
   </tbody>
 </table>
 
+<p>Exemplo de setup a ser realizado pelo estabelecimento na página de checkout:</p>
+
+<p><img src="https://developercielo.github.io/images/html-silent-order-post.jpg" alt="Pagina Checkout" /></p>
+
 <p><strong>Retornos do Script</strong></p>
+
+<p>O script fornecido pela Cielo fornece três eventos para manipulação e tratamento por parte do estabelecimento. São eles:</p>
+
+<ul>
+  <li><strong>onSuccess</strong>, onde será retornado o <strong>“PaymentToken”</strong> após processar os dados do cartão;</li>
+  <li><strong>onError</strong>, caso haja algum erro no consumo dos serviços da Cielo;</li>
+  <li>
+    <p><strong>onInvalid</strong>, onde será retornado o resultado da validação dos inputs.</p>
+  </li>
+  <li>Na validação dos inputs, o estabelecimento poderá utilizar toda a camada de validação sobre os dados de cartão realizada pela Cielo e assim simplificar o tratamento no seu formulário de checkout. As mensagens retornadas no resultado da validação são disponibilizadas nos idiomas português (default), inglês e espanhol.</li>
+</ul>
 
 <table>
   <thead>
@@ -12225,19 +12256,18 @@ O código de retorno <strong>00 representa sucesso no Zero Auth</strong>, os dem
   </tbody>
 </table>
 
-<p>c) O script fornecido pela Cielo fornece três eventos para manipulação e tratamento por parte do estabelecimento. São eles:</p>
+<blockquote>
+  <ul>
+    <li>O <strong>PaymentToken</strong> ou o <strong>CardToken</strong> representará todos os dados de cartão fornecido pelo comprador. O token será usado pelo estabelecimento para que não precise tratar e processar dados de cartão em seu servidor.<br /></li>
+    <li>Por questões de segurança o <strong>PaymentToken</strong> poderá ser usado apenas para uma autorização na API E-commerce Cielo. Após o processamento do token, ele será invalidado.</li>
+  </ul>
+</blockquote>
 
-<ul>
-  <li><strong>onSuccess</strong>, onde será retornado o <strong>“PaymentToken”</strong> após processar os dados do cartão;</li>
-  <li><strong>onError</strong>, caso haja algum erro no consumo dos serviços da Cielo;</li>
-  <li>
-    <p><strong>onInvalid</strong>, onde será retornado o resultado da validação dos inputs.</p>
-  </li>
-  <li>
-    <p>Na validação dos inputs, o estabelecimento poderá utilizar toda a camada de validação sobre os dados de cartão realizada pela Cielo e assim simplificar o tratamento no seu formulário de checkout. As mensagens retornadas no resultado da validação são disponibilizadas nos idiomas português (default), inglês e espanhol.</p>
-  </li>
-  <li>O <strong>PaymentToken</strong> será o token que representará todos os dados de cartão fornecido pelo comprador. O mesmo será utilizado pelo estabelecimento para não haver necessidade de tratar e processar dados de cartão do seu lado.</li>
-</ul>
+<h3 id="passo-3-requisição-com-paymenttoken">Passo 3. Requisição com PaymentToken</h3>
+
+<p>Envie a requisição da transação com o PaymentToken.</p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">}</span><span class="err">,</span><span class="w">
     </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -12252,11 +12282,9 @@ O código de retorno <strong>00 representa sucesso no Zero Auth</strong>, os dem
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+<p>Para consultar os campos obrigatórios da requisição e para ver a Resposta, veja as requisições padrão de para transações de crédito ou débito.</p>
+
 <p><strong>Por questões de segurança esse PaymentToken poderá ser usado apenas para 1 autorização na Cielo 3.0. Após o processamento do token, este será invalidado.</strong></p>
-
-<p>Exemplo de setup a ser realizado pelo estabelecimento na página de checkout:</p>
-
-<p><img src="https://developercielo.github.io/images/html-silent-order-post.jpg" alt="Pagina Checkout" /></p>
 
 <h2 id="autenticação-legada-do-sop">Autenticação legada do SOP</h2>
 
