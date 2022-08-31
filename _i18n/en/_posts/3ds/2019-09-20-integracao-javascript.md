@@ -264,13 +264,21 @@ The &quot;**bpmpi\_Authenticate()**&quot; event must be requested when finishing
 
 Use the **test** cards below to simulate different scenarios in the **SANDBOX** environment
 
-| **Card** | **Result** | **Description** |
-| 4000000000001000 | SUCCESS | Silent Authentication successfully authenticated |
-| 4000000000001018 | FAILURE | Failed Silent Authentication |
-| 4000000000001034 | UNENROLLED | Card not enrolled |
-| 4000000000001091 | SUCCESS | Authentication with challenge successfully authenticated |
-| 4000000000001117 | UNENROLLED | Authentication with challenge and card not enrolled |
-| 4000000000001109 | FAILURE | Failed Authentication with challenge |
+## Test Cards with Challenge
+
+|**CARD**|**FLAG**|**RESULT**|**DESCRIPTION**|  
+|---|---|---|---|     
+|4000000000001091<br>5200000000001096<br>6505050000001091|VISA<br>MASTER<br>ELO|SUCCESS|Challenge authentication and bearer authenticated successfully|  
+|4000000000001109<br>5200000000001104<br>6505050000001109|VISA<br>MASTER<br>ELO|FAILURE|Challenged authentication and bearer authenticated failed|  
+|4000000000001117<br>5200000000001112<br>6505050000001117|VISA<br>MASTER<br>ELO|UNENROLLED|Challenge authentication currently unavailable|  
+|4000000000001125<br>5200000000001120<br>6505050000001125|VISA<br>MASTER<br>ELO|UNENROLLED|System error during authentication step|
+
+## No Challenge Test Cards
+
+|**CARD**|**FLAG**|**RESULT**|**DESCRIPTION**|  
+|---|---|---|---|     
+|4000000000001000<br>5200000000001005<br>6505050000001000|VISA<br>MASTER<br>ELO|SUCCESS|Unchallenged authentication and bearer successfully authenticated|  
+|4000000000001018<br>5200000000001013<br>6505050000001018|VISA<br>MASTER<br>ELO|FAILURE|Unchallenged authentication and bearer authenticated failed| 
 
 ## Authorization with Authentication
 
