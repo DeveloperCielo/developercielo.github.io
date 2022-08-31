@@ -1137,42 +1137,68 @@
 
 <p>Use the <strong>test</strong> cards below to simulate different scenarios in the <strong>SANDBOX</strong> environment</p>
 
+<h2 id="test-cards-with-challenge">Test Cards with Challenge</h2>
+
 <table>
+  <thead>
+    <tr>
+      <th><strong>CARD</strong></th>
+      <th><strong>FLAG</strong></th>
+      <th><strong>RESULT</strong></th>
+      <th><strong>DESCRIPTION</strong></th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
-      <td><strong>Card</strong></td>
-      <td><strong>Result</strong></td>
-      <td><strong>Description</strong></td>
-    </tr>
-    <tr>
-      <td>4000000000001000</td>
+      <td>4000000000001091<br />5200000000001096<br />6505050000001091</td>
+      <td>VISA<br />MASTER<br />ELO</td>
       <td>SUCCESS</td>
-      <td>Silent Authentication successfully authenticated</td>
+      <td>Challenge authentication and bearer authenticated successfully</td>
     </tr>
     <tr>
-      <td>4000000000001018</td>
+      <td>4000000000001109<br />5200000000001104<br />6505050000001109</td>
+      <td>VISA<br />MASTER<br />ELO</td>
       <td>FAILURE</td>
-      <td>Failed Silent Authentication</td>
+      <td>Challenged authentication and bearer authenticated failed</td>
     </tr>
     <tr>
-      <td>4000000000001034</td>
+      <td>4000000000001117<br />5200000000001112<br />6505050000001117</td>
+      <td>VISA<br />MASTER<br />ELO</td>
       <td>UNENROLLED</td>
-      <td>Card not enrolled</td>
+      <td>Challenge authentication currently unavailable</td>
     </tr>
     <tr>
-      <td>4000000000001091</td>
+      <td>4000000000001125<br />5200000000001120<br />6505050000001125</td>
+      <td>VISA<br />MASTER<br />ELO</td>
+      <td>UNENROLLED</td>
+      <td>System error during authentication step</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="no-challenge-test-cards">No Challenge Test Cards</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>CARD</strong></th>
+      <th><strong>FLAG</strong></th>
+      <th><strong>RESULT</strong></th>
+      <th><strong>DESCRIPTION</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4000000000001000<br />5200000000001005<br />6505050000001000</td>
+      <td>VISA<br />MASTER<br />ELO</td>
       <td>SUCCESS</td>
-      <td>Authentication with challenge successfully authenticated</td>
+      <td>Unchallenged authentication and bearer successfully authenticated</td>
     </tr>
     <tr>
-      <td>4000000000001117</td>
-      <td>UNENROLLED</td>
-      <td>Authentication with challenge and card not enrolled</td>
-    </tr>
-    <tr>
-      <td>4000000000001109</td>
+      <td>4000000000001018<br />5200000000001013<br />6505050000001018</td>
+      <td>VISA<br />MASTER<br />ELO</td>
       <td>FAILURE</td>
-      <td>Failed Authentication with challenge</td>
+      <td>Unchallenged authentication and bearer authenticated failed</td>
     </tr>
   </tbody>
 </table>
