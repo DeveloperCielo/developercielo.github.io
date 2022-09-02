@@ -442,11 +442,11 @@ Para que você possa disfrutar de todos os recursos disponíveis em nossa API, �
 
 #### Criando uma transação de crédito
 
-Para criar uma transação de cartão de crédito, envie uma requisição utilizando o método `POST` conforme o exemplo a seguir. Esse exemplo contempla todos os campos possíveis que você pode enviar na requisição; consulte quais campos são ou não obrigatórios na tabela de propriedades da requisição.
+Para criar uma transação de cartão de crédito, envie uma requisição utilizando o método `POST` conforme o exemplo a seguir. Esse exemplo contempla todos os campos possíveis que você pode enviar; consulte quais campos são ou não obrigatórios na tabela de propriedades da requisição.
 
 > A **captura** da transação da crédito pode ser **automática** ou **posterior**. Para captura automática, envie o campo `Payment.Capture` na requisição como “true”. Para captura posterior, envie o campo como "false" e, posteriormente, faça a [requisição de captura](https://developercielo.github.io/manual/cielo-ecommerce#captura).
 
-<aside class="notice"><strong>Atenção:</strong> Não é possivel realizar uma transação com valor (`Amount`) 0.</aside>
+<aside class="notice"><strong>Atenção:</strong> Não é possível realizar uma transação com valor (`Amount`) 0.</aside>
 
 <aside class="notice"><strong>Atenção:</strong> No header da requisição, use o Content-Type application/json .</aside>
 
@@ -603,15 +603,15 @@ curl
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
 |`MerchantId`|Guid|36|Sim|Identificador da loja na Cielo.|
-|`MerchantKey`|Texto|40|Sim|Chave Pública para Autenticação Dupla na Cielo.|
+|`MerchantKey`|Texto|40|Sim|Chave pública para autenticação dupla na Cielo.|
 |`Content-Type`|Header|40|Sim|application/json (envio obrigatório).|
-|`RequestId`|Guid|36|Não|Identificador da Requisição, usado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
+|`RequestId`|Guid|36|Não|Identificador da requisição, usado quando o lojista usa diferentes servidores para cada GET/POST/PUT.|
 |`MerchantOrderId`|Texto|50|Sim|Número de identificação do pedido.|
 |`Customer.Name`|Texto|255|Não|Nome do comprador.|
 |`Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja (NEW / EXISTING)|
 |`Customer.Identity`|Texto|14|Não|Número do RG, CPF ou CNPJ do comprador.|
 |`Customer.IdentityType`|Texto|255|Não|Tipo de documento de identificação do comprador (CFP/CNPJ).|
-|`Customer.Email`|Texto|255|Não|Email do comprador.|
+|`Customer.Email`|Texto|255|Não|E-mail do comprador.|
 |`Customer.Birthdate`|Date|10|Não|Data de nascimento do comprador.|
 |`Customer.Address.Street`|Texto|255|Não|Endereço do comprador.|
 |`Customer.Address.Number`|Texto|15|Não|Número do endereço do comprador.|
@@ -619,7 +619,7 @@ curl
 |`Customer.Address.ZipCode`|Texto|9|Não|CEP do endereço do comprador.|
 |`Customer.Address.City`|Texto|50|Não|Cidade do endereço do comprador.|
 |`Customer.Address.State`|Texto|2|Não|Estado do endereço do comprador.|
-|`Customer.Address.Country`|Texto|35|Não|Pais do endereço do comprador.|
+|`Customer.Address.Country`|Texto|35|Não|País do endereço do comprador.|
 |`Customer.DeliveryAddress.Street`|Texto|255|Não|Endereço do comprador.|
 |`Customer.Address.Number`|Texto|15|Não|Número do endereço do comprador.|
 |`Customer.DeliveryAddress.Complement`|Texto|50|Não|Complemento do endereço do comprador.|
@@ -635,25 +635,25 @@ curl
 |`Customer.Billing.State`|string|2|não|Estado do endereço de cobrança.|
 |`Customer.Billing.Country`|string|2|não| País do endereço de cobrança. Mais informações em [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|
 |`Customer.Billing.ZipCode`|string|9|não|Código postal do endereço de cobrança.|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento.|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
+|`Payment.Type`|Texto|100|Sim|Tipo do meio de pagamento.|
+|`Payment.Amount`|Número|15|Sim|Valor do pedido (ser enviado em centavos).|
 |`Payment.Currency`|Texto|3|Não|Moeda na qual o pagamento será feito (BRL).|
-|`Payment.Country`|Texto|3|Não|Pais na qual o pagamento será feito.|
+|`Payment.Country`|Texto|3|Não|País na qual o pagamento será feito.|
 |`Payment.Provider`|Texto|15|---|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|
 |`Payment.ServiceTaxAmount`|Número|15|Não|Aplicável apenas para empresas aéreas. Montante do valor da autorização que deve ser destinado à taxa de serviço. Obs.: Esse valor não é adicionado ao valor da autorização.|
 |`Payment.SoftDescriptor`|Texto|13|Não|O complemento do nome da loja que aparecerá na fatura do cartão. Não permite caracteres especiais.|
 |`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
 |`Payment.Interest`|Texto|10|Não|Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer).|
-|`Payment.Capture`|Booleano|---|Não (Default false)|Booleano que identifica que a autorização deve ser com **captura automática (true)** ou **[captura posterior](https://developercielo.github.io/manual/cielo-ecommerce#captura) (false)**.|
-|`Payment.Authenticate`|Booleano|---|Não (Default false)|Define se o comprador será direcionado ao Banco emissor para autenticação do cartão|
+|`Payment.Capture`|Booleano|---|Não (Default false)|Booleano que identifica que a autorização deve ser com **captura automática ("true")** ou **[captura posterior](https://developercielo.github.io/manual/cielo-ecommerce#captura) ("false")**.|
+|`Payment.Authenticate`|Booleano|---|Não (Default false)|Define se o comprador será direcionado ao banco emissor para autenticação do cartão.|
 |`Payment.Recurrent`|Booleano|-|Não|Indica se a transação é do tipo recorrente (“true”) ou não (“false”). O valor “true” não originará uma nova recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. Authenticate deve ser “false” quando Recurrent é “true”.|
-|`Payment.IsCryptocurrencyNegotiation`|Booleano|-|Não (default false)|Deve ser enviado com valor “true” caso se trate de uma transação de compra ou venda de Criptomoeda|
+|`Payment.IsCryptocurrencyNegotiation`|Booleano|-|Não (default false)|Deve ser enviado com valor “true” caso se trate de uma transação de compra ou venda de Criptomoeda.|
 |`Payment.AirlineData.TicketNumber`|alfanumérico|13|Não|Informar o número do principal bilhete aéreo da transação.|
-|`CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do Comprador.|
-|`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão. Não aceita caracteres especiais ou acentuação.|
+|`CreditCard.CardNumber`|Texto|19|Sim|Número do cartão do comprador.|
+|`CreditCard.Holder`|Texto|25|Não|Nome do comprador impresso no cartão. Não aceita caracteres especiais ou acentuação.|
 |`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impressa no cartão. Ex. MM/AAAA.|
 |`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão.|
-|`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o CardToken.|
+|`CreditCard.SaveCard`|Booleano|---|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o `CardToken`.|
 |`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão. Valores possíveis: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper.       |
 |`CreditCard.CardOnFile.Usage`|Texto|-|Não|**First** se o cartão foi armazenado e é seu primeiro uso.<br>**Used** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
 |`CreditCard.CardOnFile.Reason`|Texto|-|Condicional|Indica o propósito de armazenamento de cartões, caso o campo "Usage" for "Used".<BR>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>**Installments** - Parcelamento através da recorrência.|
