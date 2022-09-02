@@ -2223,7 +2223,8 @@ Para criar uma transação que utilizará cartão de crédito, é necessário en
      "Type":"qrcode",
      "Amount":100,
      "Installments":1,
-     "Capture":false
+     "Capture":false,
+     "Modality": "Credit"
    }
 }
 ```
@@ -2245,7 +2246,8 @@ curl
      "Type":"qrcode",
      "Amount":100,
      "Installments":1,
-     "Capture":false
+     "Capture":false,
+     "Modality": "Credit"
    }
 }
 --verbose
@@ -2263,6 +2265,7 @@ curl
 |`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
 |`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
 |`Payment.Capture`|Booleano|-|Não|Enviar **true** para uma trasação de captura automática.|
+|`Payment.Modality`|Texto|10|Não|Indica se o pagamento será feito com crédito ou débito. Valores possíveis: "Credit" (padrão) ou "Debit"|
 
 #### Resposta
 
