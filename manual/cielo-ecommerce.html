@@ -4325,7 +4325,8 @@ Abaixo especificamos qualquer diferença existente:</p>
      </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"qrcode"</span><span class="p">,</span><span class="w">
      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Capture"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+     </span><span class="nl">"Capture"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Modality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit"</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -4346,7 +4347,8 @@ Abaixo especificamos qualquer diferença existente:</p>
      <span class="s2">"Type"</span>:<span class="s2">"qrcode"</span>,
      <span class="s2">"Amount"</span>:100,
      <span class="s2">"Installments"</span>:1,
-     <span class="s2">"Capture"</span>:false
+     <span class="s2">"Capture"</span>:false,
+     <span class="s2">"Modality"</span>: <span class="s2">"Credit"</span>
    <span class="o">}</span>
 <span class="o">}</span>
 <span class="nt">--verbose</span>
@@ -4432,6 +4434,13 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>-</td>
       <td>Não</td>
       <td>Enviar <strong>true</strong> para uma trasação de captura automática.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Modality</code></td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Não</td>
+      <td>Indica se o pagamento será feito com crédito ou débito. Valores possíveis: “Credit” (padrão) ou “Debit”</td>
     </tr>
   </tbody>
 </table>
