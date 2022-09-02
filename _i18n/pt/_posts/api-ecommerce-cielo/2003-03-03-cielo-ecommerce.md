@@ -433,12 +433,12 @@ Para que você possa disfrutar de todos os recursos disponíveis em nossa API, �
 
 |Conceito|Descrição|
 |---|---|
-|**Autenticação**|É um processo de verificação do portador do cartão realizado pelo banco emissor para trazer mais segurança para a venda e possibilitando que a risco de fraude fique para o emissor.|
+|**Autenticação**|É um processo de verificação do portador do cartão realizado pelo banco emissor para trazer mais segurança para a venda. Em caso de fraude em transação autenticada, o custo do chargeback é do emissor.|
 |**Autorização**|Etapa em que a Cielo faz a conexão com o sistema do banco emissor e da bandeira para aprovar uma transação de cartão. A pré-autorização apenas sensibiliza o limite do cliente, mas ainda não gera cobrança para o consumidor. Para efetivação da cobrança é necessária a ocorrência da captura.|
 |**Captura**|Após a autorização, para que a venda seja concretizada e a cobrança seja efetivada no cartão, ocorre o movimento de captura.|
 |**Cancelamento**|O cancelamento acontece quando o estabelecimento não quer mais prosseguir com uma transação. Esse movimento pode ser realizado tanto para transações autorizadas quanto para capturadas.|
 
-<aside class="warning">IMPORTANTE: O número de identificação do pedido (MerchantOrderId) não sofre alteração, se mantendo o mesmo ao longo de todo o fluxo transacional. Contudo, um número adicional pode ser gerado para o pedido e utilizado durante a transação. Esse número só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (MerchantOrderId) repetidos. Para fins de conciliação, é necessário usar o TransactionId.</aside>
+<aside class="warning">IMPORTANTE: O número de identificação do pedido (`MerchantOrderId`) não sofre alteração ao longo do fluxo transacional. Contudo, um número adicional pode ser gerado para o pedido e utilizado durante a transação. Esse número só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (`MerchantOrderId`) repetidos. Para fins de conciliação, use o `TransactionId`.</aside>
 
 #### Criando uma transação de crédito
 
