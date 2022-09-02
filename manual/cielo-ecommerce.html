@@ -877,7 +877,7 @@ Abaixo especificamos qualquer diferença existente:</p>
   <tbody>
     <tr>
       <td><strong>Autenticação</strong></td>
-      <td>É um processo de verificação do portador do cartão realizado pelo banco emissor para trazer mais segurança para a venda e possibilitando que a risco de fraude fique para o emissor.</td>
+      <td>É um processo de verificação do portador do cartão realizado pelo banco emissor para trazer mais segurança para a venda. Em caso de fraude em transação autenticada, o custo do chargeback é do emissor.</td>
     </tr>
     <tr>
       <td><strong>Autorização</strong></td>
@@ -894,7 +894,7 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<aside class="warning">IMPORTANTE: O número de identificação do pedido (MerchantOrderId) não sofre alteração, se mantendo o mesmo ao longo de todo o fluxo transacional. Contudo, um número adicional pode ser gerado para o pedido e utilizado durante a transação. Esse número só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (MerchantOrderId) repetidos. Para fins de conciliação, é necessário usar o TransactionId.</aside>
+<aside class="warning">IMPORTANTE: O número de identificação do pedido (`MerchantOrderId`) não sofre alteração ao longo do fluxo transacional. Contudo, um número adicional pode ser gerado para o pedido e utilizado durante a transação. Esse número só será diferente em caso de adequação a regras da adquirente ou em caso de números de identificação do pedido (`MerchantOrderId`) repetidos. Para fins de conciliação, use o `TransactionId`.</aside>
 
 <h4 id="criando-uma-transação-de-crédito">Criando uma transação de crédito</h4>
 
