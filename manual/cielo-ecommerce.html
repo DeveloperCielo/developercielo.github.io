@@ -898,13 +898,13 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <h4 id="criando-uma-transação-de-crédito">Criando uma transação de crédito</h4>
 
-<p>Para criar uma transação de cartão de crédito, envie uma requisição utilizando o método <code class="language-plaintext highlighter-rouge">POST</code> conforme o exemplo a seguir. Esse exemplo contempla todos os campos possíveis que você pode enviar na requisição; consulte quais campos são ou não obrigatórios na tabela de propriedades da requisição.</p>
+<p>Para criar uma transação de cartão de crédito, envie uma requisição utilizando o método <code class="language-plaintext highlighter-rouge">POST</code> conforme o exemplo a seguir. Esse exemplo contempla todos os campos possíveis que você pode enviar; consulte quais campos são ou não obrigatórios na tabela de propriedades da requisição.</p>
 
 <blockquote>
   <p>A <strong>captura</strong> da transação da crédito pode ser <strong>automática</strong> ou <strong>posterior</strong>. Para captura automática, envie o campo <code class="language-plaintext highlighter-rouge">Payment.Capture</code> na requisição como “true”. Para captura posterior, envie o campo como “false” e, posteriormente, faça a <a href="https://developercielo.github.io/manual/cielo-ecommerce#captura">requisição de captura</a>.</p>
 </blockquote>
 
-<aside class="notice">Atenção: Não é possivel realizar uma transação com valor (`Amount`) 0.</aside>
+<aside class="notice">Atenção: Não é possível realizar uma transação com valor (`Amount`) 0.</aside>
 
 <aside class="notice">Atenção: No header da requisição, use o Content-Type application/json .</aside>
 
@@ -1079,7 +1079,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Texto</td>
       <td>40</td>
       <td>Sim</td>
-      <td>Chave Pública para Autenticação Dupla na Cielo.</td>
+      <td>Chave pública para autenticação dupla na Cielo.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Content-Type</code></td>
@@ -1093,7 +1093,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Guid</td>
       <td>36</td>
       <td>Não</td>
-      <td>Identificador da Requisição, usado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
+      <td>Identificador da requisição, usado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
@@ -1135,7 +1135,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Texto</td>
       <td>255</td>
       <td>Não</td>
-      <td>Email do comprador.</td>
+      <td>E-mail do comprador.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
@@ -1191,7 +1191,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Texto</td>
       <td>35</td>
       <td>Não</td>
-      <td>Pais do endereço do comprador.</td>
+      <td>País do endereço do comprador.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
@@ -1303,14 +1303,14 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Texto</td>
       <td>100</td>
       <td>Sim</td>
-      <td>Tipo do Meio de Pagamento.</td>
+      <td>Tipo do meio de pagamento.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
       <td>Número</td>
       <td>15</td>
       <td>Sim</td>
-      <td>Valor do Pedido (ser enviado em centavos).</td>
+      <td>Valor do pedido (ser enviado em centavos).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
@@ -1324,7 +1324,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Texto</td>
       <td>3</td>
       <td>Não</td>
-      <td>Pais na qual o pagamento será feito.</td>
+      <td>País na qual o pagamento será feito.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
@@ -1366,14 +1366,14 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Booleano</td>
       <td>—</td>
       <td>Não (Default false)</td>
-      <td>Booleano que identifica que a autorização deve ser com <strong>captura automática (true)</strong> ou <strong><a href="https://developercielo.github.io/manual/cielo-ecommerce#captura">captura posterior</a> (false)</strong>.</td>
+      <td>Booleano que identifica que a autorização deve ser com <strong>captura automática (“true”)</strong> ou <strong><a href="https://developercielo.github.io/manual/cielo-ecommerce#captura">captura posterior</a> (“false”)</strong>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
       <td>Booleano</td>
       <td>—</td>
       <td>Não (Default false)</td>
-      <td>Define se o comprador será direcionado ao Banco emissor para autenticação do cartão</td>
+      <td>Define se o comprador será direcionado ao banco emissor para autenticação do cartão.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
@@ -1387,7 +1387,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Booleano</td>
       <td>-</td>
       <td>Não (default false)</td>
-      <td>Deve ser enviado com valor “true” caso se trate de uma transação de compra ou venda de Criptomoeda</td>
+      <td>Deve ser enviado com valor “true” caso se trate de uma transação de compra ou venda de Criptomoeda.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.AirlineData.TicketNumber</code></td>
@@ -1401,14 +1401,14 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Texto</td>
       <td>19</td>
       <td>Sim</td>
-      <td>Número do Cartão do Comprador.</td>
+      <td>Número do cartão do comprador.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
       <td>Texto</td>
       <td>25</td>
       <td>Não</td>
-      <td>Nome do Comprador impresso no cartão. Não aceita caracteres especiais ou acentuação.</td>
+      <td>Nome do comprador impresso no cartão. Não aceita caracteres especiais ou acentuação.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
@@ -1429,7 +1429,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Booleano</td>
       <td>—</td>
       <td>Não (Default false)</td>
-      <td>Booleano que identifica se o cartão será salvo para gerar o CardToken.</td>
+      <td>Booleano que identifica se o cartão será salvo para gerar o <code class="language-plaintext highlighter-rouge">CardToken</code>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
