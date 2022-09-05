@@ -5171,13 +5171,13 @@ curl
 
 Bandeiras e Emissores que já estão com o Renova Fácil habilitados:
 
-|Emissores|VISA|MASTER|ELO|
-|---|---|---|---|
-|`BRADESCO`|Sim|Sim|Sim|
-|`BANCO DO BRASIL`|Sim|---|---|
-|`SANTADER`|Sim|---|---|
-|`CITI`|Sim|---|---|
-|`BANCO PAN`|Sim|---|---|
+|Emissores|VISA|MASTER|ELO|Amex|
+|---|---|---|---|---|
+|`BRADESCO`|Sim|Sim|Sim|Sim|
+|`BANCO DO BRASIL`|Sim|---|---|---|
+|`SANTADER`|Sim|---|---|---|
+|`CITI`|Sim|---|---|---|
+|`BANCO PAN`|Sim|---|---|---|
 
 # Consulta, Captura e Cancelamento
 
@@ -6973,13 +6973,11 @@ A Cielo informa seus clientes que está preparada para processar as transações
 
 O `MerchantAdviceCode` (MAC) é o código de retorno da bandeira Mastercard que define o período para retentativa. A combinação do código de resposta com o MAC irá determinar se a retentativa é permitida e depois de quanto tempo.
 
-> Temporariamente, a API Cielo E-commerce vai retornar o `MerchantAdviceCode` na primeira retentativa e os códigos RP,  NR e SC a partir da segunda retentativa.
-
-|Código de retorno| MAC (primeira retentativa) | Código de/para Cielo (a partir da segunda retentativa) | Descrição | Permite retentativa?|
-|---|---|---|---|---|
-|79<br>82<br>83<br>51|02|RP|Transação não permitida. |Sim, após 72 horas.|
-|05<br>14<br>51<br>54<br>79<br>82<br>83|03|NR|Transação não permitida. |Sim, após 30 dias.|
-|05|21|SC|Transação não permitida. Pagamento recorrente, serviço cancelado. |Não.|
+|Código de retorno| MAC (primeira retentativa) | Descrição | Permite retentativa?|
+|---|---|---|---|
+|79<br>82<br>83<br>51|02|Transação não permitida. |Sim, após 72 horas.|
+|05<br>14<br>51<br>54<br>79<br>82<br>83|03|Transação não permitida. |Sim, após 30 dias.|
+|05|21|Transação não permitida. Pagamento recorrente, serviço cancelado. |Não.|
 
 ### Outros códigos de retorno
 
