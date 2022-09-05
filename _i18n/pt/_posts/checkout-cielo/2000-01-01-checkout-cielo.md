@@ -1489,54 +1489,6 @@ O Checkout Cielo permite que o lojista modifique 3 dados da recorrência:
 
 A atualização é feita exclusivamente via o Backoffice Cielo. Acesso o [**Tutorial do Backoffice Checkout Cielo**]({{ site.baseurl_root }}{% post_url 2000-01-01-checkout-tutoriais%}) para mais informações.
 
-# Wallets
-
-## O que são Wallets?
-
-São repositórios de cartões e dados de pagamentos para consumidores online. As carteiras digitais permitem que um consumidor realizar o cadastro de seus dados de pagamento, assim agilizando o processo de compra em lojas habilitadas.
-
-O Checkout Cielo possui integração com [**Visa Checkout**](https://vaidevisa.visa.com.br/site/visa-checkout){:target="_blank"}, wallet da bandeira Visa que permite que o comprador salve cartões e endereços e os utilize no Checkout. 
-
-O lojista deve solicitar ativação pela [**Cielo**](https://developercielo.github.io/manual/checkout-cielo#suporte-cielo){:target="_blank"}.
-
-## Wallets no Checkout Cielo
-
-No Checkout Cielo as wallets são utilizadas para evitar que o comprador preencha todos os dados de pagamento, assim tornando o processo de finalização de compra mais fluido
-
-<aside class="warning">Os cartões salvos são propriedade das respectivas wallets. Não é possivel resgata-los ou vincula-los a lojas especificas dentro do Checkout</aside>
-
-### Utilização
-
-O Checkout Cielo ja é integrado à **Visa Checkout**, sendo assim não há necessidade por parte dos lojistas de 
-
-* Adaptação na integração;
-* Adaptação na estrutura de notificação;
-* Mudança de fluxos de Captura;
-* Mudança de fluxos de Cancelamento.
-
-<br>
-
-A wallet será apresentada na tela transacional e o comprador realizará os passos a sequir:
-
-**1º Passo:** <BR> 
-Na tela transacional, o comprador escolherá a wallet Visa Checkout:
-
-![]({{ site.baseurl_root }}/images/checkout/wallet1.png)
-
-**2º Passo:** <BR>
-O comprador fará o login:
-
-|Visa Checkout|
-|-|
-|![]({{ site.baseurl_root }}/images/checkout/wallet3.png)|
-
-**3º Passo:** <BR>
-Com os dados inclusos na tela, o comprador pode finalizar a transação
-
-|Visa Checkout|
-|-|
-|![]({{ site.baseurl_root }}/images/checkout/wallet5.png)|
-
 # Códigos de retorno ABECS
 
 Para acessar o programa de retentativa das bandeira acesse esse [Link](https://developercielo.github.io/tutorial/rententativabadeiras)
