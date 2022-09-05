@@ -3763,7 +3763,7 @@ Para captar o máximo de clientes, eles oferecem duas maneiras de pagamento:
 
 Como eles executam a cobrança mensal ou anual de seus clientes?
 
-A MusicFy utiliza a Recorrência programada da API E-commerce Cielo.
+A *MusicFy* utiliza a Recorrência programada da API E-commerce Cielo.
 
 Ao criar uma transação, o *Musicfy* informa que o pedido em questão deve ser repetir mensalmente ou anualmente e que não há data de término para a cobrança.
 
