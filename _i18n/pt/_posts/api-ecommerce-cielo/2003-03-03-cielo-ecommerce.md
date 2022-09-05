@@ -1715,8 +1715,8 @@ Conheça o ciclo de vida de uma transação **pix**:
 > * Para habilitar o pix no ambiente sandbox entre em contato com nosso canal de suporte e-commerce pelo e-mail *cieloecommerce@cielo.com.br*;<br/>
 > <br/>
 > * Antes de usar o Pix em produção, certifique-se de que o pix está liberado em seu cadastro. Para confirmar basta acessar o [portal Cielo](https://www.cielo.com.br/){:target="_blank"} na área logada em **Meu Cadastro** > **Autorizações** > **PIX**
-
-![Geração do QR Code Pix]({{ site.baseurl_root }}/images/apicieloecommerce/adesao-pix.png)
+> <br/>
+> ![Geração do QR Code Pix]({{ site.baseurl_root }}/images/apicieloecommerce/adesao-pix.png)
 
 ### Criando uma transação com QR Code Pix
 
@@ -1853,7 +1853,9 @@ Veja exemplos de envio de requisição e resposta para a geração do QR code pi
 
 Caso a sua loja precise cancelar uma transferência pix, é possível realizar uma operação chamada de **devolução**. É importante ressaltar que a devolução não é uma operação instantânea, podendo ser acatada ou não pelo provedor pix. Quando uma devolução é acatada, uma [notificação](https://developercielo.github.io/manual/cielo-ecommerce#post-de-notifica%C3%A7%C3%A3o) será enviada para a sua loja.<br/>
 
-> **Importante:** ***A devolução ocorrerá somente se houver saldo e o prazo para cancelamento é de 90 dias, conforme especificação do BACEN***.
+> **Importante:**<br/>
+> * A devolução ocorrerá somente se houver saldo;<br/>
+> * O prazo para cancelamento é de 90 dias, conforme especificação do BACEN.
 
 #### Requisição
 
