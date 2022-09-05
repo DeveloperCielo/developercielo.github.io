@@ -1710,9 +1710,11 @@ Conheça o ciclo de vida de uma transação **pix**:
 |7| Loja | Recebimento da notificação de confirmação de devolução. | 11 - Estornado |
 |8| Loja | Consulta ao status da transação. | 11 - Estornado |
 
-> **IMPORTANTE**: Para habilitar o pix no ambiente sandbox entre em contato com nosso canal de suporte e-commerce pelo e-mail *cieloecommerce@cielo.com.br*
-
-Observação: Antes de usar o PIX em Produção, certifique que o seu cadastro esteja liberado com esse serviço, para confirmar basta acessar o Site Cielo na área logada em Meu Cadastro – Autorizações – PIX
+> **ATENÇÃO**:<br/>
+> <br/>
+> * Para habilitar o pix no ambiente sandbox entre em contato com nosso canal de suporte e-commerce pelo e-mail *cieloecommerce@cielo.com.br*;<br/>
+> <br/>
+> * Antes de usar o Pix em produção, certifique-se de que o pix está liberado em seu cadastro. Para confirmar basta acessar o [portal Cielo](https://www.cielo.com.br/){:target="_blank"} na área logada em **Meu Cadastro** > **Autorizações** > **PIX**
 
 ![Geração do QR Code Pix]({{ site.baseurl_root }}/images/apicieloecommerce/adesao-pix.png)
 
@@ -1846,6 +1848,75 @@ Veja exemplos de envio de requisição e resposta para a geração do QR code pi
 | `Payment.Status` | Status da transação. Em caso de sucesso, o status inicial é “12” (*Pendente*). [Clique aqui](https://braspag.github.io/manual/braspag-pagador#lista-de-status-da-transa%C3%A7%C3%A3o) para ver lista de status.| Número | - | 12 |
 | `Payment.ReturnCode` | Código retornado pelo provedor do meio de pagamento. | Texto | 32 | 0 |
 | `Payment.ReturnMessage` | Mensagem retornada pelo provedor do meio de pagamento. | Texto | 512 |"Pix gerado com sucesso" |
+
+### Solicitando uma devolução pix
+
+Caso a sua loja precise cancelar uma transferência pix, é possível realizar uma operação chamada de **devolução**. É importante ressaltar que a devolução não é uma operação instantânea, podendo ser acatada ou não pelo provedor pix. Quando uma devolução é acatada, uma [notificação](https://developercielo.github.io/manual/cielo-ecommerce#post-de-notifica%C3%A7%C3%A3o) será enviada para a sua loja.<br/>
+
+> **Importante:** ***A devolução ocorrerá somente se houver saldo e o prazo para cancelamento é de 90 dias, conforme especificação do BACEN***.
+
+#### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=xxx</span></aside>
+
+```shell
+--request PUT "https://(...)/sales/{PaymentId}/void?Amount=xxx"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--verbose
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
+|-----------|---------|----|-------|-----------|
+|`MerchantId`|Identificador da loja na API. |GUID |36 |Sim|
+|`MerchantKey`|Chave pública para autenticação dupla na API. |Texto |40 |Sim|
+|`RequestId`|Identificador do request definido pela loja, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT. | GUID | 36 |Não|
+|`PaymentId`|Campo identificador do pedido. |GUID |36 |Sim|
+|`Amount`|Valor a ser cancelado/estornado, em centavos. Verifique se a adquirente contratada suporta a operação de cancelamento ou estorno.|Número |15 |Não|
+
+#### Resposta
+
+```json
+{
+   "Status": 12,
+   "ReasonCode": 0,
+   "ReasonMessage": "Successful",
+   "ReturnCode": "0",
+   "ReturnMessage": "Reembolso solicitado com sucesso",
+   "Links": [
+      {
+         "Method": "GET",
+         "Rel": "self",
+         "Href": "https://(...)/sales/{PaymentId}"
+      }
+   ]
+}
+```
+
+```shell
+{
+   "Status": 12,
+   "ReasonCode": 0,
+   "ReasonMessage": "Successful",
+   "ReturnCode": "0",
+   "ReturnMessage": "Reembolso solicitado com sucesso",
+   "Links": [
+      {
+         "Method": "GET",
+         "Rel": "self",
+         "Href": "https://(...)/sales/{PaymentId}"
+      }
+   ]
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|-----------|---------|----|-------|-------|
+|`Status`|Status da transação. |Byte | 2 | Ex.: "1" |
+|`ReasonCode`|Código de retorno da adquirência. |Texto |32 |Texto alfanumérico|
+|`ReasonMessage`|Mensagem de retorno da adquirência. |Texto |512 |Texto alfanumérico|
 
 ## Boleto
 
