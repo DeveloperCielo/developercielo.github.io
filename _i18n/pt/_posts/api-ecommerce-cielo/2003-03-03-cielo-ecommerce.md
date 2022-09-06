@@ -2246,7 +2246,6 @@ Entre em contato com o provedor de sua preferência para maiores informações s
 A API Cielo E-commerce possui suporte para as seguintes carteiras digitais:
 
 * [*Apple Pay*](https://www.apple.com/br/apple-pay/){:target="_blank"}
-* [*VisaCheckout*](https://vaidevisa.visa.com.br/site/visa-checkout){:target="_blank"} 
 * [*MasterPass*](https://masterpass.com/pt-br/){:target="_blank"} 
 * [*Samsung Pay*](https://www.samsung.com.br/samsungpay/){:target="_blank"} 
 * [*Google Pay*](https://pay.google.com/intl/pt-BR_br/about/){:target="_blank"}
