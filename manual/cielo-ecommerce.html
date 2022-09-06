@@ -6645,20 +6645,20 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p>Pagamentos recorrentes são transações de cartão de crédito que devem se repetir após um determinado período de tempo.</p>
 
-<p>São pagamentos normalmente encontrados em <strong>assinaturas</strong>, onde o comprador deseja ser cobrado automaticamente, mas não quer informar novamente os dados do cartão de crédito.</p>
+<p>São pagamentos normalmente encontrados em <strong>assinaturas</strong>, nas quais o comprador deseja ser cobrado automaticamente mas não quer informar novamente os dados do cartão de crédito.</p>
 
 <h2 id="tipos-de-recorrências">Tipos de recorrências</h2>
 
 <p>A API E-commerce Cielo funciona com dois tipos de recorrências que possuem comportamentos diferentes:</p>
 
 <ul>
-  <li><strong>Recorrência Própria</strong>: quando a inteligência da repetição e dados do cartão da recorrência ficam sob responsabilidade da loja;</li>
-  <li><strong>Recorrência Programada</strong>: quando a inteligência da repetição e dados do cartão da recorrência ficam sob responsabilidade da <strong>Cielo</strong>.</li>
+  <li><strong>Recorrência Própria</strong>: quando a <strong>loja</strong> cria a própria inteligência de repetição de compra e armazena os dados do cartão;</li>
+  <li><strong>Recorrência Programada</strong>: quando a <strong>Cielo</strong> é responsável pela inteligência da repetição e armazenamento dos dados do cartão.</li>
 </ul>
 
 <h3 id="recorrência-própria">Recorrência Própria</h3>
 
-<p>Nesse modelo, a loja é responsavel por criar a inteligência necessária para:</p>
+<p>Nesse modelo, a loja é responsável por criar a inteligência necessária para:</p>
 
 <table>
   <thead>
@@ -6683,40 +6683,38 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<p>Em todas as instâncias, a recorrência própria é uma transação padrão para a Cielo, sendo sua única diferença a necessidade de enviar um a parâmetro adicional que a define como <strong>Recorrência Própria</strong>:</p>
+<blockquote>
+  <p>A recorrência própria é uma transação padrão para a Cielo, sendo sua única diferença a necessidade de enviar um parâmetro adicional que a define como <strong>Recorrência Própria</strong>:<br />
+<br />
+<strong>Paramêtro:</strong> <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code>= “true”.</p>
+</blockquote>
 
-<p><strong>Paramêtro:</strong> <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code>= “true”</p>
-
-<h4 id="caso-de-uso">Caso de Uso</h4>
+<h4 id="caso-de-uso">Caso de uso</h4>
 
 <p>Este é um exemplo de como a API E-commerce Cielo permite a utilização de sistemas externos de recorrência em suas transações.</p>
 
-<p>A recorrência própria é uma configuração da API E-commerce Cielo que permite um lojista utilizar um sistema de recorrência interno específico as suas necessidades de negócio.</p>
+<p>A recorrência própria é uma configuração da API E-commerce Cielo que permite que uma loja use um sistema de recorrência interno específico às suas necessidades de negócio.</p>
 
-<p>Nesse modelo, o sistema do lojista é encarregado por definir o período, os dados transacionais e, quando necessário, nos enviar a venda de recorrência.</p>
+<p>Nesse modelo, o sistema da loja é encarregado por definir o período, os dados transacionais e, quando necessário, nos enviar a transação de recorrência.</p>
 
-<p><strong>Veja um exemplo em uso:</strong></p>
+<p><strong>Recorrência Própria + Cartão Tokenizado</strong></p>
 
-<ul>
-  <li>Recorrência própria + Cartão Tokenizado</li>
-</ul>
-
-<p>A academia <em>CleverFit</em> possui um sistema de cobrança diferenciado, onde a matrícula é cobrada quinzenalmente, mas nunca nos fins de semana.</p>
+<p>A academia <em>CleverFit</em> possui um sistema de cobrança diferenciado onde a matrícula é cobrada quinzenalmente, mas nunca nos fins de semana.</p>
 
 <p>Por ser um modelo altamente customizado, a <em>CleverFit</em> possui um sistema de recorrência própria, utilizando a API E-commerce Cielo via dois mecanismos:</p>
 
 <ol>
-  <li><strong>Recorrência Própria</strong> - A <em>CleverFit</em> envia os dados da transação como uma venda normal, mas a API identifica que é uma recorrência e aplica regras de autorização diferenciada ao pedido.</li>
-  <li><strong>Cartão Tokenizado</strong> - A <em>CleverFit</em> mantém os cartões salvos via a tokenização, diminuindo o risco de assegurar os dados transacionais em seu sistema.</li>
+  <li><strong>Recorrência Própria</strong>: a <em>CleverFit</em> envia os dados da transação como uma venda normal, mas a API identifica que é uma recorrência e aplica regras de autorização diferenciada ao pedido;</li>
+  <li><strong>Cartão Tokenizado</strong>: a <em>CleverFit</em> mantém os cartões salvos de forma tokenizada na Cielo, de acordo com as regras de segurança, evitando armazenar dados de cartões em seu sistema.</li>
 </ol>
 
-<p>A <em>CleverFit</em> envia a transação quinzenalmente a API E-commerce Cielo, usando os tokens salvos na própria API e optando pela Recorrência Própria, que altera a regra de autorização para se adequar a seu modelo de cobrança.</p>
+<p>A <em>CleverFit</em> envia a transação quinzenalmente para a API E-commerce Cielo, usando os tokens salvos na própria API e optando pela Recorrência Própria, que altera a regra de autorização para se adequar ao seu modelo de cobrança.</p>
 
 <h3 id="recorrência-programada">Recorrência Programada</h3>
 
-<p>Nesse modelo, a Cielo é responsavel pela inteligência necessária para executar uma recorrência de maneira automatica.</p>
+<p>Nesse modelo, a Cielo é a responsável por executar uma recorrência de maneira automática.</p>
 
-<p>A <strong>Recorrência Programada</strong> permite que a loja crie uma transação base, que ao ser enviada para a API E-commerce Cielo, será salva e executada seguindo as regras definidas pela loja.</p>
+<p>A <strong>Recorrência Programada</strong> permite que a loja crie uma transação base que, ao ser enviada para a API E-commerce Cielo, será salva e executada seguindo as regras definidas pela loja.</p>
 
 <p>Nesse modelo, a API realiza e permite:</p>
 
@@ -6729,21 +6727,23 @@ Abaixo especificamos qualquer diferença existente:</p>
   </thead>
   <tbody>
     <tr>
-      <td><strong>Salva dados transacionais</strong></td>
-      <td>Salva dados da transação, criando assim um modelo de como serão as proximas Recorrências.</td>
+      <td><strong>Salvar dados transacionais</strong></td>
+      <td>Salva dados da transação, criando assim um modelo de como serão as próximas recorrências.</td>
     </tr>
     <tr>
-      <td><strong>Automatiza a recorrência</strong></td>
+      <td><strong>Automatizar a recorrência</strong></td>
       <td>Sem atuação da loja, a API cria as transações futuras de acordo com as definições da loja.</td>
     </tr>
     <tr>
-      <td><strong>Permite atualização de dados</strong></td>
-      <td>Caso necessario, a API permite modificações das informações da transação ou do ciclo de recorrência.</td>
+      <td><strong>Atualizar dados</strong></td>
+      <td>Caso necessario, a API permite modificações das informações da transação (como dados do comprador) ou do ciclo de recorrência (como data e intervalo).</td>
     </tr>
   </tbody>
 </table>
 
-<p>A Recorrência Programada é formada por uma estrutura transacional simples. A loja deverá informar na transação os seguintes dados:</p>
+<p>A Recorrência Programada é formada por uma estrutura transacional simples. A loja deverá informar na transação, dentro do nó <code class="language-plaintext highlighter-rouge">RecurrentPayment</code>, se a transação deve ser autorizada no momento da requisição, a data de início da recorrência (caso seja diferente da data de envio da requisição), a data de término e o intervalo da recorrência.</p>
+
+<p>Veja o exemplo do trecho com o nó <code class="language-plaintext highlighter-rouge">RecurrentPayment</code>, que deve ser inserido numa transação de crédito.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"RecurrentPayment"</span><span class="p">:</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -6754,7 +6754,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Onde podemos definir os dados como:</p>
+<p>Podemos definir os dados como:</p>
 
 <table>
   <thead>
@@ -6766,7 +6766,7 @@ Abaixo especificamos qualquer diferença existente:</p>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthorizeNow</code></td>
-      <td>Define que qual o momento que uma recorrência será criada. Se for enviado como “true”, ela é criada no momento da autorização, se “false”, a recorrência ficará suspensa até a data escolhida para ser iniciada.</td>
+      <td>Define qual o momento que uma recorrência será criada. Se for enviado como “true”, ela é criada no momento da autorização; se “false”, a recorrência ficará suspensa até a data escolhida para ser iniciada (<code class="language-plaintext highlighter-rouge">StartDate</code>).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">StartDate</code></td>
@@ -6774,7 +6774,7 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">EndDate</code></td>
-      <td>Define a data que a Recorrência Programada será encerrada. Se não for enviada, a Recorrência será executada até ser cancelada pela loja.</td>
+      <td>Define a data que a Recorrência Programada será encerrada. Se não for enviada, a recorrência será executada até ser cancelada pela loja.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Interval</code></td>
@@ -6783,11 +6783,11 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<p>Quando uma transação é enviada à API E-commerce Cielo com o nó de Recorrência Programada, o processo de recorrência passa a ser efetivo quando a transação é considerada <strong>AUTORIZADA</strong>.</p>
+<blockquote>
+  <p>Quando uma transação é enviada à API E-commerce Cielo com o nó de Recorrência Programada (<code class="language-plaintext highlighter-rouge">RecurrentPayment</code>), o processo de recorrência passa a ser efetivo quando a transação é considerada <strong>AUTORIZADA</strong>. Desse ponto em diante, a transação passará a ocorrer dentro do intervalo definido pela loja.</p>
+</blockquote>
 
-<p>Desse ponto em diante, ela passará a ocorrer dentro do intervalo definido pela loja.</p>
-
-<p>Caracteristicas importantes da <strong>Recorrência Programada</strong>:</p>
+<p>Características importantes da <strong>Recorrência Programada</strong>:</p>
 
 <table>
   <thead>
@@ -6830,26 +6830,22 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <h4 id="caso-de-uso-1">Caso de uso</h4>
 
-<p>Este é um exemplo de como usar as recorrências da API E-commerce Cielo para elevar suas vendas:</p>
+<p>Este é um exemplo de como usar as recorrências da API E-commerce Cielo para elevar suas vendas.</p>
 
-<p>A recorrência é o processo de salvar uma transação e repetí-la em um intervalo de tempo pré-definido. Ideal para modelo de assinaturas.</p>
+<p>A recorrência é o processo de salvar uma transação e repeti-la em um intervalo de tempo pré-definido. É ideal para modelo de assinaturas.</p>
 
 <p>A Recorrência Programada Cielo tem as seguintes características:</p>
 
 <ul>
   <li><strong>Intervalos programados:</strong> mensal, bimestral, trimestral, semestral e anual;</li>
-  <li><strong>Data de validade:</strong> permite definir se a recorrência vai se encerrar;</li>
+  <li><strong>Data de validade:</strong> permite definir se a recorrência tem data para acabar;</li>
   <li><strong>Retentativa:</strong> se uma transação for negada, vamos retentar a transação até quatro vezes;</li>
-  <li><strong>Atualização:</strong> permite alterar dados da recorrência, como valor, intervalo.</li>
+  <li><strong>Atualização:</strong> permite alterar dados da recorrência, como valor e intervalo.</li>
 </ul>
 
-<p>Veja um exemplo em uso:</p>
+<p><strong>Recorrência mensal e anual</strong></p>
 
-<ul>
-  <li><strong>Recorrência mensal e anual</strong></li>
-</ul>
-
-<p>A empresa <em>Musicfy</em> oferece um serviço de assinatura online onde seus clientes pagam para poderem acessar uma biblioteca de músicas e ouví-las via streaming.</p>
+<p>A empresa <em>Musicfy</em> oferece um serviço de assinatura online no qual seus clientes pagam para poderem acessar uma biblioteca de músicas e ouví-las via streaming.</p>
 
 <p>Para captar o máximo de clientes, eles oferecem duas maneiras de pagamento:</p>
 
@@ -6860,21 +6856,21 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p>Como eles executam a cobrança mensal ou anual de seus clientes?</p>
 
-<p>A <em>MusicFy</em> utiliza a Recorrência programada da API E-commerce Cielo.</p>
+<p>A <em>MusicFy</em> utiliza a Recorrência Programada da API E-commerce Cielo.</p>
 
-<p>Ao criar uma transação, o <em>Musicfy</em> informa que o pedido em questão deve ser repetir mensalmente ou anualmente e que não há data de término para a cobrança.</p>
+<p>Ao criar uma transação, o <em>Musicfy</em> informa que o pedido em questão deve se repetir mensalmente ou anualmente e que não há data de término para a cobrança.</p>
 
-<p>Quais as vantagens de usar a recorrência programada para o <em>MusicFy</em>:</p>
+<p>Quais as vantagens de usar a recorrência programada para o <em>MusicFy</em>?</p>
 
 <ol>
   <li>
     <p><strong>Facilidade:</strong> a cobrança de mensalidade é automática, logo o <em>MusicFy</em> não precisa se preocupar em construir um sistema de cobrança;</p>
   </li>
   <li>
-    <p><strong>Usabilidade:</strong> o valor das assinaturas pode ser atualizado sem a necessidade de refazer a transação. Um mês pode ser cancelado ou a recorrência pode ter um delay (o modelo de 30 dias gratuito) com apenas uma configuração;</p>
+    <p><strong>Usabilidade:</strong> o valor das assinaturas pode ser atualizado sem a necessidade de refazer a transação. Um mês pode ser cancelado ou a recorrência pode ter um <em>delay</em> (o modelo de 30 dias gratuito) com apenas uma configuração;</p>
   </li>
   <li>
-    <p><strong>Segurança:</strong> não é necessário armazenar dados sensíveis do cartão e do comprador junto a loja;</p>
+    <p><strong>Segurança:</strong> a <em>MusicFy</em> não precisa armazenar dados sensíveis do cartão e do comprador;</p>
   </li>
   <li>
     <p><strong>Conversão:</strong> a Recorrência Programada Cielo possui um sistema de retentativa automática. Caso uma das transações seja negada, ela será retentada até quatro vezes, buscando atingir a autorização.</p>
