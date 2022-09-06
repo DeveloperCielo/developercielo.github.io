@@ -3635,18 +3635,18 @@ curl
 
 Pagamentos recorrentes são transações de cartão de crédito que devem se repetir após um determinado período de tempo.
 
-São pagamentos normalmente encontrados em **assinaturas**, onde o comprador deseja ser cobrado automaticamente, mas não quer informar novamente os dados do cartão de crédito.
+São pagamentos normalmente encontrados em **assinaturas**, nas quais o comprador deseja ser cobrado automaticamente mas não quer informar novamente os dados do cartão de crédito.
 
 ## Tipos de recorrências
 
 A API E-commerce Cielo funciona com dois tipos de recorrências que possuem comportamentos diferentes:
 
-* **Recorrência Própria**: quando a inteligência da repetição e dados do cartão da recorrência ficam sob responsabilidade da loja;
-* **Recorrência Programada**: quando a inteligência da repetição e dados do cartão da recorrência ficam sob responsabilidade da **Cielo**.
+* **Recorrência Própria**: quando a **loja** cria a própria inteligência de repetição de compra e armazena os dados do cartão;
+* **Recorrência Programada**: quando a **Cielo** é responsável pela inteligência da repetição e armazenamento dos dados do cartão.
 
 ### Recorrência Própria
 
-Nesse modelo, a loja é responsavel por criar a inteligência necessária para:
+Nesse modelo, a loja é responsável por criar a inteligência necessária para:
 
 |Inteligência|Descrição|
 |---|---|
@@ -3654,46 +3654,46 @@ Nesse modelo, a loja é responsavel por criar a inteligência necessária para:
 |**Criar repetição transacional**|A loja deverá enviar uma nova transação sempre que necessitar de uma autorização.|
 |**Comportamento para transação negada**|Caso uma das transações seja negada, caberá a loja a decisão de *retentar* uma nova autorização.|
 
-Em todas as instâncias, a recorrência própria é uma transação padrão para a Cielo, sendo sua única diferença a necessidade de enviar um a parâmetro adicional que a define como **Recorrência Própria**:
+> A recorrência própria é uma transação padrão para a Cielo, sendo sua única diferença a necessidade de enviar um parâmetro adicional que a define como **Recorrência Própria**:<br/>
+> <br/>
+> **Paramêtro:** `Payment.Recurrent`= "true".
 
-**Paramêtro:** `Payment.Recurrent`= "true"
-
-#### Caso de Uso
+#### Caso de uso
 
 Este é um exemplo de como a API E-commerce Cielo permite a utilização de sistemas externos de recorrência em suas transações.
 
-A recorrência própria é uma configuração da API E-commerce Cielo que permite um lojista utilizar um sistema de recorrência interno específico as suas necessidades de negócio.
+A recorrência própria é uma configuração da API E-commerce Cielo que permite que uma loja use um sistema de recorrência interno específico às suas necessidades de negócio.
 
-Nesse modelo, o sistema do lojista é encarregado por definir o período, os dados transacionais e, quando necessário, nos enviar a venda de recorrência.
+Nesse modelo, o sistema da loja é encarregado por definir o período, os dados transacionais e, quando necessário, nos enviar a transação de recorrência.
 
-**Veja um exemplo em uso:**
+**Recorrência Própria + Cartão Tokenizado**
 
-* Recorrência própria + Cartão Tokenizado
-
-A academia *CleverFit* possui um sistema de cobrança diferenciado, onde a matrícula é cobrada quinzenalmente, mas nunca nos fins de semana.
+A academia *CleverFit* possui um sistema de cobrança diferenciado onde a matrícula é cobrada quinzenalmente, mas nunca nos fins de semana.
 
 Por ser um modelo altamente customizado, a *CleverFit* possui um sistema de recorrência própria, utilizando a API E-commerce Cielo via dois mecanismos:
 
-1. **Recorrência Própria** - A *CleverFit* envia os dados da transação como uma venda normal, mas a API identifica que é uma recorrência e aplica regras de autorização diferenciada ao pedido.
-1. **Cartão Tokenizado** - A *CleverFit* mantém os cartões salvos via a tokenização, diminuindo o risco de assegurar os dados transacionais em seu sistema.
+1. **Recorrência Própria**: a *CleverFit* envia os dados da transação como uma venda normal, mas a API identifica que é uma recorrência e aplica regras de autorização diferenciada ao pedido;
+2. **Cartão Tokenizado**: a *CleverFit* mantém os cartões salvos de forma tokenizada na Cielo, de acordo com as regras de segurança, evitando armazenar dados de cartões em seu sistema.
 
-A *CleverFit* envia a transação quinzenalmente a API E-commerce Cielo, usando os tokens salvos na própria API e optando pela Recorrência Própria, que altera a regra de autorização para se adequar a seu modelo de cobrança.
+A *CleverFit* envia a transação quinzenalmente para a API E-commerce Cielo, usando os tokens salvos na própria API e optando pela Recorrência Própria, que altera a regra de autorização para se adequar ao seu modelo de cobrança.
 
 ### Recorrência Programada
 
-Nesse modelo, a Cielo é responsavel pela inteligência necessária para executar uma recorrência de maneira automatica.
+Nesse modelo, a Cielo é a responsável por executar uma recorrência de maneira automática.
 
-A **Recorrência Programada** permite que a loja crie uma transação base, que ao ser enviada para a API E-commerce Cielo, será salva e executada seguindo as regras definidas pela loja. 
+A **Recorrência Programada** permite que a loja crie uma transação base que, ao ser enviada para a API E-commerce Cielo, será salva e executada seguindo as regras definidas pela loja.
 
 Nesse modelo, a API realiza e permite:
 
 |Vantagens|Descrição|
 |---|---|
-|**Salva dados transacionais**|Salva dados da transação, criando assim um modelo de como serão as proximas Recorrências.|
-|**Automatiza a recorrência**|Sem atuação da loja, a API cria as transações futuras de acordo com as definições da loja.|
-|**Permite atualização de dados**|Caso necessario, a API permite modificações das informações da transação ou do ciclo de recorrência.|
+|**Salvar dados transacionais**|Salva dados da transação, criando assim um modelo de como serão as próximas recorrências.|
+|**Automatizar a recorrência**|Sem atuação da loja, a API cria as transações futuras de acordo com as definições da loja.|
+|**Atualizar dados**|Caso necessario, a API permite modificações das informações da transação (como dados do comprador) ou do ciclo de recorrência (como data e intervalo).|
 
-A Recorrência Programada é formada por uma estrutura transacional simples. A loja deverá informar na transação os seguintes dados:
+A Recorrência Programada é formada por uma estrutura transacional simples. A loja deverá informar na transação, dentro do nó `RecurrentPayment`, se a transação deve ser autorizada no momento da requisição, a data de início da recorrência (caso seja diferente da data de envio da requisição), a data de término e o intervalo da recorrência.
+
+Veja o exemplo do trecho com o nó `RecurrentPayment`, que deve ser inserido numa transação de crédito.
 
 ``` json
 "RecurrentPayment":
@@ -3705,20 +3705,18 @@ A Recorrência Programada é formada por uma estrutura transacional simples. A l
 }
 ```
 
-Onde podemos definir os dados como:
+Podemos definir os dados como:
 
 |Paramêtros|Descrição|
 |---|---|
-|`AuthorizeNow`|Define que qual o momento que uma recorrência será criada. Se for enviado como "true", ela é criada no momento da autorização, se "false", a recorrência ficará suspensa até a data escolhida para ser iniciada.|
+|`AuthorizeNow`|Define qual o momento que uma recorrência será criada. Se for enviado como "true", ela é criada no momento da autorização; se "false", a recorrência ficará suspensa até a data escolhida para ser iniciada (`StartDate`).|
 |`StartDate`|Define a data que transação da Recorrência Programada será autorizada.|
-|`EndDate`|Define a data que a Recorrência Programada será encerrada. Se não for enviada, a Recorrência será executada até ser cancelada pela loja.|
+|`EndDate`|Define a data que a Recorrência Programada será encerrada. Se não for enviada, a recorrência será executada até ser cancelada pela loja.|
 |`Interval`|Intervalo da recorrência.<br/>Monthly - Mensal;<br/>Bimonthly - Bimestral;<br/>Quarterly - Trimestral;<br/>SemiAnnual - Semestral;<br/>Annual - Anual.|
 
-Quando uma transação é enviada à API E-commerce Cielo com o nó de Recorrência Programada, o processo de recorrência passa a ser efetivo quando a transação é considerada **AUTORIZADA**.
+> Quando uma transação é enviada à API E-commerce Cielo com o nó de Recorrência Programada (`RecurrentPayment`), o processo de recorrência passa a ser efetivo quando a transação é considerada **AUTORIZADA**. Desse ponto em diante, a transação passará a ocorrer dentro do intervalo definido pela loja.
 
-Desse ponto em diante, ela passará a ocorrer dentro do intervalo definido pela loja.
-
-Caracteristicas importantes da **Recorrência Programada**:
+Características importantes da **Recorrência Programada**:
 
 |Informação|Descrição|
 |---|---|
@@ -3738,22 +3736,20 @@ Caracteristicas importantes da **Recorrência Programada**:
 
 #### Caso de uso
 
-Este é um exemplo de como usar as recorrências da API E-commerce Cielo para elevar suas vendas:
+Este é um exemplo de como usar as recorrências da API E-commerce Cielo para elevar suas vendas.
 
-A recorrência é o processo de salvar uma transação e repetí-la em um intervalo de tempo pré-definido. Ideal para modelo de assinaturas.
+A recorrência é o processo de salvar uma transação e repeti-la em um intervalo de tempo pré-definido. É ideal para modelo de assinaturas.
 
 A Recorrência Programada Cielo tem as seguintes características:
 
 * **Intervalos programados:** mensal, bimestral, trimestral, semestral e anual;
-* **Data de validade:** permite definir se a recorrência vai se encerrar;
+* **Data de validade:** permite definir se a recorrência tem data para acabar;
 * **Retentativa:** se uma transação for negada, vamos retentar a transação até quatro vezes;
-* **Atualização:** permite alterar dados da recorrência, como valor, intervalo.
+* **Atualização:** permite alterar dados da recorrência, como valor e intervalo.
 
-Veja um exemplo em uso:
+**Recorrência mensal e anual**
 
-* **Recorrência mensal e anual**
-
-A empresa *Musicfy* oferece um serviço de assinatura online onde seus clientes pagam para poderem acessar uma biblioteca de músicas e ouví-las via streaming.
+A empresa *Musicfy* oferece um serviço de assinatura online no qual seus clientes pagam para poderem acessar uma biblioteca de músicas e ouví-las via streaming.
 
 Para captar o máximo de clientes, eles oferecem duas maneiras de pagamento:
 
@@ -3762,17 +3758,17 @@ Para captar o máximo de clientes, eles oferecem duas maneiras de pagamento:
 
 Como eles executam a cobrança mensal ou anual de seus clientes?
 
-A *MusicFy* utiliza a Recorrência programada da API E-commerce Cielo.
+A *MusicFy* utiliza a Recorrência Programada da API E-commerce Cielo.
 
-Ao criar uma transação, o *Musicfy* informa que o pedido em questão deve ser repetir mensalmente ou anualmente e que não há data de término para a cobrança.
+Ao criar uma transação, o *Musicfy* informa que o pedido em questão deve se repetir mensalmente ou anualmente e que não há data de término para a cobrança.
 
-Quais as vantagens de usar a recorrência programada para o *MusicFy*:
+Quais as vantagens de usar a recorrência programada para o *MusicFy*?
 
 1. **Facilidade:** a cobrança de mensalidade é automática, logo o *MusicFy* não precisa se preocupar em construir um sistema de cobrança;
     
-2. **Usabilidade:** o valor das assinaturas pode ser atualizado sem a necessidade de refazer a transação. Um mês pode ser cancelado ou a recorrência pode ter um delay (o modelo de 30 dias gratuito) com apenas uma configuração;
+2. **Usabilidade:** o valor das assinaturas pode ser atualizado sem a necessidade de refazer a transação. Um mês pode ser cancelado ou a recorrência pode ter um *delay* (o modelo de 30 dias gratuito) com apenas uma configuração;
     
-3. **Segurança:** não é necessário armazenar dados sensíveis do cartão e do comprador junto a loja;
+3. **Segurança:** a *MusicFy* não precisa armazenar dados sensíveis do cartão e do comprador;
     
 4. **Conversão:** a Recorrência Programada Cielo possui um sistema de retentativa automática. Caso uma das transações seja negada, ela será retentada até quatro vezes, buscando atingir a autorização.
 
