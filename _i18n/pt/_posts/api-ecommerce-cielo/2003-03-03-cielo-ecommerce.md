@@ -3658,6 +3658,8 @@ Nesse modelo, a loja é responsável por criar a inteligência necessária para:
 > <br/>
 > **Parâmetro:** `Payment.Recurrent`= "true".
 
+![Fluxo recorrência própria]({{ site.baseurl_root }}/images/apicieloecommerce/recorrencia-cielo-rec-propria.png)
+
 #### Caso de uso
 
 Este é um exemplo de como a API E-commerce Cielo permite a utilização de sistemas externos de recorrência em suas transações.
