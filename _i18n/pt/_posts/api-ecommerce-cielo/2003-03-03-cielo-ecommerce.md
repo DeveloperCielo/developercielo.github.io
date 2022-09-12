@@ -3656,7 +3656,7 @@ Nesse modelo, a loja é responsável por criar a inteligência necessária para:
 
 > A recorrência própria é uma transação padrão para a Cielo, sendo sua única diferença a necessidade de enviar um parâmetro adicional que a define como **Recorrência Própria**:<br/>
 > <br/>
-> **Paramêtro:** `Payment.Recurrent`= "true".
+> **Parâmetro:** `Payment.Recurrent`= "true".
 
 #### Caso de uso
 
@@ -3689,7 +3689,7 @@ Nesse modelo, a API realiza e permite:
 |---|---|
 |**Salvar dados transacionais**|Salva dados da transação, criando assim um modelo de como serão as próximas recorrências.|
 |**Automatizar a recorrência**|Sem atuação da loja, a API cria as transações futuras de acordo com as definições da loja.|
-|**Atualizar dados**|Caso necessario, a API permite modificações das informações da transação (como dados do comprador) ou do ciclo de recorrência (como data e intervalo).|
+|**Atualizar dados**|Caso necessário, a API permite modificações das informações da transação (como dados do comprador) ou do ciclo de recorrência (como data e intervalo).|
 
 A Recorrência Programada é formada por uma estrutura transacional simples. A loja deverá informar na transação, dentro do nó `RecurrentPayment`, se a transação deve ser autorizada no momento da requisição, a data de início da recorrência (caso seja diferente da data de envio da requisição), a data de término e o intervalo da recorrência.
 
@@ -3722,9 +3722,9 @@ Características importantes da **Recorrência Programada**:
 |---|---|
 |**Criação**|A primeira transação é chamada de **"Transação de agendamento"**. Todas as transações posteriores serão cópias dessa primeira transação. Ela não precisa ser capturada para que a recorrência seja criada, basta ser **AUTORIZADA**.|
 |**Captura**|Transações de Recorrência Programada não precisam ser capturadas. Após a primeira transação, todas as transações de recorrência são capturadas automaticamente pela API.|
-|**Identificação**|Transações de Recorrência Programada geram dois tipos de identificação:<br><br>**`PaymentId`**: Identifica uma transação. É o mesmo identificador das outras transações na API.<br><br>**`RecurrentPaymentId`**: identifica pedido de recorrência. Um `RecurrentPaymentId` possui inúmeros `PaymentId`s vinculados a ela. Essa é a variável usada para cancelar uma Recorrência Programada.|
-|**Consultando**|Para consultar, basta usar um dos dois tipos de identificação:<br><br>**`PaymentId`**: Utilizada para consultar UMA TRANSAÇÃO DENTRO DA RECORRÊNCIA    <br><br>**`RecurrentPaymentId`**: Utilizado para consultar A RECORRÊNCIA.|
-|**Cancelamento**|Uma Recorrência Programada pode ser cancelada de duas maneiras: <br><br>* **Lojista**: Solicita o cancelamento da recorrência. Não cancela transações ja finalizadas antes da ordem de cancelamento da recorrência.  <br><br>* **Por cartão invalido**: Caso a API identifique que um cartão salvo está inválido (ex.: expirado) a recorrência será cancelada e não se repetirá, até que a loja atualize o meio de pagamento. <br><br> **OBS:** Cancelamento de transações dentro da recorrência não encerra o agendamento de transações futuras. Somente o Cancelamento usando o **`RecurrentPaymentId`** encerra agendamentos futuros.
+|**Identificação**|Transações de Recorrência Programada geram dois tipos de identificação:<br><br>**`PaymentId`**: identifica uma transação. É o mesmo identificador das outras transações na API.<br><br>**`RecurrentPaymentId`**: identifica pedido de recorrência. Um `RecurrentPaymentId` possui inúmeros `PaymentId`s vinculados a ele. Essa é a variável usada para cancelar uma Recorrência Programada.|
+|**Consultando**|Para consultar, basta usar um dos dois tipos de identificação:<br><br>**`PaymentId`**: Utilizada para consultar UMA TRANSAÇÃO DENTRO DA RECORRÊNCIA.<br><br>**`RecurrentPaymentId`**: Utilizado para consultar A RECORRÊNCIA.|
+|**Cancelamento**|Uma Recorrência Programada pode ser cancelada de duas maneiras: <br><br>* **Lojista**: Solicita o cancelamento da recorrência. Não cancela transações ja finalizadas antes da ordem de cancelamento da recorrência.  <br><br>* **Por cartão invalido**: Caso a API identifique que um cartão salvo está inválido (ex.: expirado) a recorrência será cancelada e não se repetirá, até que a loja atualize o meio de pagamento. <br><br> **OBS:** Cancelamento de transações dentro da recorrência não encerra o agendamento de transações futuras. Somente o Cancelamento usando o **`RecurrentPaymentId`** encerra agendamentos futuros.|
 
 **Estrutura de um `RecurrentPaymentId`**
 
@@ -3776,7 +3776,7 @@ Quais as vantagens de usar a recorrência programada para o *MusicFy*?
 
 ### Criando uma Recorrência Própria
 
-Para criar uma venda recorrente cuja o processo de recorrência e intervalo serão executados pela propria loja, basta fazer um POST conforme o exemplo.
+Para criar uma venda recorrente cuja o processo de recorrência e intervalo serão executados pela própria loja, basta fazer um POST conforme o exemplo.
 
 O paramêtro `Payment.Recurrent`deve ser `true`, caso contrario, a transação será negada.
 
@@ -4453,7 +4453,7 @@ curl
 
 ### Modificando dados do comprador
 
-Para alterar os dados do comprador da Recorrência, basta fazer um Put conforme o exemplo.
+Altera dados do comprador da recorrência.
 
 #### Requisição
 
@@ -4564,9 +4564,9 @@ HTTP Status 200
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-### Modificando data final da Recorrência
+### Modificando data final da recorrência
 
-Para alterar a data final da Recorrência, basta fazer um Put conforme o exemplo.
+Altera a data final da recorrência.
 
 #### Requisição
 
@@ -4610,7 +4610,7 @@ Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os có
 
 ### Modificando intevalo da Recorrência
 
-Para alterar o Intervalo da Recorrência, basta fazer um Put conforme o exemplo.
+Altera o intervalo da Recorrência.
 
 #### Requisição
 
@@ -4650,11 +4650,20 @@ HTTP Status 200
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-### Modificar dia da Recorrência
+### Modificar dia da recorrência
 
-Para modificar o dia da recorrência, basta fazer um Put conforme o exemplo.
+Altera o dia da recorrência.
 
-<aside class="notice"><strong>Regra:</strong> Se o novo dia informado for depois do dia atual, iremos atualizar o dia da recorrência com efeito na próxima recorrência Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 10, a data da próxima recorrência será dia10/05. Se o novo dia informado for antes do dia atual, iremos atualizar o dia da recorrência, porém este só terá efeito depois que a próxima recorrência for executada com sucesso. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/05. Quando eu atualizar para o dia 3, a data da próxima recorrência permanecerá dia 25/05, e após ela ser executada, a próxima será agendada para o dia 03/06. Se o novo dia informado for antes do dia atual, mas a próxima recorrência for em outro mês, iremos atualizar o dia da recorrência com efeito na próxima recorrência. Ex.: Hoje é dia 5, e a próxima recorrência é dia 25/09. Quando eu atualizar para o dia 3, a data da próxima recorrência será 03/09</aside>
+Ao efetuar a alteração do dia da recorrência, considere as seguintes regras para execução da atualização na API:
+
+1) Se o novo dia informado for depois do dia atual, iremos atualizar o dia da recorrência com efeito na próxima recorrência.
+Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/05. Quando atualizado para o dia 10, a data da próxima recorrência será dia 10/05.
+
+2) Se o novo dia informado for antes do dia atual, iremos atualizar o dia da recorrência, mas este só terá efeito depois que a próxima recorrência for executada com sucesso.
+Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/05. Quando atualizado para o dia 03, a data da próxima recorrência permanecerá dia 25/05. Após sua execução, a recorrência seguinte será agendada para o dia 03/06.
+
+3) Se o novo dia informado for antes do dia atual, mas a próxima recorrência for em outro mês, iremos atualizar o dia da recorrência com efeito na próxima recorrência.
+Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado para o dia 03, a data da próxima recorrência será 03/09.
 
 #### Requisição
 
@@ -4692,9 +4701,9 @@ HTTP Status 200
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-### Modificando o valor da Recorrência
+### Modificando o valor da recorrência
 
-Para modificar o valor da recorrência, basta fazer um Put conforme o exemplo.
+Altera o valor da recorrência.
 
 #### Requsição
 
@@ -4734,9 +4743,9 @@ HTTP Status 200
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-### Modificando data do próximo Pagamento
+### Modificando data do próximo pagamento
 
-Para alterar a data do próximo Pagamento, basta fazer um Put conforme o exemplo.
+Altera a data do próximo pagamento.
 
 #### Requisição
 
@@ -4774,9 +4783,9 @@ HTTP Status 200
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-### Modificando dados do Pagamento da Recorrência
+### Modificando dados do pagamento da recorrência
 
-Para alterar os dados de pagamento da Recorrência, basta fazer um Put conforme o exemplo.
+Alterar os dados de pagamento da recorrência.
 
 <aside class="notice"><strong>Atenção:</strong> Essa alteração afeta a todos os dados do nó Payment. Então para manter os dados anteriores você deve informar os campos que não vão sofre alterações com os mesmos valores que já estavam salvos.</aside>
 
@@ -4884,9 +4893,9 @@ HTTP Status 200
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-### Reabilitando um Pedido Recorrente
+### Reabilitando um pedido recorrente
 
-Para Reabilitar um pedido recorrente, basta fazer um Put conforme o exemplo.
+Reabilita um pedido recorrente.
 
 #### Requisição
 
@@ -4920,102 +4929,13 @@ Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os có
 
 ## Renova Fácil
 
-O uso desta funcionalidade permite a substituição automática de um cartão de crédito ou débito que foi substituído pelo banco emissor por algum motivo (vencimento atingido, troca, etc). Dessa forma, quando uma transação com marcação de recorrente for submetida para a API e a Cielo identificar que o cartão utilizado foi substituído, sua autorização será negada e serão retornados os dados do novo cartão conforme exemplo.
+O Renova Fácil é um serviço desenvolvido pela Cielo em conjunto com os emissores, cujo objetivo é aumentar a taxa de conversão de vendas recorrentes com cartão de crédito e débito.
 
-<aside class="notice"><strong>Atenção:</strong> É necessário solicitar a habilitação desta funcionalidade no cadastro. O Renova Fácil está disponível apenas para cartões de crédito e débito.</aside>
+Através da identificação de cartões vencidos no momento da transação, a transação é autorizada com o novo cartão. Em seguida, a API retorna os dados atualizados do cartão para que a pela loja armazene o novo cartão.
 
-Não é necessário enviar nenhuma informação extra na requisição de autorização, porém a resposta terá o nó `NewCard` tanto para transação de crédito quanto para transação de débito.
+<aside class="notice">Para usar o Renova Fácil, é necessário habilitar o serviço na Cielo. Nenhuma informação extra é enviada na requisição de autorização, porém a resposta terá o nó `NewCard`, tanto para transação de crédito quanto para transação de débito.</aside>
 
-Veja a seguir o exemplo de requisição e resposta de uma transação de crédito com Renova Fácil.
-
-### Requisição
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-```json
-{  
-   "MerchantOrderId":"2014113245231706",
-   "Customer":{  
-      "Name":"Comprador Renova facil"
-   },
-   "Payment":{  
-     "Type":"CreditCard",
-     "Amount":1500,
-     "Installments":1,
-     "SoftDescriptor":"123456789ABCD",
-     "RecurrentPayment":{
-       "AuthorizeNow":"true",
-       "EndDate":"2019-12-01",
-       "Interval":"SemiAnnual"
-     },
-     "CreditCard":{  
-         "CardNumber":"1234123412341231",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"12/2030",
-         "SecurityCode":"262",
-         "SaveCard":"false",
-         "Brand":"Visa"
-     }
-   }
-}
-```
-
-```shell
-curl
---request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-    {
-   "MerchantOrderId":"2014113245231706",
-   "Customer":{  
-      "Name":"Comprador Renova facil"
-   },
-   "Payment":{  
-     "Type":"CreditCard",
-     "Amount":1500,
-     "Installments":1,
-     "SoftDescriptor":"123456789ABCD",
-     "RecurrentPayment":{
-       "AuthorizeNow":"true",
-       "EndDate":"2019-12-01",
-       "Interval":"SemiAnnual"
-     },
-     "CreditCard":{  
-         "CardNumber":"1234123412341231",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"12/2030",
-         "SecurityCode":"262",
-         "SaveCard":"false",
-         "Brand":"Visa"
-     }
-   }
-}
---verbose
-```
-
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
-|---|---|---|---|---|
-|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|6|Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
-|`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
-|`MerchantOrderId`|Numero de identificação do Pedido.|Texto|50|Sim|
-|`Customer.Name`|Nome do Comprador.|Texto|255|Não|
-|`Customer.Status`|Status de cadastro do comprador na loja (NEW / EXISTING) - Utilizado pela análise de fraude|Texto|255|Não|
-|`Payment.Type`|Tipo do Meio de Pagamento.|Texto|100|Sim|
-|`Payment.Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|Sim|
-|`Payment.Installments`|Número de Parcelas.|Número|2|Sim|
-|`Payment.SoftDescriptor`|Texto que será impresso na fatura bancaria do portador - Disponivel apenas para VISA/MASTER - não permite caracteres especiais|Texto|13|Não|
-|`Payment.RecurrentPayment.EndDate`|Data para termino da recorrência.|Texto|10|Não|
-|`Payment.RecurrentPayment.Interval`|Intervalo da recorrência.<br /><ul><li>Monthly (Default) </li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|Texto|10|Não|
-|`Payment.RecurrentPayment.AuthorizeNow`|Booleano para saber se a primeira recorrência já vai ser Autorizada ou não.|Booleano|---|Sim|
-|`CreditCard.CardNumber`|Número do Cartão do Comprador.|Texto|19|Sim|
-|`CreditCard.Holder`|Nome do Comprador impresso no cartão.|Texto|25|Não|
-|`CreditCard.ExpirationDate`|Data de validade impresso no cartão.|Texto|7|Sim|
-|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão.|Texto|4|Não|
-|`CreditCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
+Veja a seguir o exemplo de resposta de uma transação de crédito.
 
 ### Resposta
 
@@ -5163,15 +5083,15 @@ curl
 |`NewCard.Brand`|Bandeira do cartão.|Texto|10|Sim|
 |`NewCard.SaveCard`|Identifica se o cartão gerou Cardtoken durante a transação|Booleano|---|Sim|
 
-### Bandeiras e Emissores Habilitados
+### Bandeiras e emissores habilitados
 
-Bandeiras e Emissores que já estão com o Renova Fácil habilitados:
+Bandeiras e emissores que já habilitaram o Renova Fácil:
 
 |Emissores|VISA|MASTER|ELO|Amex|
 |---|---|---|---|---|
 |`BRADESCO`|Sim|Sim|Sim|Sim|
 |`BANCO DO BRASIL`|Sim|---|---|---|
-|`SANTADER`|Sim|---|---|---|
+|`SANTANDER`|Sim|---|---|---|
 |`CITI`|Sim|---|---|---|
 |`BANCO PAN`|Sim|---|---|---|
 
