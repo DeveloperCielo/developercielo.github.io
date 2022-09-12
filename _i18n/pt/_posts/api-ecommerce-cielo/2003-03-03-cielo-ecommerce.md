@@ -3728,7 +3728,7 @@ Características importantes da **Recorrência Programada**:
 
 **Estrutura de um `RecurrentPaymentId`**
 
-![]({{ site.baseurl_root }}/images/apicieloecommerce/recpaymentid.png)
+![Estrutura RecurrentPaymentId]({{ site.baseurl_root }}/images/apicieloecommerce/recorrencia-cielo-rec-prog-identificacao.png)
 
 **Fluxo de uma Recorrência Programada**
 
