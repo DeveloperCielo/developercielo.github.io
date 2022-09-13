@@ -23,7 +23,7 @@ O objetivo desta documentação é orientar sobre a integração da **API E-comm
 
 **Conhecimentos necessários**: recomendamos conhecimentos intermediários em linguagem de programação para web, requisições HTTP/HTTPS e manipulação de arquivos JSON.
 
-Para executar as operações da API e-commerce Cielo você deverá usar sua chave específica (`Merchant ID` e `Merchant Key`) nos respectivos endpoints dos ambientes:
+Para executar as operações da API e-commerce Cielo você deverá usar sua chave específica (`MerchantId` e `MerchantKey`) nos respectivos endpoints dos ambientes:
 
 |                 | Sandbox                                             | Produção                                      |
 |:----------------|:---------------------------------------------------:|:---------------------------------------------:|
@@ -66,7 +66,7 @@ O modelo empregado na integração das APIs é simples e se baseia na utilizaç�
 |**POST**|Cria um novo recurso, ex.: criação de uma transação.|
 |**PUT**|Atualiza um recurso existente, ex.: captura ou cancelamento de uma transação previamente autorizada.|
 
-Todas a operações requerem as credenciais de acesso **"Merchant ID"** e **"Merchant Key"**, que devem ser enviadas no cabeçalho (*header*) da requisição.<br>
+Todas a operações requerem as credenciais de acesso **`MerchantId`** e **`MerchantKey`**, que devem ser enviadas no cabeçalho (*header*) da requisição.<br>
 <br>Cada envio de requisição irá retornar um código de [Status HTTP](https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code), indicando se ela foi realizada com sucesso ou não.
 
 ## Glossário 
@@ -3693,7 +3693,16 @@ Nesse modelo, a API realiza e permite:
 |**Automatizar a recorrência**|Sem atuação da loja, a API cria as transações futuras de acordo com as definições da loja.|
 |**Atualizar dados**|Caso necessário, a API permite modificações das informações da transação (como dados do comprador) ou do ciclo de recorrência (como data e intervalo).|
 
-A Recorrência Programada é formada por uma estrutura transacional simples. A loja deverá informar na transação, dentro do nó `RecurrentPayment`, se a transação deve ser autorizada no momento da requisição, a data de início da recorrência (caso seja diferente da data de envio da requisição), a data de término e o intervalo da recorrência.
+A Recorrência Programada possui dois fluxos de requisição; a diferença está no parâmetro `AuthorizeNow`. Quando a primeira transação deve ser autorizada no momento do agendamento, envie `AuthorizeNow` como "true". Quando a primeira transação deve ser autorizada em momento posterior ao agendamento, envie `AuthorizeNow` como "false"; nesse caso, envie também o parâmetro `StartDate`.
+
+![Fluxo recorrência programada]({{ site.baseurl_root }}/images/apicieloecommerce/recorrencia-cielo-rec-programada-agendamento.png)
+
+*A transação de agendamento precisa do nó `RecurrentPayment`, da data da transação e do campo `AuthorizeNow` = "false".
+**Se o Post de Notificação estiver configurado pela loja.
+
+![Fluxo recorrência programada]({{ site.baseurl_root }}/images/apicieloecommerce/recorrencia-cielo-rec-programada-primeiratransacao.png)
+
+*Se o Post de Notificação estiver configurado pela loja.
 
 Veja o exemplo do trecho com o nó `RecurrentPayment`, que deve ser inserido numa transação de crédito.
 
@@ -3725,7 +3734,7 @@ Características importantes da **Recorrência Programada**:
 |**Criação**|A primeira transação é chamada de **"Transação de agendamento"**. Todas as transações posteriores serão cópias dessa primeira transação. Ela não precisa ser capturada para que a recorrência seja criada, basta ser **AUTORIZADA**.|
 |**Captura**|Transações de Recorrência Programada não precisam ser capturadas. Após a primeira transação, todas as transações de recorrência são capturadas automaticamente pela API.|
 |**Identificação**|Transações de Recorrência Programada geram dois tipos de identificação:<br><br>**`PaymentId`**: identifica uma transação. É o mesmo identificador das outras transações na API.<br><br>**`RecurrentPaymentId`**: identifica pedido de recorrência. Um `RecurrentPaymentId` possui inúmeros `PaymentId`s vinculados a ele. Essa é a variável usada para cancelar uma Recorrência Programada.|
-|**Consultando**|Para consultar, basta usar um dos dois tipos de identificação:<br><br>**`PaymentId`**: Utilizada para consultar UMA TRANSAÇÃO DENTRO DA RECORRÊNCIA.<br><br>**`RecurrentPaymentId`**: Utilizado para consultar A RECORRÊNCIA.|
+|**Consulta**|Para consultar, basta usar um dos dois tipos de identificação:<br><br>**`PaymentId`**: Utilizada para consultar UMA TRANSAÇÃO DENTRO DA RECORRÊNCIA.<br><br>**`RecurrentPaymentId`**: Utilizado para consultar A RECORRÊNCIA.|
 |**Cancelamento**|Uma Recorrência Programada pode ser cancelada de duas maneiras: <br><br>* **Lojista**: Solicita o cancelamento da recorrência. Não cancela transações ja finalizadas antes da ordem de cancelamento da recorrência.  <br><br>* **Por cartão invalido**: Caso a API identifique que um cartão salvo está inválido (ex.: expirado) a recorrência será cancelada e não se repetirá, até que a loja atualize o meio de pagamento. <br><br> **OBS:** Cancelamento de transações dentro da recorrência não encerra o agendamento de transações futuras. Somente o Cancelamento usando o **`RecurrentPaymentId`** encerra agendamentos futuros.|
 
 **Estrutura de um `RecurrentPaymentId`**
@@ -3780,7 +3789,7 @@ Quais as vantagens de usar a recorrência programada para o *MusicFy*?
 
 Para criar uma venda recorrente cuja o processo de recorrência e intervalo serão executados pela própria loja, basta fazer um POST conforme o exemplo.
 
-O paramêtro `Payment.Recurrent`deve ser `true`, caso contrario, a transação será negada.
+A requisição segue a estrutura de uma transação de crédito padrão, mas o paramêtro `Payment.Recurrent` deve ser `true`; caso contrário, a transação será negada.
 
 #### Requisição
 
@@ -4010,7 +4019,7 @@ curl
 
 Para criar uma venda recorrente cuja a primeira recorrência é autorizada com a forma de pagamento cartão de crédito, basta fazer um POST conforme o exemplo.
 
-<aside class="notice"><strong>Atenção:</strong> Nessa modalidade de recorrência, a primeira transação deve ser capturada. Todas as transações posteriores serão capturadas automaticamente.</aside>
+<aside class="warning"><strong>Atenção:</strong> Nessa modalidade de recorrência, a primeira transação deve ser capturada (`AuthorizeNow` = "true"). Todas as transações posteriores serão capturadas automaticamente.</aside>
 
 #### Requisição
 
@@ -4246,11 +4255,13 @@ curl
 |`Interval`|Intervalo entre as recorrência.|Texto|10|/ Monthly / Bimonthly  / Quarterly  / SemiAnnual / Annual |
 |`AuthorizeNow`|Booleano para saber se a primeira recorrencia já vai ser Autorizada ou não.|Booleano|---|true ou false|
 
-## Agendando uma Recorrência Programada
+### Agendando uma Recorrência Programada
 
 Para criar uma venda recorrente cuja a primeira recorrência não será autorizada na mesma data com a forma de pagamento cartão de crédito, basta fazer um POST conforme o exemplo.
 
-### Requisição
+Diferente da recorrência anterior, este exemplo não autoriza imediatamente, mas agenda uma autorização futura. Para programar a primeira transação da série de recorrências, passe o parâmetro `AuthorizeNow` como “false” e adicione o parâmetro `StartDate`.
+
+#### Requisição
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -4348,7 +4359,7 @@ curl
 |`Customer.DeliveryAddress.Country`|Pais do endereço do Comprador.|Texto|35|Não|
 |`Customer.DeliveryAddress.District`|Bairro do Comprador.|Texto|50|Não|
 
-### Resposta
+#### Resposta
 
 ```json
 {
