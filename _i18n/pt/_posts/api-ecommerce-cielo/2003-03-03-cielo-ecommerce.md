@@ -4252,8 +4252,8 @@ curl
 |`RecurrentPaymentId`|Campo Identificador da próxima recorrência.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`NextRecurrency`|Data da próxima recorrência.|Texto|7|12/2030 (MM/YYYY)|
 |`EndDate`|Data do fim da recorrência.|Texto|7|12/2030 (MM/YYYY)|
-|`Interval`|Intervalo entre as recorrência.|Texto|10|/ Monthly / Bimonthly  / Quarterly  / SemiAnnual / Annual |
-|`AuthorizeNow`|Booleano para saber se a primeira recorrencia já vai ser Autorizada ou não.|Booleano|---|true ou false|
+|`Interval`|Intervalo entre as recorrências.|Texto|10|Monthly<br>Bimonthly<br>Quarterly<br>SemiAnnual<br>Annual |
+|`AuthorizeNow`|Booleano para saber se a primeira recorrência já vai ser autorizada ou não.|Booleano|---|true|
 
 ### Agendando uma Recorrência Programada
 
@@ -4459,8 +4459,8 @@ curl
 |`NextRecurrency`|Data da próxima recorrência.|Texto|7|12/2030 (MM/YYYY)|
 |`StartDate`|Data do inicio da recorrência.|Texto|7|12/2030 (MM/YYYY)|
 |`EndDate`|Data do fim da recorrência.|Texto|7|12/2030 (MM/YYYY)|
-|`Interval`|Intervalo entre as recorrência.|Texto|10|/ Monthly / Bimonthly  / Quarterly  / SemiAnnual / Annual |
-|`AuthorizeNow`|Booleano para saber se a primeira recorrencia já vai ser Autorizada ou não.|Booleano|---|true ou false|
+|`Interval`|Intervalo entre as recorrências.|Texto|10|Monthly<br>Bimonthly<br>Quarterly<br>SemiAnnual<br>Annual |
+|`AuthorizeNow`|Booleano para saber se a primeira recorrência já vai ser autorizada ou se será apenas agendada.|Booleano|---|false|
 
 ## Modificando Recorrências
 
