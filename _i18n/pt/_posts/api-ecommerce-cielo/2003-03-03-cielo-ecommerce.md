@@ -3697,17 +3697,17 @@ A Recorrência Programada possui dois fluxos de requisição; a diferença está
 
 **Quando a primeira transação deve ser autorizada no momento do agendamento, envie `AuthorizeNow` como "true".**
 
+![Fluxo recorrência programada]({{ site.baseurl_root }}/images/apicieloecommerce/recorrencia-cielo-rec-programada-primeiratransacao.png)
+
+*Se o Post de Notificação estiver configurado pela loja.
+
+**Quando a primeira transação deve ser autorizada em momento posterior ao agendamento, envie `AuthorizeNow` como "false"; nesse caso, envie também o parâmetro `StartDate`.**
+
 ![Fluxo recorrência programada]({{ site.baseurl_root }}/images/apicieloecommerce/recorrencia-cielo-rec-programada-agendamento.png)
 
 *A transação de agendamento precisa do nó `RecurrentPayment`, da data da transação e do campo `AuthorizeNow` = "false".<br/>
 **Se o Post de Notificação estiver configurado pela loja.
   
-**Quando a primeira transação deve ser autorizada em momento posterior ao agendamento, envie `AuthorizeNow` como "false"; nesse caso, envie também o parâmetro `StartDate`.**
-
-![Fluxo recorrência programada]({{ site.baseurl_root }}/images/apicieloecommerce/recorrencia-cielo-rec-programada-primeiratransacao.png)
-
-*Se o Post de Notificação estiver configurado pela loja.
-
 Veja o exemplo do trecho com o nó `RecurrentPayment`, que deve ser inserido numa transação de crédito.
 
 ``` json
