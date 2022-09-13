@@ -3693,12 +3693,16 @@ Nesse modelo, a API realiza e permite:
 |**Automatizar a recorrência**|Sem atuação da loja, a API cria as transações futuras de acordo com as definições da loja.|
 |**Atualizar dados**|Caso necessário, a API permite modificações das informações da transação (como dados do comprador) ou do ciclo de recorrência (como data e intervalo).|
 
-A Recorrência Programada possui dois fluxos de requisição; a diferença está no parâmetro `AuthorizeNow`. Quando a primeira transação deve ser autorizada no momento do agendamento, envie `AuthorizeNow` como "true". Quando a primeira transação deve ser autorizada em momento posterior ao agendamento, envie `AuthorizeNow` como "false"; nesse caso, envie também o parâmetro `StartDate`.
+A Recorrência Programada possui dois fluxos de requisição; a diferença está no parâmetro `AuthorizeNow`. 
+
+**Quando a primeira transação deve ser autorizada no momento do agendamento, envie `AuthorizeNow` como "true".**
 
 ![Fluxo recorrência programada]({{ site.baseurl_root }}/images/apicieloecommerce/recorrencia-cielo-rec-programada-agendamento.png)
 
-*A transação de agendamento precisa do nó `RecurrentPayment`, da data da transação e do campo `AuthorizeNow` = "false".
+*A transação de agendamento precisa do nó `RecurrentPayment`, da data da transação e do campo `AuthorizeNow` = "false".<br/>
 **Se o Post de Notificação estiver configurado pela loja.
+  
+**Quando a primeira transação deve ser autorizada em momento posterior ao agendamento, envie `AuthorizeNow` como "false"; nesse caso, envie também o parâmetro `StartDate`.**
 
 ![Fluxo recorrência programada]({{ site.baseurl_root }}/images/apicieloecommerce/recorrencia-cielo-rec-programada-primeiratransacao.png)
 
@@ -3740,10 +3744,6 @@ Características importantes da **Recorrência Programada**:
 **Estrutura de um `RecurrentPaymentId`**
 
 ![Estrutura RecurrentPaymentId]({{ site.baseurl_root }}/images/apicieloecommerce/recorrencia-cielo-rec-prog-identificacao.png)
-
-**Fluxo de uma Recorrência Programada**
-
-![]({{ site.baseurl_root }}/images/apicieloecommerce/fluxosrecprog.png)
 
 #### Caso de uso
 
