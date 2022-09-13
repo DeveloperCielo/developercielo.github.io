@@ -6743,12 +6743,16 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<p>A Recorrência Programada possui dois fluxos de requisição; a diferença está no parâmetro <code class="language-plaintext highlighter-rouge">AuthorizeNow</code>. Quando a primeira transação deve ser autorizada no momento do agendamento, envie <code class="language-plaintext highlighter-rouge">AuthorizeNow</code> como “true”. Quando a primeira transação deve ser autorizada em momento posterior ao agendamento, envie <code class="language-plaintext highlighter-rouge">AuthorizeNow</code> como “false”; nesse caso, envie também o parâmetro <code class="language-plaintext highlighter-rouge">StartDate</code>.</p>
+<p>A Recorrência Programada possui dois fluxos de requisição; a diferença está no parâmetro <code class="language-plaintext highlighter-rouge">AuthorizeNow</code>.</p>
+
+<p><strong>Quando a primeira transação deve ser autorizada no momento do agendamento, envie <code class="language-plaintext highlighter-rouge">AuthorizeNow</code> como “true”.</strong></p>
 
 <p><img src="https://developercielo.github.io/images/apicieloecommerce/recorrencia-cielo-rec-programada-agendamento.png" alt="Fluxo recorrência programada" /></p>
 
-<p>*A transação de agendamento precisa do nó <code class="language-plaintext highlighter-rouge">RecurrentPayment</code>, da data da transação e do campo <code class="language-plaintext highlighter-rouge">AuthorizeNow</code> = “false”.
+<p>*A transação de agendamento precisa do nó <code class="language-plaintext highlighter-rouge">RecurrentPayment</code>, da data da transação e do campo <code class="language-plaintext highlighter-rouge">AuthorizeNow</code> = “false”.<br />
 **Se o Post de Notificação estiver configurado pela loja.</p>
+
+<p><strong>Quando a primeira transação deve ser autorizada em momento posterior ao agendamento, envie <code class="language-plaintext highlighter-rouge">AuthorizeNow</code> como “false”; nesse caso, envie também o parâmetro <code class="language-plaintext highlighter-rouge">StartDate</code>.</strong></p>
 
 <p><img src="https://developercielo.github.io/images/apicieloecommerce/recorrencia-cielo-rec-programada-primeiratransacao.png" alt="Fluxo recorrência programada" /></p>
 
@@ -6834,10 +6838,6 @@ Abaixo especificamos qualquer diferença existente:</p>
 <p><strong>Estrutura de um <code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></strong></p>
 
 <p><img src="https://developercielo.github.io/images/apicieloecommerce/recorrencia-cielo-rec-prog-identificacao.png" alt="Estrutura RecurrentPaymentId" /></p>
-
-<p><strong>Fluxo de uma Recorrência Programada</strong></p>
-
-<p><img src="https://developercielo.github.io/images/apicieloecommerce/fluxosrecprog.png" alt="" /></p>
 
 <h4 id="caso-de-uso-1">Caso de uso</h4>
 
