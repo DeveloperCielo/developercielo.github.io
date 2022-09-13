@@ -137,7 +137,7 @@
 
 <p><strong>Conhecimentos necessários</strong>: recomendamos conhecimentos intermediários em linguagem de programação para web, requisições HTTP/HTTPS e manipulação de arquivos JSON.</p>
 
-<p>Para executar as operações da API e-commerce Cielo você deverá usar sua chave específica (<code class="language-plaintext highlighter-rouge">Merchant ID</code> e <code class="language-plaintext highlighter-rouge">Merchant Key</code>) nos respectivos endpoints dos ambientes:</p>
+<p>Para executar as operações da API e-commerce Cielo você deverá usar sua chave específica (<code class="language-plaintext highlighter-rouge">MerchantId</code> e <code class="language-plaintext highlighter-rouge">MerchantKey</code>) nos respectivos endpoints dos ambientes:</p>
 
 <table>
   <thead>
@@ -222,7 +222,7 @@
   </tbody>
 </table>
 
-<p>Todas a operações requerem as credenciais de acesso <strong>“Merchant ID”</strong> e <strong>“Merchant Key”</strong>, que devem ser enviadas no cabeçalho (<em>header</em>) da requisição.<br />Cada envio de requisição irá retornar um código de <a href="https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code">Status HTTP</a>, indicando se ela foi realizada com sucesso ou não.</p>
+<p>Todas a operações requerem as credenciais de acesso <strong><code class="language-plaintext highlighter-rouge">MerchantId</code></strong> e <strong><code class="language-plaintext highlighter-rouge">MerchantKey</code></strong>, que devem ser enviadas no cabeçalho (<em>header</em>) da requisição.<br />Cada envio de requisição irá retornar um código de <a href="https://braspag.github.io//manual/braspag-pagador?json#lista-de-http-status-code">Status HTTP</a>, indicando se ela foi realizada com sucesso ou não.</p>
 
 <h2 id="glossário">Glossário</h2>
 
@@ -6743,7 +6743,16 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<p>A Recorrência Programada é formada por uma estrutura transacional simples. A loja deverá informar na transação, dentro do nó <code class="language-plaintext highlighter-rouge">RecurrentPayment</code>, se a transação deve ser autorizada no momento da requisição, a data de início da recorrência (caso seja diferente da data de envio da requisição), a data de término e o intervalo da recorrência.</p>
+<p>A Recorrência Programada possui dois fluxos de requisição; a diferença está no parâmetro <code class="language-plaintext highlighter-rouge">AuthorizeNow</code>. Quando a primeira transação deve ser autorizada no momento do agendamento, envie <code class="language-plaintext highlighter-rouge">AuthorizeNow</code> como “true”. Quando a primeira transação deve ser autorizada em momento posterior ao agendamento, envie <code class="language-plaintext highlighter-rouge">AuthorizeNow</code> como “false”; nesse caso, envie também o parâmetro <code class="language-plaintext highlighter-rouge">StartDate</code>.</p>
+
+<p><img src="https://developercielo.github.io/images/apicieloecommerce/recorrencia-cielo-rec-programada-agendamento.png" alt="Fluxo recorrência programada" /></p>
+
+<p>*A transação de agendamento precisa do nó <code class="language-plaintext highlighter-rouge">RecurrentPayment</code>, da data da transação e do campo <code class="language-plaintext highlighter-rouge">AuthorizeNow</code> = “false”.
+**Se o Post de Notificação estiver configurado pela loja.</p>
+
+<p><img src="https://developercielo.github.io/images/apicieloecommerce/recorrencia-cielo-rec-programada-primeiratransacao.png" alt="Fluxo recorrência programada" /></p>
+
+<p>*Se o Post de Notificação estiver configurado pela loja.</p>
 
 <p>Veja o exemplo do trecho com o nó <code class="language-plaintext highlighter-rouge">RecurrentPayment</code>, que deve ser inserido numa transação de crédito.</p>
 
@@ -6812,7 +6821,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Transações de Recorrência Programada geram dois tipos de identificação:<br /><strong><code class="language-plaintext highlighter-rouge">PaymentId</code></strong>: identifica uma transação. É o mesmo identificador das outras transações na API.<br /><strong><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></strong>: identifica pedido de recorrência. Um <code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code> possui inúmeros <code class="language-plaintext highlighter-rouge">PaymentId</code>s vinculados a ele. Essa é a variável usada para cancelar uma Recorrência Programada.</td>
     </tr>
     <tr>
-      <td><strong>Consultando</strong></td>
+      <td><strong>Consulta</strong></td>
       <td>Para consultar, basta usar um dos dois tipos de identificação:<br /><strong><code class="language-plaintext highlighter-rouge">PaymentId</code></strong>: Utilizada para consultar UMA TRANSAÇÃO DENTRO DA RECORRÊNCIA.<br /><strong><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></strong>: Utilizado para consultar A RECORRÊNCIA.</td>
     </tr>
     <tr>
@@ -6885,7 +6894,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p>Para criar uma venda recorrente cuja o processo de recorrência e intervalo serão executados pela própria loja, basta fazer um POST conforme o exemplo.</p>
 
-<p>O paramêtro <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code>deve ser <code class="language-plaintext highlighter-rouge">true</code>, caso contrario, a transação será negada.</p>
+<p>A requisição segue a estrutura de uma transação de crédito padrão, mas o paramêtro <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> deve ser <code class="language-plaintext highlighter-rouge">true</code>; caso contrário, a transação será negada.</p>
 
 <h4 id="requisição-18">Requisição</h4>
 
@@ -7313,7 +7322,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p>Para criar uma venda recorrente cuja a primeira recorrência é autorizada com a forma de pagamento cartão de crédito, basta fazer um POST conforme o exemplo.</p>
 
-<aside class="notice">Atenção: Nessa modalidade de recorrência, a primeira transação deve ser capturada. Todas as transações posteriores serão capturadas automaticamente.</aside>
+<aside class="warning">Atenção: Nessa modalidade de recorrência, a primeira transação deve ser capturada (`AuthorizeNow` = "true"). Todas as transações posteriores serão capturadas automaticamente.</aside>
 
 <h4 id="requisição-19">Requisição</h4>
 
@@ -7699,11 +7708,13 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<h2 id="agendando-uma-recorrência-programada">Agendando uma Recorrência Programada</h2>
+<h3 id="agendando-uma-recorrência-programada">Agendando uma Recorrência Programada</h3>
 
 <p>Para criar uma venda recorrente cuja a primeira recorrência não será autorizada na mesma data com a forma de pagamento cartão de crédito, basta fazer um POST conforme o exemplo.</p>
 
-<h3 id="requisição-20">Requisição</h3>
+<p>Diferente da recorrência anterior, este exemplo não autoriza imediatamente, mas agenda uma autorização futura. Para programar a primeira transação da série de recorrências, passe o parâmetro <code class="language-plaintext highlighter-rouge">AuthorizeNow</code> como “false” e adicione o parâmetro <code class="language-plaintext highlighter-rouge">StartDate</code>.</p>
+
+<h4 id="requisição-20">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -7960,7 +7971,7 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<h3 id="resposta-16">Resposta</h3>
+<h4 id="resposta-16">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
