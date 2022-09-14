@@ -1726,9 +1726,9 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>true ou false</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.PaymentAccountReference</code></td>
-      <td>O PAR (Payment Account Reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado.</td>
-      <td>Numérico</td>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.PaymentAccountReference</code></td>
+      <td>O PAR (Payment Account Reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado.Se for pra transação de débito, colocar o campo dentro do nó de DebitCard.</td>
+      <td>Alfanumérico</td>
       <td>29</td>
       <td>—</td>
     </tr>
@@ -2131,6 +2131,13 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Texto</td>
       <td>2</td>
       <td>Numérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DebitCard.PaymentAccountReference</code></td>
+      <td>O PAR (Payment Account Reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado. Se for pra transação de crédito, colocar o campo dentro do nó de CreditCard.</td>
+      <td>Alfanumérico</td>
+      <td>29</td>
+      <td>-</td>
     </tr>
   </tbody>
 </table>
@@ -2910,9 +2917,9 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>true ou false</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.PaymentAccountReference</code></td>
-      <td>O PAR (Payment Account Reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado.</td>
-      <td>Numérico</td>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.PaymentAccountReference</code></td>
+      <td>O PAR (Payment Account Reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado.Se for pra transação de débito, colocar o campo dentro do nó de DebitCard.</td>
+      <td>Alfanumérico</td>
       <td>29</td>
       <td>—</td>
     </tr>
