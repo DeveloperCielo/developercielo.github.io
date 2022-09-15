@@ -5279,29 +5279,29 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
-|`MerchantOrderId`| Número de identificação do pedido.|Texto|50|Texto alfanumérico|
-|`AcquirerOrderId` | Id da transação enviado ao autorizador, caso o MerchantOrderId seja maior que 20 caracteres ou tenha símbolos. | Texto | 50   | Texto alfanumérico|
+|`MerchantOrderId`|Número de identificação do pedido.|Texto|50|Texto alfanumérico|
+|`AcquirerOrderId`|Id da transação enviado ao autorizador, caso o MerchantOrderId seja maior que 20 caracteres ou tenha símbolos.|Texto|50|Texto alfanumérico|
 |`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
 |`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Status`|Status da Transação.|Byte|---|2|
-|`Customer.Name`|Texto|255|Não|Nome do Comprador.|
-|`Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja (NEW / EXISTING)|
-|`Payment.ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
-|`Payment.Tid` | Id da transação no provedor do meio de pagamento. | Texto | 40 | Texto alfanumérico|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento.|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
+|`Status`|Status da Transação.|Byte|—|2|
+|`Customer.Name`|Nome do Comprador.|Texto|255|Texto|
+|`Customer.Status`|Status de cadastro do comprador na loja (NEW / EXISTING)|Texto|255|Texto|
+|`Payment.ProofOfSale`|Número da autorização, identico ao NSU.|Texto alfanumérico|6|Texto alfanumérico|
+|`Payment.Tid`|Id da transação no provedor do meio de pagamento.|Texto alfanumérico|40|Texto alfanumérico|
+|`Payment.Type`|Tipo do Meio de Pagamento.|Texto|100|Texto|
+|`Payment.Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|10000|
 |`Payment.ReceivedDate`|Data em que a transação foi recebida.|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`Payment.CapturedAmount`|Valor capturado.|Número|15|10000|
 |`Payment.CapturedDate`|Data da captura.|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`Payment.VoidedAmount`|Valor cancelado/estornado, em centavos.|Número|15|10000|
 |`Payment.VoidedDate`|Data do cancelamento/estorno.|Texto|19|AAAA-MM-DD HH:mm:SS|
-|`Payment.Provider`|Texto|15|---|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|
-|`CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do Comprador.|
-|`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
-|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
-|`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
-|`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
-|`CreditCard.PaymentAccountReference`|Alfanumérico|29|Não|O PAR(payment account reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado.Se for pra transação de débito, colocar o campo dentro do nó de DebitCard.|
+|`Payment.Provider`|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|Texto|15|Texto|
+|`CreditCard.CardNumber`|Número do Cartão do Comprador.|Texto|19|Texto|
+|`CreditCard.Holder`|Nome do Comprador impresso no cartão.|Texto|25|Texto|
+|`CreditCard.ExpirationDate`|Data de validade impresso no cartão.|Texto|7|MM/AAAA|
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão - Ver Anexo.|Texto|4|Texto|
+|`CreditCard.Brand`|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|Texto|10|Texto|
+|`CreditCard.PaymentAccountReference`|O PAR(payment account reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado. Se for pra transação de débito, colocar o campo dentro do nó de DebitCard|Alfanumérico|29|Alfanumérico|
 
 ### Consulta por TId
 
@@ -5471,29 +5471,29 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Formato|
 |---|---|---|---|---|
-|`MerchantOrderId`| Número de identificação do pedido.|Texto|50|Texto alfanumérico|
-|`AcquirerOrderId` | Id da transação enviado ao autorizador, caso o MerchantOrderId seja maior que 20 caracteres ou tenha símbolos. | Texto | 50   | Texto alfanumérico|
+|`MerchantOrderId`|Número de identificação do pedido.|Texto|50|Texto alfanumérico|
+|`AcquirerOrderId`|Id da transação enviado ao autorizador, caso o MerchantOrderId seja maior que 20 caracteres ou tenha símbolos.|Texto|50|Texto alfanumérico|
 |`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
-|`PaymentId`|Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento..|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Status`|Status da Transação.|Byte|---|2|
-|`Customer.Name`|Texto|255|Não|Nome do Comprador.|
-|`Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja (NEW / EXISTING)|
-|`Payment.ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
-|`Payment.Tid` | Id da transação no provedor do meio de pagamento. | Texto | 40 | Texto alfanumérico|
-|`Payment.Type`|Texto|100|Sim|Tipo do Meio de Pagamento.|
-|`Payment.Amount`|Número|15|Sim|Valor do Pedido (ser enviado em centavos).|
+|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Status`|Status da Transação.|Byte|—|2|
+|`Customer.Name`|Nome do Comprador.|Texto|255|Texto|
+|`Customer.Status`|Status de cadastro do comprador na loja (NEW / EXISTING)|Texto|255|Texto|
+|`Payment.ProofOfSale`|Número da autorização, identico ao NSU.|Texto alfanumérico|6|Texto alfanumérico|
+|`Payment.Tid`|Id da transação no provedor do meio de pagamento.|Texto alfanumérico|40|Texto alfanumérico|
+|`Payment.Type`|Tipo do Meio de Pagamento.|Texto|100|Texto|
+|`Payment.Amount`|Valor do Pedido (ser enviado em centavos).|Número|15|10000|
 |`Payment.ReceivedDate`|Data em que a transação foi recebida.|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`Payment.CapturedAmount`|Valor capturado.|Número|15|10000|
 |`Payment.CapturedDate`|Data da captura.|Texto|19|AAAA-MM-DD HH:mm:SS|
 |`Payment.VoidedAmount`|Valor cancelado/estornado, em centavos.|Número|15|10000|
 |`Payment.VoidedDate`|Data do cancelamento/estorno.|Texto|19|AAAA-MM-DD HH:mm:SS|
-|`Payment.Provider`|Texto|15|---|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|
-|`CreditCard.CardNumber`|Texto|19|Sim|Número do Cartão do Comprador.|
-|`CreditCard.Holder`|Texto|25|Não|Nome do Comprador impresso no cartão.|
-|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impresso no cartão.|
-|`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão - Ver Anexo.|
-|`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
-|`CreditCard.PaymentAccountReference`|Alfanumérico|29|Não|O PAR(payment account reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado.Se for pra transação de débito, colocar o campo dentro do nó de DebitCard.|
+|`Payment.Provider`|Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.|Texto|15|Texto|
+|`CreditCard.CardNumber`|Número do Cartão do Comprador.|Texto|19|Texto|
+|`CreditCard.Holder`|Nome do Comprador impresso no cartão.|Texto|25|Texto|
+|`CreditCard.ExpirationDate`|Data de validade impresso no cartão.|Texto|7|MM/AAAA|
+|`CreditCard.SecurityCode`|Código de segurança impresso no verso do cartão - Ver Anexo.|Texto|4|Texto|
+|`CreditCard.Brand`|Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|Texto|10|Texto|
+|`CreditCard.PaymentAccountReference`|O PAR(payment account reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado. Se for pra transação de débito, colocar o campo dentro do nó de DebitCard|Alfanumérico|29|Alfanumérico|
 
 ### Consulta por MerchandOrderId
 
