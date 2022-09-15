@@ -9641,45 +9641,45 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>Nome do Comprador.</td>
       <td>Texto</td>
       <td>255</td>
-      <td>Não</td>
-      <td>Nome do Comprador.</td>
+      <td>Texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
+      <td>Status de cadastro do comprador na loja (NEW / EXISTING)</td>
       <td>Texto</td>
       <td>255</td>
-      <td>Não</td>
-      <td>Status de cadastro do comprador na loja (NEW / EXISTING)</td>
+      <td>Texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ProofOfSale</code></td>
       <td>Número da autorização, identico ao NSU.</td>
-      <td>Texto</td>
+      <td>Texto alfanumérico</td>
       <td>6</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Tid</code></td>
       <td>Id da transação no provedor do meio de pagamento.</td>
-      <td>Texto</td>
+      <td>Texto alfanumérico</td>
       <td>40</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Tipo do Meio de Pagamento.</td>
       <td>Texto</td>
       <td>100</td>
-      <td>Sim</td>
-      <td>Tipo do Meio de Pagamento.</td>
+      <td>Texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Valor do Pedido (ser enviado em centavos).</td>
       <td>Número</td>
       <td>15</td>
-      <td>Sim</td>
-      <td>Valor do Pedido (ser enviado em centavos).</td>
+      <td>10000</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReceivedDate</code></td>
@@ -9718,52 +9718,52 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.</td>
       <td>Texto</td>
       <td>15</td>
-      <td>—</td>
-      <td>Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.</td>
+      <td>Texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td>Número do Cartão do Comprador.</td>
       <td>Texto</td>
       <td>19</td>
-      <td>Sim</td>
-      <td>Número do Cartão do Comprador.</td>
+      <td>Texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
+      <td>Nome do Comprador impresso no cartão.</td>
       <td>Texto</td>
       <td>25</td>
-      <td>Não</td>
-      <td>Nome do Comprador impresso no cartão.</td>
+      <td>Texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td>Data de validade impresso no cartão.</td>
       <td>Texto</td>
       <td>7</td>
-      <td>Sim</td>
-      <td>Data de validade impresso no cartão.</td>
+      <td>MM/AAAA</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td>Código de segurança impresso no verso do cartão - Ver Anexo.</td>
       <td>Texto</td>
       <td>4</td>
-      <td>Não</td>
-      <td>Código de segurança impresso no verso do cartão - Ver Anexo.</td>
+      <td>Texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
+      <td>Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).</td>
       <td>Texto</td>
       <td>10</td>
-      <td>Sim</td>
-      <td>Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).</td>
+      <td>Texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.PaymentAccountReference</code></td>
+      <td>O PAR(payment account reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado. Se for pra transação de débito, colocar o campo dentro do nó de DebitCard</td>
       <td>Alfanumérico</td>
       <td>29</td>
-      <td>Não</td>
-      <td>O PAR(payment account reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado.Se for pra transação de débito, colocar o campo dentro do nó de DebitCard.</td>
+      <td>Alfanumérico</td>
     </tr>
   </tbody>
 </table>
@@ -10006,7 +10006,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento..</td>
+      <td>Campo Identificador do Pedido.</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
@@ -10020,45 +10020,45 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>Nome do Comprador.</td>
       <td>Texto</td>
       <td>255</td>
-      <td>Não</td>
-      <td>Nome do Comprador.</td>
+      <td>Texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
+      <td>Status de cadastro do comprador na loja (NEW / EXISTING)</td>
       <td>Texto</td>
       <td>255</td>
-      <td>Não</td>
-      <td>Status de cadastro do comprador na loja (NEW / EXISTING)</td>
+      <td>Texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ProofOfSale</code></td>
       <td>Número da autorização, identico ao NSU.</td>
-      <td>Texto</td>
+      <td>Texto alfanumérico</td>
       <td>6</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Tid</code></td>
       <td>Id da transação no provedor do meio de pagamento.</td>
-      <td>Texto</td>
+      <td>Texto alfanumérico</td>
       <td>40</td>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Tipo do Meio de Pagamento.</td>
       <td>Texto</td>
       <td>100</td>
-      <td>Sim</td>
-      <td>Tipo do Meio de Pagamento.</td>
+      <td>Texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Valor do Pedido (ser enviado em centavos).</td>
       <td>Número</td>
       <td>15</td>
-      <td>Sim</td>
-      <td>Valor do Pedido (ser enviado em centavos).</td>
+      <td>10000</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ReceivedDate</code></td>
@@ -10097,52 +10097,52 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
+      <td>Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.</td>
       <td>Texto</td>
       <td>15</td>
-      <td>—</td>
-      <td>Define comportamento do meio de pagamento (ver Anexo)/NÃO OBRIGATÓRIO PARA CRÉDITO.</td>
+      <td>Texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td>Número do Cartão do Comprador.</td>
       <td>Texto</td>
       <td>19</td>
-      <td>Sim</td>
-      <td>Número do Cartão do Comprador.</td>
+      <td>Texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
+      <td>Nome do Comprador impresso no cartão.</td>
       <td>Texto</td>
       <td>25</td>
-      <td>Não</td>
-      <td>Nome do Comprador impresso no cartão.</td>
+      <td>Texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td>Data de validade impresso no cartão.</td>
       <td>Texto</td>
       <td>7</td>
-      <td>Sim</td>
-      <td>Data de validade impresso no cartão.</td>
+      <td>MM/AAAA</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td>Código de segurança impresso no verso do cartão - Ver Anexo.</td>
       <td>Texto</td>
       <td>4</td>
-      <td>Não</td>
-      <td>Código de segurança impresso no verso do cartão - Ver Anexo.</td>
+      <td>Texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
+      <td>Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).</td>
       <td>Texto</td>
       <td>10</td>
-      <td>Sim</td>
-      <td>Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).</td>
+      <td>Texto</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.PaymentAccountReference</code></td>
+      <td>O PAR(payment account reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado. Se for pra transação de débito, colocar o campo dentro do nó de DebitCard</td>
       <td>Alfanumérico</td>
       <td>29</td>
-      <td>Não</td>
-      <td>O PAR(payment account reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado.Se for pra transação de débito, colocar o campo dentro do nó de DebitCard.</td>
+      <td>Alfanumérico</td>
     </tr>
   </tbody>
 </table>
