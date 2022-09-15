@@ -129,13 +129,13 @@
             </div>
 
             <div class="post">
-  <h1 id="overview---api-cielo-e-commerce">Overview - API Cielo E-commerce</h1>
+  <h1 id="overview---api-e-commerce-cielo">Overview - API E-commerce Cielo</h1>
 
-<p>The purpose of this documentation is to guide the developer on how to integrate with Cielo’s API Cielo eCommerce, describing the features, methods to be used, listing information to be sent and received, and providing examples.</p>
+<p>The purpose of this documentation is to guide the developer on how to integrate with API E-commerce Cielo, describing the features, methods to be used, listing information to be sent and received, and providing examples.</p>
 
-<p>The integration mechanism with Cielo E-commerce is simple, so only intermediate knowledge in Web programming language, HTTP/HTTPS requests and JSON file manipulation are required to successfully deploy the Cielo e-Commerce solution.</p>
+<p>We recommend intermediate knowledge in Web programming language, HTTP/HTTPS requests and JSON file manipulation are required to successfully deploy the E-commerce Cielo solution.</p>
 
-<p>In this manual, you will find the reference on all operations available on API REST of API Cielo eCommerce. These operations must be performed using its specific key (Merchant ID and Merchant Key) in the respective environment endpoints</p>
+<p>In this guide, you will find information on all operations available on API REST of API E-commerce Cielo. These operations must be performed using its specific key (Merchant ID and Merchant Key) in the respective environment endpoints</p>
 
 <table>
   <thead>
@@ -163,35 +163,38 @@
 
 <h2 id="solution-features">Solution features</h2>
 
-<p>The API Cielo eCommerce solution of the Cielo eCommerce platform was developed with REST technology, which is market standard and also independent of the technology used by our customers. In this way, it is possible to integrate using the most varied programming languages, such as:</p>
-
-<ul>
-  <li>ASP</li>
-  <li>Net</li>
-  <li>Java</li>
-  <li>PHP</li>
-  <li>Ruby</li>
-  <li>Python</li>
-</ul>
+<p>The API E-commerce Cielo solution of the E-commerce Cielo platform was developed with REST technology, which is market standard and also independent of the technology used by our customers. In this way, it is possible to integrate using the most varied programming languages.</p>
 
 <blockquote>
-  <p>To get examples in these languages, see our conversion tutorial <a href="https://developercielo.github.io/Tutorial//Postman"><strong>Postman Tutorial</strong></a></p>
+  <p>To get examples in these languages, see our conversion tutorial <a href="https://developercielo.github.io/en/tutorial/postman" target="_blank"><strong>Postman Tutorial</strong></a></p>
 </blockquote>
 
-<p>Among other features, the attributes that stand out most in the Cielo eCommerce platform:</p>
+<p>Among other features, the attributes that stand out most in the Cielo e-commerce platform:</p>
 
 <ul>
-  <li><strong>No proprietary apps</strong>: it is not necessary to install applications in the virtual shop environment under no circumstances.</li>
-  <li><strong>Simplicity</strong>: the protocol used is purely the HTTPS.</li>
-  <li><strong>Ease of testing</strong>: the Cielo platform offers a publicly accessible Sandbox environment, which allows the developer to create a test account without the need for accreditation, making it easier and faster to start integration.</li>
+  <li><strong>No proprietary apps</strong>: it is not necessary to install applications in the virtual shop environment.</li>
+  <li><strong>Simplicity</strong>: the only protocol used is HTTPS.</li>
+  <li><strong>Easy testing</strong>: the Cielo platform offers a publicly accessible Sandbox environment, which allows the developer to create a test account without the need for accreditation, making it easier and faster to start integration.</li>
   <li><strong>Credentials</strong>: the handling of the customers’s credentials (affiliation number and access key) traffics in the header of the HTTP request of the message.</li>
-  <li><strong>Safety</strong>: the information exchange always takes place between the Store Server and Cielo Server, that is, without the buyer’s browser.</li>
+  <li><strong>Safety</strong>: the information exchange always takes place between the Store Server and Cielo Server, without the buyer’s browser.</li>
   <li><strong>Multiplatform</strong>: the integration is performed through Web Service REST.</li>
 </ul>
 
 <h2 id="architecture">Architecture</h2>
 
-<p>Integration is performed through services provided as Web Services. The model employed is quite simple: There are two URLs (endpoint), a specific one for operations that cause side effects - such as authorization, capture and cancellation of transactions, and a specific URL for operations that do not cause side effects, such as transaction searching. These two URLs will receive the HTTP messages through the POST, GET or PUT methods. Each message type must be sent to a feature identified through the path.</p>
+<p>The model employed for the integration is quite simple since there are two URLs (endpoints):</p>
+
+<ul>
+  <li>Requests URL: for operations that cause side effects - such as authorization, capture and cancellation of transactions</li>
+  <li>Queries URL: for operations that do not cause side effects, such as transaction searching.</li>
+</ul>
+
+<p>To execute an operation:</p>
+
+<ol>
+  <li>Combine the base URL of the environment with the URL of the desired operation.</li>
+  <li>Send the request to the URL using the adequate HTTP method.</li>
+</ol>
 
 <table>
   <thead>
@@ -207,7 +210,7 @@
     </tr>
     <tr>
       <td><strong>PUT</strong></td>
-      <td>The<code class="language-plaintext highlighter-rouge">PUT</code> HTTP method is used to update an already existing feature. For example, capture or canceltation of a previously authorized transaction.</td>
+      <td>The<code class="language-plaintext highlighter-rouge">PUT</code> HTTP method is used to update an already existing feature. For example, capture or cancelation of a previously authorized transaction.</td>
     </tr>
     <tr>
       <td><strong>GET</strong></td>
@@ -216,34 +219,11 @@
   </tbody>
 </table>
 
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-      <th>Methods</th>
-      <th>SandBox</th>
-      <th>Production</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Transaction request</strong></td>
-      <td><strong>POST</strong> / <strong>PUT</strong></td>
-      <td>https://apisandbox.cieloecommerce.cielo.com.br</td>
-      <td>https://api.cieloecommerce.cielo.com.br/</td>
-    </tr>
-    <tr>
-      <td><strong>Queries</strong></td>
-      <td><strong>GET</strong></td>
-      <td>https://apiquerysandbox.cieloecommerce.cielo.com.br</td>
-      <td>https://apiquery.cieloecommerce.cielo.com.br/</td>
-    </tr>
-  </tbody>
-</table>
+<p>Every operation requires the access keys <code class="language-plaintext highlighter-rouge">MerchantId</code>and <code class="language-plaintext highlighter-rouge">MerchantKey</code> that should be sent in the header of the request. When you make a request you will get a code back, showing if it was successful or not.</p>
 
 <h2 id="glossary">Glossary</h2>
 
-<p>In order to facilitate the understanding, we have listed below a short glossary with the main terms related to eCommerce and also to card and acquiring market:</p>
+<p>In order to make it easier to understand, we have listed below a short glossary with the main terms related to e-commerce and also to card and acquiring market:</p>
 
 <table>
   <thead>
@@ -255,27 +235,23 @@
   <tbody>
     <tr>
       <td><strong>Authentication</strong></td>
-      <td>process to ensure that the buyer is actually the one who claims to be (lawful carrier), usually occurs at the issuing bank using a digital token or card with security keys.</td>
+      <td>Process to ensure that the buyer is actually who they claim to be (lawful carrier), usually occurs at the issuing bank using a digital token or card with security keys.</td>
     </tr>
     <tr>
       <td><strong>Authorization</strong></td>
-      <td>process to check whether a purchase can or not be realized with a card. At this point, several checks are done with the card and the carrier (e.g., timely payments, card locks, etc.). It is also at this point that the card limit is sensitized with the transaction value.</td>
+      <td>Process to check whether a purchase can or not be made with a card. At this point, several verifications are done with the card and the carrier (e.g., timely payments, card locks, etc.). It is also at this point that the card limit is checked with the transaction value.</td>
     </tr>
     <tr>
       <td><strong>Cancellation</strong></td>
-      <td>process to cancel a purchase made with card.</td>
+      <td>Process to cancel a purchase made with a card.</td>
     </tr>
     <tr>
       <td><strong>Capture</strong></td>
-      <td>process that confirms an authorization that was previously made. It is only after the capture that the card carrier will be able to view it on their bank statement or invoice.</td>
-    </tr>
-    <tr>
-      <td><strong>Access key</strong></td>
-      <td>it is a store-specific security code, generated by Cielo, which is used to perform the authentication and communication on all messages exchanged with Cielo. Also known as production key and key data.</td>
+      <td>Process that confirms an authorization that was previously made. It is only after the capture that the card carrier will be able to view it on their bank statement or invoice.</td>
     </tr>
     <tr>
       <td><strong>Buyer</strong></td>
-      <td>is the one who effects purchase at the virtual store.</td>
+      <td>It is the one who makes the purchase at the virtual store.</td>
     </tr>
     <tr>
       <td><strong>Issuer (or issuing bank)</strong></td>
@@ -290,28 +266,12 @@
       <td>Company responsible for technical integration and transaction processing.</td>
     </tr>
     <tr>
-      <td><strong>Accreditation number</strong></td>
-      <td>is an identifier number that the merchant receives after their accreditation with Cielo.</td>
-    </tr>
-    <tr>
       <td><strong>Carrier</strong></td>
-      <td>is the person who carries the card at the time of sale.</td>
-    </tr>
-    <tr>
-      <td><strong>SecureCode</strong></td>
-      <td>Mastercard international program to enable buyer authentication at the time of purchase in eCommerce environment.</td>
+      <td>It is the person who carries the card at the time of sale.</td>
     </tr>
     <tr>
       <td><strong>TID (Transaction Identifier)</strong></td>
-      <td>code consisting of 20 characters that identifies only one Cielo eCommerce transaction.</td>
-    </tr>
-    <tr>
-      <td><strong>Transaction</strong></td>
-      <td>is the purchase order of the card carrier in Cielo.</td>
-    </tr>
-    <tr>
-      <td><strong>VBV (Verified by Visa)</strong></td>
-      <td>Visa international program that enables buyer authentication at the time of purchase in eCommerce environment.</td>
+      <td>Code consisting of 20 characters that identifies only one Cielo eCommerce transaction.</td>
     </tr>
   </tbody>
 </table>
