@@ -371,76 +371,6 @@
   <p>Cards that were issued abroad do not have permission to pay in installments.</p>
 </blockquote>
 
-<h2 id="latest-implementations">Latest Implementations</h2>
-
-<h3 id="cbps-transactions">CBPS Transactions</h3>
-
-<p>Entities that operate as CBPS (in Portuguese, Bill Payment Service for Consumers) are companies that offer consolidated bill payment services to the cardholder. CBPS Marking is a Visa-specific option and provides more visibility and accuracy in transactions.</p>
-
-<p>Establishments that operate with this service must be registered with Visa and to operate as such, they must send some additional information through messenger, which is required by the brand. See below:</p>
-
-<h4 id="request">Request</h4>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"merchantorderid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456ABCD1234"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"João das Contas accept"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5521923455678"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"IsCustomerBillPaymentService"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CieloSandbox"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"creditcard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"cardnumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4532110000001234"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"expirationdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2022"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"securitycode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jcb"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"savecard"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"AdditionalData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Mcc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Required</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>IsCustomerBillPaymentService</td>
-      <td>Boolean</td>
-      <td>—</td>
-      <td>No</td>
-      <td>True ou false. Indicates whether it’s a CBPS (Consumer Bill Payment Service) transaction</td>
-    </tr>
-    <tr>
-      <td>Wallet.AdditionalData.Mcc</td>
-      <td>String (number)</td>
-      <td>—</td>
-      <td>Yes, for CBPS transactions</td>
-      <td>Establishment MCC (EC) allowed for CBPS transactions</td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="extended-validation-certificate">Extended Validation Certificate</h1>
 
 <h2 id="what-is-the-ssl-certificate">What is the SSL Certificate?</h2>
@@ -814,7 +744,7 @@ Below we specify any existing differences:</p>
 
 <aside class="notice">Warning: It is not possible to carry out a transaction with its value as (`Amount`) 0.</aside>
 
-<h4 id="request-1">Request</h4>
+<h4 id="request">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -1218,7 +1148,7 @@ Below we specify any existing differences:</p>
 
 <p>To create a transaction that will use a credit card, it is necessary to send a request using the <code class="language-plaintext highlighter-rouge">POST</code> method to the Payment feature as shown. This example covers all the possible fields that can be sent.</p>
 
-<h4 id="request-2">Request</h4>
+<h4 id="request-1">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -1930,7 +1860,7 @@ Below we specify any existing differences:</p>
 
 <aside class="notice">Authentication: In this mode, the card carrier is directed to the authentication environment of the card issuing bank where the inclusion of the card password will be requested.</aside>
 
-<h4 id="request-3">Request</h4>
+<h4 id="request-2">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -2471,7 +2401,7 @@ Recently, the new version of 3DS 2.0 was release by the brands in the market, al
 
 <p>To create a credit or debit card sale containing external authentication data, you must send a request using the <code class="language-plaintext highlighter-rouge">POST</code> method for the Payment feature as the example.</p>
 
-<h6 id="request-4">Request</h6>
+<h6 id="request-3">Request</h6>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -2899,7 +2829,7 @@ Recently, the new version of 3DS 2.0 was release by the brands in the market, al
 
 <p>The example includes the minimum number of fields required to be submitted for authorization.</p>
 
-<h4 id="request-5">Request</h4>
+<h4 id="request-4">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -3239,7 +3169,7 @@ Recently, the new version of 3DS 2.0 was release by the brands in the market, al
   </tbody>
 </table>
 
-<h3 id="request-6">Request</h3>
+<h3 id="request-5">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -3560,7 +3490,7 @@ Recently, the new version of 3DS 2.0 was release by the brands in the market, al
 
 <p>To create an electronic transfer sale, it is necessary to make a POST for the Payment feature as shown. This example includes the minimum number of fields required to be sent for authorization.</p>
 
-<h4 id="request-7">Request</h4>
+<h4 id="request-6">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -3886,7 +3816,7 @@ Recently, the new version of 3DS 2.0 was release by the brands in the market, al
 
 <p><strong>NOTE:</strong> The API supports registered and unregistered bank slips, with the provider being the differentiator between them. We suggest that you validate with your bank what type of bank slip that is supported by your wallet. The API only accepts <strong>Bradesco</strong> and <strong>Banco do Brasil</strong> bank slips</p>
 
-<h4 id="request-8">Request</h4>
+<h4 id="request-7">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -4613,7 +4543,7 @@ Recently, the new version of 3DS 2.0 was release by the brands in the market, al
 
 <aside class="notice">Warning: It is not possible to carry out a transaction with its value as (`Amount`) 0.</aside>
 
-<h4 id="request-9">Request</h4>
+<h4 id="request-8">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -4856,7 +4786,7 @@ Recently, the new version of 3DS 2.0 was release by the brands in the market, al
 
 <p>To consult a credit card sale, it is necessary to do a GET for the Payment feature as the example</p>
 
-<h4 id="request-10">Request</h4>
+<h4 id="request-9">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
 
@@ -5241,7 +5171,7 @@ PaymentIds associated with the identifier.</p>
 
 <p>To consult a sale by store identifier, it is necessary to make a GET for the sales resource as the example.</p>
 
-<h4 id="request-11">Request</h4>
+<h4 id="request-10">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales?merchantOrderId={merchantOrderId}</span></aside>
 
@@ -5880,7 +5810,7 @@ PaymentIds associated with the identifier.</p>
 
 <p>Like any e-commerce debit transaction, Carnê transactions need to be authenticated via the 3DS 2.0 protocol. More information regarding the authentication protocol can be obtained <a href="https://developercielo.github.io/manual/3ds#autentica%C3%A7%C3%A3o-3ds-2.0"><strong>click here</strong></a>.</p>
 
-<h3 id="request-12">Request</h3>
+<h3 id="request-11">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -5943,7 +5873,7 @@ PaymentIds associated with the identifier.</p>
 
 <p>The new fields are contained within the Payment Facilitator node. In addition to the fields of this new node, facilitators will also have to send the softdescriptor field of the payment node. Below is an example of sending and reply.</p>
 
-<h4 id="request-13">Request</h4>
+<h4 id="request-12">Request</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2222222222"</span><span class="p">,</span><span class="w">
@@ -6285,6 +6215,74 @@ PaymentIds associated with the identifier.</p>
       <td>13</td>
       <td>Required for facilitators</td>
       <td>Text printed on buyer bank invoice. Must be completed according to the data of the sub Merchant.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cbps-transactions">CBPS Transactions</h3>
+
+<p>Entities that operate as CBPS (in Portuguese, Bill Payment Service for Consumers) are companies that offer consolidated bill payment services to the cardholder. CBPS Marking is a Visa-specific option and provides more visibility and accuracy in transactions.</p>
+
+<p>Establishments that operate with this service must be registered with Visa and to operate as such, they must send some additional information through messenger, which is required by the brand. See below:</p>
+
+<h4 id="request-13">Request</h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"merchantorderid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456ABCD1234"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"João das Contas accept"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5521923455678"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IsCustomerBillPaymentService"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CieloSandbox"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"creditcard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"cardnumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4532110000001234"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"expirationdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2022"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"securitycode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jcb"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"savecard"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"AdditionalData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Mcc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IsCustomerBillPaymentService</td>
+      <td>Boolean</td>
+      <td>—</td>
+      <td>No</td>
+      <td>True ou false. Indicates whether it’s a CBPS (Consumer Bill Payment Service) transaction</td>
+    </tr>
+    <tr>
+      <td>Wallet.AdditionalData.Mcc</td>
+      <td>String (number)</td>
+      <td>—</td>
+      <td>Yes, for CBPS transactions</td>
+      <td>Establishment MCC (EC) allowed for CBPS transactions</td>
     </tr>
   </tbody>
 </table>
