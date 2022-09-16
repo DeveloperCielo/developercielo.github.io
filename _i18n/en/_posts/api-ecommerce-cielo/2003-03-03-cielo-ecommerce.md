@@ -3039,9 +3039,9 @@ Like any e-commerce debit transaction, Carnê transactions need to be authentica
 |Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`Payment.IsCarneTransaction`|Boolean|---|No (default false)|Must be sent with a value of “true” in the case of a Carnê service payment transaction|
-  
+
 ## Specific Implementations
-  
+
 ### Payment Facilitators
 
 All E-Commerce customers who are **Payment Facilitators, as required by the Card Networks and Central Bank** must submit new fields in **transactional messaging**. Cielo will transmit the information to the Card Networks through transactional messaging at the time of authorization.
