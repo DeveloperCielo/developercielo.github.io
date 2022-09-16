@@ -78,227 +78,27 @@ In order to make it easier to understand, we have listed below a short glossary 
 |**Commercial establishment or CE**|Entity that responds by the virtual store.|
 |**Payment Gateway**|Company responsible for technical integration and transaction processing.|
 |**Carrier**|It is the person who carries the card at the time of sale.|
-|**TID (Transaction Identifier)**|Code consisting of 20 characters that identifies only one Cielo eCommerce transaction.|
+|**TID (Transaction Identifier)**|Code consisting of 20 characters that identifies a E-commerce Cielo transaction.|
 
 ## Products and Supported Issuers
 
 The current version of Cielo Webservice supports the following issuers and products:
 
-| Issuer           | Demand credit | Installment credit Store | Debit | Voucher |
-|------------------|---------------|--------------------------|-------|---------|
-| Visa             | Yes           | Yes                      | Yes   | *No*    |
-| Master Card      | Yes           | Yes                      | Yes   | *No*    |
-| American Express | Yes           | Yes                      | *No*  | *No*    |
-| Elo              | Yes           | Yes                      | *No*  | *No*    |
-| Diners Club      | Yes           | Yes                      | *No*  | *No*    |
-| Discover         | Yes           | *No*                     | *No*  | *No*    |
-| JCB              | Yes           | Yes                      | *No*  | *No*    |
-| Aura             | Yes           | Yes                      | *No*  | *No*    |
-| Hipercard        | Yes           | Yes                      | *No*  | *No*    |
+| Issuer           | Demand credit | Installment credit Store | Debit | Voucher | International |
+|------------------|---------------|--------------------------|-------|---------|---------------|
+| Visa             | Yes           | Yes                      | Yes   | *No*    | Yes           | 
+| Master Card      | Yes           | Yes                      | Yes   | *No*    | Yes           |
+| American Express | Yes           | Yes                      | *No*  | *No*    | Yes           |
+| Elo              | Yes           | Yes                      | *No*  | *No*    | Yes           |
+| Diners Club      | Yes           | Yes                      | *No*  | *No*    | Yes           |
+| Discover         | Yes           | *No*                     | *No*  | *No*    | Yes           |
+| JCB              | Yes           | Yes                      | *No*  | *No*    | Yes           |
+| Aura             | Yes           | Yes                      | *No*  | *No*    | Yes           |
+| Hipercard        | Yes           | Yes                      | *No*  | *No*    | *No*          |
 
-> Cards that was issued abroad do not have permission to pay in installments.
+> Cards that were issued abroad do not have permission to pay in installments.
 
 ## Latest Implementations
-
-### Payment Facilitators
-
-All E-Commerce customers who are **Payment Facilitators, as required by the Card Networks and Central Bank** must submit new fields in **transactional messaging**. Cielo will transmit the information to the Card Networks through transactional messaging at the time of authorization.
-
-The new fields are contained within the Payment Facilitator node. In addition to the fields of this new node, facilitators will also have to send the softdescriptor field of the payment node. Below is an example of sending and reply.
-
-#### Request
-
-```json
-{
-   "MerchantOrderId":"2222222222",
-   "Customer":{
-      "Name":"Comprador Teste",
-      "Identity":"11225468954",
-      "IdentityType":"CPF",
-      "Email":"compradorteste@teste.com",
-      "Birthdate":"1991-01-02",
-      "Address":{
-         "Street":"Rua Teste",
-         "Number":"123",
-         "Complement":"AP 123",
-         "ZipCode":"12345987",
-         "City":"Rio de Janeiro",
-         "State":"RJ",
-         "Country":"BRA"
-      },
-      "DeliveryAddress":{
-         "Street":"Rua Teste",
-         "Number":"123",
-         "Complement":"AP 123",
-         "ZipCode":"12345987",
-         "City":"Rio de Janeiro",
-         "State":"RJ",
-         "Country":"BRA"
-      }
-   },
-   "Payment":{
-      "Type":"CreditCard",
-      "Amount":157000,
-      "Currency":"BRL",
-      "Country":"BRA",
-      "Provider":"Cielo",
-      "ServiceTaxAmount":0,
-      "Installments":1,
-      "Interest":"ByMerchant",
-      "Capture":false,
-      "Authenticate":false,
-      "Recurrent":false,
-      "SoftDescriptor":"123456789ABCD",
-      "CreditCard":{
-         "CardNumber":"4024007197692931",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"12/2021",
-         "SecurityCode":"123",
-         "SaveCard":"false",
-         "Brand":"Visa"
-      },
-      "PaymentFacilitator":{
-         "EstablishmentCode":"1234",
-         "SubEstablishment":{
-            "EstablishmentCode":"1234",
-            "Identity":"11111111000100",
-            "Mcc":"1234",
-            "Address":"Alameda Grajau, 512",
-            "City":"Barueri",
-            "State":"SP",
-            "CountryCode":"076",
-            "PostalCode":"06455914",
-            "PhoneNumber":"1155855585"
-         }
-      }
-   }
-}
-```
-
-|Property|Type|Size|Required|Description|
-|---|---|---|---|---|
-|PaymentFacilitator.EstablishmentCode|Number|11|Required for facilitators|Facilitator's establishment code. “Facilitator ID” (Registration of the facilitator with the card brands)|
-|PaymentFacilitator.SubEstablishment.EstablishmentCode|Number|15|Required for facilitators|Sub Merchant establishment code. “Sub-Merchant ID” (Registration of sub-accredited with the facilitator)|
-|PaymentFacilitator.SubEstablishment.Identity|Number|14|Required for facilitators|CNPJ or CPF of the sub-merchant.|
-|PaymentFacilitator.SubEstablishment.Mcc|Number|4|Required for facilitators|MCC do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.Address|Alphanumeric|22|Required for facilitators|Sub Merchant Address.|
-|PaymentFacilitator.SubEstablishment.City|Alphanumeric|13|Required for facilitators|City of the sub Merchant.|
-|PaymentFacilitator.SubEstablishment.State|Alphanumeric|2|Required for facilitators|State do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.PostalCode|Number|9|Required for facilitators|Sub Merchant Postcode.|
-|PaymentFacilitator.SubEstablishment.CountryCode|Number|3|Required for facilitators|Sub-merchant country code based on ISO 3166.<br>Ex: Brazil's ISO 3166 code is 076. [Complete list online](https://www.iso.org/obp/ui/#search/code/)|
-|PaymentFacilitator.SubEstablishment.PhoneNumber|Number|13|Required for facilitators|Sub Merchant Phone Number.|
-|Payment.Softdescriptor|Text|13|Required for facilitators|Text printed on buyer bank invoice. Must be completed according to the data of the sub Merchant.|
-
-<aside class="warning"><b>Attention: Fields mustn't be sent with spacing to the left. Subject to rejection in the settlement of transactions.</b></aside>
-
-#### Response
-
-```json
-{
-   "MerchantOrderId":"2014111701",
-   "Customer":{
-      "Name":"Comprador Teste",
-      "Identity":"11225468954",
-      "IdentityType":"CPF",
-      "Email":"compradorteste@teste.com",
-      "Birthdate":"1991-01-02",
-      "Address":{
-         "Street":"Rua Teste",
-         "Number":"123",
-         "Complement":"AP 123",
-         "ZipCode":"12345987",
-         "City":"Rio de Janeiro",
-         "State":"RJ",
-         "Country":"BRA"
-      },
-      "DeliveryAddress":{
-         "Street":"Rua Teste",
-         "Number":"123",
-         "Complement":"AP 123",
-         "ZipCode":"12345987",
-         "City":"Rio de Janeiro",
-         "State":"RJ",
-         "Country":"BRA"
-      }
-   },
-   "Payment":{
-      "ServiceTaxAmount":0,
-      "Installments":1,
-      "Interest":0,
-      "Capture":false,
-      "Authenticate":false,
-      "Recurrent":false,
-      "CreditCard":{
-         "CardNumber":"402400******2931",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"12/2021",
-         "SaveCard":false,
-         "Brand":"Visa"
-      },
-      "Tid":"1223092935684",
-      "ProofOfSale":"2935684",
-      "AuthorizationCode":"065158",
-      "SoftDescriptor":"123456789ABCD",
-      "Provider":"Simulado",
-      "IsQrCode":false,
-      "PaymentFacilitator":{
-         "EstablishmentCode":"1234",
-         "SubEstablishment":{
-            "EstablishmentCode":"1234",
-            "Identity":"11111111000100",
-            "Mcc":"1234",
-            "Address":"Alameda Grajau, 512",
-            "City":"Barueri",
-            "State":"SP",
-            "CountryCode":"076",
-            "PostalCode":"06455914",
-            "PhoneNumber":"1155855585"
-         }
-      },
-      "Amount":157000,
-      "ReceivedDate":"2019-12-23 09:29:34",
-      "Status":1,
-      "IsSplitted":false,
-      "ReturnMessage":"Operation Successful",
-      "ReturnCode":"4",
-      "PaymentId":"365c3a0d-fd86-480b-9279-4ba3da21333c",
-      "Type":"CreditCard",
-      "Currency":"BRL",
-      "Country":"BRA",
-      "Links":[
-         {
-            "Method":"GET",
-            "Rel":"self",
-            "Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/365c3a0d-fd86-480b-9279-4ba3da21333c"
-         },
-         {
-            "Method":"PUT",
-            "Rel":"capture",
-            "Href":"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/365c3a0d-fd86-480b-9279-4ba3da21333c/capture"
-         },
-         {
-            "Method":"PUT",
-            "Rel":"void",
-            "Href":"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/365c3a0d-fd86-480b-9279-4ba3da21333c/void"
-         }
-      ]
-   }
-}
-```
-
-|Property|Type|Size|Required|Description|
-|---|---|---|---|---|
-|PaymentFacilitator.EstablishmentCode|Number|11|Required for facilitators|Facilitator's establishment code. “Facilitator ID” (Registration of the facilitator with the card brands)|
-|PaymentFacilitator.SubEstablishment.EstablishmentCode|Number|15|Required for facilitators|Sub Merchant establishment code. “Sub-Merchant ID” (Registration of sub-accredited with the facilitator)|
-|PaymentFacilitator.SubEstablishment.Identity|Number|14|Required for facilitators|CNPJ or CPF of the sub-merchant.|
-|PaymentFacilitator.SubEstablishment.Mcc|Number|4|Required for facilitators|MCC do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.Address|Alphanumeric|22|Required for facilitators|Sub Merchant Address.|
-|PaymentFacilitator.SubEstablishment.City|Alphanumeric|13|Required for facilitators|City of the sub Merchant.|
-|PaymentFacilitator.SubEstablishment.State|Alphanumeric|2|Required for facilitators|State do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.PostalCode|Number|9|Required for facilitators|Sub Merchant Postcode.|
-|PaymentFacilitator.SubEstablishment.CountryCode|Number|3|Required for facilitators|Sub-merchant country code based on ISO 3166.<br>Ex: Brazil's ISO 3166 code is 076. [Complete list online](https://www.iso.org/obp/ui/#search/code/)|
-|PaymentFacilitator.SubEstablishment.PhoneNumber|Number|13|Required for facilitators|Sub Merchant Phone Number.|
-|Payment.Softdescriptor|Text|13|Required for facilitators|Text printed on buyer bank invoice. Must be completed according to the data of the sub Merchant.|
 
 ### CBPS Transactions 
 
@@ -3239,6 +3039,208 @@ Like any e-commerce debit transaction, Carnê transactions need to be authentica
 |Property|Type|Size|Required|Description|
 |---|---|---|---|---|
 |`Payment.IsCarneTransaction`|Boolean|---|No (default false)|Must be sent with a value of “true” in the case of a Carnê service payment transaction|
+  
+## Specific Implementations
+  
+### Payment Facilitators
+
+All E-Commerce customers who are **Payment Facilitators, as required by the Card Networks and Central Bank** must submit new fields in **transactional messaging**. Cielo will transmit the information to the Card Networks through transactional messaging at the time of authorization.
+
+The new fields are contained within the Payment Facilitator node. In addition to the fields of this new node, facilitators will also have to send the softdescriptor field of the payment node. Below is an example of sending and reply.
+
+#### Request
+
+```json
+{
+   "MerchantOrderId":"2222222222",
+   "Customer":{
+      "Name":"Comprador Teste",
+      "Identity":"11225468954",
+      "IdentityType":"CPF",
+      "Email":"compradorteste@teste.com",
+      "Birthdate":"1991-01-02",
+      "Address":{
+         "Street":"Rua Teste",
+         "Number":"123",
+         "Complement":"AP 123",
+         "ZipCode":"12345987",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BRA"
+      },
+      "DeliveryAddress":{
+         "Street":"Rua Teste",
+         "Number":"123",
+         "Complement":"AP 123",
+         "ZipCode":"12345987",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BRA"
+      }
+   },
+   "Payment":{
+      "Type":"CreditCard",
+      "Amount":157000,
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Provider":"Cielo",
+      "ServiceTaxAmount":0,
+      "Installments":1,
+      "Interest":"ByMerchant",
+      "Capture":false,
+      "Authenticate":false,
+      "Recurrent":false,
+      "SoftDescriptor":"123456789ABCD",
+      "CreditCard":{
+         "CardNumber":"4024007197692931",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2021",
+         "SecurityCode":"123",
+         "SaveCard":"false",
+         "Brand":"Visa"
+      },
+      "PaymentFacilitator":{
+         "EstablishmentCode":"1234",
+         "SubEstablishment":{
+            "EstablishmentCode":"1234",
+            "Identity":"11111111000100",
+            "Mcc":"1234",
+            "Address":"Alameda Grajau, 512",
+            "City":"Barueri",
+            "State":"SP",
+            "CountryCode":"076",
+            "PostalCode":"06455914",
+            "PhoneNumber":"1155855585"
+         }
+      }
+   }
+}
+```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|PaymentFacilitator.EstablishmentCode|Number|11|Required for facilitators|Facilitator's establishment code. “Facilitator ID” (Registration of the facilitator with the card brands)|
+|PaymentFacilitator.SubEstablishment.EstablishmentCode|Number|15|Required for facilitators|Sub Merchant establishment code. “Sub-Merchant ID” (Registration of sub-accredited with the facilitator)|
+|PaymentFacilitator.SubEstablishment.Identity|Number|14|Required for facilitators|CNPJ or CPF of the sub-merchant.|
+|PaymentFacilitator.SubEstablishment.Mcc|Number|4|Required for facilitators|MCC do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.Address|Alphanumeric|22|Required for facilitators|Sub Merchant Address.|
+|PaymentFacilitator.SubEstablishment.City|Alphanumeric|13|Required for facilitators|City of the sub Merchant.|
+|PaymentFacilitator.SubEstablishment.State|Alphanumeric|2|Required for facilitators|State do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.PostalCode|Number|9|Required for facilitators|Sub Merchant Postcode.|
+|PaymentFacilitator.SubEstablishment.CountryCode|Number|3|Required for facilitators|Sub-merchant country code based on ISO 3166.<br>Ex: Brazil's ISO 3166 code is 076. [Complete list online](https://www.iso.org/obp/ui/#search/code/)|
+|PaymentFacilitator.SubEstablishment.PhoneNumber|Number|13|Required for facilitators|Sub Merchant Phone Number.|
+|Payment.Softdescriptor|Text|13|Required for facilitators|Text printed on buyer bank invoice. Must be completed according to the data of the sub Merchant.|
+
+<aside class="warning"><b>Attention: Fields mustn't be sent with spacing to the left. Subject to rejection in the settlement of transactions.</b></aside>
+
+#### Response
+
+```json
+{
+   "MerchantOrderId":"2014111701",
+   "Customer":{
+      "Name":"Comprador Teste",
+      "Identity":"11225468954",
+      "IdentityType":"CPF",
+      "Email":"compradorteste@teste.com",
+      "Birthdate":"1991-01-02",
+      "Address":{
+         "Street":"Rua Teste",
+         "Number":"123",
+         "Complement":"AP 123",
+         "ZipCode":"12345987",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BRA"
+      },
+      "DeliveryAddress":{
+         "Street":"Rua Teste",
+         "Number":"123",
+         "Complement":"AP 123",
+         "ZipCode":"12345987",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BRA"
+      }
+   },
+   "Payment":{
+      "ServiceTaxAmount":0,
+      "Installments":1,
+      "Interest":0,
+      "Capture":false,
+      "Authenticate":false,
+      "Recurrent":false,
+      "CreditCard":{
+         "CardNumber":"402400******2931",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2021",
+         "SaveCard":false,
+         "Brand":"Visa"
+      },
+      "Tid":"1223092935684",
+      "ProofOfSale":"2935684",
+      "AuthorizationCode":"065158",
+      "SoftDescriptor":"123456789ABCD",
+      "Provider":"Simulado",
+      "IsQrCode":false,
+      "PaymentFacilitator":{
+         "EstablishmentCode":"1234",
+         "SubEstablishment":{
+            "EstablishmentCode":"1234",
+            "Identity":"11111111000100",
+            "Mcc":"1234",
+            "Address":"Alameda Grajau, 512",
+            "City":"Barueri",
+            "State":"SP",
+            "CountryCode":"076",
+            "PostalCode":"06455914",
+            "PhoneNumber":"1155855585"
+         }
+      },
+      "Amount":157000,
+      "ReceivedDate":"2019-12-23 09:29:34",
+      "Status":1,
+      "IsSplitted":false,
+      "ReturnMessage":"Operation Successful",
+      "ReturnCode":"4",
+      "PaymentId":"365c3a0d-fd86-480b-9279-4ba3da21333c",
+      "Type":"CreditCard",
+      "Currency":"BRL",
+      "Country":"BRA",
+      "Links":[
+         {
+            "Method":"GET",
+            "Rel":"self",
+            "Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/365c3a0d-fd86-480b-9279-4ba3da21333c"
+         },
+         {
+            "Method":"PUT",
+            "Rel":"capture",
+            "Href":"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/365c3a0d-fd86-480b-9279-4ba3da21333c/capture"
+         },
+         {
+            "Method":"PUT",
+            "Rel":"void",
+            "Href":"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/365c3a0d-fd86-480b-9279-4ba3da21333c/void"
+         }
+      ]
+   }
+}
+```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|PaymentFacilitator.EstablishmentCode|Number|11|Required for facilitators|Facilitator's establishment code. “Facilitator ID” (Registration of the facilitator with the card brands)|
+|PaymentFacilitator.SubEstablishment.EstablishmentCode|Number|15|Required for facilitators|Sub Merchant establishment code. “Sub-Merchant ID” (Registration of sub-accredited with the facilitator)|
+|PaymentFacilitator.SubEstablishment.Identity|Number|14|Required for facilitators|CNPJ or CPF of the sub-merchant.|
+|PaymentFacilitator.SubEstablishment.Mcc|Number|4|Required for facilitators|MCC do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.Address|Alphanumeric|22|Required for facilitators|Sub Merchant Address.|
+|PaymentFacilitator.SubEstablishment.City|Alphanumeric|13|Required for facilitators|City of the sub Merchant.|
+|PaymentFacilitator.SubEstablishment.State|Alphanumeric|2|Required for facilitators|State do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.PostalCode|Number|9|Required for facilitators|Sub Merchant Postcode.|
+|PaymentFacilitator.SubEstablishment.CountryCode|Number|3|Required for facilitators|Sub-merchant country code based on ISO 3166.<br>Ex: Brazil's ISO 3166 code is 076. [Complete list online](https://www.iso.org/obp/ui/#search/code/)|
+|PaymentFacilitator.SubEstablishment.PhoneNumber|Number|13|Required for facilitators|Sub Merchant Phone Number.|
+|Payment.Softdescriptor|Text|13|Required for facilitators|Text printed on buyer bank invoice. Must be completed according to the data of the sub Merchant.|
 
 ## Integration Errors
 
