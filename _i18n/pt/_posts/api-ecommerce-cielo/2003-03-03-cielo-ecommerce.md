@@ -4252,7 +4252,7 @@ curl
 |`RecurrentPaymentId`|Campo Identificador da próxima recorrência.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`NextRecurrency`|Data da próxima recorrência.|Texto|7|12/2030 (MM/YYYY)|
 |`EndDate`|Data do fim da recorrência.|Texto|7|12/2030 (MM/YYYY)|
-|`Interval`|Intervalo entre as recorrências.|Texto|10|Monthly<br>Bimonthly<br>Quarterly<br>SemiAnnual<br>Annual |
+|`Interval`|Intervalo entre as recorrências.|Número|10|<br>Monthly = 1 <BR>Bimonthly = 2<BR>Quarterly = 3<BR>SemiAnnual = 6<BR>Annual = 12<BR>|
 |`AuthorizeNow`|Booleano para saber se a primeira recorrência já vai ser autorizada ou não.|Booleano|---|true|
 
 ### Agendando uma Recorrência Programada
@@ -4459,7 +4459,7 @@ curl
 |`NextRecurrency`|Data da próxima recorrência.|Texto|7|12/2030 (MM/YYYY)|
 |`StartDate`|Data do inicio da recorrência.|Texto|7|12/2030 (MM/YYYY)|
 |`EndDate`|Data do fim da recorrência.|Texto|7|12/2030 (MM/YYYY)|
-|`Interval`|Intervalo entre as recorrências.|Texto|10|Monthly<br>Bimonthly<br>Quarterly<br>SemiAnnual<br>Annual |
+|`Interval`|Intervalo entre as recorrências.|Número|10|<br>Monthly = 1 <BR>Bimonthly = 2<BR>Quarterly = 3<BR>SemiAnnual = 6<BR>Annual = 12<BR> |
 |`AuthorizeNow`|Booleano para saber se a primeira recorrência já vai ser autorizada ou se será apenas agendada.|Booleano|---|false|
 
 ## Modificando Recorrências
@@ -4872,7 +4872,7 @@ HTTP Status 200
 
 Veja o Anexo [HTTP Status Code](#http-status-code) para a lista com todos os códigos de status HTTP possivelmente retornados pela API.
 
-### Desabilitando um Pedido Recorrente
+### Desabilitando um pedido recorrente
 
 Para desabilitar um pedido recorrente, basta fazer um Put conforme o exemplo.
 
