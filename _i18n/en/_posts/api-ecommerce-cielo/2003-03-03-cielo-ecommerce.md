@@ -96,7 +96,15 @@ The current version of Cielo Webservice supports the following issuers and produ
 | Aura             | Yes           | Yes                      | *No*  | *No*    | Yes           |
 | Hipercard        | Yes           | Yes                      | *No*  | *No*    | *No*          |
 
-> Cards that were issued abroad do not have permission to pay in installments.
+<aside class="warning">Cards that were issued abroad do not have permission to pay in installments.</aside>
+
+## Cielo Support
+
+If you have any questions, feel free to contact us through the following channels:
+
+* <b>E-mail:</b> cieloecommerce@cielo.com.br
+* <b>Phone number for capitals</b>: 4002-9700
+* <b>Phone number for other cities</b>: 0800 570 1700
 
 # Extended Validation Certificate
 
