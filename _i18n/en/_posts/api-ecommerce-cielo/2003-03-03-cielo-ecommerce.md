@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Integration Manual API E-Commerce Cielo
+title: Integration Manual eCommerce Cielo
 description: The purpose of this documentation is to guide the developer on how to integrate with Cielo's API Cielo e-Commerce.
 search: true
 translated: true
@@ -100,11 +100,7 @@ The current version of Cielo Webservice supports the following issuers and produ
 
 ## Cielo Support
 
-If you have any questions, feel free to contact us through the following channels:
-
-* **E-mail:** cieloecommerce@cielo.com.br
-* **Phone number for capitals:** 4002-9700
-* **Phone number for other cities:** 0800 570 1700
+If you have any questions, feel free to contact us through our e-mail: **cieloecommerce@cielo.com.br**
 
 # Extended Validation Certificate
 
@@ -137,8 +133,7 @@ It is a more trustworthy certificate and when HTTPS is accessed the address bar 
 You just have to install the following files in the server Trustedstore. Cielo does not offer support to the installation of the Certificate. If you are unsure about how to install the EV Certificate, then you should contact your server vendor support.
 
 * [Root Certificate]({{ site.baseurl }}/attachment/Root.crt)
-* [Intermediate 1 certificate]({{ site.baseurl }}/attachment/Intermediate1.crt)
-* [Intermediate 2 certificate]({{ site.baseurl }}/attachment/Intermediate2.crt)
+* [Intermediate certificate]({{ site.baseurl }}/attachment/Intermediate1.crt)
 * [E-Commerce Cielo certificate]({{ site.baseurl }}/attachment/cieloecommerce.cert-2021-2022.zip)
 
 ## Step-by-Step for Installation
@@ -158,8 +153,7 @@ Usually, the browser automatically updates the Certificate. If it does not and t
 Save these files below into a new folder, or into a folder that can be easily accessed, as it will be used later:
 
 * [Root Certificate]({{ site.baseurl }}/attachment/Root.crt)
-* [Intermediate 1 certificate]({{ site.baseurl }}/attachment/Intermediate1.crt)
-* [Intermediate 2 certificate]({{ site.baseurl }}/attachment/Intermediate2.crt)
+* [Intermediate certificate]({{ site.baseurl }}/attachment/Intermediate1.crt)
 * [E-Commerce Cielo certificate]({{ site.baseurl }}/attachment/ServerCertificate.crt)
 
 **Step 2:**
@@ -242,26 +236,26 @@ Repeat the same procedure for the 3 sent files.
 
 ## About Sandbox
 
-To facilitate testing during integration, Cielo offers a Sandbox environment that is composed by two areas:
+To facilitate testing during integration, Cielo offers a Sandbox environment that allows simuation of the API messages. The Sandbox environment is programmed to give you responses for every feature available on API E-commerce Cielo
 
-1. Test account register
-2. Transactional Endpoints
-  * **Request**: https://apisandbox.cieloecommerce.cielo.com.br
-  * **Query**: https://apiquerysandbox.cieloecommerce.cielo.com.br
+|INFORMATION|URL|
+|---|---|
+|Test account register|`MerchantId` and `MerchantKey` obtained after creating your testing account on [**Sandbox Registration**](https://cadastrosandbox.cieloecommerce.cielo.com.br/){:target="_blank"}|
+|Requests URL|https://apisandbox.cieloecommerce.cielo.com.br|
+|Queries URL|https://apiquerysandbox.cieloecommerce.cielo.com.br|
 
-**Advantages of using the Sandbox**
+**Perks of using Sandbox**
 
 * No affiliation is required to use Sandbox Cielo.
 * Just access the [**Sandbox Registration**](https://cadastrosandbox.cieloecommerce.cielo.com.br/) create an account.
-* with the registration you will receive a `MerchantId` and a `MerchantKey`, which are the credentials required for the API methods
 
-## Integration Tool: POSTMAN
+## Integration Tool
 
-**Postman** is an API Client that makes it easier for developers to create, share, test, and document APIs. This is done by allowing users to create and save simple and complex HTTP requests, as well as read their responses.
+You can use **Postman** to test your intergration. Postman is an API Client that makes it easier for developers to create, share, test, and document APIs. This is done by allowing users to create and save simple and complex HTTP requests, as well as read their responses.
 
-Cielo offers complete collections of its integrations via Postamn, which facilitates the integration process with the API Cielo.
+Cielo offers complete collections of its integrations via Postman, which facilitates the integration process with the API E-Commerce Cielo.
 
-We suggest developers to access our [**Tutorial**](https://developercielo.github.io/Tutorial//Postman) about the tool to better understand all the advantages it offers.
+We suggest developers to access our [**Tutorial**](https://developercielo.github.io/en/tutorial/postman) about the tool to better understand all the advantages it offers.
 
 ## Credit card - Sandbox
 
@@ -4995,7 +4989,7 @@ curl
 |`RecurrentPaymentId`|Next recurrence Identifier field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`NextRecurrency`|Date of next recurrence.|Text|7|12/2030 (MM/YYYY)|
 |`EndDate`|End date of recurrence.|Text|7|12/2030 (MM/YYYY)|
-|`Interval`|Interval between recurrences.|Number|10|Monthly = 1<br>Bimonthly = 2<br>Quarterly = 3<br>SemiAnnual = 6<br>Annual = 12|
+|`Interval`|Interval between recurrences.|Text|10|<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
 |`AuthorizeNow`|Boolean to know if the first recurrence is about to be Authorized or not.|Boolean|---|true ou false|
 
 ## Scheduling a Scheduled Recurrence
@@ -5200,7 +5194,7 @@ curl
 |`NextRecurrency`|Date of next recurrence.|Text|7|12/2030 (MM/YYYY)|
 |`StartDate`|Start date of recurrence.|Text|7|12/2030 (MM/YYYY)|
 |`EndDate`|End date of recurrence.|Text|7|12/2030 (MM/YYYY)|
-|`Interval`|Interval between recurrences.|Number|10|Monthly = 1<br>Bimonthly = 2<br>Quarterly = 3<br>SemiAnnual = 6<br>Annual = 12|
+|`Interval`|Interval between recurrences.|Text|10|<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
 |`AuthorizeNow`|Boolean to know if the first recurrence is about to be Authorized or not.|Boolean|---|true ou false|
 
 ## Modifying Recurrences
