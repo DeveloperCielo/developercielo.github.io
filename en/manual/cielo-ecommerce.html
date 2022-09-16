@@ -12,7 +12,7 @@
 
     <title>
         
-        Integration Manual API E-Commerce Cielo &middot; Documentações e tutoriais
+        Integration Manual eCommerce Cielo &middot; Documentações e tutoriais
         
     </title>
 
@@ -119,7 +119,7 @@
                             
                                 
                                     
-                                    <li class="active">&gt; <a href="https://developercielo.github.io/en/manual/cielo-ecommerce">Integration Manual API E-Commerce Cielo</a></li>
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/en/manual/cielo-ecommerce">Integration Manual eCommerce Cielo</a></li>
                                     
                                 
                             
@@ -371,13 +371,7 @@
 
 <h2 id="cielo-support">Cielo Support</h2>
 
-<p>If you have any questions, feel free to contact us through the following channels:</p>
-
-<ul>
-  <li><strong>E-mail:</strong> cieloecommerce@cielo.com.br</li>
-  <li><strong>Phone number for capitals:</strong> 4002-9700</li>
-  <li><strong>Phone number for other cities:</strong> 0800 570 1700</li>
-</ul>
+<p>If you have any questions, feel free to contact us through our e-mail: <strong>cieloecommerce@cielo.com.br</strong></p>
 
 <h1 id="extended-validation-certificate">Extended Validation Certificate</h1>
 
@@ -411,8 +405,7 @@
 
 <ul>
   <li><a href="https://developercielo.github.io/en/attachment/Root.crt">Root Certificate</a></li>
-  <li><a href="https://developercielo.github.io/en/attachment/Intermediate1.crt">Intermediate 1 certificate</a></li>
-  <li><a href="https://developercielo.github.io/en/attachment/Intermediate2.crt">Intermediate 2 certificate</a></li>
+  <li><a href="https://developercielo.github.io/en/attachment/Intermediate1.crt">Intermediate certificate</a></li>
   <li><a href="https://developercielo.github.io/en/attachment/cieloecommerce.cert-2021-2022.zip">E-Commerce Cielo certificate</a></li>
 </ul>
 
@@ -434,8 +427,7 @@
 
 <ul>
   <li><a href="https://developercielo.github.io/en/attachment/Root.crt">Root Certificate</a></li>
-  <li><a href="https://developercielo.github.io/en/attachment/Intermediate1.crt">Intermediate 1 certificate</a></li>
-  <li><a href="https://developercielo.github.io/en/attachment/Intermediate2.crt">Intermediate 2 certificate</a></li>
+  <li><a href="https://developercielo.github.io/en/attachment/Intermediate1.crt">Intermediate certificate</a></li>
   <li><a href="https://developercielo.github.io/en/attachment/ServerCertificate.crt">E-Commerce Cielo certificate</a></li>
 </ul>
 
@@ -519,33 +511,45 @@
 
 <h2 id="about-sandbox">About Sandbox</h2>
 
-<p>To facilitate testing during integration, Cielo offers a Sandbox environment that is composed by two areas:</p>
+<p>To facilitate testing during integration, Cielo offers a Sandbox environment that allows simuation of the API messages. The Sandbox environment is programmed to give you responses for every feature available on API E-commerce Cielo</p>
 
-<ol>
-  <li>Test account register</li>
-  <li>Transactional Endpoints
-    <ul>
-      <li><strong>Request</strong>: https://apisandbox.cieloecommerce.cielo.com.br</li>
-      <li><strong>Query</strong>: https://apiquerysandbox.cieloecommerce.cielo.com.br</li>
-    </ul>
-  </li>
-</ol>
+<table>
+  <thead>
+    <tr>
+      <th>INFORMATION</th>
+      <th>URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Test account register</td>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code> and <code class="language-plaintext highlighter-rouge">MerchantKey</code> obtained after creating your testing account on <a href="https://cadastrosandbox.cieloecommerce.cielo.com.br/" target="_blank"><strong>Sandbox Registration</strong></a></td>
+    </tr>
+    <tr>
+      <td>Requests URL</td>
+      <td>https://apisandbox.cieloecommerce.cielo.com.br</td>
+    </tr>
+    <tr>
+      <td>Queries URL</td>
+      <td>https://apiquerysandbox.cieloecommerce.cielo.com.br</td>
+    </tr>
+  </tbody>
+</table>
 
-<p><strong>Advantages of using the Sandbox</strong></p>
+<p><strong>Perks of using Sandbox</strong></p>
 
 <ul>
   <li>No affiliation is required to use Sandbox Cielo.</li>
   <li>Just access the <a href="https://cadastrosandbox.cieloecommerce.cielo.com.br/"><strong>Sandbox Registration</strong></a> create an account.</li>
-  <li>with the registration you will receive a <code class="language-plaintext highlighter-rouge">MerchantId</code> and a <code class="language-plaintext highlighter-rouge">MerchantKey</code>, which are the credentials required for the API methods</li>
 </ul>
 
-<h2 id="integration-tool-postman">Integration Tool: POSTMAN</h2>
+<h2 id="integration-tool">Integration Tool</h2>
 
-<p><strong>Postman</strong> is an API Client that makes it easier for developers to create, share, test, and document APIs. This is done by allowing users to create and save simple and complex HTTP requests, as well as read their responses.</p>
+<p>You can use <strong>Postman</strong> to test your intergration. Postman is an API Client that makes it easier for developers to create, share, test, and document APIs. This is done by allowing users to create and save simple and complex HTTP requests, as well as read their responses.</p>
 
-<p>Cielo offers complete collections of its integrations via Postamn, which facilitates the integration process with the API Cielo.</p>
+<p>Cielo offers complete collections of its integrations via Postman, which facilitates the integration process with the API E-Commerce Cielo.</p>
 
-<p>We suggest developers to access our <a href="https://developercielo.github.io/Tutorial//Postman"><strong>Tutorial</strong></a> about the tool to better understand all the advantages it offers.</p>
+<p>We suggest developers to access our <a href="https://developercielo.github.io/en/tutorial/postman"><strong>Tutorial</strong></a> about the tool to better understand all the advantages it offers.</p>
 
 <h2 id="credit-card---sandbox">Credit card - Sandbox</h2>
 
@@ -4531,7 +4535,7 @@ Recently, the new version of 3DS 2.0 was release by the brands in the market, al
   <li>After registering you will receive a MerchantId and a MerchantKey, which are the credentials required for the API methods.</li>
 </ul>
 
-<h4 id="integration-tool-postman-1">Integration Tool: POSTMAN</h4>
+<h4 id="integration-tool-postman">Integration Tool: POSTMAN</h4>
 
 <p><strong>Postman</strong> is an API Client that makes it easier for developers to create, share, test, and document APIs. This is done by allowing users to create and save simple and complex HTTP requests, as well as read their responses.</p>
 
@@ -9496,9 +9500,9 @@ In this model, the merchant’ system is in charge of defining the period, the t
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Interval</code></td>
       <td>Interval between recurrences.</td>
-      <td>Number</td>
+      <td>Text</td>
       <td>10</td>
-      <td>Monthly = 1<br />Bimonthly = 2<br />Quarterly = 3<br />SemiAnnual = 6<br />Annual = 12</td>
+      <td>MonthlyBimonthly Quarterly SemiAnnual Annual</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthorizeNow</code></td>
@@ -9905,9 +9909,9 @@ In this model, the merchant’ system is in charge of defining the period, the t
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Interval</code></td>
       <td>Interval between recurrences.</td>
-      <td>Number</td>
+      <td>Text</td>
       <td>10</td>
-      <td>Monthly = 1<br />Bimonthly = 2<br />Quarterly = 3<br />SemiAnnual = 6<br />Annual = 12</td>
+      <td>MonthlyBimonthly Quarterly SemiAnnual Annual</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthorizeNow</code></td>
