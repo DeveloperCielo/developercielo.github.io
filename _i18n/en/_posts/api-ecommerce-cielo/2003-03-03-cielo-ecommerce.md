@@ -102,17 +102,17 @@ The current version of Cielo Webservice supports the following issuers and produ
 
 If you have any questions, feel free to contact us through the following channels:
 
-* <b>E-mail:</b> cieloecommerce@cielo.com.br
-* <b>Phone number for capitals</b>: 4002-9700
-* <b>Phone number for other cities</b>: 0800 570 1700
+* **E-mail:** cieloecommerce@cielo.com.br
+* **Phone number for capitals:** 4002-9700
+* **Phone number for other cities:** 0800 570 1700
 
 # Extended Validation Certificate
 
 ## What is the SSL Certificate?
 
-The SSL Certificate for web server offers authenticity and integrity of web site data, giving customers of virtual stores the guarantee that they are actually accessing the web site they want, not a fraudster web site.
+The SSL Certificate for web servers confirms the authenticity and integrity of the website data, giving customers of virtual stores the guarantee that they are actually accessing the website they want, not a fraudulent website.
 
-Specialized companies are responsible for domain validating and, depending on the type of certificate, they are also responsible for the validation of the entity that owns the domain.
+Specialized companies are responsible for validating the domain and, depending on the type of certificate, they are also responsible for the validation of the entity that owns the domain.
 
 ### Internet Explorer:
 
@@ -128,13 +128,13 @@ Specialized companies are responsible for domain validating and, depending on th
 
 ## What is EV SSL Certificate?
 
-The EV Certificate has been recently released on market and ensures a higher level of security for virtual stores customers.
+The EV Certificate ensures a higher level of security for virtual stores customers.
 
-It is a certificate of greater confidence and when https is accessed the address bar will turn green, giving more reliability for site visitors.
+It is a more trustworthy certificate and when HTTPS is accessed the address bar will turn green, showing more reliability for users.
 
 ## How to install the Extended Validation Certificate on the Store server?
 
-Just install the following three files in the server Trustedstore. Cielo does not offer support to the installation of the Certificate. If you are unsure about how to install the EV Certificate, then you should contact your server vendor support.
+You just have to install the following files in the server Trustedstore. Cielo does not offer support to the installation of the Certificate. If you are unsure about how to install the EV Certificate, then you should contact your server vendor support.
 
 * [Root Certificate]({{ site.baseurl }}/attachment/Root.crt)
 * [Intermediate 1 certificate]({{ site.baseurl }}/attachment/Intermediate1.crt)
@@ -151,11 +151,11 @@ The step-by-step of the EV Certificate installation must contact your server ven
 
 ### Client Access to Virtual Store
 
-Usually, the browser automatically updates the Certificate. If it does not and the client contacts, the following steps must be informed:
+Usually, the browser automatically updates the Certificate. If it does not and the client reaches out, the following steps must be informed:
 
 **Step 1:**
 
-Save the three files below into a new folder, or into a folder that can be easily remembered, as it will be used later:
+Save these files below into a new folder, or into a folder that can be easily accessed, as it will be used later:
 
 * [Root Certificate]({{ site.baseurl }}/attachment/Root.crt)
 * [Intermediate 1 certificate]({{ site.baseurl }}/attachment/Intermediate1.crt)
@@ -164,15 +164,15 @@ Save the three files below into a new folder, or into a folder that can be easil
 
 **Step 2:**
 
-In “Internet Explorer”, click on “Tools” menu and go to “Internet Options”:
+In “Internet Explorer”, click on “Tools” and go to “Internet Options”:
 
 ![Install IE]({{ site.baseurl }}/images/certificado-instalar-ie-1.jpg)
 
-In “Firefox”, click on “Open Menu” menu and go to “Advanced” and “Options”:
+In “Firefox”, click on “Open Menu” and go to “Advanced” and “Options”:
 
 ![Install FF]({{ site.baseurl }}/images/certificado-instalar-ff-1.jpg)
 
-Control Google Chrome” and go to “Settings” and “Show advanced settings... “Change Proxy Settings and “Content” and Certificates:
+In Google Chrome, click on "Control Google Chrome” and go to “Settings” and “Show advanced settings..." “Change Proxy Settings and “Content” and Certificates:
 
 ![Install GC]({{ site.baseurl }}/images/certificado-instalar-gc-1.jpg)
 
@@ -186,7 +186,7 @@ In Firefox, click on “View Certificates”, click on “Import”
 
 ![Install FF]({{ site.baseurl }}/images/certificado-instalar-ff-2.jpg)
 
-In Chrome, click on “Manage Certificates”, click on “Import”v
+In Chrome, click on “Manage Certificates”, click on “Import”
 
 ![Install GC]({{ site.baseurl }}/images/certificado-instalar-gc-2.jpg)
 
