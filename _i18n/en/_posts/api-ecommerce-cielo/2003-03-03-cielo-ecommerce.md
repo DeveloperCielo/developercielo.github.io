@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Integration Manual eCommerce Cielo
+title: Integration Manual API E-Commerce Cielo
 description: The purpose of this documentation is to guide the developer on how to integrate with Cielo's API Cielo e-Commerce.
 search: true
 translated: true
@@ -4995,7 +4995,7 @@ curl
 |`RecurrentPaymentId`|Next recurrence Identifier field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`NextRecurrency`|Date of next recurrence.|Text|7|12/2030 (MM/YYYY)|
 |`EndDate`|End date of recurrence.|Text|7|12/2030 (MM/YYYY)|
-|`Interval`|Interval between recurrences.|Text|10|<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
+|`Interval`|Interval between recurrences.|Number|10|Monthly = 1<br>Bimonthly = 2<br>Quarterly = 3<br>SemiAnnual = 6<br>Annual = 12|
 |`AuthorizeNow`|Boolean to know if the first recurrence is about to be Authorized or not.|Boolean|---|true ou false|
 
 ## Scheduling a Scheduled Recurrence
@@ -5200,7 +5200,7 @@ curl
 |`NextRecurrency`|Date of next recurrence.|Text|7|12/2030 (MM/YYYY)|
 |`StartDate`|Start date of recurrence.|Text|7|12/2030 (MM/YYYY)|
 |`EndDate`|End date of recurrence.|Text|7|12/2030 (MM/YYYY)|
-|`Interval`|Interval between recurrences.|Text|10|<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
+|`Interval`|Interval between recurrences.|Number|10|Monthly = 1<br>Bimonthly = 2<br>Quarterly = 3<br>SemiAnnual = 6<br>Annual = 12|
 |`AuthorizeNow`|Boolean to know if the first recurrence is about to be Authorized or not.|Boolean|---|true ou false|
 
 ## Modifying Recurrences
