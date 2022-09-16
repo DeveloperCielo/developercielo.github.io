@@ -49,7 +49,7 @@ The model employed for the integration is quite simple since there are two URLs 
 
 * Requests URL: for operations that cause side effects - such as authorization, capture and cancellation of transactions
 * Queries URL: for operations that do not cause side effects, such as transaction searching.
-
+  
 To execute an operation:
 
 1. Combine the base URL of the environment with the URL of the desired operation.
@@ -97,54 +97,6 @@ The current version of Cielo Webservice supports the following issuers and produ
 | Hipercard        | Yes           | Yes                      | *No*  | *No*    | *No*          |
 
 > Cards that were issued abroad do not have permission to pay in installments.
-
-## Latest Implementations
-
-### CBPS Transactions 
-
-Entities that operate as CBPS (in Portuguese, Bill Payment Service for Consumers) are companies that offer consolidated bill payment services to the cardholder. CBPS Marking is a Visa-specific option and provides more visibility and accuracy in transactions.
-
-Establishments that operate with this service must be registered with Visa and to operate as such, they must send some additional information through messenger, which is required by the brand. See below:
-
-#### Request
-
-```json
-{
-    "merchantorderid": "123456ABCD1234",
-    "customer": {
-        "name": "João das Contas accept",
-        "mobile": "5521923455678"
-    },
-    "payment": {
-        "type": "CreditCard",
-        "amount": 100,
-        "installments": 1,
-        "IsCustomerBillPaymentService":true,
-        "capture": false,
-        "authenticate": false,
-        "recurrent": false,
-        "provider": "CieloSandbox",
-        "creditcard": {
-            "cardnumber": "4532110000001234",
-            "holder": "Teste Holder",
-            "expirationdate": "12/2022",
-            "securitycode": "123",
-            "brand": "jcb",
-            "savecard": true
-        },
-        "Wallet": {
-            "AdditionalData": {
-                "Mcc": "1234"
-            }
-        }
-    }
-}
-```
-
-|Property                      | Type    | Size    | Required    | Description                                                                              |
-|------------------------------|---------|---------|-------------|------------------------------------------------------------------------------------------|
-| IsCustomerBillPaymentService | Boolean | ---     | No         | True ou false. Indicates whether it's a CBPS (Consumer Bill Payment Service) transaction |
-| Wallet.AdditionalData.Mcc | String (number) | ---     | Yes, for CBPS transactions        | Establishment MCC (EC) allowed for CBPS transactions |
 
 # Extended Validation Certificate
 
@@ -3241,6 +3193,52 @@ The new fields are contained within the Payment Facilitator node. In addition to
 |PaymentFacilitator.SubEstablishment.CountryCode|Number|3|Required for facilitators|Sub-merchant country code based on ISO 3166.<br>Ex: Brazil's ISO 3166 code is 076. [Complete list online](https://www.iso.org/obp/ui/#search/code/)|
 |PaymentFacilitator.SubEstablishment.PhoneNumber|Number|13|Required for facilitators|Sub Merchant Phone Number.|
 |Payment.Softdescriptor|Text|13|Required for facilitators|Text printed on buyer bank invoice. Must be completed according to the data of the sub Merchant.|
+
+### CBPS Transactions 
+
+Entities that operate as CBPS (in Portuguese, Bill Payment Service for Consumers) are companies that offer consolidated bill payment services to the cardholder. CBPS Marking is a Visa-specific option and provides more visibility and accuracy in transactions.
+
+Establishments that operate with this service must be registered with Visa and to operate as such, they must send some additional information through messenger, which is required by the brand. See below:
+
+#### Request
+
+```json
+{
+    "merchantorderid": "123456ABCD1234",
+    "customer": {
+        "name": "João das Contas accept",
+        "mobile": "5521923455678"
+    },
+    "payment": {
+        "type": "CreditCard",
+        "amount": 100,
+        "installments": 1,
+        "IsCustomerBillPaymentService":true,
+        "capture": false,
+        "authenticate": false,
+        "recurrent": false,
+        "provider": "CieloSandbox",
+        "creditcard": {
+            "cardnumber": "4532110000001234",
+            "holder": "Teste Holder",
+            "expirationdate": "12/2022",
+            "securitycode": "123",
+            "brand": "jcb",
+            "savecard": true
+        },
+        "Wallet": {
+            "AdditionalData": {
+                "Mcc": "1234"
+            }
+        }
+    }
+}
+```
+
+|Property                      | Type    | Size    | Required    | Description                                                                              |
+|------------------------------|---------|---------|-------------|------------------------------------------------------------------------------------------|
+| IsCustomerBillPaymentService | Boolean | ---     | No         | True ou false. Indicates whether it's a CBPS (Consumer Bill Payment Service) transaction |
+| Wallet.AdditionalData.Mcc | String (number) | ---     | Yes, for CBPS transactions        | Establishment MCC (EC) allowed for CBPS transactions |
 
 ## Integration Errors
 
