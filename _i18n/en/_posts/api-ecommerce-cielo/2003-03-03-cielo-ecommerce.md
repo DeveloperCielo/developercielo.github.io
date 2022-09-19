@@ -333,14 +333,88 @@ The debit transaction needs to be authenticated:
 
 ## Other methods of payment - Sandbox
 
-Other methods of payment do not have simulated specific data or cards, as in the case of credit card.
-Below we specify any existing differences:
+Other payment methods don't have simulated specific data or cards like the credit card. Below we specify any existing differences:
 
-|Payment method|Differences|
+|Payment Method|Orientations for Sandbox|
 |---|---|
-|Bank slip|There is no bank validation. The bank slip behaves as a bank slip without registration|
-|Debit cardo|The `provider` used must be **SIMULATED** <br> The redirection URL for the bank environment will actually be a screen for choosing the authentication status|
-|Online transfer|The `provider` used must be **SIMULATED** <br> The redirection URL for the bank environment will actually be a screen for choosing the authentication status|
+|Boleto|To send a boleto transaction in the Sandbox environmnet you should put the `Provider` as **Simulado**.<br>There is no bank validation. The bank slip behaves as a bank slip without registration.|
+|Alelo|Use the same values from the request at the Production environment for [Alelo Cards](https://developercielo.github.io/en/manual/cielo-ecommerce#alelo-cards){:target="_blank"}|
+|QR Code| Use the same values from the resquest at the Production environment for [QR Code](https://developercielo.github.io/en/manual/cielo-ecommerce#qr-code){:target="_blank"} There is no bank conciliation.|
+|Carnê|Use the same values from the request at the Production environmnet for [Carnê Transaction](https://developercielo.github.io/en/manual/cielo-ecommerce#carn%C3%AA-transaction){:target="_blank"} |
+|Electronic Transfer|The `Provider` useed should be **"Simulado"** <br><br> The redirecting URL for the bank environment will be a screen for you to choose the status of the authentication.|
+
+## Renova Fácil – Sandbox
+
+To simulate a transaction with return for a new card, updated by our service [Renova Fácil](https://developercielo.github.io/en/manual/cielo-ecommerce#renew-easy){:target="_blank"}, follow the instructions below.
+
+In the authorization request, besides the fields already mentioned for the used method of payment, you need the send the following:
+
+* In the field `CreditCard.CardNumber`: send a card with 3 as the final digit, which simulates an expired card.
+* In the field `CreditCard.ExpirationDate`: send an expiration date that has passed.
+* Send the field `Payment.Recurrent` as true, to mark the transaction as recurring.
+
+## Consulta BIN - Sandbox
+
+A card's BIN code is the first six digits of the card number. At the Consulta BIN simulation in the Sandbox environment, each one of the six digits will determine a simulated result. 
+
+It is possible to test different card numbers and observe the expected return according to the different options.
+
+A card's BIN code should return the card brand, the type of card, the nationality, if it is a corporate card, the return of the BIN analysis and the card issuer. To know more, read the [Consulta BIN](https://developercielo.github.io/en/manual/cielo-ecommerce#bin-checker){:target="_blank"} section of this guide.
+
+|   Digit  | Meaning                             | Return |
+|-----------|------------------------------------------|---------|
+| 1st digit | Brand.                       | If it's '**3**' it returns "**AMEX**"<br>If it's '**5**' it returns "**MASTERCARD**"<br>If it's '**6**' it returns "**DISCOVER**"<br>Every other number returns "**VISA**".|
+| 2nd digit | Type of card                 | If it's '**3**' it returns "**Débito**"<br>If it's '**5**' it returns "**Crédito**"<br>If it's '**7**' it returns "**Crédito**" and it returns the `Prepaid` field as "**true**"<br> Any other number returns "**Múltiplo**".|
+| 3rd digit | Card nationality        | If it's '**1**' it returns "**true**" (national card)<br>Every other number other than '**1**' returns "**false**" (international card).|
+| 4th digit | If it's a corporate card | If it's '**1**' it returns "**true**" (it is a corporate card)<br>Every other number other than '**1**' returns "**false**" (not a corporate card).|
+| 5th digit | Analysis return             | If it's '**2**' it returns "**01 - Bandeira não suportada**"<br>If it's '**3**' it returns "**02 - Voucher - Não suportado na consulta de bins**"<br>Every other number returns "**00 - Analise autorizada**"|
+| 6th digit | Issuing bank                  | If it's '**1**' it returns "**104**" and "**Caixa**"<br>If it's '**2**' it returns "**001**" and "**Banco do Brasil**"<br>Every other number returns "**237**" e "**Bradesco**"|
+
+**Example** 
+
+A card with the number **4110110012341234** will return the following data: 
+
+![Consulta BIN Sandbox]({{ site.baseurl_root }}/images/apicieloecommerce/consultabin-sdbx-cielo.png)
+
+### Request
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">/1/cardBin/`BIN`</span></aside>
+
+```shell
+curl
+--request GET https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/411011
+--header "Content-Type: application/json"
+--data-binary
+--verbose
+```
+
+### Response
+
+```json
+{
+    "Status": "00",
+    "Provider": "VISA",
+    "CardType": "Multiplo",
+    "ForeignCard": false,
+    "CorporateCard": false,
+    "Issuer": "Banco do Brasil",
+    "IssuerCode": "001"
+}
+```
+
+```shell
+curl
+{
+    "Status": "00",
+    "Provider": "VISA", 
+    "CardType": "Multiplo",
+    "ForeignCard": false,
+    "CorporateCard": false,
+    "Issuer": "Banco do Brasil",
+    "IssuerCode": "001"
+}
+--verbose
+```
 
 # Payment Methods
 
