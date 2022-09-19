@@ -306,7 +306,6 @@ The test card **4024.0071.5376.3191**, for example, would simulated a sueccesful
 
 <aside class="Warning"><strong>Warning:</strong> Sandbox return codes are not the same as the ones available in production. </aside>
 
-
 **To check the return codes in Production,** check [API Codes](https://developercielo.github.io/en/manual/cielo-ecommerce#api-codes){:target="_blank"}
 
 ## Debit card - Sandbox
