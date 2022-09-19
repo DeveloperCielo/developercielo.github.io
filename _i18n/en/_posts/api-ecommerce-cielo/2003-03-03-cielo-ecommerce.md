@@ -270,9 +270,8 @@ Download the [**Environment Production and Sandbox**](https://github.com/Develop
 
 ## Credit card - Sandbox
 
-In sandbox, it is necessary to use the `Provider` as **SIMULATED**
+In Sandbox, it is necessary to use the `Provider` as **SIMULATED**
 
-The Simulated is a configuration that emulates the use of payments with Credit Card.
 With this payment method it is possible to simulate the flows of:
 
 * Authorization
@@ -281,28 +280,32 @@ With this payment method it is possible to simulate the flows of:
 
 For best use of the Simulated Payment Methods, we are providing **test cards** in the table below.
 
-<aside class="notice">The <code>status</code> of the transactions are defined by the FINALS of each card, as well as the <code>ReturnCode</code>.</aside>
-
-|Transaction Status|Card End|Return Code|Return message|
-|---|---|---|---|
-|Authorized|0000.0000.0000.0001<br>0000.0000.0000.0004|4/6|Operation performed successfully|
-|Not Authorized|0000.0000.0000.0002|05|Not Authorized|
-|Not Authorized|0000.0000.0000.0003|57|Expired Card|
-|Not Authorized|0000.0000.0000.0005|78|Locked Card|
-|Not Authorized|0000.0000.0000.0006|99|Time Out|
-|Not Authorized|0000.0000.0000.0007|77|Canceled Card||
-|Not Authorized|0000.0000.0000.0008|70|Problems with the Credit Card|
-|Random Authorization|0000.0000.0000.0009|99|Operation Successful / Time Out|
-
-Example of a Test card - 4024.0071.5376.3191
+To make better use of a simulated payment, you can create a fake card number using a generator online or choosing random numbers. For either option, the first 15 digits can be random, but the last one should correspond to the transaction status you want to test.
 
 The information of **Security Code (CVV)** and validity may be random, keeping the format - CVV (3 digits) Validity (MM/YYYY).
 
+<aside class="notice"><strong>Tokenization:</strong> Transactions in sandbox environment involving tokenization did not work based on test cards. Every card saved at the tokenization is treated as a real card, so it is not used in the simulation process.</aside>
+<aside class="notice">To simulate a successful authorization of a Zeroauth request in Sandbox, you have to send the request using a card number starting with 5, disregarding the issuer. For example: **5XXX.XXXX.XXXX.XXX4**.</aside>
+<aside class="notice">The <code>status</code> of the transactions are defined by the final digits of each card, as well as the <code>ReturnCode</code>.</aside>
+
+|Final card digit     | Transaction Status    | Return Code | Return Message               |
+|---------------------|-----------------------|--------------------|-----------------------------------|
+| XXXX.XXXX.XXXX.XXX0<br>XXXX.XXXX.XXXX.XXX1<br>XXXX.XXXX.XXXX.XXX4 | Authorized            |  4/6      | Peration performed successfully    |
+| XXXX.XXXX.XXXX.XXX2 | Not Authorized        |  05                | Not Authorized                    |
+| XXXX.XXXX.XXXX.XXX3 | Not Authorized        |  57                | Expired Card                   |
+| XXXX.XXXX.XXXX.XXX5 | Not Authorized        |  78                | Locked Card                  |
+| XXXX.XXXX.XXXX.XXX6 | Not Authorized        |  99                | Time Out                          |
+| XXXX.XXXX.XXXX.XXX7 | Not Authorized        |  77                | Canceled Card                  |
+| XXXX.XXXX.XXXX.XXX8 | Not Authorized        |  70                | Problems with the Credit Card |
+| XXXX.XXXX.XXXX.XXX9 | Random Authorization  |  4 a 99            | Operation Successful / Time Out   |
+
+The test card **4024.0071.5376.3191**, for example, would simulated a sueccesfull transaction.
+
 <aside class="notice"><strong>Warning:</strong> The **sandbox** environment evaluates the format and end of the card, if an actual card is sent, the result of the operation will be identical to that described in the test cards table.</aside>
 
-<aside class="notice"><strong>Tokenization:</strong> Transactions in sandbox environment involving tokenization did not work based on test cards. Every card saved at the tokenization is treated as a real card, so it is not used in the simulation process.</aside>
-
 <aside class="Warning"><strong>Warning:</strong> Sandbox return codes are not the same as the ones available in production. </aside>
+
+**To check the return codes in Production,** check [API Codes](https://developercielo.github.io/en/manual/cielo-ecommerce#api-codes){:target="_blank"}
 
 ## Debit card - Sandbox
 
