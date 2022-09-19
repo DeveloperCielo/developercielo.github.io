@@ -580,10 +580,9 @@
 
 <h2 id="credit-card---sandbox">Credit card - Sandbox</h2>
 
-<p>In sandbox, it is necessary to use the <code class="language-plaintext highlighter-rouge">Provider</code> as <strong>SIMULATED</strong></p>
+<p>In Sandbox, it is necessary to use the <code class="language-plaintext highlighter-rouge">Provider</code> as <strong>SIMULATED</strong></p>
 
-<p>The Simulated is a configuration that emulates the use of payments with Credit Card.
-With this payment method it is possible to simulate the flows of:</p>
+<p>With this payment method it is possible to simulate the flows of:</p>
 
 <ul>
   <li>Authorization</li>
@@ -593,87 +592,82 @@ With this payment method it is possible to simulate the flows of:</p>
 
 <p>For best use of the Simulated Payment Methods, we are providing <strong>test cards</strong> in the table below.</p>
 
-<aside class="notice">The status of the transactions are defined by the FINALS of each card, as well as the ReturnCode.</aside>
+<p>To make better use of a simulated payment, you can create a fake card number using a generator online or choosing random numbers. For either option, the first 15 digits can be random, but the last one should correspond to the transaction status you want to test.</p>
+
+<p>The information of <strong>Security Code (CVV)</strong> and validity may be random, keeping the format - CVV (3 digits) Validity (MM/YYYY).</p>
+
+<aside class="notice">Tokenization: Transactions in sandbox environment involving tokenization did not work based on test cards. Every card saved at the tokenization is treated as a real card, so it is not used in the simulation process.</aside>
+<aside class="notice">To simulate a successful authorization of a Zeroauth request in Sandbox, you have to send the request using a card number starting with 5, disregarding the issuer. For example: **5XXX.XXXX.XXXX.XXX4**.</aside>
+<aside class="notice">The status of the transactions are defined by the final digits of each card, as well as the ReturnCode.</aside>
 
 <table>
   <thead>
     <tr>
+      <th>Final card digit</th>
       <th>Transaction Status</th>
-      <th>Card End</th>
       <th>Return Code</th>
-      <th>Return message</th>
-      <th> </th>
+      <th>Return Message</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <td>XXXX.XXXX.XXXX.XXX0<br />XXXX.XXXX.XXXX.XXX1<br />XXXX.XXXX.XXXX.XXX4</td>
       <td>Authorized</td>
-      <td>0000.0000.0000.0001<br />0000.0000.0000.0004</td>
       <td>4/6</td>
-      <td>Operation performed successfully</td>
-      <td> </td>
+      <td>Peration performed successfully</td>
     </tr>
     <tr>
+      <td>XXXX.XXXX.XXXX.XXX2</td>
       <td>Not Authorized</td>
-      <td>0000.0000.0000.0002</td>
       <td>05</td>
       <td>Not Authorized</td>
-      <td> </td>
     </tr>
     <tr>
+      <td>XXXX.XXXX.XXXX.XXX3</td>
       <td>Not Authorized</td>
-      <td>0000.0000.0000.0003</td>
       <td>57</td>
       <td>Expired Card</td>
-      <td> </td>
     </tr>
     <tr>
+      <td>XXXX.XXXX.XXXX.XXX5</td>
       <td>Not Authorized</td>
-      <td>0000.0000.0000.0005</td>
       <td>78</td>
       <td>Locked Card</td>
-      <td> </td>
     </tr>
     <tr>
+      <td>XXXX.XXXX.XXXX.XXX6</td>
       <td>Not Authorized</td>
-      <td>0000.0000.0000.0006</td>
       <td>99</td>
       <td>Time Out</td>
-      <td> </td>
     </tr>
     <tr>
+      <td>XXXX.XXXX.XXXX.XXX7</td>
       <td>Not Authorized</td>
-      <td>0000.0000.0000.0007</td>
       <td>77</td>
       <td>Canceled Card</td>
-      <td> </td>
     </tr>
     <tr>
+      <td>XXXX.XXXX.XXXX.XXX8</td>
       <td>Not Authorized</td>
-      <td>0000.0000.0000.0008</td>
       <td>70</td>
       <td>Problems with the Credit Card</td>
-      <td> </td>
     </tr>
     <tr>
+      <td>XXXX.XXXX.XXXX.XXX9</td>
       <td>Random Authorization</td>
-      <td>0000.0000.0000.0009</td>
-      <td>99</td>
+      <td>4 a 99</td>
       <td>Operation Successful / Time Out</td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
 
-<p>Example of a Test card - 4024.0071.5376.3191</p>
-
-<p>The information of <strong>Security Code (CVV)</strong> and validity may be random, keeping the format - CVV (3 digits) Validity (MM/YYYY).</p>
+<p>The test card <strong>4024.0071.5376.3191</strong>, for example, would simulated a sueccesfull transaction.</p>
 
 <aside class="notice">Warning: The **sandbox** environment evaluates the format and end of the card, if an actual card is sent, the result of the operation will be identical to that described in the test cards table.</aside>
 
-<aside class="notice">Tokenization: Transactions in sandbox environment involving tokenization did not work based on test cards. Every card saved at the tokenization is treated as a real card, so it is not used in the simulation process.</aside>
-
 <aside class="Warning">Warning: Sandbox return codes are not the same as the ones available in production. </aside>
+
+<p><strong>To check the return codes in Production,</strong> check <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#api-codes" target="_blank">API Codes</a></p>
 
 <h2 id="debit-card---sandbox">Debit card - Sandbox</h2>
 
