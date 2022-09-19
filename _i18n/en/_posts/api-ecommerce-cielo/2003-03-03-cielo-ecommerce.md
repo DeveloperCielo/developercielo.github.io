@@ -277,6 +277,7 @@ With this payment method it is possible to simulate the flows of:
 * Authorization
 * Capture
 * Cancellation.
+* Consultation
 
 For best use of the Simulated Payment Methods, we are providing **test cards** in the table below.
 
@@ -301,25 +302,35 @@ The information of **Security Code (CVV)** and validity may be random, keeping t
 
 The test card **4024.0071.5376.3191**, for example, would simulated a sueccesfull transaction.
 
-<aside class="notice"><strong>Warning:</strong> The **sandbox** environment evaluates the format and end of the card, if an actual card is sent, the result of the operation will be identical to that described in the test cards table.</aside>
+<aside class="notice"><strong>Warning:</strong> The  environment evaluates the format and end of the card, if an actual card is sent, the result of the operation will be identical to that described in the test cards table.</aside>
 
 <aside class="Warning"><strong>Warning:</strong> Sandbox return codes are not the same as the ones available in production. </aside>
+
 
 **To check the return codes in Production,** check [API Codes](https://developercielo.github.io/en/manual/cielo-ecommerce#api-codes){:target="_blank"}
 
 ## Debit card - Sandbox
 
-Debit cards do not have simulated cards or specific data, such as in the case of a credit card.
+With this payment method, it is possible to simulate the flows of:
 
-The transactional flow of the Debit card works with the Response of the transaction by returning an *AUTHENTICATION URL* . In the authentication screen, the chosen option defines the status of the transaction.
+* Authorization;
+* Cancellation;
+* Consultation.
+<br/>
+
+The debit transaction needs to be authenticated:
+
+* **Authentication via 3DS 2.0**: learn to simulation the authentication 3DS 2.0 in Sandbox in the [3DS documentation](https://developercielo.github.io/en/manual/3ds){:target="_blank"}
+* **Authentication URL**: it's being discontinued. In this type of authentication, the debit card transactional flow works by getting an Authentication URL from the transaction response. On the authentication screen, the chosen option defines the status of the transaction.
+<br/>
 
 |Option|Status|
 |---|---|
 |Authenticated|Authorized|
-|Not Authenticate|Declined|
+|Not Authenticated|Denied|
 |Do not use the URL|Not Finished|
 
-<aside class="notice"><strong>Online Transfer:</strong> The same behavior of the Debit card in Sanbox is valid for debit card</aside>
+<aside class="notice"><strong>Online Transfer</strong> The same behavior of debit card in Sandbox is valid for debit card.</aside>
 
 ## Other methods of payment - Sandbox
 
