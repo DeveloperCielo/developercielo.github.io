@@ -247,15 +247,26 @@ To facilitate testing during integration, Cielo offers a Sandbox environment tha
 **Perks of using Sandbox**
 
 * No affiliation is required to use Sandbox Cielo.
-* Just access the [**Sandbox Registration**](https://cadastrosandbox.cieloecommerce.cielo.com.br/) create an account.
+* Just access the [**Sandbox Registration**](https://cadastrosandbox.cieloecommerce.cielo.com.br/){:target="_blank"} create an account.
 
 ## Integration Tool
 
-You can use **Postman** to test your intergration. Postman is an API Client that makes it easier for developers to create, share, test, and document APIs. This is done by allowing users to create and save simple and complex HTTP requests, as well as read their responses.
+You can use **Postman** to test your integration. Postman is an API Client that makes it easier for developers to create, share, test, and document APIs. This is done by allowing users to create and save simple and complex HTTP requests, as well as read their responses.
 
-Cielo offers complete collections of its integrations via Postman, which facilitates the integration process with the API E-Commerce Cielo.
+We suggest developers to access our [**Tutorial**](https://developercielo.github.io/en/tutorial/postman){:target="_blank"} about the tool to better understand all the advantages it offers.
 
-We suggest developers to access our [**Tutorial**](https://developercielo.github.io/en/tutorial/postman) about the tool to better understand all the advantages it offers.
+### Collection
+
+> **Importation link**: [https://www.postman.com/collections/7313fe78130211f5f009](https://www.postman.com/collections/7313fe78130211f5f009){:target="_blank"}
+
+|Environment|Endpoints|
+|---|---|
+|Sandbox|**Request**:  https://apisandbox.cieloecommerce.cielo.com.br <br> **Query**: https://apiquerysandbox.cieloecommerce.cielo.com.br/|
+|Production|**Request**: https://api.cieloecommerce.cielo.com.br/ <br> **Query**: https://apiquery.cieloecommerce.cielo.com.br/|
+
+### Environment
+
+Download the [**Environment Production and Sandbox**](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/attachment/postman/apicielo2021.rar){:target="_blank"} file  and replace MerchantID and MerchantKeys by your store's information.
 
 ## Credit card - Sandbox
 
