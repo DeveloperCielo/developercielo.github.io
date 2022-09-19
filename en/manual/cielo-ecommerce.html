@@ -588,6 +588,7 @@
   <li>Authorization</li>
   <li>Capture</li>
   <li>Cancellation.</li>
+  <li>Consultation</li>
 </ul>
 
 <p>For best use of the Simulated Payment Methods, we are providing <strong>test cards</strong> in the table below.</p>
@@ -663,7 +664,7 @@
 
 <p>The test card <strong>4024.0071.5376.3191</strong>, for example, would simulated a sueccesfull transaction.</p>
 
-<aside class="notice">Warning: The **sandbox** environment evaluates the format and end of the card, if an actual card is sent, the result of the operation will be identical to that described in the test cards table.</aside>
+<aside class="notice">Warning: The  environment evaluates the format and end of the card, if an actual card is sent, the result of the operation will be identical to that described in the test cards table.</aside>
 
 <aside class="Warning">Warning: Sandbox return codes are not the same as the ones available in production. </aside>
 
@@ -671,9 +672,22 @@
 
 <h2 id="debit-card---sandbox">Debit card - Sandbox</h2>
 
-<p>Debit cards do not have simulated cards or specific data, such as in the case of a credit card.</p>
+<p>With this payment method, it is possible to simulate the flows of:</p>
 
-<p>The transactional flow of the Debit card works with the Response of the transaction by returning an <em>AUTHENTICATION URL</em> . In the authentication screen, the chosen option defines the status of the transaction.</p>
+<ul>
+  <li>Authorization;</li>
+  <li>Cancellation;</li>
+  <li>Consultation.
+<br /></li>
+</ul>
+
+<p>The debit transaction needs to be authenticated:</p>
+
+<ul>
+  <li><strong>Authentication via 3DS 2.0</strong>: learn to simulation the authentication 3DS 2.0 in Sandbox in the <a href="https://developercielo.github.io/en/manual/3ds" target="_blank">3DS documentation</a></li>
+  <li><strong>Authentication URL</strong>: it’s being discontinued. In this type of authentication, the debit card transactional flow works by getting an Authentication URL from the transaction response. On the authentication screen, the chosen option defines the status of the transaction.
+<br /></li>
+</ul>
 
 <table>
   <thead>
@@ -688,8 +702,8 @@
       <td>Authorized</td>
     </tr>
     <tr>
-      <td>Not Authenticate</td>
-      <td>Declined</td>
+      <td>Not Authenticated</td>
+      <td>Denied</td>
     </tr>
     <tr>
       <td>Do not use the URL</td>
@@ -698,7 +712,7 @@
   </tbody>
 </table>
 
-<aside class="notice">Online Transfer: The same behavior of the Debit card in Sanbox is valid for debit card</aside>
+<aside class="notice">Online Transfer The same behavior of debit card in Sandbox is valid for debit card.</aside>
 
 <h2 id="other-methods-of-payment---sandbox">Other methods of payment - Sandbox</h2>
 
