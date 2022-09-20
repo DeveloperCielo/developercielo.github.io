@@ -39,10 +39,10 @@ Seu principal objetivo é permitir que lojas possam criar links de pagamento (Bo
 
 ## Sandbox
 
-Por se tratar de uma chamada não financeira, a API de Super Link não possui um Sand Box para testar a criação de links. Os Links devem ser criados a partir de um cadastro de produção. A credenciamento pode ser feito através do site cielo ou por meio da central de ecommerce.
+Por se tratar de uma chamada não financeira, a API de Super Link não possui um Sand Box para testar a criação de links. Os Links devem ser criados a partir de um cadastro de produção. O credenciamento pode ser feito através do site Cielo pelo próprio cliente ou por meio de uma solicitação do Gestor comercial do estabelecimento.
 
-<aside class="warning"><b>Contatos da Central:<br>
-credenciamentoecommerce@cielo.com.br<br>
+<aside class="warning"><b>Suporte:<br>
+cieloecommerce@cielo.com.br<br>
 +55 11 4002-9700<br>
 0800-570-1700
 </b></aside>
