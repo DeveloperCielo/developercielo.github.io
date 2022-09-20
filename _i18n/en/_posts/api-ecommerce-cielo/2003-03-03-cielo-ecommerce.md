@@ -418,7 +418,9 @@ curl
 
 # Payment Methods
 
-## Credit Card
+## Credit and Debit Cards
+
+### Credit Cards
 
 To enjoy all the features available in our API, it is important that you first understand the concepts around processing a credit card transaction.
 
@@ -428,242 +430,20 @@ To enjoy all the features available in our API, it is important that you first u
 |**Capture**|When making a pre-authorization, it is necessary to confirm it, so that the charge is effected to the card carrier. It is through this operation a pre-authorization is effected, and it can be executed normally within 5 days after the pre-authorization date.|
 |**Cancellation**|The cancellation is necessary when, for some reason, a sale will not be effected anymore.|
 |**Authentication**|The authentication process makes it possible to effective a sale, which will pass through the authentication process of the card issuing bank, then providing more security for the sale and transferring the risk of fraud to the bank.|
-|**Protected Card**|It is a platform that allows secure storage of credit card sensitive data. This data are transformed into an encrypted code named “token”, which can be stored in a database. In the platform, the store can offer features like “1 Click Buying” and “Retry transaction sending”, always preserving integrity and confidentiality of information.|
-|**Recurrent**|The Smart Recurrence is an indispensable feature for establishments that regularly need to charge for their products/services. It is widely used for magazine subscriptions, monthly fees, software licenses, among others. The merchants will count with differentiated features to model their charging according to their business, as all parameterization is configurable, such as: periodicity, start and end date, number of attempts, interval between them, among others.|
 
-<aside class="warning">IMPORTANT: The order identification number (MerchantOrderId) does not change, remaining the same throughout the transactional flow. However, an additional number can be generated for the order and used during the transaction. This number will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (MerchantOrderId). For reconciliation purposes, use tid.</aside>
+<aside class="warning">IMPORTANT: The order identification number (MerchantOrderId) does not change, remaining the same throughout the transactional flow. However, an additional number can be generated for the order and used during the transaction. This number will only be different in case of adaptation to the acquirer's rules or in case there are repeated order identification numbers (MerchantOrderId). For reconciliation purposes, use TransactionId.</aside>
 
-### Creating a simple transaction
+#### Creating a credit transaction
 
-To create a transaction that will use a credit card, it is necessary to send a request using the `POST` method to the Payment feature, as shown. This example covers the minimum of fields required to be submitted for authorization.
+To create a credit card transaction, you need to send a request using the `POST` method to the Payment feature, as shown. This example covers all the possible fields you can send; check which fields are required in the request property table.
+
+> The transaction **capture** can be **authomatic** or **posterior**. For an authomatic capure, send the `Payment.Capture` field in the request as “true”. For a posterior capture, send the field as "false" and, later, do the [capture request](https://developercielo.github.io/en/manual/cielo-ecommerce#consult-capture-cancel){:target="_blank"}.
 
 <aside class="notice"><strong>Warning:</strong> It is not possible to carry out a transaction with its value as (`Amount`) 0.</aside>
 
-#### Request
+<aside class="notice"><strong>Warning:</strong> In the request header, use Content-Type application/json .</aside>
 
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-```json
-{
-   "MerchantOrderId":"2014111703",
-   "Customer":{
-      "Name":"Comprador crédito simples"
-   },
-   "Payment":{
-     "Type":"CreditCard",
-     "Amount":15700,
-     "Installments":1,
-     "SoftDescriptor":"123456789ABCD",
-     "CreditCard":{
-         "CardNumber":"1234123412341231",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"12/2030",
-         "SecurityCode":"123",
-         "Brand":"Visa"
-         "CardOnFile":{
-            "Usage": "Used",
-            "Reason": "Unscheduled"
-         }
-     },
-     "IsCryptoCurrencyNegotiation": true
-   }
-}
-```
-
-```shell
-curl
---request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-   "MerchantOrderId":"2014111703",
-   "Customer":{
-      "Name":"Comprador crédito simples"
-   },
-   "Payment":{
-     "Type":"CreditCard",
-     "Amount":15700,
-     "Installments":1,
-     "SoftDescriptor":"123456789ABCD",
-     "CreditCard":{
-         "CardNumber":"1234123412341231",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"12/2030",
-         "SecurityCode":"123",
-         "Brand":"Visa",
-         "CardOnFile":{
-            "Usage": "Used",
-            "Reason": "Unscheduled"
-         }
-     },
-     "IsCryptoCurrencyNegotiation": true
-   }
-}
---verbose
-```
-
-|Property|Type|Size|Required|Description|
-|---|---|---|---|---|
-|`MerchantId`|Guid|36|Yes|Store identifier in Cielo.|
-|`MerchantKey`|Text|40|Yes|Public Key for Double Authentication in Cielo.|
-|`RequestId`|Guid|36|No|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|
-|`MerchantOrderId`|Text|50|Yes|Order ID number.|
-|`Customer.Name`|Text|255|No|Buyer's name.|
-|`Payment.Type`|Text|100|Yes|Type of the Payment Method.|
-|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
-|`Payment.Installments`|Number|2|Yes|Number of installments.|
-|`Payment.SoftDescriptor`|Text|13|No|Text printed on buyer's bank invoice - Available only for VISA/MASTER - does not allow special characters - See Attachment|
-|`Payment.IsCryptocurrencyNegotiation`|Boolean|-|No (default false)|Send true if the transaction refers to the sell of the cryptocurrency|
-|`CreditCard.CardNumber`|Text|19|Yes|Buyer's Card Number.|
-|`CreditCard.Holder`|Text|25|No|Buyer's name printed on the card.|
-|`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
-|`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Attachment.|
-|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
-|`CreditCard.CardOnFile.Usage`|Text|-|No|**First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.|
-|`CreditCard.CardOnFile.Reason`|Text|-|Conditional|Indicates the purpose of credential storage, case the value of field "Usage" is "Used" <br>**Recurring** - Scheduled recurring<br>**Unscheduled** - Unscheduled recurring<br>**Installments** - Installments Transaction|
-
-#### Response
-
-```json
-{
-    "MerchantOrderId": "2014111706",
-    "Customer": {
-        "Name": "Comprador crédito simples"
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": false,
-        "Authenticate": false,
-        "CreditCard": {
-            "CardNumber": "455187******0183",
-            "Holder": "Teste Holder",
-            "ExpirationDate": "12/2030",
-            "SaveCard": false,
-            "Brand": "Visa",
-            "CardOnFile":{
-               "Usage": "Used",
-               "Reason": "Unscheduled"
-            }
-        },
-        "IsCryptoCurrencyNegotiation": true,
-        "tryautomaticcancellation":true,
-        "ProofOfSale": "674532",
-        "Tid": "0305023644309",
-        "AuthorizationCode": "123456",
-        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
-        "Type": "CreditCard",
-        "Amount": 15700,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "ExtraDataCollection": [],
-        "Status": 1,
-        "ReturnCode": "4",
-        "ReturnMessage": "Operation Successful",
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "capture",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-            }
-        ]
-    }
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "MerchantOrderId": "2014111706",
-    "Customer": {
-        "Name": "Comprador crédito simples"
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": false,
-        "Authenticate": false,
-        "CreditCard": {
-            "CardNumber": "455187******0183",
-            "Holder": "Teste Holder",
-            "ExpirationDate": "12/2030",
-            "SaveCard": false,
-            "Brand": "Visa",
-            "CardOnFile":{
-               "Usage": "Used",
-               "Reason": "Unscheduled"
-            }
-        },
-        "IsCryptoCurrencyNegotiation": true,
-        "tryautomaticcancellation":true,
-        "ProofOfSale": "674532",
-        "Tid": "0305023644309",
-        "AuthorizationCode": "123456",
-        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
-        "Type": "CreditCard",
-        "Amount": 15700,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "ExtraDataCollection": [],
-        "Status": 1,
-        "ReturnCode": "4",
-        "ReturnMessage": "Operation Successful",
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "capture",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-            }
-        ]
-    }
-}
-```
-
-|Property|Description|Type|Size|Format|
-|---|---|---|---|---|
-|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
-|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
-|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
-|`SoftDescriptor`|Text printed on the buyer's bank invoice - Available only for VISA/MASTER - does not allow special characters - See Attachment|Text|13|Alphanumeric text|
-|`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ECI`|Eletronic Commerce Indicator. Represents how secure a transaction is.|Text|2|Examples: 7|
-|`Status`|Transaction Status.|Byte|---|2|
-|`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
-|`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric text|
-|`tryautomaticcancellation`|In case of error during authorization (status "Not Finished - 0"), the response will include the "tryautomaticcancellation" field as "true". In this case, the transaction will be automatically queried, and if it has been authorized successfully, it will be canceled automatically. This feature must be enabled for establishment. To enable, please contact our technical support. |Boolean|-|true or false|
-
-### Creating a complete transaction
-
-To create a transaction that will use a credit card, it is necessary to send a request using the `POST` method to the Payment feature as shown. This example covers all the possible fields that can be sent.
-
-#### Request
+##### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -691,7 +471,17 @@ To create a transaction that will use a credit card, it is necessary to send a r
             "City": "Rio de Janeiro",
             "State": "RJ",
             "Country": "BRA"
-        }
+        },
+        "Billing": {
+            "Street": "Rua Neturno",
+            "Number": "12345",
+            "Complement": "Sala 123",
+            "Neighborhood": "Centro",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BR",
+            "ZipCode": "20080123"
+  },
    },
    "Payment":{  
      "Currency":"BRL",
@@ -700,7 +490,8 @@ To create a transaction that will use a credit card, it is necessary to send a r
      "Installments":1,
      "Interest":"ByMerchant",
      "Capture":true,
-     "Authenticate":false,
+     "Authenticate":"false",
+     "Recurrent":"false",
      "SoftDescriptor":"123456789ABCD",
      "CreditCard":{  
          "CardNumber":"1234123412341231",
@@ -711,7 +502,7 @@ To create a transaction that will use a credit card, it is necessary to send a r
          "Brand":"Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason": "Unscheduled"
+            "Reason":"Unscheduled"
          }
      },
      "IsCryptoCurrencyNegotiation": true,
@@ -757,7 +548,17 @@ curl
             "City": "Rio de Janeiro",
             "State": "RJ",
             "Country": "BRA"
-        }
+        },
+        "Billing": {
+            "Street": "Rua Neturno",
+            "Number": "12345",
+            "Complement": "Sala 123",
+            "Neighborhood": "Centro",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BR",
+            "ZipCode": "20080123"
+  },
    },
    "Payment":{  
      "ServiceTaxAmount":0,
@@ -765,6 +566,7 @@ curl
      "Interest":"ByMerchant",
      "Capture":true,
      "Authenticate":false,
+     "Recurrent":"false",
      "SoftDescriptor":"123456789ABCD",
      "CreditCard":{  
          "CardNumber":"4551870000000183",
@@ -775,7 +577,7 @@ curl
          "Brand":"Visa",
          "CardOnFile":{
             "Usage": "Used",
-            "Reason": "Unscheduled"
+            "Reason":"Unscheduled"
          }
      },
      "IsCryptoCurrencyNegotiation": true,
@@ -793,51 +595,61 @@ curl
 |---|---|---|---|---|
 |`MerchantId`|Guid|36|Yes|Store identifier in Cielo.|
 |`MerchantKey`|Text|40|Yes|Public Key for Double Authentication in Cielo.|
+|`Content-Type`|Header|40|Yes|application/json (required).|
 |`RequestId`|Guid|36|No|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|
 |`MerchantOrderId`|Text|50|Yes|Order ID number.|
-|`Customer.Name`|Text|255|No|Buyer's name.|
-|`Customer.Status`|Text|255|No|Buyer registration status in store (NEW / EXISTING)|
-|`Customer.Identity`|Text|14|No|Customer's RG, CPF or CNPJ number.|
-|`Customer.IdentityType`|Text|255|No|Type of buyer ID document (CFP/CNPJ).|
-|`Customer.Email`|Text|255|No|Buyer's e-mail.|
-|`Customer.Birthdate`|Date|10|No|Buyer's date of birth.|
-|`Customer.Address.Street`|Text|255|No|Buyer's address.|
-|`Customer.Address.Number`|Text|15|No|Buyer's address number.|
-|`Customer.Address.Complement`|Text|50|No|Buyer's address complement.br|
-|`Customer.Address.ZipCode`|Text|9|No|Buyer's address zip code.|
-|`Customer.Address.City`|Text|50|No|Buyer's address city.|
-|`Customer.Address.State`|Text|2|No|Buyer's address state.|
-|`Customer.Address.Country`|Text|35|No|Buyer's address country.|
-|`Customer.DeliveryAddress.Street`|Text|255|No|Buyer's address.|
-|`Customer.Address.Number`|Text|15|No|Buyer's address number.|
-|`Customer.DeliveryAddress.Complement`|Text|50|No|Buyer's address complement.|
-|`Customer.DeliveryAddress.ZipCode`|Text|9|No|Buyer's address zip code.|
-|`Customer.DeliveryAddress.City`|Text|50|No|Buyer's address city.|
-|`Customer.DeliveryAddress.State`|Text|2|No|Buyer's address state.|
-|`Customer.DeliveryAddress.Country`|Text|35|No|Buyer's address country.|
+|`Customer.Name`|Text|255|No|Customer's name|
+|`Customer.Status`|Text|255|No|The customer's registration status on the store. (NEW / EXISTING)|
+|`Customer.Identity`|Text|14|No|Customer's RG, CPF or CNPJ.|
+|`Customer.IdentityType`|Text|255|No|Customer's type of identification (CPF/CNPJ).|
+|`Customer.Email`|Text|255|No|Customer's e-mail|
+|`Customer.Birthdate`|Date|10|No|Customer's birth date|
+|`Customer.Address.Street`|Text|255|No|Customer's address.|
+|`Customer.Address.Number`|Text|15|No|Customer's address number.|
+|`Customer.Address.Complement`|Text|50|No|Customer's address complement.|
+|`Customer.Address.ZipCode`|Text|9|No|Customer's Zip Code|
+|`Customer.Address.City`|Text|50|No|Customer's address' city.|
+|`Customer.Address.State`|Text|2|No|Customer's address' state.|
+|`Customer.Address.Country`|Text|35|No|Customer's address' country.|
+|`Customer.DeliveryAddress.Street`|Text|255|No|Customer's delivery address.|
+|`Customer.Address.Number`|Text|15|No|Customer's delivery address number.|
+|`Customer.DeliveryAddress.Complement`|Text|50|No|Customer's delivery address complement.|
+|`Customer.DeliveryAddress.ZipCode`|Text|9|No|Customer's delivery address Zip Code.|
+|`Customer.DeliveryAddress.City`|Text|50|No|Customer's delivery address city.|
+|`Customer.DeliveryAddress.State`|Text|2|No|Customer's delivery address state.|
+|`Customer.DeliveryAddress.Country`|Text|35|No|Customer's delivery address country.|
+|`Customer.Billing.Street`|string|24|No|Customer's billing address.|
+|`Customer.Billing.Number`|string|5|No|Customer's billing address number.|
+|`Customer.Billing.Complement`|string|14|No|Customer's billing address complement.|
+|`Customer.Billing.Neighborhood`|string|15|No|Customer's billing address neighborhood.|
+|`Customer.Billing.City`|string|20|No |Customer's billing address city.|
+|`Customer.Billing.State`|string|2|No|Customer's billing address state.|
+|`Customer.Billing.Country`|string|2|No|Customer's billing address country. More information at [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|
+|`Customer.Billing.ZipCode`|string|9|No|Customer's billing address Zip Code.|
 |`Payment.Type`|Text|100|Yes|Type of the Payment Method.|
-|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
-|`Payment.Currency`|Text|3|No|Currency in which payment will be made (BRL).|
-|`Payment.Country`|Text|3|No|Country where payment will be made.|
-|`Payment.Provider`|Text|15|---|Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.|
-|`Payment.ServiceTaxAmount`|Number|15|No|Applicable to airlines companies only. Amount of the authorization value/amount that should be allocated to the service fee. Note: This value is not added to the authorization value.|
-|`Payment.SoftDescriptor`|Text|13|No|Text printed on the buyer's bank invoice - Only available for VISA/MASTER - does not allow special characters - See Annex|
-|`Payment.Installments`|Number|2|Yes|Number of Installments.|
-|`Payment.Interest`|Text|10|No|Type of installment - Store (ByMerchant) or Card (ByIssuer).|
-|`Payment.Capture`|Boolean|---|No (Default false)|Boolean that identifies that the authorization should be with automatic capture.|
-|`Payment.Authenticate`|Booleano|---|No (Default false)|Defines whether the buyer will be directed to the Issuing bank for card authentication|
-|`Payment.IsCryptocurrencyNegotiation`|Boolean|-|No (default false)|Send true if the transaction refers to the sell of the cryptocurrency|
-|`Payment.AirlineData.TicketNumber`|alphanumeric|13|No|Enter the primary airline ticket number of the transaction.|
-|`CreditCard.CardNumber`|Text|19|Yes|Buyer's Card Number.|
-|`CreditCard.Holder`|Text|25|No|Buyer's name printed on card.|
-|`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
-|`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
-|`CreditCard.SaveCard`|Boolean|---|No (Default false)|Boolean that identifies whether the card will be saved to generate the CardToken.|
-|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
-|`CreditCard.CardOnFile.Usage`|Text|-|No|**First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.|
-|`CreditCard.CardOnFile.Reason`|Text|-|Conditional|Indicates the purpose of credential storage, case the value of field "Usage" is "Used" <br>**Recurring** - Scheduled recurring<br>**Unscheduled** - Unscheduled recurring<br>**Installments** - Installments Transaction|
+|`Payment.Amount`|Núumber|15|Yes|Order Amount (to be sent in cents).|
+|`Payment.Currency`|Text|3|No|Currency in which the payment will be made (BRL).|
+|`Payment.Country`|Text|3|No|Country in which the payment will be made|
+|`Payment.Provider`|Text|15|---|Defines the behavior for the payment method/NÃO OBRIGATÓRIO PARA CRÉDITO.|
+|`Payment.ServiceTaxAmount`|Number|15|No|Appliable only to airline companies. Order amounth that will be destined to service tax. PS.: This amount is not added to the authorization amount.|
+|`Payment.SoftDescriptor`|Text|13|No|The store's name that will be on the buyer's bank invoice. Does not allow special characters.
+|`Payment.Installments`|Number|2|Yes|Number of installments.|
+|`Payment.Interest`|Text|10|No|Type of installments - Store (ByMerchant) or Card (ByIssuer).|
+|`Payment.Capture`|Boolean|---|No (Default false)|Boolean that identifies if the authorization should be done by **Authomatic capture (true)** or **posterior capture (false)**.
+|`Payment.Authenticate`|Boolean|---|No (Default false)|Defines if the buyer will be directed to the issuing bank for a card authetication.|
+|`Payment.Recurrent`|Boolean|-|No|Indicates if the transaction is recurring ("true") or not ("false"). The value "true" won't originate a new recurrence, it will only allow a transaction without the need to send the security code. `Authenticate` should be "false" if `Recurrent` is "true".|
+|`Payment.IsCryptocurrencyNegotiation`|Boolean|-|No (default false)|Should be send as "true" if the transaction is to sell or buy criptocurrency.|
+|`Payment.AirlineData.TicketNumber`|Alphanumeric|13|No|Inform the number of the main airline ticket of the transaction.|
+|`CreditCard.CardNumber`|Text|19|Yes|Buyer's card number.|
+|`CreditCard.Holder`|Text|25|Não|Name of the buyer that's printed on the card. Does not accept special characters.|
+|`CreditCard.ExpirationDate`|Text|7|Yes|Expiration date printed on the card. Example: MM/AAAA.|
+|`CreditCard.SecurityCode`|Text|4|No|Security code printed on the back of the card.|
+|`CreditCard.SaveCard`|Boolean|---|No (Default false)|Boolean that identifies if the card will be saved to generate a `CardToken`.|
+|`CreditCard.Brand`|Text|10|Yes|Card brand. Possible values:Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper.       |
+|`CreditCard.CardOnFile.Usage`|Text|-|No|**First** if the card was stored and it's your first use.<br>**Used** if the card was stored and has been used for another transaction before.|
+|`CreditCard.CardOnFile.Reason`|Text|-|Conditional|Indicates the motive for card storage, if the "Usage" field is "Used". <br> **Recurring** - Programmed recurring transaction (e.g. Subscriptions). <br> **Unscheduled** - Recurring transaction with no fixed date (e.g. service apps) <br>**Installments** - Installments through recurring transactions.|
 
-#### Response
+##### Response
 
 ```json
 {
@@ -865,7 +677,17 @@ curl
             "City": "Rio de Janeiro",
             "State": "RJ",
             "Country": "BRA"
-        }
+        },
+        "Billing": {
+            "Street": "Rua Neturno",
+            "Number": "12345",
+            "Complement": "Sala 123",
+            "Neighborhood": "Centro",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BR",
+            "ZipCode": "20080123"
+  },
     },
     "Payment": {
         "ServiceTaxAmount": 0,
@@ -880,13 +702,13 @@ curl
             "SaveCard": false,
             "Brand": "Visa",
             "PaymentAccountReference":"92745135160550440006111072222",
-            "CardOnFile":{
-               "Usage": "Used",
-               "Reason": "Unscheduled"
-           }
+         "CardOnFile":{
+            "Usage": "Used",
+            "Reason":"Unscheduled"
+         }
         },
         "IsCryptoCurrencyNegotiation": true,
-        "tryautomaticcancellation":true,
+        "TryAutomaticCancellation":true,
         "ProofOfSale": "674532",
         "Tid": "0305020554239",
         "AuthorizationCode": "123456",
@@ -903,12 +725,13 @@ curl
         "Status": 2,
         "ReturnCode": "6",
         "ReturnMessage": "Operation Successful",
+        "Payment.MerchantAdviceCode":"1",
         "Links": [
             {
                 "Method": "GET",
                 "Rel": "self",
                 "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            }
+            },
             {
                 "Method": "PUT",
                 "Rel": "void",
@@ -948,7 +771,17 @@ curl
             "City": "Rio de Janeiro",
             "State": "RJ",
             "Country": "BRA"
-        }
+        },
+        "Billing": {
+            "Street": "Rua Neturno",
+            "Number": "12345",
+            "Complement": "Sala 123",
+            "Neighborhood": "Centro",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BR",
+            "ZipCode": "20080123"
+  },
     },
     "Payment": {
         "ServiceTaxAmount": 0,
@@ -963,13 +796,13 @@ curl
             "SaveCard": false,
             "Brand": "Visa",
             "PaymentAccountReference":"92745135160550440006111072222",
-            "CardOnFile":{
-               "Usage": "Used",
-               "Reason": "Unscheduled"
-            }
+         "CardOnFile":{
+            "Usage": "Used",
+            "Reason":"Unscheduled"
+         }
         },
         "IsCryptoCurrencyNegotiation": true,
-        "tryautomaticcancellation":true,
+        "TryAutomaticCancellation":true,
         "ProofOfSale": "674532",
         "Tid": "0305020554239",
         "AuthorizationCode": "123456",
@@ -983,12 +816,13 @@ curl
         "Status": 2,
         "ReturnCode": "6",
         "ReturnMessage": "Operation Successful",
+        "Payment.MerchantAdviceCode":"1",
         "Links": [
             {
                 "Method": "GET",
                 "Rel": "self",
                 "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            }
+            },
             {
                 "Method": "PUT",
                 "Rel": "void",
@@ -1004,251 +838,16 @@ curl
 |`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
 |`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
 |`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
-|`SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|Alphanumeric text|
-|`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ECI`|Eletronic Commerce Indicator. Represents how secure a transaction is.|Text|2|Examples: 7|
-|`Status`|Transaction Status.|Byte|---|2|
-|`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
-|`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric texto|
-|`tryautomaticcancellation`|In case of error during authorization (status "Not Finished - 0"), the response will include the "tryautomaticcancellation" field as "true". In this case, the transaction will be automatically queried, and if it has been authorized successfully, it will be canceled automatically. This feature must be enabled for establishment. To enable, please contact our technical support. |Boolean|-|true or false|
-|`Payment.PaymentAccountReference`|The PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the Card Networks doesn't send the information the field will not be returned.|Number|29|---|
+|`SoftDescriptor`|Text that will be printed on the carrier’s bank invoice. Does not allow special characters.|Text|13|Alphanumeric text|
+|`PaymentId`|Payment ID number, needed for future operations like Consulting, Capture and Cancellation.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ECI`|Eletronic Commerce Indicator. Indicates how safe a transaction is.|Text|2|Exemples: 7|
+|`Status`|Transaction status.|Byte|---|2|
+|`ReturnCode`|Acquiring return code.|Text|32|Alphanumeric text|
+|`ReturnMessage`|Acquiring return message.|Text|512|Alphanumeric text|
+|`Payment.MerchantAdviceCode`|Card brand's return code that defines the period for transaction submission retry. *Valid only for Mastercard*.|Text| 2 | Number|
+|`TryAutomaticCancellation`|In case of error during authorization (status “Not Finished - 0”), the response will include the “tryautomaticcancellation” field as “true”. In this case, the transaction will be automatically queried, and if it has been authorized successfully, it will be canceled automatically. This feature must be enabled for establishment. To enable, please contact our technical support. |Boolean|-|true ou false|
+|`CreditCard.PaymentAccountReference`|PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the card brand doesn’t send the information the field will not be returned.|Alphanumber|29|---|
 
-<aside class="warning">Attention: Authorization returns are subject to the insertion of new fields from Card Networks/issuers. Integrate them to predict this type of behavior by properly using object serialization and deserialization techniques.</aside>
-
-### Creating a authenticated transaction
-
-To create a transaction with authentication that will use a credit card, it is necessary to submit a request using the `POST` method for the Payment feature as shown.
-
-<aside class="notice"><strong>Authentication:</strong> In this mode, the card carrier is directed to the authentication environment of the card issuing bank where the inclusion of the card password will be requested.</aside>
-
-#### Request
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-```json
-{
- "MerchantOrderId":"2014111903",
- "Customer":{
-  "Name":"Comprador crédito autenticação"
- },
- "Payment":{
-     "Type":"CreditCard",
-     "Amount":15700,
-     "Installments":1,
-     "Authenticate":true,
-     "SoftDescriptor":"123456789ABCD",
-     "ReturnUrl":"https://www.cielo.com.br",
-     "CreditCard":{
-        "CardNumber":"1234123412341231",
-        "Holder":"Teste Holder",
-        "ExpirationDate":"12/2030",
-        "SecurityCode":"123",
-        "Brand":"Visa",
-        "CardOnFile":{
-           "Usage": "Used",
-           "Reason": "Unscheduled"
-        }
-     },
-     "IsCryptoCurrencyNegotiation": true
-   }
-}
-```
-
-```shell
-curl
---request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{  
-   "MerchantOrderId":"2014111903",
-   "Customer":{  
-      "Name":"Comprador crédito autenticação"
-   },
-   "Payment":{  
-      "Type":"CreditCard",
-      "Amount":15700,
-      "Installments":1,
-      "Authenticate":true,
-      "ReturnUrl":"http://www.cielo.com.br",
-      "SoftDescriptor":"123456789ABCD",
-      "CreditCard":{  
-         "CardNumber":"4551870000000183",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"12/2030",
-         "SecurityCode":"123",
-         "Brand":"Visa",
-         "CardOnFile":{
-            "Usage": "Used",
-            "Reason": "Unscheduled"
-         }
-      },
-      "IsCryptoCurrencyNegotiation": true
-   }
-}
---verbose
-```
-
-|Property|Type|Size|Required|Description|
-|---|---|---|---|---|
-|`MerchantId`|Guid|36|Yes|Store identifier in Cielo.|
-|`MerchantKey`|Text|40|Yes|Public Key for Double Authentication in Cielo.|
-|`RequestId`|Guid|36|No|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|
-|`MerchantOrderId`|Text|50|Yes|Order ID number.|
-|`Customer.Name`|Text|255|No|Buyer's name.|
-|`Customer.Status`|Text|255|No|Buyer registration status in store (NEW / EXISTING)|
-|`Payment.Type`|Text|100|Yes|Type of the Payment Method.|
-|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
-|`Payment.Provider`|Text|15|---|Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.|
-|`Payment.Installments`|Number|2|Yes|Number of Installments.|
-|`Payment.Authenticate`|Boolean|---|No (Default false)|Defines whether the buyer will be directed to the Issuing bank for card authentication|
-|`Payment.IsCryptocurrencyNegotiation`|Boolean|-|No (default false)|Send true if the transaction refers to the sell of the cryptocurrency|
-|`CreditCard.CardNumber.`|Text|19|Yes|Buyer's Card Number|
-|`CreditCard.Holder`|Text|25|No|Buyer's name printed on card.|
-|`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
-|`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
-|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
-|`CreditCard.CardOnFile.Usage`|Text|-|No|**First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.|
-|`CreditCard.CardOnFile.Reason`|Text|-|Conditional|Indicates the purpose of credential storage, case the value of field "Usage" is "Used" <br>**Recurring** - Scheduled recurring<br>**Unscheduled** - Unscheduled recurring<br>**Installments** - Installments Transaction|
-
-#### Response
-
-```json
-{
- "MerchantOrderId":"2014111903",
- "Customer":
- {
-  "Name":"Credit buyer authentication"
- },
- "Payment":
- {
-  "ServiceTaxAmount":0,
-  "Installments":1,
-  "Interest":"ByMerchant",
-  "Capture":false,
-  "Authenticate":true,
-  "CreditCard":
-  {
-   "CardNumber":"123412******1112",
-   "Holder":"Test Holder",
-   "ExpirationDate":"12/2030",
-   "SaveCard":false,
-   "Brand":"Visa",
-   "CardOnFile":{
-       "Usage": "Used",
-        "Reason": "Unscheduled"
-    }
-  },
-  "IsCryptoCurrencyNegotiation": true,
-  "AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
-  "Tid": "1006993069257E521001",
-  "SoftDescriptor":"123456789ABCD",
-  "PaymentId":"f2dbd5df-c2ee-482f-ab1b-7fee039108c0",
-  "Type":"CreditCard",
-  "Amount":15700,
-  "Currency":"BRL",
-  "Country":"BRA",
-  "ExtraDataCollection":[],
-  "Status":0,
-        "ReturnCode": "0",
-  "Links":
-  [
-   {
-    "Method":"GET",
-    "Rel":"self",
-    "Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{Paymentid}"
-   }
-  ]
- }
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
- "MerchantOrderId":"2014111903",
- "Customer":
- {
-  "Name":"Comprador crédito autenticação"
- },
- "Payment":
- {
-  "ServiceTaxAmount":0,
-  "Installments":1,
-  "Interest":"ByMerchant",
-  "Capture":false,
-  "Authenticate":true,
-  "CreditCard":
-  {
-   "CardNumber":"123412******1112",
-   "Holder":"Teste Holder",
-   "ExpirationDate":"12/2030",
-   "SaveCard":false,
-   "Brand":"Visa",
-         "CardOnFile":{
-            "Usage": "Used",
-            "Reason": "Unscheduled"
-         }
-  },
-  "IsCryptoCurrencyNegotiation": true,
-  "AuthenticationUrl":"https://xxxxxxxxxxxx.xxxxx.xxx.xx/xxx/xxxxx.xxxx?id=c5158c1c7b475fdb91a7ad7cc094e7fe",
-  "Tid": "1006993069257E521001",
-  "SoftDescriptor":"123456789ABCD",
-  "PaymentId":"f2dbd5df-c2ee-482f-ab1b-7fee039108c0",
-  "Type":"CreditCard",
-  "Amount":15700,
-  "Currency":"BRL",
-  "Country":"BRA",
-  "ExtraDataCollection":[],
-  "Status":0,
-        "ReturnCode": "0",
-  "Links":
-  [
-   {
-    "Method":"GET",
-    "Rel":"self",
-    "Href":"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{Paymentid}"
-   }
-  ]
- }
-}
-```
-
-|Property|Description|Type|Size|Format|
-|---|---|---|---|---|
-|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
-|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
-|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
-|`SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|Alphanumeric text|
-|`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ECI`|Eletronic Commerce Indicator. Represents how secure a transaction is.|Text|2|Examples: 7|
-|`Status`|Transaction Status.|Byte|---|2|
-|`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
-|`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric texto|
-
-#### ECI (E-commerce Indicator)
-
-E-Commerce Indicator (ECI) is returned in the authentication process.
-This code is an indicator of what exactly occurred in the transaction authentication process.
-Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o agente responsável por aquela autenticação, conforme tabela abaixo:
-Through the ECI, it's possible to verify if the transaction was authenticated and who was the agent responsible for that authentication, as shown in the table below:
-
-| **Brands**   | **ECI**                    | **Transaction Meaning**                                                                                     |
-| ---------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| Visa       | 05                           | Authenticated by the Issuing Bank – risk of chargeback becomes of the Issuing bank                          |
-| Visa       | 06                           | Authenticated by the Brand – risk of chargeback becomes of the Issuing bank                                 |
-| Visa       | Different from 05 and 06     | Unauthenticated – risk of chargeback remains with the establishment                                         |
-| Mastercard | 01                           | Authenticated by the Brand – risk of chargeback becomes of the Issuing bank                                 |
-| Mastercard | 02                           | Authenticated by the Issuing Bank – risk of chargeback becomes of the Issuing bank                          |
-| Mastercard | 04                           | Unauthenticated, transaction characterized as Data Only – risk of chargeback remains with the establishment |
-| Mastercard | Different from 01, 02 and 04 | Unauthenticated – risk of chargeback remains with the establishment                                         |
-| Elo        | 05                           | Authenticated by the Issuing Bank – risk of chargeback becomes of the Issuing bank                          |
-| Elo        | 06                           | Authenticated by the Brand – risk of chargeback becomes of the Issuing bank                                 |
-| Elo        | 07                           | Unauthenticated – risk of chargeback remains with the establishment                                         |
 
 ## Debit Card
 
