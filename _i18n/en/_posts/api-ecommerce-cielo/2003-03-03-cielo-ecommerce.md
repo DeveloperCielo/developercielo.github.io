@@ -848,7 +848,7 @@ curl
 |`TryAutomaticCancellation`|In case of error during authorization (status “Not Finished - 0”), the response will include the “tryautomaticcancellation” field as “true”. In this case, the transaction will be automatically queried, and if it has been authorized successfully, it will be canceled automatically. This feature must be enabled for establishment. To enable, please contact our technical support. |Boolean|-|true ou false|
 |`CreditCard.PaymentAccountReference`|PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the card brand doesn’t send the information the field will not be returned.|Alphanumber|29|---|
 
-### Cartão de Débito
+### Debit cards
 
 This payment method is automatically released along to the Cielo’s affiliation.
 
@@ -957,7 +957,7 @@ curl
 | `Payment.ExternalAuthentication.Eci` | E-Commerce Indicator returned on the authentication process. | Number |1 | Yes |
 | `Payment.ExternalAuthentication.ReferenceId` | `RequestID` returned on the authentication process. | GUID | 36 | Yes |
 
-##### Resposta
+##### Response
 
 ```json
 {
