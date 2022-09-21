@@ -1075,6 +1075,416 @@ curl
 |`Payment.MerchantAdviceCode`| Brand's return code that defines the period for transaction submission retry.*Válido only for Mastercard*|Text| 2 | Number|
 |`DebitCard.PaymentAccountReference`|PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the card brand doesn’t send the information the field will not be returned.|Alphanumeric|29|-|
 
+### Authenticating a transaction
+
+Cielo offers 3DS 2.0 as a service, which is a transaction authenticating protocol. Authentication is optional for credit cards and required for debit cards, by demand of issuing banks and card brands.
+
+To integrate the authentication to your transactions:
+
+1. **Integrate the 3DS 2.0 script** to your payment page, as instructed on the [3DS guide](https://developercielo.github.io/en/manual/3ds){:target="_blank"};
+2. In the **transaction request** of credit or debit, **send the aditional node** `ExternalAuthentication`, as the following examples.
+
+<aside class="notice">The 3DS 1.0 authentication is being discontinued by the card brands. New integrations should follow the 3DS 2.0 protocol.</aside>
+
+#### Creating a credit transaction with authentication
+
+##### Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+```json
+{  
+   "MerchantOrderId":"2014111701",
+   "Customer":{  
+      "Name":"Comprador crédito completo",
+      "Email":"compradorteste@teste.com",
+      "Birthdate":"1991-01-02",
+      "Address":{  
+         "Street":"Rua Teste",
+         "Number":"123",
+         "Complement":"AP 123",
+         "ZipCode":"12345987",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BRA"
+      },
+        "DeliveryAddress": {
+            "Street": "Rua Teste",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA"
+        },
+        "Billing": {
+            "Street": "Rua Neturno",
+            "Number": "12345",
+            "Complement": "Sala 123",
+            "Neighborhood": "Centro",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BR",
+            "ZipCode": "20080123"
+  },
+   },
+   "Payment":{  
+     "Currency":"BRL",
+     "Country":"BRA",
+     "ServiceTaxAmount":0,
+     "Installments":1,
+     "Interest":"ByMerchant",
+     "Capture":true,
+     "Authenticate":"false",
+     "Recurrent":"false",
+     "SoftDescriptor":"123456789ABCD",
+     "CreditCard":{  
+         "CardNumber":"1234123412341231",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"123",
+         "SaveCard":"false",
+         "Brand":"Visa",
+         "CardOnFile":{
+            "Usage": "Used",
+            "Reason":"Unscheduled"
+         }
+     },
+     "IsCryptoCurrencyNegotiation": true,
+     "Type":"CreditCard",
+     "Amount":15700,
+     "AirlineData":{
+         "TicketNumber":"AR988983"
+     }
+   }
+}
+```
+
+```shell
+curl
+--request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+   "MerchantOrderId":"2014111701",
+   "Customer":{  
+      "Name":"Comprador crédito completo",
+      "Identity":"11225468954",
+      "IdentityType":"CPF",
+      "Email":"compradorteste@teste.com",
+      "Birthdate":"1991-01-02",
+      "Address":{  
+         "Street":"Rua Teste",
+         "Number":"123",
+         "Complement":"AP 123",
+         "ZipCode":"12345987",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BRA"
+      },
+        "DeliveryAddress": {
+            "Street": "Rua Teste",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA"
+        },
+        "Billing": {
+            "Street": "Rua Neturno",
+            "Number": "12345",
+            "Complement": "Sala 123",
+            "Neighborhood": "Centro",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BR",
+            "ZipCode": "20080123"
+  },
+   },
+   "Payment":{  
+     "ServiceTaxAmount":0,
+     "Installments":1,
+     "Interest":"ByMerchant",
+     "Capture":true,
+     "Authenticate":false,
+     "Recurrent":"false",
+     "SoftDescriptor":"123456789ABCD",
+     "CreditCard":{  
+         "CardNumber":"4551870000000183",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"123",
+         "SaveCard":"false",
+         "Brand":"Visa",
+         "CardOnFile":{
+            "Usage": "Used",
+            "Reason":"Unscheduled"
+         }
+     },
+     "IsCryptoCurrencyNegotiation": true,
+     "Type":"CreditCard",
+     "Amount":15700,
+     "AirlineData":{
+         "TicketNumber":"AR988983"
+     }
+   }
+}
+--verbose
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantId`|Guid|36|Yes|Store identifier in Cielo.|
+|`MerchantKey`|Text|40|Yes|Public Key for Double Authentication in Cielo.|
+|`Content-Type`|Header|40|Yes|application/json (required).|
+|`RequestId`|Guid|36|No|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|
+|`MerchantOrderId`|Text|50|Yes|Order ID number.|
+|`Customer.Name`|Text|255|No|Customer's name|
+|`Customer.Status`|Text|255|No|The customer's registration status on the store. (NEW / EXISTING)|
+|`Customer.Identity`|Text|14|No|Customer's RG, CPF or CNPJ.|
+|`Customer.IdentityType`|Text|255|No|Customer's type of identification (CPF/CNPJ).|
+|`Customer.Email`|Text|255|No|Customer's e-mail|
+|`Customer.Birthdate`|Date|10|No|Customer's birth date|
+|`Customer.Address.Street`|Text|255|No|Customer's address.|
+|`Customer.Address.Number`|Text|15|No|Customer's address number.|
+|`Customer.Address.Complement`|Text|50|No|Customer's address complement.|
+|`Customer.Address.ZipCode`|Text|9|No|Customer's Zip Code|
+|`Customer.Address.City`|Text|50|No|Customer's address' city.|
+|`Customer.Address.State`|Text|2|No|Customer's address' state.|
+|`Customer.Address.Country`|Text|35|No|Customer's address' country.|
+|`Customer.DeliveryAddress.Street`|Text|255|No|Customer's delivery address.|
+|`Customer.Address.Number`|Text|15|No|Customer's delivery address number.|
+|`Customer.DeliveryAddress.Complement`|Text|50|No|Customer's delivery address complement.|
+|`Customer.DeliveryAddress.ZipCode`|Text|9|No|Customer's delivery address Zip Code.|
+|`Customer.DeliveryAddress.City`|Text|50|No|Customer's delivery address city.|
+|`Customer.DeliveryAddress.State`|Text|2|No|Customer's delivery address state.|
+|`Customer.DeliveryAddress.Country`|Text|35|No|Customer's delivery address country.|
+|`Payment.Type`|Text|100|Yes|Type of the Payment Method.|
+|`Payment.Amount`|Núumber|15|Yes|Order Amount (to be sent in cents).|
+|`Payment.Currency`|Text|3|No|Currency in which the payment will be made (BRL).|
+|`Payment.Country`|Text|3|No|Country in which the payment will be made|
+|`Payment.Provider`|Text|15|---|Defines the behavior for the payment method/NÃO OBRIGATÓRIO PARA CRÉDITO.|
+|`Payment.ServiceTaxAmount`|Number|15|No|Appliable only to airline companies. Order amounth that will be destined to service tax. PS.: This amount is not added to the authorization amount.|
+|`Payment.SoftDescriptor`|Text|13|No|The store's name that will be on the buyer's bank invoice. Does not allow special characters.
+|`Payment.Installments`|Number|2|Yes|Number of installments.|
+|`Payment.Interest`|Text|10|No|Type of installments - Store (ByMerchant) or Card (ByIssuer).|
+|`Payment.Capture`|Boolean|---|No (Default false)|Boolean that identifies if the authorization should be done by **Authomatic capture (true)** or **posterior capture (false)**.
+|`Payment.Authenticate`|Boolean|---|No (Default false)|Defines if the buyer will be directed to the issuing bank for a card authetication.|
+|`Payment.Recurrent`|Boolean|-|No|Indicates if the transaction is recurring ("true") or not ("false"). The value "true" won't originate a new recurrence, it will only allow a transaction without the need to send the security code. `Authenticate` should be "false" if `Recurrent` is "true".|
+|`Payment.IsCryptocurrencyNegotiation`|Boolean|-|No (default false)|Should be send as "true" if the transaction is to sell or buy criptocurrency.|
+|`Payment.AirlineData.TicketNumber`|Alphanumeric|13|No|Inform the number of the main airline ticket of the transaction.|
+|`CreditCard.CardNumber`|Text|19|Yes|Buyer's card number.|
+|`CreditCard.Holder`|Text|25|Não|Name of the buyer that's printed on the card. Does not accept special characters.|
+|`CreditCard.ExpirationDate`|Text|7|Yes|Expiration date printed on the card. Example: MM/AAAA.|
+|`CreditCard.SecurityCode`|Text|4|No|Security code printed on the back of the card.|
+|`CreditCard.SaveCard`|Boolean|---|No (Default false)|Boolean that identifies if the card will be saved to generate a `CardToken`.|
+|`CreditCard.Brand`|Text|10|Yes|Card brand. Possible values:Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper.       |
+|`CreditCard.CardOnFile.Usage`|Text|-|No|**First** if the card was stored and it's your first use.<br>**Used** if the card was stored and has been used for another transaction before.|
+|`CreditCard.CardOnFile.Reason`|Text|-|Conditional|Indicates the motive for card storage, if the "Usage" field is "Used". <br> **Recurring** - Programmed recurring transaction (e.g. Subscriptions). <br> **Unscheduled** - Recurring transaction with no fixed date (e.g. service apps) <br>**Installments** - Installments through recurring transactions.|
+
+##### Response
+
+```json
+{
+    "MerchantOrderId": "2014111706",
+    "Customer": {
+        "Name": "Comprador crédito completo",
+        "Identity":"11225468954",
+        "IdentityType":"CPF",
+        "Email": "compradorteste@teste.com",
+        "Birthdate": "1991-01-02",
+        "Address": {
+            "Street": "Rua Teste",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA"
+        },
+        "DeliveryAddress": {
+            "Street": "Rua Teste",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA"
+        },
+        "Billing": {
+            "Street": "Rua Neturno",
+            "Number": "12345",
+            "Complement": "Sala 123",
+            "Neighborhood": "Centro",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BR",
+            "ZipCode": "20080123"
+  },
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "CreditCard": {
+            "CardNumber": "455187******0183",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2030",
+            "SaveCard": false,
+            "Brand": "Visa",
+            "PaymentAccountReference":"92745135160550440006111072222",
+         "CardOnFile":{
+            "Usage": "Used",
+            "Reason":"Unscheduled"
+         }
+        },
+        "IsCryptoCurrencyNegotiation": true,
+        "TryAutomaticCancellation":true,
+        "ProofOfSale": "674532",
+        "Tid": "0305020554239",
+        "AuthorizationCode": "123456",
+        "SoftDescriptor":"123456789ABCD",
+        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
+        "Type": "CreditCard",
+        "Amount": 15700,
+        "CapturedAmount": 15700,
+        "Country": "BRA",
+        "AirlineData":{
+            "TicketNumber": "AR988983"
+        },
+        "ExtraDataCollection": [],
+        "Status": 2,
+        "ReturnCode": "6",
+        "ReturnMessage": "Operation Successful",
+        "Payment.MerchantAdviceCode":"1",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+            }
+        ]
+    }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "MerchantOrderId": "2014111706",
+    "Customer": {
+        "Name": "Comprador crédito completo",
+        "Identity":"11225468954",
+        "IdentityType":"CPF",
+        "Email": "compradorteste@teste.com",
+        "Birthdate": "1991-01-02",
+        "Address": {
+            "Street": "Rua Teste",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA"
+        },
+        "DeliveryAddress": {
+            "Street": "Rua Teste",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA"
+        },
+        "Billing": {
+            "Street": "Rua Neturno",
+            "Number": "12345",
+            "Complement": "Sala 123",
+            "Neighborhood": "Centro",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BR",
+            "ZipCode": "20080123"
+  },
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "CreditCard": {
+            "CardNumber": "455187******0183",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2030",
+            "SaveCard": false,
+            "Brand": "Visa",
+            "PaymentAccountReference":"92745135160550440006111072222",
+         "CardOnFile":{
+            "Usage": "Used",
+            "Reason":"Unscheduled"
+         }
+        },
+        "IsCryptoCurrencyNegotiation": true,
+        "TryAutomaticCancellation":true,
+        "ProofOfSale": "674532",
+        "Tid": "0305020554239",
+        "AuthorizationCode": "123456",
+        "SoftDescriptor":"123456789ABCD",
+        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
+        "Type": "CreditCard",
+        "Amount": 15700,
+        "CapturedAmount": 15700,
+        "Country": "BRA",
+        "ExtraDataCollection": [],
+        "Status": 2,
+        "ReturnCode": "6",
+        "ReturnMessage": "Operation Successful",
+        "Payment.MerchantAdviceCode":"1",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+            }
+        ]
+    }
+}
+```
+
+|Propriedade|Descrição|Tipo|Tamanho|Formato|
+|---|---|---|---|---|
+|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
+|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
+|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
+|`SoftDescriptor`|Text that will be printed on the carrier’s bank invoice. Does not allow special characters.|Text|13|Alphanumeric text|
+|`PaymentId`|Payment ID number, needed for future operations like Consulting, Capture and Cancellation.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ECI`|Eletronic Commerce Indicator. Indicates how safe a transaction is.|Text|2|Exemples: 7|
+|`Status`|Transaction status.|Byte|---|2|
+|`ReturnCode`|Acquiring return code.|Text|32|Alphanumeric text|
+|`ReturnMessage`|Acquiring return message.|Text|512|Alphanumeric text|
+|`Payment.MerchantAdviceCode`|Card brand's return code that defines the period for transaction submission retry. *Valid only for Mastercard*.|Text| 2 | Number|
+|`TryAutomaticCancellation`|In case of error during authorization (status “Not Finished - 0”), the response will include the “tryautomaticcancellation” field as “true”. In this case, the transaction will be automatically queried, and if it has been authorized successfully, it will be canceled automatically. This feature must be enabled for establishment. To enable, please contact our technical support. |Boolean|-|true ou false|
+|`CreditCard.PaymentAccountReference`|PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the card brand doesn’t send the information the field will not be returned.|Alphanumber|29|---|
+
 ## Alelo Cards
 
 To create a sale that will use an Alelo card, it's necessary to make a **POST** to the Payment resource using the technical contract for a **Debit Card** sale.
