@@ -13,7 +13,9 @@ language_tabs:
   shell: cURL
 ---
 
-# Overview - API E-commerce Cielo
+# API E-commerce Cielo
+
+# Overview
 
 The purpose of this documentation is to guide the developer on how to integrate with API E-commerce Cielo, describing the features, methods to be used, listing information to be sent and received, and providing examples.
 
@@ -80,7 +82,7 @@ In order to make it easier to understand, we have listed below a short glossary 
 |**Carrier**|It is the person who carries the card at the time of sale.|
 |**TID (Transaction Identifier)**|Code consisting of 20 characters that identifies a E-commerce Cielo transaction.|
 
-## Products and Supported Issuers
+## Products and Supported Brands
 
 The current version of Cielo Webservice supports the following issuers and products:
 
@@ -331,7 +333,7 @@ The debit transaction needs to be authenticated:
 
 <aside class="notice"><strong>Online Transfer</strong> The same behavior of debit card in Sandbox is valid for debit card.</aside>
 
-## Other methods of payment - Sandbox
+## Other payment methods - Sandbox
 
 Other payment methods don't have simulated specific data or cards like the credit card. Below we specify any existing differences:
 
