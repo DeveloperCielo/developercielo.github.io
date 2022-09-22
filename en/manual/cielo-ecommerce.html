@@ -178,7 +178,7 @@
   <li><strong>Simplicity</strong>: the only protocol used is HTTPS.</li>
   <li><strong>Easy testing</strong>: the Cielo platform offers a publicly accessible Sandbox environment, which allows the developer to create a test account without the need for accreditation, making it easier and faster to start integration.</li>
   <li><strong>Credentials</strong>: the handling of the customers’s credentials (affiliation number and access key) traffics in the header of the HTTP request of the message.</li>
-  <li><strong>Safety</strong>: the information exchange always takes place between the Store Server and Cielo Server, without the buyer’s browser.</li>
+  <li><strong>Safety</strong>: the information exchange always takes place between the Store Server and Cielo Server, without the shopper’s browser.</li>
   <li><strong>Multiplatform</strong>: the integration is performed through Web Service REST.</li>
 </ul>
 
@@ -237,7 +237,7 @@
   <tbody>
     <tr>
       <td><strong>Authentication</strong></td>
-      <td>Process to ensure that the buyer is actually who they claim to be (lawful carrier), usually occurs at the issuing bank using a digital token or card with security keys.</td>
+      <td>Process to ensure that the shopper is actually who they claim to be (lawful carrier), usually occurs at the issuing bank using a digital token or card with security keys.</td>
     </tr>
     <tr>
       <td><strong>Authorization</strong></td>
@@ -252,7 +252,7 @@
       <td>Process that confirms an authorization that was previously made. It is only after the capture that the card carrier will be able to view it on their bank statement or invoice.</td>
     </tr>
     <tr>
-      <td><strong>Buyer</strong></td>
+      <td><strong>Shopper</strong></td>
       <td>It is the one who makes the purchase at the virtual store.</td>
     </tr>
     <tr>
@@ -1340,7 +1340,7 @@
       <td>Text</td>
       <td>13</td>
       <td>No</td>
-      <td>The store’s name that will be on the buyer’s bank invoice. Does not allow special characters.</td>
+      <td>The store’s name that will be on the shopper’s bank invoice. Does not allow special characters.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
@@ -1368,7 +1368,7 @@
       <td>Boolean</td>
       <td>—</td>
       <td>No (Default false)</td>
-      <td>Defines if the buyer will be directed to the issuing bank for a card authetication.</td>
+      <td>Defines if the shopper will be directed to the issuing bank for a card authetication.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
@@ -1396,14 +1396,14 @@
       <td>Text</td>
       <td>19</td>
       <td>Yes</td>
-      <td>Buyer’s card number.</td>
+      <td>Shopper’s card number.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
       <td>Text</td>
       <td>25</td>
       <td>Não</td>
-      <td>Name of the buyer that’s printed on the card. Does not accept special characters.</td>
+      <td>Name of the shopper that’s printed on the card. Does not accept special characters.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
@@ -1736,7 +1736,7 @@
 
 <p>Every debit transaction should be authenticated by demand of the issuing banks and card brands, to ensure better safety.</p>
 
-<p>To authenticate a debit transaction, we use the EMV 3DS 2.0 protocol; this protocol is a script integrated to your e-commerce that verifies the identity of the buyer while keeping a positive shopping experience and reducing the risk of fraud.</p>
+<p>To authenticate a debit transaction, we use the EMV 3DS 2.0 protocol; this protocol is a script integrated to your e-commerce that verifies the identity of the shopper while keeping a positive shopping experience and reducing the risk of fraud.</p>
 
 <p>To integrate the authentication method, check the <a href="https://developercielo.github.io/en/manual/3ds" target="_blank">3DS 2.0 documentation</a>.</p>
 
@@ -1861,14 +1861,14 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Buyer’s name.</td>
+      <td>Shopper’s name.</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>Buyer registration status in store (NEW / EXISTING) - Used for fraud analysis</td>
+      <td>Shopper registration status in store (NEW / EXISTING) - Used for fraud analysis</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
@@ -1889,7 +1889,7 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
-      <td>Defines if the buyer will be directed to the issuing bank for the authentication of the card.</td>
+      <td>Defines if the shopper will be directed to the issuing bank for the authentication of the card.</td>
       <td>Boolean</td>
       <td>—</td>
       <td>Yes</td>
@@ -2078,7 +2078,7 @@
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthenticationUrl</code></td>
-      <td>URL to where the store should redirect the buyer for the debit flow.</td>
+      <td>URL to where the store should redirect the shopper for the debit flow.</td>
       <td>Text</td>
       <td>56</td>
       <td>Authentication URL</td>
@@ -2529,7 +2529,7 @@
       <td>Text</td>
       <td>13</td>
       <td>No</td>
-      <td>The store’s name that will be on the buyer’s bank invoice. Does not allow special characters.</td>
+      <td>The store’s name that will be on the shopper’s bank invoice. Does not allow special characters.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
@@ -2557,7 +2557,7 @@
       <td>Boolean</td>
       <td>—</td>
       <td>No (Default false)</td>
-      <td>Defines if the buyer will be directed to the issuing bank for a card authetication.</td>
+      <td>Defines if the shopper will be directed to the issuing bank for a card authetication.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
@@ -2585,14 +2585,14 @@
       <td>Text</td>
       <td>19</td>
       <td>Yes</td>
-      <td>Buyer’s card number.</td>
+      <td>Shopper’s card number.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
       <td>Text</td>
       <td>25</td>
-      <td>Não</td>
-      <td>Name of the buyer that’s printed on the card. Does not accept special characters.</td>
+      <td>No</td>
+      <td>Name of the shopper that’s printed on the card. Does not accept special characters.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
@@ -2942,24 +2942,10 @@
 
 <p><strong>NOTE:</strong> In ALELO Card transactions, the following parameters must have static settings.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Parameter</th>
-      <th>ALELO Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
-      <td><strong>FALSE</strong> or not sent</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.Brand</code></td>
-      <td>Must be sent as ELO</td>
-    </tr>
-  </tbody>
-</table>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code> should be as <strong>false</strong> or not be sent;</li>
+  <li><code class="language-plaintext highlighter-rouge">DebitCard.Brand</code> should be as <strong>Elo</strong>.</li>
+</ul>
 
 <h3 id="request-4">Request</h3>
 
@@ -3057,21 +3043,21 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Buyer Name.</td>
+      <td>Shopper Name.</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>Buyer registration status at the store (NEW / EXISTING) - Used for fraud analysis.</td>
+      <td>Shopper registration status at the store (NEW / EXISTING) - Used for fraud analysis.</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
-      <td>Defines whether the buyer will be directed to the issuing bank for card authentication</td>
+      <td>Defines whether the shopper will be directed to the issuing bank for card authentication</td>
       <td>Boolean</td>
       <td>—</td>
       <td>No (Defaul false)</td>
@@ -3106,14 +3092,14 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.CardNumber</code></td>
-      <td>Buyer Card Number.</td>
+      <td>Shopper’s Card Number.</td>
       <td>Text</td>
       <td>19</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">DebitCard.Holder</code></td>
-      <td>Buyer’s name printed on card.</td>
+      <td>Shopper’s name printed on card.</td>
       <td>Text</td>
       <td>25</td>
       <td>Yes</td>
@@ -3257,7 +3243,7 @@
       <td>Merchant return URL. URL where the shopkeeper will be redirected at the end of the flow.</td>
       <td>Text</td>
       <td>1024</td>
-      <td>http://www.urllogista.com.br</td>
+      <td>http://www.urllojista.com.br</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Status</code></td>
