@@ -840,7 +840,7 @@ curl
 |`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
 |`SoftDescriptor`|Text that will be printed on the carrier’s bank invoice. Does not allow special characters.|Text|13|Alphanumeric text|
 |`PaymentId`|Payment ID number, needed for future operations like Consulting, Capture and Cancellation.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ECI`|Eletronic Commerce Indicator. Indicates how safe a transaction is.|Text|2|Exemples: 7|
+|`ECI`|Eletronic Commerce Indicator. Indicates how safe a transaction is.|Text|2|Examples: 7|
 |`Status`|Transaction status.|Byte|---|2|
 |`ReturnCode`|Acquiring return code.|Text|32|Alphanumeric text|
 |`ReturnMessage`|Acquiring return message.|Text|512|Alphanumeric text|
@@ -941,8 +941,8 @@ curl
 | `MerchantId`               | Store identifier in API Cielo eCommerce.                                                         | Guid     | 36      | Yes                |
 | `MerchantKey`              | Public Key for Double Authentication in API Cielo eCommerce.                                         | Text    | 40      | Yes                |
 | `RequestId`                | Request Identifier, used when the merchant uses different servers for each GET/POST/PUT. | Guid     | 36      | No                |
-| `MerchantOrderId`          | Buyer’s name.                                                                    | Text    | 50      | Yes                |
-| `Customer.Name`            | Nome do Comprador.                                                                                    | Text    | 255     | No                |
+| `MerchantOrderId`          | Order Identifier Field at the Store.                                                                  | Text    | 50      | Yes                |
+| `Customer.Name`            | Buyer’s name.                                                                                    | Text    | 255     | No                |
 | `Customer.Status`          | Buyer registration status in store (NEW / EXISTING) - Used for fraud analysis           | Text    | 255     | No                |
 | `Payment.Type`             | Type of the Payment Method.                                                                            | Text    | 100     | Yes                |
 | `Payment.Amount`           | Order Amount (to be sent in cents).                                                            | Number   | 15      | Yes                |
@@ -1493,7 +1493,7 @@ The debit transaction with authentication is the standard for this payment metho
 
 The Merchant plug-in, known as MPI, is a service that allows you to make the call for authentication, integrated and certified with card brands for 3DS authentication processing. Cielo allows the store owner the 3DS integration through the Internal MPI or the External MPI.
 
-* **Internal MPI**: it is a service already integrated to 3DS Cielo, without needing to integrate or hire. In case of using the Internal MPI for 3DS 1.0, skip to the step [Transação Padrão](https://developercielo.github.io/manual/cielo-ecommerce#transa%C3%A7%C3%A3o-padr%C3%A3o).
+* **Internal MPI**: it is a service already integrated to 3DS Cielo, without needing to integrate or hire.
 
 * **External MPI**: used when your e-commerce hires a MPI solution, without Cielo's participation. No matter the 3DS version hired, follow the [Authorization with Authentication guide](https://developercielo.github.io/en/manual/autorizacao-com-autenticacao){:target="_blank"}.
 
