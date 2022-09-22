@@ -2146,7 +2146,7 @@
 
 <aside class="notice">The 3DS 1.0 authentication is being discontinued by the card brands. New integrations should follow the 3DS 2.0 protocol.</aside>
 
-<h4 id="creating-a-credit-transaction-with-authentication">Creating a credit transaction with authentication</h4>
+<h4 id="credit-card-with-authentication">Credit card with authentication</h4>
 
 <h5 id="request-3">Request</h5>
 
@@ -2916,6 +2916,23 @@
     </tr>
   </tbody>
 </table>
+
+<h4 id="debit-card-with-authentication">Debit card with authentication</h4>
+
+<p>The debit transaction with authentication is the standard for this payment method. Follow the integration steps A transação de débito com autenticação é o padrão para esse meio de pagamento. Siga os passos de integração do <a href="https://developercielo.github.io/en/manual/3ds" target="_blank">3DS guide</a> and send the request as shown in <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-debit-transaction" target="_blank">Creating a debit transaction</a>.</p>
+
+<h4 id="external-mpi">External MPI</h4>
+
+<p>The Merchant plug-in, known as MPI, is a service that allows you to make the call for authentication, integrated and certified with card brands for 3DS authentication processing. Cielo allows the store owner the 3DS integration through the Internal MPI or the External MPI.</p>
+
+<ul>
+  <li>
+    <p><strong>Internal MPI</strong>: it is a service already integrated to 3DS Cielo, without needing to integrate or hire. In case of using the Internal MPI for 3DS 1.0, skip to the step <a href="https://developercielo.github.io/manual/cielo-ecommerce#transa%C3%A7%C3%A3o-padr%C3%A3o">Transação Padrão</a>.</p>
+  </li>
+  <li>
+    <p><strong>External MPI</strong>: used when your e-commerce hires a MPI solution, without Cielo’s participation. No matter the 3DS version hired, follow the <a href="https://developercielo.github.io/en/manual/autorizacao-com-autenticacao" target="_blank">Authorization with Authentication guide</a>.</p>
+  </li>
+</ul>
 
 <h2 id="alelo-cards">Alelo Cards</h2>
 
