@@ -1086,7 +1086,7 @@ To integrate the authentication to your transactions:
 
 <aside class="notice">The 3DS 1.0 authentication is being discontinued by the card brands. New integrations should follow the 3DS 2.0 protocol.</aside>
 
-#### Creating a credit transaction with authentication
+#### Credit card with authentication
 
 ##### Request
 
@@ -1484,6 +1484,18 @@ curl
 |`Payment.MerchantAdviceCode`|Card brand's return code that defines the period for transaction submission retry. *Valid only for Mastercard*.|Text| 2 | Number|
 |`TryAutomaticCancellation`|In case of error during authorization (status “Not Finished - 0”), the response will include the “tryautomaticcancellation” field as “true”. In this case, the transaction will be automatically queried, and if it has been authorized successfully, it will be canceled automatically. This feature must be enabled for establishment. To enable, please contact our technical support. |Boolean|-|true ou false|
 |`CreditCard.PaymentAccountReference`|PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the card brand doesn’t send the information the field will not be returned.|Alphanumber|29|---|
+
+#### Debit card with authentication
+
+The debit transaction with authentication is the standard for this payment method. Follow the integration steps A transação de débito com autenticação é o padrão para esse meio de pagamento. Siga os passos de integração do [3DS guide](https://developercielo.github.io/en/manual/3ds){:target="_blank"} and send the request as shown in [Creating a debit transaction](https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-debit-transaction){:target="_blank"}.
+
+#### External MPI
+
+The Merchant plug-in, known as MPI, is a service that allows you to make the call for authentication, integrated and certified with card brands for 3DS authentication processing. Cielo allows the store owner the 3DS integration through the Internal MPI or the External MPI.
+
+* **Internal MPI**: it is a service already integrated to 3DS Cielo, without needing to integrate or hire. In case of using the Internal MPI for 3DS 1.0, skip to the step [Transação Padrão](https://developercielo.github.io/manual/cielo-ecommerce#transa%C3%A7%C3%A3o-padr%C3%A3o).
+
+* **External MPI**: used when your e-commerce hires a MPI solution, without Cielo's participation. No matter the 3DS version hired, follow the [Authorization with Authentication guide](https://developercielo.github.io/en/manual/autorizacao-com-autenticacao){:target="_blank"}.
 
 ## Alelo Cards
 
