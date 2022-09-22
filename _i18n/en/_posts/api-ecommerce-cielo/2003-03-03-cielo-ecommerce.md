@@ -42,7 +42,7 @@ Among other features, the attributes that stand out most in the Cielo e-commerce
 * **Simplicity**: the only protocol used is HTTPS.
 * **Easy testing**: the Cielo platform offers a publicly accessible Sandbox environment, which allows the developer to create a test account without the need for accreditation, making it easier and faster to start integration.
 * **Credentials**: the handling of the customers's credentials (affiliation number and access key) traffics in the header of the HTTP request of the message.
-* **Safety**: the information exchange always takes place between the Store Server and Cielo Server, without the buyer's browser.
+* **Safety**: the information exchange always takes place between the Store Server and Cielo Server, without the shopper's browser.
 * **Multiplatform**: the integration is performed through Web Service REST.
 
 ## Architecture
@@ -71,11 +71,11 @@ In order to make it easier to understand, we have listed below a short glossary 
 
 |Term|Description|
 |---|---|
-|**Authentication**|Process to ensure that the buyer is actually who they claim to be (lawful carrier), usually occurs at the issuing bank using a digital token or card with security keys.|
+|**Authentication**|Process to ensure that the shopper is actually who they claim to be (lawful carrier), usually occurs at the issuing bank using a digital token or card with security keys.|
 |**Authorization**|Process to check whether a purchase can or not be made with a card. At this point, several verifications are done with the card and the carrier (e.g., timely payments, card locks, etc.). It is also at this point that the card limit is checked with the transaction value.|
 |**Cancellation**|Process to cancel a purchase made with a card.|
 |**Capture**|Process that confirms an authorization that was previously made. It is only after the capture that the card carrier will be able to view it on their bank statement or invoice.|
-|**Buyer**|It is the one who makes the purchase at the virtual store.|
+|**Shopper**|It is the one who makes the purchase at the virtual store.|
 |**Issuer (or issuing bank)**|It is the financial institution that issues the credit card, debit card or voucher.|
 |**Commercial establishment or CE**|Entity that responds by the virtual store.|
 |**Payment Gateway**|Company responsible for technical integration and transaction processing.|
@@ -634,16 +634,16 @@ curl
 |`Payment.Country`|Text|3|No|Country in which the payment will be made|
 |`Payment.Provider`|Text|15|---|Defines the behavior for the payment method/NÃO OBRIGATÓRIO PARA CRÉDITO.|
 |`Payment.ServiceTaxAmount`|Number|15|No|Appliable only to airline companies. Order amounth that will be destined to service tax. PS.: This amount is not added to the authorization amount.|
-|`Payment.SoftDescriptor`|Text|13|No|The store's name that will be on the buyer's bank invoice. Does not allow special characters.
+|`Payment.SoftDescriptor`|Text|13|No|The store's name that will be on the shopper's bank invoice. Does not allow special characters.
 |`Payment.Installments`|Number|2|Yes|Number of installments.|
 |`Payment.Interest`|Text|10|No|Type of installments - Store (ByMerchant) or Card (ByIssuer).|
 |`Payment.Capture`|Boolean|---|No (Default false)|Boolean that identifies if the authorization should be done by **Authomatic capture (true)** or **posterior capture (false)**.
-|`Payment.Authenticate`|Boolean|---|No (Default false)|Defines if the buyer will be directed to the issuing bank for a card authetication.|
+|`Payment.Authenticate`|Boolean|---|No (Default false)|Defines if the shopper will be directed to the issuing bank for a card authetication.|
 |`Payment.Recurrent`|Boolean|-|No|Indicates if the transaction is recurring ("true") or not ("false"). The value "true" won't originate a new recurrence, it will only allow a transaction without the need to send the security code. `Authenticate` should be "false" if `Recurrent` is "true".|
 |`Payment.IsCryptocurrencyNegotiation`|Boolean|-|No (default false)|Should be send as "true" if the transaction is to sell or buy criptocurrency.|
 |`Payment.AirlineData.TicketNumber`|Alphanumeric|13|No|Inform the number of the main airline ticket of the transaction.|
-|`CreditCard.CardNumber`|Text|19|Yes|Buyer's card number.|
-|`CreditCard.Holder`|Text|25|Não|Name of the buyer that's printed on the card. Does not accept special characters.|
+|`CreditCard.CardNumber`|Text|19|Yes|Shopper's card number.|
+|`CreditCard.Holder`|Text|25|Não|Name of the shopper that's printed on the card. Does not accept special characters.|
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiration date printed on the card. Example: MM/AAAA.|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on the back of the card.|
 |`CreditCard.SaveCard`|Boolean|---|No (Default false)|Boolean that identifies if the card will be saved to generate a `CardToken`.|
@@ -856,7 +856,7 @@ This payment method is automatically released along to the Cielo’s affiliation
 
 Every debit transaction should be authenticated by demand of the issuing banks and card brands, to ensure better safety. 
 
-To authenticate a debit transaction, we use the EMV 3DS 2.0 protocol; this protocol is a script integrated to your e-commerce that verifies the identity of the buyer while keeping a positive shopping experience and reducing the risk of fraud.
+To authenticate a debit transaction, we use the EMV 3DS 2.0 protocol; this protocol is a script integrated to your e-commerce that verifies the identity of the shopper while keeping a positive shopping experience and reducing the risk of fraud.
 
 To integrate the authentication method, check the [3DS 2.0 documentation](https://developercielo.github.io/en/manual/3ds){:target="_blank"}.
 
@@ -944,11 +944,11 @@ curl
 | `MerchantKey`              | Public Key for Double Authentication in API Cielo eCommerce.                                         | Text    | 40      | Yes                |
 | `RequestId`                | Request Identifier, used when the merchant uses different servers for each GET/POST/PUT. | Guid     | 36      | No                |
 | `MerchantOrderId`          | Order Identifier Field at the Store.                                                                  | Text    | 50      | Yes                |
-| `Customer.Name`            | Buyer’s name.                                                                                    | Text    | 255     | No                |
-| `Customer.Status`          | Buyer registration status in store (NEW / EXISTING) - Used for fraud analysis           | Text    | 255     | No                |
+| `Customer.Name`            | Shopper’s name.                                                                                    | Text    | 255     | No                |
+| `Customer.Status`          | Shopper registration status in store (NEW / EXISTING) - Used for fraud analysis           | Text    | 255     | No                |
 | `Payment.Type`             | Type of the Payment Method.                                                                            | Text    | 100     | Yes                |
 | `Payment.Amount`           | Order Amount (to be sent in cents).                                                            | Number   | 15      | Yes                |
-| `Payment.Authenticate`     | Defines if the buyer will be directed to the issuing bank for the authentication of the card.                   | Boolean | ---     | Yes |
+| `Payment.Authenticate`     | Defines if the shopper will be directed to the issuing bank for the authentication of the card.                   | Boolean | ---     | Yes |
 | `Payment.ReturnUrl`        | URL to where the user will be redirected after payment.                                    | Text    | 1024    | Yes                |
 |`Payment.IsCryptocurrencyNegotiation`|Should be send as "true" if the transaction is to sell or buy criptocurrency.|Boolean|-|No (default false)|
 | `DebitCard.CardNumber`     | Customer's card number.                                                                        | Text    | 19      | Yes                |
@@ -1068,7 +1068,7 @@ curl
 
 |Property|Description|Type|Size|Format|
 |---|---|---|---|---|
-|`AuthenticationUrl`|URL to where the store should redirect the buyer for the debit flow.|Text|56|Authentication URL|
+|`AuthenticationUrl`|URL to where the store should redirect the shopper for the debit flow.|Text|56|Authentication URL|
 |`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
 |`PaymentId`|Payment ID number, needed for future operations like Consulting, Capture and Cancellation.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ReturnUrl`|Return URL for the store. URL where the store will be redirected after the flow.|Text|1024|http://www.urllogista.com.br|
@@ -1271,16 +1271,16 @@ curl
 |`Payment.Country`|Text|3|No|Country in which the payment will be made|
 |`Payment.Provider`|Text|15|---|Defines the behavior for the payment method/NÃO OBRIGATÓRIO PARA CRÉDITO.|
 |`Payment.ServiceTaxAmount`|Number|15|No|Appliable only to airline companies. Order amounth that will be destined to service tax. PS.: This amount is not added to the authorization amount.|
-|`Payment.SoftDescriptor`|Text|13|No|The store's name that will be on the buyer's bank invoice. Does not allow special characters.
+|`Payment.SoftDescriptor`|Text|13|No|The store's name that will be on the shopper's bank invoice. Does not allow special characters.
 |`Payment.Installments`|Number|2|Yes|Number of installments.|
 |`Payment.Interest`|Text|10|No|Type of installments - Store (ByMerchant) or Card (ByIssuer).|
 |`Payment.Capture`|Boolean|---|No (Default false)|Boolean that identifies if the authorization should be done by **Authomatic capture (true)** or **posterior capture (false)**.
-|`Payment.Authenticate`|Boolean|---|No (Default false)|Defines if the buyer will be directed to the issuing bank for a card authetication.|
+|`Payment.Authenticate`|Boolean|---|No (Default false)|Defines if the shopper will be directed to the issuing bank for a card authetication.|
 |`Payment.Recurrent`|Boolean|-|No|Indicates if the transaction is recurring ("true") or not ("false"). The value "true" won't originate a new recurrence, it will only allow a transaction without the need to send the security code. `Authenticate` should be "false" if `Recurrent` is "true".|
 |`Payment.IsCryptocurrencyNegotiation`|Boolean|-|No (default false)|Should be send as "true" if the transaction is to sell or buy criptocurrency.|
 |`Payment.AirlineData.TicketNumber`|Alphanumeric|13|No|Inform the number of the main airline ticket of the transaction.|
-|`CreditCard.CardNumber`|Text|19|Yes|Buyer's card number.|
-|`CreditCard.Holder`|Text|25|Não|Name of the buyer that's printed on the card. Does not accept special characters.|
+|`CreditCard.CardNumber`|Text|19|Yes|Shopper's card number.|
+|`CreditCard.Holder`|Text|25|No|Name of the shopper that's printed on the card. Does not accept special characters.|
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiration date printed on the card. Example: MM/AAAA.|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on the back of the card.|
 |`CreditCard.SaveCard`|Boolean|---|No (Default false)|Boolean that identifies if the card will be saved to generate a `CardToken`.|
@@ -1505,10 +1505,8 @@ To create a sale that will use an Alelo card, it's necessary to make a **POST** 
 
 **NOTE:** In ALELO Card transactions, the following parameters must have static settings.
 
-| Parameter              | ALELO Default         |
-|------------------------|-----------------------|
-| `Payment.Authenticate` | **FALSE** or not sent |
-| `DebitCard.Brand`      | Must be sent as ELO   |
+* `Payment.Authenticate` should be as **false** or not be sent;
+* `DebitCard.Brand` should be as **Elo**.
 
 ### Request
 
@@ -1573,15 +1571,15 @@ curl
 |`MerchantKey`             | Public Key for Dual Authentication in the Cielo eCommerce API.                              | Text    | 40   | Yes               |
 |`RequestId`               | Request identifier, used when the merchant uses different servers for each GET / POST / PUT | Guid    | 36   | No                |
 |`MerchantOrderId`         | Order identification number.                                                                | Text    | 50   | Yes               |
-|`Customer.Name`           | Buyer Name.                                                                                 | Text    | 255  | No                |
-|`Customer.Status`         | Buyer registration status at the store (NEW / EXISTING) - Used for fraud analysis.          | Text    | 255  | No                |
-|`Payment.Authenticate`    | Defines whether the buyer will be directed to the issuing bank for card authentication      | Boolean | ---  | No (Defaul false) |
+|`Customer.Name`           | Shopper Name.                                                                                 | Text    | 255  | No                |
+|`Customer.Status`         | Shopper registration status at the store (NEW / EXISTING) - Used for fraud analysis.          | Text    | 255  | No                |
+|`Payment.Authenticate`    | Defines whether the shopper will be directed to the issuing bank for card authentication      | Boolean | ---  | No (Defaul false) |
 |`Payment.Type`            | Type of Payment Method                                                                      | Text    | 100  | Yes               |
 |`Payment.Amount`          | Order Amount (to be sent in cents).                                                         | Numeric | 15   | Yes               |
 |`Payment.ReturnUrl`       | Merchant return URL.                                                                        | Text    | 1024 | Yes               |
 |`Payment.ReturnUrl`       | URL where the user will be redirected after payment is completed                            | Text    | 1024 | Yes               |
-|`DebitCard.CardNumber`    | Buyer Card Number.                                                                          | Text    | 19   | Yes               |
-|`DebitCard.Holder`        | Buyer's name printed on card.                                                               | Text    | 25   | Yes               |
+|`DebitCard.CardNumber`    | Shopper's Card Number.                                                                          | Text    | 19   | Yes               |
+|`DebitCard.Holder`        | Shopper's name printed on card.                                                               | Text    | 25   | Yes               |
 |`DebitCard.SecurityCode`  | Security code printed on the back of the card.                                              | Text    | 4    | Yes               |
 
 ### Response
@@ -1683,7 +1681,7 @@ curl
 | `AuthenticationUrl` | URL to which the Merchant must redirect the Customer to the Debit flow.                  | Text | 56   | Authentication URL                   |
 | `Tid`               | Transaction ID at the acquirer.                                                          | Text | 20   | Alphanumeric text                    |
 | `PaymentId`         | Order Identifier field.                                                                  | Guid | 36   | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-| `ReturnUrl`         | Merchant return URL. URL where the shopkeeper will be redirected at the end of the flow. | Text | 1024 | http://www.urllogista.com.br         |
+| `ReturnUrl`         | Merchant return URL. URL where the shopkeeper will be redirected at the end of the flow. | Text | 1024 | http://www.urllojista.com.br         |
 | `Status`            | Transaction Status                                                                       | Byte | ---  | 0                                    |
 | `ReturnCode`        | Acquisition return code.                                                                 | Text | 32   | Alphanumeric text                    | 
 
