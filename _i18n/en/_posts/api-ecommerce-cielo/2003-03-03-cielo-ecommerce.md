@@ -1581,8 +1581,9 @@ curl
 |`DebitCard.CardNumber`    | Shopper's Card Number.                                                                          | Text    | 19   | Yes               |
 |`DebitCard.Holder`        | Shopper's name printed on card.                                                               | Text    | 25   | Yes               |
 |`DebitCard.SecurityCode`  | Security code printed on the back of the card.                                              | Text    | 4    | Yes               |
+|`DebitCard.Brand`  | Card brand. Needs to be sent as "Elo"                                                         | Text   | 10     | Yes               |
 
-### Response
+### Resposta
 
 ```json
 {
