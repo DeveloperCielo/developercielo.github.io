@@ -643,7 +643,7 @@ curl
 |`Payment.IsCryptocurrencyNegotiation`|Boolean|-|No (default false)|Should be send as "true" if the transaction is to sell or buy criptocurrency.|
 |`Payment.AirlineData.TicketNumber`|Alphanumeric|13|No|Inform the number of the main airline ticket of the transaction.|
 |`CreditCard.CardNumber`|Text|19|Yes|Shopper's card number.|
-|`CreditCard.Holder`|Text|25|Não|Name of the shopper that's printed on the card. Does not accept special characters.|
+|`CreditCard.Holder`|Text|25|No|Name of the shopper that's printed on the card. Does not accept special characters.|
 |`CreditCard.ExpirationDate`|Text|7|Yes|Expiration date printed on the card. Example: MM/AAAA.|
 |`CreditCard.SecurityCode`|Text|4|No|Security code printed on the back of the card.|
 |`CreditCard.SaveCard`|Boolean|---|No (Default false)|Boolean that identifies if the card will be saved to generate a `CardToken`.|
@@ -1583,7 +1583,7 @@ curl
 |`DebitCard.SecurityCode`  | Security code printed on the back of the card.                                              | Text    | 4    | Yes               |
 |`DebitCard.Brand`  | Card brand. Needs to be sent as "Elo"                                                         | Text   | 10     | Yes               |
 
-### Resposta
+### Response
 
 ```json
 {
@@ -1724,7 +1724,7 @@ The shopper uses app that can do Pix transactions to read the QR Code and makes 
 
 ![Pagamento Pix]({{ site.baseurl_root }}/images/apicieloecommerce/api3-pagamento-pix.png)
 
-Veja exemplos de envio de requisição e resposta para a geração do QR code pix:
+See the request and response examples for Pix QR Code generating:
 
 #### Request
 
