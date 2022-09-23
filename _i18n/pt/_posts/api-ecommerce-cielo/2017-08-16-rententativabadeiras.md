@@ -48,10 +48,11 @@ O que é? São cobranças efetuadas quando o estabelecimento comercial excede as
 
 |Categorias|Códigos|Tarifa Doméstica|Tarifa Internacional|Quando Ocorre|Permitido Retentar|
 |---|---|
-|Cartão presente e Cartão não presente|Qualquer código de negativa que é permitido retentar|R$2,00|-|A tarifa se aplica à 11ª nova tentativa dentro do período de 24h.|Permitido retentar após 24h.|
+|Cartão presente e Cartão não presente|Qualquer código de negativa que é permitido retentar|R$2,00|-|A partir 8ª retentativa|Permitido retentar após 24h.|
 
 * Serão consideradas como retentativas todas as transações de pagamento no mesmo cartão, mesma validade, mesmo valor e mesmo número de estabelecimento;
 * Serão contabilizadas, também, as retentativas quando a transação já foi aprovada;
+* Serão contabilizadas, também, as retentivas quando a transação já foi aprovada;
 * A partir de 01/11/2022, o excesso considerado no programa ocorrerá a partir da sétima retentativa dentro do mês de apuração* e nas condições acima descritas; 
 
 ## Transação de consulta de status de conta (ASI - Account Status Inquiry)
