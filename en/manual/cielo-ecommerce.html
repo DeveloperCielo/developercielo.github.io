@@ -3723,339 +3723,17 @@
   </tbody>
 </table>
 
-<h2 id="electronic-transfer">Electronic Transfer</h2>
+<h2 id="boleto">Boleto</h2>
 
-<h3 id="creating-a-simple-transaction">Creating a simple transaction</h3>
+<h3 id="creating-a-boleto-sale">Creating a Boleto sale</h3>
 
-<p>To create an electronic transfer sale, it is necessary to make a POST for the Payment feature as shown. This example includes the minimum number of fields required to be sent for authorization.</p>
+<p>To make a Boleto transaction, you first need to hire this service at the bank. After you do that, you need to set it up according to our <a href="https://developercielo.github.io/tutorial/manual-boleto" target="_blank">Boleto guide</a>.</p>
+
+<blockquote>
+  <p>Banco do Brasil boletos don’t have the automatic conciliation service.</p>
+</blockquote>
 
 <h4 id="request-7">Request</h4>
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
-    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2017051109"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w">
-    </span><span class="p">{</span><span class="w">  
-        </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Nome do Comprador"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678909"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comprador@cielo.com.br"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Address"</span><span class="p">:</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-             </span><span class="nl">"Street"</span><span class="p">:</span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
-             </span><span class="nl">"Number"</span><span class="p">:</span><span class="s2">"512"</span><span class="p">,</span><span class="w">
-             </span><span class="nl">"Complement"</span><span class="p">:</span><span class="s2">"27 andar"</span><span class="p">,</span><span class="w">
-             </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="s2">"12345987"</span><span class="p">,</span><span class="w">
-             </span><span class="nl">"City"</span><span class="p">:</span><span class="s2">"São Paulo"</span><span class="p">,</span><span class="w">
-             </span><span class="nl">"State"</span><span class="p">:</span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
-             </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-             </span><span class="nl">"District"</span><span class="p">:</span><span class="s2">"Alphaville"</span><span class="w">
-         </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w">
-    </span><span class="p">{</span><span class="w">  
-        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Bradesco"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"EletronicTransfer"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReturnUrl"</span><span class="p">:</span><span class="s2">"http://www.cielo.com.br"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> POST <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"</span>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>  
-    <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2017051109"</span>,
-    <span class="s2">"Customer"</span>:
-    <span class="o">{</span>  
-        <span class="s2">"Name"</span>:<span class="s2">"Nome do Comprador"</span>,
-        <span class="s2">"Identity"</span>: <span class="s2">"12345678909"</span>,
-        <span class="s2">"IdentityType"</span>: <span class="s2">"CPF"</span>,
-        <span class="s2">"Email"</span>: <span class="s2">"comprador@cielo.com.br"</span>,
-        <span class="s2">"Address"</span>:
-        <span class="o">{</span>
-             <span class="s2">"Street"</span>:<span class="s2">"Alameda Xingu"</span>,
-             <span class="s2">"Number"</span>:<span class="s2">"512"</span>,
-             <span class="s2">"Complement"</span>:<span class="s2">"27 andar"</span>,
-             <span class="s2">"ZipCode"</span>:<span class="s2">"12345987"</span>,
-             <span class="s2">"City"</span>:<span class="s2">"São Paulo"</span>,
-             <span class="s2">"State"</span>:<span class="s2">"SP"</span>,
-             <span class="s2">"Country"</span>:<span class="s2">"BRA"</span>,
-             <span class="s2">"District"</span>:<span class="s2">"Alphaville"</span>
-         <span class="o">}</span>
-  <span class="o">}</span>,
-    <span class="s2">"Payment"</span>:
-    <span class="o">{</span>  
-        <span class="s2">"Provider"</span>:<span class="s2">"Bradesco"</span>,
-        <span class="s2">"Type"</span>:<span class="s2">"EletronicTransfer"</span>,
-        <span class="s2">"Amount"</span>:10000,
-        <span class="s2">"ReturnUrl"</span>:<span class="s2">"http://www.cielo.com.br"</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-<span class="nt">--verbose</span>
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Required</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier in API Cielo eCommerce.</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
-      <td>Text</td>
-      <td>40</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Order ID number.</td>
-      <td>Text</td>
-      <td>50</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Buyer’s name.</td>
-      <td>Text</td>
-      <td>255</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
-      <td>Buyer’s RG, CPF or CNPJ number</td>
-      <td>14</td>
-      <td>Yes</td>
-      <td>Text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
-      <td>Type of identification document of the buyer (CPF or CNPJ)</td>
-      <td>255</td>
-      <td>No</td>
-      <td>Text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>Buyer registration status in store (NEW / EXISTING) - Used by fraud analysis</td>
-      <td>Text</td>
-      <td>255</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
-      <td>Buyer’s e-mail</td>
-      <td>255</td>
-      <td>No</td>
-      <td>Text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
-      <td>Buyer’s contact address</td>
-      <td>255</td>
-      <td>No</td>
-      <td>Text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>Buyer’s contact address number</td>
-      <td>15</td>
-      <td>No</td>
-      <td>Text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
-      <td>Buyer’s contact address add-on</td>
-      <td>50</td>
-      <td>No</td>
-      <td>Text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
-      <td>Buyer’s contact address ZIP Code</td>
-      <td>9</td>
-      <td>No</td>
-      <td>Text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
-      <td>Buyer’s contact address city</td>
-      <td>50</td>
-      <td>No</td>
-      <td>Text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
-      <td>Buyer’s contact address state</td>
-      <td>2</td>
-      <td>No</td>
-      <td>Text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
-      <td>Buyer’s contact address country</td>
-      <td>35</td>
-      <td>No</td>
-      <td>Text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
-      <td>Buyer’s contact address neighborhood</td>
-      <td>35</td>
-      <td>No</td>
-      <td>Text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Type of the Payment Method.</td>
-      <td>Text</td>
-      <td>100</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Order Amount (to be sent in cents).</td>
-      <td>Number</td>
-      <td>15</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Defines behavior of the payment method (<a href="https://developercielo.github.io/Webservice-3.0/#anexos">See Annex</a>)/NOT REQUIRED FOR CREDIT.</td>
-      <td>Text</td>
-      <td>15</td>
-      <td>—</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="response-7">Response</h4>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador Transferência Eletronica"</span><span class="p">,</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://xxx.xxxxxxx.xxx.xx/post/EletronicTransfer/Redirect/{PaymentId}"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"765548b6-c4b8-4e2c-b9b9-6458dbd5da0a"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EletronicTransfer"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15700</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bradesco"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ExtraDataCollection"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>
-    <span class="s2">"MerchantOrderId"</span>: <span class="s2">"2014111706"</span>,
-    <span class="s2">"Customer"</span>: <span class="o">{</span>
-        <span class="s2">"Name"</span>: <span class="s2">"Comprador Transferência Eletronica"</span>,
-    <span class="o">}</span>,
-    <span class="s2">"Payment"</span>: <span class="o">{</span>
-        <span class="s2">"Url"</span>: <span class="s2">"https://xxx.xxxxxxx.xxx.xx/post/EletronicTransfer/Redirect/{PaymentId}"</span>,
-        <span class="s2">"PaymentId"</span>: <span class="s2">"765548b6-c4b8-4e2c-b9b9-6458dbd5da0a"</span>,
-        <span class="s2">"Type"</span>: <span class="s2">"EletronicTransfer"</span>,
-        <span class="s2">"Amount"</span>: 15700,
-        <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
-        <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
-        <span class="s2">"Provider"</span>: <span class="s2">"Bradesco"</span>,
-        <span class="s2">"ExtraDataCollection"</span>: <span class="o">[]</span>,
-        <span class="s2">"Status"</span>: 0,
-        <span class="s2">"Links"</span>: <span class="o">[</span>
-            <span class="o">{</span>
-                <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
-                <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
-                <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"</span>
-            <span class="o">}</span>
-        <span class="o">]</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Format</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Order Identifier Field.</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Url</code></td>
-      <td>URL to which the Merchant must redirect the Customer to the Electronic Transfer flow.</td>
-      <td>Text</td>
-      <td>256</td>
-      <td>Authentication Url</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction Status.</td>
-      <td>Byte</td>
-      <td>—</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="bank-slip">Bank slip</h2>
-
-<h3 id="creating-a-bank-slip-sale">Creating a Bank slip sale</h3>
-
-<p>To create a sale whose form of payment is bank slip, just do a POST as the example.</p>
-
-<p><strong>NOTE:</strong> The API supports registered and unregistered bank slips, with the provider being the differentiator between them. We suggest that you validate with your bank what type of bank slip that is supported by your wallet. The API only accepts <strong>Bradesco</strong> and <strong>Banco do Brasil</strong> bank slips</p>
-
-<h4 id="request-8">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -4068,20 +3746,30 @@
         </span><span class="nl">"Address"</span><span class="p">:</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Avenida Marechal Câmara"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"160"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"160"</span><span class="p">,</span><span class="w">    
           </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sala 934"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"ZipCode"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"22750012"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"State"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Billing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+           </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Avenida Marechal Câmara"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"160"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sala 934"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22750012"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w">
     </span><span class="p">{</span><span class="w">  
         </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"Boleto"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"INCLUIR PROVIDER"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"Bradesco2"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Teste"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"BoletoNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Assignor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Empresa Teste"</span><span class="p">,</span><span class="w">
@@ -4109,20 +3797,30 @@
         <span class="s2">"Address"</span>:
         <span class="o">{</span>
           <span class="s2">"Street"</span>: <span class="s2">"Avenida Marechal Câmara"</span>,
-          <span class="s2">"Number"</span>: <span class="s2">"160"</span>,
+          <span class="s2">"Number"</span>: <span class="s2">"160"</span>,    
           <span class="s2">"Complement"</span>: <span class="s2">"Sala 934"</span>,
           <span class="s2">"ZipCode"</span> : <span class="s2">"22750012"</span>,
           <span class="s2">"District"</span>: <span class="s2">"Centro"</span>,
           <span class="s2">"City"</span>: <span class="s2">"Rio de Janeiro"</span>,
           <span class="s2">"State"</span> : <span class="s2">"RJ"</span>,
           <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>
-        <span class="o">}</span>
+        <span class="o">}</span>,
+        <span class="s2">"Billing"</span>: <span class="o">{</span>
+           <span class="s2">"Street"</span>: <span class="s2">"Avenida Marechal Câmara"</span>,
+           <span class="s2">"Number"</span>: <span class="s2">"160"</span>,
+           <span class="s2">"Complement"</span>: <span class="s2">"Sala 934"</span>,
+           <span class="s2">"Neighborhood"</span>: <span class="s2">"Centro"</span>,
+           <span class="s2">"City"</span>: <span class="s2">"Rio de Janeiro"</span>,
+           <span class="s2">"State"</span>: <span class="s2">"RJ"</span>,
+           <span class="s2">"Country"</span>: <span class="s2">"BR"</span>,
+           <span class="s2">"ZipCode"</span>: <span class="s2">"22750012"</span>
+  <span class="o">}</span>,
     <span class="o">}</span>,
     <span class="s2">"Payment"</span>:
     <span class="o">{</span>  
         <span class="s2">"Type"</span>:<span class="s2">"Boleto"</span>,
         <span class="s2">"Amount"</span>:15700,
-        <span class="s2">"Provider"</span>:<span class="s2">"INCLUIR PROVIDER"</span>,
+        <span class="s2">"Provider"</span>:<span class="s2">"Bradesco2"</span>,
         <span class="s2">"Address"</span>: <span class="s2">"Rua Teste"</span>,
         <span class="s2">"BoletoNumber"</span>: <span class="s2">"123"</span>,
         <span class="s2">"Assignor"</span>: <span class="s2">"Empresa Teste"</span>,
@@ -4238,6 +3936,62 @@
       <td>Yes</td>
     </tr>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Billing.Street</code></td>
+      <td>string</td>
+      <td>24</td>
+      <td>No</td>
+      <td>Customer’s billing address.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Billing.Number</code></td>
+      <td>string</td>
+      <td>5</td>
+      <td>No</td>
+      <td>Customer’s billing address number.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Billing.Complement</code></td>
+      <td>string</td>
+      <td>14</td>
+      <td>No</td>
+      <td>Customer’s billing address complement.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Billing.Neighborhood</code></td>
+      <td>string</td>
+      <td>15</td>
+      <td>No</td>
+      <td>Customer’s billing address neighborhood.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Billing.City</code></td>
+      <td>string</td>
+      <td>20</td>
+      <td>No</td>
+      <td>Customer’s billing address city.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Billing.State</code></td>
+      <td>string</td>
+      <td>2</td>
+      <td>No</td>
+      <td>Customer’s billing address state.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Billing.Country</code></td>
+      <td>string</td>
+      <td>2</td>
+      <td>No</td>
+      <td>Customer’s billing address country. More information at <a href="https://www.iso.org/obp/ui" target="_blank">ISO 2-Digit Alpha Country Code</a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Billing.ZipCode</code></td>
+      <td>string</td>
+      <td>9</td>
+      <td>No</td>
+      <td>Customer’s billing address Zip Code.</td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
       <td>Type of the Payment Method.</td>
       <td>Text</td>
@@ -4310,7 +4064,9 @@
   </tbody>
 </table>
 
-<h4 id="response-8">Response</h4>
+<h4 id="response-7">Response</h4>
+
+<p>For the boleto transaction response, API E-commerce Cielo will send the boleto URL and the bar code, which the e-commerce should display to the shopper.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -4318,15 +4074,25 @@
     </span><span class="p">{</span><span class="w">
         </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador Boleto Completo"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Address"</span><span class="p">:</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-  </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Av Marechal Camara"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"160"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22750012"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Av Marechal Camara"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"160"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22750012"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"Billing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Avenida Marechal Câmara"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"160"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sala 934"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Centro"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22750012"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -4344,7 +4110,7 @@
         </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15700</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bradesco"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bradesco2"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"ExtraDataCollection"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
         </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -4366,7 +4132,25 @@
     <span class="s2">"Customer"</span>:
     <span class="o">{</span>
         <span class="s2">"Name"</span>: <span class="s2">"Comprador Boleto Completo"</span>,
-        <span class="s2">"Address"</span>: <span class="o">{}</span>
+        <span class="s2">"Address"</span>:
+        <span class="o">{</span>
+        <span class="s2">"Street"</span>: <span class="s2">"Av Marechal Camara"</span>,
+        <span class="s2">"Number"</span>: <span class="s2">"160"</span>,
+        <span class="s2">"ZipCode"</span>: <span class="s2">"22750012"</span>,
+        <span class="s2">"City"</span>: <span class="s2">"Rio de Janeiro"</span>,
+        <span class="s2">"State"</span>: <span class="s2">"RJ"</span>,
+        <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+        <span class="s2">"District"</span>: <span class="s2">"Centro"</span>
+        <span class="o">}</span>,
+      <span class="s2">"Billing"</span>: <span class="o">{</span>
+         <span class="s2">"Street"</span>: <span class="s2">"Avenida Marechal Câmara"</span>,
+         <span class="s2">"Number"</span>: <span class="s2">"160"</span>,
+         <span class="s2">"Complement"</span>: <span class="s2">"Sala 934"</span>,
+         <span class="s2">"Neighborhood"</span>: <span class="s2">"Centro"</span>,
+         <span class="s2">"City"</span>: <span class="s2">"Rio de Janeiro"</span>,
+         <span class="s2">"State"</span>: <span class="s2">"RJ"</span>,
+         <span class="s2">"Country"</span>: <span class="s2">"BR"</span>,
+         <span class="s2">"ZipCode"</span>: <span class="s2">"22750012"</span>
     <span class="o">}</span>,
     <span class="s2">"Payment"</span>:
     <span class="o">{</span>
@@ -4384,7 +4168,7 @@
         <span class="s2">"Amount"</span>: 15700,
         <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
         <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
-        <span class="s2">"Provider"</span>: <span class="s2">"Bradesco"</span>,
+        <span class="s2">"Provider"</span>: <span class="s2">"Bradesco2"</span>,
         <span class="s2">"ExtraDataCollection"</span>: <span class="o">[]</span>,
         <span class="s2">"Status"</span>: 1,
         <span class="s2">"Links"</span>: <span class="o">[</span>
@@ -4493,120 +4277,34 @@
 
 <p>Number of characters per field and Provider:</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Notes</th>
-      <th>Bradesco</th>
-      <th>Banco do Brasil</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Provider</code></td>
-      <td>N/A</td>
-      <td>Bradesco2</td>
-      <td>BancoDoBrasil2</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>NOTE 1</td>
-      <td>27</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.BoletoNumber</code></td>
-      <td>NOTE 2</td>
-      <td>11</td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>NOTE 3</td>
-      <td>34</td>
-      <td>60</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
-      <td>NOTE 4</td>
-      <td>70</td>
-      <td>NOTE 3 / See comment</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>NOTE 4</td>
-      <td>10</td>
-      <td>NOTE 3 / See comment</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
-      <td>NOTE 4</td>
-      <td>20</td>
-      <td>NOTE 3 / See comment</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
-      <td>NOTE 4</td>
-      <td>50</td>
-      <td>NOTE 3 / See comment</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
-      <td>N/A</td>
-      <td>50 - NOTE 4</td>
-      <td>18 - NOTE 3</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Instructions</code></td>
-      <td>N/A</td>
-      <td>450</td>
-      <td>450</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Demonstrative</code></td>
-      <td>N/A</td>
-      <td>255</td>
-      <td>Not sent to banco do Brasil</td>
-    </tr>
-  </tbody>
-</table>
+<p><strong>Bradesco</strong>
+|Property|Notes|Size|
+|—|—|—|
+|<code class="language-plaintext highlighter-rouge">Provider</code>|N/a|Bradesco2|
+|<code class="language-plaintext highlighter-rouge">MerchantOrderId</code>|Only letters, numbers, and characters like “_” and “$”.|27|
+|<code class="language-plaintext highlighter-rouge">Payment.BoletoNumber</code>|The value is validated by the bank.|11|
+|<code class="language-plaintext highlighter-rouge">Customer.Name</code>|The API Cielo truncates automatically.|34|
+|<code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>|The value is validated by API Cielo.|70|
+|<code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>|The value is validated by API Cielo.|10|
+|<code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>|The value is validated by API Cielo.|20|
+|<code class="language-plaintext highlighter-rouge">Customer.Address.District</code>|The value is validated by API Cielo.|50|
+|<code class="language-plaintext highlighter-rouge">Customer.Address.City</code>|The value is validated by API Cielo.|50|
+|<code class="language-plaintext highlighter-rouge">Payment.Instructions</code>|N/a|255|
+|<code class="language-plaintext highlighter-rouge">Payment.Demonstrative</code>|N/a|255|</p>
 
-<blockquote>
-  <p><strong>Banco Do Brasil Comment</strong>: The fields <code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.District</code> must total up to 60 characters.</p>
-</blockquote>
-
-<table>
-  <thead>
-    <tr>
-      <th>Notes</th>
-      <th>Bradesco</th>
-      <th>Banco do Brasil</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>NOTE 1:</strong></td>
-      <td>Only letters, numbers and characters like “_” and “$”</td>
-      <td>Not sent to the bank</td>
-    </tr>
-    <tr>
-      <td><strong>NOTE 2:</strong></td>
-      <td>The value is persisted in the bank</td>
-      <td>When sent above 9 positions, the API Cielo truncates automatically, considering the last 9 digits</td>
-    </tr>
-    <tr>
-      <td><strong>NOTE 3:</strong></td>
-      <td>The API Cielo truncates automatically</td>
-      <td><strong>Valid characters:</strong> <br /> Letters from A to Z - CAPITAL LETTERS <br /> <strong>Special characters:</strong> hyphen (-) and apostrophe (‘) <br /> When used, it can not contain spaces between letters; <br /> <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /> <strong>Incorrect examples</strong>: D’EL - REI; at most one blank space between words</td>
-    </tr>
-    <tr>
-      <td><strong>NOTE 4:</strong></td>
-      <td>The value is persisted in the API Cielo</td>
-      <td>N/A</td>
-    </tr>
-  </tbody>
-</table>
+<p><strong>Banco do Brasil</strong>
+|Property|Notes|Size|
+|—|—|—|
+|<code class="language-plaintext highlighter-rouge">Provider</code>|N/a|BancoDoBrasil2|
+|<code class="language-plaintext highlighter-rouge">MerchantOrderId</code>|Not sent to the bank.|50|
+|<code class="language-plaintext highlighter-rouge">Payment.BoletoNumber</code>|When sent above 9 positions, the API Cielo truncates automatically, considering the last 9 digits.|9|
+|<code class="language-plaintext highlighter-rouge">Customer.Name</code>|<strong>Valid characters:</strong> <br /> Letters from A to Z - CAPITAL LETTERS <br /> <strong>Special characters:</strong> hyphen (-) and apostrophe (‘) <br /> When used, it can not contain spaces between letters; <br /> <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /> <strong>Incorrect examples</strong>: D’EL - REI; at most one blank space between words.|60|
+|<code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>|<strong>Valid characters:</strong> <br /> Letters from A to Z - CAPITAL LETTERS <br /> <strong>Special characters:</strong> hyphen (-) and apostrophe (‘) <br /> When used, it can not contain spaces between letters; <br /> <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /> <strong>Incorrect examples</strong>: D’EL - REI; at most one blank space between words.| The fields <code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.District</code> should total 60 characters at maximum.|
+|<code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>|<strong>Valid characters:</strong> <br /> Letters from A to Z - CAPITAL LETTERS <br /> <strong>Special characters:</strong> hyphen (-) and apostrophe (‘) <br /> When used, it can not contain spaces between letters; <br /> <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /> <strong>Incorrect examples</strong>: D’EL - REI; at most one blank space between words.| The fields <code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.District</code> should total 60 characters at maximum.|
+|<code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>|<strong>Valid characters:</strong> <br /> Letters from A to Z - CAPITAL LETTERS <br /> <strong>Special characters:</strong> hyphen (-) and apostrophe (‘) <br /> When used, it can not contain spaces between letters; <br /> <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /> <strong>Incorrect examples</strong>: D’EL - REI; at most one blank space between words.| The fields <code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.District</code> should total 60 characters at maximum.|
+|<code class="language-plaintext highlighter-rouge">Customer.Address.District</code>|<strong>Valid characters:</strong> <br /> Letters from A to Z - CAPITAL LETTERS <br /> <strong>Special characters:</strong> hyphen (-) and apostrophe (‘) <br /> When used, it can not contain spaces between letters; <br /> <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /> <strong>Incorrect examples</strong>: D’EL - REI; at most one blank space between words.| The fields <code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.District</code> should total 60 characters at maximum.|
+|<code class="language-plaintext highlighter-rouge">Customer.Address.City</code>|<strong>Valid characters:</strong> <br /> Letters from A to Z - CAPITAL LETTERS <br /> <strong>Special characters:</strong> hyphen (-) and apostrophe (‘) <br /> When used, it can not contain spaces between letters; <br /> <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /> <strong>Incorrect examples</strong>: D’EL - REI; at most one blank space between words.|18|
+|<code class="language-plaintext highlighter-rouge">Payment.Instructions</code>|N/a|255|</p>
 
 <h2 id="api-qr-code-via-api-e-commerce">API QR Code via API E-Commerce</h2>
 
@@ -4782,7 +4480,7 @@
 
 <aside class="notice">Warning: It is not possible to carry out a transaction with its value as (`Amount`) 0.</aside>
 
-<h4 id="request-9">Request</h4>
+<h4 id="request-8">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -4899,7 +4597,7 @@
   </tbody>
 </table>
 
-<h4 id="response-9">Response</h4>
+<h4 id="response-8">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019010101"</span><span class="p">,</span><span class="w">
@@ -5025,7 +4723,7 @@
 
 <p>To consult a credit card sale, it is necessary to do a GET for the Payment feature as the example</p>
 
-<h4 id="request-10">Request</h4>
+<h4 id="request-9">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
 
@@ -5095,7 +4793,7 @@
   </tbody>
 </table>
 
-<h4 id="response-10">Response</h4>
+<h4 id="response-9">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
 </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -5410,7 +5108,7 @@ PaymentIds associated with the identifier.</p>
 
 <p>To consult a sale by store identifier, it is necessary to make a GET for the sales resource as the example.</p>
 
-<h4 id="request-11">Request</h4>
+<h4 id="request-10">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales?merchantOrderId={merchantOrderId}</span></aside>
 
@@ -5466,7 +5164,7 @@ PaymentIds associated with the identifier.</p>
   </tbody>
 </table>
 
-<h4 id="response-11">Response</h4>
+<h4 id="response-10">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -5612,7 +5310,7 @@ PaymentIds associated with the identifier.</p>
   </tbody>
 </table>
 
-<h4 id="response-12">Response</h4>
+<h4 id="response-11">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -5730,7 +5428,7 @@ PaymentIds associated with the identifier.</p>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&amp;serviceTaxAmount=xxx</span></aside>
 
-<h4 id="response-13">Response</h4>
+<h4 id="response-12">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -5924,7 +5622,7 @@ PaymentIds associated with the identifier.</p>
   </tbody>
 </table>
 
-<h4 id="response-14">Response</h4>
+<h4 id="response-13">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -6049,7 +5747,7 @@ PaymentIds associated with the identifier.</p>
 
 <p>Like any e-commerce debit transaction, Carnê transactions need to be authenticated via the 3DS 2.0 protocol. More information regarding the authentication protocol can be obtained <a href="https://developercielo.github.io/manual/3ds#autentica%C3%A7%C3%A3o-3ds-2.0"><strong>click here</strong></a>.</p>
 
-<h3 id="request-12">Request</h3>
+<h3 id="request-11">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -6112,7 +5810,7 @@ PaymentIds associated with the identifier.</p>
 
 <p>The new fields are contained within the Payment Facilitator node. In addition to the fields of this new node, facilitators will also have to send the softdescriptor field of the payment node. Below is an example of sending and reply.</p>
 
-<h4 id="request-13">Request</h4>
+<h4 id="request-12">Request</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2222222222"</span><span class="p">,</span><span class="w">
@@ -6273,7 +5971,7 @@ PaymentIds associated with the identifier.</p>
 
 <aside class="warning">Attention: Fields mustn't be sent with spacing to the left. Subject to rejection in the settlement of transactions.</aside>
 
-<h4 id="response-15">Response</h4>
+<h4 id="response-14">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111701"</span><span class="p">,</span><span class="w">
@@ -6464,7 +6162,7 @@ PaymentIds associated with the identifier.</p>
 
 <p>Establishments that operate with this service must be registered with Visa and to operate as such, they must send some additional information through messenger, which is required by the brand. See below:</p>
 
-<h4 id="request-14">Request</h4>
+<h4 id="request-13">Request</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"merchantorderid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456ABCD1234"</span><span class="p">,</span><span class="w">
@@ -6571,7 +6269,7 @@ PaymentIds associated with the identifier.</p>
 
 <aside class="notice">Only transactions sent on the last three months are eligible for queries</aside>
 
-<h4 id="request-15">Request</h4>
+<h4 id="request-14">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
 
@@ -6641,7 +6339,7 @@ PaymentIds associated with the identifier.</p>
   </tbody>
 </table>
 
-<h4 id="response-16">Response</h4>
+<h4 id="response-15">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
 </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -6955,7 +6653,7 @@ PaymentIds associated with the identifier.</p>
 
 <p>To check a sale by store identifier, you need to make a GET for the sales feature as the example.</p>
 
-<h4 id="request-16">Request</h4>
+<h4 id="request-15">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales?merchantOrderId={merchantOrderId}</span></aside>
 
@@ -7011,7 +6709,7 @@ PaymentIds associated with the identifier.</p>
   </tbody>
 </table>
 
-<h4 id="response-17">Response</h4>
+<h4 id="response-16">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -7071,7 +6769,7 @@ PaymentIds associated with the identifier.</p>
 
 <p><strong>The Recurrence Query brings data about the scheduling and transaction process that are repeated. They do not return data about transactions itself. To do this, a <code class="language-plaintext highlighter-rouge">GET</code> must be performed in the transaction (Available in” Consulting sales)</strong></p>
 
-<h4 id="request-17">Request</h4>
+<h4 id="request-16">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}</span></aside>
 
@@ -7127,7 +6825,7 @@ PaymentIds associated with the identifier.</p>
   </tbody>
 </table>
 
-<h4 id="response-18">Response</h4>
+<h4 id="response-17">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -7349,7 +7047,7 @@ PaymentIds associated with the identifier.</p>
 
 <p>To capture a sale that uses a credit card, it is necessary to do a PUT for the Payment feature as the example.</p>
 
-<h4 id="request-18">Request</h4>
+<h4 id="request-17">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/capture</span></aside>
 
@@ -7423,7 +7121,7 @@ PaymentIds associated with the identifier.</p>
   </tbody>
 </table>
 
-<h4 id="response-19">Response</h4>
+<h4 id="response-18">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -7611,7 +7309,7 @@ PaymentIds associated with the identifier.</p>
   </tbody>
 </table>
 
-<h4 id="response-20">Response</h4>
+<h4 id="response-19">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -7722,7 +7420,7 @@ PaymentIds associated with the identifier.</p>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&amp;serviceTaxAmount=xxx</span></aside>
 
-<h4 id="response-21">Response</h4>
+<h4 id="response-20">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -7870,7 +7568,7 @@ PaymentIds associated with the identifier.</p>
 
 <aside class="notice">Warning: Cancellation by MerchantOrderId always affects the newest transaction, i.e. if there are orders with duplicate order number, only the most current one will be canceled. The previous order can not be canceled by this method</aside>
 
-<h4 id="request-19">Request</h4>
+<h4 id="request-18">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=xxx</span></aside>
 
@@ -7936,7 +7634,7 @@ PaymentIds associated with the identifier.</p>
   </tbody>
 </table>
 
-<h4 id="response-22">Response</h4>
+<h4 id="response-21">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -8103,7 +7801,7 @@ PaymentIds associated with the identifier.</p>
   </tbody>
 </table>
 
-<h4 id="response-23">Response</h4>
+<h4 id="response-22">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -8929,7 +8627,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>The <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> parameter must be <code class="language-plaintext highlighter-rouge">true</code>, otherwise the transaction will be declined.</p>
 
-<h4 id="request-20">Request</h4>
+<h4 id="request-19">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -9106,7 +8804,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h4 id="response-24">Response</h4>
+<h4 id="response-23">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -9357,7 +9055,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <aside class="notice">Warning: In this recurrence mode, the first transaction must be of captured. All subsequent transactions will be automatically captured.</aside>
 
-<h4 id="request-21">Request</h4>
+<h4 id="request-20">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -9556,7 +9254,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h4 id="response-25">Response</h4>
+<h4 id="response-24">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -9745,7 +9443,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>To create a recurring sale whose first recurrence will not be authorized on the same date with the form of payment as credit card, just do a POST as the example.</p>
 
-<h3 id="request-22">Request</h3>
+<h3 id="request-21">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -10002,7 +9700,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h3 id="response-26">Response</h3>
+<h3 id="response-25">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -10156,7 +9854,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>To change the Recurrence buyer’s data, just do a Put as the example.</p>
 
-<h4 id="request-23">Request</h4>
+<h4 id="request-22">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
@@ -10420,7 +10118,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h4 id="response-27">Response</h4>
+<h4 id="response-26">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -10431,7 +10129,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>To change the end date of the Recurrence, just do a Put as the example.</p>
 
-<h4 id="request-24">Request</h4>
+<h4 id="request-23">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
@@ -10498,7 +10196,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h4 id="response-28">Response</h4>
+<h4 id="response-27">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -10509,7 +10207,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>To change the Recurrence Interval, just do a Put according to the example.</p>
 
-<h4 id="request-25">Request</h4>
+<h4 id="request-24">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
@@ -10576,7 +10274,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h4 id="response-29">Response</h4>
+<h4 id="response-28">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -10589,7 +10287,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <aside class="notice">Rule: If the new day informed is after the current day, we will update the recurrence day with effect on the next recurrence. E.g.: Today is day 5, and the next recurrence is day 05/25. When I upgrade to day 10, the date of the next recurrence will be day 05/10. If the new day reported is before the current day, we will update the recurrence day, but this will only take effect after the next recurrence is successfully performed. E.g.: Today is day 5, and the next recurrence is day 05/25. When I upgrade to day 3, the date of the next recurrence will remain on 05/25, and after it performs, the next one will be scheduled for day 06/03. If the new informed day is before the current day, but the next recurrence is in another month, we will update the recurrence day with effect on the next recurrence. E.g.: Today is day 5, and the next recurrence is day 09/25. When I upgrade to day 3, the next recurrence date will be 09/03</aside>
 
-<h4 id="request-26">Request</h4>
+<h4 id="request-25">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
@@ -10656,7 +10354,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h4 id="response-30">Response</h4>
+<h4 id="response-29">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -10667,7 +10365,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>To modify the value of the recurrence, just do a Put as example.</p>
 
-<h4 id="request-27">Request</h4>
+<h4 id="request-26">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Amount</span></aside>
 
@@ -10736,7 +10434,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <aside class="warning">This change only affects the payment date of the next recurrence.</aside>
 
-<h4 id="response-31">Response</h4>
+<h4 id="response-30">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -10747,7 +10445,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>To change the date of the next Payment, just do a Put as the example.</p>
 
-<h4 id="request-28">Request</h4>
+<h4 id="request-27">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
 
@@ -10814,7 +10512,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h4 id="response-32">Response</h4>
+<h4 id="response-31">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -10827,7 +10525,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <aside class="notice">Warning: This change affects all data in the Payment node. So to keep the previous data you must inform the fields that will not change with the same values that were already saved.</aside>
 
-<h4 id="request-29">Request</h4>
+<h4 id="request-28">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -10976,7 +10674,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
   </tbody>
 </table>
 
-<h4 id="response-33">Response</h4>
+<h4 id="response-32">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -10987,12 +10685,79 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>To disable a recurrent order, just do a Put as the example.</p>
 
-<h4 id="request-30">Request</h4>
+<h4 id="request-29">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Deactivate</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
 <span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Deactivate"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Store identifier in API Cielo eCommerce.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
+      <td>Text</td>
+      <td>40</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Recurrence identification number.</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="response-33">Response</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
+</code></pre></div></div>
+
+<p>See the Annex <a href="#http-status-code">HTTP Status Code</a> to the list with all HTTP status codes possibly returned by the API.</p>
+
+<h3 id="rehabilitating-a-recurrent-order">Rehabilitating a Recurrent Order</h3>
+
+<p>To Rehabilitate a recurring order, just do a Put as the example.</p>
+
+<h4 id="request-30">Request</h4>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
@@ -11050,73 +10815,6 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p>See the Annex <a href="#http-status-code">HTTP Status Code</a> to the list with all HTTP status codes possibly returned by the API.</p>
 
-<h3 id="rehabilitating-a-recurrent-order">Rehabilitating a Recurrent Order</h3>
-
-<p>To Rehabilitate a recurring order, just do a Put as the example.</p>
-
-<h4 id="request-31">Request</h4>
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate"</span>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="nt">--verbose</span>
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Required</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier in API Cielo eCommerce.</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
-      <td>Text</td>
-      <td>40</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
-      <td>Recurrence identification number.</td>
-      <td>Text</td>
-      <td>50</td>
-      <td>Yes</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="response-35">Response</h4>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
-</code></pre></div></div>
-
-<p>See the Annex <a href="#http-status-code">HTTP Status Code</a> to the list with all HTTP status codes possibly returned by the API.</p>
-
 <h2 id="renew-easy">Renew easy</h2>
 
 <p>The use of this feature allows the automatic replacement of an expired card .
@@ -11124,7 +10822,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 <aside class="notice">Warning: It is necessary to request enabling this feature in the register  </aside>
 
-<h3 id="request-32">Request</h3>
+<h3 id="request-31">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -11330,7 +11028,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-36">Response</h3>
+<h3 id="response-35">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -11607,7 +11305,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 <p>To save a card without authorizing it, just perform a post with the card data.</p>
 
-<h3 id="request-33">Request</h3>
+<h3 id="request-32">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/card/</span></aside>
 
@@ -11686,7 +11384,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-37">Response</h3>
+<h3 id="response-36">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"CardToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"db62dc71-d07b-4745-9969-42697b988ccb"</span><span class="p">,</span><span class="w">
@@ -11734,7 +11432,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 <p>To save a card by creating its token, just send a sales creation standard request by sending SaveCard as “true”. The response will return the card Token.</p>
 
-<h3 id="request-34">Request</h3>
+<h3 id="request-33">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -12136,7 +11834,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-38">Response</h3>
+<h3 id="response-37">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -12396,7 +12094,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 <p>Check below the fields to be sent in the transaction if the option chosen is the integration from the outside:</p>
 
-<h3 id="request-35">Request</h3>
+<h3 id="request-34">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -12807,7 +12505,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-39">Response</h3>
+<h3 id="response-38">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -13040,7 +12738,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 <p>To create a credit card sale with protected card token, it is necessary to do a POST for the Payment feature as the example.</p>
 
-<h3 id="request-36">Request</h3>
+<h3 id="request-35">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -13202,7 +12900,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-40">Response</h3>
+<h3 id="response-39">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -13405,7 +13103,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="request-37">Request</h3>
+<h3 id="request-36">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -13542,7 +13240,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
   </tbody>
 </table>
 
-<h3 id="response-41">Response</h3>
+<h3 id="response-40">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -13788,7 +13486,7 @@ The Submersible can use the bin checker in the cart to alert international buyer
 
 <h2 id="integration-1">Integration</h2>
 
-<h3 id="request-38">Request</h3>
+<h3 id="request-37">Request</h3>
 
 <p>A <code class="language-plaintext highlighter-rouge">GET</code> request must be sent containing the BIN to be checked:</p>
 
@@ -13812,7 +13510,7 @@ The Submersible can use the bin checker in the cart to alert international buyer
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">https://apiquerysandbox.cieloecommerce.cielo.com.br/</span><span class="mi">1</span><span class="err">/cardBin/</span><span class="mi">420020</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="response-42">Response</h3>
+<h3 id="response-41">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
@@ -13968,7 +13666,7 @@ The problem is that at the end of this period, if the card is invalid, the new r
 
 <p>Each type of validation requires a different technical contract. They will result in differentiated responses</p>
 
-<h3 id="request-39">Request</h3>
+<h3 id="request-38">Request</h3>
 
 <h4 id="standard">Standard</h4>
 
@@ -14111,7 +13809,7 @@ The problem is that at the end of this period, if the card is invalid, the new r
   </tbody>
 </table>
 
-<h3 id="response-43">Response</h3>
+<h3 id="response-42">Response</h3>
 
 <p>The response always returns if the card can be authorized at the moment. This information only means that <em>the card is valid to transact</em>, but does not necessarily indicate that a certain value will be authorized.</p>
 
@@ -14288,7 +13986,7 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
   </ul>
 </blockquote>
 
-<h4 id="request-40">Request</h4>
+<h4 id="request-39">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
@@ -14325,7 +14023,7 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
   </tbody>
 </table>
 
-<h4 id="response-44">Response</h4>
+<h4 id="response-43">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw"</span><span class="p">,</span><span class="w">
@@ -14387,7 +14085,7 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
   </tbody>
 </table>
 
-<h4 id="request-41">Request</h4>
+<h4 id="request-40">Request</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://transactionsandbox.pagador.com.br/post/api/public/v2/accesstoken"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
@@ -14425,7 +14123,7 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
   </tbody>
 </table>
 
-<h4 id="response-45">Response</h4>
+<h4 id="response-44">Response</h4>
 
 <p>As a response, you will receive a JSON (“HTTP 201 Created”) with the SOP AccessToken and some other data.</p>
 
@@ -14618,7 +14316,7 @@ The download can be made from the following URL:</p>
 
 <p>Example: https://transaction.cieloecommerce.cielo.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000</p>
 
-<h3 id="request-42">Request</h3>
+<h3 id="request-41">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v1/accesstoken?merchantid={mid_loja}</span></aside>
 
@@ -14650,7 +14348,7 @@ The download can be made from the following URL:</p>
   </tbody>
 </table>
 
-<h3 id="response-46">Response</h3>
+<h3 id="response-45">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
@@ -14835,7 +14533,7 @@ Each Wallet has an <code class="language-plaintext highlighter-rouge">EphemeralP
 
 <h3 id="decryption">Decryption</h3>
 
-<h4 id="request-43">Request</h4>
+<h4 id="request-42">Request</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--</span><span class="w"> </span><span class="err">Decryption</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -14988,7 +14686,7 @@ Each Wallet has an <code class="language-plaintext highlighter-rouge">EphemeralP
   </tbody>
 </table>
 
-<h4 id="response-47">Response</h4>
+<h4 id="response-46">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -15159,7 +14857,7 @@ Each Wallet has an <code class="language-plaintext highlighter-rouge">EphemeralP
 
 <h3 id="sending-the-card">Sending the card</h3>
 
-<h4 id="request-44">Request</h4>
+<h4 id="request-43">Request</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--</span><span class="w"> </span><span class="err">Sending</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">card</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -15316,7 +15014,7 @@ Each Wallet has an <code class="language-plaintext highlighter-rouge">EphemeralP
   </tbody>
 </table>
 
-<h4 id="response-48">Response</h4>
+<h4 id="response-47">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -15531,7 +15229,7 @@ VKeU<br />
 
 <p>In the model below, we demonstrate how to use the Apple Pay Cielo integration by sending the WalletKey + EphemeralPublicKey returned by Apple via Payload</p>
 
-<h4 id="request-45">Request</h4>
+<h4 id="request-44">Request</h4>
 
 <p>Request Sample <em>Apple Pay</em></p>
 
@@ -15689,7 +15387,7 @@ VKeU<br />
   </tbody>
 </table>
 
-<h4 id="response-49">Response</h4>
+<h4 id="response-48">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -15862,7 +15560,7 @@ VKeU<br />
 
 <p>In the model below, we demonstrate how Apple Pay can be used with sending the card open, without the need for WalletKey.</p>
 
-<h4 id="request-46">Request</h4>
+<h4 id="request-45">Request</h4>
 
 <p>In this model, the merchant only informs that the transaction is from an Apple Pay Wallet and sends the ECI and CAVV data provided by APPLE</p>
 
@@ -16028,7 +15726,7 @@ VKeU<br />
   </tbody>
 </table>
 
-<h4 id="response-50">Response</h4>
+<h4 id="response-49">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6242-642-723"</span><span class="p">,</span><span class="w">
@@ -16218,7 +15916,7 @@ VKeU<br />
   <p><code class="language-plaintext highlighter-rouge">Walletkey</code> is the <code class="language-plaintext highlighter-rouge">CallID</code> parameter returned by VisaCheckout</p>
 </blockquote>
 
-<h4 id="request-47">Request</h4>
+<h4 id="request-46">Request</h4>
 
 <p>Default request sample <em>VisaCheckout</em></p>
 
@@ -16385,7 +16083,7 @@ VKeU<br />
   </tbody>
 </table>
 
-<h4 id="response-51">Response</h4>
+<h4 id="response-50">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
@@ -16571,7 +16269,7 @@ VKeU<br />
 
 <p>In the model below, we demonstrate how VisaCheckout can be used with the sending of the open card without a WalletKey.</p>
 
-<h4 id="request-48">Request</h4>
+<h4 id="request-47">Request</h4>
 
 <p>In this model, the merchant only informs that the transaction is from Wallet VisaCheckout and sends the ECI and CAVV data provided by Visa</p>
 
@@ -16768,7 +16466,7 @@ VKeU<br />
   </tbody>
 </table>
 
-<h4 id="response-52">Response</h4>
+<h4 id="response-51">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
@@ -16969,7 +16667,7 @@ VKeU<br />
 
 <p>To use the wallet <a href="https://developer.mastercard.com/product/masterpass"><strong>Masterpass</strong></a> it is necessary that the store is already registered with Mastercard, and integrated the search of card data of the platform.</p>
 
-<h4 id="request-49">Request</h4>
+<h4 id="request-48">Request</h4>
 
 <p>Request Sample <em>Masterpass</em></p>
 
@@ -17149,7 +16847,7 @@ VKeU<br />
   </tbody>
 </table>
 
-<h4 id="response-53">Response</h4>
+<h4 id="response-52">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
@@ -17388,7 +17086,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br />
 
 <p>In the model below, we demonstrate how to use the SamsungPay Cielo integration by sending the WalletKey + EphemeralPublicKey returned by Samsung via Payload</p>
 
-<h4 id="request-50">Request</h4>
+<h4 id="request-49">Request</h4>
 
 <p>Request Sample <em>SamsungPay</em></p>
 
@@ -17546,7 +17244,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br />
   </tbody>
 </table>
 
-<h4 id="response-54">Response</h4>
+<h4 id="response-53">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
@@ -17716,7 +17414,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br />
 
 <p>In the model below, we demonstrate how SamsungPay can be used with sending the card open, without the need for WalletKey.</p>
 
-<h4 id="request-51">Request</h4>
+<h4 id="request-50">Request</h4>
 
 <p>In this model, the merchant only informs that the transaction is from an SamsungPay and sends the ECI and CAVV data provided by Samsung</p>
 
@@ -17882,7 +17580,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br />
   </tbody>
 </table>
 
-<h4 id="response-55">Response</h4>
+<h4 id="response-54">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6242-642-723"</span><span class="p">,</span><span class="w">
