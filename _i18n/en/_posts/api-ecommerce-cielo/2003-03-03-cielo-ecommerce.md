@@ -1912,181 +1912,13 @@ If your store needs to cancel a pix transaction, it's possible to ask for a **re
 |`ReasonCode`|Acquirer return code. |Text |32 |Alphanumeric text|
 |`ReasonMessage`|Acquirer return message. |Text |512 |Alphanumeric text|
 
-## Electronic Transfer
+## Boleto
 
-### Creating a simple transaction
+### Creating a Boleto sale
 
-To create an electronic transfer sale, it is necessary to make a POST for the Payment feature as shown. This example includes the minimum number of fields required to be sent for authorization.
+To make a Boleto transaction, you first need to hire this service at the bank. After you do that, you need to set it up according to our [Boleto guide](https://developercielo.github.io/tutorial/manual-boleto){:target="_blank"}.
 
-#### Request
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-```json
-{  
-    "MerchantOrderId":"2017051109",
-    "Customer":
-    {  
-        "Name":"Nome do Comprador",
-        "Identity": "12345678909",
-        "IdentityType": "CPF",
-        "Email": "comprador@cielo.com.br",
-        "Address":
-        {
-             "Street":"Alameda Xingu",
-             "Number":"512",
-             "Complement":"27 andar",
-             "ZipCode":"12345987",
-             "City":"São Paulo",
-             "State":"SP",
-             "Country":"BRA",
-             "District":"Alphaville"
-         }
-  },
-    "Payment":
-    {  
-        "Provider":"Bradesco",
-        "Type":"EletronicTransfer",
-        "Amount":10000,
-        "ReturnUrl":"http://www.cielo.com.br"
-    }
-}
-```
-
-```shell
-curl
---request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{  
-    "MerchantOrderId":"2017051109",
-    "Customer":
-    {  
-        "Name":"Nome do Comprador",
-        "Identity": "12345678909",
-        "IdentityType": "CPF",
-        "Email": "comprador@cielo.com.br",
-        "Address":
-        {
-             "Street":"Alameda Xingu",
-             "Number":"512",
-             "Complement":"27 andar",
-             "ZipCode":"12345987",
-             "City":"São Paulo",
-             "State":"SP",
-             "Country":"BRA",
-             "District":"Alphaville"
-         }
-  },
-    "Payment":
-    {  
-        "Provider":"Bradesco",
-        "Type":"EletronicTransfer",
-        "Amount":10000,
-        "ReturnUrl":"http://www.cielo.com.br"
-    }
-}
---verbose
-```
-
-|Property|Description|Type|Size|Required|
-|---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
-|`MerchantOrderId`|Order ID number.|Text|50|Yes|
-|`Customer.Name`|Buyer's name.|Text|255|No|
-|`Customer.Identity`|Buyer's RG, CPF or CNPJ number|14|Yes|Text|
-|`Customer.IdentityType`|Type of identification document of the buyer (CPF or CNPJ)|255|No|Text|
-|`Customer.Status`|Buyer registration status in store (NEW / EXISTING) - Used by fraud analysis|Text|255|No|
-|`Customer.Email`|Buyer's e-mail|255|No|Text|
-|`Customer.Address.Street`|Buyer's contact address|255|No|Text|
-|`Customer.Address.Number`|Buyer's contact address number|15|No|Text|
-|`Customer.Address.Complement`|Buyer's contact address add-on|50|No|Text|
-|`Customer.Address.ZipCode`|Buyer's contact address ZIP Code|9|No|Text|
-|`Customer.Address.City`|Buyer's contact address city|50|No|Text|
-|`Customer.Address.State`|Buyer's contact address state|2|No|Text|
-|`Customer.Address.Country`|Buyer's contact address country|35|No|Text|
-|`Customer.Address.District`|Buyer's contact address neighborhood|35|No|Text|
-|`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
-|`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
-|`Payment.Provider`|Defines behavior of the payment method ([See Annex](https://developercielo.github.io/Webservice-3.0/#anexos))/NOT REQUIRED FOR CREDIT.|Text|15|---|
-
-#### Response
-
-```json
-{
-    "MerchantOrderId": "2014111706",
-    "Customer": {
-        "Name": "Comprador Transferência Eletronica",
-    },
-    "Payment": {
-        "Url": "https://xxx.xxxxxxx.xxx.xx/post/EletronicTransfer/Redirect/{PaymentId}",
-        "PaymentId": "765548b6-c4b8-4e2c-b9b9-6458dbd5da0a",
-        "Type": "EletronicTransfer",
-        "Amount": 15700,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "Bradesco",
-        "ExtraDataCollection": [],
-        "Status": 0,
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            }
-        ]
-    }
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "MerchantOrderId": "2014111706",
-    "Customer": {
-        "Name": "Comprador Transferência Eletronica",
-    },
-    "Payment": {
-        "Url": "https://xxx.xxxxxxx.xxx.xx/post/EletronicTransfer/Redirect/{PaymentId}",
-        "PaymentId": "765548b6-c4b8-4e2c-b9b9-6458dbd5da0a",
-        "Type": "EletronicTransfer",
-        "Amount": 15700,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "Provider": "Bradesco",
-        "ExtraDataCollection": [],
-        "Status": 0,
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            }
-        ]
-    }
-}
-```
-
-|Property|Description|Type|Size|Format|
-|---|---|---|---|---|
-|`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Url`|URL to which the Merchant must redirect the Customer to the Electronic Transfer flow.|Text|256|Authentication Url|
-|`Status`|Transaction Status.|Byte|---|0|
-
-## Bank slip
-
-### Creating a Bank slip sale
-
-To create a sale whose form of payment is bank slip, just do a POST as the example.
-
-**NOTE:** The API supports registered and unregistered bank slips, with the provider being the differentiator between them. We suggest that you validate with your bank what type of bank slip that is supported by your wallet. The API only accepts **Bradesco** and **Banco do Brasil** bank slips
+> Banco do Brasil boletos don't have the automatic conciliation service.
 
 #### Request
 
@@ -2102,20 +1934,30 @@ To create a sale whose form of payment is bank slip, just do a POST as the examp
         "Address":
         {
           "Street": "Avenida Marechal Câmara",
-          "Number": "160",
+          "Number": "160",    
           "Complement": "Sala 934",
           "ZipCode" : "22750012",
           "District": "Centro",
           "City": "Rio de Janeiro",
           "State" : "RJ",
           "Country": "BRA"
-        }
+        },
+        "Billing": {
+           "Street": "Avenida Marechal Câmara",
+           "Number": "160",
+           "Complement": "Sala 934",
+           "Neighborhood": "Centro",
+           "City": "Rio de Janeiro",
+           "State": "RJ",
+           "Country": "BR",
+           "ZipCode": "22750012"
+  },
     },
     "Payment":
     {  
         "Type":"Boleto",
         "Amount":15700,
-        "Provider":"INCLUIR PROVIDER",
+        "Provider":"Bradesco2",
         "Address": "Rua Teste",
         "BoletoNumber": "123",
         "Assignor": "Empresa Teste",
@@ -2144,20 +1986,30 @@ curl
         "Address":
         {
           "Street": "Avenida Marechal Câmara",
-          "Number": "160",
+          "Number": "160",    
           "Complement": "Sala 934",
           "ZipCode" : "22750012",
           "District": "Centro",
           "City": "Rio de Janeiro",
           "State" : "RJ",
           "Country": "BRA"
-        }
+        },
+        "Billing": {
+           "Street": "Avenida Marechal Câmara",
+           "Number": "160",
+           "Complement": "Sala 934",
+           "Neighborhood": "Centro",
+           "City": "Rio de Janeiro",
+           "State": "RJ",
+           "Country": "BR",
+           "ZipCode": "22750012"
+  },
     },
     "Payment":
     {  
         "Type":"Boleto",
         "Amount":15700,
-        "Provider":"INCLUIR PROVIDER",
+        "Provider":"Bradesco2",
         "Address": "Rua Teste",
         "BoletoNumber": "123",
         "Assignor": "Empresa Teste",
@@ -2185,6 +2037,14 @@ curl
 |`Customer.Address.District`|Buyer's neighborhood.|Text|50|Yes|
 |`Customer.Address.Street`|Buyer's address.|Text|255|Yes|
 |`Customer.Address.Number`|Buyer's address number.|Text|15|Yes|
+|`Customer.Billing.Street`|string|24|No|Customer's billing address.|
+|`Customer.Billing.Number`|string|5|No|Customer's billing address number.|
+|`Customer.Billing.Complement`|string|14|No|Customer's billing address complement.|
+|`Customer.Billing.Neighborhood`|string|15|No|Customer's billing address neighborhood.|
+|`Customer.Billing.City`|string|20|No |Customer's billing address city.|
+|`Customer.Billing.State`|string|2|No|Customer's billing address state.|
+|`Customer.Billing.Country`|string|2|No|Customer's billing address country. More information at [ISO 2-Digit Alpha Country Code](https://www.iso.org/obp/ui){:target="_blank"}|
+|`Customer.Billing.ZipCode`|string|9|No|Customer's billing address Zip Code.|
 |`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
 |`Payment.Provider`|Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.|Text|15|Yes|
@@ -2198,6 +2058,8 @@ curl
 
 #### Response
 
+For the boleto transaction response, API E-commerce Cielo will send the boleto URL and the bar code, which the e-commerce should display to the shopper.
+
 ```json
 {
     "MerchantOrderId": "2014111706",
@@ -2205,15 +2067,25 @@ curl
     {
         "Name": "Comprador Boleto Completo",
         "Address":
-  {
-  "Street": "Av Marechal Camara",
-  "Number": "160",
-  "ZipCode": "22750012",
-  "City": "Rio de Janeiro",
-  "State": "RJ",
-  "Country": "BRA",
-  "District": "Centro"
-  }
+        {
+        "Street": "Av Marechal Camara",
+        "Number": "160",
+        "ZipCode": "22750012",
+        "City": "Rio de Janeiro",
+        "State": "RJ",
+        "Country": "BRA",
+        "District": "Centro"
+        },
+      "Billing": {
+         "Street": "Avenida Marechal Câmara",
+         "Number": "160",
+         "Complement": "Sala 934",
+         "Neighborhood": "Centro",
+         "City": "Rio de Janeiro",
+         "State": "RJ",
+         "Country": "BR",
+         "ZipCode": "22750012"
+  },
     },
     "Payment":
     {
@@ -2231,7 +2103,7 @@ curl
         "Amount": 15700,
         "Currency": "BRL",
         "Country": "BRA",
-        "Provider": "Bradesco",
+        "Provider": "Bradesco2",
         "ExtraDataCollection": [],
         "Status": 1,
         "Links": [
@@ -2254,7 +2126,25 @@ curl
     "Customer":
     {
         "Name": "Comprador Boleto Completo",
-        "Address": {}
+        "Address":
+        {
+        "Street": "Av Marechal Camara",
+        "Number": "160",
+        "ZipCode": "22750012",
+        "City": "Rio de Janeiro",
+        "State": "RJ",
+        "Country": "BRA",
+        "District": "Centro"
+        },
+      "Billing": {
+         "Street": "Avenida Marechal Câmara",
+         "Number": "160",
+         "Complement": "Sala 934",
+         "Neighborhood": "Centro",
+         "City": "Rio de Janeiro",
+         "State": "RJ",
+         "Country": "BR",
+         "ZipCode": "22750012"
     },
     "Payment":
     {
@@ -2272,7 +2162,7 @@ curl
         "Amount": 15700,
         "Currency": "BRL",
         "Country": "BRA",
-        "Provider": "Bradesco",
+        "Provider": "Bradesco2",
         "ExtraDataCollection": [],
         "Status": 1,
         "Links": [
@@ -2304,28 +2194,34 @@ curl
 
 Number of characters per field and Provider:
 
-|Property|Notes|Bradesco|Banco do Brasil|
-|---|---|---|---|
-|`Provider`|N/A|Bradesco2|BancoDoBrasil2|
-|`MerchantOrderId`|NOTE 1|27|50|
-|`Payment.BoletoNumber`|NOTE 2|11|9|
-|`Customer.Name`|NOTE 3|34|60|
-|`Customer.Address.Street`|NOTE 4|70|NOTE 3 / See comment|
-|`Customer.Address.Number`|NOTE 4|10|NOTE 3 / See comment|
-|`Customer.Address.Complement`|NOTE 4|20|NOTE 3 / See comment|
-|`Customer.Address.District`|NOTE 4|50|NOTE 3 / See comment|
-|`Customer.Address.City`|N/A|50 - NOTE 4|18 - NOTE 3|
-|`Payment.Instructions`|N/A|450|450|
-|`Payment.Demonstrative`|N/A|255|Not sent to banco do Brasil|
-
-> **Banco Do Brasil Comment**: The fields `Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District` must total up to 60 characters.
-
-|Notes|Bradesco|Banco do Brasil|
+**Bradesco**
+|Property|Notes|Size|
 |---|---|---|
-|**NOTE 1:**|Only letters, numbers and characters like "_" and "$"|Not sent to the bank|
-|**NOTE 2:**|The value is persisted in the bank|When sent above 9 positions, the API Cielo truncates automatically, considering the last 9 digits|
-|**NOTE 3:**|The API Cielo truncates automatically|**Valid characters:** <br> Letters from A to Z - CAPITAL LETTERS <br> **Special characters:** hyphen (-) and apostrophe (') <br> When used, it can not contain spaces between letters; <br><br> **Correct examples**: D'EL-REI, D'ALCORTIVO, SANT'ANA.<br> **Incorrect examples**: D'EL - REI; at most one blank space between words|
-|**NOTE 4:**|The value is persisted in the API Cielo|N/A|
+|`Provider`|N/a|Bradesco2|
+|`MerchantOrderId`|Only letters, numbers, and characters like "_" and "$".|27|
+|`Payment.BoletoNumber`|The value is validated by the bank.|11|
+|`Customer.Name`|The API Cielo truncates automatically.|34|
+|`Customer.Address.Street`|The value is validated by API Cielo.|70|
+|`Customer.Address.Number`|The value is validated by API Cielo.|10|
+|`Customer.Address.Complement`|The value is validated by API Cielo.|20|
+|`Customer.Address.District`|The value is validated by API Cielo.|50|
+|`Customer.Address.City`|The value is validated by API Cielo.|50|
+|`Payment.Instructions`|N/a|255|
+|`Payment.Demonstrative`|N/a|255|
+
+**Banco do Brasil**
+|Property|Notes|Size|
+|---|---|---|
+|`Provider`|N/a|BancoDoBrasil2|
+|`MerchantOrderId`|Not sent to the bank.|50|
+|`Payment.BoletoNumber`|When sent above 9 positions, the API Cielo truncates automatically, considering the last 9 digits.|9|
+|`Customer.Name`|**Valid characters:** <br> Letters from A to Z - CAPITAL LETTERS <br> **Special characters:** hyphen (-) and apostrophe (') <br> When used, it can not contain spaces between letters; <br><br> **Correct examples**: D'EL-REI, D'ALCORTIVO, SANT'ANA.<br> **Incorrect examples**: D'EL - REI; at most one blank space between words.|60|
+|`Customer.Address.Street`|**Valid characters:** <br> Letters from A to Z - CAPITAL LETTERS <br> **Special characters:** hyphen (-) and apostrophe (') <br> When used, it can not contain spaces between letters; <br><br> **Correct examples**: D'EL-REI, D'ALCORTIVO, SANT'ANA.<br> **Incorrect examples**: D'EL - REI; at most one blank space between words.| The fields `Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District` should total 60 characters at maximum.|
+|`Customer.Address.Number`|**Valid characters:** <br> Letters from A to Z - CAPITAL LETTERS <br> **Special characters:** hyphen (-) and apostrophe (') <br> When used, it can not contain spaces between letters; <br><br> **Correct examples**: D'EL-REI, D'ALCORTIVO, SANT'ANA.<br> **Incorrect examples**: D'EL - REI; at most one blank space between words.| The fields `Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District` should total 60 characters at maximum.|
+|`Customer.Address.Complement`|**Valid characters:** <br> Letters from A to Z - CAPITAL LETTERS <br> **Special characters:** hyphen (-) and apostrophe (') <br> When used, it can not contain spaces between letters; <br><br> **Correct examples**: D'EL-REI, D'ALCORTIVO, SANT'ANA.<br> **Incorrect examples**: D'EL - REI; at most one blank space between words.| The fields `Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District` should total 60 characters at maximum.|
+|`Customer.Address.District`|**Valid characters:** <br> Letters from A to Z - CAPITAL LETTERS <br> **Special characters:** hyphen (-) and apostrophe (') <br> When used, it can not contain spaces between letters; <br><br> **Correct examples**: D'EL-REI, D'ALCORTIVO, SANT'ANA.<br> **Incorrect examples**: D'EL - REI; at most one blank space between words.| The fields `Customer.Address.Street`; `Customer.Address.Number`; `Customer.Address.Complement`; `Customer.Address.District` should total 60 characters at maximum.|
+|`Customer.Address.City`|**Valid characters:** <br> Letters from A to Z - CAPITAL LETTERS <br> **Special characters:** hyphen (-) and apostrophe (') <br> When used, it can not contain spaces between letters; <br><br> **Correct examples**: D'EL-REI, D'ALCORTIVO, SANT'ANA.<br> **Incorrect examples**: D'EL - REI; at most one blank space between words.|18|
+|`Payment.Instructions`|N/a|255|
 
 ## API QR Code via API E-Commerce
 
