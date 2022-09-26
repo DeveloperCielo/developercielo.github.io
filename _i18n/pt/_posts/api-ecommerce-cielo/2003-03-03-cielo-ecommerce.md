@@ -2213,7 +2213,7 @@ Quantidade de caracteres por campo e Provider:
 |`Customer.Address.Number`|O dado é validado pela API Cielo.|10|
 |`Customer.Address.Complement`|O dado é validado pela API Cielo.|20|
 |`Customer.Address.District`|O dado é validado pela API Cielo.|50|
-|`Customer.Address.City`|N/a|50 - O dado é validado pela API Cielo.|
+|`Customer.Address.City`|O dado é validado pela API Cielo.|50|
 |`Payment.Instructions`|N/a|255|
 |`Payment.Demonstrative`|N/a|255|
 
