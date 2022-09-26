@@ -4277,34 +4277,138 @@
 
 <p>Number of characters per field and Provider:</p>
 
-<p><strong>Bradesco</strong>
-|Property|Notes|Size|
-|—|—|—|
-|<code class="language-plaintext highlighter-rouge">Provider</code>|N/a|Bradesco2|
-|<code class="language-plaintext highlighter-rouge">MerchantOrderId</code>|Only letters, numbers, and characters like “_” and “$”.|27|
-|<code class="language-plaintext highlighter-rouge">Payment.BoletoNumber</code>|The value is validated by the bank.|11|
-|<code class="language-plaintext highlighter-rouge">Customer.Name</code>|The API Cielo truncates automatically.|34|
-|<code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>|The value is validated by API Cielo.|70|
-|<code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>|The value is validated by API Cielo.|10|
-|<code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>|The value is validated by API Cielo.|20|
-|<code class="language-plaintext highlighter-rouge">Customer.Address.District</code>|The value is validated by API Cielo.|50|
-|<code class="language-plaintext highlighter-rouge">Customer.Address.City</code>|The value is validated by API Cielo.|50|
-|<code class="language-plaintext highlighter-rouge">Payment.Instructions</code>|N/a|255|
-|<code class="language-plaintext highlighter-rouge">Payment.Demonstrative</code>|N/a|255|</p>
+<p><strong>Bradesco</strong></p>
 
-<p><strong>Banco do Brasil</strong>
-|Property|Notes|Size|
-|—|—|—|
-|<code class="language-plaintext highlighter-rouge">Provider</code>|N/a|BancoDoBrasil2|
-|<code class="language-plaintext highlighter-rouge">MerchantOrderId</code>|Not sent to the bank.|50|
-|<code class="language-plaintext highlighter-rouge">Payment.BoletoNumber</code>|When sent above 9 positions, the API Cielo truncates automatically, considering the last 9 digits.|9|
-|<code class="language-plaintext highlighter-rouge">Customer.Name</code>|<strong>Valid characters:</strong> <br /> Letters from A to Z - CAPITAL LETTERS <br /> <strong>Special characters:</strong> hyphen (-) and apostrophe (‘) <br /> When used, it can not contain spaces between letters; <br /> <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /> <strong>Incorrect examples</strong>: D’EL - REI; at most one blank space between words.|60|
-|<code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>|<strong>Valid characters:</strong> <br /> Letters from A to Z - CAPITAL LETTERS <br /> <strong>Special characters:</strong> hyphen (-) and apostrophe (‘) <br /> When used, it can not contain spaces between letters; <br /> <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /> <strong>Incorrect examples</strong>: D’EL - REI; at most one blank space between words.| The fields <code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.District</code> should total 60 characters at maximum.|
-|<code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>|<strong>Valid characters:</strong> <br /> Letters from A to Z - CAPITAL LETTERS <br /> <strong>Special characters:</strong> hyphen (-) and apostrophe (‘) <br /> When used, it can not contain spaces between letters; <br /> <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /> <strong>Incorrect examples</strong>: D’EL - REI; at most one blank space between words.| The fields <code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.District</code> should total 60 characters at maximum.|
-|<code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>|<strong>Valid characters:</strong> <br /> Letters from A to Z - CAPITAL LETTERS <br /> <strong>Special characters:</strong> hyphen (-) and apostrophe (‘) <br /> When used, it can not contain spaces between letters; <br /> <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /> <strong>Incorrect examples</strong>: D’EL - REI; at most one blank space between words.| The fields <code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.District</code> should total 60 characters at maximum.|
-|<code class="language-plaintext highlighter-rouge">Customer.Address.District</code>|<strong>Valid characters:</strong> <br /> Letters from A to Z - CAPITAL LETTERS <br /> <strong>Special characters:</strong> hyphen (-) and apostrophe (‘) <br /> When used, it can not contain spaces between letters; <br /> <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /> <strong>Incorrect examples</strong>: D’EL - REI; at most one blank space between words.| The fields <code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.District</code> should total 60 characters at maximum.|
-|<code class="language-plaintext highlighter-rouge">Customer.Address.City</code>|<strong>Valid characters:</strong> <br /> Letters from A to Z - CAPITAL LETTERS <br /> <strong>Special characters:</strong> hyphen (-) and apostrophe (‘) <br /> When used, it can not contain spaces between letters; <br /> <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /> <strong>Incorrect examples</strong>: D’EL - REI; at most one blank space between words.|18|
-|<code class="language-plaintext highlighter-rouge">Payment.Instructions</code>|N/a|255|</p>
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Notes</th>
+      <th>Size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Provider</code></td>
+      <td>N/a</td>
+      <td>Bradesco2</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Only letters, numbers, and characters like “_” and “$”.</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.BoletoNumber</code></td>
+      <td>The value is validated by the bank.</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>The API Cielo truncates automatically.</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
+      <td>The value is validated by API Cielo.</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
+      <td>The value is validated by API Cielo.</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
+      <td>The value is validated by API Cielo.</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
+      <td>The value is validated by API Cielo.</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
+      <td>The value is validated by API Cielo.</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Instructions</code></td>
+      <td>N/a</td>
+      <td>255</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Demonstrative</code></td>
+      <td>N/a</td>
+      <td>255</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Banco do Brasil</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Notes</th>
+      <th>Size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Provider</code></td>
+      <td>N/a</td>
+      <td>BancoDoBrasil2</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Not sent to the bank.</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.BoletoNumber</code></td>
+      <td>When sent above 9 positions, the API Cielo truncates automatically, considering the last 9 digits.</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td><strong>Valid characters:</strong> <br /> Letters from A to Z - CAPITAL LETTERS <br /> <strong>Special characters:</strong> hyphen (-) and apostrophe (‘) <br /> When used, it can not contain spaces between letters; <br /> <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /> <strong>Incorrect examples</strong>: D’EL - REI; at most one blank space between words.</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
+      <td><strong>Valid characters:</strong> <br /> Letters from A to Z - CAPITAL LETTERS <br /> <strong>Special characters:</strong> hyphen (-) and apostrophe (‘) <br /> When used, it can not contain spaces between letters; <br /> <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /> <strong>Incorrect examples</strong>: D’EL - REI; at most one blank space between words.</td>
+      <td>The fields <code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.District</code> should total 60 characters at maximum.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
+      <td><strong>Valid characters:</strong> <br /> Letters from A to Z - CAPITAL LETTERS <br /> <strong>Special characters:</strong> hyphen (-) and apostrophe (‘) <br /> When used, it can not contain spaces between letters; <br /> <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /> <strong>Incorrect examples</strong>: D’EL - REI; at most one blank space between words.</td>
+      <td>The fields <code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.District</code> should total 60 characters at maximum.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
+      <td><strong>Valid characters:</strong> <br /> Letters from A to Z - CAPITAL LETTERS <br /> <strong>Special characters:</strong> hyphen (-) and apostrophe (‘) <br /> When used, it can not contain spaces between letters; <br /> <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /> <strong>Incorrect examples</strong>: D’EL - REI; at most one blank space between words.</td>
+      <td>The fields <code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.District</code> should total 60 characters at maximum.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
+      <td><strong>Valid characters:</strong> <br /> Letters from A to Z - CAPITAL LETTERS <br /> <strong>Special characters:</strong> hyphen (-) and apostrophe (‘) <br /> When used, it can not contain spaces between letters; <br /> <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /> <strong>Incorrect examples</strong>: D’EL - REI; at most one blank space between words.</td>
+      <td>The fields <code class="language-plaintext highlighter-rouge">Customer.Address.Street</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Number</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code>; <code class="language-plaintext highlighter-rouge">Customer.Address.District</code> should total 60 characters at maximum.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
+      <td><strong>Valid characters:</strong> <br /> Letters from A to Z - CAPITAL LETTERS <br /> <strong>Special characters:</strong> hyphen (-) and apostrophe (‘) <br /> When used, it can not contain spaces between letters; <br /> <strong>Correct examples</strong>: D’EL-REI, D’ALCORTIVO, SANT’ANA.<br /> <strong>Incorrect examples</strong>: D’EL - REI; at most one blank space between words.</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Instructions</code></td>
+      <td>N/a</td>
+      <td>255</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="api-qr-code-via-api-e-commerce">API QR Code via API E-Commerce</h2>
 
