@@ -2195,6 +2195,7 @@ For the boleto transaction response, API E-commerce Cielo will send the boleto U
 Number of characters per field and Provider:
 
 **Bradesco**
+
 |Property|Notes|Size|
 |---|---|---|
 |`Provider`|N/a|Bradesco2|
@@ -2210,6 +2211,7 @@ Number of characters per field and Provider:
 |`Payment.Demonstrative`|N/a|255|
 
 **Banco do Brasil**
+
 |Property|Notes|Size|
 |---|---|---|
 |`Provider`|N/a|BancoDoBrasil2|
