@@ -1914,13 +1914,11 @@ If your store needs to cancel a pix transaction, it's possible to ask for a **re
 
 ## Boleto
 
-### Creating a Boleto sale
-
 To make a Boleto transaction, you first need to hire this service at the bank. After you do that, you need to set it up according to our [Boleto guide](https://developercielo.github.io/tutorial/manual-boleto){:target="_blank"}.
 
 > Banco do Brasil boletos don't have the automatic conciliation service.
 
-#### Request
+### Request
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -2056,7 +2054,7 @@ curl
 |`Payment.Identification`|Identification document of the Transferor.|Text|14|No|
 |`Payment.Instructions`|Bank slip instructions.|Text|450|No|
 
-#### Response
+### Response
 
 For the boleto transaction response, API E-commerce Cielo will send the boleto URL and the bar code, which the e-commerce should display to the shopper.
 
