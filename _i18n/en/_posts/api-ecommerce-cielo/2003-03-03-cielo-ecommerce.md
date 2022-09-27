@@ -3959,11 +3959,15 @@ curl
 |`ReturnCode`|Acquirer return code.|Text|32|Alphanumeric text|
 |`ReturnMessage`|Acquirer return message.|Text|512|Alphanumeric text|
 
-## Carnê Transaction
+## Carnê
 
-Carnê is a debit transaction used to pay an account. This modality can be used by customers who <strong>issue their own booklets and Private Label card invoices </strong>. The Carnê product allows the <strong>separation of sales</strong> related to <strong>product purchases and payment for services</strong>, facilitating the reporting of values to the Tax Authorities.
+**Carnê** is a **debit transaction** used to pay an account.
 
-Like any e-commerce debit transaction, Carnê transactions need to be authenticated via the 3DS 2.0 protocol. More information regarding the authentication protocol can be obtained [**click here**](https://developercielo.github.io/manual/3ds#autentica%C3%A7%C3%A3o-3ds-2.0).
+> Carnê is a payment method available for MasterCard, Visa and Elo.
+
+This payment method can be used by merchats who **issue their own booklets and Private Label card invoices**. It allows the **separation of sales** related to **product purchases and payment for services**, making it easier to report values to Tax Authorities.
+
+Like any other debit transaction on our E-commerce, the carnê transactions need to be authenticated via the 3DS 2.0 protocol. Find more information about the authentication protocol on the [**3DS 2.0 guide**](https://developercielo.github.io/en/manual/3ds){:target="_blank"}.
 
 ### Request
 
@@ -3971,31 +3975,34 @@ Like any e-commerce debit transaction, Carnê transactions need to be authentica
 
 ```json
 {
-   "MerchantOrderId":"2014111703",
+   "MerchantOrderId":"2014111704",
    "Customer":{
       "Name":"Comprador Carnet simples"
    },
    "Payment":{
-      "Type":"DebitCard",
       "Provider":"CieloSandbox",
-      "Amount":15700,
-      "Installments":1,
       "Authenticate":true,
+      "Installments":1,
+      "Amount":100,
+      "Type":"DebitCard",
       "SoftDescriptor":"123456789ABCD",
       "DebitCard":{
-         "CardNumber":"4551870000000183",
+         "ExpirationDate":"05/2024",
+         "CardNumber":"1234567891234567",
          "Holder":"Test Holder",
-         "ExpirationDate":"12/2030",
+         "Brand":"Visa",
          "SecurityCode":"123",
-         "Brand":"Visa"
+         "CardOnFile":{
+            "Reason":"Unscheduled",
+            "Usage":"first"
+         }
       },
       "ExternalAuthentication":{
-         "Cavv":"123456789",
-         "Xid":"987654321",
-         "Eci":"5"
+         "Eci":"05",
+         "Cavv":"AAABAWFlmQAAAABjRWWZEEFgFz+=",
+         "Xid":"blNhMmtMUWg4RDFoV2JaM1RRbjA="
       },
-      "IsCryptoCurrencyNegotiation":true,
-      "IsCarneTransaction":true
+      "iscarnetransaction":true
    }
 }
 ```
