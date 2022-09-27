@@ -3799,91 +3799,24 @@ In this model, the merchant only informs that the transaction is from an Samsung
 | `AdditionalData.EphemeralPublicKey` | Key returned by Wallet for decryption. Must be submitted in Integrations: `ApplePay`                                                         | Text | 255     | See `EphemeralPublicKey` table       |
 | `AdditionalData.capturecode`        | Code informed by `MasterPass` to the merchant                                                                                                | Text | 255     | 3                                    |
 | `ECI`                               | The ECI (Electronic Commerce Indicator) represents how secure a transaction is. This amount should be taken into consideration by the merchant to decide on the capture of the transaction. | Text | 3       | 2                                    |
-| `CAVV`                              | Validation field returned by Wallet and used as the authorization basis                                                                      | Text | 255     | --                                   |
+| `CAVV`                              | Validation field returned by Wallet and used as the authorization basis                                                                     | Text | 255     | --                                   |
 
-## API QR Code via API E-Commerce
+## QR Code
 
-The purpose of this documentation is to guide the developer on how to integrate with Cielo’s API Cielo eCommerce to create payment QRCode, describing the features, methods to be used, listing information to be sent and received, and providing examples.
+### Credit card via QR Code - Sandbox
 
-The integration mechanism with Cielo e-Commerce is simple, so only intermediate knowledge in Web programming language, HTTP/HTTPS requests and JSON file manipulation are required to successfully deploy the Cielo e-Commerce solution.
+To test a successful authorization scenario via QR Code, use the card **4551.8700.0000.0183**.
 
-In this manual, you will find the reference on all operations available on API REST of API Cielo eCommerce. These operations must be performed using its specific key (Merchant ID and Merchant Key) in the respective environment endpoints:
+The card verification code and expiration date can be random, but they should follow this format:
 
-Production Environment
+* CVV with 3 digits;
+* Date in the *MM/YYYY* format.
 
-* **Transaction request** https://api.cieloecommerce.cielo.com.br/
-* **Transaction query:** https://apiquery.cieloecommerce.cielo.com.br/
+### Generating a QR Code via API
 
-Sandbox Environment
+To create a transaction that will use a credit card, you need to send a request using the `POST` method to the Payment resource, as the example shows. This example includes the minimum necessary fields to be sent for the authorization.
 
-* **Transaction request** https://apisandbox.cieloecommerce.cielo.com.br
-* **Transaction query:**  https://apiquerysandbox.cieloecommerce.cielo.com.br
-
-To perform an operation, combine the base URL of the environment with the URL of the desired operation and send it using the HTTP verb as described in the operation.
-
-### Architecture
-
-Integration is performed through services provided as Web Services. The model adopted is quite simple: There are two URLs (endpoint), one specific an operation that causes sides effects - such as authorization, capture and cancellation of transactions, and the o specific URL for operations that do not cause side effects, such as transaction searching. These two URLs will receive the HTTP messages through the POST, GET or PUT methods. Each message type must be sent to a feature identified through the path.
-
-|METHOD|DESCRIPTION|
-|---|---|
-|**POST**|The `POST` HTTP method is used in the creation of features or in sending information that will be processed. For example, creation of a transaction.|
-|**PUT**|The `PUT` HTTP method is used to update an already existing feature. For example, capture or cancellation of a previously authorized transaction.|
-|**GET**|The `GET` HTTP method is used for querying already existing features. For example, transaction query.|
-
-### Products and supported issuer
-
-QR Code  payment supports the following issuers and products:
-
-| ISSUER           | DEMAND CREDIT   | INSTALLMENT CREDIT STORE | DEBIT |
-|------------------|-----------------|--------------------------|--------|
-| Visa             | Yes             | Yes                      | *No*  |
-| Master Card      | Yes             | Yes                      | *No*  |
-| American Express | Yes             | Yes                      | *No*  |
-| Elo              | Yes             | Yes                      | *No*  |
-| Diners Club      | Yes             | Yes                      | *No*  |
-| Discover         | Yes             | *No*                     | *No*  |
-| JCB              | Yes             | Yes                      | *No*  |
-| Aura             | Yes             | Yes                      | *No*  |
-| Hipercard        | Yes             | Yes                      | *No*  |
-
-### Sandbox and tools for QR Code
-
-#### About Sandbox
-
-To facilitate testing during integration, Cielo offers a Sandbox environment that is composed by two areas:
-
-1. Test account register
-2. Transactional Endpoints
-
-|**Request**| https://apisandbox.cieloecommerce.cielo.com.br     |
-| **Query** | https://apiquerysandbox.cieloecommerce.cielo.com.br|
-
-**Advantages of using the Sandbox**
-
-* No affiliation is required to use Sandbox Cielo..
-* Just acess the [**Sandbox Registration**](https://cadastrosandbox.cieloecommerce.cielo.com.br/) to create an account.
-* After registering you will receive a MerchantId and a MerchantKey, which are the credentials required for the API methods.
-
-#### Integration Tool: POSTMAN
-
-**Postman** is an API Client that makes it easier for developers to create, share, test, and document APIs. This is done by allowing users to create and save simple and complex HTTP requests, as well as read their responses.
-
-Cielo offers complete collections of its integrations via Postamn, which facilitates the integration process with the API Cielo.
-
-We suggest developers to access our [**Tutorial**](https://developercielo.github.io/tutorial/postman) about the tool to better understand all the advantages that it offers.
-
-#### Credit Card - Sandbox
-
-To successfully test the authorization scenario using QRCode, we provided an example card that can be use to test it 4551.8700.0000.0183
-
-The **Security Code (CVV)** and expiry date information can be random, but must be kept the format, for exemplo: CVV (3 digits) expiry date (MM/YYYY).
-
-### Creating a QRCode via API
-
-To create a transaction that will use a credit card, it is necessary to send a request using the POST method to the Payment feature, as shown. This example covers the minimum of fields required to be submitted for authorization.
-
-<aside class="notice"><strong>Warning:</strong> It is not possible to carry out a transaction with its value as (`Amount`) 0.</aside>
+<aside class="notice"><strong>Warning:</strong> It is not possible to make a transaction with the value (`Amount`) 0.</aside>
 
 #### Request
 
@@ -3899,7 +3832,8 @@ To create a transaction that will use a credit card, it is necessary to send a r
      "Type":"qrcode",
      "Amount":100,
      "Installments":1,
-     "Capture":false
+     "Capture":false,
+     "Modality": "Credit"
    }
 }
 ```
@@ -3921,23 +3855,26 @@ curl
      "Type":"qrcode",
      "Amount":100,
      "Installments":1,
-     "Capture":false
+     "Capture":false,
+     "Modality": "Credit"
    }
 }
 --verbose
 ```
 
-|Property|Type|Size|Required|Description|
+|PROPERTY|TYPE|SIZE|REQUIRED|DESCRIPTION|
 |---|---|---|---|---|
 |`MerchantId`|Guid|36|Yes|Store identifier in Cielo.|
 |`MerchantKey`|Text|40|Yes|Public Key for Double Authentication in Cielo.|
+|`Content-Type`|Header|40|Yes|application/json (required).|
 |`RequestId`|Guid|36|No|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|
 |`MerchantOrderId`|Text|50|Yes|Order ID number.|
-|`Customer.Name`|Text|255|No|Buyer’s name.|
-|`Payment.Type`|Text|100|Yes|Payment type. Send **qrcode** for the QRCode transaction.|
-|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
+|`Customer.Name`|Text|255|No|Shopper's name|
+|`Payment.Type`|Text|100|Yes|Type of payment method. Send **qrcode** for a QR Code transaction.|
+|`Payment.Amount`|Number|15|Yes|Order amount (to be sent in cents).|
 |`Payment.Installments`|Number|2|Yes|Number of installments.|
-|`Payment.Capture`|Boolean|-|No|Send **true** for a auto-capture transaction.|
+|`Payment.Capture`|Boolean|-|No|Send as **true** for the capture to be authomatic.|
+|`Payment.Modality`|Text|10|No|Indicates if the payment will be made with credit or debit. Possible values: "Credit" (standard) or "Debit".|
 
 #### Response
 
@@ -3960,7 +3897,7 @@ curl
         "Status": 12,
         "IsSplitted": false,
         "QrCode": "iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAQ1klEQVR42u3de6hlVR(...)",
-        "ReturnMessage": "QRCode successfully created",
+        "ReturnMessage": "QRCode gerado com sucesso",
         "PaymentId": "5d7e8fd3-70b6-4a88-9660-e064d72fdcdd",
         "Type": "qrcode",
         "Currency": "BRL",
@@ -3998,7 +3935,7 @@ curl
         "Status": 12,
         "IsSplitted": false,
         "QrCodeBase64Image": "iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5fY51AAAQ1klEQVR42u3de6hlVR(...)",
-        "ReturnMessage": "QRCode successfully created",
+        "ReturnMessage": "QRCode gerado com sucesso",
         "PaymentId": "5d7e8fd3-70b6-4a88-9660-e064d72fdcdd",
         "Type": "qrcode",
         "Currency": "BRL",
@@ -4014,547 +3951,13 @@ curl
 }
 ```
 
-|Property|Description|Type|Size|Format|
+|PROPERTY|DESCRIPTION|TYPE|SIZE|FORMAT|
 |---|---|---|---|---|
-|`QrCodeBase64Image`|QRCode encoded in 64. For example, the image may be displayed on the page using the HTML code like this:<br><pre lang="html">&lt;img src=&quot;data:image/png;base64,image_code_in_the_64_base&quot;&gt;</pre>|Text|variable|Alphanumeric text|
-|`PaymentId`|Order Identifier Field, required for future operations, such as Query, Capture and Cancellation.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Status`|Transaction Status. In the case of creating a QR Code payment transaction, the initial status is 12 (Pending).|Byte|---|2|
-|`ReturnCode`|Return code of Acquiring.|Texto|32|Alphanumeric text|
-|`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Alphanumeric text|
-
-### Consult  - PaymentID
-
-To consult a credit card sale, it is necessary to do a GET for the Payment feature as the example
-
-#### Request
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
-
-```shell
-curl
---request GET "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
---verbose
-```
-
-|Property|Description|Type|Size|Required|
-|---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
-|`PaymentId`|Payment identification number.|Text|36|Yes|
-|`AcquirerOrderId`|Transaction id sent to the authorizer if the MerchantOrderId is longer than 20 characters or has symbols.|Text|50|Yes|
-|`Tid`|Payment identification number at the acquirer.|Text|36|Yes|
-
-#### Response
-
-```json
-{
-"MerchantOrderId": "2014111706",
-"AcquirerOrderId": "202202231037440D1BD0",
-"Customer": {
-    "Name": "Comprador Teste",
-    "Address": {}
-},
-"Payment": {
-    "ServiceTaxAmount": 0,
-    "Installments": 1,
-    "Interest": "ByMerchant",
-    "Capture": false,
-    "Authenticate": false,
-    "CreditCard": {
-        "CardNumber": "455187******0183",
-        "Holder": "Teste Holder",
-        "ExpirationDate": "12/2030",
-        "SaveCard": false,
-        "Brand": "Visa",
-        "PaymentAccountReference":"92745135160550440006111072222"
-    },
-    "ProofOfSale": "674532",
-    "Tid": "0223103744208",
-    "AuthorizationCode": "123456",
-    "Chargebacks": [
-        {
-            "Amount": 10000,
-            "CaseNumber": "123456",
-            "Date": "2022-06-04",
-            "ReasonCode": "104",
-            "ReasonMessage": "Outras Fraudes - Cartao Ausente",
-            "Status": "Received",
-            "RawData": "Client did not participate and did not authorize transaction"
-        }
-    ],
-    "FraudAlert": {
-        "Date": "2022-05-20",
-        "ReasonMessage": "Uso Ind Numeração",
-        "IncomingChargeback": false
-    },
-    "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
-    "Type": "CreditCard",
-    "Amount": 10000,
-    "ReceivedDate": "2022-07-29 17:16:21",
-    "CapturedAmount": 9000,
-    "CapturedDate": "2022-07-29 17:16:22",
-    "VoidedAmount": 1000,
-    "VoidedDate": "2022-05-15 16:25:38",
-    "Currency": "BRL",
-    "Country": "BRA",
-    "ExtraDataCollection": [],
-    "Status": 1,
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "capture",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-        }
-    ]
-}
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "MerchantOrderId": "2014111706",
-    "AcquirerOrderId": "202202231037440D1BD0",
-    "Customer": {
-        "Name": "Comprador Teste",
-        "Address": {}
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": false,
-        "Authenticate": false,
-        "CreditCard": {
-            "CardNumber": "455187******0183",
-            "Holder": "Teste Holder",
-            "ExpirationDate": "12/2030",
-            "SaveCard": false,
-            "Brand": "Visa",
-            "PaymentAccountReference":"92745135160550440006111072222"
-        },
-        "ProofOfSale": "674532",
-        "Tid": "0223103744208",
-        "AuthorizationCode": "123456",
-        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
-        "Type": "CreditCard",
-        "Amount": 10000,
-        "ReceivedDate": "2022-07-29 17:16:21",
-        "CapturedAmount": 9000,
-        "CapturedDate": "2022-07-29 17:16:22",
-        "VoidedAmount": 1000,
-        "VoidedDate": "2022-05-15 16:25:38",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "ExtraDataCollection": [],
-        "Status": 1,
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "capture",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-            }
-        ]
-    }
-}
-```
-
-|Property|Description|Type|Size|Format|
-|`MerchantOrderId`|Order identification number.|Text|50|Text alphanumeric|
-|`AcquirerOrderId`|Transaction id sent to the authorizer if the MerchantOrderId is longer than 20 characters or has symbols.|Text|50|Text alphanumeric|
-|`AuthorizationCode`|authorization code.|Text|6|Text alphanumeric|
-|`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Status`|Transaction Status.|Byte|2|-|
-|`Customer.Name`|Nome do Comprador|Text|255|-|
-|`Customer.Status`|Buyer registration status in the store (NEW / EXISTING)|Text|255|-|
-|`Payment.ProofOfSale`|Authorization number, identical to NSU.|Text|6|Text alphanumeric|
-|`Payment.Tid`|Transaction ID in the payment method provider.|Text|40|Text alphanumeric|
-|`Payment.Type`|Type of Payment |Text|100|-|
-|`Payment.Amount`|Order Amount (to be shipped in cents)|Number|15|-|
-|`Payment.ReceivedDate`|Date the transaction was received.|Text|19|AAAA-MM-DD HH:mm:SS|
-|`Payment.CapturedAmount`|Captured value.|Number|15|10000|
-|`Payment.CapturedDate`|Capture date|Text|19|AAAA-MM-DD HH:mm:SS|
-|`Payment.VoidedAmount`|Canceled/refunded amount, in cents.|Number|15|10000|
-|`Payment.VoidedDate`|Date of cancellation/chargeback|Text|19|AAAA-MM-DD HH:mm:SS|
-|`Payment.Provider`|Defines behavior of the means of payment (see Annex)/NOT MANDATORY FOR CREDIT|Text|15|—|
-|`CreditCard.CardNumber`|Buyer's Card Number|Text|19|-|
-|`CreditCard.Holder`|Buyer's name printed on card|Text|25|-|
-|`CreditCard.ExpirationDate`|Expiration date printed on card|Text|7|-|
-|`CreditCard.SecurityCode`|Security code printed on the back of the card See attached|Text|4|-|
-|`CreditCard.Brand`|Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper)|Text|10|-|
-|`CreditCard.PaymentAccountReference`|PAR(payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the flag does not send the information, the field will not be returned.|Number|29|-|
-
-### Consult - MerchandOrderID
-
-It is not possible to consult a payment for the identifier sent by store (MerchantOrderId), but you can get all the
-PaymentIds associated with the identifier.
-
-To consult a sale by store identifier, it is necessary to make a GET for the sales resource as the example.
-
-#### Request
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales?merchantOrderId={merchantOrderId}</span></aside>
-
-```shell
-curls
---request GET " https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales?merchantOrderId={merchantOrderId}"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
---verbose
-```
-
-|Property|Description|Type|Size|Required|
-|---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
-|`MerchantOrderId`|Order Identifier Field at the Store.|Text|36|Yes|
-
-#### Response
-
-```json
-{
-    "Payment": [
-        {
-            "PaymentId": "5fb4d606-bb63-4423-a683-c966e15399e8",
-            "ReceveidDate": "2015-04-06T10:13:39.42"
-        },
-        {
-            "PaymentId": "6c1d45c3-a95f-49c1-a626-1e9373feecc2",
-            "ReceveidDate": "2014-12-19T20:23:28.847"
-        }
-    ]
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "Payment": [
-        {
-            "PaymentId": "5fb4d606-bb63-4423-a683-c966e15399e8",
-            "ReceveidDate": "2015-04-06T10:13:39.42"
-        },
-        {
-            "PaymentId": "6c1d45c3-a95f-49c1-a626-1e9373feecc2",
-            "ReceveidDate": "2014-12-19T20:23:28.847"
-        }
-    ]
-}
-```
-
-|Property|Description|Type|Size|Format|
-|---|---|---|---|---|
-|`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-
-### Capture 
-
-The **Capture** is an exclusive step for Credit Card transactions.
-
-When making a capture, the merchant confirms that the authorized value on the card may be charged by the financial institution issuing the card.
-
-What the capture generates:
-
-* It performs the card charge
-* It includes the value of the sale on the buyer’s invoice
-* Only captured transactions are paid by Cielo to the merchant
-
-<aside class="notice"><strong>Warning: </strong> The capture is a deadline process. Check in your Cielo registering what is the enabled limit for your affiliation. After this period, it is not possible to perform the transaction Capture</aside>
-
-<aside class="notice"><strong>Warning: </strong>Partial capture available for credit transactions only</aside>
-
-#### Request - Partial Capture
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}</span></aside>
-
-```json
-
-https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/capture?amount={Valor}
-
-```
-
-```shell
-curl
---request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/capture?amount={Valor}"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---verbose
-```
-
-|Property|Description|Type|Size|Required|
-|---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
-|`PaymentId`|Order Identifier Field.|Guid|36|Yes|
-|`Amount`|Order Amount (to be sent in cents).|Number|15|No|
-|`ServiceTaxAmount`|Applicable to airlines companies only. Amount of the authorization value/amount that should be allocated to the service fee. Note: This value is not added to the authorization value.|Number|15|No|
-
-#### Response
-
-```json
-{
-    "Status": 2,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "6",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "6",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3/void"
-        }
-    ]
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "Status": 2,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "6",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "6",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3/void"
-        }
-    ]
-}
-```
-
-|Property|Description|Type|Size|Format|
-|---|---|---|---|---|
-|`Status`|Transaction Status.|Byte|---|2|
-|`ReasonCode`|Operation return code.|Text|32|Alphanumeric text|
-|`ReasonMessage`|Operation return message.|Text|512|Alphanumeric text|
-|`ReturnCode`|Return code of acquirer.|Text|32|Alphanumeric text|
-|`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric text|
-|`ProviderReturnCode`|Provider return code.|Text|32|Alphanumeric text|
-|`ProviderReturnMessage`|Provider return message.|Text|512|Alphanumeric text|
-
-<aside class="notice"><strong>Capture of Boarding fee</strong> To carry out the capture of *boarding fee*, just add the ServiveTaxAmount value to be captured </aside>
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&serviceTaxAmount=xxx</span></aside>
-
-#### Response
-
-```json
-{
-    "Status": 2,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "0",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "0",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"
-        }
-    ]
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "Status": 2,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "0",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "0",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"
-        }
-    ]
-}
-```
-
-|Property|Description|Type|Size|Format|
-|---|---|---|---|---|
-|`Status`|Transaction Status.|Byte|---|2|
-|`ReasonCode`|Operation return code.|Text|32|Alphanumeric text|
-|`ReasonMessage`|Operation return message.|Text|512|Alphanumeric text|
-|`ReturnCode`|Return code of acquirer.||Text|32|Alphanumeric text|
-|`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric text|
-|`ProviderReturnCode`|Provider return code.|Text|32|Alphanumeric text|
-|`ProviderReturnMessage`|Provider return message.|Text|512|Alphanumeric text|
-
-### Canceling
-
-**Canceling** is an operation responsible for canceling total or partial of an authorized or captured value.
-
-Just do a `POST` sending the value to be canceled.
-
-<aside class="notice"><strong>Warning:</strong> Partial cancellation is only available for *CAPTURED* credit transactions </aside>
-
-<aside class="notice"><strong>Warning:</strong>The return of the API adds up to the total of partial cancellations, that is, if 3 cancellations of $10.00 are made, the API will present in its return a total of $30.00 canceled</aside>
-
-#### Request - Cancellation
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=XXX </span></aside>
-
-```shell
-curl
---request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void?amount=XXX"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---verbose
-```
-
-|Property|Description|Type|Size|Required|
-|---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
-|`PaymentId`|Identifier that represents the transaction.|Guid|36|Yes|
-|`Amount`|Order Amount (to be sent in cents)..|Number|15|No|
-
-#### Response
-
-```json
-{
-    "Status": 2,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "0",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "0",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"
-        }
-    ]
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "Status": 2,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "0",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "0",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"
-        }
-    ]
-}
-```
-
-|Property|Description|Type|Size|Format|
-|---|---|---|---|---|
-|`Status`|Transaction Status.|Byte|---|2|
-|`ReasonCode`|Operation return code.|Text|32|Alphanumeric text|
-|`ReasonMessage`|Operation return message.|Text|512|Alphanumeric text|
-|`ReturnCode`|Return code of acquirer.|Text|32|Alphanumeric text|
-|`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric text|
-|`ProviderReturnCode`|Provider return code.|Text|32|Alphanumeric text|
-|`ProviderReturnMessage`|Provider return message.|Text|512|Alphanumeric text|
-
-<aside class="notice"><strong>Cancellation of Boarding Fee</strong>To cancel the *boarding fee*, just add the value of ServiveTaxAmount to be canceled</aside>
-
-```
-https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={Valor}&serviceTaxAmount=xxx
-```
+|`QrCodeBase64Image`|QR Code codified in base 64. The image can be shown on the page using a HTML code like this:<br><pre lang="html">&lt;img src=&quot;data:image/png;base64, image_code_in_base_64&quot;&gt;</pre>|Text|variable|Alphanumeric text|
+|`PaymentId`|Payment ID number.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Status`|Transaction status. For QR code transactions, the initial status is 12 (Pending).|Byte|---|2|
+|`ReturnCode`|Acquirer return code.|Text|32|Alphanumeric text|
+|`ReturnMessage`|Acquirer return message.|Text|512|Alphanumeric text|
 
 ## Carnê Transaction
 
