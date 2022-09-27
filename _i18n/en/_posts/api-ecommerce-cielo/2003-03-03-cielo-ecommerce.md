@@ -3801,7 +3801,6 @@ In this model, the merchant only informs that the transaction is from an Samsung
 | `ECI`                               | The ECI (Electronic Commerce Indicator) represents how secure a transaction is. This amount should be taken into consideration by the merchant to decide on the capture of the transaction. | Text | 3       | 2                                    |
 | `CAVV`                              | Validation field returned by Wallet and used as the authorization basis                                                                      | Text | 255     | --                                   |
 
-
 ## API QR Code via API E-Commerce
 
 The purpose of this documentation is to guide the developer on how to integrate with Cielo’s API Cielo eCommerce to create payment QRCode, describing the features, methods to be used, listing information to be sent and received, and providing examples.
