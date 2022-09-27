@@ -8027,42 +8027,51 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br />
   </tbody>
 </table>
 
-<h2 id="carnê-transaction">Carnê Transaction</h2>
+<h2 id="carnê">Carnê</h2>
 
-<p>Carnê is a debit transaction used to pay an account. This modality can be used by customers who issue their own booklets and Private Label card invoices . The Carnê product allows the separation of sales related to product purchases and payment for services, facilitating the reporting of values to the Tax Authorities.</p>
+<p><strong>Carnê</strong> is a <strong>debit transaction</strong> used to pay an account.</p>
 
-<p>Like any e-commerce debit transaction, Carnê transactions need to be authenticated via the 3DS 2.0 protocol. More information regarding the authentication protocol can be obtained <a href="https://developercielo.github.io/manual/3ds#autentica%C3%A7%C3%A3o-3ds-2.0"><strong>click here</strong></a>.</p>
+<blockquote>
+  <p>Carnê is a payment method available for MasterCard, Visa and Elo.</p>
+</blockquote>
+
+<p>This payment method can be used by merchats who <strong>issue their own booklets and Private Label card invoices</strong>. It allows the <strong>separation of sales</strong> related to <strong>product purchases and payment for services</strong>, making it easier to report values to Tax Authorities.</p>
+
+<p>Like any other debit transaction on our E-commerce, the carnê transactions need to be authenticated via the 3DS 2.0 protocol. Find more information about the authentication protocol on the <a href="https://developercielo.github.io/en/manual/3ds" target="_blank"><strong>3DS 2.0 guide</strong></a>.</p>
 
 <h3 id="request-18">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111704"</span><span class="p">,</span><span class="w">
    </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
       </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Comprador Carnet simples"</span><span class="w">
    </span><span class="p">},</span><span class="w">
    </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
-      </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Provider"</span><span class="p">:</span><span class="s2">"CieloSandbox"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"DebitCard"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"DebitCard"</span><span class="p">:{</span><span class="w">
-         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"4551870000000183"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"05/2024"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"1234567891234567"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Test Holder"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+         </span><span class="nl">"CardOnFile"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"Reason"</span><span class="p">:</span><span class="s2">"Unscheduled"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Usage"</span><span class="p">:</span><span class="s2">"first"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"ExternalAuthentication"</span><span class="p">:{</span><span class="w">
-         </span><span class="nl">"Cavv"</span><span class="p">:</span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Xid"</span><span class="p">:</span><span class="s2">"987654321"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Eci"</span><span class="p">:</span><span class="s2">"5"</span><span class="w">
+         </span><span class="nl">"Eci"</span><span class="p">:</span><span class="s2">"05"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Cavv"</span><span class="p">:</span><span class="s2">"AAABAWFlmQAAAABjRWWZEEFgFz+="</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Xid"</span><span class="p">:</span><span class="s2">"blNhMmtMUWg4RDFoV2JaM1RRbjA="</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"IsCarneTransaction"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+      </span><span class="nl">"iscarnetransaction"</span><span class="p">:</span><span class="kc">true</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
