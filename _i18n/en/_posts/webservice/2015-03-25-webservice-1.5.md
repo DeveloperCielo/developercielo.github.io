@@ -114,7 +114,7 @@ Just install the following three files in the server Trustedstore. Cielo does no
 
 ### INSTALLATION ON THE SERVER OF ONLINE STORE
 
-To install the EV Certificate you shall contact your server vendor support.
+To install the EV Certificate you shall contact your server vendor support
 
 <aside class="warning">Cielo does not support the installation of the certificate.</aside>
 
