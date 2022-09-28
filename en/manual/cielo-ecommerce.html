@@ -8099,6 +8099,60 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br />
 
 <h2 id="specific-implementations">Specific Implementations</h2>
 
+<h3 id="quasi-cash">Quasi cash</h3>
+
+<p>Quasi Cash transactions are refer to purchases of currencies in online gaming, lottery tickets and more. Only a few MCCs (Merchant Category Codes) can process this type of transaction. Contact the Cielo team to know if your business fits in this category.</p>
+
+<p>E-commerce clients that use Quasi Cash should use a debit or credit transaction request and send it in adding the <code class="language-plaintext highlighter-rouge">QuasiCash</code> tag as follows:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
+   </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Country"</span><span class="p">:</span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Interest"</span><span class="p">:</span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Capture"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"QuasiCash"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"CreditCard"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CardOnFile"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"Usage"</span><span class="p">:</span><span class="s2">"Used"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Reason"</span><span class="p">:</span><span class="s2">"Unscheduled"</span><span class="w">
+   </span><span class="p">}</span><span class="w">    
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Value</th>
+      <th>Format</th>
+      <th>Size</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">QuasiCash</code></td>
+      <td>Identifies a Quasi Cash transaction.</td>
+      <td>“true” ou “false”</td>
+      <td>Boolean</td>
+      <td>-</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="payment-facilitators">Payment Facilitators</h3>
 
 <p>All E-Commerce customers who are <strong>Payment Facilitators, as required by the Card Networks and Central Bank</strong> must submit new fields in <strong>transactional messaging</strong>. Cielo will transmit the information to the Card Networks through transactional messaging at the time of authorization.</p>
