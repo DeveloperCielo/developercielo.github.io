@@ -8155,9 +8155,13 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br />
 
 <h3 id="payment-facilitators">Payment Facilitators</h3>
 
-<p>All E-Commerce customers who are <strong>Payment Facilitators, as required by the Card Networks and Central Bank</strong> must submit new fields in <strong>transactional messaging</strong>. Cielo will transmit the information to the Card Networks through transactional messaging at the time of authorization.</p>
+<p>All E-Commerce customers who are <strong>Payment Facilitators, as required by the Card Networks and Central Bank</strong> must submit new fields in <strong>transactional messaging</strong>. Cielo will send the information to the Card Networks through transactional messaging at the time of authorization.</p>
 
-<p>The new fields are contained within the Payment Facilitator node. In addition to the fields of this new node, facilitators will also have to send the softdescriptor field of the payment node. Below is an example of sending and reply.</p>
+<p>The new fields are contained within the Payment Facilitator node. In addition to the fields of this new node, facilitators will also have to send the <code class="language-plaintext highlighter-rouge">SoftDescriptor</code> field of the <code class="language-plaintext highlighter-rouge">Payment</code> node.</p>
+
+<blockquote>
+  <p><strong>Warning:</strong> If the card brands identify that the required data wasn’t sent in the transactional messaging, they will fine Cielo and these fines will be forwarded to the Facilitator responsible for sending the data.</p>
+</blockquote>
 
 <h4 id="request-19">Request</h4>
 
@@ -8243,7 +8247,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br />
       <td>Number</td>
       <td>11</td>
       <td>Required for facilitators</td>
-      <td>Facilitator’s establishment code. “Facilitator ID” (Registration of the facilitator with the card brands)</td>
+      <td>Facilitator’s establishment code. “Facilitator ID” (Registration of the facilitator with the card brands).<br />The code is different depending on the brand, varying even the size of the field:<br />MasterCard –06 digits<br />Visa –08 digits<br />ELO –from 04 to 05 digits<br />Hipercard –06 digits<br />For other brands, like Amex and JCB, the field can be filled in by “0” zeros.</td>
     </tr>
     <tr>
       <td>PaymentFacilitator.SubEstablishment.EstablishmentCode</td>
@@ -8318,7 +8322,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br />
   </tbody>
 </table>
 
-<aside class="warning">Attention: Fields mustn't be sent with spacing to the left. Subject to rejection in the settlement of transactions.</aside>
+<aside class="warning">Attention: Fields mustn't be sent with spacing to the left. It can cause rejection in the settlement of transactions.</aside>
 
 <h4 id="response-18">Response</h4>
 
@@ -8430,7 +8434,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br />
       <td>Number</td>
       <td>11</td>
       <td>Required for facilitators</td>
-      <td>Facilitator’s establishment code. “Facilitator ID” (Registration of the facilitator with the card brands)</td>
+      <td>Facilitator’s establishment code. “Facilitator ID” (Registration of the facilitator with the card brands).<br />The code is different depending on the brand, varying even the size of the field:<br />MasterCard –06 digits<br />Visa –08 digits<br />ELO –from 04 to 05 digits<br />Hipercard –06 digits<br />For other brands, like Amex and JCB, the field can be filled in by “0” zeros.</td>
     </tr>
     <tr>
       <td>PaymentFacilitator.SubEstablishment.EstablishmentCode</td>
