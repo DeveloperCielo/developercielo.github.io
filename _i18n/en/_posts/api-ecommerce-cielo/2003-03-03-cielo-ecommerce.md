@@ -4013,6 +4013,42 @@ Like any other debit transaction on our E-commerce, the carnê transactions need
 
 ## Specific Implementations
 
+### Quasi cash
+
+Quasi Cash transactions are refer to purchases of currencies in online gaming, lottery tickets and more. Only a few MCCs (Merchant Category Codes) can process this type of transaction. Contact the Cielo team to know if your business fits in this category.
+ 
+E-commerce clients that use Quasi Cash should use a debit or credit transaction request and send it in adding the `QuasiCash` tag as follows:
+
+```json
+"Payment":{
+   "Currency":"BRL",
+   "Country":"BRA",
+   "ServiceTaxAmount":0,
+   "Installments":1,
+   "Interest":"ByMerchant",
+   "Capture":true,
+   "Authenticate":false,
+   "SoftDescriptor":"123456789ABCD",
+   "QuasiCash":true,
+   "Type":"CreditCard",
+   "Amount":15700,
+   "CreditCard":{
+      "CardNumber":"1234123412341231",
+      "Holder":"Teste Holder",
+      "ExpirationDate":"12/2030",
+      "SecurityCode":"123",
+      "SaveCard":"false",
+      "Brand":"Visa",
+      "CardOnFile":{
+         "Usage":"Used",
+         "Reason":"Unscheduled"
+   }    
+```
+
+|Property  | Description|Value|Format|Size|Required|
+|-----------|----------|-----|-------|-------|-----------|
+|`QuasiCash`| Identifies a Quasi Cash transaction.|"true" ou "false"|Boolean|-|No|
+
 ### Payment Facilitators
 
 All E-Commerce customers who are **Payment Facilitators, as required by the Card Networks and Central Bank** must submit new fields in **transactional messaging**. Cielo will transmit the information to the Card Networks through transactional messaging at the time of authorization.
