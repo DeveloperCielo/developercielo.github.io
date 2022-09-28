@@ -4051,9 +4051,11 @@ E-commerce clients that use Quasi Cash should use a debit or credit transaction 
 
 ### Payment Facilitators
 
-All E-Commerce customers who are **Payment Facilitators, as required by the Card Networks and Central Bank** must submit new fields in **transactional messaging**. Cielo will transmit the information to the Card Networks through transactional messaging at the time of authorization.
+All E-Commerce customers who are **Payment Facilitators, as required by the Card Networks and Central Bank** must submit new fields in **transactional messaging**. Cielo will send the information to the Card Networks through transactional messaging at the time of authorization.
 
-The new fields are contained within the Payment Facilitator node. In addition to the fields of this new node, facilitators will also have to send the softdescriptor field of the payment node. Below is an example of sending and reply.
+The new fields are contained within the Payment Facilitator node. In addition to the fields of this new node, facilitators will also have to send the `SoftDescriptor` field of the `Payment` node.
+
+> **Warning:** If the card brands identify that the required data wasn't sent in the transactional messaging, they will fine Cielo and these fines will be forwarded to the Facilitator responsible for sending the data.
 
 #### Request
 
@@ -4126,7 +4128,7 @@ The new fields are contained within the Payment Facilitator node. In addition to
 
 |Property|Type|Size|Required|Description|
 |---|---|---|---|---|
-|PaymentFacilitator.EstablishmentCode|Number|11|Required for facilitators|Facilitator's establishment code. “Facilitator ID” (Registration of the facilitator with the card brands)|
+|PaymentFacilitator.EstablishmentCode|Number|11|Required for facilitators|Facilitator's establishment code. “Facilitator ID” (Registration of the facilitator with the card brands).<br>The code is different depending on the brand, varying even the size of the field:<br>MasterCard –06 digits<br>Visa –08 digits<br>ELO –from 04 to 05 digits<br>Hipercard –06 digits<br>For other brands, like Amex and JCB, the field can be filled in by "0" zeros.|
 |PaymentFacilitator.SubEstablishment.EstablishmentCode|Number|15|Required for facilitators|Sub Merchant establishment code. “Sub-Merchant ID” (Registration of sub-accredited with the facilitator)|
 |PaymentFacilitator.SubEstablishment.Identity|Number|14|Required for facilitators|CNPJ or CPF of the sub-merchant.|
 |PaymentFacilitator.SubEstablishment.Mcc|Number|4|Required for facilitators|MCC do sub Merchant.|
@@ -4138,7 +4140,7 @@ The new fields are contained within the Payment Facilitator node. In addition to
 |PaymentFacilitator.SubEstablishment.PhoneNumber|Number|13|Required for facilitators|Sub Merchant Phone Number.|
 |Payment.Softdescriptor|Text|13|Required for facilitators|Text printed on buyer bank invoice. Must be completed according to the data of the sub Merchant.|
 
-<aside class="warning"><b>Attention: Fields mustn't be sent with spacing to the left. Subject to rejection in the settlement of transactions.</b></aside>
+<aside class="warning"><b>Attention: Fields mustn't be sent with spacing to the left. It can cause rejection in the settlement of transactions.</b></aside>
 
 #### Response
 
@@ -4237,7 +4239,7 @@ The new fields are contained within the Payment Facilitator node. In addition to
 
 |Property|Type|Size|Required|Description|
 |---|---|---|---|---|
-|PaymentFacilitator.EstablishmentCode|Number|11|Required for facilitators|Facilitator's establishment code. “Facilitator ID” (Registration of the facilitator with the card brands)|
+|PaymentFacilitator.EstablishmentCode|Number|11|Required for facilitators|Facilitator's establishment code. “Facilitator ID” (Registration of the facilitator with the card brands).<br>The code is different depending on the brand, varying even the size of the field:<br>MasterCard –06 digits<br>Visa –08 digits<br>ELO –from 04 to 05 digits<br>Hipercard –06 digits<br>For other brands, like Amex and JCB, the field can be filled in by "0" zeros.|
 |PaymentFacilitator.SubEstablishment.EstablishmentCode|Number|15|Required for facilitators|Sub Merchant establishment code. “Sub-Merchant ID” (Registration of sub-accredited with the facilitator)|
 |PaymentFacilitator.SubEstablishment.Identity|Number|14|Required for facilitators|CNPJ or CPF of the sub-merchant.|
 |PaymentFacilitator.SubEstablishment.Mcc|Number|4|Required for facilitators|MCC do sub Merchant.|
