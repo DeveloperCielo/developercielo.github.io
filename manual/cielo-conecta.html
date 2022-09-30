@@ -39023,7 +39023,7 @@
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"Owner"</span><span class="p">:{</span><span class="w">
       </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"teste"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Email"</span><span class="p">:</span><span class="s2">"teste123@mail.com.br"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teste123@mail.com.br"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"PhoneNumber"</span><span class="p">:</span><span class="s2">"11900000000"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"MessengerPhone"</span><span class="p">:</span><span class="s2">"11900000000"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="s2">"33572628099"</span><span class="w">
@@ -39040,7 +39040,11 @@
    </span><span class="nl">"PhoneNumber"</span><span class="p">:</span><span class="s2">"11900000099"</span><span class="p">,</span><span class="w">
    </span><span class="nl">"Mcc"</span><span class="p">:</span><span class="mi">26</span><span class="p">,</span><span class="w">
    </span><span class="nl">"DocumentNumber"</span><span class="p">:</span><span class="s2">"07399049000199"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="s2">"Cnpj"</span><span class="w">
+   </span><span class="nl">"DocumentType"</span><span class="p">:</span><span class="s2">"Cnpj"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"TefConfig"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"MerchantAcquirerId"</span><span class="p">:</span><span class="s2">"123456789012345"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"LogicalNumber"</span><span class="p">:</span><span class="s2">"11111111-0"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -39173,6 +39177,20 @@
       <td>30</td>
       <td>Sim</td>
       <td>Whatsapp do proprietário</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TefConfig.MerchantAcquirerId</code></td>
+      <td>String</td>
+      <td>32</td>
+      <td>Não</td>
+      <td>Código de identificação da loja no Adquirente.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TefConfig.LogicalNumber</code></td>
+      <td>String</td>
+      <td>10</td>
+      <td>Não</td>
+      <td>Número lógico do terminal.</td>
     </tr>
   </tbody>
 </table>
@@ -40008,6 +40026,90 @@
   </tbody>
 </table>
 
+<h3 id="atualiza-tef-config-da-loja">Atualiza tef config da loja</h3>
+
+<p>Atualização dos dados do tef config da loja.</p>
+
+<h4 id="requisição-45">Requisição</h4>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/merchants//tefconfig</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"MerchantAcquirerId"</span><span class="p">:</span><span class="s2">"123456789012345"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"LogicalNumber"</span><span class="p">:</span><span class="s2">"11111111-0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantAcquirerId</code></td>
+      <td>String</td>
+      <td>32</td>
+      <td>Não</td>
+      <td>Código de identificação da loja no Adquirente.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">LogicalNumber</code></td>
+      <td>String</td>
+      <td>10</td>
+      <td>Não</td>
+      <td>Número lógico do terminal.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="resposta-46">Resposta</h4>
+
+<p>Caso de sucesso: Status 200 ok</p>
+
+<p>Caso de erro no request: Status 400 Bad Request</p>
+
+<p>Demais erros: Status 500 Internal Server Error</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="s2">"400"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="s2">"Dígito verificador inválido</span><span class="se">\r\n</span><span class="s2">"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
+      <td>String</td>
+      <td>32</td>
+      <td>Não</td>
+      <td>Código de identificação da loja no Adquirente.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
+      <td>String</td>
+      <td>10</td>
+      <td>Não</td>
+      <td>Número lógico do terminal.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="terminal">Terminal</h2>
 
 <p><strong>Atenção:</strong> É necessário ter um terminal ID para cada terminal físico (equipamento) cadastrado na plataforma. Exemplo: Se o lojista possui 5 terminais físicos (equipamentos), ele deve ter 5 terminais ID.</p>
@@ -40035,7 +40137,7 @@
 
 <p>Salva alterações em na loja subordinado com o ID especificado.</p>
 
-<h4 id="requisição-45">Requisição</h4>
+<h4 id="requisição-46">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals</span></aside>
 
@@ -40089,7 +40191,7 @@
   </tbody>
 </table>
 
-<h4 id="resposta-46">Resposta</h4>
+<h4 id="resposta-47">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"Terminal"</span><span class="p">:{</span><span class="w">
@@ -40181,7 +40283,7 @@
 
 <h3 id="criar-terminal-com-equipamento">Criar Terminal com Equipamento</h3>
 
-<h4 id="requisição-46">Requisição</h4>
+<h4 id="requisição-47">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals</span></aside>
 
@@ -40250,7 +40352,7 @@
   </tbody>
 </table>
 
-<h4 id="resposta-47">Resposta</h4>
+<h4 id="resposta-48">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Terminal"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -40332,7 +40434,7 @@
 
 <p>Desabilita um terminal removendo o vínculo com um equipamento físico.</p>
 
-<h4 id="requisição-47">Requisição</h4>
+<h4 id="requisição-48">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals/disable</span></aside>
 
@@ -40372,7 +40474,7 @@
 
 <h3 id="criar-token-de-ativação">Criar Token de ativação</h3>
 
-<h4 id="requisição-48">Requisição</h4>
+<h4 id="requisição-49">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals/token</span></aside>
 
@@ -40410,7 +40512,7 @@
   </tbody>
 </table>
 
-<h4 id="resposta-48">Resposta</h4>
+<h4 id="resposta-49">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"TerminalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd000j"</span><span class="p">,</span><span class="w">
@@ -40476,7 +40578,7 @@
 
 <p>Consulta terminais de forma paginada</p>
 
-<h4 id="requisição-49">Requisição</h4>
+<h4 id="requisição-50">Requisição</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/terminals?page=13&amp;pageSize=10&amp;subordinatedMerchantId={SubordinatedMerchantId}</span></aside>
 
@@ -40530,7 +40632,7 @@
   </tbody>
 </table>
 
-<h4 id="resposta-49">Resposta</h4>
+<h4 id="resposta-50">Resposta</h4>
 
 <table>
   <thead>
@@ -40693,7 +40795,7 @@
 
 <p>Fornece os dados de um equipamento, a partir do modelo do equipamento e de seu número serial.</p>
 
-<h4 id="requisição-50">Requisição</h4>
+<h4 id="requisição-51">Requisição</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/equipments/{modelId}/{serialNumber}</span></aside>
 
@@ -40733,7 +40835,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="resposta-50">Resposta</h4>
+<h4 id="resposta-51">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Model"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -40788,7 +40890,7 @@
 
 <p>Fornece os dados, de forma paginada, de equipamentos cadastrados no sistema</p>
 
-<h4 id="requisição-51">Requisição</h4>
+<h4 id="requisição-52">Requisição</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/equipments/paged?pageSize=10&amp;page=1</span></aside>
 
@@ -40822,7 +40924,7 @@
   </tbody>
 </table>
 
-<h4 id="resposta-51">Resposta</h4>
+<h4 id="resposta-52">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Page"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
