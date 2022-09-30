@@ -2312,47 +2312,54 @@ Create a new merchant.
 
 ```json
 {
-  "Address": {
-    "ZipCode": "string",
-    "Street": "string",
-    "Number": "string",
-    "Complement": "string"
-  },
-  "TradeName": "string",
-  "CompanyName": "string",
-  "Email": "string",
-  "PhoneNumber": "string",
-  "Mcc": 0,
-  "DocumentNumber": "string",
-  "DocumentType": "Cpf",
-  "Owner": {
-    "Name": "string",
-    "Email": "string",
-    "PhoneNumber": "string",
-    "MessengerPhone": "string",
-    "Gender": "Other"
-  }
+   "Owner":{
+      "Name":"teste",
+      "Email": "teste123@mail.com.br",
+      "PhoneNumber":"11900000000",
+      "MessengerPhone":"11900000000",
+      "DocumentNumber":"33572628099"
+   },
+   "Address":{
+      "ZipCode":"58015260",
+      "Street":"",
+      "Number":"123",
+      "Complement":""
+   },
+   "TradeName":"TradeName",
+   "CompanyName":"CompanyName",
+   "Email":"teste@email.com.br",
+   "PhoneNumber":"11900000099",
+   "Mcc":26,
+   "DocumentNumber":"07399049000199",
+   "DocumentType":"Cnpj",
+   "TefConfig":{
+      "MerchantAcquirerId":"123456789012345",
+      "LogicalNumber":"11111111-0"
+   }
 }
 ```
 
 |Property|Type|Size|Required|Description|
 |---|---|---|---|---|
-|`Address.ZipCode`|String|---|---|---|
-|`Address.Street`|String|---|---|---|
-|`Address.Number`|String|---|---|---|
-|`Address.Number`|String|---|---|---|
-|`TradeName`|String|---|---|---|
-|`CompanyName`|String|---|---|---|
-|`Email`|String|---|---|---|
-|`PhoneNumber`|String|---|---|---|
-|`Mcc`|String|---|---|---|
-|`DocumentNumber`|String|---|---|---|
-|`DocumentType`|String|---|---|Enum: `Cpf` `Cnpj`|
-|`Owner.Name`|String|---|---|---|
-|`Owner.Email`|String|---|---|---|
-|`Owner.PhoneNumber`|String|---|---|---|
-|`Owner.MessengerPhone`|String|---|---|---|
-|`Owner.Gender`|String|---|---|Enum: `Other` `Male` `Female`|
+|`SubordinatedMerchantId`|String(Guid)|36|---|The ID that the subordinate store should assume.|
+|`Address.ZipCode`|String|9|Yes|CEP|
+|`Address.Street`|String|120|No|Location|
+|`Address.Number`|String|9|Yes|Address number|
+|`Address.Complement`|String|120|No|Address complement|
+|`TradeName`|String|35|Yes|Fantasy name|
+|`CompanyName`|String|35|No|Corporate name. Mandatory when the DocumentType is "Cnpj" - Legal Entity|
+|`Email`|String|45|Yes|Store email address|
+|`PhoneNumber`|String|4|Yes|Store phone|
+|`Mcc`|Integer|4|Yes|Branch of Activity (MCC), obtained by consulting lines of activity in the MCC table.|
+|`DocumentNumber`|String|20|Yes|Store CPF or CNPJ|
+|`DocumentType`|String|4|Yes|Enum: `Cpf` `Cnpj`|
+|`SoftDescriptor`|String|13|No|Invoice Description|
+|`Owner.Name`|String|50|Yes|Owner name|
+|`Owner.Email`|String|45|Yes|Owner's email|
+|`Owner.PhoneNumber`|String|30|Yes|Owner's Phone|
+|`Owner.MessengerPhone`|String|30|Yes|Owner WhatsApp|
+|`TefConfig.MerchantAcquirerId`|String|32|No|Store identification code on the Acquirer.|
+|`TefConfig.LogicalNumber`|String|10|No|Logical number of the terminal.|
 
 ### GET Merchant - Response
 
@@ -2421,6 +2428,41 @@ Make the merchant change by its ID.
 |`Mcc`|String|---|---|---|
 |`DocumentNumber`|String|---|---|---|
 |`DocumentType`|String|---|---|Enum: `Cpf` `Cnpj`|
+
+## Update tef config from store
+
+Store tef config data update.
+
+### Requisition
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/merchants/{{SubordinatedMerchantId}}/tefconfig</span></aside>
+
+```json
+{
+   "MerchantAcquirerId":"123456789012345",
+   "LogicalNumber":"11111111-0"
+}
+```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|`MerchantAcquirerId`|String|32|No|Store identification code on the Acquirer.|
+|`LogicalNumber`|String|10|No|Logical number of the terminal.|
+
+### Reply
+
+Success case: Status 200 ok
+
+Request error case: Status 400 Bad Request
+
+Other errors: Status 500 Internal Server Error
+
+```json
+{
+   "ReturnCode":"400",
+   "ReturnMessage":"Dígito verificador inválido\r\n"
+}
+```
 
 ## Terminal
 
