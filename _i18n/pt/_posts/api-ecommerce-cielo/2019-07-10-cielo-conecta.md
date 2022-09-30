@@ -12599,7 +12599,7 @@ Cria um novo merchant.
 {
    "Owner":{
       "Name":"teste",
-      "Email":"teste123@mail.com.br",
+      "Email": "teste123@mail.com.br",
       "PhoneNumber":"11900000000",
       "MessengerPhone":"11900000000",
       "DocumentNumber":"33572628099"
@@ -12616,7 +12616,11 @@ Cria um novo merchant.
    "PhoneNumber":"11900000099",
    "Mcc":26,
    "DocumentNumber":"07399049000199",
-   "DocumentType":"Cnpj"
+   "DocumentType":"Cnpj",
+   "TefConfig":{
+      "MerchantAcquirerId":"123456789012345",
+      "LogicalNumber":"11111111-0"
+   }
 }
 ```
 
@@ -12639,6 +12643,8 @@ Cria um novo merchant.
 |`Owner.Email`|String|45|Sim|Email do proprietário|
 |`Owner.PhoneNumber`|String|30|Sim|Telefone do proprietário|
 |`Owner.MessengerPhone`|String|30|Sim|Whatsapp do proprietário|
+|`TefConfig.MerchantAcquirerId`|String|32|Não|Código de identificação da loja no Adquirente.|
+|`TefConfig.LogicalNumber`|String|10|Não|Número lógico do terminal.|
 
 #### Resposta
 
@@ -12892,6 +12898,46 @@ Salva alterações em na loja subordinado com o ID especificado.
 |`DocumentNumber`|String|20|Sim|CPF ou CNPJ da Loja|
 |`DocumentType`|String|4|Sim|Enum: `Cpf` `Cnpj`|
 |`SoftDescriptor`|String|13|Não|Descrição da fatura|
+
+### Atualiza tef config da loja
+
+Atualização dos dados do tef config da loja.
+
+#### Requisição
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/merchants/{{SubordinatedMerchantId}}/tefconfig</span></aside>
+
+```json
+{
+   "MerchantAcquirerId":"123456789012345",
+   "LogicalNumber":"11111111-0"
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`MerchantAcquirerId`|String|32|Não|Código de identificação da loja no Adquirente.|
+|`LogicalNumber`|String|10|Não|Número lógico do terminal.|
+
+#### Resposta
+
+Caso de sucesso: Status 200 ok
+
+Caso de erro no request: Status 400 Bad Request
+
+Demais erros: Status 500 Internal Server Error
+
+```json
+{
+   "ReturnCode":"400",
+   "ReturnMessage":"Dígito verificador inválido\r\n"
+}
+```
+
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`ReturnCode`|String|32|Não|Código de identificação da loja no Adquirente.|
+|`ReturnMessage`|String|10|Não|Número lógico do terminal.|
 
 ## Terminal
 
