@@ -12925,6 +12925,11 @@ Caso de sucesso: Status 200 ok
 
 Caso de erro no request: Status 400 Bad Request
 
+|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
+|---|---|---|---|---|
+|`ReturnCode`|String|-|-|Código de identificação do erro.|
+|`ReturnMessage`|String|-|-|Mensagem de descrição do erro.|
+
 Demais erros: Status 500 Internal Server Error
 
 ```json
@@ -12933,11 +12938,6 @@ Demais erros: Status 500 Internal Server Error
    "ReturnMessage":"Dígito verificador inválido\r\n"
 }
 ```
-
-|Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
-|---|---|---|---|---|
-|`ReturnCode`|String|32|Não|Código de identificação da loja no Adquirente.|
-|`ReturnMessage`|String|10|Não|Número lógico do terminal.|
 
 ## Terminal
 
