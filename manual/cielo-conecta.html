@@ -40074,14 +40074,6 @@
 
 <p>Caso de erro no request: Status 400 Bad Request</p>
 
-<p>Demais erros: Status 500 Internal Server Error</p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-   </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="s2">"400"</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="s2">"Dígito verificador inválido</span><span class="se">\r\n</span><span class="s2">"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
 <table>
   <thead>
     <tr>
@@ -40096,19 +40088,27 @@
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
       <td>String</td>
-      <td>32</td>
-      <td>Não</td>
-      <td>Código de identificação da loja no Adquirente.</td>
+      <td>-</td>
+      <td>-</td>
+      <td>Código de identificação do erro.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
       <td>String</td>
-      <td>10</td>
-      <td>Não</td>
-      <td>Número lógico do terminal.</td>
+      <td>-</td>
+      <td>-</td>
+      <td>Mensagem de descrição do erro.</td>
     </tr>
   </tbody>
 </table>
+
+<p>Demais erros: Status 500 Internal Server Error</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="s2">"400"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="s2">"Dígito verificador inválido</span><span class="se">\r\n</span><span class="s2">"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <h2 id="terminal">Terminal</h2>
 
