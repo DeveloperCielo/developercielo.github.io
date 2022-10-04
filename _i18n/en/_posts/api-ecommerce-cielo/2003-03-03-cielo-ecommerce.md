@@ -4297,6 +4297,60 @@ Establishments that operate with this service must be registered with Visa and t
 | IsCustomerBillPaymentService | Boolean | ---     | No         | True ou false. Indicates whether it's a CBPS (Consumer Bill Payment Service) transaction |
 | Wallet.AdditionalData.Mcc | String (number) | ---     | Yes, for CBPS transactions        | Establishment MCC (EC) allowed for CBPS transactions |
 
+### SDWO Transactions
+
+A SDWO (Staged Digital Wallet Operators) company offers e-wallet services, allowing the shopper to pay for a product or service through their own platform, with registered credit or debit cards or generating a QR Code.
+
+To make transactions as a SDWO, the store needs to register it with the card brands. To do that, contact your commercial manager at Cielo for more information.
+
+When the transactions at a SDWO e-commerce are made with a credit or debit card (not by QR Code), additional data is required so the card brands can identify this type of transaction. See the specifications below: 
+
+> Besides the specific fields, for SDWO transactions it's required for you to send the Soft Descriptor (`Payment.SoftDescriptor`) and the shopper's CPF or CNPJ (`Customer.Identity` and `Customer.IdentityType`). See more details on the request fields table.
+  
+To run tests, you need to follow the [Sandbox and tools](https://developercielo.github.io/en/manual/cielo-ecommerce#sandbox-and-tools){:target="_blank"}.
+
+Merchant's MCC in a SDWO transaction should use ABECS (Associação Brasileira das Empresas de Cartões de crédito e Serviços) table to check the equivalence between CNAEs to industry's MCCs.
+
+**Warning:** The SDWO category is only available for Visa/Elo debit and credit and Mastercard credit. It also works with foreign cards.
+
+#### Request
+
+```json
+{
+   "MerchantOrderId":"2012345678",
+   "Customer":{
+      "Name":"Comprador Carteira",
+      "Identity":"11225468954",
+      "IdentityType":"CPF",
+   },
+   "Payment":{
+      "Type":"CreditCard",
+      "Amount":15700,
+      "Installments":1,
+      "SoftDescriptor":"CARTEIRA*NOMELOJA",
+      "CreditCard":{
+         "CardNumber":"4532110000001234",
+         "Brand":"Visa",
+         "SecurityCode":"123"
+      },
+      "Wallet":{
+"PlatformOperator":"ABC",
+     "AdditionalData": {
+        "Mcc": "1234"
+     }
+      }
+   }
+}
+```
+
+|Property                   |Type     | Size | Required | Description                                                                                        |
+|------------------------------|---------|---------|-------------|--------------------------------------------------------------------------------------------------|
+| `Wallet.PlatformOperator` | String (text)| 3     | Yes for SDWO transactions|Acronym for the wallet that's registered in Cielo (check with you commercial manager at Cielo) |
+| `Wallet.AdditionalData.Mcc` | String (number) | 4     | Yes for SDWO transactions|Merchant's MCC (for purchase transactions); E-wallet's MCC (for credit supply transactions in the wallet, if applicable – in which the cash in markup also seen in this session is required)|
+|`Customer.Identity`|Texto|14|Sim, para transações de SDWO|Número do CPF ou CNPJ do comprador.|
+|`Customer.IdentityType`|Texto|255|Yes for SDWO transactions|Shopper ID Type (CPF/CNPJ).|
+|`SoftDescriptor`|Texto|13|Yes for SDWO transactions|Text that will be printed on the shopper's bank invoice.<br> Does not allow special characters.<br>Needs to include **Wallet name*merchant name**.|
+
 ## Integration Errors
 
 In case of integration errors in any of the payment methods, a "response" will be returned containing an error code and a description.
