@@ -27,14 +27,11 @@ O *Checkout* possui as seguintes Funcionalidades:
 |Funcionalidade|Descrição|
 |---|---|
 |**Tela transacional**|O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações. |
-|**Registro de Compradores**|O Checkout Cielo possui a capacidade de salvar cartões e dados de pagamento de compradores, permitindo que em compras futuras, os dados ja estejam preenchidos na tela transacional|
-|**Compra com 1 Clique**|Com o comprador cadastrado, o Checkout permite que a compra seja concluída rapidamente, utilizando os dados de pagamento e endereço favoritos do comprador|
 |**Recorrência**|O Checkout Cielo possui a Recorrência Programada disponível na API Cielo Ecommerce. <br> Basta que o lojista defina que uma transação deve se repetir, que o Checkout vai executa-la novamente no intervalo definido|
 |**Antifraude**|O Checkout já possui uma integração com o Antifraude da CyberSource, permitindo a análise de transações de crédito sem uma integração adicional|
 |**Meios de pagamentos**|O Checkout Cielo possui uma variada gama de meios de pagamento: <br> **Cartões de crédito** <br> **Cartão de Débito**<br>**Débito Online**<br>**Boleto Bradesco e Banco do Brasil**|
 |**Backoffice Simplificado**|O Backoffice do Checkout Cielo possui um layout simplificado e dinâmico que permite uma navegação rápida e confortável para que o Lojista possa acompanhar as vendas sem dificuldade|
 |**Integração com Botão e QR Code**|Sem integração técnica ou o programação, o Checkout disponibiliza uma integração que torna possível realizar a criação de um link gerador de pedidos apenas com um cadastro de produtos dentro do Backoffice Checkout.|
-|**Integração com Plataformas Ecommerce**|. Possui integração com a Loja Virtual Terra e outras plataformas, já estando presente nas principais plataformas ecommerce do mercado brasileiro|
 |**Relatórios transacionais**|Dentro do Backoffice, é possível gerar relatórios transnacionais que facilitam a administração de suas vendas: <br> **Relatório de Recorrências** <br> **Relatório de compradores**<br>**Extrato de vendas**<br>**Relatório de vendas**|
 
 O Checkout Cielo é uma funcionalidade indicada para:
