@@ -4347,9 +4347,58 @@ Merchant's MCC in a SDWO transaction should use ABECS (Associação Brasileira d
 |------------------------------|---------|---------|-------------|--------------------------------------------------------------------------------------------------|
 | `Wallet.PlatformOperator` | String (text)| 3     | Yes for SDWO transactions|Acronym for the wallet that's registered in Cielo (check with you commercial manager at Cielo) |
 | `Wallet.AdditionalData.Mcc` | String (number) | 4     | Yes for SDWO transactions|Merchant's MCC (for purchase transactions); E-wallet's MCC (for credit supply transactions in the wallet, if applicable – in which the cash in markup also seen in this session is required)|
-|`Customer.Identity`|Texto|14|Sim, para transações de SDWO|Número do CPF ou CNPJ do comprador.|
-|`Customer.IdentityType`|Texto|255|Yes for SDWO transactions|Shopper ID Type (CPF/CNPJ).|
-|`SoftDescriptor`|Texto|13|Yes for SDWO transactions|Text that will be printed on the shopper's bank invoice.<br> Does not allow special characters.<br>Needs to include **Wallet name*merchant name**.|
+|`Customer.Identity`|Text|14|Yes for SDWO transactions|Shopper's CPF or CNPJ number|
+|`Customer.IdentityType`|Text|255|Yes for SDWO transactions|Shopper ID Type (CPF/CNPJ).|
+|`SoftDescriptor`|Text|13|Yes for SDWO transactions|Text that will be printed on the shopper's bank invoice.<br> Does not allow special characters.<br>Needs to include **Wallet name*merchant name**.|
+
+### Cash In Transactions
+
+A Cash In transaction is when you add credit to a digital wallet. The merchants that operate this type of transaction should be registered as na E-Wallet along with the card brands and should be registered with one of the following **MCCs**: **6540** ou **6051**.
+In addition, you have to send some addictional data in the transaction, to that the brands can identify this type of transaction. See the specifications below:
+
+> In addition to the specific fields of this payment method, for Cash In transactions, it i salso required to send the Soft Descriptor (`Payment.SoftDescriptor`) and the CPF or CNPJ of the shopper (`Customer.Identity` and  `Customer.IdentityType`). In case of Cash In, the Soft Descriptor field should be filled in with **name of e-wallet*name of shopper**. See more details on the request fields table.
+
+**Warning:** The Cash In category is only accepted for the following types and brands: Visa/Mastercard – credit; Elo – debit and credit. Does not work with foreign cards.
+
+#### Request
+
+```json
+{
+
+   "MerchantOrderId":"2012345678",
+   "Customer":{
+      "Name":"Comprador Carteira",
+      "Identity":"11225468954",
+      "IdentityType":"CPF",
+   },
+   "Payment":{
+      "Type":"CreditCard",
+      "Amount":15700,
+      "Installments":1,
+      "SoftDescriptor":"CARTEIRA*NOMEPORTADOR",
+      "CreditCard":{
+         "CardNumber":"4532110000001234",
+         "Brand":"Visa",
+         "SecurityCode":"123"
+      },
+      "Wallet":{
+"PlatformOperator":"ABC",
+     "AdditionalData": {
+       "CashIn": "true"
+     }
+      }
+   }
+}
+
+```
+|Property                   |Type     | Size | Required | Description                                                                                        |
+|------------------------------|---------|---------|-------------|--------------------------------------------------------------------------------------------------|
+| `Wallet.PlatformOperator` | String (text)| 3     | Yes for Cash In transactions|Acronym for the wallet that's registered in Cielo (check with you commercial manager at Cielo) |
+| Wallet.AdditionalData.CshIn | String (text) | -     Yes for Cash In transactions|Enviar como “True” se for uma transação de Cash In|
+|`Customer.Identity`|Text|14|Yes for Cash In transactions|Shopper’s CPF or CNPJ number.|
+|`Customer.IdentityType`|Text|255|Yes for Cash In transactions|Shopper ID Type (CPF/CNPJ).|
+|`SoftDescriptor`|Text|13|Yes for Cash In transactions|Text that will be printed on the shopper's bank invoice.<br> Does not allow special characters.<br>Needs to include **Wallet name*merchant name**.|
+
 
 ## Integration Errors
 
