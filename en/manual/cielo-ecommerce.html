@@ -8764,41 +8764,6 @@ In addition, you have to send some addictional data in the transaction, to that 
   </tbody>
 </table>
 
-<h2 id="integration-errors">Integration Errors</h2>
-
-<p>In case of integration errors in any of the payment methods, a “response” will be returned containing an error code and a description.</p>
-
-<h3 id="example">Example</h3>
-
-<p>The expiry date of the card have values that are not allowed as “08 / A020” and not “08/2020”, the answer will be:</p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">126</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit Card Expiration Date is invalid"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Code</code></td>
-      <td>API error code. <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#api-error-codes">See the code list</a></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Message</code></td>
-      <td>Error description. <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#api-error-codes">See the code list</a></td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="consult---capture---cancel">Consult - Capture - Cancel</h1>
 
 <h2 id="consulting-transactions">Consulting Transactions</h2>
@@ -18188,7 +18153,7 @@ The download can be made from the following URL:</p>
   </tbody>
 </table>
 
-<h2 id="integration-errors-1">Integration errors</h2>
+<h2 id="integration-errors">Integration errors</h2>
 
 <blockquote>
   <p><strong>API Errors</strong> - These codes are the responses to <strong>validation of the content of the data sent</strong>. <br />
@@ -19222,7 +19187,7 @@ If this code is displayed, the request contains errors (e.g: size/conditions/reg
   </tbody>
 </table>
 
-<h2 id="integration-errors-2">Integration errors</h2>
+<h2 id="integration-errors-1">Integration errors</h2>
 
 <blockquote>
   <p><strong>API Errors</strong> - These codes are the responses to <strong>validation of the content of the data sent</strong>. <br />
