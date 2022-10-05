@@ -4391,6 +4391,7 @@ In addition, you have to send some addictional data in the transaction, to that 
 }
 
 ```
+
 |Property                   |Type     | Size | Required | Description                                                                                        |
 |------------------------------|---------|---------|-------------|--------------------------------------------------------------------------------------------------|
 | `Wallet.PlatformOperator` | String (text)| 3     | Yes for Cash In transactions|Acronym for the wallet that's registered in Cielo (check with you commercial manager at Cielo) |
