@@ -4399,7 +4399,6 @@ In addition, you have to send some addictional data in the transaction, to that 
 |`Customer.IdentityType`|Text|255|Yes for Cash In transactions|Shopper ID Type (CPF/CNPJ).|
 |`SoftDescriptor`|Text|13|Yes for Cash In transactions|Text that will be printed on the shopper's bank invoice.<br> Does not allow special characters.<br>Needs to include **Wallet name*merchant name**.|
 
-
 ## Integration Errors
 
 In case of integration errors in any of the payment methods, a "response" will be returned containing an error code and a description.
