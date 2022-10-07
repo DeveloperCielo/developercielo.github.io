@@ -8903,36 +8903,37 @@ In addition, you have to send some addictional data in the transaction, to that 
 
 <p>The response will return with the card token on the <code class="language-plaintext highlighter-rouge">CardToken</code> field.</p>
 
-<h2 id="tokenization-by-card-networks">Tokenization by Card Networks</h2>
+<h2 id="tokenization-by-card-brands">Tokenization by card brands</h2>
 
-<p>Some brands have a tokenization solution that offers the storage of cards in safes in the same brand in an encrypted form. This brand tokenization is intended to improve the quality of ID card information, which may allow for increased approval conversion by issuing banks. See all the benefits:</p>
+<p>SoSome card brands have a tokenization solution that offers the storage of cards in safes at the brand itself, in an encrypted form. This brand tokenization is intended to improve the security and quality of card information transmitted, which leads to possible increases in the conversion of approval by issuing banks. See all the benefits:</p>
 
 <ul>
-  <li><strong>Increased security:</strong> In addition to creating a code (token or DPAN) to replace the card information, the brands also issue cryptograms, which work like a password or signature of the brand, unique to that card at that establishment.</li>
-  <li><strong>Automatic Card Update:</strong> When a new card is issued in place of the previous card, or when a card’s expiration date changes, banks send this information to the brand’s database, and the brand automatically updates the tokens with the new information. That is, there is no need for any action on the part of the establishment.</li>
-  <li><strong>Higher approval conversion:</strong> Due to the greater security with brand tokens, issuing banks feel more secure in approving transactions. Plus, with card data automatically updated, more sales that could be denied by outdated card data can be approved.</li>
+  <li><strong>Increased security:</strong> In addition to creating a code (token or DPAN) to replace the card information, the brands also issue cryptograms, which function as a password or signature of the brand, unique to that card at that establishment.</li>
+  <li><strong>Automatic Card Update:</strong> When a new card is issued in place of the previous card, or when a card’s expiration date changes, banks send this information to the brand’s base, and the brand automatically updates the tokens with the new information. That is, there is no need for any action on the part of the establishment.</li>
+  <li><strong>Higher approval conversion:</strong> Due to the greater security with the flags’ tokens, issuing banks feel more secure in approving transactions. Plus, with card data automatically updated, more sales that could be denied by outdated card data can be approved.</li>
 </ul>
 
-<p><strong>How it works ?</strong></p>
+<p><strong>How does it work?</strong></p>
 
-<p>The participating brands make APIs available to acquirers, gateways and partners to securely receive and store the card, with the creation of a unique and exclusive token for that card at that establishment.</p>
+<p>The participating brands provide APIs for receiving and storing the card securely for acquirers, gateways and partners, with the creation of a exclusive token for that card at that establishment.</p>
 
 <p>Cielo provides these services to customers in two ways:</p>
 
 <ul>
-  <li><strong>Simple Integration:</strong> The merchant integrates with Cielo’s conventional tokenization functionality, which calls the card brand tken API from behind, and connect these two tokens in Cielo’s vault. In this way, merchants will always have a single token for that card, but Cielo will have in house the tokens and cryptograms of the brands.</li>
+  <li><strong>Simple Integration:</strong> The establishment integrates with Cielo’s conventional tokenization functionality, which performs the tokenization of the brand behind it, and links these two tokens in Cielo’s vault. In this way, merchants will always have a single token for that card, but Cielo will have the brand’s tokens and cryptograms internally. To see how the integration with Cielo’s conventional tokenization is like, go back to the <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#tokenization-of-cards" target="_blank">Card Tokenization</a> menu</li>
   <li>Available Brands: Visa;</li>
-  <li>Eligible Products: E-Commerce API 3.0 and 1.5.</li>
-  <li>
-    <p>To obtain this functionality, contact our ecommerce support channel and request them to enable the card brand token service: cieloecommerce@cielo.com.br</p>
-  </li>
-  <li><strong>External Integration:</strong> If the merchant uses a gateway or another partner that already offers the card brand token service, Cielo already has the Fields in our APIs to receive the token information, needed to be sent in the transaction. Then, the transaction will be sent to the card brand with the token data.</li>
-  <li>Available brands: Visa, Master and Elo.</li>
-  <li>For the External Integration, Cielo is prepared to receive token data from the three brands above, but it is necessary to check whether the brand offers the product on the market.</li>
-  <li>Eligible Products: E-Commerce API 3.0 and 1.5.</li>
 </ul>
 
-<p>Check below the fields to be sent in the transaction if the option chosen is the integration from the outside:</p>
+<blockquote>
+  <p>To obtain this functionality, contact our E-commerce support channel and request them to enable the card brand token service: cieloecommerce@cielo.com.br</p>
+</blockquote>
+
+<ul>
+  <li><strong>External Integration:</strong> if the merchant uses a gateway or another partner that already offers the flag token solution, Cielo has the fields for the token information to be sent in the transaction, so that in the processing the brand receives the token data. See more details on the request below.</li>
+  <li>Available brands: Visa, Master and Elo.</li>
+</ul>
+
+<p>Check below the fields to be sent in the transaction if the option chosen is external integration:</p>
 
 <h3 id="request-24">Request</h3>
 
@@ -8973,10 +8974,10 @@ In addition, you have to send some addictional data in the transaction, to that 
      </span><span class="nl">"Interest"</span><span class="p">:</span><span class="s2">"ByMerchant"</span><span class="p">,</span><span class="w">
      </span><span class="nl">"Capture"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
      </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
      </span><span class="nl">"CreditCard"</span><span class="p">:{</span><span class="w">  
          </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
-         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,,</span><span class="w">
+         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"Cryptogram"</span><span class="p">:</span><span class="s2">"abcdefghijklmnopqrstuvw=="</span><span class="p">,</span><span class="w">
          </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
@@ -9031,9 +9032,9 @@ In addition, you have to send some addictional data in the transaction, to that 
      <span class="s2">"Authenticate"</span>:false,
      <span class="s2">"SoftDescriptor"</span>:<span class="s2">"123456789ABCD"</span>,
      <span class="s2">"CreditCard"</span>:<span class="o">{</span>  
-         <span class="s2">"CardNumber"</span>:<span class="s2">"4551870000000183"</span>,,
-         <span class="s2">"Cryptogram"</span>:<span class="s2">"abcdefghijklmnopqrstuvw=="</span>,
+         <span class="s2">"CardNumber"</span>:<span class="s2">"4551870000000183"</span>,
          <span class="s2">"Holder"</span>:<span class="s2">"Teste Holder"</span>,
+         <span class="s2">"Cryptogram"</span>:<span class="s2">"abcdefghijklmnopqrstuvw=="</span>,
          <span class="s2">"ExpirationDate"</span>:<span class="s2">"12/2030"</span>,
          <span class="s2">"SecurityCode"</span>:<span class="s2">"123"</span>,
          <span class="s2">"SaveCard"</span>:<span class="s2">"true"</span>,
@@ -9056,270 +9057,32 @@ In addition, you have to send some addictional data in the transaction, to that 
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Yes</td>
-      <td>Store identifier in Cielo.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Text</td>
-      <td>40</td>
-      <td>Yes</td>
-      <td>Public Key for Double Authentication in Cielo.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>No</td>
-      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Text</td>
-      <td>50</td>
-      <td>Yes</td>
-      <td>Order ID number.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>No</td>
-      <td>Buyer’s name.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>No</td>
-      <td>Buyer registration status in store (NEW / EXISTING)</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
-      <td>Text</td>
-      <td>14</td>
-      <td>No</td>
-      <td>Customer’s RG, CPF or CNPJ number.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>No</td>
-      <td>Type of buyer ID document (CFP/CNPJ).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>No</td>
-      <td>Buyer’s e-mail.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
-      <td>Date</td>
-      <td>10</td>
-      <td>No</td>
-      <td>Buyer’s date of birth.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>No</td>
-      <td>Buyer’s address.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>Text</td>
-      <td>15</td>
-      <td>No</td>
-      <td>Buyer’s address number.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
-      <td>Text</td>
-      <td>50</td>
-      <td>No</td>
-      <td>Buyer’s address complement.br</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
-      <td>Text</td>
-      <td>9</td>
-      <td>No</td>
-      <td>Buyer’s address zip code.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
-      <td>Text</td>
-      <td>50</td>
-      <td>No</td>
-      <td>Buyer’s address city.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
-      <td>Text</td>
-      <td>2</td>
-      <td>No</td>
-      <td>Buyer’s address state.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
-      <td>Text</td>
-      <td>35</td>
-      <td>No</td>
-      <td>Buyer’s address country.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
-      <td>Text</td>
-      <td>255</td>
-      <td>No</td>
-      <td>Buyer’s address.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>Text</td>
-      <td>15</td>
-      <td>No</td>
-      <td>Buyer’s address number.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
-      <td>Text</td>
-      <td>50</td>
-      <td>No</td>
-      <td>Buyer’s address complement.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
-      <td>Text</td>
-      <td>9</td>
-      <td>No</td>
-      <td>Buyer’s address zip code.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.City</code></td>
-      <td>Text</td>
-      <td>50</td>
-      <td>No</td>
-      <td>Buyer’s address city.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.State</code></td>
-      <td>Text</td>
-      <td>2</td>
-      <td>No</td>
-      <td>Buyer’s address state.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
-      <td>Text</td>
-      <td>35</td>
-      <td>No</td>
-      <td>Buyer’s address country.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Text</td>
-      <td>100</td>
-      <td>Yes</td>
-      <td>Type of the Payment Method.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Number</td>
-      <td>15</td>
-      <td>Yes</td>
-      <td>Order Amount (to be sent in cents).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Currency</code></td>
-      <td>Text</td>
-      <td>3</td>
-      <td>No</td>
-      <td>Currency in which payment will be made (BRL).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Country</code></td>
-      <td>Text</td>
-      <td>3</td>
-      <td>No</td>
-      <td>Country where payment will be made.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Provider</code></td>
-      <td>Text</td>
-      <td>15</td>
-      <td>—</td>
-      <td>Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Number</td>
-      <td>2</td>
-      <td>Yes</td>
-      <td>Number of Installments.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Interest</code></td>
-      <td>Text</td>
-      <td>10</td>
-      <td>No</td>
-      <td>Type of installment - Store (ByMerchant) or Card (ByIssuer).</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
-      <td>Boolean</td>
-      <td>—</td>
-      <td>No (Default false)</td>
-      <td>Boolean that identifies that the authorization should be with automatic capture.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
-      <td>Boolean</td>
-      <td>—</td>
-      <td>No (Default false)</td>
-      <td>Defines whether the buyer will be directed to the Issuing bank for card authentication</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.ServiceTaxAmount</code></td>
-      <td>Number</td>
-      <td>15</td>
-      <td>No</td>
-      <td>Applicable to airlines companies only. Amount of the authorization value/amount that should be allocated to the service fee. Note: This value is not added to the authorization value.</td>
-    </tr>
-    <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
       <td>Text</td>
       <td>19</td>
       <td>Yes</td>
-      <td>Buyer’s Card Number. The indication that CardNumber must be completed with DPAN for Card Networks tokenization.</td>
+      <td>Token generated by the brand (DPAN). The indication that the <code class="language-plaintext highlighter-rouge">CardNumber</code> must be filled with the DPAN in case of brand tokenization.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Holder</code></td>
       <td>Text</td>
       <td>25</td>
       <td>No</td>
-      <td>Buyer’s name printed on card.</td>
+      <td>Shopper’s name printed on card.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Cryptogram</code></td>
       <td>Text</td>
       <td>28</td>
       <td>No</td>
-      <td>Cryptogram generated by the Card Networks.</td>
+      <td>Cryptogram generated by the card brand.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
       <td>Text</td>
       <td>7</td>
       <td>Yes</td>
-      <td>Expiry date of token generated by flag.</td>
+      <td>Expiry date of token generated by brand.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SecurityCode</code></td>
@@ -9340,7 +9103,7 @@ In addition, you have to send some addictional data in the transaction, to that 
       <td>Text</td>
       <td>10</td>
       <td>Yes</td>
-      <td>Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).</td>
+      <td>Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).</td>
     </tr>
   </tbody>
 </table>
@@ -9385,7 +9148,7 @@ In addition, you have to send some addictional data in the transaction, to that 
             </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2030"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-   </span><span class="nl">"CardToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d37bf475-307d-47be-b50a-8dcc38c5056c"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"CardToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d37bf475-307d-47be-b50a-8dcc38c5056c"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"674532"</span><span class="p">,</span><span class="w">
@@ -9458,7 +9221,7 @@ In addition, you have to send some addictional data in the transaction, to that 
             <span class="s2">"Holder"</span>: <span class="s2">"Teste Holder"</span>,
             <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2030"</span>,
             <span class="s2">"SaveCard"</span>: <span class="nb">true</span>,
-   <span class="s2">"CardToken"</span>: <span class="s2">"d37bf475-307d-47be-b50a-8dcc38c5056c"</span>
+            <span class="s2">"CardToken"</span>: <span class="s2">"d37bf475-307d-47be-b50a-8dcc38c5056c"</span>
             <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
         <span class="o">}</span>,
         <span class="s2">"ProofOfSale"</span>: <span class="s2">"674532"</span>,
@@ -9531,7 +9294,7 @@ In addition, you have to send some addictional data in the transaction, to that 
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Campo Identificador do Pedido.</td>
+      <td>Payment ID number.</td>
       <td>Guid</td>
       <td>36</td>
       <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
@@ -9552,14 +9315,14 @@ In addition, you have to send some addictional data in the transaction, to that 
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
-      <td>Return code of Acquiring.</td>
+      <td>Return code from the Acquirer.</td>
       <td>Text</td>
       <td>32</td>
       <td>Alphanumeric text</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
-      <td>Return message of Acquiring.</td>
+      <td>Return message from the Acquirer.</td>
       <td>Text</td>
       <td>512</td>
       <td>Alphanumeric text</td>
