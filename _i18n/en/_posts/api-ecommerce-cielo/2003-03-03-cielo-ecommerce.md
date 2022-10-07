@@ -4400,6 +4400,816 @@ In addition, you have to send some addictional data in the transaction, to that 
 |`Customer.IdentityType`|Text|255|Yes for Cash In transactions|Shopper ID Type (CPF/CNPJ).|
 |`SoftDescriptor`|Text|13|Yes for Cash In transactions|Text that will be printed on the shopper's bank invoice.<br> Does not allow special characters.<br>Needs to include **Wallet name*merchant name**.|
 
+# Tokenization of cards
+
+*What is the **tokenization** of cards?*
+
+It is encryption that allows for secure credit card data storage. This data is transformed into an encrypted code called a “token”, which can be stored in a database. With the tokenization of cards, the merchant will be able to offer features like "1-click buy" and "Retry transaction sending", always preserving the integrity and the confidentiality of the information.
+
+## Creating a tokenized card before authorization
+
+To save a card without authorizing a transaction, simply make a tokenization request with the card data.
+
+### Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/card/</span></aside>
+
+```json
+{
+    "CustomerName": "Comprador Teste Cielo",
+    "CardNumber":"4532117080573700",
+    "Holder":"Comprador T Cielo",
+    "ExpirationDate":"12/2030",
+    "Brand":"Visa"
+}
+```
+
+```shell
+curl
+--request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/card/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "CustomerName": "Comprador Teste Cielo",
+    "CardNumber":"4532117080573700",
+    "Holder":"Comprador T Cielo",
+    "ExpirationDate":"12/2030",
+    "Brand":"Visa"
+}
+--verbose
+```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|`Name`|Text|255|Yes|Shopper's name.|
+|`CardNumber`|Text|16|Yes|Shopper's Card Number.|
+|`Holder`|Text|25|Yes|Shopper's name printed on card.|
+|`ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
+|`Brand`|Text|10|Yes|Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover).|
+
+### Response
+
+```json
+{
+  "CardToken": "db62dc71-d07b-4745-9969-42697b988ccb",
+  "Links": {
+    "Method": "GET",
+    "Rel": "self",
+    "Href": "https://apiquerydev.cieloecommerce.cielo.com.br/1/card/db62dc71-d07b-4745-9969-42697b988ccb"}
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+  "CardToken": "db62dc71-d07b-4745-9969-42697b988ccb",
+  "Links": {
+    "Method": "GET",
+    "Rel": "self",
+    "Href": "https://apiquerydev.cieloecommerce.cielo.com.br/1/card/db62dc71-d07b-4745-9969-42697b988ccb"}
+}
+```
+
+|Property|Description|Type|Size|Format|
+|---|---|---|---|---|
+|`Cardtoken`|Card identification token.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+
+## Creating a tokenized card during an authorization
+
+To save a card as a token during a credit card transaction authorization, send the standard request for [credit transaction](https://developercielo.github.io/en/manual/cielo-ecommerce#credit-and-debit-cards){:target="_blank"} and send the `SaveCard` field as "true". 
+
+The response will return with the card token on the `CardToken` field.
+
+## Tokenization by Card Networks
+
+Some brands have a tokenization solution that offers the storage of cards in safes in the same brand in an encrypted form. This brand tokenization is intended to improve the quality of ID card information, which may allow for increased approval conversion by issuing banks. See all the benefits:
+  
+* **Increased security:** In addition to creating a code (token or DPAN) to replace the card information, the brands also issue cryptograms, which work like a password or signature of the brand, unique to that card at that establishment.
+* **Automatic Card Update:** When a new card is issued in place of the previous card, or when a card's expiration date changes, banks send this information to the brand's database, and the brand automatically updates the tokens with the new information. That is, there is no need for any action on the part of the establishment.
+* **Higher approval conversion:** Due to the greater security with brand tokens, issuing banks feel more secure in approving transactions. Plus, with card data automatically updated, more sales that could be denied by outdated card data can be approved.
+
+**How it works ?**
+  
+The participating brands make APIs available to acquirers, gateways and partners to securely receive and store the card, with the creation of a unique and exclusive token for that card at that establishment.
+  
+Cielo provides these services to customers in two ways:
+  
+* **Simple Integration:** The merchant integrates with Cielo's conventional tokenization functionality, which calls the card brand tken API from behind, and connect these two tokens in Cielo's vault. In this way, merchants will always have a single token for that card, but Cielo will have in house the tokens and cryptograms of the brands.
+* Available Brands: Visa;
+* Eligible Products: E-Commerce API 3.0 and 1.5.
+* To obtain this functionality, contact our ecommerce support channel and request them to enable the card brand token service: cieloecommerce@cielo.com.br
+
+* **External Integration:** If the merchant uses a gateway or another partner that already offers the card brand token service, Cielo already has the Fields in our APIs to receive the token information, needed to be sent in the transaction. Then, the transaction will be sent to the card brand with the token data.
+* Available brands: Visa, Master and Elo.
+* For the External Integration, Cielo is prepared to receive token data from the three brands above, but it is necessary to check whether the brand offers the product on the market.
+* Eligible Products: E-Commerce API 3.0 and 1.5.
+
+Check below the fields to be sent in the transaction if the option chosen is the integration from the outside:
+
+### Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+```json
+{  
+   "MerchantOrderId":"2014111701",
+   "Customer":{  
+      "Name":"Comprador Teste",
+      "Email":"compradorteste@teste.com",
+      "Birthdate":"1991-01-02",
+      "Address":{  
+         "Street":"Rua Teste",
+         "Number":"123",
+         "Complement":"AP 123",
+         "ZipCode":"12345987",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BRA"
+      },
+        "DeliveryAddress": {
+            "Street": "Rua Teste",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA"
+        }
+   },
+   "Payment":{  
+     "Type":"CreditCard",
+     "Amount":15700,
+     "Currency":"BRL",
+     "Country":"BRA",
+     "ServiceTaxAmount":0,
+     "Installments":1,
+     "Interest":"ByMerchant",
+     "Capture":true,
+     "Authenticate":false,
+  "SoftDescriptor":"123456789ABCD",
+     "CreditCard":{  
+         "CardNumber":"1234123412341231",
+         "Holder":"Teste Holder",,
+         "Cryptogram":"abcdefghijklmnopqrstuvw==",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"123",
+         "SaveCard":"true",
+         "Brand":"Visa"
+     }
+   }
+}
+```
+
+```shell
+curl
+--request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+   "MerchantOrderId":"2014111701",
+   "Customer":{  
+      "Name":"Comprador Teste",
+      "Identity":"11225468954",
+      "IdentityType":"CPF",
+      "Email":"compradorteste@teste.com",
+      "Birthdate":"1991-01-02",
+      "Address":{  
+         "Street":"Rua Teste",
+         "Number":"123",
+         "Complement":"AP 123",
+         "ZipCode":"12345987",
+         "City":"Rio de Janeiro",
+         "State":"RJ",
+         "Country":"BRA"
+      },
+        "DeliveryAddress": {
+            "Street": "Rua Teste",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA"
+        }
+   },
+   "Payment":{  
+     "Type":"CreditCard",
+     "Amount":15700,
+     "ServiceTaxAmount":0,
+     "Installments":1,
+     "Interest":"ByMerchant",
+     "Capture":true,
+     "Authenticate":false,
+     "SoftDescriptor":"123456789ABCD",
+     "CreditCard":{  
+         "CardNumber":"4551870000000183",,
+         "Cryptogram":"abcdefghijklmnopqrstuvw==",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"123",
+         "SaveCard":"true",
+         "Brand":"Visa"
+     }
+   }
+}
+--verbose
+```
+
+|Property|Type|Size|Required|Description|
+|---|---|---|---|---|
+|`MerchantId`|Guid|36|Yes|Store identifier in Cielo.|
+|`MerchantKey`|Text|40|Yes|Public Key for Double Authentication in Cielo.|
+|`RequestId`|Guid|36|No|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|
+|`MerchantOrderId`|Text|50|Yes|Order ID number.|
+|`Customer.Name`|Text|255|No|Buyer's name.|
+|`Customer.Status`|Text|255|No|Buyer registration status in store (NEW / EXISTING)|
+|`Customer.Identity`|Text|14|No|Customer's RG, CPF or CNPJ number.|
+|`Customer.IdentityType`|Text|255|No|Type of buyer ID document (CFP/CNPJ).|
+|`Customer.Email`|Text|255|No|Buyer's e-mail.|
+|`Customer.Birthdate`|Date|10|No|Buyer's date of birth.|
+|`Customer.Address.Street`|Text|255|No|Buyer's address.|
+|`Customer.Address.Number`|Text|15|No|Buyer's address number.|
+|`Customer.Address.Complement`|Text|50|No|Buyer's address complement.br|
+|`Customer.Address.ZipCode`|Text|9|No|Buyer's address zip code.|
+|`Customer.Address.City`|Text|50|No|Buyer's address city.|
+|`Customer.Address.State`|Text|2|No|Buyer's address state.|
+|`Customer.Address.Country`|Text|35|No|Buyer's address country.|
+|`Customer.DeliveryAddress.Street`|Text|255|No|Buyer's address.|
+|`Customer.Address.Number`|Text|15|No|Buyer's address number.|
+|`Customer.DeliveryAddress.Complement`|Text|50|No|Buyer's address complement.|
+|`Customer.DeliveryAddress.ZipCode`|Text|9|No|Buyer's address zip code.|
+|`Customer.DeliveryAddress.City`|Text|50|No|Buyer's address city.|
+|`Customer.DeliveryAddress.State`|Text|2|No|Buyer's address state.|
+|`Customer.DeliveryAddress.Country`|Text|35|No|Buyer's address country.|
+|`Payment.Type`|Text|100|Yes|Type of the Payment Method.|
+|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
+|`Payment.Currency`|Text|3|No|Currency in which payment will be made (BRL).|
+|`Payment.Country`|Text|3|No|Country where payment will be made.|
+|`Payment.Provider`|Text|15|---|Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.|
+|`Payment.Installments`|Number|2|Yes|Number of Installments.|
+|`Payment.Interest`|Text|10|No|Type of installment - Store (ByMerchant) or Card (ByIssuer).|
+|`Payment.Capture`|Boolean|---|No (Default false)|Boolean that identifies that the authorization should be with automatic capture.|
+|`Payment.Authenticate`|Boolean|---|No (Default false)|Defines whether the buyer will be directed to the Issuing bank for card authentication|
+|`Payment.ServiceTaxAmount`|Number|15|No|Applicable to airlines companies only. Amount of the authorization value/amount that should be allocated to the service fee. Note: This value is not added to the authorization value.|
+|`Payment.CreditCard.CardNumber`|Text|19|Yes|Buyer's Card Number. The indication that CardNumber must be completed with DPAN for Card Networks tokenization.|
+|`Payment.CreditCard.Holder`|Text|25|No|Buyer's name printed on card.|
+|`Payment.CreditCard.Cryptogram`|Text|28|No|Cryptogram generated by the Card Networks.|
+|`Payment.CreditCard.ExpirationDate`|Text|7|Yes|Expiry date of token generated by flag.|
+|`Payment.CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
+|`Payment.CreditCard.SaveCard`|Boolean|---|No (Default false)|Boolean that identifies whether the card will be saved to generate the CardToken.|
+|`Payment.CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
+
+### Response
+
+```json
+{
+    "MerchantOrderId": "2014111706",
+    "Customer": {
+        "Name": "Comprador Teste",
+        "Identity":"11225468954",
+        "IdentityType":"CPF",
+        "Email": "compradorteste@teste.com",
+        "Birthdate": "1991-01-02",
+        "Address": {
+            "Street": "Rua Teste",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA"
+        },
+        "DeliveryAddress": {
+            "Street": "Rua Teste",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA"
+        }
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "CreditCard": {
+            "CardNumber": "455187******0183",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2030",
+            "SaveCard": true,
+   "CardToken": "d37bf475-307d-47be-b50a-8dcc38c5056c",
+            "Brand": "Visa"
+        },
+        "ProofOfSale": "674532",
+        "Tid": "0305020554239",
+        "AuthorizationCode": "123456",
+        "SoftDescriptor":"123456789ABCD",
+        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
+        "Type": "CreditCard",
+        "Amount": 15700,
+        "CapturedAmount": 15700,
+        "Country": "BRA",
+        "ExtraDataCollection": [],
+        "Status": 2,
+        "ReturnCode": "6",
+        "ReturnMessage": "Operation Successful",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            }
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+            }
+        ]
+    }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "MerchantOrderId": "2014111706",
+    "Customer": {
+        "Name": "Comprador Teste",
+        "Identity":"11225468954",
+        "IdentityType":"CPF",
+        "Email": "compradorteste@teste.com",
+        "Birthdate": "1991-01-02",
+        "Address": {
+            "Street": "Rua Teste",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA"
+        },
+        "DeliveryAddress": {
+            "Street": "Rua Teste",
+            "Number": "123",
+            "Complement": "AP 123",
+            "ZipCode": "12345987",
+            "City": "Rio de Janeiro",
+            "State": "RJ",
+            "Country": "BRA"
+        }
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": true,
+        "Authenticate": false,
+        "CreditCard": {
+            "CardNumber": "455187******0183",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2030",
+            "SaveCard": true,
+   "CardToken": "d37bf475-307d-47be-b50a-8dcc38c5056c"
+            "Brand": "Visa"
+        },
+        "ProofOfSale": "674532",
+        "Tid": "0305020554239",
+        "AuthorizationCode": "123456",
+        "SoftDescriptor":"123456789ABCD",
+        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
+        "Type": "CreditCard",
+        "Amount": 15700,
+        "CapturedAmount": 15700,
+        "Country": "BRA",
+        "ExtraDataCollection": [],
+        "Status": 2,
+        "ReturnCode": "6",
+        "ReturnMessage": "Operation Successful",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            }
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+            }
+        ]
+    }
+}
+```
+
+|Property|Description|Type|Size|Format|
+|---|---|---|---|---|
+|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
+|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
+|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
+`SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|Alphanumeric text|
+|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ECI`|Eletronic Commerce Indicator. Represents how secure a transaction is.|Text|2|Examples: 7|
+|`Status`|Transaction Status.|Byte|---|2|
+|`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
+|`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric text|
+|`Cardtoken`|Card identification token.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+
+## Creating a sale with Tokenized Card
+
+To create a credit card sale with protected card token, it is necessary to do a POST for the Payment feature as the example.
+
+### Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+```json
+{  
+   "MerchantOrderId":"2014111706",
+   "Customer":{  
+      "Name":"Comprador Teste"
+   },
+   "Payment":{  
+     "Type":"CreditCard",
+     "Amount":100,
+     "Installments":1,
+     "SoftDescriptor":"123456789ABCD",
+     "CreditCard":{  
+         "CardToken":"6e1bf77a-b28b-4660-b14f-455e2a1c95e9",
+         "SecurityCode":"262",
+         "Brand":"Visa"
+     }
+   }
+}
+```
+
+```shell
+curl
+--request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+   "MerchantOrderId":"2014111706",
+   "Customer":{  
+      "Name":"Comprador Teste"
+   },
+   "Payment":{  
+     "Type":"CreditCard",
+     "Amount":100,
+     "Installments":1,
+     "SoftDescriptor":"123456789ABCD",
+     "CreditCard":{  
+         "CardToken":"6e1bf77a-b28b-4660-b14f-455e2a1c95e9",
+         "SecurityCode":"262",
+         "Brand":"Visa"
+     }
+   }
+}
+--verbose
+```
+
+|Property|Description|Type|Size|Required|
+|---|---|---|---|---|
+|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`MerchantOrderId`|Order ID number.|Text|50|Yes|
+|`Customer.Name`|Buyer's name.|Text|255|No|
+|`Customer.Status`|Buyer registration status in store (NEW / EXISTING) - Used by fraud analysis|Text|255|No|
+|`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
+|`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
+|`Payment.Installments`|Number of Installments.|Number|2|Yes|
+|`Payment.SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|No|
+|`Payment.ReturnUrl`|URI to which the user will be redirected after payment ends|Text|1024|Yes when Authenticate = true|
+|`CreditCard.CardToken`|Card identification token.|Guid|36|Yes|
+|`CreditCard.SecurityCode`|Security code printed on back of card.|Text|4|No|
+|`CreditCard.Brand`|Card issuer.|Text|10|Yes|
+
+### Response
+
+```json
+{
+    "MerchantOrderId": "2014111706",
+    "Customer": {
+        "Name": "Comprador Teste"
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": false,
+        "Authenticate": false,
+        "CreditCard": {
+            "SaveCard": false,
+            "CardToken": "6e1bf77a-b28b-4660-b14f-455e2a1c95e9",
+            "Brand": "Visa"
+        },
+        "ProofOfSale": "5036294",
+        "Tid": "0310025036294",
+        "AuthorizationCode": "319285",
+        "SoftDescriptor":"123456789ABCD",
+        "PaymentId": "c3ec8ec4-1ed5-4f8d-afc3-19b18e5962a8",
+        "Type": "CreditCard",
+        "Amount": 100,
+        "Currency": "BRL",
+        "Country": "BRA",
+        "ExtraDataCollection": [],
+        "Status": 1,
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "capture",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+            }
+        ]
+    }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+        {
+    "MerchantOrderId": "2014111706",
+    "Customer": {
+        "Name": "Comprador Teste"
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": false,
+        "Authenticate": false,
+        "CreditCard": {
+            "SaveCard": false,
+            "CardToken": "6e1bf77a-b28b-4660-b14f-455e2a1c95e9",
+            "Brand": "Visa"
+        },
+        "ProofOfSale": "5036294",
+        "Tid": "0310025036294",
+        "AuthorizationCode": "319285",
+        "SoftDescriptor":"123456789ABCD",
+        "PaymentId": "c3ec8ec4-1ed5-4f8d-afc3-19b18e5962a8",
+        "Type": "CreditCard",
+        "Amount": 100,
+        "Currency": "BRL",
+        "Country": "BRA",
+        "ExtraDataCollection": [],
+        "Status": 1,
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "capture",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+            }
+        ]
+    }
+}
+```
+
+|Property|Description|Type|Size|Format|
+|---|---|---|---|---|
+|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
+|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
+|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
+`SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|Alphanumeric text|
+|`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ECI`|Eletronic Commerce Indicator. Represents how secure a transaction is.|Text|2|Examples: 7|
+|`Status`|Transaction Status.|Byte|---|2|
+|`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
+|`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric texto|
+
+## Creating a sale with Tokenized Card in 1.5
+
+To create a credit card sale with webservice 1.5 token, it is necessary to do a POST for the Payment feature as the example.
+
+For use in Sandbox, it is possible to simulate authorized or declined transactions via test tokens:
+
+|Status|Token|
+|---|---|
+|Authorized|6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA|
+|Declined|6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeB|
+
+### Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+```json
+{  
+   "MerchantOrderId":"2014111706",
+   "Customer":{  
+      "Name":"Comprador token 1.5"     
+   },
+   "Payment":{  
+     "Type":"CreditCard",
+     "Amount":100,
+     "Installments":1,
+     "CreditCard":{  
+     "CardToken":"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA",
+     "Brand":"Visa"
+     }
+   }
+}
+```
+
+```shell
+curl
+--request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{  
+   "MerchantOrderId":"2014111706",
+   "Customer":{  
+      "Name":"Comprador token 1.5"     
+   },
+   "Payment":{  
+     "Type":"CreditCard",
+     "Amount":100,
+     "Installments":1,
+     "CreditCard":{  
+     "CardToken":"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA",
+     "Brand":"Visa"
+     }
+   }
+}
+--verbose
+```
+
+|Property|Description|Type|Size|Required|
+|---|---|---|---|---|
+|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`MerchantOrderId`|Order ID number.|Text|50|Yes|
+|`Customer.Name`|Buyer's name.|Text|255|No|
+|`Customer.Status`|Buyer registration status in store (NEW / EXISTING) - Used by fraud analysis|Text|255|No|
+|`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
+|`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
+|`Payment.Installments`|Number of Installments.|Number|2|Yes|
+|`CreditCard.CardToken`|Card identification token.|Guid|300|Yes|
+|`CreditCard.Brand`|Card issuer.|Text|10|Yes|
+
+### Response
+
+```json
+{
+  "MerchantOrderId": "2014111706",
+  "Customer": {
+    "Name": "Comprador token 1.5"
+  },
+  "Payment": {
+    "ServiceTaxAmount": 0,
+    "Installments": 1,
+    "Interest": 0,
+    "Capture": false,
+    "Authenticate": false,
+    "Recurrent": false,
+    "CreditCard": {
+      "SaveCard": false,
+      "CardToken": "6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA",
+      "Brand": "Visa"
+    },
+    "Tid": "0307050140148",
+    "ProofOfSale": "140148",
+    "AuthorizationCode": "045189",
+    "Provider": "Simulado",
+    "PaymentId": "8c14cdcf-d5a9-46b0-b040-c0d054cd8f76",
+    "Type": "CreditCard",
+    "Amount": 100,
+    "ReceivedDate": "2017-03-07 17:01:40",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "ReturnCode": "4",
+    "ReturnMessage": "Operation Successful",
+    "Status": 1,
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/8c14cdcf-d5a9-46b0-b040-c0d054cd8f76"
+      },
+      {
+        "Method": "PUT",
+        "Rel": "capture",
+        "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/8c14cdcf-d5a9-46b0-b040-c0d054cd8f76/capture"
+      },
+      {
+        "Method": "PUT",
+        "Rel": "void",
+        "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/8c14cdcf-d5a9-46b0-b040-c0d054cd8f76/void"
+      }
+    ]
+  }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+  "MerchantOrderId": "2014111706",
+  "Customer": {
+    "Name": "Comprador token 1.5"
+  },
+  "Payment": {
+    "ServiceTaxAmount": 0,
+    "Installments": 1,
+    "Interest": 0,
+    "Capture": false,
+    "Authenticate": false,
+    "Recurrent": false,
+    "CreditCard": {
+      "SaveCard": false,
+      "CardToken": "6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA",
+      "Brand": "Visa"
+    },
+    "Tid": "0307050140148",
+    "ProofOfSale": "140148",
+    "AuthorizationCode": "045189",
+    "Provider": "Simulado",
+    "PaymentId": "8c14cdcf-d5a9-46b0-b040-c0d054cd8f76",
+    "Type": "CreditCard",
+    "Amount": 100,
+    "ReceivedDate": "2017-03-07 17:01:40",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "ReturnCode": "4",
+    "ReturnMessage": "Operation Successful",
+    "Status": 1,
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/8c14cdcf-d5a9-46b0-b040-c0d054cd8f76"
+      },
+      {
+        "Method": "PUT",
+        "Rel": "capture",
+        "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/8c14cdcf-d5a9-46b0-b040-c0d054cd8f76/capture"
+      },
+      {
+        "Method": "PUT",
+        "Rel": "void",
+        "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/8c14cdcf-d5a9-46b0-b040-c0d054cd8f76/void"
+      }
+    ]
+  }
+}
+
+```
+
+|Property|Description|Type|Size|Format|
+|---|---|---|---|---|
+|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
+|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
+|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
+`SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|Alphanumeric text|
+|`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ECI`|Eletronic Commerce Indicator. Represents how secure a transaction is.|Text|2|Examples: 7|
+|`Status`|Transaction Status.|Byte|---|2|
+|`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
+|`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric text|
+
 # Consult - Capture - Cancel
 
 ## Consulting Transactions
@@ -7047,1127 +7857,6 @@ Card Brands and Issuers that are already with Renew easy enabled:
 |`SANTADER`|Yes|---|---|
 |`CITI`|Yes|---|---|
 |`BANCO PAN`|Yes|---|---|
-
-# Tokenization of cards
-
-## What is Tokenization of Cards:
-
-It is a platform that allows secure storage of sensitive credit card data. This data is transformed into an encrypted code called a “token”, which can be stored in a database. With the platform, the store will be able to offer features like "1-click buy" and "Retry transaction sending", always preserving the integrity and the confidentiality of the information.
-
-## Creating a Tokenized Card
-
-To save a card without authorizing it, just perform a post with the card data.
-
-### Request
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/card/</span></aside>
-
-```json
-{
-    "CustomerName": "Comprador Teste Cielo",
-    "CardNumber":"4532117080573700",
-    "Holder":"Comprador T Cielo",
-    "ExpirationDate":"12/2030",
-    "Brand":"Visa"
-}
-```
-
-```shell
-curl
---request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/card/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "CustomerName": "Comprador Teste Cielo",
-    "CardNumber":"4532117080573700",
-    "Holder":"Comprador T Cielo",
-    "ExpirationDate":"12/2030",
-    "Brand":"Visa"
-}
---verbose
-```
-
-|Property|Type|Size|Required|Description|
-|---|---|---|---|---|
-|`Name`|Text|255|Yes|Buyer's name.|
-|`CardNumber`|Text|16|Yes|Buyer's Card Number.|
-|`Holder`|Text|25|Yes|Buyer's name printed on card.|
-|`ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
-|`Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover).|
-
-### Response
-
-```json
-{
-  "CardToken": "db62dc71-d07b-4745-9969-42697b988ccb",
-  "Links": {
-    "Method": "GET",
-    "Rel": "self",
-    "Href": "https://apiquerydev.cieloecommerce.cielo.com.br/1/card/db62dc71-d07b-4745-9969-42697b988ccb"}
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-  "CardToken": "db62dc71-d07b-4745-9969-42697b988ccb",
-  "Links": {
-    "Method": "GET",
-    "Rel": "self",
-    "Href": "https://apiquerydev.cieloecommerce.cielo.com.br/1/card/db62dc71-d07b-4745-9969-42697b988ccb"}
-}
-```
-
-|Property|Description|Type|Size|Format|
-|---|---|---|---|---|
-|`Cardtoken`|Card identification token.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-
-## Creating a Tokenized Card during an authorization
-
-To save a card by creating its token, just send a sales creation standard request by sending SaveCard as "true". The response will return the card Token.
-
-### Request
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-```json
-{  
-   "MerchantOrderId":"2014111701",
-   "Customer":{  
-      "Name":"Comprador Teste",
-      "Email":"compradorteste@teste.com",
-      "Birthdate":"1991-01-02",
-      "Address":{  
-         "Street":"Rua Teste",
-         "Number":"123",
-         "Complement":"AP 123",
-         "ZipCode":"12345987",
-         "City":"Rio de Janeiro",
-         "State":"RJ",
-         "Country":"BRA"
-      },
-        "DeliveryAddress": {
-            "Street": "Rua Teste",
-            "Number": "123",
-            "Complement": "AP 123",
-            "ZipCode": "12345987",
-            "City": "Rio de Janeiro",
-            "State": "RJ",
-            "Country": "BRA"
-        }
-   },
-   "Payment":{  
-     "Type":"CreditCard",
-     "Amount":15700,
-     "Currency":"BRL",
-     "Country":"BRA",
-     "ServiceTaxAmount":0,
-     "Installments":1,
-     "Interest":"ByMerchant",
-     "Capture":true,
-     "Authenticate":false,
-  "SoftDescriptor":"123456789ABCD",
-     "CreditCard":{  
-         "CardNumber":"1234123412341231",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"12/2030",
-         "SecurityCode":"123",
-         "SaveCard":"true",
-         "Brand":"Visa"
-     }
-   }
-}
-```
-
-```shell
-curl
---request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{  
-   "MerchantOrderId":"2014111701",
-   "Customer":{  
-      "Name":"Comprador Teste",
-      "Identity":"11225468954",
-      "IdentityType":"CPF",
-      "Email":"compradorteste@teste.com",
-      "Birthdate":"1991-01-02",
-      "Address":{  
-         "Street":"Rua Teste",
-         "Number":"123",
-         "Complement":"AP 123",
-         "ZipCode":"12345987",
-         "City":"Rio de Janeiro",
-         "State":"RJ",
-         "Country":"BRA"
-      },
-        "DeliveryAddress": {
-            "Street": "Rua Teste",
-            "Number": "123",
-            "Complement": "AP 123",
-            "ZipCode": "12345987",
-            "City": "Rio de Janeiro",
-            "State": "RJ",
-            "Country": "BRA"
-        }
-   },
-   "Payment":{  
-     "Type":"CreditCard",
-     "Amount":15700,
-     "ServiceTaxAmount":0,
-     "Installments":1,
-     "Interest":"ByMerchant",
-     "Capture":true,
-     "Authenticate":false,
-     "SoftDescriptor":"123456789ABCD",
-     "CreditCard":{  
-         "CardNumber":"4551870000000183",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"12/2030",
-         "SecurityCode":"123",
-         "SaveCard":"true",
-         "Brand":"Visa"
-     }
-   }
-}
---verbose
-```
-
-|Property|Type|Size|Required|Description|
-|---|---|---|---|---|
-|`MerchantId`|Guid|36|Yes|Store identifier in Cielo.|
-|`MerchantKey`|Text|40|Yes|Public Key for Double Authentication in Cielo.|
-|`RequestId`|Guid|36|No|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|
-|`MerchantOrderId`|Text|50|Yes|Order ID number.|
-|`Customer.Name`|Text|255|No|Buyer's name.|
-|`Customer.Status`|Text|255|No|Buyer registration status in store (NEW / EXISTING)|
-|`Customer.Identity`|Text|14|No|Customer's RG, CPF or CNPJ number.|
-|`Customer.IdentityType`|Text|255|No|Type of buyer ID document (CFP/CNPJ).|
-|`Customer.Email`|Text|255|No|Buyer's e-mail.|
-|`Customer.Birthdate`|Date|10|No|Buyer's date of birth.|
-|`Customer.Address.Street`|Text|255|No|Buyer's address.|
-|`Customer.Address.Number`|Text|15|No|Buyer's address number.|
-|`Customer.Address.Complement`|Text|50|No|Buyer's address complement.br|
-|`Customer.Address.ZipCode`|Text|9|No|Buyer's address zip code.|
-|`Customer.Address.City`|Text|50|No|Buyer's address city.|
-|`Customer.Address.State`|Text|2|No|Buyer's address state.|
-|`Customer.Address.Country`|Text|35|No|Buyer's address country.|
-|`Customer.DeliveryAddress.Street`|Text|255|No|Buyer's address.|
-|`Customer.Address.Number`|Text|15|No|Buyer's address number.|
-|`Customer.DeliveryAddress.Complement`|Text|50|No|Buyer's address complement.|
-|`Customer.DeliveryAddress.ZipCode`|Text|9|No|Buyer's address zip code.|
-|`Customer.DeliveryAddress.City`|Text|50|No|Buyer's address city.|
-|`Customer.DeliveryAddress.State`|Text|2|No|Buyer's address state.|
-|`Customer.DeliveryAddress.Country`|Text|35|No|Buyer's address country.|
-|`Payment.Type`|Text|100|Yes|Type of the Payment Method.|
-|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
-|`Payment.Currency`|Text|3|No|Currency in which payment will be made (BRL).|
-|`Payment.Country`|Text|3|No|Country where payment will be made.|
-|`Payment.Provider`|Text|15|---|Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.|
-|`Payment.Installments`|Number|2|Yes|Number of Installments.|
-|`Payment.Interest`|Text|10|No|Type of installment - Store (ByMerchant) or Card (ByIssuer).|
-|`Payment.Capture`|Boolean|---|No (Default false)|Boolean that identifies that the authorization should be with automatic capture.|
-|`Payment.Authenticate`|Boolean|---|No (Default false)|Defines whether the buyer will be directed to the Issuing bank for card authentication|
-|`Payment.ServiceTaxAmount`|Number|15|No|Applicable to airlines companies only. Amount of the authorization value/amount that should be allocated to the service fee. Note: This value is not added to the authorization value.|
-|`CreditCard.CardNumber`|Text|19|Yes|Buyer's Card Number.|
-|`CreditCard.Holder`|Text|25|No|Buyer's name printed on card.|
-|`CreditCard.ExpirationDate`|Text|7|Yes|Expiry date printed on card.|
-|`CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
-|`CreditCard.SaveCard`|Boolean|---|No (Default false)|Boolean that identifies whether the card will be saved to generate the CardToken.|
-|`CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
-
-### Response
-
-```json
-{
-    "MerchantOrderId": "2014111706",
-    "Customer": {
-        "Name": "Comprador Teste",
-        "Identity":"11225468954",
-        "IdentityType":"CPF",
-        "Email": "compradorteste@teste.com",
-        "Birthdate": "1991-01-02",
-        "Address": {
-            "Street": "Rua Teste",
-            "Number": "123",
-            "Complement": "AP 123",
-            "ZipCode": "12345987",
-            "City": "Rio de Janeiro",
-            "State": "RJ",
-            "Country": "BRA"
-        },
-        "DeliveryAddress": {
-            "Street": "Rua Teste",
-            "Number": "123",
-            "Complement": "AP 123",
-            "ZipCode": "12345987",
-            "City": "Rio de Janeiro",
-            "State": "RJ",
-            "Country": "BRA"
-        }
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": true,
-        "Authenticate": false,
-        "CreditCard": {
-            "CardNumber": "455187******0183",
-            "Holder": "Teste Holder",
-            "ExpirationDate": "12/2030",
-            "SaveCard": true,
-   "CardToken": "d37bf475-307d-47be-b50a-8dcc38c5056c",
-            "Brand": "Visa"
-        },
-        "ProofOfSale": "674532",
-        "Tid": "0305020554239",
-        "AuthorizationCode": "123456",
-        "SoftDescriptor":"123456789ABCD",
-        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
-        "Type": "CreditCard",
-        "Amount": 15700,
-        "CapturedAmount": 15700,
-        "Country": "BRA",
-        "ExtraDataCollection": [],
-        "Status": 2,
-        "ReturnCode": "6",
-        "ReturnMessage": "Operation Successful",
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            }
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-            }
-        ]
-    }
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "MerchantOrderId": "2014111706",
-    "Customer": {
-        "Name": "Comprador Teste",
-        "Identity":"11225468954",
-        "IdentityType":"CPF",
-        "Email": "compradorteste@teste.com",
-        "Birthdate": "1991-01-02",
-        "Address": {
-            "Street": "Rua Teste",
-            "Number": "123",
-            "Complement": "AP 123",
-            "ZipCode": "12345987",
-            "City": "Rio de Janeiro",
-            "State": "RJ",
-            "Country": "BRA"
-        },
-        "DeliveryAddress": {
-            "Street": "Rua Teste",
-            "Number": "123",
-            "Complement": "AP 123",
-            "ZipCode": "12345987",
-            "City": "Rio de Janeiro",
-            "State": "RJ",
-            "Country": "BRA"
-        }
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": true,
-        "Authenticate": false,
-        "CreditCard": {
-            "CardNumber": "455187******0183",
-            "Holder": "Teste Holder",
-            "ExpirationDate": "12/2030",
-            "SaveCard": true,
-   "CardToken": "d37bf475-307d-47be-b50a-8dcc38c5056c"
-            "Brand": "Visa"
-        },
-        "ProofOfSale": "674532",
-        "Tid": "0305020554239",
-        "AuthorizationCode": "123456",
-        "SoftDescriptor":"123456789ABCD",
-        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
-        "Type": "CreditCard",
-        "Amount": 15700,
-        "CapturedAmount": 15700,
-        "Country": "BRA",
-        "ExtraDataCollection": [],
-        "Status": 2,
-        "ReturnCode": "6",
-        "ReturnMessage": "Operation Successful",
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            }
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-            }
-        ]
-    }
-}
-```
-
-|Property|Description|Type|Size|Format|
-|---|---|---|---|---|
-|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
-|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
-|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
-`SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|Alphanumeric text|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ECI`|Eletronic Commerce Indicator. Represents how secure a transaction is.|Text|2|Examples: 7|
-|`Status`|Transaction Status.|Byte|---|2|
-|`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
-|`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric text|
-|`Cardtoken`|Card identification token.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-
-## Tokenization by Card Networks
-
-Some brands have a tokenization solution that offers the storage of cards in safes in the same brand in an encrypted form. This brand tokenization is intended to improve the quality of ID card information, which may allow for increased approval conversion by issuing banks. See all the benefits:
-  
-* **Increased security:** In addition to creating a code (token or DPAN) to replace the card information, the brands also issue cryptograms, which work like a password or signature of the brand, unique to that card at that establishment.
-* **Automatic Card Update:** When a new card is issued in place of the previous card, or when a card's expiration date changes, banks send this information to the brand's database, and the brand automatically updates the tokens with the new information. That is, there is no need for any action on the part of the establishment.
-* **Higher approval conversion:** Due to the greater security with brand tokens, issuing banks feel more secure in approving transactions. Plus, with card data automatically updated, more sales that could be denied by outdated card data can be approved.
-
-**How it works ?**
-  
-The participating brands make APIs available to acquirers, gateways and partners to securely receive and store the card, with the creation of a unique and exclusive token for that card at that establishment.
-  
-Cielo provides these services to customers in two ways:
-  
-* **Simple Integration:** The merchant integrates with Cielo's conventional tokenization functionality, which calls the card brand tken API from behind, and connect these two tokens in Cielo's vault. In this way, merchants will always have a single token for that card, but Cielo will have in house the tokens and cryptograms of the brands.
-* Available Brands: Visa;
-* Eligible Products: E-Commerce API 3.0 and 1.5.
-* To obtain this functionality, contact our ecommerce support channel and request them to enable the card brand token service: cieloecommerce@cielo.com.br
-
-* **External Integration:** If the merchant uses a gateway or another partner that already offers the card brand token service, Cielo already has the Fields in our APIs to receive the token information, needed to be sent in the transaction. Then, the transaction will be sent to the card brand with the token data.
-* Available brands: Visa, Master and Elo.
-* For the External Integration, Cielo is prepared to receive token data from the three brands above, but it is necessary to check whether the brand offers the product on the market.
-* Eligible Products: E-Commerce API 3.0 and 1.5.
-
-Check below the fields to be sent in the transaction if the option chosen is the integration from the outside:
-
-### Request
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-```json
-{  
-   "MerchantOrderId":"2014111701",
-   "Customer":{  
-      "Name":"Comprador Teste",
-      "Email":"compradorteste@teste.com",
-      "Birthdate":"1991-01-02",
-      "Address":{  
-         "Street":"Rua Teste",
-         "Number":"123",
-         "Complement":"AP 123",
-         "ZipCode":"12345987",
-         "City":"Rio de Janeiro",
-         "State":"RJ",
-         "Country":"BRA"
-      },
-        "DeliveryAddress": {
-            "Street": "Rua Teste",
-            "Number": "123",
-            "Complement": "AP 123",
-            "ZipCode": "12345987",
-            "City": "Rio de Janeiro",
-            "State": "RJ",
-            "Country": "BRA"
-        }
-   },
-   "Payment":{  
-     "Type":"CreditCard",
-     "Amount":15700,
-     "Currency":"BRL",
-     "Country":"BRA",
-     "ServiceTaxAmount":0,
-     "Installments":1,
-     "Interest":"ByMerchant",
-     "Capture":true,
-     "Authenticate":false,
-  "SoftDescriptor":"123456789ABCD",
-     "CreditCard":{  
-         "CardNumber":"1234123412341231",
-         "Holder":"Teste Holder",,
-         "Cryptogram":"abcdefghijklmnopqrstuvw==",
-         "ExpirationDate":"12/2030",
-         "SecurityCode":"123",
-         "SaveCard":"true",
-         "Brand":"Visa"
-     }
-   }
-}
-```
-
-```shell
-curl
---request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{  
-   "MerchantOrderId":"2014111701",
-   "Customer":{  
-      "Name":"Comprador Teste",
-      "Identity":"11225468954",
-      "IdentityType":"CPF",
-      "Email":"compradorteste@teste.com",
-      "Birthdate":"1991-01-02",
-      "Address":{  
-         "Street":"Rua Teste",
-         "Number":"123",
-         "Complement":"AP 123",
-         "ZipCode":"12345987",
-         "City":"Rio de Janeiro",
-         "State":"RJ",
-         "Country":"BRA"
-      },
-        "DeliveryAddress": {
-            "Street": "Rua Teste",
-            "Number": "123",
-            "Complement": "AP 123",
-            "ZipCode": "12345987",
-            "City": "Rio de Janeiro",
-            "State": "RJ",
-            "Country": "BRA"
-        }
-   },
-   "Payment":{  
-     "Type":"CreditCard",
-     "Amount":15700,
-     "ServiceTaxAmount":0,
-     "Installments":1,
-     "Interest":"ByMerchant",
-     "Capture":true,
-     "Authenticate":false,
-     "SoftDescriptor":"123456789ABCD",
-     "CreditCard":{  
-         "CardNumber":"4551870000000183",,
-         "Cryptogram":"abcdefghijklmnopqrstuvw==",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"12/2030",
-         "SecurityCode":"123",
-         "SaveCard":"true",
-         "Brand":"Visa"
-     }
-   }
-}
---verbose
-```
-
-|Property|Type|Size|Required|Description|
-|---|---|---|---|---|
-|`MerchantId`|Guid|36|Yes|Store identifier in Cielo.|
-|`MerchantKey`|Text|40|Yes|Public Key for Double Authentication in Cielo.|
-|`RequestId`|Guid|36|No|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|
-|`MerchantOrderId`|Text|50|Yes|Order ID number.|
-|`Customer.Name`|Text|255|No|Buyer's name.|
-|`Customer.Status`|Text|255|No|Buyer registration status in store (NEW / EXISTING)|
-|`Customer.Identity`|Text|14|No|Customer's RG, CPF or CNPJ number.|
-|`Customer.IdentityType`|Text|255|No|Type of buyer ID document (CFP/CNPJ).|
-|`Customer.Email`|Text|255|No|Buyer's e-mail.|
-|`Customer.Birthdate`|Date|10|No|Buyer's date of birth.|
-|`Customer.Address.Street`|Text|255|No|Buyer's address.|
-|`Customer.Address.Number`|Text|15|No|Buyer's address number.|
-|`Customer.Address.Complement`|Text|50|No|Buyer's address complement.br|
-|`Customer.Address.ZipCode`|Text|9|No|Buyer's address zip code.|
-|`Customer.Address.City`|Text|50|No|Buyer's address city.|
-|`Customer.Address.State`|Text|2|No|Buyer's address state.|
-|`Customer.Address.Country`|Text|35|No|Buyer's address country.|
-|`Customer.DeliveryAddress.Street`|Text|255|No|Buyer's address.|
-|`Customer.Address.Number`|Text|15|No|Buyer's address number.|
-|`Customer.DeliveryAddress.Complement`|Text|50|No|Buyer's address complement.|
-|`Customer.DeliveryAddress.ZipCode`|Text|9|No|Buyer's address zip code.|
-|`Customer.DeliveryAddress.City`|Text|50|No|Buyer's address city.|
-|`Customer.DeliveryAddress.State`|Text|2|No|Buyer's address state.|
-|`Customer.DeliveryAddress.Country`|Text|35|No|Buyer's address country.|
-|`Payment.Type`|Text|100|Yes|Type of the Payment Method.|
-|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
-|`Payment.Currency`|Text|3|No|Currency in which payment will be made (BRL).|
-|`Payment.Country`|Text|3|No|Country where payment will be made.|
-|`Payment.Provider`|Text|15|---|Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.|
-|`Payment.Installments`|Number|2|Yes|Number of Installments.|
-|`Payment.Interest`|Text|10|No|Type of installment - Store (ByMerchant) or Card (ByIssuer).|
-|`Payment.Capture`|Boolean|---|No (Default false)|Boolean that identifies that the authorization should be with automatic capture.|
-|`Payment.Authenticate`|Boolean|---|No (Default false)|Defines whether the buyer will be directed to the Issuing bank for card authentication|
-|`Payment.ServiceTaxAmount`|Number|15|No|Applicable to airlines companies only. Amount of the authorization value/amount that should be allocated to the service fee. Note: This value is not added to the authorization value.|
-|`Payment.CreditCard.CardNumber`|Text|19|Yes|Buyer's Card Number. The indication that CardNumber must be completed with DPAN for Card Networks tokenization.|
-|`Payment.CreditCard.Holder`|Text|25|No|Buyer's name printed on card.|
-|`Payment.CreditCard.Cryptogram`|Text|28|No|Cryptogram generated by the Card Networks.|
-|`Payment.CreditCard.ExpirationDate`|Text|7|Yes|Expiry date of token generated by flag.|
-|`Payment.CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
-|`Payment.CreditCard.SaveCard`|Boolean|---|No (Default false)|Boolean that identifies whether the card will be saved to generate the CardToken.|
-|`Payment.CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
-
-### Response
-
-```json
-{
-    "MerchantOrderId": "2014111706",
-    "Customer": {
-        "Name": "Comprador Teste",
-        "Identity":"11225468954",
-        "IdentityType":"CPF",
-        "Email": "compradorteste@teste.com",
-        "Birthdate": "1991-01-02",
-        "Address": {
-            "Street": "Rua Teste",
-            "Number": "123",
-            "Complement": "AP 123",
-            "ZipCode": "12345987",
-            "City": "Rio de Janeiro",
-            "State": "RJ",
-            "Country": "BRA"
-        },
-        "DeliveryAddress": {
-            "Street": "Rua Teste",
-            "Number": "123",
-            "Complement": "AP 123",
-            "ZipCode": "12345987",
-            "City": "Rio de Janeiro",
-            "State": "RJ",
-            "Country": "BRA"
-        }
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": true,
-        "Authenticate": false,
-        "CreditCard": {
-            "CardNumber": "455187******0183",
-            "Holder": "Teste Holder",
-            "ExpirationDate": "12/2030",
-            "SaveCard": true,
-   "CardToken": "d37bf475-307d-47be-b50a-8dcc38c5056c",
-            "Brand": "Visa"
-        },
-        "ProofOfSale": "674532",
-        "Tid": "0305020554239",
-        "AuthorizationCode": "123456",
-        "SoftDescriptor":"123456789ABCD",
-        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
-        "Type": "CreditCard",
-        "Amount": 15700,
-        "CapturedAmount": 15700,
-        "Country": "BRA",
-        "ExtraDataCollection": [],
-        "Status": 2,
-        "ReturnCode": "6",
-        "ReturnMessage": "Operation Successful",
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            }
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-            }
-        ]
-    }
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "MerchantOrderId": "2014111706",
-    "Customer": {
-        "Name": "Comprador Teste",
-        "Identity":"11225468954",
-        "IdentityType":"CPF",
-        "Email": "compradorteste@teste.com",
-        "Birthdate": "1991-01-02",
-        "Address": {
-            "Street": "Rua Teste",
-            "Number": "123",
-            "Complement": "AP 123",
-            "ZipCode": "12345987",
-            "City": "Rio de Janeiro",
-            "State": "RJ",
-            "Country": "BRA"
-        },
-        "DeliveryAddress": {
-            "Street": "Rua Teste",
-            "Number": "123",
-            "Complement": "AP 123",
-            "ZipCode": "12345987",
-            "City": "Rio de Janeiro",
-            "State": "RJ",
-            "Country": "BRA"
-        }
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": true,
-        "Authenticate": false,
-        "CreditCard": {
-            "CardNumber": "455187******0183",
-            "Holder": "Teste Holder",
-            "ExpirationDate": "12/2030",
-            "SaveCard": true,
-   "CardToken": "d37bf475-307d-47be-b50a-8dcc38c5056c"
-            "Brand": "Visa"
-        },
-        "ProofOfSale": "674532",
-        "Tid": "0305020554239",
-        "AuthorizationCode": "123456",
-        "SoftDescriptor":"123456789ABCD",
-        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
-        "Type": "CreditCard",
-        "Amount": 15700,
-        "CapturedAmount": 15700,
-        "Country": "BRA",
-        "ExtraDataCollection": [],
-        "Status": 2,
-        "ReturnCode": "6",
-        "ReturnMessage": "Operation Successful",
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            }
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-            }
-        ]
-    }
-}
-```
-
-|Property|Description|Type|Size|Format|
-|---|---|---|---|---|
-|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
-|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
-|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
-`SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|Alphanumeric text|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ECI`|Eletronic Commerce Indicator. Represents how secure a transaction is.|Text|2|Examples: 7|
-|`Status`|Transaction Status.|Byte|---|2|
-|`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
-|`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric text|
-|`Cardtoken`|Card identification token.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-
-## Creating a sale with Tokenized Card
-
-To create a credit card sale with protected card token, it is necessary to do a POST for the Payment feature as the example.
-
-### Request
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-```json
-{  
-   "MerchantOrderId":"2014111706",
-   "Customer":{  
-      "Name":"Comprador Teste"
-   },
-   "Payment":{  
-     "Type":"CreditCard",
-     "Amount":100,
-     "Installments":1,
-     "SoftDescriptor":"123456789ABCD",
-     "CreditCard":{  
-         "CardToken":"6e1bf77a-b28b-4660-b14f-455e2a1c95e9",
-         "SecurityCode":"262",
-         "Brand":"Visa"
-     }
-   }
-}
-```
-
-```shell
-curl
---request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{  
-   "MerchantOrderId":"2014111706",
-   "Customer":{  
-      "Name":"Comprador Teste"
-   },
-   "Payment":{  
-     "Type":"CreditCard",
-     "Amount":100,
-     "Installments":1,
-     "SoftDescriptor":"123456789ABCD",
-     "CreditCard":{  
-         "CardToken":"6e1bf77a-b28b-4660-b14f-455e2a1c95e9",
-         "SecurityCode":"262",
-         "Brand":"Visa"
-     }
-   }
-}
---verbose
-```
-
-|Property|Description|Type|Size|Required|
-|---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
-|`MerchantOrderId`|Order ID number.|Text|50|Yes|
-|`Customer.Name`|Buyer's name.|Text|255|No|
-|`Customer.Status`|Buyer registration status in store (NEW / EXISTING) - Used by fraud analysis|Text|255|No|
-|`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
-|`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
-|`Payment.Installments`|Number of Installments.|Number|2|Yes|
-|`Payment.SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|No|
-|`Payment.ReturnUrl`|URI to which the user will be redirected after payment ends|Text|1024|Yes when Authenticate = true|
-|`CreditCard.CardToken`|Card identification token.|Guid|36|Yes|
-|`CreditCard.SecurityCode`|Security code printed on back of card.|Text|4|No|
-|`CreditCard.Brand`|Card issuer.|Text|10|Yes|
-
-### Response
-
-```json
-{
-    "MerchantOrderId": "2014111706",
-    "Customer": {
-        "Name": "Comprador Teste"
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": false,
-        "Authenticate": false,
-        "CreditCard": {
-            "SaveCard": false,
-            "CardToken": "6e1bf77a-b28b-4660-b14f-455e2a1c95e9",
-            "Brand": "Visa"
-        },
-        "ProofOfSale": "5036294",
-        "Tid": "0310025036294",
-        "AuthorizationCode": "319285",
-        "SoftDescriptor":"123456789ABCD",
-        "PaymentId": "c3ec8ec4-1ed5-4f8d-afc3-19b18e5962a8",
-        "Type": "CreditCard",
-        "Amount": 100,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "ExtraDataCollection": [],
-        "Status": 1,
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "capture",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-            }
-        ]
-    }
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-        {
-    "MerchantOrderId": "2014111706",
-    "Customer": {
-        "Name": "Comprador Teste"
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": false,
-        "Authenticate": false,
-        "CreditCard": {
-            "SaveCard": false,
-            "CardToken": "6e1bf77a-b28b-4660-b14f-455e2a1c95e9",
-            "Brand": "Visa"
-        },
-        "ProofOfSale": "5036294",
-        "Tid": "0310025036294",
-        "AuthorizationCode": "319285",
-        "SoftDescriptor":"123456789ABCD",
-        "PaymentId": "c3ec8ec4-1ed5-4f8d-afc3-19b18e5962a8",
-        "Type": "CreditCard",
-        "Amount": 100,
-        "Currency": "BRL",
-        "Country": "BRA",
-        "ExtraDataCollection": [],
-        "Status": 1,
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "capture",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-            }
-        ]
-    }
-}
-```
-
-|Property|Description|Type|Size|Format|
-|---|---|---|---|---|
-|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
-|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
-|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
-`SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|Alphanumeric text|
-|`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ECI`|Eletronic Commerce Indicator. Represents how secure a transaction is.|Text|2|Examples: 7|
-|`Status`|Transaction Status.|Byte|---|2|
-|`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
-|`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric texto|
-
-## Creating a sale with Tokenized Card in 1.5
-
-To create a credit card sale with webservice 1.5 token, it is necessary to do a POST for the Payment feature as the example.
-
-For use in Sandbox, it is possible to simulate authorized or declined transactions via test tokens:
-
-|Status|Token|
-|---|---|
-|Authorized|6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA|
-|Declined|6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeB|
-
-### Request
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-```json
-{  
-   "MerchantOrderId":"2014111706",
-   "Customer":{  
-      "Name":"Comprador token 1.5"     
-   },
-   "Payment":{  
-     "Type":"CreditCard",
-     "Amount":100,
-     "Installments":1,
-     "CreditCard":{  
-     "CardToken":"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA",
-     "Brand":"Visa"
-     }
-   }
-}
-```
-
-```shell
-curl
---request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{  
-   "MerchantOrderId":"2014111706",
-   "Customer":{  
-      "Name":"Comprador token 1.5"     
-   },
-   "Payment":{  
-     "Type":"CreditCard",
-     "Amount":100,
-     "Installments":1,
-     "CreditCard":{  
-     "CardToken":"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA",
-     "Brand":"Visa"
-     }
-   }
-}
---verbose
-```
-
-|Property|Description|Type|Size|Required|
-|---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
-|`MerchantOrderId`|Order ID number.|Text|50|Yes|
-|`Customer.Name`|Buyer's name.|Text|255|No|
-|`Customer.Status`|Buyer registration status in store (NEW / EXISTING) - Used by fraud analysis|Text|255|No|
-|`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
-|`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
-|`Payment.Installments`|Number of Installments.|Number|2|Yes|
-|`CreditCard.CardToken`|Card identification token.|Guid|300|Yes|
-|`CreditCard.Brand`|Card issuer.|Text|10|Yes|
-
-### Response
-
-```json
-{
-  "MerchantOrderId": "2014111706",
-  "Customer": {
-    "Name": "Comprador token 1.5"
-  },
-  "Payment": {
-    "ServiceTaxAmount": 0,
-    "Installments": 1,
-    "Interest": 0,
-    "Capture": false,
-    "Authenticate": false,
-    "Recurrent": false,
-    "CreditCard": {
-      "SaveCard": false,
-      "CardToken": "6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA",
-      "Brand": "Visa"
-    },
-    "Tid": "0307050140148",
-    "ProofOfSale": "140148",
-    "AuthorizationCode": "045189",
-    "Provider": "Simulado",
-    "PaymentId": "8c14cdcf-d5a9-46b0-b040-c0d054cd8f76",
-    "Type": "CreditCard",
-    "Amount": 100,
-    "ReceivedDate": "2017-03-07 17:01:40",
-    "Currency": "BRL",
-    "Country": "BRA",
-    "ReturnCode": "4",
-    "ReturnMessage": "Operation Successful",
-    "Status": 1,
-    "Links": [
-      {
-        "Method": "GET",
-        "Rel": "self",
-        "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/8c14cdcf-d5a9-46b0-b040-c0d054cd8f76"
-      },
-      {
-        "Method": "PUT",
-        "Rel": "capture",
-        "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/8c14cdcf-d5a9-46b0-b040-c0d054cd8f76/capture"
-      },
-      {
-        "Method": "PUT",
-        "Rel": "void",
-        "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/8c14cdcf-d5a9-46b0-b040-c0d054cd8f76/void"
-      }
-    ]
-  }
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-  "MerchantOrderId": "2014111706",
-  "Customer": {
-    "Name": "Comprador token 1.5"
-  },
-  "Payment": {
-    "ServiceTaxAmount": 0,
-    "Installments": 1,
-    "Interest": 0,
-    "Capture": false,
-    "Authenticate": false,
-    "Recurrent": false,
-    "CreditCard": {
-      "SaveCard": false,
-      "CardToken": "6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA",
-      "Brand": "Visa"
-    },
-    "Tid": "0307050140148",
-    "ProofOfSale": "140148",
-    "AuthorizationCode": "045189",
-    "Provider": "Simulado",
-    "PaymentId": "8c14cdcf-d5a9-46b0-b040-c0d054cd8f76",
-    "Type": "CreditCard",
-    "Amount": 100,
-    "ReceivedDate": "2017-03-07 17:01:40",
-    "Currency": "BRL",
-    "Country": "BRA",
-    "ReturnCode": "4",
-    "ReturnMessage": "Operation Successful",
-    "Status": 1,
-    "Links": [
-      {
-        "Method": "GET",
-        "Rel": "self",
-        "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/8c14cdcf-d5a9-46b0-b040-c0d054cd8f76"
-      },
-      {
-        "Method": "PUT",
-        "Rel": "capture",
-        "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/8c14cdcf-d5a9-46b0-b040-c0d054cd8f76/capture"
-      },
-      {
-        "Method": "PUT",
-        "Rel": "void",
-        "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/8c14cdcf-d5a9-46b0-b040-c0d054cd8f76/void"
-      }
-    ]
-  }
-}
-
-```
-
-|Property|Description|Type|Size|Format|
-|---|---|---|---|---|
-|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
-|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
-|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
-`SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|Alphanumeric text|
-|`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`ECI`|Eletronic Commerce Indicator. Represents how secure a transaction is.|Text|2|Examples: 7|
-|`Status`|Transaction Status.|Byte|---|2|
-|`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
-|`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric text|
 
 # BIN Checker
 
