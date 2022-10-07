@@ -4485,31 +4485,29 @@ To save a card as a token during a credit card transaction authorization, send t
 
 The response will return with the card token on the `CardToken` field.
 
-## Tokenization by Card Networks
+## Tokenization by card brands
 
-Some brands have a tokenization solution that offers the storage of cards in safes in the same brand in an encrypted form. This brand tokenization is intended to improve the quality of ID card information, which may allow for increased approval conversion by issuing banks. See all the benefits:
+SoSome card brands have a tokenization solution that offers the storage of cards in safes at the brand itself, in an encrypted form. This brand tokenization is intended to improve the security and quality of card information transmitted, which leads to possible increases in the conversion of approval by issuing banks. See all the benefits:
   
-* **Increased security:** In addition to creating a code (token or DPAN) to replace the card information, the brands also issue cryptograms, which work like a password or signature of the brand, unique to that card at that establishment.
-* **Automatic Card Update:** When a new card is issued in place of the previous card, or when a card's expiration date changes, banks send this information to the brand's database, and the brand automatically updates the tokens with the new information. That is, there is no need for any action on the part of the establishment.
-* **Higher approval conversion:** Due to the greater security with brand tokens, issuing banks feel more secure in approving transactions. Plus, with card data automatically updated, more sales that could be denied by outdated card data can be approved.
+* **Increased security:** In addition to creating a code (token or DPAN) to replace the card information, the brands also issue cryptograms, which function as a password or signature of the brand, unique to that card at that establishment.
+* **Automatic Card Update:** When a new card is issued in place of the previous card, or when a card's expiration date changes, banks send this information to the brand's base, and the brand automatically updates the tokens with the new information. That is, there is no need for any action on the part of the establishment.
+* **Higher approval conversion:** Due to the greater security with the flags' tokens, issuing banks feel more secure in approving transactions. Plus, with card data automatically updated, more sales that could be denied by outdated card data can be approved.
 
-**How it works ?**
+**How does it work?**
   
-The participating brands make APIs available to acquirers, gateways and partners to securely receive and store the card, with the creation of a unique and exclusive token for that card at that establishment.
+The participating brands provide APIs for receiving and storing the card securely for acquirers, gateways and partners, with the creation of a exclusive token for that card at that establishment.
   
 Cielo provides these services to customers in two ways:
   
-* **Simple Integration:** The merchant integrates with Cielo's conventional tokenization functionality, which calls the card brand tken API from behind, and connect these two tokens in Cielo's vault. In this way, merchants will always have a single token for that card, but Cielo will have in house the tokens and cryptograms of the brands.
+* **Simple Integration:** The establishment integrates with Cielo's conventional tokenization functionality, which performs the tokenization of the brand behind it, and links these two tokens in Cielo's vault. In this way, merchants will always have a single token for that card, but Cielo will have the brand's tokens and cryptograms internally. To see how the integration with Cielo's conventional tokenization is like, go back to the [Card Tokenization](https://developercielo.github.io/en/manual/cielo-ecommerce#tokenization-of-cards){:target="_blank"} menu
 * Available Brands: Visa;
-* Eligible Products: E-Commerce API 3.0 and 1.5.
-* To obtain this functionality, contact our ecommerce support channel and request them to enable the card brand token service: cieloecommerce@cielo.com.br
 
-* **External Integration:** If the merchant uses a gateway or another partner that already offers the card brand token service, Cielo already has the Fields in our APIs to receive the token information, needed to be sent in the transaction. Then, the transaction will be sent to the card brand with the token data.
+> To obtain this functionality, contact our E-commerce support channel and request them to enable the card brand token service: cieloecommerce@cielo.com.br
+
+* **External Integration:** if the merchant uses a gateway or another partner that already offers the flag token solution, Cielo has the fields for the token information to be sent in the transaction, so that in the processing the brand receives the token data. See more details on the request below.
 * Available brands: Visa, Master and Elo.
-* For the External Integration, Cielo is prepared to receive token data from the three brands above, but it is necessary to check whether the brand offers the product on the market.
-* Eligible Products: E-Commerce API 3.0 and 1.5.
 
-Check below the fields to be sent in the transaction if the option chosen is the integration from the outside:
+Check below the fields to be sent in the transaction if the option chosen is external integration:
 
 ### Request
 
@@ -4551,10 +4549,10 @@ Check below the fields to be sent in the transaction if the option chosen is the
      "Interest":"ByMerchant",
      "Capture":true,
      "Authenticate":false,
-  "SoftDescriptor":"123456789ABCD",
+     "SoftDescriptor":"123456789ABCD",
      "CreditCard":{  
          "CardNumber":"1234123412341231",
-         "Holder":"Teste Holder",,
+         "Holder":"Teste Holder",
          "Cryptogram":"abcdefghijklmnopqrstuvw==",
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
@@ -4610,9 +4608,9 @@ curl
      "Authenticate":false,
      "SoftDescriptor":"123456789ABCD",
      "CreditCard":{  
-         "CardNumber":"4551870000000183",,
-         "Cryptogram":"abcdefghijklmnopqrstuvw==",
+         "CardNumber":"4551870000000183",
          "Holder":"Teste Holder",
+         "Cryptogram":"abcdefghijklmnopqrstuvw==",
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
          "SaveCard":"true",
@@ -4625,47 +4623,13 @@ curl
 
 |Property|Type|Size|Required|Description|
 |---|---|---|---|---|
-|`MerchantId`|Guid|36|Yes|Store identifier in Cielo.|
-|`MerchantKey`|Text|40|Yes|Public Key for Double Authentication in Cielo.|
-|`RequestId`|Guid|36|No|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|
-|`MerchantOrderId`|Text|50|Yes|Order ID number.|
-|`Customer.Name`|Text|255|No|Buyer's name.|
-|`Customer.Status`|Text|255|No|Buyer registration status in store (NEW / EXISTING)|
-|`Customer.Identity`|Text|14|No|Customer's RG, CPF or CNPJ number.|
-|`Customer.IdentityType`|Text|255|No|Type of buyer ID document (CFP/CNPJ).|
-|`Customer.Email`|Text|255|No|Buyer's e-mail.|
-|`Customer.Birthdate`|Date|10|No|Buyer's date of birth.|
-|`Customer.Address.Street`|Text|255|No|Buyer's address.|
-|`Customer.Address.Number`|Text|15|No|Buyer's address number.|
-|`Customer.Address.Complement`|Text|50|No|Buyer's address complement.br|
-|`Customer.Address.ZipCode`|Text|9|No|Buyer's address zip code.|
-|`Customer.Address.City`|Text|50|No|Buyer's address city.|
-|`Customer.Address.State`|Text|2|No|Buyer's address state.|
-|`Customer.Address.Country`|Text|35|No|Buyer's address country.|
-|`Customer.DeliveryAddress.Street`|Text|255|No|Buyer's address.|
-|`Customer.Address.Number`|Text|15|No|Buyer's address number.|
-|`Customer.DeliveryAddress.Complement`|Text|50|No|Buyer's address complement.|
-|`Customer.DeliveryAddress.ZipCode`|Text|9|No|Buyer's address zip code.|
-|`Customer.DeliveryAddress.City`|Text|50|No|Buyer's address city.|
-|`Customer.DeliveryAddress.State`|Text|2|No|Buyer's address state.|
-|`Customer.DeliveryAddress.Country`|Text|35|No|Buyer's address country.|
-|`Payment.Type`|Text|100|Yes|Type of the Payment Method.|
-|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
-|`Payment.Currency`|Text|3|No|Currency in which payment will be made (BRL).|
-|`Payment.Country`|Text|3|No|Country where payment will be made.|
-|`Payment.Provider`|Text|15|---|Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.|
-|`Payment.Installments`|Number|2|Yes|Number of Installments.|
-|`Payment.Interest`|Text|10|No|Type of installment - Store (ByMerchant) or Card (ByIssuer).|
-|`Payment.Capture`|Boolean|---|No (Default false)|Boolean that identifies that the authorization should be with automatic capture.|
-|`Payment.Authenticate`|Boolean|---|No (Default false)|Defines whether the buyer will be directed to the Issuing bank for card authentication|
-|`Payment.ServiceTaxAmount`|Number|15|No|Applicable to airlines companies only. Amount of the authorization value/amount that should be allocated to the service fee. Note: This value is not added to the authorization value.|
-|`Payment.CreditCard.CardNumber`|Text|19|Yes|Buyer's Card Number. The indication that CardNumber must be completed with DPAN for Card Networks tokenization.|
-|`Payment.CreditCard.Holder`|Text|25|No|Buyer's name printed on card.|
-|`Payment.CreditCard.Cryptogram`|Text|28|No|Cryptogram generated by the Card Networks.|
-|`Payment.CreditCard.ExpirationDate`|Text|7|Yes|Expiry date of token generated by flag.|
+|`Payment.CreditCard.CardNumber`|Text|19|Yes|Token generated by the brand (DPAN). The indication that the `CardNumber` must be filled with the DPAN in case of brand tokenization.|
+|`Payment.CreditCard.Holder`|Text|25|No|Shopper's name printed on card.|
+|`Payment.CreditCard.Cryptogram`|Text|28|No|Cryptogram generated by the card brand.|
+|`Payment.CreditCard.ExpirationDate`|Text|7|Yes|Expiry date of token generated by brand.|
 |`Payment.CreditCard.SecurityCode`|Text|4|No|Security code printed on back of card - See Annex.|
 |`Payment.CreditCard.SaveCard`|Boolean|---|No (Default false)|Boolean that identifies whether the card will be saved to generate the CardToken.|
-|`Payment.CreditCard.Brand`|Text|10|Yes|Card issuer (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
+|`Payment.CreditCard.Brand`|Text|10|Yes|Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).|
 
 ### Response
 
@@ -4708,7 +4672,7 @@ curl
             "Holder": "Teste Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": true,
-   "CardToken": "d37bf475-307d-47be-b50a-8dcc38c5056c",
+            "CardToken": "d37bf475-307d-47be-b50a-8dcc38c5056c",
             "Brand": "Visa"
         },
         "ProofOfSale": "674532",
@@ -4782,7 +4746,7 @@ curl
             "Holder": "Teste Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": true,
-   "CardToken": "d37bf475-307d-47be-b50a-8dcc38c5056c"
+            "CardToken": "d37bf475-307d-47be-b50a-8dcc38c5056c"
             "Brand": "Visa"
         },
         "ProofOfSale": "674532",
@@ -4820,11 +4784,11 @@ curl
 |`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
 |`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
 `SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|Alphanumeric text|
-|`PaymentId`|Campo Identificador do Pedido.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`PaymentId`|Payment ID number.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ECI`|Eletronic Commerce Indicator. Represents how secure a transaction is.|Text|2|Examples: 7|
 |`Status`|Transaction Status.|Byte|---|2|
-|`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
-|`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric text|
+|`ReturnCode`|Return code from the Acquirer.|Text|32|Alphanumeric text|
+|`ReturnMessage`|Return message from the Acquirer.|Text|512|Alphanumeric text|
 |`Cardtoken`|Card identification token.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
 ## Creating a sale with Tokenized Card
