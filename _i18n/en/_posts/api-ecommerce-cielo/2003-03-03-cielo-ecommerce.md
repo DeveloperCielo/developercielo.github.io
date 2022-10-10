@@ -4793,7 +4793,7 @@ curl
 
 ## Creating a sale with Tokenized Card
 
-To create a credit card sale with protected card token, it is necessary to do a POST for the Payment feature as the example.
+To create a tokenized credit card sale, submit a credit transaction requisition with `CardToken` as the following example.
 
 ### Request
 
@@ -4849,20 +4849,9 @@ curl
 
 |Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
-|`MerchantOrderId`|Order ID number.|Text|50|Yes|
-|`Customer.Name`|Buyer's name.|Text|255|No|
-|`Customer.Status`|Buyer registration status in store (NEW / EXISTING) - Used by fraud analysis|Text|255|No|
-|`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
-|`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
-|`Payment.Installments`|Number of Installments.|Number|2|Yes|
-|`Payment.SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|No|
-|`Payment.ReturnUrl`|URI to which the user will be redirected after payment ends|Text|1024|Yes when Authenticate = true|
 |`CreditCard.CardToken`|Card identification token.|Guid|36|Yes|
 |`CreditCard.SecurityCode`|Security code printed on back of card.|Text|4|No|
-|`CreditCard.Brand`|Card issuer.|Text|10|Yes|
+|`CreditCard.Brand`|Card brand.|Text|10|Yes|
 
 ### Response
 
@@ -4972,7 +4961,7 @@ curl
 |`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
 |`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
 |`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
-`SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|Alphanumeric text|
+|`SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|Alphanumeric text|
 |`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ECI`|Eletronic Commerce Indicator. Represents how secure a transaction is.|Text|2|Examples: 7|
 |`Status`|Transaction Status.|Byte|---|2|
