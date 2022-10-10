@@ -4970,9 +4970,11 @@ curl
 
 ## Creating a sale with Tokenized Card in 1.5
 
-To create a credit card sale with webservice 1.5 token, it is necessary to do a POST for the Payment feature as the example.
+<aside class="warning">This integration aims to serve customers who are migrating from API 1.5 to API 3.0.</aside>
 
-For use in Sandbox, it is possible to simulate authorized or declined transactions via test tokens:
+To create a credit card sale with a 1.5 token, it is necessary to make a POST to the Payment resource as shown in the example.
+
+For use in Sandbox, it is possible to simulate authorized or denied transactions via test tokens:
 
 |Status|Token|
 |---|---|
@@ -4994,8 +4996,8 @@ For use in Sandbox, it is possible to simulate authorized or declined transactio
      "Amount":100,
      "Installments":1,
      "CreditCard":{  
-     "CardToken":"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA",
-     "Brand":"Visa"
+        "CardToken":"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA",
+        "Brand":"Visa"
      }
    }
 }
@@ -5019,8 +5021,8 @@ curl
      "Amount":100,
      "Installments":1,
      "CreditCard":{  
-     "CardToken":"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA",
-     "Brand":"Visa"
+        "CardToken":"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA",
+        "Brand":"Visa"
      }
    }
 }
@@ -5029,17 +5031,17 @@ curl
 
 |Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
+|`MerchantId`|Merchant identifier in API E-commerce Cielo.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API E-commerce Cielo.|Text|40|Yes|
 |`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
 |`MerchantOrderId`|Order ID number.|Text|50|Yes|
-|`Customer.Name`|Buyer's name.|Text|255|No|
-|`Customer.Status`|Buyer registration status in store (NEW / EXISTING) - Used by fraud analysis|Text|255|No|
-|`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
+|`Customer.Name`|Shopper's name.|Text|255|No|
+|`Customer.Status`|Shopper registration status in store (NEW / EXISTING) - Used by fraud analysis|Text|255|No|
+|`Payment.Type`|Type of payment method.|Text|100|Yes|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
 |`Payment.Installments`|Number of Installments.|Number|2|Yes|
 |`CreditCard.CardToken`|Card identification token.|Guid|300|Yes|
-|`CreditCard.Brand`|Card issuer.|Text|10|Yes|
+|`CreditCard.Brand`|Card brand.|Text|10|Yes|
 
 ### Response
 
@@ -5160,8 +5162,8 @@ curl
 |`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`ECI`|Eletronic Commerce Indicator. Represents how secure a transaction is.|Text|2|Examples: 7|
 |`Status`|Transaction Status.|Byte|---|2|
-|`ReturnCode`|Return code of Acquiring.|Text|32|Alphanumeric text|
-|`ReturnMessage`|Return message of Acquiring.|Text|512|Alphanumeric text|
+|`ReturnCode`|Return code from acquirer.|Text|32|Alphanumeric text|
+|`ReturnMessage`|Return message from acquirer.|Text|512|Alphanumeric text|
 
 # Consult - Capture - Cancel
 
