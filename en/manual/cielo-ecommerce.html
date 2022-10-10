@@ -9606,9 +9606,11 @@ In addition, you have to send some addictional data in the transaction, to that 
 
 <h2 id="creating-a-sale-with-tokenized-card-in-15">Creating a sale with Tokenized Card in 1.5</h2>
 
-<p>To create a credit card sale with webservice 1.5 token, it is necessary to do a POST for the Payment feature as the example.</p>
+<aside class="warning">This integration aims to serve customers who are migrating from API 1.5 to API 3.0.</aside>
 
-<p>For use in Sandbox, it is possible to simulate authorized or declined transactions via test tokens:</p>
+<p>To create a credit card sale with a 1.5 token, it is necessary to make a POST to the Payment resource as shown in the example.</p>
+
+<p>For use in Sandbox, it is possible to simulate authorized or denied transactions via test tokens:</p>
 
 <table>
   <thead>
@@ -9643,8 +9645,8 @@ In addition, you have to send some addictional data in the transaction, to that 
      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
      </span><span class="nl">"CreditCard"</span><span class="p">:{</span><span class="w">  
-     </span><span class="nl">"CardToken"</span><span class="p">:</span><span class="s2">"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA"</span><span class="p">,</span><span class="w">
-     </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+        </span><span class="nl">"CardToken"</span><span class="p">:</span><span class="s2">"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
      </span><span class="p">}</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -9667,8 +9669,8 @@ In addition, you have to send some addictional data in the transaction, to that 
      <span class="s2">"Amount"</span>:100,
      <span class="s2">"Installments"</span>:1,
      <span class="s2">"CreditCard"</span>:<span class="o">{</span>  
-     <span class="s2">"CardToken"</span>:<span class="s2">"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA"</span>,
-     <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
+        <span class="s2">"CardToken"</span>:<span class="s2">"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA"</span>,
+        <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
      <span class="o">}</span>
    <span class="o">}</span>
 <span class="o">}</span>
@@ -9688,14 +9690,14 @@ In addition, you have to send some addictional data in the transaction, to that 
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier in API Cielo eCommerce.</td>
+      <td>Merchant identifier in API E-commerce Cielo.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
+      <td>Public Key for Double Authentication in API E-commerce Cielo.</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
@@ -9716,21 +9718,21 @@ In addition, you have to send some addictional data in the transaction, to that 
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Buyer’s name.</td>
+      <td>Shopper’s name.</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>Buyer registration status in store (NEW / EXISTING) - Used by fraud analysis</td>
+      <td>Shopper registration status in store (NEW / EXISTING) - Used by fraud analysis</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Type of the Payment Method.</td>
+      <td>Type of payment method.</td>
       <td>Text</td>
       <td>100</td>
       <td>Yes</td>
@@ -9758,7 +9760,7 @@ In addition, you have to send some addictional data in the transaction, to that 
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
-      <td>Card issuer.</td>
+      <td>Card brand.</td>
       <td>Text</td>
       <td>10</td>
       <td>Yes</td>
@@ -9936,14 +9938,14 @@ In addition, you have to send some addictional data in the transaction, to that 
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
-      <td>Return code of Acquiring.</td>
+      <td>Return code from acquirer.</td>
       <td>Text</td>
       <td>32</td>
       <td>Alphanumeric text</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
-      <td>Return message of Acquiring.</td>
+      <td>Return message from acquirer.</td>
       <td>Text</td>
       <td>512</td>
       <td>Alphanumeric text</td>
