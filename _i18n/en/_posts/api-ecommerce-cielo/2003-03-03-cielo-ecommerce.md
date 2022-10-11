@@ -5165,1130 +5165,18 @@ curl
 |`ReturnCode`|Return code from acquirer.|Text|32|Alphanumeric text|
 |`ReturnMessage`|Return message from acquirer.|Text|512|Alphanumeric text|
 
-# Consult - Capture - Cancel
-
-## Consulting Transactions
-
-### Consult - PaymentID
-
-To consult a credit card sale, it is necessary to do a GET for the Payment feature as the example.
-
-<aside class="notice">Only transactions sent on the last three months are eligible for queries</aside>
-
-#### Request
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
-
-```shell
-curl
---request GET "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
---verbose
-```
-
-|Property|Description|Type|Size|Required|
-|---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
-|`PaymentId`|Payment identification number.|Text|36|Yes|
-|`AcquirerOrderId`|Transaction id sent to the authorizer if the MerchantOrderId is longer than 20 characters or has symbols.|Text|50|Yes|
-|`Tid`|Payment identification number at the acquirer.|Text|36|Yes|
-
-#### Response
-
-```json
-{
-"MerchantOrderId": "2014111706",
-"AcquirerOrderId": "202202231037440D1BD0",
-"Customer": {
-    "Name": "Buyer Teste",
-    "Address": {}
-},
-"Payment": {
-    "ServiceTaxAmount": 0,
-    "Installments": 1,
-    "Interest": "ByMerchant",
-    "Capture": false,
-    "Authenticate": false,
-    "CreditCard": {
-        "CardNumber": "455187******0183",
-        "Holder": "Teste Holder",
-        "ExpirationDate": "12/2030",
-        "SaveCard": false,
-        "Brand": "Visa",
-        "PaymentAccountReference":"92745135160550440006111072222"
-    },
-    "ProofOfSale": "674532",
-    "Tid": "0223103744208",
-    "AuthorizationCode": "123456",
-    "Chargebacks": [
-        {
-            "Amount": 10000,
-            "CaseNumber": "123456",
-            "Date": "2022-06-04",
-            "ReasonCode": "104",
-            "ReasonMessage": "Outras Fraudes - Cartao Ausente",
-            "Status": "Received",
-            "RawData": "Client did not participate and did not authorize transaction"
-        }
-    ],
-    "FraudAlert": {
-        "Date": "2022-05-20",
-        "ReasonMessage": "Uso Ind Numeração",
-        "IncomingChargeback": false
-    },
-    "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
-    "Type": "CreditCard",
-    "Amount": 10000,
-    "ReceivedDate": "2022-07-29 17:16:21",
-    "CapturedAmount": 9000,
-    "CapturedDate": "2022-07-29 17:16:22",
-    "VoidedAmount": 1000,
-    "VoidedDate": "2022-05-15 16:25:38",
-    "Currency": "BRL",
-    "Country": "BRA",
-    "ExtraDataCollection": [],
-    "Status": 1,
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "capture",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-        }
-    ]
-}
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "MerchantOrderId": "2014111706",
-    "AcquirerOrderId": "202202231037440D1BD0",
-    "Customer": {
-        "Name": "Buyer Teste",
-        "Address": {}
-    },
-    "Payment": {
-        "ServiceTaxAmount": 0,
-        "Installments": 1,
-        "Interest": "ByMerchant",
-        "Capture": false,
-        "Authenticate": false,
-        "CreditCard": {
-            "CardNumber": "455187******0183",
-            "Holder": "Teste Holder",
-            "ExpirationDate": "12/2030",
-            "SaveCard": false,
-            "Brand": "Visa",
-            "PaymentAccountReference":"92745135160550440006111072222"
-        },
-        "ProofOfSale": "674532",
-        "Tid": "0223103744208",
-        "AuthorizationCode": "123456",
-        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
-        "Type": "CreditCard",
-        "Amount": 10000,
-        "ReceivedDate": "2022-07-29 17:16:21",
-        "CapturedAmount": 9000,
-        "CapturedDate": "2022-07-29 17:16:22",
-        "VoidedAmount": 1000,
-        "VoidedDate": "2022-05-15 16:25:38",
-        "Currency": "BRL",
-        "Country": "BRA",
-        "ExtraDataCollection": [],
-        "Status": 1,
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "capture",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
-            },
-            {
-                "Method": "PUT",
-                "Rel": "void",
-                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-            }
-        ]
-    }
-}
-```
-
-|Property|Description|Type|Size|Format|
-|`MerchantOrderId`|Order identification number.|Text|50|Text alphanumeric|
-|`AcquirerOrderId`|Transaction id sent to the authorizer if the MerchantOrderId is longer than 20 characters or has symbols|Text|50|Text alphanumeric|
-|`AuthorizationCode`|authorization code.|Text|6|Text alphanumeric|
-|`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`Status`|Transaction Status.|Byte|2|-|
-|`Customer.Name`|Nome do Comprador|Text|255|-|
-|`Customer.Status`|Buyer registration status in the store (NEW / EXISTING)|Text|255|-|
-|`Payment.ProofOfSale`|Authorization number, identical to NSU|Text|6|Text alphanumeric|
-|`Payment.Tid`|Transaction ID in the payment method provider|Text|40|Text alphanumeric|
-|`Payment.Type`|Type of Payment |Text|100|-|
-|`Payment.Amount`|Order Amount (to be shipped in cents)|Number|15|-|
-|`Payment.ReceivedDate`|Date the transaction was received.|Text|19|AAAA-MM-DD HH:mm:SS|
-|`Payment.CapturedAmount`|Captured value.|Number|15|10000|
-|`Payment.CapturedDate`|Capture date|Text|19|AAAA-MM-DD HH:mm:SS|
-|`Payment.VoidedAmount`|Canceled/refunded amount, in cents.|Number|15|10000|
-|`Payment.VoidedDate`|Date of cancellation/chargeback|Text|19|AAAA-MM-DD HH:mm:SS|
-|`Payment.Provider`|Defines behavior of the means of payment (see Annex)/NOT MANDATORY FOR CREDIT|Text|15|-|
-|`CreditCard.CardNumber`|Buyer's Card Number|Text|19|-|
-|`CreditCard.Holder`|Buyer's name printed on card|Text|25|-|
-|`CreditCard.ExpirationDate`|Expiration date printed on card|Text|7|-|
-|`CreditCard.SecurityCode`|Security code printed on the back of the card See attached|Text|4|-|
-|`CreditCard.Brand`|Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper)|Text|10|-|
-|`CreditCard.PaymentAccountReference`|PAR(payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the flag does not send the information, the field will not be returned.|Number|29|-|
-
-### Consult - MerchandOrderID
-
-It is not possible to directly query a payment by the identifier sent by the store (MerchantOrderId), but it is possible to get all PaymentIds associated with the identifier.
-
-To check a sale by store identifier, you need to make a GET for the sales feature as the example.
-
-#### Request
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales?merchantOrderId={merchantOrderId}</span></aside>
-
-```shell
-curls
---request GET " https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales?merchantOrderId={merchantOrderId}"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
---verbose
-```
-
-|Property|Description|Type|Size|Required|
-|---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
-|`MerchantOrderId`|Order Identifier Field at the Store.|Text|36|Yes|
-
-#### Response
-
-```json
-{
-    "Payment": [
-        {
-            "PaymentId": "5fb4d606-bb63-4423-a683-c966e15399e8",
-            "ReceveidDate": "2015-04-06T10:13:39.42"
-        },
-        {
-            "PaymentId": "6c1d45c3-a95f-49c1-a626-1e9373feecc2",
-            "ReceveidDate": "2014-12-19T20:23:28.847"
-        }
-    ]
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "Payment": [
-        {
-            "PaymentId": "5fb4d606-bb63-4423-a683-c966e15399e8",
-            "ReceveidDate": "2015-04-06T10:13:39.42"
-        },
-        {
-            "PaymentId": "6c1d45c3-a95f-49c1-a626-1e9373feecc2",
-            "ReceveidDate": "2014-12-19T20:23:28.847"
-        }
-    ]
-}
-```
-
-|Property|Description|Type|Size|Format|
-|---|---|---|---|---|
-|`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-
-### Consulting a Recurrence
-
-To consult a credit card Recurrence, it is necessary to do a `GET` as shown in the example.
-
-**The Recurrence Query brings data about the scheduling and transaction process that are repeated. They do not return data about transactions itself. To do this, a `GET` must be performed in the transaction (Available in" Consulting sales)**
-
-#### Request
-
-<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}</span></aside>
-
-```shell
-curl
---request GET "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
---verbose
-```
-
-|Property|Description|Type|Size|Required|
-|---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
-|`RecurrentPaymentId`|Recurrence Identifier Field.|Text|36|Yes|
-
-#### Response
-
-```json
-{
-    "Customer": {
-        "Name": "Fulano da Silva"
-    },
-    "RecurrentPayment": {
-        "RecurrentPaymentId": "c30f5c78-fca2-459c-9f3c-9c4b41b09048",
-        "NextRecurrency": "2017-06-07",
-        "StartDate": "2017-04-07",
-        "EndDate": "2017-02-27",
-        "Interval": "Bimonthly",
-        "Amount": 15000,
-        "Country": "BRA",
-        "CreateDate": "2017-04-07T00:00:00",
-        "Currency": "BRL",
-        "CurrentRecurrencyTry": 1,
-        "Provider": "Simulado",
-        "RecurrencyDay": 7,
-        "SuccessfulRecurrences": 0,
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/c30f5c78-fca2-459c-9f3c-9c4b41b09048"
-            }
-        ],
-        "RecurrentTransactions": [
-            {
-                "PaymentId": "f70948a8-f1dd-4b93-a4ad-90428bcbdb84",
-                "PaymentNumber": 0,
-                "TryNumber": 1
-            }
-        ],
-        "Status": 1,
-        "IssuerTransactionId": "009295034362939"
-    }
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "Customer": {
-        "Name": "Fulano da Silva"
-    },
-    "RecurrentPayment": {
-        "RecurrentPaymentId": "c30f5c78-fca2-459c-9f3c-9c4b41b09048",
-        "NextRecurrency": "2017-06-07",
-        "StartDate": "2017-04-07",
-        "EndDate": "2017-02-27",
-        "Interval": "Bimonthly",
-        "Amount": 15000,
-        "Country": "BRA",
-        "CreateDate": "2017-04-07T00:00:00",
-        "Currency": "BRL",
-        "CurrentRecurrencyTry": 1,
-        "Provider": "Simulado",
-        "RecurrencyDay": 7,
-        "SuccessfulRecurrences": 0,
-        "Links": [
-            {
-                "Method": "GET",
-                "Rel": "self",
-                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/c30f5c78-fca2-459c-9f3c-9c4b41b09048"
-            }
-        ],
-        "RecurrentTransactions": [
-            {
-                "PaymentId": "f70948a8-f1dd-4b93-a4ad-90428bcbdb84",
-                "PaymentNumber": 0,
-                "TryNumber": 1
-            }
-        ],
-        "Status": 1,
-        "IssuerTransactionId": "009295034362939"
-    }
-}
-```
-
-|Property|Description|Type|Size|Format|
-|---|---|---|---|---|
-|`RecurrentPaymentId`|Next recurrence Identifier field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`NextRecurrency`|Date of next recurrence.|Text|7|12/2030 (MM/YYYY)|
-|`StartDate`|Start date of recurrence.|Text|7|12/2030 (MM/YYYY)|
-|`EndDate`|End date of recurrence.|Text|7|12/2030 (MM/YYYY)|
-|`Interval`|Interval between recurrences.|Text|10|<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
-|`CurrentRecurrencyTry `|Indicates the number of attempts of the current recurrence|Number|1|1|
-|`OrderNumber`|Order identification at the store|Text|50|2017051101|
-|`Status`|Recurrent order status|Number|1|<br>*1* - Active <br>*2* - Finished <br>*3*- Deactivated by the Merchant <br> *4* - Disabled by number of retries <br> *5* - Disabled by expired credit card|
-|`RecurrencyDay`|Recurrence day|Number|2|22|
-|`SuccessfulRecurrences`|Successful amount of recurrence|Number|2|5|
-|`RecurrentTransactions.RecurrentPaymentId`|Recurrence Id|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`RecurrentTransactions.TransactionId`|Payment ID of the transaction generated on recurrence|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`RecurrentTransactions.PaymentNumber`|Number of Recurrence. The first one is zero|Number|2|3|
-|`RecurrentTransactions.TryNumber`|Number of current attempt at the specific recurrence|Number|2|1|
-|`Payment.IssuerTransactionId`|Issuer authentication ID for recurring debit transactions. This field must be sent in subsequent transactions of the first transaction in the recurrence model itself. In the scheduled recurrence model, Cielo will be responsible for sending the field in subsequent transactions.|Text|15|---|
-
-**Warning:** The `IssuerTransactionId` field can also be obtained by querying the first transaction of the recurrence. See details on how to make an appointment [**here**](https://developercielo.github.io/en/manual/cielo-ecommerce#consulting-transactions).
-
-## Capture
-
-The **Capture** is an exclusive step for Credit Card transactions.
-
-When making a capture, the merchant confirms that the authorized value on the card may be charged by the financial institution issuing the card.
-
-What the capture generates:
-
-* It performs the card charge
-* It includes the value of the sale on the buyer's invoice
-* Only captured transactions are paid by Cielo to the merchant
-
-<aside class="notice"><strong>Warning:</strong> Capture is a process with a deadline. Check in without Cielo registering what is the enabled limit for your affiliation. After this period, it is not possible to perform the transaction Capture</aside>
-
-### Total capture
-
-To capture a sale that uses a credit card, it is necessary to do a PUT for the Payment feature as the example.
-
-#### Request
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/capture</span></aside>
-
-```json
-
-https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture
-
-```
-
-```shell
-curl
---request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---verbose
-```
-
-|Property|Description|Type|Size|Required|
-|---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
-|`PaymentId`|Order Identifier Field.|Guid|36|Yes|
-|`Amount`|Order Amount (to be sent in cents).|Number|15|No|
-|`ServiceTaxAmount`|Applicable to airlines companies only. Amount of the authorization value/amount that should be allocated to the service fee. Note: This value is not added to the authorization value.|Number|15|No|
-
-#### Response
-
-```json
-{
-    "Status": 2,
-    "Tid": "0719094510712",
-    "ProofOfSale": "4510712",
-    "AuthorizationCode": "693066",
-    "ReturnCode": "6",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://api.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://api.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-        }
-    ]
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "Status": 2,
-    "Tid": "0719094510712",
-    "ProofOfSale": "4510712",
-    "ReturnCode": "6",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://api.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://api.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
-        }
-    ]
-}
-```
-
-|Property|Description|Type|Size|Format|
-|---|---|---|---|---|
-|`Status`|Transaction Status.|Byte|---|2|
-|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
-|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
-|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
-|`ReturnCode`|Return code of acquirer.|Text|32|Alphanumeric text|
-|`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric text|
-
-### Partial Capture
-
-The **partial Capture** is the act of capturing a value less than the authorized value. This capture model can occur only once per transaction.
-
-**After capture, it is not possible to make additional captures in the same order.**
-
-Just do a `POST` sending the value to be captured.
-
-<aside class="notice"><strong>Warning:</strong> Partial capture available for credit transactions only</aside>
-
-#### Request - Partial Capture
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}</span></aside>
-
-```json
-
-https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/capture?amount={Valor}
-
-```
-
-```shell
-curl
---request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/capture?amount={Valor}"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---verbose
-```
-
-|Property|Description|Type|Size|Required|
-|---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
-|`PaymentId`|Order Identifier Field.|Guid|36|Yes|
-|`Amount`|Order Amount (to be sent in cents).|Number|15|No|
-|`ServiceTaxAmount`|Applicable to airlines companies only. Amount of the authorization value/amount that should be allocated to the service fee. Note: This value is not added to the authorization value.|Number|15|No|
-
-#### Response
-
-```json
-{
-    "Status": 2,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "6",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "6",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3/void"
-        }
-    ]
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "Status": 2,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "6",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "6",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3/void"
-        }
-    ]
-}
-```
-
-|Property|Description|Type|Size|Format|
-|---|---|---|---|---|
-|`Status`|Transaction Status.|Byte|---|2|
-|`ReasonCode`|Operation return code.|Text|32|Alphanumeric texto|
-|`ReasonMessage`|Operation return message.|Text|512|Alphanumeric texto|
-|`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric texto|
-|`ProviderReturnCode`|Provider return code.|Text|32|Alphanumeric text|
-|`ProviderReturnMessage`|Provider return message.|Text|512|Alphanumeric text|
-
-<aside class="notice"><strong>Capture of Boarding fee</strong> To carry out the capture of *boarding fee*, just add the ServiveTaxAmount value to be captured</aside>
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&serviceTaxAmount=xxx</span></aside>
-
-#### Response
-
-```json
-{
-    "Status": 2,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "0",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "0",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"
-        }
-    ]
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "Status": 2,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "0",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "0",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"
-        }
-    ]
-}
-```
-
-|Property|Description|Type|Size|Format|
-|---|---|---|---|---|
-|`Status`|Transaction Status.|Byte|---|2|
-|`ReasonCode`|Operation return code.|Text|32|Alphanumeric texto|
-|`ReasonMessage`|Operation return message.|Text|512|Alphanumeric texto|
-|`ReturnCode`|Return code of acquirer.|Text|32|Alphanumeric text|
-|`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric text|
-|`ProviderReturnCode`|Provider return code.|Text|32|Alphanumeric text|
-|`ProviderReturnMessage`|Provider return message.|Text|512|Alphanumeric text|
-
-### Capture Via Backoffice
-
-It is possible to carry out both the total capture and the partial capture via The Backoffice Cielo.
-
-Access our [**Tutorial**](https://developercielo.github.io/en/tutorial/tutoriais-3-0)  for more informations
-
-## Canceling a sale
-
-Cancellation is a feature that allows the merchant to cancel a purchase order, either due to insufficient stock, due to the consumer withdrawing from the purchase, or any other reason.
-
-In the Cielo e-commerce API, it's possible to request cancellation for debit and credit cards.
-
-For authorized and non-captured transactions (transactional status = 1), cancellation can be requested before the transaction is automatically undone.
-
-For captured transactions (transactional status = 2), it's possible to make the cancellation request **1 day after the capture** and within a period of **up to 360 days** after the sale authorization. The approval of this cancellation order is susceptible to the assessment of the balance in the merchant's financial agenda at the time of the requisition and the approval of the bank issuing the card used in the transaction.
-  
-For cancellation requests for the same transaction, it is necessary to wait a period of 5 seconds between one request and another, so that the balance inquiry is carried out, the amount is reserved in the financial agenda and the balance is sensitized. Thus avoiding duplicate cancellation. This rule applies to total and/or partial cancellations.
-
-To identify that cancellation requests are from the same transaction, we consider the EC number, cancellation authorization number, date of sale, sale amount, and NSU.
-
-It is important to note that in order to make any cancellation request, it is necessary that the establishment has sufficient balance in the transaction/on the schedule
-
-### Canceling a sale via API
-
-Cancellation process via API is available only for credit and debit card.
-
-Each payment method suffer different impacts when a cancellation order (VOID) is executed.
-
-### Total cancellation
-
-To cancel a sale that uses a credit card, it is necessary to do a PUT for the Payment feature. Cancellation can be made via PaymentID or MerchantOrderId (order number).
-
-<aside class="notice"><strong>Warning:</strong> Cancellation by MerchantOrderId always affects the newest transaction, i.e. if there are orders with duplicate order number, only the most current one will be canceled. The previous order can not be canceled by this method</aside>
-
-#### Request
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=xxx</span></aside>
-
-or
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/OrderId/{MerchantOrderId}/void?amount=xxx</span></aside>
-
-```shell
-curl
---request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---verbose
-```
-
-|Property|Description|Type|Size|Required|
-|---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
-|`PaymentId`|Order Identifier Field.|Guid|36|Yes|
-|`Amount`|Order Amount (to be sent in cents).|Number|15|No|
-
-#### Response
-
-```json
-{
-    "Status": 10,
-    "Tid": "0719094510712",
-    "ProofOfSale": "4510712",
-    "AuthorizationCode": "693066",
-    "ReturnCode": "9",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-        }
-    ]
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "Status": 10,
-    "Tid": "0719094510712",
-    "ProofOfSale": "4510712",
-    "AuthorizationCode": "693066",
-    "ReturnCode": "9",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
-        }
-    ]
-}
-```
-
-|Property|Description|Type|Size|Format|
-|---|---|---|---|---|
-|`Status`|Transaction Status.|Byte|---|2|
-|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
-|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
-|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
-|`ReturnCode`|Return code of acquirer.|Text|32|Alphanumeric text|
-|`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric text|
-
-### Partial cancellation
-
-The **partial cancellation** is the act of canceling a value less than the total authorized/captured value. This cancellation model can occur countless times, until the total value of the transaction is canceled.
-
- Just do a `POST` sending the value to be canceled.
-
-<aside class="notice"><strong>Warning:</strong> Partial cancellation available only for *CAPTURED* credit transactions</aside>
-
-<aside class="notice"><strong>Warning:</strong> The return of the API adds up to the total of partial cancellations, that is, if 3 cancellations of $10.00 are made, the API will present in its return a total of $30.00 canceled</aside>
-
-#### Request - partial cancellation
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=XXX </span></aside>
-
-```shell
-curl
---request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void?amount=XXX"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---verbose
-```
-
-|Property|Description|Type|Size|Required|
-|---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
-|`PaymentId`|Order Identifier Field.|Guid|36|Yes|
-|`Amount`|Order Amount (to be sent in cents).|Number|15|No|
-
-#### Response
-
-```json
-{
-    "Status": 2,
-    "Tid": "0719094510712",
-    "ProofOfSale": "4510712",
-    "AuthorizationCode": "693066",
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "0",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "0",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"
-        }
-    ]
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "Status": 2,
-    "Tid": "0719094510712",
-    "ProofOfSale": "4510712",
-    "AuthorizationCode": "693066",
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "0",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "0",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"
-        }
-    ]
-}
-```
-
-|Property|Description|Type|Size|Format|
-|---|---|---|---|---|
-|`Status`|Transaction Status.|Byte|---|2|
-|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
-|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
-|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
-|`ReturnCode`|Return code of acquirer.|Text|32|Alphanumeric text|
-|`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric text|
-|`ProviderReturnCode`|Provider return code.|Text|32|Alphanumeric text|
-|`ProviderReturnMessage`|Provider return message.|Text|512|Alphanumeric text|
-
-<aside class="notice"><strong>Cancellation of Boarding Fee</strong> To cancel the *boarding fee*, just add the value of ServiveTaxAmount to be canceled</aside>
-
-```
-https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={Valor}&serviceTaxAmount=xxx
-```
-
-### Cancellation Return Codes
-
-| RETURN CODE | DESCRIPTION                                                                      |
-| 6           | Partial cancellation request successfully approved                               |
-| 9           | Total cancellation request successfully approved                                 |
-| 72          | Error: Insufficient merchant balance for sale cancellation                       |
-| 77          | Error: Original sale not found for cancellation                                  |
-| 100         | Error: Payment method and/or flag do not allow cancellation                      |
-| 101         | Error: Requested cancellation amount above the allowed cancellation deadline     |
-| 102         | Error: Requested cancellation above the original transaction amount              |
-| 103         | Cadastral Restriction. Cancellation not allowed. Contact the Cancellation Center |
-| 104         | Cadastral Restriction. Cancellation not allowed. Contact the Cancellation Center |
-| 105         | Cadastral Restriction. Cancellation not allowed. Contact the Cancellation Center |
-| 106         | Cadastral Restriction. Cancellation not allowed. Contact the Cancellation Center |
-| 107         | Cadastral Restriction. Cancellation not allowed. Contact the Cancellation Center |
-| 108         | Error: Merchant Number (EC) not found. Please check the number sent              |
-| 475         | Processing failed. Please try again  
-
-### Cancellation via Backoffice
-
-Cancellation via Backoffice is the only option to perform cancellation of bank slip and Online Debit transactions.
-It is possible to carry out both the total cancellation and the partial cancellation via The Backoffice Cielo.
-
-Effects on the payment method
-
-|Payment method|Description|Deadline|Cielo participation|
-|---|---|---|---|
-|Electronic Transfer|Cancellation only in API. The return of the value is made by the merchant himself|Defined by the merchant|No|
-
-Access our [**Tutorial**](https://developercielo.github.io/en/tutorial/tutoriais-3-0)  for more informations
-
-## Notification Post
-
-### About the POST
-
-The Cielo e-commerce API offers a transactional notification system where the Merchant provides an endpoint that will receive a notification via 'POST'
-
-The notification content will be formed by 3 fields:
-
-* `RecurrentPaymentId`- Identifier that represents a set of recurring transactions
-* `PaymentId`- Identifier that represents a transaction
-* `ChangeType` - Specifies the type of notification
-
-With the content above, the merchant can identify the transaction (via `PaymentId` or `RecurrentPaymentId`) and the change suffered by it. With `PaymentId` it is possible to make a consult to the transactional base of the Cielo E-commerce API.
-
-The Notification Post is sent based on a selection of predefined events in the Cielo E-commerce API register. These events are registered by the Cielo support team, when requested by the merchant.
-
-### Notified Events
-
-The events that can be notified are:
-
-|Payment method|Event|
-|---|---|
-|Credit card|Capture|
-|Credit card|Cancellation|
-|Credit card|Survey|
-|Bank slip|Conciliation|
-|Bank slip|Manual Cancellation|
-|Electronic transfer|Confirmed|
-
-**About the Debit card:**  We do not notify Debit card transactions. We suggest creating a RETURN URL, where the buyer will be sent if the transaction is completed in the bank environment. When this URL is triggered, our suggestion is for a `GET` to be run by searching for order information in the API Cielo.
-
-Notification also occurs in events related to **Scheduled Recurrence Cielo**.
-
-| Recurrence Events                                                        |
-|--------------------------------------------------------------------------|
-| Disabled when reaching maximum number of attempts (transactions denied) |
-| Rehabilitation                                                           |
-| Completed / End date reached                                             |
-| Deactivation                                                             |
-
-### Notification Endpoint
-
-An `URL Status Payment` must be registered by Cielo Support, so that the notification POST is executed.
-
-Features of the `URL Status Payment`
-
-* Must be **static**
-* 255 characters limit.
-
-**Notification Post** Characteristics
-
-* It is shot every 30 minutes
-* In case of failure, 3 new attempts will be made. If all 3 attempts fail, new submissions will not occur.
-
-It is possible to register an information to return the request header. Just contact Cielo Support and inform the items below
-
-* `KEY` - Parameter name 
-* `VALUE` - Static value to be returned
-
-You may register up to 3 types of return information in the header
-
-```json
-{
-   "RecurrentPaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-   "PaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-   "ChangeType": "2"
-}
-```
-
-The store **must** return in response to notification: **HTTP Status Code 200 OK**
-
-|Property|Description|Type|Size|Required|
-|---|---|---|---|---|
-|`RecurrentPaymentId`|Identifier that represents the Recurring order (applicable only to ChangeType 2 or 4)|GUID|36|No|
-|`PaymentId`|Identifier that represents the transaction|GUID|36|Yes|
-|`ChangeType`|Specifies the type of notification. See table below|Number|1|Yes|
-
-|ChangeType|Description|
-|---|---|
-|1|Payment status change|
-|2|Recurrence created|
-|3|AntiFraud status change|
-|4|Recurring payment status change (Ex. automatic deactivation)|
-|5|cancellation declined|
-|7|Chargeback notification <br/> More details [Risk Notification](https://braspag.github.io//en/manual/risknotification)|
-
-# Velocity
-
-## What is Velocity
-
-Velocity is a type of fraud prevention mechanism that specifically analyzes the concept of **"speed x transactional data"**. It analyzes how often certain data is used and whether that data is inscribed in a list of behaviors succeptible to security actions.
-
-For merchants operating in the e-commerce market and eventually receiving fraudulent transactions, Velocity is a product that will identify behaviors suspect of fraud. The tool is intended to assist in fraud analysis at a much lower cost than a more traditional market tool.
-
-It is an ally in the evaluation of suspect buying behaviors, because the calculations will be based on `traceability elements`.
-
-The Velocity offers 4 types of functionalities to validate transactional data:
-
-| Functionality         | Description                                                  |
-| --------------------- | ------------------------------------------------------------ |
-| Velocity safety rules | The Merchant defines a set of security rules that will evaluate if certain transactional data is repeated in a suspicious time interval |
-| Quarantine            | Creation of a list of data that will be analyzed for a determined period of time before being considered valid or fraudulent |
-| BlackList             | Creation of a list of data that, when identified, prevents the transaction from being executed, avoiding the creation of a fraudulent transaction |
-| Whitelist             | Creation of a list of data that, when identified, allows the transaction to be executed, even if there are security rules in action |
-
-The functionality must be contracted separately, and later enabled in your store by the Cielo Ecommerce Support team via Admin 3.0 
-
-## Integration
-
-Velocity works by analyzing data sent in the standard Cielo Ecommerce API integration. It is not necessary to add any additional node to the store integration for the creation of the sale, but it will be necessary to change the way the data is received `Response`.
-
-When Velocity is active, the transaction response will bring a specific node called "Velocity" with the details of the analysis.
-
-```json
-{
-  "MerchantOrderId": "2017051202",
-  "Customer": {
-    "Name": "Nome do Comprador",
-    "Identity": "12345678909",
-    "IdentityType": "CPF",
-    "Email": "comprador@cielo.com.br",
-    "Address": {
-      "Street": "Alameda Xingu",
-      "Number": "512",
-      "Complement": "27 andar",
-      "ZipCode": "12345987",
-      "City": "São Paulo",
-      "State": "SP",
-      "Country": "BRA"
-    },
-    "DeliveryAddress": {
-      "Street": "Alameda Xingu",
-      "Number": "512",
-      "Complement": "27 andar",
-      "ZipCode": "12345987",
-      "City": "São Paulo",
-      "State": "SP",
-      "Country": "BRA"
-    }
-  },
-  "Payment": {
-    "ServiceTaxAmount": 0,
-    "Installments": 1,
-    "Interest": "ByMerchant",
-    "Capture": true,
-    "Authenticate": false,
-    "Recurrent": false,
-    "CreditCard": {
-      "CardNumber": "455187******0181",
-      "Holder": "Nome do Portador",
-      "ExpirationDate": "12/2027",
-      "SaveCard": false,
-      "Brand": "Undefined"
-    },
-    "VelocityAnalysis": {
-      "Id": "2d5e0463-47be-4964-b8ac-622a16a2b6c4",
-      "ResultMessage": "Reject",
-      "Score": 100,
-      "RejectReasons": [
-        {
-          "RuleId": 49,
-          "Message": "Bloqueado pela regra CardNumber. Name: Máximo de 3 Hits de Cartão em 1 dia. HitsQuantity: 3\. HitsTimeRangeInSeconds: 1440\. ExpirationBlockTimeInSeconds: 1440"
-        }
-      ]
-    },
-    "PaymentId": "2d5e0463-47be-4964-b8ac-622a16a2b6c4",
-    "Type": "CreditCard",
-    "Amount": 10000,
-    "Currency": "BRL",
-    "Country": "BRA",
-    "Provider": "Simulado",
-    "ReasonCode": 16,
-    "ReasonMessage": "AbortedByFraud",
-    "Status": 0,
-    "ProviderReturnCode": "BP171",
-    "ProviderReturnMessage": "Rejected by fraud risk (velocity)",
-    "Links": [
-      {
-        "Method": "GET",
-        "Rel": "self",
-        "Href": "https://apiquery.cieloecommerce.cielo.com.br/1/sales/2d5e0463-47be-4964-b8ac-622a16a2b6c4"
-      }
-    ]
-  }
-}
-```
-
-| Property                                 | Description                           | Type   | Size |
-| ---------------------------------------- | ------------------------------------- | ------ | ---- |
-| `VelocityAnalysis.Id`                    | Performed analysis identifier         | GUID   | 36   |
-| `VelocityAnalysis.ResultMessage`         | Accept ou Reject                      | Text   | 25   |
-| `VelocityAnalysis.Score`                 | 100                                   | Number | 10   |
-| `VelocityAnalysis.RejectReasons.RuleId`  | Code of the rule that rejected        | Number | 10   |
-| `VelocityAnalysis.RejectReasons.Message` | Description of the rule that rejected | Text   | 512  |
-
 # Recurring Payments
 
-Recurring payments are transactions that must be repeated after a certain period of time.
+Recurring payments are credit card transactions that repeat themselves after a certain period of time.
 
-These are payments normally found on **signatures**, where the buyer wants to be automatically charged but doesn't want to re-enter the card details.
+This type of payment is usually used for **subscriptions**, where the shopper wants to be automatically charged but doesn't want to re-enter the card details.
 
 ## Types of recurrences
 
-The API Cielo Ecommerce works with two types of Recurrence that have different behaviors.
+API E-commerce Cielo works with two types of Recurrences:
 
-* **Own Recurrence** - When repetition intelligence and recurrence card data become under responsibility the of the merchant
-* **Scheduled Recurrence** - When the intelligence of repetition and recurrence card data become under the responsibility of **Cielo**
+* **Self Recurrence** - When the **merchant** creates its own repeat purchase intelligence and stores the card data;
+* **Scheduled Recurrence** - When **Cielo** is responsible for the repetition intelligence and storage of card data.
 
 ### Own Recurrence
 
@@ -7558,6 +6446,1118 @@ HTTP Status 200
 ```
 
 See the Annex [HTTP Status Code](#http-status-code) to the list with all HTTP status codes possibly returned by the API.
+
+# Consult - Capture - Cancel
+
+## Consulting Transactions
+
+### Consult - PaymentID
+
+To consult a credit card sale, it is necessary to do a GET for the Payment feature as the example.
+
+<aside class="notice">Only transactions sent on the last three months are eligible for queries</aside>
+
+#### Request
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
+
+```shell
+curl
+--request GET "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+--verbose
+```
+
+|Property|Description|Type|Size|Required|
+|---|---|---|---|---|
+|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`PaymentId`|Payment identification number.|Text|36|Yes|
+|`AcquirerOrderId`|Transaction id sent to the authorizer if the MerchantOrderId is longer than 20 characters or has symbols.|Text|50|Yes|
+|`Tid`|Payment identification number at the acquirer.|Text|36|Yes|
+
+#### Response
+
+```json
+{
+"MerchantOrderId": "2014111706",
+"AcquirerOrderId": "202202231037440D1BD0",
+"Customer": {
+    "Name": "Buyer Teste",
+    "Address": {}
+},
+"Payment": {
+    "ServiceTaxAmount": 0,
+    "Installments": 1,
+    "Interest": "ByMerchant",
+    "Capture": false,
+    "Authenticate": false,
+    "CreditCard": {
+        "CardNumber": "455187******0183",
+        "Holder": "Teste Holder",
+        "ExpirationDate": "12/2030",
+        "SaveCard": false,
+        "Brand": "Visa",
+        "PaymentAccountReference":"92745135160550440006111072222"
+    },
+    "ProofOfSale": "674532",
+    "Tid": "0223103744208",
+    "AuthorizationCode": "123456",
+    "Chargebacks": [
+        {
+            "Amount": 10000,
+            "CaseNumber": "123456",
+            "Date": "2022-06-04",
+            "ReasonCode": "104",
+            "ReasonMessage": "Outras Fraudes - Cartao Ausente",
+            "Status": "Received",
+            "RawData": "Client did not participate and did not authorize transaction"
+        }
+    ],
+    "FraudAlert": {
+        "Date": "2022-05-20",
+        "ReasonMessage": "Uso Ind Numeração",
+        "IncomingChargeback": false
+    },
+    "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
+    "Type": "CreditCard",
+    "Amount": 10000,
+    "ReceivedDate": "2022-07-29 17:16:21",
+    "CapturedAmount": 9000,
+    "CapturedDate": "2022-07-29 17:16:22",
+    "VoidedAmount": 1000,
+    "VoidedDate": "2022-05-15 16:25:38",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "ExtraDataCollection": [],
+    "Status": 1,
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "capture",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+        }
+    ]
+}
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "MerchantOrderId": "2014111706",
+    "AcquirerOrderId": "202202231037440D1BD0",
+    "Customer": {
+        "Name": "Buyer Teste",
+        "Address": {}
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": false,
+        "Authenticate": false,
+        "CreditCard": {
+            "CardNumber": "455187******0183",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2030",
+            "SaveCard": false,
+            "Brand": "Visa",
+            "PaymentAccountReference":"92745135160550440006111072222"
+        },
+        "ProofOfSale": "674532",
+        "Tid": "0223103744208",
+        "AuthorizationCode": "123456",
+        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "ReceivedDate": "2022-07-29 17:16:21",
+        "CapturedAmount": 9000,
+        "CapturedDate": "2022-07-29 17:16:22",
+        "VoidedAmount": 1000,
+        "VoidedDate": "2022-05-15 16:25:38",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "ExtraDataCollection": [],
+        "Status": 1,
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "capture",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+            }
+        ]
+    }
+}
+```
+
+|Property|Description|Type|Size|Format|
+|`MerchantOrderId`|Order identification number.|Text|50|Text alphanumeric|
+|`AcquirerOrderId`|Transaction id sent to the authorizer if the MerchantOrderId is longer than 20 characters or has symbols|Text|50|Text alphanumeric|
+|`AuthorizationCode`|authorization code.|Text|6|Text alphanumeric|
+|`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Status`|Transaction Status.|Byte|2|-|
+|`Customer.Name`|Nome do Comprador|Text|255|-|
+|`Customer.Status`|Buyer registration status in the store (NEW / EXISTING)|Text|255|-|
+|`Payment.ProofOfSale`|Authorization number, identical to NSU|Text|6|Text alphanumeric|
+|`Payment.Tid`|Transaction ID in the payment method provider|Text|40|Text alphanumeric|
+|`Payment.Type`|Type of Payment |Text|100|-|
+|`Payment.Amount`|Order Amount (to be shipped in cents)|Number|15|-|
+|`Payment.ReceivedDate`|Date the transaction was received.|Text|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.CapturedAmount`|Captured value.|Number|15|10000|
+|`Payment.CapturedDate`|Capture date|Text|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.VoidedAmount`|Canceled/refunded amount, in cents.|Number|15|10000|
+|`Payment.VoidedDate`|Date of cancellation/chargeback|Text|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.Provider`|Defines behavior of the means of payment (see Annex)/NOT MANDATORY FOR CREDIT|Text|15|-|
+|`CreditCard.CardNumber`|Buyer's Card Number|Text|19|-|
+|`CreditCard.Holder`|Buyer's name printed on card|Text|25|-|
+|`CreditCard.ExpirationDate`|Expiration date printed on card|Text|7|-|
+|`CreditCard.SecurityCode`|Security code printed on the back of the card See attached|Text|4|-|
+|`CreditCard.Brand`|Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper)|Text|10|-|
+|`CreditCard.PaymentAccountReference`|PAR(payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the flag does not send the information, the field will not be returned.|Number|29|-|
+
+### Consult - MerchandOrderID
+
+It is not possible to directly query a payment by the identifier sent by the store (MerchantOrderId), but it is possible to get all PaymentIds associated with the identifier.
+
+To check a sale by store identifier, you need to make a GET for the sales feature as the example.
+
+#### Request
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales?merchantOrderId={merchantOrderId}</span></aside>
+
+```shell
+curls
+--request GET " https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales?merchantOrderId={merchantOrderId}"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+--verbose
+```
+
+|Property|Description|Type|Size|Required|
+|---|---|---|---|---|
+|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`MerchantOrderId`|Order Identifier Field at the Store.|Text|36|Yes|
+
+#### Response
+
+```json
+{
+    "Payment": [
+        {
+            "PaymentId": "5fb4d606-bb63-4423-a683-c966e15399e8",
+            "ReceveidDate": "2015-04-06T10:13:39.42"
+        },
+        {
+            "PaymentId": "6c1d45c3-a95f-49c1-a626-1e9373feecc2",
+            "ReceveidDate": "2014-12-19T20:23:28.847"
+        }
+    ]
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "Payment": [
+        {
+            "PaymentId": "5fb4d606-bb63-4423-a683-c966e15399e8",
+            "ReceveidDate": "2015-04-06T10:13:39.42"
+        },
+        {
+            "PaymentId": "6c1d45c3-a95f-49c1-a626-1e9373feecc2",
+            "ReceveidDate": "2014-12-19T20:23:28.847"
+        }
+    ]
+}
+```
+
+|Property|Description|Type|Size|Format|
+|---|---|---|---|---|
+|`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+
+### Consulting a Recurrence
+
+To consult a credit card Recurrence, it is necessary to do a `GET` as shown in the example.
+
+**The Recurrence Query brings data about the scheduling and transaction process that are repeated. They do not return data about transactions itself. To do this, a `GET` must be performed in the transaction (Available in" Consulting sales)**
+
+#### Request
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}</span></aside>
+
+```shell
+curl
+--request GET "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+--verbose
+```
+
+|Property|Description|Type|Size|Required|
+|---|---|---|---|---|
+|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`RecurrentPaymentId`|Recurrence Identifier Field.|Text|36|Yes|
+
+#### Response
+
+```json
+{
+    "Customer": {
+        "Name": "Fulano da Silva"
+    },
+    "RecurrentPayment": {
+        "RecurrentPaymentId": "c30f5c78-fca2-459c-9f3c-9c4b41b09048",
+        "NextRecurrency": "2017-06-07",
+        "StartDate": "2017-04-07",
+        "EndDate": "2017-02-27",
+        "Interval": "Bimonthly",
+        "Amount": 15000,
+        "Country": "BRA",
+        "CreateDate": "2017-04-07T00:00:00",
+        "Currency": "BRL",
+        "CurrentRecurrencyTry": 1,
+        "Provider": "Simulado",
+        "RecurrencyDay": 7,
+        "SuccessfulRecurrences": 0,
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/c30f5c78-fca2-459c-9f3c-9c4b41b09048"
+            }
+        ],
+        "RecurrentTransactions": [
+            {
+                "PaymentId": "f70948a8-f1dd-4b93-a4ad-90428bcbdb84",
+                "PaymentNumber": 0,
+                "TryNumber": 1
+            }
+        ],
+        "Status": 1,
+        "IssuerTransactionId": "009295034362939"
+    }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "Customer": {
+        "Name": "Fulano da Silva"
+    },
+    "RecurrentPayment": {
+        "RecurrentPaymentId": "c30f5c78-fca2-459c-9f3c-9c4b41b09048",
+        "NextRecurrency": "2017-06-07",
+        "StartDate": "2017-04-07",
+        "EndDate": "2017-02-27",
+        "Interval": "Bimonthly",
+        "Amount": 15000,
+        "Country": "BRA",
+        "CreateDate": "2017-04-07T00:00:00",
+        "Currency": "BRL",
+        "CurrentRecurrencyTry": 1,
+        "Provider": "Simulado",
+        "RecurrencyDay": 7,
+        "SuccessfulRecurrences": 0,
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/c30f5c78-fca2-459c-9f3c-9c4b41b09048"
+            }
+        ],
+        "RecurrentTransactions": [
+            {
+                "PaymentId": "f70948a8-f1dd-4b93-a4ad-90428bcbdb84",
+                "PaymentNumber": 0,
+                "TryNumber": 1
+            }
+        ],
+        "Status": 1,
+        "IssuerTransactionId": "009295034362939"
+    }
+}
+```
+
+|Property|Description|Type|Size|Format|
+|---|---|---|---|---|
+|`RecurrentPaymentId`|Next recurrence Identifier field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`NextRecurrency`|Date of next recurrence.|Text|7|12/2030 (MM/YYYY)|
+|`StartDate`|Start date of recurrence.|Text|7|12/2030 (MM/YYYY)|
+|`EndDate`|End date of recurrence.|Text|7|12/2030 (MM/YYYY)|
+|`Interval`|Interval between recurrences.|Text|10|<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
+|`CurrentRecurrencyTry `|Indicates the number of attempts of the current recurrence|Number|1|1|
+|`OrderNumber`|Order identification at the store|Text|50|2017051101|
+|`Status`|Recurrent order status|Number|1|<br>*1* - Active <br>*2* - Finished <br>*3*- Deactivated by the Merchant <br> *4* - Disabled by number of retries <br> *5* - Disabled by expired credit card|
+|`RecurrencyDay`|Recurrence day|Number|2|22|
+|`SuccessfulRecurrences`|Successful amount of recurrence|Number|2|5|
+|`RecurrentTransactions.RecurrentPaymentId`|Recurrence Id|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RecurrentTransactions.TransactionId`|Payment ID of the transaction generated on recurrence|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`RecurrentTransactions.PaymentNumber`|Number of Recurrence. The first one is zero|Number|2|3|
+|`RecurrentTransactions.TryNumber`|Number of current attempt at the specific recurrence|Number|2|1|
+|`Payment.IssuerTransactionId`|Issuer authentication ID for recurring debit transactions. This field must be sent in subsequent transactions of the first transaction in the recurrence model itself. In the scheduled recurrence model, Cielo will be responsible for sending the field in subsequent transactions.|Text|15|---|
+
+**Warning:** The `IssuerTransactionId` field can also be obtained by querying the first transaction of the recurrence. See details on how to make an appointment [**here**](https://developercielo.github.io/en/manual/cielo-ecommerce#consulting-transactions).
+
+## Capture
+
+The **Capture** is an exclusive step for Credit Card transactions.
+
+When making a capture, the merchant confirms that the authorized value on the card may be charged by the financial institution issuing the card.
+
+What the capture generates:
+
+* It performs the card charge
+* It includes the value of the sale on the buyer's invoice
+* Only captured transactions are paid by Cielo to the merchant
+
+<aside class="notice"><strong>Warning:</strong> Capture is a process with a deadline. Check in without Cielo registering what is the enabled limit for your affiliation. After this period, it is not possible to perform the transaction Capture</aside>
+
+### Total capture
+
+To capture a sale that uses a credit card, it is necessary to do a PUT for the Payment feature as the example.
+
+#### Request
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/capture</span></aside>
+
+```json
+
+https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture
+
+```
+
+```shell
+curl
+--request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--verbose
+```
+
+|Property|Description|Type|Size|Required|
+|---|---|---|---|---|
+|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`PaymentId`|Order Identifier Field.|Guid|36|Yes|
+|`Amount`|Order Amount (to be sent in cents).|Number|15|No|
+|`ServiceTaxAmount`|Applicable to airlines companies only. Amount of the authorization value/amount that should be allocated to the service fee. Note: This value is not added to the authorization value.|Number|15|No|
+
+#### Response
+
+```json
+{
+    "Status": 2,
+    "Tid": "0719094510712",
+    "ProofOfSale": "4510712",
+    "AuthorizationCode": "693066",
+    "ReturnCode": "6",
+    "ReturnMessage": "Operation Successful",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://api.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://api.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+        }
+    ]
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "Status": 2,
+    "Tid": "0719094510712",
+    "ProofOfSale": "4510712",
+    "ReturnCode": "6",
+    "ReturnMessage": "Operation Successful",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://api.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://api.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+        }
+    ]
+}
+```
+
+|Property|Description|Type|Size|Format|
+|---|---|---|---|---|
+|`Status`|Transaction Status.|Byte|---|2|
+|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
+|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
+|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
+|`ReturnCode`|Return code of acquirer.|Text|32|Alphanumeric text|
+|`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric text|
+
+### Partial Capture
+
+The **partial Capture** is the act of capturing a value less than the authorized value. This capture model can occur only once per transaction.
+
+**After capture, it is not possible to make additional captures in the same order.**
+
+Just do a `POST` sending the value to be captured.
+
+<aside class="notice"><strong>Warning:</strong> Partial capture available for credit transactions only</aside>
+
+#### Request - Partial Capture
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}</span></aside>
+
+```json
+
+https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/capture?amount={Valor}
+
+```
+
+```shell
+curl
+--request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/capture?amount={Valor}"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--verbose
+```
+
+|Property|Description|Type|Size|Required|
+|---|---|---|---|---|
+|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`PaymentId`|Order Identifier Field.|Guid|36|Yes|
+|`Amount`|Order Amount (to be sent in cents).|Number|15|No|
+|`ServiceTaxAmount`|Applicable to airlines companies only. Amount of the authorization value/amount that should be allocated to the service fee. Note: This value is not added to the authorization value.|Number|15|No|
+
+#### Response
+
+```json
+{
+    "Status": 2,
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "ProviderReturnCode": "6",
+    "ProviderReturnMessage": "Operation Successful",
+    "ReturnCode": "6",
+    "ReturnMessage": "Operation Successful",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3/void"
+        }
+    ]
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "Status": 2,
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "ProviderReturnCode": "6",
+    "ProviderReturnMessage": "Operation Successful",
+    "ReturnCode": "6",
+    "ReturnMessage": "Operation Successful",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3/void"
+        }
+    ]
+}
+```
+
+|Property|Description|Type|Size|Format|
+|---|---|---|---|---|
+|`Status`|Transaction Status.|Byte|---|2|
+|`ReasonCode`|Operation return code.|Text|32|Alphanumeric texto|
+|`ReasonMessage`|Operation return message.|Text|512|Alphanumeric texto|
+|`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric texto|
+|`ProviderReturnCode`|Provider return code.|Text|32|Alphanumeric text|
+|`ProviderReturnMessage`|Provider return message.|Text|512|Alphanumeric text|
+
+<aside class="notice"><strong>Capture of Boarding fee</strong> To carry out the capture of *boarding fee*, just add the ServiveTaxAmount value to be captured</aside>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&serviceTaxAmount=xxx</span></aside>
+
+#### Response
+
+```json
+{
+    "Status": 2,
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "ProviderReturnCode": "0",
+    "ProviderReturnMessage": "Operation Successful",
+    "ReturnCode": "0",
+    "ReturnMessage": "Operation Successful",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"
+        }
+    ]
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "Status": 2,
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "ProviderReturnCode": "0",
+    "ProviderReturnMessage": "Operation Successful",
+    "ReturnCode": "0",
+    "ReturnMessage": "Operation Successful",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"
+        }
+    ]
+}
+```
+
+|Property|Description|Type|Size|Format|
+|---|---|---|---|---|
+|`Status`|Transaction Status.|Byte|---|2|
+|`ReasonCode`|Operation return code.|Text|32|Alphanumeric texto|
+|`ReasonMessage`|Operation return message.|Text|512|Alphanumeric texto|
+|`ReturnCode`|Return code of acquirer.|Text|32|Alphanumeric text|
+|`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric text|
+|`ProviderReturnCode`|Provider return code.|Text|32|Alphanumeric text|
+|`ProviderReturnMessage`|Provider return message.|Text|512|Alphanumeric text|
+
+### Capture Via Backoffice
+
+It is possible to carry out both the total capture and the partial capture via The Backoffice Cielo.
+
+Access our [**Tutorial**](https://developercielo.github.io/en/tutorial/tutoriais-3-0)  for more informations
+
+## Canceling a sale
+
+Cancellation is a feature that allows the merchant to cancel a purchase order, either due to insufficient stock, due to the consumer withdrawing from the purchase, or any other reason.
+
+In the Cielo e-commerce API, it's possible to request cancellation for debit and credit cards.
+
+For authorized and non-captured transactions (transactional status = 1), cancellation can be requested before the transaction is automatically undone.
+
+For captured transactions (transactional status = 2), it's possible to make the cancellation request **1 day after the capture** and within a period of **up to 360 days** after the sale authorization. The approval of this cancellation order is susceptible to the assessment of the balance in the merchant's financial agenda at the time of the requisition and the approval of the bank issuing the card used in the transaction.
+  
+For cancellation requests for the same transaction, it is necessary to wait a period of 5 seconds between one request and another, so that the balance inquiry is carried out, the amount is reserved in the financial agenda and the balance is sensitized. Thus avoiding duplicate cancellation. This rule applies to total and/or partial cancellations.
+
+To identify that cancellation requests are from the same transaction, we consider the EC number, cancellation authorization number, date of sale, sale amount, and NSU.
+
+It is important to note that in order to make any cancellation request, it is necessary that the establishment has sufficient balance in the transaction/on the schedule
+
+### Canceling a sale via API
+
+Cancellation process via API is available only for credit and debit card.
+
+Each payment method suffer different impacts when a cancellation order (VOID) is executed.
+
+### Total cancellation
+
+To cancel a sale that uses a credit card, it is necessary to do a PUT for the Payment feature. Cancellation can be made via PaymentID or MerchantOrderId (order number).
+
+<aside class="notice"><strong>Warning:</strong> Cancellation by MerchantOrderId always affects the newest transaction, i.e. if there are orders with duplicate order number, only the most current one will be canceled. The previous order can not be canceled by this method</aside>
+
+#### Request
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=xxx</span></aside>
+
+or
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/OrderId/{MerchantOrderId}/void?amount=xxx</span></aside>
+
+```shell
+curl
+--request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--verbose
+```
+
+|Property|Description|Type|Size|Required|
+|---|---|---|---|---|
+|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`PaymentId`|Order Identifier Field.|Guid|36|Yes|
+|`Amount`|Order Amount (to be sent in cents).|Number|15|No|
+
+#### Response
+
+```json
+{
+    "Status": 10,
+    "Tid": "0719094510712",
+    "ProofOfSale": "4510712",
+    "AuthorizationCode": "693066",
+    "ReturnCode": "9",
+    "ReturnMessage": "Operation Successful",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+        }
+    ]
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "Status": 10,
+    "Tid": "0719094510712",
+    "ProofOfSale": "4510712",
+    "AuthorizationCode": "693066",
+    "ReturnCode": "9",
+    "ReturnMessage": "Operation Successful",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+        }
+    ]
+}
+```
+
+|Property|Description|Type|Size|Format|
+|---|---|---|---|---|
+|`Status`|Transaction Status.|Byte|---|2|
+|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
+|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
+|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
+|`ReturnCode`|Return code of acquirer.|Text|32|Alphanumeric text|
+|`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric text|
+
+### Partial cancellation
+
+The **partial cancellation** is the act of canceling a value less than the total authorized/captured value. This cancellation model can occur countless times, until the total value of the transaction is canceled.
+
+ Just do a `POST` sending the value to be canceled.
+
+<aside class="notice"><strong>Warning:</strong> Partial cancellation available only for *CAPTURED* credit transactions</aside>
+
+<aside class="notice"><strong>Warning:</strong> The return of the API adds up to the total of partial cancellations, that is, if 3 cancellations of $10.00 are made, the API will present in its return a total of $30.00 canceled</aside>
+
+#### Request - partial cancellation
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=XXX </span></aside>
+
+```shell
+curl
+--request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void?amount=XXX"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--verbose
+```
+
+|Property|Description|Type|Size|Required|
+|---|---|---|---|---|
+|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`PaymentId`|Order Identifier Field.|Guid|36|Yes|
+|`Amount`|Order Amount (to be sent in cents).|Number|15|No|
+
+#### Response
+
+```json
+{
+    "Status": 2,
+    "Tid": "0719094510712",
+    "ProofOfSale": "4510712",
+    "AuthorizationCode": "693066",
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "ProviderReturnCode": "0",
+    "ProviderReturnMessage": "Operation Successful",
+    "ReturnCode": "0",
+    "ReturnMessage": "Operation Successful",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"
+        }
+    ]
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "Status": 2,
+    "Tid": "0719094510712",
+    "ProofOfSale": "4510712",
+    "AuthorizationCode": "693066",
+    "ReasonCode": 0,
+    "ReasonMessage": "Successful",
+    "ProviderReturnCode": "0",
+    "ProviderReturnMessage": "Operation Successful",
+    "ReturnCode": "0",
+    "ReturnMessage": "Operation Successful",
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"
+        }
+    ]
+}
+```
+
+|Property|Description|Type|Size|Format|
+|---|---|---|---|---|
+|`Status`|Transaction Status.|Byte|---|2|
+|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
+|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
+|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
+|`ReturnCode`|Return code of acquirer.|Text|32|Alphanumeric text|
+|`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric text|
+|`ProviderReturnCode`|Provider return code.|Text|32|Alphanumeric text|
+|`ProviderReturnMessage`|Provider return message.|Text|512|Alphanumeric text|
+
+<aside class="notice"><strong>Cancellation of Boarding Fee</strong> To cancel the *boarding fee*, just add the value of ServiveTaxAmount to be canceled</aside>
+
+```
+https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={Valor}&serviceTaxAmount=xxx
+```
+
+### Cancellation Return Codes
+
+| RETURN CODE | DESCRIPTION                                                                      |
+| 6           | Partial cancellation request successfully approved                               |
+| 9           | Total cancellation request successfully approved                                 |
+| 72          | Error: Insufficient merchant balance for sale cancellation                       |
+| 77          | Error: Original sale not found for cancellation                                  |
+| 100         | Error: Payment method and/or flag do not allow cancellation                      |
+| 101         | Error: Requested cancellation amount above the allowed cancellation deadline     |
+| 102         | Error: Requested cancellation above the original transaction amount              |
+| 103         | Cadastral Restriction. Cancellation not allowed. Contact the Cancellation Center |
+| 104         | Cadastral Restriction. Cancellation not allowed. Contact the Cancellation Center |
+| 105         | Cadastral Restriction. Cancellation not allowed. Contact the Cancellation Center |
+| 106         | Cadastral Restriction. Cancellation not allowed. Contact the Cancellation Center |
+| 107         | Cadastral Restriction. Cancellation not allowed. Contact the Cancellation Center |
+| 108         | Error: Merchant Number (EC) not found. Please check the number sent              |
+| 475         | Processing failed. Please try again  
+
+### Cancellation via Backoffice
+
+Cancellation via Backoffice is the only option to perform cancellation of bank slip and Online Debit transactions.
+It is possible to carry out both the total cancellation and the partial cancellation via The Backoffice Cielo.
+
+Effects on the payment method
+
+|Payment method|Description|Deadline|Cielo participation|
+|---|---|---|---|
+|Electronic Transfer|Cancellation only in API. The return of the value is made by the merchant himself|Defined by the merchant|No|
+
+Access our [**Tutorial**](https://developercielo.github.io/en/tutorial/tutoriais-3-0)  for more informations
+
+## Notification Post
+
+### About the POST
+
+The Cielo e-commerce API offers a transactional notification system where the Merchant provides an endpoint that will receive a notification via 'POST'
+
+The notification content will be formed by 3 fields:
+
+* `RecurrentPaymentId`- Identifier that represents a set of recurring transactions
+* `PaymentId`- Identifier that represents a transaction
+* `ChangeType` - Specifies the type of notification
+
+With the content above, the merchant can identify the transaction (via `PaymentId` or `RecurrentPaymentId`) and the change suffered by it. With `PaymentId` it is possible to make a consult to the transactional base of the Cielo E-commerce API.
+
+The Notification Post is sent based on a selection of predefined events in the Cielo E-commerce API register. These events are registered by the Cielo support team, when requested by the merchant.
+
+### Notified Events
+
+The events that can be notified are:
+
+|Payment method|Event|
+|---|---|
+|Credit card|Capture|
+|Credit card|Cancellation|
+|Credit card|Survey|
+|Bank slip|Conciliation|
+|Bank slip|Manual Cancellation|
+|Electronic transfer|Confirmed|
+
+**About the Debit card:**  We do not notify Debit card transactions. We suggest creating a RETURN URL, where the buyer will be sent if the transaction is completed in the bank environment. When this URL is triggered, our suggestion is for a `GET` to be run by searching for order information in the API Cielo.
+
+Notification also occurs in events related to **Scheduled Recurrence Cielo**.
+
+| Recurrence Events                                                        |
+|--------------------------------------------------------------------------|
+| Disabled when reaching maximum number of attempts (transactions denied) |
+| Rehabilitation                                                           |
+| Completed / End date reached                                             |
+| Deactivation                                                             |
+
+### Notification Endpoint
+
+An `URL Status Payment` must be registered by Cielo Support, so that the notification POST is executed.
+
+Features of the `URL Status Payment`
+
+* Must be **static**
+* 255 characters limit.
+
+**Notification Post** Characteristics
+
+* It is shot every 30 minutes
+* In case of failure, 3 new attempts will be made. If all 3 attempts fail, new submissions will not occur.
+
+It is possible to register an information to return the request header. Just contact Cielo Support and inform the items below
+
+* `KEY` - Parameter name 
+* `VALUE` - Static value to be returned
+
+You may register up to 3 types of return information in the header
+
+```json
+{
+   "RecurrentPaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+   "PaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+   "ChangeType": "2"
+}
+```
+
+The store **must** return in response to notification: **HTTP Status Code 200 OK**
+
+|Property|Description|Type|Size|Required|
+|---|---|---|---|---|
+|`RecurrentPaymentId`|Identifier that represents the Recurring order (applicable only to ChangeType 2 or 4)|GUID|36|No|
+|`PaymentId`|Identifier that represents the transaction|GUID|36|Yes|
+|`ChangeType`|Specifies the type of notification. See table below|Number|1|Yes|
+
+|ChangeType|Description|
+|---|---|
+|1|Payment status change|
+|2|Recurrence created|
+|3|AntiFraud status change|
+|4|Recurring payment status change (Ex. automatic deactivation)|
+|5|cancellation declined|
+|7|Chargeback notification <br/> More details [Risk Notification](https://braspag.github.io//en/manual/risknotification)|
+
+# Velocity
+
+## What is Velocity
+
+Velocity is a type of fraud prevention mechanism that specifically analyzes the concept of **"speed x transactional data"**. It analyzes how often certain data is used and whether that data is inscribed in a list of behaviors succeptible to security actions.
+
+For merchants operating in the e-commerce market and eventually receiving fraudulent transactions, Velocity is a product that will identify behaviors suspect of fraud. The tool is intended to assist in fraud analysis at a much lower cost than a more traditional market tool.
+
+It is an ally in the evaluation of suspect buying behaviors, because the calculations will be based on `traceability elements`.
+
+The Velocity offers 4 types of functionalities to validate transactional data:
+
+| Functionality         | Description                                                  |
+| --------------------- | ------------------------------------------------------------ |
+| Velocity safety rules | The Merchant defines a set of security rules that will evaluate if certain transactional data is repeated in a suspicious time interval |
+| Quarantine            | Creation of a list of data that will be analyzed for a determined period of time before being considered valid or fraudulent |
+| BlackList             | Creation of a list of data that, when identified, prevents the transaction from being executed, avoiding the creation of a fraudulent transaction |
+| Whitelist             | Creation of a list of data that, when identified, allows the transaction to be executed, even if there are security rules in action |
+
+The functionality must be contracted separately, and later enabled in your store by the Cielo Ecommerce Support team via Admin 3.0 
+
+## Integration
+
+Velocity works by analyzing data sent in the standard Cielo Ecommerce API integration. It is not necessary to add any additional node to the store integration for the creation of the sale, but it will be necessary to change the way the data is received `Response`.
+
+When Velocity is active, the transaction response will bring a specific node called "Velocity" with the details of the analysis.
+
+```json
+{
+  "MerchantOrderId": "2017051202",
+  "Customer": {
+    "Name": "Nome do Comprador",
+    "Identity": "12345678909",
+    "IdentityType": "CPF",
+    "Email": "comprador@cielo.com.br",
+    "Address": {
+      "Street": "Alameda Xingu",
+      "Number": "512",
+      "Complement": "27 andar",
+      "ZipCode": "12345987",
+      "City": "São Paulo",
+      "State": "SP",
+      "Country": "BRA"
+    },
+    "DeliveryAddress": {
+      "Street": "Alameda Xingu",
+      "Number": "512",
+      "Complement": "27 andar",
+      "ZipCode": "12345987",
+      "City": "São Paulo",
+      "State": "SP",
+      "Country": "BRA"
+    }
+  },
+  "Payment": {
+    "ServiceTaxAmount": 0,
+    "Installments": 1,
+    "Interest": "ByMerchant",
+    "Capture": true,
+    "Authenticate": false,
+    "Recurrent": false,
+    "CreditCard": {
+      "CardNumber": "455187******0181",
+      "Holder": "Nome do Portador",
+      "ExpirationDate": "12/2027",
+      "SaveCard": false,
+      "Brand": "Undefined"
+    },
+    "VelocityAnalysis": {
+      "Id": "2d5e0463-47be-4964-b8ac-622a16a2b6c4",
+      "ResultMessage": "Reject",
+      "Score": 100,
+      "RejectReasons": [
+        {
+          "RuleId": 49,
+          "Message": "Bloqueado pela regra CardNumber. Name: Máximo de 3 Hits de Cartão em 1 dia. HitsQuantity: 3\. HitsTimeRangeInSeconds: 1440\. ExpirationBlockTimeInSeconds: 1440"
+        }
+      ]
+    },
+    "PaymentId": "2d5e0463-47be-4964-b8ac-622a16a2b6c4",
+    "Type": "CreditCard",
+    "Amount": 10000,
+    "Currency": "BRL",
+    "Country": "BRA",
+    "Provider": "Simulado",
+    "ReasonCode": 16,
+    "ReasonMessage": "AbortedByFraud",
+    "Status": 0,
+    "ProviderReturnCode": "BP171",
+    "ProviderReturnMessage": "Rejected by fraud risk (velocity)",
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquery.cieloecommerce.cielo.com.br/1/sales/2d5e0463-47be-4964-b8ac-622a16a2b6c4"
+      }
+    ]
+  }
+}
+```
+
+| Property                                 | Description                           | Type   | Size |
+| ---------------------------------------- | ------------------------------------- | ------ | ---- |
+| `VelocityAnalysis.Id`                    | Performed analysis identifier         | GUID   | 36   |
+| `VelocityAnalysis.ResultMessage`         | Accept ou Reject                      | Text   | 25   |
+| `VelocityAnalysis.Score`                 | 100                                   | Number | 10   |
+| `VelocityAnalysis.RejectReasons.RuleId`  | Code of the rule that rejected        | Number | 10   |
+| `VelocityAnalysis.RejectReasons.Message` | Description of the rule that rejected | Text   | 512  |
 
 ## Renew easy
 
