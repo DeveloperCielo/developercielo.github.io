@@ -9968,9 +9968,9 @@ In addition, you have to send some addictional data in the transaction, to that 
   <li><strong>Scheduled Recurrence</strong> - When <strong>Cielo</strong> is responsible for the repetition intelligence and storage of card data.</li>
 </ul>
 
-<h3 id="own-recurrence">Own Recurrence</h3>
+<h3 id="self-recurrence">Self Recurrence</h3>
 
-<p>In this model, the merchant is responsible for creating the necessary intelligence to:</p>
+<p>In this format, the merchant is responsible for creating intelligence to:</p>
 
 <table>
   <thead>
@@ -9982,20 +9982,20 @@ In addition, you have to send some addictional data in the transaction, to that 
   <tbody>
     <tr>
       <td><strong>Save transaction data</strong></td>
-      <td>The store will need to store the transaction and payment data</td>
+      <td>The merchant will need to store the transaction and payment data.</td>
     </tr>
     <tr>
       <td><strong>Create transactional repetition</strong></td>
-      <td>The store must sent a new transaction whenever it needs an Authorization</td>
+      <td>The merchant must sent a new transaction whenever it needs an authorization.</td>
     </tr>
     <tr>
-      <td><strong>Behavior for declined transaction</strong></td>
-      <td>If one of the transactions is declined, it will be up to the store to “retry” a new authorization</td>
+      <td><strong>Procedure for declined transaction</strong></td>
+      <td>If one of the transactions is declined, it will be up to the store to “retry” a new authorization.</td>
     </tr>
   </tbody>
 </table>
 
-<p>In all instances, the scheduled recurrence is a default transaction for Cielo, its only difference being the need to send an additional parameter that defines it as <strong>Own Recurrence</strong></p>
+<p>In all instances, the scheduled recurrence is a default transaction for Cielo, its only difference being the need to send an additional parameter that defines it as <strong>Self Recurrence</strong></p>
 
 <p><strong>Parameter:</strong> <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code>= <code class="language-plaintext highlighter-rouge">True</code></p>
 
