@@ -5178,17 +5178,17 @@ API E-commerce Cielo works with two types of Recurrences:
 * **Self Recurrence** - When the **merchant** creates its own repeat purchase intelligence and stores the card data;
 * **Scheduled Recurrence** - When **Cielo** is responsible for the repetition intelligence and storage of card data.
 
-### Own Recurrence
+### Self Recurrence
 
-In this model, the merchant is responsible for creating the necessary intelligence to:
+In this format, the merchant is responsible for creating intelligence to:
 
 |Intelligence|Description|
 |---|---|
-|**Save transaction data**|The store will need to store the transaction and payment data|
-|**Create transactional repetition**|The store must sent a new transaction whenever it needs an Authorization|
-|**Behavior for declined transaction**|If one of the transactions is declined, it will be up to the store to "retry" a new authorization|
+|**Save transaction data**|The merchant will need to store the transaction and payment data.|
+|**Create transactional repetition**|The merchant must sent a new transaction whenever it needs an authorization.|
+|**Procedure for declined transaction**|If one of the transactions is declined, it will be up to the store to "retry" a new authorization.|
 
-In all instances, the scheduled recurrence is a default transaction for Cielo, its only difference being the need to send an additional parameter that defines it as **Own Recurrence**
+In all instances, the scheduled recurrence is a default transaction for Cielo, its only difference being the need to send an additional parameter that defines it as **Self Recurrence**
 
 **Parameter:** `Payment.Recurrent`= `True`
 
