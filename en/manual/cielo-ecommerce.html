@@ -10001,29 +10001,26 @@ In addition, you have to send some addictional data in the transaction, to that 
 <strong>Parameter:</strong> <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code>= <code class="language-plaintext highlighter-rouge">True</code></p>
 </blockquote>
 
-<h4 id="use-case">Use case</h4>
+<h4 id="self-recurrence-example">Self Recurrence example</h4>
 
-<p>This is an example of how the API Cielo Ecommerce allows the use of external systems of recurrence in their transactions</p>
+<p>This is an example of how API E-commerce Cielo allows the use of external recurrence systems in your transactions.</p>
 
-<p>The own recurrence is a configuration of the API Cielo Ecommerce that allows a merchant to use an internal recurrence system specific to their business needs.
-In this model, the merchant’ system is in charge of defining the period, the transactional data, and when necessary, send us the sale of recurrence.</p>
+<p>Self recurrence is a configuration of the API E-commerce Cielo that allows a merchant to use an internal recurrence system specific to their business needs.</p>
 
-<p><strong>See an example in use:</strong></p>
+<p>In this model, the merchant’s system is responsible for defining the period, the transactional data, and, when necessary, sending us the recurrence transaction.</p>
 
-<ul>
-  <li>Own recurrence + Tokenized Card</li>
-</ul>
+<p><strong>Self Recurence + Tokenized Card</strong></p>
 
-<p>The CleverFit academy has a differentiated billing system, where tuition is charged every fifteen days, but never on weekends.</p>
+<p>A gym called Cleverfit has a specific billing system, where the client is charged every fifteen days, but never on weekends.</p>
 
-<p>As a highly customized model, CleverFit has its own recurrence system, using the API Cielo Ecommerce via two mechanisms:</p>
+<p>As a highly customized model, <em>CleverFit</em> has its own recurrence system, using the API E-commerce Cielo via two mechanisms:</p>
 
 <ol>
-  <li><strong>Own Recurrence</strong> - CleverFit sends the transaction data as a normal sale, but the API identifies it as a recurrence and applies differential authorization rules to the order.</li>
-  <li><strong>Tokenized Card</strong> - CleverFit keeps your cards secure via tokenization, reducing the risk of securing transactional data in your system.</li>
+  <li><strong>Self Recurrence</strong> - <em>CleverFit</em> sends the transaction data as a normal sale, but the API identifies it as a recurrence and applies differential authorization rules to the order.</li>
+  <li><strong>Tokenized Card</strong> - <em>CleverFit</em> keeps cards stored in a tokenized form at Cielo, according to security rules, avoiding storing card data in their system.</li>
 </ol>
 
-<p>CleverFit sends the transaction every fifteen days to the API Cielo Ecommerce, using the Tokens saved in the API itself and opting for Own Recurrence, which changes the authorization rule to suit its charge model</p>
+<p><em>CleverFit</em> sends the transaction every fifteen days to the API E-commerce Cielo, using the tokens saved in the API itself and opting for Self Recurrence, which changes the authorization rules to suit its billing model.</p>
 
 <h3 id="scheduled-recurrence">Scheduled Recurrence</h3>
 
@@ -10141,7 +10138,7 @@ In this model, the merchant’ system is in charge of defining the period, the t
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxosrecprog_ingles.png" alt="Recprog_EN" /></p>
 
-<h4 id="use-case-1">Use case</h4>
+<h4 id="use-case">Use case</h4>
 
 <p>This is an example of how to use API Cielo Ecommerce’s recurrences to increase your sales:</p>
 
@@ -15008,7 +15005,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 <aside class="warning">BIN Check must be enabled by Cielo Support Team. Contact them to enable the service.</aside>
 
-<h2 id="use-case-2">Use Case</h2>
+<h2 id="use-case-1">Use Case</h2>
 
 <p>See an use case example: <strong>BIN Checker + cart recovery</strong></p>
 
@@ -15186,7 +15183,7 @@ The Submersible can use the bin checker in the cart to alert international buyer
   <p>If other Brand (Card Network Name) is sent, the error <strong>57-Bandeira inválida</strong> will be displayed.</p>
 </blockquote>
 
-<h2 id="use-case-3">Use case</h2>
+<h2 id="use-case-2">Use case</h2>
 
 <p>This is an example of how to use zero auth to improve your sales conversion.</p>
 
