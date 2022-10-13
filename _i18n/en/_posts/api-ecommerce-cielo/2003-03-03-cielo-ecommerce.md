@@ -5192,25 +5192,24 @@ In this format, the merchant is responsible for creating intelligence to:
 > <br/>
 > **Parameter:** `Payment.Recurrent`= `True`
 
-#### Use case
+#### Self Recurrence example
 
-This is an example of how the API Cielo Ecommerce allows the use of external systems of recurrence in their transactions
+This is an example of how API E-commerce Cielo allows the use of external recurrence systems in your transactions.
 
-The own recurrence is a configuration of the API Cielo Ecommerce that allows a merchant to use an internal recurrence system specific to their business needs.
-In this model, the merchant' system is in charge of defining the period, the transactional data, and when necessary, send us the sale of recurrence.
+Self recurrence is a configuration of the API E-commerce Cielo that allows a merchant to use an internal recurrence system specific to their business needs.
 
-**See an example in use:**
+In this model, the merchant's system is responsible for defining the period, the transactional data, and, when necessary, sending us the recurrence transaction.
 
-* Own recurrence + Tokenized Card
+**Self Recurence + Tokenized Card**
 
-The CleverFit academy has a differentiated billing system, where tuition is charged every fifteen days, but never on weekends.
+A gym called Cleverfit has a specific billing system, where the client is charged every fifteen days, but never on weekends.
 
-As a highly customized model, CleverFit has its own recurrence system, using the API Cielo Ecommerce via two mechanisms:
+As a highly customized model, *CleverFit* has its own recurrence system, using the API E-commerce Cielo via two mechanisms:
 
-1. **Own Recurrence** - CleverFit sends the transaction data as a normal sale, but the API identifies it as a recurrence and applies differential authorization rules to the order.
-1. **Tokenized Card** - CleverFit keeps your cards secure via tokenization, reducing the risk of securing transactional data in your system.
+1. **Self Recurrence** - *CleverFit* sends the transaction data as a normal sale, but the API identifies it as a recurrence and applies differential authorization rules to the order.
+2. **Tokenized Card** - *CleverFit* keeps cards stored in a tokenized form at Cielo, according to security rules, avoiding storing card data in their system.
 
-CleverFit sends the transaction every fifteen days to the API Cielo Ecommerce, using the Tokens saved in the API itself and opting for Own Recurrence, which changes the authorization rule to suit its charge model
+*CleverFit* sends the transaction every fifteen days to the API E-commerce Cielo, using the tokens saved in the API itself and opting for Self Recurrence, which changes the authorization rules to suit its billing model.
 
 ### Scheduled Recurrence
 
