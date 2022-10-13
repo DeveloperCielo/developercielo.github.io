@@ -5188,9 +5188,9 @@ In this format, the merchant is responsible for creating intelligence to:
 |**Create transactional repetition**|The merchant must sent a new transaction whenever it needs an authorization.|
 |**Procedure for declined transaction**|If one of the transactions is declined, it will be up to the store to "retry" a new authorization.|
 
-In all instances, the scheduled recurrence is a default transaction for Cielo, its only difference being the need to send an additional parameter that defines it as **Self Recurrence**
-
-**Parameter:** `Payment.Recurrent`= `True`
+> In all instances, the scheduled recurrence is a default transaction for Cielo, its only difference being the need to send an additional parameter that defines it as **Self Recurrence**:<br/>
+> <br/>
+> **Parameter:** `Payment.Recurrent`= `True`
 
 #### Use case
 
