@@ -53,7 +53,7 @@ O que é? São cobranças efetuadas quando o estabelecimento comercial excede as
 * Serão consideradas como retentativas todas as transações de pagamento no mesmo cartão, mesma validade, mesmo valor e mesmo número de estabelecimento;
 * Serão contabilizadas, também, as retentativas quando a transação já foi aprovada;
 * Serão contabilizadas, também, as retentivas quando a transação já foi aprovada;
-* A partir de 01/11/2022, o excesso considerado no programa ocorrerá a partir da oitava retentativa dentro do mês de apuração* e nas condições acima descritas; 
+* A partir de 01/02/2023, o excesso considerado no programa ocorrerá a partir da oitava retentativa dentro do mês de apuração* e nas condições acima descritas; 
 
 ## Transação de consulta de status de conta (ASI - Account Status Inquiry)
 
