@@ -53,7 +53,7 @@ O que é? São cobranças efetuadas quando o estabelecimento comercial excede as
 * Serão consideradas como retentativas todas as transações de pagamento no mesmo cartão, mesma validade, mesmo valor e mesmo número de estabelecimento;
 * Serão contabilizadas, também, as retentativas quando a transação já foi aprovada;
 * Serão contabilizadas, também, as retentivas quando a transação já foi aprovada;
-* A partir de 01/11/2022, o excesso considerado no programa ocorrerá a partir da sétima retentativa dentro do mês de apuração* e nas condições acima descritas; 
+* A partir de 01/11/2022, o excesso considerado no programa ocorrerá a partir da oitava retentativa dentro do mês de apuração* e nas condições acima descritas; 
 
 ## Transação de consulta de status de conta (ASI - Account Status Inquiry)
 
@@ -143,8 +143,8 @@ Os códigos originais serão substituídos pelo Merchant Advice Code (MAC), que 
 |A partir 1ª rententativa|R$ 2,50 (dois reais e cinquenta centavos) por retentativa, a partir da 1ª nova tentativa dentro do período de 24h.|
 
 **Programa de retentativas MAC 02**
-Início de vigência da regra: Já vigente
-Início de vigência da tarifa: 01 de janeiro de 2023
+* Início de vigência da regra: Já vigente
+* Início de vigência da tarifa: 01 de janeiro de 2023
 
 **Forma de apuração:**
 * Serão consideradas as transações de cartão não presente;
@@ -162,8 +162,8 @@ Início de vigência da tarifa: 01 de janeiro de 2023
 |A partir 1ª rententativa|R$ 2,50 (dois reais e cinquenta centavos) por retentativa, a partir da 1ª nova tentativa dentro do período de 72h.|
 
 **Programa de retentativas MAC 03 e MAC 21**
-Início de vigência da regra: Já vigente
-Início de vigência da tarifa: 01 de janeiro de 2023
+* Início de vigência da regra: Já vigente
+* Início de vigência da tarifa: 01 de janeiro de 2023
 
 **Forma de apuração:**
 * Serão consideradas as transações de cartão não presente;
@@ -182,7 +182,8 @@ Início de vigência da tarifa: 01 de janeiro de 2023
 |A partir 1ª rententativa|R$ 2,50 (dois reais e cinquenta centavos) por retentativa, a partir da 1ª|
 
 **Programa de retentativas MAC 01, 02 e MAC 03 – Códigos de respostas 79, 82 e 83**
-Início de vigência da regra e tarifa: 03 de outubro de 2022
+* Início de vigência da regra: Já vigente
+* Início de vigência da tarifa: 03 de Outubro de 2022
 
 **Forma de apuração:**
 * Serão consideradas as transações de cartão não presente;
