@@ -3853,8 +3853,8 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
-|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|6|Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
+|`MerchantId`|Identificador da loja na API E-commerce Cielo.|Guid|6|Sim|
+|`MerchantKey`|Chave Pública para Autenticação Dupla na API E-commerce Cielo.|Texto|40|Sim|
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
 |`MerchantOrderId`|Numero de identificação do Pedido.|Texto|50|Sim|
 |`Customer.Name`|Nome do Comprador.|Texto|255|Sim|
@@ -3999,8 +3999,8 @@ curl
 
 |Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
 |---|---|---|---|---|
-|`MerchantId`|Identificador da loja na API Cielo eCommerce.|Guid|6|Sim|
-|`MerchantKey`|Chave Publica para Autenticação Dupla na API Cielo eCommerce.|Texto|40|Sim|
+|`MerchantId`|Identificador da loja na API E-commerce Cielo.|Guid|6|Sim|
+|`MerchantKey`|Chave Publica para Autenticação Dupla na API E-commerce Cielo.|Texto|40|Sim|
 |`RequestId`|Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT|Guid|36|Não|
 |`MerchantOrderId`|Numero de identificação do Pedido.|Texto|50|Sim|
 |`Customer.Name`|Nome do Comprador.|Texto|255|Não|
