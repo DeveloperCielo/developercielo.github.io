@@ -9964,11 +9964,11 @@ In addition, you have to send some addictional data in the transaction, to that 
 <p>API E-commerce Cielo works with two types of Recurrences:</p>
 
 <ul>
-  <li><strong>Self Recurrence</strong> - When the <strong>merchant</strong> creates its own repeat purchase intelligence and stores the card data;</li>
+  <li><strong>Merchant Recurrence</strong> - When the <strong>merchant</strong> creates its own repeat purchase intelligence and stores the card data;</li>
   <li><strong>Scheduled Recurrence</strong> - When <strong>Cielo</strong> is responsible for the repetition intelligence and storage of card data.</li>
 </ul>
 
-<h3 id="self-recurrence">Self Recurrence</h3>
+<h3 id="merchant-recurrence">Merchant Recurrence</h3>
 
 <p>In this format, the merchant is responsible for creating intelligence to:</p>
 
@@ -9996,37 +9996,39 @@ In addition, you have to send some addictional data in the transaction, to that 
 </table>
 
 <blockquote>
-  <p>In all instances, the scheduled recurrence is a default transaction for Cielo, its only difference being the need to send an additional parameter that defines it as <strong>Self Recurrence</strong>:<br />
+  <p>In all instances, the scheduled recurrence is a default transaction for Cielo, its only difference being the need to send an additional parameter that defines it as <strong>Merchant Recurrence</strong>:<br />
 <br />
 <strong>Parameter:</strong> <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code>= <code class="language-plaintext highlighter-rouge">True</code></p>
 </blockquote>
 
-<h4 id="self-recurrence-example">Self Recurrence example</h4>
+<p><img src="https://developercielo.github.ioimages/apicieloecommerce/recorrencia-cielo-rec-propria-en.png" alt="Flow recorrência própria" /></p>
+
+<h4 id="merchant-recurrence-example">Merchant Recurrence example</h4>
 
 <p>This is an example of how API E-commerce Cielo allows the use of external recurrence systems in your transactions.</p>
 
-<p>Self recurrence is a configuration of the API E-commerce Cielo that allows a merchant to use an internal recurrence system specific to their business needs.</p>
+<p>Merchant recurrence is a configuration of the API E-commerce Cielo that allows a merchant to use an internal recurrence system specific to their business needs.</p>
 
 <p>In this model, the merchant’s system is responsible for defining the period, the transactional data, and, when necessary, sending us the recurrence transaction.</p>
 
-<p><strong>Self Recurence + Tokenized Card</strong></p>
+<p><strong>Merchant Recurence + Tokenized Card</strong></p>
 
 <p>A gym called Cleverfit has a specific billing system, where the client is charged every fifteen days, but never on weekends.</p>
 
 <p>As a highly customized model, <em>CleverFit</em> has its own recurrence system, using the API E-commerce Cielo via two mechanisms:</p>
 
 <ol>
-  <li><strong>Self Recurrence</strong> - <em>CleverFit</em> sends the transaction data as a normal sale, but the API identifies it as a recurrence and applies differential authorization rules to the order.</li>
+  <li><strong>Merchant Recurrence</strong> - <em>CleverFit</em> sends the transaction data as a normal sale, but the API identifies it as a recurrence and applies differential authorization rules to the order.</li>
   <li><strong>Tokenized Card</strong> - <em>CleverFit</em> keeps cards stored in a tokenized form at Cielo, according to security rules, avoiding storing card data in their system.</li>
 </ol>
 
-<p><em>CleverFit</em> sends the transaction every fifteen days to the API E-commerce Cielo, using the tokens saved in the API itself and opting for Self Recurrence, which changes the authorization rules to suit its billing model.</p>
+<p><em>CleverFit</em> sends the transaction every fifteen days to the API E-commerce Cielo, using the tokens saved in the API itself and opting for Merchant Recurrence, which changes the authorization rules to suit its billing model.</p>
 
 <h3 id="scheduled-recurrence">Scheduled Recurrence</h3>
 
 <p>In this model, Cielo is responsible for the intelligence necessary to perform a recurrence automatically.</p>
 
-<p>The <strong>Scheduled Recurrence</strong> allows the merchant to create a base transaction, which when sent to the API Cielo Ecommerce, will be saved and executed following the rules defined by the merchant.</p>
+<p>The <strong>Scheduled Recurrence</strong> allows the merchant to create a base transaction that, when sent to the API E-commerce Cielo, will be saved and executed following the rules defined by the merchant.</p>
 
 <p>In this model, the API performs and allows:</p>
 
@@ -10040,20 +10042,35 @@ In addition, you have to send some addictional data in the transaction, to that 
   <tbody>
     <tr>
       <td><strong>Saves transactional data</strong></td>
-      <td>Saves transaction data, thus creating a model of how the next Recurrences will be</td>
+      <td>Save transaction data, thus creating a model of what the next recurrences will look like.</td>
     </tr>
     <tr>
       <td><strong>Automates the recurrence</strong></td>
-      <td>Without store action, the API creates future transactions according to the merchant’ settings</td>
+      <td>Without the need for merchant action, the API creates future transactions according to the store’s definitions.</td>
     </tr>
     <tr>
       <td><strong>Allows updating of data</strong></td>
-      <td>If necessary, the API allows changes of the transaction information or the recurrence cycle</td>
+      <td>If necessary, the API allows modifications in the transaction information (such as shopper data) or recurrence cycle (such as billing date).</td>
     </tr>
   </tbody>
 </table>
 
-<p>The Scheduled Recurrence is formed by a simple transactional structure. The Merchant shall inform in the transaction the following data:</p>
+<p>The Scheduled Recurrence has two request flows; the difference is in the <code class="language-plaintext highlighter-rouge">AuthorizeNow</code> parameter.</p>
+
+<p><strong>When the first transaction must be authorized at the time of scheduling, please send <code class="language-plaintext highlighter-rouge">AuthorizeNow</code> as “true”.</strong></p>
+
+<p><img src="https://developercielo.github.ioimages/apicieloecommerce/recorrencia-cielo-rec-programada-primeiratransacao-en.png" alt="Flow da primeira transação na hora do agendamento" /></p>
+
+<p>*If Post Notification was enabled by the merchant.</p>
+
+<p><strong>When the first transaction must be authorized after scheduling, send <code class="language-plaintext highlighter-rouge">AuthorizeNow</code> as “false”; in this case, also send the <code class="language-plaintext highlighter-rouge">StartDate</code> parameter.</strong></p>
+
+<p><img src="https://developercielo.github.ioimages/apicieloecommerce/recorrencia-cielo-rec-programada-agendamento-en.png" alt="Flow da transação posterior ao agendamento" /></p>
+
+<p>*To schedule the transaction needs the <code class="language-plaintext highlighter-rouge">RecurrentPayment</code> node, the transaction date and the <code class="language-plaintext highlighter-rouge">AuthorizeNow</code> field as “false”.<br />
+**If Post Notification was enabled by the merchant.</p>
+
+<p>See the example of the snippet with the <code class="language-plaintext highlighter-rouge">RecurrentPayment</code> node, which must be inserted in a credit transaction.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"RecurrentPayment"</span><span class="p">:</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -10076,26 +10093,26 @@ In addition, you have to send some addictional data in the transaction, to that 
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthorizeNow</code></td>
-      <td>Defines the time a recurrence will be created. If it is sent as <code class="language-plaintext highlighter-rouge">True</code>, it is created at the time of authorization, if <code class="language-plaintext highlighter-rouge">False</code>, the recurrence will be suspended until the date chosen to be initiated.</td>
+      <td>Defines the time a recurrence will be created. If it is sent as <code class="language-plaintext highlighter-rouge">True</code>, it is created at the time of authorization, if sent as false <code class="language-plaintext highlighter-rouge">False</code>, the recurrence will be suspended until the date chosen to be initiated.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">StartDate</code></td>
-      <td>Defines the date on which Scheduled Recurrence transaction will be authorized</td>
+      <td>Defines the date on which the Scheduled Recurrence transaction will be authorized.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">EndDate</code></td>
-      <td>Defines the date the Scheduled Recurrence will end. If it is not sent, the Recurrence will be executed until it is canceled by the merchant</td>
+      <td>Defines the date the Scheduled Recurrence will end. If it is not sent, the Recurrence will be executed until it is canceled by the merchant.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Interval</code></td>
-      <td>Recurrence interval.<br />Monthly - Mensal Bimonthly - Bimestral Quarterly - Trimestral SemiAnnual - Semestral Annual - Anual</td>
+      <td>Recurrence interval.<br />Monthly Bimonthly Quarterly SemiAnnual Annual</td>
     </tr>
   </tbody>
 </table>
 
-<p>When a transaction is sent to the API Cielo Ecommerce with the Scheduled Recurrence node, the recurrence process becomes effective when the transaction is considered <strong>AUTHORIZED</strong>.</p>
-
-<p>From that point on, it will occur within the interval defined by the merchant.</p>
+<blockquote>
+  <p>When a transaction is sent to the API E-commerce Cielo with the Scheduled Recurrence node (<code class="language-plaintext highlighter-rouge">RecurrentPayment</code>), the recurrence process becomes effective when the transaction is considered <strong>AUTHORIZED</strong>. From that point on, the transaction will occur within the interval defined by the merchant.</p>
+</blockquote>
 
 <p>Important features of <strong>Scheduled Recurrence</strong>:</p>
 
@@ -10109,95 +10126,87 @@ In addition, you have to send some addictional data in the transaction, to that 
   <tbody>
     <tr>
       <td><strong>Creation</strong></td>
-      <td>The first transaction is called <strong>“Scheduling Transaction”</strong>, all subsequent transactions will be copies of the first transaction. It does not need to be captured for the recurrence to be created, just be <strong>AUTHORIZED</strong></td>
+      <td>The first transaction is called <strong>“Scheduling Transaction”</strong>, all subsequent transactions will be copies of the first transaction. It does not need to be captured for the recurrence to be created, it just needs to be <strong>AUTHORIZED</strong></td>
     </tr>
     <tr>
       <td><strong>Capture</strong></td>
-      <td>Scheduled Recurrence transactions do not need to be captured. After the first transaction, all recurrence transactions are automatically captured by the API</td>
+      <td>Scheduled Recurrence transactions do not need to be captured. After the first transaction, all recurrence transactions are automatically captured by the API.</td>
     </tr>
     <tr>
       <td><strong>Identification</strong></td>
-      <td>Scheduled Recurrence transactions generate two types of identification:<br /><strong>PAYMENTID</strong>: Identify 1 transaction. It is the same identifier of the other transactions in the API    <br /><strong>RECURRENTPAYMENTID</strong>: Identifies recurrence Order. A RecurrentPaymentID has innumerable PaymentID linked to it. This is the variable used to Cancel a Scheduled Recurrence</td>
+      <td>Scheduled Recurrence transactions generate two types of identification:<br /><strong><code class="language-plaintext highlighter-rouge">PaymentId</code></strong>: Identifies a transaction. It is the same identifier as the other transactions in the API    <br /><strong><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></strong>: Identifies recurrence order. A RecurrentPaymentID has many PaymentId’s linked to it. This is the variable used to Cancel a Scheduled Recurrence.</td>
     </tr>
     <tr>
       <td><strong>Consulting</strong></td>
-      <td>To consult, just use one of two types of identification:<br /><strong>PAYMENTID</strong>: Used to consult A TRANSACTION WITHIN THE RECURRENCE    <br /><strong>RECURRENTPAYMENTID</strong>: Used to consult THE RECURRENCE.</td>
+      <td>To consult, just use one of two types of identification:<br /><strong><code class="language-plaintext highlighter-rouge">PaymentId</code></strong>: Used to consult A TRANSACTION WITHIN THE RECURRENCE    <br /><strong><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></strong>: Used to consult THE RECURRENCE.</td>
     </tr>
     <tr>
-      <td><strong>Cancellation</strong></td>
-      <td>A Scheduled Recurrence can be canceled in two ways: <br /><strong>Merchant</strong>: It requests the cancellation of the recurrence. Do not cancel transactions already finalized before the recurrence cancellation order.  <br /><strong>By invalid card</strong>: If the API identifies that a saved card is invalid (e.g.: Expired) the recurrence will be canceled and will not be repeated until the merchant updates the payment method. <br /> <strong>NOTE:</strong> Canceling transactions within the recurrence does not end the scheduling of future transactions. Only the Cancellation using the <strong>RecurrentPaymentID</strong> ends future schedules.</td>
+      <td><strong>Canceling</strong></td>
+      <td>A Scheduled Recurrence can be canceled in two ways: <br /><strong>Merchant</strong>: When the merchant requests the canceling of the recurrence. You can’t cancel transactions already finalized before the recurrence cancelation order.  <br /><strong>By invalid card</strong>: If the API identifies that a saved card is invalid (e.g.: Expired) the recurrence will be canceled and will not be repeated until the merchant updates the payment method. <br /> <strong>NOTE:</strong> Canceling transactions within the recurrence does not end the scheduling of future transactions. Only the Cancellation using the <strong>RecurrentPaymentID</strong> ends future schedules.</td>
     </tr>
   </tbody>
 </table>
 
 <p><strong>RecurrentPaymentID Structure</strong></p>
 
-<p><img src="https://developercielo.github.io/images/apicieloecommerce/recpaymentid.png" alt="" /></p>
+<p><img src="https://developercielo.github.ioimages/apicieloecommerce/recorrencia-cielo-rec-prog-identificacao-en.png" alt="Estrutura do RecurrentPaymentID" /></p>
 
-<p><strong>Scheduled Recurrence flow</strong></p>
+<h4 id="scheduled-recurrence-example">Scheduled Recurrence example</h4>
 
-<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxosrecprog_ingles.png" alt="Recprog_EN" /></p>
-
-<h4 id="use-case">Use case</h4>
-
-<p>This is an example of how to use API Cielo Ecommerce’s recurrences to increase your sales:</p>
+<p>This is an example of how to use API E-commerce Cielo recurrences to increase your sales:</p>
 
 <p>Recurrence is the process of saving a transaction and repeating it at a predefined time interval. Ideal for subscription model.</p>
 
-<p>The Cielo’ scheduled recurrence has the following characteristics:</p>
+<p>Cielo’ Scheduled Recurrence has the following characteristics:</p>
 
 <ul>
-  <li><strong>Scheduled intervals:</strong> Monthly, bimonthly, quarterly, semi-annual and annual</li>
-  <li><strong>Expiry date:</strong> Enables to define whether the recurrence will end</li>
-  <li><strong>Retentative:</strong> if a transaction is declined, we will retry the transaction up to 4x</li>
-  <li><strong>Update:</strong> Allows you to change recurrence data, such as value, interval.</li>
+  <li><strong>Scheduled intervals:</strong> monthly, bimonthly, quarterly, semi-annual and annual;</li>
+  <li><strong>Expiry date:</strong> allows you to define whether the recurrence has an end date;</li>
+  <li><strong>Retentative:</strong> if a transaction is declined, we will retry the transaction up to 4 times;</li>
+  <li><strong>Update:</strong> allows you to change recurrence data, such as value, interval.</li>
 </ul>
 
-<p>See an example in use:</p>
+<p><strong>Monthly and annual recurrence</strong></p>
+
+<p>Musicfy offers an online subscription service where their customers pay to be able to access a music library and listen to them via streaming.</p>
+
+<p>To capture as many customers as possible, they offer two payment methods:</p>
 
 <ul>
-  <li><strong>Monthly and annual recurrence</strong></li>
+  <li>Monthly for R$19,90;</li>
+  <li>Annual (with discount) for R$180,00.</li>
 </ul>
 
-<p>The Musicfy company offers an online subscription service where their customers pay to be able to access a music library and listen to them via streaming.</p>
+<p>How do they bill their customers monthly or yearly?</p>
 
-<p>To capture the maximum of customers, they offer 2 ways of payment:</p>
+<p>Musicfy uses API E-commerce Cielo’s Scheduled Recurrence.</p>
 
-<ul>
-  <li>Monthly for R$19,90</li>
-  <li>Annual (with discount) for R$180,00</li>
-</ul>
+<p>When creating a transaction, <em>Musicfy</em> informs the client that the order in question will be repeated monthly or annually and that there is no end date for the billing.</p>
 
-<p>How do they perform the monthly or annual billing of their customers?</p>
-
-<p>MusicFy uses API Cielo Ecommerce Scheduled Recurrence.</p>
-
-<p>When creating a transaction, Musicfy informs that the order in question must be repeated monthly or annually and that there is no end date for the charge.</p>
-
-<p>What are the advantages of using scheduled recurrence for MusicFy?:</p>
+<p>What are the advantages of using scheduled recurrence for <em>MusicFy</em>?</p>
 
 <ol>
   <li>
-    <p><strong>Facility:</strong> Monthly charge is automatic, so MusicFy does not have to worry about building a billing system.</p>
+    <p><strong>Practicality:</strong> The monthly charge is automatic, so MusicFy does not have to worry about building a billing system.</p>
   </li>
   <li>
-    <p><strong>Usability:</strong> The subscription value can be updated without the need to redo the transaction. A month can be canceled or the recurrence can have a delay (the 30-day free model) with only one setting.</p>
+    <p><strong>Usability:</strong> The subscription value can be updated without having to redo the transaction. A month can be canceled or the recurrence can have a delay (the 30-day free model) with only one setting.</p>
   </li>
   <li>
-    <p><strong>Safety:</strong> It is not necessary to store sensitive card and buyer data at the store.</p>
+    <p><strong>Safety:</strong> <em>MusicFy</em> does not need to store sensitive card and shopper data.</p>
   </li>
   <li>
-    <p><strong>Conversion:</strong> The scheduled recurrence of Cielo has an automatic retentative system. If one of the transactions is declined, it will be retried up to 4 times, seeking to obtain the authorization.</p>
+    <p><strong>Conversion:</strong> Cielo’s Scheduled Recurrence has an automatic retry system. If one of the transactions is denied, it will be retried up to four times, seeking to achieve authorization.</p>
   </li>
 </ol>
 
 <h2 id="creating-recurrences">Creating Recurrences</h2>
 
-<h3 id="creating-an-own-recurrence">Creating an OWN RECURRENCE</h3>
+<h3 id="creating-a-merchant-recurrence">Creating a Merchant Recurrence</h3>
 
-<p>To create a recurring sale whose recurrence and interval processes will be executed by the store itself, just do a POST as the example.</p>
+<p>To create a recurring sale in which recurrence and interval process will be performed by the store itself, just make a POST as in the example.</p>
 
-<p>The <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> parameter must be <code class="language-plaintext highlighter-rouge">true</code>, otherwise the transaction will be declined.</p>
+<p>The request follows the structure of a standard credit transaction, but the <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> parameter must be <code class="language-plaintext highlighter-rouge">true</code>; otherwise, the transaction will be denied.</p>
 
 <h4 id="request-27">Request</h4>
 
@@ -10213,7 +10222,7 @@ In addition, you have to send some addictional data in the transaction, to that 
      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">1500</span><span class="p">,</span><span class="w">
      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
      </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
      </span><span class="nl">"CreditCard"</span><span class="p">:{</span><span class="w">  
          </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
          </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
@@ -10270,21 +10279,21 @@ In addition, you have to send some addictional data in the transaction, to that 
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier in API Cielo eCommerce.</td>
+      <td>Merchant identifier in API E-commerce Cielo.</td>
       <td>Guid</td>
       <td>6</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
+      <td>Public Key for Double Authentication in API E-commerce Cielo.</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
+      <td>Request identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>Guid</td>
       <td>36</td>
       <td>No</td>
@@ -10298,7 +10307,7 @@ In addition, you have to send some addictional data in the transaction, to that 
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Buyer’s name.</td>
+      <td>Shopper’s name.</td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
@@ -10326,35 +10335,35 @@ In addition, you have to send some addictional data in the transaction, to that 
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code></td>
-      <td>Text that will be printed on the carrier’s bank invoice - Available only for VISA/MASTER - does not allow special characters</td>
+      <td>Text that will be printed on the shopper’s bank invoice - Available only for VISA/MASTER - does not allow special characters</td>
       <td>Text</td>
       <td>13</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
-      <td>marking an unscheduled recurrence transaction</td>
-      <td>boolean</td>
+      <td>Marking of an unscheduled recurrence transaction</td>
+      <td>Boolean</td>
       <td>5</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
-      <td>Buyer’s Card Number.</td>
+      <td>Shopper’s Card Number.</td>
       <td>Text</td>
       <td>19</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
-      <td>Buyer’s name printed on card.</td>
+      <td>Shopper’s name printed on card.</td>
       <td>Text</td>
       <td>25</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
-      <td>Expiry date printed on card.</td>
+      <td>Expiration date printed on card.</td>
       <td>Text</td>
       <td>7</td>
       <td>Yes</td>
@@ -10368,7 +10377,7 @@ In addition, you have to send some addictional data in the transaction, to that 
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
-      <td>Card issuer.</td>
+      <td>Card brand.</td>
       <td>Text</td>
       <td>10</td>
       <td>Yes</td>
@@ -10515,21 +10524,21 @@ In addition, you have to send some addictional data in the transaction, to that 
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier in API Cielo eCommerce.</td>
+      <td>Store identifier in API E-commerce Cielo.</td>
       <td>Guid</td>
       <td>6</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
+      <td>Public Key for Double Authentication in API E-commerce Cielo.</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
+      <td>Request identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>Guid</td>
       <td>36</td>
       <td>No</td>
@@ -10543,7 +10552,7 @@ In addition, you have to send some addictional data in the transaction, to that 
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Buyer’s name.</td>
+      <td>Shopper’s name.</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
@@ -10578,28 +10587,28 @@ In addition, you have to send some addictional data in the transaction, to that 
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Recurrent</code></td>
-      <td>marking an unscheduled recurrence transaction</td>
-      <td>boolean</td>
+      <td>Marking of an unscheduled recurrence transaction</td>
+      <td>Boolean</td>
       <td>5</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
-      <td>Buyer’s Card Number.</td>
+      <td>Shopper’s Card Number.</td>
       <td>Text</td>
       <td>19</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
-      <td>Buyer’s name printed on card.</td>
+      <td>Shopper’s name printed on card.</td>
       <td>Text</td>
       <td>25</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
-      <td>Expiry date printed on card.</td>
+      <td>Expiration date printed on card.</td>
       <td>Text</td>
       <td>7</td>
       <td>Yes</td>
@@ -10613,7 +10622,7 @@ In addition, you have to send some addictional data in the transaction, to that 
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
-      <td>Card issuer.</td>
+      <td>Card brand.</td>
       <td>Text</td>
       <td>10</td>
       <td>Yes</td>
@@ -10621,11 +10630,11 @@ In addition, you have to send some addictional data in the transaction, to that 
   </tbody>
 </table>
 
-<h3 id="creating-a-scheduled-recurrence">Creating a SCHEDULED RECURRENCE</h3>
+<h3 id="creating-a-scheduled-recurrence">Creating a Scheduled Recurrence</h3>
 
-<p>To create a recurring sale whose first recurrence is authorized with the form of payment as credit card, just do a POST as the example.</p>
+<p>To create a recurring sale in which the first recurrence is authorized with the credit card payment method, just make a POST as in the example.</p>
 
-<aside class="notice">Warning: In this recurrence mode, the first transaction must be of captured. All subsequent transactions will be automatically captured.</aside>
+<aside class="notice">Warning: In this recurrence mode, the first transaction must be captured (`AuthorizeNow` = "true"). All subsequent transactions will be captured automatically.</aside>
 
 <h4 id="request-28">Request</h4>
 
@@ -10706,21 +10715,21 @@ In addition, you have to send some addictional data in the transaction, to that 
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier in API Cielo eCommerce.</td>
+      <td>Store identifier in API E-commerce Cielo.</td>
       <td>Guid</td>
       <td>6</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
+      <td>Public Key for Double Authentication in API E-commerce Cielo.</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
+      <td>Request identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>Guid</td>
       <td>36</td>
       <td>No</td>
@@ -10734,7 +10743,7 @@ In addition, you have to send some addictional data in the transaction, to that 
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Buyer’s name.</td>
+      <td>Shopper’s name.</td>
       <td>Text</td>
       <td>255</td>
       <td>Yes</td>
@@ -10783,28 +10792,28 @@ In addition, you have to send some addictional data in the transaction, to that 
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.AuthorizeNow</code></td>
-      <td>Boolean to know if the first recurrence is about to be Authorized or not.</td>
+      <td>Boolean to know if the first recurrence is going to be Authorized or not.</td>
       <td>Boolean</td>
       <td>—</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
-      <td>Buyer’s Card Number.</td>
+      <td>Shopper’s Card Number.</td>
       <td>Text</td>
       <td>19</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
-      <td>Buyer’s name printed on card.</td>
+      <td>Shopper’s name printed on card.</td>
       <td>Text</td>
       <td>25</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
-      <td>Expiry date printed on card.</td>
+      <td>Expiration date printed on card.</td>
       <td>Text</td>
       <td>7</td>
       <td>Yes</td>
@@ -10818,7 +10827,7 @@ In addition, you have to send some addictional data in the transaction, to that 
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
-      <td>Card issuer.</td>
+      <td>Card brand.</td>
       <td>Text</td>
       <td>10</td>
       <td>Yes</td>
@@ -11013,7 +11022,9 @@ In addition, you have to send some addictional data in the transaction, to that 
 
 <h2 id="scheduling-a-scheduled-recurrence">Scheduling a Scheduled Recurrence</h2>
 
-<p>To create a recurring sale whose first recurrence will not be authorized on the same date with the form of payment as credit card, just do a POST as the example.</p>
+<p>To create a recurring sale in which the first recurrence will not be authorized on the same date with the credit card payment method, just make a POST as in the example.</p>
+
+<p>Unlike the previous recurrence, this example does not authorize immediately, it schedules a future authorization. To schedule the first transaction in the series of recurrences, send the <code class="language-plaintext highlighter-rouge">AuthorizeNow</code> parameter as “false” and add the <code class="language-plaintext highlighter-rouge">StartDate</code> parameter.</p>
 
 <h3 id="request-29">Request</h3>
 
@@ -11096,21 +11107,21 @@ In addition, you have to send some addictional data in the transaction, to that 
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier in API Cielo eCommerce</td>
+      <td>Store identifier in API E-commerce.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Double Authentication in API Cielo eCommerce</td>
+      <td>Public Key for Double Authentication in API E-commerce Cielo.</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
+      <td>Request identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>Guid</td>
       <td>36</td>
       <td>No</td>
@@ -11124,147 +11135,147 @@ In addition, you have to send some addictional data in the transaction, to that 
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Buyer’s name.</td>
+      <td>Shopper’s name.</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>Buyer registration status in store (NEW / EXISTING) - Used by fraud analysis</td>
+      <td>Shopper registration status in store (NEW / EXISTING) - Used by fraud analysis</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
-      <td>Buyer’s e-mail.</td>
+      <td>Shopper’s e-mail.</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
-      <td>Buyer’s date of birth.</td>
+      <td>Shopper’s date of birth.</td>
       <td>Date</td>
       <td>10</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
-      <td>Customer’s RG, CPF or CNPJ number.</td>
+      <td>Shopper’s RG, CPF or CNPJ number.</td>
       <td>Text</td>
       <td>14</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
-      <td>Buyer’s address.</td>
+      <td>Shopper’s address.</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>Buyer’s address number.</td>
+      <td>Shopper’s address number.</td>
       <td>Text</td>
       <td>15</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
-      <td>Buyer’s address complement.</td>
+      <td>Shopper’s address complement.</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
-      <td>Buyer’s address zip code.</td>
+      <td>Shopper’s address zip code.</td>
       <td>Text</td>
       <td>9</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
-      <td>Buyer’s address city.</td>
+      <td>Shopper’s address city.</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
-      <td>Buyer’s address state.</td>
+      <td>Shopper’s address state.</td>
       <td>Text</td>
       <td>2</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
-      <td>Buyer’s address country.</td>
+      <td>Shopper’s address country.</td>
       <td>Text</td>
       <td>35</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
-      <td>Buyer’s neighborhood.</td>
+      <td>Shopper’s neighborhood.</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
-      <td>Buyer’s address.</td>
+      <td>Shopper’s address.</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
-      <td>Buyer’s address number.</td>
+      <td>Shopper’s address number.</td>
       <td>Text</td>
       <td>15</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
-      <td>Buyer’s address complement.</td>
+      <td>Shopper’s address complement.</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
-      <td>Buyer’s address zip code.</td>
+      <td>Shopper’s address zip code.</td>
       <td>Text</td>
       <td>9</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.City</code></td>
-      <td>Buyer’s address city.</td>
+      <td>Shopper’s address city.</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.State</code></td>
-      <td>Buyer’s address state.</td>
+      <td>Shopper’s address state.</td>
       <td>Text</td>
       <td>2</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
-      <td>Buyer’s address country.</td>
+      <td>Shopper’s address country.</td>
       <td>Text</td>
       <td>35</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.District</code></td>
-      <td>Buyer’s neighborhood.</td>
+      <td>Shopper’s neighborhood.</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
@@ -11422,9 +11433,9 @@ In addition, you have to send some addictional data in the transaction, to that 
 
 <h2 id="modifying-recurrences">Modifying Recurrences</h2>
 
-<h3 id="modifying-buyer-data">Modifying buyer data</h3>
+<h3 id="modifying-shopper-data">Modifying shopper data</h3>
 
-<p>To change the Recurrence buyer’s data, just do a Put as the example.</p>
+<p>To change the shopper’s data for the recurrent transactions, just do a PUT as in the example.</p>
 
 <h4 id="request-30">Request</h4>
 
@@ -11507,21 +11518,21 @@ In addition, you have to send some addictional data in the transaction, to that 
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier in API Cielo eCommerce</td>
+      <td>Store identifier in API E-commerce Cielo.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Double Authentication in API Cielo eCommerce</td>
+      <td>Public Key for Double Authentication in API E-commerce Cielo.</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
+      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>Guid</td>
       <td>36</td>
       <td>No</td>
@@ -11535,35 +11546,35 @@ In addition, you have to send some addictional data in the transaction, to that 
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Buyer’s name.</td>
+      <td>Shopper’s name.</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>Buyer registration status in store (NEW / EXISTING) - Used by fraud analysis</td>
+      <td>Shopper registration status in store (NEW / EXISTING) - Used by fraud analysis</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
-      <td>Buyer’s e-mail.</td>
+      <td>Shopper’s e-mail.</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Birthdate</code></td>
-      <td>Buyer’s date of birth.</td>
+      <td>Shopper’s date of birth.</td>
       <td>Date</td>
       <td>10</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
-      <td>Customer’s RG, CPF or CNPJ number.</td>
+      <td>Shopper’s RG, CPF or CNPJ number.</td>
       <td>Text</td>
       <td>14</td>
       <td>No</td>
@@ -11573,116 +11584,116 @@ In addition, you have to send some addictional data in the transaction, to that 
       <td>Text</td>
       <td>255</td>
       <td>No</td>
-      <td>Type of buyer ID document (CFP/CNPJ).</td>
+      <td>Type of shopper ID document (CFP/CNPJ).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Street</code></td>
-      <td>Buyer’s address.</td>
+      <td>Shopper’s address.</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Number</code></td>
-      <td>Buyer’s address number.</td>
+      <td>Shopper’s address number.</td>
       <td>Text</td>
       <td>15</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Complement</code></td>
-      <td>Buyer’s address complement.</td>
+      <td>Shopper’s address complement.</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.ZipCode</code></td>
-      <td>Buyer’s address zip code.</td>
+      <td>Shopper’s address zip code.</td>
       <td>Text</td>
       <td>9</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.City</code></td>
-      <td>Buyer’s address city.</td>
+      <td>Shopper’s address city.</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.State</code></td>
-      <td>Buyer’s address state.</td>
+      <td>Shopper’s address state.</td>
       <td>Text</td>
       <td>2</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.Country</code></td>
-      <td>Buyer’s address country.</td>
+      <td>Shopper’s address country.</td>
       <td>Text</td>
       <td>35</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Address.District</code></td>
-      <td>Buyer’s neighborhood.</td>
+      <td>Shopper’s neighborhood.</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Street</code></td>
-      <td>Buyer’s address.</td>
+      <td>Shopper’s address.</td>
       <td>Text</td>
       <td>255</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Number</code></td>
-      <td>Buyer’s address number.</td>
+      <td>Shopper’s address number.</td>
       <td>Text</td>
       <td>15</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Complement</code></td>
-      <td>Buyer’s address complement.</td>
+      <td>Shopper’s address complement.</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.ZipCode</code></td>
-      <td>Buyer’s address zip code.</td>
+      <td>Shopper’s address zip code.</td>
       <td>Text</td>
       <td>9</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.City</code></td>
-      <td>Buyer’s address city.</td>
+      <td>Shopper’s address city.</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.State</code></td>
-      <td>Buyer’s address state.</td>
+      <td>Shopper’s address state.</td>
       <td>Text</td>
       <td>2</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.Country</code></td>
-      <td>Buyer’s address country.</td>
+      <td>Shopper’s address country.</td>
       <td>Text</td>
       <td>35</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.DeliveryAddress.District</code></td>
-      <td>Buyer’s neighborhood.</td>
+      <td>Shopper’s neighborhood.</td>
       <td>Text</td>
       <td>50</td>
       <td>No</td>
@@ -11692,20 +11703,24 @@ In addition, you have to send some addictional data in the transaction, to that 
 
 <h4 id="response-26">Response</h4>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+HTTP Status 200
+
 </code></pre></div></div>
 
-<p>See the annex <a href="#http-status-code">HTTP Status Code</a> to the list with all HTTP status codes possibly returned by the API.</p>
+<p>See <a href="#http-status-code">HTTP Status Code</a> for the list with all HTTP status codes possibly returned by the API.</p>
 
 <h3 id="modifying-end-date-of-recurrence">Modifying end date of Recurrence</h3>
 
-<p>To change the end date of the Recurrence, just do a Put as the example.</p>
+<p>To change the end date of the Recurrence, just do a PUT as in the example.</p>
 
 <h4 id="request-31">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"2021-01-09"</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+</span><span class="s2">"2021-01-09"</span><span class="w">
+
 </span></code></pre></div></div>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
@@ -11732,21 +11747,21 @@ In addition, you have to send some addictional data in the transaction, to that 
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier in API Cielo eCommerce.</td>
+      <td>Store identifier in API E-commerce Cielo.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
+      <td>Public Key for Double Authentication in API E-commerce Cielo.</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
+      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>Guid</td>
       <td>36</td>
       <td>No</td>
@@ -11773,17 +11788,19 @@ In addition, you have to send some addictional data in the transaction, to that 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
 
-<p>See the annex <a href="#http-status-code">HTTP Status Code</a> to the list with all HTTP status codes possibly returned by the API.</p>
+<p>See <a href="#http-status-code">HTTP Status Code</a> for the list with all HTTP status codes possibly returned by the API.</p>
 
 <h3 id="modifying-recurrence-interval">Modifying Recurrence interval</h3>
 
-<p>To change the Recurrence Interval, just do a Put according to the example.</p>
+<p>To change the Recurrence Interval, just do a PUT as in the example.</p>
 
 <h4 id="request-32">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">6</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+</span><span class="mi">6</span><span class="w">
+
 </span></code></pre></div></div>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
@@ -11810,21 +11827,21 @@ In addition, you have to send some addictional data in the transaction, to that 
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier in API Cielo eCommerce.</td>
+      <td>Store identifier in API E-commerce Cielo.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
+      <td>Public Key for Double Authentication in API E-commerce Cielo.</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
+      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>Guid</td>
       <td>36</td>
       <td>No</td>
@@ -11851,13 +11868,22 @@ In addition, you have to send some addictional data in the transaction, to that 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
 
-<p>See the annex <a href="#http-status-code">HTTP Status Code</a> to the list with all HTTP status codes possibly returned by the API.</p>
+<p>See <a href="#http-status-code">HTTP Status Code</a> for the list with all HTTP status codes possibly returned by the API.</p>
 
 <h3 id="modify-day-of-recurrence">Modify day of Recurrence</h3>
 
-<p>To modify the day of recurrence, just do a Put as the example.</p>
+<p>To modify the day of recurrence, just do a PUT as in the example.</p>
 
-<aside class="notice">Rule: If the new day informed is after the current day, we will update the recurrence day with effect on the next recurrence. E.g.: Today is day 5, and the next recurrence is day 05/25. When I upgrade to day 10, the date of the next recurrence will be day 05/10. If the new day reported is before the current day, we will update the recurrence day, but this will only take effect after the next recurrence is successfully performed. E.g.: Today is day 5, and the next recurrence is day 05/25. When I upgrade to day 3, the date of the next recurrence will remain on 05/25, and after it performs, the next one will be scheduled for day 06/03. If the new informed day is before the current day, but the next recurrence is in another month, we will update the recurrence day with effect on the next recurrence. E.g.: Today is day 5, and the next recurrence is day 09/25. When I upgrade to day 3, the next recurrence date will be 09/03</aside>
+<p>When changing the day of recurrence, consider the following rules for executing the update in the API:</p>
+
+<p>1) If the new day entered is after the current day, we will update the day of the recurrence with effect on the next recurrence.
+Ex.: Today is May 5 and the next recurrence is May 25. When updated to the 10th, the next recurrence date will be the on May 10.</p>
+
+<p>2) If the new day entered is before the current day, we will update the day of the recurrence, but this will only take effect after the next recurrence is successfully executed.
+Ex.: Today is May 5 and the next recurrence is May 25. When updated to the 3rd, the date of the next recurrence will remain on May 25. After its execution, the next recurrence will be scheduled for June 3.</p>
+
+<p>3) If the new day entered is before the current day, but the next recurrence is in another month, we will update the day of the recurrence with effect on the next recurrence.
+Ex.: Today is May 5 and the next recurrence is September 25. When updated to the 3rd, the date of the next recurrence will be September 3.</p>
 
 <h4 id="request-33">Request</h4>
 
@@ -11890,21 +11916,21 @@ In addition, you have to send some addictional data in the transaction, to that 
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier in API Cielo eCommerce.</td>
+      <td>Store identifier in API E-commerce Cielo.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
+      <td>Public Key for Double Authentication in API E-commerce Cielo.</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
+      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>Guid</td>
       <td>36</td>
       <td>No</td>
@@ -11931,11 +11957,11 @@ In addition, you have to send some addictional data in the transaction, to that 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
 
-<p>See the Annex <a href="#http-status-code">HTTP Status Code</a> to the list with all HTTP status codes possibly returned by the API.</p>
+<p>See <a href="#http-status-code">HTTP Status Code</a> for the list with all HTTP status codes possibly returned by the API.</p>
 
 <h3 id="modifying-the-recurrence-value">Modifying the Recurrence value</h3>
 
-<p>To modify the value of the recurrence, just do a Put as example.</p>
+<p>To modify the value of the recurrence, just do a PUT as in the example.</p>
 
 <h4 id="request-34">Request</h4>
 
@@ -11945,7 +11971,7 @@ In addition, you have to send some addictional data in the transaction, to that 
 </span></code></pre></div></div>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> POST <span class="s2">"https://apisandbox.braspag.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Amount"</span>
+<span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Amount"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
@@ -11968,21 +11994,21 @@ In addition, you have to send some addictional data in the transaction, to that 
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier in API Cielo eCommerce.</td>
+      <td>Store identifier in API E-commerce Cielo.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
+      <td>Public Key for Double Authentication in API E-commerce Cielo.</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
+      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>Guid</td>
       <td>36</td>
       <td>No</td>
@@ -11996,7 +12022,7 @@ In addition, you have to send some addictional data in the transaction, to that 
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Order Value in cents: 156 equals R$ 1,56</td>
+      <td>Order Value in cents; 156 equals R$ 1,56.</td>
       <td>Number</td>
       <td>15</td>
       <td>Yes</td>
@@ -12011,11 +12037,11 @@ In addition, you have to send some addictional data in the transaction, to that 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
 
-<p>See the Annex <a href="#http-status-code">HTTP Status Code</a> to the list with all HTTP status codes possibly returned by the API.</p>
+<p>See <a href="#http-status-code">HTTP Status Code</a> for the list with all HTTP status codes possibly returned by the API.</p>
 
-<h3 id="modifying-date-of-next-payment">Modifying date of next Payment</h3>
+<h3 id="modifying-date-of-next-payment">Modifying date of next payment</h3>
 
-<p>To change the date of the next Payment, just do a Put as the example.</p>
+<p>To change the date of the next payment, just do a PUT as in the example.</p>
 
 <h4 id="request-35">Request</h4>
 
@@ -12048,21 +12074,21 @@ In addition, you have to send some addictional data in the transaction, to that 
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier in API Cielo eCommerce.</td>
+      <td>Store identifier in API E-commerce Cielo.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
+      <td>Public Key for Double Authentication in API E-commerce Cielo.</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
+      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>Guid</td>
       <td>36</td>
       <td>No</td>
@@ -12089,13 +12115,13 @@ In addition, you have to send some addictional data in the transaction, to that 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
 
-<p>See the Annex <a href="#http-status-code">HTTP Status Code</a> to the list with all HTTP status codes possibly returned by the API.</p>
+<p>See <a href="#http-status-code">HTTP Status Code</a> for the list with all HTTP status codes possibly returned by the API.</p>
 
-<h3 id="modifying-recurrence-payment-data">Modifying Recurrence Payment data</h3>
+<h3 id="modifying-recurrence-payment-data">Modifying Recurrence payment data</h3>
 
-<p>To change the payment data of the Recurrence, just do a Put as the example.</p>
+<p>To change the payment data of the recurrence, just do a PUT as in the example.</p>
 
-<aside class="notice">Warning: This change affects all data in the Payment node. So to keep the previous data you must inform the fields that will not change with the same values that were already saved.</aside>
+<aside class="notice">Warning: This change affects all `Payment` node data. So to keep the previous data you must inform the fields that will not be changed with the same values ​​that were already saved.</aside>
 
 <h4 id="request-36">Request</h4>
 
@@ -12154,21 +12180,21 @@ In addition, you have to send some addictional data in the transaction, to that 
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier in API Cielo eCommerce.</td>
+      <td>Store identifier in API E-commerce Cielo.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
+      <td>Public Key for Double Authentication in API E-commerce Cielo.</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
+      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>Guid</td>
       <td>36</td>
       <td>No</td>
@@ -12210,14 +12236,14 @@ In addition, you have to send some addictional data in the transaction, to that 
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
-      <td>Buyer’s Card Number.</td>
+      <td>Shopper’s Card Number.</td>
       <td>Text</td>
       <td>16</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
-      <td>Buyer’s name printed on card.</td>
+      <td>Shopper’s name printed on card.</td>
       <td>Text</td>
       <td>25</td>
       <td>No</td>
@@ -12238,7 +12264,7 @@ In addition, you have to send some addictional data in the transaction, to that 
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
-      <td>Card issuer.</td>
+      <td>Card brand.</td>
       <td>Text</td>
       <td>10</td>
       <td>Yes</td>
@@ -12251,11 +12277,11 @@ In addition, you have to send some addictional data in the transaction, to that 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
 
-<p>See the Annex <a href="#http-status-code">HTTP Status Code</a> to the list with all HTTP status codes possibly returned by the API.</p>
+<p>See <a href="#http-status-code">HTTP Status Code</a> for the list with all HTTP status codes possibly returned by the API.</p>
 
 <h3 id="disabling-a-recurrent-order">Disabling a Recurrent Order</h3>
 
-<p>To disable a recurrent order, just do a Put as the example.</p>
+<p>To disable a recurrent order, just do a PUT as in the example.</p>
 
 <h4 id="request-37">Request</h4>
 
@@ -12284,21 +12310,21 @@ In addition, you have to send some addictional data in the transaction, to that 
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier in API Cielo eCommerce.</td>
+      <td>Store identifier in API E-commerce Cielo.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
+      <td>Public Key for Double Authentication in API E-commerce Cielo.</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
+      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>Guid</td>
       <td>36</td>
       <td>No</td>
@@ -12318,11 +12344,11 @@ In addition, you have to send some addictional data in the transaction, to that 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
 
-<p>See the Annex <a href="#http-status-code">HTTP Status Code</a> to the list with all HTTP status codes possibly returned by the API.</p>
+<p>See <a href="#http-status-code">HTTP Status Code</a> for the list with all HTTP status codes possibly returned by the API.</p>
 
 <h3 id="rehabilitating-a-recurrent-order">Rehabilitating a Recurrent Order</h3>
 
-<p>To Rehabilitate a recurring order, just do a Put as the example.</p>
+<p>To rehabilitate a recurring order, just do a PUT as in the example.</p>
 
 <h4 id="request-38">Request</h4>
 
@@ -12351,21 +12377,21 @@ In addition, you have to send some addictional data in the transaction, to that 
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier in API Cielo eCommerce.</td>
+      <td>Store identifier in API E-commerce Cielo.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
+      <td>Public Key for Double Authentication in API E-commerce Cielo.</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
+      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>Guid</td>
       <td>36</td>
       <td>No</td>
@@ -12385,7 +12411,7 @@ In addition, you have to send some addictional data in the transaction, to that 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
 
-<p>See the Annex <a href="#http-status-code">HTTP Status Code</a> to the list with all HTTP status codes possibly returned by the API.</p>
+<p>See <a href="#http-status-code">HTTP Status Code</a> for the list with all HTTP status codes possibly returned by the API.</p>
 
 <h1 id="consult---capture---cancel">Consult - Capture - Cancel</h1>
 
@@ -15005,7 +15031,7 @@ That way, when a transaction with recurrent markup is submitted to the API and C
 
 <aside class="warning">BIN Check must be enabled by Cielo Support Team. Contact them to enable the service.</aside>
 
-<h2 id="use-case-1">Use Case</h2>
+<h2 id="use-case">Use Case</h2>
 
 <p>See an use case example: <strong>BIN Checker + cart recovery</strong></p>
 
@@ -15183,7 +15209,7 @@ The Submersible can use the bin checker in the cart to alert international buyer
   <p>If other Brand (Card Network Name) is sent, the error <strong>57-Bandeira inválida</strong> will be displayed.</p>
 </blockquote>
 
-<h2 id="use-case-2">Use case</h2>
+<h2 id="use-case-1">Use case</h2>
 
 <p>This is an example of how to use zero auth to improve your sales conversion.</p>
 
