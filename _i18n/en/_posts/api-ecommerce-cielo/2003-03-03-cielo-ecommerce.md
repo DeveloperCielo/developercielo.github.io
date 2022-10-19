@@ -5175,10 +5175,10 @@ This type of payment is usually used for **subscriptions**, where the shopper wa
 
 API E-commerce Cielo works with two types of Recurrences:
 
-* **Self Recurrence** - When the **merchant** creates its own repeat purchase intelligence and stores the card data;
+* **Merchant Recurrence** - When the **merchant** creates its own repeat purchase intelligence and stores the card data;
 * **Scheduled Recurrence** - When **Cielo** is responsible for the repetition intelligence and storage of card data.
 
-### Self Recurrence
+### Merchant Recurrence
 
 In this format, the merchant is responsible for creating intelligence to:
 
@@ -5188,44 +5188,62 @@ In this format, the merchant is responsible for creating intelligence to:
 |**Create transactional repetition**|The merchant must sent a new transaction whenever it needs an authorization.|
 |**Procedure for declined transaction**|If one of the transactions is declined, it will be up to the store to "retry" a new authorization.|
 
-> In all instances, the scheduled recurrence is a default transaction for Cielo, its only difference being the need to send an additional parameter that defines it as **Self Recurrence**:<br/>
+> In all instances, the scheduled recurrence is a default transaction for Cielo, its only difference being the need to send an additional parameter that defines it as **Merchant Recurrence**:<br/>
 > <br/>
 > **Parameter:** `Payment.Recurrent`= `True`
 
-#### Self Recurrence example
+![Flow recorrência própria]({{ site.baseurl_root }}images/apicieloecommerce/recorrencia-cielo-rec-propria-en.png)
+
+#### Merchant Recurrence example
 
 This is an example of how API E-commerce Cielo allows the use of external recurrence systems in your transactions.
 
-Self recurrence is a configuration of the API E-commerce Cielo that allows a merchant to use an internal recurrence system specific to their business needs.
+Merchant recurrence is a configuration of the API E-commerce Cielo that allows a merchant to use an internal recurrence system specific to their business needs.
 
 In this model, the merchant's system is responsible for defining the period, the transactional data, and, when necessary, sending us the recurrence transaction.
 
-**Self Recurence + Tokenized Card**
+**Merchant Recurence + Tokenized Card**
 
 A gym called Cleverfit has a specific billing system, where the client is charged every fifteen days, but never on weekends.
 
 As a highly customized model, *CleverFit* has its own recurrence system, using the API E-commerce Cielo via two mechanisms:
 
-1. **Self Recurrence** - *CleverFit* sends the transaction data as a normal sale, but the API identifies it as a recurrence and applies differential authorization rules to the order.
+1. **Merchant Recurrence** - *CleverFit* sends the transaction data as a normal sale, but the API identifies it as a recurrence and applies differential authorization rules to the order.
 2. **Tokenized Card** - *CleverFit* keeps cards stored in a tokenized form at Cielo, according to security rules, avoiding storing card data in their system.
 
-*CleverFit* sends the transaction every fifteen days to the API E-commerce Cielo, using the tokens saved in the API itself and opting for Self Recurrence, which changes the authorization rules to suit its billing model.
+*CleverFit* sends the transaction every fifteen days to the API E-commerce Cielo, using the tokens saved in the API itself and opting for Merchant Recurrence, which changes the authorization rules to suit its billing model.
 
 ### Scheduled Recurrence
 
 In this model, Cielo is responsible for the intelligence necessary to perform a recurrence automatically.
 
-The **Scheduled Recurrence** allows the merchant to create a base transaction, which when sent to the API Cielo Ecommerce, will be saved and executed following the rules defined by the merchant.
+The **Scheduled Recurrence** allows the merchant to create a base transaction that, when sent to the API E-commerce Cielo, will be saved and executed following the rules defined by the merchant.
 
 In this model, the API performs and allows:
 
 |Advantages|Description|
 |---|---|
-|**Saves transactional data**|Saves transaction data, thus creating a model of how the next Recurrences will be|
-|**Automates the recurrence**|Without store action, the API creates future transactions according to the merchant' settings|
-|**Allows updating of data**|If necessary, the API allows changes of the transaction information or the recurrence cycle|
+|**Saves transactional data**|Save transaction data, thus creating a model of what the next recurrences will look like.|
+|**Automates the recurrence**|Without the need for merchant action, the API creates future transactions according to the store's definitions.|
+|**Allows updating of data**|If necessary, the API allows modifications in the transaction information (such as shopper data) or recurrence cycle (such as billing date).|
 
-The Scheduled Recurrence is formed by a simple transactional structure. The Merchant shall inform in the transaction the following data:
+The Scheduled Recurrence has two request flows; the difference is in the `AuthorizeNow` parameter.
+
+**When the first transaction must be authorized at the time of scheduling, please send `AuthorizeNow` as "true".**
+
+![Flow da primeira transação na hora do agendamento]({{ site.baseurl_root }}images/apicieloecommerce/recorrencia-cielo-rec-programada-primeiratransacao-en.png)
+
+*If Post Notification was enabled by the merchant.
+
+**When the first transaction must be authorized after scheduling, send `AuthorizeNow` as "false"; in this case, also send the `StartDate` parameter.**
+
+![Flow da transação posterior ao agendamento]({{ site.baseurl_root }}images/apicieloecommerce/recorrencia-cielo-rec-programada-agendamento-en.png)
+
+*To schedule the transaction needs the `RecurrentPayment` node, the transaction date and the `AuthorizeNow` field as "false".<br/>
+**If Post Notification was enabled by the merchant.
+
+
+See the example of the snippet with the `RecurrentPayment` node, which must be inserted in a credit transaction.
 
 ``` json
 "RecurrentPayment":
@@ -5241,80 +5259,72 @@ Where can we define the data as:
 
 |Parameters|Description|
 |---|---|
-|`AuthorizeNow`|Defines the time a recurrence will be created. If it is sent as `True`, it is created at the time of authorization, if `False`, the recurrence will be suspended until the date chosen to be initiated.|
-|`StartDate`|Defines the date on which Scheduled Recurrence transaction will be authorized|
-|`EndDate`|Defines the date the Scheduled Recurrence will end. If it is not sent, the Recurrence will be executed until it is canceled by the merchant|
-|`Interval`|Recurrence interval.<br /><ul><li>Monthly - Mensal </li><li>Bimonthly - Bimestral </li><li>Quarterly - Trimestral </li><li>SemiAnnual - Semestral </li><li>Annual - Anual </li></ul>|
+|`AuthorizeNow`|Defines the time a recurrence will be created. If it is sent as `True`, it is created at the time of authorization, if sent as false `False`, the recurrence will be suspended until the date chosen to be initiated.|
+|`StartDate`|Defines the date on which the Scheduled Recurrence transaction will be authorized.|
+|`EndDate`|Defines the date the Scheduled Recurrence will end. If it is not sent, the Recurrence will be executed until it is canceled by the merchant.|
+|`Interval`|Recurrence interval.<br /><ul><li>Monthly </li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual </li></ul>|
 
-When a transaction is sent to the API Cielo Ecommerce with the Scheduled Recurrence node, the recurrence process becomes effective when the transaction is considered **AUTHORIZED**.
-
-From that point on, it will occur within the interval defined by the merchant.
+> When a transaction is sent to the API E-commerce Cielo with the Scheduled Recurrence node (`RecurrentPayment`), the recurrence process becomes effective when the transaction is considered **AUTHORIZED**. From that point on, the transaction will occur within the interval defined by the merchant.
 
 Important features of **Scheduled Recurrence**:
 
 |Information|Description|
 |---|---|
-|**Creation**|The first transaction is called **"Scheduling Transaction"**, all subsequent transactions will be copies of the first transaction. It does not need to be captured for the recurrence to be created, just be **AUTHORIZED**|
-|**Capture**|Scheduled Recurrence transactions do not need to be captured. After the first transaction, all recurrence transactions are automatically captured by the API|
-|**Identification**|Scheduled Recurrence transactions generate two types of identification:<br>**PAYMENTID**: Identify 1 transaction. It is the same identifier of the other transactions in the API    <br>**RECURRENTPAYMENTID**: Identifies recurrence Order. A RecurrentPaymentID has innumerable PaymentID linked to it. This is the variable used to Cancel a Scheduled Recurrence|
-|**Consulting**|To consult, just use one of two types of identification:<br>**PAYMENTID**: Used to consult A TRANSACTION WITHIN THE RECURRENCE    <br>**RECURRENTPAYMENTID**: Used to consult THE RECURRENCE.|
-|**Cancellation**|A Scheduled Recurrence can be canceled in two ways: <br>**Merchant**: It requests the cancellation of the recurrence. Do not cancel transactions already finalized before the recurrence cancellation order.  <br>**By invalid card**: If the API identifies that a saved card is invalid (e.g.: Expired) the recurrence will be canceled and will not be repeated until the merchant updates the payment method. <br> **NOTE:** Canceling transactions within the recurrence does not end the scheduling of future transactions. Only the Cancellation using the **RecurrentPaymentID** ends future schedules.
+|**Creation**|The first transaction is called **"Scheduling Transaction"**, all subsequent transactions will be copies of the first transaction. It does not need to be captured for the recurrence to be created, it just needs to be **AUTHORIZED**|
+|**Capture**|Scheduled Recurrence transactions do not need to be captured. After the first transaction, all recurrence transactions are automatically captured by the API.|
+|**Identification**|Scheduled Recurrence transactions generate two types of identification:<br>**`PaymentId`**: Identifies a transaction. It is the same identifier as the other transactions in the API    <br>**`RecurrentPaymentId`**: Identifies recurrence order. A RecurrentPaymentID has many PaymentId's linked to it. This is the variable used to Cancel a Scheduled Recurrence.|
+|**Consulting**|To consult, just use one of two types of identification:<br>**`PaymentId`**: Used to consult A TRANSACTION WITHIN THE RECURRENCE    <br>**`RecurrentPaymentId`**: Used to consult THE RECURRENCE.|
+|**Canceling**|A Scheduled Recurrence can be canceled in two ways: <br><br>**Merchant**: When the merchant requests the canceling of the recurrence. You can't cancel transactions already finalized before the recurrence cancelation order.  <br>**By invalid card**: If the API identifies that a saved card is invalid (e.g.: Expired) the recurrence will be canceled and will not be repeated until the merchant updates the payment method. <br> **NOTE:** Canceling transactions within the recurrence does not end the scheduling of future transactions. Only the Cancellation using the **RecurrentPaymentID** ends future schedules.
 
 **RecurrentPaymentID Structure**
 
-![]({{site.baseurl_root }}/images/apicieloecommerce/recpaymentid.png)
+![Estrutura do RecurrentPaymentID]({{ site.baseurl_root }}images/apicieloecommerce/recorrencia-cielo-rec-prog-identificacao-en.png)
 
-**Scheduled Recurrence flow**
+#### Scheduled Recurrence example
 
-![Recprog_EN](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxosrecprog_ingles.png)
-
-#### Use case 
-
-This is an example of how to use API Cielo Ecommerce's recurrences to increase your sales:
+This is an example of how to use API E-commerce Cielo recurrences to increase your sales:
 
 Recurrence is the process of saving a transaction and repeating it at a predefined time interval. Ideal for subscription model.
 
-The Cielo' scheduled recurrence has the following characteristics:
+Cielo' Scheduled Recurrence has the following characteristics:
 
-* **Scheduled intervals:** Monthly, bimonthly, quarterly, semi-annual and annual
-* **Expiry date:** Enables to define whether the recurrence will end
-* **Retentative:** if a transaction is declined, we will retry the transaction up to 4x
-* **Update:** Allows you to change recurrence data, such as value, interval.
+* **Scheduled intervals:** monthly, bimonthly, quarterly, semi-annual and annual;
+* **Expiry date:** allows you to define whether the recurrence has an end date;
+* **Retentative:** if a transaction is declined, we will retry the transaction up to 4 times;
+* **Update:** allows you to change recurrence data, such as value, interval.
 
-See an example in use:
+**Monthly and annual recurrence**
 
-* **Monthly and annual recurrence**
+Musicfy offers an online subscription service where their customers pay to be able to access a music library and listen to them via streaming.
 
-The Musicfy company offers an online subscription service where their customers pay to be able to access a music library and listen to them via streaming.
+To capture as many customers as possible, they offer two payment methods:
 
-To capture the maximum of customers, they offer 2 ways of payment:
+* Monthly for R$19,90;
+* Annual (with discount) for R$180,00.
 
-* Monthly for R$19,90
-* Annual (with discount) for R$180,00
+How do they bill their customers monthly or yearly?
 
-How do they perform the monthly or annual billing of their customers?
+Musicfy uses API E-commerce Cielo's Scheduled Recurrence.
 
-MusicFy uses API Cielo Ecommerce Scheduled Recurrence.
+When creating a transaction, *Musicfy* informs the client that the order in question will be repeated monthly or annually and that there is no end date for the billing.
 
-When creating a transaction, Musicfy informs that the order in question must be repeated monthly or annually and that there is no end date for the charge.
+What are the advantages of using scheduled recurrence for *MusicFy*?
 
-What are the advantages of using scheduled recurrence for MusicFy?:
+1. **Practicality:** The monthly charge is automatic, so MusicFy does not have to worry about building a billing system.
 
-1. **Facility:** Monthly charge is automatic, so MusicFy does not have to worry about building a billing system.
+2. **Usability:** The subscription value can be updated without having to redo the transaction. A month can be canceled or the recurrence can have a delay (the 30-day free model) with only one setting.
 
-2. **Usability:** The subscription value can be updated without the need to redo the transaction. A month can be canceled or the recurrence can have a delay (the 30-day free model) with only one setting.
+3. **Safety:** *MusicFy* does not need to store sensitive card and shopper data.
 
-3. **Safety:** It is not necessary to store sensitive card and buyer data at the store.
-
-4. **Conversion:** The scheduled recurrence of Cielo has an automatic retentative system. If one of the transactions is declined, it will be retried up to 4 times, seeking to obtain the authorization.
+4. **Conversion:** Cielo's Scheduled Recurrence has an automatic retry system. If one of the transactions is denied, it will be retried up to four times, seeking to achieve authorization.
 
 ## Creating Recurrences
 
-### Creating an OWN RECURRENCE
+### Creating a Merchant Recurrence
 
-To create a recurring sale whose recurrence and interval processes will be executed by the store itself, just do a POST as the example.
+To create a recurring sale in which recurrence and interval process will be performed by the store itself, just make a POST as in the example.
 
-The `Payment.Recurrent` parameter must be `true`, otherwise the transaction will be declined.
+The request follows the structure of a standard credit transaction, but the `Payment.Recurrent` parameter must be `true`; otherwise, the transaction will be denied.
 
 #### Request
 
@@ -5331,7 +5341,7 @@ The `Payment.Recurrent` parameter must be `true`, otherwise the transaction will
      "Amount":1500,
      "Installments":1,
      "SoftDescriptor":"123456789ABCD",
-  "Recurrent": true,
+     "Recurrent": true,
      "CreditCard":{  
          "CardNumber":"1234123412341231",
          "Holder":"Teste Holder",
@@ -5378,21 +5388,21 @@ curl
 
 |Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|6|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`MerchantId`|Merchant identifier in API E-commerce Cielo.|Guid|6|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API E-commerce Cielo.|Text|40|Yes|
+|`RequestId`|Request identifier, used when the merchant uses different servers for each GET/POST/PUT.|Guid|36|No|
 |`MerchantOrderId`|Order ID number.|Text|50|Yes|
-|`Customer.Name`|Buyer's name.|Text|255|Yes|
+|`Customer.Name`|Shopper's name.|Text|255|Yes|
 |`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
 |`Payment.Installments`|Number of Installments.|Number|2|Yes|
-|`Payment.SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|No|
-|`Payment.Recurrent`|marking an unscheduled recurrence transaction|boolean|5|No|
-|`CreditCard.CardNumber`|Buyer's Card Number.|Text|19|Yes|
-|`CreditCard.Holder`|Buyer's name printed on card.|Text|25|No|
-|`CreditCard.ExpirationDate`|Expiry date printed on card.|Text|7|Yes|
+|`Payment.SoftDescriptor`|Text that will be printed on the shopper's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|No|
+|`Payment.Recurrent`|Marking of an unscheduled recurrence transaction|Boolean|5|No|
+|`CreditCard.CardNumber`|Shopper's Card Number.|Text|19|Yes|
+|`CreditCard.Holder`|Shopper's name printed on card.|Text|25|No|
+|`CreditCard.ExpirationDate`|Expiration date printed on card.|Text|7|Yes|
 |`CreditCard.SecurityCode`|Security code printed on back of card.|Text|4|No|
-|`CreditCard.Brand`|Card issuer.|Text|10|Yes|
+|`CreditCard.Brand`|Card brand.|Text|10|Yes|
 
 #### Response
 
@@ -5524,27 +5534,27 @@ curl
 
 |Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|6|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`MerchantId`|Store identifier in API E-commerce Cielo.|Guid|6|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API E-commerce Cielo.|Text|40|Yes|
+|`RequestId`|Request identifier, used when the merchant uses different servers for each GET/POST/PUT.|Guid|36|No|
 |`MerchantOrderId`|Order ID number.|Text|50|Yes|
-|`Customer.Name`|Buyer's name.|Text|255|No|
+|`Customer.Name`|Shopper's name.|Text|255|No|
 |`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
 |`Payment.Installments`|Number of Installments.|Number|2|Yes|
 |`Payment.SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|No|
-|`Payment.Recurrent`|marking an unscheduled recurrence transaction|boolean|5|No|
-|`CreditCard.CardNumber`|Buyer's Card Number.|Text|19|Yes|
-|`CreditCard.Holder`|Buyer's name printed on card.|Text|25|No|
-|`CreditCard.ExpirationDate`|Expiry date printed on card.|Text|7|Yes|
+|`Payment.Recurrent`|Marking of an unscheduled recurrence transaction|Boolean|5|No|
+|`CreditCard.CardNumber`|Shopper's Card Number.|Text|19|Yes|
+|`CreditCard.Holder`|Shopper's name printed on card.|Text|25|No|
+|`CreditCard.ExpirationDate`|Expiration date printed on card.|Text|7|Yes|
 |`CreditCard.SecurityCode`|Security code printed on back of card.|Text|4|No|
-|`CreditCard.Brand`|Card issuer.|Text|10|Yes|
+|`CreditCard.Brand`|Card brand.|Text|10|Yes|
 
-### Creating a SCHEDULED RECURRENCE
+### Creating a Scheduled Recurrence
 
-To create a recurring sale whose first recurrence is authorized with the form of payment as credit card, just do a POST as the example.
+To create a recurring sale in which the first recurrence is authorized with the credit card payment method, just make a POST as in the example.
 
-<aside class="notice"><strong>Warning:</strong> In this recurrence mode, the first transaction must be of captured. All subsequent transactions will be automatically captured.</aside>
+<aside class="notice"><strong>Warning:</strong> In this recurrence mode, the first transaction must be captured (`AuthorizeNow` = "true"). All subsequent transactions will be captured automatically.</aside>
 
 #### Request
 
@@ -5616,23 +5626,23 @@ curl
 
 |Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|6|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`MerchantId`|Store identifier in API E-commerce Cielo.|Guid|6|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API E-commerce Cielo.|Text|40|Yes|
+|`RequestId`|Request identifier, used when the merchant uses different servers for each GET/POST/PUT.|Guid|36|No|
 |`MerchantOrderId`|Order ID number.|Text|50|Yes|
-|`Customer.Name`|Buyer's name.|Text|255|Yes|
+|`Customer.Name`|Shopper's name.|Text|255|Yes|
 |`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
 |`Payment.Installments`|Number of Installments.|Number|2|Yes|
 |`Payment.SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|No|
 |`Payment.RecurrentPayment.EndDate`|End date for recurrence.|Text|10|No|
 |`Payment.RecurrentPayment.Interval`|Recurrence interval.<br /><ul><li>Monthly (Default) </li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|Text|10|No|
-|`Payment.RecurrentPayment.AuthorizeNow`|Boolean to know if the first recurrence is about to be Authorized or not.|Boolean|---|Yes|
-|`CreditCard.CardNumber`|Buyer's Card Number.|Text|19|Yes|
-|`CreditCard.Holder`|Buyer's name printed on card.|Text|25|No|
-|`CreditCard.ExpirationDate`|Expiry date printed on card.|Text|7|Yes|
+|`Payment.RecurrentPayment.AuthorizeNow`|Boolean to know if the first recurrence is going to be Authorized or not.|Boolean|---|Yes|
+|`CreditCard.CardNumber`|Shopper's Card Number.|Text|19|Yes|
+|`CreditCard.Holder`|Shopper's name printed on card.|Text|25|No|
+|`CreditCard.ExpirationDate`|Expiration date printed on card.|Text|7|Yes|
 |`CreditCard.SecurityCode`|Security code printed on back of card.|Text|4|No|
-|`CreditCard.Brand`|Card issuer.|Text|10|Yes|
+|`CreditCard.Brand`|Card brand.|Text|10|Yes|
 
 #### Response
 
@@ -5782,7 +5792,9 @@ curl
 
 ## Scheduling a Scheduled Recurrence
 
-To create a recurring sale whose first recurrence will not be authorized on the same date with the form of payment as credit card, just do a POST as the example.
+To create a recurring sale in which the first recurrence will not be authorized on the same date with the credit card payment method, just make a POST as in the example.
+
+Unlike the previous recurrence, this example does not authorize immediately, it schedules a future authorization. To schedule the first transaction in the series of recurrences, send the `AuthorizeNow` parameter as “false” and add the `StartDate` parameter.
 
 ### Request
 
@@ -5856,31 +5868,31 @@ curl
 
 |Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`MerchantId`|Store identifier in API E-commerce.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API E-commerce Cielo.|Text|40|Yes|
+|`RequestId`|Request identifier, used when the merchant uses different servers for each GET/POST/PUT.|Guid|36|No|
 |`RecurrentPaymentId`|Recurrence identification number.|Text|50|Yes|
-|`Customer.Name`|Buyer's name.|Text|255|No|
-|`Customer.Status`|Buyer registration status in store (NEW / EXISTING) - Used by fraud analysis|Text|255|No|
-|`Customer.Email`|Buyer's e-mail.|Text|255|No|
-|`Customer.Birthdate`|Buyer's date of birth.|Date|10|No|
-|`Customer.Identity`|Customer's RG, CPF or CNPJ number.|Text|14|No|
-|`Customer.Address.Street`|Buyer's address.|Text|255|No|
-|`Customer.Address.Number`|Buyer's address number.|Text|15|No|
-|`Customer.Address.Complement`|Buyer's address complement.|Text|50|No|
-|`Customer.Address.ZipCode`|Buyer's address zip code.|Text|9|No|
-|`Customer.Address.City`|Buyer's address city.|Text|50|No|
-|`Customer.Address.State`|Buyer's address state.|Text|2|No|
-|`Customer.Address.Country`|Buyer's address country.|Text|35|No|
-|`Customer.Address.District`|Buyer's neighborhood.|Text|50|No|
-|`Customer.DeliveryAddress.Street`|Buyer's address.|Text|255|No|
-|`Customer.DeliveryAddress.Number`|Buyer's address number.|Text|15|No|
-|`Customer.DeliveryAddress.Complement`|Buyer's address complement.|Text|50|No|
-|`Customer.DeliveryAddress.ZipCode`|Buyer's address zip code.|Text|9|No|
-|`Customer.DeliveryAddress.City`|Buyer's address city.|Text|50|No|
-|`Customer.DeliveryAddress.State`|Buyer's address state.|Text|2|No|
-|`Customer.DeliveryAddress.Country`|Buyer's address country.|Text|35|No|
-|`Customer.DeliveryAddress.District`|Buyer's neighborhood.|Text|50|No|
+|`Customer.Name`|Shopper's name.|Text|255|No|
+|`Customer.Status`|Shopper registration status in store (NEW / EXISTING) - Used by fraud analysis|Text|255|No|
+|`Customer.Email`|Shopper's e-mail.|Text|255|No|
+|`Customer.Birthdate`|Shopper's date of birth.|Date|10|No|
+|`Customer.Identity`|Shopper's RG, CPF or CNPJ number.|Text|14|No|
+|`Customer.Address.Street`|Shopper's address.|Text|255|No|
+|`Customer.Address.Number`|Shopper's address number.|Text|15|No|
+|`Customer.Address.Complement`|Shopper's address complement.|Text|50|No|
+|`Customer.Address.ZipCode`|Shopper's address zip code.|Text|9|No|
+|`Customer.Address.City`|Shopper's address city.|Text|50|No|
+|`Customer.Address.State`|Shopper's address state.|Text|2|No|
+|`Customer.Address.Country`|Shopper's address country.|Text|35|No|
+|`Customer.Address.District`|Shopper's neighborhood.|Text|50|No|
+|`Customer.DeliveryAddress.Street`|Shopper's address.|Text|255|No|
+|`Customer.DeliveryAddress.Number`|Shopper's address number.|Text|15|No|
+|`Customer.DeliveryAddress.Complement`|Shopper's address complement.|Text|50|No|
+|`Customer.DeliveryAddress.ZipCode`|Shopper's address zip code.|Text|9|No|
+|`Customer.DeliveryAddress.City`|Shopper's address city.|Text|50|No|
+|`Customer.DeliveryAddress.State`|Shopper's address state.|Text|2|No|
+|`Customer.DeliveryAddress.Country`|Shopper's address country.|Text|35|No|
+|`Customer.DeliveryAddress.District`|Shopper's neighborhood.|Text|50|No|
 
 ### Response
 
@@ -5987,9 +5999,9 @@ curl
 
 ## Modifying Recurrences
 
-### Modifying buyer data
+### Modifying shopper data
 
-To change the Recurrence buyer's data, just do a Put as the example.
+To change the shopper's data for the recurrent transactions, just do a PUT as in the example.
 
 #### Request
 
@@ -6063,51 +6075,55 @@ curl
 
 |Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`MerchantId`|Store identifier in API E-commerce Cielo.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API E-commerce Cielo.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|Guid|36|No|
 |`RecurrentPaymentId`|Recurrence identification number.|Text|50|Yes|
-|`Customer.Name`|Buyer's name.|Text|255|No|
-|`Customer.Status`|Buyer registration status in store (NEW / EXISTING) - Used by fraud analysis|Text|255|No|
-|`Customer.Email`|Buyer's e-mail.|Text|255|No|
-|`Customer.Birthdate`|Buyer's date of birth.|Date|10|No|
-|`Customer.Identity`|Customer's RG, CPF or CNPJ number.|Text|14|No|
-|`Customer.IdentityType`|Text|255|No|Type of buyer ID document (CFP/CNPJ).|
-|`Customer.Address.Street`|Buyer's address.|Text|255|No|
-|`Customer.Address.Number`|Buyer's address number.|Text|15|No|
-|`Customer.Address.Complement`|Buyer's address complement.|Text|50|No|
-|`Customer.Address.ZipCode`|Buyer's address zip code.|Text|9|No|
-|`Customer.Address.City`|Buyer's address city.|Text|50|No|
-|`Customer.Address.State`|Buyer's address state.|Text|2|No|
-|`Customer.Address.Country`|Buyer's address country.|Text|35|No|
-|`Customer.Address.District`|Buyer's neighborhood.|Text|50|No|
-|`Customer.DeliveryAddress.Street`|Buyer's address.|Text|255|No|
-|`Customer.DeliveryAddress.Number`|Buyer's address number.|Text|15|No|
-|`Customer.DeliveryAddress.Complement`|Buyer's address complement.|Text|50|No|
-|`Customer.DeliveryAddress.ZipCode`|Buyer's address zip code.|Text|9|No|
-|`Customer.DeliveryAddress.City`|Buyer's address city.|Text|50|No|
-|`Customer.DeliveryAddress.State`|Buyer's address state.|Text|2|No|
-|`Customer.DeliveryAddress.Country`|Buyer's address country.|Text|35|No|
-|`Customer.DeliveryAddress.District`|Buyer's neighborhood.|Text|50|No|
+|`Customer.Name`|Shopper's name.|Text|255|No|
+|`Customer.Status`|Shopper registration status in store (NEW / EXISTING) - Used by fraud analysis|Text|255|No|
+|`Customer.Email`|Shopper's e-mail.|Text|255|No|
+|`Customer.Birthdate`|Shopper's date of birth.|Date|10|No|
+|`Customer.Identity`|Shopper's RG, CPF or CNPJ number.|Text|14|No|
+|`Customer.IdentityType`|Text|255|No|Type of shopper ID document (CFP/CNPJ).|
+|`Customer.Address.Street`|Shopper's address.|Text|255|No|
+|`Customer.Address.Number`|Shopper's address number.|Text|15|No|
+|`Customer.Address.Complement`|Shopper's address complement.|Text|50|No|
+|`Customer.Address.ZipCode`|Shopper's address zip code.|Text|9|No|
+|`Customer.Address.City`|Shopper's address city.|Text|50|No|
+|`Customer.Address.State`|Shopper's address state.|Text|2|No|
+|`Customer.Address.Country`|Shopper's address country.|Text|35|No|
+|`Customer.Address.District`|Shopper's neighborhood.|Text|50|No|
+|`Customer.DeliveryAddress.Street`|Shopper's address.|Text|255|No|
+|`Customer.DeliveryAddress.Number`|Shopper's address number.|Text|15|No|
+|`Customer.DeliveryAddress.Complement`|Shopper's address complement.|Text|50|No|
+|`Customer.DeliveryAddress.ZipCode`|Shopper's address zip code.|Text|9|No|
+|`Customer.DeliveryAddress.City`|Shopper's address city.|Text|50|No|
+|`Customer.DeliveryAddress.State`|Shopper's address state.|Text|2|No|
+|`Customer.DeliveryAddress.Country`|Shopper's address country.|Text|35|No|
+|`Customer.DeliveryAddress.District`|Shopper's neighborhood.|Text|50|No|
 
 #### Response
 
 ```shell
+
 HTTP Status 200
+
 ```
 
-See the annex [HTTP Status Code](#http-status-code) to the list with all HTTP status codes possibly returned by the API.
+See [HTTP Status Code](#http-status-code) for the list with all HTTP status codes possibly returned by the API.
 
 ### Modifying end date of Recurrence
 
-To change the end date of the Recurrence, just do a Put as the example.
+To change the end date of the Recurrence, just do a PUT as in the example.
 
 #### Request
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
 ```json
+
 "2021-01-09"
+
 ```
 
 ```shell
@@ -6124,9 +6140,9 @@ curl
 
 |Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`MerchantId`|Store identifier in API E-commerce Cielo.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API E-commerce Cielo.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|Guid|36|No|
 |`RecurrentPaymentId`|Recurrence identification number.|Text|50|Yes|
 |`EndDate`|End date for recurrence.|Text|10|Yes|
 
@@ -6136,18 +6152,20 @@ curl
 HTTP Status 200
 ```
 
-See the annex [HTTP Status Code](#http-status-code) to the list with all HTTP status codes possibly returned by the API.
+See [HTTP Status Code](#http-status-code) for the list with all HTTP status codes possibly returned by the API.
 
 ### Modifying Recurrence interval
 
-To change the Recurrence Interval, just do a Put according to the example.
+To change the Recurrence Interval, just do a PUT as in the example.
 
 #### Request
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
 ```json
+
 6
+
 ```
 
 ```shell
@@ -6164,9 +6182,9 @@ curl
 
 |Property|Description|Type|Size|Request|
 |---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`MerchantId`|Store identifier in API E-commerce Cielo.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API E-commerce Cielo.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|Guid|36|No|
 |`RecurrentPaymentId`|Recurrence identification number.|Text|50|Yes|
 |`Interval`|Recurrence interval. <ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|Number|2|Yes|
 
@@ -6176,13 +6194,22 @@ curl
 HTTP Status 200
 ```
 
-See the annex [HTTP Status Code](#http-status-code) to the list with all HTTP status codes possibly returned by the API.
+See [HTTP Status Code](#http-status-code) for the list with all HTTP status codes possibly returned by the API.
 
 ### Modify day of Recurrence
 
-To modify the day of recurrence, just do a Put as the example.
+To modify the day of recurrence, just do a PUT as in the example.
 
-<aside class="notice"><strong>Rule:</strong> If the new day informed is after the current day, we will update the recurrence day with effect on the next recurrence. E.g.: Today is day 5, and the next recurrence is day 05/25. When I upgrade to day 10, the date of the next recurrence will be day 05/10. If the new day reported is before the current day, we will update the recurrence day, but this will only take effect after the next recurrence is successfully performed. E.g.: Today is day 5, and the next recurrence is day 05/25. When I upgrade to day 3, the date of the next recurrence will remain on 05/25, and after it performs, the next one will be scheduled for day 06/03. If the new informed day is before the current day, but the next recurrence is in another month, we will update the recurrence day with effect on the next recurrence. E.g.: Today is day 5, and the next recurrence is day 09/25. When I upgrade to day 3, the next recurrence date will be 09/03</aside>
+When changing the day of recurrence, consider the following rules for executing the update in the API:
+
+1) If the new day entered is after the current day, we will update the day of the recurrence with effect on the next recurrence.
+Ex.: Today is May 5 and the next recurrence is May 25. When updated to the 10th, the next recurrence date will be the on May 10.
+
+2) If the new day entered is before the current day, we will update the day of the recurrence, but this will only take effect after the next recurrence is successfully executed.
+Ex.: Today is May 5 and the next recurrence is May 25. When updated to the 3rd, the date of the next recurrence will remain on May 25. After its execution, the next recurrence will be scheduled for June 3.
+
+3) If the new day entered is before the current day, but the next recurrence is in another month, we will update the day of the recurrence with effect on the next recurrence.
+Ex.: Today is May 5 and the next recurrence is September 25. When updated to the 3rd, the date of the next recurrence will be September 3.
 
 #### Request
 
@@ -6206,9 +6233,9 @@ curl
 
 |Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`MerchantId`|Store identifier in API E-commerce Cielo.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API E-commerce Cielo.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|Guid|36|No|
 |`RecurrentPaymentId`|Recurrence identification number.|Text|50|Yes|
 |`RecurrencyDay`|Recurrence day.|Number|2|Yes|
 
@@ -6218,11 +6245,11 @@ curl
 HTTP Status 200
 ```
 
-See the Annex [HTTP Status Code](#http-status-code) to the list with all HTTP status codes possibly returned by the API.
+See [HTTP Status Code](#http-status-code) for the list with all HTTP status codes possibly returned by the API.
 
 ### Modifying the Recurrence value
 
-To modify the value of the recurrence, just do a Put as example.
+To modify the value of the recurrence, just do a PUT as in the example.
 
 #### Request
 
@@ -6234,7 +6261,7 @@ To modify the value of the recurrence, just do a Put as example.
 
 ```shell
 curl
---request POST "https://apisandbox.braspag.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Amount"
+--request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Amount"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --header "MerchantKey: 0123456789012345678901234567890123456789"
@@ -6246,11 +6273,11 @@ curl
 
 |Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`MerchantId`|Store identifier in API E-commerce Cielo.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API E-commerce Cielo.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|Guid|36|No|
 |`RecurrentPaymentId`|Recurrence identification number.|Text|50|Yes|
-|`Payment.Amount`|Order Value in cents: 156 equals R$ 1,56|Number|15|Yes|
+|`Payment.Amount`|Order Value in cents; 156 equals R$ 1,56.|Number|15|Yes|
 
 <aside class="warning">This change only affects the payment date of the next recurrence.</aside>
 
@@ -6260,11 +6287,11 @@ curl
 HTTP Status 200
 ```
 
-See the Annex [HTTP Status Code](#http-status-code) to the list with all HTTP status codes possibly returned by the API.
+See [HTTP Status Code](#http-status-code) for the list with all HTTP status codes possibly returned by the API.
 
-### Modifying date of next Payment
+### Modifying date of next payment
 
-To change the date of the next Payment, just do a Put as the example.
+To change the date of the next payment, just do a PUT as in the example.
 
 #### Request
 
@@ -6288,9 +6315,9 @@ curl
 
 |Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`MerchantId`|Store identifier in API E-commerce Cielo.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API E-commerce Cielo.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|Guid|36|No|
 |`RecurrentPaymentId`|Recurrence identification number.|Text|50|Yes|
 |`NextPaymentDate`|Payment date of the next recurrence.|Text|10|Yes|
 
@@ -6300,13 +6327,13 @@ curl
 HTTP Status 200
 ```
 
-See the Annex [HTTP Status Code](#http-status-code) to the list with all HTTP status codes possibly returned by the API.
+See [HTTP Status Code](#http-status-code) for the list with all HTTP status codes possibly returned by the API.
 
-### Modifying Recurrence Payment data
+### Modifying Recurrence payment data
 
-To change the payment data of the Recurrence, just do a Put as the example.
+To change the payment data of the recurrence, just do a PUT as in the example.
 
-<aside class="notice"><strong>Warning:</strong> This change affects all data in the Payment node. So to keep the previous data you must inform the fields that will not change with the same values that were already saved.</aside>
+<aside class="notice"><strong>Warning:</strong> This change affects all `Payment` node data. So to keep the previous data you must inform the fields that will not be changed with the same values ​​that were already saved.</aside>
 
 #### Request
 
@@ -6356,19 +6383,19 @@ curl
 
 |Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`MerchantId`|Store identifier in API E-commerce Cielo.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API E-commerce Cielo.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|Guid|36|No|
 |`RecurrentPaymentId`|Recurrence identification number.|Text|50|Yes|
 |`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
 |`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
 |`Payment.Installments`|Number of Installments.|Number|2|Yes|
 |`Payment.SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|No|
-|`CreditCard.CardNumber`|Buyer's Card Number.|Text|16|Yes|
-|`CreditCard.Holder`|Buyer's name printed on card.|Text|25|No|
+|`CreditCard.CardNumber`|Shopper's Card Number.|Text|16|Yes|
+|`CreditCard.Holder`|Shopper's name printed on card.|Text|25|No|
 |`CreditCard.ExpirationDate`|Expiry date printed on card.|Text|7|Yes|
 |`CreditCard.SecurityCode`|Security code printed on back of card|Text|4|No|
-|`CreditCard.Brand`|Card issuer.|Text|10|Yes|
+|`CreditCard.Brand`|Card brand.|Text|10|Yes|
 
 #### Response
 
@@ -6376,11 +6403,11 @@ curl
 HTTP Status 200
 ```
 
-See the Annex [HTTP Status Code](#http-status-code) to the list with all HTTP status codes possibly returned by the API.
+See [HTTP Status Code](#http-status-code) for the list with all HTTP status codes possibly returned by the API.
 
 ### Disabling a Recurrent Order
 
-To disable a recurrent order, just do a Put as the example.
+To disable a recurrent order, just do a PUT as in the example.
 
 #### Request
 
@@ -6399,9 +6426,9 @@ curl
 
 |Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`MerchantId`|Store identifier in API E-commerce Cielo.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API E-commerce Cielo.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|Guid|36|No|
 |`RecurrentPaymentId`|Recurrence identification number.|Text|50|Yes|
 
 #### Response
@@ -6410,11 +6437,11 @@ curl
 HTTP Status 200
 ```
 
-See the Annex [HTTP Status Code](#http-status-code) to the list with all HTTP status codes possibly returned by the API.
+See [HTTP Status Code](#http-status-code) for the list with all HTTP status codes possibly returned by the API.
 
 ### Rehabilitating a Recurrent Order
 
-To Rehabilitate a recurring order, just do a Put as the example.
+To rehabilitate a recurring order, just do a PUT as in the example.
 
 #### Request
 
@@ -6433,9 +6460,9 @@ curl
 
 |Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`MerchantId`|Store identifier in API E-commerce Cielo.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API E-commerce Cielo.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|Guid|36|No|
 |`RecurrentPaymentId`|Recurrence identification number.|Text|50|Yes|
 
 #### Response
@@ -6444,7 +6471,7 @@ curl
 HTTP Status 200
 ```
 
-See the Annex [HTTP Status Code](#http-status-code) to the list with all HTTP status codes possibly returned by the API.
+See [HTTP Status Code](#http-status-code) for the list with all HTTP status codes possibly returned by the API.
 
 # Consult - Capture - Cancel
 
