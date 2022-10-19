@@ -5242,7 +5242,6 @@ The Scheduled Recurrence has two request flows; the difference is in the `Author
 *To schedule the transaction needs the `RecurrentPayment` node, the transaction date and the `AuthorizeNow` field as "false".<br/>
 **If Post Notification was enabled by the merchant.
 
-
 See the example of the snippet with the `RecurrentPayment` node, which must be inserted in a credit transaction.
 
 ``` json
