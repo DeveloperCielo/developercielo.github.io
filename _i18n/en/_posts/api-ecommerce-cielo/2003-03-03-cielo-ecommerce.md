@@ -5192,7 +5192,7 @@ In this format, the merchant is responsible for creating intelligence to:
 > <br/>
 > **Parameter:** `Payment.Recurrent`= `True`
 
-![Flow recorrência própria]({{ site.baseurl }}images/apicieloecommerce/recorrencia-cielo-rec-propria-en.png)
+![Flow recorrência própria]({{ site.baseurl }}/images/apicieloecommerce/recorrencia-cielo-rec-propria-en.png)
 
 #### Merchant Recurrence example
 
@@ -5231,13 +5231,13 @@ The Scheduled Recurrence has two request flows; the difference is in the `Author
 
 **When the first transaction must be authorized at the time of scheduling, please send `AuthorizeNow` as "true".**
 
-![Flow da primeira transação na hora do agendamento]({{ site.baseurl }}images/apicieloecommerce/recorrencia-cielo-rec-programada-primeiratransacao-en.png)
+![Flow da primeira transação na hora do agendamento]({{ site.baseurl }}/images/apicieloecommerce/recorrencia-cielo-rec-programada-primeiratransacao-en.png)
 
 *If Post Notification was enabled by the merchant.
 
 **When the first transaction must be authorized after scheduling, send `AuthorizeNow` as "false"; in this case, also send the `StartDate` parameter.**
 
-![Flow da transação posterior ao agendamento]({{ site.baseurl }}images/apicieloecommerce/recorrencia-cielo-rec-programada-agendamento-en.png)
+![Flow da transação posterior ao agendamento]({{ site.baseurl }}/images/apicieloecommerce/recorrencia-cielo-rec-programada-agendamento-en.png)
 
 *To schedule the transaction needs the `RecurrentPayment` node, the transaction date and the `AuthorizeNow` field as "false".<br/>
 **If Post Notification was enabled by the merchant.
@@ -5277,7 +5277,7 @@ Important features of **Scheduled Recurrence**:
 
 **RecurrentPaymentID Structure**
 
-![Estrutura do RecurrentPaymentID]({{ site.baseurl }}images/apicieloecommerce/recorrencia-cielo-rec-prog-identificacao-en.png)
+![Estrutura do RecurrentPaymentID]({{ site.baseurl }}/images/apicieloecommerce/recorrencia-cielo-rec-prog-identificacao-en.png)
 
 #### Scheduled Recurrence example
 
