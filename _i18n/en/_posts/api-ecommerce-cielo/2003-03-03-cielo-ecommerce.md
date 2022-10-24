@@ -6472,6 +6472,263 @@ HTTP Status 200
 
 See [HTTP Status Code](#http-status-code) for the list with all HTTP status codes possibly returned by the API.
 
+## Renova Fácil
+
+Renova Fácil is a service developed by Cielo together with issuers. The objective of the service is to increase the conversion rate of recurring transactions with credit and debit cards.
+
+By identifying expired cards at the time of the transaction, the transaction is authorized with the new card. The API then returns the updated card data so that the merchant stores the new card.
+
+<aside class="notice">To use Renova Fácil, you have to to enable the service at Cielo. No extra information is sent in the authorization request, however the response will include the `NewCard` node, both for credit and debit transactions.</aside>
+
+Below is an example of a response to a credit transaction.
+
+### Request
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+```json
+{  
+   "MerchantOrderId":"2014113245231706",
+   "Customer":{  
+      "Name":"Comprador Renova facil"
+   },
+   "Payment":{  
+     "Type":"CreditCard",
+     "Amount":1500,
+     "Installments":1,
+     "SoftDescriptor":"123456789ABCD",
+     "RecurrentPayment":{
+       "AuthorizeNow":"true",
+       "EndDate":"2019-12-01",
+       "Interval":"SemiAnnual"
+     },
+     "CreditCard":{  
+         "CardNumber":"1234123412341231",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"262",
+         "SaveCard":"false",
+         "Brand":"Visa"
+     }
+   }
+}
+```
+
+```shell
+curl
+--request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+    {
+   "MerchantOrderId":"2014113245231706",
+   "Customer":{  
+      "Name":"Comprador Renova facil"
+   },
+   "Payment":{  
+     "Type":"CreditCard",
+     "Amount":1500,
+     "Installments":1,
+     "SoftDescriptor":"123456789ABCD",
+     "RecurrentPayment":{
+       "AuthorizeNow":"true",
+       "EndDate":"2019-12-01",
+       "Interval":"SemiAnnual"
+     },
+     "CreditCard":{  
+         "CardNumber":"1234123412341231",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"262",
+         "SaveCard":"false",
+         "Brand":"Visa"
+     }
+   }
+}
+--verbose
+```
+
+|Property|Description|Type|Size|Required|
+|---|---|---|---|---|
+|`MerchantId`|Store identifier in API E-commerce Cielo.|Guid|6|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API E-commerce Cielo.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`MerchantOrderId`|Order ID number.|Text|50|Yes|
+|`Customer.Name`|Shopper's name.|Text|255|No|
+|`Customer.Status`|Shopper's registration status in store (NEW / EXISTING) - Used by fraud analysis|Text|255|No|
+|`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
+|`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
+|`Payment.Installments`|Number of Installments.|Number|2|Yes|
+|`Payment.SoftDescriptor`|Text that will be printed on the shopper's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|No|
+|`Payment.RecurrentPayment.EndDate`|End date for recurrence.|Text|10|No|
+|`Payment.RecurrentPayment.Interval`|Recurrence interval.<br /><ul><li>Monthly (Default) </li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|Text|10|No|
+|`Payment.RecurrentPayment.AuthorizeNow`|Boolean to know if the first recurrence is about to be Authorized or not.|Boolean|---|Yes|
+|`CreditCard.CardNumber`|Shopper's Card Number.|Text|19|Yes|
+|`CreditCard.Holder`|Shopper's name printed on card.|Text|25|No|
+|`CreditCard.ExpirationDate`|Expiry date printed on card.|Text|7|Yes|
+|`CreditCard.SecurityCode`|Security code printed on back of card.|Text|4|No|
+|`CreditCard.Brand`|Card brand.|Text|10|Yes|
+
+### Response
+
+```json
+{
+  "MerchantOrderId": "2014113245231706",
+  "Customer": {
+    "Name": "Comprador  Renova facil"
+  },
+  "Payment": {
+    "ServiceTaxAmount": 0,
+    "Installments": 1,
+    "Interest": 0,
+    "Capture": false,
+    "Authenticate": false,
+    "Recurrent": false,
+    "CreditCard": {
+      "CardNumber": "123412******1231",
+      "Holder": "Teste Holder",
+      "ExpirationDate": "12/2030",
+      "SaveCard": false,
+      "Brand": "Visa"
+    },
+    "Tid": "10447480685P4611AQ9B",
+    "ProofOfSale": "087001",
+    "SoftDescriptor": "123456789ABCD",
+    "Provider": "Cielo",
+    "Eci": "0",
+ "NewCard": {
+       "CardNumber": "40000000000000000",
+       "ExpirationDate": "10/2020",
+       "SaveCard": false,
+        "Brand": "Visa"
+    },
+    "VelocityAnalysis": {
+      "Id": "94f06657-c715-45d2-a563-63f7dbb19e08",
+      "ResultMessage": "Accept",
+      "Score": 0
+    },
+    "PaymentId": "94f06657-c715-45d2-a563-63f7dbb19e08",
+    "Type": "CreditCard",
+    "Amount": 1500,
+    "ReceivedDate": "2016-12-26 14:14:21",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "ReturnCode": "KA",
+    "ReturnMessage": "Autorizacao negada",
+    "Status": 3,
+    "RecurrentPayment": {
+      "ReasonCode": 7,
+      "ReasonMessage": "Declined",
+      "EndDate": "2019-12-01",
+      "Interval": 6,
+      "AuthorizeNow": true
+    },
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquery.cieloecommerce.cielo.com.br/1/sales/94f06657-c715-45d2-a563-63f7dbb19e08"
+      }
+    ]
+  }
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+  "MerchantOrderId": "2014113245231706",
+  "Customer": {
+    "Name": "Comprador  Renova facil"
+  },
+  "Payment": {
+    "ServiceTaxAmount": 0,
+    "Installments": 1,
+    "Interest": 0,
+    "Capture": false,
+    "Authenticate": false,
+    "Recurrent": false,
+    "CreditCard": {
+      "CardNumber": "123412******1231",
+      "Holder": "Teste Holder",
+      "ExpirationDate": "12/2030",
+      "SaveCard": false,
+      "Brand": "Visa"
+    },
+    "Tid": "10447480685P4611AQ9B",
+    "ProofOfSale": "087001",
+    "SoftDescriptor": "123456789ABCD",
+    "Provider": "Cielo",
+    "Eci": "0",
+ "NewCard": {
+       "CardNumber": "40000000000000000",
+       "ExpirationDate": "10/2020",
+       "SaveCard": false,
+        "Brand": "Visa"
+    },
+    "VelocityAnalysis": {
+      "Id": "94f06657-c715-45d2-a563-63f7dbb19e08",
+      "ResultMessage": "Accept",
+      "Score": 0
+    },
+    "PaymentId": "94f06657-c715-45d2-a563-63f7dbb19e08",
+    "Type": "CreditCard",
+    "Amount": 1500,
+    "ReceivedDate": "2016-12-26 14:14:21",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "ReturnCode": "KA",
+    "ReturnMessage": "Autorizacao negada",
+    "Status": 3,
+    "RecurrentPayment": {
+      "ReasonCode": 7,
+      "ReasonMessage": "Declined",
+      "EndDate": "2019-12-01",
+      "Interval": 6,
+      "AuthorizeNow": true
+    },
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquery.cieloecommerce.cielo.com.br/1/sales/94f06657-c715-45d2-a563-63f7dbb19e08"
+      }
+    ]
+  }
+}
+```
+
+|Property|Description|Type|Size|Format|
+|---|---|---|---|---|
+|`RecurrentPaymentId`|Next recurrence Identifier field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`NextRecurrency`|Date of next recurrence.|Text|7|12/2030 (MM/YYYY)|
+|`EndDate`|End date of recurrence.|Text|7|12/2030 (MM/YYYY)|
+|`Interval`|Interval between recurrences.|Text|10|<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
+|`AuthorizeNow`|Boolean to know if the first recurrence is about to be Authorized or not.|Boolean|---|true ou false|
+
+|Property|Description|Type|Size|Required|
+|---|---|---|---|---|
+|`NewCard.CardNumber`|Shopper's new card number.|Text|16|Yes|
+|`NewCard.ExpirationDate`|New expiry date of the card.|Text|7|Yes|
+|`NewCard.Brand`|Card brand.|Text|10|Yes|
+|`NewCard.SaveCard`|Identifies whether the card generated Cardtoken during the transaction|Boolean|---|Yes|
+
+### Card Brands and Issuers Enabled
+
+Card Brands and Issuers that are already with Renew easy enabled:
+
+|Issuers|VISA|MASTER|ELO|
+|---|---|---|---|
+|`BRADESCO`|Yes|Yes|Yes|
+|`BANCO DO BRASIL`|Yes|---|---|
+|`SANTANDER`|Yes|---|---|
+|`CITI`|Yes|---|---|
+|`BANCO PAN`|Yes|---|---|
+
 # Consult - Capture - Cancel
 
 ## Consulting Transactions
@@ -7583,260 +7840,6 @@ When Velocity is active, the transaction response will bring a specific node cal
 | `VelocityAnalysis.Score`                 | 100                                   | Number | 10   |
 | `VelocityAnalysis.RejectReasons.RuleId`  | Code of the rule that rejected        | Number | 10   |
 | `VelocityAnalysis.RejectReasons.Message` | Description of the rule that rejected | Text   | 512  |
-
-## Renew easy
-
-The use of this feature allows the automatic replacement of an expired card .
-That way, when a transaction with recurrent markup is submitted to the API and Cielo identifies that the used card has been replaced, its authorization will be declined and the new card data will be returned as the example.
-
-<aside class="notice"><strong>Warning:</strong> It is necessary to request enabling this feature in the register  </aside>
-
-### Request
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-```json
-{  
-   "MerchantOrderId":"2014113245231706",
-   "Customer":{  
-      "Name":"Comprador Renova facil"
-   },
-   "Payment":{  
-     "Type":"CreditCard",
-     "Amount":1500,
-     "Installments":1,
-     "SoftDescriptor":"123456789ABCD",
-     "RecurrentPayment":{
-       "AuthorizeNow":"true",
-       "EndDate":"2019-12-01",
-       "Interval":"SemiAnnual"
-     },
-     "CreditCard":{  
-         "CardNumber":"1234123412341231",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"12/2030",
-         "SecurityCode":"262",
-         "SaveCard":"false",
-         "Brand":"Visa"
-     }
-   }
-}
-```
-
-```shell
-curl
---request POST "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-    {
-   "MerchantOrderId":"2014113245231706",
-   "Customer":{  
-      "Name":"Comprador Renova facil"
-   },
-   "Payment":{  
-     "Type":"CreditCard",
-     "Amount":1500,
-     "Installments":1,
-     "SoftDescriptor":"123456789ABCD",
-     "RecurrentPayment":{
-       "AuthorizeNow":"true",
-       "EndDate":"2019-12-01",
-       "Interval":"SemiAnnual"
-     },
-     "CreditCard":{  
-         "CardNumber":"1234123412341231",
-         "Holder":"Teste Holder",
-         "ExpirationDate":"12/2030",
-         "SecurityCode":"262",
-         "SaveCard":"false",
-         "Brand":"Visa"
-     }
-   }
-}
---verbose
-```
-
-|Property|Description|Type|Size|Required|
-|---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|6|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
-|`MerchantOrderId`|Order ID number.|Text|50|Yes|
-|`Customer.Name`|Buyer's name.|Text|255|No|
-|`Customer.Status`|Buyer registration status in store (NEW / EXISTING) - Used by fraud analysis|Text|255|No|
-|`Payment.Type`|Type of the Payment Method.|Text|100|Yes|
-|`Payment.Amount`|Order Amount (to be sent in cents).|Number|15|Yes|
-|`Payment.Installments`|Number of Installments.|Number|2|Yes|
-|`Payment.SoftDescriptor`|Text that will be printed on the carrier's bank invoice - Available only for VISA/MASTER - does not allow special characters|Text|13|No|
-|`Payment.RecurrentPayment.EndDate`|End date for recurrence.|Text|10|No|
-|`Payment.RecurrentPayment.Interval`|Recurrence interval.<br /><ul><li>Monthly (Default) </li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|Text|10|No|
-|`Payment.RecurrentPayment.AuthorizeNow`|Boolean to know if the first recurrence is about to be Authorized or not.|Boolean|---|Yes|
-|`CreditCard.CardNumber`|Buyer's Card Number.|Text|19|Yes|
-|`CreditCard.Holder`|Buyer's name printed on card.|Text|25|No|
-|`CreditCard.ExpirationDate`|Expiry date printed on card.|Text|7|Yes|
-|`CreditCard.SecurityCode`|Security code printed on back of card.|Text|4|No|
-|`CreditCard.Brand`|Card issuer.|Text|10|Yes|
-
-### Response
-
-```json
-{
-  "MerchantOrderId": "2014113245231706",
-  "Customer": {
-    "Name": "Comprador  Renova facil"
-  },
-  "Payment": {
-    "ServiceTaxAmount": 0,
-    "Installments": 1,
-    "Interest": 0,
-    "Capture": false,
-    "Authenticate": false,
-    "Recurrent": false,
-    "CreditCard": {
-      "CardNumber": "123412******1231",
-      "Holder": "Teste Holder",
-      "ExpirationDate": "12/2030",
-      "SaveCard": false,
-      "Brand": "Visa"
-    },
-    "Tid": "10447480685P4611AQ9B",
-    "ProofOfSale": "087001",
-    "SoftDescriptor": "123456789ABCD",
-    "Provider": "Cielo",
-    "Eci": "0",
- "NewCard": {
-       "CardNumber": "40000000000000000",
-       "ExpirationDate": "10/2020",
-       "SaveCard": false,
-        "Brand": "Visa"
-    },
-    "VelocityAnalysis": {
-      "Id": "94f06657-c715-45d2-a563-63f7dbb19e08",
-      "ResultMessage": "Accept",
-      "Score": 0
-    },
-    "PaymentId": "94f06657-c715-45d2-a563-63f7dbb19e08",
-    "Type": "CreditCard",
-    "Amount": 1500,
-    "ReceivedDate": "2016-12-26 14:14:21",
-    "Currency": "BRL",
-    "Country": "BRA",
-    "ReturnCode": "KA",
-    "ReturnMessage": "Autorizacao negada",
-    "Status": 3,
-    "RecurrentPayment": {
-      "ReasonCode": 7,
-      "ReasonMessage": "Declined",
-      "EndDate": "2019-12-01",
-      "Interval": 6,
-      "AuthorizeNow": true
-    },
-    "Links": [
-      {
-        "Method": "GET",
-        "Rel": "self",
-        "Href": "https://apiquery.cieloecommerce.cielo.com.br/1/sales/94f06657-c715-45d2-a563-63f7dbb19e08"
-      }
-    ]
-  }
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-  "MerchantOrderId": "2014113245231706",
-  "Customer": {
-    "Name": "Comprador  Renova facil"
-  },
-  "Payment": {
-    "ServiceTaxAmount": 0,
-    "Installments": 1,
-    "Interest": 0,
-    "Capture": false,
-    "Authenticate": false,
-    "Recurrent": false,
-    "CreditCard": {
-      "CardNumber": "123412******1231",
-      "Holder": "Teste Holder",
-      "ExpirationDate": "12/2030",
-      "SaveCard": false,
-      "Brand": "Visa"
-    },
-    "Tid": "10447480685P4611AQ9B",
-    "ProofOfSale": "087001",
-    "SoftDescriptor": "123456789ABCD",
-    "Provider": "Cielo",
-    "Eci": "0",
- "NewCard": {
-       "CardNumber": "40000000000000000",
-       "ExpirationDate": "10/2020",
-       "SaveCard": false,
-        "Brand": "Visa"
-    },
-    "VelocityAnalysis": {
-      "Id": "94f06657-c715-45d2-a563-63f7dbb19e08",
-      "ResultMessage": "Accept",
-      "Score": 0
-    },
-    "PaymentId": "94f06657-c715-45d2-a563-63f7dbb19e08",
-    "Type": "CreditCard",
-    "Amount": 1500,
-    "ReceivedDate": "2016-12-26 14:14:21",
-    "Currency": "BRL",
-    "Country": "BRA",
-    "ReturnCode": "KA",
-    "ReturnMessage": "Autorizacao negada",
-    "Status": 3,
-    "RecurrentPayment": {
-      "ReasonCode": 7,
-      "ReasonMessage": "Declined",
-      "EndDate": "2019-12-01",
-      "Interval": 6,
-      "AuthorizeNow": true
-    },
-    "Links": [
-      {
-        "Method": "GET",
-        "Rel": "self",
-        "Href": "https://apiquery.cieloecommerce.cielo.com.br/1/sales/94f06657-c715-45d2-a563-63f7dbb19e08"
-      }
-    ]
-  }
-}
-```
-
-|Property|Description|Type|Size|Format|
-|---|---|---|---|---|
-|`RecurrentPaymentId`|Next recurrence Identifier field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
-|`NextRecurrency`|Date of next recurrence.|Text|7|12/2030 (MM/YYYY)|
-|`EndDate`|End date of recurrence.|Text|7|12/2030 (MM/YYYY)|
-|`Interval`|Interval between recurrences.|Text|10|<ul><li>Monthly</li><li>Bimonthly </li><li>Quarterly </li><li>SemiAnnual </li><li>Annual</li></ul>|
-|`AuthorizeNow`|Boolean to know if the first recurrence is about to be Authorized or not.|Boolean|---|true ou false|
-
-|Property|Description|Type|Size|Required|
-|---|---|---|---|---|
-|`NewCard.CardNumber`|New Buyer Card number.|Text|16|Yes|
-|`NewCard.ExpirationDate`|new expiry date of the card.|Text|7|Yes|
-|`NewCard.Brand`|Card issuer.|Text|10|Yes|
-|`NewCard.SaveCard`|Identifies whether the card generated Cardtoken during the transaction|Boolean|---|Yes|
-
-### Card Brands and Issuers Enabled
-
-Card Brands and Issuers that are already with Renew easy enabled:
-
-|Issuers|VISA|MASTER|ELO|
-|---|---|---|---|
-|`BRADESCO`|Yes|Yes|Yes|
-|`BANCO DO BRASIL`|Yes|---|---|
-|`SANTADER`|Yes|---|---|
-|`CITI`|Yes|---|---|
-|`BANCO PAN`|Yes|---|---|
 
 # BIN Checker
 
