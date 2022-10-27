@@ -63,6 +63,7 @@ A análise de fraude com o Antifraude Gateway pode acontecer em dois momentos:
 * **Antes da autorização (AnalyseFirst)**: todas as transações são primeiro submetidas à análise do Antifraude e, se aceitas, seguem para o processo de autorização da adquirente;
 * **Depois da autorização (AuthorizeFirst)**: todas as transações são primeiro submetidas à autorização na adquirente e, se autorizadas, são enviadas para a análise do Antifraude.
 <br/>
+<br>
 Confira os principais recursos que um bom Antifraude pode oferecer:
 
 * Informações detalhadas sobre a transação;
@@ -89,6 +90,7 @@ A equipe de consultoria de risco oferece a Cesta de Serviços de Segurança, con
 * **Monitoria Preventiva**: é a notificação de incidentes de fraude para o estabelecimento;
 * **Velocity**: monitoramento e mitigação de testes de rajada de cartão.
 <br/>
+<br>
 **Acompanhamento da consultoria de risco Cielo**:
 
 Nosso time de relacionamento:
