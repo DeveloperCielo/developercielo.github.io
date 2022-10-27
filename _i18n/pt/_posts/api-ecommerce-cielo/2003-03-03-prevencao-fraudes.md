@@ -62,7 +62,7 @@ A análise de fraude com o Antifraude Gateway pode acontecer em dois momentos:
 
 * **Antes da autorização (AnalyseFirst)**: todas as transações são primeiro submetidas à análise do Antifraude e, se aceitas, seguem para o processo de autorização da adquirente;
 * **Depois da autorização (AuthorizeFirst)**: todas as transações são primeiro submetidas à autorização na adquirente e, se autorizadas, são enviadas para a análise do Antifraude.
-
+<br/>
 Confira os principais recursos que um bom Antifraude pode oferecer:
 
 * Informações detalhadas sobre a transação;
@@ -88,7 +88,7 @@ A equipe de consultoria de risco oferece a Cesta de Serviços de Segurança, con
 * **Tratamentos de Incidentes**: monitoria e resolução de incidentes de fraude;
 * **Monitoria Preventiva**: é a notificação de incidentes de fraude para o estabelecimento;
 * **Velocity**: monitoramento e mitigação de testes de rajada de cartão.
-
+<br/>
 **Acompanhamento da consultoria de risco Cielo**:
 
 Nosso time de relacionamento:
@@ -104,7 +104,7 @@ O chargeback é a contestação de uma venda feita com cartão de débito ou cr�
 * **Fraude**: o portador do cartão não reconhece a compra;
 * **Desacordo comercial**: o portador do cartão reconhece a compra, porém alega que algum termo da venda não foi cumprido (mercadoria não entregue ou serviço não prestado, transação recorrente cancelada, mercadoria com defeito ou não confere com a descrição, crédito não processado);
 * **Erro de processamento**: o portador do cartão identifica algum erro na cobrança (apresentação tardia, número de cartão inexistente, valor da transação ou número de cartão incorretos, duplicidade de processamento, pagamento por outros meios, transação processada sem autorização ou negada).
-
+<br/>
 Conforme as regras estabelecidas pelo mercado de pagamentos eletrônicos (bandeiras de cartões) o chargeback segue as normas de cartão não presente para operações realizadas no comércio eletrônico. Com base nestas regras, a loja pode iniciar o processo de disputa caso não concorde com o chargeback; para realizar a disputa, a loja deve enviar documentos que comprovem a sua defesa.
 
 > A aceitação ou disputa de chargeback podem ser feitas via API, pela [Risk Notification API](https://braspag.github.io//manual/risknotification){:target="_blank"}.
