@@ -80,7 +80,7 @@ Além das funcionalidades dos produtos, a Cielo adota algumas práticas e oferec
 
 A equipe de consultoria de risco oferece a Cesta de Serviços de Segurança, conforme as movimentações e nível de risco observado pela Cielo, e efetua reuniões periódicas com lojistas para acompanhamento das ações e apresentação dos resultados.
 
-**Cesta de Serviços de Segurança**:
+**Cesta de Serviços de Segurança**
 
 * **Monitoria Online**: além do uso da Lynx para todas as transações, ainda é possível personalizar as regras de risco para a realidade do seu estabelecimento;
 * **Cielo Alerta**: alerta a loja assim que uma venda é contestada pelo portador, antes de o emissor notificar como chargeback; assim, a loja pode cancelar uma venda contestada antes de gerar o chargeback e evitar a entrada no programa de monitoria das bandeiras (evitando penalizações);
@@ -91,7 +91,8 @@ A equipe de consultoria de risco oferece a Cesta de Serviços de Segurança, con
 * **Velocity**: monitoramento e mitigação de testes de rajada de cartão.
 <br/>
 <br>
-**Acompanhamento da consultoria de risco Cielo**:
+
+**Acompanhamento da consultoria de risco Cielo**
 
 Nosso time de relacionamento:
 
