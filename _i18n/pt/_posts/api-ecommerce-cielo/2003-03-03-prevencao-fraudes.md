@@ -21,7 +21,7 @@ Os produtos Cielo têm soluções integradas que podem ser usadas para mitigaç�
 
 Tendo em vista o cenário, desenvolvemos este material como guia de orientações e boas práticas, para que você saiba quais ações a sua loja pode tomar para melhorar os processos de gestão de risco.
 
-# Prevenção contra fraudes
+# Fraudes
 
 Uma fraude é identificada a partir do momento que o portador não reconhece ou não autorizou a transação em seu cartão de crédito.
 
@@ -97,7 +97,7 @@ Nosso time de relacionamento:
 * Identifica e orienta sobre os procedimentos de segurança realizados pelo estabelecimento no momento da venda;
 * Monitora e reporta os índices de fraude e chargeback, auxiliando na tomada de ações preventivas.
 
-# Prevenção contra chargebacks
+# Chargebacks
 
 O chargeback é a contestação de uma venda feita com cartão de débito ou crédito, que pode acontecer por três razões:
 
