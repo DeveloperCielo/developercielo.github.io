@@ -113,7 +113,7 @@ Conforme as regras estabelecidas pelo mercado de pagamentos eletrônicos (bandei
 
 O fluxo do chargeback inicia quando a pessoa titular do cartão contesta uma compra com o emissor. A partir daí, o banco analisa se a contestação realmente é um chargeback e, em caso positivo, a adquirente notifica a loja e abre o prazo para disputa. Se a loja não apresentar sua defesa dentro do prazo, o chargeback é debitado na agenda financeira ao término do prazo da disputa:
 
-![Fluxo de chargeback]({{ site.baseurl_root }}/images/apicieloecommerce/prevencao-fraudes-chargeback/prevencao-fraudes-chgbk-fluxo-chargeback.png
+![Fluxo de chargeback]({{ site.baseurl_root }}/images/apicieloecommerce/prevencao-fraudes-chargeback/prevencao-fraudes-chgbk-fluxo-chargeback.png)
 
 ## Como evitar chargebacks
 
@@ -150,20 +150,20 @@ Caso a sua loja receba uma notificação por índice elevado de fraudes e charge
 
 ## Programa de Monitoria Visa para fraudes e chargebacks
 
-![Monitoria Visa]({{ site.baseurl_root }}/images/apicieloecommerce/prevencao-fraudes-chargeback/monitoria-visa-fraudechgbk.png
+![Monitoria Visa]({{ site.baseurl_root }}/images/apicieloecommerce/prevencao-fraudes-chargeback/monitoria-visa-fraudechgbk.png)
 
 ## Programa de Monitoria Mastercard para fraudes
 
-![Monitoria MasterCard Fraude]({{ site.baseurl_root }}/images/apicieloecommerce/prevencao-fraudes-chargeback/monitoria-mastercard-fraude.png
+![Monitoria MasterCard Fraude]({{ site.baseurl_root }}/images/apicieloecommerce/prevencao-fraudes-chargeback/monitoria-mastercard-fraude.png)
 
 ## Programa de Monitoria Mastercard para chargebacks
 
-![Monitoria MasterCard Chargeback]({{ site.baseurl_root }}/images/apicieloecommerce/prevencao-fraudes-chargeback/monitoria-mastercard-chgbk.png
+![Monitoria MasterCard Chargeback]({{ site.baseurl_root }}/images/apicieloecommerce/prevencao-fraudes-chargeback/monitoria-mastercard-chgbk.png)
 
 ## Programa de Monitoria Elo para fraudes
 
-![Monitoria Elo Fraude]({{ site.baseurl_root }}/images/apicieloecommerce/prevencao-fraudes-chargeback/monitoria-elo-fraude.png
+![Monitoria Elo Fraude]({{ site.baseurl_root }}/images/apicieloecommerce/prevencao-fraudes-chargeback/monitoria-elo-fraude.png)
 
 ## Programa de Monitoria Elo para chargebacks
 
-![Monitoria Elo Chargeback]({{ site.baseurl_root }}/images/apicieloecommerce/prevencao-fraudes-chargeback/monitoria-elo-chgbk.png
+![Monitoria Elo Chargeback]({{ site.baseurl_root }}/images/apicieloecommerce/prevencao-fraudes-chargeback/monitoria-elo-chgbk.png)
