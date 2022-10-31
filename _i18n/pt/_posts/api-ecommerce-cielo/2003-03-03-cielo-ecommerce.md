@@ -2603,7 +2603,7 @@ Os campos específicos estão contidos dentro do nó `PaymentFacilitator`. Além
 |PaymentFacilitator.SubEstablishment.PhoneNumber|Texto*|13|Obrigatório para facilitadores|Número de telefone do sub Merchant.|
 |Payment.Softdescriptor|Texto*|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
 
-**Não use acentos. Acentos são considerados "duplo char" e podem atrapalhar na contagem de final de caracteres*
+**Não use acentos. Acentos são considerados "duplo char" e podem atrapalhar na contagem de final de caracteres.*
 
 <aside class="warning"><b>Atenção: Os campos não devem ser enviados com espaçamento a esquerda. Sujeito a rejeição na liquidação das transações.</b></aside>
 
@@ -2716,7 +2716,7 @@ Os campos específicos estão contidos dentro do nó `PaymentFacilitator`. Além
 |PaymentFacilitator.SubEstablishment.PhoneNumber|Texto*|13|Obrigatório para facilitadores|Número de telefone do sub Merchant.|
 |Payment.Softdescriptor|Texto*|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
 
-**Não use acentos. Acentos são considerados "duplo char" e podem atrapalhar na contagem de final de caracteres*
+**Não use acentos. Acentos são considerados "duplo char" e podem atrapalhar na contagem de final de caracteres.*
 
 ### Transações CBPS
 
