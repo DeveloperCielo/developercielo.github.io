@@ -2591,17 +2591,19 @@ Os campos específicos estão contidos dentro do nó `PaymentFacilitator`. Além
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|PaymentFacilitator.EstablishmentCode|Texto|11|Obrigatório para facilitadores|Código do estabelecimento do Facilitador. "Facilitator ID” (Cadastro do facilitador com as bandeiras)<br>O código é diferente por bandeira, podendo variar inclusive o tamanho do campo:<br>Bandeira Mastercard –06 dígitos<br>Bandeira Visa –08 dígitos<br>Bandeira ELO –de 04 à 05 dígitos<br>Bandeira Hipercard –06 dígitos<br>Para demais bandeiras, como Amex e JCB, o campo pode ser preenchido com “0” zeros.|
-|PaymentFacilitator.SubEstablishment.EstablishmentCode|Texto|15|Obrigatório para facilitadores|Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)|
-|PaymentFacilitator.SubEstablishment.Identity|Texto|14|Obrigatório para facilitadores|CNPJ ou CPF do sub-merchant.|
-|PaymentFacilitator.SubEstablishment.Mcc|Texto|4|Obrigatório para facilitadores|MCC do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.Address|Texto|22|Obrigatório para facilitadores|Endereço do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.City|Texto|13|Obrigatório para facilitadores|Cidade do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.State|Texto|2|Obrigatório para facilitadores|Estado do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.PostalCode|Texto|9|Obrigatório para facilitadores|Código postal do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.CountryCode|Texto|3|Obrigatório para facilitadores|Código país do sub-merchant com base no ISO 3166<br>Ex: código ISO 3166 do Brasil é o 076. [Lista completa online](https://www.iso.org/obp/ui/#search/code/).|
-|PaymentFacilitator.SubEstablishment.PhoneNumber|Numérico|13|Obrigatório para facilitadores|Número de telefone do sub Merchant.|
-|Payment.Softdescriptor|Texto|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
+|PaymentFacilitator.EstablishmentCode|Texto*|11|Obrigatório para facilitadores|Código do estabelecimento do Facilitador. "Facilitator ID” (Cadastro do facilitador com as bandeiras)<br>O código é diferente por bandeira, podendo variar inclusive o tamanho do campo:<br>Bandeira Mastercard –06 dígitos<br>Bandeira Visa –08 dígitos<br>Bandeira ELO –de 04 à 05 dígitos<br>Bandeira Hipercard –06 dígitos<br>Para demais bandeiras, como Amex e JCB, o campo pode ser preenchido com “0” zeros.|
+|PaymentFacilitator.SubEstablishment.EstablishmentCode|Texto*|15|Obrigatório para facilitadores|Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)|
+|PaymentFacilitator.SubEstablishment.Identity|Texto*|14|Obrigatório para facilitadores|CNPJ ou CPF do sub-merchant.|
+|PaymentFacilitator.SubEstablishment.Mcc|Texto*|4|Obrigatório para facilitadores|MCC do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.Address|Texto*|22|Obrigatório para facilitadores|Endereço do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.City|Texto*|13|Obrigatório para facilitadores|Cidade do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.State|Texto*|2|Obrigatório para facilitadores|Estado do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.PostalCode|Texto*|9|Obrigatório para facilitadores|Código postal do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.CountryCode|Texto*|3|Obrigatório para facilitadores|Código país do sub-merchant com base no ISO 3166<br>Ex: código ISO 3166 do Brasil é o 076. [Lista completa online](https://www.iso.org/obp/ui/#search/code/).|
+|PaymentFacilitator.SubEstablishment.PhoneNumber|Texto*|13|Obrigatório para facilitadores|Número de telefone do sub Merchant.|
+|Payment.Softdescriptor|Texto*|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
+
+**Não use acentos. Acentos são considerados "duplo char" e podem atrapalhar na contagem de final de caracteres*
 
 <aside class="warning"><b>Atenção: Os campos não devem ser enviados com espaçamento a esquerda. Sujeito a rejeição na liquidação das transações.</b></aside>
 
@@ -2702,17 +2704,19 @@ Os campos específicos estão contidos dentro do nó `PaymentFacilitator`. Além
 
 |Propriedade|Tipo|Tamanho|Obrigatório|Descrição|
 |---|---|---|---|---|
-|PaymentFacilitator.EstablishmentCode|Texto|11|Obrigatório para facilitadores|Código do estabelecimento do Facilitador. "Facilitator ID” (Cadastro do facilitador com as bandeiras)<br>O código é diferente por bandeira, podendo variar inclusive o tamanho do campo:<br>Bandeira Mastercard –06 dígitos<br>Bandeira Visa –08 dígitos<br>Bandeira ELO –de 04 à 05 dígitos<br>Bandeira Hipercard –06 dígitos<br>Para demais bandeiras, como Amex e JCB, o campo pode ser preenchido com “0” zeros.|
-|PaymentFacilitator.SubEstablishment.EstablishmentCode|Texto|15|Obrigatório para facilitadores|Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)|
-|PaymentFacilitator.SubEstablishment.Identity|Texto|14|Obrigatório para facilitadores|CNPJ ou CPF do sub-merchant.|
-|PaymentFacilitator.SubEstablishment.Mcc|Texto|4|Obrigatório para facilitadores|MCC do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.Address|Texto|22|Obrigatório para facilitadores|Endereço do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.City|Texto|13|Obrigatório para facilitadores|Cidade do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.State|Texto|2|Obrigatório para facilitadores|Estado do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.PostalCode|Texto|9|Obrigatório para facilitadores|Código postal do sub Merchant.|
-|PaymentFacilitator.SubEstablishment.CountryCode|Texto|3|Obrigatório para facilitadores|Código país do sub-merchant com base no ISO 3166.<br>Ex: código ISO 3166 do Brasil é o 076. [Lista completa online](https://www.iso.org/obp/ui/#search/code/)|
-|PaymentFacilitator.SubEstablishment.PhoneNumber|Texto|13|Obrigatório para facilitadores|Número de telefone do sub Merchant.|
-|Payment.Softdescriptor|Texto|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
+|PaymentFacilitator.EstablishmentCode|Texto*|11|Obrigatório para facilitadores|Código do estabelecimento do Facilitador. "Facilitator ID” (Cadastro do facilitador com as bandeiras)<br>O código é diferente por bandeira, podendo variar inclusive o tamanho do campo:<br>Bandeira Mastercard –06 dígitos<br>Bandeira Visa –08 dígitos<br>Bandeira ELO –de 04 à 05 dígitos<br>Bandeira Hipercard –06 dígitos<br>Para demais bandeiras, como Amex e JCB, o campo pode ser preenchido com “0” zeros.|
+|PaymentFacilitator.SubEstablishment.EstablishmentCode|Texto*|15|Obrigatório para facilitadores|Código do estabelecimento do sub Merchant. “Sub-Merchant ID” (Cadastro do subcredenciado com o facilitador)|
+|PaymentFacilitator.SubEstablishment.Identity|Texto*|14|Obrigatório para facilitadores|CNPJ ou CPF do sub-merchant.|
+|PaymentFacilitator.SubEstablishment.Mcc|Texto*|4|Obrigatório para facilitadores|MCC do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.Address|Texto*|22|Obrigatório para facilitadores|Endereço do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.City|Texto*|13|Obrigatório para facilitadores|Cidade do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.State|Texto*|2|Obrigatório para facilitadores|Estado do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.PostalCode|Texto*|9|Obrigatório para facilitadores|Código postal do sub Merchant.|
+|PaymentFacilitator.SubEstablishment.CountryCode|Texto*|3|Obrigatório para facilitadores|Código país do sub-merchant com base no ISO 3166.<br>Ex: código ISO 3166 do Brasil é o 076. [Lista completa online](https://www.iso.org/obp/ui/#search/code/)|
+|PaymentFacilitator.SubEstablishment.PhoneNumber|Texto*|13|Obrigatório para facilitadores|Número de telefone do sub Merchant.|
+|Payment.Softdescriptor|Texto*|13|Obrigatório para facilitadores|Texto impresso na fatura bancaria comprador. Deve ser preenchido de acordo com os dados do sub Merchant.|
+
+**Não use acentos. Acentos são considerados "duplo char" e podem atrapalhar na contagem de final de caracteres*
 
 ### Transações CBPS
 
