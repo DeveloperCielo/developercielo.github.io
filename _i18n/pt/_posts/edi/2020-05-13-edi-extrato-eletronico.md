@@ -1238,6 +1238,7 @@ Quando um valor a crédito estiver em processo de compensação com um valor a d
 |90|Trilha     |
 |91|Contactless emulando tarja|
 |95|Chip offline|
+|99|Tap on Phone|
 
 ### Tabela X - Grupo de Cartões 
 
@@ -1319,6 +1320,9 @@ Em caso de perda do arquivo ou não recebimento, a Cielo disponibilizará na cai
 
 **Chargeback:** devolução da transação pelo banco emissor, por contestação do portador.
 
+**Cessão:** operação de antecipação de pagamentos efetuadacom a Cielo ou com o mercado. Registros de contrapartida de operações feitas com o mercado dentro dos arquivos de venda, dependem do envio dos dados por parte do financiador a Cielo em tempo hábil. Operações enviadas de forma tardia não serão
+demonstradas nos arquivos de venda, sendo necessário solicitar o reprocessamento dos extratos aos canais de atendimento.
+
 **Data da Venda:** dia em que a venda foi realizada pelo cliente Cielo. No caso de clientes que operam com soluções ecommerce, esta é a data na qual o portador realizou a compra no site e não a data na qual foi feita a confirmação da venda pelo cliente Cielo.
 
 **Data da Apresentação:** dia em que a venda foi submetida para processamento na Cielo, podendo ser um sábado, domingo ou feriado. Essa é a data base para o cálculo da programação de pagamento e pode ser diferente da data da venda, de acordo com o tipo de solução de captura utilizado.
@@ -1330,6 +1334,8 @@ Em caso de perda do arquivo ou não recebimento, a Cielo disponibilizará na cai
 **Data do Pagamento:** dia do efetivo pagamento do valor na conta-corrente do cliente, considerando o prazo de pagamento acordado. Caso a data calculada não seja dia útil, o pagamento será realizado no primeiro dia útil posterior. Inicialmente, após a captura da venda, é informada a data prevista de pagamento, que poderá ser postergada no caso do valor ser utilizado para compensar a cobrança de algum débito proveniente de cancelamento de venda, chargeback ou cobrança de serviços. O pagamento também poderá ser antecipado caso o cliente realize uma operação de antecipação. 
 
 **Matriz de Extrato:** cadastro que permite a inclusão de todos os estabelecimentos controlados pelo cliente, independente do tipo de pagamento (centralizado ou individual).
+
+**Gravame**: operação de crédito no modelo de garantiaefetuada com um agente financiador. Não acarreta a antecipação da data de pagamento dos valores, apenas a troca de titularidade do recebedor.
 
 **Número Único da Transação:** é atribuido pela Cielo e identifica cada transação de forma única, permitindo que a conciliação das ações de ajustes e antecipação de recebíveis realizadas tanto no RO quanto no CV sejam conciliadas por essa chave, Para isso, a solução de conciliação deverá usar somente as partes fixas do número único, seguindo esta composição.
 
@@ -1389,8 +1395,8 @@ MASTERCARD: a data de apresentação da 1ª parcela também será a data base pa
 
 > Observação: as atualizações citadas abaixo, estarão disponíveis a partir do dia 07 de junho de 2021. 
 
-[Manual de Extrato Eletrônico](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_1.pdf)
+[Manual de Extrato Eletrônico](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_.pdf)
 
-[Electronic Statement Manual - English version](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_-_English_-_Version_14_0.pdf)
+[Electronic Statement Manual - English version](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_-_English_-_Version_14_1.pdf)
 
 [Atualização de Layout EE - Registro de Recebíveis + PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis_PIX_0.pdf)
