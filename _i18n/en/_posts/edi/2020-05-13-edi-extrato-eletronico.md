@@ -1032,6 +1032,7 @@ When a credit amount is being offset against a debit amount, both will be sent i
 |90|Track|
 |91|Contactless imitating stripe|
 |95|Offline chip|
+|99|Tap on Phone|
 
 ### Table XI - Group Of Cards
 
@@ -1111,6 +1112,9 @@ In case of loss of the file or not receiving, the Cielo will make available in t
 
 **Chargeback:** refund, made by the issuer bank, of a transaction disputed or challenged by the cardholder.
 
+**Assignment:** advance payment operation carried out with Cielo or with the market. Counterpart records of operations carried out with the market within the sales files depend on the financier sending data to Cielo in a timely manner. Transactions sent late will not be
+demonstrated in the sales files, being necessary to request the reprocessing of the extracts to the service channels.
+
 **Date of Sale:** day on which the sale was made by the Cielo client. For clients that operate using e-commerce solutions, this is the date on which the cardholder made a purchase on the website and not the date on which the sale was confirmed by the Cielo client.
 
 **Date of Submission:** day on which the sale was submitted to Cielo for processing, which may be Saturdays, Sundays, or holidays. This is the reference date used in the calculation of the payment schedule and may differ from the date of sale, depending on the capture solution used.
@@ -1122,6 +1126,8 @@ In case of loss of the file or not receiving, the Cielo will make available in t
 **Payment Date:** date on which payment is effectively credited to the bank account, considering the payment period agreed upon. If the date calculated is not a business day, payment will be made on the next business day. Initially, once the sale is captured, the scheduled payment date is provided; however, it may be postponed if the amount is used to offset any debit concerning the sale refund, reversal, or service charges. Payment may also be made in advance, if the client conducts a prepayment operation. 
 
 **Chain of Electronic Statement:** register that allows the inclusion of all establishments controlled by the customer, regardless of the type of payment (centralized, decentralized, individual).
+
+**Encumbrance**: credit operation in the guarantee model carried out with a financing agent. It does not entail the anticipation of the date of payment of the amounts, only the exchange of ownership of the recipient.
 
 **Exclusive Transaction Number:** it is assigned by Cielo and exclusively identifies each transaction, enabling the reconciliation of the adjustments, prepayment operations, and assignment of receivables conducted in the sales summary and in the detailed sales through this key. To this end, the reconciliation solution should only consider the fixed parts of the exclusive number, according to the following composition.
 
@@ -1171,3 +1177,13 @@ MASTERCARD: the date of submission of the 1st installment will be used as the re
 **Types of registration:** with registration by the Commercial Group, which uses the CNPJ root, all new merchants from the root are automatically included in the electronic statement, avoiding the loss of information.
 
 ![Electronic Extract Levels](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/niveis_extrato_eletronico.png)
+
+# Important
+
+> Note: the updates mentioned below will be available from June 07, 2021.
+
+[Electronic Statement Manual](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_.pdf)
+
+[Electronic Statement Manual - Versão Portuguesa](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_-_English_-_Version_14_1.pdf)
+
+[EE Layout Update - Receivables Registration + PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis_PIX_0.pdf)
