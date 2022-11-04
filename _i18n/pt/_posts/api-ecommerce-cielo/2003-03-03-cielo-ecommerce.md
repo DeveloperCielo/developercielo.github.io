@@ -19,7 +19,7 @@ language_tabs:
 
 # Visão geral
 
-O **objetivo** desta documentação é orientar sobre a integração da **API E-commerce Cielo**, descrevendo as funcionalidades e os métodos HTTP, listando informações a serem enviadas e recebidas e provendo exemplos.
+O objetivo desta documentação é orientar sobre a integração da **API E-commerce Cielo**, descrevendo as funcionalidades e os métodos HTTP, listando informações a serem enviadas e recebidas e provendo exemplos.
 
 **Conhecimentos necessários**: recomendamos conhecimentos intermediários em linguagem de programação para web, requisições HTTP/HTTPS e manipulação de arquivos JSON.
 
