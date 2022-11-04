@@ -6719,7 +6719,7 @@ curl
 
 ### Card Brands and Issuers Enabled
 
-Card Brands and Issuers that are already with Renew easy enabled:
+Card Brands and Issuers that are already with Renova Fácil enabled:
 
 |Issuers|VISA|MASTER|ELO|
 |---|---|---|---|
