@@ -1718,11 +1718,11 @@ The required field `Payment.Type` should be sent as "Pix". In the response, the 
 
 Check the *transactional flow* for generating a Pix QR Code:
 
-![Geração do QR Code Pix]({{ site.baseurl_root }}/images/apicieloecommerce/api3-geracao-qrcode-pix.png)
+![Geração do QR Code Pix]({{ site.baseurl_root }}/images/apicieloecommerce/geração-qr-code-en.png)
 
 The shopper uses app that can do Pix transactions to read the QR Code and makes the payment. This step has no participation of the store or API E-commerce Cielo, as shown on the flow:
 
-![Pagamento Pix]({{ site.baseurl_root }}/images/apicieloecommerce/api3-pagamento-pix.png)
+![Pagamento Pix]({{ site.baseurl_root }}/images/apicieloecommerce/pagamento-pix-en.png)
 
 See the request and response examples for Pix QR Code generating:
 
