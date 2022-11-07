@@ -9117,7 +9117,7 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
 
 <p>O Renova Fácil é um serviço desenvolvido pela Cielo em conjunto com os emissores, cujo objetivo é aumentar a taxa de conversão de vendas recorrentes com cartão de crédito e débito.</p>
 
-<p>Através da identificação de cartões vencidos no momento da transação, a transação é autorizada com o novo cartão. Em seguida, a API retorna os dados atualizados do cartão para que a pela loja armazene o novo cartão.</p>
+<p>O uso desta funcionalidade permite a substituição automática de um cartão de crédito ou débito que foi substituído pelo banco emissor por algum motivo (vencimento atingido, troca etc). Dessa forma, quando uma transação com marcação de recorrência for submetida para a API e a Cielo identificar que o cartão enviado foi substituído, sua autorização será negada e a API retornará os dados do novo cartão nó <code class="language-plaintext highlighter-rouge">NewCard</code>.</p>
 
 <aside class="notice">Para usar o Renova Fácil, é necessário habilitar o serviço na Cielo. Nenhuma informação extra é enviada na requisição de autorização, porém a resposta terá o nó `NewCard`, tanto para transação de crédito quanto para transação de débito.</aside>
 
