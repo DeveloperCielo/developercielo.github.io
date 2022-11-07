@@ -15028,6 +15028,57 @@ Se um código de erro for exibido, a requisição contém erros (como tamanho, c
   </tbody>
 </table>
 
+<h3 id="códigos-e-mensagens-de-erro---pix">Códigos e Mensagens de Erro - Pix</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>CÓDIGO</th>
+      <th>EVENTO</th>
+      <th>MENSAGEM</th>
+      <th>DESCRIÇÃO/AÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>422</td>
+      <td>Autorização</td>
+      <td>Error on Merchant Integration</td>
+      <td>Verifique se o Pix consta habilitado em seu cadastro</td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td>Autorização</td>
+      <td>Error on bki service integration for charge</td>
+      <td>Erro Transação Pix Bancos, entre em contato com Suporte E-commerce</td>
+    </tr>
+    <tr>
+      <td>BP904</td>
+      <td>Autorização</td>
+      <td>O json informado não é válido</td>
+      <td>Entre em contato com Suporte E-commerce para avaliar o motivo.</td>
+    </tr>
+    <tr>
+      <td>BP901</td>
+      <td>Autorização</td>
+      <td>Falha na operação</td>
+      <td>Refaça o pagamento, caso persista entre em contato com suporte e-commerce</td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td>Cancelamento</td>
+      <td>Error on pix service integration for moneyback</td>
+      <td>Não é possível cancelar a transação, A devolução ocorrerá somente se houver saldo.</td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td>Cancelamento</td>
+      <td>Merchant bank for moneyback is not Cielo</td>
+      <td>Transação Pix Banco não permite operações de cancelamento</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 
