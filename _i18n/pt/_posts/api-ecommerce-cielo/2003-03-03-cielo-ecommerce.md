@@ -1727,11 +1727,11 @@ O campo obrigatório `Payment.Type` deve ser enviado como "Pix". Na resposta da 
 
 Confira a representação do **fluxo transacional** na geração do QR code pix:
 
-![Geração do QR Code Pix]({{ site.baseurl_root }}/images/apicieloecommerce/api3-geracao-qrcode-pix.png)
+![Geração do QR Code Pix]({{ site.baseurl_root }}/images/apicieloecommerce/geracao-qr-code-pix-pt.png)
 
 O comprador então realiza a leitura do QR code através de um dos aplicativos habilitados para o pagamento pix e efetiva o pagamento. Nesta etapa não há participação da loja nem da API E-commerce Cielo, conforme demonstrado no fluxo:
 
-![Pagamento Pix]({{ site.baseurl_root }}/images/apicieloecommerce/api3-pagamento-pix.png)
+![Pagamento Pix]({{ site.baseurl_root }}/images/apicieloecommerce/pagamento-pix-pt.png)
 
 Veja exemplos de envio de requisição e resposta para a geração do QR code pix:
 
