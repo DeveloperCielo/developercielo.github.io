@@ -7622,7 +7622,6 @@ curl
 }
 ```
 
-
 |Property|Description|Type|Size|Format|
 |---|---|---|---|---|
 |`Status`|Transaction Status.|Byte|---|2|
