@@ -7309,35 +7309,50 @@ curl
 
 ## Capture
 
-The **Capture** is an exclusive step for Credit Card transactions.
+The **capture** is an exclusive procedure for credit card transactions. There are two types of capture:
 
-When making a capture, the merchant confirms that the authorized value on the card may be charged by the financial institution issuing the card.
+* Automatic capture: it is requested in the same [credit transaction authorization request]() sending the `Payment.Capture` as "true".
+* Post capture: it is requested after sending the authorization request for the credit transaction.
+<br/>
+<br/>
+**In this section, we present the guidelines for doing the *post capture***.
 
-What the capture generates:
+When carrying out a capture, the merchant confirms that the amount authorized on the card may be charged by the financial institution issuing the card.
 
-* It performs the card charge
-* It includes the value of the sale on the buyer's invoice
-* Only captured transactions are paid by Cielo to the merchant
+**Important**:
 
-<aside class="notice"><strong>Warning:</strong> Capture is a process with a deadline. Check in without Cielo registering what is the enabled limit for your affiliation. After this period, it is not possible to perform the transaction Capture</aside>
+* The capture executes the charge of the card;
+* Capture includes the sale value on the shopper's invoice;
+* The merchant only pays Cielo for captured transactions.
 
-### Total capture
+<aside class="notice"><strong>Warning:</strong> The capture is a process with a default deadline of 15 days. Check your Cielo registration to confirm the limit enabled for your affiliation. After this period, it is not possible to capture the transaction. If the transaction is not captured, the authorization will expire and so the cardholder's card will not be charged and the limit will be released.</aside>
 
-To capture a sale that uses a credit card, it is necessary to do a PUT for the Payment feature as the example.
+### Partial or total capture
+
+You can capture a partial amount or the total amount of the transaction.
+
+**Partial capture** is the act of capturing a value less than the authorized value. This capture model can only occur once per transaction.
+
+**After capture, it is not possible to perform additional captures in the same order.**
 
 #### Request
 
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/capture</span></aside>
+*For **partial capture**, send the `Amount` field in the capture request with the value you want to capture;
+*For **total capture**, do not send the `Amount` field. The total value of the authorization will be considered.
+
+<aside class="warning">The `ServiceTaxAmount` field is unique to airlines.</aside>
+<br/>
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&serviceTaxAmount={Valor}"</span></aside>
 
 ```json
 
-https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture
+https://api.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture
 
 ```
 
 ```shell
 curl
---request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
+--request PUT "https://api.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
 --header "Content-Type: application/json"
 --header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --header "MerchantKey: 0123456789012345678901234567890123456789"
@@ -7347,8 +7362,8 @@ curl
 
 |Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
+|`MerchantId`|Store identifier in API E-commerce Cielo.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API E-commerce Cielo.|Text|40|Yes|
 |`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
 |`PaymentId`|Order Identifier Field.|Guid|36|Yes|
 |`Amount`|Order Amount (to be sent in cents).|Number|15|No|
@@ -7407,185 +7422,15 @@ curl
 |Property|Description|Type|Size|Format|
 |---|---|---|---|---|
 |`Status`|Transaction Status.|Byte|---|2|
-|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
-|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
-|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
-|`ReturnCode`|Return code of acquirer.|Text|32|Alphanumeric text|
-|`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric text|
+|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric|
+|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric|
+|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric|
+|`ReturnCode`|Return code of acquirer.|Text|32|Alphanumeric|
+|`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric|
 
-### Partial Capture
-
-The **partial Capture** is the act of capturing a value less than the authorized value. This capture model can occur only once per transaction.
-
-**After capture, it is not possible to make additional captures in the same order.**
-
-Just do a `POST` sending the value to be captured.
-
-<aside class="notice"><strong>Warning:</strong> Partial capture available for credit transactions only</aside>
-
-#### Request - Partial Capture
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}</span></aside>
-
-```json
-
-https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/capture?amount={Valor}
-
-```
-
-```shell
-curl
---request PUT "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/capture?amount={Valor}"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---header "MerchantKey: 0123456789012345678901234567890123456789"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---verbose
-```
-
-|Property|Description|Type|Size|Required|
-|---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
-|`PaymentId`|Order Identifier Field.|Guid|36|Yes|
-|`Amount`|Order Amount (to be sent in cents).|Number|15|No|
-|`ServiceTaxAmount`|Applicable to airlines companies only. Amount of the authorization value/amount that should be allocated to the service fee. Note: This value is not added to the authorization value.|Number|15|No|
-
-#### Response
-
-```json
-{
-    "Status": 2,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "6",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "6",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3/void"
-        }
-    ]
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "Status": 2,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "6",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "6",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/8b1d43ee-a918-40d2-ba62-e5665e7ccbd3/void"
-        }
-    ]
-}
-```
-
-|Property|Description|Type|Size|Format|
-|---|---|---|---|---|
-|`Status`|Transaction Status.|Byte|---|2|
-|`ReasonCode`|Operation return code.|Text|32|Alphanumeric texto|
-|`ReasonMessage`|Operation return message.|Text|512|Alphanumeric texto|
-|`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric texto|
-|`ProviderReturnCode`|Provider return code.|Text|32|Alphanumeric text|
-|`ProviderReturnMessage`|Provider return message.|Text|512|Alphanumeric text|
-
-<aside class="notice"><strong>Capture of Boarding fee</strong> To carry out the capture of *boarding fee*, just add the ServiveTaxAmount value to be captured</aside>
+<aside class="notice"><strong>Boarding tax capture</strong> To capture the *boarding tax*, simply add the value of the ServiveTaxAmount to be captured</aside>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&serviceTaxAmount=xxx</span></aside>
-
-#### Response
-
-```json
-{
-    "Status": 2,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "0",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "0",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"
-        }
-    ]
-}
-```
-
-```shell
---header "Content-Type: application/json"
---header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
-{
-    "Status": 2,
-    "ReasonCode": 0,
-    "ReasonMessage": "Successful",
-    "ProviderReturnCode": "0",
-    "ProviderReturnMessage": "Operation Successful",
-    "ReturnCode": "0",
-    "ReturnMessage": "Operation Successful",
-    "Links": [
-        {
-            "Method": "GET",
-            "Rel": "self",
-            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8"
-        },
-        {
-            "Method": "PUT",
-            "Rel": "void",
-            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/4d7be764-0e81-4446-b31e-7eb56bf2c9a8/void"
-        }
-    ]
-}
-```
-
-|Property|Description|Type|Size|Format|
-|---|---|---|---|---|
-|`Status`|Transaction Status.|Byte|---|2|
-|`ReasonCode`|Operation return code.|Text|32|Alphanumeric texto|
-|`ReasonMessage`|Operation return message.|Text|512|Alphanumeric texto|
-|`ReturnCode`|Return code of acquirer.|Text|32|Alphanumeric text|
-|`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric text|
-|`ProviderReturnCode`|Provider return code.|Text|32|Alphanumeric text|
-|`ProviderReturnMessage`|Provider return message.|Text|512|Alphanumeric text|
-
-### Capture Via Backoffice
-
-It is possible to carry out both the total capture and the partial capture via The Backoffice Cielo.
-
-Access our [**Tutorial**](https://developercielo.github.io/en/tutorial/tutoriais-3-0)  for more informations
 
 ## Canceling a sale
 
