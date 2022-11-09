@@ -14234,42 +14234,46 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 <aside class="notice">Boarding tax capture To capture the *boarding tax*, simply add the value of the ServiveTaxAmount to be captured</aside>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&amp;serviceTaxAmount=xxx</span></aside>
+<h2 id="canceling-a-transaction">Canceling a transaction</h2>
 
-<h2 id="canceling-a-sale">Canceling a sale</h2>
+<p>Cancellation is a feature that allows the merchant to reverse a purchase order. Cancellation can occur due to insufficient stock or due to withdrawal of the purchase by the consumer, among other reasons.</p>
 
-<p>Cancellation is a feature that allows the merchant to cancel a purchase order, either due to insufficient stock, due to the consumer withdrawing from the purchase, or any other reason.</p>
+<p>In the API E-commerce Cielo it is possible to make the cancellation request for <strong>debit and credit cards</strong>.</p>
 
-<p>In the Cielo e-commerce API, it’s possible to request cancellation for debit and credit cards.</p>
+<ul>
+  <li>
+    <p>For <strong>authorized and uncaptured transactions</strong> (transactional status = 1), cancellation may be requested before the transaction is automatically rolled back.</p>
+  </li>
+  <li>
+    <p>For <strong>captured transactions</strong> (transactional status = 2), cancellation can be requested 1 day after the capture and up to 360 days after the sale is authorized. The approval of this cancellation order is subject to the assessment of the balance in the merchant’s financial agenda at the time of the request and the approval of the bank issuing the card used in the transaction.</p>
+  </li>
+</ul>
 
-<p>For authorized and non-captured transactions (transactional status = 1), cancellation can be requested before the transaction is automatically undone.</p>
+<p>For cancellation requests of the same transaction, it is necessary to wait a period of 5 seconds between one request and another, so that the balance inquiry, reserve the amount in the financial agenda and awareness of the balance can be carried out, thus avoiding duplicate cancellations. This rule applies to total and partial cancellations. To identify that cancellation requests are from the same transaction, we consider the EC number, cancellation authorization number, date of sale, sale amount, and NSU.</p>
 
-<p>For captured transactions (transactional status = 2), it’s possible to make the cancellation request <strong>1 day after the capture</strong> and within a period of <strong>up to 360 days</strong> after the sale authorization. The approval of this cancellation order is susceptible to the assessment of the balance in the merchant’s financial agenda at the time of the requisition and the approval of the bank issuing the card used in the transaction.</p>
-
-<p>For cancellation requests for the same transaction, it is necessary to wait a period of 5 seconds between one request and another, so that the balance inquiry is carried out, the amount is reserved in the financial agenda and the balance is sensitized. Thus avoiding duplicate cancellation. This rule applies to total and/or partial cancellations.</p>
-
-<p>To identify that cancellation requests are from the same transaction, we consider the EC number, cancellation authorization number, date of sale, sale amount, and NSU.</p>
-
-<p>It is important to note that in order to make any cancellation request, it is necessary that the establishment has sufficient balance in the transaction/on the schedule</p>
-
-<h3 id="canceling-a-sale-via-api">Canceling a sale via API</h3>
-
-<p>Cancellation process via API is available only for credit and debit card.</p>
-
-<p>Each payment method suffer different impacts when a cancellation order (VOID) is executed.</p>
+<blockquote>
+  <p>It is important to point out that, in order to make any cancellation request, it is necessary that the merchant has sufficient balance in the transaction and in the agenda.</p>
+</blockquote>
 
 <h3 id="total-cancellation">Total cancellation</h3>
 
-<p>To cancel a sale that uses a credit card, it is necessary to do a PUT for the Payment feature. Cancellation can be made via PaymentID or MerchantOrderId (order number).</p>
+<p>You can cancel a sale via <code class="language-plaintext highlighter-rouge">PaymentId</code> or <code class="language-plaintext highlighter-rouge">MerchantOrderId</code> (order number).</p>
 
-<aside class="notice">Warning: Cancellation by MerchantOrderId always affects the newest transaction, i.e. if there are orders with duplicate order number, only the most current one will be canceled. The previous order can not be canceled by this method</aside>
+<aside class="notice">Attention: Cancellation by MerchantOrderId always affects the newest transaction, so if there are orders with a duplicate order number, only the current order will be cancelled. The previous order cannot be canceled by this method.</aside>
 
 <h4 id="request-45">Request</h4>
 
+<p><strong>Cancellation via PaymentId</strong></p>
+
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=xxx</span></aside>
 
-<p>or</p>
+<p>ou</p>
+
+<p><strong>Cancellation via MerchantOrderId</strong></p>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/OrderId/{MerchantOrderId}/void?amount=xxx</span></aside>
+
+<p>The following example displays the cancellation request via <code class="language-plaintext highlighter-rouge">PaymentId</code>.</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
 <span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"</span>
@@ -14293,28 +14297,28 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier in API Cielo eCommerce.</td>
+      <td>Store identifier in API E-commerce Cielo</td>
       <td>Guid</td>
       <td>36</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
+      <td>Public Key for Double Authentication in API E-commerce Cielo.</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
+      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
       <td>Guid</td>
       <td>36</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Order Identifier Field.</td>
+      <td>Payment ID number.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Yes</td>
@@ -14391,50 +14395,50 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
       <td>Authorization number, identical to NSU.</td>
       <td>Text</td>
       <td>6</td>
-      <td>Alphanumeric text</td>
+      <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
       <td>Transaction Id on the acquirer.</td>
       <td>Text</td>
       <td>20</td>
-      <td>Alphanumeric text</td>
+      <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
       <td>Authorization code.</td>
       <td>Text</td>
       <td>6</td>
-      <td>Alphanumeric text</td>
+      <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
       <td>Return code of acquirer.</td>
       <td>Text</td>
       <td>32</td>
-      <td>Alphanumeric text</td>
+      <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
       <td>Return message of acquirer.</td>
       <td>Text</td>
       <td>512</td>
-      <td>Alphanumeric text</td>
+      <td>Alphanumeric</td>
     </tr>
   </tbody>
 </table>
 
 <h3 id="partial-cancellation">Partial cancellation</h3>
 
-<p>The <strong>partial cancellation</strong> is the act of canceling a value less than the total authorized/captured value. This cancellation model can occur countless times, until the total value of the transaction is canceled.</p>
+<p><strong>Partial cancellation</strong> is the act of canceling an amount less than the total amount that was authorized and captured. This cancellation model can occur numerous times, until the full amount of the transaction is canceled.</p>
 
-<p>Just do a <code class="language-plaintext highlighter-rouge">POST</code> sending the value to be canceled.</p>
+<blockquote>
+  <p><strong>Partial cancellation</strong> is only available for <strong>captured transactions</strong>.</p>
+</blockquote>
 
-<aside class="notice">Warning: Partial cancellation available only for *CAPTURED* credit transactions</aside>
+<aside class="notice">Attention: The API returns the sum of the total of partial cancellations, that is, if you make three partial cancellations of R$10.00, the API will present in the response a total of R$30.00 canceled.</aside>
 
-<aside class="notice">Warning: The return of the API adds up to the total of partial cancellations, that is, if 3 cancellations of $10.00 are made, the API will present in its return a total of $30.00 canceled</aside>
-
-<h4 id="request---partial-cancellation">Request - partial cancellation</h4>
+<h4 id="request-46">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=XXX </span></aside>
 
@@ -14460,14 +14464,14 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier in API Cielo eCommerce.</td>
+      <td>Store identifier in API E-commerce Cielo.</td>
       <td>Guid</td>
       <td>36</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Double Authentication in API Cielo eCommerce.</td>
+      <td>Public Key for Double Authentication in API E-commerce Cielo.</td>
       <td>Text</td>
       <td>40</td>
       <td>Yes</td>
@@ -14576,54 +14580,54 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
       <td>Authorization number, identical to NSU.</td>
       <td>Text</td>
       <td>6</td>
-      <td>Alphanumeric text</td>
+      <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
       <td>Transaction Id on the acquirer.</td>
       <td>Text</td>
       <td>20</td>
-      <td>Alphanumeric text</td>
+      <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
       <td>Authorization code.</td>
       <td>Text</td>
       <td>6</td>
-      <td>Alphanumeric text</td>
+      <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
       <td>Return code of acquirer.</td>
       <td>Text</td>
       <td>32</td>
-      <td>Alphanumeric text</td>
+      <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
       <td>Return message of acquirer.</td>
       <td>Text</td>
       <td>512</td>
-      <td>Alphanumeric text</td>
+      <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnCode</code></td>
       <td>Provider return code.</td>
       <td>Text</td>
       <td>32</td>
-      <td>Alphanumeric text</td>
+      <td>Alphanumeric</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ProviderReturnMessage</code></td>
       <td>Provider return message.</td>
       <td>Text</td>
       <td>512</td>
-      <td>Alphanumeric text</td>
+      <td>Alphanumeric</td>
     </tr>
   </tbody>
 </table>
 
-<aside class="notice">Cancellation of Boarding Fee To cancel the *boarding fee*, just add the value of ServiveTaxAmount to be canceled</aside>
+<aside class="notice">Cancellation of Boarding Tax: To cancel the *boarding tax*, simply add the value of the ServiveTaxAmount to be canceled</aside>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={Valor}&amp;serviceTaxAmount=xxx
 </code></pre></div></div>
@@ -14695,33 +14699,9 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
   </tbody>
 </table>
 
-<h3 id="cancellation-via-backoffice">Cancellation via Backoffice</h3>
+<h3 id="cancellation-via-cielo-website">Cancellation via Cielo website</h3>
 
-<p>Cancellation via Backoffice is the only option to perform cancellation of bank slip and Online Debit transactions.
-It is possible to carry out both the total cancellation and the partial cancellation via The Backoffice Cielo.</p>
-
-<p>Effects on the payment method</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Payment method</th>
-      <th>Description</th>
-      <th>Deadline</th>
-      <th>Cielo participation</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Electronic Transfer</td>
-      <td>Cancellation only in API. The return of the value is made by the merchant himself</td>
-      <td>Defined by the merchant</td>
-      <td>No</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Access our <a href="https://developercielo.github.io/en/tutorial/tutoriais-3-0"><strong>Tutorial</strong></a>  for more informations</p>
+<p>It is possible to carry out both the total cancellation and the partial cancellation via the Cielo website.</p>
 
 <h2 id="notification-post">Notification Post</h2>
 
@@ -15136,7 +15116,7 @@ The Submersible can use the bin checker in the cart to alert international buyer
 
 <h2 id="integration-1">Integration</h2>
 
-<h3 id="request-46">Request</h3>
+<h3 id="request-47">Request</h3>
 
 <p>A <code class="language-plaintext highlighter-rouge">GET</code> request must be sent containing the BIN to be checked:</p>
 
@@ -15316,7 +15296,7 @@ The problem is that at the end of this period, if the card is invalid, the new r
 
 <p>Each type of validation requires a different technical contract. They will result in differentiated responses</p>
 
-<h3 id="request-47">Request</h3>
+<h3 id="request-48">Request</h3>
 
 <h4 id="standard">Standard</h4>
 
@@ -15636,7 +15616,7 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
   </ul>
 </blockquote>
 
-<h4 id="request-48">Request</h4>
+<h4 id="request-49">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
@@ -15735,7 +15715,7 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
   </tbody>
 </table>
 
-<h4 id="request-49">Request</h4>
+<h4 id="request-50">Request</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://transactionsandbox.pagador.com.br/post/api/public/v2/accesstoken"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
@@ -15966,7 +15946,7 @@ The download can be made from the following URL:</p>
 
 <p>Example: https://transaction.cieloecommerce.cielo.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000</p>
 
-<h3 id="request-50">Request</h3>
+<h3 id="request-51">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v1/accesstoken?merchantid={mid_loja}</span></aside>
 
