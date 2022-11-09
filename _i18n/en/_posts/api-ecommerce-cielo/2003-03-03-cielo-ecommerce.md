@@ -6729,15 +6729,15 @@ Card Brands and Issuers that are already with Renova Fácil enabled:
 |`CITI`|Yes|---|---|
 |`BANCO PAN`|Yes|---|---|
 
-# Consult - Capture - Cancel
+# Queries, Capture and Cancellation
 
-## Consulting Transactions
+## Getting details on transactions
 
-### Consult - PaymentID
+### Searching for a transaction via PaymentId
 
-To consult a credit card sale, it is necessary to do a GET for the Payment feature as the example.
+To get details on a credit card transaction via PaymentId, follow the request example below.
 
-<aside class="notice">Only transactions sent on the last three months are eligible for queries</aside>
+<aside class="notice">Only transactions made within the last three months are eligible for queries.</aside>
 
 #### Request
 
@@ -6756,21 +6756,19 @@ curl
 
 |Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
+|`MerchantId`|Store identifier in API E-commerce Cielo.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API E-commerce Cielo.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|Guid|36|No|
 |`PaymentId`|Payment identification number.|Text|36|Yes|
-|`AcquirerOrderId`|Transaction id sent to the authorizer if the MerchantOrderId is longer than 20 characters or has symbols.|Text|50|Yes|
-|`Tid`|Payment identification number at the acquirer.|Text|36|Yes|
 
 #### Response
 
 ```json
-{
+}
 "MerchantOrderId": "2014111706",
 "AcquirerOrderId": "202202231037440D1BD0",
 "Customer": {
-    "Name": "Buyer Teste",
+    "Name": "Comprador Teste",
     "Address": {}
 },
 "Payment": {
@@ -6847,7 +6845,7 @@ curl
     "MerchantOrderId": "2014111706",
     "AcquirerOrderId": "202202231037440D1BD0",
     "Customer": {
-        "Name": "Buyer Teste",
+        "Name": "Comprador Teste",
         "Address": {}
     },
     "Payment": {
@@ -6902,34 +6900,225 @@ curl
 
 |Property|Description|Type|Size|Format|
 |`MerchantOrderId`|Order identification number.|Text|50|Text alphanumeric|
-|`AcquirerOrderId`|Transaction id sent to the authorizer if the MerchantOrderId is longer than 20 characters or has symbols|Text|50|Text alphanumeric|
-|`AuthorizationCode`|authorization code.|Text|6|Text alphanumeric|
+|`AcquirerOrderId`|Transaction Id sent to the authorizer if the MerchantOrderId is longer than 20 characters or has symbols.|Text|50|Text alphanumeric|
+|`AuthorizationCode`|Authorization code.|Text|6|Text alphanumeric|
 |`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`Status`|Transaction Status.|Byte|2|-|
-|`Customer.Name`|Nome do Comprador|Text|255|-|
-|`Customer.Status`|Buyer registration status in the store (NEW / EXISTING)|Text|255|-|
-|`Payment.ProofOfSale`|Authorization number, identical to NSU|Text|6|Text alphanumeric|
-|`Payment.Tid`|Transaction ID in the payment method provider|Text|40|Text alphanumeric|
-|`Payment.Type`|Type of Payment |Text|100|-|
-|`Payment.Amount`|Order Amount (to be shipped in cents)|Number|15|-|
-|`Payment.ReceivedDate`|Date the transaction was received.|Text|19|AAAA-MM-DD HH:mm:SS|
+|`Customer.Name`|Shopper name.|Text|255|-|
+|`Customer.Status`|Shopper registration status in the store (NEW / EXISTING).|Text|255|-|
+|`Payment.ProofOfSale`|Authorization number, identical to NSU.|Text|6|Text alphanumeric|
+|`Payment.Tid`|Transaction Id in the payment method provider.|Text|40|Text alphanumeric|
+|`Payment.Type`|Type of payment method.|Text|100|-|
+|`Payment.Amount`|Order Amount (to be shipped in cents).|Number|15|-|
+|`Payment.ReceivedDate`|Date when the transaction was received.|Text|19|AAAA-MM-DD HH:mm:SS|
 |`Payment.CapturedAmount`|Captured value.|Number|15|10000|
-|`Payment.CapturedDate`|Capture date|Text|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.CapturedDate`|Capture date.|Text|19|AAAA-MM-DD HH:mm:SS|
 |`Payment.VoidedAmount`|Canceled/refunded amount, in cents.|Number|15|10000|
-|`Payment.VoidedDate`|Date of cancellation/chargeback|Text|19|AAAA-MM-DD HH:mm:SS|
-|`Payment.Provider`|Defines behavior of the means of payment (see Annex)/NOT MANDATORY FOR CREDIT|Text|15|-|
-|`CreditCard.CardNumber`|Buyer's Card Number|Text|19|-|
-|`CreditCard.Holder`|Buyer's name printed on card|Text|25|-|
-|`CreditCard.ExpirationDate`|Expiration date printed on card|Text|7|-|
-|`CreditCard.SecurityCode`|Security code printed on the back of the card See attached|Text|4|-|
-|`CreditCard.Brand`|Card brand (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper)|Text|10|-|
-|`CreditCard.PaymentAccountReference`|PAR(payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the flag does not send the information, the field will not be returned.|Number|29|-|
+|`Payment.VoidedDate`|Date of cancellation/chargeback.|Text|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.Provider`|Defines behavior of the means of payment (see files attached)/NOT MANDATORY FOR CREDIT.|Text|15|-|
+|`CreditCard.CardNumber`|Shopper's Card Number|Text|19|-|
+|`CreditCard.Holder`|Shopper's name printed on card|Text|25|-|
+|`CreditCard.ExpirationDate`|Expiration date printed on card.|Text|7|-|
+|`CreditCard.SecurityCode`|Security code printed on the back of the card.|Text|4|-|
+|`CreditCard.Brand`|Card brand.|Text|10|-|
+|`CreditCard.PaymentAccountReference`|PAR (Payment Account Reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to E-commerce Cielo customers. If the brand does not send the information, the field will not be returned.|Number|29|-|
 
-### Consult - MerchandOrderID
+### Searching for a transaction via TId
 
-It is not possible to directly query a payment by the identifier sent by the store (MerchantOrderId), but it is possible to get all PaymentIds associated with the identifier.
+To get details on a credit card transaction using the TId number, follow the request example..
 
-To check a sale by store identifier, you need to make a GET for the sales feature as the example.
+<aside class="notice">Only transactions made within the last three months are eligible for queries.</aside>
+
+#### Request
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/acquirerTid/{TID}</span></aside>
+
+```shell
+curl
+--request GET "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/acquirerTid/{TID}"
+--header "Content-Type: application/json"
+--header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--header "MerchantKey: 0123456789012345678901234567890123456789"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+--verbose
+```
+
+|Property|Description|Type|Size|Required|
+|---|---|---|---|---|
+|`MerchantId`|Store identifier in API E-commerce Cielo.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API E-commerce Cielo.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|Guid|36|No|
+|`AcquirerOrderId`|Transaction Id sent to the authorizer if the MerchantOrderId is longer than 20 characters or has symbols. | Text | 50   | Yes|
+|`TId`|Payment identification number at the acquirer.|Text|36|Sim|
+
+#### Response
+
+```json
+}
+"MerchantOrderId": "2014111706",
+"AcquirerOrderId": "202202231037440D1BD0",
+"Customer": {
+    "Name": "Comprador Teste",
+    "Address": {}
+},
+"Payment": {
+    "ServiceTaxAmount": 0,
+    "Installments": 1,
+    "Interest": "ByMerchant",
+    "Capture": false,
+    "Authenticate": false,
+    "CreditCard": {
+        "CardNumber": "455187******0183",
+        "Holder": "Teste Holder",
+        "ExpirationDate": "12/2030",
+        "SaveCard": false,
+        "Brand": "Visa",
+        "PaymentAccountReference":"92745135160550440006111072222"
+    },
+    "ProofOfSale": "674532",
+    "Tid": "0223103744208",
+    "AuthorizationCode": "123456",
+    "Chargebacks": [
+        {
+            "Amount": 10000,
+            "CaseNumber": "123456",
+            "Date": "2022-06-04",
+            "ReasonCode": "104",
+            "ReasonMessage": "Outras Fraudes - Cartao Ausente",
+            "Status": "Received",
+            "RawData": "Client did not participate and did not authorize transaction"
+        }
+    ],
+    "FraudAlert": {
+        "Date": "2022-05-20",
+        "ReasonMessage": "Uso Ind Numeração",
+        "IncomingChargeback": false
+    },
+    "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
+    "Type": "CreditCard",
+    "Amount": 10000,
+    "ReceivedDate": "2022-07-29 17:16:21",
+    "CapturedAmount": 9000,
+    "CapturedDate": "2022-07-29 17:16:22",
+    "VoidedAmount": 1000,
+    "VoidedDate": "2022-05-15 16:25:38",
+    "Currency": "BRL",
+    "Country": "BRA",
+    "ExtraDataCollection": [],
+    "Status": 1,
+    "Links": [
+        {
+            "Method": "GET",
+            "Rel": "self",
+            "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "capture",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
+        },
+        {
+            "Method": "PUT",
+            "Rel": "void",
+            "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+        }
+    ]
+}
+}
+```
+
+```shell
+--header "Content-Type: application/json"
+--header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+--data-binary
+{
+    "MerchantOrderId": "2014111706",
+    "AcquirerOrderId": "202202231037440D1BD0",
+    "Customer": {
+        "Name": "Comprador Teste",
+        "Address": {}
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": "ByMerchant",
+        "Capture": false,
+        "Authenticate": false,
+        "CreditCard": {
+            "CardNumber": "455187******0183",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2030",
+            "SaveCard": false,
+            "Brand": "Visa",
+            "PaymentAccountReference":"92745135160550440006111072222"
+        },
+        "ProofOfSale": "674532",
+        "Tid": "0223103744208",
+        "AuthorizationCode": "123456",
+        "PaymentId": "24bc8366-fc31-4d6c-8555-17049a836a07",
+        "Type": "CreditCard",
+        "Amount": 10000,
+        "ReceivedDate": "2022-07-29 17:16:21",
+        "CapturedAmount": 9000,
+        "CapturedDate": "2022-07-29 17:16:22",
+        "VoidedAmount": 1000,
+        "VoidedDate": "2022-05-15 16:25:38",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "ExtraDataCollection": [],
+        "Status": 1,
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "capture",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/capture"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"
+            }
+        ]
+    }
+}
+```
+
+|Property|Description|Type|Size|Format|
+|`MerchantOrderId`|Order identification number.|Text|50|Alphanumeric|
+|`AcquirerOrderId`|Transaction Id sent to the authorizer if the MerchantOrderId is longer than 20 characters or has symbols.|Text|50|Alphanumeric|
+|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric|
+|`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`Status`|Transaction Status.|Byte|2|-|
+|`Customer.Name`|Shopper name.|Text|255|-|
+|`Customer.Status`|Shopper registration status in the store (NEW / EXISTING).|Text|255|-|
+|`Payment.ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric|
+|`Payment.Tid`|Transaction Id in the payment method provider.|Text|40|Alphanumeric|
+|`Payment.Type`|Type of payment method.|Text|100|-|
+|`Payment.Amount`|Order Amount (to be shipped in cents).|Number|15|-|
+|`Payment.ReceivedDate`|Date when the transaction was received.|Text|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.CapturedAmount`|Captured value.|Number|15|10000|
+|`Payment.CapturedDate`|Capture date.|Text|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.VoidedAmount`|Canceled/refunded amount, in cents.|Number|15|10000|
+|`Payment.VoidedDate`|Date of cancellation/chargeback.|Text|19|AAAA-MM-DD HH:mm:SS|
+|`Payment.Provider`|Defines behavior of the means of payment (see files attached)/NOT MANDATORY FOR CREDIT.|Text|15|-|
+|`CreditCard.CardNumber`|Shopper's Card Number|Text|19|-|
+|`CreditCard.Holder`|Shopper's name printed on card|Text|25|-|
+|`CreditCard.ExpirationDate`|Expiration date printed on card.|Text|7|-|
+|`CreditCard.SecurityCode`|Security code printed on the back of the card.|Text|4|-|
+|`CreditCard.Brand`|Card brand.|Text|10|-|
+|`CreditCard.PaymentAccountReference`|PAR (Payment Account Reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to E-commerce Cielo customers. If the brand does not send the information, the field will not be returned.|Number|29|-|
+
+### Searhing for a transaction via MerchandOrderID
+
+For some merchants, the `MerchantOrderId` may have multiple transactions. The query for `MerchantOrderId` returns the `PaymentId` of all transactions associated with a `MerchantOrderId`.
+
+Considering this, it is possible to query details of each transaction by [searching with `PaymentId`](https://developercielo.github.io/en/manual/cielo-ecommerce#searching-for-a-transaction-via-paymentid){:target="_blank"}
 
 #### Request
 
@@ -6948,8 +7137,8 @@ curls
 
 |Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
+|`MerchantId`|Store identifier in API E-commerce Cielo.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API E-commerce Cielo.|Text|40|Yes|
 |`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
 |`MerchantOrderId`|Order Identifier Field at the Store.|Text|36|Yes|
 
@@ -6992,11 +7181,11 @@ curls
 |---|---|---|---|---|
 |`PaymentId`|Order Identifier Field.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 
-### Consulting a Recurrence
+### Searching for recurrence information
 
-To consult a credit card Recurrence, it is necessary to do a `GET` as shown in the example.
+The Recurrence query provides data on the scheduling and on the process of repeating transactions. The Recurrence query does not return data about the transactions themselves.
 
-**The Recurrence Query brings data about the scheduling and transaction process that are repeated. They do not return data about transactions itself. To do this, a `GET` must be performed in the transaction (Available in" Consulting sales)**
+For information about each transaction, [search via PaymentId](https://developercielo.github.io/en/manual/cielo-ecommerce#searching-for-a-transaction-via-paymentid){:target="_blank"}
 
 #### Request
 
@@ -7015,8 +7204,8 @@ curl
 
 |Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
+|`MerchantId`|Store identifier in API E-commerce Cielo.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API E-commerce Cielo.|Text|40|Yes|
 |`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
 |`RecurrentPaymentId`|Recurrence Identifier Field.|Text|36|Yes|
 
@@ -7055,8 +7244,7 @@ curl
                 "TryNumber": 1
             }
         ],
-        "Status": 1,
-        "IssuerTransactionId": "009295034362939"
+        "Status": 1
     }
 }
 ```
@@ -7097,8 +7285,7 @@ curl
                 "TryNumber": 1
             }
         ],
-        "Status": 1,
-        "IssuerTransactionId": "009295034362939"
+        "Status": 1
     }
 }
 ```
@@ -7119,9 +7306,6 @@ curl
 |`RecurrentTransactions.TransactionId`|Payment ID of the transaction generated on recurrence|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
 |`RecurrentTransactions.PaymentNumber`|Number of Recurrence. The first one is zero|Number|2|3|
 |`RecurrentTransactions.TryNumber`|Number of current attempt at the specific recurrence|Number|2|1|
-|`Payment.IssuerTransactionId`|Issuer authentication ID for recurring debit transactions. This field must be sent in subsequent transactions of the first transaction in the recurrence model itself. In the scheduled recurrence model, Cielo will be responsible for sending the field in subsequent transactions.|Text|15|---|
-
-**Warning:** The `IssuerTransactionId` field can also be obtained by querying the first transaction of the recurrence. See details on how to make an appointment [**here**](https://developercielo.github.io/en/manual/cielo-ecommerce#consulting-transactions).
 
 ## Capture
 
