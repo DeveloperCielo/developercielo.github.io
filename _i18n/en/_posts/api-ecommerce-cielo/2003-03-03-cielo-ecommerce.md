@@ -7431,42 +7431,39 @@ curl
 <aside class="notice"><strong>Boarding tax capture</strong> To capture the *boarding tax*, simply add the value of the ServiveTaxAmount to be captured</aside>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{paymentId}/capture?amount={Valor}&serviceTaxAmount=xxx</span></aside>
+## Canceling a transaction
 
-## Canceling a sale
+Cancellation is a feature that allows the merchant to reverse a purchase order. Cancellation can occur due to insufficient stock or due to withdrawal of the purchase by the consumer, among other reasons.
 
-Cancellation is a feature that allows the merchant to cancel a purchase order, either due to insufficient stock, due to the consumer withdrawing from the purchase, or any other reason.
+In the API E-commerce Cielo it is possible to make the cancellation request for **debit and credit cards**.
 
-In the Cielo e-commerce API, it's possible to request cancellation for debit and credit cards.
+* For **authorized and uncaptured transactions** (transactional status = 1), cancellation may be requested before the transaction is automatically rolled back.
 
-For authorized and non-captured transactions (transactional status = 1), cancellation can be requested before the transaction is automatically undone.
-
-For captured transactions (transactional status = 2), it's possible to make the cancellation request **1 day after the capture** and within a period of **up to 360 days** after the sale authorization. The approval of this cancellation order is susceptible to the assessment of the balance in the merchant's financial agenda at the time of the requisition and the approval of the bank issuing the card used in the transaction.
+* For **captured transactions** (transactional status = 2), cancellation can be requested 1 day after the capture and up to 360 days after the sale is authorized. The approval of this cancellation order is subject to the assessment of the balance in the merchant's financial agenda at the time of the request and the approval of the bank issuing the card used in the transaction.
   
-For cancellation requests for the same transaction, it is necessary to wait a period of 5 seconds between one request and another, so that the balance inquiry is carried out, the amount is reserved in the financial agenda and the balance is sensitized. Thus avoiding duplicate cancellation. This rule applies to total and/or partial cancellations.
+For cancellation requests of the same transaction, it is necessary to wait a period of 5 seconds between one request and another, so that the balance inquiry, reserve the amount in the financial agenda and awareness of the balance can be carried out, thus avoiding duplicate cancellations. This rule applies to total and partial cancellations. To identify that cancellation requests are from the same transaction, we consider the EC number, cancellation authorization number, date of sale, sale amount, and NSU.
 
-To identify that cancellation requests are from the same transaction, we consider the EC number, cancellation authorization number, date of sale, sale amount, and NSU.
-
-It is important to note that in order to make any cancellation request, it is necessary that the establishment has sufficient balance in the transaction/on the schedule
-
-### Canceling a sale via API
-
-Cancellation process via API is available only for credit and debit card.
-
-Each payment method suffer different impacts when a cancellation order (VOID) is executed.
+> It is important to point out that, in order to make any cancellation request, it is necessary that the merchant has sufficient balance in the transaction and in the agenda.
 
 ### Total cancellation
 
-To cancel a sale that uses a credit card, it is necessary to do a PUT for the Payment feature. Cancellation can be made via PaymentID or MerchantOrderId (order number).
+You can cancel a sale via `PaymentId` or `MerchantOrderId` (order number).
 
-<aside class="notice"><strong>Warning:</strong> Cancellation by MerchantOrderId always affects the newest transaction, i.e. if there are orders with duplicate order number, only the most current one will be canceled. The previous order can not be canceled by this method</aside>
+<aside class="notice"><strong>Attention:</strong> Cancellation by MerchantOrderId always affects the newest transaction, so if there are orders with a duplicate order number, only the current order will be cancelled. The previous order cannot be canceled by this method.</aside>
 
 #### Request
 
+**Cancellation via PaymentId**
+
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=xxx</span></aside>
 
-or
+ou
+
+**Cancellation via MerchantOrderId**
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/OrderId/{MerchantOrderId}/void?amount=xxx</span></aside>
+
+The following example displays the cancellation request via `PaymentId`.
 
 ```shell
 curl
@@ -7480,10 +7477,10 @@ curl
 
 |Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
-|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
-|`PaymentId`|Order Identifier Field.|Guid|36|Yes|
+|`MerchantId`|Store identifier in API E-commerce Cielo|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API E-commerce Cielo.|Text|40|Yes|
+|`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.|Guid|36|No|
+|`PaymentId`|Payment ID number.|Guid|36|Yes|
 |`Amount`|Order Amount (to be sent in cents).|Number|15|No|
 
 #### Response
@@ -7530,23 +7527,21 @@ curl
 |Property|Description|Type|Size|Format|
 |---|---|---|---|---|
 |`Status`|Transaction Status.|Byte|---|2|
-|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
-|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
-|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
-|`ReturnCode`|Return code of acquirer.|Text|32|Alphanumeric text|
-|`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric text|
+|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric|
+|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric|
+|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric|
+|`ReturnCode`|Return code of acquirer.|Text|32|Alphanumeric|
+|`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric|
 
 ### Partial cancellation
 
-The **partial cancellation** is the act of canceling a value less than the total authorized/captured value. This cancellation model can occur countless times, until the total value of the transaction is canceled.
+**Partial cancellation** is the act of canceling an amount less than the total amount that was authorized and captured. This cancellation model can occur numerous times, until the full amount of the transaction is canceled.
 
- Just do a `POST` sending the value to be canceled.
+> **Partial cancellation** is only available for **captured transactions**.
 
-<aside class="notice"><strong>Warning:</strong> Partial cancellation available only for *CAPTURED* credit transactions</aside>
+<aside class="notice"><strong>Attention:</strong> The API returns the sum of the total of partial cancellations, that is, if you make three partial cancellations of R$10.00, the API will present in the response a total of R$30.00 canceled.</aside>
 
-<aside class="notice"><strong>Warning:</strong> The return of the API adds up to the total of partial cancellations, that is, if 3 cancellations of $10.00 are made, the API will present in its return a total of $30.00 canceled</aside>
-
-#### Request - partial cancellation
+#### Request
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=XXX </span></aside>
 
@@ -7562,8 +7557,8 @@ curl
 
 |Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`MerchantId`|Store identifier in API Cielo eCommerce.|Guid|36|Yes|
-|`MerchantKey`|Public Key for Double Authentication in API Cielo eCommerce.|Text|40|Yes|
+|`MerchantId`|Store identifier in API E-commerce Cielo.|Guid|36|Yes|
+|`MerchantKey`|Public Key for Double Authentication in API E-commerce Cielo.|Text|40|Yes|
 |`RequestId`|Request Identifier, used when the merchant uses different servers for each GET/POST/PUT|Guid|36|No|
 |`PaymentId`|Order Identifier Field.|Guid|36|Yes|
 |`Amount`|Order Amount (to be sent in cents).|Number|15|No|
@@ -7627,18 +7622,19 @@ curl
 }
 ```
 
+
 |Property|Description|Type|Size|Format|
 |---|---|---|---|---|
 |`Status`|Transaction Status.|Byte|---|2|
-|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
-|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
-|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
-|`ReturnCode`|Return code of acquirer.|Text|32|Alphanumeric text|
-|`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric text|
-|`ProviderReturnCode`|Provider return code.|Text|32|Alphanumeric text|
-|`ProviderReturnMessage`|Provider return message.|Text|512|Alphanumeric text|
+|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric|
+|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric|
+|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric|
+|`ReturnCode`|Return code of acquirer.|Text|32|Alphanumeric|
+|`ReturnMessage`|Return message of acquirer.|Text|512|Alphanumeric|
+|`ProviderReturnCode`|Provider return code.|Text|32|Alphanumeric|
+|`ProviderReturnMessage`|Provider return message.|Text|512|Alphanumeric|
 
-<aside class="notice"><strong>Cancellation of Boarding Fee</strong> To cancel the *boarding fee*, just add the value of ServiveTaxAmount to be canceled</aside>
+<aside class="notice"><strong>Cancellation of Boarding Tax</strong>: To cancel the *boarding tax*, simply add the value of the ServiveTaxAmount to be canceled</aside>
 
 ```
 https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={Valor}&serviceTaxAmount=xxx
@@ -7660,20 +7656,11 @@ https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={
 | 106         | Cadastral Restriction. Cancellation not allowed. Contact the Cancellation Center |
 | 107         | Cadastral Restriction. Cancellation not allowed. Contact the Cancellation Center |
 | 108         | Error: Merchant Number (EC) not found. Please check the number sent              |
-| 475         | Processing failed. Please try again  
+| 475         | Processing failed. Please try again  |
 
-### Cancellation via Backoffice
+### Cancellation via Cielo website
 
-Cancellation via Backoffice is the only option to perform cancellation of bank slip and Online Debit transactions.
-It is possible to carry out both the total cancellation and the partial cancellation via The Backoffice Cielo.
-
-Effects on the payment method
-
-|Payment method|Description|Deadline|Cielo participation|
-|---|---|---|---|
-|Electronic Transfer|Cancellation only in API. The return of the value is made by the merchant himself|Defined by the merchant|No|
-
-Access our [**Tutorial**](https://developercielo.github.io/en/tutorial/tutoriais-3-0)  for more informations
+It is possible to carry out both the total cancellation and the partial cancellation via the Cielo website.
 
 ## Notification Post
 
