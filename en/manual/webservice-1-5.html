@@ -1957,9 +1957,31 @@ messaging, which are required by the flag. See below:</p>
 
 <p>Which is? These are charges made when the merchant exceeds the transaction retry rules.</p>
 
-<p>|Categories|Codes|Domestic Rate|International Rate|When Occurs|Retrieved Allowed|
-🇧🇷
-|Gift card and non-gift card|Any negative code that is allowed to be retried|R$2.00|-|From the 8th retry onwards|Allowed to retry after 24h.|</p>
+<table>
+  <tbody>
+    <tr>
+      <td>Categories</td>
+      <td>Codes</td>
+      <td>Domestic Rate</td>
+      <td>International Rate</td>
+      <td>When Occurs</td>
+      <td>Retrieved Allowed</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Gift card and non-gift card</td>
+      <td>Any negative code that is allowed to be retried</td>
+      <td>R$2.00</td>
+      <td>-</td>
+      <td>From the 8th retry onwards</td>
+      <td>Allowed to retry after 24h.</td>
+    </tr>
+  </tbody>
+</table>
 
 <ul>
   <li>All payment transactions using the same card, same validity, same value and same establishment number will be considered as retries;</li>
@@ -1985,9 +2007,18 @@ messaging, which are required by the flag. See below:</p>
 
 <p>(*) 1st to the last calendar day of the month</p>
 
-<p>|Number of Retries|Rule|
-🇧🇷
-|1st improper transaction|R$0.21 per transaction|</p>
+<table>
+  <tbody>
+    <tr>
+      <td>Number of Retries</td>
+      <td>Rule</td>
+    </tr>
+    <tr>
+      <td>1st improper transaction</td>
+      <td>R$0.21 per transaction</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="mac">MAC</h3>
 
@@ -2005,15 +2036,44 @@ messaging, which are required by the flag. See below:</p>
 
 <p>As of 10/14/2022 Mastercard will introduce new MAC codes when an issuer declines a transaction with response code 51 (Insufficient Funds) followed by one of the MACs below, for the merchant to take the best action.</p>
 
-<p>|MAC|Description|
-🇧🇷
-|24|Try again after 1 hour|
-|25|Try again after 24 hours|
-|26|Try again after 2 days|
-|27|Try again after 4 days|
-|28|Try again after 6 days|
-|29|Try again after 8 days|
-|30|Try again after 10 days|</p>
+<table>
+  <thead>
+    <tr>
+      <th>MAC</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>24</td>
+      <td>Try again after 1 hour</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>Try again after 24 hours</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Try again after 2 days</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>Try again after 4 days</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>Try again after 6 days</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>Try again after 8 days</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>Try again after 10 days</td>
+    </tr>
+  </tbody>
+</table>
 
 <p><strong>Categorization of Mastercard returns</strong>
 Mastercard may consolidate some issuer response codes, which often may not indicate to the merchant whether or not to retry, into 3 Mastercard-only use:</p>
@@ -2028,19 +2088,61 @@ Mastercard may consolidate some issuer response codes, which often may not indic
 
 <p>**For example:</p>
 
-<p>|When|Then|And the response code|
-🇧🇷
-|Issuer declines the transaction using response code 54 (Expired Card)|Mastercard will replace code 54 with code 79 (Lifecycle Decline)|Accompanies the appropriate Merchant Advice Code (MAC)|</p>
+<table>
+  <thead>
+    <tr>
+      <th>When</th>
+      <th>Then</th>
+      <th>And the response code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Issuer declines the transaction using response code 54 (Expired Card)</td>
+      <td>Mastercard will replace code 54 with code 79 (Lifecycle Decline)</td>
+      <td>Accompanies the appropriate Merchant Advice Code (MAC)</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>**The table below details how the response code and MAC combination will occur:</p>
 
-<p>|When the response code is…|And the MAC is…|The MAC description will be|
-🇧🇷
-|79 or 82|01|Check for new information before trying again.|
-|79 or 82|03|No updated credentials found. Do not try again.|
-|83|01|Authentication can increase the probability of approval. Try again using authentication (Ex: 3DS).|
-|83|03|Suspected fraud. Do not try again.|
-|79,82 or 83|02|Repeat the transaction later.|</p>
+<table>
+  <thead>
+    <tr>
+      <th>When the response code is…</th>
+      <th>And the MAC is…</th>
+      <th>The MAC description will be</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>79 or 82</td>
+      <td>01</td>
+      <td>Check for new information before trying again.</td>
+    </tr>
+    <tr>
+      <td>79 or 82</td>
+      <td>03</td>
+      <td>No updated credentials found. Do not try again.</td>
+    </tr>
+    <tr>
+      <td>83</td>
+      <td>01</td>
+      <td>Authentication can increase the probability of approval. Try again using authentication (Ex: 3DS).</td>
+    </tr>
+    <tr>
+      <td>83</td>
+      <td>03</td>
+      <td>Suspected fraud. Do not try again.</td>
+    </tr>
+    <tr>
+      <td>79,82 or 83</td>
+      <td>02</td>
+      <td>Repeat the transaction later.</td>
+    </tr>
+  </tbody>
+</table>
 
 <p><strong>MAC 01 retry program</strong></p>
 <ul>
@@ -2061,9 +2163,20 @@ Mastercard may consolidate some issuer response codes, which often may not indic
 
 <p>**Table of values:</p>
 
-<p>|Number of Retry|Rule|
-🇧🇷
-|From the 1st retry |R$ 2.50 (two reais and fifty cents) per retry, from the 1st retry within the 24-hour period.|</p>
+<table>
+  <thead>
+    <tr>
+      <th>Number of Retry</th>
+      <th>Rule</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>From the 1st retry</td>
+      <td>R$ 2.50 (two reais and fifty cents) per retry, from the 1st retry within the 24-hour period.</td>
+    </tr>
+  </tbody>
+</table>
 
 <p><strong>MAC 02 retry program</strong></p>
 <ul>
@@ -2084,9 +2197,20 @@ Mastercard may consolidate some issuer response codes, which often may not indic
 
 <p>**Table of values:</p>
 
-<p>|Number of Retry|Rule|
-🇧🇷
-|From the 1st retry |R$ 2.50 (two reais and fifty cents) per retry, from the 1st retry within the 72-hour period.|</p>
+<table>
+  <thead>
+    <tr>
+      <th>Number of Retry</th>
+      <th>Rule</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>From the 1st retry</td>
+      <td>R$ 2.50 (two reais and fifty cents) per retry, from the 1st retry within the 72-hour period.</td>
+    </tr>
+  </tbody>
+</table>
 
 <p><strong>MAC 03 and MAC 21 retry program</strong></p>
 <ul>
@@ -2108,9 +2232,20 @@ Mastercard may consolidate some issuer response codes, which often may not indic
 
 <p>**Table of values:</p>
 
-<p>|Number of Retry|Rule|
-🇧🇷
-|From the 1st retry |R$ 2.50 (two reais and fifty cents) per retry, from the 1st |</p>
+<table>
+  <thead>
+    <tr>
+      <th>Number of Retry</th>
+      <th>Rule</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>From the 1st retry</td>
+      <td>R$ 2.50 (two reais and fifty cents) per retry, from the 1st</td>
+    </tr>
+  </tbody>
+</table>
 
 <p><strong>MAC 01, 02 and MAC 03 retry program – Response codes 79, 82 and 83</strong></p>
 <ul>
@@ -2131,9 +2266,20 @@ Mastercard may consolidate some issuer response codes, which often may not indic
 
 <p>**Table of values:</p>
 
-<p>|Number of Retry|Rule|
-🇧🇷
-|From the 1st retry | 3.4 bps with a minimum value of R$0.00160 and a maximum of R$0.7700R$ per retry, as of the 1st |</p>
+<table>
+  <thead>
+    <tr>
+      <th>Number of Retry</th>
+      <th>Rule</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>From the 1st retry</td>
+      <td>3.4 bps with a minimum value of R$0.00160 and a maximum of R$0.7700R$ per retry, as of the 1st</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="visa">VISA</h3>
 
@@ -2172,10 +2318,24 @@ Mastercard may consolidate some issuer response codes, which often may not indic
 
 <p>**Table of values:</p>
 
-<p>|Period|Values|
-🇧🇷
-|1st|Warning|
-|From the 2nd month|R$0.80 (eighty cents) per retry, from the 16th|</p>
+<table>
+  <thead>
+    <tr>
+      <th>Period</th>
+      <th>Values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1st</td>
+      <td>Warning</td>
+    </tr>
+    <tr>
+      <td>From the 2nd month</td>
+      <td>R$0.80 (eighty cents) per retry, from the 16th</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>Effective date: August 1, 2022</p>
 
@@ -2185,11 +2345,32 @@ Mastercard may consolidate some issuer response codes, which often may not indic
 
 <p>Charges made when a Merchant exceeds the rules for Retries of denied transactions with the same card, same date or monthly period, same amount and same merchant number, as follows:​</p>
 
-<p>|Program|Gift Card - CP|Non-Gift Card - CNP|
-🇧🇷
-|Excessive retry​|R$1.85 per retry from the 9th denied response – same card and same day2|R$1.85 per retry from the 9th denied response–same card and same month3 of reference |
-|ASI transaction retry1 (Zero Auth)|R$0.15 per ASI transaction retry after issuer denial – same card and same day2|R$0.15 per ASI transaction retry after issuer denial – same card and same reference month3|
-| Irreversible transaction retry | 0.03% of the transaction value per retry Minimum R$ 0.15 Maximum R$ 0.80​ Same card and same day2 after reply with irreversible code | 0.03% of the transaction value per retry Minimum R$0.15 Maximum R$0.80 Same card and same month3 after reply with irreversible code|</p>
+<table>
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th>Gift Card - CP</th>
+      <th>Non-Gift Card - CNP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Excessive retry​</td>
+      <td>R$1.85 per retry from the 9th denied response – same card and same day2</td>
+      <td>R$1.85 per retry from the 9th denied response–same card and same month3 of reference</td>
+    </tr>
+    <tr>
+      <td>ASI transaction retry1 (Zero Auth)</td>
+      <td>R$0.15 per ASI transaction retry after issuer denial – same card and same day2</td>
+      <td>R$0.15 per ASI transaction retry after issuer denial – same card and same reference month3</td>
+    </tr>
+    <tr>
+      <td>Irreversible transaction retry</td>
+      <td>0.03% of the transaction value per retry Minimum R$ 0.15 Maximum R$ 0.80​ Same card and same day2 after reply with irreversible code</td>
+      <td>0.03% of the transaction value per retry Minimum R$0.15 Maximum R$0.80 Same card and same month3 after reply with irreversible code</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="ped-excess-dispute-program">PED: Excess Dispute Program</h3>
 
