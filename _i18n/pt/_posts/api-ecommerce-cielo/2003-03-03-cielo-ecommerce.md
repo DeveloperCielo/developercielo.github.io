@@ -6821,7 +6821,7 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:
 |400|Bad Request|
 |404|Resource Not Found|
 |500|Internal Server Error|
-  
+
 ## Programa de Retentativa das Bandeiras
 
 **O que são retentativas?** Quando um cliente tenta fazer uma compra com o cartão de crédito no seu negócio, a transação pode ser negada devido uma série de fatores. As tentativas seguintes de concluir a transação usando o mesmo cartão é o que chamamos de retentativa.
