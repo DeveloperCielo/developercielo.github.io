@@ -761,9 +761,9 @@ Aiming to improve the shopping experience, the means of payment market, together
 
 As you can see in the Return codes (ABECS) link, the attempts were classified as:
 
-* **Irreversible: Never retry.** This means, for example, that the card is canceled for use, has been lost or stolen, there is a confirmed fraud, the transaction is not allowed for that product, indicating that there are no circumstances in which the issuer would grant an approval. Any authorization attempt that previously received an Irreversible refusal without changing any message field will not be successful.
+**Irreversible: Never retry.** This means, for example, that the card is canceled for use, has been lost or stolen, there is a confirmed fraud, the transaction is not allowed for that product, indicating that there are no circumstances in which the issuer would grant an approval. Any authorization attempt that previously received an Irreversible refusal without changing any message field will not be successful.
 
-* **Reversible: Allowed to retry.** Means the issuer can approve, but cannot do it now, possibly due to a system issue (downtime) or missing limit, suspected fraud, or exceeded number of retry attempts. password typing. These are temporary denial decisions made by the issuer that may change over time.
+**Reversible: Allowed to retry.** Means the issuer can approve, but cannot do it now, possibly due to a system issue (downtime) or missing limit, suspected fraud, or exceeded number of retry attempts. password typing. These are temporary denial decisions made by the issuer that may change over time.
 
 Visa, Mastercard, Elo and Hipercard have adjusted their rules to limit the number of authorization attempts for a denied transaction. These changes provide for the charging of fees for excess attempts.
 
@@ -771,15 +771,14 @@ Visa, Mastercard, Elo and Hipercard have adjusted their rules to limit the numbe
 
 Does the Mastercard brand have 2 transaction retry programs?
 
-* **TPE (Transaction Processing Excellence)** - It is the program to monitor transaction retries, both approved and denied purchases, valid for gift card and non-present card.
-* **MAC (Merchant Advice Code Transaction Excellence)** - It is the program to monitor the retry of denied transactions, valid for card not present. These are a set of codes that Mastercard supports for issuers to communicate to merchants the reasons for approving or rejecting a transaction.
+**TPE (Transaction Processing Excellence)** - It is the program to monitor transaction retries, both approved and denied purchases, valid for gift card and non-present card.
+**MAC (Merchant Advice Code Transaction Excellence)** - It is the program to monitor the retry of denied transactions, valid for card not present. These are a set of codes that Mastercard supports for issuers to communicate to merchants the reasons for approving or rejecting a transaction.
 
 ### TPE
 
 Which is? These are charges made when the merchant exceeds the transaction retry rules.
 
 |Categories|Codes|Domestic Rate|International Rate|When Occurs|Retrieved Allowed|
-🇧🇷
 |Gift card and non-gift card|Any negative code that is allowed to be retried|R$2.00|-|From the 8th retry onwards|Allowed to retry after 24h.|
 
 * All payment transactions using the same card, same validity, same value and same establishment number will be considered as retries;
@@ -803,7 +802,6 @@ For such a situation, there is a specific type of transaction that must be used 
 (*) 1st to the last calendar day of the month
 
 |Number of Retries|Rule|
-🇧🇷
 |1st improper transaction|R$0.21 per transaction|
 
 ### MAC
@@ -812,16 +810,15 @@ For such a situation, there is a specific type of transaction that must be used 
 
 The MAC program has the following values: MAC 01, MAC 02, MAC 03, MAC 04 and MAC 21.
 
-* **MAC 01** – New account information available
-* **MAC 02** – Unable to approve right now, try later
-* **MAC 03** – Do not try again
-* **MAC 04** – Token requirements not met for this token type
-* **MAC 21** – Payment Cancellation
+**MAC 01** – New account information available
+**MAC 02** – Unable to approve right now, try later
+**MAC 03** – Do not try again
+**MAC 04** – Token requirements not met for this token type
+**MAC 21** – Payment Cancellation
 
 As of 10/14/2022 Mastercard will introduce new MAC codes when an issuer declines a transaction with response code 51 (Insufficient Funds) followed by one of the MACs below, for the merchant to take the best action.
 
 |MAC|Description|
-🇧🇷
 |24|Try again after 1 hour|
 |25|Try again after 24 hours|
 |26|Try again after 2 days|
@@ -842,13 +839,11 @@ The original codes will be replaced by the Merchant Advice Code (MAC), which wil
 **For example:
 
 |When|Then|And the response code|
-🇧🇷
 |Issuer declines the transaction using response code 54 (Expired Card)|Mastercard will replace code 54 with code 79 (Lifecycle Decline)|Accompanies the appropriate Merchant Advice Code (MAC)|
 
 **The table below details how the response code and MAC combination will occur:
 
 |When the response code is...|And the MAC is...|The MAC description will be|
-🇧🇷
 |79 or 82|01|Check for new information before trying again.|
 |79 or 82|03|No updated credentials found. Do not try again.|
 |83|01|Authentication can increase the probability of approval. Try again using authentication (Ex: 3DS).|
@@ -871,7 +866,6 @@ The original codes will be replaced by the Merchant Advice Code (MAC), which wil
 **Table of values:
 
 |Number of Retry|Rule|
-🇧🇷
 |From the 1st retry |R$ 2.50 (two reais and fifty cents) per retry, from the 1st retry within the 24-hour period.|
 
 **MAC 02 retry program**
@@ -890,7 +884,6 @@ The original codes will be replaced by the Merchant Advice Code (MAC), which wil
 **Table of values:
 
 |Number of Retry|Rule|
-🇧🇷
 |From the 1st retry |R$ 2.50 (two reais and fifty cents) per retry, from the 1st retry within the 72-hour period.|
 
 **MAC 03 and MAC 21 retry program**
@@ -910,7 +903,6 @@ The original codes will be replaced by the Merchant Advice Code (MAC), which wil
 **Table of values:
 
 |Number of Retry|Rule|
-🇧🇷
 |From the 1st retry |R$ 2.50 (two reais and fifty cents) per retry, from the 1st |
 
 **MAC 01, 02 and MAC 03 retry program – Response codes 79, 82 and 83**
@@ -929,7 +921,6 @@ The original codes will be replaced by the Merchant Advice Code (MAC), which wil
 **Table of values:
 
 |Number of Retry|Rule|
-🇧🇷
 |From the 1st retry | 3.4 bps with a minimum value of R$0.00160 and a maximum of R$0.7700R$ per retry, as of the 1st |
 
 ### VISA
@@ -964,7 +955,6 @@ This is a program instituted by the ELO brand that generates charges when the me
 **Table of values:
 
 |Period|Values|
-🇧🇷
 |1st|Warning|
 |From the 2nd month|R$0.80 (eighty cents) per retry, from the 16th|
 
@@ -977,7 +967,6 @@ Effective date: August 1, 2022
 Charges made when a Merchant exceeds the rules for Retries of denied transactions with the same card, same date or monthly period, same amount and same merchant number, as follows:​
 
 |Program|Gift Card - CP|Non-Gift Card - CNP|
-🇧🇷
 |Excessive retry​|R$1.85 per retry from the 9th denied response – same card and same day2|R$1.85 per retry from the 9th denied response–same card and same month3 of reference |
 |ASI transaction retry1 (Zero Auth)|R$0.15 per ASI transaction retry after issuer denial – same card and same day2|R$0.15 per ASI transaction retry after issuer denial – same card and same reference month3|
 | Irreversible transaction retry | 0.03% of the transaction value per retry Minimum R$ 0.15 Maximum R$ 0.80​ Same card and same day2 after reply with irreversible code | 0.03% of the transaction value per retry Minimum R$0.15 Maximum R$0.80 Same card and same month3 after reply with irreversible code|
