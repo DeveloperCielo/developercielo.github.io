@@ -780,7 +780,6 @@ Which is? These are charges made when the merchant exceeds the transaction retry
 
 |Categories|Codes|Domestic Rate|International Rate|When Occurs|Retrieved Allowed|
 |Gift card and non-gift card|Any negative code that is allowed to be retried|R$2.00|-|From the 8th retry onwards|Allowed to retry after 24h.|
-
 * All payment transactions using the same card, same validity, same value and same establishment number will be considered as retries;
 * Retries will also be counted when the transaction has already been approved;
 * Retentions will also be accounted for when the transaction has already been approved;
@@ -793,7 +792,6 @@ Which is? These are charges made when the merchant exceeds the transaction retry
 For such a situation, there is a specific type of transaction that must be used to perform the account status query. Already in force: July 1, 2019
 
 **Method of calculation:**
-
 * Card not present transactions will be considered;
 * All payment transactions made in the amount of R$1.00 will be considered and the reversal will be carried out immediately afterwards;
 * Fee applies immediately when the reversal of this type of transaction is identified;
