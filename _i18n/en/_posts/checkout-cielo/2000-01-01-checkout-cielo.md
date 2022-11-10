@@ -1497,7 +1497,7 @@ Checkout Cielo allows the merchant to modify 3 recurrence data:
 
 The update is done exclusively via Backoffice Cielo.
 
-## Flag Retry Program
+# Flag Retry Program
 
 **What are retries?** When a customer attempts to make a credit card purchase at your business, the transaction may be denied due to a number of factors. Subsequent attempts to complete the transaction using the same card is called a retry.
 
@@ -1517,14 +1517,14 @@ As you can see in the Return codes (ABECS) link, the attempts were classified as
 
 Visa, Mastercard, Elo and Hipercard have adjusted their rules to limit the number of authorization attempts for a denied transaction. These changes provide for the charging of fees for excess attempts.
 
-### Mastercard
+## Mastercard
 
 Does the Mastercard brand have 2 transaction retry programs?
 
 * **TPE (Transaction Processing Excellence)** - It is the program to monitor transaction retries, both approved and denied purchases, valid for gift card and non-present card.
 * **MAC (Merchant Advice Code Transaction Excellence)** - It is the program to monitor the retry of denied transactions, valid for card not present. These are a set of codes that Mastercard supports for issuers to communicate to merchants the reasons for approving or rejecting a transaction.
 
-### TPE
+## TPE
 
 Which is? These are charges made when the merchant exceeds the transaction retry rules.
 
@@ -1537,7 +1537,7 @@ Which is? These are charges made when the merchant exceeds the transaction retry
 * Retentions will also be accounted for when the transaction has already been approved;
 * As of 02/01/2023, the excess considered in the program will occur from the eighth retry within the calculation month* and under the conditions described above;
 
-### Account Status Inquiry (ASI) transaction
+## Account Status Inquiry (ASI) transaction
 
 **What is it?** These are Charges made when the merchant makes a purchase in the amount of R$1.00 and then carries out the reversal, to verify the status of the account.
 
@@ -1555,7 +1555,7 @@ For such a situation, there is a specific type of transaction that must be used 
 |Number of Retries|Rule|
 |1st improper transaction|R$0.21 per transaction|
 
-### MAC
+## MAC
 
 **What is it?** These are charges made when the merchant makes a retry to send authorization for irreversible response codes with the same card valid for a card not present. of “Do not try this transaction again”. For these cases, Mastercard identifies transactions with the following values: MAC 03 and MAC 21, for example.
 
@@ -1681,7 +1681,7 @@ The original codes will be replaced by the Merchant Advice Code (MAC), which wil
 |---|---|
 |From the 1st retry | 3.4 bps with a minimum value of R$0.00160 and a maximum of R$0.7700R$ per retry, as of the 1st |
 
-### VISA
+## VISA
 
 **Which is?**
 
@@ -1697,7 +1697,7 @@ Fees: When exceeding the attempt limits established by the brand, a fee will be 
 * International cards: USD 0.25 (dollar) for each excess international transaction.
 * Authorization rules are in effect. Fee charges will apply from April 2021.
 
-### Link
+## Link
 
 **Which is?**
 
@@ -1719,7 +1719,7 @@ This is a program instituted by the ELO brand that generates charges when the me
 
 Effective date: August 1, 2022
 
-### Hypercard
+## Hypercard
 
 **Which is?**
 
@@ -1731,7 +1731,7 @@ Charges made when a Merchant exceeds the rules for Retries of denied transaction
 |ASI transaction retry1 (Zero Auth)|R$0.15 per ASI transaction retry after issuer denial – same card and same day2|R$0.15 per ASI transaction retry after issuer denial – same card and same reference month3|
 | Irreversible transaction retry | 0.03% of the transaction value per retry Minimum R$ 0.15 Maximum R$ 0.80​ Same card and same day2 after reply with irreversible code | 0.03% of the transaction value per retry Minimum R$0.15 Maximum R$0.80 Same card and same month3 after reply with irreversible code|
 
-### PED: Excess Dispute Program
+## PED: Excess Dispute Program
 
 **Details:
 
@@ -1740,7 +1740,7 @@ Charges made when a Merchant exceeds the rules for Retries of denied transaction
 * Reference month3: consider for the purposes of Hipercard's Retry program the 1st to the 30th or 31st of the month in which the transaction took place. The charge will be sent after the close of the subsequent month.
 * The transaction codes considered irreversible by the issuer were categorized by the ABECS payments and self-regulation industry, through the current Regulation 21. Return codes (ABECS)
 
-### Too many flags
+## Too many flags
 
 Reversible codes: new retries will be allowed for the same customer and card. There is no limit and pre-established period;
 
