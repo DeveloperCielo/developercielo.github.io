@@ -827,7 +827,6 @@ As of 10/14/2022 Mastercard will introduce new MAC codes when an issuer declines
 
 **Categorization of Mastercard returns**
 Mastercard may consolidate some issuer response codes, which often may not indicate to the merchant whether or not to retry, into 3 Mastercard-only use:
-
 * 79 (Life cycle)
 * 82 (Policy)
 * 83 (Fraud/Security)
@@ -926,13 +925,11 @@ The original codes will be replaced by the Merchant Advice Code (MAC), which wil
 **Which is?**
 
 A program instituted by the Visa Brand that generates charges when the merchant exceeds the retry rules.
-
 * Valid for card-present and card-not-present transactions;
 * Reversible codes: Up to 15 attempts to approve the same transaction (same card and same establishment) allowed within 30 days;
 * Irreversible codes: Only 01 attempt to approve the same transaction (same card and same establishment) allowed within a 30-day period.
 
 Fees: When exceeding the attempt limits established by the brand, a fee will be charged for each exceeding transaction.
-
 * Domestic cards: USD 0.10 (dollar) for each excess domestic transaction.
 * International cards: USD 0.25 (dollar) for each excess international transaction.
 * Authorization rules are in effect. Fee charges will apply from April 2021.
@@ -972,7 +969,6 @@ Charges made when a Merchant exceeds the rules for Retries of denied transaction
 ### PED: Excess Dispute Program
 
 **Details:
-
 * ASI1 transactions: they are Account Status Inquiry transactions, that is, they are transactions carried out to check the status of a card (check if it is active). For this purpose, no financial transactions should be used, but specific transactions.
 * Attempts per day2: consider for the purposes of the Hipercard Retry program from 00:00 to 23:59​
 * Reference month3: consider for the purposes of Hipercard's Retry program the 1st to the 30th or 31st of the month in which the transaction took place. The charge will be sent after the close of the subsequent month.
