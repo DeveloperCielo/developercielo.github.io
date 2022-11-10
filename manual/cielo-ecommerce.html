@@ -13895,41 +13895,6 @@ A Mastercard poderá consolidar alguns códigos de respostas dos emissores, que 
   </tbody>
 </table>
 
-<h3 id="tabela-de-merchantadvicecode-mac">Tabela de MerchantAdviceCode (MAC)</h3>
-
-<p>O <code class="language-plaintext highlighter-rouge">MerchantAdviceCode</code> (MAC) é o código de retorno da bandeira Mastercard que define o período para retentativa. A combinação do código de resposta com o MAC irá determinar se a retentativa é permitida e depois de quanto tempo.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Código de retorno</th>
-      <th>MAC (primeira retentativa)</th>
-      <th>Descrição</th>
-      <th>Permite retentativa?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>79<br />82<br />83<br />51</td>
-      <td>02</td>
-      <td>Transação não permitida.</td>
-      <td>Sim, após 72 horas.</td>
-    </tr>
-    <tr>
-      <td>05<br />14<br />51<br />54<br />79<br />82<br />83</td>
-      <td>03</td>
-      <td>Transação não permitida.</td>
-      <td>Sim, após 30 dias.</td>
-    </tr>
-    <tr>
-      <td>05</td>
-      <td>21</td>
-      <td>Transação não permitida. Pagamento recorrente, serviço cancelado.</td>
-      <td>Não.</td>
-    </tr>
-  </tbody>
-</table>
-
 <h3 id="outros-códigos-de-retorno">Outros códigos de retorno</h3>
 
 <table>
