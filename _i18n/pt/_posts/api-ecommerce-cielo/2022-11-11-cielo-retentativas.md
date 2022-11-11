@@ -48,7 +48,7 @@ A Bandeira Mastercard possui o programa Transaction Processing Excellence (TPE),
 * **2. Merchant Advice Code Transaction Excellence (MAC)**– monitora as retentativas de transações negadas, nos ambientes de cartão não presente e que são irreversíveis. Cobrança somente nos (MAC) 03 e 21.
 
 ## 1. Excessive Attempts
-    
+
 São cobranças efetuadas quando o estabelecimento comercial excede as regras de retentativas de transações.
 
 A bandeira também realiza o monitoramento para qualquer autorização de valor nominal, aprovada, com estorno subsequente para transações abaixo de 1 unidade de moeda inteira ou o equivalente a US$ 1. 
