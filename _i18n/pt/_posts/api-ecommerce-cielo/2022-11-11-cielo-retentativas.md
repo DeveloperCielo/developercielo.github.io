@@ -39,7 +39,7 @@ Significa, por exemplo, que o cartão está cancelado para uso, foi perdido ou r
 Significa que o emissor pode aprovar, mas não pode fazê-lo agora, possivelmente devido a um problema do sistema (inoperante) ou falta de limite, suspeita de fraude ou excedeu número de tentativas de digitação da senha. São decisões de recusas temporárias tomadas pelo emissor que podem mudar com o tempo.
 As bandeiras Visa, Mastercard, Elo e Hipercard ajustaram suas regras para limitar a quantidade de tentativas de autorização para uma transação negada. Essas mudanças preveem a cobrança de tarifas para o excesso de tentativas. Abaixo as regras de cada bandeira. 
 
-## Mastercard
+# Mastercard
 
 A Bandeira Mastercard possui o programa Transaction Processing Excellence (TPE), onde engloba 2 categorias:
 
@@ -47,7 +47,7 @@ A Bandeira Mastercard possui o programa Transaction Processing Excellence (TPE),
 
 * **2. Merchant Advice Code Transaction Excellence (MAC)**– monitora as retentativas de transações negadas, nos ambientes de cartão não presente e que são irreversíveis. Cobrança somente nos (MAC) 03 e 21.
 
-**1. Excessive Attempts**
+## 1. Excessive Attempts
     
 São cobranças efetuadas quando o estabelecimento comercial excede as regras de retentativas de transações.
 
@@ -61,4 +61,116 @@ A monitoração é aplicada para as retentativas de transações de compras nega
 |Cartão presente e Cartão não presente|Qualquer código de negativa que não está atribuído ao MAC 03 e 21. E também os códigos MAC caso não respeite os limites do “Excessive Attempts"|Nova regra a partir de 01/02/2023|R$ 2,00 |-|A partir 8ª retentativa|Permitido retentar em 24h.|
 
 * Serão consideradas como retentativas todas as transações de pagamento no mesmo cartão, e mesmo número de estabelecimento;
-* A Mastercard prorrogou a data de vigência para o dia 01/02/2023 referente as novas regras do programa (Excessive Attempts) antes prevista para início do dia 01/11/2022, abaixo as mudanças. 
+* A Mastercard prorrogou a data de vigência para o dia **01/02/2023** referente as novas regras do programa **(Excessive Attempts)** antes prevista para início do dia 01/11/2022, abaixo as mudanças. 
+
+* 1. O excesso considerado no programa ocorrerá a partir da oitava retentativa dentro do mês de apuração os valores cobrados sofreram alteração. 
+* 2. E à Mastercard também está introduzindo um limite de 35 tentativas recusadas no mesmo cartão e mesmo número de estabelecimento por período contínuo de 30 dias. Mesmo se o cliente não ultrapassar o limite de 7 retentativas no período de 24h, mas ultrapassar a quantidade do limite mensal a cobrança será aplicada
+
+> Obs: A regra vigente do programa Excessive Attempts é válida até 31/01/2023 tabela acima, onde é permitido apenas 10 tentativas de aprovar uma mesma transação (no mesmo cartão, e mesmo número de estabelecimento), permitido retentar após 24h.
+
+## 2. Merchant Advice Code Transaction Excellence (MAC)**
+
+São cobranças efetuadas quando o estabelecimento comercial realiza retentativa de envio de autorização para códigos de respostas irreversíveis com um mesmo cartão valido para cartão não presente.
+
+Dentro desse programa de retentativas, há programas que se destinam especificamente ao cenário de **“Não tente esta transação novamente”**. Para esses casos a Mastercard identifica as transações com os seguintes valores: MAC 03 e MAC 21, por exemplo.
+
+O programa MAC comporta alguns valores, porém **somente os MACs 03 e 21 possuem uma cobrança específica**. Os demais MACs não se enquadram nessa cobrança MAC 03/21.
+
+Os outros códigos MACs: 01, 02, 04, 24, 25, 26, 27, 28, 29 e 30 não entram no programa de cobrança do MAC mas entram na cobrança do programa Excessive Attempts, caso exceda os limites.
+
+Desde **14/10/2022** a Mastercard introduziu novos códigos MAC, quando um emissor recusa uma transação com o código de resposta 51 (Fundos Insuficiente) seguido de um dos MAC abaixo, para que o comerciante tome a melhor ação. 
+
+|MAC|Descrição|Descrição|
+|---|---|---|
+|01|Informações da nova conta disponíveis (ABU)|Necessidade de realizar atualização dos dados da conta que está sendo utilizada na transação, utilizando o ABU, por exemplo.|
+|02|Não pode aprovar no momento, tente depois|Devem tentar novamente a transação após 72 horas ou tentar a transação com um método de pagamento diferente.|
+|03|Não é permitido retentar|Devem buscar outro meio de garantir o pagamento, evitando custos desnecessários de várias solicitações de autorização que continuarão a resultar em declínios|
+|04|Requisitos de token não atendidos para este token modelo|Necessidade de realizar revisão dos requisitos de token, pois não foram atendidos para este token modelo enviado na transação|
+|21|Plano cancelado|Cliente realiza cancelamento de plano e mesmo após o cancelamento, estabelecimento continua enviando solicitação de autorização de compra.|
+|24|Tente novamente após 1 hora|Válido somente para o código de resposta 51 (Insuficiência de fundos)|
+|25|Tente novamente após 24 horas|Válido somente para o código de resposta 51 (Insuficiência de fundos)|
+|26|Tente novamente após 2 dias|Válido somente para o código de resposta 51 (Insuficiência de fundos)|
+|27|Tente novamente após 4 dias|Válido somente para o código de resposta 51 (Insuficiência de fundos)|
+|28|Tente novamente após 6 dias|Válido somente para o código de resposta 51 (Insuficiência de fundos)|
+|29|Tente novamente após 8 dias|Válido somente para o código de resposta 51 (Insuficiência de fundos)|
+|30|Tente novamente após 10 dias|Válido somente para o código de resposta 51 (Insuficiência de fundos)|
+
+Além disso, alguns códigos de retorno deixarão de ser enviados:
+
+* 04 (Cartão de Captura)
+* 14 (Número de cartão inválido)
+* 41 (Cartão Perdido)
+* 43 (Cartão Roubado)
+* 54 (Cartão Expirado)
+* 57 (Transação Não Permitida)
+* 62 (Cartão Restrito)
+* 63 (Violação de Segurança)
+
+**Categorização de retornos Mastercard**
+
+A Mastercard poderá consolidar alguns códigos de respostas dos emissores, que muitas vezes podem não indicar ao comerciante se pode ou não retentar, em 3 de uso exclusivo Mastercard:
+
+* 79 (Ciclo de vida)
+* 82 (Política)
+* 83 (Fraude/ Segurança)
+
+Os códigos originais serão substituídos pelo Merchant Advice Code (MAC), que acompanharão os códigos 79, 82 e 83 para determinar se a transação pode ou não ser retentada.
+
+**Por exemplo:**
+
+|Quando|Então|E o código de resposta|
+|---|---|
+|O emissor recusar a transação usando o código de resposta 54 (Cartão Expirado)|A Mastercard substituirá o código 54 para o código 79 (Recusa por ciclo de vida)|Acompanha o devido Merchant Advice Code (MAC)|
+
+## Programa de retentativas MAC 03 e MAC 21
+
+**Forma de apuração:**
+
+* Serão consideradas as transações de cartão não presente;
+* São consideradas como retentativas todas as transações de pagamento no mesmo cartão e mesmo número de estabelecimento; 
+* São contabilizadas as retentativas no programa MAC com os valores MAC 03 e MAC 21;
+* Valido para qualquer código de resposta,
+* O excesso contabilizado no programa ocorrerá a partir da 1ª retentativa dentro do mês de apuração;
+* O contador é zerado após o período de 30 dias;
+* As retentativas podem ser cobradas nos MACs 03/21 e no Excessive Attempts caso ultrapasse o limite de cada programa;
+* Atualmente é aplicado o valor de tarifa de R$1,25 e esse valor será alterado a partir de 01 de janeiro de 2023, como listado abaixo;
+
+**Tabela de valores:**
+
+|Número de retentativa|Regra|
+|---|---|
+|A partir 1ª rententativa|R$ 2,50 (dois reais e cinquenta centavos) por retentativa, a partir da 1ª|
+
+# Visa
+
+**O que é?**
+
+Um programa instituído pela Bandeira Visa que gera cobranças quando o estabelecimento comercial excede as regras de retentativas.
+
+* Valido para transações com cartão presente e cartão não presente;
+* **Códigos reversíveis:** Permitido até 15 tentativas de aprovar uma mesma transação (mesmo cartão, mesmo estabelecimento e valor) no período de 30 dias. Após os 30 dias iniciais (a contar da 1ª tentativa), qualquer retentativa será cobrada. 
+* **Códigos irreversíveis:** Permitido apenas 01 tentativa de aprovar uma mesma transação (mesmo cartão, mesmo estabelecimento), na 2 tentativa será cobrado.
+* Após uma transação aprovada o contador é zerado.
+
+**Tarifas**: Ao ultrapassar os limites de tentativas estabelecidos pela bandeira, haverá uma cobrança de tarifa para cada transação excedente.
+
+* Doméstico: USD 0,10 + 13,83% de Imposto
+* Estrangeiro: USD 0,25 + 13,83% de Imposto
+
+Regras de autorização já vigentes. A cobrança de tarifas é aplicada desde abril de 2021.
+
+**A Visa agrupou os códigos de retorno em 4 Categorias.**
+
+**Categoria 1 - Emissor nunca aprovará.**
+
+Para essa categoria, indica que o cartão foi cancelado ou nunca existiu ou que a negativa é resultado de uma restrição permanente ou condição de erro que impedirá uma aprovação futura.
+
+**Categoria 2 - Emissor não pode aprovar neste momento.**
+
+Indicam que a negativa é resultado de uma condição temporária tal como risco de crédito, controles de velocidade do emissor ou outras restrições do cartão que podem permitir uma retentativa da transação ser aprovada. Em alguns casos, a negativa requer uma ação do portador ou emissor para remover a restrição antes que uma aprovação possa ser obtida.
+
+**Categoria 3 - Qualidade de dados/revisar dados.**
+
+Quando um erro de dados é identificado pelo emissor essa transação é declinada como consequência. Os estabelecimentos devem revalidar dados de pagamentos antes de retentar. Estabelecimentos e Credenciadores devem monitorar estes códigos de negativas devido a exposição potencial a fraudes.
+
+> Atenção: A categoria 3 tem além dos limites considerados na categoria 2 um limite diferente, onde ele é cumulativo. Um estabelecimento pode realizar até 10.000 transações em um período de 30 dias (neste caso considerando apenas o número do estabelecimento e códigos de negadas). Se ultrapassar o limite, todas as transações recusadas por categoria 3 serão tarifadas.
