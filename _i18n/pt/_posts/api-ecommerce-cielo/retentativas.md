@@ -54,7 +54,6 @@ A bandeira também realiza o monitoramento para qualquer autorização de valor 
 
 A monitoração é aplicada para as retentativas de transações de compras negadas e aprovadas, realizadas em ambiente de cartão presente e cartão não presente.
 
-
 |Categorias|Códigos|Vigência|Tarifa Doméstica|Tarifa Internacional|Quando Ocorre|Permitido Retentar|
 |---|---|
 |Cartão presente e Cartão não presente|Qualquer código de negativa que não está atribuído ao MAC 03 e 21. E também os códigos MAC caso não respeite os limites do “Excessive Attempts"|Até 31/01/2023|R$ 2,00 |-|A partir 11ª retentativa|Permitido retentar em 24h.|
