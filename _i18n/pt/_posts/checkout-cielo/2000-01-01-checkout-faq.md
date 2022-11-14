@@ -26,7 +26,7 @@ Sim, o Checkout funciona com pagamentos internacionais e cartões emitidos fora 
 
 ## Quais meios de pagamento o Checkout Cielo suporta?
 
-Veja o manual de integração para a [lista completa de meios de pagamento](https://developercielo.github.io/manual/checkout-cielo#meios-de-pagamento-do-checkout-cielo)
+Veja o manual de integração para a [lista completa de meios de pagamento](https://developercielo.github.io/manual/checkout-cielo#meios-de-pagamento-do-checkout-cielo){:target="_blank"} 
 
 ## O Checkout Cielo suporta integrações mobile?
 
@@ -45,7 +45,7 @@ O CHECKOUT CIELO utiliza integração via POST e é possível configurá-la de d
 
 ## Como eu crio o Link de pagamento?
 
-O Link de pagamento é criado no momento de inclusão de um novo produto. Para isso, acesse o [Backoffice Checkout Cielo]({{ site.baseurl_root }}{% post_url 2000-01-01-checkout-tutoriais%}), no menu Produtos/Cadastrar Produtos.
+O Link de pagamento é criado no momento de inclusão de um novo produto. Para isso, acesse o [Backoffice Checkout Cielo](https://developercielo.github.io/tutorial/checkout-tutoriais){:target="_blank"}, no menu Produtos/Cadastrar Produtos.
 
 ## Quais informações eu preciso para montar o POST?
 
@@ -93,7 +93,7 @@ Se o comprador abandonar a tela do banco, falhando no processo de autenticação
 
 Ao finalizar uma transação, é enviado um POST com todos os dados da venda para a URL de Notificação, previamente cadastrada no BackOffice. O POST de notificação é enviado apenas no momento que a transação é finalizada, independentemente se houver alteração do status da transação.
 
-Dessa maneira os dados do pedido ficam atualizados no [Backoffice Checkout Cielo]({{ site.baseurl_root }}{% post_url 2000-01-01-checkout-tutoriais%}) e também no backoffice da loja/plataforma.
+Dessa maneira os dados do pedido ficam atualizados no [Backoffice Checkout Cielo](https://developercielo.github.io/tutorial/checkout-tutoriais){:target="_blank"} e também no backoffice da loja/plataforma.
 
 ## Para que serve a URL de Mudança de Status?
 
@@ -101,7 +101,7 @@ Ela define para onde será enviado o POST indicando a alteração de status de u
 
 ## Onde é feito o cadastro dessas URLs?
 
-No [Backoffice Checkout Cielo]({{ site.baseurl_root }}{% post_url 2000-01-01-checkout-tutoriais%}), no menu Configurações/Configurações da loja.
+No [Backoffice Checkout Cielo](https://developercielo.github.io/tutorial/checkout-tutoriais){:target="_blank"}, no menu Configurações/Configurações da loja.
 
 ## Qual a diferença entre o  Erro OPSSS antes e depois da exibição da tela do Checkout Cielo?
 
@@ -141,7 +141,7 @@ Produtos (categoria Material Físico) necessitam da habilitação de algum tipo 
 
 As categorias “Bens digitais” ou “Serviços” não necessitam desse tipo de informação.
 
-Para compreender a diferença entre os parâmetros do POST em relação a frete e tipos de produtos, compare os exemplos de post abaixo. Para mais informações, acesse o [Manual de Integração Checkout Cielo]({{ site.baseurl_root }}{% post_url 2000-01-01-checkout-cielo %}).
+Para compreender a diferença entre os parâmetros do POST em relação a frete e tipos de produtos, compare os exemplos de post abaixo. Para mais informações, acesse o [Manual de Integração Checkout Cielo](https://developercielo.github.io/manual/checkout-cielo){:target="_blank"} .
 
 ### Parâmetros obrigatórios
 
