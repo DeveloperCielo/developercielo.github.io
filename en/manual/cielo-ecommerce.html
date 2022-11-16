@@ -14703,66 +14703,44 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 <p>It is possible to carry out both the total cancellation and the partial cancellation via the Cielo website.</p>
 
-<h2 id="notification-post">Notification Post</h2>
+<h1 id="notification-post">Notification Post</h1>
 
-<h3 id="about-the-post">About the POST</h3>
+<p><strong>Notification Post</strong> is a <strong>webhook</strong> that sends notifications about changes in transaction status or recurring order creation.</p>
 
-<p>The Cielo e-commerce API offers a transactional notification system where the Merchant provides an endpoint that will receive a notification via ‘POST’</p>
-
-<p>The notification content will be formed by 3 fields:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code>- Identifier that represents a set of recurring transactions</li>
-  <li><code class="language-plaintext highlighter-rouge">PaymentId</code>- Identifier that represents a transaction</li>
-  <li><code class="language-plaintext highlighter-rouge">ChangeType</code> - Specifies the type of notification</li>
-</ul>
-
-<p>With the content above, the merchant can identify the transaction (via <code class="language-plaintext highlighter-rouge">PaymentId</code> or <code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code>) and the change suffered by it. With <code class="language-plaintext highlighter-rouge">PaymentId</code> it is possible to make a consult to the transactional base of the Cielo E-commerce API.</p>
-
-<p>The Notification Post is sent based on a selection of predefined events in the Cielo E-commerce API register. These events are registered by the Cielo support team, when requested by the merchant.</p>
+<p>During your cielo registration, you must set up an endpoint for Cielo to send notifications and you can also configure the events for which you want to receive notifications.</p>
 
 <h3 id="notified-events">Notified Events</h3>
 
-<p>The events that can be notified are:</p>
+<p>Events that can be notified by payment method are:</p>
 
 <table>
   <thead>
     <tr>
-      <th>Payment method</th>
-      <th>Event</th>
+      <th>Payment Method</th>
+      <th>Events that can be notified</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Credit card</td>
-      <td>Capture</td>
+      <td><strong>Credit Card</strong></td>
+      <td>Capture;<br />Cancellation;<br />Queries.</td>
     </tr>
     <tr>
-      <td>Credit card</td>
-      <td>Cancellation</td>
+      <td><strong>Debit Card</strong></td>
+      <td>Capture;<br />Queries.</td>
     </tr>
     <tr>
-      <td>Credit card</td>
-      <td>Survey</td>
+      <td><strong>Boleto</strong></td>
+      <td>Conciliation;<br />Manual cancellation</td>
     </tr>
     <tr>
-      <td>Bank slip</td>
-      <td>Conciliation</td>
-    </tr>
-    <tr>
-      <td>Bank slip</td>
-      <td>Manual Cancellation</td>
-    </tr>
-    <tr>
-      <td>Electronic transfer</td>
-      <td>Confirmed</td>
+      <td><strong>Electronic transfer</strong></td>
+      <td>Confirmed transers.</td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>About the Debit card:</strong>  We do not notify Debit card transactions. We suggest creating a RETURN URL, where the buyer will be sent if the transaction is completed in the bank environment. When this URL is triggered, our suggestion is for a <code class="language-plaintext highlighter-rouge">GET</code> to be run by searching for order information in the API Cielo.</p>
-
-<p>Notification also occurs in events related to <strong>Scheduled Recurrence Cielo</strong>.</p>
+<p>Notification also occurs at events related to <strong>Cielo Scheduled Recurrence</strong>:</p>
 
 <table>
   <thead>
@@ -14772,46 +14750,73 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
   </thead>
   <tbody>
     <tr>
-      <td>Disabled when reaching maximum number of attempts (transactions denied)</td>
+      <td>Disabled when reaching maximum number of attempts (denied transactions)</td>
     </tr>
     <tr>
       <td>Rehabilitation</td>
     </tr>
     <tr>
-      <td>Completed / End date reached</td>
+      <td>Finalized / Completion date reached</td>
     </tr>
     <tr>
       <td>Deactivation</td>
     </tr>
+    <tr>
+      <td>Creation of the recurring order recurrence transaction.</td>
+    </tr>
   </tbody>
 </table>
 
+<blockquote>
+  <p>Events are only notified when you request this type of notification from Cielo Support.</p>
+</blockquote>
+
 <h3 id="notification-endpoint">Notification Endpoint</h3>
 
-<p>An <code class="language-plaintext highlighter-rouge">URL Status Payment</code> must be registered by Cielo Support, so that the notification POST is executed.</p>
+<p>You must report an endpoint (<code class="language-plaintext highlighter-rouge">PAYMENT STATUS URL</code>) to Cielo Support for the Notification Post to run.</p>
 
-<p>Features of the <code class="language-plaintext highlighter-rouge">URL Status Payment</code></p>
-
-<ul>
-  <li>Must be <strong>static</strong></li>
-  <li>255 characters limit.</li>
-</ul>
-
-<p><strong>Notification Post</strong> Characteristics</p>
+<p>Characteristics of <code class="language-plaintext highlighter-rouge">Payment Status URL</code></p>
 
 <ul>
-  <li>It is shot every 30 minutes</li>
-  <li>In case of failure, 3 new attempts will be made. If all 3 attempts fail, new submissions will not occur.</li>
+  <li>Must be <strong>static</strong>;</li>
+  <li>Limit of 255 characters.</li>
 </ul>
 
-<p>It is possible to register an information to return the request header. Just contact Cielo Support and inform the items below</p>
+<p>Characteristics of <strong>Post notification</strong></p>
+
+<ul>
+  <li>It is sent every 30 minutes;</li>
+  <li>In the event of a failure, three retries are made.</li>
+</ul>
+
+<blockquote>
+  <p>To increase security, you can register header return information for your endpoint. With this, your endpoint will only accept the notification if Cielo sends the header.</p>
+</blockquote>
+
+<p>To set up the header information, please inform Cielo Support of the following:</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">KEY</code> - Parameter name</li>
   <li><code class="language-plaintext highlighter-rouge">VALUE</code> - Static value to be returned</li>
 </ul>
 
-<p>You may register up to 3 types of return information in the header</p>
+<p>You can register up to 3 types of return information in the header.</p>
+
+<blockquote>
+  <p>The <strong>merchant should return</strong> in response to the notification: <strong>HTTP Status Code 200 OK</strong>.</p>
+</blockquote>
+
+<p>The content of the notification will consist of three fields:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code>: identifier that represents a set of recurring transactions;</li>
+  <li><code class="language-plaintext highlighter-rouge">PaymentId</code>: payment identification number;</li>
+  <li><code class="language-plaintext highlighter-rouge">ChangeType</code>: specifies the type of notification.</li>
+</ul>
+
+<p>Using this data you can identify the transaction via <code class="language-plaintext highlighter-rouge">PaymentId</code> or <code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code> and the change that ocurred. After the notification, you can get more details about the transaction by <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#searching-for-a-transaction-via-paymentid" target="_blank">Searching for a transaction via PaymentId</a> or by <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#searching-for-recurrence-information" target="_blank">Searching for recurrence information</a></p>
+
+<p>Here’s an example of the Notification Post content:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
    </span><span class="nl">"RecurrentPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
@@ -14820,7 +14825,14 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>The store <strong>must</strong> return in response to notification: <strong>HTTP Status Code 200 OK</strong></p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--header</span> <span class="s2">"key: value"</span>
+<span class="o">{</span>
+   <span class="s2">"RecurrentPaymentId"</span>: <span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>,
+   <span class="s2">"PaymentId"</span>: <span class="s2">"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>,
+   <span class="s2">"ChangeType"</span>: <span class="s2">"2"</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
 <table>
   <thead>
@@ -14835,27 +14847,29 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
-      <td>Identifier that represents the Recurring order (applicable only to ChangeType 2 or 4)</td>
+      <td>Identifier representing the Recurring request (only applicable for ChangeType 2 or 4).</td>
       <td>GUID</td>
       <td>36</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Identifier that represents the transaction</td>
+      <td>Payment identification number.</td>
       <td>GUID</td>
       <td>36</td>
       <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ChangeType</code></td>
-      <td>Specifies the type of notification. See table below</td>
+      <td>Specifies the type of notification.</td>
       <td>Number</td>
       <td>1</td>
       <td>Yes</td>
     </tr>
   </tbody>
 </table>
+
+<h3 id="changetype-table">ChangeType table</h3>
 
 <table>
   <thead>
@@ -14867,27 +14881,31 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
   <tbody>
     <tr>
       <td>1</td>
-      <td>Payment status change</td>
+      <td>Payment status change.</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>Recurrence created</td>
+      <td>Recurrence created.</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>AntiFraud status change</td>
+      <td>Antifraude status change. Exclusive for customers integrated with Antifraude.</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>Recurring payment status change (Ex. automatic deactivation)</td>
+      <td>Recurring payment status change (eg automatic deactivation).</td>
     </tr>
     <tr>
       <td>5</td>
-      <td>cancellation declined</td>
+      <td>Cancellation denied.</td>
     </tr>
     <tr>
       <td>7</td>
-      <td>Chargeback notification <br /> More details <a href="https://braspag.github.io//en/manual/risknotification">Risk Notification</a></td>
+      <td>Chargeback notification. Exclusive for customers integrated with <a href="https://braspag.github.io//en/manual/risknotification" target="_blank">Risk Notification API</a>.</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Fraud alert.</td>
     </tr>
   </tbody>
 </table>
