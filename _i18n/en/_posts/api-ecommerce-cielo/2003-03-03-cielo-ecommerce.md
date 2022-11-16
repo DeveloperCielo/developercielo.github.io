@@ -7661,66 +7661,69 @@ https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/void?amount={
 
 It is possible to carry out both the total cancellation and the partial cancellation via the Cielo website.
 
-## Notification Post
+# Notification Post
 
-### About the POST
+**Notification Post** is a **webhook** that sends notifications about changes in transaction status or recurring order creation.
 
-The Cielo e-commerce API offers a transactional notification system where the Merchant provides an endpoint that will receive a notification via 'POST'
-
-The notification content will be formed by 3 fields:
-
-* `RecurrentPaymentId`- Identifier that represents a set of recurring transactions
-* `PaymentId`- Identifier that represents a transaction
-* `ChangeType` - Specifies the type of notification
-
-With the content above, the merchant can identify the transaction (via `PaymentId` or `RecurrentPaymentId`) and the change suffered by it. With `PaymentId` it is possible to make a consult to the transactional base of the Cielo E-commerce API.
-
-The Notification Post is sent based on a selection of predefined events in the Cielo E-commerce API register. These events are registered by the Cielo support team, when requested by the merchant.
+During your cielo registration, you must set up an endpoint for Cielo to send notifications and you can also configure the events for which you want to receive notifications.
 
 ### Notified Events
 
-The events that can be notified are:
+Events that can be notified by payment method are:
 
-|Payment method|Event|
-|---|---|
-|Credit card|Capture|
-|Credit card|Cancellation|
-|Credit card|Survey|
-|Bank slip|Conciliation|
-|Bank slip|Manual Cancellation|
-|Electronic transfer|Confirmed|
+| Payment Method               | Events that can be notified                                              |
+|------------------------------|--------------------------------------------------------------------------|
+|**Credit Card**               | Capture;<br/>Cancellation;<br/>Queries.                                  |
+|**Debit Card**                | Capture;<br/>Queries.                                                    |
+|**Boleto**                    | Conciliation;<br/>Manual cancellation                                    |
+|**Electronic transfer**       | Confirmed transers.                                                      |
 
-**About the Debit card:**  We do not notify Debit card transactions. We suggest creating a RETURN URL, where the buyer will be sent if the transaction is completed in the bank environment. When this URL is triggered, our suggestion is for a `GET` to be run by searching for order information in the API Cielo.
-
-Notification also occurs in events related to **Scheduled Recurrence Cielo**.
+Notification also occurs at events related to **Cielo Scheduled Recurrence**:
 
 | Recurrence Events                                                        |
 |--------------------------------------------------------------------------|
-| Disabled when reaching maximum number of attempts (transactions denied) |
+| Disabled when reaching maximum number of attempts (denied transactions)  |
 | Rehabilitation                                                           |
-| Completed / End date reached                                             |
+| Finalized / Completion date reached                                      |
 | Deactivation                                                             |
+| Creation of the recurring order recurrence transaction.                  |
+
+> Events are only notified when you request this type of notification from Cielo Support.
 
 ### Notification Endpoint
 
-An `URL Status Payment` must be registered by Cielo Support, so that the notification POST is executed.
+You must report an endpoint (`PAYMENT STATUS URL`) to Cielo Support for the Notification Post to run.
 
-Features of the `URL Status Payment`
+Characteristics of `Payment Status URL`
 
-* Must be **static**
-* 255 characters limit.
+* Must be **static**;
+* Limit of 255 characters.
 
-**Notification Post** Characteristics
+Characteristics of **Post notification** 
 
-* It is shot every 30 minutes
-* In case of failure, 3 new attempts will be made. If all 3 attempts fail, new submissions will not occur.
+* It is sent every 30 minutes;
+* In the event of a failure, three retries are made.
 
-It is possible to register an information to return the request header. Just contact Cielo Support and inform the items below
+> To increase security, you can register header return information for your endpoint. With this, your endpoint will only accept the notification if Cielo sends the header. 
+
+To set up the header information, please inform Cielo Support of the following:
 
 * `KEY` - Parameter name 
 * `VALUE` - Static value to be returned
 
-You may register up to 3 types of return information in the header
+You can register up to 3 types of return information in the header.
+
+> The **merchant should return** in response to the notification: **HTTP Status Code 200 OK**.
+
+The content of the notification will consist of three fields:
+
+* `RecurrentPaymentId`: identifier that represents a set of recurring transactions; 
+* `PaymentId`: payment identification number;
+* `ChangeType`: specifies the type of notification.
+
+Using this data you can identify the transaction via `PaymentId` or `RecurrentPaymentId` and the change that ocurred. After the notification, you can get more details about the transaction by [Searching for a transaction via PaymentId](https://developercielo.github.io/en/manual/cielo-ecommerce#searching-for-a-transaction-via-paymentid){:target="_blank"} or by [Searching for recurrence information](https://developercielo.github.io/en/manual/cielo-ecommerce#searching-for-recurrence-information){:target="_blank"}
+
+Here's an example of the Notification Post content:
 
 ```json
 {
@@ -7730,22 +7733,33 @@ You may register up to 3 types of return information in the header
 }
 ```
 
-The store **must** return in response to notification: **HTTP Status Code 200 OK**
+```shell
+curl
+--header "key: value"
+{
+   "RecurrentPaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+   "PaymentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+   "ChangeType": "2"
+}
+```
 
 |Property|Description|Type|Size|Required|
 |---|---|---|---|---|
-|`RecurrentPaymentId`|Identifier that represents the Recurring order (applicable only to ChangeType 2 or 4)|GUID|36|No|
-|`PaymentId`|Identifier that represents the transaction|GUID|36|Yes|
-|`ChangeType`|Specifies the type of notification. See table below|Number|1|Yes|
+|`RecurrentPaymentId`|Identifier representing the Recurring request (only applicable for ChangeType 2 or 4).|GUID|36|No|
+|`PaymentId`|Payment identification number.|GUID|36|Yes|
+|`ChangeType`|Specifies the type of notification.|Number|1|Yes|
+
+### ChangeType table
 
 |ChangeType|Description|
 |---|---|
-|1|Payment status change|
-|2|Recurrence created|
-|3|AntiFraud status change|
-|4|Recurring payment status change (Ex. automatic deactivation)|
-|5|cancellation declined|
-|7|Chargeback notification <br/> More details [Risk Notification](https://braspag.github.io//en/manual/risknotification)|
+|1|Payment status change.|
+|2|Recurrence created.|
+|3|Antifraude status change. Exclusive for customers integrated with Antifraude. |
+|4|Recurring payment status change (eg automatic deactivation).|
+|5|Cancellation denied.|
+|7|Chargeback notification. Exclusive for customers integrated with [Risk Notification API](https://braspag.github.io//en/manual/risknotification){:target="_blank"}.|
+|8|Fraud alert.|
 
 # Velocity
 
