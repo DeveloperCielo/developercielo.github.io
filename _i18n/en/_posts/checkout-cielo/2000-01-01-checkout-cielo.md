@@ -1526,6 +1526,7 @@ It means, for example, that the card is canceled for use, has been lost or stole
 * **Reversible: Retry allowed.**
 
 Means that the issuer can approve, but cannot do so now, possibly due to a system problem (down) or lack of limit, suspected fraud or exceeded number of password attempts. These are temporary opt-out decisions made by the issuer that may change over time.
+
 The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the number of authorization attempts for a denied transaction. These changes provide for the charging of fees for excessive attempts. Below are the rules for each flag.
 
 ## Mastercard
@@ -1552,8 +1553,8 @@ Monitoring is applied to retry transactions for denied and approved purchases, c
 * All payment transactions using the same card and the same merchant number will be considered as retrys;
 * Mastercard has extended the effective date to **01/02/2023** regarding the new program rules **(Excessive Attempts)** previously scheduled for the beginning of 01/11/2022, below the changes.
 
-* 1. The excess considered in the program will occur from the eighth attempt within the calculation month. The amounts charged have changed.
-* 2. And Mastercard is also introducing a limit of 35 failed attempts on the same card and merchant number per continuous 30-day period. Even if the customer does not exceed the limit of 7 retries in a 24-hour period, but exceeds the monthly limit, the charge will be applied
+* **1.** The excess considered in the program will occur from the eighth attempt within the calculation month. The amounts charged have changed.
+* **2.** And Mastercard is also introducing a limit of 35 failed attempts on the same card and merchant number per continuous 30-day period. Even if the customer does not exceed the limit of 7 retries in a 24-hour period, but exceeds the monthly limit, the charge will be applied
 
 > Note: The current rule of the Excessive Attempts program is valid until 01/31/2023 in the table above, where only 10 attempts to approve the same transaction are allowed (on the same card, and same merchant number), with retry allowed after 24 hours.
 
@@ -1771,15 +1772,11 @@ Charges made when a Merchant exceeds the Retry rules for denied transactions wit
 
 **Rules:**
 
-* ASI transactions: these are Account Status Inquiry transactions, that is, transactions carried out to query the status of a card (check that it is active). For this purpose, financial transactions should not be used, but specific transactions.​
-
-* Attempts per day (item 2): consider for purposes of Hipercard's Retry program from 00:00 to 23:59​
-
-* Reference month (item 3): for purposes of the Hipercard Retry program, consider the 01st to the 30th or 31st of the month in which the transaction took place. The charge will be sent after the close of the subsequent month.​
-
-* Transaction codes considered irreversible by the issuer were categorized by the ABECS payments and self-regulation industry, through current Regulation 21. Return codes (ABECS)
-
-* Codes not mentioned in the ABECS manual are considered reversible.
+* **1.** ASI transactions: these are Account Status Inquiry transactions, that is, transactions carried out to query the status of a card (check that it is active). For this purpose, financial transactions should not be used, but specific transactions.​
+* **2.** Attempts per day (item 2): consider for purposes of Hipercard's Retry program from 00:00 to 23:59​
+* **3.** Reference month (item 3): for purposes of the Hipercard Retry program, consider the 01st to the 30th or 31st of the month in which the transaction took place. The charge will be sent after the close of the subsequent month.​
+* **4.** Transaction codes considered irreversible by the issuer were categorized by the ABECS payments and self-regulation industry, through current Regulation 21. Return codes (ABECS)
+* **5.** Codes not mentioned in the ABECS manual are considered reversible.
 
 **Effective date: September 15, 2022**
 
