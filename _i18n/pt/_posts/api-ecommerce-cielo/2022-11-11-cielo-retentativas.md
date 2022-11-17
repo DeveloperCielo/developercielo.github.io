@@ -174,3 +174,56 @@ Indicam que a negativa é resultado de uma condição temporária tal como risco
 Quando um erro de dados é identificado pelo emissor essa transação é declinada como consequência. Os estabelecimentos devem revalidar dados de pagamentos antes de retentar. Estabelecimentos e Credenciadores devem monitorar estes códigos de negativas devido a exposição potencial a fraudes.
 
 > Atenção: A categoria 3 tem além dos limites considerados na categoria 2 um limite diferente, onde ele é cumulativo. Um estabelecimento pode realizar até 10.000 transações em um período de 30 dias (neste caso considerando apenas o número do estabelecimento e códigos de negadas). Se ultrapassar o limite, todas as transações recusadas por categoria 3 serão tarifadas.
+
+**Categoria 4 - Códigos de respostas genéricos.	**
+
+A categoria 4 inclui todos os outros códigos de resposta de recusa, muitos dos quais fornecem pouco ou nenhum valor para Adquirentes/Comerciantes como parte de sua estratégia de nova tentativa. O uso do emissor deve permanecer mínimo.
+
+A maioria das condições de recusa tem códigos de resposta descritivos nas Categorias 1, 2 e 3 para indicar o motivo da recusa. No entanto, pode haver circunstâncias em que não haja valor de código de resposta para uma condição de declínio específica. Emissores pode usar outros valores de códigos de resposta definidos nas Especificações Técnicas VisaNet; no entanto, o uso deve permanecer mínimo. 
+
+Os emissores devem usar códigos de resposta que reflitam com mais precisão o motivo das recusas. Categorias 1 (o emissor nunca aprovar), 2 (o emissor não pode aprovar neste momento) e 3 (Qualidade dos dados) devem ser usados, e os emissores devem limitar o uso de Categoria 4 (Código de Resposta Genérico) para transações onde nenhum outro valor se aplica. A taxa do Código de Resposta Genérico é cobrada para garantir que não mais do que a porcentagem aprovada regionalmente2 do total de recusas do emissor sejam categorizadas como Categoria 4. Os emissores que excederem o limite definido regionalmente receberão a Taxa de Código de Resposta Genérica por base de transação para cada declínio em excesso do limite definido.
+
+**Tabela com as regras e códigos de recusa.**
+
+![VISA](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/retentativa_visa.png)
+
+**Obs:** O código de resposta 14 aparece nas categorias 1 e 3 porem a contabilização é a seguinte:
+
+Na categoria 1 o EC é tarifado a partir da 2ª tentativa para o (mesmo estabelecimento e mesmo cartão) **não permitido retentar.** 
+
+Na categoria 3 compõe o grupo de códigos para contabilização das 10.001 transações, após o EC atingir 10.000 retentativas com o este grupo de códigos, qualquer transação será contabilizada independente do Cartão.
+
+**Exemplo:** Tivemos 10.000 transações negadas em um EC com os códigos de categoria 3, se a transação 10.001 for no código 14 ou em qualquer código do grupo de categoria 3 ele será tarifado independente do cartão.
+
+# Elo
+
+**O que é?**
+
+Trata-se de um programa instituído pela Bandeira ELO que gera cobranças quando o estabelecimento comercial excede as regras de retentativas de transações com um mesmo cartão. 
+
+**Formas de Apuração**
+
+* Retentativas: todas transações de pagamento no mesmo - cartão, validade, valor, Merchant ID (MID) - dentro de 30 dias
+* Códigos contabilizados: todos de negativas​
+* Excesso: a partir da 16ª retentativa no mês​*
+* Tarifa: R$ 0,80 (oitenta centavos) por retentativa, a partir da 16º
+* Cobrança: A cobrança só será feita em casos de recorrência, sendo assim, o estabelicimento tem que estar pelo menos 2 meses consecutivos no programa.
+* Contabilização do excesso: É baseado nos controles internos da Elo. 1º ao último dia corrido do mês
+
+**A tabela abaixo exemplifica como será feito a cobrança pela bandeira.**
+
+|Mês|Cenário|Cobrança|
+|---|---|---|
+|1º (agosto)|EC Excede limites|Advertência|
+|2º (setembro)|EC Não excede Limites|Não gera cobrança|
+|3º (outubro)|EC Excede limites|Neste caso será advertido novamente. A cobrança só será feita em caso de recorrência.|
+|4º (novembro)|EC Excede limites|Aplicação da multa|
+|5º (dezembro)|EC Excede limites|Aplicação da multa|
+|6º (janeiro)|EC Não excede Limites|Não gera cobrança|
+|7º (fevereiro)|EC Excede limites|Será advertido novamente.|
+
+**Início de vigência: 1º de agosto de 2022**
+
+**Relação de códigos de recusa:**
+
+Os códigos de respostas abaixo, estão listados conforme manual de autorização da bandeira. 
