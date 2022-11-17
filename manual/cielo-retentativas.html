@@ -526,6 +526,279 @@ As bandeiras Visa, Mastercard, Elo e Hipercard ajustaram suas regras para limita
 
 <p>Os códigos de respostas abaixo, estão listados conforme manual de autorização da bandeira. </p>
 
+<table>
+  <thead>
+    <tr>
+      <th>CÓDIGOS</th>
+      <th>DESCRIÇÃO</th>
+      <th>QUANDOO EMISSOR DEVE UTILIZAR O CÓDIGO DE RESPOSTA</th>
+      <th>RETENTATIVA</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4</td>
+      <td>REFAZER A TRANSAÇÃO</td>
+      <td>Esse código deve ser usado pelo Emissor para solicitar que o portador/EC realize novamente a transação caso ele (Emissor) detecte falha na captura das informações da transação ou caso seja necessário atualização da senha negando a 1ª transação</td>
+      <td>Reversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>GENÉRICA</td>
+      <td>A Bandeira poderá utilizar esse código para outras tratativas (genérica).</td>
+      <td>Reversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>CONSULTAR CREDENCIADOR</td>
+      <td>Esse motivo deve ser utilizado pelo Credenciador quando ele identificar problemas internos que não necessitem de mudanças na mensageria para que a transação siga o fluxo correto.</td>
+      <td>Reversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>ERRO NO CARTÃO</td>
+      <td>- Esse código deve ser usado pelo Emissor quando ele identificar falha na validação do CAVV de transações 3DS ou tokenizada.<br />- Esse código deve ser usado pelo Emissor quando identificar CÓDIGO DE SERVIÇO incorreto/inválido para cartões físicos.<br />- Esse código deve ser usado pelo Emissor para problemas identificados no TOKEN<br />- Este código deve ser utilizado para negar reversões e avisos de reversão onde a transação original não é localizada pelo Emissor.</td>
+      <td>Irreversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>VALOR DA TRANSAÇÃO INVÁLIDA</td>
+      <td>- Esse código deve ser usado pelo Emissor quando identificar que o valor da transação é inválido de acordo com os parâmetros do Emissor.</td>
+      <td>Irreversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>NÚMERO DO CARTÃO INVÁLIDA</td>
+      <td>- Esse código deve ser utilizado pelo Emissor para Nº DO CARTÃO INVÁLIDO/INCORRETO.<br />- A Bandeira poderá utilizar esse código para outras tratativas.</td>
+      <td>Irreversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>PROBLEMAS ADQUIRENTE</td>
+      <td>- Esse motivo deve ser utilizado pelo Credenciador quando ele identificar problemas internos que necessitem de mudanças na mensageria para que a transação siga o fluxo correto.</td>
+      <td>Irreversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>VALOR DA PARCELA INVÁLIDO</td>
+      <td>- Esse código deve ser utilizado pelo Emissor quando o VALOR DA PARCELA ESTÁ FORA DOS LIMITES estabelecidos por ele. Esse código deve ser utilizado quando o emissor não aceitar o produto Elo Parcelado Loja (produto 072) com o número de parceladas menor que 12.</td>
+      <td>Irreversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>ERRO DE FORMATO DA MENSAGEM</td>
+      <td>- Esse código deve ser usado pelo Emissor quando ele identificar ERRO DE FORMATO NA MENSAGERIA (campo obrigatório, domínios, formatos, tamanho não presentes ou divergentes da especificação).</td>
+      <td>Irreversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>38</td>
+      <td>COMPRA/EXCEDIDAS TENTATIVAS SENHA</td>
+      <td>- Esse código deve ser utilizado pelo Emissor quando for EXCEDIDO O Nº DE TENTATIVAS PERMITIDAS DE DIGITAÇÃO DA SENHA (utilizado apenas para compras).</td>
+      <td>Reversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>CARTÃO PERDIDO</td>
+      <td>- Esse código deve ser utilizado pelo Emissor para CARTÃO COM BLOQUEIO DEFINITIVO pelo motivo “PERDA”.</td>
+      <td>Irreversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>43</td>
+      <td>CARTÃO ROUBADO</td>
+      <td>- Esse código deve ser utilizado pelo Emissor para CARTÃO COM BLOQUEIO DEFINITIVO pelo motivo “ROUBO”.</td>
+      <td>Irreversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>51</td>
+      <td>LIMITE/SALDO INSUFICIENTE</td>
+      <td>- Esse código deve ser utilizado pelo Emissor para CARTÃO que está TEMPORARIAMENTE SEM SALDO OU LIMITE SUFICIENTE para realizar a transação.<br />- Saque/advance 2 sem trilha 2<br />- Compra com Troco não suportada.<br />- Verificação de endereço não suportada (somente quando o código de processo for “13” sem valor de compra). * Verificação de conta de cartão não suportada (somente quando o código de processo for “18” sem valor de compra).</td>
+      <td>Reversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>54</td>
+      <td>DATA DE VALIDADE DO CARTÃO</td>
+      <td>- Esse código deve ser utilizado pelo Emissor para CARTÃO FÍSICO ou TOKEN COM VALIDADE / EXPIRAÇÃO VENCIDA ou INVÁLIDA.</td>
+      <td>Irreversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>55</td>
+      <td>SENHA INVÁLIDA / NÃO ENVIADA</td>
+      <td>- Esse código deve ser utilizado pelo Emissor quando a SENHA DIGITADA PELO CLIENTE NÃO CONFERE, ESTÁ INVÁLIDA/INCORRETA.<br />- Esse código deve ser utilizado pelo Emissor quando a SENHA NÃO FOR ENVIADA NA MENSAGERIA E A MESMA É EXIGIDA PARA APROVAÇÃO DA TRANSAÇÃO.</td>
+      <td>Reversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>56</td>
+      <td>SEM REGISTRO DO CARTÃO</td>
+      <td><br />1. Nº do cartão não pertence ao Emissor<br />2. Nº do cartão não é válido</td>
+      <td>Irreversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>57</td>
+      <td>TRANSAÇÃO NÃO PERMITIDA PARA ESSE CARTÃO</td>
+      <td>- Esse código deve ser utilizado pelo Emissor quando o cartão estiver com BLOQUEIO DEFINITIVO, exceto bloqueio perda e roubo que já possuem códigos específicos (ex: falecimento, fraude confirmada, cancelamento definitivo a pedido do cliente, etc).<br />- Esse código deve ser utilizado para PRODUTOS E SERVIÇOS NÃO SUPORTADOS pelo emissor do cartão.<br />- Esse código pode ser usado para TOKEN INVÁLIDO / SUSPENSO / INATIVO.<br />- Esse código deve ser usado para negar o modo de entrada FALLBACK.</td>
+      <td>Irreversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>58</td>
+      <td>COMERCIANTE INVÁLIDO</td>
+      <td>- Esse código deve ser utilizado pelo Emissor quando o MCC do estabelecimento não estiver cadastrado para obtenção de token junto ao Emissor.</td>
+      <td>Irreversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>59</td>
+      <td>SUSPEITA DE FRAUDE</td>
+      <td>- Esse código deve ser utilizado pelo Emissor quando regras de prevenção SUSPEITAM DE FRAUDE, sendo necessário o contato do portador com o Emissor para liberação do cartão e realização de nova transação.<br />- Esse código deve ser utilizado pelo Emissor para negar transações por ausência do AVISO VIAGEM que deve ser realizado pelo portador do cartão antes de viagens ao exterior ou em alguns casos antes de realizar transações em sites internacionais.</td>
+      <td>Reversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>61</td>
+      <td>VALOR MÁXIMO SAQUE/COMPRAS EXCEDIDO</td>
+      <td>- Esse código deve ser utilizado pelo Emissor quando o valor do saque/compras exceder o limite permitido por ele.</td>
+      <td>Reversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>62</td>
+      <td>BLOQUEIO TEMPORÁRIO DE COBRANÇA</td>
+      <td>- Esse código deve ser utilizado pelo Emissor para cartões com BLOQUEIO TEMPORÁRIO DE COBRANÇA.</td>
+      <td>Reversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>63</td>
+      <td>VIOLAÇÃO DE SEGURANÇA</td>
+      <td>- Esse código deve ser utilizado pelo Emissor quando o CÓDIGO DE SEGURANÇA DO CARTÃO (CVE2) estiver INCORRETO / INVÁLIDO ou MST inválido (token).</td>
+      <td>Irreversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>64</td>
+      <td>VALOR MÍNIMO DA TRANSAÇÃO - INVÁLIDO</td>
+      <td>- Esse código deve ser utilizado pelo Emissor quando o VALOR DA TRANSAÇÃO ESTIVER ABAIXO DO MÍNIMO permitido pelo Emissor</td>
+      <td>Irreversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>65</td>
+      <td>QUANTIDADE DE SAQUES EXCEDIDOS</td>
+      <td>- Esse código deve ser utilizado pelo Emissor quando o limite de quantidade de saques estiver excedido</td>
+      <td>Reversível</td>
+      <td>  </td>
+    </tr>
+    <tr>
+      <td>75</td>
+      <td>SAQUE</td>
+      <td>EXCEDIDAS TENTATIVAS SENHA</td>
+      <td>- Esse código deve ser utilizado pelo Emissor quando for excedida a quantidade de tentativas de digitação de senha estipuladas pelo Emissor (utilizado apenas para SAQUES)</td>
+      <td>Reversível</td>
+    </tr>
+    <tr>
+      <td>76</td>
+      <td>CONTA DESTINO INVÁLIDA OU INEXISTENTE</td>
+      <td>- Esse código deve ser utilizado pelo Emissor quando conta “PARA” (destino) no BIT 3 é inválida ou inexistente e exclusivamente para transações de Transferência de Fundos</td>
+      <td>Irreversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>77</td>
+      <td>CONTA ORIGEM INVÁLIDA OU INEXISTENTE</td>
+      <td>- Esse código deve ser utilizado pelo Emissor quando conta “DE” (origem) no BIT 3 é inválida ou inexistente e exclusivamente para transações de Transferência de Fundos.</td>
+      <td>Irreversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>78</td>
+      <td>CARTÃO NOVO SEM DESBLOQUEIO / CARTÃO BLOQUEADO</td>
+      <td>- Esse código deve ser utilizado pelo Emissor quando o cartão novo ainda não foi desbloqueado (ativado) pelo portador junto ao Emissor ou quando o Portador, mediante autonomia, desejar bloquear temporariamente o cartão através do aplicativo do Emissor.</td>
+      <td>Reversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>82</td>
+      <td>CARTÃO INVÁLIDO (dados internos)</td>
+      <td>- Esse código deve ser utilizado pelo Emissor quando dados internos do cartão não conferem (ex: criptograma inválido, ATC inválido etc.)</td>
+      <td>Irreversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>83</td>
+      <td>NÃO É POSSÍVEL VALIDAR A SENHA</td>
+      <td>- Esse código deve ser utilizado pelo Emissor e será utilizado pela Elo quando não for possível validar ou descriptografar a senha.</td>
+      <td>Irreversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>91</td>
+      <td>EMISSOR FORA DO AR</td>
+      <td>- Esse código será utilizado pela Bandeira quando o Emissor está temporariamente indisponível para autorizar a transação ou não foi recebida a resposta do Emissor no tempo estabelecido.</td>
+      <td>Reversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>96</td>
+      <td>FALHA DO SISTEMA</td>
+      <td>- Esse código será utilizado pela Bandeira ou pelo Emissor por problemas no processamento da transação.</td>
+      <td>Reversível</td>
+      <td>  </td>
+    </tr>
+    <tr>
+      <td>AB</td>
+      <td>FUNÇÃO INCORRETA (DÉBITO)</td>
+      <td>- Esse código será utilizado pelo Emissor para sinalizar o estabelecimento que ele solicitou a autorização na função DÉBITO, mas o cartão não possui essa função ativa.</td>
+      <td>Irreversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>AC</td>
+      <td>FUNÇÃO INCORRETA (CRÉDITO)</td>
+      <td>- Esse código será utilizado pelo Emissor para sinalizar o estabelecimento que ele solicitou a autorização na função CRÉDITO, mas o cartão não possui essa função ativa.</td>
+      <td>Irreversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>FM</td>
+      <td>UTILIZAR O CHIP</td>
+      <td>- Esse código será utilizado pelo Emissor para informar ao estabelecimento que a transação contactless não terá sucesso e que o portador deve utilizar o chip (contato).</td>
+      <td>Irreversível</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>P5</td>
+      <td>TROCA DE SENHA / FALHA NO DESBLOQUEIO</td>
+      <td>- Esse código será utilizado pelo Emissor quando ocorreu falha na troca de senha ou falha no desbloqueio.</td>
+      <td>Irreversível</td>
+      <td>  </td>
+    </tr>
+    <tr>
+      <td>P6</td>
+      <td>NOVA SENHA NÃO ACEITA</td>
+      <td>- Esse código será utilizado pelo Emissor quando a nova senha que o cliente escolheu não atende os critérios mínimos estabelecidos pelo Emissor.</td>
+      <td>Reversível</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 
 
