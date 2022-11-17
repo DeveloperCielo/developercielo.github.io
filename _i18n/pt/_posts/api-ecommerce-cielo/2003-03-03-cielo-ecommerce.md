@@ -6948,7 +6948,7 @@ Os códigos originais serão substituídos pelo Merchant Advice Code (MAC), que 
 |---|---|
 |A partir 1ª rententativa|R$ 2,50 (dois reais e cinquenta centavos) por retentativa, a partir da 1ª|
 
-# Visa
+### Visa
 
 **O que é?**
 
