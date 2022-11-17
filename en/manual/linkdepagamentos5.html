@@ -1615,419 +1615,677 @@ The information returned via the Notification Post can be found in the topic <a 
 
 <h2 id="flag-retry-program">Flag Retry Program</h2>
 
-<p><strong>What are retries?</strong> When a customer attempts to make a credit card purchase at your business, the transaction may be denied due to a number of factors. Subsequent attempts to complete the transaction using the same card is called a retry.</p>
+<p><strong>What are retries?</strong></p>
 
-<p><strong>What has changed?</strong> Each card brand defines the amounts that will be charged per retry. The number of times a transaction can be retried before being charged also varies by brand.</p>
+<p>When a customer tries to make a card purchase at your business, a transaction can be declined due to a number of factors. Subsequent attempts to complete the transaction using the same card is what retry behavior is.</p>
 
-<p><strong>What about e-commerce?</strong> Card brands define different rules for transactions with present and non-present cards, as in the case of sales made over the internet.</p>
+<p><strong>What has changed?</strong></p>
 
-<p><strong>What is the impact for the customer?</strong> Customers who do not follow the rules will be penalized by charging fees for exceeding transactions.</p>
+<p>Each card brand defines the amounts that will be charged for retrying. The number of times a transaction can be held before being charged also varies by brand.</p>
 
-<p>Aiming to improve the shopping experience, the means of payment market, together with ABECS, promoted the standardization of response codes for refused transactions made by card.</p>
+<p><strong>And there is no e-commerce?</strong></p>
 
-<p>As you can see in the Return codes (ABECS) link, the attempts were classified as:</p>
+<p>Card brands define different rules for present and non-present card transactions, as in the case of internet sales.</p>
 
-<p><strong>Irreversible: Never retry.</strong> This means, for example, that the card is canceled for use, has been lost or stolen, there is a confirmed fraud, the transaction is not allowed for that product, indicating that there are no circumstances in which the issuer would grant an approval. Any authorization attempt that previously received an Irreversible refusal without changing any message field will not be successful.</p>
+<p><strong>What is the impact for the customer?</strong></p>
 
-<p><strong>Reversible: Allowed to retry.</strong> Means the issuer can approve, but cannot do it now, possibly due to a system issue (downtime) or missing limit, suspected fraud, or exceeded number of retry attempts. password typing. These are temporary denial decisions made by the issuer that may change over time.</p>
+<p>Customers who do not follow the rules will be penalized by charging fees for exceeded transactions, in accordance with each brand program.</p>
 
-<p>Visa, Mastercard, Elo and Hipercard have adjusted their rules to limit the number of authorization attempts for a denied transaction. These changes provide for the charging of fees for excess attempts.</p>
+<p>Aiming to improve the shopping experience, the means of payment market, together with ABECS, promoted the standardization of the response codes for rejected transactions made by card.</p>
+
+<p>Attempts were classified as:</p>
+<ul>
+  <li><strong>Irreversible: Never retry.</strong>
+It means, for example, that the card is canceled for use, has been lost or stolen, there is confirmed fraud, the transaction is not allowed for that product, indicating that there are no circumstances in which the issuer would grant an approval. Any authorization attempt that has previously received an Irreversible refusal without changing any field of the message will not be successful.</li>
+  <li><strong>Reversible: Retry allowed.</strong>
+Means that the issuer can approve, but cannot do so now, possibly due to a system problem (down) or lack of limit, suspected fraud or exceeded number of password attempts. These are temporary opt-out decisions made by the issuer that may change over time.
+The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the number of authorization attempts for a denied transaction. These changes provide for the charging of fees for excessive attempts. Below are the rules for each flag.</li>
+</ul>
 
 <h3 id="mastercard">Mastercard</h3>
 
-<p>Does the Mastercard brand have 2 transaction retry programs?</p>
-
-<p><strong>TPE (Transaction Processing Excellence)</strong> - It is the program to monitor transaction retries, both approved and denied purchases, valid for gift card and non-present card.
-<strong>MAC (Merchant Advice Code Transaction Excellence)</strong> - It is the program to monitor the retry of denied transactions, valid for card not present. These are a set of codes that Mastercard supports for issuers to communicate to merchants the reasons for approving or rejecting a transaction.</p>
-
-<h3 id="tpe">TPE</h3>
-
-<p>Which is? These are charges made when the merchant exceeds the transaction retry rules.</p>
-
-<p>|Categories|Codes|Domestic Rate|International Rate|When Occurs|Retrieved Allowed|
-|Gift card and non-gift card|Any negative code that is allowed to be retried|R$2.00|-|From the 8th retry onwards|Allowed to retry after 24h.|</p>
+<p>The Mastercard Brand has the Transaction Processing Excellence (TPE) program, which includes 2 categories:</p>
 <ul>
-  <li>All payment transactions using the same card, same validity, same value and same establishment number will be considered as retries;</li>
-  <li>Retries will also be counted when the transaction has already been approved;</li>
-  <li>Retentions will also be accounted for when the transaction has already been approved;</li>
-  <li>As of 02/01/2023, the excess considered in the program will occur from the eighth retry within the calculation month* and under the conditions described above;</li>
+  <li><strong>Excessive Attempts</strong> – monitors the attempts of denied transactions, in the card present and card not present environments. Valid for both reversible and irreversible denial codes.</li>
+  <li><strong>Merchant Advice Code Transaction Excellence (MAC)</strong>– monitors transaction retries that are denied, in card-not-present environments that are irreversible. Billing only on (MAC) 03 and 21.</li>
 </ul>
 
-<h3 id="account-status-inquiry-asi-transaction">Account Status Inquiry (ASI) transaction</h3>
+<p><strong>1. Excessive Attempts</strong></p>
 
-<p><strong>What is it?</strong> These are Charges made when the merchant makes a purchase in the amount of R$1.00 and then carries out the reversal, to verify the status of the account.</p>
+<p>These are charges made when the merchant exceeds the rules for retrying transactions.</p>
 
-<p>For such a situation, there is a specific type of transaction that must be used to perform the account status query. Already in force: July 1, 2019</p>
+<p>The brand also performs monitoring for any approved nominal value authorization, with subsequent reversal for transactions below 1 unit of whole currency or the equivalent of US$ 1.</p>
 
-<p><strong>Method of calculation:</strong></p>
-<ul>
-  <li>Card not present transactions will be considered;</li>
-  <li>All payment transactions made in the amount of R$1.00 will be considered and the reversal will be carried out immediately afterwards;</li>
-  <li>Fee applies immediately when the reversal of this type of transaction is identified;</li>
-  <li>Accounting for excess retry will be based on Mastercard’s internal controls.</li>
-</ul>
-
-<p>(*) 1st to the last calendar day of the month</p>
+<p>Monitoring is applied to retry transactions for denied and approved purchases, carried out in a present and non-present card environment.</p>
 
 <table>
+  <thead>
+    <tr>
+      <th>Categories</th>
+      <th>Codes</th>
+      <th>Validity</th>
+      <th>Domestic Rate</th>
+      <th>International Rate</th>
+      <th>When Occurs</th>
+      <th>Retry Allowed</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
-      <td>Number of Retries</td>
-      <td>Rule</td>
+      <td>Card present and Card not present</td>
+      <td>Any denial code that is not assigned to MAC 03 and 21. And also MAC codes if you do not respect the “Excessive Attempts” limits</td>
+      <td>Until 01/31/2023</td>
+      <td>BRL 2.00</td>
+      <td>-</td>
+      <td>From the 11th retry onwards</td>
+      <td>Retry allowed within 24 hours.</td>
     </tr>
     <tr>
-      <td>1st improper transaction</td>
-      <td>R$0.21 per transaction</td>
+      <td>Card present and Card not present</td>
+      <td>Any denial code that is not assigned to MAC 03 and 21. And also the MAC codes if you do not respect the limits of “Excessive Attempts”</td>
+      <td>New rule from 02/01/2023</td>
+      <td>R $2.00</td>
+      <td>-</td>
+      <td>From the 8th retry onwards</td>
+      <td>Retry allowed within 24 hours.</td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="mac">MAC</h3>
+<p>All payment transactions using the same card and the same merchant number will be considered as retrys;</p>
 
-<p><strong>What is it?</strong> These are charges made when the merchant makes a retry to send authorization for irreversible response codes with the same card valid for a card not present. of “Do not try this transaction again”. For these cases, Mastercard identifies transactions with the following values: MAC 03 and MAC 21, for example.</p>
+<p>Mastercard has extended the effective date to <strong>01/02/2023</strong> regarding the new program rules <strong>(Excessive Attempts)</strong> previously scheduled for the beginning of 01/11/2022, below the changes.</p>
+<ul>
+  <li>
+    <ol>
+      <li>The excess considered in the program will occur from the eighth attempt within the calculation month. The amounts charged have changed.</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>And Mastercard is also introducing a limit of 35 failed attempts on the same card and merchant number per continuous 30-day period. Even if the customer does not exceed the limit of 7 retries in a 24-hour period, but exceeds the monthly limit, the charge will be applied</li>
+    </ol>
+  </li>
+</ul>
 
-<p>The MAC program has the following values: MAC 01, MAC 02, MAC 03, MAC 04 and MAC 21.</p>
+<blockquote>
+  <p>Note: The current rule of the Excessive Attempts program is valid until 01/31/2023 in the table above, where only 10 attempts to approve the same transaction are allowed (on the same card, and same merchant number), with retry allowed after 24 hours.</p>
+</blockquote>
 
-<p><strong>MAC 01</strong> – New account information available
-<strong>MAC 02</strong> – Unable to approve right now, try later
-<strong>MAC 03</strong> – Do not try again
-<strong>MAC 04</strong> – Token requirements not met for this token type
-<strong>MAC 21</strong> – Payment Cancellation</p>
+<p><strong>2. Merchant Advice Code Transaction Excellence (MAC)</strong></p>
 
-<p>As of 10/14/2022 Mastercard will introduce new MAC codes when an issuer declines a transaction with response code 51 (Insufficient Funds) followed by one of the MACs below, for the merchant to take the best action.</p>
+<p>These are charges made when the commercial establishment re-attempts to send authorization for irreversible response codes with the same valid card for a card not present.</p>
+
+<p>Within this retry program, there are programs that are specifically designed for the <strong>“Do not try this transaction again”</strong> scenario. For these cases, Mastercard identifies transactions with the following values: MAC 03 and MAC 21, for example.</p>
+
+<p>The MAC program accepts some values, however <strong>only MACs 03 and 21 have a specific charge</strong>. The other MACs do not fall under this MAC 03/21 charge.</p>
+
+<p>The other MAC codes: 01, 02, 04, 24, 25, 26, 27, 28, 29 and 30 do not enter the MAC billing program but do enter the Excessive Attempts program billing if you exceed the limits.</p>
+
+<p>Since <strong>10/14/2022</strong> Mastercard has introduced new MAC codes, when an issuer declines a transaction with response code 51 (Insufficient Funds) followed by one of the MACs below, for the merchant to take the best action.</p>
 
 <table>
+  <thead>
+    <tr>
+      <th>MAC</th>
+      <th>Description</th>
+      <th>Description</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
-      <td>MAC</td>
-      <td>Description</td>
+      <td>01</td>
+      <td>New account information available (ABU)</td>
+      <td>Need to update the data of the account being used in the transaction, using the ABU, for example.</td>
+    </tr>
+    <tr>
+      <td>02</td>
+      <td>Cannot approve at this time, try again later</td>
+      <td>Must retry the transaction after 72 hours or try the transaction with a different payment method.</td>
+    </tr>
+    <tr>
+      <td>03</td>
+      <td>Retry is not allowed</td>
+      <td>Must seek another means of guaranteeing payment, avoiding unnecessary costs of multiple authorization requests that will continue to result in declines</td>
+    </tr>
+    <tr>
+      <td>04</td>
+      <td>Token requirements not met for this model token</td>
+      <td>Need to review the token requirements, as they were not met for this model token sent in the transaction</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>Plan cancelled</td>
+      <td>Customer cancels plan and even after cancellation, establishment continues to send purchase authorization request.</td>
     </tr>
     <tr>
       <td>24</td>
       <td>Try again after 1 hour</td>
+      <td>Only valid for response code 51 (Insufficient Funds)</td>
     </tr>
     <tr>
       <td>25</td>
       <td>Try again after 24 hours</td>
+      <td>Only valid for response code 51 (Insufficient Funds)</td>
     </tr>
     <tr>
       <td>26</td>
       <td>Try again after 2 days</td>
+      <td>Only valid for response code 51 (Insufficient Funds)</td>
     </tr>
     <tr>
       <td>27</td>
       <td>Try again after 4 days</td>
+      <td>Only valid for response code 51 (Insufficient Funds)</td>
     </tr>
     <tr>
       <td>28</td>
       <td>Try again after 6 days</td>
+      <td>Only valid for response code 51 (Insufficient Funds)</td>
     </tr>
     <tr>
       <td>29</td>
       <td>Try again after 8 days</td>
+      <td>Only valid for response code 51 (Insufficient Funds)</td>
     </tr>
     <tr>
       <td>30</td>
       <td>Try again after 10 days</td>
+      <td>Only valid for response code 51 (Insufficient Funds)</td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>Categorization of Mastercard returns</strong>
-Mastercard may consolidate some issuer response codes, which often may not indicate to the merchant whether or not to retry, into 3 Mastercard-only use:</p>
+<p>Additionally, some return codes will no longer be sent:</p>
+<ul>
+  <li>04 (Capture Card)</li>
+  <li>14 (Invalid card number)</li>
+  <li>41 (Lost Card)</li>
+  <li>43 (Stolen Card)</li>
+  <li>54 (Expired Card)</li>
+  <li>57 (Transaction Not Allowed)</li>
+  <li>62 (Card Restricted)</li>
+  <li>63 (Security Breach)</li>
+</ul>
+
+<p><strong>Categorization of Mastercard returns</strong></p>
+
+<p>Mastercard may consolidate some issuer response codes, which often may not indicate to the merchant whether or not to retry, into 3 for Mastercard exclusive use:</p>
 <ul>
   <li>79 (Life cycle)</li>
-  <li>82 (Policy)</li>
+  <li>82 (Politics)</li>
   <li>83 (Fraud/Security)</li>
 </ul>
 
-<p>The original codes will be replaced by the Merchant Advice Code (MAC), which will accompany codes 79, 82 and 83 to determine whether or not the transaction can be retried.</p>
+<p>The original codes will be replaced by the Merchant Advice Code (MAC), which will accompany codes 79, 82 and 83 to determine whether or not the transaction can be re-attempted.</p>
 
-<p>**For example:</p>
+<p><strong>For example:</strong></p>
 
 <table>
+  <thead>
+    <tr>
+      <th>When</th>
+      <th>Then</th>
+      <th>And the response code</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
-      <td>When</td>
-      <td>Then</td>
-      <td>And the response code</td>
-    </tr>
-    <tr>
-      <td>Issuer declines the transaction using response code 54 (Expired Card)</td>
+      <td>The issuer declines the transaction using response code 54 (Expired Card)</td>
       <td>Mastercard will replace code 54 with code 79 (Lifecycle Decline)</td>
-      <td>Accompanies the appropriate Merchant Advice Code (MAC)</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>**The table below details how the response code and MAC combination will occur:</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>When the response code is…</td>
-      <td>And the MAC is…</td>
-      <td>The MAC description will be</td>
-    </tr>
-    <tr>
-      <td>79 or 82</td>
-      <td>01</td>
-      <td>Check for new information before trying again.</td>
-    </tr>
-    <tr>
-      <td>79 or 82</td>
-      <td>03</td>
-      <td>No updated credentials found. Do not try again.</td>
-    </tr>
-    <tr>
-      <td>83</td>
-      <td>01</td>
-      <td>Authentication can increase the probability of approval. Try again using authentication (Ex: 3DS).</td>
-    </tr>
-    <tr>
-      <td>83</td>
-      <td>03</td>
-      <td>Suspected fraud. Do not try again.</td>
-    </tr>
-    <tr>
-      <td>79,82 or 83</td>
-      <td>02</td>
-      <td>Repeat the transaction later.</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>MAC 01 retry program</strong></p>
-<ul>
-  <li>Start of validity of the rule: Already in force</li>
-  <li>Fee effective date: January 1, 2023</li>
-</ul>
-
-<p><strong>Method of calculation:</strong></p>
-<ul>
-  <li>Card not present transactions will be considered;</li>
-  <li>All payment transactions using the same card, same validity, same value and same establishment number will be considered as retries;</li>
-  <li>Retries in the MAC program are counted with MAC values ​​01;</li>
-  <li>Denied response codes other than: 79, 82 and 83 are counted;</li>
-  <li>The rate of R$1.25 is currently applied and this amount will be changed from January/2023, as listed below;</li>
-  <li>Accounting for excess retry will be based on Mastercard’s internal controls.
-(*) 1st to the last calendar day of the month</li>
-</ul>
-
-<p>**Table of values:</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>Number of Retry</td>
-      <td>Rule</td>
-    </tr>
-    <tr>
-      <td>From the 1st retry</td>
-      <td>R$ 2.50 (two reais and fifty cents) per retry, from the 1st retry within the 24-hour period.</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>MAC 02 retry program</strong></p>
-<ul>
-  <li>Start of validity of the rule: Already in force</li>
-  <li>Fee effective date: January 1, 2023</li>
-</ul>
-
-<p><strong>Method of calculation:</strong></p>
-<ul>
-  <li>Card not present transactions will be considered;</li>
-  <li>All payment transactions using the same card, same validity, same value and same establishment number will be considered as retries;</li>
-  <li>Retries in the MAC program are counted with MAC values ​​02;</li>
-  <li>Denied response codes other than: 79, 82 and 83 are counted;</li>
-  <li>The rate of R$1.25 is currently applied and this amount will be changed from January/2023, as listed below;</li>
-  <li>Accounting for excess retry will be based on Mastercard’s internal controls.
-(*) 1st to the last calendar day of the month</li>
-</ul>
-
-<p>**Table of values:</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>Number of Retry</td>
-      <td>Rule</td>
-    </tr>
-    <tr>
-      <td>From the 1st retry</td>
-      <td>R$ 2.50 (two reais and fifty cents) per retry, from the 1st retry within the 72-hour period.</td>
+      <td>Accompany appropriate Merchant Advice Code (MAC)</td>
     </tr>
   </tbody>
 </table>
 
 <p><strong>MAC 03 and MAC 21 retry program</strong></p>
-<ul>
-  <li>Start of validity of the rule: Already in force</li>
-  <li>Fee effective date: January 1, 2023</li>
-</ul>
 
-<p><strong>Method of calculation:</strong></p>
+<p>** Method of calculation: **</p>
 <ul>
   <li>Card not present transactions will be considered;</li>
-  <li>All payment transactions using the same card, same validity, same value and same establishment number are considered as retry;</li>
-  <li>Retries in the MAC program are counted with MAC 03 and MAC 21 values;</li>
-  <li>Any denied response code is counted, except codes 00, 08, 10, 79, 82, 83, 85 and 87;</li>
-  <li>The excess accounted for in the program will occur from the first retry within the calculation month* and under the conditions described above;</li>
-  <li>The rate of R$1.25 is currently applied and this amount will be changed as of January/23, as listed below;</li>
-  <li>Accounting for excess retry will be based on Mastercard’s internal controls.
-(*) 1st to the last calendar day of the month</li>
+  <li>All payment transactions using the same card and merchant number are considered retryable;</li>
+  <li>Retries in the MAC program with values ​​MAC 03 and MAC 21 are counted;</li>
+  <li>Valid for any response code,</li>
+  <li>The excess accounted for in the program will occur from the 1st attempt within the calculation month;</li>
+  <li>The counter is reset after a period of 30 days;</li>
+  <li>Retries may be charged for MACs 03/21 and Excessive Attempts if you exceed the limit for each program;</li>
+  <li>Currently, the tariff value of BRL 1.25 is applied and this value will change from January 1, 2023, as listed below;</li>
 </ul>
 
-<p>**Table of values:</p>
+<p><strong>Table of values:</strong></p>
 
 <table>
+  <thead>
+    <tr>
+      <th>Number of retries</th>
+      <th>Rule</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
-      <td>Number of Retry</td>
-      <td>Rule</td>
-    </tr>
-    <tr>
-      <td>From the 1st retry</td>
-      <td>R$ 2.50 (two reais and fifty cents) per retry, from the 1st</td>
+      <td>As of the 1st attempt</td>
+      <td>BRL 2.50 (two reais and fifty cents) per attempt, as of the 1st</td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>MAC 01, 02 and MAC 03 retry program – Response codes 79, 82 and 83</strong></p>
-<ul>
-  <li>Start of validity of the rule: Already in force</li>
-  <li>Start of validity of the rate: October 03, 2022</li>
-</ul>
-
-<p><strong>Method of calculation:</strong></p>
-<ul>
-  <li>Card not present transactions will be considered;</li>
-  <li>All payment transactions using the same card, same validity, same value and same establishment number will be considered as retries;</li>
-  <li>The retries in the MAC program are counted with the values ​​MAC 01, MAC 02 and MAC 03;</li>
-  <li>Denied response codes are counted: 79, 82 and 83;</li>
-  <li>As of 10/03/2022, the excess considered in the program will occur from the first retry within the calculation month* and under the conditions described above;</li>
-  <li>Accounting for excess retry will be based on Mastercard’s internal controls.
-(*) 1st to the last calendar day of the month</li>
-</ul>
-
-<p>**Table of values:</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>Number of Retry</td>
-      <td>Rule</td>
-    </tr>
-    <tr>
-      <td>From the 1st retry</td>
-      <td>3.4 bps with a minimum value of R$0.00160 and a maximum of R$0.7700R$ per retry, as of the 1st</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="visa">VISA</h3>
+<h3 id="visa">Visa</h3>
 
 <p><strong>Which is?</strong></p>
 
 <p>A program instituted by the Visa Brand that generates charges when the merchant exceeds the retry rules.</p>
 <ul>
-  <li>Valid for card-present and card-not-present transactions;</li>
-  <li>Reversible codes: Up to 15 attempts to approve the same transaction (same card and same establishment) allowed within 30 days;</li>
-  <li>Irreversible codes: Only 01 attempt to approve the same transaction (same card and same establishment) allowed within a 30-day period.</li>
+  <li>Valid for transactions with a present card and a non-present card;</li>
+  <li><strong>Reversible codes:</strong> Allowed up to 15 attempts to approve the same transaction (same card, same establishment and amount) within 30 days. After the initial 30 days (from the 1st attempt), any retry will be charged.</li>
+  <li><strong>Irreversible codes:</strong> Only 01 attempt to approve the same transaction is allowed (same card, same establishment), the 2nd attempt will be charged.</li>
+  <li>After an approved transaction, the counter is reset.</li>
 </ul>
 
-<p>Fees: When exceeding the attempt limits established by the brand, a fee will be charged for each exceeding transaction.</p>
+<p><strong>Fees</strong>: When you exceed the attempt limits established by the brand, a fee will be charged for each transaction that exceeds it.</p>
 <ul>
-  <li>Domestic cards: USD 0.10 (dollar) for each excess domestic transaction.</li>
-  <li>International cards: USD 0.25 (dollar) for each excess international transaction.</li>
-  <li>Authorization rules are in effect. Fee charges will apply from April 2021.</li>
+  <li>Domestic: USD 0.10 + 13.83% Tax</li>
+  <li>Foreign: USD 0.25 + 13.83% Tax</li>
 </ul>
 
-<h3 id="link">Link</h3>
+<p>Authorization rules already in force. Fee charges apply from April 2021.</p>
+
+<p><strong>Visa has grouped return codes into 4 Categories.</strong></p>
+
+<p><strong>Category 1 - Issuer will never approve.</strong></p>
+
+<p>For this category, it indicates that the card was canceled or never existed or that the denial is the result of a permanent restriction or error condition that will prevent future approval.</p>
+
+<p><strong>Category 2 - Issuer cannot approve at this time.</strong></p>
+
+<p>Indicate that the denial is the result of a temporary condition such as credit risk, issuer speed controls, or other card restrictions that may allow a retry transaction to be approved. In some cases, denial requires action by the bearer or issuer to remove the restriction before an approval can be obtained.</p>
+
+<p><strong>Category 3 - Data Quality/Review Data.</strong></p>
+
+<p>When a data error is identified by the issuer, this transaction is declined accordingly. Merchants must revalidate payment data before retrying. Merchants and Acquirers should monitor these negative codes due to potential exposure to fraud.</p>
+
+<blockquote>
+  <p>Attention: Category 3 has, in addition to the limits considered in category 2, a different limit, where it is cumulative. An establishment can carry out up to 10,000 transactions in a period of 30 days (in this case, considering only the establishment number and denial codes). If you exceed the limit, all category 3 declined transactions will be charged.</p>
+</blockquote>
+
+<p><strong>Category 4 - Generic Response Codes.</strong></p>
+
+<p>Category 4 includes all other decline response codes, many of which provide little or no value to Acquirers/Merchants as part of their retry strategy. Emitter usage should remain minimal.</p>
+
+<p>Most deny conditions have descriptive response codes in Categories 1, 2, and 3 to indicate the reason for denying. However, there may be circumstances where there is no response code value for a specific decay condition. Issuers may use other response code values ​​defined in the VisaNet Technical Specifications; however, usage should remain minimal.</p>
+
+<p>Issuers should use response codes that more accurately reflect the reason for denials. Categories 1 (issuer never approves), 2 (issuer cannot approve at this time), and 3 (Data Quality) should be used, and issuers should limit the use of Category 4 (Generic Response Code) to transactions where none another value applies. The Generic Response Code Fee is charged to ensure that no more than the regionally approved percentage2 of the issuer’s total denials are categorized as Category 4. Issuers exceeding the regionally defined threshold will receive the Generic Response Code Fee per base of transaction for each decline in excess of the defined limit.</p>
+
+<p><strong>Table with rules and refusal codes.</strong></p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/retentativa_visa.png" alt="VISA" /></p>
+
+<p><strong>Note:</strong> Response code 14 appears in categories 1 and 3, but the accounting is as follows:</p>
+
+<p>In category 1, EC is charged from the 2nd attempt to (same establishment and same card) <strong>retry not allowed.</strong></p>
+
+<p>Category 3 comprises the group of codes for accounting for 10,001 transactions, after the EC reaches 10,000 retries with this group of codes, any transaction will be accounted for independently of the Card.</p>
+
+<p><strong>Example:</strong> We had 10,000 transactions denied in a CE with category 3 codes, if transaction 10,001 is in code 14 or in any category 3 group code, it will be charged regardless of the card.</p>
+
+<h3 id="elo">ELO</h3>
 
 <p><strong>Which is?</strong></p>
 
-<p>This is a program instituted by the ELO brand that generates charges when the merchant exceeds the rules for retrying transactions with the same card.</p>
+<p>This is a program instituted by the ELO Flag that generates charges when the commercial establishment exceeds the rules for retrying transactions with the same card.</p>
 
 <p><strong>Forms of Calculation</strong></p>
 <ul>
-  <li>Retries: all same payment transactions - card, validity, amount, Merchant ID (MID) - within 30 days</li>
-  <li>Counted codes: all negative</li>
-  <li>Excess: from the 16th attempt in the month</li>
-  <li>Excess accounting: based on Elo’s internal controls.
-(*) 1st to the last calendar day of the month</li>
+  <li>Retries: all payment transactions on the same - card, validity, value, Merchant ID (MID) - within 30 days</li>
+  <li>Accounted codes: all negatives​</li>
+  <li>Excess: from the 16th retry in the month​*</li>
+  <li>Fee: BRL 0.80 (eighty cents) per retry, from the 16th</li>
+  <li>Billing: The billing will only be done in cases of recurrence, therefore, the establishment must be at least 2 consecutive months in the program.</li>
+  <li>Excess accounting: It is based on Elo’s internal controls. 1st to last calendar day of the month</li>
 </ul>
 
-<p>**Table of values:</p>
+<p><strong>The table below exemplifies how the brand will be charged.</strong></p>
 
 <table>
+  <thead>
+    <tr>
+      <th>Month</th>
+      <th>Scenario</th>
+      <th>Billing</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
-      <td>Period</td>
-      <td>Values</td>
-    </tr>
-    <tr>
-      <td>1st</td>
+      <td>1st (August)</td>
+      <td>EC Exceeds Limits</td>
       <td>Warning</td>
     </tr>
     <tr>
-      <td>From the 2nd month</td>
-      <td>R$0.80 (eighty cents) per retry, from the 16th</td>
+      <td>2nd (September)</td>
+      <td>EC Does not exceed Limits</td>
+      <td>Does not generate charges</td>
+    </tr>
+    <tr>
+      <td>3rd (October)</td>
+      <td>EC Exceeds Limits</td>
+      <td>In this case you will be warned again. The charge will only be made in case of recurrence.</td>
+    </tr>
+    <tr>
+      <td>4th (November)</td>
+      <td>EC Exceeds limits</td>
+      <td>Application of the fine</td>
+    </tr>
+    <tr>
+      <td>5th (December)</td>
+      <td>EC Exceeds limits</td>
+      <td>Application of the fine</td>
+    </tr>
+    <tr>
+      <td>6th (January)</td>
+      <td>EC Does not exceed Limits</td>
+      <td>Does not generate charges</td>
+    </tr>
+    <tr>
+      <td>7th (February)</td>
+      <td>EC Exceeds Limits</td>
+      <td>You will be warned again.</td>
     </tr>
   </tbody>
 </table>
 
-<p>Effective date: August 1, 2022</p>
+<p><strong>Effective date: August 1, 2022</strong></p>
 
-<h3 id="hypercard">Hypercard</h3>
+<p><strong>List of refusal codes:</strong></p>
+
+<p>The response codes below are listed according to the flag’s authorization manual.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>CODES</th>
+      <th>DESCRIPTION</th>
+      <th>WHEN THE ISSUER SHOULD USE THE RESPONSE CODE</th>
+      <th>RETRY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4</td>
+      <td>REDO THE TRANSACTION</td>
+      <td>This code must be used by the Issuer to request that the bearer/CE perform the transaction again if he (Issuer) detects failure in capturing the transaction information or if it is necessary to update the password, denying the 1st transaction</td>
+      <td>Reversible</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>GENERICAL</td>
+      <td>The Flag may use this code for other dealings (generic).</td>
+      <td>Reversible</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>CONSULT RECEIVER</td>
+      <td>This reason must be used by the Acquirer when it identifies internal problems that do not require changes in the message for the transaction to follow the correct flow.</td>
+      <td>Reversible</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>CARD ERROR</td>
+      <td>- This code must be used by the Issuer when it identifies a failure in the CAVV validation of 3DS or tokenized transactions.<br />- This code must be used by the Issuer when it identifies an incorrect/invalid SERVICE CODE for cards <br />- This code must be used by the Issuer for problems identified in the TOKEN<br />- This code must be used to deny reversals and reversal notices where the original transaction is not located by the Issuer.</td>
+      <td>Irreversible</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>INVALID TRANSACTION AMOUNT</td>
+      <td>- This code must be used by the Issuer when it identifies that the transaction amount is invalid according to the Issuer’s parameters.</td>
+      <td>Irreversible</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>INVALID CARD NUMBER</td>
+      <td>- This code must be used by the Issuer for INVALID/INCORRECT CARD NUMBER.<br />- The Brand may use this code for other dealings.</td>
+      <td>Irreversible</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>PURCHASER PROBLEMS</td>
+      <td>- This reason must be used by the Acquirer when it identifies internal problems that require changes in the message so that the transaction follows the correct flow.</td>
+      <td>Irreversible</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>INVALID INSTALLMENT AMOUNT</td>
+      <td>- This code must be used by the Issuer when the INSTALLMENT AMOUNT IS OUTSIDE THE LIMITS established by it. This code must be used when the issuer does not accept the Elo Parcelado Loja product (product 072) with the number of installments less than 12.</td>
+      <td>Irreversible</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>MESSAGE FORMAT ERROR</td>
+      <td>- This code must be used by the Issuer when it identifies a FORMAT ERROR IN THE MESSAGE (mandatory field, domains, formats, size not present or different from the specification).</td>
+      <td>Irreversible</td>
+    </tr>
+    <tr>
+      <td>38</td>
+      <td>PURCHASE/EXCEEDED PASSWORD ATTEMPTS</td>
+      <td>- This code must be used by the Issuer when THE NUMBER OF PERMITTED PASSWORD ATTEMPTS IS EXCEEDED (used only for purchases).</td>
+      <td>Reversible</td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>LOST CARD</td>
+      <td>- This code must be used by the Issuer for a CARD WITH DEFINITIVE BLOCKING for the reason “LOST”.</td>
+      <td>Irreversible</td>
+    </tr>
+    <tr>
+      <td>43</td>
+      <td>STOLEN CARD</td>
+      <td>- This code must be used by the Issuer for a CARD WITH DEFINITIVE BLOCKING for the reason “STEAL”.</td>
+      <td>Irreversible</td>
+    </tr>
+    <tr>
+      <td>51</td>
+      <td>LIMIT/INSUFFICIENT BALANCE</td>
+      <td>- This code must be used by the Issuer for a CARD that is TEMPORARILY WITHOUT ENOUGH BALANCE OR LIMIT to carry out the transaction.<br />- Withdrawal/advance 2 without track 2<br />- Purchase with change not supported.<br />- Address verification not supported (only when process code is “13” with no purchase value). * Card account verification not supported (only when process code is “18” with no purchase amount).</td>
+      <td>Reversible</td>
+    </tr>
+    <tr>
+      <td>54</td>
+      <td>CARD EXPIRATION DATE</td>
+      <td>- This code must be used by the Issuer for a PHYSICAL CARD or TOKEN WITH VALIDITY / EXPIRATION EXPIRATION OR INVALID.</td>
+      <td>Irreversible</td>
+    </tr>
+    <tr>
+      <td>55</td>
+      <td>INVALID PASSWORD / NOT SENT</td>
+      <td>- This code must be used by the Issuer when the PASSWORD TYPED BY THE CUSTOMER DOES NOT MATCH, IS INVALID/INCORRECT.<br />- This code must be used by the Issuer when the PASSWORD IS NOT SENT IN THE MESSAGE AND THE SAME IS REQUIRED FOR TRANSACTION APPROVAL.</td>
+      <td>Reversible</td>
+    </tr>
+    <tr>
+      <td>56</td>
+      <td>WITHOUT CARD REGISTRATION</td>
+      <td><br />1. Card number does not belong to the Issuer<br />2. Card number is not valid</td>
+      <td>Irreversible</td>
+    </tr>
+    <tr>
+      <td>57</td>
+      <td>TRANSACTION NOT ALLOWED FOR THIS CARD</td>
+      <td>- This code must be used by the Issuer when the card is DEFINITIVELY BLOCKED, except for blocking loss and theft that already have specific codes (eg death, confirmed fraud, definitive cancellation at the customer’s request , etc).<br />- This code must be used for PRODUCTS AND SERVICES NOT SUPPORTED by the card issuer.<br />- This code can be used for INVALID / SUSPENDED / INACTIVE TOKEN.<br />- This code must be used to negate the FALLBACK input mode.</td>
+      <td>Irreversible</td>
+    </tr>
+    <tr>
+      <td>58</td>
+      <td>INVALID MERCHANT</td>
+      <td>- This code must be used by the Issuer when the merchant’s MCC is not registered to obtain a token from the Issuer.</td>
+      <td>Irreversible</td>
+    </tr>
+    <tr>
+      <td>59</td>
+      <td>FRAUD SUSPECT</td>
+      <td>- This code must be used by the Issuer when prevention rules SUSPECT FRAUD, requiring contact between the cardholder and the Issuer to release the card and carry out a new transaction.<br />- This code must be entered used by the Issuer to deny transactions due to the absence of the TRAVEL NOTICE that must be carried out by the cardholder before traveling abroad or in some cases before carrying out transactions on international websites.</td>
+      <td>Reversible</td>
+    </tr>
+    <tr>
+      <td>61</td>
+      <td>MAXIMUM WITHDRAWAL/PURCHASE VALUE EXCEEDED</td>
+      <td>- This code must be used by the Issuer when the withdrawal/purchase amount exceeds the limit allowed by it.</td>
+      <td>Reversible</td>
+    </tr>
+    <tr>
+      <td>62</td>
+      <td>TEMPORARY BILLING BLOCK</td>
+      <td>- This code must be used by the Issuer for cards with TEMPORARY BILLING BLOCK.</td>
+      <td>Reversible</td>
+    </tr>
+    <tr>
+      <td>63</td>
+      <td>SECURITY VIOLATION</td>
+      <td>- This code must be used by the Issuer when the CARD SECURITY CODE (CVE2) is INCORRECT / INVALID or invalid MST (token).</td>
+      <td>Irreversible</td>
+    </tr>
+    <tr>
+      <td>64</td>
+      <td>MINIMUM TRANSACTION AMOUNT - INVALID</td>
+      <td>- This code must be used by the Issuer when the TRANSACTION AMOUNT IS BELOW THE MINIMUM allowed by the Issuer</td>
+      <td>Irreversible</td>
+    </tr>
+    <tr>
+      <td>65</td>
+      <td>QUALITY OF WITHDRAWALS EXCEEDED</td>
+      <td>- This code must be used by the Issuer when the withdrawal quantity limit is exceeded</td>
+      <td>Reversible</td>
+    </tr>
+    <tr>
+      <td>75</td>
+      <td>WITHDRAWAL/ PASSWORD ATTEMPTS EXCEEDED</td>
+      <td>- This code must be used by the Issuer when the number of password attempts stipulated by the Issuer is exceeded (used only for WITHDRAWALS)</td>
+      <td>Reversible</td>
+    </tr>
+    <tr>
+      <td>76</td>
+      <td>INVALID OR NON-EXISTENT DESTINATION ACCOUNT</td>
+      <td>- This code must be used by the Issuer when the account “PARA” (destination) in BIT 3 is invalid or non-existent and exclusively for Funds Transfer transactions</td>
+      <td>Irreversible</td>
+    </tr>
+    <tr>
+      <td>77</td>
+      <td>INVALID OR NON-EXISTENT ORIGINAL ACCOUNT</td>
+      <td>- This code must be used by the Issuer when the “DE” (origin) account in BIT 3 is invalid or non-existent and exclusively for Funds Transfer transactions.</td>
+      <td>Irreversible</td>
+    </tr>
+    <tr>
+      <td>78</td>
+      <td>NEW CARD WITHOUT UNLOCKING / CARD BLOCKED</td>
+      <td>- This code must be used by the Issuer when the new card has not yet been unlocked (activated) by the cardholder with the Issuer or when the Cardholder, through autonomy, wishes to temporarily block the card through the Issuer application.</td>
+      <td>Reversible</td>
+    </tr>
+    <tr>
+      <td>82</td>
+      <td>INVALID CARD (internal data)</td>
+      <td>- This code must be used by the Issuer when the card’s internal data does not match (eg invalid cryptogram, invalid ATC etc.)</td>
+      <td>Irreversible</td>
+    </tr>
+    <tr>
+      <td>83</td>
+      <td>IT IS NOT POSSIBLE TO VALIDATE THE PASSWORD</td>
+      <td>- This code must be used by the Issuer and will be used by Elo when it is not possible to validate or decrypt the password.</td>
+      <td>Irreversible</td>
+    </tr>
+    <tr>
+      <td>91</td>
+      <td>ISSUER OUT OF AIR</td>
+      <td>- This code will be used by the Brand when the Issuer is temporarily unavailable to authorize the transaction or the Issuer’s response was not received within the established time.</td>
+      <td>Reversible</td>
+    </tr>
+    <tr>
+      <td>96</td>
+      <td>SYSTEM FAILURE</td>
+      <td>- This code will be used by the Brand or the Issuer due to problems processing the transaction.</td>
+      <td>Reversible</td>
+    </tr>
+    <tr>
+      <td>AB</td>
+      <td>INCORRECT FUNCTION (DEBIT)</td>
+      <td>- This code will be used by the Issuer to signal the establishment that it requested authorization in the DEBIT function, but the card does not have this function active.</td>
+      <td>Irreversible</td>
+    </tr>
+    <tr>
+      <td>AC</td>
+      <td>INCORRECT FUNCTION (CREDIT)</td>
+      <td>- This code will be used by the Issuer to signal the establishment that he requested authorization in the CREDIT function, but the card does not have this function active.</td>
+      <td>Irreversible</td>
+    </tr>
+    <tr>
+      <td>FM</td>
+      <td>USE THE CHIP</td>
+      <td>- This code will be used by the Issuer to inform the merchant that the contactless transaction will not be successful and that the cardholder must use the chip (contact).</td>
+      <td>Irreversible</td>
+    </tr>
+    <tr>
+      <td>P5</td>
+      <td>PASSWORD CHANGE / UNLOCKING FAILURE</td>
+      <td>- This code will be used by the Issuer when there is a password change or unlocking failure.</td>
+      <td>Irreversible</td>
+    </tr>
+    <tr>
+      <td>P6</td>
+      <td>NEW PASSWORD NOT ACCEPTED</td>
+      <td>- This code will be used by the Issuer when the new password chosen by the customer does not meet the minimum criteria established by the Issuer.</td>
+      <td>Reversible</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="hipercard">Hipercard</h3>
 
 <p><strong>Which is?</strong></p>
 
-<p>Charges made when a Merchant exceeds the rules for Retries of denied transactions with the same card, same date or monthly period, same amount and same merchant number, as follows:​</p>
+<p>Charges made when a Merchant exceeds the Retry rules for denied transactions with the same card, same date or monthly period, same amount and same number of Merchant, as follows:</p>
 
 <table>
+  <thead>
+    <tr>
+      <th>Program</th>
+      <th>Gift Card – CP</th>
+      <th>Card not present – ​​CNP</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
-      <td>Program</td>
-      <td>Gift Card - CP</td>
-      <td>Non-Gift Card - CNP</td>
+      <td>Excessive Retries​</td>
+      <td>BRL 1.85 per Retries from the 9th denied response - same card and same day (item 2)</td>
+      <td>R$ 1.85 per Retries from the 9th denied response - same card and same month of reference (item 3)</td>
     </tr>
     <tr>
-      <td>Excessive retry​</td>
-      <td>R$1.85 per retry from the 9th denied response – same card and same day2</td>
-      <td>R$1.85 per retry from the 9th denied response–same card and same month3 of reference</td>
-    </tr>
-    <tr>
-      <td>ASI transaction retry1 (Zero Auth)</td>
-      <td>R$0.15 per ASI transaction retry after issuer denial – same card and same day2</td>
-      <td>R$0.15 per ASI transaction retry after issuer denial – same card and same reference month3</td>
+      <td><strong>ASI Transaction Retry</strong> (Zero Auth)</td>
+      <td>BRL 0.15 per ASI Transaction Retry after issuer refusal - same card, same day (item 2)</td>
+      <td>BRL 0.15 per ASI Transaction Retry after negative from the issuer - same card and same reference month (item 3)</td>
     </tr>
     <tr>
       <td>Irreversible transaction retry</td>
-      <td>0.03% of the transaction value per retry Minimum R$ 0.15 Maximum R$ 0.80​ Same card and same day2 after reply with irreversible code</td>
-      <td>0.03% of the transaction value per retry Minimum R$0.15 Maximum R$0.80 Same card and same month3 after reply with irreversible code</td>
+      <td>0.03% of the transaction value per retry​<br />Minimum BRL 0.15<br />Maximum BRL 0.80<br />Same card and same day after reply with irreversible code</td>
+      <td>0.03% of the transaction amount per retry​<br />Minimum BRL 0.15<br />Maximum BRL 0.80<br />Same card and same month after response with irreversible code (item 3)</td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="ped-excess-dispute-program">PED: Excess Dispute Program</h3>
-
-<p>**Details:</p>
+<p><strong>Rules:</strong></p>
 <ul>
-  <li>ASI1 transactions: they are Account Status Inquiry transactions, that is, they are transactions carried out to check the status of a card (check if it is active). For this purpose, no financial transactions should be used, but specific transactions.</li>
-  <li>Attempts per day2: consider for the purposes of the Hipercard Retry program from 00:00 to 23:59​</li>
-  <li>Reference month3: consider for the purposes of Hipercard’s Retry program the 1st to the 30th or 31st of the month in which the transaction took place. The charge will be sent after the close of the subsequent month.</li>
-  <li>The transaction codes considered irreversible by the issuer were categorized by the ABECS payments and self-regulation industry, through the current Regulation 21. Return codes (ABECS)</li>
+  <li>ASI transactions: these are Account Status Inquiry transactions, that is, transactions carried out to query the status of a card (check that it is active). For this purpose, financial transactions should not be used, but specific transactions.</li>
+  <li>Attempts per day (item 2): consider for purposes of Hipercard’s Retry program from 00:00 to 23:59</li>
+  <li>Reference month (item 3): for purposes of the Hipercard Retry program, consider the 01st to the 30th or 31st of the month in which the transaction took place. The charge will be sent after the close of the subsequent month.</li>
+  <li>Transaction codes considered irreversible by the issuer were categorized by the ABECS payments and self-regulation industry, through current Regulation 21. Return codes (ABECS)</li>
+  <li>Codes not mentioned in the ABECS manual are considered reversible.</li>
 </ul>
+
+<p><strong>Effective date: September 15, 2022</strong></p>
 
 <h3 id="too-many-flags">Too many flags</h3>
 
-<p>Reversible codes: new retries will be allowed for the same customer and card. There is no limit and pre-established period;</p>
+<p><strong>Reversible codes:</strong> New attempts will be allowed for the same customer and card. There is no limit and pre-established period;</p>
 
-<p>It is important that you follow the guidance received in the Denied Transaction Response before retrying.</p>
+<blockquote>
+  <p><strong>Important: that you follow the guidance received in the response to the transaction denied, before making a new attempt.</strong></p>
+</blockquote>
 
-<p>Irreversible Codes: authorizations for the same card or establishment will not be allowed, after receiving the 1st refusal response from the issuer.</p>
+<p><strong>Irreversible Codes:</strong> Authorizations will not be allowed for the same card or establishment, after receiving the 1st refusal response from the issuer.</p>
 
 <h2 id="abecs-return-codes">ABECS return codes</h2>
 
