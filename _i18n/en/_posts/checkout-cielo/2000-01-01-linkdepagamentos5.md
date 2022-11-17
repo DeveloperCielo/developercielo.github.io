@@ -770,11 +770,8 @@ Aiming to improve the shopping experience, the means of payment market, together
 Attempts were classified as:
 
 * **Irreversible: Never retry.**
-
 It means, for example, that the card is canceled for use, has been lost or stolen, there is confirmed fraud, the transaction is not allowed for that product, indicating that there are no circumstances in which the issuer would grant an approval. Any authorization attempt that has previously received an Irreversible refusal without changing any field of the message will not be successful.
-
 * **Reversible: Retry allowed.**
-
 Means that the issuer can approve, but cannot do so now, possibly due to a system problem (down) or lack of limit, suspected fraud or exceeded number of password attempts. These are temporary opt-out decisions made by the issuer that may change over time.
 The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the number of authorization attempts for a denied transaction. These changes provide for the charging of fees for excessive attempts. Below are the rules for each flag.
 
@@ -799,8 +796,9 @@ Monitoring is applied to retry transactions for denied and approved purchases, c
 |Card present and Card not present|Any denial code that is not assigned to MAC 03 and 21. And also MAC codes if you do not respect the "Excessive Attempts" limits|Until 01/31/2023|BRL 2.00 |-|From the 11th retry onwards|Retry allowed within 24 hours.|
 |Card present and Card not present|Any denial code that is not assigned to MAC 03 and 21. And also the MAC codes if you do not respect the limits of "Excessive Attempts"|New rule from 02/01/2023|R $2.00 |-|From the 8th retry onwards|Retry allowed within 24 hours.|
 
-* All payment transactions using the same card and the same merchant number will be considered as retrys;
-* Mastercard has extended the effective date to **01/02/2023** regarding the new program rules **(Excessive Attempts)** previously scheduled for the beginning of 01/11/2022, below the changes.
+All payment transactions using the same card and the same merchant number will be considered as retrys;
+
+Mastercard has extended the effective date to **01/02/2023** regarding the new program rules **(Excessive Attempts)** previously scheduled for the beginning of 01/11/2022, below the changes.
 
 * 1. The excess considered in the program will occur from the eighth attempt within the calculation month. The amounts charged have changed.
 * 2. And Mastercard is also introducing a limit of 35 failed attempts on the same card and merchant number per continuous 30-day period. Even if the customer does not exceed the limit of 7 retries in a 24-hour period, but exceeds the monthly limit, the charge will be applied
@@ -835,7 +833,6 @@ Since **10/14/2022** Mastercard has introduced new MAC codes, when an issuer dec
 |30|Try again after 10 days|Only valid for response code 51 (Insufficient Funds)|
 
 Additionally, some return codes will no longer be sent:
-
 * 04 (Capture Card)
 * 14 (Invalid card number)
 * 41 (Lost Card)
@@ -848,7 +845,6 @@ Additionally, some return codes will no longer be sent:
 **Categorization of Mastercard returns**
 
 Mastercard may consolidate some issuer response codes, which often may not indicate to the merchant whether or not to retry, into 3 for Mastercard exclusive use:
-
 * 79 (Life cycle)
 * 82 (Politics)
 * 83 (Fraud/Security)
@@ -864,7 +860,6 @@ The original codes will be replaced by the Merchant Advice Code (MAC), which wil
 **MAC 03 and MAC 21 retry program**
 
 ** Method of calculation: **
-
 * Card not present transactions will be considered;
 * All payment transactions using the same card and merchant number are considered retryable;
 * Retries in the MAC program with values ​​MAC 03 and MAC 21 are counted;
@@ -885,7 +880,6 @@ The original codes will be replaced by the Merchant Advice Code (MAC), which wil
 **Which is?**
 
 A program instituted by the Visa Brand that generates charges when the merchant exceeds the retry rules.
-
 * Valid for transactions with a present card and a non-present card;
 * **Reversible codes:** Allowed up to 15 attempts to approve the same transaction (same card, same establishment and amount) within 30 days. After the initial 30 days (from the 1st attempt), any retry will be charged.
 * **Irreversible codes:** Only 01 attempt to approve the same transaction is allowed (same card, same establishment), the 2nd attempt will be charged.
@@ -941,7 +935,6 @@ Category 3 comprises the group of codes for accounting for 10,001 transactions, 
 This is a program instituted by the ELO Flag that generates charges when the commercial establishment exceeds the rules for retrying transactions with the same card.
 
 **Forms of Calculation**
-
 * Retries: all payment transactions on the same - card, validity, value, Merchant ID (MID) - within 30 days
 * Accounted codes: all negatives​
 * Excess: from the 16th retry in the month​*
@@ -1021,14 +1014,10 @@ Charges made when a Merchant exceeds the Retry rules for denied transactions wit
 
 **Rules:**
 
-* ASI transactions: these are Account Status Inquiry transactions, that is, transactions carried out to query the status of a card (check that it is active). For this purpose, financial transactions should not be used, but specific transactions.​
-
-* Attempts per day (item 2): consider for purposes of Hipercard's Retry program from 00:00 to 23:59​
-
-* Reference month (item 3): for purposes of the Hipercard Retry program, consider the 01st to the 30th or 31st of the month in which the transaction took place. The charge will be sent after the close of the subsequent month.​
-
+* ASI transactions: these are Account Status Inquiry transactions, that is, transactions carried out to query the status of a card (check that it is active). For this purpose, financial transactions should not be used, but specific transactions.
+* Attempts per day (item 2): consider for purposes of Hipercard's Retry program from 00:00 to 23:59
+* Reference month (item 3): for purposes of the Hipercard Retry program, consider the 01st to the 30th or 31st of the month in which the transaction took place. The charge will be sent after the close of the subsequent month.
 * Transaction codes considered irreversible by the issuer were categorized by the ABECS payments and self-regulation industry, through current Regulation 21. Return codes (ABECS)
-
 * Codes not mentioned in the ABECS manual are considered reversible.
 
 **Effective date: September 15, 2022**
