@@ -175,7 +175,7 @@ Quando um erro de dados é identificado pelo emissor essa transação é declina
 
 > Atenção: A categoria 3 tem além dos limites considerados na categoria 2 um limite diferente, onde ele é cumulativo. Um estabelecimento pode realizar até 10.000 transações em um período de 30 dias (neste caso considerando apenas o número do estabelecimento e códigos de negadas). Se ultrapassar o limite, todas as transações recusadas por categoria 3 serão tarifadas.
 
-**Categoria 4 - Códigos de respostas genéricos.	**
+**Categoria 4 - Códigos de respostas genéricos.**
 
 A categoria 4 inclui todos os outros códigos de resposta de recusa, muitos dos quais fornecem pouco ou nenhum valor para Adquirentes/Comerciantes como parte de sua estratégia de nova tentativa. O uso do emissor deve permanecer mínimo.
 
