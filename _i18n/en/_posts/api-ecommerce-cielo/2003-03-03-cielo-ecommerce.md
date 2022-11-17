@@ -8453,40 +8453,40 @@ Below we explain them in the order in which they can occur:
 |404|Resource Not Found|
 |500|Internal Server Error|
 
-## Flag Retry Program
+## Card Brands Retry Program
 
-**What are retries?**
+**What are transaction retries?**
 
-When a customer tries to make a card purchase at your business, a transaction can be declined due to a number of factors. Subsequent attempts to complete the transaction using the same card is what retry behavior is.
+When a shopper tries to make a card purchase at your business, a transaction can be declined due to a number of factors. Subsequent attempts to complete the transaction using the same card is what retry behavior is.
 
 **What has changed?**
 
 Each card brand defines the amounts that will be charged for retrying. The number of times a transaction can be held before being charged also varies by brand.
 
-**And there is no e-commerce?**
+**Are transaction retries allowed in e-commerce?**
 
-Card brands define different rules for present and non-present card transactions, as in the case of internet sales.
+Card brands define different rules for present and non-present card transactions, as in e-commerce sales.
 
-**What is the impact for the customer?**
+**What is the impact for the merchant?**
 
-Customers who do not follow the rules will be penalized by charging fees for exceeded transactions, in accordance with each brand program.
+Merchants who do not follow the rules will be penalized by charging fees for exceeded transactions, in accordance with each brand program.
 
-Aiming to improve the shopping experience, the means of payment market, together with ABECS, promoted the standardization of the response codes for rejected transactions made by card.
+Aiming to improve the shopping experience, the payment methods industry, together with ABECS, promoted the standardization of the response codes for rejected transactions made by card.
 
 Attempts were classified as:
 
-* **Irreversible: Never retry.**
+* **Irreversible: never retry.**
 
 It means, for example, that the card is canceled for use, has been lost or stolen, there is confirmed fraud, the transaction is not allowed for that product, indicating that there are no circumstances in which the issuer would grant an approval. Any authorization attempt that has previously received an Irreversible refusal without changing any field of the message will not be successful.
 
-* **Reversible: Retry allowed.**
+* **Reversible: retry allowed.**
 
-Means that the issuer can approve, but cannot do so now, possibly due to a system problem (down) or lack of limit, suspected fraud or exceeded number of password attempts. These are temporary opt-out decisions made by the issuer that may change over time.
+It means that the issuer can approve, but cannot do so now, possibly due to a system problem (down) or lack of limit, suspected fraud or exceeded number of password attempts. These are temporary opt-out decisions made by the issuer that may change over time.
 The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the number of authorization attempts for a denied transaction. These changes provide for the charging of fees for excessive attempts. Below are the rules for each flag.
 
 ### Mastercard
 
-The Mastercard Brand has the Transaction Processing Excellence (TPE) program, which includes 2 categories:
+The Mastercard brand has the Transaction Processing Excellence (TPE) program, which includes two categories:
 
 * **Excessive Attempts** – monitors the attempts of denied transactions, in the card present and card not present environments. Valid for both reversible and irreversible denial codes.
 
