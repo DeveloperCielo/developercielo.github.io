@@ -267,3 +267,36 @@ Os códigos de respostas abaixo, estão listados conforme manual de autorizaçã
 |FM|UTILIZAR O CHIP|- Esse código será utilizado pelo Emissor para informar ao estabelecimento que a transação contactless não terá sucesso e que o portador deve utilizar o chip (contato).|Irreversível|
 |P5|TROCA DE SENHA / FALHA NO DESBLOQUEIO|- Esse código será utilizado pelo Emissor quando ocorreu falha na troca de senha ou falha no desbloqueio.|Irreversível|  
 |P6|NOVA SENHA NÃO ACEITA|- Esse código será utilizado pelo Emissor quando a nova senha que o cliente escolheu não atende os critérios mínimos estabelecidos pelo Emissor.|Reversível|
+
+# Hipercard
+
+**O que é?**
+
+Cobranças efetuadas quando um Estabelecimento Comercial excede as regras de Retentativas de transações negadas com um mesmo cartão, mesma data ou período mensal, mesmo valor e mesmo número de Estabelecimento comercial, conforme abaixo:
+
+|Programa|Cartão Presente – CP|Cartão não presente – CNP|
+|Excesso de Retentativa​|R$ 1,85 por Retentativas a partir da 9ª resposta negada – mesmo cartão e mesmo dia (item 2)|R$ 1,85 por Retentativas a partir da 9ª resposta negada – mesmo cartão e mesmo mês de referência (item 3)|
+|Retentativa de transação **ASI** (Zero Auth)|R$ 0,15 por retentativa de transação ASI após negativa do emissor – mesmo cartão e mesmo dia (item 2)|R$ 0,15 por retentativa de transação ASI após negativa do emissor – mesmo cartão e mesmo mês de referência (item 3)|
+|Retentativa de transação irreversível|0,03% do valor da transação por retentativa​<br>Mínimo R$ 0,15<br>Máximo R$ 0,80​<br>Mesmo cartão e mesmo dia após resposta com código irreversível|0,03% do valor da transação por retentativa​<br>Mínimo R$ 0,15<br>Máximo R$ 0,80​<br>Mesmo cartão e mesmo mês após resposta com código irreversível (item 3)|
+
+**Regras:**
+
+* 1. Transações ASI: são transações Account Status Inquiry, ou seja, são as transações efetuadas para consultar o status de um cartão (verificar se está ativo). Para esse fim, não devem ser usadas transações financeiras e sim transações específicas.​
+
+* 2. Tentativas por dia (item 2): considerar para efeito do programa de Retentativas da Hipercard de 00h00 a 23h59​
+
+* 3. Mês de referência (item 3): considerar para efeito do programa de Retentativas da Hipercard dia 01 a 30 ou 31 do mês em que ocorreu a transação. A cobrança será enviada após o fechamento do mês subsequente.​
+
+* 4. Os códigos de transações consideradas irreversíveis pelo emissor foram categorizados pela indústria de pagamentos e autorregulação da ABECS, por meio do Normativo 21 vigente. Códigos de retorno (ABECS)
+
+* 5. Os códigos não citados no manual da ABECS são considerados como reversíveis.
+
+**Início de vigência: 15 de setembro de 2022**
+
+# Demais bandeiras
+
+**Códigos reversíveis:** serão permitidas novas retentativas para o mesmo cliente e cartão. Não há limite e período pré-estabelecido;
+
+> **Importante: que você siga a orientação recebida na resposta da transação negada, antes de realizar uma nova tentativa.**
+
+**Códigos Irreversíveis:** não serão permitidas autorizações para o mesmo cartão ou estabelecimento, depois de receber 1º resposta de recusa do emissor.
