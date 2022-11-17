@@ -799,6 +799,79 @@ As bandeiras Visa, Mastercard, Elo e Hipercard ajustaram suas regras para limita
   </tbody>
 </table>
 
+<h1 id="hipercard">Hipercard</h1>
+
+<p><strong>O que é?</strong></p>
+
+<p>Cobranças efetuadas quando um Estabelecimento Comercial excede as regras de Retentativas de transações negadas com um mesmo cartão, mesma data ou período mensal, mesmo valor e mesmo número de Estabelecimento comercial, conforme abaixo:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Programa</td>
+      <td>Cartão Presente – CP</td>
+      <td>Cartão não presente – CNP</td>
+    </tr>
+    <tr>
+      <td>Excesso de Retentativa​</td>
+      <td>R$ 1,85 por Retentativas a partir da 9ª resposta negada – mesmo cartão e mesmo dia (item 2)</td>
+      <td>R$ 1,85 por Retentativas a partir da 9ª resposta negada – mesmo cartão e mesmo mês de referência (item 3)</td>
+    </tr>
+    <tr>
+      <td>Retentativa de transação <strong>ASI</strong> (Zero Auth)</td>
+      <td>R$ 0,15 por retentativa de transação ASI após negativa do emissor – mesmo cartão e mesmo dia (item 2)</td>
+      <td>R$ 0,15 por retentativa de transação ASI após negativa do emissor – mesmo cartão e mesmo mês de referência (item 3)</td>
+    </tr>
+    <tr>
+      <td>Retentativa de transação irreversível</td>
+      <td>0,03% do valor da transação por retentativa​<br />Mínimo R$ 0,15<br />Máximo R$ 0,80​<br />Mesmo cartão e mesmo dia após resposta com código irreversível</td>
+      <td>0,03% do valor da transação por retentativa​<br />Mínimo R$ 0,15<br />Máximo R$ 0,80​<br />Mesmo cartão e mesmo mês após resposta com código irreversível (item 3)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Regras:</strong></p>
+
+<ul>
+  <li>
+    <ol>
+      <li>Transações ASI: são transações Account Status Inquiry, ou seja, são as transações efetuadas para consultar o status de um cartão (verificar se está ativo). Para esse fim, não devem ser usadas transações financeiras e sim transações específicas.​</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>Tentativas por dia (item 2): considerar para efeito do programa de Retentativas da Hipercard de 00h00 a 23h59​</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>Mês de referência (item 3): considerar para efeito do programa de Retentativas da Hipercard dia 01 a 30 ou 31 do mês em que ocorreu a transação. A cobrança será enviada após o fechamento do mês subsequente.​</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>Os códigos de transações consideradas irreversíveis pelo emissor foram categorizados pela indústria de pagamentos e autorregulação da ABECS, por meio do Normativo 21 vigente. Códigos de retorno (ABECS)</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>Os códigos não citados no manual da ABECS são considerados como reversíveis.</li>
+    </ol>
+  </li>
+</ul>
+
+<p><strong>Início de vigência: 15 de setembro de 2022</strong></p>
+
+<h1 id="demais-bandeiras">Demais bandeiras</h1>
+
+<p><strong>Códigos reversíveis:</strong> serão permitidas novas retentativas para o mesmo cliente e cartão. Não há limite e período pré-estabelecido;</p>
+
+<blockquote>
+  <p><strong>Importante: que você siga a orientação recebida na resposta da transação negada, antes de realizar uma nova tentativa.</strong></p>
+</blockquote>
+
+<p><strong>Códigos Irreversíveis:</strong> não serão permitidas autorizações para o mesmo cartão ou estabelecimento, depois de receber 1º resposta de recusa do emissor.</p>
+
 </div>
 
 
