@@ -1094,6 +1094,7 @@ Significa, por exemplo, que o cartão está cancelado para uso, foi perdido ou r
 
 * **Reversível: Permitido realizar retentativa.**
 Significa que o emissor pode aprovar, mas não pode fazê-lo agora, possivelmente devido a um problema do sistema (inoperante) ou falta de limite, suspeita de fraude ou excedeu número de tentativas de digitação da senha. São decisões de recusas temporárias tomadas pelo emissor que podem mudar com o tempo.
+
 As bandeiras Visa, Mastercard, Elo e Hipercard ajustaram suas regras para limitar a quantidade de tentativas de autorização para uma transação negada. Essas mudanças preveem a cobrança de tarifas para o excesso de tentativas. Abaixo as regras de cada bandeira. 
 
 ### Mastercard
@@ -1120,8 +1121,8 @@ A monitoração é aplicada para as retentativas de transações de compras nega
 * Serão consideradas como retentativas todas as transações de pagamento no mesmo cartão, e mesmo número de estabelecimento;
 * A Mastercard prorrogou a data de vigência para o dia **01/02/2023** referente as novas regras do programa **(Excessive Attempts)** antes prevista para início do dia 01/11/2022, abaixo as mudanças. 
 
-* 1. O excesso considerado no programa ocorrerá a partir da oitava retentativa dentro do mês de apuração os valores cobrados sofreram alteração. 
-* 2. E à Mastercard também está introduzindo um limite de 35 tentativas recusadas no mesmo cartão e mesmo número de estabelecimento por período contínuo de 30 dias. Mesmo se o cliente não ultrapassar o limite de 7 retentativas no período de 24h, mas ultrapassar a quantidade do limite mensal a cobrança será aplicada
+* **1.** O excesso considerado no programa ocorrerá a partir da oitava retentativa dentro do mês de apuração os valores cobrados sofreram alteração. 
+* **2.** E à Mastercard também está introduzindo um limite de 35 tentativas recusadas no mesmo cartão e mesmo número de estabelecimento por período contínuo de 30 dias. Mesmo se o cliente não ultrapassar o limite de 7 retentativas no período de 24h, mas ultrapassar a quantidade do limite mensal a cobrança será aplicada
 
 > Obs: A regra vigente do programa Excessive Attempts é válida até 31/01/2023 tabela acima, onde é permitido apenas 10 tentativas de aprovar uma mesma transação (no mesmo cartão, e mesmo número de estabelecimento), permitido retentar após 24h.
 
@@ -1338,15 +1339,11 @@ Cobranças efetuadas quando um Estabelecimento Comercial excede as regras de Ret
 
 **Regras:**
 
-* 1. Transações ASI: são transações Account Status Inquiry, ou seja, são as transações efetuadas para consultar o status de um cartão (verificar se está ativo). Para esse fim, não devem ser usadas transações financeiras e sim transações específicas.​
-
-* 2. Tentativas por dia (item 2): considerar para efeito do programa de Retentativas da Hipercard de 00h00 a 23h59​
-
-* 3. Mês de referência (item 3): considerar para efeito do programa de Retentativas da Hipercard dia 01 a 30 ou 31 do mês em que ocorreu a transação. A cobrança será enviada após o fechamento do mês subsequente.​
-
-* 4. Os códigos de transações consideradas irreversíveis pelo emissor foram categorizados pela indústria de pagamentos e autorregulação da ABECS, por meio do Normativo 21 vigente. Códigos de retorno (ABECS)
-
-* 5. Os códigos não citados no manual da ABECS são considerados como reversíveis.
+* **1.** Transações ASI: são transações Account Status Inquiry, ou seja, são as transações efetuadas para consultar o status de um cartão (verificar se está ativo). Para esse fim, não devem ser usadas transações financeiras e sim transações específicas.​
+* **2.** Tentativas por dia (item 2): considerar para efeito do programa de Retentativas da Hipercard de 00h00 a 23h59​
+* **3.** Mês de referência (item 3): considerar para efeito do programa de Retentativas da Hipercard dia 01 a 30 ou 31 do mês em que ocorreu a transação. A cobrança será enviada após o fechamento do mês subsequente.​
+* **4.** Os códigos de transações consideradas irreversíveis pelo emissor foram categorizados pela indústria de pagamentos e autorregulação da ABECS, por meio do Normativo 21 vigente. Códigos de retorno (ABECS)
+* **5.** Os códigos não citados no manual da ABECS são considerados como reversíveis.
 
 **Início de vigência: 15 de setembro de 2022**
 
