@@ -768,7 +768,6 @@ Customers who do not follow the rules will be penalized by charging fees for exc
 Aiming to improve the shopping experience, the means of payment market, together with ABECS, promoted the standardization of the response codes for rejected transactions made by card.
 
 Attempts were classified as:
-
 * **Irreversible: Never retry.**
 It means, for example, that the card is canceled for use, has been lost or stolen, there is confirmed fraud, the transaction is not allowed for that product, indicating that there are no circumstances in which the issuer would grant an approval. Any authorization attempt that has previously received an Irreversible refusal without changing any field of the message will not be successful.
 * **Reversible: Retry allowed.**
@@ -780,7 +779,6 @@ The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the
 The Mastercard Brand has the Transaction Processing Excellence (TPE) program, which includes 2 categories:
 
 * **Excessive Attempts** – monitors the attempts of denied transactions, in the card present and card not present environments. Valid for both reversible and irreversible denial codes.
-
 * **Merchant Advice Code Transaction Excellence (MAC)**– monitors transaction retries that are denied, in card-not-present environments that are irreversible. Billing only on (MAC) 03 and 21.
 
 **1. Excessive Attempts**
@@ -799,7 +797,6 @@ Monitoring is applied to retry transactions for denied and approved purchases, c
 All payment transactions using the same card and the same merchant number will be considered as retrys;
 
 Mastercard has extended the effective date to **01/02/2023** regarding the new program rules **(Excessive Attempts)** previously scheduled for the beginning of 01/11/2022, below the changes.
-
 * 1. The excess considered in the program will occur from the eighth attempt within the calculation month. The amounts charged have changed.
 * 2. And Mastercard is also introducing a limit of 35 failed attempts on the same card and merchant number per continuous 30-day period. Even if the customer does not exceed the limit of 7 retries in a 24-hour period, but exceeds the monthly limit, the charge will be applied
 
@@ -886,7 +883,6 @@ A program instituted by the Visa Brand that generates charges when the merchant 
 * After an approved transaction, the counter is reset.
 
 **Fees**: When you exceed the attempt limits established by the brand, a fee will be charged for each transaction that exceeds it.
-
 * Domestic: USD 0.10 + 13.83% Tax
 * Foreign: USD 0.25 + 13.83% Tax
 
@@ -1013,7 +1009,6 @@ Charges made when a Merchant exceeds the Retry rules for denied transactions wit
 |Irreversible transaction retry|0.03% of the transaction value per retry​<br>Minimum BRL 0.15<br>Maximum BRL 0.80<br>Same card and same day after reply with irreversible code| 0.03% of the transaction amount per retry​<br>Minimum BRL 0.15<br>Maximum BRL 0.80<br>Same card and same month after response with irreversible code (item 3)|
 
 **Rules:**
-
 * ASI transactions: these are Account Status Inquiry transactions, that is, transactions carried out to query the status of a card (check that it is active). For this purpose, financial transactions should not be used, but specific transactions.
 * Attempts per day (item 2): consider for purposes of Hipercard's Retry program from 00:00 to 23:59
 * Reference month (item 3): for purposes of the Hipercard Retry program, consider the 01st to the 30th or 31st of the month in which the transaction took place. The charge will be sent after the close of the subsequent month.
