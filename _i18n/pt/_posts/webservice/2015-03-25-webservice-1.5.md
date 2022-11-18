@@ -1136,7 +1136,7 @@ O programa MAC comporta alguns valores, porém **somente os MACs 03 e 21 possuem
 
 Os outros códigos MACs: 01, 02, 04, 24, 25, 26, 27, 28, 29 e 30 não entram no programa de cobrança do MAC mas entram na cobrança do programa Excessive Attempts, caso exceda os limites.
 
-Desde **14/10/2022** a Mastercard introduziu novos códigos MAC, quando um emissor recusa uma transação com o código de resposta 51 (Fundos Insuficiente) seguido de um dos MAC abaixo, para que o comerciante tome a melhor ação. 
+Desde **14/10/2022** a Mastercard introduziu novos códigos MAC 24, 25, 26, 27, 28, 29 e 30, quando um emissor recusa uma transação com o código de resposta 51 (Fundos Insuficiente) seguido de um dos MAC abaixo, para que o comerciante tome a melhor ação. 
 
 |MAC|Descrição|Descrição|
 |---|---|---|
