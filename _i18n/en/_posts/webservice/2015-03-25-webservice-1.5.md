@@ -1116,7 +1116,7 @@ The MAC program accepts some values, however **only MACs 03 and 21 have a specif
 
 The other MAC codes: 01, 02, 04, 24, 25, 26, 27, 28, 29 and 30 do not enter the MAC billing program but do enter the Excessive Attempts program billing if you exceed the limits.
 
-Since **10/14/2022** Mastercard has introduced new MAC codes, when an issuer declines a transaction with response code 51 (Insufficient Funds) followed by one of the MACs below, for the merchant to take the best action.
+Since **10/14/2022** Mastercard has introduced new MAC codes 24, 25, 26, 27, 28, 29 e 30, when an issuer declines a transaction with response code 51 (Insufficient Funds) followed by one of the MACs below, for the merchant to take the best action.
 
 |MAC|Description|Description|
 |---|---|---|
