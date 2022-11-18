@@ -1027,6 +1027,8 @@ Charges made when a Merchant exceeds the Retry rules for denied transactions wit
 
 ## ABECS return codes
 
+To access the Card Brands Retry Program, access this [Link](https://developercielo.github.io/en/manual/linkdepagamentos5#flag-retry-program)
+
 The Brazilian Association of Credit Card and Services Companies (ABECS) establishes as of July 15, 2020 the standardization of the return code of refused sales authorizations for both the physical payment and e-commerce solutions of the Brazilian market .
 
 This normative measure seeks to bring benefits to the entire payments market, providing greater transparency in understanding the reason for refusal of transactions, in addition to enabling greater assertiveness in the adoption of sales retry strategies.
