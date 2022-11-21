@@ -133,7 +133,7 @@
 
 <p>O Cielo OAUTH é um processo de autenticação utilizado em APIs Cielo que são correlacionadas a produtos E-commerce. Ele utiliza como segurança o protocolo <strong><a href="https://oauth.net/2/">OAUTH2</a></strong>, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API CieloOAuth</p>
 
-<aside class="notice">Para obter o `ClientID` e o `ClientSecret`, acione a equipe de Produtos Cielo. Credênciais liberadas apenas para lojistas selecionados.</aside>
+<aside class="notice">Para gerar o ClientID e o ClientSecret, consulte o tópico de Obter Credenciais.</aside>
 
 <p>Para utilizar o Cielo Oauth são necessarias as seguintes credenciais:</p>
 
@@ -153,18 +153,30 @@
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ClientSecret</code></td>
-      <td>Chave que valida o ClientID. Fornecida pela Cielo junto ao <code class="language-plaintext highlighter-rouge">ClientID</code></td>
+      <td>Chave que valida o ClientID. Fornecida pela Cielo junto ao<code class="language-plaintext highlighter-rouge">ClientID</code></td>
       <td>string</td>
     </tr>
   </tbody>
 </table>
+
+<h2 id="obter-credenciais">Obter Credenciais</h2>
+
+<p>Para obter as credênciais no Checkout Cielo, basta seguir o fluxo abaixo:</p>
+
+<ol>
+  <li>Acessar o site Cielo</li>
+  <li>Checkout</li>
+  <li>Configurações</li>
+  <li>Dados da loja</li>
+  <li>Gerar chaves da API</li>
+</ol>
 
 <h2 id="token-de-acesso">Token de acesso</h2>
 
 <p>Para obter acesso a serviços Cielo que utilizam o <code class="language-plaintext highlighter-rouge">Cielo Oauth</code>, será necessário obter um token de acesso, conforme os passos abaixo:</p>
 
 <ol>
-  <li>Concatenar o <em>ClientId</em> e o <em>ClientSecret</em>, <strong>ClientId:ClientSecret</strong></li>
+  <li>Concatenar o ClientId e o ClientSecret, <strong>ClientId:ClientSecret</strong></li>
   <li>Codificar o resultado em <strong>Base64</strong></li>
   <li>Enviar uma requisição, utilizando o método HTTP POST</li>
 </ol>
@@ -215,9 +227,10 @@
 <p>O response possuirá o Token utilizado para novas requisições em Serviços Cielo</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6Ik1ldUNoZWNrb3V0IE1hc3RlciBLZXkiLCJjbGllbnRfaWQiOiJjODlmZGasdasdasdmUyLTRlNzctODA2YS02ZDc1Y2QzOTdkYWMiLCJzY29wZXMiOiJ7XCJTY29wZVwiOlwiQ2hlY2tvdXRBcGlcIixcIkNsYWltc1wiOltdfSIsInJvbGUiOiJasdasdasd291dEFwaSIsImlzc47I6Imh0dHBzOi8vYXV0aGhvbasdasdnJhc3BhZy5jb20uYnIiLCJhdWQiOiJVVlF4Y1VBMmNTSjFma1EzSVVFbk9pSTNkbTl0ZmasdsadQjVKVVV1UVdnPSIsImV4cCI6MTQ5Nzk5NjY3NywibmJmIjoxNDk3OTEwMjc3fQ.ozj4xnH9PA3dji-ARPSbI7Nakn9dw5I8w6myBRkF-uA"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">1199</span><span class="w">
+  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w">
+    </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6Ik1ldUNoZWNrb3V0IE1hc3RlciBLZXkiLCJjbGllbnRfaWQiOiJjODlmZGasdasdasdmUyLTRlNzctODA2YS02ZDc1Y2QzOTdkYWMiLCJzY29wZXMiOiJ7XCJTY29wZVwiOlwiQ2hlY2tvdXRBcGlcIixcIkNsYWltc1wiOltdfSIsInJvbGUiOiJasdasdasd291dEFwaSIsImlzc47I6Imh0dHBzOi8vYXV0aGhvbasdasdnJhc3BhZy5jb20uYnIiLCJhdWQiOiJVVlF4Y1VBMmNTSjFma1EzSVVFbk9pSTNkbTl0ZmasdsadQjVKVVV1UVdnPSIsImV4cCI6MTQ5Nzk5NjY3NywibmJmIjoxNDk3OTEwMjc3fQ.ozj4xnH9PA3dji-ARPSbI7Nakn9dw5I8w6myBRkF-uA"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">1199</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
