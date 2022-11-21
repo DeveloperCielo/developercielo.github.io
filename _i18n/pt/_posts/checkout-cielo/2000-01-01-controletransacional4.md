@@ -18,20 +18,30 @@ language_tabs:
 
 O Cielo OAUTH é um processo de autenticação utilizado em APIs Cielo que são correlacionadas a produtos E-commerce. Ele utiliza como segurança o protocolo **[OAUTH2](https://oauth.net/2/)**, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API CieloOAuth
 
-<aside class="notice">Para obter o `ClientID` e o `ClientSecret`, acione a equipe de Produtos Cielo. Credênciais liberadas apenas para lojistas selecionados.</aside>
+<aside class="notice">Para gerar o ClientID e o ClientSecret, consulte o tópico de Obter Credenciais.</aside>
 
 Para utilizar o Cielo Oauth são necessarias as seguintes credenciais:
 
 | PROPRIEDADE    | DESCRIÇÃO                                                             | TIPO   |
 |----------------|-----------------------------------------------------------------------|--------|
 | `ClientId`     | Identificador chave fornecido pela CIELO                              | guid   |
-| `ClientSecret` | Chave que valida o ClientID. Fornecida pela Cielo junto ao `ClientID` | string |
+| `ClientSecret` | Chave que valida o ClientID. Fornecida pela Cielo junto ao`ClientID`  | string |
+
+## Obter Credenciais
+
+Para obter as credênciais no Checkout Cielo, basta seguir o fluxo abaixo:
+
+1. Acessar o site Cielo
+2. Checkout
+3. Configurações
+4. Dados da loja
+5. Gerar chaves da API
 
 ## Token de acesso
 
 Para obter acesso a serviços Cielo que utilizam o `Cielo Oauth`, será necessário obter um token de acesso, conforme os passos abaixo:
 
-1. Concatenar o _ClientId_ e o _ClientSecret_, **ClientId:ClientSecret**
+1. Concatenar o ClientId e o ClientSecret, **ClientId:ClientSecret**
 2. Codificar o resultado em **Base64**
 3. Enviar uma requisição, utilizando o método HTTP POST
 
@@ -63,9 +73,10 @@ O response possuirá o Token utilizado para novas requisições em Serviços Cie
 
 ```json
 {
-    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6Ik1ldUNoZWNrb3V0IE1hc3RlciBLZXkiLCJjbGllbnRfaWQiOiJjODlmZGasdasdasdmUyLTRlNzctODA2YS02ZDc1Y2QzOTdkYWMiLCJzY29wZXMiOiJ7XCJTY29wZVwiOlwiQ2hlY2tvdXRBcGlcIixcIkNsYWltc1wiOltdfSIsInJvbGUiOiJasdasdasd291dEFwaSIsImlzc47I6Imh0dHBzOi8vYXV0aGhvbasdasdnJhc3BhZy5jb20uYnIiLCJhdWQiOiJVVlF4Y1VBMmNTSjFma1EzSVVFbk9pSTNkbTl0ZmasdsadQjVKVVV1UVdnPSIsImV4cCI6MTQ5Nzk5NjY3NywibmJmIjoxNDk3OTEwMjc3fQ.ozj4xnH9PA3dji-ARPSbI7Nakn9dw5I8w6myBRkF-uA",
-    "token_type": "bearer",
-    "expires_in": 1199
+  "access_token":
+    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6Ik1ldUNoZWNrb3V0IE1hc3RlciBLZXkiLCJjbGllbnRfaWQiOiJjODlmZGasdasdasdmUyLTRlNzctODA2YS02ZDc1Y2QzOTdkYWMiLCJzY29wZXMiOiJ7XCJTY29wZVwiOlwiQ2hlY2tvdXRBcGlcIixcIkNsYWltc1wiOltdfSIsInJvbGUiOiJasdasdasd291dEFwaSIsImlzc47I6Imh0dHBzOi8vYXV0aGhvbasdasdnJhc3BhZy5jb20uYnIiLCJhdWQiOiJVVlF4Y1VBMmNTSjFma1EzSVVFbk9pSTNkbTl0ZmasdsadQjVKVVV1UVdnPSIsImV4cCI6MTQ5Nzk5NjY3NywibmJmIjoxNDk3OTEwMjc3fQ.ozj4xnH9PA3dji-ARPSbI7Nakn9dw5I8w6myBRkF-uA",
+  "token_type": "bearer",
+  "expires_in": 1199
 }
 ```
 
