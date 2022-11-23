@@ -6842,15 +6842,14 @@ Os e-commerces que não seguirem as regras serão penalizados com a cobrança de
 
 Visando melhorar a experiência de compra, o mercado de meios de pagamento, em conjunto com a ABECS, promoveu a padronização nos códigos de respostas das transações recusadas feitas por cartão. As tentativas foram classificadas em dois tipos:
 
-> * <p>&#9989;**Irreversível: nunca realizar retentativa.**</br></p>
+> * <p>&#9989;**Irreversível: nunca realizar retentativa.**</p></br>
 > </br>
 > Significa, por exemplo, que o cartão está cancelado para uso, foi perdido ou roubado, há uma fraude confirmada ou a transação não é permitida para aquele produto, indicando que não há circunstâncias nas quais o emissor concederia uma aprovação. Qualquer tentativa de autorização que, após uma recusa **irreversível**, não tenha alterado nenhum campo da mensageria, não obterá sucesso.</br>
 >
-> * <p>&#10062;**Reversível: permitido realizar retentativa.**</br></p>
+> * <p>&#10060;**Reversível: permitido realizar retentativa.**</p></br>
 > </br>
 > Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora, possivelmente devido a um problema do sistema (inoperante) ou falta de limite, suspeita de fraude ou excesso de número de tentativas de digitação da senha. São decisões de recusas temporárias tomadas pelo emissor que podem mudar com o tempo.
-<br>
-<br>
+
 As bandeiras Visa, Mastercard, Elo e Hipercard ajustaram suas regras para limitar a quantidade de tentativas de autorização para uma transação negada. Essas mudanças preveem a cobrança de tarifas para o excesso de tentativas. Confira a seguir as regras de cada bandeira.
 
 ### Mastercard
@@ -6934,7 +6933,7 @@ A Mastercard poderá consolidar alguns códigos de respostas dos emissores, que 
 * **82** (Política);
 * **83** (Fraude/ Segurança).
 <br>
-<br>
+
 Os códigos originais serão substituídos pelo Merchant Advice Code (MAC), que acompanharão os códigos 79, 82 e 83 para determinar se a transação pode ou não ser retentada.
 
 **Por exemplo:**
@@ -6973,9 +6972,9 @@ Um programa instituído pela bandeira Visa que gera cobranças quando o estabele
 * **Códigos irreversíveis:** é permitido apenas UMA tentativa de aprovar uma mesma transação (mesmo cartão, mesmo estabelecimento), na segunda tentativa será cobrado;
 * Após uma transação ser aprovada, o contador é zerado.
 <br>
-</br>
-> **Tarifas**: Ao ultrapassar os limites de tentativas estabelecidos pela bandeira, haverá uma cobrança de tarifa para cada transação excedente.</br>
-> </br>
+
+> **Tarifas**: Ao ultrapassar os limites de tentativas estabelecidos pela bandeira, haverá uma cobrança de tarifa para cada transação excedente.<br>
+> <br>
 > * **Doméstico**: USD 0,10 + 13,83% de imposto;
 > * **Estrangeiro**: USD 0,25 + 13,83% de imposto
 <br>
@@ -6983,7 +6982,7 @@ Um programa instituído pela bandeira Visa que gera cobranças quando o estabele
 
 Regras de autorização já vigentes. A cobrança de tarifas é aplicada desde abril de 2021.
 
-**A Visa agrupou os códigos de retorno em quatro categorias.**
+**A Visa agrupou os códigos de retorno em quatro categorias:**
 
 **Categoria 1: emissor nunca aprovará**
 
@@ -7007,7 +7006,7 @@ A maioria das condições de recusa tem códigos de resposta descritivos nas Cat
 
 Os emissores devem usar códigos de resposta que reflitam com mais precisão o motivo das recusas. Categorias 1 (o emissor nunca aprovar), 2 (o emissor não pode aprovar neste momento) e 3 (qualidade dos dados) devem ser usados, e os emissores devem limitar o uso de Categoria 4 (Código de Resposta Genérico) para transações onde nenhum outro valor se aplica. A taxa do Código de Resposta Genérico é cobrada para garantir que não mais do que a porcentagem aprovada regionalmente do total de recusas do emissor sejam categorizadas como Categoria 4. Os emissores que excederem o limite definido regionalmente receberão a Taxa de Código de Resposta Genérica por base de transação para cada declínio em excesso do limite definido.
 
-**Tabela com as regras e códigos de recusa.**
+**Tabela com as regras e códigos de recusa:**
 
 ![VISA](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/retentativa_visa.png)
 
@@ -7033,8 +7032,11 @@ Trata-se de um programa instituído pela bandeira ELO que gera cobranças quando
 * **Tarifa**: R$ 0,80 (oitenta centavos) por retentativa, a partir da 16ª;
 * **Cobrança**: a cobrança só será feita em casos de recorrência, sendo assim, o estabelecimento tem que estar no programa por pelo menos dois meses consecutivos;
 * **Contabilização do excesso**: é baseada nos controles internos da Elo. 1º ao último dia corrido do mês.
+<br>
 
-**A tabela abaixo exemplifica como será feita a cobrança pela bandeira.**
+**Tabela de cobrança de retentativas para a bandeira Elo**
+
+A tabela a seguir exemplifica como será feita a cobrança pela bandeira:
 
 |Mês|Cenário|Cobrança|
 |---|---|---|
@@ -7046,9 +7048,9 @@ Trata-se de um programa instituído pela bandeira ELO que gera cobranças quando
 |6º (janeiro)|EC Não excede Limites|Não gera cobrança|
 |7º (fevereiro)|EC Excede limites|Será advertido novamente.|
 
-**Início de vigência: 1º de agosto de 2022**
+<aside class="notice">Início de vigência: 1º de agosto de 2022.</aside>
 
-**Relação de códigos de recusa:**
+**Relação de códigos de recusa Elo:**
 
 Os códigos de respostas abaixo estão listados conforme manual de autorização da bandeira.
 
@@ -7106,19 +7108,19 @@ Cobranças efetuadas quando um Estabelecimento Comercial excede as regras de ret
 
 **Regras:**
 
-* **1. Transações ASI**: são transações Account Status Inquiry, ou seja, são as transações efetuadas para consultar o status de um cartão (verificar se está ativo). Para esse fim, não devem ser usadas transações financeiras e sim transações específicas.
-* **2. Tentativas por dia**: considerar para efeito do programa de Retentativas da Hipercard de 00h00 a 23h59
-* **3. Mês de referência**: considerar para efeito do programa de Retentativas da Hipercard dia 01 a 30 ou 31 do mês em que ocorreu a transação. A cobrança será enviada após o fechamento do mês subsequente.
-* **4. Os códigos de transações** consideradas **irreversíveis pelo emissor** foram categorizados pela indústria de pagamentos e autorregulação da ABECS, por meio do Normativo 21 vigente. Veja os [Códigos de retorno (ABECS)](https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-de-retorno-abecs){:target="_blank"}.
-* **5. Os códigos não citados no manual da ABECS são considerados como reversíveis**.
+**1. Transações ASI**: são transações Account Status Inquiry, ou seja, são as transações efetuadas para consultar o status de um cartão (verificar se está ativo). Para esse fim, não devem ser usadas transações financeiras e sim transações específicas.
+**2. Tentativas por dia**: considerar para efeito do programa de Retentativas da Hipercard de 00h00 a 23h59
+**3. Mês de referência**: considerar para efeito do programa de Retentativas da Hipercard dia 01 a 30 ou 31 do mês em que ocorreu a transação. A cobrança será enviada após o fechamento do mês subsequente.
+**4. Os códigos de transações** consideradas **irreversíveis pelo emissor** foram categorizados pela indústria de pagamentos e autorregulação da ABECS, por meio do Normativo 21 vigente. Veja os [Códigos de retorno (ABECS)](https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-de-retorno-abecs){:target="_blank"}.
+**5. Os códigos não citados no manual da ABECS são considerados como reversíveis**.
 
 <aside class="notice">Início de vigência: 15 de setembro de 2022.</aside>
 
 ### Demais bandeiras
 
-* **Códigos reversíveis:** serão permitidas novas retentativas para o mesmo cliente e cartão. Não há limite e período pré-estabelecido;</br>
+* **Códigos reversíveis:** serão permitidas novas retentativas para o mesmo cliente e cartão. Não há limite e período pré-estabelecido;
 
-> **Importante: siga a orientação recebida na resposta da transação negada, antes de realizar uma nova tentativa.**</br>
+> **Importante**: antes de realizar uma nova tentativa, siga a orientação recebida na resposta da transação negada.
 
 * **Códigos Irreversíveis:** não serão permitidas autorizações para o mesmo cartão ou estabelecimento, depois de receber 1ª resposta de recusa do emissor.
 
