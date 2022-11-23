@@ -1075,83 +1075,92 @@ Caso tenha uma quantidade elevada de códigos de retorno que não está listado 
 ## Programa de Retentativa das Bandeiras
 
 **O que são retentativas?**
-Quando um cliente tenta fazer uma compra com o cartão no seu negócio, a transação pode ser negada devido uma série de fatores. As tentativas seguintes de concluir a transação usando o mesmo cartão é o que chamamos de retentativa.
+
+Quando uma pessoa tenta fazer uma compra com cartão na sua loja, a transação pode ser negada devido a uma série de fatores. As tentativas seguintes de concluir a transação usando o mesmo cartão é o que chamamos de retentativa.
 
 **O que mudou?**
-Cada bandeira de cartão define os valores que serão cobrados por retentativa. A quantidade de vezes que uma transação pode ser retentada antes da cobrança também varia de acordo com a bandeira. 
+
+Cada bandeira de cartão define os valores que serão cobrados por retentativa. A quantidade de vezes que uma transação pode ser retentada antes da cobrança também varia de acordo com a bandeira.
 
 **E no e-commerce?**
-As bandeiras de cartão definem regras diferentes para transações com cartão presente e não presente, como no caso das vendas feitas pela internet. 
 
-**Qual o impacto para o cliente?** 
-Os clientes que não seguirem as regras serão penalizados com a cobrança de tarifas por transações excedidas, de acordo com cada programa das bandeiras.
+As bandeiras de cartão definem regras diferentes para transações com cartão presente e não presente, como no caso das vendas feitas pela internet.
 
-Visando melhorar a experiência de compra, o mercado de meios de pagamento, em conjunto com a ABECS, promoveu a padronização nos códigos de respostas das transações recusadas feitas por cartão.
-As tentativas foram classificadas como:
+**Qual o impacto para a loja?**
 
-* **Irreversível: Nunca realizar retentativa.**
-Significa, por exemplo, que o cartão está cancelado para uso, foi perdido ou roubado, há uma fraude confirmada, a transação não é permitida para aquele produto, indicando que não há circunstâncias nas quais o emissor concederia uma aprovação. Qualquer tentativa de autorização que antes tenha recebido uma recusa Irreversível sem alteração de algum campo da mensageria não obterá sucesso. 
+Os e-commerces que não seguirem as regras serão penalizados com a cobrança de tarifas por transações excedidas, de acordo com o programa de cada bandeira.
 
-* **Reversível: Permitido realizar retentativa.**
-Significa que o emissor pode aprovar, mas não pode fazê-lo agora, possivelmente devido a um problema do sistema (inoperante) ou falta de limite, suspeita de fraude ou excedeu número de tentativas de digitação da senha. São decisões de recusas temporárias tomadas pelo emissor que podem mudar com o tempo.
+Visando melhorar a experiência de compra, o mercado de meios de pagamento, em conjunto com a ABECS, promoveu a padronização nos códigos de respostas das transações recusadas feitas por cartão. As tentativas foram classificadas em dois tipos:
 
-As bandeiras Visa, Mastercard, Elo e Hipercard ajustaram suas regras para limitar a quantidade de tentativas de autorização para uma transação negada. Essas mudanças preveem a cobrança de tarifas para o excesso de tentativas. Abaixo as regras de cada bandeira. 
+> * <p>&#10060; **Irreversível: nunca realizar retentativa**</p><br>
+> <br>
+> Significa, por exemplo, que o cartão está cancelado para uso, foi perdido ou roubado, há uma fraude confirmada ou a transação não é permitida para aquele produto, indicando que não há circunstâncias nas quais o emissor concederia uma aprovação. Qualquer tentativa de autorização que, após uma recusa **irreversível**, não tenha alterado nenhum campo da mensageria, não obterá sucesso.<br>
+><br>
+> * <p>&#9989; **Reversível: permitido realizar retentativa**</p><br>
+> <br>
+> Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora, possivelmente devido a um problema do sistema (inoperante) ou falta de limite, suspeita de fraude ou excesso de número de tentativas de digitação da senha. São decisões de recusas temporárias tomadas pelo emissor que podem mudar com o tempo.
+
+As bandeiras Visa, Mastercard, Elo e Hipercard ajustaram suas regras para limitar a quantidade de tentativas de autorização para uma transação negada. Essas mudanças preveem a cobrança de tarifas para o excesso de tentativas. Confira a seguir as regras de cada bandeira.
 
 ### Mastercard
 
-A Bandeira Mastercard possui o programa Transaction Processing Excellence (TPE), onde engloba 2 categorias:
+A bandeira Mastercard possui o programa Transaction Processing Excellence (TPE), que engloba duas categorias:
 
-* **1. Excessive Attempts** – monitora as retentativas de transações negadas, nos ambientes de cartão presente e cartão não presente. Válido tanto para códigos de negadas reversíveis quanto irreversíveis. 
+**1. Excessive Attempts**: monitora as retentativas de transações negadas nos ambientes de cartão presente e cartão não presente. Válido tanto para códigos de negadas reversíveis quanto irreversíveis.
 
-* **2. Merchant Advice Code Transaction Excellence (MAC)**– monitora as retentativas de transações negadas, nos ambientes de cartão não presente e que são irreversíveis. Cobrança somente nos (MAC) 03 e 21.
+**2. Merchant Advice Code Transaction Excellence (MAC)**: monitora as retentativas de transações negadas, nos ambientes de cartão não presente e que são irreversíveis. Haverá cobrança somente nos MACs 03 e 21.
 
-**1. Excessive Attempts**
+#### 1. Excessive Attempts
 
 São cobranças efetuadas quando o estabelecimento comercial excede as regras de retentativas de transações.
 
-A bandeira também realiza o monitoramento para qualquer autorização de valor nominal, aprovada, com estorno subsequente para transações abaixo de 1 unidade de moeda inteira ou o equivalente a US$ 1. 
+A bandeira também realiza o monitoramento para qualquer autorização de valor nominal, aprovada, com estorno subsequente para transações abaixo de 1 unidade de moeda inteira ou o equivalente a US$ 1.
 
-A monitoração é aplicada para as retentativas de transações de compras negadas e aprovadas, realizadas em ambiente de cartão presente e cartão não presente.
+O monitoramento é aplicado para as retentativas de transações de compras negadas e aprovadas, realizadas em ambiente de cartão presente e cartão não presente.
+
+**Tabela Excessive Attempts**
 
 |Categorias|Códigos|Vigência|Tarifa Doméstica|Tarifa Internacional|Quando Ocorre|Permitido Retentar|
-|---|---|
-|Cartão presente e Cartão não presente|Qualquer código de negativa que não está atribuído ao MAC 03 e 21. E também os códigos MAC caso não respeite os limites do “Excessive Attempts"|Até 31/01/2023|R$ 2,00 |-|A partir 11ª retentativa|Permitido retentar em 24h.|
-|Cartão presente e Cartão não presente|Qualquer código de negativa que não está atribuído ao MAC 03 e 21. E também os códigos MAC caso não respeite os limites do “Excessive Attempts"|Nova regra a partir de 01/02/2023|R$ 2,00 |-|A partir 8ª retentativa|Permitido retentar em 24h.|
+|---|---|---|---|---|---|---|
+|Cartão presente e cartão não presente|Qualquer código de negativa que não está atribuído ao MAC 03 e 21. E também os códigos MAC caso não respeite os limites do “Excessive Attempts"|Até 31/01/2023|R$ 2,00 |-|A partir 11ª retentativa|Permitido retentar em 24h.|
+|Cartão presente e cartão não presente|Qualquer código de negativa que não está atribuído ao MAC 03 e 21. E também os códigos MAC caso não respeite os limites do “Excessive Attempts"|Nova regra a partir de 01/02/2023|R$ 2,00 |-|A partir 8ª retentativa|Permitido retentar em 24h.|
 
 * Serão consideradas como retentativas todas as transações de pagamento no mesmo cartão, e mesmo número de estabelecimento;
-* A Mastercard prorrogou a data de vigência para o dia **01/02/2023** referente as novas regras do programa **(Excessive Attempts)** antes prevista para início do dia 01/11/2022, abaixo as mudanças. 
+* A Mastercard prorrogou a data de vigência para o dia **01/02/2023** referente as novas regras do programa **(Excessive Attempts)** antes prevista para início do dia 01/11/2022. Confira as mudanças:
 
-* **1.** O excesso considerado no programa ocorrerá a partir da oitava retentativa dentro do mês de apuração os valores cobrados sofreram alteração. 
-* **2.** E à Mastercard também está introduzindo um limite de 35 tentativas recusadas no mesmo cartão e mesmo número de estabelecimento por período contínuo de 30 dias. Mesmo se o cliente não ultrapassar o limite de 7 retentativas no período de 24h, mas ultrapassar a quantidade do limite mensal a cobrança será aplicada
+1. O excesso considerado no programa ocorrerá a partir da oitava retentativa dentro do mês de apuração; os valores cobrados sofreram alteração.
+2. E a Mastercard também está introduzindo um limite de 35 tentativas negadas no mesmo cartão e mesmo número de estabelecimento por período contínuo de 30 dias. Mesmo se a loja não ultrapassar o limite de sete retentativas no período de 24h, mas ultrapassar a quantidade do limite mensal, a cobrança será aplicada.
 
-> Obs: A regra vigente do programa Excessive Attempts é válida até 31/01/2023 tabela acima, onde é permitido apenas 10 tentativas de aprovar uma mesma transação (no mesmo cartão, e mesmo número de estabelecimento), permitido retentar após 24h.
+> Obs: A regra vigente do programa Excessive Attempts é válida até 31/01/2023 (tabela Excessive Attempts), permitindo apenas 10 tentativas de aprovar uma mesma transação (no mesmo cartão, e mesmo número de estabelecimento), e é permitido retentar após 24h.
 
-**2. Merchant Advice Code Transaction Excellence (MAC)**
+#### 2. Merchant Advice Code Transaction Excellence (MAC)
 
 São cobranças efetuadas quando o estabelecimento comercial realiza retentativa de envio de autorização para códigos de respostas irreversíveis com um mesmo cartão valido para cartão não presente.
 
-Dentro desse programa de retentativas, há programas que se destinam especificamente ao cenário de **“Não tente esta transação novamente”**. Para esses casos a Mastercard identifica as transações com os seguintes valores: MAC 03 e MAC 21, por exemplo.
+Dentro desse programa de retentativas, há programas que se destinam especificamente ao cenário de **“Não tente esta transação novamente”**. Para esses casos, a Mastercard identifica as transações com os valores MAC 03 e MAC 21, por exemplo.
 
-O programa MAC comporta alguns valores, porém **somente os MACs 03 e 21 possuem uma cobrança específica**. Os demais MACs não se enquadram nessa cobrança MAC 03/21.
+O programa MAC comporta alguns valores, porém **somente os MACs 03 e 21 possuem uma cobrança específica**. Os demais MACs não se enquadram nessa cobrança.
 
-Os outros códigos MACs: 01, 02, 04, 24, 25, 26, 27, 28, 29 e 30 não entram no programa de cobrança do MAC mas entram na cobrança do programa Excessive Attempts, caso exceda os limites.
+Os outros códigos MAC (01, 02, 04, 24, 25, 26, 27, 28, 29 e 30) não entram no programa de cobrança do MAC mas entram na cobrança do programa Excessive Attempts, caso exceda os limites.
 
-Desde **14/10/2022** a Mastercard introduziu novos códigos MAC 24, 25, 26, 27, 28, 29 e 30, quando um emissor recusa uma transação com o código de resposta 51 (Fundos Insuficiente) seguido de um dos MAC abaixo, para que o comerciante tome a melhor ação. 
+Desde **14/10/2022** a Mastercard introduziu novos códigos MAC (24, 25, 26, 27, 28, 29 e 30) quando um emissor recusa uma transação com o código de resposta 51 (insuficiência de fundos) seguido de um dos MAC da tabela a seguir, para que o comerciante tome a melhor ação.
 
-|MAC|Descrição|Descrição|
+**Tabela com toda relação de MACs**
+
+|MAC|Descrição|Observação|
 |---|---|---|
-|01|Informações da nova conta disponíveis (ABU)|Necessidade de realizar atualização dos dados da conta que está sendo utilizada na transação, utilizando o ABU, por exemplo.|
-|02|Não pode aprovar no momento, tente depois|Devem tentar novamente a transação após 72 horas ou tentar a transação com um método de pagamento diferente.|
-|03|Não é permitido retentar|Devem buscar outro meio de garantir o pagamento, evitando custos desnecessários de várias solicitações de autorização que continuarão a resultar em declínios|
-|04|Requisitos de token não atendidos para este token modelo|Necessidade de realizar revisão dos requisitos de token, pois não foram atendidos para este token modelo enviado na transação|
-|21|Plano cancelado|Cliente realiza cancelamento de plano e mesmo após o cancelamento, estabelecimento continua enviando solicitação de autorização de compra.|
-|24|Tente novamente após 1 hora|Válido somente para o código de resposta 51 (Insuficiência de fundos)|
-|25|Tente novamente após 24 horas|Válido somente para o código de resposta 51 (Insuficiência de fundos)|
-|26|Tente novamente após 2 dias|Válido somente para o código de resposta 51 (Insuficiência de fundos)|
-|27|Tente novamente após 4 dias|Válido somente para o código de resposta 51 (Insuficiência de fundos)|
-|28|Tente novamente após 6 dias|Válido somente para o código de resposta 51 (Insuficiência de fundos)|
-|29|Tente novamente após 8 dias|Válido somente para o código de resposta 51 (Insuficiência de fundos)|
-|30|Tente novamente após 10 dias|Válido somente para o código de resposta 51 (Insuficiência de fundos)|
+|01|Informações da nova conta disponíveis (ABU)|Necessidade de realizar atualização dos dados da conta que está sendo utilizada na transação, usando o ABU, por exemplo.|
+|02|Não pode aprovar no momento, tente depois|Tente novamente a transação após 72 horas ou tente a transação com um método de pagamento diferente.|
+|03|Não é permitido retentar|Busque outro meio de garantir o pagamento, evitando custos desnecessários de várias solicitações de autorização que continuarão a resultar em declínios.|
+|04|Requisitos de token não atendidos para este token modelo|Há necessidade de revisar os requisitos de token, pois os requisitos não foram atendidos para este token modelo enviado na transação.|
+|21|Plano cancelado|Comprador realiza cancelamento de plano e mesmo após o cancelamento, estabelecimento continua enviando solicitação de autorização de compra.|
+|24|Tente novamente após 1 hora|Válido somente para o código de resposta 51 (insuficiência de fundos)|
+|25|Tente novamente após 24 horas|Válido somente para o código de resposta 51 (insuficiência de fundos)|
+|26|Tente novamente após 2 dias|Válido somente para o código de resposta 51 (insuficiência de fundos)|
+|27|Tente novamente após 4 dias|Válido somente para o código de resposta 51 (insuficiência de fundos)|
+|28|Tente novamente após 6 dias|Válido somente para o código de resposta 51 (insuficiência de fundos)|
+|29|Tente novamente após 8 dias|Válido somente para o código de resposta 51 (insuficiência de fundos)|
+|30|Tente novamente após 10 dias|Válido somente para o código de resposta 51 (insuficiência de fundos)|
 
 Além disso, alguns códigos de retorno deixarão de ser enviados:
 
@@ -1163,93 +1172,102 @@ Além disso, alguns códigos de retorno deixarão de ser enviados:
 * 57 (Transação Não Permitida)
 * 62 (Cartão Restrito)
 * 63 (Violação de Segurança)
+<br>
+<br>
 
 **Categorização de retornos Mastercard**
 
-A Mastercard poderá consolidar alguns códigos de respostas dos emissores, que muitas vezes podem não indicar ao comerciante se pode ou não retentar, em 3 de uso exclusivo Mastercard:
+A Mastercard poderá consolidar alguns códigos de respostas dos emissores, que muitas vezes não indicam ao comerciante se pode ou não retentar, em três códigos de uso exclusivo Mastercard:
 
-* 79 (Ciclo de vida)
-* 82 (Política)
-* 83 (Fraude/ Segurança)
+* **79** (Ciclo de vida);
+* **82** (Política);
+* **83** (Fraude/ Segurança).
+<br>
+<br>
 
 Os códigos originais serão substituídos pelo Merchant Advice Code (MAC), que acompanharão os códigos 79, 82 e 83 para determinar se a transação pode ou não ser retentada.
 
 **Por exemplo:**
 
 |Quando|Então|E o código de resposta|
-|---|---|
-|O emissor recusar a transação usando o código de resposta 54 (Cartão Expirado)|A Mastercard substituirá o código 54 para o código 79 (Recusa por ciclo de vida)|Acompanha o devido Merchant Advice Code (MAC)|
+|:---:|:---:|:---:|
+|O emissor recusar a transação usando o código de resposta 54 (Cartão Expirado)|A Mastercard substituirá o código 54 para o código 79 (recusa por ciclo de vida)|Acompanha o devido Merchant Advice Code (MAC)|
 
 **Programa de retentativas MAC 03 e MAC 21**
 
 **Forma de apuração:**
 
 * Serão consideradas as transações de cartão não presente;
-* São consideradas como retentativas todas as transações de pagamento no mesmo cartão e mesmo número de estabelecimento; 
+* São consideradas como retentativas todas as transações de pagamento no mesmo cartão e mesmo número de estabelecimento;
 * São contabilizadas as retentativas no programa MAC com os valores MAC 03 e MAC 21;
-* Valido para qualquer código de resposta,
+* Valido para qualquer código de resposta;
 * O excesso contabilizado no programa ocorrerá a partir da 1ª retentativa dentro do mês de apuração;
 * O contador é zerado após o período de 30 dias;
 * As retentativas podem ser cobradas nos MACs 03/21 e no Excessive Attempts caso ultrapasse o limite de cada programa;
-* Atualmente é aplicado o valor de tarifa de R$1,25 e esse valor será alterado a partir de 01 de janeiro de 2023, como listado abaixo;
+* Atualmente é aplicado o valor de tarifa de R$1,25 e esse valor será alterado a partir de 01 de janeiro de 2023, como listado a seguir.
+<br>
+<br>
 
 **Tabela de valores:**
 
 |Número de retentativa|Regra|
 |---|---|
-|A partir 1ª rententativa|R$ 2,50 (dois reais e cinquenta centavos) por retentativa, a partir da 1ª|
+|A partir 1ª rententativa|R$ 2,50 (dois reais e cinquenta centavos) por retentativa, a partir da 1ª retentativa.|
 
 ### Visa
 
 **O que é?**
 
-Um programa instituído pela Bandeira Visa que gera cobranças quando o estabelecimento comercial excede as regras de retentativas.
+Um programa instituído pela bandeira Visa que gera cobranças quando o estabelecimento comercial excede as regras de retentativas.
 
-* Valido para transações com cartão presente e cartão não presente;
-* **Códigos reversíveis:** Permitido até 15 tentativas de aprovar uma mesma transação (mesmo cartão, mesmo estabelecimento e valor) no período de 30 dias. Após os 30 dias iniciais (a contar da 1ª tentativa), qualquer retentativa será cobrada. 
-* **Códigos irreversíveis:** Permitido apenas 01 tentativa de aprovar uma mesma transação (mesmo cartão, mesmo estabelecimento), na 2 tentativa será cobrado.
-* Após uma transação aprovada o contador é zerado.
+* Válido para transações com cartão presente e cartão não presente;
+* **Códigos reversíveis:** são permitidas até 15 tentativas de aprovar uma mesma transação (mesmo cartão, mesmo estabelecimento e valor) no período de 30 dias. Após os 30 dias iniciais (a contar da primeira tentativa), qualquer retentativa será cobrada;
+* **Códigos irreversíveis:** é permitido apenas UMA tentativa de aprovar uma mesma transação (mesmo cartão, mesmo estabelecimento), na segunda tentativa será cobrado;
+* Após uma transação ser aprovada, o contador é zerado.
+<br>
 
-**Tarifas**: Ao ultrapassar os limites de tentativas estabelecidos pela bandeira, haverá uma cobrança de tarifa para cada transação excedente.
-
-* Doméstico: USD 0,10 + 13,83% de Imposto
-* Estrangeiro: USD 0,25 + 13,83% de Imposto
+> **Tarifas**: Ao ultrapassar os limites de tentativas estabelecidos pela bandeira, haverá uma cobrança de tarifa para cada transação excedente.<br>
+> <br>
+> * **Doméstico**: USD 0,10 + 13,83% de imposto;
+> * **Estrangeiro**: USD 0,25 + 13,83% de imposto
+<br>
+<br>
 
 Regras de autorização já vigentes. A cobrança de tarifas é aplicada desde abril de 2021.
 
-**A Visa agrupou os códigos de retorno em 4 Categorias.**
+**A Visa agrupou os códigos de retorno em quatro categorias:**
 
-**Categoria 1 - Emissor nunca aprovará.**
+* **Categoria 1: emissor nunca aprovará**
 
 Para essa categoria, indica que o cartão foi cancelado ou nunca existiu ou que a negativa é resultado de uma restrição permanente ou condição de erro que impedirá uma aprovação futura.
 
-**Categoria 2 - Emissor não pode aprovar neste momento.**
+* **Categoria 2: emissor não pode aprovar neste momento**
 
 Indicam que a negativa é resultado de uma condição temporária tal como risco de crédito, controles de velocidade do emissor ou outras restrições do cartão que podem permitir uma retentativa da transação ser aprovada. Em alguns casos, a negativa requer uma ação do portador ou emissor para remover a restrição antes que uma aprovação possa ser obtida.
 
-**Categoria 3 - Qualidade de dados/revisar dados.**
+* **Categoria 3: qualidade de dados/revisar dados**
 
 Quando um erro de dados é identificado pelo emissor essa transação é declinada como consequência. Os estabelecimentos devem revalidar dados de pagamentos antes de retentar. Estabelecimentos e Credenciadores devem monitorar estes códigos de negativas devido a exposição potencial a fraudes.
 
-> Atenção: A categoria 3 tem além dos limites considerados na categoria 2 um limite diferente, onde ele é cumulativo. Um estabelecimento pode realizar até 10.000 transações em um período de 30 dias (neste caso considerando apenas o número do estabelecimento e códigos de negadas). Se ultrapassar o limite, todas as transações recusadas por categoria 3 serão tarifadas.
+> **Atenção**: A categoria 3 tem, além dos limites considerados na categoria 2, um limite diferente que é cumulativo. Um estabelecimento pode realizar até 10.000 transações em um período de 30 dias (neste caso considerando apenas o número do estabelecimento e códigos de negadas). Se ultrapassar o limite, todas as transações recusadas por categoria 3 serão tarifadas.
 
-**Categoria 4 - Códigos de respostas genéricos.**
+* **Categoria 4: códigos de respostas genéricos**
 
 A categoria 4 inclui todos os outros códigos de resposta de recusa, muitos dos quais fornecem pouco ou nenhum valor para Adquirentes/Comerciantes como parte de sua estratégia de nova tentativa. O uso do emissor deve permanecer mínimo.
 
-A maioria das condições de recusa tem códigos de resposta descritivos nas Categorias 1, 2 e 3 para indicar o motivo da recusa. No entanto, pode haver circunstâncias em que não haja valor de código de resposta para uma condição de declínio específica. Emissores pode usar outros valores de códigos de resposta definidos nas Especificações Técnicas VisaNet; no entanto, o uso deve permanecer mínimo. 
+A maioria das condições de recusa tem códigos de resposta descritivos nas Categorias 1, 2 e 3 para indicar o motivo da recusa. No entanto, pode haver circunstâncias em que não haja valor de código de resposta para uma condição de declínio específica. Emissores pode usar outros valores de códigos de resposta definidos nas Especificações Técnicas VisaNet; no entanto, o uso deve permanecer mínimo.
 
-Os emissores devem usar códigos de resposta que reflitam com mais precisão o motivo das recusas. Categorias 1 (o emissor nunca aprovar), 2 (o emissor não pode aprovar neste momento) e 3 (Qualidade dos dados) devem ser usados, e os emissores devem limitar o uso de Categoria 4 (Código de Resposta Genérico) para transações onde nenhum outro valor se aplica. A taxa do Código de Resposta Genérico é cobrada para garantir que não mais do que a porcentagem aprovada regionalmente2 do total de recusas do emissor sejam categorizadas como Categoria 4. Os emissores que excederem o limite definido regionalmente receberão a Taxa de Código de Resposta Genérica por base de transação para cada declínio em excesso do limite definido.
+Os emissores devem usar códigos de resposta que reflitam com mais precisão o motivo das recusas. Categorias 1 (o emissor nunca aprovar), 2 (o emissor não pode aprovar neste momento) e 3 (qualidade dos dados) devem ser usados, e os emissores devem limitar o uso de Categoria 4 (Código de Resposta Genérico) para transações onde nenhum outro valor se aplica. A taxa do Código de Resposta Genérico é cobrada para garantir que não mais do que a porcentagem aprovada regionalmente do total de recusas do emissor sejam categorizadas como Categoria 4. Os emissores que excederem o limite definido regionalmente receberão a Taxa de Código de Resposta Genérica por base de transação para cada declínio em excesso do limite definido.
 
-**Tabela com as regras e códigos de recusa.**
+**Tabela com as regras e códigos de recusa:**
 
 ![VISA](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/retentativa_visa.png)
 
-**Obs:** O código de resposta 14 aparece nas categorias 1 e 3 porem a contabilização é a seguinte:
+**Observação:** O código de resposta 14 aparece nas categorias 1 e 3 porém a contabilização é a seguinte:
 
-Na categoria 1 o EC é tarifado a partir da 2ª tentativa para o (mesmo estabelecimento e mesmo cartão) **não permitido retentar.** 
+* Na categoria 1 o EC é tarifado a partir da 2ª tentativa para o (mesmo estabelecimento e mesmo cartão) **não permitido retentar.**
 
-Na categoria 3 compõe o grupo de códigos para contabilização das 10.001 transações, após o EC atingir 10.000 retentativas com o este grupo de códigos, qualquer transação será contabilizada independente do Cartão.
+* Na categoria 3 compõe o grupo de códigos para contabilização das 10.001 transações, após o EC atingir 10.000 retentativas com o este grupo de códigos, qualquer transação será contabilizada independente do cartão.
 
 **Exemplo:** Tivemos 10.000 transações negadas em um EC com os códigos de categoria 3, se a transação 10.001 for no código 14 ou em qualquer código do grupo de categoria 3 ele será tarifado independente do cartão.
 
@@ -1257,18 +1275,22 @@ Na categoria 3 compõe o grupo de códigos para contabilização das 10.001 tran
 
 **O que é?**
 
-Trata-se de um programa instituído pela Bandeira ELO que gera cobranças quando o estabelecimento comercial excede as regras de retentativas de transações com um mesmo cartão. 
+Trata-se de um programa instituído pela bandeira ELO que gera cobranças quando o estabelecimento comercial excede as regras de retentativas de transações com um mesmo cartão.
 
 **Formas de Apuração**
 
-* Retentativas: todas transações de pagamento no mesmo - cartão, validade, valor, Merchant ID (MID) - dentro de 30 dias
-* Códigos contabilizados: todos de negativas​
-* Excesso: a partir da 16ª retentativa no mês​*
-* Tarifa: R$ 0,80 (oitenta centavos) por retentativa, a partir da 16º
-* Cobrança: A cobrança só será feita em casos de recorrência, sendo assim, o estabelicimento tem que estar pelo menos 2 meses consecutivos no programa.
-* Contabilização do excesso: É baseado nos controles internos da Elo. 1º ao último dia corrido do mês
+* **Retentativas**: todas transações de pagamento no mesmo cartão, validade, valor e Merchant ID (MID) dentro de 30 dias;
+* **Códigos contabilizados**: todos de negativas​;
+* **Excesso**: a partir da 16ª retentativa no mês​*;
+* **Tarifa**: R$ 0,80 (oitenta centavos) por retentativa, a partir da 16ª;
+* **Cobrança**: a cobrança só será feita em casos de recorrência, sendo assim, o estabelecimento tem que estar no programa por pelo menos dois meses consecutivos;
+* **Contabilização do excesso**: é baseada nos controles internos da Elo. 1º ao último dia corrido do mês.
+<br>
+<br>
 
-**A tabela abaixo exemplifica como será feito a cobrança pela bandeira.**
+**Tabela de cobrança de retentativas para a bandeira Elo**
+
+A tabela a seguir exemplifica como será feita a cobrança pela bandeira:
 
 |Mês|Cenário|Cobrança|
 |---|---|---|
@@ -1280,11 +1302,11 @@ Trata-se de um programa instituído pela Bandeira ELO que gera cobranças quando
 |6º (janeiro)|EC Não excede Limites|Não gera cobrança|
 |7º (fevereiro)|EC Excede limites|Será advertido novamente.|
 
-**Início de vigência: 1º de agosto de 2022**
+<aside class="notice">Início de vigência: 1º de agosto de 2022.</aside>
 
-**Relação de códigos de recusa:**
+**Relação de códigos de recusa Elo:**
 
-Os códigos de respostas abaixo, estão listados conforme manual de autorização da bandeira. 
+Os códigos de respostas abaixo estão listados conforme manual de autorização da bandeira.
 
 |CÓDIGOS|DESCRIÇÃO|QUANDOO EMISSOR DEVE UTILIZAR O CÓDIGO DE RESPOSTA|RETENTATIVA|
 |----|----|----|----|
@@ -1308,52 +1330,53 @@ Os códigos de respostas abaixo, estão listados conforme manual de autorizaçã
 |58|COMERCIANTE INVÁLIDO|- Esse código deve ser utilizado pelo Emissor quando o MCC do estabelecimento não estiver cadastrado para obtenção de token junto ao Emissor.|Irreversível|
 |59|SUSPEITA DE FRAUDE|- Esse código deve ser utilizado pelo Emissor quando regras de prevenção SUSPEITAM DE FRAUDE, sendo necessário o contato do portador com o Emissor para liberação do cartão e realização de nova transação.<br>- Esse código deve ser utilizado pelo Emissor para negar transações por ausência do AVISO VIAGEM que deve ser realizado pelo portador do cartão antes de viagens ao exterior ou em alguns casos antes de realizar transações em sites internacionais.|Reversível|
 |61|VALOR MÁXIMO SAQUE/COMPRAS EXCEDIDO|- Esse código deve ser utilizado pelo Emissor quando o valor do saque/compras exceder o limite permitido por ele.|Reversível|
-|62|BLOQUEIO TEMPORÁRIO DE COBRANÇA|- Esse código deve ser utilizado pelo Emissor para cartões com BLOQUEIO TEMPORÁRIO DE COBRANÇA.|Reversível| 
+|62|BLOQUEIO TEMPORÁRIO DE COBRANÇA|- Esse código deve ser utilizado pelo Emissor para cartões com BLOQUEIO TEMPORÁRIO DE COBRANÇA.|Reversível| 
 |63|VIOLAÇÃO DE SEGURANÇA|- Esse código deve ser utilizado pelo Emissor quando o CÓDIGO DE SEGURANÇA DO CARTÃO (CVE2) estiver INCORRETO / INVÁLIDO ou MST inválido (token).|Irreversível|
 |64|VALOR MÍNIMO DA TRANSAÇÃO - INVÁLIDO|- Esse código deve ser utilizado pelo Emissor quando o VALOR DA TRANSAÇÃO ESTIVER ABAIXO DO MÍNIMO permitido pelo Emissor|Irreversível|
-|65|QUANTIDADE DE SAQUES EXCEDIDOS|- Esse código deve ser utilizado pelo Emissor quando o limite de quantidade de saques estiver excedido|Reversível|  
+|65|QUANTIDADE DE SAQUES EXCEDIDOS|- Esse código deve ser utilizado pelo Emissor quando o limite de quantidade de saques estiver excedido|Reversível|  
 |75|SAQUE/ EXCEDIDAS TENTATIVAS SENHA|- Esse código deve ser utilizado pelo Emissor quando for excedida a quantidade de tentativas de digitação de senha estipuladas pelo Emissor (utilizado apenas para SAQUES)|Reversível|
-|76|CONTA DESTINO INVÁLIDA OU INEXISTENTE|- Esse código deve ser utilizado pelo Emissor quando conta "PARA" (destino) no BIT 3 é inválida ou inexistente e exclusivamente para transações de Transferência de Fundos|Irreversível| 
-|77|CONTA ORIGEM INVÁLIDA OU INEXISTENTE|- Esse código deve ser utilizado pelo Emissor quando conta "DE" (origem) no BIT 3 é inválida ou inexistente e exclusivamente para transações de Transferência de Fundos.|Irreversível| 
-|78|CARTÃO NOVO SEM DESBLOQUEIO / CARTÃO BLOQUEADO|- Esse código deve ser utilizado pelo Emissor quando o cartão novo ainda não foi desbloqueado (ativado) pelo portador junto ao Emissor ou quando o Portador, mediante autonomia, desejar bloquear temporariamente o cartão através do aplicativo do Emissor.|Reversível| 
+|76|CONTA DESTINO INVÁLIDA OU INEXISTENTE|- Esse código deve ser utilizado pelo Emissor quando conta "PARA" (destino) no BIT 3 é inválida ou inexistente e exclusivamente para transações de Transferência de Fundos|Irreversível| 
+|77|CONTA ORIGEM INVÁLIDA OU INEXISTENTE|- Esse código deve ser utilizado pelo Emissor quando conta "DE" (origem) no BIT 3 é inválida ou inexistente e exclusivamente para transações de Transferência de Fundos.|Irreversível| 
+|78|CARTÃO NOVO SEM DESBLOQUEIO / CARTÃO BLOQUEADO|- Esse código deve ser utilizado pelo Emissor quando o cartão novo ainda não foi desbloqueado (ativado) pelo portador junto ao Emissor ou quando o Portador, mediante autonomia, desejar bloquear temporariamente o cartão através do aplicativo do Emissor.|Reversível| 
 |82|CARTÃO INVÁLIDO (dados internos)|- Esse código deve ser utilizado pelo Emissor quando dados internos do cartão não conferem (ex: criptograma inválido, ATC inválido etc.)|Irreversível|
 |83|NÃO É POSSÍVEL VALIDAR A SENHA|- Esse código deve ser utilizado pelo Emissor e será utilizado pela Elo quando não for possível validar ou descriptografar a senha.|Irreversível|
 |91|EMISSOR FORA DO AR|- Esse código será utilizado pela Bandeira quando o Emissor está temporariamente indisponível para autorizar a transação ou não foi recebida a resposta do Emissor no tempo estabelecido.|Reversível|
-|96|FALHA DO SISTEMA|- Esse código será utilizado pela Bandeira ou pelo Emissor por problemas no processamento da transação.|Reversível|  
+|96|FALHA DO SISTEMA|- Esse código será utilizado pela Bandeira ou pelo Emissor por problemas no processamento da transação.|Reversível|  
 |AB|FUNÇÃO INCORRETA (DÉBITO)|- Esse código será utilizado pelo Emissor para sinalizar o estabelecimento que ele solicitou a autorização na função DÉBITO, mas o cartão não possui essa função ativa.|Irreversível|
 |AC|FUNÇÃO INCORRETA (CRÉDITO)|- Esse código será utilizado pelo Emissor para sinalizar o estabelecimento que ele solicitou a autorização na função CRÉDITO, mas o cartão não possui essa função ativa.|Irreversível|
 |FM|UTILIZAR O CHIP|- Esse código será utilizado pelo Emissor para informar ao estabelecimento que a transação contactless não terá sucesso e que o portador deve utilizar o chip (contato).|Irreversível|
-|P5|TROCA DE SENHA / FALHA NO DESBLOQUEIO|- Esse código será utilizado pelo Emissor quando ocorreu falha na troca de senha ou falha no desbloqueio.|Irreversível|  
+|P5|TROCA DE SENHA / FALHA NO DESBLOQUEIO|- Esse código será utilizado pelo Emissor quando ocorreu falha na troca de senha ou falha no desbloqueio.|Irreversível|  
 |P6|NOVA SENHA NÃO ACEITA|- Esse código será utilizado pelo Emissor quando a nova senha que o cliente escolheu não atende os critérios mínimos estabelecidos pelo Emissor.|Reversível|
 
 ### Hipercard
 
 **O que é?**
 
-Cobranças efetuadas quando um Estabelecimento Comercial excede as regras de Retentativas de transações negadas com um mesmo cartão, mesma data ou período mensal, mesmo valor e mesmo número de Estabelecimento comercial, conforme abaixo:
+Cobranças efetuadas quando um Estabelecimento Comercial excede as regras de retentativas de transações negadas com um mesmo cartão, mesma data ou período mensal, mesmo valor e mesmo número de Estabelecimento Comercial, conforme abaixo:
 
-|Programa|Cartão Presente – CP|Cartão não presente – CNP|
-|Excesso de Retentativa​|R$ 1,85 por Retentativas a partir da 9ª resposta negada – mesmo cartão e mesmo dia (item 2)|R$ 1,85 por Retentativas a partir da 9ª resposta negada – mesmo cartão e mesmo mês de referência (item 3)|
-|Retentativa de transação **ASI** (Zero Auth)|R$ 0,15 por retentativa de transação ASI após negativa do emissor – mesmo cartão e mesmo dia (item 2)|R$ 0,15 por retentativa de transação ASI após negativa do emissor – mesmo cartão e mesmo mês de referência (item 3)|
-|Retentativa de transação irreversível|0,03% do valor da transação por retentativa​<br>Mínimo R$ 0,15<br>Máximo R$ 0,80​<br>Mesmo cartão e mesmo dia após resposta com código irreversível|0,03% do valor da transação por retentativa​<br>Mínimo R$ 0,15<br>Máximo R$ 0,80​<br>Mesmo cartão e mesmo mês após resposta com código irreversível (item 3)|
+|Programa|Cartão Presente|Cartão não presente|
+|---|---|---|
+|Excesso de Retentativa|R$ 1,85 por retentativa a partir da 9ª resposta negada – mesmo cartão e mesmo dia (regra 2)|R$ 1,85 por Retentativas a partir da 9ª resposta negada – mesmo cartão e mesmo mês de referência (regra 3)|
+|Retentativa de transação **ASI** (Zero Auth)|R$ 0,15 por retentativa de transação ASI após negativa do emissor – mesmo cartão e mesmo dia (item 2)|R$ 0,15 por retentativa de transação ASI após negativa do emissor – mesmo cartão e mesmo mês de referência (regra 3)|
+|Retentativa de transação irreversível|0,03% do valor da transação por retentativa<br>Mínimo R$ 0,15<br>Máximo R$ 0,80<br>Mesmo cartão e mesmo dia após resposta com código irreversível|0,03% do valor da transação por retentativa<br>Mínimo R$ 0,15<br>Máximo R$ 0,80<br>Mesmo cartão e mesmo mês após resposta com código irreversível (regra 3)|
 
 **Regras:**
 
-* **1.** Transações ASI: são transações Account Status Inquiry, ou seja, são as transações efetuadas para consultar o status de um cartão (verificar se está ativo). Para esse fim, não devem ser usadas transações financeiras e sim transações específicas.​
-* **2.** Tentativas por dia (item 2): considerar para efeito do programa de Retentativas da Hipercard de 00h00 a 23h59​
-* **3.** Mês de referência (item 3): considerar para efeito do programa de Retentativas da Hipercard dia 01 a 30 ou 31 do mês em que ocorreu a transação. A cobrança será enviada após o fechamento do mês subsequente.​
-* **4.** Os códigos de transações consideradas irreversíveis pelo emissor foram categorizados pela indústria de pagamentos e autorregulação da ABECS, por meio do Normativo 21 vigente. Códigos de retorno (ABECS)
-* **5.** Os códigos não citados no manual da ABECS são considerados como reversíveis.
+1. **Transações ASI**: são transações Account Status Inquiry, ou seja, são as transações efetuadas para consultar o status de um cartão (verificar se está ativo). Para esse fim, não devem ser usadas transações financeiras e sim transações específicas;
+2. **Tentativas por dia**: considerar para efeito do programa de Retentativas da Hipercard de 00h00 a 23h59;
+3. **Mês de referência**: considerar para efeito do programa de Retentativas da Hipercard dia 01 a 30 ou 31 do mês em que ocorreu a transação. A cobrança será enviada após o fechamento do mês subsequente;
+4. **Os códigos de transações** consideradas **irreversíveis pelo emissor** foram categorizados pela indústria de pagamentos e autorregulação da ABECS, por meio do Normativo 21 vigente. Veja os [Códigos de retorno (ABECS)](https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-de-retorno-abecs){:target="_blank"};
+5. **Os códigos não citados no manual da ABECS são considerados como reversíveis**.
 
-**Início de vigência: 15 de setembro de 2022**
+<aside class="notice">Início de vigência: 15 de setembro de 2022.</aside>
 
 ### Demais bandeiras
 
-**Códigos reversíveis:** serão permitidas novas retentativas para o mesmo cliente e cartão. Não há limite e período pré-estabelecido;
+* **Códigos reversíveis:** serão permitidas novas retentativas para o mesmo cliente e cartão. Não há limite e período pré-estabelecido;
 
-> **Importante: que você siga a orientação recebida na resposta da transação negada, antes de realizar uma nova tentativa.**
+> **Importante**: antes de realizar uma nova tentativa, siga a orientação recebida na resposta da transação negada.
 
-**Códigos Irreversíveis:** não serão permitidas autorizações para o mesmo cartão ou estabelecimento, depois de receber 1º resposta de recusa do emissor.
+* **Códigos Irreversíveis:** não serão permitidas autorizações para o mesmo cartão ou estabelecimento, depois de receber 1ª resposta de recusa do emissor.
 
 ## Códigos de retorno ABECS
 
