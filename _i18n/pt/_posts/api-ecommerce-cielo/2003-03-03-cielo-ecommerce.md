@@ -6842,12 +6842,12 @@ Os e-commerces que não seguirem as regras serão penalizados com a cobrança de
 
 Visando melhorar a experiência de compra, o mercado de meios de pagamento, em conjunto com a ABECS, promoveu a padronização nos códigos de respostas das transações recusadas feitas por cartão. As tentativas foram classificadas em dois tipos:
 
-> * <p>&#9989;**Irreversível: nunca realizar retentativa.**</p></br>
-> </br>
-> Significa, por exemplo, que o cartão está cancelado para uso, foi perdido ou roubado, há uma fraude confirmada ou a transação não é permitida para aquele produto, indicando que não há circunstâncias nas quais o emissor concederia uma aprovação. Qualquer tentativa de autorização que, após uma recusa **irreversível**, não tenha alterado nenhum campo da mensageria, não obterá sucesso.</br>
->
-> * <p>&#10060;**Reversível: permitido realizar retentativa.**</p></br>
-> </br>
+> * <p>&#9989;**Irreversível: nunca realizar retentativa.**</p><br>
+> <br>
+> Significa, por exemplo, que o cartão está cancelado para uso, foi perdido ou roubado, há uma fraude confirmada ou a transação não é permitida para aquele produto, indicando que não há circunstâncias nas quais o emissor concederia uma aprovação. Qualquer tentativa de autorização que, após uma recusa **irreversível**, não tenha alterado nenhum campo da mensageria, não obterá sucesso.<br>
+><br>
+> * <p>&#10060;**Reversível: permitido realizar retentativa.**</p><br>
+> <br>
 > Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora, possivelmente devido a um problema do sistema (inoperante) ou falta de limite, suspeita de fraude ou excesso de número de tentativas de digitação da senha. São decisões de recusas temporárias tomadas pelo emissor que podem mudar com o tempo.
 
 As bandeiras Visa, Mastercard, Elo e Hipercard ajustaram suas regras para limitar a quantidade de tentativas de autorização para uma transação negada. Essas mudanças preveem a cobrança de tarifas para o excesso de tentativas. Confira a seguir as regras de cada bandeira.
@@ -6923,7 +6923,7 @@ Além disso, alguns códigos de retorno deixarão de ser enviados:
 * 62 (Cartão Restrito)
 * 63 (Violação de Segurança)
 <br>
-</br>
+<br>
 
 **Categorização de retornos Mastercard**
 
@@ -6932,6 +6932,7 @@ A Mastercard poderá consolidar alguns códigos de respostas dos emissores, que 
 * **79** (Ciclo de vida);
 * **82** (Política);
 * **83** (Fraude/ Segurança).
+<br>
 <br>
 
 Os códigos originais serão substituídos pelo Merchant Advice Code (MAC), que acompanharão os códigos 79, 82 e 83 para determinar se a transação pode ou não ser retentada.
@@ -6954,6 +6955,8 @@ Os códigos originais serão substituídos pelo Merchant Advice Code (MAC), que 
 * O contador é zerado após o período de 30 dias;
 * As retentativas podem ser cobradas nos MACs 03/21 e no Excessive Attempts caso ultrapasse o limite de cada programa;
 * Atualmente é aplicado o valor de tarifa de R$1,25 e esse valor será alterado a partir de 01 de janeiro de 2023, como listado a seguir.
+<br>
+<br>
 
 **Tabela de valores:**
 
@@ -6978,27 +6981,27 @@ Um programa instituído pela bandeira Visa que gera cobranças quando o estabele
 > * **Doméstico**: USD 0,10 + 13,83% de imposto;
 > * **Estrangeiro**: USD 0,25 + 13,83% de imposto
 <br>
-</br>
+<br>
 
 Regras de autorização já vigentes. A cobrança de tarifas é aplicada desde abril de 2021.
 
 **A Visa agrupou os códigos de retorno em quatro categorias:**
 
-**Categoria 1: emissor nunca aprovará**
+* **Categoria 1: emissor nunca aprovará**
 
 Para essa categoria, indica que o cartão foi cancelado ou nunca existiu ou que a negativa é resultado de uma restrição permanente ou condição de erro que impedirá uma aprovação futura.
 
-**Categoria 2: emissor não pode aprovar neste momento**
+* **Categoria 2: emissor não pode aprovar neste momento**
 
 Indicam que a negativa é resultado de uma condição temporária tal como risco de crédito, controles de velocidade do emissor ou outras restrições do cartão que podem permitir uma retentativa da transação ser aprovada. Em alguns casos, a negativa requer uma ação do portador ou emissor para remover a restrição antes que uma aprovação possa ser obtida.
 
-**Categoria 3: qualidade de dados/revisar dados**
+* **Categoria 3: qualidade de dados/revisar dados**
 
 Quando um erro de dados é identificado pelo emissor essa transação é declinada como consequência. Os estabelecimentos devem revalidar dados de pagamentos antes de retentar. Estabelecimentos e Credenciadores devem monitorar estes códigos de negativas devido a exposição potencial a fraudes.
 
 > **Atenção**: A categoria 3 tem, além dos limites considerados na categoria 2, um limite diferente que é cumulativo. Um estabelecimento pode realizar até 10.000 transações em um período de 30 dias (neste caso considerando apenas o número do estabelecimento e códigos de negadas). Se ultrapassar o limite, todas as transações recusadas por categoria 3 serão tarifadas.
 
-**Categoria 4: códigos de respostas genéricos**
+* **Categoria 4: códigos de respostas genéricos**
 
 A categoria 4 inclui todos os outros códigos de resposta de recusa, muitos dos quais fornecem pouco ou nenhum valor para Adquirentes/Comerciantes como parte de sua estratégia de nova tentativa. O uso do emissor deve permanecer mínimo.
 
@@ -7032,6 +7035,7 @@ Trata-se de um programa instituído pela bandeira ELO que gera cobranças quando
 * **Tarifa**: R$ 0,80 (oitenta centavos) por retentativa, a partir da 16ª;
 * **Cobrança**: a cobrança só será feita em casos de recorrência, sendo assim, o estabelecimento tem que estar no programa por pelo menos dois meses consecutivos;
 * **Contabilização do excesso**: é baseada nos controles internos da Elo. 1º ao último dia corrido do mês.
+<br>
 <br>
 
 **Tabela de cobrança de retentativas para a bandeira Elo**
@@ -7108,11 +7112,11 @@ Cobranças efetuadas quando um Estabelecimento Comercial excede as regras de ret
 
 **Regras:**
 
-**1. Transações ASI**: são transações Account Status Inquiry, ou seja, são as transações efetuadas para consultar o status de um cartão (verificar se está ativo). Para esse fim, não devem ser usadas transações financeiras e sim transações específicas.
-**2. Tentativas por dia**: considerar para efeito do programa de Retentativas da Hipercard de 00h00 a 23h59
-**3. Mês de referência**: considerar para efeito do programa de Retentativas da Hipercard dia 01 a 30 ou 31 do mês em que ocorreu a transação. A cobrança será enviada após o fechamento do mês subsequente.
-**4. Os códigos de transações** consideradas **irreversíveis pelo emissor** foram categorizados pela indústria de pagamentos e autorregulação da ABECS, por meio do Normativo 21 vigente. Veja os [Códigos de retorno (ABECS)](https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-de-retorno-abecs){:target="_blank"}.
-**5. Os códigos não citados no manual da ABECS são considerados como reversíveis**.
+1. **Transações ASI**: são transações Account Status Inquiry, ou seja, são as transações efetuadas para consultar o status de um cartão (verificar se está ativo). Para esse fim, não devem ser usadas transações financeiras e sim transações específicas;
+2. **Tentativas por dia**: considerar para efeito do programa de Retentativas da Hipercard de 00h00 a 23h59;
+3. **Mês de referência**: considerar para efeito do programa de Retentativas da Hipercard dia 01 a 30 ou 31 do mês em que ocorreu a transação. A cobrança será enviada após o fechamento do mês subsequente;
+4. **Os códigos de transações** consideradas **irreversíveis pelo emissor** foram categorizados pela indústria de pagamentos e autorregulação da ABECS, por meio do Normativo 21 vigente. Veja os [Códigos de retorno (ABECS)](https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-de-retorno-abecs){:target="_blank"};
+5. **Os códigos não citados no manual da ABECS são considerados como reversíveis**.
 
 <aside class="notice">Início de vigência: 15 de setembro de 2022.</aside>
 
