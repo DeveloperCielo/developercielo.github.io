@@ -6842,11 +6842,11 @@ Os e-commerces que não seguirem as regras serão penalizados com a cobrança de
 
 Visando melhorar a experiência de compra, o mercado de meios de pagamento, em conjunto com a ABECS, promoveu a padronização nos códigos de respostas das transações recusadas feitas por cartão. As tentativas foram classificadas em dois tipos:
 
-> * <p>&#9989;**Irreversível: nunca realizar retentativa.**</p><br>
+> * <p>&#9989; **Irreversível: nunca realizar retentativa**</p><br>
 > <br>
 > Significa, por exemplo, que o cartão está cancelado para uso, foi perdido ou roubado, há uma fraude confirmada ou a transação não é permitida para aquele produto, indicando que não há circunstâncias nas quais o emissor concederia uma aprovação. Qualquer tentativa de autorização que, após uma recusa **irreversível**, não tenha alterado nenhum campo da mensageria, não obterá sucesso.<br>
 ><br>
-> * <p>&#10060;**Reversível: permitido realizar retentativa.**</p><br>
+> * <p>&#10060; **Reversível: permitido realizar retentativa**</p><br>
 > <br>
 > Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora, possivelmente devido a um problema do sistema (inoperante) ou falta de limite, suspeita de fraude ou excesso de número de tentativas de digitação da senha. São decisões de recusas temporárias tomadas pelo emissor que podem mudar com o tempo.
 
