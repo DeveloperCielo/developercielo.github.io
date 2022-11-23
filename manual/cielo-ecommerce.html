@@ -12635,16 +12635,13 @@ Abaixo vamos explica-los na ordem em que podem ocorrer:</p>
 
 <blockquote>
   <ul>
-    <li>
-      <p>✅<strong>Irreversível: nunca realizar retentativa.</strong>&lt;/br&gt;
-&lt;/br&gt;
-Significa, por exemplo, que o cartão está cancelado para uso, foi perdido ou roubado, há uma fraude confirmada ou a transação não é permitida para aquele produto, indicando que não há circunstâncias nas quais o emissor concederia uma aprovação. Qualquer tentativa de autorização que, após uma recusa <strong>irreversível</strong>, não tenha alterado nenhum campo da mensageria, não obterá sucesso.&lt;/br&gt;</p>
-    </li>
-    <li>
-      <p>❌<strong>Reversível: permitido realizar retentativa.</strong>&lt;/br&gt;
-&lt;/br&gt;
-Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora, possivelmente devido a um problema do sistema (inoperante) ou falta de limite, suspeita de fraude ou excesso de número de tentativas de digitação da senha. São decisões de recusas temporárias tomadas pelo emissor que podem mudar com o tempo.</p>
-    </li>
+    <li>✅<strong>Irreversível: nunca realizar retentativa.</strong><br />
+<br />
+Significa, por exemplo, que o cartão está cancelado para uso, foi perdido ou roubado, há uma fraude confirmada ou a transação não é permitida para aquele produto, indicando que não há circunstâncias nas quais o emissor concederia uma aprovação. Qualquer tentativa de autorização que, após uma recusa <strong>irreversível</strong>, não tenha alterado nenhum campo da mensageria, não obterá sucesso.<br />
+<br /></li>
+    <li>❌<strong>Reversível: permitido realizar retentativa.</strong><br />
+<br />
+Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora, possivelmente devido a um problema do sistema (inoperante) ou falta de limite, suspeita de fraude ou excesso de número de tentativas de digitação da senha. São decisões de recusas temporárias tomadas pelo emissor que podem mudar com o tempo.</li>
   </ul>
 </blockquote>
 
@@ -12812,8 +12809,7 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
   <li>54 (Cartão Expirado)</li>
   <li>57 (Transação Não Permitida)</li>
   <li>62 (Cartão Restrito)</li>
-  <li>63 (Violação de Segurança)
-&lt;/br&gt;</li>
+  <li>63 (Violação de Segurança)</li>
 </ul>
 
 <p><strong>Categorização de retornos Mastercard</strong></p>
@@ -12897,8 +12893,7 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
 <br /></p>
   <ul>
     <li><strong>Doméstico</strong>: USD 0,10 + 13,83% de imposto;</li>
-    <li><strong>Estrangeiro</strong>: USD 0,25 + 13,83% de imposto
-&lt;/br&gt;</li>
+    <li><strong>Estrangeiro</strong>: USD 0,25 + 13,83% de imposto</li>
   </ul>
 </blockquote>
 
@@ -12906,15 +12901,21 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
 
 <p><strong>A Visa agrupou os códigos de retorno em quatro categorias:</strong></p>
 
-<p><strong>Categoria 1: emissor nunca aprovará</strong></p>
+<ul>
+  <li><strong>Categoria 1: emissor nunca aprovará</strong></li>
+</ul>
 
 <p>Para essa categoria, indica que o cartão foi cancelado ou nunca existiu ou que a negativa é resultado de uma restrição permanente ou condição de erro que impedirá uma aprovação futura.</p>
 
-<p><strong>Categoria 2: emissor não pode aprovar neste momento</strong></p>
+<ul>
+  <li><strong>Categoria 2: emissor não pode aprovar neste momento</strong></li>
+</ul>
 
 <p>Indicam que a negativa é resultado de uma condição temporária tal como risco de crédito, controles de velocidade do emissor ou outras restrições do cartão que podem permitir uma retentativa da transação ser aprovada. Em alguns casos, a negativa requer uma ação do portador ou emissor para remover a restrição antes que uma aprovação possa ser obtida.</p>
 
-<p><strong>Categoria 3: qualidade de dados/revisar dados</strong></p>
+<ul>
+  <li><strong>Categoria 3: qualidade de dados/revisar dados</strong></li>
+</ul>
 
 <p>Quando um erro de dados é identificado pelo emissor essa transação é declinada como consequência. Os estabelecimentos devem revalidar dados de pagamentos antes de retentar. Estabelecimentos e Credenciadores devem monitorar estes códigos de negativas devido a exposição potencial a fraudes.</p>
 
@@ -12922,7 +12923,9 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
   <p><strong>Atenção</strong>: A categoria 3 tem, além dos limites considerados na categoria 2, um limite diferente que é cumulativo. Um estabelecimento pode realizar até 10.000 transações em um período de 30 dias (neste caso considerando apenas o número do estabelecimento e códigos de negadas). Se ultrapassar o limite, todas as transações recusadas por categoria 3 serão tarifadas.</p>
 </blockquote>
 
-<p><strong>Categoria 4: códigos de respostas genéricos</strong></p>
+<ul>
+  <li><strong>Categoria 4: códigos de respostas genéricos</strong></li>
+</ul>
 
 <p>A categoria 4 inclui todos os outros códigos de resposta de recusa, muitos dos quais fornecem pouco ou nenhum valor para Adquirentes/Comerciantes como parte de sua estratégia de nova tentativa. O uso do emissor deve permanecer mínimo.</p>
 
@@ -13291,11 +13294,13 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
 
 <p><strong>Regras:</strong></p>
 
-<p><strong>1. Transações ASI</strong>: são transações Account Status Inquiry, ou seja, são as transações efetuadas para consultar o status de um cartão (verificar se está ativo). Para esse fim, não devem ser usadas transações financeiras e sim transações específicas.
-<strong>2. Tentativas por dia</strong>: considerar para efeito do programa de Retentativas da Hipercard de 00h00 a 23h59
-<strong>3. Mês de referência</strong>: considerar para efeito do programa de Retentativas da Hipercard dia 01 a 30 ou 31 do mês em que ocorreu a transação. A cobrança será enviada após o fechamento do mês subsequente.
-<strong>4. Os códigos de transações</strong> consideradas <strong>irreversíveis pelo emissor</strong> foram categorizados pela indústria de pagamentos e autorregulação da ABECS, por meio do Normativo 21 vigente. Veja os <a href="https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-de-retorno-abecs" target="_blank">Códigos de retorno (ABECS)</a>.
-<strong>5. Os códigos não citados no manual da ABECS são considerados como reversíveis</strong>.</p>
+<ol>
+  <li><strong>Transações ASI</strong>: são transações Account Status Inquiry, ou seja, são as transações efetuadas para consultar o status de um cartão (verificar se está ativo). Para esse fim, não devem ser usadas transações financeiras e sim transações específicas;</li>
+  <li><strong>Tentativas por dia</strong>: considerar para efeito do programa de Retentativas da Hipercard de 00h00 a 23h59;</li>
+  <li><strong>Mês de referência</strong>: considerar para efeito do programa de Retentativas da Hipercard dia 01 a 30 ou 31 do mês em que ocorreu a transação. A cobrança será enviada após o fechamento do mês subsequente;</li>
+  <li><strong>Os códigos de transações</strong> consideradas <strong>irreversíveis pelo emissor</strong> foram categorizados pela indústria de pagamentos e autorregulação da ABECS, por meio do Normativo 21 vigente. Veja os <a href="https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-de-retorno-abecs" target="_blank">Códigos de retorno (ABECS)</a>;</li>
+  <li><strong>Os códigos não citados no manual da ABECS são considerados como reversíveis</strong>.</li>
+</ol>
 
 <aside class="notice">Início de vigência: 15 de setembro de 2022.</aside>
 
