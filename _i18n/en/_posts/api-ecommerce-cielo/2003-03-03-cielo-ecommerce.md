@@ -7992,8 +7992,6 @@ Validating an open card requires a different technical contract than validating 
 }
 ```
 
-A seguir, a listagem de campos da Requisição:
-
 | Field              | Description                                                                                                                                                                                                              | Type      | Contact Us | Required       |
 |--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|------------|----------------|
 | `CardType`         | Defines the type of card used: <br> <br> *CreditCard* <br> *DebitCard* <br> <br> If not sent, CreditCard as default                                                                                                      | Text      | 255        | Yes            |
@@ -8027,7 +8025,6 @@ A seguir, a listagem de campos da Requisição:
 The response always returns whether the card can currently be authorized. This information only means that the _card is valid for transactioning_, but does not indicate that a certain value will be authorized.
 
 The fields returned in the response depend on the validation result. The following table presents all possible fields; after the table, check out the examples of each type of response.
-
 
 | Field                 | Description                                                                        | Type      | Size |
 | --------------------- | ------------------------------- -------------------------------------------------- | --------- | : -------: |
@@ -8083,6 +8080,7 @@ If there is an error in the flow and it is not possible to validate the card, th
 
 * *500 – Internal Server Error*
 * *400 – Bad Request*
+
 # Silent Order Post
 
 Integration that Cielo offers to merchants, where the payment data is safely traced, while maintaining full control over the Ckeckout experience.
