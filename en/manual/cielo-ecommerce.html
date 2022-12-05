@@ -15220,84 +15220,37 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 <h1 id="zero-auth">Zero Auth</h1>
 
-<p><strong>Zero Auth</strong> is a Credit Card validation tool. It allows the merchant to know whether or not the card is valid before sending it for authorization, anticipating the reason for a possible non-authorization.</p>
-
-<p><strong>Zero Auth</strong> can be used in 2 ways:</p>
-
-<ol>
-  <li><strong>Standard</strong> - Sending a standard card without tokenization or additional analysis</li>
-  <li><strong>Using the “Cardtoken”</strong> - Sending a TOKEN 3.0 for analysis</li>
-</ol>
-
-<p>It is important to note that Zero Auth <strong>does not return or analyze</strong> the following items:</p>
-
-<ol>
-  <li>Card credit limit</li>
-  <li>Information about the holder</li>
-  <li>Does not trigger the banking base (SMS notification)</li>
-</ol>
-
-<p>Zero Auth supports the following Card Networks/Card Brands:</p>
-
-<ul>
-  <li><strong>Visa</strong></li>
-  <li><strong>MasterCard</strong></li>
-  <li><strong>Elo</strong></li>
-</ul>
+<p><strong>Zero Auth</strong> is a Cielo tool that allows you to check whether a card is valid for making a purchase before the order is finalized. Zero Auth simulates an authorization without affecting the credit limit or alerting the cardholder about the test.</p>
 
 <blockquote>
-  <p>If other Brand (Card Network Name) is sent, the error <strong>57-Bandeira inválida</strong> will be displayed.</p>
+  <p>Zero Auth does not inform the limit or characteristics of the card or the holder, it only simulates a Cielo authorization.</p>
 </blockquote>
 
-<h2 id="use-case-1">Use case</h2>
+<p>Zero Auth is the correct way to validate cards according to the recommendations of brands and banks. Before the creation of Zero Auth, stores used to create low-value transactions, such as one real or one dollar, and then cancel them; It is important to know that this practice is now penalized by the brands.</p>
 
-<p>This is an example of how to use zero auth to improve your sales conversion.</p>
+<blockquote>
+  <p><strong>Attention:</strong> In the event of transactions with a value different from <em>zero</em> and less than <em>one dollar</em>, followed by cancellation of the transaction, the brands will apply fees to Cielo, which will be passed on to the establishments that are in non-compliance. Mastercard, for example, is charging a fee of R$0.21 cents per transaction.</p>
+</blockquote>
 
-<p>Zero Auth is a tool from Cielo that allows you to check if a card is valid before the order is finalized. It does this by simulating an authorization, but without affecting the credit limit or alerting the card holders about the test.</p>
+<p><strong>Zero Auth</strong> validates <strong>open or tokenized cards</strong> (sending the <code class="language-plaintext highlighter-rouge">CardToken</code> created in the API E-commerce Cielo).</p>
 
-<p>It does not inform the limit or characteristics of the card or carrier, but simulates a Cielo authorization, validating data such as:</p>
+<p><strong>Supported brands</strong></p>
 
-<ol>
-  <li>If the card is valid with the issuing bank</li>
-  <li>If the card has limit available</li>
-  <li>If the card works in Brazil</li>
-  <li>If the card number is correct</li>
-  <li>If the CVV is valid</li>
-</ol>
+<p>Zero Auth supports <strong>Visa, Master</strong> and <strong>Elo</strong> for both credit and debit cards.</p>
 
-<p>Zero Auth also works with tokenized cards in Api Cielo Ecommerce.</p>
-
-<p>Here’s an example of usage:</p>
-
-<p><strong>Zero auth as card validator</strong></p>
-
-<p>A Streaming company called FlixNet has a subscription service, where in addition to making a recurrence, it has saved cards and receives new subscriptions daily. All of these steps require that transactions be performed to gain access to the tool, which raises the cost of FlixNet if transactions are not authorized.</p>
-
-<p>How could the company reduce its cost? Validating the card before sending it to authorized.</p>
-
-<p>FlixNet uses Zero Auth at 2 different times:</p>
-
-<ul>
-  <li>
-    <p><strong>Registration:</strong> it must be included a card to get 30 days free in the first month.
-The problem is that at the end of this period, if the card is invalid, the new register exists, but it does not work, because the saved card is invalid. FlixNet solved this problem by testing the card with Zero Auth at the time of registration, then, they already know if the card is valid and release the creation of the account. If the card is not accepted, FlixNet may suggest the use of another card.</p>
-  </li>
-  <li>
-    <p><strong>Recurrence:</strong> every month, before you charge the Subscription, Flixnet tests the card with zero auth, then, knowing if it will be authorized or not. This helps FlixNet predict which cards will be denied, already triggering the subscriber to update the registration before the payday.</p>
-  </li>
-</ul>
+<p>If other brands are sent, there will be an error with the return “<strong>57-Invalid Brand</strong>”.</p>
 
 <h2 id="integration-2">Integration</h2>
 
-<p>In order to use Zero Auth, the merchant must send a <code class="language-plaintext highlighter-rouge">POST</code> request to the Cielo Ecommerce API, simulating a transaction. <code class="language-plaintext highlighter-rouge">POST</code> should be done at the following URLs:</p>
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://api.cieloecommerce.cielo.com.br/1/zeroauth</span></aside>
-
-<p>Each type of validation requires a different technical contract. They will result in differentiated responses</p>
+<p>To perform a Zero Auth query, the merchant must send a <code class="language-plaintext highlighter-rouge">POST</code> request to the API E-commerce Cielo, simulating a transaction.</p>
 
 <h3 id="request-48">Request</h3>
 
-<h4 id="standard">Standard</h4>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/zeroauth</span></aside>
+
+<p>Validating an open card requires a different technical contract than validating a tokenized card. Check out the example requests:</p>
+
+<h4 id="open-card">Open card</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
@@ -15312,8 +15265,6 @@ The problem is that at the end of this period, if the card is invalid, the new r
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-
-<p>Below the fields returned after validation:</p>
 
 <table>
   <thead>
@@ -15391,7 +15342,7 @@ The problem is that at the end of this period, if the card is invalid, the new r
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Reason</code></td>
-      <td>Indicates the purpose of credential storage, case the value of field “Usage” is “Used” <br /><strong>Recurring</strong> - Scheduled recurring<br /><strong>Unscheduled</strong> - Unscheduled recurring<br /><strong>Installments</strong> - Installments Transaction</td>
+      <td>Indicates the purpose of storing cards, if the “Usage” field is “Used”.<br /><strong>Recurring</strong> - Scheduled recurring purchase (eg subscriptions)<br /><strong>Unscheduled</strong> - Recurring purchase without scheduling (eg service applications)<br /><strong>Installments</strong> - Installment through recurrence<br />.</td>
       <td>Text</td>
       <td>—</td>
       <td>Conditional</td>
@@ -15399,7 +15350,7 @@ The problem is that at the end of this period, if the card is invalid, the new r
   </tbody>
 </table>
 
-<h4 id="using-cardtoken">Using CardToken</h4>
+<h4 id="tokenized-cards">Tokenized cards</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"CardToken"</span><span class="p">:</span><span class="s2">"23712c39-bb08-4030-86b3-490a223a8cc9"</span><span class="p">,</span><span class="w">
@@ -15408,15 +15359,13 @@ The problem is that at the end of this period, if the card is invalid, the new r
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Below is the list of Requisition fields:</p>
-
 <table>
   <thead>
     <tr>
       <th>Field</th>
       <th>Description</th>
       <th>Type</th>
-      <th>Contact Us</th>
+      <th>Size</th>
       <th>Required</th>
     </tr>
   </thead>
@@ -15440,9 +15389,9 @@ The problem is that at the end of this period, if the card is invalid, the new r
 
 <h3 id="response-44">Response</h3>
 
-<p>The response always returns if the card can be authorized at the moment. This information only means that <em>the card is valid to transact</em>, but does not necessarily indicate that a certain value will be authorized.</p>
+<p>The response always returns whether the card can currently be authorized. This information only means that the <em>card is valid for transactioning</em>, but does not indicate that a certain value will be authorized.</p>
 
-<p>Below the fields returned after validation:</p>
+<p>The fields returned in the response depend on the validation result. The following table presents all possible fields; after the table, check out the examples of each type of response.</p>
 
 <table>
   <thead>
@@ -15450,7 +15399,7 @@ The problem is that at the end of this period, if the card is invalid, the new r
       <th>Field</th>
       <th>Description</th>
       <th>Type</th>
-      <th>Contact Us</th>
+      <th>Size</th>
     </tr>
   </thead>
   <tbody>
@@ -15474,7 +15423,7 @@ The problem is that at the end of this period, if the card is invalid, the new r
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">IssuerTransactionId</code></td>
-      <td>Issuer authentication ID for recurring debit transactions. This field must be sent in subsequent transactions of the first transaction in the recurrence model itself. In the scheduled recurrence model, Cielo will be responsible for sending the field in subsequent transactions.</td>
+      <td>Issuer authentication identifier for recurring debit transactions. This field must be sent in subsequent transactions of the first transaction in the self-recurrence model. In the programmed recurrence model, Cielo will be responsible for sending the field in subsequent transactions.</td>
       <td>Text</td>
       <td>15</td>
     </tr>
@@ -15484,16 +15433,16 @@ The problem is that at the end of this period, if the card is invalid, the new r
 <h4 id="positive---valid-card">POSITIVE - Valid Card</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-        </span><span class="nl">"Valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="err">“</span><span class="mi">00</span><span class="err">”</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ReturnMessage"</span><span class="p">,</span><span class="w"> </span><span class="err">“Transacao</span><span class="w"> </span><span class="err">autorizada”</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"IssuerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"580027442382078"</span><span class="w">
+  </span><span class="nl">"Valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transacao autorizada"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"IssuerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"580027442382078"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
 <blockquote>
-  <p>See <a href="https://developercielo.github.io/en/manual/cielo-ecommerce"><strong>Integration Manual</strong></a> for more information about Return Codes.
-The return code <strong>“00” represents success in Zero Auth</strong>, the other codes are defined according to the above documentation.</p>
+  <p>See <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#api-codes" target="_blank">Return codes</a> to see the return codes descriptions. 
+The return code <strong>00 represents success in Zero Auth</strong>, the other codes are defined according to the documentation above.</p>
 </blockquote>
 
 <h4 id="negative---invalid-card">NEGATIVE - Invalid Card</h4>
@@ -15514,7 +15463,7 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="negative---restriction-cadastral">NEGATIVE - Restriction Cadastral</h4>
+<h4 id="negative---registration-restriction">NEGATIVE - Registration Restriction</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="p">{</span><span class="w">    
       </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">389</span><span class="p">,</span><span class="w">     
@@ -15522,11 +15471,11 @@ The return code <strong>“00” represents success in Zero Auth</strong>, the o
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>If there is any error in the flow, where it is not possible to validate the card, the service will return error:</p>
+<p>If there is an error in the flow and it is not possible to validate the card, the service will return the following errors:</p>
 
 <ul>
-  <li>500 - Internal Server Error</li>
-  <li>400 - Bad Request</li>
+  <li><em>500 – Internal Server Error</em></li>
+  <li><em>400 – Bad Request</em></li>
 </ul>
 
 <h1 id="silent-order-post">Silent Order Post</h1>
