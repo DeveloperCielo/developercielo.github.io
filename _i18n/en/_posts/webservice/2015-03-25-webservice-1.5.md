@@ -1071,7 +1071,7 @@ Attempts are classified as:
 > <br>
 >It means, for example, that the card was canceled for use, has been lost or stolen, there is confirmed fraud, the transaction is not allowed for that product, indicating that there are no circumstances in which the issuer would grant an approval. Any authorization attempt that has previously received an irreversible refusal without any changes in the message will not be successful.
 ><br>
-> * <p>&#9989; ****Reversible: retry allowed**</p><br>
+> * <p>&#9989; **Reversible: retry allowed**</p><br>
 > <br>
 > It means that the issuer can approve, but cannot do so now, possibly due to a system issue (down) or lack of limit, suspected fraud or exceeded number of password attempts. These are temporary opt-out decisions made by the issuer that may change over time.
 The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the number of authorization attempts for a denied transaction. These changes provide for the charging of fees for excessive attempts. Below are the rules for each brand.
@@ -1102,8 +1102,8 @@ Monitoring is applied to retry transactions for denied and approved purchases, c
 * All payment transactions using the same card and the same merchant number will be considered as retries;
 * Mastercard has extended the effective date to **01/02/2023** regarding the new program rules **(Excessive Attempts)** previously scheduled for the beginning of 01/11/2022. These are the changes:
 
-* 1. The excess considered in the program will occur from the eighth attempt within the calculation month. The amount charged has changed.
-* 2. Mastercard is also introducing a limit of 35 failed attempts on the same card and merchant number per continuous 30-day period. Even if the shopper does not exceed the limit of 7 retries in a 24-hour period, but exceeds the monthly limit, the charge will be applied
+1. The excess considered in the program will occur from the eighth attempt within the calculation month. The amount charged has changed.
+2. Mastercard is also introducing a limit of 35 failed attempts on the same card and merchant number per continuous 30-day period. Even if the shopper does not exceed the limit of 7 retries in a 24-hour period, but exceeds the monthly limit, the charge will be applied
 
 > Note: The current rule of the Excessive Attempts program is valid until 01/31/2023 (see Table Excessive Attempts), where only 10 attempts to approve the same transaction are allowed (on the same card, and same merchant number), with retry allowed after 24 hours.
 
