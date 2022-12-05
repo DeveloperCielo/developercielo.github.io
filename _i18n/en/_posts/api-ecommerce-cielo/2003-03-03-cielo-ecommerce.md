@@ -7870,52 +7870,38 @@ When Velocity is active, the transaction response will bring a specific node cal
 | `VelocityAnalysis.RejectReasons.RuleId`  | Code of the rule that rejected        | Number | 10   |
 | `VelocityAnalysis.RejectReasons.Message` | Description of the rule that rejected | Text   | 512  |
 
-# BIN Checker
+# BIN Query
 
-The “**BIN Checker**” is **credit or debit card data search service**, which returns to the Cielo e-Commerce API merchant information that allows you to validate the data entered on the checkout screen. The service return the following data on the card:
+**BIN Query** is a **card data search** service, whether credit or debit, which identifies card characteristics based on the first digits and returns information that allows you to validate the data filled in on the checkout screen.
 
-* **Card Brand:** Brand Name
-* **Card Type:** Credit, Debit or Multiple (Credit and Debit)
-* **Card Nationality:** Foreign or National (Brazil)
-* **Card:** Whether or not the card is corporate
-* **Issuing Bank:** Code and Name
-* **Prepaid card:** yes or no
+* **Card Brand:** brand name;
+* **Card Type:** credit, debit or multiple (credit and debit);
+* **Card Nationality:** foreign or national (Brazil);
+* **Card:** whether or not the card is corporate;
+* **Issuing Bank:** code and name;
+* **Prepaid card:** whether or not the card is prepaid.
 
-This information makes it possible to take some actions on the checkout and increase the conversion rate.
+This information allows you to take actions at the time of payment to improve the store's conversion rates.
 
-<aside class="warning">BIN Check must be enabled by Cielo Support Team. Contact them to enable the service.</aside>
+<aside class="warning">BIN Query must be enabled by Cielo Support Team. Contact them to enable the service.</aside>
 
 ## Use Case
 
-See an use case example: **BIN Checker + cart recovery**
+Based on the result of the BIN Query, you can develop functionalities in your checkout to improve usability for shoppers and, thus, help in the recovery of carts and in the best conversion of your store.
 
-A marketplace called Submersible has a range of payment methods available for its stores to offer to the buyer, but even with all that supply available, it continues with a low conversion rate.
+**1. Avoid errors related to the brand or the type of card**:
 
-Knowing the Bin checker of the Cielo Ecommerce API, how could it prevent the loss of carts?
+* The BIN query returns the **correct** brand of the card once it is associated with the BINS base of the brands; this is a much safer method than relying on algorithms on forms;
 
-It can apply the bin checker bins and 3 scenarios!
+* At your store checkout, you can create a message to let the customer know if they are using a debit card when they should actually be using a credit card.
 
-1. Prevent errors with card type
-2. Offer online car recovery
-3. Alert about international cards
-4. Prevent errors with card type
+**2. Offer online cart recovery**
 
-The Submersible can use the bins checker in the cart to identify 2 of the major errors in completing payment forms:
+You can develop a flow at your checkout so that, if a card entered on the payment screen is multiple (credit and debit), your store can retain the card data and, if the credit transaction fails, automatically offer the shopper a debit transaction with the same card.
 
-* **Wrong issuer** and confuse credit card with debit ○ Wrong issuer: When filling out the payment form, it is possible to conduct a checker and set the correct issuer. This is a much safer method than based on algorithms in the form, since the base of the bins are checked is that of the card issuing Card Networks.
+**3. Warn about international or prepaid cards**
 
-* **Card confusion:** When filling out the payment form, it is possible to conduct a check and notify the consumer if it is using a debit card when in fact he should use a debit card.
-
-<br>
-
-**Offer a cart recovery online**
-
-* The Submersible can use the bins query in the cart to offer a new means of payment if the transaction fails on the first attempt.
-
-* When running a query at the time of filling out the payment form, if the card is multiple (Credit and Debit), the Submersible may retain the data on the card, and if the credit transaction fails, it can automatically offer the consumer a debit transaction with the same card.
-
-**Alert about international cards**
-The Submersible can use the bin checker in the cart to alert international buyers, that if the card is not enabled to transact in Brazil, the transaction will be denied.
+The BIN query may indicate an attempt to use an international or prepaid card. If your store does not want to accept international or prepaid card payments, you can configure your checkout to inform the shopper that the store does not accept the card entered.
 
 ## Integration
 
@@ -7927,7 +7913,7 @@ A `GET` request must be sent containing the BIN to be checked:
 
 |Field|Description|
 |-----|---------|
-|`BIN`|First 9 digits of the payment card<br>_To simulate the request obtaining `ForeignCard=false` result, the third digit must be 1 and the fifth must not be 2 or 3.<br>Examples:001040, 501010, 401050_ |
+|`BIN`|It's the first six or nine digits of the card.|
 
 ``` json
 https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
@@ -7938,7 +7924,7 @@ https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
 ``` json
 {
     "Status": "00",
-    "Provider": "VISA",
+    "Provider": "MASTERCARD",
     "CardType": "Crédito",
     "ForeignCard": true,
     "CorporateCard": true,
@@ -7952,9 +7938,9 @@ https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
 |---------------|-------|------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `Status`      | Text  | 2    | BIN Check status response: <br><br> 00 – Analysis authorized <br> 01 – Brand not supported<br> 02 – Card not supported for BIN Check<br> 73 – Blocked Affiliation |
 | `Provider`    | Text  | 255  | Card Brand                                                                                                                                                        |
-| `CardType`    | Text  | 20   | Card Type : <br><br> Crédito <br> Débito <br>Multiplo                                                                                                              |
-| `ForeingCard` | Boolean  | -  | If card was issued abroad (False/True)                                                                                                                            |
-| `CorporateCard` | Boolean | -     | If card is coporate type (False/True)                                                                                                                                             |
+| `CardType`    | Text  | 20   | Card Type: <br><br> Credit <br> Debit <br>Multiple                                                                                                             |
+| `ForeignCard` | Boolean  | -  | If card was issued abroad (False/True)                                                                                                                            |
+| `CorporateCard` | Boolean | -     | If card is coporate (False/True)                                                                                                                                             |
 | `Issuer` | Text | 255     | Card issuer's name                                                                                                                                        |
 | `IssuerCode` | Text | 255     | Card issuer's code                                                                                                                                           |
 | `Prepaid` | Boolean | True ou False | Returns "True" if the card is prepaid.|
