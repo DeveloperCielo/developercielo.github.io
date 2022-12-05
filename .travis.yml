@@ -1,4 +1,9 @@
-# TEST RUN TCI SUPPORT
+### DEFAULTS ###
+os: linux
+dist: xenial
+arch: amd64
+################
+
 language: ruby
 
 cache:
