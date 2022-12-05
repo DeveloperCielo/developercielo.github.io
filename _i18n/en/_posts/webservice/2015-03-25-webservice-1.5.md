@@ -13,7 +13,7 @@ language_tabs:
 
 # Webservice integration 1.5
 
-The purpose of this documentation is to orientate the developer about how integrate with Cielo Webservice, describing its functionalities, the methods to be used, list information to be sent and received and provide examples.
+The purpose of this documentation is to orientate the developer about how to integrate with Cielo Webservice, describing its functionalities, the methods to be used, list information to be sent and received and provide examples.
 
 The integration mechanism with Cielo E-commerce is Yesple, so that are necessary only an intermediate knowledge in programming language for Web, HTTP/HTTP requisitions and handling XML archive to implant Cielo E-commerce solution with success.
 
