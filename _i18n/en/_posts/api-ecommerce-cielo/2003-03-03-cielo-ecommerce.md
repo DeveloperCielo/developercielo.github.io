@@ -7949,69 +7949,33 @@ https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
 
 # Zero Auth
 
-**Zero Auth** is a Credit Card validation tool. It allows the merchant to know whether or not the card is valid before sending it for authorization, anticipating the reason for a possible non-authorization.
+**Zero Auth** is a Cielo tool that allows you to check whether a card is valid for making a purchase before the order is finalized. Zero Auth simulates an authorization without affecting the credit limit or alerting the cardholder about the test.
 
-**Zero Auth** can be used in 2 ways:
+> Zero Auth does not inform the limit or characteristics of the card or the holder, it only simulates a Cielo authorization.
 
-1. **Standard** - Sending a standard card without tokenization or additional analysis
-2. **Using the "Cardtoken"** - Sending a TOKEN 3.0 for analysis
+Zero Auth is the correct way to validate cards according to the recommendations of brands and banks. Before the creation of Zero Auth, stores used to create low-value transactions, such as one real or one dollar, and then cancel them; It is important to know that this practice is now penalized by the brands.
 
-It is important to note that Zero Auth **does not return or analyze** the following items:
+> **Attention:** In the event of transactions with a value different from *zero* and less than *one dollar*, followed by cancellation of the transaction, the brands will apply fees to Cielo, which will be passed on to the establishments that are in non-compliance. Mastercard, for example, is charging a fee of R$0.21 cents per transaction.
 
-1. Card credit limit
-2. Information about the holder
-3. Does not trigger the banking base (SMS notification)
+**Zero Auth** validates **open or tokenized cards** (sending the `CardToken` created in the API E-commerce Cielo).
 
-Zero Auth supports the following Card Networks/Card Brands:
+**Supported brands**
 
-* **Visa**
-* **MasterCard**
-* **Elo**
+Zero Auth supports **Visa, Master** and **Elo** for both credit and debit cards.
 
-> If other Brand (Card Network Name) is sent, the error **57-Bandeira inválida** will be displayed.
-
-## Use case
-
-This is an example of how to use zero auth to improve your sales conversion.
-
-Zero Auth is a tool from Cielo that allows you to check if a card is valid before the order is finalized. It does this by simulating an authorization, but without affecting the credit limit or alerting the card holders about the test.
-
-It does not inform the limit or characteristics of the card or carrier, but simulates a Cielo authorization, validating data such as:
-
-1. If the card is valid with the issuing bank
-2. If the card has limit available
-3. If the card works in Brazil
-4. If the card number is correct
-5. If the CVV is valid
-
-Zero Auth also works with tokenized cards in Api Cielo Ecommerce.
-
-Here's an example of usage:
-
-**Zero auth as card validator**
-
-A Streaming company called FlixNet has a subscription service, where in addition to making a recurrence, it has saved cards and receives new subscriptions daily. All of these steps require that transactions be performed to gain access to the tool, which raises the cost of FlixNet if transactions are not authorized.
-
-How could the company reduce its cost? Validating the card before sending it to authorized.
-
-FlixNet uses Zero Auth at 2 different times:
-
-* **Registration:** it must be included a card to get 30 days free in the first month.
-The problem is that at the end of this period, if the card is invalid, the new register exists, but it does not work, because the saved card is invalid. FlixNet solved this problem by testing the card with Zero Auth at the time of registration, then, they already know if the card is valid and release the creation of the account. If the card is not accepted, FlixNet may suggest the use of another card.
-
-* **Recurrence:** every month, before you charge the Subscription, Flixnet tests the card with zero auth, then, knowing if it will be authorized or not. This helps FlixNet predict which cards will be denied, already triggering the subscriber to update the registration before the payday.
+If other brands are sent, there will be an error with the return "**57-Invalid Brand**".
 
 ## Integration
 
-In order to use Zero Auth, the merchant must send a `POST` request to the Cielo Ecommerce API, simulating a transaction. `POST` should be done at the following URLs:
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://api.cieloecommerce.cielo.com.br/1/zeroauth</span></aside>
-
-Each type of validation requires a different technical contract. They will result in differentiated responses
+To perform a Zero Auth query, the merchant must send a `POST` request to the API E-commerce Cielo, simulating a transaction.
 
 ### Request
 
-#### Standard
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/zeroauth</span></aside>
+
+Validating an open card requires a different technical contract than validating a tokenized card. Check out the example requests:
+
+#### Open card
 
 ``` json
 {
@@ -8028,7 +7992,7 @@ Each type of validation requires a different technical contract. They will resul
 }
 ```
 
-Below the fields returned after validation:
+A seguir, a listagem de campos da Requisição:
 
 | Field              | Description                                                                                                                                                                                                              | Type      | Contact Us | Required       |
 |--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|------------|----------------|
@@ -8041,9 +8005,9 @@ Below the fields returned after validation:
 | `Brand`            | Card Brand:<br> Visa <br> Master <br> ELO                                                                                                                                                                                    | Text      | 10         | Yes            |
 | `CardToken`        | Card Token 3.0                                                                                                                                                                                                           | GUID      | 36         | Conditional    |
 | `Usage`            | **First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.                                                   | Text   | ---     | No         |
-| `Reason`           | Indicates the purpose of credential storage, case the value of field "Usage" is "Used" <br>**Recurring** - Scheduled recurring<br>**Unscheduled** - Unscheduled recurring<br>**Installments** - Installments Transaction | Text   | ---     | Conditional |
+| `Reason`           | Indicates the purpose of storing cards, if the "Usage" field is "Used".<BR>**Recurring** - Scheduled recurring purchase (eg subscriptions)<br>**Unscheduled** - Recurring purchase without scheduling (eg service applications)<br>**Installments** - Installment through recurrence<br>.| Text   | ---     | Conditional |
 
-#### Using CardToken
+#### Tokenized cards
 
 ``` json
 {
@@ -8053,39 +8017,38 @@ Below the fields returned after validation:
 }
 ```
 
-Below is the list of Requisition fields:
-
-| Field              | Description                                                                                                               | Type      | Contact Us | Required       |
+| Field              | Description                                                                                                               | Type      | Size | Required       |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------|------------|----------------|
 | `Brand`            | Card Brand: Visa <br> Master <br> ELO                                                                                     | Text      | 10         | not            |
 | `CardToken`        | Tokenized Card 3.0                                                                                                            | GUID      | 36         | yes |
 
 ### Response
 
-The response always returns if the card can be authorized at the moment. This information only means that _the card is valid to transact_, but does not necessarily indicate that a certain value will be authorized.
+The response always returns whether the card can currently be authorized. This information only means that the _card is valid for transactioning_, but does not indicate that a certain value will be authorized.
 
-Below the fields returned after validation:
+The fields returned in the response depend on the validation result. The following table presents all possible fields; after the table, check out the examples of each type of response.
 
-| Field                 | Description                                                                        | Type      | Contact Us |
+
+| Field                 | Description                                                                        | Type      | Size |
 | --------------------- | ------------------------------- -------------------------------------------------- | --------- | : -------: |
 | `Valid`               | Card Status: <br> **True ** - Valid Card <BR> **False** - Invalid Card             | Boolean   | ---        |
 | `ReturnCode`          | Return code                                                                        | Text      | 2          |
 | `ReturnMessage`       | Return message                                                                     | Text      | 255        |
-| `IssuerTransactionId` | Issuer authentication ID for recurring debit transactions. This field must be sent in subsequent transactions of the first transaction in the recurrence model itself. In the scheduled recurrence model, Cielo will be responsible for sending the field in subsequent transactions. | Text   | 15      |
+| `IssuerTransactionId` | Issuer authentication identifier for recurring debit transactions. This field must be sent in subsequent transactions of the first transaction in the self-recurrence model. In the programmed recurrence model, Cielo will be responsible for sending the field in subsequent transactions. | Text   | 15      |
 
 #### POSITIVE - Valid Card
 
 ``` json
 {
-        "Valid": true,
-        "ReturnCode": “00”,
-        "ReturnMessage", “Transacao autorizada”,
-        "IssuerTransactionId": "580027442382078"
+  "Valid": true,
+  "ReturnCode": "00",
+  "ReturnMessage": "Transacao autorizada",
+  "IssuerTransactionId": "580027442382078"
 }
 ```
 
-> See [**Integration Manual**](https://developercielo.github.io/en/manual/cielo-ecommerce) for more information about Return Codes.
-> The return code **"00" represents success in Zero Auth**, the other codes are defined according to the above documentation.
+> See [Return codes](https://developercielo.github.io/en/manual/cielo-ecommerce#api-codes){:target="_blank"} to see the return codes descriptions. 
+> The return code **00 represents success in Zero Auth**, the other codes are defined according to the documentation above.
 
 #### NEGATIVE - Invalid Card
 
@@ -8107,7 +8070,7 @@ Below the fields returned after validation:
   }
 ```
 
-#### NEGATIVE - Restriction Cadastral
+#### NEGATIVE - Registration Restriction
 
 ``` json
   {    
@@ -8116,11 +8079,10 @@ Below the fields returned after validation:
   }
 ```
 
-If there is any error in the flow, where it is not possible to validate the card, the service will return error:
+If there is an error in the flow and it is not possible to validate the card, the service will return the following errors: 
 
-* 500 - Internal Server Error
-* 400 - Bad Request
-
+* *500 – Internal Server Error*
+* *400 – Bad Request*
 # Silent Order Post
 
 Integration that Cielo offers to merchants, where the payment data is safely traced, while maintaining full control over the Ckeckout experience.
