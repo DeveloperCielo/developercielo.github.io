@@ -782,8 +782,9 @@ The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the
 
 The Mastercard brand has the Transaction Processing Excellence (TPE) program, which includes two categories:
 
-* **Excessive Attempts**: monitors the attempts of denied transactions, in card present and not present environments. Valid for both reversible and irreversible denial codes.
-* **Merchant Advice Code Transaction Excellence (MAC)**: monitors transaction retries that are denied, in card-not-present environments that are irreversible. Billing only on (MAC) 03 and 21.
+**Excessive Attempts**: monitors the attempts of denied transactions, in card present and not present environments. Valid for both reversible and irreversible denial codes.
+
+**Merchant Advice Code Transaction Excellence (MAC)**: monitors transaction retries that are denied, in card-not-present environments that are irreversible. Billing only on (MAC) 03 and 21.
 
 #### 1. Excessive Attempts
 
