@@ -770,11 +770,10 @@ Aiming to improve the shopping experience, the payment methods industry, togethe
 Attempts are classified as:
 
 > * <p>&#10060; **Irreversible: never retry**</p><br>
-> <br>
 > It means, for example, that the card was canceled for use, has been lost or stolen, there is confirmed fraud, the transaction is not allowed for that product, indicating that there are no circumstances in which the issuer would grant an approval. Any authorization attempt that has previously received an irreversible refusal without any changes in the message will not be successful.
 > <br>
-> * <p>&#9989; **Reversible: retry allowed**</p><br>
 > <br>
+> * <p>&#9989; **Reversible: retry allowed**</p><br>
 > It means that the issuer can approve, but cannot do so now, possibly due to a system issue (down) or lack of limit, suspected fraud or exceeded number of password attempts. These are temporary opt-out decisions made by the issuer that may change over time.
 The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the number of authorization attempts for a denied transaction. These changes provide for the charging of fees for excessive attempts. Below are the rules for each brand.
 
@@ -806,7 +805,7 @@ Monitoring is applied to retry transactions for denied and approved purchases, c
   1. The excess considered in the program will occur from the eighth attempt within the calculation month. The amount charged has changed.
   2. Mastercard is also introducing a limit of 35 failed attempts on the same card and merchant number per continuous 30-day period. Even if the shopper does not exceed the limit of 7 retries in a 24-hour period, but exceeds the monthly limit, the charge will be applied
 
-> Note: The current rule of the Excessive Attempts program is valid until 01/31/2023 (see Table Excessive Attempts), where only 10 attempts to approve the same transaction are allowed (on the same card, and same merchant number), with retry allowed after 24 hours.
+> **Note**: The current rule of the Excessive Attempts program is valid until 01/31/2023 (see Table Excessive Attempts), where only 10 attempts to approve the same transaction are allowed (on the same card, and same merchant number), with retry allowed after 24 hours.
 
 #### 2. Merchant Advice Code Transaction Excellence (MAC)
 
@@ -937,9 +936,9 @@ Issuers should use response codes that more accurately reflect the reason for de
 
 **Note:** Response code 14 appears in categories 1 and 3, but the accounting is as follows:
 
-In category 1, EC is charged from the 2nd attempt to (same establishment and same card) **retry not allowed.**
+* In category 1, EC is charged from the 2nd attempt to the same establishment and same card: **retry not allowed.**
 
-Category 3 comprises the group of codes for accounting for 10,001 transactions, after the EC reaches 10,000 retries with this group of codes, any transaction will be accounted for independently of the card.
+* Category 3 comprises the group of codes for accounting for 10,001 transactions, after the EC reaches 10,000 retries with this group of codes, any transaction will be accounted for independently of the card.
 
 **Example:** We had 10,000 transactions denied in a CE with category 3 codes, if transaction 10,001 is in code 14 or in any category 3 group code, it will be charged regardless of the card.
 
