@@ -782,9 +782,8 @@ The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the
 
 The Mastercard brand has the Transaction Processing Excellence (TPE) program, which includes two categories:
 
-* **Excessive Attempts** – monitors the attempts of denied transactions, in card present and not present environments. Valid for both reversible and irreversible denial codes.
-
-* **Merchant Advice Code Transaction Excellence (MAC)** – monitors transaction retries that are denied, in card-not-present environments that are irreversible. Billing only on (MAC) 03 and 21.
+* **Excessive Attempts**: monitors the attempts of denied transactions, in card present and not present environments. Valid for both reversible and irreversible denial codes.
+* **Merchant Advice Code Transaction Excellence (MAC)**: monitors transaction retries that are denied, in card-not-present environments that are irreversible. Billing only on (MAC) 03 and 21.
 
 #### 1. Excessive Attempts
 
@@ -840,14 +839,14 @@ Since **10/14/2022** Mastercard has introduced new MAC codes 24, 25, 26, 27, 28,
 
 Some return codes will no longer be sent:
 
-* 04 (Capture Card)
-* 14 (Invalid card number)
-* 41 (Lost Card)
-* 43 (Stolen Card)
-* 54 (Expired Card)
-* 57 (Transaction Not Allowed)
-* 62 (Card Restricted)
-* 63 (Security Breach)
+*04 (Capture Card)
+*14 (Invalid card number)
+*41 (Lost Card)
+*43 (Stolen Card)
+*54 (Expired Card)
+*57 (Transaction Not Allowed)
+*62 (Card Restricted)
+*63 (Security Breach)
 <br>
 <br>
 
@@ -855,9 +854,9 @@ Some return codes will no longer be sent:
 
 Mastercard may consolidate some issuer response codes, which often may not indicate to the merchant whether or not to retry, into 3 codes for Mastercard exclusive use:
 
-* **79** (Life cycle)
-* **82** (Politics)
-* **83** (Fraud/Security)
+***79** (Life cycle)
+***82** (Politics)
+***83** (Fraud/Security)
 <br>
 <br>
 
@@ -873,14 +872,14 @@ The original codes will be replaced by the Merchant Advice Code (MAC), which wil
 
 **Method of calculation:**
 
-* Card not present transactions will be considered;
-* All payment transactions using the same card and merchant number are considered retries;
-* Retries in the MAC program with values ​​MAC 03 and MAC 21 count;
-* Valid for any response code,
-* The excess accounted for in the program will occur from the 1st attempt within the calculation month;
-* The counter is reset after a period of 30 days;
-* Retries may be charged for MACs 03/21 and Excessive Attempts if you exceed the limit for each program;
-* Currently, the tariff value of BRL 1.25 is applied and this value will change from January 1, 2023, as shown on the table;
+*Card not present transactions will be considered;
+*All payment transactions using the same card and merchant number are considered retries;
+*Retries in the MAC program with values ​​MAC 03 and MAC 21 count;
+*Valid for any response code,
+*The excess accounted for in the program will occur from the 1st attempt within the calculation month;
+*The counter is reset after a period of 30 days;
+*Retries may be charged for MACs 03/21 and Excessive Attempts if you exceed the limit for each program;
+*Currently, the tariff value of BRL 1.25 is applied and this value will change from January 1, 2023, as shown on the table;
 
 **Table of values:**
 
@@ -894,12 +893,12 @@ The original codes will be replaced by the Merchant Advice Code (MAC), which wil
 
 A program instituted by the Visa Brand that generates charges when the merchant exceeds the retry rules.
 
-* Valid for transactions with a present card and a non-present card;
-* **Reversible codes:** Allows up to 15 attempts to approve the same transaction (same card, same establishment and amount) within 30 days. After the initial 30 days (from the 1st attempt), any retry will be charged.
-* **Irreversible codes:** Only 01 attempt to approve the same transaction is allowed (same card, same establishment), the 2nd attempt will be charged.
-* After an approved transaction, the counter is reset.
+*Valid for transactions with a present card and a non-present card;
+***Reversible codes:** Allows up to 15 attempts to approve the same transaction (same card, same establishment and amount) within 30 days. After the initial 30 days (from the 1st attempt), any retry will be charged.
+***Irreversible codes:** Only 01 attempt to approve the same transaction is allowed (same card, same establishment), the 2nd attempt will be charged.
+*After an approved transaction, the counter is reset.
 
-> **Fees**: When you exceed the attempt limits established by the brand, a fee will be charged for each transaction that exceeds it.<br>
+> * **Fees**: When you exceed the attempt limits established by the brand, a fee will be charged for each transaction that exceeds it.<br>
 ><br>
 > * **Domestic**: USD 0.10 + 13.83% Tax.<br>
 > * Foreign: USD 0.25 + 13.83% Tax.
@@ -952,12 +951,12 @@ This is a program instituted by ELO that generates charges when the merchant exc
 
 **Forms of Calculation**
 
-* **Retries**: all payment transactions on the same card, validity, value, Merchant ID (MID) - within 30 days
-* **Accounted codes**: all negatives​
-* **Excess**: from the 16th retry in the month​*
-* **Fee**: BRL 0.80 (eighty cents) per retry, starting from the 16th
-* **Billing**: The billing will only be done in cases of recurrence, therefore, the establishment must be at least 2 consecutive months in the program.
-* **Excess accounting**: It is based on Elo's internal controls. 1st to last calendar day of the month
+***Retries**: all payment transactions on the same card, validity, value, Merchant ID (MID) - within 30 days
+***Accounted codes**: all negatives
+***Excess**: from the 16th retry in the month*
+***Fee**: BRL 0.80 (eighty cents) per retry, starting from the 16th
+***Billing**: The billing will only be done in cases of recurrence, therefore, the establishment must be at least 2 consecutive months in the program.
+***Excess accounting**: It is based on Elo's internal controls. 1st to last calendar day of the month
 <br>
 <br>
 
@@ -1046,11 +1045,11 @@ Charges made when a merchant exceeds the Retry rules for denied transactions wit
 
 ### Other brands
 
-* **Reversible codes:** New attempts will be allowed for the same customer and card. There is no limit and pre-established period;
+***Reversible codes:** New attempts will be allowed for the same customer and card. There is no limit and pre-established period;
 
 > **Important: you should follow the guidance received in the response to the transaction denied, before making a new attempt.**
 
-* **Irreversible Codes:** Authorizations will not be allowed for the same card or establishment, after receiving the 1st refusal response from the issuer.
+***Irreversible Codes:** Authorizations will not be allowed for the same card or establishment, after receiving the 1st refusal response from the issuer.
 
 ## ABECS return codes
 
