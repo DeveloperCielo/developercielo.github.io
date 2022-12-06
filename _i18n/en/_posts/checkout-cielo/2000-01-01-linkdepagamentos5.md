@@ -800,7 +800,7 @@ Monitoring is applied to retry transactions for denied and approved purchases, c
 |Card present and Card not present|Any denial code that is not assigned to MAC 03 and 21. And also MAC codes if you do not respect the "Excessive Attempts" limits|Until 01/31/2023|BRL 2.00 |-|From the 11th retry onwards|Retry allowed within 24 hours.|
 |Card present and Card not present|Any denial code that is not assigned to MAC 03 and 21. And also the MAC codes if you do not respect the limits of "Excessive Attempts"|New rule from 02/01/2023|R $2.00 |-|From the 8th retry onwards|Retry allowed within 24 hours.|
 
-* All payment transactions using the same card and the same merchant number will be considered as retries;
+* All payment transactions using the same card and the same merchant number will be considered as retries.
 * Mastercard has extended the effective date to **01/02/2023** regarding the new program rules **(Excessive Attempts)** previously scheduled for the beginning of 01/11/2022. These are the changes:
 
 1. The excess considered in the program will occur from the eighth attempt within the calculation month. The amount charged has changed.
@@ -898,10 +898,10 @@ A program instituted by the Visa Brand that generates charges when the merchant 
 ***Irreversible codes:** Only 01 attempt to approve the same transaction is allowed (same card, same establishment), the 2nd attempt will be charged.
 *After an approved transaction, the counter is reset.
 
-> * **Fees**: When you exceed the attempt limits established by the brand, a fee will be charged for each transaction that exceeds it.<br>
+> **Fees**: When you exceed the attempt limits established by the brand, a fee will be charged for each transaction that exceeds it.<br>
 ><br>
-> * **Domestic**: USD 0.10 + 13.83% Tax.<br>
-> * Foreign: USD 0.25 + 13.83% Tax.
+> **Domestic**: USD 0.10 + 13.83% Tax.<br>
+> **Foreign**: USD 0.25 + 13.83% Tax.
 <br>
 <br>
 
