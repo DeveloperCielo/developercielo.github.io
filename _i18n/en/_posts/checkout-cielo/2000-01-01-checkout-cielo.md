@@ -848,7 +848,7 @@ What did they do? Being an attuned company that did not want to use a little box
 
 Today, employees contribute monthly without having to remember to pay, once the Checkout Cielo Recurrence performs a new billing transaction every month!
 
-## Flows Means of payment
+## Payment methods flow
 
 ### Credit card
 
@@ -1804,7 +1804,7 @@ Charges made when a merchant exceeds the Retry rules for denied transactions wit
 
 # ABECS return codes
 
-To access the Card Brands Retry Program, access this [Link](https://developercielo.github.io/en/manual/checkout-cielo#flag-retry-program)
+Go to [Card Brands Retry Program](https://developercielo.github.io/en/manual/checkout-cielo#card-brands-retry-program) to know more about the card brands rules for retrying transactions.
 
 The Brazilian Association of Credit Card and Services Companies (ABECS) establishes as of July 15, 2020 the standardization of the return code of refused sales authorizations for both the physical payment and e-commerce solutions of the Brazilian market .
 
