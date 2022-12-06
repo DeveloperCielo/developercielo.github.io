@@ -1548,7 +1548,7 @@ The information returned via the Notification Post can be found in the topic <a 
   </li>
 </ol>
 
-<h1 id="status-e-códigos">Status e Códigos</h1>
+<h1 id="status-and-codes">Status and Codes</h1>
 
 <p>Checkout has its own Status, different from CIELO SITE or Cielo ecommerce API. See the full list below.</p>
 
@@ -1636,23 +1636,30 @@ The information returned via the Notification Post can be found in the topic <a 
 <p>Attempts are classified as:</p>
 
 <blockquote>
-  <p>❌ <strong>Irreversible: never retry</strong><br />
+  <ul>
+    <li>❌ <strong>Irreversible: never retry</strong><br />
 <br />
 It means, for example, that the card was canceled for use, has been lost or stolen, there is confirmed fraud, the transaction is not allowed for that product, indicating that there are no circumstances in which the issuer would grant an approval. Any authorization attempt that has previously received an irreversible refusal without any changes in the message will not be successful.
-<br />
-✅ <strong>Reversible: retry allowed</strong><br />
+<br /></li>
+    <li>✅ <strong>Reversible: retry allowed</strong><br />
 <br />
 It means that the issuer can approve, but cannot do so now, possibly due to a system issue (down) or lack of limit, suspected fraud or exceeded number of password attempts. These are temporary opt-out decisions made by the issuer that may change over time.
-The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the number of authorization attempts for a denied transaction. These changes provide for the charging of fees for excessive attempts. Below are the rules for each brand.</p>
+The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the number of authorization attempts for a denied transaction. These changes provide for the charging of fees for excessive attempts. Below are the rules for each brand.</li>
+  </ul>
 </blockquote>
 
 <h3 id="mastercard">Mastercard</h3>
 
 <p>The Mastercard brand has the Transaction Processing Excellence (TPE) program, which includes two categories:</p>
 
-<p><strong>Excessive Attempts</strong>: monitors the attempts of denied transactions, in card present and not present environments. Valid for both reversible and irreversible denial codes.</p>
-
-<p><strong>Merchant Advice Code Transaction Excellence (MAC)</strong>: monitors transaction retries that are denied, in card-not-present environments that are irreversible. Billing only on (MAC) 03 and 21.</p>
+<ul>
+  <li>
+    <p><strong>Excessive Attempts</strong>: monitors the attempts of denied transactions, in card present and not present environments. Valid for both reversible and irreversible denial codes.</p>
+  </li>
+  <li>
+    <p><strong>Merchant Advice Code Transaction Excellence (MAC)</strong>: monitors transaction retries that are denied, in card-not-present environments that are irreversible. Billing only on (MAC) 03 and 21.</p>
+  </li>
+</ul>
 
 <h4 id="1-excessive-attempts">1. Excessive Attempts</h4>
 
@@ -1698,13 +1705,15 @@ The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the
   </tbody>
 </table>
 
-<p>*All payment transactions using the same card and the same merchant number will be considered as retries.
-*Mastercard has extended the effective date to <strong>01/02/2023</strong> regarding the new program rules <strong>(Excessive Attempts)</strong> previously scheduled for the beginning of 01/11/2022. These are the changes:</p>
-
-<ol>
-  <li>The excess considered in the program will occur from the eighth attempt within the calculation month. The amount charged has changed.</li>
-  <li>Mastercard is also introducing a limit of 35 failed attempts on the same card and merchant number per continuous 30-day period. Even if the shopper does not exceed the limit of 7 retries in a 24-hour period, but exceeds the monthly limit, the charge will be applied</li>
-</ol>
+<ul>
+  <li>All payment transactions using the same card and the same merchant number will be considered as retries.</li>
+  <li>Mastercard has extended the effective date to <strong>01/02/2023</strong> regarding the new program rules <strong>(Excessive Attempts)</strong> previously scheduled for the beginning of 01/11/2022. These are the changes:
+    <ol>
+      <li>The excess considered in the program will occur from the eighth attempt within the calculation month. The amount charged has changed.</li>
+      <li>Mastercard is also introducing a limit of 35 failed attempts on the same card and merchant number per continuous 30-day period. Even if the shopper does not exceed the limit of 7 retries in a 24-hour period, but exceeds the monthly limit, the charge will be applied</li>
+    </ol>
+  </li>
+</ul>
 
 <blockquote>
   <p>Note: The current rule of the Excessive Attempts program is valid until 01/31/2023 (see Table Excessive Attempts), where only 10 attempts to approve the same transaction are allowed (on the same card, and same merchant number), with retry allowed after 24 hours.</p>
@@ -1798,22 +1807,26 @@ The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the
 
 <p>Some return codes will no longer be sent:</p>
 
-<p>*04 (Capture Card)
-*14 (Invalid card number)
-*41 (Lost Card)
-*43 (Stolen Card)
-*54 (Expired Card)
-*57 (Transaction Not Allowed)
-*62 (Card Restricted)
-*63 (Security Breach)</p>
+<ul>
+  <li>04 (Capture Card)</li>
+  <li>14 (Invalid card number)</li>
+  <li>41 (Lost Card)</li>
+  <li>43 (Stolen Card)</li>
+  <li>54 (Expired Card)</li>
+  <li>57 (Transaction Not Allowed)</li>
+  <li>62 (Card Restricted)</li>
+  <li>63 (Security Breach)</li>
+</ul>
 
 <p><strong>Categorization of Mastercard returns</strong></p>
 
 <p>Mastercard may consolidate some issuer response codes, which often may not indicate to the merchant whether or not to retry, into 3 codes for Mastercard exclusive use:</p>
 
-<p><strong><em>79** (Life cycle)
-**</em>82</strong> (Politics)
-<strong>*83</strong> (Fraud/Security)</p>
+<ul>
+  <li><strong>79</strong> (Life cycle)</li>
+  <li><strong>82</strong> (Politics)</li>
+  <li><strong>83</strong> (Fraud/Security)</li>
+</ul>
 
 <p>The original codes will be replaced by the Merchant Advice Code (MAC), which will accompany codes 79, 82 and 83 to determine whether or not the transaction can be re-attempted.</p>
 
@@ -1840,14 +1853,16 @@ The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the
 
 <p><strong>Method of calculation:</strong></p>
 
-<p>*Card not present transactions will be considered;
-*All payment transactions using the same card and merchant number are considered retries;
-*Retries in the MAC program with values ​​MAC 03 and MAC 21 count;
-*Valid for any response code,
-*The excess accounted for in the program will occur from the 1st attempt within the calculation month;
-*The counter is reset after a period of 30 days;
-*Retries may be charged for MACs 03/21 and Excessive Attempts if you exceed the limit for each program;
-*Currently, the tariff value of BRL 1.25 is applied and this value will change from January 1, 2023, as shown on the table;</p>
+<ul>
+  <li>Card not present transactions will be considered;</li>
+  <li>All payment transactions using the same card and merchant number are considered retries;</li>
+  <li>Retries in the MAC program with values ​​MAC 03 and MAC 21 count;</li>
+  <li>Valid for any response code,</li>
+  <li>The excess accounted for in the program will occur from the 1st attempt within the calculation month;</li>
+  <li>The counter is reset after a period of 30 days;</li>
+  <li>Retries may be charged for MACs 03/21 and Excessive Attempts if you exceed the limit for each program;</li>
+  <li>Currently, the tariff value of BRL 1.25 is applied and this value will change from January 1, 2023, as shown on the table;</li>
+</ul>
 
 <p><strong>Table of values:</strong></p>
 
@@ -1872,16 +1887,20 @@ The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the
 
 <p>A program instituted by the Visa Brand that generates charges when the merchant exceeds the retry rules.</p>
 
-<p>*Valid for transactions with a present card and a non-present card;
-<strong><em>Reversible codes:** Allows up to 15 attempts to approve the same transaction (same card, same establishment and amount) within 30 days. After the initial 30 days (from the 1st attempt), any retry will be charged.
-**</em>Irreversible codes:</strong> Only 01 attempt to approve the same transaction is allowed (same card, same establishment), the 2nd attempt will be charged.
-*After an approved transaction, the counter is reset.</p>
+<ul>
+  <li>Valid for transactions with a present card and a non-present card;</li>
+  <li><strong>Reversible codes:</strong> Allows up to 15 attempts to approve the same transaction (same card, same establishment and amount) within 30 days. After the initial 30 days (from the 1st attempt), any retry will be charged.</li>
+  <li><strong>Irreversible codes:</strong> Only 01 attempt to approve the same transaction is allowed (same card, same establishment), the 2nd attempt will be charged.
+*After an approved transaction, the counter is reset.</li>
+</ul>
 
 <blockquote>
   <p><strong>Fees</strong>: When you exceed the attempt limits established by the brand, a fee will be charged for each transaction that exceeds it.<br />
-<br />
-<strong>Domestic</strong>: USD 0.10 + 13.83% Tax.<br />
-<strong>Foreign</strong>: USD 0.25 + 13.83% Tax.</p>
+<br /></p>
+  <ul>
+    <li><strong>Domestic</strong>: USD 0.10 + 13.83% Tax.<br /></li>
+    <li><strong>Foreign</strong>: USD 0.25 + 13.83% Tax.</li>
+  </ul>
 </blockquote>
 
 <p>Authorization rules already in force. Fee charges apply from April 2021.</p>
@@ -1932,12 +1951,14 @@ The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the
 
 <p><strong>Forms of Calculation</strong></p>
 
-<p><strong><em>Retries**: all payment transactions on the same card, validity, value, Merchant ID (MID) - within 30 days
-**</em>Accounted codes</strong>: all negatives
-<strong><em>Excess**: from the 16th retry in the month</em>
-**<em>Fee**: BRL 0.80 (eighty cents) per retry, starting from the 16th
-**</em>Billing</strong>: The billing will only be done in cases of recurrence, therefore, the establishment must be at least 2 consecutive months in the program.
-<strong>*Excess accounting</strong>: It is based on Elo’s internal controls. 1st to last calendar day of the month</p>
+<ul>
+  <li><strong>Retries</strong>: all payment transactions on the same card, validity, value, Merchant ID (MID) - within 30 days</li>
+  <li><strong>Accounted codes</strong>: all negatives</li>
+  <li><strong>Excess</strong>: from the 16th retry in the month*</li>
+  <li><strong>Fee</strong>: BRL 0.80 (eighty cents) per retry, starting from the 16th</li>
+  <li><strong>Billing</strong>: The billing will only be done in cases of recurrence, therefore, the establishment must be at least 2 consecutive months in the program.</li>
+  <li><strong>Excess accounting</strong>: It is based on Elo’s internal controls. 1st to last calendar day of the month</li>
+</ul>
 
 <p><strong>Retry charging table for Elo brand</strong></p>
 
@@ -2284,13 +2305,17 @@ The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the
 
 <h3 id="other-brands">Other brands</h3>
 
-<p><strong>*Reversible codes:</strong> New attempts will be allowed for the same customer and card. There is no limit and pre-established period;</p>
+<ul>
+  <li><strong>Reversible codes:</strong> New attempts will be allowed for the same customer and card. There is no limit and pre-established period;</li>
+</ul>
 
 <blockquote>
   <p><strong>Important: you should follow the guidance received in the response to the transaction denied, before making a new attempt.</strong></p>
 </blockquote>
 
-<p><strong>*Irreversible Codes:</strong> Authorizations will not be allowed for the same card or establishment, after receiving the 1st refusal response from the issuer.</p>
+<ul>
+  <li><strong>Irreversible Codes:</strong> Authorizations will not be allowed for the same card or establishment, after receiving the 1st refusal response from the issuer.</li>
+</ul>
 
 <h2 id="abecs-return-codes">ABECS return codes</h2>
 
