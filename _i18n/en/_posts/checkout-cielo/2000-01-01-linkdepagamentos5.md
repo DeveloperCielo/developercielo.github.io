@@ -801,8 +801,8 @@ Monitoring is applied to retry transactions for denied and approved purchases, c
 |Card present and Card not present|Any denial code that is not assigned to MAC 03 and 21. And also MAC codes if you do not respect the "Excessive Attempts" limits|Until 01/31/2023|BRL 2.00 |-|From the 11th retry onwards|Retry allowed within 24 hours.|
 |Card present and Card not present|Any denial code that is not assigned to MAC 03 and 21. And also the MAC codes if you do not respect the limits of "Excessive Attempts"|New rule from 02/01/2023|R $2.00 |-|From the 8th retry onwards|Retry allowed within 24 hours.|
 
-* All payment transactions using the same card and the same merchant number will be considered as retries.
-* Mastercard has extended the effective date to **01/02/2023** regarding the new program rules **(Excessive Attempts)** previously scheduled for the beginning of 01/11/2022. These are the changes:
+*All payment transactions using the same card and the same merchant number will be considered as retries.
+*Mastercard has extended the effective date to **01/02/2023** regarding the new program rules **(Excessive Attempts)** previously scheduled for the beginning of 01/11/2022. These are the changes:
 
 1. The excess considered in the program will occur from the eighth attempt within the calculation month. The amount charged has changed.
 2. Mastercard is also introducing a limit of 35 failed attempts on the same card and merchant number per continuous 30-day period. Even if the shopper does not exceed the limit of 7 retries in a 24-hour period, but exceeds the monthly limit, the charge will be applied
