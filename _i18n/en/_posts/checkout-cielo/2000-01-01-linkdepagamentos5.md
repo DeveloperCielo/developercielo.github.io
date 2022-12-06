@@ -769,11 +769,11 @@ Aiming to improve the shopping experience, the payment methods industry, togethe
 
 Attempts are classified as:
 
-> * <p>&#10060; **Irreversible: never retry**</p><br>
+> <p>&#10060; **Irreversible: never retry**</p><br>
 > <br>
->It means, for example, that the card was canceled for use, has been lost or stolen, there is confirmed fraud, the transaction is not allowed for that product, indicating that there are no circumstances in which the issuer would grant an approval. Any authorization attempt that has previously received an irreversible refusal without any changes in the message will not be successful.
-><br>
-> * <p>&#9989; **Reversible: retry allowed**</p><br>
+> It means, for example, that the card was canceled for use, has been lost or stolen, there is confirmed fraud, the transaction is not allowed for that product, indicating that there are no circumstances in which the issuer would grant an approval. Any authorization attempt that has previously received an irreversible refusal without any changes in the message will not be successful.
+> <br>
+> <p>&#9989; **Reversible: retry allowed**</p><br>
 > <br>
 > It means that the issuer can approve, but cannot do so now, possibly due to a system issue (down) or lack of limit, suspected fraud or exceeded number of password attempts. These are temporary opt-out decisions made by the issuer that may change over time.
 The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the number of authorization attempts for a denied transaction. These changes provide for the charging of fees for excessive attempts. Below are the rules for each brand.
@@ -784,7 +784,7 @@ The Mastercard brand has the Transaction Processing Excellence (TPE) program, wh
 
 * **Excessive Attempts** – monitors the attempts of denied transactions, in card present and not present environments. Valid for both reversible and irreversible denial codes.
 
-* **Merchant Advice Code Transaction Excellence (MAC)**– monitors transaction retries that are denied, in card-not-present environments that are irreversible. Billing only on (MAC) 03 and 21.
+* **Merchant Advice Code Transaction Excellence (MAC)** – monitors transaction retries that are denied, in card-not-present environments that are irreversible. Billing only on (MAC) 03 and 21.
 
 #### 1. Excessive Attempts
 
