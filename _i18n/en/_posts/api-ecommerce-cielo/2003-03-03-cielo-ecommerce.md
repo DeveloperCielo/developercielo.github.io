@@ -7761,6 +7761,83 @@ curl
 |7|Chargeback notification. Exclusive for customers integrated with [Risk Notification API](https://braspag.github.io//en/manual/risknotification){:target="_blank"}.|
 |8|Fraud alert.|
 
+# BIN Query
+
+**BIN Query** is a **card data search** service, whether credit or debit, which identifies card characteristics based on the first digits and returns information that allows you to validate the data filled in on the checkout screen.
+
+* **Card Brand:** brand name;
+* **Card Type:** credit, debit or multiple (credit and debit);
+* **Card Nationality:** foreign or national (Brazil);
+* **Card:** whether or not the card is corporate;
+* **Issuing Bank:** code and name;
+* **Prepaid card:** whether or not the card is prepaid.
+
+This information allows you to take actions at the time of payment to improve the store's conversion rates.
+
+<aside class="warning">BIN Query must be enabled by Cielo Support Team. Contact them to enable the service.</aside>
+
+## Use Case
+
+Based on the result of the BIN Query, you can develop functionalities in your checkout to improve usability for shoppers and, thus, help in the recovery of carts and in the best conversion of your store.
+
+**1. Avoid errors related to the brand or the type of card**:
+
+* The BIN query returns the **correct** brand of the card once it is associated with the BINS base of the brands; this is a much safer method than relying on algorithms on forms;
+
+* At your store checkout, you can create a message to let the customer know if they are using a debit card when they should actually be using a credit card.
+
+**2. Offer online cart recovery**
+
+You can develop a flow at your checkout so that, if a card entered on the payment screen is multiple (credit and debit), your store can retain the card data and, if the credit transaction fails, automatically offer the shopper a debit transaction with the same card.
+
+**3. Warn about international or prepaid cards**
+
+The BIN query may indicate an attempt to use an international or prepaid card. If your store does not want to accept international or prepaid card payments, you can configure your checkout to inform the shopper that the store does not accept the card entered.
+
+## Integration
+
+### Request
+
+A `GET` request must be sent containing the BIN to be checked:
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">/1/cardBin/`BIN`</span></aside>
+
+|Field|Description|
+|-----|---------|
+|`BIN`|It's the first six or nine digits of the card.|
+
+``` json
+https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
+```
+
+### Response
+
+``` json
+{
+    "Status": "00",
+    "Provider": "MASTERCARD",
+    "CardType": "Crédito",
+    "ForeignCard": true,
+    "CorporateCard": true,
+    "Issuer": "Bradesco",
+    "IssuerCode": "237"
+    "Prepaid":true
+}
+```
+
+| Parameter     | Type  | Size | Description                                                                                                                                                       |
+|---------------|-------|------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Status`      | Text  | 2    | BIN Check status response: <br><br> 00 – Analysis authorized <br> 01 – Brand not supported<br> 02 – Card not supported for BIN Check<br> 73 – Blocked Affiliation |
+| `Provider`    | Text  | 255  | Card Brand                                                                                                                                                        |
+| `CardType`    | Text  | 20   | Card Type: <br><br> Credit <br> Debit <br>Multiple                                                                                                             |
+| `ForeignCard` | Boolean  | -  | If card was issued abroad (False/True)                                                                                                                            |
+| `CorporateCard` | Boolean | -     | If card is coporate (False/True)                                                                                                                                             |
+| `Issuer` | Text | 255     | Card issuer's name                                                                                                                                        |
+| `IssuerCode` | Text | 255     | Card issuer's code                                                                                                                                           |
+| `Prepaid` | Boolean | True ou False | Returns "True" if the card is prepaid.|
+
+> **NOTE**: On testing environment (SANDBOX), the returned data is simulated, so they are not valid BIN Check results. Only fields and format must be considered. For real identification of the BIN Check, production environment must be used.
+
 # Velocity
 
 ## What is Velocity
@@ -7869,83 +7946,6 @@ When Velocity is active, the transaction response will bring a specific node cal
 | `VelocityAnalysis.Score`                 | 100                                   | Number | 10   |
 | `VelocityAnalysis.RejectReasons.RuleId`  | Code of the rule that rejected        | Number | 10   |
 | `VelocityAnalysis.RejectReasons.Message` | Description of the rule that rejected | Text   | 512  |
-
-# BIN Query
-
-**BIN Query** is a **card data search** service, whether credit or debit, which identifies card characteristics based on the first digits and returns information that allows you to validate the data filled in on the checkout screen.
-
-* **Card Brand:** brand name;
-* **Card Type:** credit, debit or multiple (credit and debit);
-* **Card Nationality:** foreign or national (Brazil);
-* **Card:** whether or not the card is corporate;
-* **Issuing Bank:** code and name;
-* **Prepaid card:** whether or not the card is prepaid.
-
-This information allows you to take actions at the time of payment to improve the store's conversion rates.
-
-<aside class="warning">BIN Query must be enabled by Cielo Support Team. Contact them to enable the service.</aside>
-
-## Use Case
-
-Based on the result of the BIN Query, you can develop functionalities in your checkout to improve usability for shoppers and, thus, help in the recovery of carts and in the best conversion of your store.
-
-**1. Avoid errors related to the brand or the type of card**:
-
-* The BIN query returns the **correct** brand of the card once it is associated with the BINS base of the brands; this is a much safer method than relying on algorithms on forms;
-
-* At your store checkout, you can create a message to let the customer know if they are using a debit card when they should actually be using a credit card.
-
-**2. Offer online cart recovery**
-
-You can develop a flow at your checkout so that, if a card entered on the payment screen is multiple (credit and debit), your store can retain the card data and, if the credit transaction fails, automatically offer the shopper a debit transaction with the same card.
-
-**3. Warn about international or prepaid cards**
-
-The BIN query may indicate an attempt to use an international or prepaid card. If your store does not want to accept international or prepaid card payments, you can configure your checkout to inform the shopper that the store does not accept the card entered.
-
-## Integration
-
-### Request
-
-A `GET` request must be sent containing the BIN to be checked:
-
-<aside class="request"><span class="method get">GET</span><span class="endpoint">/1/cardBin/`BIN`</span></aside>
-
-|Field|Description|
-|-----|---------|
-|`BIN`|It's the first six or nine digits of the card.|
-
-``` json
-https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
-```
-
-### Response
-
-``` json
-{
-    "Status": "00",
-    "Provider": "MASTERCARD",
-    "CardType": "Crédito",
-    "ForeignCard": true,
-    "CorporateCard": true,
-    "Issuer": "Bradesco",
-    "IssuerCode": "237"
-    "Prepaid":true
-}
-```
-
-| Parameter     | Type  | Size | Description                                                                                                                                                       |
-|---------------|-------|------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Status`      | Text  | 2    | BIN Check status response: <br><br> 00 – Analysis authorized <br> 01 – Brand not supported<br> 02 – Card not supported for BIN Check<br> 73 – Blocked Affiliation |
-| `Provider`    | Text  | 255  | Card Brand                                                                                                                                                        |
-| `CardType`    | Text  | 20   | Card Type: <br><br> Credit <br> Debit <br>Multiple                                                                                                             |
-| `ForeignCard` | Boolean  | -  | If card was issued abroad (False/True)                                                                                                                            |
-| `CorporateCard` | Boolean | -     | If card is coporate (False/True)                                                                                                                                             |
-| `Issuer` | Text | 255     | Card issuer's name                                                                                                                                        |
-| `IssuerCode` | Text | 255     | Card issuer's code                                                                                                                                           |
-| `Prepaid` | Boolean | True ou False | Returns "True" if the card is prepaid.|
-
-> **NOTE**: On testing environment (SANDBOX), the returned data is simulated, so they are not valid BIN Check results. Only fields and format must be considered. For real identification of the BIN Check, production environment must be used.
 
 # Zero Auth
 
