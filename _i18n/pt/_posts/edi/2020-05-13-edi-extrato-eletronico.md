@@ -1400,3 +1400,5 @@ MASTERCARD: a data de apresentação da 1ª parcela também será a data base pa
 [Electronic Statement Manual - English version](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_-_English_-_Version_14_1.pdf)
 
 [Atualização de Layout EE - Registro de Recebíveis + PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis_PIX_0.pdf)
+
+[Arquivos de teste – Comunicado 09/12/2022](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Arquivos_de_teste_-_Comunicado_09122022.rar)
