@@ -14,7 +14,7 @@ language_tabs:
 
 # About Checkout Cielo
 
-**Checkout Cielo** is a solution that aggregates multiple payment processing services in which the consumer is directed to a secure online payment page from Cielo.
+Checkout Cielo is a solution that aggregates multiple payment processing services in which the consumer is directed to a secure online payment page from Cielo.
 The Cielo payments page provides a high level of confidence, following PCI security standards.
 
 The great advantage of Checkout Cielo is the range of services aggregated in a secure transactional screen with only one technical integration via the API REST.
