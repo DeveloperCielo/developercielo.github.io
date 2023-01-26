@@ -17,7 +17,7 @@ language_tabs:
 
 # Objetivo
 
-Este manual irá guiar o desenvolvedor na integração com a API de Super Link da Cielo. Após realizar as integrações descritas será possível:
+Este **manual** irá guiar o desenvolvedor na integração com a API de Super Link da Cielo. Após realizar as integrações descritas será possível:
 
 * Criar e editar Links de Pagamento via API,
 * Receber notificações de pagamentos
