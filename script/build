@@ -32,13 +32,13 @@ export LANG=$lang && export LANGUAGE=$language && LC_ALL=$lc_all
 # lint for markdown
 bundle exec mdl --rules ${RULES} _i18n/
 
-if [ -n "$GH_TOKEN" ]; then
+if [ -n "$GH_TOKENN" ]; then
   # cleanup "_site"
   rm -rf _site
   mkdir _site
 
   # clone remote repo to "_site"
-  git clone https://${GH_TOKEN}@github.com/DeveloperCielo/developercielo.github.io.git --branch master _site
+  git clone https://${GH_TOKENN}@github.com/DeveloperCielo/developercielo.github.io.git --branch master _site
 
   # compiles front-end stuff
   yarn
