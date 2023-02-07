@@ -2349,15 +2349,15 @@ Create a new merchant.
 |`TradeName`|String|35|Yes|Fantasy name|
 |`CompanyName`|String|35|No|Corporate name. Mandatory when the DocumentType is "Cnpj" - Legal Entity|
 |`Email`|String|45|Yes|Store email address|
-|`PhoneNumber`|String|4|Yes|Store phone|
+|`PhoneNumber`|String|14|Yes|Store phone|
 |`Mcc`|Integer|4|Yes|Branch of Activity (MCC), obtained by consulting lines of activity in the MCC table.|
 |`DocumentNumber`|String|20|Yes|Store CPF or CNPJ|
 |`DocumentType`|String|4|Yes|Enum: `Cpf` `Cnpj`|
 |`SoftDescriptor`|String|13|No|Invoice Description|
 |`Owner.Name`|String|50|Yes|Owner name|
 |`Owner.Email`|String|45|Yes|Owner's email|
-|`Owner.PhoneNumber`|String|30|Yes|Owner's Phone|
-|`Owner.MessengerPhone`|String|30|Yes|Owner WhatsApp|
+|`Owner.PhoneNumber`|String|14|Yes|Owner's Phone|
+|`Owner.MessengerPhone`|String|14|Yes|Owner WhatsApp|
 |`TefConfig.MerchantAcquirerId`|String|32|No|Store identification code on the Acquirer.|
 |`TefConfig.LogicalNumber`|String|10|No|Logical number of the terminal.|
 
@@ -2387,8 +2387,8 @@ Search the merchant for their ID.
 |`SubordinatedMerchantId`|---|---|---|---|
 |`Owner.Name`|String|---|---|---|
 |`Owner.Email`|String|---|---|---|
-|`Owner.PhoneNumber`|String|---|---|---|
-|`Owner.MessengerPhone`|String|---|---|---|
+|`Owner.PhoneNumber`|String|14|---|---|
+|`Owner.MessengerPhone`|String|14|---|---|
 |`Owner.Gender`|String|---|---|Enum: `Other` `Male` `Female`|
 
 ### PUT Merchant - Request
@@ -2424,7 +2424,7 @@ Make the merchant change by its ID.
 |`TradeName`|String|---|---|---|
 |`CompanyName`|String|---|---|---|
 |`Email`|String|---|---|---|
-|`PhoneNumber`|String|---|---|---|
+|`PhoneNumber`|String|14|---|---|
 |`Mcc`|String|---|---|---|
 |`DocumentNumber`|String|---|---|---|
 |`DocumentType`|String|---|---|Enum: `Cpf` `Cnpj`|
