@@ -1283,24 +1283,9 @@ Trata-se de um programa instituído pela bandeira ELO que gera cobranças quando
 * **Códigos contabilizados**: todos de negativas​;
 * **Excesso**: a partir da 16ª retentativa no mês​*;
 * **Tarifa**: R$ 0,80 (oitenta centavos) por retentativa, a partir da 16ª;
-* **Cobrança**: a cobrança só será feita em casos de recorrência, sendo assim, o estabelecimento tem que estar no programa por pelo menos dois meses consecutivos;
 * **Contabilização do excesso**: é baseada nos controles internos da Elo. 1º ao último dia corrido do mês.
 <br>
 <br>
-
-**Tabela de cobrança de retentativas para a bandeira Elo**
-
-A tabela a seguir exemplifica como será feita a cobrança pela bandeira:
-
-|Mês|Cenário|Cobrança|
-|---|---|---|
-|1º (agosto)|EC Excede limites|Advertência|
-|2º (setembro)|EC Não excede Limites|Não gera cobrança|
-|3º (outubro)|EC Excede limites|Neste caso será advertido novamente. A cobrança só será feita em caso de recorrência.|
-|4º (novembro)|EC Excede limites|Aplicação da multa|
-|5º (dezembro)|EC Excede limites|Aplicação da multa|
-|6º (janeiro)|EC Não excede Limites|Não gera cobrança|
-|7º (fevereiro)|EC Excede limites|Será advertido novamente.|
 
 <aside class="notice">Início de vigência: 1º de agosto de 2022.</aside>
 
