@@ -1187,3 +1187,5 @@ MASTERCARD: the date of submission of the 1st installment will be used as the re
 [Electronic Statement Manual - Versão Portuguesa](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_-_English_-_Version_14_1.pdf)
 
 [EE Layout Update - Receivables Registration + PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis_PIX_0.pdf)
+
+[Test files – Announcement 12/09/2022](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Arquivos_de_teste_-_Comunicado_09122022.rar)
