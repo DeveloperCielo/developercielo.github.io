@@ -853,7 +853,7 @@ curl
 |`Status`|Status da Transação.|Byte|---|2|
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
 |`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
-|`MerchantAdviceCode`|Código de retorno da bandeira que define período para retentativa. *Válido somente para bandeira Mastercard*.|Texto| 2 | Numérico|
+|`MerchantAdviceCode`|Código de retorno da bandeira que define período para retentativa. *Válido somente para bandeira Mastercard*. [Veja mais informações sobre Merchant Advice Code aqui](https://developercielo.github.io/manual/3ds){:target="_blank"}.|Texto| 2 | Numérico|
 |`TryAutomaticCancellation`|Caso ocorra algum erro durante a autorização (status Não Finalizada - "0"), a resposta incluirá o campo “TryAutomaticCancellation” como true. Neste caso, a transação será consultada automaticamente, e caso tenha sido autorizada será cancelada automaticamente. Esta funcionalidade deverá estar habilitada para loja. Para habilitar, entre em contato com o nosso suporte técnico. |Booleano|-|true ou false|
 |`CreditCard.PaymentAccountReference`|O PAR (Payment Account Reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado.Se for pra transação de débito, colocar o campo dentro do nó de `DebitCard`.|Alfanumérico|29|---|
 
@@ -1083,7 +1083,7 @@ curl
 |`ReturnUrl`|Url de retorno do lojista. URL para onde o lojista vai ser redirecionado no final do fluxo.|Texto|1024|http://www.urllogista.com.br|
 |`Status`|Status da Transação.|Byte|---|0|
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
-|`MerchantAdviceCode`|Código de retorno da bandeira que define período para retentativa. *Válido somente para bandeira Mastercard*.|Texto| 2 | Numérico|
+|`MerchantAdviceCode`|Código de retorno da bandeira que define período para retentativa. *Válido somente para bandeira Mastercard*. [Veja mais informações sobre Merchant Advice Code aqui](https://developercielo.github.io/manual/3ds){:target="_blank"}.|Texto| 2 | Numérico|
 |`DebitCard.PaymentAccountReference`|O PAR (Payment Account Reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado. Se for pra transação de crédito, colocar o campo dentro do nó de `CreditCard`|Alfanumérico|29|-|
 
 ### Autenticando uma transação
@@ -1492,7 +1492,7 @@ curl
 |`Status`|Status da Transação.|Byte|---|2|
 |`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
 |`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
-|`MerchantAdviceCode`|Código de retorno da bandeira que define período para retentativa. *Válido somente para bandeira Mastercard*.|Texto| 2 | Numérico|
+|`MerchantAdviceCode`|Código de retorno da bandeira que define período para retentativa. *Válido somente para bandeira Mastercard*. [Veja mais informações sobre Merchant Advice Code aqui](https://developercielo.github.io/manual/3ds){:target="_blank"}.|Texto| 2 | Numérico|
 |`TryAutomaticCancellation`|Caso ocorra algum erro durante a autorização (status Não Finalizada - "0"), a resposta incluirá o campo “TryAutomaticCancellation” como true. Neste caso, a transação será consultada automaticamente, e caso tenha sido autorizada será cancelada automaticamente. Esta funcionalidade deverá estar habilitada para loja. Para habilitar, entre em contato com o nosso suporte técnico. |Booleano|-|true ou false|
 |`CreditCard.PaymentAccountReference`|O PAR (Payment Account Reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado.Se for pra transação de débito, colocar o campo dentro do nó de `DebitCard`|Alfanumérico|29|---|
 
