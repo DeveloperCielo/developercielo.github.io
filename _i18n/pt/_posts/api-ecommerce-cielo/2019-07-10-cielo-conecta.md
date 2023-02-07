@@ -12634,15 +12634,15 @@ Cria um novo merchant.
 |`TradeName`|String|35|Sim|Nome fantasia|
 |`CompanyName`|String|35|Não|Razão social. Obrigatório quando o DocumentType for "Cnpj" - Pessoa Jurídica|
 |`Email`|String|45|Sim|Endereço de email da loja|
-|`PhoneNumber`|String|4|Sim|Telefone da loja|
+|`PhoneNumber`|String|14|Sim|Telefone da loja|
 |`Mcc`|Integer|4|Sim|Ramo de Atividade (MCC), obtido através de consultar ramos de atividade na tabela MCC.|
 |`DocumentNumber`|String|20|Sim|CPF ou CNPJ da Loja|
 |`DocumentType`|String|4|Sim|Enum: `Cpf` `Cnpj`|
 |`SoftDescriptor`|String|13|Não|Descrição da fatura|
 |`Owner.Name`|String|50|Sim|Nome do proprietario|
 |`Owner.Email`|String|45|Sim|Email do proprietário|
-|`Owner.PhoneNumber`|String|30|Sim|Telefone do proprietário|
-|`Owner.MessengerPhone`|String|30|Sim|Whatsapp do proprietário|
+|`Owner.PhoneNumber`|String|14|Sim|Telefone do proprietário|
+|`Owner.MessengerPhone`|String|14|Sim|Whatsapp do proprietário|
 |`TefConfig.MerchantAcquirerId`|String|32|Não|Código de identificação da loja no Adquirente.|
 |`TefConfig.LogicalNumber`|String|10|Não|Número lógico do terminal.|
 
@@ -12658,15 +12658,15 @@ Cria um novo merchant.
 |`TradeName`|String|35|Sim|Nome fantasia|
 |`CompanyName`|String|35|Não|Razão social. Obrigatório quando o DocumentType for "Cnpj" - Pessoa Jurídica|
 |`Email`|String|45|Sim|Endereço de email da loja|
-|`PhoneNumber`|String|4|Sim|Telefone da loja|
+|`PhoneNumber`|String|14|Sim|Telefone da loja|
 |`Mcc`|Integer|4|Sim|Ramo de Atividade (MCC), obtido através de consultar ramos de atividade na tabela MCC.|
 |`DocumentNumber`|String|20|Sim|CPF ou CNPJ da Loja|
 |`DocumentType`|String|4|Sim|Enum: `Cpf` `Cnpj`|
 |`SoftDescriptor`|String|13|Não|Descrição da fatura|
 |`Owner.Name`|String|50|Sim|Nome do proprietario|
 |`Owner.Email`|String|45|Sim|Email do proprietário|
-|`Owner.PhoneNumber`|String|30|Sim|Telefone do proprietário|
-|`Owner.MessengerPhone`|String|30|Sim|Whatsapp do proprietário|
+|`Owner.PhoneNumber`|String|14|Sim|Telefone do proprietário|
+|`Owner.MessengerPhone`|String|14|Sim|Whatsapp do proprietário|
 
 ### Consulta Loja
 
@@ -12714,15 +12714,15 @@ Encontra uma loja subordinada pelo seu ID.
 |`TradeName`|String|35|Sim|Nome fantasia|
 |`CompanyName`|String|35|Não|Razão social. Obrigatório quando o DocumentType for "Cnpj" - Pessoa Jurídica|
 |`Email`|String|45|Sim|Endereço de email da loja|
-|`PhoneNumber`|String|4|Sim|Telefone da loja|
+|`PhoneNumber`|String|14|Sim|Telefone da loja|
 |`Mcc`|Integer|4|Sim|Ramo de Atividade (MCC), obtido através de consultar ramos de atividade na tabela MCC.|
 |`DocumentNumber`|String|20|Sim|CPF ou CNPJ da Loja|
 |`DocumentType`|String|4|Sim|Enum: `Cpf` `Cnpj`|
 |`SoftDescriptor`|String|13|Não|Descrição da fatura|
 |`Owner.Name`|String|50|Sim|Nome do proprietario|
 |`Owner.Email`|String|45|Sim|Email do proprietário|
-|`Owner.PhoneNumber`|String|30|Sim|Telefone do proprietário|
-|`Owner.MessengerPhone`|String|30|Sim|Whatsapp do proprietário|
+|`Owner.PhoneNumber`|String|14|Sim|Telefone do proprietário|
+|`Owner.MessengerPhone`|String|14|Sim|Whatsapp do proprietário|
 |`MerchantGroup`|array[String]|---|Não|Lista de objetos do tipo MerchantGroup|
 |`MerchantGroup.Name`|string|---|Sim|Nome do grupo|
 |`MerchantGroup.SubAcquirer`|string|---|Sim|Subadquirente|
@@ -12842,15 +12842,15 @@ Consulta Lojas de forma paginada
 |`Content.TradeName`|String|35|Sim|Nome|fantasia|
 |`Content.CompanyName`|String|35|Não|Razão social. Obrigatório quando o DocumentType for "Cnpj" - Pessoa Jurídica|
 |`Content.Email`|String|45|Sim|Endereço de email da loja|
-|`Content.PhoneNumber`|String|30|Sim|Telefone da loja|
+|`Content.PhoneNumber`|String|14|Sim|Telefone da loja|
 |`Content.Mcc`|Integer|4|Sim|Ramo de Atividade (MCC), obtido através de consultar ramos de atividade na tabela MCC.|
 |`Content.DocumentNumber`|String|20|Sim|CPF ou CNPJ da Loja|
 |`Content.DocumentType`|String|4|Sim|Enum: "Cpf" ou "Cnpj"|
 |`Content.SoftDescriptor`|String|13|Não|Descrição da fatura|
 |`Content.Owner.Name`|String|50|Sim|Nome do proprietario|
 |`Content.Owner.Email`|String|45|Sim|Email do proprietário|
-|`Content.Owner.PhoneNumber`|String|30|Sim|Telefone do proprietário|
-|`Content.Owner.MessengerPhone`|String|30|Sim|Whatsapp do proprietário|
+|`Content.Owner.PhoneNumber`|String|14|Sim|Telefone do proprietário|
+|`Content.Owner.MessengerPhone`|String|14|Sim|Whatsapp do proprietário|
 |`Content.MerchantGroup`|array[String]|---|Não|Lista de objetos do tipo MerchantGroup|
 |`Content.MerchantGroup.Name`|string|---|Sim|Nome do grupo|
 |`Content.MerchantGroup.SubAcquirer`|string|---|Sim|Subadquirente|
@@ -12893,7 +12893,7 @@ Salva alterações em na loja subordinado com o ID especificado.
 |`TradeName`|String|35|Sim|Nome fantasia|
 |`CompanyName`|String|35|Não|Razão social. Obrigatório quando o DocumentType for "Cnpj" - Pessoa Jurídica|
 |`Email`|String|45|Sim|Endereço de email da loja|
-|`PhoneNumber`|String|4|Sim|Telefone da loja|
+|`PhoneNumber`|String|14|Sim|Telefone da loja|
 |`Mcc`|Integer|4|Sim|Ramo de Atividade (MCC), obtido através de consultar ramos de atividade na tabela MCC.|
 |`DocumentNumber`|String|20|Sim|CPF ou CNPJ da Loja|
 |`DocumentType`|String|4|Sim|Enum: `Cpf` `Cnpj`|
