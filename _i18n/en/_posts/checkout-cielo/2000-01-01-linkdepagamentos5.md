@@ -954,24 +954,9 @@ This is a program instituted by ELO that generates charges when the merchant exc
 * **Accounted codes**: all negatives
 * **Excess**: from the 16th retry in the month*
 * **Fee**: BRL 0.80 (eighty cents) per retry, starting from the 16th
-* **Billing**: The billing will only be done in cases of recurrence, therefore, the establishment must be at least 2 consecutive months in the program.
 * **Excess accounting**: It is based on Elo's internal controls. 1st to last calendar day of the month
 <br>
 <br>
-
-**Retry charging table for Elo brand**
-
-The table below exemplifies how the brand will be charged.
-
-|Month|Scenario|Billing|
-|---|---|---|---|
-|1st (August)|EC exceeds limits|Warning|
-| 2nd (September) | EC does not exceed limits | Does not generate charges |
-|3rd (October)|EC exceeds limits|In this case you will be warned again. The charge will only be made in case of recurrence.|
-| 4th (November) | EC exceeds limits | Application of the fine |
-| 5th (December) | EC exceeds limits | Application of the fine |
-| 6th (January) | EC does not exceed limits | Does not generate charges |
-|7th (February)|EC exceeds limits|You will be warned again.|
 
 <aside class="notice">Effective date: August 1, 2022.</aside>
 
