@@ -14,6 +14,8 @@ tags:
 
 For more details about the 3DS 2.0, see: [https://developercielo.github.io/en/manual/3ds](https://developercielo.github.io/en/manual/3ds)
 
+<aside class="warning">Warning: This SDK has been discontinued. We do not support the development and implementation of this SDK.</aside>
+
 # STEP 1. Access Token Request
 
 The solution is composed by the access token request via the API and authentication request via Java Script.
