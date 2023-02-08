@@ -14,6 +14,8 @@ tags:
 
 Para maiores detalhes sobre o 3DS 2.0, acesse: [https://developercielo.github.io/manual/3ds](https://developercielo.github.io/manual/3ds)
 
+<aside class="warning">Atenção: Este SDK foi descontinuado. Não oferecemos suporte para o desenvolvimento e implementação deste SDK.</aside>
+
 # Passo 1 - Solicitação de Token de Acesso
 
 A solução é composta pelo passo de solicitação de token de acesso via API e solicitação de autenticação a partir do APP.
