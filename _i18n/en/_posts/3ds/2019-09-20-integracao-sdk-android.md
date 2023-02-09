@@ -18,7 +18,7 @@ For more details about the 3DS 2.0, see: [https://developercielo.github.io/en/ma
 
 # STEP 1. Access Token Request
 
-The solution is composed by the access token request via the API and authentication request via Java Script.
+The solution is composed by the access token request via the API and authentication request via JavaScript.
 
 |Environment | Endpoint | Authorization |
 |---|---|---|
