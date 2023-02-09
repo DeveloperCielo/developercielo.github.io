@@ -10,9 +10,9 @@ tags:
 
 # Boletos
 
-## O que são Boletos Registrados?
+## O que são boletos registrados?
 
-O Boleto Registrado é um dos meios de pagamentos disponibilizados no E-commerce com o objetivo de mitigar fraudes.
+O **boleto registrado** é um dos meios de pagamentos disponibilizados no E-commerce com o objetivo de mitigar fraudes.
 O banco emissor tem conhecimento da emissão do boleto desde sua geração até sua liquidação diferente dos antigos boletos não registrados. O lojista tem a opção de negativar o comprador que gerou e não pagou uma cobrança registrada.
 
 Esta modalidade de cobrança permite que o comprador efetue o pagamento do boleto em qualquer agência bancária mesmo depois do vencimento.
