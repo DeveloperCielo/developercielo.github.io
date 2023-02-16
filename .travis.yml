@@ -9,6 +9,9 @@ cache:
 rvm:
  - 2.4
 
+before_install:
+ - nvm install 8 
+
 before_script:
  - chmod +x ./script/build
 
