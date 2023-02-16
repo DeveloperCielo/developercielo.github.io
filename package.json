@@ -13,7 +13,7 @@
     "eslint": "^4.16.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-babel": "^7.0.1",
     "gulp-clean": "^0.3.2",
     "gulp-clean-css": "^3.9.2",
