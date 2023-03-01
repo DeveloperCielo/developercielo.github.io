@@ -38,7 +38,7 @@ if [ -n "$GH_TOKENN" ]; then
   mkdir _site
 
   # clone remote repo to "_site"
-  git clone https://DeveloperCielo:${GH_TOKENN}@github.com/DeveloperCielo/developercielo.github.io.git --branch docs ./
+  git clone https://DeveloperCielo:${GH_TOKENN}@github.com/DeveloperCielo/developercielo.github.io.git --branch docs
 
   # compiles front-end stuff
   npm i -g yarn
@@ -54,6 +54,7 @@ if [ -n "$GH_TOKENN" ]; then
 
   # push
   # cd _site
+  ls
 
   git config user.email "atilladuarte@gmail.com"
   git config user.name "Atilla de Mattos Duarte"
