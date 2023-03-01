@@ -41,7 +41,7 @@ if [ -n "$GH_TOKENN" ]; then
   git config user.email "atilladuarte@gmail.com"
   git config user.name "Atilla de Mattos Duarte"
 
-  git clone https://DeveloperCielo:${GH_TOKENN}@github.com/DeveloperCielo/developercielo.github.io.git --branch docs _site
+  git clone https://DeveloperCielo:${GH_TOKENN}@github.com/DeveloperCielo/developercielo.github.io.git --branch docs
 
   # compiles front-end stuff
   # yarn
