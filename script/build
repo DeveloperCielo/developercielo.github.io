@@ -38,6 +38,9 @@ if [ -n "$GH_TOKENN" ]; then
   mkdir _site
 
   # clone remote repo to "_site"
+  git config user.email "atilladuarte@gmail.com"
+  git config user.name "Atilla de Mattos Duarte"
+  
   git clone git@github.com:DeveloperCielo/developercielo.github.io.git --branch master _site
 
   # compiles front-end stuff
@@ -52,8 +55,6 @@ if [ -n "$GH_TOKENN" ]; then
 
   # push
   cd _site
-  git config user.email "atilladuarte@gmail.com"
-  git config user.name "Atilla de Mattos Duarte"
   git add --all
   git commit -a -m "[$TRAVIS_COMMIT]: $TRAVIS_COMMIT_MESSAGE"
   git push --force origin master
