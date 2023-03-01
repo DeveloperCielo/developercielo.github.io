@@ -20,10 +20,9 @@ script: ./script/build
 branches:
   except:
   - master
-
-branches:
   only:
   - docs
+
 
 env:
   global:
