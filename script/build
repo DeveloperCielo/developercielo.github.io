@@ -38,9 +38,8 @@ if [ -n "$GH_TOKENN" ]; then
   mkdir _site
 
   # clone remote repo to "_site"
-  git config user.email "atilladuarte@gmail.com"
-  git config user.name "Atilla de Mattos Duarte"
-
+  # Workaround \/
+  python -c 'import os,sys,fcntl; flags = fcntl.fcntl(sys.stdout, fcntl.F_GETFL); fcntl.fcntl(sys.stdout, fcntl.F_SETFL, flags&~os.O_NONBLOCK);'
   git clone https://DeveloperCielo:${GH_TOKENN}@github.com/DeveloperCielo/developercielo.github.io.git --branch docs
 
   # compiles front-end stuff
@@ -57,6 +56,8 @@ if [ -n "$GH_TOKENN" ]; then
 
   # push
   cd _site
+  git config user.email "atilladuarte@gmail.com"
+  git config user.name "Atilla de Mattos Duarte"
   git add --all
   git commit -a -m "[$TRAVIS_COMMIT]: $TRAVIS_COMMIT_MESSAGE"
   git push --force origin master
