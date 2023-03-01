@@ -55,10 +55,11 @@ if [ -n "$GH_TOKENN" ]; then
   # push
   cd _site
 
-  ls
-
   git config user.email "atilladuarte@gmail.com"
   git config user.name "Atilla de Mattos Duarte"
+
+  git status
+
   git add --all
   git commit -a -m "[$TRAVIS_COMMIT]: $TRAVIS_COMMIT_MESSAGE"
   git push --force origin master
