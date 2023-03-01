@@ -44,10 +44,12 @@ if [ -n "$GH_TOKENN" ]; then
   git clone https://DeveloperCielo:${GH_TOKENN}@github.com/DeveloperCielo/developercielo.github.io.git --branch docs
 
   # compiles front-end stuff
-  # yarn
-  # yarn gulp dist
-  npm install
-  npm run gulp
+  npm i -g yarn
+  
+  yarn
+  yarn gulp
+  # npm install
+  # npm run gulp
 
   # build with Jekyll into "_site"
   bundle exec jekyll build --quiet -b ${HOST}

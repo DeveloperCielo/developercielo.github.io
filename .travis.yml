@@ -31,7 +31,5 @@ env:
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: $GH_TOKENN  # Set in the settings page of your repository, as a secure variable
+  token: $GH_TOKENN  # Set in the settings page of your repository, as a secure variable
   keep_history: true
-
-sudo: false
