@@ -36,4 +36,5 @@ deploy:
   keep_history: true
   on:
     branch: main
+
 sudo: false

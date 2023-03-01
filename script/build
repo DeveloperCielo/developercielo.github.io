@@ -38,7 +38,7 @@ if [ -n "$GH_TOKENN" ]; then
   mkdir _site
 
   # clone remote repo to "_site"
-  git clone https://DeveloperCielo:${GH_TOKENN}@github.com/DeveloperCielo/developercielo.github.io.git --branch master _site
+  git clone git@github.com:DeveloperCielo/developercielo.github.io.git --branch master _site
 
   # compiles front-end stuff
   # yarn
