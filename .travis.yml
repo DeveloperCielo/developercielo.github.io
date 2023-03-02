@@ -33,3 +33,5 @@ deploy:
   cleanup: true
   token: $GH_TOKENN  # Set in the settings page of your repository, as a secure variable
   keep_history: true
+  on:
+    branch: master
