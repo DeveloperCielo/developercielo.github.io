@@ -20,8 +20,6 @@ script: ./script/build
 branches:
   except:
   - master
-  only:
-  - docs
 
 
 env:
@@ -30,8 +28,8 @@ env:
 
 deploy:
   provider: pages
-  cleanup: true
+  skip_cleanup: false
   token: $GH_TOKENN  # Set in the settings page of your repository, as a secure variable
   keep_history: true
   on:
-    branch: master
+    branch: source

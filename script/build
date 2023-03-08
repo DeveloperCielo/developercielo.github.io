@@ -38,7 +38,7 @@ if [ -n "$GH_TOKENN" ]; then
   mkdir _site
 
   # clone remote repo to "_site"
-  git clone https://DeveloperCielo:${GH_TOKENN}@github.com/DeveloperCielo/developercielo.github.io.git --branch docs
+  git clone https://DeveloperCielo:${GH_TOKENN}@github.com/DeveloperCielo/developercielo.github.io.git ../developercielo.github.io
 
   # compiles front-end stuff
   npm i -g yarn
@@ -52,15 +52,22 @@ if [ -n "$GH_TOKENN" ]; then
   bundle exec jekyll build --quiet -b ${HOST}
   bundle exec htmlproofer ./_site --disable-external --allow-hash-href --empty-alt-ignore
 
-  # push
-  cd _site
+  cd ../developercielo.github.io
+  git checkout master
+  rm -rf *
+
+  # Copy generated HTML site from source branch in original repository.
+  # Now the `master` branch will contain only the contents of the _site directory.
+  cp -R ../developercielo.github.io/_site/* .
   
+  # Make sure we have the updated .travis.yml file so tests won't run on master.
+  cp ../developercielo.github.io/.travis.yml .
   git config user.email "atilladuarte@gmail.com"
   git config user.name "Atilla de Mattos Duarte"
 
   git status
-
-  git add _site
+  git add -A .
+  git status
   git commit -a -m "[$TRAVIS_COMMIT]: $TRAVIS_COMMIT_MESSAGE"
   git push --force origin master
 fi
