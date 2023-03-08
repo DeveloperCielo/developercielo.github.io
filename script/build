@@ -51,12 +51,12 @@ if [ -n "$GH_TOKENN" ]; then
   bundle exec htmlproofer ./_site --disable-external --allow-hash-href --empty-alt-ignore
 
   cd ../developercielo.github.io
-  rm -rf *
-
-  git init
-  git remote add origin git@github.com:DeveloperCielo/developercielo.github.io.git
-  git checkout master
   ls
+  rm -rf *
+  ls
+
+  git stash
+  git checkout master
 
   # Copy generated HTML site from source branch in original repository.
   # Now the `master` branch will contain only the contents of the _site directory.
