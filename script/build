@@ -50,11 +50,14 @@ if [ -n "$GH_TOKENN" ]; then
   bundle exec jekyll build --quiet -b ${HOST}
   bundle exec htmlproofer ./_site --disable-external --allow-hash-href --empty-alt-ignore
 
+  echo "Entrando na pasta do SITE"
   cd ../developercielo.github.io
-  ls
   rm -rf *
+  echo "Checando se tudo foi limpo"
   ls
 
+  echo "Copiando o .git"
+  cp -R ../for-deploy/.git .
   git stash
   git checkout master
 
@@ -64,7 +67,6 @@ if [ -n "$GH_TOKENN" ]; then
   
   # Make sure we have the updated .travis.yml file so tests won't run on master.
   cp ../for-deploy/.travis.yml .
-  ls
 
   git config user.email "atilladuarte@gmail.com"
   git config user.name "Atilla de Mattos Duarte"
