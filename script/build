@@ -51,6 +51,7 @@ if [ -n "$GH_TOKENN" ]; then
   bundle exec htmlproofer ./_site --disable-external --allow-hash-href --empty-alt-ignore
 
   cd ../developercielo.github.io
+  cp ../for-deploy/.git
   
   git checkout master
   rm -rf *
