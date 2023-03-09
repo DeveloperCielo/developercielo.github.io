@@ -86,7 +86,6 @@ if [ -n "$GH_TOKENN" ]; then
 
   echo "Subindo as modificações 🚀"
   git push --force origin master
-  and
-  username: ${GH_TOKENN}
-  password: ${GH_TOKENN}
+  Username: ${GH_TOKENN}
+  Password: ${GH_TOKENN}
 fi
