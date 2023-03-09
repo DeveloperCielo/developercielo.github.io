@@ -42,8 +42,10 @@ if [ -n "$GH_TOKENN" ]; then
 
   # clone remote repo to "_site"
   git clone https://DeveloperCielo:${GH_TOKENN}@github.com/DeveloperCielo/developercielo.github.io.git ../for-deploy
-  git remote set-url https://DeveloperCielo:${GH_TOKENN}@github.com/DeveloperCielo/developercielo.github.io.git
   
+  git remote remove origin
+  git remote add origin https://DeveloperCielo:${GH_TOKENN}@github.com/DeveloperCielo/developercielo.github.io.git
+
   cd ../for-deploy
   # compiles front-end stuff
   npm i -g yarn
