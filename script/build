@@ -36,8 +36,9 @@ if [ -n "$GH_TOKENN" ]; then
   # cleanup "_site"
 
   # clone remote repo to "_site"
-  git clone git@github.com:DeveloperCielo/developercielo.github.io.git ../for-deploy
+  curl -H "Authorization: token ${GH_TOKENN}"
   # git clone https://DeveloperCielo:${GH_TOKENN}@github.com/DeveloperCielo/developercielo.github.io.git ../for-deploy
+  git clone git@github.com:DeveloperCielo/developercielo.github.io.git ../for-deploy
   cd ../for-deploy
   # compiles front-end stuff
   npm i -g yarn
