@@ -37,10 +37,13 @@ if [ -n "$GITHUB_TOKEN" ]; then
 git clone https://${GITHUB_TOKEN}@github.com/DeveloperCielo/developercielo.github.io.git ../for-deploy
 
 cd ../for-deploy
-
+# compiles front-end stuff
 npm i -g yarn
+
 yarn
 yarn gulp
+# npm install
+# npm run gulp
 
 # build with Jekyll into "_site"
 bundle exec jekyll build --quiet -b ${HOST}
@@ -48,6 +51,9 @@ bundle exec htmlproofer ./_site --disable-external --allow-hash-href --empty-alt
 
 echo "Entrando na pasta do SITE"
 cd ../developercielo.github.io
+rm -rf *
+echo "Checando se tudo foi limpo"
+ls
 
 echo "Copiando o .git"
 cp -R ../for-deploy/.git .
