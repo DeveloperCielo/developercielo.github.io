@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="pt">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        Tutoriais &middot; Documentações e tutoriais
+        
+    </title>
+
+    <link rel="shortcut icon" href="https://developercielo.github.io/assets/favicon.ico">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+    <script async src="https://use.fontawesome.com/3ae06f1030.js"></script>
+
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/bundles/css/bundle.min.css">
+
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://developercielo.github.io/tutorial/checkout-tutoriais" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://developercielo.github.io/en/tutorial/checkout-tutoriais" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://developercielo.github.io/atom.xml">
+</head>
+
+    <body>
+        
+        <div class="content-container no-dark-box">
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://devcielo.zendesk.com/hc/pt-br#suporte" class="help">Ajuda</a>
+
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">Tutoriais</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+    <h1 id="tutorial---super-link-e-checkout">Tutorial - Super Link e Checkout</h1>
+
+<h2 id="guia-de-utilização">Guia de Utilização</h2>
+
+<p>Este tutorial tem como objetivo auxiliar o lojista na configuração de sua loja na Cielo. Estas configurações são aplicadas tanto para a solução Super Link quanto para o Checkout Cielo.</p>
+
+<h2 id="acessando-o-backoffice">Acessando o Backoffice</h2>
+
+<p>O acesso ao painel administrativo ou backoffice é feito através do site Cielo. O acesso pode ser feito por meio do CPF, N° do estabelecimento (EC) ou e-mail do seu cadastro de e-commerce na Cielo.</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-login-novo.png" alt="Login Backoffice Cielo" /></p>
+
+<p>Após o preenchimento do CPF/e-mail/N° do EC, o site irá solicitar a sua senha. Em caso de primeiro acesso, será enviada uma senha provisória por e-mail.</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-login-senha-novo.png" alt="Senha Backoffice Cielo" /></p>
+
+<p>Após realizar o acesso, deve ser localizado o menu de e-commerce. Neste menu estão disponíveis os produtos de e-commerce que o estabelecimento tem contratado. O Super Link e o Checkout Cielo são dois dos produtos disponíveis neste menu.</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-vendas-online-novo.png" alt="Vendas online" /></p>
+
+<h2 id="abas-do-backoffice">Abas do Backoffice</h2>
+
+<p>Após clicar em Super Link ou Checkout você terá acesso ao painel administrativo. Este painel possui 6 abas distintas, as quais permitem a configuração de sua loja e a utilização dos produtos contratados.</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/abas-backoffice-novo.png" alt="Abas do Backoffice" /></p>
+
+<p>Cada aba tem um objetivo diferente. A tabela abaixo demonstra o objetivo de cada tela.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Aba</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>DashBoard</strong></td>
+      <td>Página inicial onde são apresentadas informações sobre o volume transacionado em sua loja online, os tipos de pagamentos mais efetuados e o status das transações.</td>
+    </tr>
+    <tr>
+      <td><strong>Pedidos</strong></td>
+      <td>Nessa página fica contida a listagem de transações realizadas em seu estabelecimento. Aqui é possível pesquisar um determinado pedido ou transação.</td>
+    </tr>
+    <tr>
+      <td><strong>Link de Pagamentos</strong></td>
+      <td>Nessa aba são criados e salvos os links de pagamentos de seu estabelecimento.</td>
+    </tr>
+    <tr>
+      <td><strong>Relatórios</strong></td>
+      <td>Nesta página é possível gerar 05 tipos de relatórios: <br />“Relatório financeiro”<br />“Detalhado de vendas”<br />“Listagem de clientes”<br />“Extrato de Cobrança”<br />“Relatório de Recorrência”</td>
+    </tr>
+    <tr>
+      <td><strong>Manuais</strong></td>
+      <td>Nesta página constam os manuais de utilização do produto, assim como a página de FAQ e de “Dúvidas”, onde o lojista pode entrar em contato com a equipe de suporte Check out Cielo/Super Link.</td>
+    </tr>
+    <tr>
+      <td><strong>Configurações</strong></td>
+      <td>Página onde é possivel fazer alterações nas configurações da Loja e dos seus dados cadastrais.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="aba-dashboard">Aba DashBoard</h2>
+
+<p>Aba inicial onde são apresentadas informações sobre a sua conta e sobre o volume e tipo de transações que sua loja vem realizando via o Checkout Cielo.</p>
+
+<h3 id="tipos-de-informações">Tipos de informações</h3>
+
+<p>Nessa tela você encontra 2 tipos de informações.</p>
+
+<ul>
+  <li><strong>Alertas</strong> – Indica se há pedidos a expirar na data presente.</li>
+  <li><strong>Volume financeiro e transacional</strong> - São gráficos interativos que demonstram em porcentagem e em valores totais, qual a participação de cada meio de pagamento no total de transações realizadas e o volume total de acordo com o status das transações.</li>
+</ul>
+
+<aside class="warning">Por padrão, transações de crédito expiram em 15 dias. Após esse perido, elas não podem ser capturadas.</aside>
+
+<p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-dashboard.png" alt="DashBoard" /></p>
+
+<h2 id="aba-pedidos">Aba Pedidos</h2>
+
+<p>Nessa aba fica contida toda a listagem de transações realizadas no Checkout Cielo. Aqui é possivel pesquisar um determinado pedido, via um determinado parametro de busca nos campos ou desmarcando os “checkbox” dos “Meios de pagamento” ou “Status de pagamento” e apertando o botão “Buscar”.
+O resultado da pesquisa é exposto em forma de uma listagem de transações que pode ser exportada como uma planilha de Excel.</p>
+
+<p>Listagem de Pedidos</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-pedidos.png" alt="Pedidos" /></p>
+
+<p>Detalhes dos Pedidos</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-pedidos-detalhes.png" alt="Detalhes do Pedido" /></p>
+
+<h2 id="aba-link-de-pagamento">Aba Link de Pagamento</h2>
+
+<p>Nesta aba são apresentados todos os links de pagamentos criados. Esses links podem ser utilizados de diferentes maneiras para proporcionar um maior volume de vendas.</p>
+
+<p>Para saber mais sobre links de pagamentos veja:</p>
+
+<ul>
+  <li><strong><a href="https://developercielo.github.io/manual/checkout-cielo#integração-por-botão">Integração via Botão/Link de pagamentos</a></strong></li>
+  <li><strong><a href="https://developercielo.github.io/tutorial/checkout-tutoriais#Tutorial-LinkdePagamentos">Tutorial - Link de pagamentos</a></strong></li>
+</ul>
+
+<p>No menu Link de Pagamentos, existem as áreas: <strong>Cadastrar de Link de Pagamentos</strong> e <strong>Listar Links de Pagamentos Cadastrados</strong>.</p>
+
+<h3 id="listar-link-de-pagamentos-cadastrados">Listar Link de pagamentos Cadastrados</h3>
+
+<p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-listar-link-de-pagamentos.png" alt="Produtos cadastrados" /></p>
+
+<p>Clicando no Titulo ou SKU do produto, você será redirecionado a página de informações de Produto, onde todas as características do produto são informadas e onde você pode definir o padrão do Botão (caso a sua integração seja com base no Botão Checkout Cielo) a ser usado na venda desse produto.</p>
+
+<p>A integração via Botão é melhor explicada no item <strong><a href="https://developercielo.github.io/manual/checkout-cielo#integração-por-botão">Integração via Botão/Link de pagamentos</a></strong>.</p>
+
+<h3 id="cadastrar-de-link-de-pagamentos">Cadastrar de Link de Pagamentos</h3>
+
+<p>Nessa pagina é possível cadastrar seus produtos com base no tipo de produto em si. Cada produto cadastrado vai gerar um Link de pagamentos diferente
+O Checkout Cielo considera 5 tipos de produtos: Material Físico, Digital, Serviço, Recorrência e Pagamentos.</p>
+
+<ul>
+  <li><strong>Material Fisico</strong> – Produtos Fisicos que necessitam ser enviados pelos lojistas. Ex: Roupas, Brinquedos, etc.</li>
+  <li><strong>Digital</strong> –  Bens digitais vendidos pela internet. Ex: Software, Jogos, Musicas, etc.</li>
+  <li><strong>Serviço</strong> – Serviços a serem prestados. Ex:  Entrega delivery, projetos e orçamentos.</li>
+  <li><strong>Recorrência</strong> - Transações que se repetem em um determinado intervalo de tempo EX: Assinaturas, mensalidades etc</li>
+  <li><strong>Pagamentos</strong> - Pagamentos unicos ou transferência de valores Ex: quitação de dividas etc</li>
+</ul>
+
+<p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-cadastrar-link-de-pagamentos.png" alt="Cadastrar Link de pagamentos" /></p>
+
+<aside class="notice">Material Físico exige que um tipo de frete seja cadastrado. </aside>
+
+<aside class="notice">O campo “SoftDescriptor” permite que lojista insira uma mensagem que será exibida na fatura do cartão de crédito do comprador. Essa funcionalidade é indicada para lojas que tem o nome fantasia muito diferente em relação a Razão social.</aside>
+
+<aside class="notice">A mensagem inclusa no campo “SoftDescriptor” deve ser limitada a *13 letras *e não pode conter espaços.</aside>
+
+<aside class="notice">O cadastro de produtos não é obrigatório para lojistas que utilizem a integração via carrinho</aside>
+
+<p>Após realizar o cadastro do produto/Link de pagamento, a seguinte loja será exibida:</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-detalhes-link-de-pagamentos.png" alt="Detalhes do produto" /></p>
+
+<p>O Link de pagamentos é exibido de <strong>3 maneiras:</strong></p>
+
+<ul>
+  <li><strong>Botão</strong> - Será criado um código HTML como o abaixo:</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">method=</span><span class="s">'post'</span> <span class="na">action=</span><span class="s">'https://cieloecommerce.cielo.com.br/transactional/Checkout/BuyNow'</span> <span class="na">target=</span><span class="s">'blank'</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">'hidden'</span> <span class="na">name=</span><span class="s">'id'</span> <span class="na">value=</span><span class="s">00000000-0000-0000-000000000000/</span><span class="nt">&gt;&lt;input</span> <span class="na">type=</span><span class="s">'image'</span> <span class="na">name=</span><span class="s">'submit'</span> <span class="na">alt=</span><span class="s">'Comprar'</span> <span class="na">src=</span><span class="s">'https://cieloecommerce.cielo.com.br /BackOffice/Contenthttps://developercielo.github.io/images/botao_comprar_3.jpg'</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+
+<p><strong>Exemplo de um botão Funcional:</strong></p>
+
+<ul>
+  <li><strong>QR CODE E LINK</strong> - O link e o QRCODE tem o mesmo comportamento do botão, levando a mesma tela transacional.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>QR Code</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td><code class="language-plaintext highlighter-rouge">http://bit.ly/2tRkSxZ</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="aba-relatórios">Aba Relatórios</h2>
+
+<p>Nesta pagina é possível gerar 05 tipos de relatórios:  “Relatório financeiro”, “Detalhado de vendas”, “Listagem de clientes”, “Extrato de Cobrança” e “Relatório de Recorrência”.</p>
+
+<h3 id="relatório-financeiro">Relatório Financeiro</h3>
+
+<p>Esse relatorio apresenta as vendas pagas em um determinado periodo de tempo, sendo separadas por meio de pagamento. Selecionando o periodo e  tipo de pagamento, após pressionar “Buscar” o resultado será apresentado.</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-relatorio-financeiro.png" alt="Relatório financeiro" /></p>
+
+<h3 id="relatório-detalhado-de-vendas">Relatório detalhado de vendas.</h3>
+
+<p>Esse relatorio informa o valor de cada pedido assim como dados sobre o produto e o comprador. O relatorio somente informa dados dos pedidos considerados com status <strong>“PAGO”</strong>.</p>
+
+<aside class="notice">Pedidos realizados no Modo de teste não são apresentados nesse relatório, mesmo que estejam com o status “PAGO”</aside>
+
+<p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-relatorio-detalhado-vendas.png" alt="Relatório detalhado de vendas" /></p>
+
+<h3 id="listagem-de-clientes">Listagem de clientes</h3>
+
+<p>A listagem de clientes gera um arquivo excel contendo os dados dos clientes que realizaram compras  em sua loja.</p>
+
+<h4 id="os-dados-apresentados-são">Os dados apresentados são:</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Dados do Comprador</th>
+      <th style="text-align: center">Dados de entrega ou Billing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Nome</td>
+      <td style="text-align: center">Endereço</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">E-mail</td>
+      <td style="text-align: center">Numero</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Telefone</td>
+      <td style="text-align: center">Complemento</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">CPF/CNPJ</td>
+      <td style="text-align: center">Bairro</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">Cidade</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">Estado</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">CEP</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="extrato-de-cobrança">Extrato de cobrança</h3>
+
+<p>A lista do valor cobrado pelos serviços oferecidos pela Cielo será apresentada neste relatório. Todos os dados dos planos e custos transacionais serão apresentados aqui:</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-extrato-cobranca.png" alt="Extrato de cobrança" /></p>
+
+<h3 id="relatório-de-recorrência">Relatório de Recorrência</h3>
+
+<p>Nesse relatório é possível pesquisar o conjunto de recorrência e suas transações com base em seu ID ou por Status e Intervalo de ocorrência.</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-relatorio-recorrencia.png" alt="Relatório de Recorrências" /></p>
+
+<p>Ao clicar no “+” é aberto a tela de Detalhes da recorrência:</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-detalhes-da-recorrencia.png" alt="Detalhes da Recorrência" /></p>
+
+<p>Os Detalhes da recorrência informam o carrinho e o histórico de transações agendadas. Ao clicar em “+Detalhes” o lojista é direcionado a tela de detalhes de Pedidos (Ver item “PEDIDOS”)</p>
+
+<p>Tambem é possível realizar 3 tipos de modificações na recorrência:</p>
+
+<ul>
+  <li><strong>Desativar a Recorrência</strong> - Encerra o processo de cobrança automática. Desativação não pode ser desfeito.</li>
+  <li><strong>Alterar o Intervalo</strong> - Muda o Intervalo atual da recorrência para uma das outras opções (Bimestral, semestral e anual)</li>
+  <li><strong>Alterar o dia de agendamento</strong> - Modifica o dia em que a transação de recorrência ocorrerá.</li>
+</ul>
+
+<h2 id="aba-manuais">Aba Manuais</h2>
+
+<p>Nesta página constam os manuais do Checkout Cielo, assim como a pagina de FAQ e de “Duvidas”, onde o lojista pode entrar em contato com a equipe de suporte Checkout Cielo.</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-suporte.png" alt="Dúvidas" /></p>
+
+<p>Nessa pagina é possivel entrar em contato a respeito de duvidas Operacionais, tecnicas e Comerciais  e ter acesso aos documentos técnicos e de suporte do Checkout Cielo.</p>
+
+<ul>
+  <li><strong>Manual do Desenvolvedor</strong> – Contém os procedimentos e diretrizes de integração do Checkout Cielo ao seu site.</li>
+  <li><strong>FAQ</strong> – Perguntas mais comuns a respeito do Checkout Cielo. Contem informações sobre questões Comerciais, Técnicas, Operacionais e sobre o Modo de teste.</li>
+</ul>
+
+<h2 id="aba-configurações-da-loja">Aba Configurações da Loja</h2>
+
+<p>Nesta pagina é possivel fazer configurações em diferentes mecanismos dentro do Checkout Cielo. Essa área é dividida em 4 partes diferentes: Exibição, Pagamentos, Antifraude, Frete de Correios &amp; serviços.</p>
+
+<h3 id="exibição">Exibição</h3>
+
+<p>Aqui é possivel alterar o logo do meio de pagamento disponível em sua loja e a cor de fundo do site via o uso da caixa de opções ou digitando o código relativo a cor escolhida (As cores estão no padrão RGB).</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-configuracoes-loja.png" alt="Configuração Exibição" /></p>
+
+<aside class="notice">O logo de sua loja será exibido na tela de Checkout centralizado.</aside>
+
+<h3 id="pagamentos">Pagamentos</h3>
+
+<p>Nesta tela é possível alterar as configurações dos meios de pagamento disponíveis em sua loja, os definindo como ativos ou não, e configurar a URL de retorno, notificação e Mudança de Status.</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-configuracoes-pagamento.png" alt="Configuração Exibição" /></p>
+
+<h4 id="modo-de-teste-checkout-cielo">Modo de Teste Checkout Cielo</h4>
+
+<p>O modo de teste Checkout Cielo é uma ferramenta que permite testar a integração do seu site. Com o modo teste, você pode realizar transações a medida que evolui com a integração e consegue simular cenários para testar diferentes meios de pagamento.</p>
+
+<p>O modo de teste pode ser ativado marcando a caixa de seleção:</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/tm01.png" alt="Ativando Modo de teste" /></p>
+
+<p>Quando a opção for salva, uma tarja vermelha será exibida na parte superior da tela. Ela será exibida em todas as telas do Backoffice e na tela transacional do Checkout Cielo.</p>
+
+<p>Essa tarja indica que a sua loja Checkout Cielo está agora operando em ambiente de teste, ou seja, toda a transação realizada nesse modo será considerada como teste.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Backoffice</th>
+      <th>Transacional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="https://developercielo.github.io/images/checkout/tmbackoffice.png" alt="Tarja vermelha - Backoffice" /></td>
+      <td><img src="https://developercielo.github.io/images/checkout/tmtransacional.png" alt="Tarja vermelha - Transacional" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="tipos-de-notificação">Tipos de Notificação</h4>
+
+<p>Checkout Cielo possui dois tipos de notificações que o lojista pode utilizar de acordo com suas necessidades:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">POST</code></td>
+      <td>Notificação onde o lojista é passivo. Dois <code class="language-plaintext highlighter-rouge">POST HTTP</code> são disparados, um informando dados da venda e outra mudança de Status da transação</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">JSON</code></td>
+      <td>Notificação onde o lojista realiza uma consulta. Um <code class="language-plaintext highlighter-rouge">POST</code> contendo informações para a realização de uma consulta (<code class="language-plaintext highlighter-rouge">GET</code>) as transações checkout</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Para utilizar ambos os modelos, o lojista necessitará acessar o Backoffice cielo e configurar tanto a <code class="language-plaintext highlighter-rouge">URL de NOTIFICAÇÃO</code> quando a <code class="language-plaintext highlighter-rouge">URL de MUDANÇA de STATUS</code>.</p>
+
+<p>Para mais informações sobre o modelo de notificação visite o <strong><a href="https://developercielo.github.io/manual/checkout-cielo#notificações-de-pagamento">Manual de integração</a></strong></p>
+
+<h4 id="urls-principais-do-checkout-cielo">URLs principais do Checkout Cielo</h4>
+
+<p>As URL’s descritas nesta área da aba tem a função de meios de comunicação entre o Checkout e o sistema do lojista integrando. Abaixo a descrição de cada uma das URLs</p>
+
+<ul>
+  <li>
+    <p><strong>URL de Retorno</strong> - Ao finalizar a transação o comprador final poderá ser redirecionado para a URL de retorno. Ao clicar no botão “VOLTAR”  na tela de comprovante de vendas, o comprador será direcionando para a URL de retorno previamente cadastrada no BackOffice.</p>
+  </li>
+  <li>
+    <p><strong>URL de Notificação</strong> - Ao finalizar uma transação é enviado um post com todos os dados da venda para a URL de Notificação, previamente cadastrada no BackOffice. O POST de notificação é enviado apenas no momento que a transação é finalizada, independentemente se houve alteração do status da transação.</p>
+  </li>
+  <li>
+    <p><strong>URL de Mudança de Status</strong> - Quando um pedido tiver seu status alterado, será enviando um post para a URL de Mudança de Status, previamente cadastrada no BackOffice. O POST de mudança de status não contem dados do carrinho, apenas dados de identificação do pedido.</p>
+  </li>
+</ul>
+
+<p>Na tela de pedidos, dentro de cada transação, há a opção de reenvio do POST de mudança de status.  Basta clicar nos botões azuis, marcados na imagem abaixo:</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-detalhe-pedidos.png" alt="Detalhes do pedido" /></p>
+
+<aside class="notice">Os Lojistas da “Loja Virtual Terra Cielo” possuem URL’s de notificação, mudança de Status e Retorno atualizadas automaticamente. Para esses lojistas, não é necessário alterar as URL’s citadas.</aside>
+
+<p>Para mais informações sobre as URLs de notificação do Checkout visite o <strong><a href="https://developercielo.github.io/manual/checkout-cielo#notificações-de-pagamento">Manual de integração</a></strong></p>
+
+<h4 id="valores-mínimos-e-descontos">Valores Mínimos e Descontos</h4>
+
+<p>Nesta parte da aba de configurações é possível configurar 4 valores mínimos e descontos por meios de pagamento:</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-configuracoes-de-valores-minimos.png" alt="Valor minimo parcela" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Valor minimo parcela</strong></td>
+      <td>Caso o valor da parcela da compra seja inferior ao minimo, o Checkout exibirá apenas a parcela superior ao minimo <br /> <strong>EX:</strong> Parcela minima de R$5,00, Em uma compra de R$10, não será exibida a opção de parcelamento em 3X, apenas em 2X</td>
+    </tr>
+    <tr>
+      <td><strong>Valor mínimo para pagamento com boleto</strong></td>
+      <td>Valor minimo para que a opção de pagamento em boleto seja Exibida</td>
+    </tr>
+    <tr>
+      <td><strong>Desconto para pagamento com boleto</strong></td>
+      <td>Define um valor % para desconto caso o Boleto seja o meio de pagamento escolhido</td>
+    </tr>
+    <tr>
+      <td><strong>Desconto para pagamento com débito online</strong></td>
+      <td>Define um valor % para desconto caso o Débito online seja o meio de pagamento escolhido</td>
+    </tr>
+  </tbody>
+</table>
+
+<aside class="warning">Se valor da compra for inferior, caso não haja outro meio de pagamento disponivel, não haverá opção para o comprador, obrigando-o a retornar a loja criar um carrinho com o valor acima do minimo. Para evitar essa situação sugerimos:<br /><br />Caso sua loja não tenha outros meios de pagamento, informe ao comprador sobre o valor minimo do boleto.Adquira outros meios de pagamento como Cartões de crédito (procedimento realizado pelo Checkout Cielo) ou débito online.</aside>
+
+<aside class="warning">O valor minimo do boleto não funciona em caso de descontos definidos pelo lojista. Caso o lojista defina valor minimo de boleto de R$100,00 e um desconto de 10%,  será gerado um boleto de R$90,00 (inferior ao minimo)</aside>
+
+<p><strong>Sobre Valor Minimo:</strong></p>
+
+<p><strong>Exemplo</strong>: Caso o valor minimo de parcelamento seja de R$10,00, uma compra de R$100,00 poderá ser parcelada máximo em 10x, mesmo que na configuração da loja o parcelamento em 12x esteja habilitado.</p>
+
+<aside class="warning">O numero máximo de parcelamento da loja depende do limite definido na Afiliação. Por padrão toda afiliação é liberada com limite de 12 parcelas.</aside>
+
+<aside class="warning">O Valor mínimo de parcelamento é obrigatoriamente R$5,00.</aside>
+
+<aside class="warning">A autenticação de cartões de crédito ocorre somente para cartões Visa e Mastercard. Essa função deve estar habilitada em sua afiliação.</aside>
+
+<h4 id="meios-de-pagamentos-ativos">Meios de pagamentos Ativos</h4>
+
+<p>Basta marcar a caixa de seleção do cartão que deseja disponibilizar no momento do pagamento. Para desabilita-lo, basta desmarcar a caixa de seleção.</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-cards.png" alt="Configurando meios de pagamento" /></p>
+
+<p>O parcelamento é definido por bandeira de cartão. O numero de parcelas maximas disponibilizadas para cada cartão passa a ser definida pelo Lojista.</p>
+
+<p>O Checkout Cielo permite parcelamento até 12 vezes sem juros. O numero de parcelas exibidas no transacional depende do valor minimo para parcelamento configurado pela Loja</p>
+
+<aside class="warning">Sobre Autenticação de transações: O checkbox obriga todos os cartões Visa e Master a serem direcionados ao ambiente bancário para validação de segurança,. Só deve ser ativado caso a Afiliação Cielo esteja preparada para realizar esse fluxo, caso contrario as transações serão negadas automaticamente</aside>
+
+<h3 id="antifraude-e-captura-automática">Antifraude e Captura Automática</h3>
+
+<p>Aqui é possivel definir a automação dos processos de captura e cancelamento de pedidos com base no resultado da analise de antifraude e definir o valor mínimo inicial que uma transação deve ter para ser analisada.</p>
+
+<aside class="notice">Se o lojista não tem habilitado o antifraude em seu contrato junto a Cielo ou não enviar no POST a solicitação de analise de fraude, a captura automática não será executada caso esteja configurada para ser efetuada com base no status da analise de risco. Caberá ao lojista a captura manual do pedido.</aside>
+
+<p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-anti-fraude.png" alt="Anti fraude" /></p>
+
+<h4 id="tabela-de-status-do-antifraude">Tabela de status do Antifraude</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status Antifraude</th>
+      <th>Substatus</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Baixo Risco</td>
+      <td>Baixo Risco</td>
+      <td>Baixo risco de ser uma transação fraudulenta</td>
+    </tr>
+    <tr>
+      <td>Médio Risco</td>
+      <td>Médio Risco</td>
+      <td>Médio risco de ser uma transação fraudulenta</td>
+    </tr>
+    <tr>
+      <td>Não finalizado</td>
+      <td>Não finalizado</td>
+      <td>Não foi possível finalizar a consulta</td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td>Autenticado</td>
+      <td>Transações autenticadas pelo banco</td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td>Não aplicável</td>
+      <td>Meio de pagamento não analisável como cartões de débito, boleto e débito online</td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td>Transação de recorrência</td>
+      <td>Transação de crédito seja posterior a transação de agendamento</td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td>Transação negada</td>
+      <td>Venda a crédito foi negada</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Você pode visualizar o status do antifraude acessando o detalhe da compra, na aba Pedidos e clicando no (+)</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-status-antifraude.png" alt="Status Antifraude" /></p>
+
+<h3 id="frete-de-correios--serviços">Frete de Correios &amp; Serviços</h3>
+
+<p>Nesta área você configura as opções de frete disponiveis em sua Loja. Na seção Informações sobre Frete há uma explicação mais detalhada sobre os tipos de fretes disponiveis no Checkout Cielo. Há tambem na área de fretes de Correiros, uma calculadora de frete para consultas (essa calculadora dá o valor de frete de cada tipo de frete cadastrado para um determinado peso e localidade)</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/tutoriais-checkout/checkout-frete-correios.png" alt="Frete Correios" /></p>
+
+<h1 id="tutorial---link-de-pagamentos">Tutorial - Link de Pagamentos</h1>
+
+<h2 id="sobre-o-link-de-pagamento">Sobre o Link de Pagamento</h2>
+
+<p><strong>O Botão, QR CODE ou LINK</strong> é um método de compra usada sempre que não houver um “carrinho de compras” em sua loja.
+Esse tipo de integração é realizado via o cadastro de um conjunto de itens a ser vendido on backoffice do Checkout Cielo.</p>
+
+<p>O botão gera um do 3 tipos diferentes de métodos de acesso a <strong>mesma tela transacional</strong>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Método</th>
+      <th style="text-align: center">Nome</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img src="https://developercielo.github.io/images/checkout/botao.png" alt="Botão" /></td>
+      <td style="text-align: center"><strong>Botão</strong></td>
+      <td>É um código HTML que ao ser colado em um site, vai direcionar o comprador a tela transacional - Ideal para uso em <strong>hotSites</strong> ou <strong>E-mail Marketing</strong></td>
+    </tr>
+    <tr>
+      <td><img src="https://developercielo.github.io/images/checkout/qrcode.png" alt="QRCODE" /></td>
+      <td style="text-align: center"><strong>QRCODE</strong></td>
+      <td>Código interpretável por Smartphones e Tablets - Ideal para uso em <strong>Marketing impressos</strong> ou <strong>Digital</strong></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">http://bit.ly/2tRkSxZ</code></td>
+      <td style="text-align: center"><strong>LINK</strong></td>
+      <td>é um link compartilhável, ideal para uso em <strong>Redes Sociais</strong> ou <strong>Messengers Mobile</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Este modelo de integração é utilizado para:</p>
+
+<ul>
+  <li>Associar uma compra rápida direta a um produto como uma promoção numa homepage pulando a etapa do carrinho.</li>
+  <li>Enviar um e-mail marketing, ou uma cobrança via e-mail.</li>
+  <li>Adicionar o botão (HTML) referente ao produto/serviço a ser comprado/pago.</li>
+  <li>Realizar envio de pagamentos por aplicativos mobile</li>
+  <li>Sempre que se deseja disponibilizar uma venda rápida.</li>
+</ul>
+
+<p>Para utilizar este recurso, é necessário cadastrar o produto que se deseja vender, suas informações, e depois simplesmente copiar o código fonte gerado para este botão.</p>
+
+<h2 id="características-do-botão">Características do Botão</h2>
+
+<p>Cada botão possui um código único que só permite comprar aquele determinado produto nas condições de preço e frete cadastrado. Portanto, um fraudador não consegue alterar nenhuma destas informações na hora de submeter à compra, pois o Checkout Cielo vai buscar todos os dados do produto no cadastro no Backoffice Cielo Checkout.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Característica</th>
+      <th>Explicação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Específico</strong></td>
+      <td>Cada botão gerado serve somente para um determinado produto ou grupo de produtos. A quantidade e volume de produtos vendido é definido no cadastro do Botão, não sendo possível altera a quantidade na tela transacional <br /><strong>Exemplo:</strong> Será necessário criar Um botão para vender 1 camisa. Se o comprador desejar 2 camisas, ele precisará usar o botão 2X ou O lojista deverá criar um botão com 2 camisas</td>
+    </tr>
+    <tr>
+      <td><strong>Número do Pedido do Checkout</strong></td>
+      <td>O botão não permite o cadastro do número de pedido do Lojista. Como será a Cielo a acionar o próprio Checkout, será gerado um número de pedido (um <code class="language-plaintext highlighter-rouge">GUID</code>) único. O Lojista receberá esse número de pedido como link a venda realizada</td>
+    </tr>
+    <tr>
+      <td><strong>Criação de pedidos</strong></td>
+      <td>Um botão gera vários pedidos independentes, ou seja, para limitar a quantidade de pedidos gerados por um botão, QRCODE ou Link criado, é necessario definir uma quantidade minimas de itens em “estoque” no momento de cadastro. O Botão é um método de chamadas à API Checkout. Cada vez que ele é acionado, uma nova requisição é feita a API, criando assim um novo pedido</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="fluxo-do-link-de-pagamento">Fluxo do Link de Pagamento</h4>
+
+<p><img src="https://developercielo.github.io/images/checkout/intbt.png" alt="Fluxo de integração Checkout Cielo Botão" /></p>
+
+<h2 id="criando-um-link-de-pagamentos">Criando Um Link de pagamentos</h2>
+
+<p>Para utilizar este recurso, é necessário cadastrar o produto que se deseja vender, suas informações, e depois simplesmente copiar o código fonte gerado para este botão. A inclusão dos produtos é feita dentro do <a href="https://developercielo.github.io/tutorial/checkout-tutoriais#cadastrar-de-link-de-pagamentos">Backoffice Cielo Checkout</a>, no menu de Produtos/Cadastrar Produto.</p>
+
+<p>É possivel criar 5 tipos diferentes de link de Pagamentos:</p>
+
+<ul>
+  <li><strong>Material Fisico</strong> – Produtos Fisicos que necessitam ser enviados pelos lojistas. Ex: Roupas, Brinquedos, etc.</li>
+  <li><strong>Digital</strong> –  Bens digitais vendidos pela internet. Ex: Software, Jogos, Musicas, etc.</li>
+  <li><strong>Serviço</strong> – Serviços a serem prestados. Ex:  Entrega delivery, projetos e orçamentos.</li>
+  <li><strong>Recorrência</strong> - Transações que se repetem em um determinado intervalo de tempo EX: Assinaturas, mensalidades etc</li>
+  <li><strong>Pagamentos</strong> - Pagamentos unicos ou transferência de valores Ex: quitação de dividas etc</li>
+</ul>
+
+<p><strong>Tela de Cadastro</strong></p>
+
+<p><img src="https://developercielo.github.io/images/checkout/btcadastro.png" alt="Cadastro de Botão" /></p>
+
+<p><strong>Botão Cadastrado:</strong></p>
+
+<p><img src="https://developercielo.github.io/images/checkout/btcadastro2.png" alt="Cadastro de Botão" /></p>
+
+<p>Abaixo a listagem de itens que devem ser cadastrados para a criação do botão:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campos</th>
+      <th>Descrição</th>
+      <th>Tamanho Min.</th>
+      <th>Tamanho Máx.</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Tipo do Produto</code></td>
+      <td>Indique se está vendendo um bem Material, um Serviço ou um bem Digital. Para bens Digitais, não será apresentada a opção de tipo de Frete.</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SKU</code></td>
+      <td>Código de identificação do produto</td>
+      <td>1</td>
+      <td>50</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Título</code></td>
+      <td>Titulo do Produto</td>
+      <td>1</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Descrição</code></td>
+      <td>Descrição do Produto</td>
+      <td>1</td>
+      <td>255</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Preço</code></td>
+      <td>Valor total do pedido <strong>em centavos</strong> (ex.: R$1,00 =100).</td>
+      <td>11</td>
+      <td>14</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Frete</code></td>
+      <td>Escolher dentre uma das opções de Frete (Correios, Frete Fixo, Frete Grátis, Retirar na loja, Sem Cobrança).</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CEP de Origem</code></td>
+      <td>Esse campo só aparece para o frete tipo Correios, deve ser preenchido com o CEP de onde vai partir a mercadoria para fins de cálculo de frete.</td>
+      <td>9</td>
+      <td>9</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Peso(kg)</code></td>
+      <td>Esse campo só aparece para o frete tipo Correios, deve ser preenchido com o peso do produto em kg para fins de cálculo de frete</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Valor do Frete</code></td>
+      <td>Esse campo só aparece para o frete tipo Frete Fixo, e deve ser preenchido com o valor que o lojista especificar para seus produtos.</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Método de envio</code></td>
+      <td>Esse campo só aparece para Tipo Produto igual a Material Físico e Tipo de Frete igual a Frete Fixo.</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">URL</code></td>
+      <td>Esse campo só aparece para Tipo Produto igual a Digital.</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Quantidade</code></td>
+      <td>Define a quantidade maxima de pedidos que o Botão pode gerar. Se não definido, o botão poderá gerar um numero infinito de pedidos</td>
+      <td>n/a</td>
+      <td>n/a</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Adicionando o botão na sua página, você deve copiar o código HTML do botão criado e inclui-lo no HTML de seu site, conforme o exemplo abaixo.</strong></p>
+
+<aside class="notice">O código deve ser inserido dentro da área adequada no seu HTML.</aside>
+
+<p>Cada botão possui um código único que só permite comprar aquele determinado produto nas condições de preço e frete cadastrado. Portanto, um fraudador não consegue alterar nenhuma destas informações na hora de submeter a compra, pois o Checkout Cielo vai buscar todos os dados do produto no cadastro do Backoffice Cielo Checkout, e valerão os dados do cadastro.</p>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://developercielo.github.io/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Precisa de ajuda?</h2>
+        <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://devcielo.zendesk.com/hc/pt-br#suporte">entre em contato conosco</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Comutar a coluna da esquerda" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://desenvolvedores.cielo.com.br" target="_blank">
+        <img src="https://developercielo.github.io/assets/images/logo.png" alt="Documentações e tutoriais" style="width: 60%; margin-left: 20%">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+        <div class="toc-footer">
+            <h2 class="no-toc toc-footer-title">Materiais complementares</h2>
+            
+
+            
+            
+            
+
+            <ul class="toc-footer">
+            
+                
+            
+                
+                    
+                    <li><a href="https://developercielo.github.io/faq/checkout-faq" title="Respostas para dúvidas comuns sobre o Checkout">FAQ</a></li>
+                
+            
+            </ul>
+        </div>
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contato" href="https://devcielo.zendesk.com/">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contato</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/developercielo">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/assets/bundles/js/bundle.min.js"></script>
+        <script>
+            
+            var selectors = 'h1,h2,h3,h4,h5,h6';
+            
+        </script>
+
+        
+        <script src="https://developercielo.github.io/assets/bundles/js/search.min.js"></script>
+        
+
+        
+
+        <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:674586,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="en">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        Configuring Boletos and Online Debit &middot; Documentações e tutoriais
+        
+    </title>
+
+    <link rel="shortcut icon" href="https://developercielo.github.io/en/assets/favicon.ico">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+    <script async src="https://use.fontawesome.com/3ae06f1030.js"></script>
+
+    <link rel="stylesheet" href="https://developercielo.github.io/en/assets/bundles/css/bundle.min.css">
+
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://developercielo.github.io/en/tutorial/habilitacao-meios-de-pagamento" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://developercielo.github.io/en/en/tutorial/habilitacao-meios-de-pagamento" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://developercielo.github.io/en/atom.xml">
+</head>
+
+    <body>
+        
+        <div class="content-container no-dark-box">
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://devcielo.zendesk.com/hc/pt-br#suporte" class="help">Help</a>
+
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="https://developercielo.github.io/en/">Home</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/en/tutorial/habilitacao-meios-de-pagamento">Configuring Boletos and Online Debit</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+    <h1 id="payment-methods">Payment methods</h1>
+
+<h2 id="about-this-manual">About this manual</h2>
+
+<p>This manual has the purpose of orienting the <strong>RETAILER</strong> on the BOLETOs and ONLINE DEBITs hiring and configuration available on the <strong>CIELO CHECKOUT</strong> and on the <strong>Cielo Ecommerce API</strong></p>
+
+<h2 id="about-boletos-and-cielo">About Boletos and Cielo</h2>
+
+<p>The Cielo e-Commerce solutions support two types of Boletos from the <strong>Bradesco</strong> and <strong>Banco do Brasil</strong> banks:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Boleto type</th>
+      <th>Bank</th>
+      <th>Description</th>
+      <th>Cielo solution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Registered Boleto</strong></td>
+      <td>Banco do Brasil X Bradesco</td>
+      <td>Are boletos emitted inside the Banking environment. Cielo will send the information to the emitting bank. It is required to have the credentials provided by the Bank for the functionality use.</td>
+      <td>Cielo E-commerce Api &amp; Cielo Checkout</td>
+    </tr>
+    <tr>
+      <td><strong>Non-registered Boleto</strong></td>
+      <td>Banco do Brasil X Bradesco</td>
+      <td>Are boletos generated within Cielo Environment. All banks will no longer generate these boletos until 2020</td>
+      <td>Api Cielo E-commerce &amp; Checkout Cielo</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="about-online-debit-and-cielo">About Online debit and Cielo</h2>
+
+<p>Online Debit is an online transfer that occurs inside the Banking Environment.
+The Buyer will access via store the Bank Environment and will perform a transfer to the store account where the transfer occurs.</p>
+
+<p>In order to use the Online Debit, it is required that the retailer bank allows such operation to the retailer account.</p>
+
+<h1 id="boletos">Boletos</h1>
+
+<h2 id="bradesco">Bradesco</h2>
+
+<p>The criteria to use the Bradesco Boleto Electronic Com. are:</p>
+
+<ul>
+  <li>Being a Bradesco Legal Person accountholder;</li>
+  <li>To contact the Bradesco account manager to sign specific contract with Electronic Commerce.</li>
+</ul>
+
+<p>To request/configure the Bradesco Boleto, you’ll have to:</p>
+
+<ol>
+  <li>Contact the bank/agency to perform the boleto solicitation with wallet 26 register. This step involves contract signature with the Bank.</li>
+  <li>Receiving an e-mail from the Bank (Kit Scopus) containing the manager URL, login e-mail and Bradesco environment access password. You must access the Bradesco environment through the manager URL. Check the examples sent on the e-mail (Kit Scopus):
+    <ul>
+      <li><strong>Manager URL</strong> - (https://meiosdepagamentobradesco.com.br/gerenciador/login.jsp)</li>
+      <li><strong>Login E-mail</strong></li>
+      <li><strong>Access Password</strong></li>
+    </ul>
+  </li>
+</ol>
+
+<p>To configure the Boleto:</p>
+
+<p><strong>1.</strong> On Bradesco environment, access the tabs CONFIGURAÇÕES &gt; MEIOS DE PAGAMENTO &gt; BOLETO and fill the following data:</p>
+
+<ul>
+  <li><strong>Enable boleto “phrase”</strong>: Inactive</li>
+  <li><strong>Enable boleto “reference”</strong>: Active</li>
+  <li><strong>To present Agency and Account</strong>: Inactive</li>
+  <li><strong>Expiration</strong>: 5 days</li>
+</ul>
+
+<p><img src="https://developercielo.github.io/images/boleto-bradesco-passo-2.png" alt="Boleto Bradesco" /></p>
+
+<aside class="notice">Observation: The expiration will have to be the same configured on Cielo Checkout.</aside>
+
+<ul>
+  <li><strong>Notification URL</strong>: https://www.pagador.com.br/post/BoletoBradescoSps/ReceivePost</li>
+  <li>On the field <strong>Security Key</strong> click on “<strong>Generate Security Key</strong>”</li>
+  <li><strong>Store’s IP Address</strong>  (numeric)</li>
+  <li>For the <strong>answer URL, failure URL and redirectioning URL</strong> fields, insert the following link: <code class="language-plaintext highlighter-rouge">https://www.pagador.com.br/post/BoletoBradescoSps/ReceivePost</code></li>
+</ul>
+
+<p><img src="https://developercielo.github.io/images/boleto-bradesco-passo-3.png" alt="Boleto Bradesco" /></p>
+
+<p><strong>2.</strong> In each of the following three parameters, fill up with the Communication Parameter below:</p>
+
+<ul>
+  <li><strong>Notification Parameter</strong>:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">numOrder=[%lid_m%]&amp;merchantid=[%merchantid%]&amp;cod=[%errorcod%]&amp;cctype=[%cctype%]&amp;ccname=[%ccname%]&amp;ccemail=[%ccemail%]&amp;numparc=[%numparc%]&amp;valparc=[%valparc%]&amp;valtotal=[%valtotal%]&amp;prazo=[%prazo%]&amp;comb=[%comb%]&amp;assinatura=[%assinatura%]&amp;</code></li>
+    </ul>
+  </li>
+  <li><strong>Confirmation parameter</strong>:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">numOrder=[%lid_m%]&amp;merchantid=[%merchantid%]&amp;cod=[%errorcod%]&amp;cctype=[%cctype%]&amp;ccname=[%ccname%]&amp;ccemail=[%ccemail%]&amp;numparc=[%numparc%]&amp;valparc=[%valparc%]&amp;valtotal=[%valtotal%]&amp;prazo=[%prazo%]&amp;comb=[%comb%]&amp;assinatura=[%assinatura%]&amp;</code></li>
+    </ul>
+  </li>
+  <li><strong>Failure parameter</strong>:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">numOrder=[%lid_m%]&amp;merchantid=[%merchantid%]&amp;cod=[%errorcod%]&amp;cctype=[%cctype%]&amp;ccname=[%ccname%]&amp;ccemail=[%ccemail%]&amp;numparc=[%numparc%]&amp;valparc=[%valparc%]&amp;valtotal=[%valtotal%]&amp;prazo=[%prazo%]&amp;comb=[%comb%]&amp;assinatura=[%assinatura%]&amp;</code></li>
+    </ul>
+  </li>
+  <li><strong>Communication parameter</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">numOrder=[%lid_m%]&amp;merchantid=[%merchantid%]&amp;cod=[%errorcod%]&amp;cctype=[%cctype%]&amp;ccname=[%ccname%]&amp;ccemail=[%ccemail%]&amp;numparc=[%numparc%]&amp;valparc=[%valparc%]&amp;valtotal=[%valtotal%]&amp;prazo=[%prazo%]&amp;comb=[%comb%]&amp;assinatura=[%assinatura%]&amp;</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="https://developercielo.github.io/images/boleto-bradesco-passo-4.png" alt="Boleto Bradesco" /></p>
+
+<aside class="notice">Observation: There can be no spaces or text breaks on the parameters exposed above.</aside>
+
+<p><strong>3.</strong> Click on the button “<strong>Save all configuration made</strong>”</p>
+
+<p><strong>Once you have finished this stage, you must:</strong></p>
+
+<p><strong>1.</strong> Forward an e-mail to Cielo e-Commerce <a href="mailto:cieloecommerce@cielo.com.br">cieloecommerce@cielo.com.br</a> with the following data:</p>
+
+<ul>
+  <li><strong>Agency</strong>: 0000</li>
+  <li><strong>Account</strong>: 0000000 (7 digits without the verifying digit, keeping the zeros to the left like on the example: 0001111</li>
+  <li><strong>Agreement</strong>: 000000</li>
+  <li><strong>Wallet</strong>: 26 – WITH REGISTER</li>
+  <li><strong>Expiration</strong> (counted in days):</li>
+  <li><strong>Conciliation</strong> (Bradesco Affiliation):
+    <ul>
+      <li>Conciliation example: 004601478</li>
+    </ul>
+  </li>
+  <li><strong>Security Key</strong> (Bradesco):
+    <ul>
+      <li>Security Key example: <code class="language-plaintext highlighter-rouge">ZDE50B48D41D59BDD1562CC2A48546454ZC149308CBD283E0E49210C57958A6A38A068A3ZZA8B075095A1B9E1DEAZB64BF1682C5610ZC8285DC8630FA6E300FA00B9D43054C84ACA958ZCFB435CF5A27ZC440637777EBAFEED1BCZDCA82D5778B266B3BB4E90774302D56A0C7EDZZ1A532A51F7A889DA83AEFA08CA4E91A08Z2</code></li>
+    </ul>
+  </li>
+</ul>
+
+<aside class="notice">Observation: Bradesco affiliation is located on the top of the web manager.</aside>
+
+<p><img src="https://developercielo.github.io/images/boleto-bradesco-passo-5.png" alt="Boleto Bradesco" /></p>
+
+<p><strong>2.</strong> Cielo e-Commerce will confirm, in up to 3 days, the inclusion of boleto as a payment method on your store.</p>
+
+<h2 id="banco-do-brasil">Banco do Brasil</h2>
+
+<p>To criteria to enable the Banco do Brasil Boleto option are::</p>
+
+<ul>
+  <li>Being a Banco do Brasil Legal Person accountant;</li>
+</ul>
+
+<p>To request the Branco do Brasil Boleto, you’ll have to:</p>
+
+<ol>
+  <li>Contact the bank/agency and perform the boleto solicitation without wallet 18 register. This step involves contract signature with the Bank.</li>
+  <li>Forward an e-mail to Cielo e-Commerce <a href="mailto:cieloecommerce@cielo.com.br">cieloecommerce@cielo.com.br</a> with the following data:
+    <ul>
+      <li><strong>Agency</strong>: 0000</li>
+      <li><strong>Current Account</strong>: 00000-0</li>
+      <li><strong>Agreement</strong>: 0000000</li>
+      <li><strong>Expiration</strong> (counted in days):</li>
+      <li><strong>Wallet</strong>: 18 - WITHOUT REGISTER</li>
+    </ul>
+  </li>
+</ol>
+
+<aside class="notice">**Boleto expiration** – In case the boleto expires in a non-business day, like Saturday, it will be valid until the next business day</aside>
+
+<h1 id="online-debit">Online Debit</h1>
+
+<h2 id="bradesco-1">Bradesco</h2>
+
+<ol>
+  <li>Requesting to your manager the release of Bradesco online debit (SPS Bradesco). The affiliation will be send through Bradesco on the standard:
+    <ul>
+      <li><strong>Homologation Agreement</strong>: 101xx1</li>
+      <li><strong>login</strong>: dm_cm132</li>
+      <li><strong>password</strong>: 12345678</li>
+      <li><strong>Signature</strong>: <code class="language-plaintext highlighter-rouge">8EA7657E-6373-667D-0229-A82E842A3A1A</code></li>
+    </ul>
+  </li>
+  <li>
+    <p>When receiving these information, the retailer will have to Request the enabling of the payment method to Cielo.</p>
+  </li>
+  <li>Register on MUP Test (sistema do Bradesco, the e-mail containing the Bradesco data will come with the URL for access). Register the information below:
+    <ul>
+      <li><strong>Store IP address</strong>: 209.134.48.121</li>
+      <li>On “<em>Página de confirmação de compra</em>” and “<em>Página de falha no pagamento</em>”: https://www.pagador.com.br/pagador/recebe.asp</li>
+      <li>On “<em>URL para notificação p/ Cartões Bradesco</em>”: https://www.pagador.com.br/pagador/bradesco/setTransacao.asp</li>
+      <li>On the “<em>Post a ser enviado para a loja na notificação</em>”, “<em>Post a ser enviado para a loja na confirmação de compra</em>” and “<em>Post a ser enviado para a loja na falha da autorização</em>” Fields:
+        <ul>
+          <li><strong>Add</strong>: <code class="language-plaintext highlighter-rouge">numOrder=[%lid_m%]&amp;merchantid=[%merchantid%]&amp;cod=[%errorcod%]&amp;cctype=[%cctype%]&amp;ccname=[%ccname%]&amp;ccemail=[%ccemail%]&amp;numparc=[%numparc%]&amp;valparc=[%valparc%]&amp;valtotal=[%valtotal%]&amp;prazo=[%prazo%]&amp;tipopagto=[%tipopagto%]&amp;assinatura=[%assinatura%]</code></li>
+        </ul>
+      </li>
+      <li>In “<em>URL de entrada na loja</em>”: website address</li>
+      <li>In “<em>URL do gerenciador da loja</em>”: https://www.pagador.com.br/admin/login.asp</li>
+      <li>On the last option:  <code class="language-plaintext highlighter-rouge">capture now (1001)</code>.</li>
+    </ul>
+  </li>
+  <li>Send the e-mail below to Scopus requesting the homologation
+    <ul>
+      <li><strong>To</strong>: <a href="mailto:homologacao@scopus.com.br">homologacao@scopus.com.br</a>; <a href="mailto:kit@scopus.com.br">kit@scopus.com.br</a></li>
+      <li><strong>Subject</strong>: Dados do ambiente de produção Débito SPS</li>
+      <li><strong>e-mail Body</strong>:<br />Dear,<br /><br />Please release the client below on the production environment:<br /><br />Social Name: XXXXX<br />CNPJ: XXXX<br />Store name: XXXXX<br />Store number: XXXXX<br />Manager: XXXXX<br />Password: XXXXXXX<br />Store URL: https://www.XXXXXXXXX<br />Payment Method to Homologate: Debit in account<br /></li>
+    </ul>
+  </li>
+  <li>Receive the production data:
+    <ul>
+      <li>The affiliation will be sent through Bradesco on the standard:
+        <ul>
+          <li><strong>Production Agreement</strong>: 101xx1</li>
+          <li><strong>login</strong>: dm_cm132</li>
+          <li><strong>password</strong>: 12345678</li>
+          <li><strong>URL for test</strong>: http://mup.comercioeletronico.com.br/sepsManager/senha.asp?loja=XXXX</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Register on Production MUP, the same information of Step 3.</p>
+  </li>
+  <li>Request Cielo to update the Agreement number for the production number received on step 5.</li>
+</ol>
+
+<h2 id="banco-do-brasil-1">Banco do Brasil</h2>
+
+<p>Request your bank manager the releasing of the online debit via Internet agreement (<strong>Banco do Brasil Electronic commerce - BBPAG</strong>) And the registering of the communication URL with Cielo.</p>
+
+<ul>
+  <li><strong>Communication URL</strong>: <a href="https://www.pagador.com.br/">https://www.pagador.com.br/</a></li>
+</ul>
+
+<p>The URL must be registered by the <strong>Manager on the act of agreement releasing</strong>.</p>
+
+<aside class="warning">If the register does not occur, the transaction won’t be viable.</aside>
+
+<ul>
+  <li><strong>Agreement example</strong>: Agreement: 000000</li>
+</ul>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://developercielo.github.io/en/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Need Help?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Need Help?</h2>
+        <p>If you didn't find your answer, <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte">send us a message</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Toggle left column" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://desenvolvedores.cielo.com.br" target="_blank">
+        <img src="https://developercielo.github.io/en/assets/images/logo.png" alt="Documentações e tutoriais" style="width: 60%; margin-left: 20%">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+        <div class="toc-footer">
+            <h2 class="no-toc toc-footer-title">Complementary materials</h2>
+            
+
+            
+            
+            
+
+            <ul class="toc-footer">
+            
+                
+            
+            </ul>
+        </div>
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contact" href="https://devcielo.zendesk.com/">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contact</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/developercielo">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/en/assets/bundles/js/bundle.min.js"></script>
+        <script>
+            
+            var selectors = 'h1,h2,h3,h4,h5,h6';
+            
+        </script>
+
+        
+        <script src="https://developercielo.github.io/en/assets/bundles/js/search.min.js"></script>
+        
+
+        
+
+        <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:674586,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    </body>
+</html>

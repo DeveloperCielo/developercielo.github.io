@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="en">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        FAQ &middot; Documentações e tutoriais
+        
+    </title>
+
+    <link rel="shortcut icon" href="https://developercielo.github.io/en/assets/favicon.ico">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+    <script async src="https://use.fontawesome.com/3ae06f1030.js"></script>
+
+    <link rel="stylesheet" href="https://developercielo.github.io/en/assets/bundles/css/bundle.min.css">
+
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://developercielo.github.io/en/faq/checkout-faq" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://developercielo.github.io/en/en/faq/checkout-faq" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://developercielo.github.io/en/atom.xml">
+</head>
+
+    <body>
+        
+        <div class="content-container no-dark-box">
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://devcielo.zendesk.com/hc/pt-br#suporte" class="help">Help</a>
+
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="https://developercielo.github.io/en/">Home</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/en/faq/checkout-faq">FAQ</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+  <h1 id="questions-about-the-integration">Questions about the integration</h1>
+
+<h2 id="whats-the-difference-between-the-integration-type-used-on-cielo-checkout">What’s the difference between the integration type used on CIELO CHECKOUT?</h2>
+
+<p>CIELO CHECKOUT uses integration via POST and it is possible to configure it in two ways:</p>
+
+<ul>
+  <li><strong>Integration via Shopping Cart</strong> - used when there’s a “shopping cart” to be sent, that is, in case the consumer navigates through the website and chooses 1 or more products to add to a cart and then finish the transaction.</li>
+  <li><strong>Integration via Button</strong> - Always used when there`s no ”shopping cart” in your store or when it is desired to associate a fast/direct purchase to a product. Each registered product generates an unique ”buy button” that allows customization. Example: a hotsite, a promotion that takes the buyer directly to the payment stage (Cielo Checkout page).</li>
+</ul>
+
+<h2 id="how-do-i-create-the-button">How do I create the Button?</h2>
+
+<p>The Button is created at the inclusion moment of a new product. For that, access the <a href="https://developercielo.github.io/https://developercielo.github.io/en/tutorial/checkout-tutoriais">Backoffice Checkout Cielo</a>, on the Products/Register Products menu.</p>
+
+<h2 id="what-information-do-i-need-to-mount-the-post">What information do I need to mount the POST?</h2>
+
+<p>The data to be filled on the POST are:</p>
+
+<ul>
+  <li>Order Data</li>
+  <li>Shopping Cart</li>
+  <li>Freight Data</li>
+  <li>Consumer Data</li>
+</ul>
+
+<p>All the information to assist in this process, can be found on the Cielo Checkout Integration Manual.</p>
+
+<h2 id="can-i-send-an-e-mail-marketing-as-a-charge-method">Can I send an e-mail marketing as a charge method?</h2>
+
+<p>Yes, through Integration via Button it is possible to send an e-mail marketing, or a charge via e-mail, adding to the e-mail HTML, the button referring to the product/offered service.</p>
+
+<h2 id="what-is-the-return-url-for">What is the Return URL for?</h2>
+
+<p>When finishing the purchase, the consumer has the option to go back on the retailer`s website or be directed to the page that the retailer desires. The function of these URL is to automatically conduct the consumer to a defined page on this option.</p>
+
+<h1 id="questions-about-notification">Questions about notification</h1>
+
+<h2 id="what-is-the-notification-url-for">What is the Notification URL for?</h2>
+
+<p>When finishing a transaction, a POST is sent with all sale data to the previously registered Notification URL on the BackOffice. The Notification POST is sent only at the moment that the transaction is finished, regardless if there’s transaction status alteration.</p>
+
+<p>Thus, the order data remain updated on the <a href="https://developercielo.github.io/https://developercielo.github.io/en/tutorial/checkout-tutoriais">Backoffice Checkout Cielo</a> and also on the store/platform backoffice.</p>
+
+<h2 id="what-is-the-status-change-url-for">What is the Status Change URL for??</h2>
+
+<p>It defines where the POST will be send indicating the transaction status alteration, that is, when an order has it’s status altered, a POST will be sent to the Status Change URL, previously registered on the BackOffice. The status change POST does not have cart data, only order identification data.</p>
+
+<h2 id="where-is-the-url-register-made">Where is the URL register made?</h2>
+
+<p>At the <a href="https://developercielo.github.io/https://developercielo.github.io/en/tutorial/checkout-tutoriais">Backoffice Checkout Cielo</a>, on the Configuration/store configuration menu.</p>
+
+<h2 id="what-is-the-difference-between-opsss-error-before-and-after-the-cielo-checkout-screen-exhibition">What is the difference between OPSSS Error before and after the Cielo Checkout screen exhibition?</h2>
+
+<p><strong>Before the Checkout screen exhibition</strong> - it means that there was a wrong data on the transaction send. Mandatory data can be missing or the format is invalid. Here, the retailer will always receive an email informing the error reason..</p>
+
+<ul>
+  <li>To these, it’s displayed a code (the same of the manuals) inside the order on the Cielo Checkout BackOffice.</li>
+</ul>
+
+<p><strong>After the Checkout screen exhibition (when the sale is finished)</strong> - means that there’s a register impediment that limits the sale. Things like blocked affiliation, error on the saved data on the register or even problems on the own checkout.</p>
+
+<h1 id="questions-about-freight">Questions about Freight</h1>
+
+<h2 id="what-is-the-relation-between-the-products-kind-and-freight-kind">What is the relation between the products kind and freight kind?</h2>
+
+<p>The kind of product to be sold on the Cielo Checkout influences directly on the kind of freight and the information can be send to the transaction processing.</p>
+
+<p>The kind of freight to be used will depend on the kind of product that your store markets. On Cielo Checkout you can market 3 kinds of products:</p>
+
+<ul>
+  <li>Physical Material</li>
+  <li>Digital Goods</li>
+  <li>Services</li>
+</ul>
+
+<p>The kinds of freight that can be used are:</p>
+
+<ul>
+  <li>Courier</li>
+  <li>Fixed freight</li>
+  <li>No shipping</li>
+  <li>No shipping (withdrawal in hands)</li>
+  <li>No shipping charge (used to Digital Goods or Services)</li>
+</ul>
+
+<p>Products (Physical Material category) need the habilitation of some kind of freight in order to be sent. In this case, it is mandatory the inclusion of information such as product weight (CART_1_WEIGHT), origin zip code (CART_1_ZIPCODE) and addressee zip code (SHIPPING_ZIPCODE), for the freight calculation.</p>
+
+<p>The “Digital Goods” or “Services” categories do not need this kind of information..</p>
+
+<p>To understand the POST difference between these parameters in relation to the freight and kinds of products, compare the POST examples below. For more information, access the <a href="https://developercielo.github.io/https://developercielo.github.io/en/manual/checkout-cielo">Manual de Integração Checkout Cielo</a>.</p>
+
+<h3 id="mandatory-parameters">Mandatory parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Physical material</th>
+      <th>Digital Goods / Service</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MERCHANT_ID</code></td>
+      <td><code class="language-plaintext highlighter-rouge">MERCHANT_ID</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORDER_NUMBER</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ORDER_NUMBER</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SHIPPING_TYPE</code>: 1, 2 ou 3</td>
+      <td><code class="language-plaintext highlighter-rouge">SHIPPING_TYPE</code>: 5</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SOFT_DESCRIPTOR</code></td>
+      <td>SOFT_DESCRIPTOR</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CART_1_NAME</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CART_1_NAME</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CART_1_UNITPRICE</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CART_1_UNITPRICE</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CART_1_QUANTITY</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CART_1_QUANTITY</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CART_1_WEIGHT</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CART_1_TYPE</code>: 2 ou 3 <strong>(Mandatory)</strong></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CART_1_ZIPCODE</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CART_1_TYPE</code>: 1 <strong>(Mandatory)</strong></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CUSTOMER_NAME</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CUSTOMER_IDENTITY</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SHIPPING_1_NAME</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CUSTOMER_EMAIL</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SHIPPING_1_PRICE</code></td>
+      <td><code class="language-plaintext highlighter-rouge">CUSTOMER_PHONE</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="questions-about-the-test-mode">Questions about the Test Mode</h1>
+
+<h2 id="what-is-the-cielo-checkout-test-mode">What is the CIELO CHECKOUT test mode?</h2>
+
+<p>It’s a test environment, where it is possible to simulate all actions without needing to change your integration. It`s an environment where it is possible to simulate sales and other test actions  (like cancelling, captures and chargebacks).</p>
+
+<h2 id="how-is-the-test-mode-activated-on-cielo-checkout">How is the Test Mode activated on Cielo Checkout?</h2>
+
+<p>On the Cielo Checkout Backoffice, Configuration tab Payments Test Mode It is possible to enable or disable the Test Mode. When this mode is active, a big red stripe will be displayed on the superior part of every Cielo Checkout screen (Backoffice and Payment screen).</p>
+
+<p>On Test Mode, the retailer or developer can perform transaction and integration tests.</p>
+
+<h2 id="does-the-test-mode-have-any-additional-cost">Does the Test Mode have any additional cost??</h2>
+
+<p>No, there are no taxes to use it. Test Mode is provided at the moment of your account liberation.</p>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://developercielo.github.io/en/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Need Help?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Need Help?</h2>
+        <p>If you didn't find your answer, <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte">send us a message</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Toggle left column" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://desenvolvedores.cielo.com.br" target="_blank">
+        <img src="https://developercielo.github.io/en/assets/images/logo.png" alt="Documentações e tutoriais" style="width: 60%; margin-left: 20%">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+        <div class="toc-footer">
+            <h2 class="no-toc toc-footer-title">Complementary materials</h2>
+            
+
+            
+            
+            
+
+            <ul class="toc-footer">
+            
+                
+                    
+                    <li><a href="https://developercielo.github.io/en/tutorial/checkout-tutoriais" >Tutoriais</a></li>
+                
+            
+                
+            
+            </ul>
+        </div>
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contact" href="https://devcielo.zendesk.com/">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contact</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/developercielo">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/en/assets/bundles/js/bundle.min.js"></script>
+        <script>
+            
+            var selectors = 'h1';
+            
+        </script>
+
+        
+        <script src="https://developercielo.github.io/en/assets/bundles/js/search.min.js"></script>
+        
+
+        
+
+        <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:674586,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    </body>
+</html>
