@@ -41,8 +41,8 @@ if [ -n "$GITHUB_TOKEN" ]; then
   git clone https://${GITHUB_TOKEN}@github.com/DeveloperCielo/developercielo.github.io.git --branch master _site
 
   # compiles front-end stuff
-  yarn
-  yarn gulp dist
+  npm install
+  npm run gulp
 
   # build with Jekyll into "_site"
   bundle exec jekyll build --quiet -b ${HOST}
