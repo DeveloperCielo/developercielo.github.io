@@ -14,7 +14,7 @@ plugins:
 exclude:      ["vendor", "Gemfile*", "script", "node_modules", "tmp"]
 markdown:     kramdown
 languages:    ["pt", "en"]
-default_lang: "en"
+default_lang: "pt"
 language_names:
   pt: Português
   en: English
