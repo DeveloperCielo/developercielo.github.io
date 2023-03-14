@@ -4,9 +4,6 @@
   "repository": "https://github.com/DeveloperCielo/developercielo.github.io.git",
   "author": "DeveloperCielo",
   "private": true,
-  "scripts": {
-    "gulp": "gulp dist"
-  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
@@ -20,6 +17,5 @@
     "gulp-concat": "^2.6.1",
     "gulp-minify": "^2.1.0",
     "gulp-uglify": "^3.0.0"
-  },
-  "dependencies": {}
+  }
 }

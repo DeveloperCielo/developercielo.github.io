@@ -20,7 +20,7 @@ A taxa de juros pode ser vista dentro do site Cielo ou entrando em contato com o
 
 Entre em contato com o suporte Cielo e solicite a modificação dos dados de contato.
 
-## O Checkout funciona com pagamento internacionais?
+## O Chekcout funciona com pagamento internacionais?
 
 Sim, o Checkout funciona com pagamentos internacionais e cartões emitidos fora do Brasil, entretando o fornecimento de CPF e CEP são obrigatórios.
 

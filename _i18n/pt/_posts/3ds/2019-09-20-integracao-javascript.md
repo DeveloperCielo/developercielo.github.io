@@ -89,7 +89,7 @@ curl
 
 Neste passo, é implementado o _script_ e o mapeamento de _classes_ responsáveis pela comunicação com as plataformas de autenticação das bandeiras e emissor. Siga o exemplo abaixo, que demonstra a implementação básica. Recomenda-se que o trecho seja colocado no final do código HTML de seu checkout:
 
-> Para baixar o código, [Acesse aqui](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/_i18n/pt/_posts/3ds/exemplo.html)
+Para baixar o código, [Acesse aqui](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/_i18n/pt/_posts/3ds/exemplo.html)
 
 ![Fluxo 3DS 2.0]({{ site.baseurl_root }}/images/exemplo-html.jpg)
 
@@ -100,7 +100,7 @@ Descrição dos Eventos
 | onReady | É acionado quando todos os procedimentos de carregamento do script da solução foram concluídos com sucesso, o que incluir a validação do token de acesso, indicando que o checkout está pronto para iniciar a autenticação |
 | onSuccess | É acionado quando o cartão é elegível e teve o processo de autenticação finalizado com sucesso. Neste caso, as variáveis CAVV, XID e ECI serão retornados. Estes dados devem ser enviados na requisição no momento da autorização. Neste cenário, se a transação é autorizada, o liability shift é transferido ao emissor.|
 | onFailure | É acionado quando o cartão é elegível, porém não teve o processo de autenticação falhou por algum motivo. Neste caso, somente a variável ECI será retornado. Caso haja a decisão de seguir com a autorização mesmo assim, o ECI deverá ser enviado no momento da requisição. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.|
-| onUnenrolled | É acionado quando o cartão não é elegível, ou seja, o portador e/ou emissor não participam do programa de autenticação. Neste caso, orientar o comprador a verificar junto ao emissor se o cartão está habilitado para realizar autenticação no e-commerce. Somente a variável ECI será retornado. Caso haja a decisão de seguir com a autorização mesmo assim, o ECI deverá ser enviado no momento da requisição. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.|
+| onUnenrolled | É acionado quando o cartão não é elegível, ou seja, o portador e/ou emissor não participam do programa de autenticação. Neste caso, somente a variável ECI será retornado. Caso haja a decisão de seguir com a autorização mesmo assim, o ECI deverá ser enviado no momento da requisição. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.|
 | onDisabled | É acionado quando o estabelecimento optou por não submeter o portador ao processo de autenticação (classe &quot;bpmpi\_auth&quot; como false). Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.|
 | onError | É acionado quando o processo de autenticação recebeu um erro sistêmico. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.|
 | onUnsupportedBrand | É acionado quando a bandeira do cartão não é suportado pelo 3DS 2.0 |
