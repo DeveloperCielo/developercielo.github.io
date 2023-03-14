@@ -32,25 +32,23 @@ export LANG=$lang && export LANGUAGE=$language && LC_ALL=$lc_all
 # lint for markdown
 bundle exec mdl --rules ${RULES} _i18n/
 
-if [ -n "$GITHUB_TOKEN" ]; then
-  # cleanup "_site"
-  rm -rf _site
-  mkdir _site
+# cleanup "_site"
+rm -rf _site
+mkdir _site
 
-  # clone remote repo to "_site"
-  git clone https://DeveloperCielo:${GITHUB_TOKEN}@github.com/DeveloperCielo/developercielo.github.io.git --branch master _site
+# clone remote repo to "_site"
+git clone https://DeveloperCielo:${GITHUB_TOKEN}@github.com/DeveloperCielo/developercielo.github.io.git --branch master _site
 
-  # compiles front-end stuff
-  yarn
-  yarn gulp dist
+# compiles front-end stuff
+yarn
+yarn gulp dist
 
-  # build with Jekyll into "_site"
-  bundle exec jekyll build --quiet -b ${HOST}
-  bundle exec htmlproofer ./_site --disable-external --allow-hash-href --empty-alt-ignore
+# build with Jekyll into "_site"
+bundle exec jekyll build --quiet -b ${HOST} || exit 1
+bundle exec htmlproofer ./_site --disable-external --allow-hash-href --empty-alt-ignore || exit 1
 
-  # push
-  cd _site
-  git add --all
-  git commit -a -m "[$TRAVIS_COMMIT]: $TRAVIS_COMMIT_MESSAGE"
-  git push --force origin master
-fi
+# push
+cd _site
+git add --all
+git commit -a -m "[$TRAVIS_COMMIT]: $TRAVIS_COMMIT_MESSAGE"
+git push --force origin master || exit 1
