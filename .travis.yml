@@ -9,7 +9,7 @@ cache:
     - node_modules
 
 rvm:
- - latest
+ - 3.2.3
 
 before_install:
  - nvm install 8 
