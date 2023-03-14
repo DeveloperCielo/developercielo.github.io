@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+begin
+  require 'mdl'
+rescue LoadError
+  # For running in development without bundler
+  $LOAD_PATH << File.expand_path('../lib', File.dirname(__FILE__))
+  require 'mdl'
+end
+
+MarkdownLint.run

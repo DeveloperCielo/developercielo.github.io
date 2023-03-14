@@ -1,0 +1,20 @@
+# Passes arguments to bundle install (http://gembundler.com/man/bundle-install.1.html)
+#bundler_args: --binstubs
+language: ruby
+
+# Specify which ruby versions you wish to run your tests on, each version will be used
+rvm:
+  - 2.0.0
+  - 2.1
+  - 2.2
+  - 2.3.1
+  - ruby-head
+matrix:
+  include:
+    - rvm: jruby
+      env: JRUBY_OPTS="--2.0"
+  allow_failures:
+    - rvm: rbx-2
+    - rvm: ruby-head
+script: "bundle exec rake"
+sudo: false

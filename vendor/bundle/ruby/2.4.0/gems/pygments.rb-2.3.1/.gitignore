@@ -1,0 +1,5 @@
+/.idea/
+/Gemfile.lock
+/pkg/
+/tmp
+*.pyc
