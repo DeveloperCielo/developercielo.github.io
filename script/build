@@ -42,7 +42,7 @@ if [ -n "$GITHUB_TOKEN" ]; then
 
   # compiles front-end stuff
   yarn
-  yarn gulp dist
+  yarn gulp
 
   # build with Jekyll into "_site"
   bundle exec jekyll build --quiet -b ${HOST}
