@@ -68,6 +68,10 @@ cp -R ../for-deploy/_site/* .
 # Make sure we have the updated .travis.yml file so tests won't run on master.
 cp ../for-deploy/.travis.yml .
 
+echo "Usuário setado"
+git config user.email "atilladuarte@gmail.com"
+git config user.name "Atilla de Mattos Duarte"
+
 echo "Checando status"
 git status
 git add -A .
