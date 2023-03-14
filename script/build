@@ -35,7 +35,7 @@ bundle exec mdl --rules ${RULES} _i18n/
 
 
 # clone remote repo to "_site"
-git clone https://DeveloperCielo:${GITHUB_TOKEN}@github.com/DeveloperCielo/developercielo.github.io.git ../for-deploy
+git clone https://${GITHUB_TOKEN}@github.com/DeveloperCielo/developercielo.github.io.git ../for-deploy
 
 cd ../for-deploy
 # compiles front-end stuff
