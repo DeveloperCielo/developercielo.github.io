@@ -50,8 +50,8 @@ if [ -n "$GITHUB_TOKEN" ]; then
   yarn gulp
 
   # build with Jekyll into "_site"
-  echo "Rodando o bundle"
-  bundle install
+  echo "Rodando o JEkyll"
+  # bundle install
 
   bundle exec jekyll build --quiet -b ${HOST}
   bundle exec htmlproofer ./_site --disable-external --allow-hash-href --empty-alt-ignore
