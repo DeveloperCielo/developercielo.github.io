@@ -38,8 +38,9 @@ git clone https://${GITHUB_TOKEN}@github.com/DeveloperCielo/developercielo.githu
 
 cd ../for-deploy
 
-npm
-npm run gulp
+npm i -g yarn
+yarn
+yarn gulp
 
 # build with Jekyll into "_site"
 bundle exec jekyll build --quiet -b ${HOST}
