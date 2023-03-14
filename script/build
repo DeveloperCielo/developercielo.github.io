@@ -35,8 +35,13 @@ bundle exec mdl --rules ${RULES} _i18n/
 if [ -n "$GITHUB_TOKEN" ]; then
   # cleanup "_site"
 
+
+  echo "Usuário setado"
+  git config user.email "atilladuarte@gmail.com"
+  git config user.name "Atilla de Mattos Duarte"
+
   # clone remote repo to "_site"
-  git clone https://${GITHUB_TOKEN}@github.com/DeveloperCielo/developercielo.github.io.git ../for-deploy
+  git clone https://DeveloperCielo:${GITHUB_TOKEN}@github.com/DeveloperCielo/developercielo.github.io.git ../for-deploy
 
   cd ../for-deploy
   # compiles front-end stuff
@@ -44,13 +49,12 @@ if [ -n "$GITHUB_TOKEN" ]; then
   
   yarn
   yarn gulp
+  # npm install
+  # npm run gulp
 
-  bundle clean
+  # build with Jekyll into "_site"
   bundle exec jekyll build --quiet -b ${HOST}
   bundle exec htmlproofer ./_site --disable-external --allow-hash-href --empty-alt-ignore
-  sudo apt-get install libsass-dev
-  bundle install
-  bundle exec jekyll serve
 
   echo "Entrando na pasta do SITE"
   cd ../developercielo.github.io
