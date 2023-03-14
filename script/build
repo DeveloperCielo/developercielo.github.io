@@ -33,24 +33,43 @@ export LANG=$lang && export LANGUAGE=$language && LC_ALL=$lc_all
 bundle exec mdl --rules ${RULES} _i18n/
 
 if [ -n "$GITHUB_TOKEN" ]; then
-  # cleanup "_site"
-  rm -rf _site
-  mkdir _site
+# clone remote repo to "_site"
+git clone https://${GITHUB_TOKEN}@github.com/DeveloperCielo/developercielo.github.io.git ../for-deploy
 
-  # clone remote repo to "_site"
-  git clone https://${GITHUB_TOKEN}@github.com/DeveloperCielo/developercielo.github.io.git --branch master _site
+cd ../for-deploy
 
-  # compiles front-end stuff
-  npm install
-  npm run gulp
+npm
+npm run gulp
 
-  # build with Jekyll into "_site"
-  bundle exec jekyll build --quiet -b ${HOST}
-  bundle exec htmlproofer ./_site --disable-external --allow-hash-href --empty-alt-ignore
+# build with Jekyll into "_site"
+bundle exec jekyll build --quiet -b ${HOST}
+bundle exec htmlproofer ./_site --disable-external --allow-hash-href --empty-alt-ignore
 
-  # push
-  cd _site
-  git add --all
-  git commit -a -m "[$TRAVIS_COMMIT]: $TRAVIS_COMMIT_MESSAGE"
-  git push --force origin master
+echo "Entrando na pasta do SITE"
+cd ../developercielo.github.io
+
+echo "Copiando o .git"
+cp -R ../for-deploy/.git .
+cp ../for-deploy/.gitignore .
+git stash
+git checkout master
+
+# Copy generated HTML site from source branch in original repository.
+# Now the `master` branch will contain only the contents of the _site directory.
+cp -R ../for-deploy/_site/* .
+
+# Make sure we have the updated .travis.yml file so tests won't run on master.
+cp ../for-deploy/.travis.yml .
+
+echo "Checando status"
+git status
+git add -A .
+git status
+echo "Status checado"
+
+echo "Preparando o COMMIT"
+git commit -a -m "[$TRAVIS_COMMIT]: $TRAVIS_COMMIT_MESSAGE"
+
+echo "Subindo as modificações 🚀"
+git push --force origin master
 fi
