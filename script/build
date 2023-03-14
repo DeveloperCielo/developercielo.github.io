@@ -73,7 +73,8 @@ if [ -n "$GITHUB_TOKEN" ]; then
   # Copy generated HTML site from source branch in original repository.
   # Now the `master` branch will contain only the contents of the _site directory.
   cp -R ../for-deploy/_site/* .
-  cp -R ../for-deploy/assets .
+  mkdir assets
+  cp -R ../for-deploy/assets/* ./assets
   
   # Make sure we have the updated .travis.yml file so tests won't run on master.
   cp ../for-deploy/.travis.yml .
