@@ -7,4 +7,4 @@ gem 'kramdown', '~> 2.3'
 gem 'pygments.rb', '~> 2.3.1'
 gem 'jekyll-multiple-languages-plugin', '~> 1.4'
 gem 'mdl', '~> 0.6'
-gem "html-proofer", '~> 4.3'
+gem "html-proofer"
