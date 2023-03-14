@@ -32,7 +32,7 @@ export LANG=$lang && export LANGUAGE=$language && LC_ALL=$lc_all
 # lint for markdown
 bundle exec mdl --rules ${RULES} _i18n/
 
-if [ -n "$GH_TOKENN" ]; then
+if [ -n "$GITHUB_TOKEN" ]; then
 # clone remote repo to "_site"
 git clone https://${GITHUB_TOKEN}@github.com/DeveloperCielo/developercielo.github.io.git ../for-deploy
 
