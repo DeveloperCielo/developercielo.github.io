@@ -5,7 +5,6 @@ addons:
 
 cache:
   yarn: true
-  bundler: true
   directories:
     - node_modules
 
