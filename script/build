@@ -46,12 +46,8 @@ if [ -n "$GITHUB_TOKEN" ]; then
   cd ../for-deploy
 
   # compiles front-end stuff
-  npm i -g yarn
-  
   yarn
   yarn gulp
-  # npm install
-  # npm run gulp
 
   # build with Jekyll into "_site"
   echo "Rodando o bundle"
@@ -88,7 +84,5 @@ if [ -n "$GITHUB_TOKEN" ]; then
 
   echo "Preparando o COMMIT"
   git commit -a -m "[$TRAVIS_COMMIT]: $TRAVIS_COMMIT_MESSAGE"
-
-  echo "Subindo as modificações 🚀"
   git push --force origin master
 fi
