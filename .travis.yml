@@ -32,7 +32,7 @@ env:
 deploy:
   provider: pages
   skip_cleanup: true
-  token: $GH_TOKENN  # Set in the settings page of your repository, as a secure variable
+  token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   keep_history: true
   target_branch: master
   on:
