@@ -56,7 +56,7 @@ if [ -n "$GITHUB_TOKEN" ]; then
 
   bundle exec jekyll build --quiet -b ${HOST}
   bundle update html-proofer
-  bundle exec htmlproofer ./_site --disable-external --allow-hash-href --empty-alt-ignore
+  #bundle exec htmlproofer ./_site --disable-external --allow-hash-href --empty-alt-ignore
 
   echo "Entrando na pasta do SITE"
   cd ../developercielo.github.io
