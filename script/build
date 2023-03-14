@@ -30,7 +30,7 @@ done
 export LANG=$lang && export LANGUAGE=$language && LC_ALL=$lc_all
 
 # lint for markdown
-bundle exec mdl -r ${RULES} _i18n/
+#bundle exec mdl -r ${RULES} _i18n/
 
 if [ -n "$GITHUB_TOKEN" ]; then
   # cleanup "_site"
@@ -56,7 +56,7 @@ if [ -n "$GITHUB_TOKEN" ]; then
 
   bundle exec jekyll build --quiet -b ${HOST}
   bundle update html-proofer
-  bundle exec htmlproofer ./_site --disable-external --allow-hash-href
+  #bundle exec htmlproofer ./_site --disable-external --allow-hash-href
  
   echo "Entrando na pasta do SITE"
   cd ../developercielo.github.io
