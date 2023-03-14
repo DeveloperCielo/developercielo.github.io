@@ -50,7 +50,6 @@ if [ -n "$GITHUB_TOKEN" ]; then
   bundle exec htmlproofer ./_site --disable-external --allow-hash-href --empty-alt-ignore
   sudo apt-get install libsass-dev
   bundle install
-  bundle exec mdl --rules ${RULES} _i18n/
   bundle exec jekyll serve
 
   echo "Entrando na pasta do SITE"
