@@ -32,13 +32,13 @@ export LANG=$lang && export LANGUAGE=$language && LC_ALL=$lc_all
 # lint for markdown
 bundle exec mdl --rules ${RULES} _i18n/
 
-if [ -n "$GH_TOKENN" ]; then
+if [ -n "$GITHUB_TOKEN" ]; then
   # cleanup "_site"
   rm -rf _site
   mkdir _site
 
   # clone remote repo to "_site"
-  git clone https://DeveloperCielo:${GH_TOKENN}@github.com/DeveloperCielo/developercielo.github.io.git --branch master _site
+  git clone https://DeveloperCielo:${GITHUB_TOKEN}@github.com/DeveloperCielo/developercielo.github.io.git --branch master _site
 
   # compiles front-end stuff
   yarn
@@ -50,8 +50,6 @@ if [ -n "$GH_TOKENN" ]; then
 
   # push
   cd _site
-  git config user.email "atilladuarte@gmail.com"
-  git config user.name "Atilla de Mattos Duarte"
   git add --all
   git commit -a -m "[$TRAVIS_COMMIT]: $TRAVIS_COMMIT_MESSAGE"
   git push --force origin master
