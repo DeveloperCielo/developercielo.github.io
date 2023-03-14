@@ -1,13 +1,22 @@
-FROM ruby:2.2.2
+FROM ruby:2.7.4
 
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    nodejs
+# Install required packages
+RUN apt-get update && \
+    apt-get install -y --force-yes build-essential nodejs && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
-RUN mkdir -p /app
+# Set working directory
 WORKDIR /app
 
 COPY Gemfile ./
-RUN gem install bundler && bundle install --jobs 20 --retry 5
+RUN gem update --system 3.2.3 && \
+    gem install bundler -v 2.2.28 && \
+    bundle config build.nokogiri --use-system-libraries && \
+    bundle install --jobs $(nproc) --retry 3
 
+# Expose port 4000
 EXPOSE 4000
+
+# Start the application
+CMD ["bundle", "exec", "jekyll", "serve", "--host=0.0.0.0"]

@@ -68,9 +68,9 @@ gulp.task('main-minify', () => gulp.src([...paths.js.main.files])
   .pipe(gulp.dest('tmp')));
 
 gulp.task('main-scripts', ['main-minify'], () => gulp.src([
-    ...paths.js.main.minified,
-    'tmp/' + paths.js.main.output
-  ])
+  ...paths.js.main.minified,
+  `tmp/${paths.js.main.output}`,
+])
   .pipe(concat(paths.js.main.output))
   .pipe(gulp.dest(paths.js.dist)));
 
@@ -81,9 +81,9 @@ gulp.task('search-minify', () => gulp.src([...paths.js.search.files])
   .pipe(gulp.dest('tmp')));
 
 gulp.task('search-scripts', ['search-minify'], () => gulp.src([
-    ...paths.js.search.minified,
-    `tmp/${paths.js.search.output}`,
-  ])
+  ...paths.js.search.minified,
+  `tmp/${paths.js.search.output}`,
+])
   .pipe(concat(paths.js.search.output))
   .pipe(gulp.dest(paths.js.dist)));
 
