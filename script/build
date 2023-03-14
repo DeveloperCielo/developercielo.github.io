@@ -40,7 +40,7 @@ if [ -n "$GITHUB_TOKEN" ]; then
   git config user.name "Atilla de Mattos Duarte"
 
   # clone remote repo to "_site"
-  git clone https://DeveloperCielo:${GITHUB_TOKEN}@github.com/DeveloperCielo/developercielo.github.io.git ../for-deploy
+  git clone https://${GITHUB_TOKEN}@github.com/DeveloperCielo/developercielo.github.io.git ../for-deploy
 
   cd ../for-deploy
   # compiles front-end stuff
