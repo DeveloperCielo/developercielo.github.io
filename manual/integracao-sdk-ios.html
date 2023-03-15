@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="theme-color" content="#00aeef" />
+  <meta http-equiv="Content-Language" content="pt" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     2.3. SDK IOS &middot; Documentações e tutoriais 
+  </title>
+
+  <link rel="shortcut icon" href="https://developercielo.github.io/assets/favicon.ico" />
+
+  <!-- CSS -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500"
+    rel="stylesheet"
+    media="none"
+    onload="if(media!='all')media='all'"
+  />
+  <script async src="https://use.fontawesome.com/3ae06f1030.js"></script>
+
+  <link
+    rel="stylesheet"
+    href="https://developercielo.github.io/assets/bundles/css/bundle.min.css"
+  />
+
+   
+  <link
+    rel="alternate"
+    hreflang="pt"
+    href="https://developercielo.github.io/manual/integracao-sdk-ios"
+  />
+    
+  <link
+    rel="alternate"
+    hreflang="en"
+    href="https://developercielo.github.io/en/manual/integracao-sdk-ios"
+  />
+   
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="https://developercielo.github.io/atom.xml"
+  />
+</head>
+
+    <body>
+        
+        <div class="content-container no-dark-box">
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://devcielo.zendesk.com/hc/pt-br#suporte" class="help">Ajuda</a>
+
+                            
+                            <div class="lang">
+                                <span>Idiomas</span>
+
+                                
+                                    
+                                    <a href="https://developercielo.github.io/manual/integracao-sdk-ios">
+                                    
+
+                                        <img alt="Português" src="https://developercielo.github.io/assets/images/pt.png"/>
+                                    </a>
+                                
+                                    
+                                    <a href="https://developercielo.github.io/en/manual/integracao-sdk-ios">
+                                    
+
+                                        <img alt="English" src="https://developercielo.github.io/assets/images/en.png"/>
+                                    </a>
+                                
+                            </div>
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/manual/integracao-sdk-ios">2.3. SDK IOS</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post"><h1 id="o-que-é-3ds-20">O que é 3DS 2.0?</h1>
+
+<p>Para maiores detalhes sobre o 3DS 2.0, acesse: <a href="https://developercielo.github.io/manual/3ds">https://developercielo.github.io/manual/3ds</a></p>
+
+<aside class="warning">Atenção: Este SDK foi descontinuado. Não oferecemos suporte para o desenvolvimento e implementação deste SDK.</aside>
+
+<h1 id="passo-1---solicitação-de-token-de-acesso">Passo 1 - Solicitação de Token de Acesso</h1>
+
+<p>A solução é composta pelo passo de solicitação de token de acesso via API e solicitação de autenticação a partir do APP.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ambiente</th>
+      <th>Endpoint</th>
+      <th>Authorization</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>SANDBOX</strong></td>
+      <td>https://mpisandbox.braspag.com.br</td>
+      <td><strong>Basic <em>(Authorization)</em></strong><br />O valor do Authorization deve ser obtido concatenando-se o valor do “ClientID”, sinal de dois-pontos (“:”) e “ClientSecret”<br />Ex. dba3a8db-fa54-40e0-8bab-7bfb9b6f2e2e:D/ilRsfoqHlSUChwAMnlyKdDNd7FMsM7cU/vo02REag=<br />e na sequência, codificar o resultado na base 64. <br />Com isso, será gerado um código alphanumérico que será utilizado na requisição de access token. Para efeitos de teste, utilize os dados abaixo:<br />ClientID: <strong>dba3a8db-fa54-40e0-8bab-7bfb9b6f2e2e</strong><br />ClientSecret: <strong>D/ilRsfoqHlSUChwAMnlyKdDNd7FMsM7cU/vo02REag=</strong></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><strong>PRODUÇÃO</strong></td>
+      <td>https://mpi.braspag.com.br</td>
+      <td>Solicite os dados “ClientID” e “ClientSecret” à equipe de suporte após concluir o desenvolvimento em sandbox.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="request">Request</h3>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/auth/token</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1006993069"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"MerchantName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loja Exemplo Ltda"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"MCC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5912"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Campo</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>EstablishmentCode</td>
+      <td>Código do Estabelecimento do Cielo E-Commerce 3.0</td>
+      <td>Numérico [10 posições]</td>
+    </tr>
+    <tr>
+      <td>MerchantName</td>
+      <td>Nome do estabelecimento registrado na Cielo</td>
+      <td>Alfanumérico [até 25 posições]</td>
+    </tr>
+    <tr>
+      <td>MCC</td>
+      <td>Código de Categoria do estabelecimento</td>
+      <td>Numérico [4 posições]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response">Response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"barear"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-23T11:29:32"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Campo</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>access_token</td>
+      <td>Token necessário para realizar a autenticação.</td>
+      <td>Alfanumérico [tamanho variável]</td>
+    </tr>
+    <tr>
+      <td>token_type</td>
+      <td>Fixo "bearer"</td>
+      <td>Alfanumérico</td>
+    </tr>
+    <tr>
+      <td>expires_in</td>
+      <td>Tempo em minutos para expirar o token</td>
+      <td>Numérico</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="passo-2---utilizando-o-sdk">Passo 2 - Utilizando o SDK</h1>
+
+<p>Para utilizar o SDK é necessário realizar a importação do módulo Braspag3dsSdk:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">import</span> <span class="kt">Braspag3dsSdk</span>
+</code></pre></div></div>
+
+<p>Em seguida é necessário passar para o lado cliente(APP) o <em>access_token</em> gerado no passo anterior:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">braspag3ds</span> <span class="o">=</span> <span class="kt">Braspag3ds</span><span class="p">(</span><span class="nv">accessToken</span><span class="p">:</span> <span class="s">"&lt;&lt;Access_Token gerado no passo 1&gt;&gt;"</span><span class="p">,</span> <span class="nv">environment</span><span class="p">:</span> <span class="kt">Environment</span><span class="o">.</span><span class="n">production</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Em seguida é necessário utilizar o método <code class="language-plaintext highlighter-rouge">authenticate</code>, informando os dados do comprador e o <em>callback</em> que receberá a resposta:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">braspag3ds</span><span class="o">.</span><span class="nf">authenticate</span><span class="p">(</span><span class="nv">orderData</span><span class="p">:</span> <span class="kt">OrderData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="nv">cardData</span><span class="p">:</span> <span class="kt">CardData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="nv">authOptions</span><span class="p">:</span> <span class="kt">OptionsData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="nv">billToData</span><span class="p">:</span> <span class="kt">BillToData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="nv">shipToData</span><span class="p">:</span> <span class="kt">ShipToData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="nv">cart</span><span class="p">:</span> <span class="p">[</span><span class="kt">CartItemData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="nv">deviceData</span><span class="p">:</span> <span class="kt">DeviceData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="nv">userData</span><span class="p">:</span> <span class="kt">UserData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="nv">airlineData</span><span class="p">:</span> <span class="kt">AirlineData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="nv">mdd</span><span class="p">:</span> <span class="kt">MddData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="nv">recurringData</span><span class="p">:</span> <span class="kt">RecurringData</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+                        <span class="nv">deviceIpAddress</span><span class="p">:</span> <span class="s">"0.0.0.0"</span><span class="p">){</span> <span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">authenticationResponse</span><span class="p">)</span> <span class="k">in</span>
+
+                        <span class="k">switch</span><span class="p">(</span><span class="n">status</span><span class="p">){</span>
+                        <span class="k">case</span> <span class="o">.</span><span class="nv">success</span><span class="p">:</span>
+                          <span class="o">...</span>
+                        <span class="k">case</span> <span class="o">.</span><span class="nv">unenrolled</span><span class="p">:</span>
+                          <span class="o">...</span>
+                        <span class="k">case</span> <span class="nv">failure</span><span class="p">:</span>
+                          <span class="o">...</span>
+                        <span class="k">case</span> <span class="nv">error</span><span class="p">:</span>
+                          <span class="o">...</span>
+                        <span class="k">case</span> <span class="nv">unsupportedBrand</span><span class="p">:</span>
+                          <span class="o">...</span>
+                        <span class="p">}</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="parâmetros-de-entrada-do-método-authenticate">Parâmetros de entrada do método <em>authenticate</em></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Campo</strong></th>
+      <th><strong>Tipo</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Obrigatório</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>orderData</td>
+      <td>OrderData</td>
+      <td>Dados do pedido de pagamento</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>cardData</td>
+      <td>CardData</td>
+      <td>Dados do cartão</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>authOptions</td>
+      <td>OptionsData?</td>
+      <td>Configurações adicionais ao processo de 3DS</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>billToData</td>
+      <td>BillToData?</td>
+      <td>Dados de cobrança do portador</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>shipToData</td>
+      <td>ShipToData?</td>
+      <td>Dados da entrega</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>cart</td>
+      <td>[CartItemData]?</td>
+      <td>Array com itens do carrinho</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>deviceData</td>
+      <td>[DeviceData]?</td>
+      <td>Configurações adicionais ao processo de 3DS</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>userData</td>
+      <td>UserData?</td>
+      <td>Dados do usuário na sua loja</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>airlineData</td>
+      <td>AirlineData?</td>
+      <td>Dados da passagem aérea</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>mdd</td>
+      <td>MddData?</td>
+      <td>Dados extras enviados pelo lojista</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>recurringData</td>
+      <td>RecurringData?</td>
+      <td>Dados da recorrência</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>deviceIpAddress</td>
+      <td>String?</td>
+      <td>Endereço IP do dispositivo</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="descrição-dos-status-do-callback">Descrição dos Status do Callback</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Status</strong></th>
+      <th><strong>Descrição</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>success</td>
+      <td>É retornado quando o cartão é elegível e teve o processo de autenticação finalizado com sucesso. Neste caso, as variáveis CAVV, XID e ECI serão retornados. Estes dados devem ser enviados na requisição no momento da autorização. Neste cenário, se a transação é autorizada, o liability shift é transferido ao emissor.</td>
+    </tr>
+    <tr>
+      <td>unenrolled</td>
+      <td>É retornado quando o cartão não é elegível, ou seja, o portador e/ou emissor não participam do programa de autenticação. Neste caso, somente a variável ECI será retornado. Caso haja a decisão de seguir com a autorização mesmo assim, o ECI deverá ser enviado no momento da requisição. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.</td>
+    </tr>
+    <tr>
+      <td>failure</td>
+      <td>É retornado quando o cartão é elegível, porém não teve o processo de autenticação falhou por algum motivo. Neste caso, somente a variável ECI será retornado. Caso haja a decisão de seguir com a autorização mesmo assim, o ECI deverá ser enviado no momento da requisição. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.</td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td>É retornado quando o processo de autenticação recebeu um erro sistêmico. Neste cenário, se a transação é autorizada, o liability shift permanece com o estabelecimento.</td>
+    </tr>
+    <tr>
+      <td>unsupportedBrand</td>
+      <td>É retornado quando a bandeira do cartão não é suportado pelo 3DS 2.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="descrição-dos-campos-do-authenticationresponse">Descrição dos campos do <em>AuthenticationResponse</em></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Saída</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>cavv</td>
+      <td>Dado que representa assinatura da autenticação</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>xid</td>
+      <td>ID que representa a requisição da autenticação</td>
+      <td>Texto</td>
+    </tr>
+    <tr>
+      <td>eci</td>
+      <td>Código indicador do e-commerce, que representa o resultado da autenticação</td>
+      <td>Numérico [até 2 posições]</td>
+    </tr>
+    <tr>
+      <td>version</td>
+      <td>Versão do 3DS aplicado</td>
+      <td>Numérico [1 posição]1 – 3DS 1.02 – 3DS 2.0</td>
+    </tr>
+    <tr>
+      <td>referenceID</td>
+      <td>ID que representa a requisição de autenticação</td>
+      <td>GUID [36 posições]</td>
+    </tr>
+    <tr>
+      <td>returnCode</td>
+      <td>Código de retorno da requisição de autenticação</td>
+      <td>Alfanumérico [até 5 posições]</td>
+    </tr>
+    <tr>
+      <td>returnMessage</td>
+      <td>Mensagem de retorno da requisição de autenticação</td>
+      <td>Alfanumérico [varivável]</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Nota: No caso de uma transação submetida como Data Only (bpmpi_auth_notifyonly como true), mesmo que bem-sucedida, não serão retornados os campos CAVV e XID (campos não necessários para uma transação no modelo Data Only).</p>
+
+<h1 id="detalhamento-dos-objetos-da-requisição">Detalhamento dos objetos da requisição</h1>
+
+<p>Para facilitar o uso somente daquilo que o lojista precisa enviar, a requisição é separada em diversos objetos com contexto de dados bem definido conforme a tabela dos parâmetros de entrada do authenticate mostra. Abaixo vamos detalhar cada um dos objetos utilziados.</p>
+
+<aside class="warning">Quanto maior a quantidade de campos parametrizados, é maior a chance de ter uma autenticação transparente, pois o emissor terá maior subsídio para a análise de risco</aside>
+
+<h2 id="optionsdata">OptionsData</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Propriedade</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+      <th><strong>Obrigatório</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>notifyonly</td>
+      <td>Booleano que indica se a transação com cartão será submetida no modo “somente notificação” - <strong>Data Only</strong>. Neste modo, o processo de autenticação não será acionado, porém, os dados serão submetidos à bandeira. <strong>VÁLIDO SOMENTE PARA CARTÕES MASTERCARD</strong></td>
+      <td>Booleano: <br />true – modo somente notificação; <br />false – modo com autenticação</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>suppresschallenge</td>
+      <td>Booleano que indica se ignora ou não o desafio quando houver. Se uma transação autorizada após ignorar o desafio, o liability permanece com o estabelecimento.</td>
+      <td>Booleano: <br />true – ignorar desafios se houver; <br />false – apresentar desafio se houver</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="orderdata">OrderData</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Propriedade</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+      <th><strong>Obrigatório</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>orderNumber</td>
+      <td>Código do pedido no estabelecimento</td>
+      <td>Alphanumérico [até 50 posições]</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>currencyCode</td>
+      <td>Código da moeda</td>
+      <td>Fixo "BRL"</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>totalAmount</td>
+      <td>Valor total da transação, enviado em centavos</td>
+      <td>Numérico [até 15 posições]</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>paymentMethod</td>
+      <td>Tipo do cartão a ser autenticado. No caso do cartão múltiplo, deverá especificar um dos tipos, Credit ou Debit</td>
+      <td><em>PaymentMethod</em> <br />credit – Cartão de Crédito<br />debit – Cartão de Débito</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>installments</td>
+      <td>Número de parcelas da transação</td>
+      <td>Numérico [até 2 posições]</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>recurrence</td>
+      <td>Indica se é um pedido que gera recorrências futuras</td>
+      <td>Booleano<br />true<br />false</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>productCode</td>
+      <td>Tipo da compra</td>
+      <td><em>ProductCode</em><br />goodsPurchase: compra de mercadorias<br />checkAcceptance: Check acceptance<br />financeAccount: Financiamento de conta<br />quasiMoneyTransaction: Transação quase-dinheiro<br />recharge: recarga<br /></td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>countLast24Hours</td>
+      <td>Quantidade de pedidos efetuados por este comprador nas últimas 24h</td>
+      <td>Numérico [até 3 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>countLast6Months</td>
+      <td>Quantidade de pedidos efetuados por este comprador nos últimos 6 meses</td>
+      <td>Numérico [até 4 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>countLast1Year</td>
+      <td>Quantidade de pedidos efetuados por este comprador no último ano</td>
+      <td>Numérico [até 3 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>cardAttemptsLast24Hours</td>
+      <td>Quantidade de transações com o mesmo cartão nas últimas 24h</td>
+      <td>Numérico [até 3 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>marketingOptIn</td>
+      <td>Indica se o comprador aceitou receber ofertas de marketing</td>
+      <td>Booleano<br />true – sim<br />false – não</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>marketingSource</td>
+      <td>Identifica a origem da campanha de marketing</td>
+      <td>Alfanumérico [até 40 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>transactionMode</td>
+      <td>Identifica o canal que originou a transação</td>
+      <td>M: MOTO<br />R: Varejo<br />S: E-Commerce<br />P: Mobile<br />T: Tablet</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>merchantUrl</td>
+      <td>Endereço do site do estabelcimento</td>
+      <td>Alphanumérico [100] Exemplo: http://www.exemplo.com.br</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="carddata">CardData</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Propriedade</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+      <th><strong>Obrigatório</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>number</td>
+      <td>Número do Cartão</td>
+      <td>Numérico [até 19 posições]</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>expirationMonth</td>
+      <td>Mês do vencimento do cartão</td>
+      <td>Numérico [2 posições]</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>cardexpirationYear</td>
+      <td>Ano do vencimento do cartão</td>
+      <td>Numérico [4 posições]</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>cardAlias</td>
+      <td>Alias do cartão</td>
+      <td>Alphanumérico [até 128 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>defaultCard</td>
+      <td>Indica se é um cartão padrão do cliente na loja</td>
+      <td>Booleano<br />true - sim<br />false - não</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="billtodata">BillToData</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Propriedade</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+      <th><strong>Obrigatório</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>customerId</td>
+      <td>Identifica o CPF/CNPJ do comprador</td>
+      <td>Numérico [11 a 14 posições]<br />99999999999999</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>contactName</td>
+      <td>Nome do contato do endereço de cobrança</td>
+      <td>Alfanumérico [até 120]</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>phoneNumber</td>
+      <td>Telefone de contato do endereço de cobrança</td>
+      <td>Numérico [até 15 posições], no formato: 5511999999999</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td>E-mail do contato do endereço de cobrança</td>
+      <td>Alfanumérico [até 255], no formato <a href="mailto:nome@exemplo.com">nome@exemplo.com</a></td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>street1</td>
+      <td>Logradouro e Número do endereço de cobrança</td>
+      <td>Alfanumérico [até 60]</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>street2</td>
+      <td>Complemento e bairro do endereço de cobrança</td>
+      <td>Alfanumérico [até 60]</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>city</td>
+      <td>Cidade do endereço de cobrança</td>
+      <td>Alfanumérico [até 50]</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>state</td>
+      <td>Sigla do estado do endereço de cobrança</td>
+      <td>Texto [2 posições]</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>zipCode</td>
+      <td>CEP do endereço de cobrança</td>
+      <td>Alfanumérico [até 8 posições], no formato: 99999999</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>country</td>
+      <td>País do endereço de cobrança</td>
+      <td>Texto [2 posições] Ex. BR</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="shiptodata">ShipToData</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Propriedade</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+      <th><strong>Obrigatório</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>sameAsBillTo</td>
+      <td>Indica se utiliza o mesmo endereço fornecido para endereço de cobrança</td>
+      <td>Booleano<br />true<br />false</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>addressee</td>
+      <td>Nome do contato do endereço de entrega</td>
+      <td>Alfanumérico [até 60]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>phoneNumber</td>
+      <td>Telefone de contato do endereço de entrega</td>
+      <td>Numérico [até 15 posições], no formato: 5511999999999</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td>E-mail do contato do endereço de entrega</td>
+      <td>Alfanumérico [até 255], no formato <a href="mailto:nome@exemplo.com">nome@exemplo.com</a></td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>street1</td>
+      <td>Logradouro e Número do endereço de entrega</td>
+      <td>Alfanumérico [até 60]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>street2</td>
+      <td>Complemento e bairro do endereço de entrega</td>
+      <td>Alfanumérico [até 60]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>city</td>
+      <td>Cidade do endereço de entrega</td>
+      <td>Alfanumérico [até 50]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>state</td>
+      <td>Sigla do estado do endereço de entrega</td>
+      <td>Texto [2 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>zipCode</td>
+      <td>CEP do endereço de entrega</td>
+      <td>Alfanumérico [até 8 posições], no formato: 99999999</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>country</td>
+      <td>País do endereço de cobrança</td>
+      <td>Texto [2 posições] Ex. BR</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>shippingMethod</td>
+      <td>Tipo do método de envio</td>
+      <td><em>ShippingMethodEnum</em><br />lowcost: envio econômico<br />sameday: envio no mesmo dia<br />oneday: envio no dia seguinte<br />twoday: envio em dois dias<br />threeday: envio em três dias<br />pickup: retirada na loja<br />other: outrosnone: não há envio</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>firstUsageDate</td>
+      <td>Indica a data de quando houve a primeira utilização do endereço de entrega</td>
+      <td>Texto<br />AAAA-MM-DD – data da criação</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="cartitemdata">CartItemData</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Propriedade</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+      <th><strong>Obrigatório</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>description</td>
+      <td>Descrição do item</td>
+      <td>Alfanumérico [até 255 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>Nome do item</td>
+      <td>Alfanumérico [até 255 posições]</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>sku</td>
+      <td>SKU do item</td>
+      <td>Alfanumérico [até 255 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>quantity</td>
+      <td>Quantidade do item no carrinho</td>
+      <td>Numérico [até 10 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>unitprice</td>
+      <td>Valor unitário do item do carrinho em centavos</td>
+      <td>Numérico [até 10 posições]</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="devicedata">DeviceData</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Propriedade</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+      <th><strong>Obrigatório</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>fingerprint</td>
+      <td>Id retornado pelo Device Finger Print</td>
+      <td>Alfanumérico [sem limitação]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>provider</td>
+      <td>Nome do provedor do Device Finger Print</td>
+      <td>Alfanumérico [até 32 posições] cardinal<br />inauth<br />threatmetrix</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="userdata">UserData</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Propriedades</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+      <th><strong>Obrigatório</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>guest</td>
+      <td>Indica se o comprador é um comprador sem login (guest)</td>
+      <td>Booleano<br />true – sim<br />false – não</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>createdDate</td>
+      <td>Indica a data de quando houve a criação da conta do comprador</td>
+      <td>Texto<br />AAAA-MM-DD – data da criação</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>changedDate</td>
+      <td>Indica a data de quando houve a última alteração na conta do comprador</td>
+      <td>Texto<br />AAAA-MM-DD – data da última alteração</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>passwordChangedDate</td>
+      <td>Indica a data de quando houve a alteração de senha da conta do comprador</td>
+      <td>Texto<br />AAAA-MM-DD – data da última alteração de senha</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>authenticationMethod</td>
+      <td>Método de autenticação do comprador na loja</td>
+      <td><em>AuthenticationMethod</em> <br /> noAuthentication - Não houve autenticação<br />ownStoreLogin - Login da própria loja<br />federatedLogin - Login com ID federado<br />fidoAuthenticator - Login com autenticador FIDO</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>authenticationProtocol</td>
+      <td>Dado que representa o protocolo de login efetuado na loja</td>
+      <td>Alfanumérico [até 2048 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>authenticationTimestamp</td>
+      <td>A data e hora que o login foi efetuado na loja</td>
+      <td>Texto [19 posições] <em>YYYY-MM-ddTHH:mm:SS</em></td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>newCustomer</td>
+      <td>Identifica se um comprador novo na loja</td>
+      <td>Booleano<br />true – sim<br />false – não</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="airlinedata">AirlineData</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Propriedades</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+      <th><strong>Obrigatório</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>numberOfPassengers</td>
+      <td>Número de passageiros</td>
+      <td>Numérico [3 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>billToPassportCountry</td>
+      <td>Código do país que emitiu o passaporte (ISO Standard Country Codes)</td>
+      <td>Texto [2 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>billtoPassportNumber</td>
+      <td>Número do passaporte</td>
+      <td>Alfanumérico [40 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>travelLeg</td>
+      <td>Trecho da viagem</td>
+      <td>TravelLeg</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>passenger</td>
+      <td>Dados do passageiro</td>
+      <td>Passenger</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="travelleg">TravelLeg</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Propriedades</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+      <th><strong>Obrigatório</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>carrier</td>
+      <td>Código IATA para o trecho</td>
+      <td>Alfanumérico [2 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>departureDate</td>
+      <td>Data de partida</td>
+      <td>Texto<br />AAAA-MM-DD</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>origin</td>
+      <td>Código IATA do aeroporto de origem</td>
+      <td>Alfanumérico [5 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>destination</td>
+      <td>Código IATA do aeroporto de destino</td>
+      <td>Alfanumérico [5 posições]</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="passenger">Passenger</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Propriedades</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+      <th><strong>Obrigatório</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>Nome do passageiro</td>
+      <td>Alfanumérico [até 60 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>ticketPrice</td>
+      <td>O valor da passagem em centavos</td>
+      <td>Numérico [até 15 posições],<br />exemplo: R$ 125,54 = 12554</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="mdd">MDD</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Proriedades</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+      <th><strong>Obrigatório</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>mdd1</td>
+      <td>Dado Extra definido pelo lojista</td>
+      <td>Alfanumérico [até 255 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>mdd2</td>
+      <td>Dado Extra definido pelo lojista</td>
+      <td>Alfanumérico [até 255 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>mdd3</td>
+      <td>Dado Extra definido pelo lojista</td>
+      <td>Alfanumérico [até 255 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>mdd4</td>
+      <td>Dado Extra definido pelo lojista</td>
+      <td>Alfanumérico [até 255 posições]</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>mdd5</td>
+      <td>Dado Extra definido pelo lojista</td>
+      <td>Alfanumérico [até 255 posições]</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="recurringdata">RecurringData</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Proriedades</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+      <th><strong>Obrigatório</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>endDate</td>
+      <td>Identifica a data de término da recorrência</td>
+      <td>Texto (AAAA-MM-DD)</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>frequency</td>
+      <td>Indica a frequência da recorrência</td>
+      <td><em>RecurringFrequencyEnum</em> <br />MonthlyBimonthly<br />Quarterly<br />Triannual<br />SemiAnnual<br />Yearly</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td>originalPurchaseDate</td>
+      <td>Identifica a data da 1ª transação que originou a recorrência</td>
+      <td>Texto (AAAA-MM-DD)</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="demais-parâmetros">Demais parâmetros</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Proriedades</strong></th>
+      <th><strong>Descrição</strong></th>
+      <th><strong>Tipo/Tamanho</strong></th>
+      <th><strong>Obrigatório</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ipAddress</td>
+      <td>Endereço IP da máquina do comprador</td>
+      <td>Alfanumérico [até 45]</td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="eci-e-commerce-indicator">ECI (E-commerce Indicator)</h1>
+
+<p>E-Commerce Indicator (ECI) é retornado no processo de autenticação. Este código é um indicador do que exatamente ocorreu no processo de autenticação da transação.</p>
+
+<p>Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o agente responsável por aquela autenticação. Confira a <a href="https://developercielo.github.io/manual/autorizacao-com-autenticacao#tabela-de-eci" target="\_blank">tabela de ECI</a>.</p>
+
+<h1 id="cartões-de-teste">Cartões de Teste</h1>
+
+<p>Utilize os cartões de <strong>teste</strong> abaixo para simular diversos cenários no ambiente de <strong>SANDBOX</strong>.</p>
+
+<h2 id="cartões-de-teste-com-desafio">Cartões de Teste com Desafio</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>CARTÃO</strong></th>
+      <th><strong>BANDEIRA</strong></th>
+      <th><strong>RESULTADO</strong></th>
+      <th><strong>DESCRIÇÃO</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4000000000001091<br />5200000000001096<br />6505050000001091</td>
+      <td>VISA<br />MASTER<br />ELO</td>
+      <td>SUCCESS</td>
+      <td>Autenticação com desafio e portador autenticou com sucesso</td>
+    </tr>
+    <tr>
+      <td>4000000000001109<br />5200000000001104<br />6505050000001109</td>
+      <td>VISA<br />MASTER<br />ELO</td>
+      <td>FAILURE</td>
+      <td>Autenticação com desafio e portador autenticou com falha</td>
+    </tr>
+    <tr>
+      <td>4000000000001117<br />5200000000001112<br />6505050000001117</td>
+      <td>VISA<br />MASTER<br />ELO</td>
+      <td>UNENROLLED</td>
+      <td>Autenticação com desafio indisponível no momento</td>
+    </tr>
+    <tr>
+      <td>4000000000001125<br />5200000000001120<br />6505050000001125</td>
+      <td>VISA<br />MASTER<br />ELO</td>
+      <td>UNENROLLED</td>
+      <td>Erro de sistema durante a etapa de autenticação</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="cartões-de-teste-sem-desafio">Cartões de Teste sem Desafio</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>CARTÃO</strong></th>
+      <th><strong>BANDEIRA</strong></th>
+      <th><strong>RESULTADO</strong></th>
+      <th><strong>DESCRIÇÃO</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4000000000001000<br />5200000000001005<br />6505050000001000</td>
+      <td>VISA<br />MASTER<br />ELO</td>
+      <td>SUCCESS</td>
+      <td>Autenticação sem desafio e portador autenticou com sucesso</td>
+    </tr>
+    <tr>
+      <td>4000000000001018<br />5200000000001013<br />6505050000001018</td>
+      <td>VISA<br />MASTER<br />ELO</td>
+      <td>FAILURE</td>
+      <td>Autenticação sem desafio e portador autenticou com falha</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="autorização-com-autenticação">Autorização com Autenticação</h2>
+
+<p>Após autenticação ser concluída, submete-se ao processo de autorização, enviando os dados de autenticação no modelo de "autenticação externa" (nó <strong>ExternalAuthentication</strong> ).
+Veja maiores detalhes em: <a href="https://developercielo.github.io/manual/autorizacao-com-autenticacao">https://developercielo.github.io/manual/autorizacao-com-autenticacao</a></p>
+
+<h1 id="últimas-atualizações">Últimas atualizações</h1>
+
+<p>Para visualizar as últimas atualizações do manual, <a href="https://github.com/DeveloperCielo/developercielo.github.io/commits/docs/_i18n/pt/_posts/3ds/2019-09-20-integracao-sdk-ios.md">clique aqui</a></p>
+</div>
+
+
+            <div class="footer-conteudo">
+  <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+    <img
+      src="https://developercielo.github.io/assets/images/icon-doubt.svg"
+      width="55px"
+      height="53px"
+      alt="Precisa de ajuda?"
+    />
+  </div>
+
+  <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+    <h2>Precisa de ajuda?</h2>
+    <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://devcielo.zendesk.com/hc/pt-br#suporte">entre em contato conosco</a>.</p>
+  </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a
+        title="Comutar a coluna da esquerda"
+        class="hamburger"
+      >
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://desenvolvedores.cielo.com.br" target="_blank">
+        <img
+          src="https://developercielo.github.io/assets/images/logo.png"
+          alt="Documentações e tutoriais"
+          style="width: 60%; margin-left: 20%"
+        />
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+      
+
+      <div class="toc-contact">
+        <div class="contact">
+          <a
+            title="Contato"
+            href="https://devcielo.zendesk.com/"
+          >
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            <span>Contato</span>
+          </a>
+        </div>
+        <div class="github">
+          <a title="GitHub" href="https://github.com/developercielo">
+            <i class="fa fa-github" aria-hidden="true"></i>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/assets/bundles/js/bundle.min.js"></script>
+        <script>
+            
+            var selectors = 'h1,h2,h3,h4,h5,h6';
+            
+        </script>
+
+        
+        <script src="https://developercielo.github.io/assets/bundles/js/search.min.js"></script>
+        
+
+        
+
+        <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+<script>
+  (function (h, o, t, j, a, r) {
+    h.hj =
+      h.hj ||
+      function () {
+        (h.hj.q = h.hj.q || []).push(arguments);
+      };
+    h._hjSettings = { hjid: 674586, hjsv: 6 };
+    a = o.getElementsByTagName("head")[0];
+    r = o.createElement("script");
+    r.async = 1;
+    r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+</script>
+
+    </body>
+</html>

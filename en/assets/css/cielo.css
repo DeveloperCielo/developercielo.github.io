@@ -1,0 +1,110 @@
+/* Redefinir dependendo do cliente */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.content table th
+{
+  font-family: 'Fira Sans', Helvetica, Arial, sans-serif;
+  color: #888;
+}
+
+a,
+a:hover,
+a.btn:hover,
+.sidebar-sticky>.search:before,
+.nav-list > .active > a, .nav-list > .active > a:hover,
+.nav > li > a:hover
+{
+  color: #00aeef;
+}
+
+.content aside.notice,
+.lang-selector a.active
+{
+  background-color: #00aeef;
+}
+
+a.btn {
+  background: #00aeef;
+}
+
+a.btn {
+  border: 1px solid #00aeef;
+}
+
+.sidebar-closed .sidebar {
+    width: 50px;
+    overflow: hidden;
+}
+
+.sidebar-closed .sidebar .tocify,
+.sidebar-closed .sidebar .sidebar-about img,
+.sidebar-closed .sidebar .toc-footer,
+.sidebar-closed .toc-contact {
+    display: none;
+}
+
+.sidebar-closed .content-container {
+    padding-left: 90px;
+}
+
+.code-menu-closed .code-menu {
+    margin-right: 20px;
+}
+
+.code-menu-closed .dark-box {
+    width: 0px;
+}
+
+.code-menu-closed div.highlighter-rouge {
+    width: 100%;
+    position: relative;
+    float: none;
+    margin: 20px auto;
+}
+
+.code-menu-closed .content-container {
+    padding-right: 80px;
+}
+
+.dev-hub-title h2 {
+    color: #00aeef;
+}
+
+.home ul h2 {
+  font-weight: bold;
+  color: #00aeef;
+}
+
+.home ul.doc {
+    border-top: 2px solid #00aeef;
+}
+
+li.doc-title {
+    padding: 10px 0;
+    border-bottom: 1px solid #e1e1e1;
+    color: #00aeef;
+}
+
+li.doc-title:last-child {
+  border-bottom: 0;
+}
+
+.home li.product {
+    height: 100%;
+}
+
+input.hub-search:after {
+  color: #00aeef;
+}
+
+header.logo img {
+    height: 25px;
+    width: auto;
+    padding: 0;
+    margin: 20px 0;
+}
