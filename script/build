@@ -30,7 +30,7 @@ done
 export LANG=$lang && export LANGUAGE=$language && LC_ALL=$lc_all
 
 # lint for markdown
-#bundle exec mdl --rules ${RULES} _i18n/
+bundle exec mdl --rules ${RULES} _i18n/
 
 if [ -n "$GITHUB_TOKEN" ]; then
   # cleanup "_site"
@@ -40,16 +40,18 @@ if [ -n "$GITHUB_TOKEN" ]; then
   # clone remote repo to "_site"
   git clone https://${GITHUB_TOKEN}@github.com/DeveloperCielo/developercielo.github.io.git --branch master _site
 
-  # compiles front-end stufff
+  # compiles front-end stuff
   yarn
-  yarn dist
+  yarn gulp dist
 
   # build with Jekyll into "_site"
   bundle exec jekyll build --quiet -b ${HOST}
-  #bundle exec htmlproofer ./_site --disable-external --allow-hash-href --alt-ignore
+  bundle exec htmlproofer ./_site --disable-external --allow-hash-href --empty-alt-ignore
 
   # push
   cd _site
+  git config user.email "neto.joaobatista@gmail.com"
+  git config user.name "João Batista Neto"
   git add --all
   git commit -a -m "[$TRAVIS_COMMIT]: $TRAVIS_COMMIT_MESSAGE"
   git push --force origin master
