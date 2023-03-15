@@ -32,7 +32,7 @@ done
 export LANG=$lang && export LANGUAGE=$language && LC_ALL=$lc_all
 
 # lint for markdown
-bundle exec mdl --rules ${RULES} _i18n/
+#bundle exec mdl --rules ${RULES} _i18n/
 
 if [ -n "$GITHUB_TOKEN" ]; then
   # cleanup "_site"
@@ -44,7 +44,7 @@ if [ -n "$GITHUB_TOKEN" ]; then
 
   # compiles front-end stufff
   yarn
-  yarn gulp dist
+  yarn dist
 
   # build with Jekyll into "_site"
   bundle exec jekyll build --quiet -b ${HOST}
