@@ -1,0 +1,2368 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="theme-color" content="#00aeef" />
+  <meta http-equiv="Content-Language" content="pt" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     Manual de Integração &middot; Documentações e tutoriais 
+  </title>
+
+  <link rel="shortcut icon" href="https://developercielo.github.io/assets/favicon.ico" />
+
+  <!-- CSS -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500"
+    rel="stylesheet"
+    media="none"
+    onload="if(media!='all')media='all'"
+  />
+  <script async src="https://use.fontawesome.com/3ae06f1030.js"></script>
+
+  <link
+    rel="stylesheet"
+    href="https://developercielo.github.io/assets/bundles/css/bundle.min.css"
+  />
+
+   
+  <link
+    rel="alternate"
+    hreflang="pt"
+    href="https://developercielo.github.io/manual/promotions"
+  />
+    
+  <link
+    rel="alternate"
+    hreflang="en"
+    href="https://developercielo.github.io/en/manual/promotions"
+  />
+   
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="https://developercielo.github.io/atom.xml"
+  />
+</head>
+
+    <body>
+        
+        <div class="content-container">
+            <div class="language-tabs">
+                <a class='hide-btn' id="hide-button" title="Comutar"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <ul class="language-buttons">
+                    
+                    <li><a data-language-name='shell'>cURL</a></li>
+                    
+                </ul>
+            </div>
+            <div class="dark-box"></div>
+            <div class="overlay"></div>
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://devcielo.zendesk.com/hc/pt-br#suporte" class="help">Ajuda</a>
+
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/manual/promotions">Manual de Integração</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post"><h1 id="visão-geral---promotions">Visão geral - Promotions</h1>
+
+<p>Documentação técnica para orientar o desenvolvedor de como realizar uma integração junto à Cielo para o processo de divulgação de ofertas e promoções dos estabelecimentos comerciais que utilizam o Cielo Promo.</p>
+
+<h2 id="público-alvo">Público-alvo</h2>
+
+<p>API Restrita/Privada, necessário liberação interna para utilização, disponível apenas para colaboradores Cielo. Desenvolvedores e integradores parceiros que possuem conhecimentos em integração utilizando APIs REST e que queiram integrar o seu sistema / aplicativo mobile com as funcionalidades da API promotions da Cielo.</p>
+
+<h2 id="o-que-é">O que é</h2>
+
+<p>APIs que permitem a divulgação das Promoções (descontos e brindes) em estabelecimentos que possuem o Cielo Promo nas plataformas dos Parceiros.</p>
+
+<h2 id="como-funciona">Como funciona</h2>
+
+<p>Descrição dos verbos HTTP comuns as APIs:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Método</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>POST</strong></td>
+      <td>O método HTTP <code class="language-plaintext highlighter-rouge">POST</code> é utilizado na criação dos recursos ou no envio de informações que serão processadas Por exemplo, criação de uma transação</td>
+    </tr>
+    <tr>
+      <td><strong>GET</strong></td>
+      <td>O método HTTP <code class="language-plaintext highlighter-rouge">GET</code> é utilizado para consultas de recursos já existentes Por exemplo, consulta de transações</td>
+    </tr>
+    <tr>
+      <td><strong>PUT</strong></td>
+      <td>O método HTTP <code class="language-plaintext highlighter-rouge">PUT</code> é utilizado substituir recursos, executando uma atualização completa</td>
+    </tr>
+    <tr>
+      <td><strong>PATCH</strong></td>
+      <td>O método HTTP <code class="language-plaintext highlighter-rouge">PATCH</code> é utilizado atualizar recursos, executando uma atualização parcial dos dados</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="diagrama-de-utilização-demostrando-o-funcionamento-da-solução">Diagrama de utilização demostrando o funcionamento da solução</h3>
+
+<p>Fluxo de autenticação e autorização a ser executado para utilizar os recursos da API:</p>
+
+<p><img src="https://developercielo.github.io/images/apicielopromotions/fluxoautenticacao.png" alt="Fluxo" /></p>
+
+<h3 id="diagrama-de-utilização-demostrando-os-passos-para-o-uso-da-api">Diagrama de utilização demostrando os passos para o uso da API</h3>
+
+<p>Passo 1: Chamar recurso /login para obter a página de autenticação e autorização</p>
+
+<p><img src="https://developercielo.github.io/images/apicielopromotions/passo1.png" alt="Passo1" /></p>
+
+<p>Passo 2: Com o response do passo 1, renderizar o HTML na aplicação para iteração com usuário</p>
+
+<p><img src="https://developercielo.github.io/images/apicielopromotions/passo2.png" alt="Passo2" /></p>
+
+<p>Passo 3: Após a execução do login, obter através do callback o código de autorização</p>
+
+<p><img src="https://developercielo.github.io/images/apicielopromotions/passo3.png" alt="Passo3" /></p>
+
+<p>Passo 4: Com o código de autorização, chamar o recurso /access-token para gerar o access_token necessário para executar as chamadas aos recursos da API</p>
+
+<p><img src="https://developercielo.github.io/images/apicielopromotions/passo4.png" alt="Passo4" /></p>
+
+<p>Passo 5: Com a resposta, guardar o access_token (tempo de expiração) e o refresh_token (para regerar o access_token)</p>
+
+<h2 id="endpoints-sandbox-e-produção">Endpoints (Sandbox e Produção)</h2>
+
+<p>Ambiente Produção</p>
+
+<ul>
+  <li><a href="https://api.cielo.com.br/promotions/v1">https://api.cielo.com.br/promotions/v1</a></li>
+</ul>
+
+<p>Ambiente Sandbox</p>
+
+<ul>
+  <li><a href="https://api.cielo.com.br/sandbox/promotions/v1">https://api.cielo.com.br/sandbox/promotions/v1</a></li>
+</ul>
+
+<h2 id="http-header">HTTP Header</h2>
+
+<p>Todas as chamadas da API necessitam que as informações abaixo estejam presentes no Header na requisição:</p>
+
+<p><strong>Client-Id</strong>: Identificação de acesso Sua geração ocorre no momento da criação pelo painel do desenvolvedor Seu valor pode ser visualizado na coluna “Client ID”, dentro do menu “Desenvolvedor” -&gt; “Client ID Cadastrados”</p>
+
+<p><strong>Access-Token</strong>:Identificação do token de acesso, que armazena as regras de acesso permitidas ao Client ID Sua geração ocorre no momento da criação do Client ID pelo painel do desenvolvedor Seu valor pode ser visualizado clicando em “detalhes” na coluna “Access Tokens”, dentro do menu “Desenvolvedor” -&gt; “Client ID Cadastrados”</p>
+
+<h2 id="http-status-code">HTTP Status Code</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Erro</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>Operação realizada com sucesso</td>
+    </tr>
+    <tr>
+      <td>201</td>
+      <td>Created</td>
+      <td>A solicitação foi realizada, resultando na criação de um novo recurso</td>
+    </tr>
+    <tr>
+      <td>204</td>
+      <td>Empty</td>
+      <td>Operação realizada com sucesso, mas nenhuma resposta foi retornada</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>Bad Request</td>
+      <td>A requisição possui parâmetro(s) inválido(s)</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>O token de acesso não foi informado ou não possui acesso às APIs</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>O acesso ao recurso foi negado</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>O recurso informado no request não foi encontrado</td>
+    </tr>
+    <tr>
+      <td>413</td>
+      <td>Request is to Large</td>
+      <td>A requisição está ultrapassando o limite permitido para o perfil do seu token de acesso</td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td>Unprocessable Entity</td>
+      <td>A requisição possui parâmetros obrigatórios não informados</td>
+    </tr>
+    <tr>
+      <td>429</td>
+      <td>Too Many Requests</td>
+      <td>O consumidor estourou o limite de requisições por tempo</td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td>Internal Server Error</td>
+      <td>Erro não esperado; algoestá quebrado na API</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="api-docs">API Docs</h1>
+
+<h2 id="fidelidade">Fidelidade</h2>
+
+<h3 id="obtendo-html-da-página-de-login">Obtendo HTML da página de LOGIN</h3>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">/login</span></aside>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">REQUEST</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Nome</th>
+      <th style="text-align: center">Localização</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">client_id</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Client ID fornecido para a aplicação.</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">redirect_url</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Redirect URL fornecida para receber o callback.</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">name</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Nome do portador</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">cpf</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">CPF do portador</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">birthdate</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Data de nascimento do portador</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">email</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">E-mail do portador</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><em>Response</em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Model</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>301</td>
+      <td style="text-align: center">Login Screen URL Redirection.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">Header: {"Location":{"description":"Login screen URL + client_id + redirect_url","type":"string"}}</code></td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td style="text-align: center">Bad Request.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td style="text-align: center">Unauthorized.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td style="text-align: center">Forbidden.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td style="text-align: center">Not Found.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td style="text-align: center">Unprocessable Entity.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td style="text-align: center">Internal Server Error.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>502</td>
+      <td style="text-align: center">Bad Gateway.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>504</td>
+      <td style="text-align: center">Gateway Timeout.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="obtendo-html-da-página-de-cadastro-de-cartões">Obtendo HTML da página de cadastro de cartões</h3>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">/cards</span></aside>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">REQUEST</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th style="text-align: center">Localização</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>client_id</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Client ID fornecido para a aplicação.</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td>access_token</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Access Token</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td>redirect_url</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Redirect URL fornecida para receber o callback.</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><em>Response</em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Model</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>301</td>
+      <td style="text-align: center">URL redirection of the registration screen.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">Header: {"Location":{"description":"Card screen URL + client_id + redirect_url","type":"string"}}</code></td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td style="text-align: center">Bad Request.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td style="text-align: center">Unauthorized.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td style="text-align: center">Forbidden.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td style="text-align: center">Not Found.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td style="text-align: center">Unprocessable Entity.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td style="text-align: center">Internal Server Error.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>502</td>
+      <td style="text-align: center">Bad Gateway.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>504</td>
+      <td style="text-align: center">Gateway Timeout.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="retorna-os-dados-do-portador">Retorna os dados do portador</h3>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">/me</span></aside>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">REQUEST</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Nome</th>
+      <th style="text-align: center">Localização</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">client_id</td>
+      <td style="text-align: center">header</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Client ID fornecido para a aplicação.</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">access_token</td>
+      <td style="text-align: center">header</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Access Token</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">RESPONSE</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Model</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td style="text-align: center">Success</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"allOf":[ { "type":"object", "properties":{ "devices":{ "type":"array", "items":{ "id": { "type": "integer", "description": "Device identifier." }, "type": { "type": "string", "enum": [ "ANDROID", "IOS" ] } } } } },{ "id": { "type": "integer", "format": "int64", "description": "Card holder identifier." }, "birthdate": { "type": "string", "format": "date-time", "description": "Date of birth. The card holder must be at least 10 years old." }, "document": { "type": "string", "description": "Card holder document number.", "maxLength": 11 }, "email": { "type": "string", "description": "Card holder e-mail.", "maxLength": 100 }, "gender": { "type": "string", "description": "Card holder gender (F/M).", "enum": [ "FEMALE", "MALE" ] }, "name": { "type": "string", "description": "name.", "maxLength": 100 }, "phone": { "areaCode": { "type": "integer", "format": "int32" }, "phoneNumber": { "type": "integer", "format": "int32" } } } ]}</code></td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td style="text-align: center">Bad Request.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td style="text-align: center">Unauthorized.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td style="text-align: center">Forbidden.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td style="text-align: center">Not Found.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>412</td>
+      <td style="text-align: center">Precondition Failed.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td style="text-align: center">Unprocessable Entity.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td style="text-align: center">Internal Server Error.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>502</td>
+      <td style="text-align: center">Bad Gateway.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>504</td>
+      <td style="text-align: center">Gateway Timeout.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="retorna-lista-de-cartões-do-portador">Retorna lista de cartões do portador</h3>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">/me/cards</span></aside>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">REQUEST</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Nome</th>
+      <th style="text-align: center">Localização</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">client_id</td>
+      <td style="text-align: center">header</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Client ID fornecido para a aplicação.</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">access_token</td>
+      <td style="text-align: center">header</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Access token</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">_offset</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">integer</td>
+      <td style="text-align: center">Registro inicial a ser retornado</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">_limit</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">integer</td>
+      <td style="text-align: center">Quantidade limite de registros</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">_expand</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Expande o relacionamento no retorno</td>
+      <td style="text-align: center">Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">RESPONSE</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Model</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td style="text-align: center">OK.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"object","properties":{"id":{"type":"number","format":"int64","description":"Card idenfifier."},"nickname":{"type":"string","description":"Card nickname."},"brand":{"type":"string","description":"Card brand."},"maskedPan":{"type":"string","description":"4 last digits."},"type":{"type": "string", "enum": [ "DEBIT", "CREDIT", "MULTIPLE" ]},"status":{"type": "string", "enum": [ "STRONG", "WEAK" ]},"partners":{"type":"array","items":{"allOf": [ { "type": "object", "properties": { "statusAssociation": { "description": "Requested association status.", "type": "boolean" } } }, { "id": { "type": "number", "format": "int64", "description": "Partner identifier." }, "name": { "type": "string", "description": "Partner name." }, "description": { "type": "string", "description": "Partner description." }, "term": { "type": "string", "description": "Partner accept term URL." }, "associationType": { "type": "string", "description": "Type of association released to partner.", "enum": [ "AUTOMATIC", "MANUAL" ] } } ]}}}}</code></td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td style="text-align: center">Bad Request.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td style="text-align: center">Unauthorized.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td style="text-align: center">Forbidden.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td style="text-align: center">Not Found.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>405</td>
+      <td style="text-align: center">Method Not Allowed.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>412</td>
+      <td style="text-align: center">Precondition Failed.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>413</td>
+      <td style="text-align: center">Request Entity Too Large.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>415</td>
+      <td style="text-align: center">Unsupported Media Type.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td style="text-align: center">Unprocessable Entity.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>429</td>
+      <td style="text-align: center">Too Many Requests.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td style="text-align: center">Internal Server Error.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>502</td>
+      <td style="text-align: center">Bad Gateway.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>504</td>
+      <td style="text-align: center">Gateway Timeout.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="retorna-lista-de-transações-positivadas-de-um-portador">Retorna lista de transações positivadas de um portador</h3>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">/me/transactions</span></aside>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">REQUEST</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Nome</th>
+      <th style="text-align: center">Localização</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">client_id</td>
+      <td style="text-align: center">header</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Client ID fornecido para a aplicação.</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">access_token</td>
+      <td style="text-align: center">header</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Access token provided at login.</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">_offset</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">integer</td>
+      <td style="text-align: center">Registro inicial a ser retornado</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">_limit</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">integer</td>
+      <td style="text-align: center">Quantidade limite de registros</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">start_date</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Data Inicial (ISO 8601).</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">end_date</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Data Final (ISO 8601).</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">RESPONSE</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Model</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td style="text-align: center">OK.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"allOf":[{"type":"object","properties":{"transactionCancelled":{"type": "object", "properties": { "id": { "type": "number", "format": "int64", "description": "Transaction Identifier." }, "commercialEstablishment": { "type": "object", "properties": { "id": { "type": "number", "format": "int64", "description": "Commercial establishment identifier." }, "fictitiousName": { "type": "string", "description": "Fantasy name." }, "businessActivity": { "type": "object", "properties": { "id": { "type": "integer", "description": "Business activity identifier." } } } } }, "productPrimary": { "type": "object", "properties": { "id": { "type": "integer", "description": "Product identifier." }, "description": { "type": "string", "description": "Product name." } } }, "productSecondary": { "type": "object", "properties": { "id": { "type": "integer", "description": "Product identifier." }, "description": { "type": "string", "description": "Product name." } } }, "containsPromotions": { "type": "boolean", "description": "Flag that identifies whether it contains promotion."},"transactionUndone":{"type": "object", "properties": { "id": { "type": "number", "format": "int64", "description": "Transaction Identifier." }, "commercialEstablishment": { "type": "object", "properties": { "id": { "type": "number", "format": "int64", "description": "Commercial establishment identifier." }, "fictitiousName": { "type": "string", "description": "Fantasy name." }, "businessActivity": { "type": "object", "properties": { "id": { "type": "integer", "description": "Business activity identifier." } } } } }, "productPrimary": { "type": "object", "properties": { "id": { "type": "integer", "description": "Product identifier." }, "description": { "type": "string", "description": "Product name." } } }, "productSecondary": { "type": "object", "properties": { "id": { "type": "integer", "description": "Product identifier." }, "description": { "type": "string", "description": "Product name." } } }, "containsPromotions": { "type": "boolean", "description": "Flag that identifies whether it contains promotion."}}},{"type": "object", "properties": { "id": { "type": "number", "format": "int64", "description": "Transaction Identifier." }, "commercialEstablishment": { "type": "object", "properties": { "id": { "type": "number", "format": "int64", "description": "Commercial establishment identifier." }, "fictitiousName": { "type": "string", "description": "Fantasy name." }, "businessActivity": { "type": "object", "properties": { "id": { "type": "integer", "description": "Business activity identifier." } } } } }, "productPrimary": { "type": "object", "properties": { "id": { "type": "integer", "description": "Product identifier." }, "description": { "type": "string", "description": "Product name." } } }, "productSecondary": { "type": "object", "properties": { "id": { "type": "integer", "description": "Product identifier." }, "description": { "type": "string", "description": "Product name." } } }, "containsPromotions": { "type": "boolean", "description": "Flag that identifies whether it contains promotion."}]}</code></td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td style="text-align: center">Bad Request.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td style="text-align: center">Unauthorized.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td style="text-align: center">Forbidden.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td style="text-align: center">Not Found.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>412</td>
+      <td style="text-align: center">Precondition Failed.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td style="text-align: center">Unprocessable Entity.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td style="text-align: center">Internal Server Error.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>502</td>
+      <td style="text-align: center">Bad Gateway.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>504</td>
+      <td style="text-align: center">Gateway Timeout.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="obtém-dados-de-um-cartão">Obtém dados de um cartão</h3>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">/me/cards/{card_id}</span></aside>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">REQUEST</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Nome</th>
+      <th style="text-align: center">Localização</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">client_id</td>
+      <td style="text-align: center">header</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Client ID fornecido para a aplicação.</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">access_token</td>
+      <td style="text-align: center">header</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Access token</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">card_id</td>
+      <td style="text-align: center">path</td>
+      <td style="text-align: center">integer</td>
+      <td style="text-align: center">ID do cartão do portador</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">_expand</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Expande o relacionamento no retorno</td>
+      <td style="text-align: center">Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">RESPONSE</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Model</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td style="text-align: center">Ok.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"object","properties":{"id":{"type":"number","format":"int64","description":"Card idenfifier."},"nickname":{"type":"string","description":"Card nickname."},"brand":{"type":"string","description":"Card brand."},"maskedPan":{"type":"string","description":"4 last digits."},"type":{"type": "string", "enum": [ "DEBIT", "CREDIT", "MULTIPLE" ]},"status":{"type": "string", "enum": [ "STRONG", "WEAK" ]},"partners":{"allOf": [ { "type": "object", "properties": { "statusAssociation": { "description": "Requested association status.", "type": "boolean" } } }, { "type": "object", "properties": { "id": { "type": "number", "format": "int64", "description": "Partner identifier." }, "name": { "type": "string", "description": "Partner name." }, "description": { "type": "string", "description": "Partner description." }, "term": { "type": "string", "description": "Partner accept term URL." }, "associationType": { "type": "string", "description": "Type of association released to partner.", "enum": [ "AUTOMATIC", "MANUAL" ] } } } ]}}}}</code></td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td style="text-align: center">Bad Request.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"string","description":"Error full description."}</code></td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td style="text-align: center">Unauthorized.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"string","description":"Error full description."}</code></td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td style="text-align: center">Forbidden.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"string","description":"Error full description."}</code></td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td style="text-align: center">Not Found.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"string","description":"Error full description."}</code></td>
+    </tr>
+    <tr>
+      <td>412</td>
+      <td style="text-align: center">Precondition Failed.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td style="text-align: center">Unprocessable Entity.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td style="text-align: center">Internal Server Error.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>502</td>
+      <td style="text-align: center">Bad Gateway.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"string","description":"Error full description."}</code></td>
+    </tr>
+    <tr>
+      <td>504</td>
+      <td style="text-align: center">Gateway Timeout.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"string","description":"Error full description."}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="retorna-lista-dos-estabelecimentos-comerciais">Retorna lista dos estabelecimentos comerciais</h3>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">/commercial-establishments</span></aside>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">REQUEST</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Nome</th>
+      <th style="text-align: center">Localização</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">client_id</td>
+      <td style="text-align: center">header</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Client ID fornecido para a aplicação.</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">cnpj</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">CNPJ</td>
+      <td style="text-align: center">Não</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">cpf</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">CPF</td>
+      <td style="text-align: center">Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">RESPONSE</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Model</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td style="text-align: center">Commercial Establishments List.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"object","properties":{"id":{"type":"number","format":"int64","description":"Commercial establishment identifier."},"fictitiousName":{"type":"string","description":"Fantasy name."},"businessActivity":{"type": "object", "properties": { "id": { "type": "integer", "description": "Business activity identifier." } }}}}</code></td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td style="text-align: center">Bad Request.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td style="text-align: center">Unauthorized.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td style="text-align: center">Forbidden.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td style="text-align: center">Not Found.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td style="text-align: center">Unprocessable Entity.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td style="text-align: center">Internal Server Error.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>502</td>
+      <td style="text-align: center">Bad Gateway.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>504</td>
+      <td style="text-align: center">Gateway Timeout.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="retorna-a-subscrição-do-estabelecimento-comercial-a-uma-promoção">Retorna a subscrição do Estabelecimento Comercial a uma promoção</h3>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">/commercial-establishments/{commercial_establishment_id}/subscriptions/{subscription_id}</span></aside>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">REQUEST</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Nome</th>
+      <th style="text-align: center">Localização</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">client_id</td>
+      <td style="text-align: center">header</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Client ID fornecido para a aplicação.</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">commercial_establishment_id</td>
+      <td style="text-align: center">path</td>
+      <td style="text-align: center">integer</td>
+      <td style="text-align: center">ID do estabelecimento comercial</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">subscription_id</td>
+      <td style="text-align: center">path</td>
+      <td style="text-align: center">integer</td>
+      <td style="text-align: center">ID da subscrição</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">RESPONSE</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Model</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td style="text-align: center">Commercial establishments list.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"object","properties":{"id":{"type":"integer","format":"int64","description":"Subscription identifier."},"promotionId":{"type":"integer","format":"int64","description":"ID da promoção."},"status":{ "type": "object", "properties": { "id": { "type": "integer", "format": "int64", "description": "Subscription status identifier" }, "description": { "type": "string", "description": "ubscription status description" } }},"action":{"type":"string","description":"Action to be taken when subscribing.","enum":["S","U"]},"subscriptionDate":{"type":"string","format":"date","description":"Subscription date - ISO8601."},"processingDate":{"type":"string","format":"date","description":"Processing date - ISO8601."}}}</code></td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td style="text-align: center">Bad Request.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td style="text-align: center">Unauthorized.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td style="text-align: center">Forbidden.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td style="text-align: center">Not Found.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td style="text-align: center">Unprocessable Entity.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td style="text-align: center">Internal Server Error.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>502</td>
+      <td style="text-align: center">Bad Gateway.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>504</td>
+      <td style="text-align: center">Gateway Timeout.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="retorna-a-lista-das-subscrições-aceitas-e-processadas-para-um-estabelecimento-comercial">Retorna a lista das subscrições aceitas e processadas para um Estabelecimento Comercial</h3>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">/commercial-establishments/{commercial_establishment_id}/subscriptions</span></aside>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">REQUEST</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Nome</th>
+      <th style="text-align: center">Localização</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">client_id</td>
+      <td style="text-align: center">header</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Client ID fornecido para a aplicação.</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">commercial_establishment_id</td>
+      <td style="text-align: center">path</td>
+      <td style="text-align: center">integer</td>
+      <td style="text-align: center">ID do estabelecimento comercial</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">RESPONSE</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Model</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td style="text-align: center">Commercial establishments list*.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"object","properties":{"id":{"type":"integer","format":"int64","description":"Subscription identifier."},"promotionId":{"type":"integer","format":"int64","description":"ID da promoção."},"status":{ "type": "object", "properties": { "id": { "type": "integer", "format": "int64", "description": "Subscription status identifier" }, "description": { "type": "string", "description": "ubscription status description" } }},"action":{"type":"string","description":"Action to be taken when subscribing.","enum":["S","U"]},"subscriptionDate":{"type":"string","format":"date","description":"Subscription date - ISO8601."},"processingDate":{"type":"string","format":"date","description":"Processing date - ISO8601."}}}</code></td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td style="text-align: center">Bad Request.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td style="text-align: center">Unauthorized.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td style="text-align: center">Forbidden.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td style="text-align: center">Not Found.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td style="text-align: center">Unprocessable Entity.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td style="text-align: center">Internal Server Error.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>502</td>
+      <td style="text-align: center">Bad Gateway.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>504</td>
+      <td style="text-align: center">Gateway Timeout.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="envia-um-pedido-de-subscrição-a-uma-promoção-para-um-estabelecimento-comercial">Envia um pedido de subscrição a uma promoção para um Estabelecimento Comercial</h3>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">/commercial-establishments/{commercial_establishment_id}/subscriptions</span></aside>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">REQUEST</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Nome</th>
+      <th style="text-align: center">Localização</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">client_id</td>
+      <td style="text-align: center">header</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Client ID fornecido para a aplicação.</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">commercial_establishment_id</td>
+      <td style="text-align: center">path</td>
+      <td style="text-align: center">integer</td>
+      <td style="text-align: center">ID do estabelecimento comerial</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">subscription</td>
+      <td style="text-align: center">body</td>
+      <td style="text-align: center">object</td>
+      <td style="text-align: center">{ “promotionID” : 0, “action” : “S” }</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">subscription.promotionID</td>
+      <td style="text-align: center">body</td>
+      <td style="text-align: center">integer</td>
+      <td style="text-align: center">ID da promoção</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">subscription.action</td>
+      <td style="text-align: center">body</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Tipo da ação: S - subscribe / U - unsubscribe</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">RESPONSE</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Model</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>202</td>
+      <td style="text-align: center">Subscription request accepted.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">Header: {"Location":{"description":"Location for request status query","type":"string"}}</code></td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td style="text-align: center">Bad Request.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td style="text-align: center">Unauthorized.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td style="text-align: center">Forbidden.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td style="text-align: center">Not Found.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td style="text-align: center">Unprocessable Entity.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td style="text-align: center">Internal Server Error.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>502</td>
+      <td style="text-align: center">Bad Gateway.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>504</td>
+      <td style="text-align: center">Gateway Timeout.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="atualiza-o-status-de-um-subscrição">Atualiza o status de um subscrição</h3>
+
+<aside class="request"><span class="method patch">PATCH</span><span class="endpoint">/subscriptions/{subscription_id}</span></aside>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">REQUEST</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Nome</th>
+      <th style="text-align: center">Localização</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">client_id</td>
+      <td style="text-align: center">header</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Client ID fornecido para a aplicação.</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">subscription_id</td>
+      <td style="text-align: center">path</td>
+      <td style="text-align: center">integer</td>
+      <td style="text-align: center">Commercial establishment subscription identifier to a promotion.</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">subscription</td>
+      <td style="text-align: center">body</td>
+      <td style="text-align: center">object</td>
+      <td style="text-align: center">{ “promotionID” : 0, “action” : “S” }</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">subscription.promotionID</td>
+      <td style="text-align: center">body</td>
+      <td style="text-align: center">integer</td>
+      <td style="text-align: center">ID da promoção</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">subscription.action</td>
+      <td style="text-align: center">body</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Tipo da ação: S - subscribe / U - unsubscribe</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">RESPONSE</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Model</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>204</td>
+      <td style="text-align: center">No Content.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td style="text-align: center">Bad Request.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td style="text-align: center">Unauthorized.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td style="text-align: center">Forbidden.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td style="text-align: center">Not Found.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td style="text-align: center">Unprocessable Entity.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td style="text-align: center">Internal Server Error.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>502</td>
+      <td style="text-align: center">Bad Gateway.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>504</td>
+      <td style="text-align: center">Gateway Timeout.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="obtém-a-lista-de-subscrições-não-processadas">Obtém a lista de subscrições não processadas</h3>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">/subscriptions/queue</span></aside>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">REQUEST</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Nome</th>
+      <th style="text-align: center">Localização</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">client_id</td>
+      <td style="text-align: center">header</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Client ID fornecido para a aplicação.</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">RESPONSE</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Model</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td style="text-align: center">List of unprocessed subscriptions.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"object","properties":{"id":{"type":"integer","format":"int64","description":"Subscription identifier."},"promotionId":{"type":"integer","format":"int64","description":"Promotion identifier."},"subscriptionDate":{"type":"string","format":"date","description":"Subscription date - ISO8601."},"action":{"type":"string","description":"Action to be taken when subscribing.","enum":["S","U"]}}}</code></td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td style="text-align: center">Bad Request.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td style="text-align: center">Unauthorized.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td style="text-align: center">Forbidden.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td style="text-align: center">Not Found.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td style="text-align: center">Unprocessable Entity.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td style="text-align: center">Internal Server Error.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>502</td>
+      <td style="text-align: center">Bad Gateway.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>504</td>
+      <td style="text-align: center">Gateway Timeout.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="obtém-o-status-de-uma-subscrição-não-procesada">Obtém o status de uma subscrição não procesada</h3>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">/subscriptions/{subscription_id}/queue</span></aside>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">REQUEST</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Nome</th>
+      <th style="text-align: center">Localização</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">client_id</td>
+      <td style="text-align: center">header</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Client ID fornecido para a aplicação.</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">subscription_id</td>
+      <td style="text-align: center">path</td>
+      <td style="text-align: center">integer</td>
+      <td style="text-align: center">ID da subscrição</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">RESPONSE</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Model</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td style="text-align: center">Queue request data.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"object","properties":{"id":{"type":"integer","format":"int64","description":"Subscription identifier."},"promotionId":{"type":"integer","format":"int64","description":"Promotion identifier."},"subscriptionDate":{"type":"string","format":"date","description":"Subscription date - ISO8601."},"action":{"type":"string","description":"Action to be taken when subscribing.","enum":["S","U"]}}}</code></td>
+    </tr>
+    <tr>
+      <td>303</td>
+      <td style="text-align: center">Request processed. Redirect to the correct location.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">Header: {"Location":{"description":"Location of subscription creation.","type":"string"}}</code></td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td style="text-align: center">Bad Request.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td style="text-align: center">Unauthorized.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td style="text-align: center">Forbidden.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td style="text-align: center">Not Found.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td style="text-align: center">Unprocessable Entity.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td style="text-align: center">Internal Server Error.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>502</td>
+      <td style="text-align: center">Bad Gateway.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>504</td>
+      <td style="text-align: center">Gateway Timeout.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="atualiza-o-access_token-a-partir-do-refresh_token">Atualiza o ACCESS_TOKEN a partir do refresh_token</h3>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">/refresh-token</span></aside>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">REQUEST</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Nome</th>
+      <th style="text-align: center">Localização</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">client_id</td>
+      <td style="text-align: center">header</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Client ID fornecido para a aplicação.</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">authorization</td>
+      <td style="text-align: center">header</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Código de autorização correspondente a concatenação do client_id + client_secret convertido para Base 64.</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">refresh</td>
+      <td style="text-align: center">body</td>
+      <td style="text-align: center">object</td>
+      <td style="text-align: center">{ “grant_type”:”string” , “code”: “string” }</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">refresh.grant_type</td>
+      <td style="text-align: center">body</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Tipo do request, ex. grant_type = refresh_token</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">refresh.code</td>
+      <td style="text-align: center">body</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Código do refresh_token</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">RESPONSE</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Model</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>201</td>
+      <td style="text-align: center">Created.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"object","properties":{"access_token":{"type":"string","description":"Access Token"},"refresh_token":{"type":"string","description":"Refresh Token"},"token_type":{"type":"string","description":"Token Type"},"expires_in":{"type":"integer","description":"Expires in"}}}</code></td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td style="text-align: center">Bad Request.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td style="text-align: center">Unauthorized.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td style="text-align: center">Forbidden.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td style="text-align: center">Not Found.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>405</td>
+      <td style="text-align: center">Method Not Allowed.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>412</td>
+      <td style="text-align: center">Precondition Failed.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>413</td>
+      <td style="text-align: center">Request Entity Too Large.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>415</td>
+      <td style="text-align: center">Unsupported Media Type.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td style="text-align: center">Unprocessable Entity.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>429</td>
+      <td style="text-align: center">Too Many Requests.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td style="text-align: center">Internal Server Error.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>502</td>
+      <td style="text-align: center">Bad Gateway.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>504</td>
+      <td style="text-align: center">Gateway Timeout.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="obtém-o-access_token">Obtém o ACCESS_TOKEN</h3>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">/access-token</span></aside>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">REQUEST</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th style="text-align: center">Localização</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Descrição</th>
+      <th>Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>client_id</td>
+      <td style="text-align: center">header</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Client ID fornecido para a aplicação.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>authorization</td>
+      <td style="text-align: center">header</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Código de autorização correspondente a concatenação do client_id + client_secret convertido para Base 64.</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>grant</td>
+      <td style="text-align: center">body</td>
+      <td style="text-align: center">object</td>
+      <td style="text-align: center">{ “grant_type”:”string” , “code”: “string” }</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>grant.grant_type</td>
+      <td style="text-align: center">body</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Tipo do request, ex. grant_type = authorization_code</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td>grant.code</td>
+      <td style="text-align: center">body</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Código do authorization_code</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">RESPONSE</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Model</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>201</td>
+      <td style="text-align: center">Created.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"object","properties":{"access_token":{"type":"string","description":"Access Token"},"refresh_token":{"type":"string","description":"Refresh Token"},"token_type":{"type":"string","description":"Token Type"},"expires_in":{"type":"integer","description":"Expires in"}}}</code></td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td style="text-align: center">Bad Request.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td style="text-align: center">Unauthorized.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td style="text-align: center">Forbidden.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td style="text-align: center">Not Found.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>405</td>
+      <td style="text-align: center">Method Not Allowed.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>412</td>
+      <td style="text-align: center">Precondition Failed.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>413</td>
+      <td style="text-align: center">Request Entity Too Large.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>415</td>
+      <td style="text-align: center">Unsupported Media Type.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td style="text-align: center">Unprocessable Entity.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>429</td>
+      <td style="text-align: center">Too Many Requests.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td style="text-align: center">Internal Server Error.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>502</td>
+      <td style="text-align: center">Bad Gateway.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+    <tr>
+      <td>504</td>
+      <td style="text-align: center">Gateway Timeout.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"description":"Error full description.","type":"string"}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="promoções">Promoções</h2>
+
+<h3 id="obtém-lista-de-promoções">Obtém lista de promoções</h3>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">/promotions</span></aside>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">REQUEST</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Nome</th>
+      <th style="text-align: center">Localização</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">client_id</td>
+      <td style="text-align: center">header</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Client ID fornecido para a aplicação.</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">latitude</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">number</td>
+      <td style="text-align: center">Latitude</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">longitude</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">number</td>
+      <td style="text-align: center">Longitude</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">radius</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">integer</td>
+      <td style="text-align: center">Raio</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">active</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">boolean</td>
+      <td style="text-align: center">Indicador para campanha ativa / não ativa</td>
+      <td style="text-align: center">Não</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">type</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Tipo da Campanha. Ex: A – RFM Amount; B – Event Birthday; E – Event Day; F – RFM Frequency; G – Generic; P – RFM Punch; R – Event Recurring Hour/Day; X – RFM Recency; W – Event Welcome;</td>
+      <td style="text-align: center">Não</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">_offset</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">integer</td>
+      <td style="text-align: center">Registro inicial a ser retornado</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">_limit</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">integer</td>
+      <td style="text-align: center">Quantidade de registros a serem retornados</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">_sort</td>
+      <td style="text-align: center">query</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Define a ordenação do resultado</td>
+      <td style="text-align: center">Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">RESPONSE</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Model</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td style="text-align: center">OK.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"allOf":[{"type":"object","properties":{"commercialEstablishment":{ "type": "object", "properties": { "id": { "type": "number", "format": "int64", "description": "Commercial establishment identifier." }, "fictitiousName": { "type": "string", "description": "Fantasy name." }, "businessActivity": { "type": "object", "properties": { "id": { "type": "integer", "description": "Business activity identifier." } } } }}}},{"type": "object", "properties": { "id": { "type": "integer", "description": "Campaign identifier in the PROMO database." }, "active": { "type": "boolean", "description": "Field that identifies whether the campaign is active." }, "endDate": { "type": "string", "format": "date", "description": "End date (ISO 8601)." }, "startDate": { "type": "string", "format": "date", "description": "Start date (ISO 8601)." }, "title": { "type": "string", "description": "Promotional Campaign Title." }, "description": { "type": "string", "description": "Promotional Campaign Description." }, "transactionDays": { "type": "string", "description": "Transaction Days." }, "campaignModel": { "type": "string", "description": "Campaign model." }, "premium": { "type": "string", "description": "Campaign Prize." }, "campaignType": { "type": "string", "description": "Tipo da Campanha. Ex: A – RFM Amount; B – Event Birthday; E – Event Day; F – RFM Frequency; G – Generic; P – RFM Punch; R – Event Recurring Hour/Day; X – RFM Recency; W – Event Welcome;", "enum": [ "A", "B", "E", "F", "G", "P", "R", "X", "W" ] }, "validityRedemption": { "type": "string", "format": "date", "description": "Validity of the redemption." }, "shareable": { "type": "boolean", "description": "Field that identifies whether the campaign can be shared." } }}]}</code></td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td style="text-align: center">Bad Request.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"string","description":"Error full description."}</code></td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td style="text-align: center">Unauthorized.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"string","description":"Error full description."}</code></td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td style="text-align: center">Forbidden.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"string","description":"Error full description."}</code></td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td style="text-align: center">Not Found.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"string","description":"Error full description."}</code></td>
+    </tr>
+    <tr>
+      <td>405</td>
+      <td style="text-align: center">Method Not Allowed.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"string","description":"Error full description."}</code></td>
+    </tr>
+    <tr>
+      <td>412</td>
+      <td style="text-align: center">Precondition Failed.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>413</td>
+      <td style="text-align: center">Request Entity Too Large.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"string","description":"Error full description."}</code></td>
+    </tr>
+    <tr>
+      <td>415</td>
+      <td style="text-align: center">Unsupported Media Type.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"string","description":"Error full description."}</code></td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td style="text-align: center">Unprocessable Entity.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>429</td>
+      <td style="text-align: center">Too Many Requests.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"string","description":"Error full description."}</code></td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td style="text-align: center">Internal Server Error.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>502</td>
+      <td style="text-align: center">Bad Gateway.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"string","description":"Error full description."}</code></td>
+    </tr>
+    <tr>
+      <td>504</td>
+      <td style="text-align: center">Gateway Timeout.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"string","description":"Error full description."}</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="obtém-uma-promoção-específica">Obtém uma promoção específica</h3>
+
+<aside class="request"><span class="method get">GET</span><span class="endpoint">/promotions/{promotion_id}</span></aside>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">REQUEST</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Nome</th>
+      <th style="text-align: center">Localização</th>
+      <th style="text-align: center">Tipo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Obrigatório</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">client_id</td>
+      <td style="text-align: center">header</td>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">Client ID fornecido para a aplicação.</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">promotion_id</td>
+      <td style="text-align: center">path</td>
+      <td style="text-align: center">integer</td>
+      <td style="text-align: center">ID da promoção</td>
+      <td style="text-align: center">Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong><em><code class="language-plaintext highlighter-rouge">RESPONSE</code></em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th style="text-align: center">Descrição</th>
+      <th style="text-align: center">Model</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td style="text-align: center">OK.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"allOf":[{"type":"object","properties":{"commercialEstablishment":{"type": "object", "properties": { "id": { "type": "number", "format": "int64", "description": "Commercial establishment identifier." }, "fictitiousName": { "type": "string", "description": "Fantasy name." }, "businessActivity": { "type": "object", "properties": { "id": { "type": "integer", "description": "Business activity identifier." } } } }}}},{ "type": "object", "properties": { "id": { "type": "integer", "description": "Campaign identifier in the PROMO database." }, "active": { "type": "boolean", "description": "Field that identifies whether the campaign is active." }, "endDate": { "type": "string", "format": "date", "description": "End date (ISO 8601)." }, "startDate": { "type": "string", "format": "date", "description": "Start date (ISO 8601)." }, "title": { "type": "string", "description": "Promotional Campaign Title." }, "description": { "type": "string", "description": "Promotional Campaign Description." }, "transactionDays": { "type": "string", "description": "Transaction Days." }, "campaignModel": { "type": "string", "description": "Campaign model." }, "premium": { "type": "string", "description": "Campaign Prize." }, "campaignType": { "type": "string", "description": "Tipo da Campanha. Ex: A – RFM Amount; B – Event Birthday; E – Event Day; F – RFM Frequency; G – Generic; P – RFM Punch; R – Event Recurring Hour/Day; X – RFM Recency; W – Event Welcome;", "enum": [ "A", "B", "E", "F", "G", "P", "R", "X", "W" ] }, "validityRedemption": { "type": "string", "format": "date", "description": "Validity of the redemption." }, "shareable": { "type": "boolean", "description": "Field that identifies whether the campaign can be shared." }}]}</code></td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td style="text-align: center">Bad Request.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"string","description":"Error full description."}</code></td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td style="text-align: center">Unauthorized.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"string","description":"Error full description."}</code></td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td style="text-align: center">Forbidden.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"string","description":"Error full description."}</code></td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td style="text-align: center">Not Found.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"string","description":"Error full description."}</code></td>
+    </tr>
+    <tr>
+      <td>405</td>
+      <td style="text-align: center">Method Not Allowed.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"string","description":"Error full description."}</code></td>
+    </tr>
+    <tr>
+      <td>412</td>
+      <td style="text-align: center">Precondition Failed.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>413</td>
+      <td style="text-align: center">Request Entity Too Large.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"string","description":"Error full description."}</code></td>
+    </tr>
+    <tr>
+      <td>415</td>
+      <td style="text-align: center">Unsupported Media Type.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"string","description":"Error full description."}</code></td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td style="text-align: center">Unprocessable Entity.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>429</td>
+      <td style="text-align: center">Too Many Requests.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"string","description":"Error full description."}</code></td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td style="text-align: center">Internal Server Error.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"properties":{"code":{"type":"string","description":"Error code."},"description":{"type":"string","description":"Error full description."}}}</code></td>
+    </tr>
+    <tr>
+      <td>502</td>
+      <td style="text-align: center">Bad Gateway.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"string","description":"Error full description."}</code></td>
+    </tr>
+    <tr>
+      <td>504</td>
+      <td style="text-align: center">Gateway Timeout.</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">{"type":"string","description":"Error full description."}</code></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+            <div class="footer-conteudo">
+  <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+    <img
+      src="https://developercielo.github.io/assets/images/icon-doubt.svg"
+      width="55px"
+      height="53px"
+      alt="Precisa de ajuda?"
+    />
+  </div>
+
+  <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+    <h2>Precisa de ajuda?</h2>
+    <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://devcielo.zendesk.com/hc/pt-br#suporte">entre em contato conosco</a>.</p>
+  </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a
+        title="Comutar a coluna da esquerda"
+        class="hamburger"
+      >
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://desenvolvedores.cielo.com.br" target="_blank">
+        <img
+          src="https://developercielo.github.io/assets/images/logo.png"
+          alt="Documentações e tutoriais"
+          style="width: 60%; margin-left: 20%"
+        />
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+      
+
+      <div class="toc-contact">
+        <div class="contact">
+          <a
+            title="Contato"
+            href="https://devcielo.zendesk.com/"
+          >
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            <span>Contato</span>
+          </a>
+        </div>
+        <div class="github">
+          <a title="GitHub" href="https://github.com/developercielo">
+            <i class="fa fa-github" aria-hidden="true"></i>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/assets/bundles/js/bundle.min.js"></script>
+        <script>
+            
+            var selectors = 'h1,h2,h3,h4,h5,h6';
+            
+        </script>
+
+        
+        <script src="https://developercielo.github.io/assets/bundles/js/search.min.js"></script>
+        
+
+        
+        <script>
+            let langs = '';
+            let langsArray = [];
+
+            
+            langs += "<a data-language-name='shell'>cURL</a>";
+            langsArray.push('shell');
+            
+
+            var toggleCode = 'Comutar';
+        </script>
+
+        <script src='https://developercielo.github.io/assets/bundles/js/language_buttons.min.js'></script>
+        
+
+        <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+<script>
+  (function (h, o, t, j, a, r) {
+    h.hj =
+      h.hj ||
+      function () {
+        (h.hj.q = h.hj.q || []).push(arguments);
+      };
+    h._hjSettings = { hjid: 674586, hjsv: 6 };
+    a = o.getElementsByTagName("head")[0];
+    r = o.createElement("script");
+    r.async = 1;
+    r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+</script>
+
+    </body>
+</html>

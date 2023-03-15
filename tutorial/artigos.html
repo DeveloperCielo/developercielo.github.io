@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="theme-color" content="#00aeef" />
+  <meta http-equiv="Content-Language" content="pt" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     Artigos e informações &middot; Documentações e tutoriais 
+  </title>
+
+  <link rel="shortcut icon" href="https://developercielo.github.io/assets/favicon.ico" />
+
+  <!-- CSS -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500"
+    rel="stylesheet"
+    media="none"
+    onload="if(media!='all')media='all'"
+  />
+  <script async src="https://use.fontawesome.com/3ae06f1030.js"></script>
+
+  <link
+    rel="stylesheet"
+    href="https://developercielo.github.io/assets/bundles/css/bundle.min.css"
+  />
+
+   
+  <link
+    rel="alternate"
+    hreflang="pt"
+    href="https://developercielo.github.io/tutorial/artigos"
+  />
+    
+  <link
+    rel="alternate"
+    hreflang="en"
+    href="https://developercielo.github.io/en/tutorial/artigos"
+  />
+   
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="https://developercielo.github.io/atom.xml"
+  />
+</head>
+
+    <body>
+        
+        <div class="content-container no-dark-box">
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://devcielo.zendesk.com/hc/pt-br#suporte" class="help">Ajuda</a>
+
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/tutorial/artigos">Artigos e informações</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post"><h1 id="como-usar-azure-kubernetes-services">Como usar Azure Kubernetes Services</h1>
+
+<h2 id="sobre-o-autor">Sobre o Autor:</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Tiago Rosendo</strong></td>
+      <td>Desenvolvedor na Braspag e Cielo, backend de coração e apaixonado pelo frontend, entusiasta de JS e Docker e nas horas vagas não dispensa uma jogatina online.</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>LinkedIn:</strong> https://www.linkedin.com/in/trosendo / <strong>E-mail:</strong> trosendo@braspag.com.br</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="introdução">Introdução</h2>
+
+<p>Vamos falar um pouco sobre o Azure Kubernetes Services, vulgo AKS.
+O utilizamos para realizar deploys em nossas principais aplicações, desde as mais básicas as mais complexas tudo com alta disponibilidade!</p>
+
+<p>Rodar containers Docker em um computador local é muito simples, basta um comando <code class="language-plaintext highlighter-rouge">docker run nginx</code> e pronto, você tem seu container lindo rodando, porém quando você tem a necessidade de rodar esse mesmo container em um ambiente de nuvem a história muda…
+Você tem que montar seu cluster, configurar o auto-scale, configurar o load balance… MEU DEUS QUANTA COISA!
+Um certo dia, parei para pesquisar uma solução que poupasse meu tempo, logo, pensei comigo:</p>
+
+<blockquote>
+  <p>“não é possível que ninguém tenha feito algo para simplificar esse processo repetitivo”</p>
+</blockquote>
+
+<p>Uma das soluções encontradas foi o <strong>Azure Kubernetes Services</strong>, ele te permite montar um cluster de Kubernetes com 1 único comando, com isso sobra tempo pra focar na sua aplicação e não na configuração de máquinas</p>
+
+<p><strong>Mas o que é Kubernetes?</strong> Falando por alto, Kubernetes é uma ferramenta de orquestração para containers, você monta seu container com o Docker e o Kubernetes faz todo o trabalho de deploy, auto scale, service discovery e muito mais.
+Caso queira saber mais sobre o Kubernetes segue o link da documentação deles:</p>
+
+<blockquote>
+  <p>https://kubernetes.io/docs/tutorials/kubernetes-basics/</p>
+</blockquote>
+
+<h2 id="montando-um-cluster-em-kubernetes">Montando um Cluster em Kubernetes</h2>
+
+<p>Estou levando em consideração que você já tenha o <code class="language-plaintext highlighter-rouge">Azure CLI</code> configurado na sua máquina, caso não tenha segue um tutorial de configuração:</p>
+
+<blockquote>
+  <p>https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest</p>
+</blockquote>
+
+<p>Para montar um cluster utilizando o AKS basta um único comando:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"az aks create -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos --generate-ssh-keys"
+</code></pre></div></div>
+
+<p>Substitua o <code class="language-plaintext highlighter-rouge">NomeDoSeuCluster</code> pelo nome do seu cluster.</p>
+
+<p>Substitua o <code class="language-plaintext highlighter-rouge">NomeDoGrupoDeRecursos</code> pelo nome do grupo de recursos onde o seu cluster irá ser provisionado, este grupo de recursos precisa existir na sua conta do Azure.</p>
+
+<p>Após alguns minutos você terá o seu cluster montado como pode ser visto na imagem abaixo:</p>
+
+<p><img src="https://i.imgur.com/CFwO4Jz.png" alt="" /></p>
+
+<p>Após montar nosso cluster vamos resgaras as credenciais de acesso com o comando:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"az aks get-credentials -n NomeDoSeuCluster -g NomeDoGrupoDeRecursos"
+</code></pre></div></div>
+
+<p>Caso tudo dê certo você irá receber a seguinte mensagem:</p>
+
+<p><img src="https://i.imgur.com/oLSo4j4.png" alt="" /></p>
+
+<p>Vamos agora configurar o Kubectl CLI, este será utilizado para se comunicar diretamente com o Kubernetes, para fazer isso basta executar o seguinte comando:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"az aks install-cli"
+</code></pre></div></div>
+
+<p>Se tudo ocorreu bem será exibido a seguinte mensagem:</p>
+
+<p><img src="https://i.imgur.com/pihYQw1.png" alt="" /></p>
+
+<p>Vamos verificar agora qual o estado das máquinas do nosso cluster, para isso utilizaremos o comando:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl get nodes"
+</code></pre></div></div>
+
+<p><img src="https://i.imgur.com/Qyygi8y.png" alt="" /></p>
+
+<p>Finalmente vamos subir nossa primeira aplicação dentro do nosso cluster!!! Para isso vamos utilizar o comando <code class="language-plaintext highlighter-rouge">run</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl run meu-nginx --image=nginx --replicas=1 --port=80"
+</code></pre></div></div>
+
+<p><img src="https://i.imgur.com/gGNYlk2.png" alt="" /></p>
+
+<p>Vamos chamar o <code class="language-plaintext highlighter-rouge">get pods</code> para verificar se nossa aplicação foi deployada com sucesso:</p>
+
+<p><img src="https://i.imgur.com/IxKDQJ8.png" alt="" /></p>
+
+<p>Como vimos na imagem acima nossa aplicação foi “deployada”, porém ela ainda não está disponivel na internet
+Para disponibilizar nossa aplicação na internet vamos utilizar o comando <code class="language-plaintext highlighter-rouge">expose</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl expose deployment meu-nginx --port=80 --type=LoadBalancer"
+</code></pre></div></div>
+
+<p><img src="https://i.imgur.com/JVJH82V.png" alt="" /></p>
+
+<p>Agora basta chamar o comando <code class="language-plaintext highlighter-rouge">get services</code> para descobrir qual o IP que nossa aplicação recebeu, essa etapa pode demorar alguns minutos:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"kubectl get services --watch"
+</code></pre></div></div>
+
+<p><img src="https://i.imgur.com/DaKu0HU.png" alt="" /></p>
+
+<p>Como podemos ver nossa aplicação recebeu o IP: 52.179.85.102
+Por fim, vamos acessar o IP da nossa aplicação para ver se deu tudo certo!</p>
+
+<p><img src="https://i.imgur.com/5Uvpr0e.png" alt="" /></p>
+
+<p>E não é que funciona mesmo? 😊</p>
+
+<h2 id="conclusão">Conclusão:</h2>
+
+<p>Por hoje é isso galera, espero que tenham gostado, essa foi uma pequena demonstração de como o AKS/Kubernetes pode nos ajudar na orquestração de nossos containers,pretendo fazer uma parte 2 deste artigo explicando sobre como utilizar o Azure Container Instance junto com o Kubernetes, deixo logo abaixo alguns links interessantes para quem quer se aprofundar no assunto:</p>
+
+<h2 id="bibliografia">Bibliografia:</h2>
+
+<ul>
+  <li>Introducing AKS (managed Kubernetes) and Azure Container Registry improvements</li>
+  <li>
+    <p>https://azure.microsoft.com/en-us/blog/introducing-azure-container-service-aks-managed-kubernetes-and-azure-container-registry-geo-replication/</p>
+  </li>
+  <li>Kubernetes.io</li>
+  <li>
+    <p>https://kubernetes.io/docs/tutorials/kubernetes-basics/</p>
+  </li>
+  <li>Explore Multicloud Deployments with Microsoft’s ACI Connector for Kubernetes</li>
+  <li>https://thenewstack.io/explore-multicloud-deployments-aci-connector-kubernetes/</li>
+</ul>
+
+<h1 id="boas-práticas-ecommerce">Boas Práticas eCommerce</h1>
+
+<p>Seja por curiosidade, seja por necessidade, você já deve ter se perguntado sobre como é definido o número de um cartão de crédito. Algumas pessoas chegam a achar que são números aleatórios, ou sequênciais, atribuídos pelas bandeiras ou pelos bancos emissores, mas a realidade é que o número do cartão segue um padrão especificado e que é possível saber qual é a bandeira, tipo do cartão e a conta do portador, apenas observando o número do cartão; em alguns casos, de fato, é possível saber até o país de origem do cartão, apenas observando seu número.</p>
+
+<p>Com o objetivo de contribuir para a redução as transações negadas pelo código 14 – cartão inválido, a Cielo recomenda o uso do algoritmo de Luhn para verificação da sequência de números dos cartões de credito e débito utilizados na sua loja. A partir desta medida, o lojista conseguirá evitar que uma transação com o cartão digitado incorretamente seja enviado para processamento.</p>
+
+<p>Por isso, a Cielo recomenda que, no momento que o portador digitar o número do cartão e o algoritmo de Luhn detectar que a digitação está incorreta, o lojista deverá exibir a informação clara para o portador, solicitando que o cartão seja digitado novamente ou tente outro cartão”</p>
+
+<h2 id="números-de-cartões">Números de cartões</h2>
+
+<p><img src="https://developercielo.github.io/images/cartao.png" alt="Cartão Visa" /></p>
+
+<p>Basicamente, o número do cartão é composto por três partes:</p>
+
+<ol>
+  <li><strong>Bin ou Inn</strong> - Bank identification number, ou Issuer identification number, é o número que identifica o banco emissor das bandeiras Visa, Mastercard, Amex, entre outras, por meio dos primeiros dígitos do cartão. No caso do cartão de exemplo acima, o Bin é 4, que é o identificador da Visa.</li>
+  <li><strong>Conta do cliente</strong> - Após o bin, os próximos dígitos identificam o número da conta do portador no banco emissor. Logo após o Bin, os próximos 14 dúgitos são o identificador da conta do cliente: <strong>012 0010 3714 111</strong>.</li>
+  <li><strong>Dígito de verificação</strong> - Esse último dígito é utilizado para verificar se o número do cartão de crédito é válido. Para se chegar no dígito verificador é utilizado um algorítimo chamado Luhn. No caso do cartão de exemplo acima, o dígito verificador é <strong>2</strong>.</li>
+</ol>
+
+<h2 id="informações-de-cartões">Informações de cartões</h2>
+
+<p>Após validar que o número do cartão é válido através do dígito verificador obtido através do algoritmo Luhn, podemos verificar se o número do cartão está correto segundo a bandeira escolhida. A Cielo não recomenda que se faça uma validação de bandeiras através do BIN - primeiros dígitos do cartão; essa recomendação é importante porque pode haver colisão de mesmo número de BINs para bandeiras diferentes. Algumas bandeiras possuem 13, 15 ou 16 dígitos e o CVV possui 3 ou 4 dígitos. A tabela abaixo mostra a quantidade de dígitos de cada bandeira e seus respectivos CVV. Utilize essa informação em conjunto com o algoritmo Luhn para uma validação completa do número do cartão do cliente.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bandeira</th>
+      <th>Número de dígitos</th>
+      <th>Dígitos do CVV</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Visa</td>
+      <td>13 ou 16 dígitos</td>
+      <td>3 dígitos</td>
+    </tr>
+    <tr>
+      <td>Mastercard</td>
+      <td>16 dígitos</td>
+      <td>3 dígitos</td>
+    </tr>
+    <tr>
+      <td>Amex</td>
+      <td>15 dígitos</td>
+      <td>4 dígitos</td>
+    </tr>
+    <tr>
+      <td>Diners Club International</td>
+      <td>14 dígitos</td>
+      <td>3 dígitos</td>
+    </tr>
+    <tr>
+      <td>JCB</td>
+      <td>16 dígitos</td>
+      <td>3 dígitos</td>
+    </tr>
+    <tr>
+      <td>ELO</td>
+      <td>16 dígitos</td>
+      <td>3 dígitos</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="validação-dos-números-do-cartão">Validação dos números do cartão</h1>
+
+<aside class="warning">A Cielo não realiza suporte ou se responsabiliza pelo atendimento desse tipo de implementação. Esse tutorial é meramente informativo, com o propósito de ajudar o lojista a diminuir o número de transações negadas com o código 14.</aside>
+
+<h2 id="validação-dos-números-do-cartão-1">Validação dos números do cartão</h2>
+
+<p>A validação do número de cartão da maioria das bandeiras em todo o mundo é feita através de um algorítimo chamado Luhn, também conhecido como módulo 10. Vamos supor que o cliente tenha informado o seguinte número de cartão de crédito: 4012001037141112.</p>
+
+<p>O primeiro passo é remover temporariamente o último dígito, no caso o dígito 2. O novo número vai ficar assim: 401200103714111.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Posição</th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+      <th>11</th>
+      <th>12</th>
+      <th>13</th>
+      <th>14</th>
+      <th>15</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Número do cartão</td>
+      <td>4</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>7</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td><em>x</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>O segundo passo é multiplicar, iniciando do primeiro dígito, todos os dígitos que estão em posição par por 2 e todos os dígitos em posição impar por 1:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Posição</th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+      <th>11</th>
+      <th>12</th>
+      <th>13</th>
+      <th>14</th>
+      <th>15</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Número do cartão</td>
+      <td>4</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>7</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Multiplicações</td>
+      <td>x2</td>
+      <td>x1</td>
+      <td>x2</td>
+      <td>x1</td>
+      <td>x2</td>
+      <td>x1</td>
+      <td>x2</td>
+      <td>x1</td>
+      <td>x2</td>
+      <td>x1</td>
+      <td>x2</td>
+      <td>x1</td>
+      <td>x2</td>
+      <td>x1</td>
+      <td>x2</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Resultados</td>
+      <td>8</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>6</td>
+      <td>7</td>
+      <td>2</td>
+      <td>4</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>O terceiro passo é pegar os resultados das multiplicações e somar todos os dígitos:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dígitos</th>
+      <th>Cálculo</th>
+      <th>Resultado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>802200206724212</td>
+      <td>8+0+2+2+0+0+2+0+6+7+2+4+2+1+2</td>
+      <td>38</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>O quarto passo é obter o resto da divisão euclidiana do resultado do terceiro passo por 10: 38 / 10 = 3, com resto 8. O quinto passo é subtrair o resto de 10: 10 - 8 = 2.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cálculo IV</th>
+      <th>Quociente</th>
+      <th>Resto</th>
+      <th>Cálculo V</th>
+      <th>Resultado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>38/10</td>
+      <td>3</td>
+      <td>8</td>
+      <td>10-8</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>O número 2 é o dígito de verificação; se o resultado da subtração no passo 4 for 10, então o dígito de verificação será 0. Para verificar se o número do cartão informado pelo cliente é válido, basta verificar o número do primeiro passo + o dígito de verificação é igual ao número de cartão informado pelo cliente.</p>
+
+<p>Um outro exemplo do cálculo, dessa vez com um cartão Martercard:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cartão</th>
+      <th>5</th>
+      <th>4</th>
+      <th>5</th>
+      <th>3</th>
+      <th>0</th>
+      <th>1</th>
+      <th>0</th>
+      <th>0</th>
+      <th>0</th>
+      <th>0</th>
+      <th>0</th>
+      <th>6</th>
+      <th>6</th>
+      <th>1</th>
+      <th>6</th>
+      <th>7</th>
+      <th>Resultado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Passo 1</td>
+      <td>5</td>
+      <td>4</td>
+      <td>5</td>
+      <td>3</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>6</td>
+      <td>1</td>
+      <td>6</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Passo 2</td>
+      <td>10</td>
+      <td>4</td>
+      <td>10</td>
+      <td>3</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>12</td>
+      <td>1</td>
+      <td>12</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Passo 3</td>
+      <td>1+0</td>
+      <td>4</td>
+      <td>1+0</td>
+      <td>3</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>1+2</td>
+      <td>1</td>
+      <td>1+2</td>
+      <td> </td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <td>Passo 4</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>23%10</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Passo 5</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>10-3</td>
+      <td><strong>7</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="validação-no-backend">Validação no backend</h2>
+
+<p>Porém, mesmo tendo o plugin verificador no frontend, é fundamental, até por considerações de segurança, que uma validação de fato ocorra no backend. Para isso, a função abaixo irá ajudá-lo a fazer essa validação:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">function</span> <span class="n">cardIsValid</span><span class="p">(</span><span class="nv">$cardNumber</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$number</span> <span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$cardNumber</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+    <span class="nv">$doubles</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">$t</span> <span class="o">=</span> <span class="nb">strlen</span><span class="p">(</span><span class="nv">$number</span><span class="p">);</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nv">$t</span><span class="p">;</span> <span class="o">++</span><span class="nv">$i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$doubles</span><span class="p">[]</span> <span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$number</span><span class="p">,</span> <span class="nv">$i</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">?</span> <span class="mi">2</span><span class="o">:</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nv">$sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$doubles</span> <span class="k">as</span> <span class="nv">$double</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">$t</span> <span class="o">=</span> <span class="nb">strlen</span><span class="p">(</span><span class="nv">$double</span><span class="p">);</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nv">$t</span><span class="p">;</span> <span class="o">++</span><span class="nv">$i</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$sum</span> <span class="o">+=</span> <span class="p">(</span><span class="n">int</span><span class="p">)</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$double</span><span class="p">,</span> <span class="nv">$i</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$cardNumber</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mi">10</span><span class="o">-</span><span class="nv">$sum</span><span class="o">%</span><span class="mi">10</span><span class="p">)</span><span class="o">%</span><span class="mi">10</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Para utilizá-la, basta testar o número do cartão enviado pelo cliente:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nf">cardIsValid</span><span class="p">(</span><span class="nv">$customerCardNumber</span><span class="p">))</span> <span class="p">{</span>
+  <span class="c1">// o cartão é válido e podemos dar andamento na integração</span>
+<span class="p">}</span>
+</code></pre></div></div>
+</div>
+
+
+            <div class="footer-conteudo">
+  <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+    <img
+      src="https://developercielo.github.io/assets/images/icon-doubt.svg"
+      width="55px"
+      height="53px"
+      alt="Precisa de ajuda?"
+    />
+  </div>
+
+  <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+    <h2>Precisa de ajuda?</h2>
+    <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://devcielo.zendesk.com/hc/pt-br#suporte">entre em contato conosco</a>.</p>
+  </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a
+        title="Comutar a coluna da esquerda"
+        class="hamburger"
+      >
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://desenvolvedores.cielo.com.br" target="_blank">
+        <img
+          src="https://developercielo.github.io/assets/images/logo.png"
+          alt="Documentações e tutoriais"
+          style="width: 60%; margin-left: 20%"
+        />
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+      
+      <div class="toc-footer">
+        <h2 class="no-toc toc-footer-title">Materiais complementares</h2>
+           
+
+        <ul class="toc-footer">
+              
+          <li>
+            <a
+              href="https://developercielo.github.io/tutorial/habilitacao-meios-de-pagamento"
+              
+              >Configurando Boletos e Débito Online</a
+            >
+          </li>
+             
+          <li>
+            <a
+              href="https://developercielo.github.io/tutorial/manual-boleto"
+              
+              >Manual Boletos</a
+            >
+          </li>
+           
+        </ul>
+      </div>
+      
+
+      <div class="toc-contact">
+        <div class="contact">
+          <a
+            title="Contato"
+            href="https://devcielo.zendesk.com/"
+          >
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            <span>Contato</span>
+          </a>
+        </div>
+        <div class="github">
+          <a title="GitHub" href="https://github.com/developercielo">
+            <i class="fa fa-github" aria-hidden="true"></i>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/assets/bundles/js/bundle.min.js"></script>
+        <script>
+            
+            var selectors = 'h1,h2,h3,h4,h5,h6';
+            
+        </script>
+
+        
+        <script src="https://developercielo.github.io/assets/bundles/js/search.min.js"></script>
+        
+
+        
+
+        <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+<script>
+  (function (h, o, t, j, a, r) {
+    h.hj =
+      h.hj ||
+      function () {
+        (h.hj.q = h.hj.q || []).push(arguments);
+      };
+    h._hjSettings = { hjid: 674586, hjsv: 6 };
+    a = o.getElementsByTagName("head")[0];
+    r = o.createElement("script");
+    r.async = 1;
+    r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+</script>
+
+    </body>
+</html>

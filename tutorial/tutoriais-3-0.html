@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="theme-color" content="#00aeef" />
+  <meta http-equiv="Content-Language" content="pt" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     Tutoriais &middot; Documentações e tutoriais 
+  </title>
+
+  <link rel="shortcut icon" href="https://developercielo.github.io/assets/favicon.ico" />
+
+  <!-- CSS -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500"
+    rel="stylesheet"
+    media="none"
+    onload="if(media!='all')media='all'"
+  />
+  <script async src="https://use.fontawesome.com/3ae06f1030.js"></script>
+
+  <link
+    rel="stylesheet"
+    href="https://developercielo.github.io/assets/bundles/css/bundle.min.css"
+  />
+
+   
+  <link
+    rel="alternate"
+    hreflang="pt"
+    href="https://developercielo.github.io/tutorial/tutoriais-3-0"
+  />
+    
+  <link
+    rel="alternate"
+    hreflang="en"
+    href="https://developercielo.github.io/en/tutorial/tutoriais-3-0"
+  />
+   
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="https://developercielo.github.io/atom.xml"
+  />
+</head>
+
+    <body>
+        
+        <div class="content-container no-dark-box">
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://devcielo.zendesk.com/hc/pt-br#suporte" class="help">Ajuda</a>
+
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/tutorial/tutoriais-3-0">Tutoriais</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post"><h1 id="backoffice-api-cielo">Backoffice API Cielo</h1>
+
+<p>O objetivo deste documento é orientar o lojista sobre como acessar Backoffice da API Cielo Ecommerce. Descrevendo as funcionalidades, os métodos a serem utilizados, listando informações necessárias e provendo exemplos.</p>
+
+<h2 id="visão-geral">Visão Geral</h2>
+
+<p>O Backoffice da API Cielo Ecommerce permite que o lojista possa acessar 4 menus com diferentes funcionalidades:</p>
+
+<ol>
+  <li><strong>Área do desenvolvedor Cielo</strong> – Onde desenvolvedores podem acessar informações como manuais de integração, FAQs e suporte</li>
+  <li><strong>Pesquisa de transações</strong> – Busca todas as transações executadas pela loja e exibe como captura ou cancelar transações</li>
+  <li><strong>Extrato de cobrança</strong> – Detalha os valores cobradas pela a Cielo por cada função utilizada na API Cielo Ecommerce.</li>
+  <li><strong>Configuração da recorrência</strong> – Alterar quantidades de tentativas de execução de recorrências em caso de cartão negado.</li>
+</ol>
+
+<h2 id="acessando-o-backoffice">Acessando o Backoffice</h2>
+
+<p>Para acessar o Backoffice, é necessário que o lojista realize login no Site Cielo, inserindo sua Afiliação (Nº de estabelecimento) e Usuário:</p>
+
+<p><img src="https://developercielo.github.io/images/i0.png" alt="Acessando o Backoffice" /></p>
+
+<p><img src="https://developercielo.github.io/images/i1.png" alt="Acessando o Backoffice" /></p>
+
+<p>Em seguida é necessário incluir sua Senha:</p>
+
+<p><img src="https://developercielo.github.io/images/i2.png" alt="Acessando o Backoffice" /></p>
+
+<p>Na área de “Vendas Online” basta clicar em Webservice 3.0</p>
+
+<p><img src="https://developercielo.github.io/images/i3.png" alt="Acessando o Backoffice" /></p>
+
+<p>Você será direcionado para o Backoffice:</p>
+
+<p><img src="https://developercielo.github.io/images/i4.png" alt="Acessando o Backoffice" /></p>
+
+<p>Nesta área você pode acessar as outras funcionalidades do Backoffice</p>
+
+<h2 id="acessando-a-área-do-desenvolvedor">Acessando a área do Desenvolvedor</h2>
+
+<p>Clique no link destacado abaixo:</p>
+
+<p><img src="https://developercielo.github.io/images/i45.png" alt="Desenvolvedor" /></p>
+
+<p>Você será redirecionado para</p>
+
+<h2 id="pesquisando-e-editando-transações">Pesquisando e editando transações</h2>
+
+<h3 id="pesquisar-transações">Pesquisar Transações</h3>
+
+<p>Ao acessar a opção abaixo:</p>
+
+<p><img src="https://developercielo.github.io/images/i5.png" alt="Pesquisa de transações" /></p>
+
+<p>Você será direcionado a tela de pesquisa de transações:</p>
+
+<p><img src="https://developercielo.github.io/images/i6.png" alt="Pesquisa de transações" /></p>
+
+<p>Essa tela permite buscar todas as transações realizadas com sucesso na API Cielo Ecommerce e realizar a captura ou cancelamento de transações.</p>
+
+<p>Sobre os Filtros:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Filtros</th>
+      <th>Descrição</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Tid</td>
+      <td>Identificador da transação Cielo. Retornado via response e disponivel no site Cielo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>EC</td>
+      <td>Número da Afiliação Cielo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment Id</td>
+      <td>Identificador da transação e-commerce</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Número do Pedido</td>
+      <td>Número do pedido enviado pelo lojista</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>NSU</td>
+      <td>Identificação da autorização. Enviado via response</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Código de Erro</td>
+      <td>Código retornado caso uma transação gere um erro.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Tipos de meio de pagamento</td>
+      <td>Grupo de meios de pagamento como Boletos ou cartão de crédito. Não diferencia</td>
+      <td>bandeira ou banco.</td>
+    </tr>
+    <tr>
+      <td>Meios de pagamento</td>
+      <td>Meio de pagamento especifico usado na transação (EX: Boleto Bradesco)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Análise de Fraude</td>
+      <td>Qual o status de antifraude da transação no momento da pesquisa</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Status da Transação</td>
+      <td><strong>Cancelado</strong> - Transação cancelada pelo lojista<br /><strong>Estornado</strong> - Transações canceladas com menos de 24 horas<br /><strong>Não Autorizado</strong> - Transações negadas pelo Autorizador Cielo<br /><strong>Não Pago</strong> - Transações autorizadas, mas não capturadas<br /><strong>Pago</strong> - Transações capturadas</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Os filtros podem ser combinados para realizar uma pesquisa personalizada.</p>
+
+<h3 id="capturando-ou-cancelando-transações">Capturando ou Cancelando Transações</h3>
+
+<p>Ao realizar uma pesquisa, é possível realizar a captura ou cancelamento de transações. Ao identificar a transação que deseje cancelar ou capturar:</p>
+
+<p><img src="https://developercielo.github.io/images/i7.png" alt="capturando transações" /></p>
+
+<p><img src="https://developercielo.github.io/images/i8.png" alt="capturando transações" /></p>
+
+<p>Basta realizar o cancelamento ou a Captura (O botão apresentado depende do status da transação no momento de exibição.</p>
+
+<p><img src="https://developercielo.github.io/images/i9.png" alt="capturando transações" /></p>
+
+<p>Confirme o valor a ser capturado ou cancelado.
+<strong>OBS:</strong> Alterar o valor no menu acima, define o comportamento do Cancelamento/Captura Parcial.</p>
+
+<h3 id="capturando-ou-cancelando-transações-em-bloco">Capturando ou cancelando Transações em bloco</h3>
+
+<p>Ao realizar uma pesquisa, é possível realizar a captura ou cancelamento de transações em bloco. Basta selecionar quais serão modificadas e clique em “Opções”:</p>
+
+<p><img src="https://developercielo.github.io/images/i10.png" alt="bloco de transações" /></p>
+
+<p>Selecione a opção desejada:</p>
+
+<p><img src="https://developercielo.github.io/images/i11.png" alt="bloco de transações" /></p>
+
+<p>Ao selecionar a opção desejada, você será direcionado a uma tela onde poderá ser definido o valor da captura/cancelamento.</p>
+
+<p><img src="https://developercielo.github.io/images/i12.png" alt="bloco de transações" /></p>
+
+<h2 id="utilizando-o-extrato">Utilizando o Extrato</h2>
+
+<p>O Extrato de cobrança permite visualizar o valor a ser cobrado pela utilização das funcionalidades da API Cielo Ecommerce. Basta selecionar o mês e ano que se deseja exibir.</p>
+
+<p><img src="https://developercielo.github.io/images/i13.png" alt="extrato" /></p>
+
+<p>Para maiores informações a respeito dos serviços cobrados, entre em contato com nossa equipe de suporte:</p>
+
+<ul>
+  <li>+55 4002-9700 – Capitais e Regiões Metropolitanas</li>
+  <li>+55 0800-570-1700 – Demais Localidades</li>
+  <li>+55 11 2860-1348 – Internacionais
+    <ul>
+      <li>Opção 1 – Suporte técnico;</li>
+      <li>Opção 2 – Credenciamento eCommerce.</li>
+    </ul>
+  </li>
+  <li>Email: cieloeCommerce@cielo.com.br</li>
+</ul>
+
+<h2 id="configurando-a-recorrência">Configurando a Recorrência</h2>
+
+<p>A área de configuração da recorrência permite modificar o número e o intervalo das tentativas de transações. Essas tentativas ocorrem quando uma transação (dentro de uma recorrência) é negada. A API Cielo Ecommerce possui a inteligência para identificar esse cenário, e executar uma nova transação.</p>
+
+<p>Acesse a tela de configuração e use o link “<strong>Tipo de pagamento</strong>”:</p>
+
+<p><img src="https://developercielo.github.io/images/i14.png" alt="Recorrência" /></p>
+
+<p>Você será direcionado para a tela de configuração:</p>
+
+<p><img src="https://developercielo.github.io/images/i15.png" alt="Recorrência" /></p>
+
+<p>Nessa tela é possível alterar:</p>
+
+<ul>
+  <li><strong>Quantidades de tentativas:</strong> Número de vezes a API vai realizar uma nova transação em caso de não autorização dentro de uma recorrência. Limitada a 4 tentativas</li>
+  <li><strong>Intervalo de tentativas:</strong> Espaço de tempo entre a execução de cada nova tentativa de autorização de uma transação dentro de uma recorrência. Limitado a 4 dias entre cada tentativa.</li>
+</ul>
+</div>
+
+
+            <div class="footer-conteudo">
+  <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+    <img
+      src="https://developercielo.github.io/assets/images/icon-doubt.svg"
+      width="55px"
+      height="53px"
+      alt="Precisa de ajuda?"
+    />
+  </div>
+
+  <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+    <h2>Precisa de ajuda?</h2>
+    <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://devcielo.zendesk.com/hc/pt-br#suporte">entre em contato conosco</a>.</p>
+  </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a
+        title="Comutar a coluna da esquerda"
+        class="hamburger"
+      >
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://desenvolvedores.cielo.com.br" target="_blank">
+        <img
+          src="https://developercielo.github.io/assets/images/logo.png"
+          alt="Documentações e tutoriais"
+          style="width: 60%; margin-left: 20%"
+        />
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+      
+      <div class="toc-footer">
+        <h2 class="no-toc toc-footer-title">Materiais complementares</h2>
+           
+
+        <ul class="toc-footer">
+            
+          <li>
+            <a
+              href="https://developercielo.github.io/manual/checkout-cielo"
+              title="Integração técnica via API"
+              
+              >Integração Checkout Cielo</a
+            >
+          </li>
+             
+          <li>
+            <a
+              href="https://developercielo.github.io/manual/linkdepagamentos5"
+              title="Integração técnica via API"
+              
+              >API Super Link</a
+            >
+          </li>
+             
+          <li>
+            <a
+              href="https://developercielo.github.io/manual/cielo-ecommerce"
+              title="Manual integração técnica via API"
+              
+              >Manual de Integração API e-commerce Cielo</a
+            >
+          </li>
+             
+          <li>
+            <a
+              href="https://developercielo.github.io/tutorial/tokenizacaobandeira"
+              title="Tokenização de Bandeira – Regra Visa"
+              
+              >Tokenização de Bandeira – Mandate Visa</a
+            >
+          </li>
+                                   
+        </ul>
+      </div>
+      
+
+      <div class="toc-contact">
+        <div class="contact">
+          <a
+            title="Contato"
+            href="https://devcielo.zendesk.com/"
+          >
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            <span>Contato</span>
+          </a>
+        </div>
+        <div class="github">
+          <a title="GitHub" href="https://github.com/developercielo">
+            <i class="fa fa-github" aria-hidden="true"></i>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/assets/bundles/js/bundle.min.js"></script>
+        <script>
+            
+            var selectors = 'h1,h2,h3,h4,h5,h6';
+            
+        </script>
+
+        
+        <script src="https://developercielo.github.io/assets/bundles/js/search.min.js"></script>
+        
+
+        
+
+        <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+<script>
+  (function (h, o, t, j, a, r) {
+    h.hj =
+      h.hj ||
+      function () {
+        (h.hj.q = h.hj.q || []).push(arguments);
+      };
+    h._hjSettings = { hjid: 674586, hjsv: 6 };
+    a = o.getElementsByTagName("head")[0];
+    r = o.createElement("script");
+    r.async = 1;
+    r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+</script>
+
+    </body>
+</html>
