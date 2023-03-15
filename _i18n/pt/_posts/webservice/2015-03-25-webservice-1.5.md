@@ -89,7 +89,7 @@ O Certificado SSL para servidor web oferece autenticidade e integridade dos dado
 
 Empresas especializadas são responsáveis por fazer a validação do domínio e, dependendo do tipo de certificado, também da entidade detentora do domínio.
 
-### Internet Explorer:
+### Internet Explorer
 
 ![Certificado EV Internet Explorer]({{ site.baseurl_root }}/images/certificado-ie.jpg)
 
@@ -128,7 +128,7 @@ O passo a passo para a instalação do Certificado EV deverá ser contatado o su
 
 Normalmente, o browser faz a atualização do Certificado automaticamente, caso não o faça e o cliente entre em contato deverá ser informado os seguintes passos:
 
-#### 1o Passo:
+#### 1o Passo
 
 Salvar os arquivos abaixo em uma pasta nova, ou que relembre facilmente, pois será utilizada posteriormente:
 
@@ -137,7 +137,7 @@ Salvar os arquivos abaixo em uma pasta nova, ou que relembre facilmente, pois se
 - [Certificado Intermediária 2]({{ site.baseurl }}/attachment/intermediate2.crt)
 - [Certificado E-Commerce Cielo]({{ site.baseurl }}/attachment/servercertificate.cer)
 
-#### 2o Passo:
+#### 2o Passo
 
 No “Internet Explorer”, clique no menu “Ferramentas” e acesse as “Opções da Internet”:
 
@@ -151,7 +151,7 @@ No “Chrome”, clique no “Personalizar e Controlar o Google Chrome” e aces
 
 ![Instalar GC]({{ site.baseurl_root }}/images/certificado-instalar-gc-1.jpg)
 
-#### 3o Passo:
+#### 3o Passo
 
 No Internet Explorer, em “Certificados”, clique em “Importar”.
 
@@ -165,7 +165,7 @@ No Chrome clique em “Gerenciar Certificados”, clique em “Importar”
 
 ![Instalar GC]({{ site.baseurl_root }}/images/certificado-instalar-gc-2.jpg)
 
-#### 4o Passo:
+#### 4o Passo
 
 No Internet Explorer e Chrome “Assistente para Importação de Certificados”, clique em “Avançar”.
 
@@ -177,7 +177,7 @@ No Firefox “Aba Servidores ”, clique em “Importar”
 
 ![Instalar FF]({{ site.baseurl_root }}/images/certificado-instalar-ff-3.jpg)
 
-#### 5o Passo:
+#### 5o Passo
 
 No Chrome e Internet Explorer “Assistente para Importação de Certificados”, clique em “Procurar”, procure a pasta onde estão os arquivos e selecione o arquivo “ecommerce.cielo.com.br.crt, clique em “Abrir” e em seguida “Avançar”.
 
@@ -185,19 +185,19 @@ No Chrome e Internet Explorer “Assistente para Importação de Certificados”
 
 ![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-6.jpg)
 
-#### 6o Passo:
+#### 6o Passo
 
 Selecionar a opção desejada: adicionar o Certificado em uma pasta padrão ou procurar a pasta de sua escolha.
 
 ![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-7.jpg)
 
-#### 7o Passo:
+#### 7o Passo
 
 Clique em “Concluir”.
 
 ![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-8.jpg)
 
-#### 8o Passo:
+#### 8o Passo
 
 Clique em “Ok” para concluir a importação.
 
@@ -209,7 +209,7 @@ O Certificado poderá ser visualizado na aba padrão “Outras Pessoas” ou na 
 
 ![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-10.jpg)
 
-#### 9o Passo:
+#### 9o Passo
 
 Repita o mesmo procedimento para os 3 arquivos enviados.
 
@@ -2586,7 +2586,7 @@ Processamento em Lote deverá seguir as seguintes regras:
 2 - O arquivo deverá respeitar o limite de 20MB (aprox.: 27.000 transações).
 3 - O processamento em lote suporta os mesmos tipos de operações do transacional online. Veja a tabela em anexo.
 
-<br> 
+<br>
 Os dados do Estabelecimento Comercial serão informados uma única vez dentro do lote, ou seja, o pacote de transações pertence exclusivamente ao Estabelecimento informado no arquivo.
 <br>
 O lote a ser gerado deverá conter uma ou mais transações do mesmo tipo de operação, caso mais de um tipo seja enviado no lote, o arquivo será rejeitado.

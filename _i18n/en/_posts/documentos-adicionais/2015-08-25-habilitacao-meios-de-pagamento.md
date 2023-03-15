@@ -44,7 +44,7 @@ To request/configure the Bradesco Boleto, you’ll have to:
 1. Contact the bank/agency to perform the boleto solicitation with wallet 26 register. This step involves contract signature with the Bank.
 2. Receiving an e-mail from the Bank (Kit Scopus) containing the manager URL, login e-mail and Bradesco environment access password. You must access the Bradesco environment through the manager URL. Check the examples sent on the e-mail (Kit Scopus):
 
-- **Manager URL** - (https://meiosdepagamentobradesco.com.br/gerenciador/login.jsp)
+- **Manager URL** - (<https://meiosdepagamentobradesco.com.br/gerenciador/login.jsp>)
 - **Login E-mail**
 - **Access Password**
 
@@ -61,7 +61,7 @@ To configure the Boleto:
 
 <aside class="notice"><strong>Observation:</strong> The expiration will have to be the same configured on Cielo Checkout.</aside>
 
-- **Notification URL**: https://www.pagador.com.br/post/BoletoBradescoSps/ReceivePost
+- **Notification URL**: <https://www.pagador.com.br/post/BoletoBradescoSps/ReceivePost>
 - On the field **Security Key** click on "**Generate Security Key**"
 - **Store's IP Address** (numeric)
 - For the **answer URL, failure URL and redirectioning URL** fields, insert the following link: `https://www.pagador.com.br/post/BoletoBradescoSps/ReceivePost`
@@ -140,26 +140,26 @@ To request the Branco do Brasil Boleto, you’ll have to:
 3. Register on MUP Test (sistema do Bradesco, the e-mail containing the Bradesco data will come with the URL for access). Register the information below:
 
 - **Store IP address**: 209.134.48.121
-- On “_Página de confirmação de compra_” and “_Página de falha no pagamento_”: https://www.pagador.com.br/pagador/recebe.asp
-- On “_URL para notificação p/ Cartões Bradesco_”: https://www.pagador.com.br/pagador/bradesco/setTransacao.asp
+- On “_Página de confirmação de compra_” and “_Página de falha no pagamento_”: <https://www.pagador.com.br/pagador/recebe.asp>
+- On “_URL para notificação p/ Cartões Bradesco_”: <https://www.pagador.com.br/pagador/bradesco/setTransacao.asp>
 - On the “_Post a ser enviado para a loja na notificação_”, “_Post a ser enviado para a loja na confirmação de compra_” and “_Post a ser enviado para a loja na falha da autorização_” Fields: \* **Add**: `numOrder=[%lid_m%]&merchantid=[%merchantid%]&cod=[%errorcod%]&cctype=[%cctype%]&ccname=[%ccname%]&ccemail=[%ccemail%]&numparc=[%numparc%]&valparc=[%valparc%]&valtotal=[%valtotal%]&prazo=[%prazo%]&tipopagto=[%tipopagto%]&assinatura=[%assinatura%]`
 - In “_URL de entrada na loja_”: website address
-- In “_URL do gerenciador da loja_”: https://www.pagador.com.br/admin/login.asp
+- In “_URL do gerenciador da loja_”: <https://www.pagador.com.br/admin/login.asp>
 - On the last option: `capture now (1001)`.
 
 4. Send the e-mail below to Scopus requesting the homologation
 
 - **To**: [homologacao@scopus.com.br](mailto:homologacao@scopus.com.br); [kit@scopus.com.br](mailto:kit@scopus.com.br)
 - **Subject**: Dados do ambiente de produção Débito SPS
-- **e-mail Body**:<br />Dear,<br /><br />Please release the client below on the production environment:<br /><br />Social Name: XXXXX<br />CNPJ: XXXX<br />Store name: XXXXX<br />Store number: XXXXX<br />Manager: XXXXX<br />Password: XXXXXXX<br />Store URL: https://www.XXXXXXXXX<br />Payment Method to Homologate: Debit in account<br />
+- **e-mail Body**:<br />Dear,<br /><br />Please release the client below on the production environment:<br /><br />Social Name: XXXXX<br />CNPJ: XXXX<br />Store name: XXXXX<br />Store number: XXXXX<br />Manager: XXXXX<br />Password: XXXXXXX<br />Store URL: <https://www.XXXXXXXXX<br> />Payment Method to Homologate: Debit in account<br />
 
 5. Receive the production data:
 
 - The affiliation will be sent through Bradesco on the standard:
-  _ **Production Agreement**: 101xx1
-  _ **login**: dm*cm132
-  * **password**: 12345678
-  \_ **URL for test**: http://mup.comercioeletronico.com.br/sepsManager/senha.asp?loja=XXXX
+  _**Production Agreement**: 101xx1
+  _ **login**: dm\*cm132
+  - **password**: 12345678
+    \_ **URL for test**: <http://mup.comercioeletronico.com.br/sepsManager/senha.asp?loja=XXXX>
 
 6. Register on Production MUP, the same information of Step 3.
 

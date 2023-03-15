@@ -44,7 +44,7 @@ Para solicitar/configurar o Boleto Bradesco, você precisa:
 1. Contatar o banco/agência e fazer a solicitação de boleto com registro carteira 26. Esse passo envolve assinatura de contrato com o Banco.
 2. Receber um e-mail do Banco (Kit Scopus) com URL do gerenciador, e-mail de login e senha de acesso ao ambiente Bradesco. Você deve acessar o ambiente Bradesco pela URL do gerenciador. Veja os exemplos enviados no email (Kit Scopus):
 
-- **URL do gerenciador** - (https://meiosdepagamentobradesco.com.br/gerenciador/login.jsp)
+- **URL do gerenciador** - (<https://meiosdepagamentobradesco.com.br/gerenciador/login.jsp>)
 - **E-mail de Login**
 - **Senha de acesso**
 
@@ -61,7 +61,7 @@ Para configurar o Boleto:
 
 <aside class="notice"><strong>Obs:</strong> O vencimento deverá ser o mesmo configurado no Checkout Cielo.</aside>
 
-- **URL de notificação**: https://www.pagador.com.br/post/BoletoBradescoSps/ReceivePost
+- **URL de notificação**: <https://www.pagador.com.br/post/BoletoBradescoSps/ReceivePost>
 - No campo **Chave de Segurança** clique em "**Gerar chave de segurança**"
 - **Endereço de IP da loja** (numérico)
 - Para os campos de **URL de resposta, URL de falha e URL de redirecionamento**, inserir o seguinte link: `https://www.pagador.com.br/post/BoletoBradescoSps/ReceivePost`
@@ -140,26 +140,26 @@ Para solicitar o Boleto Banco do Brasil, você precisa:
 3. Cadastrar no MUP Teste (sistema do Bradesco, o e-mail de com os dados do Bradesco virá com a URL para acesso). Cadastrar as informações abaixo:
 
 - **Endereço IP da loja**: 209.134.48.121
-- Em “_Página de confirmação de compra_” e “_Página de falha no pagamento_”: https://www.pagador.com.br/pagador/recebe.asp
-- Em “_URL para notificação p/ Cartões Bradesco_”: https://www.pagador.com.br/pagador/bradesco/setTransacao.asp
+- Em “_Página de confirmação de compra_” e “_Página de falha no pagamento_”: <https://www.pagador.com.br/pagador/recebe.asp>
+- Em “_URL para notificação p/ Cartões Bradesco_”: <https://www.pagador.com.br/pagador/bradesco/setTransacao.asp>
 - Nos Campos “_Post a ser enviado para a loja na notificação_”, “_Post a ser enviado para a loja na confirmação de compra_” e “_Post a ser enviado para a loja na falha da autorização_”: \* **Adicionar**: `numOrder=[%lid_m%]&merchantid=[%merchantid%]&cod=[%errorcod%]&cctype=[%cctype%]&ccname=[%ccname%]&ccemail=[%ccemail%]&numparc=[%numparc%]&valparc=[%valparc%]&valtotal=[%valtotal%]&prazo=[%prazo%]&tipopagto=[%tipopagto%]&assinatura=[%assinatura%]`
 - Em “_URL de entrada na loja_”: endereço do site
-- Em “_URL do gerenciador da loja_”: https://www.pagador.com.br/admin/login.asp
+- Em “_URL do gerenciador da loja_”: <https://www.pagador.com.br/admin/login.asp>
 - Na última opção: `capture now (1001)`.
 
 4. Enviar o e-mail abaixo para a Scopus solicitando a homologação
 
 - **Para**: [homologacao@scopus.com.br](mailto:homologacao@scopus.com.br); [kit@scopus.com.br](mailto:kit@scopus.com.br)
 - **Assunto**: Dados do ambiente de produção Débito SPS
-- **Corpo do email**:<br />Prezados,<br /><br />Favor liberar o cliente abaixo no ambiente de produção:<br /><br />Razão Social: XXXXX<br />CNPJ: XXXX<br />Nome da loja: XXXXX<br />Número da loja: XXXXX<br />Manager: XXXXX<br />Senha: XXXXXXX<br />URL da Loja: https://www.XXXXXXXXX<br />Meio de Pagamento para Homologar: Débito em Conta<br />
+- **Corpo do email**:<br />Prezados,<br /><br />Favor liberar o cliente abaixo no ambiente de produção:<br /><br />Razão Social: XXXXX<br />CNPJ: XXXX<br />Nome da loja: XXXXX<br />Número da loja: XXXXX<br />Manager: XXXXX<br />Senha: XXXXXXX<br />URL da Loja: <https://www.XXXXXXXXX<br> />Meio de Pagamento para Homologar: Débito em Conta<br />
 
 5. Receber os dados de produção:
 
 - A afiliação será enviada pelo Bradesco no padrão:
-  _ **Convênio de Produção**: 101xx1
-  _ **login**: dm*cm132
-  * **senha**: 12345678
-  \_ **URL para teste**: http://mup.comercioeletronico.com.br/sepsManager/senha.asp?loja=XXXX
+  _**Convênio de Produção**: 101xx1
+  _ **login**: dm\*cm132
+  - **senha**: 12345678
+    \_ **URL para teste**: <http://mup.comercioeletronico.com.br/sepsManager/senha.asp?loja=XXXX>
 
 6. Cadastrar no MUP Produção, as mesmas informações do Passo 3.
 

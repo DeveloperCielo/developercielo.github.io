@@ -86,7 +86,7 @@ The current version of Checkout Cielo supports the following payment means:
 | Bradesco        |
 | Banco do Brasil |
 
-## Prerequisites for Integration.
+## Prerequisites for Integration
 
 Checkout Cielo has a list of basic requirements to make the integration process successful.
 Below we list points that must be ready before integration:
@@ -133,7 +133,7 @@ The SSL Certificate for web server offers authenticity and integrity of web site
 
 Specialized companies are responsible for domain validating and, depending on the type of certificate, they are also responsible for the validation of the entity that owns the domain.
 
-### Internet Explorer:
+### Internet Explorer
 
 ![EV Internet Explorer Certificate]({{ site.baseurl }}/images/certificado-ie.jpg)
 
@@ -172,7 +172,7 @@ The step-by-step of the EV Certificate installation must contact your server ven
 
 Normally, the browser automatically updates the Certificate. If it does not and the client contacts, the following steps must be informed:
 
-#### Step 1:
+#### Step 1
 
 Save the three files below into a new folder, or into a folder that can be easily remembered, as it will be used later:
 
@@ -181,7 +181,7 @@ Save the three files below into a new folder, or into a folder that can be easil
 - [Intermediate 2 certificate]({{ site.baseurl }}/attachment/Intermediate2.crt)
 - [E-Commerce Cielo certificate]({{ site.baseurl }}/attachment/ServerCertificate.crt)
 
-#### Step 2:
+#### Step 2
 
 In “Internet Explorer”, click on “Tools” menu and go to “Internet Options”:
 
@@ -195,7 +195,7 @@ In “Chrome”, click on “Customize and Control Google Chrome” and go to �
 
 ![Install GC]({{ site.baseurl }}/images/certificado-instalar-gc-1.jpg)
 
-#### Step 3:
+#### Step 3
 
 In Internet Explorer, under “Certificates”, click on “Import”.
 
@@ -209,7 +209,7 @@ In Chrome, click on “Manage Certificates”, click on “Import”
 
 ![Install GC]({{ site.baseurl }}/images/certificado-instalar-gc-2.jpg)
 
-#### Step 4:
+#### Step 4
 
 In Internet Explorer and Chrome “Certificate Import Wizard”, click on “Next”.
 
@@ -221,7 +221,7 @@ In Firefox “Servers Tab”, click on “Import”
 
 ![Install FF]({{ site.baseurl }}/images/certificado-instalar-ff-3.jpg)
 
-#### Step 5:
+#### Step 5
 
 In Chrome and Internet Explorer “Certificate Import Wizard”, click on “Search”, look for the folder where the files are and select the file “cieloecommerce.cielo.com.br.crt, click on “Open” and then “Next”.
 
@@ -229,19 +229,19 @@ In Chrome and Internet Explorer “Certificate Import Wizard”, click on “Sea
 
 ![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-6.jpg)
 
-#### Step 6:
+#### Step 6
 
 Select the desired option: add the Certificate in a default folder or search for the folder of your choice.
 
 ![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-7.jpg)
 
-#### Step 7:
+#### Step 7
 
 Click on “Finish”.
 
 ![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-8.jpg)
 
-#### Step 8:
+#### Step 8
 
 Click on “Ok” to complete the import.
 
@@ -253,7 +253,7 @@ The Certificate may be viewed in the default tab “Other People” or at the on
 
 ![Install IE and GC]({{ site.baseurl }}/images/certificado-instalar-ie-gc-10.jpg)
 
-#### Step 9:
+#### Step 9
 
 Repeat the same procedure for the 3 sent files.
 
@@ -295,7 +295,7 @@ After the card carrier (custumer) select their purchases and hit the "Buy" butto
 
 Checkout Cielo test mode is a tool that allows to test the integration of your web site with the platform. With the test mode, you can perform transactions as you evolve with integration, and you can simulate scenarios to test different means of payment.
 
-### Activating test mode.
+### Activating test mode
 
 The test mode can be activated in the **Settings** tab, where there is a checkbox that, when checked, enable the Checkout Cielo test mode. The test mode will only start when the selection is saved.
 
@@ -309,7 +309,7 @@ This stripe indicates that your Checkout Cielo store is now operating in a test 
 | ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | ![Red stripe - Backoffice]({{ site.baseurl }}/images/Checkout/tmbackoffice.png) | ![Red stripe - Transacional]({{ site.baseurl }}/images/Checkout/tmtransacional.png) |
 
-### How to transact in Test Mode.
+### How to transact in Test Mode
 
 Performing transactions in test mode occurs normally. Transaction information is sent via POST or API, using the parameters as described in the [Integration by API](#integration-by-api) topic, however, the payment means to be used are simulated media.
 
@@ -790,7 +790,7 @@ Below the list of items that must be registered for the button creation:
 | `Shipping method`    | This field only appears for Product Type equal to Physical Material and Type of Freight equal to Fixed Freight.                                               | n/a          | n/a          | Yes      |
 | `URL`                | This field only appears for Product Type equal to Digital.                                                                                                    | n/a          | n/a          | Yes      |
 
-### Example of Button:
+### Example of Button
 
 Below it is possible to see how the registration of a button generates the 3 methods to access the transactional screen.
 
@@ -1004,7 +1004,7 @@ Checkout has 3 types of URLs that can impact the notification process.
 | Type                | Description                                                                                                                                                                                                                                  | Note                                                                                                                                                                                                            |
 | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Return URL`        | Web page to where the buyer will be redirected at the end of the purchase. <br>No data is exchanged or sent to this URL.<br> This URL only takes the buyer, after completing the purchase, to a page set by the store.                       | If the Merchant wishes, he can configure this page to be sensitized by traffic, thus identifying that the transaction has been completed in Checkout Cielo <br> Can be sent via API - See "Integration via API" |
-| `Notification URL`  | At the end of a transaction, an HTTP POST with all the sales data is sent to the Notification URL.<br> The notification POST is only sent at the time the transaction is finalized, regardless of whether the transaction status changed\*\* | Used in the Notification via `POST` and` JSON`                                                                                                                                                                  |
+| `Notification URL`  | At the end of a transaction, an HTTP POST with all the sales data is sent to the Notification URL.<br> The notification POST is only sent at the time the transaction is finalized, regardless of whether the transaction status changed\*\* | Used in the Notification via `POST` and`JSON`                                                                                                                                                                  |
 | `Status Change URL` | When an order has its status changed, a HTTP post will be sent to the Status Change URL.<br> The status change POST does not contain cart data, only order identification data                                                               | Used only in Notification via `POST`                                                                                                                                                                            |
 
 **NOTE:** If a `Return URL` is sent to the API, it will have priority over the URL registered in the Backoffice / In the integration Cielo `via Button`, you can only use the return URL option via backoffice.
@@ -1463,7 +1463,7 @@ This screen shows the date that the 1st recurrence transaction was authorized an
 
 **WARNING:** Only the 1st transaction is subjected to anti-fraud analysis
 
-## Cancellation of Recurrence in Checkout Cielo.
+## Cancellation of Recurrence in Checkout Cielo
 
 Recurrence cancellation occurs within Checkout Cielo's Backoffice, also on the "ORDERS" tab. Just:
 

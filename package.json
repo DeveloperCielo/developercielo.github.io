@@ -23,5 +23,7 @@
     "gulp-uglify": "^3.0.2",
     "prettier": "2.8.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "markdownlint": "^0.27.0"
+  }
 }

@@ -17,7 +17,7 @@ O objetivo desta API é possibilitar e flexibilizar, aos parceiros e canais, a c
 Este manual irá guiar o desenvolvedor com o passo a passo da integração com a API de Comercialização da Cielo, além de possuir algumas dicas
 e pontos de atenção importantes.
 
-# Funcionalidades contempladas atualmente na API:
+# Funcionalidades contempladas atualmente na API
 
 - **1.Consulta de ramos de atividade permitidos (aplicável apenas a Pessoa Física)**
   - No caso de PJ, consideraremos o ramo declarado na receita federal (CNAE Primário)
@@ -125,13 +125,13 @@ Entre outras características, os atributos que mais se destacam na plataforma C
 
 Para utilizar as APIs, as requisições devem ser executadas utilizando as respectivas credenciais dos ambientes de Labs, Sandbox e Produção.
 
-Para solicitar credenciais, entre em contato com o ponto focal do time comercial da Cielo e informe para quais ambientes são necessárias credenciais. Será necessário informar o nome e e-mail da pessoa ou caixa de e-mail do grupo de pessoas que precisam receber essa credencial para o acesso à API. Esse mesmo e-mail deverá ser utilizado para a criação de uma nova conta em nosso portal de desenvolvedores (https://desenvolvedores.cielo.com.br/api-portal/ ). Para verificar qual foi a credencial gerada, acesse a conta criada e verifique o seu o Client-Id.
+Para solicitar credenciais, entre em contato com o ponto focal do time comercial da Cielo e informe para quais ambientes são necessárias credenciais. Será necessário informar o nome e e-mail da pessoa ou caixa de e-mail do grupo de pessoas que precisam receber essa credencial para o acesso à API. Esse mesmo e-mail deverá ser utilizado para a criação de uma nova conta em nosso portal de desenvolvedores (<https://desenvolvedores.cielo.com.br/api-portal/> ). Para verificar qual foi a credencial gerada, acesse a conta criada e verifique o seu o Client-Id.
 
 | Ambiente     | Descrição                                                                                                                                                                        | Endpoint                                                   |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| **Labs**     | Destinado à realização de testes com parceiros e demais canais da Cielo. Utiliza mocks para simular o retorno das operações. As operações não são executadas em ambientes reais. | https://api2.cielo.com.br/labs/commercialization-api/v1    |
-| **Sandbox**  | Destinado à realização de testes com parceiros e demais canaisda Cielo. As operações são executadas em ambiente real, porém não produtivo.                                       | https://api2.cielo.com.br/sandbox/commercialization-api/v1 |
-| **Produção** | É o ambiente transacional integrado ao ambiente da Cielo. As operações realizadas nesse ambiente são reais e não podem ser desfeitas.                                            | https://api2.cielo.com.br/commercialization-api/v1         |
+| **Labs**     | Destinado à realização de testes com parceiros e demais canais da Cielo. Utiliza mocks para simular o retorno das operações. As operações não são executadas em ambientes reais. | <https://api2.cielo.com.br/labs/commercialization-api/v1>    |
+| **Sandbox**  | Destinado à realização de testes com parceiros e demais canaisda Cielo. As operações são executadas em ambiente real, porém não produtivo.                                       | <https://api2.cielo.com.br/sandbox/commercialization-api/v1> |
+| **Produção** | É o ambiente transacional integrado ao ambiente da Cielo. As operações realizadas nesse ambiente são reais e não podem ser desfeitas.                                            | <https://api2.cielo.com.br/commercialization-api/v1>         |
 
 # Autenticação
 
@@ -502,7 +502,7 @@ O canal precisará coletar a oferta escolhida pelo cliente e, também os dados c
 
 A operação `POST /orders` deverá ser utilizada para criar o pedido.
 
-### Dados de Entrada:
+### Dados de Entrada
 
 Após a escolha da oferta, o canal precisará coletar as informações necessárias para a criação do pedido. Parte das informações que o canal deverá solicitar são informados no próprio payload da oferta.
 

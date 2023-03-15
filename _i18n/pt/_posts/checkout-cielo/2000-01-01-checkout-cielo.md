@@ -132,7 +132,7 @@ O Certificado SSL para servidor web oferece autenticidade e integridade dos dado
 
 Empresas especializadas são responsáveis por fazer a validação do domínio e, dependendo do tipo de certificado, também da entidade detentora do domínio.
 
-### Internet Explorer:
+### Internet Explorer
 
 ![Certificado EV Internet Explorer]({{ site.baseurl_root }}/images/certificado-ie.jpg)
 
@@ -777,7 +777,7 @@ Abaixo a listagem de itens que devem ser cadastrados para a criação do botão:
 
 <aside class="warning">**imitação de Pedidos Gerados** Durante o processo de cadastro do botão, o item "Quantidade" definirá quantos pedidos poderão ser gerados pelo Botão. Essa "quantidade" diz respeito ao número de Itens em estoque/vendas são desejadas pelo lojista. Uma vez esgotadas, o Checkout passará a apresentar uma tela de erro quando o Botão/Link de pagamentos for acionado. **A "quantidade" não está disponível para vendas Recorrentes.**</aside>
 
-### Exemplo de Botão:
+### Exemplo de Botão
 
 Abaixo é possível ver como o cadastro de um botão gera os 3 métodos de para acesso a tela transacional.
 
@@ -1082,7 +1082,7 @@ Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acess
 Tanto na Notificação via POST HTTP ou POST JSON, o conteúdo dos dados retornados é o mesmo.
 Abaixo são descritos todos os campos retornados, assim como suas definições e tamanhos:
 
-### Conteúdo do POST de NOTIFICAÇÃO:
+### Conteúdo do POST de NOTIFICAÇÃO
 
 | Parâmetro                            | Descrição                                                                                                    | Tipo do campo | Tamanho máximo |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------- | -------------- |
@@ -1451,7 +1451,7 @@ Esta tela mostra a data que a 1° transação da recorrência foi autorizada e d
 
 **ATENÇÃO:** Somente a 1° transação é submetida a análise do antifraude
 
-## Cancelamento de Recorrência no Checkout Cielo.
+## Cancelamento de Recorrência no Checkout Cielo
 
 O cancelamento da recorrência ocorre dentro do Backoffice do Checkout Cielo, também na aba “PEDIDOS”. Basta:
 

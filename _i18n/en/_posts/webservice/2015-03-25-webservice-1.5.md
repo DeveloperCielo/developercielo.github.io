@@ -89,7 +89,7 @@ The EV Certificate was released in the market recently and ensures a higher leve
 
 It is a certificate of greater confidence and when https is accessed, the address bar turns green, giving more reliability to site visitors.
 
-### Internet Explorer:
+### Internet Explorer
 
 ![Certificado EV Internet Explorer]({{ site.baseurl_root }}/images/certificado-ie.jpg)
 
@@ -122,7 +122,7 @@ To install the EV Certificate you shall contact your server vendor support
 
 Normally, the browser makes a Certificate update automatically, in case of failure and client contacted you to inform it, follow the steps:
 
-#### 1st STEP:
+#### 1st STEP
 
 Save the files below into a new folder, or recall easily to be used later:
 
@@ -131,7 +131,7 @@ Save the files below into a new folder, or recall easily to be used later:
 - [Intermediate 2 certificate]({{ site.baseurl }}/attachment/Intermediate2.crt)
 - [E-Commerce Cielo certificate]({{ site.baseurl }}/attachment/ServerCertificate.crt)
 
-#### 2nd STEP:
+#### 2nd STEP
 
 In the "Internet Explorer", click on "Tools" menu and access the "Internet Options":
 
@@ -145,7 +145,7 @@ In "Chrome", click on "Customize and control Google Chrome" and go to "Settings"
 
 ![Instalar GC]({{ site.baseurl_root }}/images/certificado-instalar-gc-1.jpg)
 
-#### 3rd STEP:
+#### 3rd STEP
 
 In Internet Explorer, on "Certificates", click "Import".
 
@@ -159,7 +159,7 @@ In Chrome click "Manage Certificates", click "Import"
 
 ![Instalar GC]({{ site.baseurl_root }}/images/certificado-instalar-gc-2.jpg)
 
-#### 4th STEP:
+#### 4th STEP
 
 In Internet Explorer and in Chrome, "Certificate import wizard", click "Next"
 
@@ -171,7 +171,7 @@ In Firefox "Abba servers," click "Import"
 
 ![Instalar FF]({{ site.baseurl_root }}/images/certificado-instalar-ff-3.jpg)
 
-#### 5th STEP:
+#### 5th STEP
 
 In Chrome and Internet Explorer "Certificate Import Assistent", click "Browse", find the folder where the files are and select the file "ecommerce.cielo.com.br.crt, click" Open "and then" Advance".
 
@@ -179,19 +179,19 @@ In Chrome and Internet Explorer "Certificate Import Assistent", click "Browse", 
 
 ![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-6.jpg)
 
-#### 6th STEP:
+#### 6th STEP
 
 Select the desired option: add the certificate in a default folder or browse to the folder of your choice.
 
 ![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-7.jpg)
 
-#### 7th STEP:
+#### 7th STEP
 
 Click "Finish".
 
 ![Instalar IE e GC]({{ site.baseurl_root }}/images/certificado-instalar-ie-gc-8.jpg)
 
-#### 8th STEP:
+#### 8th STEP
 
 Click "Ok" to complete the import.
 
@@ -201,11 +201,11 @@ Click "Ok" to complete the import.
 
 The certificate can be viewed in the default tab "Others" or chosen by the customer.
 
-#### 9th STEP:
+#### 9th STEP
 
 Repeat the same procedure for the 3 uploaded files.
 
-### Questions:
+### Questions
 
 If you have questions at any stage or other technical information, contact the Support Web Cielo e-Commerce in the following channels:
 
@@ -225,7 +225,7 @@ For all purchase orders, the purpose is convert it in a sale. A sale using a car
 
 <aside class="warning">An authorized transaction only creates credit to the retailer if it can be captured (or confirmed).</aside>
 
-## Solutions characteristics:
+## Solutions characteristics
 
 The Webservice solution at Cielo E-commerce platform has been developed based on XML technology, a market pattern and independent of technologies used by our customers. In this way, it's possible to integrate it by using the various programing languages, like: ASP, ASP.NEt, Java, PHP, Ruby, Python, etc.
 
@@ -541,7 +541,7 @@ In the case of ecommerce transactions of an SDWO with a credit or debit card (no
 
 > In addition to the specific fields of this modality, for SDWO transactions it is also mandatory to send the Soft Descriptor (field `dados-pedido.soft-descriptor`) and CPF/CNPJ of the bearer (field `data-portador.cnpj-cpf-portador` ). See more details about these fields in the requisition properties table.
 
-To carry out tests, it is only necessary to follow the guidelines in the [Testing and Homologation] menu (https://developercielo.github.io/manual/webservice-1-5#testes-e-homologa%C3%A7%C3%A3o)
+To carry out tests, it is only necessary to follow the guidelines in the [Testing and Homologation] menu (<https://developercielo.github.io/manual/webservice-1-5#testes-e-homologa%C3%A7%C3%A3o>)
 
 To send the retailer's MCC in the SDWO transaction, the market orientation is to use the ABECS (Brazilian Association of Credit Card and Services Companies) table that performs the de-to of CNAEs for the MCCS of the entire industry. This table is constantly updated and is available online on the Abecs website at the following link:[ABECS](https://www.abecs.org.br/consulta-mcc-individual)
 
@@ -1644,7 +1644,7 @@ The recurrent authorization must be done in two ways: sending a token previously
   - Send a TAG '<autorizar>' with value "4".
   - Valid just for lump sum.
 
-### EASY RENEW (Renova Fácil):
+### EASY RENEW (Renova Fácil)
 
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
@@ -2558,7 +2558,7 @@ o obtain the certificate, please, open a browser and access: [http://ecommerce.c
 
 Verified Program by Visa (Visa)
 
-International Program of Visa allows the customer authentication at the purchase moment on e-commerce environment. Visit: http://www.verifiedbyvisa.com.br/ to more information.
+International Program of Visa allows the customer authentication at the purchase moment on e-commerce environment. Visit: <http://www.verifiedbyvisa.com.br/> to more information.
 
 Secure Code Program (Mastercard)
 
