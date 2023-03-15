@@ -42,7 +42,7 @@ if [ -n "$GITHUB_TOKEN" ]; then
   # clone remote repo to "_site"
   git clone https://${GITHUB_TOKEN}@github.com/DeveloperCielo/developercielo.github.io.git --branch master _site
 
-  # compiles front-end stuff
+  # compiles front-end stufff
   yarn
   yarn gulp dist
 
