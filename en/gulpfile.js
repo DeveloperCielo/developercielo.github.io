@@ -10,7 +10,6 @@ const paths = {
     dist: 'assets/bundles/css',
     files: [
       'assets/css/**/[!cielo|custom]*.css',
-      // Custom files must be the last
       'assets/css/custom.css',
       'assets/css/cielo.css',
     ],
@@ -53,8 +52,7 @@ const babelOptions = {
   presets: ['env'],
 };
 
-gulp.task('clean-tmp', () => gulp.src('tmp/**/*')
-  .pipe(clean()));
+gulp.task('clean-tmp', () => gulp.src('tmp/**/*').pipe(clean()));
 
 gulp.task('styles', () => gulp.src(paths.css.files)
   .pipe(concat(paths.css.output))
@@ -67,12 +65,12 @@ gulp.task('main-minify', () => gulp.src([...paths.js.main.files])
   .pipe(uglify())
   .pipe(gulp.dest('tmp')));
 
-gulp.task('main-scripts', ['main-minify'], () => gulp.src([
+gulp.task('main-scripts', gulp.series('main-minify', () => gulp.src([
   ...paths.js.main.minified,
   `tmp/${paths.js.main.output}`,
 ])
   .pipe(concat(paths.js.main.output))
-  .pipe(gulp.dest(paths.js.dist)));
+  .pipe(gulp.dest(paths.js.dist))));
 
 gulp.task('search-minify', () => gulp.src([...paths.js.search.files])
   .pipe(concat(paths.js.search.output))
@@ -80,12 +78,12 @@ gulp.task('search-minify', () => gulp.src([...paths.js.search.files])
   .pipe(uglify())
   .pipe(gulp.dest('tmp')));
 
-gulp.task('search-scripts', ['search-minify'], () => gulp.src([
+gulp.task('search-scripts', gulp.series('search-minify', () => gulp.src([
   ...paths.js.search.minified,
   `tmp/${paths.js.search.output}`,
 ])
   .pipe(concat(paths.js.search.output))
-  .pipe(gulp.dest(paths.js.dist)));
+  .pipe(gulp.dest(paths.js.dist))));
 
 gulp.task('language_buttons-scripts', () => gulp.src(paths.js.language_buttons.files)
   .pipe(concat(paths.js.language_buttons.output))
@@ -93,13 +91,13 @@ gulp.task('language_buttons-scripts', () => gulp.src(paths.js.language_buttons.f
   .pipe(uglify())
   .pipe(gulp.dest(paths.js.dist)));
 
-gulp.task('scripts', ['main-scripts', 'search-scripts', 'language_buttons-scripts']);
-
-gulp.task('dist', ['styles', 'scripts', 'clean-tmp']);
+gulp.task('scripts', gulp.series('main-scripts', 'search-scripts', 'language_buttons-scripts'));
+gulp.task('dist', gulp.series('styles', 'scripts', 'clean-tmp'));
 
 gulp.task('default', () => {
-  gulp.watch('assets/css/**/*', ['styles']);
-  gulp.watch(paths.js.main.files, ['main-scripts']);
-  gulp.watch(paths.js.search.files, ['search-scripts']);
-  gulp.watch(paths.js.language_buttons.files, ['language_buttons-scripts']);
+  console.log('Gulp Running');
+  gulp.watch('assets/css/**/*', gulp.series('styles'));
+  gulp.watch(paths.js.main.files, gulp.series('main-scripts'));
+  gulp.watch(paths.js.search.files, gulp.series('search-scripts'));
+  gulp.watch(paths.js.language_buttons.files, gulp.series('language_buttons-scripts'));
 });

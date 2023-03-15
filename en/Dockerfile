@@ -10,7 +10,7 @@ RUN apt-get update && \
 WORKDIR /app
 
 COPY Gemfile ./
-RUN gem update --system 3.2.3 && \
+RUN gem update --system 3.3.3 && \
     gem install bundler -v 2.2.28 && \
     bundle config build.nokogiri --use-system-libraries && \
     bundle install --jobs $(nproc) --retry 3

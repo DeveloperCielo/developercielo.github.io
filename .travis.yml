@@ -22,8 +22,6 @@ script: ./script/build
 branches:
   except:
   - master
-
-
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
