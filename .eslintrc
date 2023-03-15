@@ -12,7 +12,6 @@
   },
   "globals": {
     "$": false,
-
     "CustomEvent": false,
     "langsArray": false,
     "langs": false,
@@ -20,9 +19,7 @@
     "selectors": false,
     "setupLanguages": false,
     "toggleCode": false,
-
     "lunr": false,
-
     "location": false,
     "localStorage": false,
     "history": false,
