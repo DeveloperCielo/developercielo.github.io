@@ -1,3 +1,5 @@
+
+
 #!/bin/bash
 # enable error reporting to the console
 set -e
@@ -30,45 +32,27 @@ done
 export LANG=$lang && export LANGUAGE=$language && LC_ALL=$lc_all
 
 # lint for markdown
-#bundle exec mdl -r ${RULES} _i18n/
+#bundle exec mdl --rules ${RULES} _i18n/
 
 if [ -n "$GITHUB_TOKEN" ]; then
+  # cleanup "_site"
+  rm -rf _site
+  mkdir _site
 
   # clone remote repo to "_site"
-  git clone https://${GITHUB_TOKEN}@github.com/DeveloperCielo/developercielo.github.io.git ../for-deploy
-
-  cd ../for-deploy
+  git clone https://DeveloperCielo:${GITHUB_TOKEN}@github.com/DeveloperCielo/developercielo.github.io.git --branch master _site
 
   # compiles front-end stuff
-  npm install -g yarn
-
   yarn
-  yarn dist
+  yarn gulp dist
 
+  # build with Jekyll into "_site"
   bundle exec jekyll build --quiet -b ${HOST}
-  bundle update html-proofer
-  #bundle exec htmlproofer ./_site --disable-external --allow-hash-href
- 
-  cd ../developercielo.github.io
-  rm -rf *
+  #bundle exec htmlproofer ./_site --disable-external --allow-hash-href --empty-alt-ignore
 
-  cp -R ../for-deploy/.git .
-  cp ../for-deploy/.gitignore .
-  git stash
-  git checkout master
-
-  # Copy generated HTML site from source branch in original repository.
-  # Now the `master` branch will contain only the contents of the _site directory.
-  cp -R ../for-deploy/_site/* .
-  cp -R ../for-deploy/assets/* ./assets
-  
-  # Make sure we have the updated .travis.yml file so tests won't run on master.
-  cp ../for-deploy/.travis.yml .
-
-  git status
-  git add -A .
-  git status
-
+  # push
+  cd _site
+  git add --all
   git commit -a -m "[$TRAVIS_COMMIT]: $TRAVIS_COMMIT_MESSAGE"
   git push --force origin master
 fi
