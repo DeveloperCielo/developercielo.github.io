@@ -33,11 +33,6 @@ export LANG=$lang && export LANGUAGE=$language && LC_ALL=$lc_all
 #bundle exec mdl -r ${RULES} _i18n/
 
 if [ -n "$GITHUB_TOKEN" ]; then
-  # cleanup "_site"
-
-  echo "Usuário setado"
-  git config user.email "atilladuarte@gmail.com"
-  git config user.name "Atilla de Mattos Duarte"
 
   # clone remote repo to "_site"
   git clone https://${GITHUB_TOKEN}@github.com/DeveloperCielo/developercielo.github.io.git ../for-deploy
