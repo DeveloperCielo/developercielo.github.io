@@ -8,3 +8,4 @@ tmp
 package-lock.json
 .jekyll-cache
 yarn.lock
+_site/
