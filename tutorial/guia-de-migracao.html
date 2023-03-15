@@ -1,0 +1,1944 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="theme-color" content="#00aeef" />
+  <meta http-equiv="Content-Language" content="pt" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     Tutorial - Guia de Migração &middot; Documentações e tutoriais 
+  </title>
+
+  <link rel="shortcut icon" href="https://developercielo.github.io/assets/favicon.ico" />
+
+  <!-- CSS -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500"
+    rel="stylesheet"
+    media="none"
+    onload="if(media!='all')media='all'"
+  />
+  <script async src="https://use.fontawesome.com/3ae06f1030.js"></script>
+
+  <link
+    rel="stylesheet"
+    href="https://developercielo.github.io/assets/bundles/css/bundle.min.css"
+  />
+
+   
+  <link
+    rel="alternate"
+    hreflang="pt"
+    href="https://developercielo.github.io/tutorial/guia-de-migracao"
+  />
+    
+  <link
+    rel="alternate"
+    hreflang="en"
+    href="https://developercielo.github.io/en/tutorial/guia-de-migracao"
+  />
+   
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="https://developercielo.github.io/atom.xml"
+  />
+</head>
+
+    <body>
+        
+        <div class="content-container no-dark-box">
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://devcielo.zendesk.com/hc/pt-br#suporte" class="help">Ajuda</a>
+
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/tutorial/guia-de-migracao">Tutorial - Guia de Migração</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post"><h1 id="guia-de-migração-cielo">Guia de migração Cielo</h1>
+
+<aside class="warning">O Webservice 1.5 foi descontinuado. O documento abaixo existe como base de conhecimento para clientes ja integrados. Novos cadastros não serão realizados pelo atendimento Cielo</aside>
+
+<blockquote>
+  <p>Para novas integrações, veja <a href="https://developercielo.github.io/manual/cielo-ecommerce">API Cielo E-commerce</a></p>
+</blockquote>
+
+<p>Esse guia tem como propósito facilitar a migração da integração entre as soluções Webservice 1.5 e API 3.0. Antes de ler esse guia, é altamente recomentado que você tenha lido o manual de integração da solução para qual pretende migrar sua integração atual. Os manuais podem ser encontrados em:</p>
+
+<ul>
+  <li><a href="https://developercielo.github.io/Webservice-1.5">Solução Webservice 1.5</a></li>
+  <li><a href="https://developercielo.github.io/Webservice-3.0">Solução API 3.0</a></li>
+</ul>
+
+<h2 id="visão-geral">Visão Geral</h2>
+
+<p>De forma geral, a primeira grande diferença entre as duas soluções está no envio das credenciais do estabelecimento comercial. No Webservice 1.5, as credenciais eram enviadas no nó <code class="language-plaintext highlighter-rouge">dados-ec</code>, através dos elementos <code class="language-plaintext highlighter-rouge">numero</code> e <code class="language-plaintext highlighter-rouge">chave</code>; na API 3.0, as credenciais são enviadas utilizando cabeçalhos HTTP, através dos campos de cabeçalho <code class="language-plaintext highlighter-rouge">MerchantId</code> e <code class="language-plaintext highlighter-rouge">MerchantKey</code>.</p>
+
+<p>A segunda grande diferença entre as duas soluções está no envio dos dados relacionados ao comprador; como na solução Webservice 1.5 esses dados não são enviados na integração, a loja poderá precisar implementar essa coleta de dados caso queira enviá-los.</p>
+
+<p>A terceira grande diferença entre as duas soluções está no AVS; como a API 3.0 ainda não suporta AVS, não há, na API, uma forma para enviá-los.</p>
+
+<h3 id="ambientes-da-30">Ambientes da 3.0</h3>
+
+<p>Além dessas diferenças, as requisições HTTP também são feitas em ambientes diferentes utilizado métodos HTTP específicos para cada tipo de requisição; são eles:</p>
+
+<p><strong>Ambiente Produção</strong></p>
+
+<ul>
+  <li>Requisição de transação: https://api.cieloeCommerce.cielo.com.br/</li>
+  <li>Consulta transação: https://apiquery.cieloeCommerce.cielo.com.br/</li>
+</ul>
+
+<p><strong>Ambiente Sandbox</strong></p>
+
+<ul>
+  <li>Requisição de transação: https://apisandbox.cieloeCommerce.cielo.com.br</li>
+  <li>Consulta transação: https://apiquerysandbox.cieloeCommerce.cielo.com.br</li>
+</ul>
+
+<h3 id="métodos-http-da-30">Métodos HTTP da 3.0</h3>
+
+<h4 id="criação-de-vendas">Criação de vendas</h4>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://api.cieloeCommerce.cielo.com.br/1/sales/</span></aside>
+
+<h4 id="captura-ou-cancelamento-de-vendas">Captura ou cancelamento de vendas</h4>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://api.cieloeCommerce.cielo.com.br/1/sales/{PaymentId}/capture</span></aside>
+
+<h4 id="consulta-de-vendas">Consulta de vendas</h4>
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">https://apiquery.cieloeCommerce.cielo.com.br/1/sales/{PaymentId}</span></aside>
+
+<h3 id="tabelas-comparativas">Tabelas comparativas</h3>
+
+<p>A seção das tabelas comparativas mostra, campo a campo, cada especificidade das soluções em cada caso de uso; as colunas <code class="language-plaintext highlighter-rouge">GUIAR POR</code> são utilizadas para colocar o foco em uma das soluções.</p>
+
+<h4 id="comparar-soluções">Comparar Soluções:</h4>
+
+<p>Caso sua integração atual utilize a solução Webservice 1.5 e você queira fazer a comparação com a API 3.0 ou vice versa, basta visulizar as tabelas abaixo</p>
+
+<h1 id="integração-com-cartão-de-crédito">Integração com cartão de crédito</h1>
+
+<h2 id="tabela-da-requisição-de-crédito">Tabela da Requisição de Crédito</h2>
+
+<p>Nessa seção você poderá analisar, campo a campo, cada especificidade das soluções no cenário de uma requisição de venda por crédito.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>solução 3.0</th>
+      <th>solução 1.5</th>
+      <th>Observações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>”–Header.MerchantId”</td>
+      <td>dados-ec.numero</td>
+      <td>O 1.5 recebe EC no corpo do request e o 3.0 recebe o MerchantId no header. Estes campos não possuem o mesmo valor</td>
+    </tr>
+    <tr>
+      <td>”–Header.MerchantKey”</td>
+      <td>dados-ec.chave</td>
+      <td>O 1.5 recebe a Chave no corpo do request e o 3.0 recebe o MerchantKey no header. Estes campos não possuem o mesmo valor</td>
+    </tr>
+    <tr>
+      <td>”–Header.RequestId”</td>
+      <td>–</td>
+      <td>No 1.5 não existe campo com o identificador do Request</td>
+    </tr>
+    <tr>
+      <td>MerchantOrderId</td>
+      <td>dados-pedido.numero</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Customer.Name</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>Customer.Email</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>Customer.Birthdate</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>Customer.Address.Street</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>Customer.Address.Number</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>Customer.Address.Complement</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>Customer.Address.ZipCode</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>Customer.Address.City</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>Customer.Address.State</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>Customer.Address.Country</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>Customer.DeliveryAddress.Street</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>Customer.DeliveryAddress.Number</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>Customer.DeliveryAddress.Complement</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>Customer.DeliveryAddress.ZipCode</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>Customer.DeliveryAddress.City</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>Customer.DeliveryAddress.State</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>Customer.DeliveryAddress.Country</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>Payment.Type</td>
+      <td>forma-pagamento.produto</td>
+      <td>No 3.0 a forma de pagamento (Crédito e Débito) e o tipo de juros são definidos em campos distintos</td>
+    </tr>
+    <tr>
+      <td>Payment.Amount</td>
+      <td>dados-pedido.valor</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.Currency</td>
+      <td>dados-pedido.moeda</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.Country</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.Provider</td>
+      <td>–</td>
+      <td>O 1.5 não dispobiliza outras formas de pagamento que não seja Cielo. O 3.0 dispobibiliza, além da Cielo, Bradesco e BB</td>
+    </tr>
+    <tr>
+      <td>Payment.SeviceTaxAmount</td>
+      <td>dados-pedido.taxa-embarque</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.Installments</td>
+      <td>forma-pagamento.parcelas</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.Interest</td>
+      <td>forma-pagamento.produto</td>
+      <td>No 3.0 a forma de pagamento (Crédito e Débito) e o tipo de juros são definidos em campos distintos</td>
+    </tr>
+    <tr>
+      <td>Payment.Capture</td>
+      <td>capturar</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.SoftDescriptor</td>
+      <td>dados-pedido.soft-descriptor</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.ReturnUrl</td>
+      <td>url-retorno</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.ExtraData[]</td>
+      <td>campo-livre</td>
+      <td>No 1.5 é uma string e no 3.0 é uma coleção chave/valor</td>
+    </tr>
+    <tr>
+      <td>Payment.Authenticate</td>
+      <td>autorizar</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.CreditCard.CardNumber</td>
+      <td>dados-portador.numero</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.CreditCard.Holder</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.CreditCard.ExpirationDate</td>
+      <td>dados-portador.validade</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.CreditCard.SecurityCode</td>
+      <td>dados-portador.codigo-seguranca</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.CreditCard.CardToken</td>
+      <td>dados-portador.token</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.CreditCard.SaveCard</td>
+      <td>gerar-token</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.CreditCard.Brand</td>
+      <td>forma-pagamento.bandeira</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.RecurrentPayment.EndDate</td>
+      <td>–</td>
+      <td>O 1.5 utiliza uma outra forma de recorrência</td>
+    </tr>
+    <tr>
+      <td>Payment.RecurrentPayment.Interval</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.RecurrentPayment.AuthorizeNow</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>–</td>
+      <td>dados-portador.indicador</td>
+      <td>No 3.0 não existe campo para informar o envio do CVV.</td>
+    </tr>
+    <tr>
+      <td>–</td>
+      <td>dados-pedido.data-hora</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>–</td>
+      <td>dados-pedido.descricao</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>–</td>
+      <td>dados-pedido.idioma</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>–</td>
+      <td>bin</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>–</td>
+      <td>avs.dados-avs.endereco</td>
+      <td>O 3.0 ainda não suporta AVS</td>
+    </tr>
+    <tr>
+      <td>–</td>
+      <td>avs.dados-avs.complemento</td>
+      <td>O 3.0 ainda não suporta AVS</td>
+    </tr>
+    <tr>
+      <td>–</td>
+      <td>avs.dados-avs.numero</td>
+      <td>O 3.0 ainda não suporta AVS</td>
+    </tr>
+    <tr>
+      <td>–</td>
+      <td>avs.dados-avs.bairro</td>
+      <td>O 3.0 ainda não suporta AVS</td>
+    </tr>
+    <tr>
+      <td>–</td>
+      <td>avs.dados-avs.cep</td>
+      <td>O 3.0 ainda não suporta AVS</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-da-resposta-de-crédito">Tabela da Resposta de Crédito</h2>
+
+<p>Nessa seção você poderá analisar, campo a campo, cada especificidade das soluções no cenário da resposta de uma requisição de venda por crédito.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>solução 3.0</th>
+      <th>solução 1.5</th>
+      <th>Observações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>–Header.MerchantId</td>
+      <td>–</td>
+      <td>O 1.5 não retorna os dados de request no response</td>
+    </tr>
+    <tr>
+      <td>–Header.MerchantKey</td>
+      <td>–</td>
+      <td>O 1.5 não retorna os dados de request no response</td>
+    </tr>
+    <tr>
+      <td>–Header.RequestId</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>MerchantOrderId</td>
+      <td>dados-pedido.numero</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Customer.Name</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Customer.Email</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Customer.Birthdate</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Customer.Address.Street</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Customer.Address.Number</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Customer.Address.Complement</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Customer.Address.ZipCode</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Customer.Address.City</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Customer.Address.State</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Customer.Address.Country</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Customer.DeliveryAddress.Street</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Customer.DeliveryAddress.Number</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Customer.DeliveryAddress.Complement</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Customer.DeliveryAddress.ZipCode</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Customer.DeliveryAddress.City</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Customer.DeliveryAddress.State</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Customer.DeliveryAddress.Country</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.Type</td>
+      <td>forma-pagamento.produto</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.Amount</td>
+      <td>dados-pedido.valor</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.Amount</td>
+      <td>autenticacao.valor</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.Amount</td>
+      <td>autorizacao.valor</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.CapturedAmount</td>
+      <td>captura.valor</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.Currency</td>
+      <td>dados-pedido.moeda</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.Country</td>
+      <td>–</td>
+      <td>O 1.5 não retorna os dados de request no response</td>
+    </tr>
+    <tr>
+      <td>Payment.Provider</td>
+      <td>–</td>
+      <td>O 1.5 não retorna os dados de request no response</td>
+    </tr>
+    <tr>
+      <td>Payment.SeviceTaxAmount</td>
+      <td>dados-pedido.taxa-embarque</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.Installments</td>
+      <td>forma-pagamento.parcelas</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.Interest</td>
+      <td>forma-pagamento.produto</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.Capture</td>
+      <td>–</td>
+      <td>O 1.5 não retorna os dados de request no response</td>
+    </tr>
+    <tr>
+      <td>Payment.SoftDescriptor</td>
+      <td>–</td>
+      <td>O 1.5 não retorna os dados de request no response</td>
+    </tr>
+    <tr>
+      <td>Payment.ReturnUrl</td>
+      <td>–</td>
+      <td>O 1.5 não retorna os dados de request no response</td>
+    </tr>
+    <tr>
+      <td>Payment.ExtraData[]</td>
+      <td>–</td>
+      <td>O 1.5 não retorna os dados de request no response</td>
+    </tr>
+    <tr>
+      <td>Payment.Authenticate</td>
+      <td>–</td>
+      <td>O 1.5 não retorna os dados de request no response</td>
+    </tr>
+    <tr>
+      <td>Payment.Tid</td>
+      <td>tid</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.ProofOfSale</td>
+      <td>autorizacao.nsu</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.AuthorizationCode</td>
+      <td>autorizacao.arp</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.Status</td>
+      <td>status</td>
+      <td>Os valores retornados pelas aplicações são diferentes</td>
+    </tr>
+    <tr>
+      <td>Payment.ReturnCode</td>
+      <td>autenticacao.codigo</td>
+      <td>No 3.0 existe apenas um campo para código de retorno</td>
+    </tr>
+    <tr>
+      <td>Payment.ReturnCode</td>
+      <td>autorizacao.lr</td>
+      <td>No 3.0 existe apenas um campo para código de retorno</td>
+    </tr>
+    <tr>
+      <td>Payment.ReturnCode</td>
+      <td>captura.codigo</td>
+      <td>No 3.0 existe apenas um campo para código de retorno</td>
+    </tr>
+    <tr>
+      <td>Payment.ReturnMessage</td>
+      <td>autenticacao.mensagem</td>
+      <td>No 3.0 existe apenas um campo para mensagem de retorno</td>
+    </tr>
+    <tr>
+      <td>Payment.ReturnMessage</td>
+      <td>autorizacao.mensagem</td>
+      <td>No 3.0 existe apenas um campo para mensagem de retorno</td>
+    </tr>
+    <tr>
+      <td>Payment.ReturnMessage</td>
+      <td>captura.mensagem</td>
+      <td>No 3.0 existe apenas um campo para mensagem de retorno</td>
+    </tr>
+    <tr>
+      <td>Payment.ReceivedDate</td>
+      <td>dados-pedido.data-hora</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.CapturedDate</td>
+      <td>captura.data-hora</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.Eci</td>
+      <td>autenticacao.eci</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.CreditCard.CardNumber</td>
+      <td>–</td>
+      <td>O 1.5 não retorna os dados de request no response</td>
+    </tr>
+    <tr>
+      <td>Payment.CreditCard.Holder</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.CreditCard.ExpirationDate</td>
+      <td>–</td>
+      <td>O 1.5 não retorna os dados de request no response</td>
+    </tr>
+    <tr>
+      <td>Payment.CreditCard.SecurityCode</td>
+      <td>–</td>
+      <td>O 1.5 não retorna os dados de request no response</td>
+    </tr>
+    <tr>
+      <td>Payment.CreditCard.CardToken</td>
+      <td>–</td>
+      <td>O 1.5 não retorna os dados de request no response</td>
+    </tr>
+    <tr>
+      <td>Payment.CreditCard.SaveCard</td>
+      <td>–</td>
+      <td>O 1.5 não retorna os dados de request no response</td>
+    </tr>
+    <tr>
+      <td>Payment.CreditCard.Brand</td>
+      <td>forma-pagamento.bandeira</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Payment.RecurrentPayment.EndDate</td>
+      <td>–</td>
+      <td>A recorrência funciona de forma diferente nas APIs</td>
+    </tr>
+    <tr>
+      <td>Payment.RecurrentPayment.Interval</td>
+      <td>–</td>
+      <td>A recorrência funciona de forma diferente nas APIs</td>
+    </tr>
+    <tr>
+      <td>Payment.RecurrentPayment.AuthorizeNow</td>
+      <td>–</td>
+      <td>A recorrência funciona de forma diferente nas APIs</td>
+    </tr>
+    <tr>
+      <td>Payment.Links[].Method</td>
+      <td>–</td>
+      <td>O 1.5 não suporta HATEOAS</td>
+    </tr>
+    <tr>
+      <td>Payment.Links[].Rel</td>
+      <td>–</td>
+      <td>O 1.5 não suporta HATEOAS</td>
+    </tr>
+    <tr>
+      <td>Payment.Links[].Href</td>
+      <td>–</td>
+      <td>O 1.5 não suporta HATEOAS</td>
+    </tr>
+    <tr>
+      <td>–</td>
+      <td>pan</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>–</td>
+      <td>dados-pedido.descricao</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>–</td>
+      <td>dados-pedido.idioma</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>–</td>
+      <td>autenticacao.data-hora</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>–</td>
+      <td>autorizacao.data-hora</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>–</td>
+      <td>autorizacao.codigo</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="integração-com-cartão-de-débito">Integração com cartão de débito</h1>
+
+<h2 id="tabela-da-requisição-de-débito">Tabela da Requisição de Débito</h2>
+
+<p>Nessa seção você poderá analisar, campo a campo, cada especificidade das soluções no cenário de uma requisição de venda por débito.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Guiar por</th>
+      <th>solução 3.0</th>
+      <th> </th>
+      <th>Guiar por</th>
+      <th>solução 1.5</th>
+      <th>Observações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>–Header.MerchantId</td>
+      <td> </td>
+      <td>1</td>
+      <td>dados-ec.numero</td>
+      <td>O 1.5 recebe EC no corpo do request e o 3.0 recebe o MerchantId no header. Estes campos não possuem o mesmo valor</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>–Header.MerchantKey</td>
+      <td> </td>
+      <td>2</td>
+      <td>dados-ec.chave</td>
+      <td>O 1.5 recebe a Chave no corpo do request e o 3.0 recebe o MerchantKey no header. Estes campos não possuem o mesmo valor</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>–Header.RequestId</td>
+      <td> </td>
+      <td>30</td>
+      <td>–</td>
+      <td>No 1.5 não existe campo com o identificador do Request</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>MerchantOrderId</td>
+      <td> </td>
+      <td>11</td>
+      <td>dados-pedido.numero</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Customer.Name</td>
+      <td> </td>
+      <td>31</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Customer.Email</td>
+      <td> </td>
+      <td>32</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Customer.Birthdate</td>
+      <td> </td>
+      <td>33</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Customer.Address.Street</td>
+      <td> </td>
+      <td>34</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Customer.Address.Number</td>
+      <td> </td>
+      <td>35</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Customer.Address.Complement</td>
+      <td> </td>
+      <td>36</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Customer.Address.ZipCode</td>
+      <td> </td>
+      <td>37</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Customer.Address.City</td>
+      <td> </td>
+      <td>38</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Customer.Address.State</td>
+      <td> </td>
+      <td>39</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Customer.Address.Country</td>
+      <td> </td>
+      <td>40</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Customer.DeliveryAddress.Street</td>
+      <td> </td>
+      <td>41</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Customer.DeliveryAddress.Number</td>
+      <td> </td>
+      <td>42</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>Customer.DeliveryAddress.Complement</td>
+      <td> </td>
+      <td>43</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>Customer.DeliveryAddress.ZipCode</td>
+      <td> </td>
+      <td>44</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>Customer.DeliveryAddress.City</td>
+      <td> </td>
+      <td>45</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Customer.DeliveryAddress.State</td>
+      <td> </td>
+      <td>46</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>Customer.DeliveryAddress.Country</td>
+      <td> </td>
+      <td>47</td>
+      <td>–</td>
+      <td>O 1.5 não recebe dados relacionados ao comprador</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>Payment.Type</td>
+      <td> </td>
+      <td>9</td>
+      <td>forma-pagamento.produto</td>
+      <td>No 3.0 a forma de pagamento (Crédito e Débito) e o tipo de juros são definidos em campos distintos</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>Payment.Amount</td>
+      <td> </td>
+      <td>12</td>
+      <td>dados-pedido.valor</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>Payment.Currency</td>
+      <td> </td>
+      <td>13</td>
+      <td>dados-pedido.moeda</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>Payment.Country</td>
+      <td> </td>
+      <td>48</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Payment.Provider</td>
+      <td> </td>
+      <td>49</td>
+      <td>–</td>
+      <td>O 1.5 não dispobiliza outras formas de pagamento que não seja Cielo. O 3.0 dispobibiliza, além da Cielo, Bradesco e BB</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>Payment.SoftDescriptor</td>
+      <td> </td>
+      <td>18</td>
+      <td>dados-pedido.soft-descriptor</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>Payment.ReturnUrl</td>
+      <td> </td>
+      <td>19</td>
+      <td>url-retorno</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>Payment.ExtraData[]</td>
+      <td> </td>
+      <td>21</td>
+      <td>campo-livre</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>Payment.DebitCard.CardNumber</td>
+      <td> </td>
+      <td>3</td>
+      <td>dados-portador.numero</td>
+      <td>No 3.0 a forma de pagamento (Crédito e Débito) e o tipo de juros são definidos em campos distintos</td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>Payment.DebitCard.Holder</td>
+      <td> </td>
+      <td>50</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>Payment.DebitCard.ExpirationDate</td>
+      <td> </td>
+      <td>4</td>
+      <td>dados-portador.validade</td>
+      <td>No 3.0 não existe campo para informar o envio do CVV.</td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <td>Payment.DebitCard.SecurityCode</td>
+      <td> </td>
+      <td>6</td>
+      <td>dados-portador.codigo-seguranca</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>34</td>
+      <td>Payment.DebitCard.CardToken</td>
+      <td> </td>
+      <td>7</td>
+      <td>dados-portador.token</td>
+      <td>No 1.5 é uma string e no 3.0 é uma coleção chave/valor</td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>Payment.DebitCard.SaveCard</td>
+      <td> </td>
+      <td>24</td>
+      <td>gerar-token</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>36</td>
+      <td>Payment.DebitCard.Brand</td>
+      <td> </td>
+      <td>8</td>
+      <td>forma-pagamento.bandeira</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>37</td>
+      <td>–</td>
+      <td> </td>
+      <td>17</td>
+      <td>dados-pedido.taxa-embarque</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>38</td>
+      <td>–</td>
+      <td> </td>
+      <td>10</td>
+      <td>forma-pagamento.parcelas</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <td>–</td>
+      <td> </td>
+      <td>9</td>
+      <td>forma-pagamento.produto</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>–</td>
+      <td> </td>
+      <td>20</td>
+      <td>capturar</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>–</td>
+      <td> </td>
+      <td>23</td>
+      <td>autorizar</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>42</td>
+      <td>–</td>
+      <td> </td>
+      <td>5</td>
+      <td>dados-portador.indicador</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>43</td>
+      <td>–</td>
+      <td> </td>
+      <td>14</td>
+      <td>dados-pedido.data-hora</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>44</td>
+      <td>–</td>
+      <td> </td>
+      <td>15</td>
+      <td>dados-pedido.descricao</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>45</td>
+      <td>–</td>
+      <td> </td>
+      <td>16</td>
+      <td>dados-pedido.idioma</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>46</td>
+      <td>–</td>
+      <td> </td>
+      <td>22</td>
+      <td>bin</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>47</td>
+      <td>–</td>
+      <td> </td>
+      <td>25</td>
+      <td>avs.dados-avs.endereco</td>
+      <td>O 3.0 ainda não suporta AVS</td>
+    </tr>
+    <tr>
+      <td>48</td>
+      <td>–</td>
+      <td> </td>
+      <td>26</td>
+      <td>avs.dados-avs.complemento</td>
+      <td>O 3.0 ainda não suporta AVS</td>
+    </tr>
+    <tr>
+      <td>49</td>
+      <td>–</td>
+      <td> </td>
+      <td>27</td>
+      <td>avs.dados-avs.numero</td>
+      <td>O 3.0 ainda não suporta AVS</td>
+    </tr>
+    <tr>
+      <td>50</td>
+      <td>–</td>
+      <td> </td>
+      <td>28</td>
+      <td>avs.dados-avs.bairro</td>
+      <td>O 3.0 ainda não suporta AVS</td>
+    </tr>
+    <tr>
+      <td>51</td>
+      <td>–</td>
+      <td> </td>
+      <td>29</td>
+      <td>avs.dados-avs.cep</td>
+      <td>O 3.0 ainda não suporta AVS</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="tabela-da-resposta-de-débito">Tabela da Resposta de Débito</h2>
+
+<p>Nessa seção você poderá analisar, campo a campo, cada especificidade das soluções no cenário da resposta de uma requisição de venda por débito.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Guiar por</th>
+      <th>solução 3.0</th>
+      <th> </th>
+      <th>Guiar por</th>
+      <th>solução 1.5</th>
+      <th>Observações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>–Header.MerchantId</td>
+      <td> </td>
+      <td>30</td>
+      <td>–</td>
+      <td>O 1.5 não retorna os dados de request no response</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>–Header.MerchantKey</td>
+      <td> </td>
+      <td>31</td>
+      <td>–</td>
+      <td>O 1.5 não retorna os dados de request no response</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>–Header.RequestId</td>
+      <td> </td>
+      <td>32</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>MerchantOrderId</td>
+      <td> </td>
+      <td>3</td>
+      <td>dados-pedido.numero</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Customer.Name</td>
+      <td> </td>
+      <td>33</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Customer.Email</td>
+      <td> </td>
+      <td>34</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Customer.Birthdate</td>
+      <td> </td>
+      <td>35</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Customer.Address.Street</td>
+      <td> </td>
+      <td>36</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Customer.Address.Number</td>
+      <td> </td>
+      <td>37</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Customer.Address.Complement</td>
+      <td> </td>
+      <td>38</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Customer.Address.ZipCode</td>
+      <td> </td>
+      <td>39</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Customer.Address.City</td>
+      <td> </td>
+      <td>40</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Customer.Address.State</td>
+      <td> </td>
+      <td>41</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Customer.Address.Country</td>
+      <td> </td>
+      <td>42</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Customer.DeliveryAddress.Street</td>
+      <td> </td>
+      <td>43</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Customer.DeliveryAddress.Number</td>
+      <td> </td>
+      <td>44</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>Customer.DeliveryAddress.Complement</td>
+      <td> </td>
+      <td>45</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>Customer.DeliveryAddress.ZipCode</td>
+      <td> </td>
+      <td>46</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>Customer.DeliveryAddress.City</td>
+      <td> </td>
+      <td>47</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Customer.DeliveryAddress.State</td>
+      <td> </td>
+      <td>48</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>Customer.DeliveryAddress.Country</td>
+      <td> </td>
+      <td>49</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>Payment.Type</td>
+      <td> </td>
+      <td>11</td>
+      <td>forma-pagamento.produto</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>Payment.Amount</td>
+      <td> </td>
+      <td>4</td>
+      <td>dados-pedido.valor</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>Payment.Amount</td>
+      <td> </td>
+      <td>17</td>
+      <td>autenticacao.valor</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>Payment.Amount</td>
+      <td> </td>
+      <td>22</td>
+      <td>autorizacao.valor</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>CapturedAmount</td>
+      <td> </td>
+      <td>29</td>
+      <td>captura.valor</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>Payment.Currency</td>
+      <td> </td>
+      <td>5</td>
+      <td>dados-pedido.moeda</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Payment.Country</td>
+      <td> </td>
+      <td>50</td>
+      <td>–</td>
+      <td>O 1.5 não retorna os dados de request no response</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>Payment.Provider</td>
+      <td> </td>
+      <td>51</td>
+      <td>–</td>
+      <td>O 1.5 não retorna os dados de request no response</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>Payment.SoftDescriptor</td>
+      <td> </td>
+      <td>53</td>
+      <td>–</td>
+      <td>O 1.5 não retorna os dados de request no response</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>Payment.ReturnUrl</td>
+      <td> </td>
+      <td>54</td>
+      <td>–</td>
+      <td>O 1.5 não retorna os dados de request no response</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>Payment.ExtraData[]</td>
+      <td> </td>
+      <td>55</td>
+      <td>–</td>
+      <td>O 1.5 não retorna os dados de request no response</td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>Payment.Tid</td>
+      <td> </td>
+      <td>1</td>
+      <td>tid</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>Payment.ProofOfSale</td>
+      <td> </td>
+      <td>25</td>
+      <td>autorizacao.nsu</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <td>Payment.AuthorizationCode</td>
+      <td> </td>
+      <td>19</td>
+      <td>autorizacao.arp</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>34</td>
+      <td>Payment.Status</td>
+      <td> </td>
+      <td>13</td>
+      <td>status</td>
+      <td>Os valores retornados pelas aplicações são diferentes</td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>Payment.ReturnCode</td>
+      <td> </td>
+      <td>14</td>
+      <td>autenticacao.codigo</td>
+      <td>No 3.0 existe apenas um campo para código de retorno</td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>Payment.ReturnCode</td>
+      <td> </td>
+      <td>23</td>
+      <td>autorizacao.lr</td>
+      <td>No 3.0 existe apenas um campo para código de retorno</td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>Payment.ReturnCode</td>
+      <td> </td>
+      <td>26</td>
+      <td>captura.codigo</td>
+      <td>No 3.0 existe apenas um campo para código de retorno</td>
+    </tr>
+    <tr>
+      <td>36</td>
+      <td>Payment.ReturnMessage</td>
+      <td> </td>
+      <td>15</td>
+      <td>autenticacao.mensagem</td>
+      <td>No 3.0 existe apenas um campo para mensagem de retorno</td>
+    </tr>
+    <tr>
+      <td>36</td>
+      <td>Payment.ReturnMessage</td>
+      <td> </td>
+      <td>20</td>
+      <td>autorizacao.mensagem</td>
+      <td>No 3.0 existe apenas um campo para mensagem de retorno</td>
+    </tr>
+    <tr>
+      <td>36</td>
+      <td>Payment.ReturnMessage</td>
+      <td> </td>
+      <td>27</td>
+      <td>captura.mensagem</td>
+      <td>No 3.0 existe apenas um campo para mensagem de retorno</td>
+    </tr>
+    <tr>
+      <td>37</td>
+      <td>Payment.ReceivedDate</td>
+      <td> </td>
+      <td>6</td>
+      <td>dados-pedido.data-hora</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>38</td>
+      <td>CapturedDate</td>
+      <td> </td>
+      <td>28</td>
+      <td>captura.data-hora</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <td>Payment.Eci</td>
+      <td> </td>
+      <td>18</td>
+      <td>autenticacao.eci</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>Payment.DebitCard.CardNumber</td>
+      <td> </td>
+      <td>57</td>
+      <td>–</td>
+      <td>O 1.5 não retorna os dados de request no response</td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>Payment.DebitCard.Holder</td>
+      <td> </td>
+      <td>58</td>
+      <td>–</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>42</td>
+      <td>Payment.DebitCard.ExpirationDate</td>
+      <td> </td>
+      <td>59</td>
+      <td>–</td>
+      <td>O 1.5 não retorna os dados de request no response</td>
+    </tr>
+    <tr>
+      <td>43</td>
+      <td>Payment.DebitCard.SecurityCode</td>
+      <td> </td>
+      <td>60</td>
+      <td>–</td>
+      <td>O 1.5 não retorna os dados de request no response</td>
+    </tr>
+    <tr>
+      <td>44</td>
+      <td>Payment.DebitCard.CardToken</td>
+      <td> </td>
+      <td>61</td>
+      <td>–</td>
+      <td>O 1.5 não retorna os dados de request no response</td>
+    </tr>
+    <tr>
+      <td>45</td>
+      <td>Payment.DebitCard.SaveCard</td>
+      <td> </td>
+      <td>62</td>
+      <td>–</td>
+      <td>O 1.5 não retorna os dados de request no response</td>
+    </tr>
+    <tr>
+      <td>46</td>
+      <td>Payment.DebitCard.Brand</td>
+      <td> </td>
+      <td>10</td>
+      <td>forma-pagamento.bandeira</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>47</td>
+      <td>Payment.Links[].Method</td>
+      <td> </td>
+      <td>66</td>
+      <td>–</td>
+      <td>O 1.5 não suporta HATEOAS</td>
+    </tr>
+    <tr>
+      <td>48</td>
+      <td>Payment.Links[].Rel</td>
+      <td> </td>
+      <td>67</td>
+      <td>–</td>
+      <td>O 1.5 não suporta HATEOAS</td>
+    </tr>
+    <tr>
+      <td>49</td>
+      <td>Payment.Links[].Href</td>
+      <td> </td>
+      <td>68</td>
+      <td>–</td>
+      <td>O 1.5 não suporta HATEOAS</td>
+    </tr>
+    <tr>
+      <td>50</td>
+      <td>–</td>
+      <td> </td>
+      <td>2</td>
+      <td>pan</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>51</td>
+      <td>–</td>
+      <td> </td>
+      <td>7</td>
+      <td>dados-pedido.descricao</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>52</td>
+      <td>–</td>
+      <td> </td>
+      <td>8</td>
+      <td>dados-pedido.idioma</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>53</td>
+      <td>–</td>
+      <td> </td>
+      <td>16</td>
+      <td>autenticacao.data-hora</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>54</td>
+      <td>–</td>
+      <td> </td>
+      <td>21</td>
+      <td>autorizacao.data-hora</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>55</td>
+      <td>–</td>
+      <td> </td>
+      <td>24</td>
+      <td>autorizacao.codigo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>56</td>
+      <td>–</td>
+      <td> </td>
+      <td>12</td>
+      <td>forma-pagamento.parcelas</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>57</td>
+      <td>–</td>
+      <td> </td>
+      <td>11</td>
+      <td>forma-pagamento.produto</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>58</td>
+      <td>–</td>
+      <td> </td>
+      <td>9</td>
+      <td>dados-pedido.taxa-embarque</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="glossário">Glossário</h2>
+
+<p>Para facilitar o entendimento, listamos abaixo um pequeno glossário com os principais termos relacionados ao eCommerce, ao mercado de cartões e adquirencia:</p>
+
+<ul>
+  <li><strong>Autenticação</strong>: processo para assegurar que o comprador é realmente aquele quem diz ser (portador legítimo), geralmente ocorre no banco emissor com uso de um token digital ou cartão com chaves de segurança.</li>
+  <li><strong>Autorização</strong>: processo para verificar se uma compra pode ou não ser realizada com um cartão. Nesse momento, são feitas diversas verificações com o cartão e com o portador (ex.: adimplência, bloqueios, etc.) É também neste momento que o limite do cartão é sensibilizado com o valor da transação.</li>
+  <li><strong>Cancelamento</strong>: processo para cancelar uma compra realizada com cartão.</li>
+  <li><strong>Captura</strong>: processo que confirma uma autorização que foi realizada previamente. Somente após a captura, é que o portador do cartão poderá visualizá-la em seu extrato ou fatura.</li>
+  <li><strong>Chave de acesso</strong>: é um código de segurança específico de cada loja, gerado pela Cielo, usada para realizar a autenticação e comunicação em todas as mensagens trocadas com a Cielo. Também conhecido como chave de produção e key data.</li>
+  <li><strong>Comprador</strong>: é o aquele que efetua compra na loja virtual.</li>
+  <li><strong>Emissor (ou banco emissor)</strong>: É a instituição financeira que emite o cartão de crédito, débito ou voucher.</li>
+  <li><strong>Estabelecimento comercial ou EC</strong>: Entidade que responde pela loja virtual.</li>
+  <li><strong>Gateway de pagamentos</strong>: Empresa responsável pelo integração técnica e processamento das transações.</li>
+  <li><strong>Número de credenciamento</strong>: é um número identificador que o lojista recebe após seu credenciamento junto à Cielo.</li>
+  <li><strong>Portador</strong>: é a pessoa que tem o porte do cartão no momento da venda.</li>
+  <li><strong>SecureCode</strong>: programa internacional da Mastercard para possibilitar a autenticação do comprador no momento de uma compra em ambiente eCommerce.</li>
+  <li><strong>TID (Transaction Identifier)</strong>: código composto por 20 caracteres que identificada unicamente uma transação Cielo eCommerce.</li>
+  <li><strong>Transação</strong>: é o pedido de compra do portador do cartão na Cielo.</li>
+  <li><strong>VBV (Verified by Visa)</strong>: Programa internacional da Visa que possibilita a autenticação do comprador no momento de uma compra em ambiente eCommerce.</li>
+</ul>
+</div>
+
+
+            <div class="footer-conteudo">
+  <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+    <img
+      src="https://developercielo.github.io/assets/images/icon-doubt.svg"
+      width="55px"
+      height="53px"
+      alt="Precisa de ajuda?"
+    />
+  </div>
+
+  <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+    <h2>Precisa de ajuda?</h2>
+    <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://devcielo.zendesk.com/hc/pt-br#suporte">entre em contato conosco</a>.</p>
+  </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a
+        title="Comutar a coluna da esquerda"
+        class="hamburger"
+      >
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://desenvolvedores.cielo.com.br" target="_blank">
+        <img
+          src="https://developercielo.github.io/assets/images/logo.png"
+          alt="Documentações e tutoriais"
+          style="width: 60%; margin-left: 20%"
+        />
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+      
+      <div class="toc-footer">
+        <h2 class="no-toc toc-footer-title">Materiais complementares</h2>
+           
+
+        <ul class="toc-footer">
+            
+          <li>
+            <a
+              href="https://developercielo.github.io/manual/webservice-1-5"
+              title="Integração Técnica via XML"
+              
+              >Manual de Integração</a
+            >
+          </li>
+             
+          <li>
+            <a
+              href="https://developercielo.github.io/tutorial/tokenizacaobandeira"
+              title="Tokenização de Bandeira – Regra Visa"
+              
+              >Tokenização de Bandeira – Mandate Visa</a
+            >
+          </li>
+               
+          <li>
+            <a
+              href="https://developercielo.github.io/tutorial/sdks-cielo"
+              title="Lista de Sdks Api cielo ecommerce"
+              
+              >SDKs</a
+            >
+          </li>
+           
+        </ul>
+      </div>
+      
+
+      <div class="toc-contact">
+        <div class="contact">
+          <a
+            title="Contato"
+            href="https://devcielo.zendesk.com/"
+          >
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            <span>Contato</span>
+          </a>
+        </div>
+        <div class="github">
+          <a title="GitHub" href="https://github.com/developercielo">
+            <i class="fa fa-github" aria-hidden="true"></i>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/assets/bundles/js/bundle.min.js"></script>
+        <script>
+            
+            var selectors = 'h1,h2,h3,h4,h5,h6';
+            
+        </script>
+
+        
+        <script src="https://developercielo.github.io/assets/bundles/js/search.min.js"></script>
+        
+
+        
+
+        <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+<script>
+  (function (h, o, t, j, a, r) {
+    h.hj =
+      h.hj ||
+      function () {
+        (h.hj.q = h.hj.q || []).push(arguments);
+      };
+    h._hjSettings = { hjid: 674586, hjsv: 6 };
+    a = o.getElementsByTagName("head")[0];
+    r = o.createElement("script");
+    r.async = 1;
+    r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+</script>
+
+    </body>
+</html>
