@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+    {% include head.html %}
+    <body>
+        {% if page.language_tabs %}
+        <div class="content-container">
+            <div class="language-tabs">
+                <a class='hide-btn' id="hide-button" title="{% t global.toggle_right %}"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <ul class="language-buttons">
+                    {% for lang in page.language_tabs %}
+                    <li><a data-language-name='{{ lang[0] }}'>{{ lang[1] }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="dark-box"></div>
+            <div class="overlay"></div>
+        {% else %}
+        <div class="content-container no-dark-box">
+        {% endif %}
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://devcielo.zendesk.com/hc/pt-br#suporte" class="help">{% t global.support %}</a>
+
+                            {% if page.translated %}
+                            <div class="lang">
+                                <span>{% t global.languages %}</span>
+
+                                {% for lang in site.language_names %}
+                                    {% if lang[0] == site.default_lang %}
+                                    <a href="{{ site.baseurl_root }}{{page.url}}">
+                                    {% else %}
+                                    <a href="{{ site.baseurl_root }}/{{ lang[0] }}{{page.url}}">
+                                    {% endif %}
+
+                                        <img alt="{{ lang[1] }}" src="{{ site.baseurl }}/assets/images/{{ lang[0] }}.png"/>
+                                    </a>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        {% if page.search %}
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        {% else %}
+                    </div>
+                        {% endif %}
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            {% if site.lang == site.default_lang %}
+                            <li><a href="/">{% t global.home %}</a></li>
+                            {% else %}
+                            <li><a href="{{ site.baseurl_root }}/{{ site.lang }}/">{% t global.home %}</a></li>
+                            {% endif %}
+                            {% assign crumbs = page.url | split: '/' %}
+                            {% assign crumbs_total = crumbs | size | minus: 1 %}
+                            {% for crumb in crumbs offset: 1 %}
+                                {% if forloop.index == crumbs_total %}
+                                    {% if site.lang == site.default_lang %}
+                                    <li class="active">&gt; <a href="{{ site.baseurl_root }}{{ page.url }}">{{page.title}}</a></li>
+                                    {% else %}
+                                    <li class="active">&gt; <a href="{{ site.baseurl_root }}/{{ site.lang }}{{ page.url }}">{{page.title}}</a></li>
+                                    {% endif %}
+                                {% else %}
+                                    {% assign crumb_limit = forloop.index | plus: 1 %}
+                                    {% capture crumb_url %}{% for c in crumbs limit: crumb_limit %}{{ c | append: '/' }}{% endfor %}{% endcapture %}
+                                    {% capture crumb_with_index %}{{ crumb_url | append: 'index.html' }}{% endcapture %}
+                                    {% capture current_page %}{{ site.baseurl }}{{ page.url }}{% endcapture %}
+                                    {% for p in site.pages %}
+                                        {% if crumb_with_index != current_page and crumb_with_index == p.url %}
+                                            <li>&gt; <a href="{{ crumb_with_index }}">{{ crumb | replace:'-',' ' | capitalize}}</a>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            {% endfor %}
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            {{ content }}
+
+            {% include footer.html tags=post.tags %}
+        </div>
+
+        {% include sidebar.html %}
+
+        <script src="{{ site.baseurl }}/assets/bundles/js/bundle.min.js"></script>
+        <script>
+            {% if page.layout == "faq" %}
+            var selectors = 'h1';
+            {% else %}
+            var selectors = 'h1,h2,h3,h4,h5,h6';
+            {% endif %}
+        </script>
+
+        {% if page.search %}
+        <script src="{{ site.baseurl }}/assets/bundles/js/search.min.js"></script>
+        {% endif %}
+
+        {% if page.language_tabs %}
+        <script>
+            let langs = '';
+            let langsArray = [];
+
+            {% for lang in page.language_tabs %}
+            langs += "<a data-language-name='{{ lang[0] }}'>{{ lang[1] }}</a>";
+            langsArray.push('{{ lang[0] }}');
+            {% endfor %}
+
+            var toggleCode = '{% t global.toggle_code %}';
+        </script>
+
+        <script src='{{ site.baseurl }}/assets/bundles/js/language_buttons.min.js'></script>
+        {% endif %}
+
+        {% include hotjar.html %}
+    </body>
+</html>
