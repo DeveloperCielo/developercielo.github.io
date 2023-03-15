@@ -10,19 +10,17 @@ tags:
 search: true
 ---
 
-# Integração Híbrida Pagamento 
+# Integração Híbrida Pagamento
 
 O processo de integração híbrida é um pouco diferente da integração com o SDK. É necessário definir um contrato de resposta com a LIO para que a mesma possa responder após o fluxo de pagamento/cancelamento/impressão. Esse contrato deve ser definido no manifest.xml da aplicação conforme o exemplo abaixo:
 
 ```html
-<activity android:name=".ResponseActivity">    
-<intent-filter>
-   <action android:name="android.intent.action.VIEW" />
-   <category android:name="android.intent.category.DEFAULT" />
-   <data            
-      android:host="response"           
-      android:scheme="order" />
-</intent-filter>
+<activity android:name=".ResponseActivity">
+  <intent-filter>
+    <action android:name="android.intent.action.VIEW" />
+    <category android:name="android.intent.category.DEFAULT" />
+    <data android:host="response" android:scheme="order" />
+  </intent-filter>
 </activity>
 ```
 
@@ -30,42 +28,42 @@ Os nomes “response” e “order” podem ser substituídos pelo que fizer sen
 
 ```json
 {
-"accessToken":"Seu Access-token",
-"clientID":"Seu Client-id",
-"email": "emaildocliente@email.com",
-"installments":0,
-"items":[
-{
-"name":"Geral",
-"quantity":1,
-"sku":"10",
-"unitOfMeasure":"unidade",
-"unitPrice":10
-}
-],
-"paymentCode":"DEBITO_AVISTA",
-"value":"10"
+  "accessToken": "Seu Access-token",
+  "clientID": "Seu Client-id",
+  "email": "emaildocliente@email.com",
+  "installments": 0,
+  "items": [
+    {
+      "name": "Geral",
+      "quantity": 1,
+      "sku": "10",
+      "unitOfMeasure": "unidade",
+      "unitPrice": 10
+    }
+  ],
+  "paymentCode": "DEBITO_AVISTA",
+  "value": "10"
 }
 ```
 
 Como explicado anteriormente, é preciso definir o contrato de resposta **(host** e **scheme**), aqui será utilizado essa configuração no parâmetro **urlCallback**. A chamada de pagamento deve ser feita da seguinte forma:
 
 ```java
-var base64 = getBase64(jsonString) 
+var base64 = getBase64(jsonString)
 var checkoutUri = "lio://payment?request=$base64&urlCallback=order://response"
 ```
 
 Após preparar a URI basta realizar a chamada de **intent** do android utilizando o comando específico da linguagem híbrida.
 
 ```java
-var intent = Intent(Intent.ACTION_VIEW, Uri.parse(checkoutUri)) 
-intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP) 
-startActivity(intent) 
+var intent = Intent(Intent.ACTION_VIEW, Uri.parse(checkoutUri))
+intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+startActivity(intent)
 ```
 
 Com o pagamento finalizado a LIO retornará para a uri configurada inicialmente um JSON seguindo o formato exemplificado abaixo:
 
-``` json
+```json
 {
    "createdAt":"Jun 8, 2018 1:51:58 PM",
    "id":"ba583f85-9252-48b5-8fed-12719ff058b9",
@@ -169,58 +167,58 @@ Com o pagamento finalizado a LIO retornará para a uri configurada inicialmente 
 "price":1060,
 "reference":"Order",
 "status":"ENTERED",
-"type”:”9”,  
-"updatedAt":"Jun 8, 2018 1:51:58 PM" 
+"type”:”9”,
+"updatedAt":"Jun 8, 2018 1:51:58 PM"
 }
 ```
 
 # Recuperando dados do pagamento
 
-Para recuperar os dados de pagamento basta acessar a intent na activity de resposta e no parâmetro data, acessar a uri, da seguinte forma: 
+Para recuperar os dados de pagamento basta acessar a intent na activity de resposta e no parâmetro data, acessar a uri, da seguinte forma:
 
-``` java
-val responseIntent = intent 
-if (Intent.ACTION_VIEW == responseIntent.action) { 
-   val uri = responseIntent.data 
-   val response = uri.getQueryParameter("response") 
-   val data = Base64.decode(response, Base64.DEFAULT) 
-   val json = String(data) 
+```java
+val responseIntent = intent
+if (Intent.ACTION_VIEW == responseIntent.action) {
+   val uri = responseIntent.data
+   val response = uri.getQueryParameter("response")
+   val data = Base64.decode(response, Base64.DEFAULT)
+   val json = String(data)
 }
 ```
 
 Lembrando que o parâmetro “**response**” é o mesmo que foi configurado como resposta na chamada de pagamento.
 
-# Cancelamento na integração híbrida 
+# Cancelamento na integração híbrida
 
 Para realizar o cancelamento é preciso criar um json seguindo o formato definido abaixo e converte-lo para BASE64:
 
 ```json
 {
-   "id":"id da ordem",
-   "clientID":"seu client ID",
-   "accessToken":"seu access token",
-   "cieloCode":"123",
-   "authCode":"123",
-   "value":1000
+  "id": "id da ordem",
+  "clientID": "seu client ID",
+  "accessToken": "seu access token",
+  "cieloCode": "123",
+  "authCode": "123",
+  "value": 1000
 }
 ```
 
-A chamada de cancelamento deve ser feita da seguinte forma. Como explicado anteriormente, é preciso definir o contrato de resposta, aqui será utilizado essa configuração no parâmetro **urlCallback**: 
+A chamada de cancelamento deve ser feita da seguinte forma. Como explicado anteriormente, é preciso definir o contrato de resposta, aqui será utilizado essa configuração no parâmetro **urlCallback**:
 
 ```java
-var base64 = getBase64(jsonString) 
-var checkoutUri ="lio://payment-reversal?request=$base64&urlCallback=order://response" 
+var base64 = getBase64(jsonString)
+var checkoutUri ="lio://payment-reversal?request=$base64&urlCallback=order://response"
 ```
 
-Para recuperar os dados basta acessar a intent na activity de resposta e no parâmetro data, acessar a uri, da seguinte forma: 
+Para recuperar os dados basta acessar a intent na activity de resposta e no parâmetro data, acessar a uri, da seguinte forma:
 
 ```java
-val responseIntent = intent 
-if (Intent.ACTION_VIEW == responseIntent.action) { 
-   val uri = responseIntent.data 
-   val response = uri.getQueryParameter("response") 
-   val data = Base64.decode(response, Base64.DEFAULT) 
-   val json = String(data) 
+val responseIntent = intent
+if (Intent.ACTION_VIEW == responseIntent.action) {
+   val uri = responseIntent.data
+   val response = uri.getQueryParameter("response")
+   val data = Base64.decode(response, Base64.DEFAULT)
+   val json = String(data)
 }
 ```
 
@@ -236,16 +234,11 @@ lio://print?request=$base64&urlCallback=order://response
 
 #### Texto
 
-``` json
+```json
 {
-"operation":"PRINT_TEXT",
-"styles":[
-{
-}
-],
-"value":[
-"teste impressão"
-]
+  "operation": "PRINT_TEXT",
+  "styles": [{}],
+  "value": ["teste impressão"]
 }
 ```
 
@@ -253,14 +246,9 @@ lio://print?request=$base64&urlCallback=order://response
 
 ```json
 {
-"operation":"PRINT_IMAGE",
-"styles":[
-{
-}
-],
-"value":[
-"/storage/emulated/0/saved_images/Image-5005.jpg"
-]
+  "operation": "PRINT_IMAGE",
+  "styles": [{}],
+  "value": ["/storage/emulated/0/saved_images/Image-5005.jpg"]
 }
 ```
 
@@ -268,29 +256,29 @@ lio://print?request=$base64&urlCallback=order://response
 
 ```json
 {
-"operation":"PRINT_MULTI_COLUMN_TEXT",
-"styles":[
-{
-"key_attributes_align":1,
-"key_attributes_textsize":30,
-"key_attributes_typeface":0
-},
-{
-"key_attributes_align":0,
-"key_attributes_textsize":20,
-"key_attributes_typeface":1
-},
-{
-"key_attributes_align":2,
-"key_attributes_textsize":15,
-"key_attributes_typeface":2
-}
-],
-"value":[
-"Texto alinhado à esquerda.\n\n\n",
-"Texto centralizado\n\n\n",
-"Texto alinhado à direita\n\n\n"
-]
+  "operation": "PRINT_MULTI_COLUMN_TEXT",
+  "styles": [
+    {
+      "key_attributes_align": 1,
+      "key_attributes_textsize": 30,
+      "key_attributes_typeface": 0
+    },
+    {
+      "key_attributes_align": 0,
+      "key_attributes_textsize": 20,
+      "key_attributes_typeface": 1
+    },
+    {
+      "key_attributes_align": 2,
+      "key_attributes_textsize": 15,
+      "key_attributes_typeface": 2
+    }
+  ],
+  "value": [
+    "Texto alinhado à esquerda.\n\n\n",
+    "Texto centralizado\n\n\n",
+    "Texto alinhado à direita\n\n\n"
+  ]
 }
 ```
 
@@ -307,7 +295,7 @@ Você pode solicitar as credenciais (client-id/access-token) diretamente via [PO
 Disponibilizamos também a lista do campo “paymentCode”:
 
 | PaymentCode            |
-|------------------------|
+| ---------------------- |
 | DEBITO_AVISTA          |
 | DEBITO_PREDATADO       |
 | CREDITO_AVISTA         |
@@ -319,4 +307,4 @@ Disponibilizamos também a lista do campo “paymentCode”:
 
 ## Envio do UriAppClient
 
-**Atenção**: Para que seja possível integrar de forma híbrida o nosso time de Suporte  a Desenvolvedores precisa enviar o aplicativo UriAppClient para a LIO. Para isso, [Abra um ticket](https://devcielo.zendesk.com/hc/pt-br/requests/new?ticket_form_id=360000201671) em nossa ferramenta de atendimento.
+**Atenção**: Para que seja possível integrar de forma híbrida o nosso time de Suporte a Desenvolvedores precisa enviar o aplicativo UriAppClient para a LIO. Para isso, [Abra um ticket](https://devcielo.zendesk.com/hc/pt-br/requests/new?ticket_form_id=360000201671) em nossa ferramenta de atendimento.

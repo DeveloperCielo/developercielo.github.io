@@ -25,18 +25,18 @@ Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisiçã
 ### Request
 
 ```json
-{  
+{
    "MerchantOrderId":"2017051002",
    "Customer":
-   {  
+   {
      (...)
    },
    "Payment":
-   {  
+   {
      (...)
      "Authenticate":true,
      "ReturnUrl":"http://www.loja.com.br",
-     "CreditCard":{  
+     "CreditCard":{
          "CardNumber":"4000000000001000",
          "Holder":"Nome do Portador",
          "ExpirationDate":"12/2021",
@@ -63,18 +63,18 @@ curl
 --header "MerchantKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 --data-binary
 --verbose
-{  
+{
    "MerchantOrderId":"2017051002",
    "Customer":
-   {  
+   {
      (...)
    },
    "Payment":
-   {  
+   {
      (...)
      "Authenticate":true,
      "ReturnUrl":"http://www.loja.com.br",
-     "CreditCard":{  
+     "CreditCard":{
          "CardNumber":"4000000000001000",
          "Holder":"Nome do Portador",
          "ExpirationDate":"12/2021",
@@ -93,14 +93,14 @@ curl
 }
 ```
 
-| **Campo** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
-| --- | --- | --- | --- |
-| Payment.Authenticate | Booleano que define se o comprador será direcionado ao Banco emissor para autenticação do cartão| - | Sim, para que a autenticação seja realizada é obrigatório enviar como true |
-| Payment.ExternalAuthentication.Cavv | Assinatura que é retornada nos cenários de sucesso na autenticação | Texto | Sim, quando a autenticação foi um sucesso |
-| Payment.ExternalAuthentication.Xid | XID retornado no processo de autenticação | Texto | Sim, quando a versão do 3DS for &quot;1&quot; |
-| Payment.ExternalAuthentication.Eci | E-Commerce Indicator retornado no processo de autenticação | Numérico [1 posição] | Sim |
-| Payment.ExternalAuthentication.Version | Versão do 3DS utilizado no processo de autenticação | Alfanumérico [1 posição] | Sim, quando a versão do 3DS for &quot;2&quot; |
-| Payment.ExternalAuthentication.ReferenceId | RequestID retornado no processo de autenticação | GUID [36 posições] | Sim, quando a versão do 3DS for &quot;2&quot; |
+| **Campo**                                  | **Descrição**                                                                                    | **Tipo/Tamanho**         | **Obrigatório**                                                            |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------ | -------------------------------------------------------------------------- |
+| Payment.Authenticate                       | Booleano que define se o comprador será direcionado ao Banco emissor para autenticação do cartão | -                        | Sim, para que a autenticação seja realizada é obrigatório enviar como true |
+| Payment.ExternalAuthentication.Cavv        | Assinatura que é retornada nos cenários de sucesso na autenticação                               | Texto                    | Sim, quando a autenticação foi um sucesso                                  |
+| Payment.ExternalAuthentication.Xid         | XID retornado no processo de autenticação                                                        | Texto                    | Sim, quando a versão do 3DS for &quot;1&quot;                              |
+| Payment.ExternalAuthentication.Eci         | E-Commerce Indicator retornado no processo de autenticação                                       | Numérico [1 posição]     | Sim                                                                        |
+| Payment.ExternalAuthentication.Version     | Versão do 3DS utilizado no processo de autenticação                                              | Alfanumérico [1 posição] | Sim, quando a versão do 3DS for &quot;2&quot;                              |
+| Payment.ExternalAuthentication.ReferenceId | RequestID retornado no processo de autenticação                                                  | GUID [36 posições]       | Sim, quando a versão do 3DS for &quot;2&quot;                              |
 
 ### Response
 
@@ -117,18 +117,18 @@ Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisiçã
 ### Request
 
 ```json
-{  
+{
    "MerchantOrderId":"2017051002",
    "Customer":
-   {  
+   {
      (...)
    },
    "Payment":
-   {  
+   {
      (...)
      "Authenticate":false,
      "ReturnUrl":"http://www.loja.com.br",
-     "CreditCard":{  
+     "CreditCard":{
          "CardNumber":"4000000000001000",
          "Holder":"Nome do Portador",
          "ExpirationDate":"12/2021",
@@ -153,18 +153,18 @@ curl
 --header "MerchantKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 --data-binary
 --verbose
-{  
+{
    "MerchantOrderId":"2017051002",
    "Customer":
-   {  
+   {
      (...)
    },
    "Payment":
-   {  
+   {
      (...)
      "Authenticate":false,
      "ReturnUrl":"http://www.loja.com.br",
-     "CreditCard":{  
+     "CreditCard":{
          "CardNumber":"4000000000001000",
          "Holder":"Nome do Portador",
          "ExpirationDate":"12/2021",
@@ -181,12 +181,12 @@ curl
 }
 ```
 
-| **Campo** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
-| --- | --- | --- | --- |
-| Payment.Authenticate | Booleano que define se o comprador será direcionado ao Banco emissor para autenticação do cartão| - | Sim, no caso de transação Data Only é obrigatório enviar como false |
-| Payment.ExternalAuthentication.Eci | E-Commerce Indicator retornado no processo de autenticação | Numérico [1 posição] | Sim |
-| Payment.ExternalAuthentication.ReferenceId | RequestID retornado no processo de autenticação | GUID [36 posições] | Sim |
-| Payment.ExternalAuthentication.DataOnly | Booleano que define se é uma transação Data Only | - | Sim, no caso de transação Data Only é obrigatório enviar como true |
+| **Campo**                                  | **Descrição**                                                                                    | **Tipo/Tamanho**     | **Obrigatório**                                                     |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------ | -------------------- | ------------------------------------------------------------------- |
+| Payment.Authenticate                       | Booleano que define se o comprador será direcionado ao Banco emissor para autenticação do cartão | -                    | Sim, no caso de transação Data Only é obrigatório enviar como false |
+| Payment.ExternalAuthentication.Eci         | E-Commerce Indicator retornado no processo de autenticação                                       | Numérico [1 posição] | Sim                                                                 |
+| Payment.ExternalAuthentication.ReferenceId | RequestID retornado no processo de autenticação                                                  | GUID [36 posições]   | Sim                                                                 |
+| Payment.ExternalAuthentication.DataOnly    | Booleano que define se é uma transação Data Only                                                 | -                    | Sim, no caso de transação Data Only é obrigatório enviar como true  |
 
 ### Response
 
@@ -204,7 +204,7 @@ Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisiçã
 <?xml version="1.0" encoding="UTF-8"?>
 <requisicao-transacao xmlns="http://ecommerce.cbmp.com.br" id="1" versao="1.2.1">
    <dados-ec>
-   (...)   
+   (...)
    </dados-ec>
    <dados-portador>
    (...)
@@ -228,13 +228,13 @@ Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisiçã
 </requisicao-transacao>
 ```
 
-| **Campo** | **Descrição** | **Tipo/Tamanho** | **Obrigatório** |
-| --- | --- | --- | --- |
-| cavv | Assinatura que é retornada nos cenários de sucesso na autenticação | Texto | Sim, quando a autenticação foi um sucesso |
-| xid | XID retornado no processo de autenticação | Texto | Sim, quando a versão do 3DS for &quot;1&quot; |
-| eci | E-Commerce Indicator retornado no processo de autenticação | Numérico [1 posição] | Sim |
-| versao | Versão do 3DS utilizado no processo de autenticação | Alfanumérico [1 posição] | Sim, quando a versão do 3DS for &quot;2&quot; |
-| dstid | RequestID retornado no processo de autenticação | GUID [36 posições] | Sim, quando a versão do 3DS for &quot;2&quot; |
+| **Campo** | **Descrição**                                                      | **Tipo/Tamanho**         | **Obrigatório**                               |
+| --------- | ------------------------------------------------------------------ | ------------------------ | --------------------------------------------- |
+| cavv      | Assinatura que é retornada nos cenários de sucesso na autenticação | Texto                    | Sim, quando a autenticação foi um sucesso     |
+| xid       | XID retornado no processo de autenticação                          | Texto                    | Sim, quando a versão do 3DS for &quot;1&quot; |
+| eci       | E-Commerce Indicator retornado no processo de autenticação         | Numérico [1 posição]     | Sim                                           |
+| versao    | Versão do 3DS utilizado no processo de autenticação                | Alfanumérico [1 posição] | Sim, quando a versão do 3DS for &quot;2&quot; |
+| dstid     | RequestID retornado no processo de autenticação                    | GUID [36 posições]       | Sim, quando a versão do 3DS for &quot;2&quot; |
 
 ### Response
 
@@ -242,12 +242,12 @@ Veja mais: [https://developercielo.github.io/manual/webservice-1-5#tipos-de-reto
 
 # Tabela de ECI
 
-| Bandeira | ECI | Significado da Transação |
-| --- | --- | --- |
-| Visa/Elo/Amex | 06 | Autenticada pela bandeira – risco de chargeback passa a ser do emissor. |
-| Visa/Elo/Amex  | 05 | Autenticada pelo emissor – risco de chargeback passa a ser do emissor. |
-| Visa/Elo/Amex  | Diferente de 05 e 06 | Não autenticada – risco de chargeback permanece com o estabelecimento. |
-| Mastercard | 01 | Autenticada pela bandeira – risco de chargeback passa a ser do emissor. |
-| Mastercard | 02 | Autenticada pelo emissor – risco de chargeback passa a ser do emissor. |
-| Mastercard | 04 | Não autenticada, transação caracterizada como *Data Only* – risco de chargeback permanece com o estabelecimento. |
-| Mastercard | Diferente de  01, 02 e 04 | Não autenticada – risco de chargeback permanece com o estabelecimento. |
+| Bandeira      | ECI                      | Significado da Transação                                                                                         |
+| ------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| Visa/Elo/Amex | 06                       | Autenticada pela bandeira – risco de chargeback passa a ser do emissor.                                          |
+| Visa/Elo/Amex | 05                       | Autenticada pelo emissor – risco de chargeback passa a ser do emissor.                                           |
+| Visa/Elo/Amex | Diferente de 05 e 06     | Não autenticada – risco de chargeback permanece com o estabelecimento.                                           |
+| Mastercard    | 01                       | Autenticada pela bandeira – risco de chargeback passa a ser do emissor.                                          |
+| Mastercard    | 02                       | Autenticada pelo emissor – risco de chargeback passa a ser do emissor.                                           |
+| Mastercard    | 04                       | Não autenticada, transação caracterizada como _Data Only_ – risco de chargeback permanece com o estabelecimento. |
+| Mastercard    | Diferente de 01, 02 e 04 | Não autenticada – risco de chargeback permanece com o estabelecimento.                                           |

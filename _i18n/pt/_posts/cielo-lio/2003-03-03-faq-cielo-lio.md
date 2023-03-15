@@ -28,10 +28,10 @@ Construimos um portal dedicado aos desenvolvedores para facilitar a integração
 
 Nesse portal você pode:
 
-* Acessar documentação completa das APIs
-* Utilizar os SDK´s para tornar a integração mais ágil
-* Criar suas contas para receber as chaves (tokens) de acesso
-* Realizar os testes e desenvolvimentos para se integrarem com a Cielo: usando emulador ou sandbox.
+- Acessar documentação completa das APIs
+- Utilizar os SDK´s para tornar a integração mais ágil
+- Criar suas contas para receber as chaves (tokens) de acesso
+- Realizar os testes e desenvolvimentos para se integrarem com a Cielo: usando emulador ou sandbox.
 
 ## Posso utilizar impressoras para conectar na Cielo LIO?
 
@@ -53,8 +53,8 @@ O Bluetooth da Cielo LIO pode ser utilizado para realizar a comunicação e a tr
 
 Entre em contato com a Central de Atendimento e verifique o status de entrega de sua Cielo LIO.
 
-* 4002 5472 - Todas as localidades
-* 0800 570 8472 - Exceto capitais e ligações pelo celular
+- 4002 5472 - Todas as localidades
+- 0800 570 8472 - Exceto capitais e ligações pelo celular
 
 # Dúvidas Integração Local
 
@@ -121,8 +121,8 @@ Para acessar e realizar o upload de aplicativos na Cielo Store, acesse:
 
 O desenvolvedor deverá escolher de acordo com o propósito de distribuição de seu aplicativo entre:
 
-* Aplicativo Privado na Loja Privada
-* Aplicativo Público na Cielo Store
+- Aplicativo Privado na Loja Privada
+- Aplicativo Público na Cielo Store
 
 Caso decida por Aplicativo Privado na Loja Privada, envie um ticket no Portal de Desenvolvedores e escolha no assunto: “Criação Loja Privada” e preenche os campos necessários.
 Caso decida por Aplicativo Público na Cielo Store, você já consegue fazer o upload do aplicativo e enviá-lo para Certificação.
@@ -153,13 +153,13 @@ Não! A integração com a Cielo LIO é gratuita.
 
 ## Quais as etapas existentes na Cielo Store para meu publicar meu aplicativo?
 
-|Etapas |Descrição |
-|-------|----------|
-|**Etapa de Desenvolvimento**|Nessa etapa ocorre a integração do aplicativo com a Cielo LIO e o desenvolvedor é responsável por realizar essa integração para que seu aplicativo consuma as funcionalidades da plataforma Cielo LIO. Caso seu aplicativo não precise estar integrado as funcionalidades da plataforma, basta seguir para a etapa de publicação.|
-|**Etapa de Testes**| A Cielo disponibiliza um aplicativo que simula o ambiente da Cielo LIO em qualquer dispositivo Android, permitindo que o desenvolvedor realize os testes nos métodos do SDK e faça o debug da sua aplicação durante o desenvolvimento e a integração com o Cielo LIO Order Manager SDK, sem a necessidade de possuir um hardware da Cielo LIO. O download do Emulador é feito acessando a documentação da Integração Local no Portal de Desenvolvedores.|
-|**Etapa de Publicação**|Crie sua conta na Cielo Store (Dev Console) e faça a publicação do aplicativo (arquivo apk) na Cielo Store.A Cielo recomenda que o desenvolvedor faça a geração do arquivo apk utilizando o Android Studio para garantir sucesso no upload do aplicativo na Cielo Store.|
-|**Etapa de Certificação**|No próprio Dev Console, o aplicativo publicado poderá ser promovido para certificação. O time de certificação realizará testes de segurança, funcionais e validações de negócio para garantir a integridade nos fluxos do aplicativo.|
-|**Etapa de Produção**|No próprio Dev Console, assim que a certificação for aprovada, o desenvolvedor será notificado e poderá promover o aplicativo para o status de produção.|
+| Etapas                       | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Etapa de Desenvolvimento** | Nessa etapa ocorre a integração do aplicativo com a Cielo LIO e o desenvolvedor é responsável por realizar essa integração para que seu aplicativo consuma as funcionalidades da plataforma Cielo LIO. Caso seu aplicativo não precise estar integrado as funcionalidades da plataforma, basta seguir para a etapa de publicação.                                                                                                                        |
+| **Etapa de Testes**          | A Cielo disponibiliza um aplicativo que simula o ambiente da Cielo LIO em qualquer dispositivo Android, permitindo que o desenvolvedor realize os testes nos métodos do SDK e faça o debug da sua aplicação durante o desenvolvimento e a integração com o Cielo LIO Order Manager SDK, sem a necessidade de possuir um hardware da Cielo LIO. O download do Emulador é feito acessando a documentação da Integração Local no Portal de Desenvolvedores. |
+| **Etapa de Publicação**      | Crie sua conta na Cielo Store (Dev Console) e faça a publicação do aplicativo (arquivo apk) na Cielo Store.A Cielo recomenda que o desenvolvedor faça a geração do arquivo apk utilizando o Android Studio para garantir sucesso no upload do aplicativo na Cielo Store.                                                                                                                                                                                 |
+| **Etapa de Certificação**    | No próprio Dev Console, o aplicativo publicado poderá ser promovido para certificação. O time de certificação realizará testes de segurança, funcionais e validações de negócio para garantir a integridade nos fluxos do aplicativo.                                                                                                                                                                                                                    |
+| **Etapa de Produção**        | No próprio Dev Console, assim que a certificação for aprovada, o desenvolvedor será notificado e poderá promover o aplicativo para o status de produção.                                                                                                                                                                                                                                                                                                 |
 
 ## Como faço para mudar o nome do meu aplicativo?
 

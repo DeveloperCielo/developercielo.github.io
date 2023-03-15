@@ -1,11 +1,18 @@
 <div class="sidebar">
   <div class="sidebar-sticky">
     <div class="sidebar-about">
-      <a title="{% t global.toggle_left %} {% t global.sidebar %}" class="hamburger">
+      <a
+        title="{% t global.toggle_left %} {% t global.sidebar %}"
+        class="hamburger"
+      >
         <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
       </a>
       <a href="https://desenvolvedores.cielo.com.br" target="_blank">
-        <img src="{{ site.baseurl }}/assets/images/logo.png" alt="{{ site.title }}" style="width: 60%; margin-left: 20%">
+        <img
+          src="{{ site.baseurl }}/assets/images/logo.png"
+          alt="{{ site.title }}"
+          style="width: 60%; margin-left: 20%"
+        />
       </a>
       <div></div>
     </div>
@@ -13,46 +20,53 @@
     <div id="toc"></div>
 
     <div class="fixed-footer">
-        {% if page.toc_footers %}
-        <div class="toc-footer">
-            <h2 class="no-toc toc-footer-title">{% t global.complementary %}</h2>
-            {% for tag in page.tags %}
-                {% if posts %}
-                    {% assign posts = site.tags[tag] | concat: posts %}
-                {% else %}
-                    {% assign posts = site.tags[tag] %}
-                {% endif %}
-            {% endfor %}
+      {% if page.toc_footers %}
+      <div class="toc-footer">
+        <h2 class="no-toc toc-footer-title">{% t global.complementary %}</h2>
+        {% for tag in page.tags %} {% if posts %} {% assign posts =
+        site.tags[tag] | concat: posts %} {% else %} {% assign posts =
+        site.tags[tag] %} {% endif %} {% endfor %} {% assign posts = posts |
+        sort: 'title' | sort: 'sort_order' %} {% assign i = 0 %} {% assign t = 4
+        %}
 
-            {% assign posts = posts | sort: 'title' | sort: 'sort_order' %}
-            {% assign i = 0 %}
-            {% assign t = 4 %}
-
-            <ul class="toc-footer">
-            {% for post in posts %}
-                {% if post.title != page.title and i < t %}
-                    {% assign i=i | plus:1 %}
-                    <li><a href="{{ site.baseurl }}{{ post.url }}" {% if post.description %}title="{{post.description}}"{% endif %}>{{ post.title }}</a></li>
-                {% endif %}
-            {% endfor %}
-            </ul>
-        </div>
-        {% endif %}
-
-    <div class="toc-contact">
-      <div class="contact">
-        <a title="{% t global.contact %}" href="https://devcielo.zendesk.com/">
-          <i class="fa fa-envelope-o" aria-hidden="true"></i>
-          <span>{% t global.contact %}</span>
-        </a>
+        <ul class="toc-footer">
+          {% for post in posts %} {% if post.title != page.title and i < t %} {%
+          assign i=i | plus:1 %}
+          <li>
+            <a
+              href="{{ site.baseurl }}{{ post.url }}"
+              {%
+              if
+              post.description
+              %}title="{{post.description}}"
+              {%
+              endif
+              %}
+              >{{ post.title }}</a
+            >
+          </li>
+          {% endif %} {% endfor %}
+        </ul>
       </div>
-      <div class="github">
-        <a title="{% t global.github %}" href="{{ site.github.repo }}">
-          <i class="fa fa-github" aria-hidden="true"></i>
-          <span>{% t global.github %}</span>
-        </a>
+      {% endif %}
+
+      <div class="toc-contact">
+        <div class="contact">
+          <a
+            title="{% t global.contact %}"
+            href="https://devcielo.zendesk.com/"
+          >
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            <span>{% t global.contact %}</span>
+          </a>
+        </div>
+        <div class="github">
+          <a title="{% t global.github %}" href="{{ site.github.repo }}">
+            <i class="fa fa-github" aria-hidden="true"></i>
+            <span>{% t global.github %}</span>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
   </div>
 </div>

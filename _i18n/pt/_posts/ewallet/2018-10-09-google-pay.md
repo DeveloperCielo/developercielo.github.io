@@ -45,7 +45,7 @@ Para a correta integração do Google Pay via Cielo 3.0, é necessário se atent
 
 ### Definição do Gateway
 
-No passo "_Step 2: Choose a payment tokenization method_", siga o modelo indicado como "GATEWAY" e preencha o valor para parâmetro "type" como " **PAYMENT\_GATEWAY**"  e o parâmetro " **gateway**" como " **cielo**", conforme o exemplo ao lado:
+No passo "_Step 2: Choose a payment tokenization method_", siga o modelo indicado como "GATEWAY" e preencha o valor para parâmetro "type" como " **PAYMENT_GATEWAY**" e o parâmetro " **gateway**" como " **cielo**", conforme o exemplo ao lado:
 
 ```json
 private static JSONObject getTokenizationSpecification() {
@@ -98,10 +98,10 @@ O token obtido no passo anterior, possui uma estrutura descrita abaixo:
 }
 ```
 
-| **Parâmetro** | **Type** | **Descrição** |
-| --- | --- | --- |
-| signedMessage      | string | Mensagem asssinada. |
-| signature          | string | Assinatura da mensagem. |
+| **Parâmetro** | **Type** | **Descrição**           |
+| ------------- | -------- | ----------------------- |
+| signedMessage | string   | Mensagem asssinada.     |
+| signature     | string   | Assinatura da mensagem. |
 
 (vide mais informações em: [https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography](https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography))
 
@@ -134,21 +134,21 @@ A autorização com o token do Google Pay acontece da mesma forma que uma autori
 }
 ```
 
-| **Parâmetros do Header** | **Type** | **Descrição** |
-| --- | --- | --- |
-| MerchantID | GUID(36) | ID do estabelecimento na Cielo 3.0. Para ambiente Sandbox, utilize fecd2b61-3f0e-4e49-8b4f-eb382fa4da56 |
-| MerchantKey | String(24) | Chave da API para Cielo 3.0. Para ambiente Sandbox, utilize WSCIKUJBVHFPPPAWFPJGRYXRDNGQTMZAGBJSZZBV |
+| **Parâmetros do Header** | **Type**   | **Descrição**                                                                                           |
+| ------------------------ | ---------- | ------------------------------------------------------------------------------------------------------- |
+| MerchantID               | GUID(36)   | ID do estabelecimento na Cielo 3.0. Para ambiente Sandbox, utilize fecd2b61-3f0e-4e49-8b4f-eb382fa4da56 |
+| MerchantKey              | String(24) | Chave da API para Cielo 3.0. Para ambiente Sandbox, utilize WSCIKUJBVHFPPPAWFPJGRYXRDNGQTMZAGBJSZZBV    |
 
-| **Parâmetros do Body** | **Type** | **Descrição** |
-| --- | --- | --- |
-| MerchantOrderId | String (50) | Número de identificação do Pedido |
-| Customer | Nó com dados do comprador | Vide [https://developercielo.github.io/manual/cielo-ecommerce#transa%C3%A7%C3%A3o-completa](https://developercielo.github.io/manual/cielo-ecommerce#transa%C3%A7%C3%A3o-completa)   |
-| Payment.Type | String (100) | Tipo do Meio de Pagamento. Possibilidades: "CreditCard" ou "DebitCard" |
-| Payment.Amount | Número (15) | Valor do Pedido (ser enviado em centavos) |
-| Payment.Installments | Número (2) | Número de Parcelas |
-| Payment.Wallet.Type | String (15) | Nome da provedora de Meio de Pagamento. Para transações Google Pay, utilize "AndroidPay" |
-| Payment.Wallet.WalletKey | String | Preencher com o valor do parâmetro "signedMessage" retornado pelo Google Pay |
-| Payment.Wallet.AdditionalData.Signature | String | Preencher com o valor do parâmetro "signature" retornado pelo Google Pay |
+| **Parâmetros do Body**                  | **Type**                  | **Descrição**                                                                                                                                                                     |
+| --------------------------------------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| MerchantOrderId                         | String (50)               | Número de identificação do Pedido                                                                                                                                                 |
+| Customer                                | Nó com dados do comprador | Vide [https://developercielo.github.io/manual/cielo-ecommerce#transa%C3%A7%C3%A3o-completa](https://developercielo.github.io/manual/cielo-ecommerce#transa%C3%A7%C3%A3o-completa) |
+| Payment.Type                            | String (100)              | Tipo do Meio de Pagamento. Possibilidades: "CreditCard" ou "DebitCard"                                                                                                            |
+| Payment.Amount                          | Número (15)               | Valor do Pedido (ser enviado em centavos)                                                                                                                                         |
+| Payment.Installments                    | Número (2)                | Número de Parcelas                                                                                                                                                                |
+| Payment.Wallet.Type                     | String (15)               | Nome da provedora de Meio de Pagamento. Para transações Google Pay, utilize "AndroidPay"                                                                                          |
+| Payment.Wallet.WalletKey                | String                    | Preencher com o valor do parâmetro "signedMessage" retornado pelo Google Pay                                                                                                      |
+| Payment.Wallet.AdditionalData.Signature | String                    | Preencher com o valor do parâmetro "signature" retornado pelo Google Pay                                                                                                          |
 
 Para mais informações, acesse [https://developercielo.github.io/manual/cielo-ecommerce](https://developercielo.github.io/manual/cielo-ecommerce)
 

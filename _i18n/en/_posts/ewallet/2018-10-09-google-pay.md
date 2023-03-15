@@ -43,7 +43,7 @@ For the correct integration of Google Play using Cielo's payment API, it is nece
 
 ### Gateway Definition
 
-In the "_Step 2: Choose a payment tokenization method_", follow the "GATEWAY" integration model and send the "type" as " **PAYMENT\_GATEWAY**" and " **gateway**" as " **cielo**", according to the example:
+In the "_Step 2: Choose a payment tokenization method_", follow the "GATEWAY" integration model and send the "type" as " **PAYMENT_GATEWAY**" and " **gateway**" as " **cielo**", according to the example:
 
 ```json
 private static JSONObject getTokenizationSpecification() {
@@ -96,10 +96,10 @@ The string obtained will be similar as follows:
 }
 ```
 
-| **Body** | **Type** | **Description** |
-| --- | --- | --- |
-| signedMessage      | string | Signed message. |
-| signature          | string | Signature. |
+| **Body**      | **Type** | **Description** |
+| ------------- | -------- | --------------- |
+| signedMessage | string   | Signed message. |
+| signature     | string   | Signature.      |
 
 (to see more details: [https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography](https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography))
 
@@ -132,21 +132,21 @@ The authorization with the Google Pay token must be performed as the same way as
 }
 ```
 
-| **Header** | **Type** | **Description** |
-| --- | --- | --- |
-| MerchantID | GUID(36) | Merchant's merchant ID. For Sandbox environment, use fecd2b61-3f0e-4e49-8b4f-eb382fa4da56 |
+| **Header**  | **Type**   | **Description**                                                                                    |
+| ----------- | ---------- | -------------------------------------------------------------------------------------------------- |
+| MerchantID  | GUID(36)   | Merchant's merchant ID. For Sandbox environment, use fecd2b61-3f0e-4e49-8b4f-eb382fa4da56          |
 | MerchantKey | String(24) | Merchant's merchant API Key. For Sandbox environment, use WSCIKUJBVHFPPPAWFPJGRYXRDNGQTMZAGBJSZZBV |
 
-| **Body** | **Type** | **Description** |
-| --- | --- | --- |
-| MerchantOrderId | String (50) | Order identification number |
-| Customer | Node with shopper data| See [https://developercielo.github.io/manual/cielo-ecommerce#transa%C3%A7%C3%A3o-completa](https://developercielo.github.io/manual/cielo-ecommerce#transa%C3%A7%C3%A3o-completa)   |
-| Payment.Type | String (100) | Payment method type. Possible values: "CreditCard" ou "DebitCard" |
-| Payment.Amount | Número (15) | Transaction amount in cents |
-| Payment.Installments | Número (2) | Number of installments |
-| Payment.Wallet.Type | String (15) | Wallet provider name. For Google Pay, use "AndroidPay" |
-| Payment.Wallet.WalletKey | String | Provide the "signedMessage" received from Google Pay |
-| Payment.Wallet.AdditionalData.Signature | String | Provide the "signature" received from Google Pay |
+| **Body**                                | **Type**               | **Description**                                                                                                                                                                  |
+| --------------------------------------- | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| MerchantOrderId                         | String (50)            | Order identification number                                                                                                                                                      |
+| Customer                                | Node with shopper data | See [https://developercielo.github.io/manual/cielo-ecommerce#transa%C3%A7%C3%A3o-completa](https://developercielo.github.io/manual/cielo-ecommerce#transa%C3%A7%C3%A3o-completa) |
+| Payment.Type                            | String (100)           | Payment method type. Possible values: "CreditCard" ou "DebitCard"                                                                                                                |
+| Payment.Amount                          | Número (15)            | Transaction amount in cents                                                                                                                                                      |
+| Payment.Installments                    | Número (2)             | Number of installments                                                                                                                                                           |
+| Payment.Wallet.Type                     | String (15)            | Wallet provider name. For Google Pay, use "AndroidPay"                                                                                                                           |
+| Payment.Wallet.WalletKey                | String                 | Provide the "signedMessage" received from Google Pay                                                                                                                             |
+| Payment.Wallet.AdditionalData.Signature | String                 | Provide the "signature" received from Google Pay                                                                                                                                 |
 
 For more information: [https://developercielo.github.io/manual/cielo-ecommerce](https://developercielo.github.io/manual/cielo-ecommerce)
 
@@ -163,4 +163,3 @@ Check the all the branding guidelines to help you implement Google Pay within yo
 ## Action 2 - Checklist and Request production access
 
 Ensure if all the checklist item was completed. When you are ready, request the production access to deploy your app in production environment. The checklist is available at: [https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist](https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist)
-

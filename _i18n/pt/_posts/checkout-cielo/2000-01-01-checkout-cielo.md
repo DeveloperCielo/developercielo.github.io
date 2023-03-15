@@ -12,32 +12,31 @@ tags:
 language_tabs:
   json: JSON
   shell: cURL
-  
 ---
 
 # Sobre o Checkout Cielo
 
-O Checkout Cielo é uma solução que agrega vários serviços de processamento de pagamento, no qual o consumidor é direcionado para uma página de pagamento online segura da *Cielo*.
+O Checkout Cielo é uma solução que agrega vários serviços de processamento de pagamento, no qual o consumidor é direcionado para uma página de pagamento online segura da _Cielo_.
 A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo as normas de segurança PCI.
 
 O grande diferencial do Checkout Cielo é a gama de serviços agregados em uma tela transacional segura e com apenas uma integração técnica via **API REST**.
 
-O *Checkout* possui as seguintes Funcionalidades:
+O _Checkout_ possui as seguintes Funcionalidades:
 
-|Funcionalidade|Descrição|
-|---|---|
-|**Tela transacional**|O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações. |
-|**Recorrência**|O Checkout Cielo possui a Recorrência Programada disponível na API Cielo Ecommerce. <br> Basta que o lojista defina que uma transação deve se repetir, que o Checkout vai executa-la novamente no intervalo definido|
-|**Antifraude**|O Checkout já possui uma integração com o Antifraude da CyberSource, permitindo a análise de transações de crédito sem uma integração adicional|
-|**Meios de pagamentos**|O Checkout Cielo possui uma variada gama de meios de pagamento: <br> **Cartões de crédito** <br> **Cartão de Débito**<br>**Débito Online**<br>**Boleto Bradesco e Banco do Brasil**|
-|**Backoffice Simplificado**|O Backoffice do Checkout Cielo possui um layout simplificado e dinâmico que permite uma navegação rápida e confortável para que o Lojista possa acompanhar as vendas sem dificuldade|
-|**Integração com Botão e QR Code**|Sem integração técnica ou o programação, o Checkout disponibiliza uma integração que torna possível realizar a criação de um link gerador de pedidos apenas com um cadastro de produtos dentro do Backoffice Checkout.|
-|**Relatórios transacionais**|Dentro do Backoffice, é possível gerar relatórios transnacionais que facilitam a administração de suas vendas: <br> **Relatório de Recorrências** <br> **Relatório de compradores**<br>**Extrato de vendas**<br>**Relatório de vendas**|
+| Funcionalidade                     | Descrição                                                                                                                                                                                                                               |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Tela transacional**              | O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações.                                                                                                   |
+| **Recorrência**                    | O Checkout Cielo possui a Recorrência Programada disponível na API Cielo Ecommerce. <br> Basta que o lojista defina que uma transação deve se repetir, que o Checkout vai executa-la novamente no intervalo definido                    |
+| **Antifraude**                     | O Checkout já possui uma integração com o Antifraude da CyberSource, permitindo a análise de transações de crédito sem uma integração adicional                                                                                         |
+| **Meios de pagamentos**            | O Checkout Cielo possui uma variada gama de meios de pagamento: <br> **Cartões de crédito** <br> **Cartão de Débito**<br>**Débito Online**<br>**Boleto Bradesco e Banco do Brasil**                                                     |
+| **Backoffice Simplificado**        | O Backoffice do Checkout Cielo possui um layout simplificado e dinâmico que permite uma navegação rápida e confortável para que o Lojista possa acompanhar as vendas sem dificuldade                                                    |
+| **Integração com Botão e QR Code** | Sem integração técnica ou o programação, o Checkout disponibiliza uma integração que torna possível realizar a criação de um link gerador de pedidos apenas com um cadastro de produtos dentro do Backoffice Checkout.                  |
+| **Relatórios transacionais**       | Dentro do Backoffice, é possível gerar relatórios transnacionais que facilitam a administração de suas vendas: <br> **Relatório de Recorrências** <br> **Relatório de compradores**<br>**Extrato de vendas**<br>**Relatório de vendas** |
 
 O Checkout Cielo é uma funcionalidade indicada para:
 
-* **Sites com Carrinhos de compra**: quando houver um “carrinho de compras”  a ser enviado, ou seja, no caso do consumidor navegar pelo site e escolher 1 ou mais produtos a fim de finalizar a compra.
-* **Vendas via Redes sociais**: Com a capacidade de gerar um link ou QR Code para levar o comprador a tela transacional, o Checkout é indicado para realizar vendas via redes sociais de modo simplificado, sem a necessidade de integração técnica.
+- **Sites com Carrinhos de compra**: quando houver um “carrinho de compras” a ser enviado, ou seja, no caso do consumidor navegar pelo site e escolher 1 ou mais produtos a fim de finalizar a compra.
+- **Vendas via Redes sociais**: Com a capacidade de gerar um link ou QR Code para levar o comprador a tela transacional, o Checkout é indicado para realizar vendas via redes sociais de modo simplificado, sem a necessidade de integração técnica.
 
 ## Meios de pagamento do Checkout Cielo
 
@@ -46,11 +45,11 @@ A versão atual do Checkout Cielo possui suporte aos seguintes meios de pagament
 **Cartão de Crédito**
 
 | Bandeira         | Crédito à vista | Crédito parcelado Loja | Débito | Voucher |
-|------------------|-----------------|------------------------|--------|---------|
+| ---------------- | --------------- | ---------------------- | ------ | ------- |
 | Visa             | Sim             | Sim                    | Sim    | Não     |
 | MasterCard       | Sim             | Sim                    | Sim    | Não     |
 | American Express | Sim             | Sim                    | Não    | Não     |
-| Elo              | Sim             | Sim                    | Sim*   | Não     |
+| Elo              | Sim             | Sim                    | Sim\*  | Não     |
 | Diners Club      | Sim             | Sim                    | Não    | Não     |
 | Discover         | Sim             | Não                    | Não    | Não     |
 | JCB              | Sim             | Sim                    | Não    | Não     |
@@ -63,32 +62,32 @@ A versão atual do Checkout Cielo possui suporte aos seguintes meios de pagament
 
 **Cartão de Débito**
 
-|Bandeira|Banco|
-|---|---|
-|Visa|Bradesco<br>Banco do Brasil<br>HSBC<br>Santander<br>Itaú<br>BRB<br>Safra<br>Banco da Amazônia<br>Sicredi<br>Banco do Espirito Santo<br>Banco do Nordeste<br>Mercantil|
-|Mastercard|Banco do Brasil<br>Santander<br>Itaú<br>BRB<br>Sicredi<br>Bancoob<br>CitiBank|
-|Elo*|Caixa Ecônomica Federal|
+| Bandeira   | Banco                                                                                                                                                                 |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Visa       | Bradesco<br>Banco do Brasil<br>HSBC<br>Santander<br>Itaú<br>BRB<br>Safra<br>Banco da Amazônia<br>Sicredi<br>Banco do Espirito Santo<br>Banco do Nordeste<br>Mercantil |
+| Mastercard | Banco do Brasil<br>Santander<br>Itaú<br>BRB<br>Sicredi<br>Bancoob<br>CitiBank                                                                                         |
+| Elo\*      | Caixa Ecônomica Federal                                                                                                                                               |
 
 <aside class="notice">* Apenas Auxílio Emergencial da Caixa Econômica Federal (Corona Voucher)</aside>
 
 **Boleto**
 
-|Banco|Tipo|
-|---|---|
-|Bradesco|Não registrado|
-|Bradesco|Registrado SPS|
-|Banco do Brasil|Registrado|
+| Banco           | Tipo           |
+| --------------- | -------------- |
+| Bradesco        | Não registrado |
+| Bradesco        | Registrado SPS |
+| Banco do Brasil | Registrado     |
 
 **Débito Online**
 
-|Banco|
-|---|
-|Bradesco|
-|Banco do Brasil|
+| Banco           |
+| --------------- |
+| Bradesco        |
+| Banco do Brasil |
 
 ## Pré-requisitos para Integração
 
-O Checkout Cielo  possui uma lista de requisitos básicos para que o processo de integração seja bem sucedido.
+O Checkout Cielo possui uma lista de requisitos básicos para que o processo de integração seja bem sucedido.
 Abaixo listamos pontos que devem estar prontos antes da integração:
 
 1. O cadastro da loja deve estar **ativo** junto à Cielo, possuindo ao menos um tipo de **PLANO de pagamento** atrelado a conta.
@@ -99,13 +98,13 @@ Abaixo listamos pontos que devem estar prontos antes da integração:
 
 4. O Checkout funciona de forma eficiente apenas nos navegadores suportados:
 
-|Navegador|Versão|
-|---|---|
-|Chrome|V40.0 ou posterior|
-|FireFox|V34.0.5 ou posterior|
-|Internet Explorer|10 ou superior|
-|Safari (MAC/iOS)|7 ou posterior|
-|Opera|V26 ou posterior|
+| Navegador         | Versão               |
+| ----------------- | -------------------- |
+| Chrome            | V40.0 ou posterior   |
+| FireFox           | V34.0.5 ou posterior |
+| Internet Explorer | 10 ou superior       |
+| Safari (MAC/iOS)  | 7 ou posterior       |
+| Opera             | V26 ou posterior     |
 
 **OBS**: Para que compradores e lojistas obtenham a melhor experiência do Checkout Cielo, recomendamos baixar a última versão dos navegadores mencionados acima.
 
@@ -115,15 +114,15 @@ Confira este [**site**](http://browsehappy.com/) para visualizar as últimas ver
 
 Se um recurso ainda não funcionar como esperado:
 
-* Tente utilizar outro navegador como solução temporária para o problema.
-* Se você utiliza o Internet Explorer, tente desativar o modo de compatibilidade.
+- Tente utilizar outro navegador como solução temporária para o problema.
+- Se você utiliza o Internet Explorer, tente desativar o modo de compatibilidade.
 
 Se você já tentou essas soluções, mas continua a ter problemas, entre em contato conosco pelo [Suporte Cielo](#suporte-cielo) e forneça as seguintes informações:
 
-* Uma explicação geral do problema.
-* O navegador e a versão que estão sendo utilizados.
-* O sistema operacional e a versão utilizada no computador.
-* Uma captura de tela do problema.
+- Uma explicação geral do problema.
+- O navegador e a versão que estão sendo utilizados.
+- O sistema operacional e a versão utilizada no computador.
+- Uma captura de tela do problema.
 
 # Certificado Extended Validation
 
@@ -155,10 +154,10 @@ Trata-se de um certificado de maior confiança e quando o https for acessado a b
 
 Basta instalar os três arquivos a seguir na Trustedstore do servidor. A Cielo não oferece suporte para a instalação do Certificado. Caso não esteja seguro sobre como realizar a instalação do Certificado EV, então você deverá ser contatado o suporte do fornecedor do seu servidor.
 
-* [Certificado Raiz]({{ site.baseurl }}/attachment/Root.crt)
-* [Certificado Intermediária 1]({{ site.baseurl }}/attachment/Intermediate1.crt)
-* [Certificado Intermediária 2]({{ site.baseurl }}/attachment/intermediate2.cer)
-* [Certificado E-Commerce Cielo]({{ site.baseurl }}/attachment/servercertificate.cer)
+- [Certificado Raiz]({{ site.baseurl }}/attachment/Root.crt)
+- [Certificado Intermediária 1]({{ site.baseurl }}/attachment/Intermediate1.crt)
+- [Certificado Intermediária 2]({{ site.baseurl }}/attachment/intermediate2.cer)
+- [Certificado E-Commerce Cielo]({{ site.baseurl }}/attachment/servercertificate.cer)
 
 ## Passo a Passo para a Instalação
 
@@ -176,10 +175,10 @@ Normalmente, o browser faz a atualização do Certificado automaticamente, caso 
 
 Salvar os três arquivos abaixo em uma pasta nova, ou que relembre facilmente, pois será utilizada posteriormente:
 
-* [Certificado Raiz]({{ site.baseurl }}/attachment/Root.crt)
-* [Certificado Intermediária 1]({{ site.baseurl }}/attachment/intermediate1.crt)
-* [Certificado Intermediária 2]({{ site.baseurl }}/attachment/intermediate2.crt)
-* [Certificado E-Commerce Cielo]({{ site.baseurl }}/attachment/servercertificate.cer)
+- [Certificado Raiz]({{ site.baseurl }}/attachment/Root.crt)
+- [Certificado Intermediária 1]({{ site.baseurl }}/attachment/intermediate1.crt)
+- [Certificado Intermediária 2]({{ site.baseurl }}/attachment/intermediate2.crt)
+- [Certificado E-Commerce Cielo]({{ site.baseurl }}/attachment/servercertificate.cer)
 
 **2º Passo**
 
@@ -263,10 +262,10 @@ Nesta documentação estão descritas todas as funcionalidades da integração d
 
 Existem duas maneiras de realizar a integração:
 
-|Tipo|Descrição|
-|---|---|
-|`API`|É utilizada uma Integração via API que permite o lojista enviar o **"Carrinho de compras"** do seu site com todos os dados que ele deseja apresentar na tela transacional. <br> Neste tipo de integração o lojista possui maior controle sobre como o pedido será gerado.|
-|`Botão / QR Code / Link`|Dentro do Backoffice do Checkout Cielo, é possível registrar um produto ou grupo de produtos que vão gerar um Link capaz de criar várias telas de pagamento. Esse modelo é usado para pagamentos por redes sociais, campanhas promocionais ou Vendas via QR Code. Nessa categoria o lojista possui menos controle sobre como os pedidos serão apresentados ou gerados na tela transacional|
+| Tipo                     | Descrição                                                                                                                                                                                                                                                                                                                                                                                  |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `API`                    | É utilizada uma Integração via API que permite o lojista enviar o **"Carrinho de compras"** do seu site com todos os dados que ele deseja apresentar na tela transacional. <br> Neste tipo de integração o lojista possui maior controle sobre como o pedido será gerado.                                                                                                                  |
+| `Botão / QR Code / Link` | Dentro do Backoffice do Checkout Cielo, é possível registrar um produto ou grupo de produtos que vão gerar um Link capaz de criar várias telas de pagamento. Esse modelo é usado para pagamentos por redes sociais, campanhas promocionais ou Vendas via QR Code. Nessa categoria o lojista possui menos controle sobre como os pedidos serão apresentados ou gerados na tela transacional |
 
 ## Fluxo de integração
 
@@ -287,7 +286,7 @@ Após o portador do cartão (consumidor) selecionar suas compras e apertar o bot
 3. O portador escolhe: Meio de pagamento, tipo de frete e endereço de entrega na tela transacional
 4. O Checkout Cielo redireciona o cliente para a **URL de Retorno** escolhida pela loja, configurada no [Backoffice Checkout Cielo]({{ site.baseurl_root }}{% post_url 2000-01-01-checkout-tutoriais%}) ou enviada pela integração via API.
 5. Se a loja possui uma **URL de notificação**, ela será notificada sobre a situação da transação.
-5. A loja avisa ao cliente que o processo foi concluído e que ele receberá mais informações sobre a compra e o pagamento por e-mail.e
+6. A loja avisa ao cliente que o processo foi concluído e que ele receberá mais informações sobre a compra e o pagamento por e-mail.e
 7. A loja processa o pedido de compra utilizando os dados do POST de notificação e, se a transação estiver autorizada, libera o pedido.
 
 **OBS:** O Checkout Cielo não notifica os compradores a respeito do status de compra, apenas ao lojista. Isso ocorre pois permite ao lojista decidir quando e como informar aos seus consumidores sobre o prazo de entrega e processo de envio
@@ -306,9 +305,9 @@ Quando a opção for salva, uma tarja vermelha será exibida na parte superior d
 
 Essa tarja indica que a sua loja Checkout Cielo está agora operando em ambiente de teste, ou seja, toda a transação realizada nesse modo será considerada como teste.
 
-|Backoffice|Transacional|
-|---|---|
-|![Tarja vermelha - Backoffice]({{ site.baseurl_root }}/images/checkout/tmbackoffice.png)|![Tarja vermelha - Transacional]({{ site.baseurl_root }}/images/checkout/tmtransacional.png)|
+| Backoffice                                                                               | Transacional                                                                                 |
+| ---------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| ![Tarja vermelha - Backoffice]({{ site.baseurl_root }}/images/checkout/tmbackoffice.png) | ![Tarja vermelha - Transacional]({{ site.baseurl_root }}/images/checkout/tmtransacional.png) |
 
 ### Como transacionar no Modo de teste
 
@@ -322,10 +321,10 @@ Para testar cartões de crédito é necessário que dois dados importantes sejam
 
 **Status da Autorização do Cartão de Crédito**
 
-|Status da Transação|Cartões para realização dos testes|
-|---|---|---|---|
-|Autorizado|0000.0000.0000.0000 / 0000.0000.0000.0004|
-|Não Autorizado|0000.0000.0000.0005 / 0000.0000.0000.0009|
+| Status da Transação | Cartões para realização dos testes        |
+| ------------------- | ----------------------------------------- |
+| Autorizado          | 0000.0000.0000.0000 / 0000.0000.0000.0004 |
+| Não Autorizado      | 0000.0000.0000.0005 / 0000.0000.0000.0009 |
 
 **Exemplo:** 540443424293010**0** = **Autorizado**
 
@@ -340,13 +339,13 @@ O boleto gerado no modo de teste sempre será um boleto simulado.
 
 **Status do Débito**
 
-|Sobre nome do cliente|Status|
-|---|---|
-|Pago|Pago|
-|Qualquer nome.|Não autorizado|
+| Sobre nome do cliente | Status         |
+| --------------------- | -------------- |
+| Pago                  | Pago           |
+| Qualquer nome.        | Não autorizado |
 
-* **Exemplo:** Status não Autorizado.
-* **Nome do Cliente:** Maria Pereira
+- **Exemplo:** Status não Autorizado.
+- **Nome do Cliente:** Maria Pereira
 
 **D - Transações de teste**
 
@@ -367,16 +366,16 @@ Basta acessar nosso [Tutorial](https://developercielo.github.io/Tutorial/postman
 
 No postman é possível criar exemplos de sua integração em:
 
-* PHP
-* RUBY
-* C#
-* JAVA
-* PYTHON
-* SHELL
+- PHP
+- RUBY
+- C#
+- JAVA
+- PYTHON
+- SHELL
 
 ## Integração por API
 
-Este tipo de integração deve ser usada sempre que  houver  um  “carrinho  de  compras”  a  ser  enviado,  ou  seja,  no  caso  do consumidor navegar pelo site e escolher 1 ou mais produtos para adicionar a um carrinho e depois então finalizar a venda.
+Este tipo de integração deve ser usada sempre que houver um “carrinho de compras” a ser enviado, ou seja, no caso do consumidor navegar pelo site e escolher 1 ou mais produtos para adicionar a um carrinho e depois então finalizar a venda.
 
 Se você não possui um carrinho de compras implementado, veja a seção de **Integração via botão** Checkout Cielo.
 
@@ -389,13 +388,13 @@ Abaixo, é demonstrado como o fluxo de compra ocorre na integração via API:
 Na integração via API, a tela transacional é "montada" com bases em dados enviados que formam um **Carrinho de compras**.
 Esses dados são separados nos seguintes "nós principais":
 
-|Nó|Descrição|
-|---|---|
-|`Cart`|Contem dados dos produtos a serem vendidos.|
-|`Shipping`|Contem dados do tipo de frete a ser cobrado. É influenciado pelo nó `Cart`|
-|`Payment`|Contem informações que influenciam o valor cobrado. **Não contem informações sobre meios de pagamento**|
-|`Customer`|Possui dados o comprador. Não obrigatório na integração, mas exigido na tela de pagamentos. Sugerimos que seja enviado para acelerar o processo de compra|
-|`Options`|Controla features opcionais do Checkout. Nó não obrigatório|
+| Nó         | Descrição                                                                                                                                                 |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Cart`     | Contem dados dos produtos a serem vendidos.                                                                                                               |
+| `Shipping` | Contem dados do tipo de frete a ser cobrado. É influenciado pelo nó `Cart`                                                                                |
+| `Payment`  | Contem informações que influenciam o valor cobrado. **Não contem informações sobre meios de pagamento**                                                   |
+| `Customer` | Possui dados o comprador. Não obrigatório na integração, mas exigido na tela de pagamentos. Sugerimos que seja enviado para acelerar o processo de compra |
+| `Options`  | Controla features opcionais do Checkout. Nó não obrigatório                                                                                               |
 
 Após o envio dos dados do carrinho, o Checkout enviará um Response contendo um **LINK para a tela de pagamento**
 
@@ -410,109 +409,109 @@ Endpoint é a URL para onde as requisições com os dados do carrinho serão env
 **Exemplo de uma requisição**
 
 ```json
-{  
-   "OrderNumber":"Pedido01",
-   "SoftDescriptor":"Exemplo",
-   "Cart":{  
-      "Discount":{  
-         "Type":"Percent",
-         "Value":00
-      },
-      "Items":[  
-         {  
-            "Name":"Produto01",
-            "Description":"ProdutoExemplo01",
-            "UnitPrice":100,
-            "Quantity":1,
-            "Type":"Asset",
-            "Sku":"ABC001",
-            "Weight":500
-         },
-        ]
-   },
-   "Shipping":{  
-      "SourceZipCode":"20020080",
-      "TargetZipCode":"21911130",
-      "Type":"FixedAmount",
-      "Services":[  
-         {  
-            "Name":"Motoboy",
-            "Price":1,
-            "Deadline":15,
-            "Carrier":null
-         },
-         {  
-            "Name":"UPS Express",
-            "Price":1,
-            "Deadline":2,
-            "Carrier":null
-         }
-      ],
-      "Address":{  
-         "Street":"Rua Cambui",
-         "Number":"92",
-         "Complement":"Apto 201",
-         "District":"Freguesia",
-         "City":"Rio de Janeiro",
-         "State":"RJ"
+{
+  "OrderNumber": "Pedido01",
+  "SoftDescriptor": "Exemplo",
+  "Cart": {
+    "Discount": {
+      "Type": "Percent",
+      "Value": 00
+    },
+    "Items": [
+      {
+        "Name": "Produto01",
+        "Description": "ProdutoExemplo01",
+        "UnitPrice": 100,
+        "Quantity": 1,
+        "Type": "Asset",
+        "Sku": "ABC001",
+        "Weight": 500
       }
-   },
-   "Payment":{  
-      "BoletoDiscount":15,
-      "DebitDiscount":10,
-      "Installments":null,
-      "MaxNumberOfInstallments": null
-   },
-   "Customer":{  
-      "Identity":"84261300206",
-      "FullName":"Test de Test",
-      "Email":"test@cielo.com.br",
-      "Phone":"21987654321"
-   },
-   "Settings":null
+    ]
+  },
+  "Shipping": {
+    "SourceZipCode": "20020080",
+    "TargetZipCode": "21911130",
+    "Type": "FixedAmount",
+    "Services": [
+      {
+        "Name": "Motoboy",
+        "Price": 1,
+        "Deadline": 15,
+        "Carrier": null
+      },
+      {
+        "Name": "UPS Express",
+        "Price": 1,
+        "Deadline": 2,
+        "Carrier": null
+      }
+    ],
+    "Address": {
+      "Street": "Rua Cambui",
+      "Number": "92",
+      "Complement": "Apto 201",
+      "District": "Freguesia",
+      "City": "Rio de Janeiro",
+      "State": "RJ"
+    }
+  },
+  "Payment": {
+    "BoletoDiscount": 15,
+    "DebitDiscount": 10,
+    "Installments": null,
+    "MaxNumberOfInstallments": null
+  },
+  "Customer": {
+    "Identity": "84261300206",
+    "FullName": "Test de Test",
+    "Email": "test@cielo.com.br",
+    "Phone": "21987654321"
+  },
+  "Settings": null
 }
 ```
 
 **Header/Cabeçalho**
 
-|Campo|Tipo|Obrigatório|Tamanho|Descrição|
-|---|---|---|---|---|
-|`MerchantId`|Guid|Sim|36|Identificador único da loja. **Formato:** 00000000-0000-0000-0000-000000000000|
-|`Content-type`|Alphanumeric|Sim|n/a|Tipo do conteúdo da mensagem a ser enviada. **Utilizar:** "application/json"|
+| Campo          | Tipo         | Obrigatório | Tamanho | Descrição                                                                      |
+| -------------- | ------------ | ----------- | ------- | ------------------------------------------------------------------------------ |
+| `MerchantId`   | Guid         | Sim         | 36      | Identificador único da loja. **Formato:** 00000000-0000-0000-0000-000000000000 |
+| `Content-type` | Alphanumeric | Sim         | n/a     | Tipo do conteúdo da mensagem a ser enviada. **Utilizar:** "application/json"   |
 
 **Cabeçalho e Autenticação** - Todas as requisições enviadas para a Cielo deverão ser autenticadas pela loja. A autenticação consiste no envio do `MerchantId`, que é o identificador único da loja fornecido pela Cielo após a afiliação da loja. A autenticação da loja deverá ser feita através do envio do campo de cabeçalho HTTP `MerchantId`, como ilustrado abaixo e ao lado:
 
 **Body - Detalhado**
 
-|Campo|Tipo|Obrigatório|Tamanho|Condicional|
-|---|---|---|---|---|
-|`OrderNumber`|Alphanumeric|Opcional|64||
-|`SoftDescriptor`|Alphanumeric|Opcional|13||
-|`Cart.Discount.Type`|Alphanumeric|Condicional|255|Obrigatório caso Cart.Discount.Value for maior ou igual a zero.|
-|`Cart.Discount.Value`|Numeric|Condicional|18|Obrigatório caso Cart.Discount.Type for `Amount` ou `Percent`.|
-|`Cart.Items.Name`|Alphanumeric|Sim|128||
-|`Cart.Items.Description`|Alphanumeric|Opcional|256||
-|`Cart.Items.UnitPrice`|Numeric|Sim|18||
-|`Cart.Items.Quantity`|Numeric|Sim|9||
-|`Cart.Items.Type`|Alphanumeric|Sim|255||
-|`Cart.Items.Sku`|Alphanumeric|Opcional|32||
-|`Cart.Items.Weight`|Numeric|Condicional|9|Necessário caso Shipping.Type for "Correios".|
-|`Payment.BoletoDiscount`|Numeric|Condicional|3||
-|`Payment.DebitDiscount`|Numeric|Condicional|3||
-|`FirstInstallmentDiscount`|Numeric|Condicional|3||
-|`MaxNumberOfInstallments`|Numeric|Condicional|2||
-|`Customer.Identity`|Numeric|Condicional|14|Não obrigatório na API, mas obrigatório na tela transacional.|
-|`Customer.FullName`|Alphanumeric|Condicional|288|Não obrigatório na API, mas obrigatório na tela transacional.|
-|`Customer.Email`|Alphanumeric|Condicional|64|Não obrigatório na API, mas obrigatório na tela transacional.|
-|`Customer.Phone`|Numeric|Condicional|11|Não obrigatório na API, mas obrigatório na tela transacional.|
-|`Options.ReturnUrl`|Strin|Condicional|255|Uma URL fixa pode ser registrada no Backoffice Checkout.|
+| Campo                      | Tipo         | Obrigatório | Tamanho | Condicional                                                     |
+| -------------------------- | ------------ | ----------- | ------- | --------------------------------------------------------------- |
+| `OrderNumber`              | Alphanumeric | Opcional    | 64      |                                                                 |
+| `SoftDescriptor`           | Alphanumeric | Opcional    | 13      |                                                                 |
+| `Cart.Discount.Type`       | Alphanumeric | Condicional | 255     | Obrigatório caso Cart.Discount.Value for maior ou igual a zero. |
+| `Cart.Discount.Value`      | Numeric      | Condicional | 18      | Obrigatório caso Cart.Discount.Type for `Amount` ou `Percent`.  |
+| `Cart.Items.Name`          | Alphanumeric | Sim         | 128     |                                                                 |
+| `Cart.Items.Description`   | Alphanumeric | Opcional    | 256     |                                                                 |
+| `Cart.Items.UnitPrice`     | Numeric      | Sim         | 18      |                                                                 |
+| `Cart.Items.Quantity`      | Numeric      | Sim         | 9       |                                                                 |
+| `Cart.Items.Type`          | Alphanumeric | Sim         | 255     |                                                                 |
+| `Cart.Items.Sku`           | Alphanumeric | Opcional    | 32      |                                                                 |
+| `Cart.Items.Weight`        | Numeric      | Condicional | 9       | Necessário caso Shipping.Type for "Correios".                   |
+| `Payment.BoletoDiscount`   | Numeric      | Condicional | 3       |                                                                 |
+| `Payment.DebitDiscount`    | Numeric      | Condicional | 3       |                                                                 |
+| `FirstInstallmentDiscount` | Numeric      | Condicional | 3       |                                                                 |
+| `MaxNumberOfInstallments`  | Numeric      | Condicional | 2       |                                                                 |
+| `Customer.Identity`        | Numeric      | Condicional | 14      | Não obrigatório na API, mas obrigatório na tela transacional.   |
+| `Customer.FullName`        | Alphanumeric | Condicional | 288     | Não obrigatório na API, mas obrigatório na tela transacional.   |
+| `Customer.Email`           | Alphanumeric | Condicional | 64      | Não obrigatório na API, mas obrigatório na tela transacional.   |
+| `Customer.Phone`           | Numeric      | Condicional | 11      | Não obrigatório na API, mas obrigatório na tela transacional.   |
+| `Options.ReturnUrl`        | Strin        | Condicional | 255     | Uma URL fixa pode ser registrada no Backoffice Checkout.        |
 
 ### Responses
 
 Devido ao seu fluxo de venda ser dividido em duas etapas, sendo a primeira, a criação da tela transacional e a segunda, a finalização do pagamento; O Checkout possui duas respostas para uma transação:
 
-* **Response - Tela transacional** - É o Response retornado com dados para enviar o comprador para a tela transacional
-* **Response - Transação Finalizada** - Contém dados sobre o resultado da transação, após o comprador clica em "Finalizar" na tela transacional. **É retornado apenas via Notificação**
+- **Response - Tela transacional** - É o Response retornado com dados para enviar o comprador para a tela transacional
+- **Response - Transação Finalizada** - Contém dados sobre o resultado da transação, após o comprador clica em "Finalizar" na tela transacional. **É retornado apenas via Notificação**
 
 **Resultado/Status da transação:** Para obter o retorno do status da transação, é necessário definir uma URL de NOTIFICAÇÃO. Veja a sessão de notificação para maiores informações.
 
@@ -524,31 +523,31 @@ Existem apenas duas opções de resposta na integração da API: Sucesso / Erro
 
 ```json
 {
-    "Settings": {
-        "CheckoutUrl": "https://cieloecommerce.cielo.com.br/transacional/order/index?id=123",
-        "Profile": "CheckoutCielo",
-        "Version": 1
-    }
+  "Settings": {
+    "CheckoutUrl": "https://cieloecommerce.cielo.com.br/transacional/order/index?id=123",
+    "Profile": "CheckoutCielo",
+    "Version": 1
+  }
 }
 ```
 
-|Campo|Tipo|Obrigatório|Tamanho|Descrição|
-|---|---|---|---|---|
-|`CheckoutUrl`|String|Sim|255|URL da tela transacional. O Comprador **deve ser direcionado a esse ambiente para finalizar a transação**|
-|`Profile`|String|Sim|16|Perfil do lojista: fixo “CheckoutCielo”.|
-|`Version`|String|Sim|1|Versão do serviço de criação de pedido (versão: 1).|
+| Campo         | Tipo   | Obrigatório | Tamanho | Descrição                                                                                                 |
+| ------------- | ------ | ----------- | ------- | --------------------------------------------------------------------------------------------------------- |
+| `CheckoutUrl` | String | Sim         | 255     | URL da tela transacional. O Comprador **deve ser direcionado a esse ambiente para finalizar a transação** |
+| `Profile`     | String | Sim         | 16      | Perfil do lojista: fixo “CheckoutCielo”.                                                                  |
+| `Version`     | String | Sim         | 1       | Versão do serviço de criação de pedido (versão: 1).                                                       |
 
 **Erro** - Em caso de erro, a mensagem abaixo será retornada.
 
 ```json
 {
-    "message":"An error has occurred."
+  "message": "An error has occurred."
 }
 ```
 
-|Campo|Tipo|Obrigatório|Tamanho|Descrição|
-|---|---|---|---|---|
-|`Message`|String|Sim|254|Mensagem descritiva do erro|
+| Campo     | Tipo   | Obrigatório | Tamanho | Descrição                   |
+| --------- | ------ | ----------- | ------- | --------------------------- |
+| `Message` | String | Sim         | 254     | Mensagem descritiva do erro |
 
 **Importante** - O Checkout Cielo não possui erros numerados, apenas uma mensagem genérica. Veja a sessão "Identificando erros de Integração" para maiores informações
 
@@ -556,20 +555,20 @@ Existem apenas duas opções de resposta na integração da API: Sucesso / Erro
 
 Nos itens a seguir, será explicado o comportamento de algumas das funcionalidades da integração via API. Essas funcionalidades possuem regras especificas para utilização e não estão disponíveis na integração via Botão.
 
-* **Tipos de "Desconto"**
-* **Tipos de "Frete"**
+- **Tipos de "Desconto"**
+- **Tipos de "Frete"**
 
 #### Tipos de "Desconto"
 
 O Checkout Cielo permite que o lojista aplique descontos específicos tanto para o carrinho quanto para meios de pagamento.
 Os descontos disponíveis no Checkout Cielo são:
 
-|Desconto|Aplicação|Descrição|
-|---|---|---|
-|`Carrinho`|API|Quando enviado, aplica o desconto sobre todo o carrinho, independente do meio de pagamento|
-|`Boleto`|API e Backoffice|Quando enviado, o desconto é aplicado somente caso o Boleto seja o meio de pagamento escolhido|
-|`Débito Online`|API e Backoffice|Quando enviado, o desconto é aplicado somente caso o Débito online seja o meio de pagamento escolhido|
-|`A vista`|API|Quando enviado, o desconto é aplicado quando Cartão de crédito a vista é o meio de pagamento escolhido|
+| Desconto        | Aplicação        | Descrição                                                                                              |
+| --------------- | ---------------- | ------------------------------------------------------------------------------------------------------ |
+| `Carrinho`      | API              | Quando enviado, aplica o desconto sobre todo o carrinho, independente do meio de pagamento             |
+| `Boleto`        | API e Backoffice | Quando enviado, o desconto é aplicado somente caso o Boleto seja o meio de pagamento escolhido         |
+| `Débito Online` | API e Backoffice | Quando enviado, o desconto é aplicado somente caso o Débito online seja o meio de pagamento escolhido  |
+| `A vista`       | API              | Quando enviado, o desconto é aplicado quando Cartão de crédito a vista é o meio de pagamento escolhido |
 
 > **OBS:** Descontos podem ser enviados na API ou definidos no Backoffice. Caso um Valor de desconto seja enviado na API, esse será o valor considerado, mesmo que o Backoffice possua outro valor registrado
 
@@ -578,120 +577,120 @@ Os descontos disponíveis no Checkout Cielo são:
 Para enviar um Desconto sobre o `Carrinho` basta enviar o nó abaixo dentro do nó `Cart`
 
 ```json
-      {
-       "Discount": {  
-         "Type":"Percent",
-         "Value":00
-       },
-      }
+{
+  "Discount": {
+    "Type": "Percent",
+    "Value": 00
+  }
+}
 ```
 
-|Campo|Tipo|Obrigatório|Tamanho|Descrição|Condicional|
-|---|---|---|---|---|---|
-|`Cart.Discount.Type`|Alphanumeric|Condicional|255|Tipo do desconto a ser aplicado: `Amount` ou `Percent`.|Obrigatório caso Cart.Discount.Value for maior ou igual a zero.|
-|`Cart.Discount.Value`|Numeric|Condicional|18|Valor do desconto a ser aplicado: Valor ou Percentual|Obrigatório caso Cart.Discount.Type for `Amount` ou `Percent`.|
+| Campo                 | Tipo         | Obrigatório | Tamanho | Descrição                                               | Condicional                                                     |
+| --------------------- | ------------ | ----------- | ------- | ------------------------------------------------------- | --------------------------------------------------------------- |
+| `Cart.Discount.Type`  | Alphanumeric | Condicional | 255     | Tipo do desconto a ser aplicado: `Amount` ou `Percent`. | Obrigatório caso Cart.Discount.Value for maior ou igual a zero. |
+| `Cart.Discount.Value` | Numeric      | Condicional | 18      | Valor do desconto a ser aplicado: Valor ou Percentual   | Obrigatório caso Cart.Discount.Type for `Amount` ou `Percent`.  |
 
 Abaixo, como o efeito do desconto são apresentados no Carrinho:
 
-|Percentual|Valor|
-|---|---|
-|![Percentual]({{ site.baseurl_root }}/images/checkout/checkout-discount-percent.png)|![Valor]({{ site.baseurl_root }}/images/checkout/checkout-discount-amount.png)|
+| Percentual                                                                           | Valor                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| ![Percentual]({{ site.baseurl_root }}/images/checkout/checkout-discount-percent.png) | ![Valor]({{ site.baseurl_root }}/images/checkout/checkout-discount-amount.png) |
 
 **Boleto & Débito Online**
 
 Para enviar um Desconto sobre o `Boleto` e `Débito online` basta enviar dentro do nó Payment os campos abaixo:
 
 ```json
-      {
-      "Payment": {  
-        "BoletoDiscount":15,
-        "DebitDiscount":10,
-        "FirstInstallmentDiscount":90
-        },
-      }
+{
+  "Payment": {
+    "BoletoDiscount": 15,
+    "DebitDiscount": 10,
+    "FirstInstallmentDiscount": 90
+  }
+}
 ```
 
-|Campo|Tipo|Obrigatório|Tamanho|Descrição|
-|---|---|---|---|---|
-|`Payment.BoletoDiscount`|Numeric|Condicional|3|Desconto, em porcentagem, para pagamentos a serem realizados com boleto.|
-|`Payment.DebitDiscount`|Numeric|Condicional|3|Desconto, em porcentagem, para pagamentos a serem realizados com débito online.|
-|`Payment.FirstInstallmentDiscount`|Numeric|Condicional|3|Desconto, em porcentagem, para pagamentos a vista no Cartão de crédito|
+| Campo                              | Tipo    | Obrigatório | Tamanho | Descrição                                                                       |
+| ---------------------------------- | ------- | ----------- | ------- | ------------------------------------------------------------------------------- |
+| `Payment.BoletoDiscount`           | Numeric | Condicional | 3       | Desconto, em porcentagem, para pagamentos a serem realizados com boleto.        |
+| `Payment.DebitDiscount`            | Numeric | Condicional | 3       | Desconto, em porcentagem, para pagamentos a serem realizados com débito online. |
+| `Payment.FirstInstallmentDiscount` | Numeric | Condicional | 3       | Desconto, em porcentagem, para pagamentos a vista no Cartão de crédito          |
 
 Abaixo, como o efeito do desconto são apresentados no Carrinho:
 
-|Tela transacional|
-|---|
-|![Meios de pagamento]({{ site.baseurl_root }}/images/checkout/checkout-discount-mp.png)|
+| Tela transacional                                                                       |
+| --------------------------------------------------------------------------------------- |
+| ![Meios de pagamento]({{ site.baseurl_root }}/images/checkout/checkout-discount-mp.png) |
 
 #### Tipos de "Frete"
 
 O Checkout cielo possui diferentes tipos de frete.
 
-|Campo|Descrição|
-|---|---|
-|`FixedAmount`|Valor fixo enviado pelo lojista. Utilizado caso o Lojista possua um método de entrega próprio|
-|`Free`|Não realiza cálculo de frete e exibe na tela transacional "Frete Grátis"|
-|`WithoutShippingPickUp`|Considerado "Retirada na loja"|
-|`WithoutShipping`|Sem cobrança de frete (aplicável para serviços e produtos digitais).|
-|`Correios`|Utiliza a API dos correios para realizar o cálculo do custo. O valor do cálculo dependerá o contrato utilizado (Escolhido no Backoffice do checkout) e do tipo de integração para cálculo: **Frete com Volume** ou **Frete sem Volume**|
+| Campo                   | Descrição                                                                                                                                                                                                                               |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `FixedAmount`           | Valor fixo enviado pelo lojista. Utilizado caso o Lojista possua um método de entrega próprio                                                                                                                                           |
+| `Free`                  | Não realiza cálculo de frete e exibe na tela transacional "Frete Grátis"                                                                                                                                                                |
+| `WithoutShippingPickUp` | Considerado "Retirada na loja"                                                                                                                                                                                                          |
+| `WithoutShipping`       | Sem cobrança de frete (aplicável para serviços e produtos digitais).                                                                                                                                                                    |
+| `Correios`              | Utiliza a API dos correios para realizar o cálculo do custo. O valor do cálculo dependerá o contrato utilizado (Escolhido no Backoffice do checkout) e do tipo de integração para cálculo: **Frete com Volume** ou **Frete sem Volume** |
 
- Abaixo, como cada opção é demonstrada na tela transacional
+Abaixo, como cada opção é demonstrada na tela transacional
 
-|Tipo de frete|Transacional|
-|---|---|
-|`FixedAmount`|![FixedAmount]({{ site.baseurl_root }}/images/checkout/fixedamount.png)|
-|`Free`|![Free]({{ site.baseurl_root }}/images/checkout/free.png)|
-|`WithoutShippingPickUp`|![WithoutShippingPickUp]({{ site.baseurl_root }}/images/checkout/withoutshippingpickup.png)|
-|`WithoutShipping`|![WithoutShipping]({{ site.baseurl_root }}/images/checkout/withoutshippingpickup.png)|
-|`Correios`|![Correios]({{ site.baseurl_root }}/images/checkout/correios.png)|
+| Tipo de frete           | Transacional                                                                                |
+| ----------------------- | ------------------------------------------------------------------------------------------- |
+| `FixedAmount`           | ![FixedAmount]({{ site.baseurl_root }}/images/checkout/fixedamount.png)                     |
+| `Free`                  | ![Free]({{ site.baseurl_root }}/images/checkout/free.png)                                   |
+| `WithoutShippingPickUp` | ![WithoutShippingPickUp]({{ site.baseurl_root }}/images/checkout/withoutshippingpickup.png) |
+| `WithoutShipping`       | ![WithoutShipping]({{ site.baseurl_root }}/images/checkout/withoutshippingpickup.png)       |
+| `Correios`              | ![Correios]({{ site.baseurl_root }}/images/checkout/correios.png)                           |
 
- **OBS:** As opções para múltiplos fretes na categoria `Correios` devem ser selecionadas dentro do Backoffice Cielo.        
+**OBS:** As opções para múltiplos fretes na categoria `Correios` devem ser selecionadas dentro do Backoffice Cielo.
 
 Os nós que formam as informações de frete abaixo:
 
-* **Shipping** - Nó base. É obrigatório na integração via API. Ele define os tipos de frete a serem utilizados
+- **Shipping** - Nó base. É obrigatório na integração via API. Ele define os tipos de frete a serem utilizados
 
-|Campo|Tipo|Obrigatório|Tamanho|Descrição|Condicional|
-|---|---|---|---|---|---|
-|`Shipping.Type`|Alphanumeric|Sim|255|Tipo do frete: <br>`Correios`<br>`FixedAmount`<br>`Free`<br>`WithoutShippingPickUp`<br>`WithoutShipping`||
-|`Shipping.SourceZipCode`|Numeric|Condicional|8|CEP de origem do carrinho de compras.|Obrigatório caso Shipping.Type for "Correios".|
-|`Shipping.TargetZipCode`|Numeric|Opcional|8|CEP do endereço de entrega do comprador.||
+| Campo                    | Tipo         | Obrigatório | Tamanho | Descrição                                                                                                | Condicional                                    |
+| ------------------------ | ------------ | ----------- | ------- | -------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| `Shipping.Type`          | Alphanumeric | Sim         | 255     | Tipo do frete: <br>`Correios`<br>`FixedAmount`<br>`Free`<br>`WithoutShippingPickUp`<br>`WithoutShipping` |                                                |
+| `Shipping.SourceZipCode` | Numeric      | Condicional | 8       | CEP de origem do carrinho de compras.                                                                    | Obrigatório caso Shipping.Type for "Correios". |
+| `Shipping.TargetZipCode` | Numeric      | Opcional    | 8       | CEP do endereço de entrega do comprador.                                                                 |                                                |
 
 **Shipping.Address** - Informações de endereço de entrega. **Não obrigatório no contrato da API, mas obrigatório na tela transacional**. Sugerimos que esses dados sejam enviados, se ja foram recolhidos dentro do ambiente da loja.
 
-|Campo|Tipo|Obrigatório|Tamanho|Descrição|
-|---|---|---|---|---|
-|`Shipping.Address.Street`|Alphanumeric|Sim|256|Rua, avenida, travessa, etc, do endereço de entrega do comprador.|
-|`Shipping.Address.Number`|Alphanumeric|Sim|8|Número do endereço de entrega do comprador.|
-|`Shipping.Address.Complement`|Alphanumeric|Opcional|14|Complemento do endereço de entrega do comprador.|
-|`Shipping.Address.District`|Alphanumeric|Sim|64|Bairro do endereço de entrega do comprador.|
-|`Shipping.Address.City`|Alphanumeric|Sim|64|Cidade do endereço de entrega do comprador.|
-|`Shipping.Address.State`|Alphanumeric|Sim|2|Estado (UF) do endereço de entrega do comprador.|
+| Campo                         | Tipo         | Obrigatório | Tamanho | Descrição                                                         |
+| ----------------------------- | ------------ | ----------- | ------- | ----------------------------------------------------------------- |
+| `Shipping.Address.Street`     | Alphanumeric | Sim         | 256     | Rua, avenida, travessa, etc, do endereço de entrega do comprador. |
+| `Shipping.Address.Number`     | Alphanumeric | Sim         | 8       | Número do endereço de entrega do comprador.                       |
+| `Shipping.Address.Complement` | Alphanumeric | Opcional    | 14      | Complemento do endereço de entrega do comprador.                  |
+| `Shipping.Address.District`   | Alphanumeric | Sim         | 64      | Bairro do endereço de entrega do comprador.                       |
+| `Shipping.Address.City`       | Alphanumeric | Sim         | 64      | Cidade do endereço de entrega do comprador.                       |
+| `Shipping.Address.State`      | Alphanumeric | Sim         | 2       | Estado (UF) do endereço de entrega do comprador.                  |
 
 **Shipping.Services**
 
-|Campo|Tipo|Obrigatório|Tamanho|Descrição|
-|---|---|---|---|---|
-`Shipping.Services.Name`|Alphanumeric|Sim|128|Nome do serviço de frete.|
-`Shipping.Services.Price`|Numeric|Sim|18|Preço do serviço de frete em centavos. Ex: R$ 1,00 = 100.|
-`Shipping.Services.Deadline`|Numeric|Condicional|9|Prazo de entrega (em dias).|
+| Campo                        | Tipo         | Obrigatório | Tamanho | Descrição                                                 |
+| ---------------------------- | ------------ | ----------- | ------- | --------------------------------------------------------- |
+| `Shipping.Services.Name`     | Alphanumeric | Sim         | 128     | Nome do serviço de frete.                                 |
+| `Shipping.Services.Price`    | Numeric      | Sim         | 18      | Preço do serviço de frete em centavos. Ex: R$ 1,00 = 100. |
+| `Shipping.Services.Deadline` | Numeric      | Condicional | 9       | Prazo de entrega (em dias).                               |
 
 O Frete Correios pode ser calculado de 2 maneiras:
 
-* **Frete com Volume** - Utiliza a API dos correios, mas exige que a loja envie as dimensões do pacote a ser enviado com as mercadorias
-* **Frete sem Volume** - Utiliza a API dos correios, mas considera apenas o peso do carrinho como base de cálculo para a entrega.
+- **Frete com Volume** - Utiliza a API dos correios, mas exige que a loja envie as dimensões do pacote a ser enviado com as mercadorias
+- **Frete sem Volume** - Utiliza a API dos correios, mas considera apenas o peso do carrinho como base de cálculo para a entrega.
 
 Para utilizar o frete volumétrico, basta enviar o nó `Shipping.Measures`, seguindo as regras de integração via API REST.
 
 **Shipping.Measures**
 
-|Campo|Tipo|Obrigatório|Tamanho|Descrição|Condicional|
-|---|---|---|---|---|---|
-|`Shipping.Package`|Alphanumeric|Obrigatório|Inteiro|Tipo de pacote: <br>`BOX`- Caixa <br> `ROL` - Cilindro ou ENVELOPE||
-|`Shipping.Lenght`|Numeric|Obrigatório|Inteiro|Comprimento do pacote||
-|`Shipping.Height`|Numeric|Condicional|Inteiro|Altura do pacote enviado|Obrigatório caso Shipping.Package como BOX|
-|`Shipping.Width`|Numeric|Condicional|Inteiro|Largura do pacote.|Obrigatório caso Shipping.Package como BOX ou ENVELOPE|
-|`Shipping.Diameter`|Numeric|Condicional|Inteiro|Diâmetro do pacote.|Obrigatório caso Shipping.Package como ROL|
+| Campo               | Tipo         | Obrigatório | Tamanho | Descrição                                                          | Condicional                                            |
+| ------------------- | ------------ | ----------- | ------- | ------------------------------------------------------------------ | ------------------------------------------------------ |
+| `Shipping.Package`  | Alphanumeric | Obrigatório | Inteiro | Tipo de pacote: <br>`BOX`- Caixa <br> `ROL` - Cilindro ou ENVELOPE |                                                        |
+| `Shipping.Lenght`   | Numeric      | Obrigatório | Inteiro | Comprimento do pacote                                              |                                                        |
+| `Shipping.Height`   | Numeric      | Condicional | Inteiro | Altura do pacote enviado                                           | Obrigatório caso Shipping.Package como BOX             |
+| `Shipping.Width`    | Numeric      | Condicional | Inteiro | Largura do pacote.                                                 | Obrigatório caso Shipping.Package como BOX ou ENVELOPE |
+| `Shipping.Diameter` | Numeric      | Condicional | Inteiro | Diâmetro do pacote.                                                | Obrigatório caso Shipping.Package como ROL             |
 
 Para realizar o cálculo de frete via Correios é necessário respeitar as medidas definidas pelo contrato utilizado pelo lojista. Para maiores informações sobre as dimensões e pesos permitidos, sugerimos que valide o contrato da loja no link abaixo:
 
@@ -703,10 +702,10 @@ Devido a estrutura do checkout Cielo, onde o comprador é redirecionado para um 
 Durante a integração é importante
 Há dois tipos de erro que poderão ocorrer durante o processo de integração com o Checkout Cielo. São eles:
 
-|Tipo de frete|Transacional|
-|---|---|
-|**Pré-Tela transacional**|Significa que houve algum dado errado no envio da transação. Dados obrigatórios podem estar faltando ou no formato invalido. Aqui o lojista sempre vai receber um e-mail informando o que deu errado|
-|**Pós-Tela transacional**|Significa que há algum impedimento de cadastro que limita a venda. Coisas como afiliação bloqueada, erro nos dados salvos no cadastro ou até problemas no próprio checkout|
+| Tipo de frete             | Transacional                                                                                                                                                                                         |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Pré-Tela transacional** | Significa que houve algum dado errado no envio da transação. Dados obrigatórios podem estar faltando ou no formato invalido. Aqui o lojista sempre vai receber um e-mail informando o que deu errado |
+| **Pós-Tela transacional** | Significa que há algum impedimento de cadastro que limita a venda. Coisas como afiliação bloqueada, erro nos dados salvos no cadastro ou até problemas no próprio checkout                           |
 
 Caso algum erro ocorra após a finalização da transação, entre em contato com o Suporte Cielo.
 
@@ -717,19 +716,19 @@ Esse tipo de integração é realizado via o cadastro de um conjunto de itens a 
 
 O botão gera um do 3 tipos diferentes de métodos de acesso a **mesma tela transacional**:
 
-|Método|Nome|Descrição|
-|---|:--:|---|
-|![Botão]({{ site.baseurl_root }}/images/checkout/botao.png)|**Botão**|É um código HTML que ao ser colado em um site, vai direcionar o comprador a tela transacional - Ideal para uso em **hotSites** ou **E-mail Marketing**|
-|![QRCODE]({{ site.baseurl_root }}/images/checkout/qrcode.png)|**QRCODE**|Código interpretável por Smartphones e Tablets - Ideal para uso em **Marketing impressos** ou **Digital**|
-|`http://bit.ly/2tRkSxZ`|**LINK**|é um link compartilhável, ideal para uso em **Redes Sociais** ou **Messengers Mobile**|
+| Método                                                        |    Nome    | Descrição                                                                                                                                              |
+| ------------------------------------------------------------- | :--------: | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ![Botão]({{ site.baseurl_root }}/images/checkout/botao.png)   | **Botão**  | É um código HTML que ao ser colado em um site, vai direcionar o comprador a tela transacional - Ideal para uso em **hotSites** ou **E-mail Marketing** |
+| ![QRCODE]({{ site.baseurl_root }}/images/checkout/qrcode.png) | **QRCODE** | Código interpretável por Smartphones e Tablets - Ideal para uso em **Marketing impressos** ou **Digital**                                              |
+| `http://bit.ly/2tRkSxZ`                                       |  **LINK**  | é um link compartilhável, ideal para uso em **Redes Sociais** ou **Messengers Mobile**                                                                 |
 
 Este modelo de integração é utilizado para:
 
-* Associar uma compra rápida direta a um produto como uma promoção numa homepage pulando a etapa do carrinho.
-* Enviar um e-mail marketing, ou uma cobrança via e-mail.
-* Adicionar o botão (HTML) referente ao produto/serviço a ser comprado/pago.
-* Realizar envio de pagamentos por aplicativos mobile
-* Sempre que se deseja disponibilizar uma venda rápida.
+- Associar uma compra rápida direta a um produto como uma promoção numa homepage pulando a etapa do carrinho.
+- Enviar um e-mail marketing, ou uma cobrança via e-mail.
+- Adicionar o botão (HTML) referente ao produto/serviço a ser comprado/pago.
+- Realizar envio de pagamentos por aplicativos mobile
+- Sempre que se deseja disponibilizar uma venda rápida.
 
 Para utilizar este recurso, é necessário cadastrar o produto que se deseja vender, suas informações, e depois simplesmente copiar o código fonte gerado para este botão. A inclusão dos produtos é feita dentro do [Backoffice Cielo Checkout]({{ site.baseurl_root }}{% post_url 2000-01-01-checkout-tutoriais%}), no menu de Produtos/Cadastrar Produto.
 
@@ -737,13 +736,13 @@ Para utilizar este recurso, é necessário cadastrar o produto que se deseja ven
 
 Cada botão possui um código único que só permite comprar aquele determinado produto nas condições de preço e frete cadastrado. Portanto, um fraudador não consegue alterar nenhuma destas informações na hora de submeter à compra, pois o Checkout Cielo vai buscar todos os dados do produto no cadastro do [Backoffice Cielo Checkout]({{ site.baseurl_root }}{% post_url 2000-01-01-checkout-tutoriais%}), e valerão os dados do cadastro.
 
-|Característica|Explicação|
-|---|---|
-|**Específico**|Cada botão gerado serve somente para um determinado produto ou grupo de produtos. A quantidade e volume de produtos vendido é definido no cadastro do Botão, não sendo possível altera a quantidade na tela transacional <br>**Exemplo:** Será necessário criar Um botão para vender 1 camisa. Se o comprador desejar 2 camisas, ele precisará usar o botão 2X ou O lojista deverá criar um botão com 2 camisas|
-|**Número do Pedido do Checkout**|O botão não permite o cadastro do número de pedido do Lojista. Como será a Cielo a acionar o próprio Checkout, será gerado um número de pedido (um `GUID`) único. O Lojista receberá esse número de pedido como link a venda realizada|
-|**Criação de pedidos**|Um botão gera vários pedidos independentes, ou seja, para limitar a quantidade de pedidos gerados por um botão, QRCODE ou Link criado, é necessário definir uma quantidade mínimas de itens em "estoque" no momento de cadastro. O Botão é um método de chamadas à API Checkout. Cada vez que ele é acionado, uma nova requisição é feita a API, criando assim um novo pedido|
+| Característica                   | Explicação                                                                                                                                                                                                                                                                                                                                                                                                      |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Específico**                   | Cada botão gerado serve somente para um determinado produto ou grupo de produtos. A quantidade e volume de produtos vendido é definido no cadastro do Botão, não sendo possível altera a quantidade na tela transacional <br>**Exemplo:** Será necessário criar Um botão para vender 1 camisa. Se o comprador desejar 2 camisas, ele precisará usar o botão 2X ou O lojista deverá criar um botão com 2 camisas |
+| **Número do Pedido do Checkout** | O botão não permite o cadastro do número de pedido do Lojista. Como será a Cielo a acionar o próprio Checkout, será gerado um número de pedido (um `GUID`) único. O Lojista receberá esse número de pedido como link a venda realizada                                                                                                                                                                          |
+| **Criação de pedidos**           | Um botão gera vários pedidos independentes, ou seja, para limitar a quantidade de pedidos gerados por um botão, QRCODE ou Link criado, é necessário definir uma quantidade mínimas de itens em "estoque" no momento de cadastro. O Botão é um método de chamadas à API Checkout. Cada vez que ele é acionado, uma nova requisição é feita a API, criando assim um novo pedido                                   |
 
- **Abaixo, o fluxo de pagamento via Botão:**
+**Abaixo, o fluxo de pagamento via Botão:**
 
 ![Fluxo de integração Checkout Cielo Botão]({{ site.baseurl_root }}/images/checkout/intbt.png)
 
@@ -762,7 +761,7 @@ Para utilizar este recurso, é necessário cadastrar o produto que se deseja ven
 Abaixo a listagem de itens que devem ser cadastrados para a criação do botão:
 
 | Campos            | Descrição                                                                                                                                      | Tamanho Min. | Tamanho Máx. | Obrigatório |
-|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------------|-------------|
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ------------ | ----------- |
 | `Tipo do Produto` | Indique se está vendendo um bem Material, um Serviço ou um bem Digital. Para bens Digitais, não será apresentada a opção de tipo de Frete.     | n/a          | n/a          | Sim         |
 | `SKU`             | Código de identificação do produto                                                                                                             | 1            | 50           | Não         |
 | `Título`          | Titulo do Produto                                                                                                                              | 1            | 50           | Sim         |
@@ -782,9 +781,9 @@ Abaixo a listagem de itens que devem ser cadastrados para a criação do botão:
 
 Abaixo é possível ver como o cadastro de um botão gera os 3 métodos de para acesso a tela transacional.
 
-* **Botão** - Será criado um código HTML como o abaixo:
+- **Botão** - Será criado um código HTML como o abaixo:
 
-``` xml 
+```xml
 <form method='post' action='https://cieloecommerce.cielo.com.br/transactional/Checkout/BuyNow' target='blank'>
     <input type='hidden' name='id' value=00000000-0000-0000-000000000000/><input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br /BackOffice/Content{{ site.baseurl_root }}/images/botao_comprar_3.jpg' />
 </form>
@@ -794,11 +793,11 @@ Abaixo é possível ver como o cadastro de um botão gera os 3 métodos de para 
 
 <form method='post' action='https://cieloecommerce.cielo.com.br/transactionalvnext/order/buynow' target='blank'><input type='hidden' name='id' value='937874c6-a4d7-477e-9272-a4cb8b0c5f79' /><input type='image' name='submit' alt='Comprar' src='https://cieloecommerce.cielo.com.br/backoffice/Content/img/buttons/button-5-1.png'/></form>
 
-* **QR CODE E LINK** - O link e o QRCODE tem o mesmo comportamento do botão, levando a mesma tela transacional.
+- **QR CODE E LINK** - O link e o QRCODE tem o mesmo comportamento do botão, levando a mesma tela transacional.
 
-|QR Code|Link|
-|---|---|
-|<img src='data:image/jpeg;base64,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'>|`http://bit.ly/2tRkSxZ`|
+| QR Code                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Link                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
+| <img src='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCADIAMgDASIAAhEBAxEB/8QAGwAAAwEBAQEBAAAAAAAAAAAAAAYHBQQDAgj/xABJEAABAgUCAgQKBggGAgEFAAABAgMABAUREgYTFCEVMTZRBxYiQVVhdIOy0iQylKOz0RclQ0VxgZHCI1RlkqTiJlInN0RGYqH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AQW21uuJbbQpa1kJSlIuVE9QAju6CrHoqe+zr/KDT/aGme1tfGItE/PS9Ok3Jucc22G7ZKxJtcgDkOfWRARfoKseip77Ov8oOgqx6Knvs6/yioeO2nfSH3LnyweO2nfSH3LnywEv6CrHoqe+zr/KOFxtbTim3EKQtBKVJULFJHWCIu0hPS9Rk25uTc3GHL4qxIvYkHkefWDEX1B2hqftbvxmAuEeb77Msyp6YdbZaT9ZbiglI83MmPSF/XfZCe93+ImAxfCJUpCcoTDcpOyz6xMpUUtOpUQMVc7A+uPHwV/vT3X98JdMpc7V5hUvIM7zqUFZTkE8rgX5kd4h00r/4dxXjD9D4vDZ/aZ45ZfUva2SevvgHaaqUhJuBubnZZhZGQS66lJI77E+qJjq2QnKnqObnKfKPzcq5hg8w2XEKshINlDkbEEfyjz11VJKr1lmYkHt5pMulBViU88lG3MDvEPmhOyEj7z8RUByuVKQa0SqTcnZZE0inFpTCnUhaVhuxSU3ve/K3XeEXRb7MtqmSemHW2Wk55LcUEpHkKHMmOPUHaGp+1u/GY55CRmKjONykm3uPuXxTkBewJPM8uoGAomun2azRmZelOtz76ZhK1Nyqg6oJxULkJubXIF/WI49AfqTj+l/1fvbe3xf+FnbK9srXtcdXeI9NC6dqtIrL0xPyuy0qXUgK3Eq55JNuRPcY7Nf0So1ngOj5fe2tzPy0ptfG3WR3GAapWblpxsuSkw0+gHEqaWFAHuuP4x7Qj6YnpfSNOckK85wk046XkoxLl0EAA3RcdaT/AEhwkJ6XqMm3Nybm4w5fFWJF7Eg8jz6wYDoiAttrdcS22hS1rISlKRcqJ6gBF+iH6f7Q0z2tr4xAHQVY9FT32df5QdBVj0VPfZ1/lFon56Xp0m5Nzjm2w3bJWJNrkAchz6yIx/HbTvpD7lz5YCX9BVj0VPfZ1/lB0FWPRU99nX+UVDx2076Q+5c+WNiQnpeoybc3JubjDl8VYkXsSDyPPrBgIS42tpxTbiFIWglKkqFikjrBEEd2oO0NT9rd+MwQBp/tDTPa2vjEVDXfZCe93+ImJfp/tDTPa2vjEVDXfZCe93+ImAj8EEEBYNCdkJH3n4iol+oO0NT9rd+MxUNCdkJH3n4iol+oO0NT9rd+MwFwjL1LTXqvQpmRl1NpddxxLhITyUDzsD3R2VCa4KnTM3hnsNLcxvbLEE2v/KFeg666ZrDEh0ds7uXl7+VrJJ6sR3QHzo7Sc/Qaq7NTb0stC2C2A0pRNypJ84HdHD4VP3X73+yKBC/qrTHjHwv0zhuHz/ZZ5ZY+sW+rAR+LBoTshI+8/EVE31PQvF+otynE8Rm0HMsMLXJFrXPdGxQdddDUdiQ6O3trLy9/G91E9WJ74DFqksuc1dOSrZSFvz620lXUCXCBf+sMUhpuc0jON1yoOMOysrfNDCipZyBQLAgDrUPPC/T5rjdZS03hhv1BDmN745OA2v8Azika77IT3u/xEwGf+kej/wCWnv8AYj5o2NP6kk9QcRwbb6NjHLdSBfK9rWJ7jEv0xQvGCouSnE8Pg0XMsM72IFrXHfFI0rpjxc4r6ZxPEYfssMccvWb/AFoDN1jpOfr1VampR6WQhDAbIdUoG4Uo+YHvje01TXqRQpaRmFNqdayyLZJTzUTyuB3xl6n1h4v1FuU4HiM2g5lvYWuSLWxPdGP+k3/SP+T/ANICgRD9P9oaZ7W18Yi0U+a42nS03hhvtIcxvfHIA2v/ADiL6f7Q0z2tr4xAVDXfZCe93+ImI/Fg132Qnvd/iJiPwBFg0J2QkfefiKiPxYNCdkJH3n4ioCX6g7Q1P2t34zBBqDtDU/a3fjMEAaf7Q0z2tr4xFon5GXqMm5KTje4w5bJORF7EEcxz6wIhLbi2nEuNrUhaCFJUk2KSOogx3dO1j0rPfaF/nAVDxJ076P8AvnPmg8SdO+j/AL5z5ol/TtY9Kz32hf5wdO1j0rPfaF/nAWiQkZenSbcpJt7bDd8U5E2uSTzPPrJiL6g7Q1P2t34zB07WPSs99oX+ccLji3XFOOLUtayVKUo3KieskwF6mGG5mXdl3k5NOoKFpva4IsRyhTr1Ep2nKO/VqRL8NPS+O27mpeOSgk8lEg8lEcxDFXHFtUKoONrUhaJZxSVJNikhJsQYmukp+cqeo5STqE2/NyrmebL7hcQqyFEXSeRsQD/KA5/HbUXpD7lv5YcNAVuo1nj+kJje2tvDyEptfK/UB3COXwiU2Qk6Ew5KSUswszKUlTTSUkjFXK4Hqjx8Ff7091/fAZ/hO7Qy/sifjXCfDh4Tu0Mv7In41wyaLpNNmdLST0xT5R51WeS3GUqUfLUOZIgOeX07SpbSrVXZlcZ5qSEyh3cUbOBGQVYm3Xzta0YdBrdR1HWGKTV5jiZGYy3GsEoyxSVDmkAjmkHkY5+PnPHLo7i3+B6Q2OG3Dtbe5jhj1Y25W6rQ4atkJOmacm5ynyjEpNN4YPMNhtabrSDZQ5i4JH84DP1PIy+kac3P0FvhJpx0MqXkXLoIJIsu460j+kK/jtqL0h9y38samhX3qzWXpequuT7CZdS0tzSi6kKySLgKuL2JF/WY9PCVIScl0bwcoxL57uW02EZWwte38TAKdTqk7V5hMxPvbzqUBAViE8rk25Ad5h80lpajVHTkpNzknuPuZ5K3Vi9lqA5A26gI+fB3TZCcoT7k3JSz6xMqSFOtJUQMU8rkeuMHVs/OUzUc3J0+bflJVvDBlhwtoTdCSbJHIXJJ/nAVSXYblpdqXZTi00gIQm97ACwHOInp/tDTPa2vjEWKhuLdoVPccWpa1yzalKUblRKRckxD23FtOJcbWpC0EKSpJsUkdRBgLtPyMvUZNyUnG9xhy2SciL2II5jn1gRj+JOnfR/3znzRL+nax6VnvtC/zg6drHpWe+0L/OAqHiTp30f98580bEhIy9Ok25STb22G74pyJtcknmefWTEX6drHpWe+0L/ODp2selZ77Qv84A1B2hqftbvxmCOFxxbrinHFqWtZKlKUblRPWSYIC/R5vvsyzKnph1tlpP1luKCUjzcyYw/HbTvpD7lz5Yx9W6po1R05NyknObj7mGKdpYvZaSeZFuoGAaOnaP6VkftCPzjolJ+Tnc+Dm2JjC2W04F436r2/gYg8UDwV/vT3X98BQI4XK1SmnFNuVOTQtBKVJU+kFJHWCLx3RK6xo+uzNZnphmRyadmHFoVvIFwVEg81QDtXK1SnaFUG26nJrWuWcSlKX0kqJSbAC8R2CCAII7KZS52rzCpeQZ3nUoKynIJ5XAvzI7xGp4k6i9H/AHzfzQC/Fg0J2QkfefiKiV1OlztImEy8+zsuqQFhOQVyuRfkT3GKpoTshI+8/EVAT2uUWqu12oON0ycWhcy4pKksKIUCo2INozX6TUpZlT0xT5tlpP1luMqSkebmSIrnjTRukeA4z6Vu7OG0v697Wva3XHPrvshPe7/ETAJ/gx7QzHsivjRFIm5+TksOMm2JfO+O64EZW67X/iIm/gx7QzHsivjRGh4VP3X73+yAcOnaP6VkftCPzjsYfZmWUvS7rbzSvqrbUFJPm5ERF6Zp2q1eXVMSErvNJWUFW4lPOwNuZHeIfKDW6dpyjsUmrzHDT0vluNYKXjkoqHNIIPJQPIwDE5WqU04ptypyaFoJSpKn0gpI6wReButUp1xLbdTk1rWQlKUvpJUT1AC8TWoaWrNTqMzPyUnuys06t5le6hOSFElJsTcXBHXBT9LVmmVGWn52T2pWVdQ88vdQrFCSCo2BubAHqgKo++zLMqemHW2Wk/WW4oJSPNzJjzlJ+Tnc+Dm2JjC2W04F436r2/gYT9W6po1R05NyknObj7mGKdpYvZaSeZFuoGMfQFbp1G4/pCY2d3bw8hSr2yv1A94gKhBC/wCO2nfSH3LnyxsSE9L1GTbm5NzcYcvirEi9iQeR59YMB0QRhzGsKFLTDsu9PYutLKFp2VmxBsRyTBAJf6OKx/mZH/ev5Y46toqpUimuz0w/KKaatkG1qKuZA5XSO+K5C/rvshPe7/ETAR+KB4K/3p7r++FfTFC8YKi5KcTw+DRcywzvYgWtcd8UjSumPFzivpnE8Rh+ywxxy9Zv9aAYIVZzX1Kk51+Vcl5wrYcU2opQmxINjbyvVDVCPUPB5xtRmZvpTDfdW5jw98ciTa+XrgJvHZSaa9V6k1Iy6m0uu3xLhITyBPOwPdHnT5XjajLSmeG+6hvK18ciBe384ePFjxO/X/GcZwn7Da288vI+tc2tlfq80B3aO0nP0GquzU29LLQtgtgNKUTcqSfOB3Rtag1JJ6f4fjG317+WO0kG2Nr3uR3iFf8ASb/pH/J/6Qf/AFG/07gPfbmf+21sPX1wC7rGty1eqrU1KIdQhDAbIdABuFKPmJ743tNa1ptIoUtIzDE2p1rLItoSU81E8rqHfHp+jL/V/wDjf94P0Zf6v/xv+8Ap9JM+NXSmLmxxvEY2GWOeVuu17euHSf1JJ6uk3KHT232pqatgt9ISgYkLNyCT1JPmjn/Rl/q//G/7weLHid+v+M4zhP2G1t55eR9a5tbK/V5oDzplNe0HMKqlVU28w6gy6UypKlBRIVc5BItZB8/dGXrXUknqDguDbfRsZ5bqQL5Y2tYnuMGp9YeMFOblOB4fB0OZb2d7Ai1sR3wrwDlo7VkhQaU7KzbMyta3y4C0lJFilI85HdGDqWpM1euzM9LpcS07jiHAArkkDnYnujU0xo/xgpzk3x3D4OlvHZzvYA3vkO+MevUzoasPyG9vbWPl443ukHque+AdqXr6lSdKk5VyXnCthhDailCbEhIBt5Xqj2mNa02sy7tLlmJtD86gy7anEJCQpYxBNlE2ue4xM4pFP8HnBVGWm+lM9h1DmPD2yxINr5eqAW6toqpUimuz0w/KKaatkG1qKuZA5XSO+FuLBrvshPe7/ETEfgN6haTn69JLmpR6WQhDhbIdUoG4APmB74apDUknpGTbodQbfdmpW+a2EhSDkSsWJIPUoeaOjwY9npj2tXwIgr2hemaw/P8ASOzu4+RsZWskDryHdAYcxoqpVmYdqks/KIYnVmYbS4tQUErOQBski9j3mCOzx66E/VPR2/wP0bd38c8PJytibXte1zBAeNL19VZyqycq5LyYQ++htRShVwCoA28r1w9Vams1emuyMwpxLTtsi2QFciDyuD3RD5d9yWmGphlWLrSwtCrXsQbg843PHbUXpD7lv5YChULSchQZ1c1KPTK1rbLZDqkkWJB8wHdHLrXUk5p/guDbYXv55bqSbY42tYjvMZehdRVWr1l6Xn5reaTLqWE7aU88ki/IDvMNlVolOrO10hL721fDy1Jte1+ojuEB56aqT1XoUtPTCW0uu5ZBsEJ5KI5XJ7oTapr6qydVnJVuXkyhh9baSpCrkBRAv5Xqjlr1bqOnKw/SaRMcNIy+O21gleOSQo81Ak81E8zDRT9LUap06Wn52T3ZqaaQ88vdWnJagCo2BsLknqgJbJzK5OdYmmwkrYcS4kK6iQbi/wDSN6ra1qVXprsjMMSiWnbZFtCgrkQeV1HuhwrGj6FLUaemGZHF1qXcWhW8s2ISSDzVCHpKRl6jqOUlJxvcYczyTkReyFEcxz6wID20dRJavVV2Vm1uoQhguAtEA3Ckjzg98MVV/wDj/a6I/wAfjr7nF+VbC1rY4/8Aueu/mjo1PIy+kac3P0FvhJpx0MqXkXLoIJIsu460j+kI9VrdRrO10hMb21fDyEpte1+oDuEAwfpHrH+Wkf8AYv5oP0j1j/LSP+xfzR2aF07SqvRnpifld51MwpAVuKTyxSbciO8wt6tkZenajm5STb22G8MU5E2uhJPM8+smAqnST3ir0pi3v8FxGNjjlhlbrva/rib1bWtSq9NdkZhiUS07bItoUFciDyuo90UijsNzOlZGXeTk07JNoWm9rgoAI5Rx+JOnfR/3znzQE90dRJavVV2Vm1uoQhguAtEA3Ckjzg98dWtdNyen+C4Nx9e/nluqBtjja1gO8wwankZfSNObn6C3wk046GVLyLl0EEkWXcdaR/SEeq1uo1na6QmN7avh5CU2va/UB3CA7qFqyfoMkuVlGZZaFuFwl1KibkAeYjujNq1Seq9SdnphLaXXbZBsEJ5ADlcnujjikaS0tRqjpyUm5yT3H3M8lbqxey1AcgbdQEBN4/QEL/iTp30f98580T/x21F6Q+5b+WAqlWprNXprsjMKcS07bItkBXIg8rg90TPWum5PT/BcG4+vfzy3VA2xxtawHeY0NJaprNR1HKSk5ObjDmeSdpAvZCiOYF+sCOjwqfuv3v8AZALtC1ZP0GSXKyjMstC3C4S6lRNyAPMR3RpfpHrH+Wkf9i/mhPikaS0tRqjpyUm5yT3H3M8lbqxey1AcgbdQEBPZyZXOTr804Ehb7inFBPUCTc2/rBHtWGG5asz0uynFpqYcQhN72AUQBzggCj7PTMjxO3scQ3ublscche9+VrRWGGNKzLyWZdqjPOq+qhtLSlHz8gInfiTqL0f98380aFBolR05WGKtV5fhpGXy3Hc0rxySUjkkknmoDkICjStNkJNwuSklLMLIxKmmkpJHdcD1R1Qv+O2nfSH3LnyweO2nfSH3LnywCXrSk1KZ1TOvS9Pm3mlYYrbZUpJ8hI5ECOFtvVrTaW20VtCEAJSlIdASB1ACKF47ad9IfcufLB47ad9IfcufLAS/pasTX0fpCee3fI295as78rWvzv1Wg4CsUz6Zwk9Kbf7bbW3jfl9bzXvb+cblH0fXZasyMw9I4tNTDa1q3kGwCgSeSodNd9kJ73f4iYBT0K+9Way9L1V1yfYTLqWluaUXUhWSRcBVxexIv6zD50FR/RUj9nR+UTPQtUkqRWXpife2WlS6kBWJVzySbcge4xTKVW6dWd3o+Y3tq2fkKTa97dYHcYBD10+9RqyzL0p1yQYVLpWpuVUWklWShchNhewAv6hGxpp+gzNClnqy7TXp5WW6ubU2p0+UQMirn1WtfzWjn11p2q1esszEhK7zSZdKCrcSnnko25kd4hb8SdRej/vm/mgKJUKtTehpmXptQlN/h1ol25d5OWWJCQgA3vewAEJ+mn69LV2WerLtSZkU5bq5tTiWh5JAyKuXXa1/PaOOn6WrNMqMtPzsntSsq6h55e6hWKEkFRsDc2APVDBq3VNGqOnJuUk5zcfcwxTtLF7LSTzIt1AwDRv0es/R92Rn8fL28kO2817c++1/XB0FR/RUj9nR+UTPQtUkqRWXpife2WlS6kBWJVzySbcge4w+eO2nfSH3LnywCnrqhPdMs9FUpzY4dOXCy5xyyV14i17W/wD5GOwxqqWZSzLtVllpP1UNpdSkefkBFE8dtO+kPuXPlg8dtO+kPuXPlgNSj73Q0jxO5v8ADt7m5fLLEXvfne8RmhtodrtPbcQlaFzLaVJULhQKhcERUvHbTvpD7lz5YR6fpas0yoy0/Oye1KyrqHnl7qFYoSQVGwNzYA9UA6alpLMtQpl6jU9tmeTjtLlGQl0eUAcSkX6r3t5rxM6r0x/hdL8d59vi8/Ve2X8ur1RUPHbTvpD7lz5YT9f1unVngOj5je2tzPyFJtfG3WB3GA1vB3TZCcoT7k3JSz6xMqSFOtJUQMU8rkeuHZhhmWZSzLtNstJ+qhtISkefkBCn4Mez0x7Wr4EQ4QEdrlFqrtdqDjdMnFoXMuKSpLCiFAqNiDaCKNMawoUtMOy709i60soWnZWbEGxHJMEBrTkyiTkn5pwKKGG1OKCesgC5t/SE2f1JJ6uk3KHT232pqatgt9ISgYkLNyCT1JPmjn8eum/1T0dscd9G3d/LDPycrYi9r3tcRoUHQvQ1YYn+kd7ay8jYxvdJHXke+ATa7pOfoMkiam3pZaFuBsBpSibkE+cDujBioeE7s9L+1p+BcJ+ldMeMfFfTOG4fD9lnlll6xb6sB6UnRVSq9Nanpd+US07fEOLUFciRzsk90dn6OKx/mZH/AHr+WKBQaZ0NR2JDe3trLy8cb3UT1XPfCvUPCHwVRmZTovPYdW3lxFssSRe2PqgHiF/XfZCe93+ImMen+EPjajLSnReG+6hvLiL45EC9sfXGxrvshPe7/ETAR+KB4K/3p7r++FfTFC8YKi5KcTw+DRcywzvYgWtcd8UjSumPFzivpnE8Rh+ywxxy9Zv9aAYIW6trWm0ipOyMwxNqdatkW0JKeYB5XUO+GSI/rvtfPe7/AA0wFKqkyic0jOTTYUEPyC3EhXWAWyRf+sRWHDx6/wDHuiejv/tOG3d//wDTHK2P87XhPgNKhUSZr06uVlFtIWhsuEukgWBA8wPfHtqDTc5p/h+McYXv5Y7SibY2ve4HeI2PBj2hmPZFfGiNDwqfuv3v9kBP4ZKToqpVemtT0u/KJadviHFqCuRI52Se6PTTGj/GCnOTfHcPg6W8dnO9gDe+Q74pFBpnQ1HYkN7e2svLxxvdRPVc98BFZyWXJzr8q4UlbDim1FPUSDY2/pFq1B2eqfsjvwGFeoeDzjajMzfSmG+6tzHh745Em18vXHP49dN/qno7Y476Nu7+WGfk5WxF7Xva4gEuk016r1JqRl1NpddviXCQnkCedge6OzUGm5zT/D8Y4wvfyx2lE2xte9wO8Q8UHQvQ1YYn+kd7ay8jYxvdJHXke+NDVWmPGPhfpnDcPn+yzyyx9Yt9WAz/AAY9npj2tXwIhwif9J/o/wD1Ts9Ib30ndy2rX8nG1lf+l7388OFBqfTNHYn9nZ3cvIyytZRHXYd0Ak1TQNVnKrOTTcxJhD763EhS1XAKiRfyfXBFGggFWT0DSpOdYmm5icK2HEuJClpsSDcX8n1RralqT1IoUzPS6W1OtY4hwEp5qA52I746Kw+5LUaemGVYutS7i0KtexCSQecSOf1TWajJuSk5ObjDlsk7SBexBHMC/WBAMlMqT2vJhVLqqW2WGkGYSqVBSoqBCbHIqFrLPm7obNP6bk9P8Rwbj69/HLdUDbG9rWA7zEjplUnaRMKmJB7ZdUgoKsQrlcG3MHuEanjtqL0h9y38sAyal1rUqRXZmRl2JRTTWOJcQoq5pB52UO+OiX0VTazLtVSZfm0PzqBMOJbWkJCljIgXSTa57zE7n56YqM45Nzjm4+5bJWIF7AAchy6gI1JfWFdlpdqXZnsWmkBCE7KDYAWA5pgHCY0VTaNLu1SWfm1vySDMNpcWkpKkDIA2SDa47xCvVta1Kr012RmGJRLTtsi2hQVyIPK6j3R6U/VNZqdRlpCdnN2VmnUMvI2kJyQogKFwLi4J6oYNW6Wo1O05NzcnJ7b7eGKt1ZtdaQeRNuomASaFW5mgzq5qUQ0ta2y2Q6CRYkHzEd0UbRWpJzUHG8Y2wjYwx2kkXyyve5PcIS9C0uSq9Zel59neaTLqWE5FPPJIvyI7zFMpVEp1G3ej5fZ3bZ+WpV7Xt1k95gF3WOrJ+g1VqVlGZZaFsBwl1KiblSh5iO6PGQ03J6uk265UHH2pqavmhhQSgYkoFgQT1JHnjH8J3aGX9kT8a4cNCdkJH3n4ioCU1SWRJ1WclWyooYfW2kq6yAogX/pHVpqms1euy0jMKcS07lkWyArkknlcHujomGG5nXTsu8nJp2plC03tcF2xHKHSvUSnaco79WpEvw09L47bual45KCTyUSDyURzEBpULSchQZ1c1KPTK1rbLZDqkkWJB8wHdHtqDTcnqDh+McfRsZY7SgL5Wve4PcIW9C6iqtXrL0vPzW80mXUsJ20p55JF+QHeYfICd1OpPaDmE0ulJbeYdQJhSpoFSgokpsMSkWsgebvjj/SPWP8ALSP+xfzQ+VPTtKq8wmYn5XedSgICtxSeVybciO8xK9WyMvTtRzcpJt7bDeGKcibXQknmefWTAbH6R6x/lpH/AGL+aFWTmVyc6xNNhJWw4lxIV1Eg3F/6R4wQFE01rWpVeuy0jMMSiWncsi2hQVySTyuo90amtdSTmn+C4Nthe/nlupJtjja1iO8xL5CemKdONzcm5tvt3xViDa4IPI8uomHjSv8A5jxXjD9M4TDZ/Z4ZZZfUte+KevugFGu1uZr06iam0NIWhsNgNAgWBJ85PfGlSda1KkU1qRl2JRTTV8S4hRVzJPOyh3wa6pclSKyzLyDOy0qXSspyKueShfmT3CFuAu1LmVzlKk5pwJC32EOKCeoEpBNv6wRJZfWFdlpdqXZnsWmkBCE7KDYAWA5pggLE42h1tTbiErQsFKkqFwoHrBEcPQVH9FSP2dH5REW21uuJbbQpa1kJSlIuVE9QAju6CrHoqe+zr/KAsHQVH9FSP2dH5QdBUf0VI/Z0flEf6CrHoqe+zr/KDoKseip77Ov8oCwdBUf0VI/Z0flB0FR/RUj9nR+UR/oKseip77Ov8o4XG1tOKbcQpC0EpUlQsUkdYIgLFWKTTZWjT0xLU+UZfal3FtuNspSpCgkkEEC4IPO8Sd+rVKZZUzMVCbeaV9ZDjylJPn5gmLNXG1u0KoNtoUta5ZxKUpFyolJsAImukpCcpmo5ScqEo/KSreebz7ZbQm6FAXUeQuSB/OAXZWbmZNwuSkw6wsjEqaWUkjuuP4RQvBrPzk70lxk2/MYbWO64V43zva/8BHz4RKlITlCYblJ2WfWJlKilp1KiBirnYH1xOYC7TVNkJxwOTclLPrAxCnWkqIHdcj1xMdWz85TNRzcnT5t+UlW8MGWHC2hN0JJskchckn+cb3g7qUhJ0J9ubnZZhZmVKCXXUpJGKedifVCrrR9mZ1TOvS7rbzSsMVtqCknyEjkRAPnASfib0jwjHHdH7/E7Y3dzbyzy68r879d4T9JT85U9RyknUJt+blXM82X3C4hVkKIuk8jYgH+UK8EBTNdMM0ajMzFKabkH1TCUKclUhpRTio2JTY2uAbeoR5+DWfnJ3pLjJt+Yw2sd1wrxvne1/wCAjH8GPaGY9kV8aIqEARH9d9r573f4aY2vCJTZ+crrDkpJTL6BLJSVNNKUAclcrgeuEl9h6WeUzMNOMup+shxJSoefmDAV6h0WlO0KnuOUyTWtcs2pSlMJJUSkXJNo7ugqP6Kkfs6Pyg0/2epnsjXwCJbQ6LVWq7T3HKZOIQiZbUpSmFAJAULkm0A7a0pNNltLTr0vT5Rl1OGK22UpUPLSORAiZyk/OSWfBzb8vnbLacKMrdV7fxMVjXfZCe93+ImF/wAFf7091/fAdmhWGazRnpiqtNz76ZhSEuTSQ6oJxSbAqubXJNvWYZOgqP6Kkfs6PyhJ8IlNn5yusOSklMvoEslJU00pQByVyuB64Vegqx6Knvs6/wAoD5rjaGq7UG20JQhEy4lKUiwSAo2AEEVaj1amytGkZeZqEoy+1LtocbceSlSFBIBBBNwQeVoICV6f7Q0z2tr4xFon56Xp0m5Nzjm2w3bJWJNrkAchz6yIi+n+0NM9ra+MRUNd9kJ73f4iYA8dtO+kPuXPlg8dtO+kPuXPliPwQF4kJ6XqMm3Nybm4w5fFWJF7Eg8jz6wYi+oO0NT9rd+MxUNCdkJH3n4iol+oO0NT9rd+MwFwhf132Qnvd/iJjYqE1wVOmZvDPYaW5je2WIJtf+UI/jP44/qDg+D4v9vu7mGPl/VsL3xt1+eAn8EUD9GX+r/8b/vC/qrTHi5wv0zieIz/AGWGOOPrN/rQHHTNO1Wry6piQld5pKygq3Ep52BtzI7xHZ4k6i9H/fN/NDh4Mez0x7Wr4EQV7XXQ1YfkOjt7ax8vfxvdIPVie+Am/AzHSPAbf0rd2cMh9e9rX6uuNCf0tWadJuTc5J7bDdslbqDa5AHIG/WRDR4sf/lfGf6lwu17zDO/8r29doPGfxx/UHB8Hxf7fd3MMfL+rYXvjbr88Bn+DHtDMeyK+NEUCq1unUba6QmNndvh5ClXta/UD3iMfTGj/F+ouTfHcRm0W8dnC1yDe+R7ox/Cp+6/e/2QDpTKpJVeXVMSD280lZQVYlPOwNuYHeIleu+1897v8NMOHgx7PTHtavgRBXtC9M1h+f6R2d3HyNjK1kgdeQ7oD0o+sKFLUaRl3p7F1qXbQtOys2ISARyTHZ47ad9IfcufLEnqErwVRmZTPPYdW3la2WJIvb+UPH6Mv9X/AON/3gOjVuqaNUdOTcpJzm4+5hinaWL2WknmRbqBjH0BW6dRuP6QmNnd28PIUq9sr9QPeIK9oXoajvz/AEjvbWPkbGN7qA68j3wnwFg8dtO+kPuXPljYkJ6XqMm3Nybm4w5fFWJF7Eg8jz6wYg8OFB110NR2JDo7e2svL38b3UT1YnvgF/UHaGp+1u/GYIcPEXpv9bdI7HHfSdrYywz8rG+Qva9r2EEAn6f7Q0z2tr4xFQ132Qnvd/iJiX6f7Q0z2tr4xFon5GXqMm5KTje4w5bJORF7EEcxz6wICDwRYPEnTvo/75z5oPEnTvo/75z5oA0J2QkfefiKiX6g7Q1P2t34zFokJGXp0m3KSbe2w3fFORNrkk8zz6yYi+oO0NT9rd+MwFg1B2eqfsjvwGJfoTtfI+8/DVFcmGG5mXdl3k5NOoKFpva4IsRyjLkNLUanTjc3Jye2+3fFW6s2uCDyJt1EwHjrGtzNBpTU1KIaWtb4bIdBIsUqPmI7oXaV/wDIG70v/gcDbb4Tyb53vfLL/wBB1W88OlTpclV5dMvPs7zSVhYTkU87EX5Ed5jzpVEp1G3ej5fZ3bZ+WpV7Xt1k95gEup1J7Qcwml0pLbzDqBMKVNAqUFElNhiUi1kDzd8J9WqT1XqTs9MJbS67bINghPIAcrk90MnhO7Qy/sifjXGxpLS1GqOnJSbnJPcfczyVurF7LUByBt1AQGLS9WT843J0FxmWEq+ESalpSrMINkEg3tex7rX80N1J0VTaRUmp6Xfm1OtXxDi0lPMEc7JHfHnUNLUamU6Zn5KT2pqVaW8yvdWrFaQSk2JsbEDrhf0lqms1HUcpKTk5uMOZ5J2kC9kKI5gX6wIBq1jW5mg0pqalENLWt8NkOgkWKVHzEd0LtK/+QN3pf/A4G23wnk3zve+WX/oOq3nh0qdLkqvLpl59neaSsLCcinnYi/IjvMedKolOo270fL7O7bPy1Kva9usnvMAl1OpPaDmE0ulJbeYdQJhSpoFSgokpsMSkWsgebvhw01UnqvQpaemEtpddyyDYITyURyuT3Qh+E7tDL+yJ+NcOGhOyEj7z8RUByzmgaVOTr805MTgW+4pxQStNgSbm3k+uGqJXWNYV2WrM9Lsz2LTUw4hCdlBsAogDmmCj6wrszWZGXensmnZhtC07KBcFQBHJMBSKtTWavTXZGYU4lp22RbICuRB5XB7ometdNyen+C4Nx9e/nluqBtjja1gO8xQNWz0xTtOTc3Jubb7eGKsQbXWkHkeXUTEnqtbqNZ2ukJje2r4eQlNr2v1AdwgGLR2k5CvUp2am3plC0PlsBpSQLBKT5we+N79HFH/zM9/vR8sHgx7PTHtavgRGPq3VNZp2o5uUk5zbYbwxTtINroSTzIv1kwHnMa1qVGmHaXLMSi2JJZl21OIUVFKDiCbKAvYdwghkp+lqNU6dLT87J7s1NNIeeXurTktQBUbA2FyT1QQEpbcW04lxtakLQQpKkmxSR1EGO7p2selZ77Qv84IIA6drHpWe+0L/ADg6drHpWe+0L/OCCAOnax6VnvtC/wA44XHFuuKccWpa1kqUpRuVE9ZJgggL9GHrR96W0tOvS7rjLqcMVtqKVDy0jkRBBAKvg7qU/OV19ubnZl9AllKCXXVKAOSedifXFGgggJf4Tu0Mv7In41wtsVapSzKWZeoTbLSfqobeUlI8/IAwQQH05Wqq62ptypzi0LBSpKn1EKB6wReOVh96WeS9LuuMup+qttRSoebkRBBAdnTtY9Kz32hf5wdO1j0rPfaF/nBBAcs1NzM44HJuYdfWBiFOrKiB3XP8Y9mKtUpZlLMvUJtlpP1UNvKSkefkAYIICsUek02ao0jMTNPlHn3ZdtbjjjKVKWopBJJIuSTzvBWKTTZWjT0xLU+UZfal3FtuNspSpCgkkEEC4IPO8EEAh6Sn5yp6jlJOoTb83KuZ5svuFxCrIURdJ5GxAP8AKNDwlSEnJdG8HKMS+e7ltNhGVsLXt/EwQQCjK1Kfk2y3KTsywgnIpadUkE99gfVHi++9MvKemHXHnVfWW4oqUfNzJgggLZp/s9TPZGvgEEEEB//Z'> | `http://bit.ly/2tRkSxZ` |
 
 Adicionando o botão na sua página, você deve copiar o código HTML do botão criado e inclui-lo no HTML de seu site, conforme o exemplo abaixo.
 
@@ -816,13 +815,13 @@ Transações de cartão de crédito serão incluídas no [Backoffice Cielo Check
 
 **Cartão de Crédito** Ordem de Status:
 
-|Ordem|Status|Explicação|
-|---|---|---|
-|1|**PENDENTE**|Status original. A transação está ocorrendo, esperando resposta do processo de autorização|
-|2|**AUTORIZADO / NEGADO**|Resultado do processo de autorização. <br>**AUTORIZADO** - Crédito foi reservado para a compra <br> **NEGADO** - Cartão não autorizado pelo emissor a continuar a transação|
-|3|**PAGO**|Ocorre pós captura. Indica que o crédito reservado no cartão será depositado na conta do lojista|
-|N/A|**EXPIRADO**|Ocorre caso a transação não seja capturada em 15 dias pós autorização. Nessa situação a transação é perdida.|
-|N/A|**CHARGEBACK**|Status não automático. Caso o lojista seja notificado de ChargeBack, ele pode marcar esta transação como perdida.<br> Este Status é apenas uma marcação, não afetando processos de pagamento|
+| Ordem | Status                  | Explicação                                                                                                                                                                                   |
+| ----- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1     | **PENDENTE**            | Status original. A transação está ocorrendo, esperando resposta do processo de autorização                                                                                                   |
+| 2     | **AUTORIZADO / NEGADO** | Resultado do processo de autorização. <br>**AUTORIZADO** - Crédito foi reservado para a compra <br> **NEGADO** - Cartão não autorizado pelo emissor a continuar a transação                  |
+| 3     | **PAGO**                | Ocorre pós captura. Indica que o crédito reservado no cartão será depositado na conta do lojista                                                                                             |
+| N/A   | **EXPIRADO**            | Ocorre caso a transação não seja capturada em 15 dias pós autorização. Nessa situação a transação é perdida.                                                                                 |
+| N/A   | **CHARGEBACK**          | Status não automático. Caso o lojista seja notificado de ChargeBack, ele pode marcar esta transação como perdida.<br> Este Status é apenas uma marcação, não afetando processos de pagamento |
 
 **Atenção - Cartões Internacionais:** O Checkout Cielo aceita cartões emitidos fora do Brasil, entretanto esses cartões não possuem a capacidade de pagar vendas parceladas. Essa é uma limitação imposta pelo banco emissor.
 
@@ -836,16 +835,16 @@ A análise indicará um grau de **RISCO**, especificado pelo `Status`, para a ve
 
 Esse grau de risco é o que deve guiar a decisão do lojista de capturar ou cancelar a venda.
 
-|Status Antifraude|Substatus|Descrição|
-|---|---|---|
-|`Baixo Risco`|Baixo Risco|Baixo risco de ser uma transação fraudulenta|
-|`Médio Risco`|Médio Risco|Médio risco de ser uma transação fraudulenta|
-|`Alto Risco`|Alto Risco|Alto risco de ser uma transação fraudulenta|
-|`Não finalizado`|Não finalizado|Não foi possível finalizar a consulta|
-|`N/A`|Autenticado|Transações autenticadas pelo banco - **Não são analisáveis pelo AF**|
-|`N/A`|Não aplicável|Meio de pagamento não analisável como cartões de débito, boleto e débito online|
-|`N/A`|Transação de recorrência|Transação de crédito seja posterior a transação de agendamento. **Somente o Agendamento é analisado**|
-|`N/A`|Transação negada|Venda a crédito foi negada - **Não são analisáveis pelo AF**|
+| Status Antifraude | Substatus                | Descrição                                                                                             |
+| ----------------- | ------------------------ | ----------------------------------------------------------------------------------------------------- |
+| `Baixo Risco`     | Baixo Risco              | Baixo risco de ser uma transação fraudulenta                                                          |
+| `Médio Risco`     | Médio Risco              | Médio risco de ser uma transação fraudulenta                                                          |
+| `Alto Risco`      | Alto Risco               | Alto risco de ser uma transação fraudulenta                                                           |
+| `Não finalizado`  | Não finalizado           | Não foi possível finalizar a consulta                                                                 |
+| `N/A`             | Autenticado              | Transações autenticadas pelo banco - **Não são analisáveis pelo AF**                                  |
+| `N/A`             | Não aplicável            | Meio de pagamento não analisável como cartões de débito, boleto e débito online                       |
+| `N/A`             | Transação de recorrência | Transação de crédito seja posterior a transação de agendamento. **Somente o Agendamento é analisado** |
+| `N/A`             | Transação negada         | Venda a crédito foi negada - **Não são analisáveis pelo AF**                                          |
 
 A analise será apresentada no “Detalhes do Pedido”, como abaixo:
 
@@ -861,16 +860,16 @@ O Checkout Cielo permite a utilização de Cartões de débito MasterCard e Visa
 
 Bancos Suportados:
 
-|Mastercard|Visa|
-|---|---|
-|Bradesco|Bradesco|
-|Banco do Brasil|Banco do Brasil|
-|Santander|Santander|
-|Itaú|Itaú|
-|CitiBank|CitiBank|
-|BRB|N/A|
-|Caixa|N/A|
-|BancooB|N/A|
+| Mastercard      | Visa            |
+| --------------- | --------------- |
+| Bradesco        | Bradesco        |
+| Banco do Brasil | Banco do Brasil |
+| Santander       | Santander       |
+| Itaú            | Itaú            |
+| CitiBank        | CitiBank        |
+| BRB             | N/A             |
+| Caixa           | N/A             |
+| BancooB         | N/A             |
 
 Ao acessar a tela transacional, o comprador obterá pelo pagamento via Cartão de débito, e será redirecionado ao ambiente bancário para Autenticação e Autorização.
 
@@ -892,14 +891,14 @@ Esse meio de pagamento precisa ser cadastrado pelo Suporte Cielo para que seja d
 
 Bancos Suportados:
 
-|Bancos|
-|---|
-|Bradesco|
-|Banco do Brasil|
+| Bancos          |
+| --------------- |
+| Bradesco        |
+| Banco do Brasil |
 
 Ao acessar a tela transacional, o comprador obterá pelo pagamento via Boleto.
 
-Transações de boleto  serão incluídas no [Backoffice Cielo Checkout]({{ site.baseurl_root }}{% post_url 2000-01-01-checkout-tutoriais%}) como NÃO FINALIZADO ou PAGO.
+Transações de boleto serão incluídas no [Backoffice Cielo Checkout]({{ site.baseurl_root }}{% post_url 2000-01-01-checkout-tutoriais%}) como NÃO FINALIZADO ou PAGO.
 Diferentemente de outros meios de pagamento, o boleto não possui atualização de Status. Caberá ao Lojista acessar o Backoffice e modificar o status do boleto manualmente.
 
 **Boleto** - Ordem de Status
@@ -920,10 +919,10 @@ Transações de Débito online serão incluídos no [Backoffice Cielo Checkout](
 
 **Débito online** - Ordem de Status
 
-* **Pendente** - Status original. A transação está ocorrendo, esperando resposta do banco  para envio do comprador ao ambiente de autenticação
-* **Não Finalizado** - Status intermediário. Neste ponto o Checkout Cielo espera a confirmação do Banco sobre o status da autenticação e transação. Caso o comprador abandone o ambiente do banco, o status não se altera.
-* **Pago** - Comprador finalizou o pagamento do débito com sucesso.
-* **Não Autorizado** - O Comprador não apresentava saldo em conta para finalizar a transação.
+- **Pendente** - Status original. A transação está ocorrendo, esperando resposta do banco para envio do comprador ao ambiente de autenticação
+- **Não Finalizado** - Status intermediário. Neste ponto o Checkout Cielo espera a confirmação do Banco sobre o status da autenticação e transação. Caso o comprador abandone o ambiente do banco, o status não se altera.
+- **Pago** - Comprador finalizou o pagamento do débito com sucesso.
+- **Não Autorizado** - O Comprador não apresentava saldo em conta para finalizar a transação.
 
 **OBS**: A opção **Cancelar** dentro do backoffice, vai modificar o status da transação de PAGO/NÃO PAGO para CANCELADO, mas não terá efeito sobre a movimentação bancaria. Caberá ao lojista retornar o valor ao comprador
 
@@ -936,10 +935,10 @@ Vale destacar que o Checkout realiza a notificação somente quando uma transaç
 
 O Checkout Cielo possui dois tipos de notificações que o lojista pode utilizar de acordo com suas necessidades:
 
-|Tipo|Descrição|
-|---|---|
-|`POST`|Notificação onde o lojista é passivo. Dois `POST HTTP` são disparados, um informando dados da venda e outra mudança de Status da transação|
-|`JSON`|Notificação onde o lojista realiza uma consulta. Um `POST` contendo informações para a realização de uma consulta (`GET`) as transações checkout|
+| Tipo   | Descrição                                                                                                                                        |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `POST` | Notificação onde o lojista é passivo. Dois `POST HTTP` são disparados, um informando dados da venda e outra mudança de Status da transação       |
+| `JSON` | Notificação onde o lojista realiza uma consulta. Um `POST` contendo informações para a realização de uma consulta (`GET`) as transações checkout |
 
 Para utilizar ambos os modelos, o lojista necessitará acessar o Backoffice cielo e configurar tanto a `URL de NOTIFICAÇÃO` quando a `URL de MUDANÇA de STATUS`.
 
@@ -947,11 +946,11 @@ Para utilizar ambos os modelos, o lojista necessitará acessar o Backoffice ciel
 
 O Checkout possui 3 tipos de URL que podem impactar o processo de notificação.
 
-|Tipo|Descrição|Observação|
-|---|---|---|
-|`URL de Retorno`|Página web na qual o comprador será redirecionado ao fim da compra. <br>Nenhum dado é trocado ou enviado para essa URL.<br> Essa URL apenas leva o comprador, após finalizar a compra, a uma página definida pela loja.|Caso o Lojista deseje, ele pode configurar essa página para ser sensibilizada por tráfego, assim identificando que a transação foi finalizada no Checkout Cielo <br> Pode ser enviada via API - Ver "Integração por API"|
-|`URL de Notificação`|Ao finalizar uma transação é enviado um POST HTTP com todos os dados da venda para a URL de Notificação.<br> O POST de notificação é enviado apenas no momento que a transação é finalizada, independentemente se houve alteração do **status da transação**|Utilizada na Notificação via `POST`e `JSON`|
-|`URL de Mudança de Status`|Quando um pedido tiver seu status alterado, será enviando um post HTTP para a URL de Mudança de Status.<br> O POST de mudança de status não contem dados do carrinho, apenas dados de identificação do pedido|Utilizada somente na Notificação via `POST`|
+| Tipo                       | Descrição                                                                                                                                                                                                                                                    | Observação                                                                                                                                                                                                               |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `URL de Retorno`           | Página web na qual o comprador será redirecionado ao fim da compra. <br>Nenhum dado é trocado ou enviado para essa URL.<br> Essa URL apenas leva o comprador, após finalizar a compra, a uma página definida pela loja.                                      | Caso o Lojista deseje, ele pode configurar essa página para ser sensibilizada por tráfego, assim identificando que a transação foi finalizada no Checkout Cielo <br> Pode ser enviada via API - Ver "Integração por API" |
+| `URL de Notificação`       | Ao finalizar uma transação é enviado um POST HTTP com todos os dados da venda para a URL de Notificação.<br> O POST de notificação é enviado apenas no momento que a transação é finalizada, independentemente se houve alteração do **status da transação** | Utilizada na Notificação via `POST`e `JSON`                                                                                                                                                                              |
+| `URL de Mudança de Status` | Quando um pedido tiver seu status alterado, será enviando um post HTTP para a URL de Mudança de Status.<br> O POST de mudança de status não contem dados do carrinho, apenas dados de identificação do pedido                                                | Utilizada somente na Notificação via `POST`                                                                                                                                                                              |
 
 **OBS:** Caso uma `URL de retorno` seja enviada vai API, ela terá prioridade sobre a URL cadastrada no Backoffice / Na integração Checkout Cielo `via Botão`, só é possível usar a opção de URL de retorno via backoffice.
 
@@ -959,9 +958,9 @@ O Checkout possui 3 tipos de URL que podem impactar o processo de notificação.
 
 Todas as 3 URLs devem possuir as seguintes características:
 
-* Devem ser URLs estáticas
-* Devem possuir menos de 255 caracteres
-* Caracteres especiais não são suportados
+- Devem ser URLs estáticas
+- Devem possuir menos de 255 caracteres
+- Caracteres especiais não são suportados
 
 **Configurando as URLs**
 
@@ -986,7 +985,7 @@ Abaixo o Fluxo de uma Notificação POST
 
 **Retorno aguardado para o envio da notificação:** `HttpStatus = 200 (OK)` - Post recebido e processado com sucesso
 
-**IMPORTANTE** Se a `URL de Notificação` cadastrada retornar algum erro/estiver indisponível, serão realizadas **3 novas tentativas, com intervalo de 1 hora entre cada POST*.
+**IMPORTANTE** Se a `URL de Notificação` cadastrada retornar algum erro/estiver indisponível, serão realizadas \*_3 novas tentativas, com intervalo de 1 hora entre cada POST_.
 
 Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acessar o pedido em questão pelo Backoffice e clicar no Ícone de envio:
 
@@ -1012,11 +1011,11 @@ Abaixo o Fluxo de uma Notificação JSON (Criação da transação + Mudança de
 
 **Conteúdo do POST de NOTIFICAÇÃO JSON:**
 
-|Parâmetro|Descrição|Tipo do Campo|
-|---|---|---|
-|`URL`|URL com os dados necessários para realizar a busca dos dados da transação.|String|
-|`MerchantId`|Identificador da loja no Checkout Cielo; consta no Backoffice no menu Configuração/Dados Cadastrais.|Alfanumérico (GUID)|
-|`MerchantOrderNumber`|Número do pedido da loja; se não for enviado, o Checkout Cielo gerará um número, que será visualizado pelo Consumidor.|Alfanumérico|
+| Parâmetro             | Descrição                                                                                                              | Tipo do Campo       |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `URL`                 | URL com os dados necessários para realizar a busca dos dados da transação.                                             | String              |
+| `MerchantId`          | Identificador da loja no Checkout Cielo; consta no Backoffice no menu Configuração/Dados Cadastrais.                   | Alfanumérico (GUID) |
+| `MerchantOrderNumber` | Número do pedido da loja; se não for enviado, o Checkout Cielo gerará um número, que será visualizado pelo Consumidor. | Alfanumérico        |
 
 **Exemplo de uma consulta:**
 
@@ -1031,49 +1030,48 @@ curl
 --verbose
 ```
 
-|Propriedade|Descrição|Tipo|Tamanho|Obrigatório|
-|---|---|---|---|---|
-|`MerchantId`|Identificador da loja|Guid|36|Sim|
+| Propriedade  | Descrição             | Tipo | Tamanho | Obrigatório |
+| ------------ | --------------------- | ---- | ------- | ----------- |
+| `MerchantId` | Identificador da loja | Guid | 36      | Sim         |
 
 **RESPONSE**
 
 ```json
 {
-    "order_number": "Pedido01",
-    "amount": 101,
-    "discount_amount": 0,
-    "checkout_cielo_order_number": "65930e7460bd4a849502ed14d7be6c03",
-    "created_date": "12-09-2017 14:38:56",
-    "customer_name": "Test Test",
-    "customer_phone": "21987654321",
-    "customer_identity": "84261300206",
-    "customer_email": "test@cielo.com.br",
-    "shipping_type": 1,
-    "shipping_name": "Motoboy",
-    "shipping_price": 1,
-    "shipping_address_zipcode": "21911130",
-    "shipping_address_district": "Freguesia",
-    "shipping_address_city": "Rio de Janeiro",
-    "shipping_address_state": "RJ",
-    "shipping_address_line1": "Rua Cambui",
-    "shipping_address_line2": "Apto 201",
-    "shipping_address_number": "92",
-    "payment_method_type": 1,
-    "payment_method_brand": 1,
-    "payment_maskedcreditcard": "471612******7044",
-    "payment_installments": 1,
-    "payment_status": 3,
-    "tid": "10447480686J51OH8BPB",
-    "test_transaction": "False"
+  "order_number": "Pedido01",
+  "amount": 101,
+  "discount_amount": 0,
+  "checkout_cielo_order_number": "65930e7460bd4a849502ed14d7be6c03",
+  "created_date": "12-09-2017 14:38:56",
+  "customer_name": "Test Test",
+  "customer_phone": "21987654321",
+  "customer_identity": "84261300206",
+  "customer_email": "test@cielo.com.br",
+  "shipping_type": 1,
+  "shipping_name": "Motoboy",
+  "shipping_price": 1,
+  "shipping_address_zipcode": "21911130",
+  "shipping_address_district": "Freguesia",
+  "shipping_address_city": "Rio de Janeiro",
+  "shipping_address_state": "RJ",
+  "shipping_address_line1": "Rua Cambui",
+  "shipping_address_line2": "Apto 201",
+  "shipping_address_number": "92",
+  "payment_method_type": 1,
+  "payment_method_brand": 1,
+  "payment_maskedcreditcard": "471612******7044",
+  "payment_installments": 1,
+  "payment_status": 3,
+  "tid": "10447480686J51OH8BPB",
+  "test_transaction": "False"
 }
-
 ```
 
 Veja a descrição dos itens de notificação na sessão **"Conteúdo do POST de NOTIFICAÇÃO"**
 
 **Retorno aguardado para o envio da notificação:** `HttpStatus = 200 (OK)` - Post recebido e processado com sucesso
 
-**IMPORTANTE** Se a `URL de Notificação` cadastrada retornar algum erro/estiver indisponível, serão realizadas **3 novas tentativas, com intervalo de 1 hora entre cada POST*.
+**IMPORTANTE** Se a `URL de Notificação` cadastrada retornar algum erro/estiver indisponível, serão realizadas \*_3 novas tentativas, com intervalo de 1 hora entre cada POST_.
 
 Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acessar o pedido em questão pelo Backoffice e clicar no Ícone de envio:
 
@@ -1087,7 +1085,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
 ### Conteúdo do POST de NOTIFICAÇÃO:
 
 | Parâmetro                            | Descrição                                                                                                    | Tipo do campo | Tamanho máximo |
-|--------------------------------------|--------------------------------------------------------------------------------------------------------------|---------------|----------------|
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------- | -------------- |
 | `checkout_cielo_order_number`        | Identificador único gerado pelo CHECKOUT CIELO                                                               | Alfanumérico  | 32             |
 | `amount`                             | Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)                                                   | Numérico      | 10             |
 | `order_number`                       | Número do pedido enviado pela loja                                                                           | Alfanumérico  | 32             |
@@ -1105,12 +1103,12 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
 | `shipping_address_city`              | Cidade do endereço de entrega                                                                                | Alfanumérico  | 64             |
 | `shipping_address_state`             | Estado de endereço de entrega                                                                                | Alfanumérico  | 64             |
 | `shipping_address_line1`             | Endereço de entrega                                                                                          | Alfanumérico  | 256            |
-| `shipping_address_line2`             | Complemento do endereço de entrega                                                                           | Alfanumérico  | 14            |
+| `shipping_address_line2`             | Complemento do endereço de entrega                                                                           | Alfanumérico  | 14             |
 | `shipping_address_number`            | Número do endereço de entrega                                                                                | Numérico      | 8              |
 | `payment_method_type`                | Cód. do tipo de meio de pagamento                                                                            | Numérico      | 1              |
 | `payment_method_brand`               | Bandeira (somente para transações com meio de pagamento cartão de crédito)                                   | Numérico      | 1              |
 | `payment_method_bank`                | Banco emissor (Para transações de Boleto e Débito Automático)                                                | Numérico      | 1              |
-| `payment_maskedcreditcard`            | Cartão Mascarado (Somente para transações com meio de pagamento cartão de crédito)                           | Alfanumérico  | 20             |
+| `payment_maskedcreditcard`           | Cartão Mascarado (Somente para transações com meio de pagamento cartão de crédito)                           | Alfanumérico  | 20             |
 | `payment_installments`               | Número de parcelas                                                                                           | Numérico      | 1              |
 | `payment_antifrauderesult`           | Status das transações de cartão de Crédito no Antifraude                                                     | Numérico      | 1              |
 | `payment_boletonumber`               | número do boleto gerado                                                                                      | String        | 1              |
@@ -1130,28 +1128,28 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
 
 ### Tipos de productID
 
-|Tipo de Link de pagamento|Enun|
-|-|-|
-|Material físico|1|
-|Digital|2|
-|Serviço|3|
-|Pagamento|4|
-|Recorrência|5|
+| Tipo de Link de pagamento | Enun |
+| ------------------------- | ---- |
+| Material físico           | 1    |
+| Digital                   | 2    |
+| Serviço                   | 3    |
+| Pagamento                 | 4    |
+| Recorrência               | 5    |
 
 ### Payment_status
 
 O Checkout possui um Status próprios, diferente do SITE CIELO ou da API Cielo ecommerce. Veja abaixo a lista completa.
 
-|Valor|Status de transação|Transaction Status|Meios de pagamento|Descrição|
-|---|---|---|---|---|
-|1|`Pendente`|Pending|Para todos os meios de pagamento|Indica que o pagamento ainda está sendo processado; OBS: Boleto - Indica que o boleto não teve o status alterado pelo lojista|
-|2|`Pago`|Paid|Para todos os meios de pagamento|Transação capturada e o dinheiro será depositado em conta.|
-|3|`Negado`|Denied|Somente para Cartão Crédito|Transação não autorizada pelo responsável do meio de pagamento|
-|4|`Expirado`|Expired|Cartões de Crédito e Boleto|Transação deixa de ser válida para captura - **15 dias pós Autorização**|
-|5|`Cancelado`|Voided|Para cartões de crédito|Transação foi cancelada pelo lojista|
-|6|`Não Finalizado`|NotFinalized|Todos os meios de pagamento|Pagamento esperando Status - Pode indicar erro ou falha de processamento. Entre em contato com o Suporte Cielo|
-|7|`Autorizado`|Authorized|somente para Cartão de Crédito|Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta|
-|8|`Chargeback`|Chargeback|somente para Cartão de Crédito|Transação cancelada pelo consumidor junto ao emissor do cartão. O Dinheiro não será depositado em conta.|
+| Valor | Status de transação | Transaction Status | Meios de pagamento               | Descrição                                                                                                                     |
+| ----- | ------------------- | ------------------ | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| 1     | `Pendente`          | Pending            | Para todos os meios de pagamento | Indica que o pagamento ainda está sendo processado; OBS: Boleto - Indica que o boleto não teve o status alterado pelo lojista |
+| 2     | `Pago`              | Paid               | Para todos os meios de pagamento | Transação capturada e o dinheiro será depositado em conta.                                                                    |
+| 3     | `Negado`            | Denied             | Somente para Cartão Crédito      | Transação não autorizada pelo responsável do meio de pagamento                                                                |
+| 4     | `Expirado`          | Expired            | Cartões de Crédito e Boleto      | Transação deixa de ser válida para captura - **15 dias pós Autorização**                                                      |
+| 5     | `Cancelado`         | Voided             | Para cartões de crédito          | Transação foi cancelada pelo lojista                                                                                          |
+| 6     | `Não Finalizado`    | NotFinalized       | Todos os meios de pagamento      | Pagamento esperando Status - Pode indicar erro ou falha de processamento. Entre em contato com o Suporte Cielo                |
+| 7     | `Autorizado`        | Authorized         | somente para Cartão de Crédito   | Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta                  |
+| 8     | `Chargeback`        | Chargeback         | somente para Cartão de Crédito   | Transação cancelada pelo consumidor junto ao emissor do cartão. O Dinheiro não será depositado em conta.                      |
 
 Obs: Para consultas de pedido, o campo payment.status será retornado no formato texto, sempre em inglês (coluna Transaction Status).
 
@@ -1159,77 +1157,77 @@ Obs: Para consultas de pedido, o campo payment.status será retornado no formato
 
 O Antifraude possui o conceito de `Status` e `SubStatus`, onde o primeiro representa o nível de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
 
-|Valor|Status Antifraude|Substatus|Descrição|
-|---|---|---|---|
-|1|`Baixo Risco`|Baixo Risco|Baixo risco de ser uma transação fraudulenta|
-|3|`Médio Risco`|Médio Risco|Médio risco de ser uma transação fraudulenta|
-|2|`Alto Risco`|Alto Risco|Alto risco de ser uma transação fraudulenta|
-|4|`Não finalizado`|Não finalizado|Não foi possível finalizar a consulta|
-|N/A|`N/A`|Autenticado|Transações autenticadas pelo banco - **Não são analisáveis pelo AF**|
-|N/A|`N/A`|Não aplicável|Meio de pagamento não analisável como cartões de débito, boleto e débito online|
-|N/A|`N/A`|Transação de recorrência|Transação de crédito seja posterior a transação de agendamento. **Somente o Agendamento é analisado**|
-|N/A|`N/A`|Transação negada|Venda a crédito foi negada - **Não são analisáveis pelo AF**|
+| Valor | Status Antifraude | Substatus                | Descrição                                                                                             |
+| ----- | ----------------- | ------------------------ | ----------------------------------------------------------------------------------------------------- |
+| 1     | `Baixo Risco`     | Baixo Risco              | Baixo risco de ser uma transação fraudulenta                                                          |
+| 3     | `Médio Risco`     | Médio Risco              | Médio risco de ser uma transação fraudulenta                                                          |
+| 2     | `Alto Risco`      | Alto Risco               | Alto risco de ser uma transação fraudulenta                                                           |
+| 4     | `Não finalizado`  | Não finalizado           | Não foi possível finalizar a consulta                                                                 |
+| N/A   | `N/A`             | Autenticado              | Transações autenticadas pelo banco - **Não são analisáveis pelo AF**                                  |
+| N/A   | `N/A`             | Não aplicável            | Meio de pagamento não analisável como cartões de débito, boleto e débito online                       |
+| N/A   | `N/A`             | Transação de recorrência | Transação de crédito seja posterior a transação de agendamento. **Somente o Agendamento é analisado** |
+| N/A   | `N/A`             | Transação negada         | Venda a crédito foi negada - **Não são analisáveis pelo AF**                                          |
 
 ### Payment_method_type
 
 O Checkout permite apenas um tipo de `Boleto` ou `Débito Online` por lojista, sendo assim não é retornado se o método usado foi Bradesco ou Banco do Brasil, pois apenas um deles estará ativado na afiliação.
 
-|Valor|Descrição|Description|
-|---|---|---|
-|1|Cartão de Crédito|CreditCard|
-|2|Boleto Bancário|Boleto|
-|3|Débito Online|OnlineDebit|
-|4|Cartão de Débito|DebitCard|
-|5|QR Code|QrCode|
-|6|Pix|Pix|
+| Valor | Descrição         | Description |
+| ----- | ----------------- | ----------- |
+| 1     | Cartão de Crédito | CreditCard  |
+| 2     | Boleto Bancário   | Boleto      |
+| 3     | Débito Online     | OnlineDebit |
+| 4     | Cartão de Débito  | DebitCard   |
+| 5     | QR Code           | QrCode      |
+| 6     | Pix               | Pix         |
 
 OBS: Para consultas o Type é retornado no campo Payment.Type e vem preenchida com o valor literal (Description)
 
 ### Payment_method_brand
 
-|Valor|Descrição|
-|---|---|
-|1|Visa|
-|2|Master|
-|3|AmericanExpress|
-|4|Diners|
-|5|Elo|
-|6|Aura|
-|7|JCB|
-|8|Discover|
-|9|HiperCard|
+| Valor | Descrição       |
+| ----- | --------------- |
+| 1     | Visa            |
+| 2     | Master          |
+| 3     | AmericanExpress |
+| 4     | Diners          |
+| 5     | Elo             |
+| 6     | Aura            |
+| 7     | JCB             |
+| 8     | Discover        |
+| 9     | HiperCard       |
 
 OBS: Para consultas a Brand é retornado no campo Payment.Brand e vem preenchida com o valor literal.
 
 ### Payment_method_bank
 
-|Valor|Descrição|
-|---|---|
-|1|Banco do Brasil|
-|2|Bradesco|
+| Valor | Descrição       |
+| ----- | --------------- |
+| 1     | Banco do Brasil |
+| 2     | Bradesco        |
 
 ### Shipping_type
 
-|Valor|Descrição|
-|---|---|
-|1|Correios|
-|2|Frete fixo|
-|3|Frete grátis|
-|4|Retirar em mãos/loja|
-|5|Sem cobrança de frete (serviços ou produtos digitais)|
+| Valor | Descrição                                             |
+| ----- | ----------------------------------------------------- |
+| 1     | Correios                                              |
+| 2     | Frete fixo                                            |
+| 3     | Frete grátis                                          |
+| 4     | Retirar em mãos/loja                                  |
+| 5     | Sem cobrança de frete (serviços ou produtos digitais) |
 
 ### Mudança de status
 
-|Parâmetro|Descrição|Tipo do Campo|Tamanho Máximo|
-|---|---|---|---|
-|`checkout_cielo_order_number`|Identificador único gerado pelo CHECKOUT CIELO|Alfanumérico|32|
-|`amount`|Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)|Numérico|10|
-|`order_number`|Número do pedido enviado pela loja|Alfanumérico|32|
-|`payment_method_brand`|Bandeira- somente para transações com meio de pagamento cartão de crédito.[Lista Completa](https://developercielo.github.io/manual/checkout-cielo#payment_method_brand)|Numérico|1|
-|`payment_status`|Status da transação.[Lista Completa](https://developercielo.github.io/manual/checkout-cielo#payment_status)|Numérico|1|
-|`test_transaction`|Indica se a transação foi gerada com o Modo de teste ativado|Boolean|32|
-|`nsu`|NSU - Número sequencial único da transação.|Alfanumérico|6|
-|`authorization_code`|Código de autorização.|Alfanumérico|8|
+| Parâmetro                     | Descrição                                                                                                                                                               | Tipo do Campo | Tamanho Máximo |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | -------------- |
+| `checkout_cielo_order_number` | Identificador único gerado pelo CHECKOUT CIELO                                                                                                                          | Alfanumérico  | 32             |
+| `amount`                      | Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)                                                                                                              | Numérico      | 10             |
+| `order_number`                | Número do pedido enviado pela loja                                                                                                                                      | Alfanumérico  | 32             |
+| `payment_method_brand`        | Bandeira- somente para transações com meio de pagamento cartão de crédito.[Lista Completa](https://developercielo.github.io/manual/checkout-cielo#payment_method_brand) | Numérico      | 1              |
+| `payment_status`              | Status da transação.[Lista Completa](https://developercielo.github.io/manual/checkout-cielo#payment_status)                                                             | Numérico      | 1              |
+| `test_transaction`            | Indica se a transação foi gerada com o Modo de teste ativado                                                                                                            | Boolean       | 32             |
+| `nsu`                         | NSU - Número sequencial único da transação.                                                                                                                             | Alfanumérico  | 6              |
+| `authorization_code`          | Código de autorização.                                                                                                                                                  | Alfanumérico  | 8              |
 
 # Parcelamentos do Checkout Cielo
 
@@ -1238,8 +1236,8 @@ OBS: Para consultas a Brand é retornado no campo Payment.Brand e vem preenchida
 O Checkout Cielo permite que o lojista realize transações de crédito parceladas em até 12 vezes.
 Existem dois métodos de parcelamento:
 
-* **Parcelamento via backoffice** - é o método padrão de parcelamento do Checkout. Cada bandeira possui uma configuração de parcelamento até 12X. O Valor do Carrinho (Produtos + Frete) é dividido igualmente pelo número de parcelas.
-* **Parcelamento via API** - O Lojista limita o número de parcelas a serem apresentadas no backoffice
+- **Parcelamento via backoffice** - é o método padrão de parcelamento do Checkout. Cada bandeira possui uma configuração de parcelamento até 12X. O Valor do Carrinho (Produtos + Frete) é dividido igualmente pelo número de parcelas.
+- **Parcelamento via API** - O Lojista limita o número de parcelas a serem apresentadas no backoffice
 
 **OBS:** O Checkout é limitado a parcelamentos de 12X, mesmo que sua afiliação Cielo suporte valores superiores. Caso o valor apresentando em seu backoffice seja menor que 12, entre em contato com o Suporte Cielo e verifique a configuração de sua Afiliação.
 
@@ -1247,18 +1245,18 @@ Existem dois métodos de parcelamento:
 
 Neste modo, o lojista controla o limite máximo de parcelas que a loja realizará pelo Backoffice Checkout. O Valor das parcelas é definido acessando a aba **Configurações** e alterando a sessão **Pagamentos**
 
- ![Seleção de Parcelas]({{ site.baseurl_root }}/images/checkout/parcelamento.png)
+![Seleção de Parcelas]({{ site.baseurl_root }}/images/checkout/parcelamento.png)
 
 **OBS:** O Check Box deve estar marcado para que o meio de pagamento seja exibido na tela transacional.
 
 **Características**
 
-* Disponível nas integrações do Checkout Cielo via API ou Botão;
-* O valor total dos itens do carrinho é somado e dividido pela quantidade de parcelas do lojista;
-* O valor da compra é sempre o mesmo, independentemente da quantidade de parcelas escolhida pelo comprador (Não há cobrança de Juros);
-* O valor do frete é somado ao valor do parcelamento;
-* A opção “à vista” sempre está disponível ao comprador.
-* Todas as transações possuirão as mesmas opções de parcelamento.
+- Disponível nas integrações do Checkout Cielo via API ou Botão;
+- O valor total dos itens do carrinho é somado e dividido pela quantidade de parcelas do lojista;
+- O valor da compra é sempre o mesmo, independentemente da quantidade de parcelas escolhida pelo comprador (Não há cobrança de Juros);
+- O valor do frete é somado ao valor do parcelamento;
+- A opção “à vista” sempre está disponível ao comprador.
+- Todas as transações possuirão as mesmas opções de parcelamento.
 
 ## Parcelamento via API
 
@@ -1269,8 +1267,8 @@ O Checkout realiza o cálculo das parcelas considerando valor total e limite par
 
 **Características**
 
-* O lojista envia a quantidade máxima de parcelas que deseja exibir ao comprador.
-* O valor do frete é somado ao valor do parcelamento.
+- O lojista envia a quantidade máxima de parcelas que deseja exibir ao comprador.
+- O valor do frete é somado ao valor do parcelamento.
 
 O Parcelamento via API é realizado enviando o campo `MaxNumberOfInstallments` dentro do nó Payment. Isso forçará o Checkout a recalcular o valor do parcelamento.
 Abaixo, um exemplo do Nó
@@ -1281,9 +1279,9 @@ Abaixo, um exemplo do Nó
 }
 ```
 
-|Campo|Tipo|Obrigatório|Tamanho|Descrição|
-|---|---|---|---|---|
-|`MaxNumberOfInstallments`|Numeric|Condicional|2|Define valor máximo de parcelas apresentadas no transacional, ignorando configuração do Backoffice|
+| Campo                     | Tipo    | Obrigatório | Tamanho | Descrição                                                                                          |
+| ------------------------- | ------- | ----------- | ------- | -------------------------------------------------------------------------------------------------- |
+| `MaxNumberOfInstallments` | Numeric | Condicional | 2       | Define valor máximo de parcelas apresentadas no transacional, ignorando configuração do Backoffice |
 
 # Recorrência do Checkout Cielo
 
@@ -1294,24 +1292,24 @@ A Recorrência é um processo de agendamento automático de transações de cré
 Transações recorrentes são ideais para modelos de negócios que envolvam o **conceito de assinatura, plano ou mensalidade** na sua forma de **cobrança**.
 Alguns exemplos de negócios são:
 
-* Escolas
-* Academias
-* Editoras
-* Serviços de hospedagem
+- Escolas
+- Academias
+- Editoras
+- Serviços de hospedagem
 
 **Diferença entre transações recorrentes e parceladas:**
 
-|Tipo|Descrição|
-|---|---|
-|**Parceladas**|Se trata de **uma transação dividida em vários meses**. <br>O valor total da venda compromete o limite do cartão de crédito do comprador independentemente do valor da parcela inicial.<br> O lojista recebe o valor da venda parceladamente e não corre o risco de uma das parcelas ser negada.<br> **EX**: Venda de R$1.000,00 parcelado em 2 vezes. Apesar de o comprador pagar apenas R$500,00 na primeira parcela, o valor do limite de crédito consumido é o integral, ou seja, R$1.000,00. Se o limite do cartão for inferior ou o montante não estiver liberado, a R$1.000,00 a transação será negada|
-|**Recorrentes**|São **transações diferentes realizadas no mesmo cartão em momentos previamente agendados**.<br> A primeira venda agenda as futuras vendas a partir de um intervalo de tempo pré definido.<br>  A cada intervalo haverá uma cobrança no cartão de crédito. <br> O pagamento recorrente bloqueia do limite do cartão apenas o valor debitado na data da primeira venda recorrente e do valor total da venda.<br> **EX**: Venda de R$ 1.000,00 em 15/01/2015, com recorrência mensal e data final em 01/06/2015. Todo dia 15 haverá uma nova cobrança de R$1.000,00 no cartão do comprador, se repetindo até 15/05/2015, última data válida antes da data final.|
+| Tipo            | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Parceladas**  | Se trata de **uma transação dividida em vários meses**. <br>O valor total da venda compromete o limite do cartão de crédito do comprador independentemente do valor da parcela inicial.<br> O lojista recebe o valor da venda parceladamente e não corre o risco de uma das parcelas ser negada.<br> **EX**: Venda de R$1.000,00 parcelado em 2 vezes. Apesar de o comprador pagar apenas R$500,00 na primeira parcela, o valor do limite de crédito consumido é o integral, ou seja, R$1.000,00. Se o limite do cartão for inferior ou o montante não estiver liberado, a R$1.000,00 a transação será negada                                                |
+| **Recorrentes** | São **transações diferentes realizadas no mesmo cartão em momentos previamente agendados**.<br> A primeira venda agenda as futuras vendas a partir de um intervalo de tempo pré definido.<br> A cada intervalo haverá uma cobrança no cartão de crédito. <br> O pagamento recorrente bloqueia do limite do cartão apenas o valor debitado na data da primeira venda recorrente e do valor total da venda.<br> **EX**: Venda de R$ 1.000,00 em 15/01/2015, com recorrência mensal e data final em 01/06/2015. Todo dia 15 haverá uma nova cobrança de R$1.000,00 no cartão do comprador, se repetindo até 15/05/2015, última data válida antes da data final. |
 
 ## Recorrência por API
 
 Uma transação de recorrência no Checkout Cielo possui duas configurações: `Intervalo` e `Data de encerramento`.
 
-* **Intervalo** – padrão de repetição e intervalo de tempo entre cada transação. Esse intervalo temporal entre as transações podem ser: Mensal, Bimestral, Trimestral, Semestral e Anual.
-* **Data de encerramento** – Data que o processo de recorrência deixa de ocorrer.
+- **Intervalo** – padrão de repetição e intervalo de tempo entre cada transação. Esse intervalo temporal entre as transações podem ser: Mensal, Bimestral, Trimestral, Semestral e Anual.
+- **Data de encerramento** – Data que o processo de recorrência deixa de ocorrer.
 
 ```json
 "Payment": {
@@ -1323,18 +1321,18 @@ Uma transação de recorrência no Checkout Cielo possui duas configurações: `
 
 **Payment.RecurrentPayment**
 
-|Campo|Tipo|Obrigatório|Tamanho|Descrição|
-|---|---|---|---|---|
-|`Payment.RecurrentPayment.Interval`|Alphanumeric|Sim|10|Intervalo entre cada transação da recorrência|
-|`Payment.RecurrentPayment.EndDate`|YYYY-MM-DD|Não|255|Data onde a Recorrência se encerrará; Se não enviado a recorrência se encerra somente se cancelada|
+| Campo                               | Tipo         | Obrigatório | Tamanho | Descrição                                                                                          |
+| ----------------------------------- | ------------ | ----------- | ------- | -------------------------------------------------------------------------------------------------- |
+| `Payment.RecurrentPayment.Interval` | Alphanumeric | Sim         | 10      | Intervalo entre cada transação da recorrência                                                      |
+| `Payment.RecurrentPayment.EndDate`  | YYYY-MM-DD   | Não         | 255     | Data onde a Recorrência se encerrará; Se não enviado a recorrência se encerra somente se cancelada |
 
-|Intervalo|Descrição|
-|---|---|
-|`Monthly`|Mensal|
-|`Bimonthly`|Bimestral|
-|`Quarterly`|Trimestral|
-|`SemiAnnual`|Semestral|
-|`Annual`|Anual|
+| Intervalo    | Descrição  |
+| ------------ | ---------- |
+| `Monthly`    | Mensal     |
+| `Bimonthly`  | Bimestral  |
+| `Quarterly`  | Trimestral |
+| `SemiAnnual` | Semestral  |
+| `Annual`     | Anual      |
 
 Os dados do cartão de crédito do comprador ficam armazenados de forma segura dentro do Checkout Cielo, permitindo sua reutilização em uma transação recorrente. Esses dados não são acessados pelo lojista e essa inteligência é controlada pelo Checkout Cielo.
 
@@ -1344,59 +1342,59 @@ Exceto o objeto `Payment` que contém um novo elemento específico para a recorr
 
 ```json
 {
-    "OrderNumber": "12344",
-    "SoftDescriptor": "Nome que aparecerá na fatura",
-    "Cart": {
-        "Discount": {
-            "Type": "Percent",
-            "Value": 10
-        },
-        "Items": [
-            {
-                "Name": "Nome do produto",
-                "Description": "Descrição do produto",
-                "UnitPrice": 100,
-                "Quantity": 2,
-                "Type": "Asset",
-                "Sku": "Sku do item no carrinho",
-                "Weight": 200
-            }
-        ]
+  "OrderNumber": "12344",
+  "SoftDescriptor": "Nome que aparecerá na fatura",
+  "Cart": {
+    "Discount": {
+      "Type": "Percent",
+      "Value": 10
     },
-    "Shipping": {
-        "Type": "Correios",
-        "SourceZipCode": "14400000",
-        "TargetZipCode": "11000000",
-        "Address": {
-            "Street": "Endereço de entrega",
-            "Number": "123",
-            "Complement": "",
-            "District": "Bairro da entrega",
-            "City": "Cidade de entrega",
-            "State": "SP"
-        },
-        "Services": [
-            {
-                "Name": "Serviço de frete",
-                "Price": 123,
-                "Deadline": 15
-            }
-        ]
+    "Items": [
+      {
+        "Name": "Nome do produto",
+        "Description": "Descrição do produto",
+        "UnitPrice": 100,
+        "Quantity": 2,
+        "Type": "Asset",
+        "Sku": "Sku do item no carrinho",
+        "Weight": 200
+      }
+    ]
+  },
+  "Shipping": {
+    "Type": "Correios",
+    "SourceZipCode": "14400000",
+    "TargetZipCode": "11000000",
+    "Address": {
+      "Street": "Endereço de entrega",
+      "Number": "123",
+      "Complement": "",
+      "District": "Bairro da entrega",
+      "City": "Cidade de entrega",
+      "State": "SP"
     },
-    "Payment": {
-        "BoletoDiscount": 0,
-        "DebitDiscount": 0,
-        "RecurrentPayment": {
-            "Interval": "Monthly",
-            "EndDate": "2015-12-31"
-        }
-    },
-    "Customer": {
-        "Identity": 11111111111,
-        "FullName": "Fulano Comprador da Silva",
-        "Email": "fulano@email.com",
-        "Phone": "11999999999"
-    },
+    "Services": [
+      {
+        "Name": "Serviço de frete",
+        "Price": 123,
+        "Deadline": 15
+      }
+    ]
+  },
+  "Payment": {
+    "BoletoDiscount": 0,
+    "DebitDiscount": 0,
+    "RecurrentPayment": {
+      "Interval": "Monthly",
+      "EndDate": "2015-12-31"
+    }
+  },
+  "Customer": {
+    "Identity": 11111111111,
+    "FullName": "Fulano Comprador da Silva",
+    "Email": "fulano@email.com",
+    "Phone": "11999999999"
+  }
 }
 ```
 
@@ -1407,12 +1405,12 @@ Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo 
 
 ```json
 {
-    "message": "The request is invalid.",
-    "modelState": {
-        "[Shipping.Type]": [
-            "[Shipping.Type] pedidos com recorrência devem possuir o Shipping.Type 'WithoutShipping'."
-        ]
-    }
+  "message": "The request is invalid.",
+  "modelState": {
+    "[Shipping.Type]": [
+      "[Shipping.Type] pedidos com recorrência devem possuir o Shipping.Type 'WithoutShipping'."
+    ]
+  }
 }
 ```
 
@@ -1432,8 +1430,8 @@ Basta cadastrar o produto, incluindo um intervalo de cobrança e uma data para e
 
 Caso uma das transações da recorrência não seja autorizada, o Checkout Cielo executa a retentativa automaticamente, o envio de uma nova transação, considerando:
 
-* **Intervalo de tempo entre as tentativas:** 4 dias
-* **Quantidade de retentativas:** 4 (quatro), uma por dia, por 4 dias corridos a partir do dia seguinte da transação original não autorizada.
+- **Intervalo de tempo entre as tentativas:** 4 dias
+- **Quantidade de retentativas:** 4 (quatro), uma por dia, por 4 dias corridos a partir do dia seguinte da transação original não autorizada.
 
 **OBS**: Esse processo visa manter obter uma resposta positiva do processo de autorização, impedindo o lojista de perder a venda. O Processo de retentativa gera pedidos duplicados dentro do Backoffice, pois o pedido original, negado, será apresentado na lista de Pedidos, junto com a nova transação autorizada
 
@@ -1468,21 +1466,22 @@ Tela de detalhes da Recorrência
 
 Na tela acima, há duas opções de Cancelamento pelos botões:
 
-* **Cancelar** – Cancela a transação, sem efetuar o cancelamento das futuras transações de recorrência.
-* **Cancelar Recorrência** - Cancela o agendamento de futuras transações, encerrando a recorrência. Não cancela a transação atual nem as que já ocorreram. Essas necessitam ser canceladas manualmente.
+- **Cancelar** – Cancela a transação, sem efetuar o cancelamento das futuras transações de recorrência.
+- **Cancelar Recorrência** - Cancela o agendamento de futuras transações, encerrando a recorrência. Não cancela a transação atual nem as que já ocorreram. Essas necessitam ser canceladas manualmente.
 
 **ATENÇÃO:**
-* A Recorrência ocorre somente para Cartões de crédito e para produtos tipo “SERVIÇO” e “BENS DIGITAIS”.
-* A Recorrência é iniciada no momento da AUTORIZAÇAO, NÃO NA CAPTURA. Se a recorrência não tiver uma data para ser finalizada, ela se repetirá automaticamente até ser cancelada manualmente.
-* Sua afiliação Cielo deve ser habilitada para transacionar sem CVV ou Em recorrência, do contrário, todas as transações recorrentes serão negadas.
+
+- A Recorrência ocorre somente para Cartões de crédito e para produtos tipo “SERVIÇO” e “BENS DIGITAIS”.
+- A Recorrência é iniciada no momento da AUTORIZAÇAO, NÃO NA CAPTURA. Se a recorrência não tiver uma data para ser finalizada, ela se repetirá automaticamente até ser cancelada manualmente.
+- Sua afiliação Cielo deve ser habilitada para transacionar sem CVV ou Em recorrência, do contrário, todas as transações recorrentes serão negadas.
 
 ## Edição da Recorrência
 
 O Checkout Cielo permite que o lojista modifique 3 dados da recorrência:
 
-* **Ativação** - Uma recorrência pode ser ativada ou cancelada.
-* **Intervalo** - É possivel modificar o intervalo de execução.
-* **Dia de ocorrência** - É possivel modificar o dia de execução da transação recorrente.
+- **Ativação** - Uma recorrência pode ser ativada ou cancelada.
+- **Intervalo** - É possivel modificar o intervalo de execução.
+- **Dia de ocorrência** - É possivel modificar o dia de execução da transação recorrente.
 
 A atualização é feita exclusivamente via o Backoffice Cielo. Acesso o [**Tutorial do Backoffice Checkout Cielo**]({{ site.baseurl_root }}{% post_url 2000-01-01-checkout-tutoriais%}) para mais informações.
 
@@ -1506,13 +1505,13 @@ Os e-commerces que não seguirem as regras serão penalizados com a cobrança de
 
 Visando melhorar a experiência de compra, o mercado de meios de pagamento, em conjunto com a ABECS, promoveu a padronização nos códigos de respostas das transações recusadas feitas por cartão. As tentativas foram classificadas em dois tipos:
 
-> * <p>&#10060; **Irreversível: nunca realizar retentativa**</p><br>
-> <br>
-> Significa, por exemplo, que o cartão está cancelado para uso, foi perdido ou roubado, há uma fraude confirmada ou a transação não é permitida para aquele produto, indicando que não há circunstâncias nas quais o emissor concederia uma aprovação. Qualquer tentativa de autorização que, após uma recusa **irreversível**, não tenha alterado nenhum campo da mensageria, não obterá sucesso.<br>
-><br>
-> * <p>&#9989; **Reversível: permitido realizar retentativa**</p><br>
-> <br>
-> Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora, possivelmente devido a um problema do sistema (inoperante) ou falta de limite, suspeita de fraude ou excesso de número de tentativas de digitação da senha. São decisões de recusas temporárias tomadas pelo emissor que podem mudar com o tempo.
+> - <p>&#10060; **Irreversível: nunca realizar retentativa**</p><br>
+>   <br>
+>   Significa, por exemplo, que o cartão está cancelado para uso, foi perdido ou roubado, há uma fraude confirmada ou a transação não é permitida para aquele produto, indicando que não há circunstâncias nas quais o emissor concederia uma aprovação. Qualquer tentativa de autorização que, após uma recusa **irreversível**, não tenha alterado nenhum campo da mensageria, não obterá sucesso.<br>
+>   <br>
+> - <p>&#9989; **Reversível: permitido realizar retentativa**</p><br>
+>   <br>
+>   Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora, possivelmente devido a um problema do sistema (inoperante) ou falta de limite, suspeita de fraude ou excesso de número de tentativas de digitação da senha. São decisões de recusas temporárias tomadas pelo emissor que podem mudar com o tempo.
 
 As bandeiras Visa, Mastercard, Elo e Hipercard ajustaram suas regras para limitar a quantidade de tentativas de autorização para uma transação negada. Essas mudanças preveem a cobrança de tarifas para o excesso de tentativas. Confira a seguir as regras de cada bandeira.
 
@@ -1534,13 +1533,13 @@ O monitoramento é aplicado para as retentativas de transações de compras nega
 
 **Tabela Excessive Attempts**
 
-|Categorias|Códigos|Vigência|Tarifa Doméstica|Tarifa Internacional|Quando Ocorre|Permitido Retentar|
-|---|---|---|---|---|---|---|
-|Cartão presente e cartão não presente|Qualquer código de negativa que não está atribuído ao MAC 03 e 21. E também os códigos MAC caso não respeite os limites do “Excessive Attempts"|Até 31/01/2023|R$ 2,00 |-|A partir 11ª retentativa|Permitido retentar em 24h.|
-|Cartão presente e cartão não presente|Qualquer código de negativa que não está atribuído ao MAC 03 e 21. E também os códigos MAC caso não respeite os limites do “Excessive Attempts"|Nova regra a partir de 01/02/2023|R$ 2,00 |-|A partir 8ª retentativa|Permitido retentar em 24h.|
+| Categorias                            | Códigos                                                                                                                                         | Vigência                          | Tarifa Doméstica | Tarifa Internacional | Quando Ocorre            | Permitido Retentar         |
+| ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- | ---------------- | -------------------- | ------------------------ | -------------------------- |
+| Cartão presente e cartão não presente | Qualquer código de negativa que não está atribuído ao MAC 03 e 21. E também os códigos MAC caso não respeite os limites do “Excessive Attempts" | Até 31/01/2023                    | R$ 2,00          | -                    | A partir 11ª retentativa | Permitido retentar em 24h. |
+| Cartão presente e cartão não presente | Qualquer código de negativa que não está atribuído ao MAC 03 e 21. E também os códigos MAC caso não respeite os limites do “Excessive Attempts" | Nova regra a partir de 01/02/2023 | R$ 2,00          | -                    | A partir 8ª retentativa  | Permitido retentar em 24h. |
 
-* Serão consideradas como retentativas todas as transações de pagamento no mesmo cartão, e mesmo número de estabelecimento;
-* A Mastercard prorrogou a data de vigência para o dia **01/02/2023** referente as novas regras do programa **(Excessive Attempts)** antes prevista para início do dia 01/11/2022. Confira as mudanças:
+- Serão consideradas como retentativas todas as transações de pagamento no mesmo cartão, e mesmo número de estabelecimento;
+- A Mastercard prorrogou a data de vigência para o dia **01/02/2023** referente as novas regras do programa **(Excessive Attempts)** antes prevista para início do dia 01/11/2022. Confira as mudanças:
 
 1. O excesso considerado no programa ocorrerá a partir da oitava retentativa dentro do mês de apuração; os valores cobrados sofreram alteração.
 2. E a Mastercard também está introduzindo um limite de 35 tentativas negadas no mesmo cartão e mesmo número de estabelecimento por período contínuo de 30 dias. Mesmo se a loja não ultrapassar o limite de sete retentativas no período de 24h, mas ultrapassar a quantidade do limite mensal, a cobrança será aplicada.
@@ -1561,72 +1560,72 @@ Desde **14/10/2022** a Mastercard introduziu novos códigos MAC (24, 25, 26, 27,
 
 **Tabela com toda relação de MACs**
 
-|MAC|Descrição|Observação|
-|---|---|---|
-|01|Informações da nova conta disponíveis (ABU)|Necessidade de realizar atualização dos dados da conta que está sendo utilizada na transação, usando o ABU, por exemplo.|
-|02|Não pode aprovar no momento, tente depois|Tente novamente a transação após 72 horas ou tente a transação com um método de pagamento diferente.|
-|03|Não é permitido retentar|Busque outro meio de garantir o pagamento, evitando custos desnecessários de várias solicitações de autorização que continuarão a resultar em declínios.|
-|04|Requisitos de token não atendidos para este token modelo|Há necessidade de revisar os requisitos de token, pois os requisitos não foram atendidos para este token modelo enviado na transação.|
-|21|Plano cancelado|Comprador realiza cancelamento de plano e mesmo após o cancelamento, estabelecimento continua enviando solicitação de autorização de compra.|
-|24|Tente novamente após 1 hora|Válido somente para o código de resposta 51 (insuficiência de fundos)|
-|25|Tente novamente após 24 horas|Válido somente para o código de resposta 51 (insuficiência de fundos)|
-|26|Tente novamente após 2 dias|Válido somente para o código de resposta 51 (insuficiência de fundos)|
-|27|Tente novamente após 4 dias|Válido somente para o código de resposta 51 (insuficiência de fundos)|
-|28|Tente novamente após 6 dias|Válido somente para o código de resposta 51 (insuficiência de fundos)|
-|29|Tente novamente após 8 dias|Válido somente para o código de resposta 51 (insuficiência de fundos)|
-|30|Tente novamente após 10 dias|Válido somente para o código de resposta 51 (insuficiência de fundos)|
+| MAC | Descrição                                                | Observação                                                                                                                                               |
+| --- | -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 01  | Informações da nova conta disponíveis (ABU)              | Necessidade de realizar atualização dos dados da conta que está sendo utilizada na transação, usando o ABU, por exemplo.                                 |
+| 02  | Não pode aprovar no momento, tente depois                | Tente novamente a transação após 72 horas ou tente a transação com um método de pagamento diferente.                                                     |
+| 03  | Não é permitido retentar                                 | Busque outro meio de garantir o pagamento, evitando custos desnecessários de várias solicitações de autorização que continuarão a resultar em declínios. |
+| 04  | Requisitos de token não atendidos para este token modelo | Há necessidade de revisar os requisitos de token, pois os requisitos não foram atendidos para este token modelo enviado na transação.                    |
+| 21  | Plano cancelado                                          | Comprador realiza cancelamento de plano e mesmo após o cancelamento, estabelecimento continua enviando solicitação de autorização de compra.             |
+| 24  | Tente novamente após 1 hora                              | Válido somente para o código de resposta 51 (insuficiência de fundos)                                                                                    |
+| 25  | Tente novamente após 24 horas                            | Válido somente para o código de resposta 51 (insuficiência de fundos)                                                                                    |
+| 26  | Tente novamente após 2 dias                              | Válido somente para o código de resposta 51 (insuficiência de fundos)                                                                                    |
+| 27  | Tente novamente após 4 dias                              | Válido somente para o código de resposta 51 (insuficiência de fundos)                                                                                    |
+| 28  | Tente novamente após 6 dias                              | Válido somente para o código de resposta 51 (insuficiência de fundos)                                                                                    |
+| 29  | Tente novamente após 8 dias                              | Válido somente para o código de resposta 51 (insuficiência de fundos)                                                                                    |
+| 30  | Tente novamente após 10 dias                             | Válido somente para o código de resposta 51 (insuficiência de fundos)                                                                                    |
 
 Além disso, alguns códigos de retorno deixarão de ser enviados:
 
-* 04 (Cartão de Captura)
-* 14 (Número de cartão inválido)
-* 41 (Cartão Perdido)
-* 43 (Cartão Roubado)
-* 54 (Cartão Expirado)
-* 57 (Transação Não Permitida)
-* 62 (Cartão Restrito)
-* 63 (Violação de Segurança)
-<br>
-<br>
+- 04 (Cartão de Captura)
+- 14 (Número de cartão inválido)
+- 41 (Cartão Perdido)
+- 43 (Cartão Roubado)
+- 54 (Cartão Expirado)
+- 57 (Transação Não Permitida)
+- 62 (Cartão Restrito)
+- 63 (Violação de Segurança)
+  <br>
+  <br>
 
 **Categorização de retornos Mastercard**
 
 A Mastercard poderá consolidar alguns códigos de respostas dos emissores, que muitas vezes não indicam ao comerciante se pode ou não retentar, em três códigos de uso exclusivo Mastercard:
 
-* **79** (Ciclo de vida);
-* **82** (Política);
-* **83** (Fraude/ Segurança).
-<br>
-<br>
+- **79** (Ciclo de vida);
+- **82** (Política);
+- **83** (Fraude/ Segurança).
+  <br>
+  <br>
 
 Os códigos originais serão substituídos pelo Merchant Advice Code (MAC), que acompanharão os códigos 79, 82 e 83 para determinar se a transação pode ou não ser retentada.
 
 **Por exemplo:**
 
-|Quando|Então|E o código de resposta|
-|:---:|:---:|:---:|
-|O emissor recusar a transação usando o código de resposta 54 (Cartão Expirado)|A Mastercard substituirá o código 54 para o código 79 (recusa por ciclo de vida)|Acompanha o devido Merchant Advice Code (MAC)|
+|                                     Quando                                     |                                      Então                                       |            E o código de resposta             |
+| :----------------------------------------------------------------------------: | :------------------------------------------------------------------------------: | :-------------------------------------------: |
+| O emissor recusar a transação usando o código de resposta 54 (Cartão Expirado) | A Mastercard substituirá o código 54 para o código 79 (recusa por ciclo de vida) | Acompanha o devido Merchant Advice Code (MAC) |
 
 **Programa de retentativas MAC 03 e MAC 21**
 
 **Forma de apuração:**
 
-* Serão consideradas as transações de cartão não presente;
-* São consideradas como retentativas todas as transações de pagamento no mesmo cartão e mesmo número de estabelecimento;
-* São contabilizadas as retentativas no programa MAC com os valores MAC 03 e MAC 21;
-* Valido para qualquer código de resposta;
-* O excesso contabilizado no programa ocorrerá a partir da 1ª retentativa dentro do mês de apuração;
-* O contador é zerado após o período de 30 dias;
-* As retentativas podem ser cobradas nos MACs 03/21 e no Excessive Attempts caso ultrapasse o limite de cada programa;
-* Atualmente é aplicado o valor de tarifa de R$1,25 e esse valor será alterado a partir de 01 de janeiro de 2023, como listado a seguir.
-<br>
-<br>
+- Serão consideradas as transações de cartão não presente;
+- São consideradas como retentativas todas as transações de pagamento no mesmo cartão e mesmo número de estabelecimento;
+- São contabilizadas as retentativas no programa MAC com os valores MAC 03 e MAC 21;
+- Valido para qualquer código de resposta;
+- O excesso contabilizado no programa ocorrerá a partir da 1ª retentativa dentro do mês de apuração;
+- O contador é zerado após o período de 30 dias;
+- As retentativas podem ser cobradas nos MACs 03/21 e no Excessive Attempts caso ultrapasse o limite de cada programa;
+- Atualmente é aplicado o valor de tarifa de R$1,25 e esse valor será alterado a partir de 01 de janeiro de 2023, como listado a seguir.
+  <br>
+  <br>
 
 **Tabela de valores:**
 
-|Número de retentativa|Regra|
-|---|---|
-|A partir 1ª rententativa|R$ 2,50 (dois reais e cinquenta centavos) por retentativa, a partir da 1ª retentativa.|
+| Número de retentativa    | Regra                                                                                  |
+| ------------------------ | -------------------------------------------------------------------------------------- |
+| A partir 1ª rententativa | R$ 2,50 (dois reais e cinquenta centavos) por retentativa, a partir da 1ª retentativa. |
 
 ### Visa
 
@@ -1634,38 +1633,38 @@ Os códigos originais serão substituídos pelo Merchant Advice Code (MAC), que 
 
 Um programa instituído pela bandeira Visa que gera cobranças quando o estabelecimento comercial excede as regras de retentativas.
 
-* Válido para transações com cartão presente e cartão não presente;
-* **Códigos reversíveis:** são permitidas até 15 tentativas de aprovar uma mesma transação (mesmo cartão, mesmo estabelecimento e valor) no período de 30 dias. Após os 30 dias iniciais (a contar da primeira tentativa), qualquer retentativa será cobrada;
-* **Códigos irreversíveis:** é permitido apenas UMA tentativa de aprovar uma mesma transação (mesmo cartão, mesmo estabelecimento), na segunda tentativa será cobrado;
-* Após uma transação ser aprovada, o contador é zerado.
-<br>
+- Válido para transações com cartão presente e cartão não presente;
+- **Códigos reversíveis:** são permitidas até 15 tentativas de aprovar uma mesma transação (mesmo cartão, mesmo estabelecimento e valor) no período de 30 dias. Após os 30 dias iniciais (a contar da primeira tentativa), qualquer retentativa será cobrada;
+- **Códigos irreversíveis:** é permitido apenas UMA tentativa de aprovar uma mesma transação (mesmo cartão, mesmo estabelecimento), na segunda tentativa será cobrado;
+- Após uma transação ser aprovada, o contador é zerado.
+  <br>
 
-> **Tarifas**: Ao ultrapassar os limites de tentativas estabelecidos pela bandeira, haverá uma cobrança de tarifa para cada transação excedente.<br>
-> <br>
-> * **Doméstico**: USD 0,10 + 13,83% de imposto;
-> * **Estrangeiro**: USD 0,25 + 13,83% de imposto
-<br>
-<br>
+> **Tarifas**: Ao ultrapassar os limites de tentativas estabelecidos pela bandeira, haverá uma cobrança de tarifa para cada transação excedente.<br> > <br>
+>
+> - **Doméstico**: USD 0,10 + 13,83% de imposto;
+> - **Estrangeiro**: USD 0,25 + 13,83% de imposto
+>   <br>
+>   <br>
 
 Regras de autorização já vigentes. A cobrança de tarifas é aplicada desde abril de 2021.
 
 **A Visa agrupou os códigos de retorno em quatro categorias:**
 
-* **Categoria 1: emissor nunca aprovará**
+- **Categoria 1: emissor nunca aprovará**
 
 Para essa categoria, indica que o cartão foi cancelado ou nunca existiu ou que a negativa é resultado de uma restrição permanente ou condição de erro que impedirá uma aprovação futura.
 
-* **Categoria 2: emissor não pode aprovar neste momento**
+- **Categoria 2: emissor não pode aprovar neste momento**
 
 Indicam que a negativa é resultado de uma condição temporária tal como risco de crédito, controles de velocidade do emissor ou outras restrições do cartão que podem permitir uma retentativa da transação ser aprovada. Em alguns casos, a negativa requer uma ação do portador ou emissor para remover a restrição antes que uma aprovação possa ser obtida.
 
-* **Categoria 3: qualidade de dados/revisar dados**
+- **Categoria 3: qualidade de dados/revisar dados**
 
 Quando um erro de dados é identificado pelo emissor essa transação é declinada como consequência. Os estabelecimentos devem revalidar dados de pagamentos antes de retentar. Estabelecimentos e Credenciadores devem monitorar estes códigos de negativas devido a exposição potencial a fraudes.
 
 > **Atenção**: A categoria 3 tem, além dos limites considerados na categoria 2, um limite diferente que é cumulativo. Um estabelecimento pode realizar até 10.000 transações em um período de 30 dias (neste caso considerando apenas o número do estabelecimento e códigos de negadas). Se ultrapassar o limite, todas as transações recusadas por categoria 3 serão tarifadas.
 
-* **Categoria 4: códigos de respostas genéricos**
+- **Categoria 4: códigos de respostas genéricos**
 
 A categoria 4 inclui todos os outros códigos de resposta de recusa, muitos dos quais fornecem pouco ou nenhum valor para Adquirentes/Comerciantes como parte de sua estratégia de nova tentativa. O uso do emissor deve permanecer mínimo.
 
@@ -1679,9 +1678,9 @@ Os emissores devem usar códigos de resposta que reflitam com mais precisão o m
 
 **Observação:** O código de resposta 14 aparece nas categorias 1 e 3 porém a contabilização é a seguinte:
 
-* Na categoria 1 o EC é tarifado a partir da 2ª tentativa para o (mesmo estabelecimento e mesmo cartão) **não permitido retentar.**
+- Na categoria 1 o EC é tarifado a partir da 2ª tentativa para o (mesmo estabelecimento e mesmo cartão) **não permitido retentar.**
 
-* Na categoria 3 compõe o grupo de códigos para contabilização das 10.001 transações, após o EC atingir 10.000 retentativas com o este grupo de códigos, qualquer transação será contabilizada independente do cartão.
+- Na categoria 3 compõe o grupo de códigos para contabilização das 10.001 transações, após o EC atingir 10.000 retentativas com o este grupo de códigos, qualquer transação será contabilizada independente do cartão.
 
 **Exemplo:** Tivemos 10.000 transações negadas em um EC com os códigos de categoria 3, se a transação 10.001 for no código 14 ou em qualquer código do grupo de categoria 3 ele será tarifado independente do cartão.
 
@@ -1693,13 +1692,13 @@ Trata-se de um programa instituído pela bandeira ELO que gera cobranças quando
 
 **Formas de Apuração**
 
-* **Retentativas**: todas transações de pagamento no mesmo cartão, validade, valor e Merchant ID (MID) dentro de 30 dias;
-* **Códigos contabilizados**: todos de negativas​;
-* **Excesso**: a partir da 16ª retentativa no mês​*;
-* **Tarifa**: R$ 0,80 (oitenta centavos) por retentativa, a partir da 16ª;
-* **Contabilização do excesso**: é baseada nos controles internos da Elo. 1º ao último dia corrido do mês.
-<br>
-<br>
+- **Retentativas**: todas transações de pagamento no mesmo cartão, validade, valor e Merchant ID (MID) dentro de 30 dias;
+- **Códigos contabilizados**: todos de negativas​;
+- **Excesso**: a partir da 16ª retentativa no mês​\*;
+- **Tarifa**: R$ 0,80 (oitenta centavos) por retentativa, a partir da 16ª;
+- **Contabilização do excesso**: é baseada nos controles internos da Elo. 1º ao último dia corrido do mês.
+  <br>
+  <br>
 
 <aside class="notice">Início de vigência: 1º de agosto de 2022.</aside>
 
@@ -1707,45 +1706,45 @@ Trata-se de um programa instituído pela bandeira ELO que gera cobranças quando
 
 Os códigos de respostas abaixo estão listados conforme manual de autorização da bandeira.
 
-|CÓDIGOS|DESCRIÇÃO|QUANDOO EMISSOR DEVE UTILIZAR O CÓDIGO DE RESPOSTA|RETENTATIVA|
-|----|----|----|----|
-|4|REFAZER A TRANSAÇÃO|Esse código deve ser usado pelo Emissor para solicitar que o portador/EC realize novamente a transação caso ele (Emissor) detecte falha na captura das informações da transação ou caso seja necessário atualização da senha negando a 1ª transação|Reversível|
-|5|GENÉRICA|A Bandeira poderá utilizar esse código para outras tratativas (genérica).|Reversível|
-|6|CONSULTAR CREDENCIADOR|Esse motivo deve ser utilizado pelo Credenciador quando ele identificar problemas internos que não necessitem de mudanças na mensageria para que a transação siga o fluxo correto.|Reversível|
-|12|ERRO NO CARTÃO|- Esse código deve ser usado pelo Emissor quando ele identificar falha na validação do CAVV de transações 3DS ou tokenizada.<br>- Esse código deve ser usado pelo Emissor quando identificar CÓDIGO DE SERVIÇO incorreto/inválido para cartões físicos.<br>- Esse código deve ser usado pelo Emissor para problemas identificados no TOKEN<br>- Este código deve ser utilizado para negar reversões e avisos de reversão onde a transação original não é localizada pelo Emissor.|Irreversível|
-|13|VALOR DA TRANSAÇÃO INVÁLIDA|- Esse código deve ser usado pelo Emissor quando identificar que o valor da transação é inválido de acordo com os parâmetros do Emissor.|Irreversível|
-|14|NÚMERO DO CARTÃO INVÁLIDA|- Esse código deve ser utilizado pelo Emissor para Nº DO CARTÃO INVÁLIDO/INCORRETO.<br>- A Bandeira poderá utilizar esse código para outras tratativas.|Irreversível|
-|19|PROBLEMAS ADQUIRENTE|- Esse motivo deve ser utilizado pelo Credenciador quando ele identificar problemas internos que necessitem de mudanças na mensageria para que a transação siga o fluxo correto.|Irreversível|
-|23|VALOR DA PARCELA INVÁLIDO|- Esse código deve ser utilizado pelo Emissor quando o VALOR DA PARCELA ESTÁ FORA DOS LIMITES estabelecidos por ele. Esse código deve ser utilizado quando o emissor não aceitar o produto Elo Parcelado Loja (produto 072) com o número de parceladas menor que 12.|Irreversível|
-|30|ERRO DE FORMATO DA MENSAGEM|- Esse código deve ser usado pelo Emissor quando ele identificar ERRO DE FORMATO NA MENSAGERIA (campo obrigatório, domínios, formatos, tamanho não presentes ou divergentes da especificação).|Irreversível|
-|38|COMPRA/EXCEDIDAS TENTATIVAS SENHA|- Esse código deve ser utilizado pelo Emissor quando for EXCEDIDO O Nº DE TENTATIVAS PERMITIDAS DE DIGITAÇÃO DA SENHA (utilizado apenas para compras).|Reversível|
-|41|CARTÃO PERDIDO|- Esse código deve ser utilizado pelo Emissor para CARTÃO COM BLOQUEIO DEFINITIVO pelo motivo "PERDA".|Irreversível|
-|43|CARTÃO ROUBADO|- Esse código deve ser utilizado pelo Emissor para CARTÃO COM BLOQUEIO DEFINITIVO pelo motivo "ROUBO".|Irreversível|
-|51|LIMITE/SALDO INSUFICIENTE|- Esse código deve ser utilizado pelo Emissor para CARTÃO que está TEMPORARIAMENTE SEM SALDO OU LIMITE SUFICIENTE para realizar a transação.<br>- Saque/advance 2 sem trilha 2<br>- Compra com Troco não suportada.<br>- Verificação de endereço não suportada (somente quando o código de processo for "13" sem valor de compra). * Verificação de conta de cartão não suportada (somente quando o código de processo for "18" sem valor de compra).|Reversível|
-|54|DATA DE VALIDADE DO CARTÃO|- Esse código deve ser utilizado pelo Emissor para CARTÃO FÍSICO ou TOKEN COM VALIDADE / EXPIRAÇÃO VENCIDA ou INVÁLIDA.|Irreversível|
-|55|SENHA INVÁLIDA / NÃO ENVIADA|- Esse código deve ser utilizado pelo Emissor quando a SENHA DIGITADA PELO CLIENTE NÃO CONFERE, ESTÁ INVÁLIDA/INCORRETA.<br>- Esse código deve ser utilizado pelo Emissor quando a SENHA NÃO FOR ENVIADA NA MENSAGERIA E A MESMA É EXIGIDA PARA APROVAÇÃO DA TRANSAÇÃO.|Reversível|
-|56|SEM REGISTRO DO CARTÃO|<br>1. Nº do cartão não pertence ao Emissor<br>2. Nº do cartão não é válido|Irreversível|
-|57|TRANSAÇÃO NÃO PERMITIDA PARA ESSE CARTÃO|- Esse código deve ser utilizado pelo Emissor quando o cartão estiver com BLOQUEIO DEFINITIVO, exceto bloqueio perda e roubo que já possuem códigos específicos (ex: falecimento, fraude confirmada, cancelamento definitivo a pedido do cliente, etc).<br>- Esse código deve ser utilizado para PRODUTOS E SERVIÇOS NÃO SUPORTADOS pelo emissor do cartão.<br>- Esse código pode ser usado para TOKEN INVÁLIDO / SUSPENSO / INATIVO.<br>- Esse código deve ser usado para negar o modo de entrada FALLBACK.|Irreversível|
-|58|COMERCIANTE INVÁLIDO|- Esse código deve ser utilizado pelo Emissor quando o MCC do estabelecimento não estiver cadastrado para obtenção de token junto ao Emissor.|Irreversível|
-|59|SUSPEITA DE FRAUDE|- Esse código deve ser utilizado pelo Emissor quando regras de prevenção SUSPEITAM DE FRAUDE, sendo necessário o contato do portador com o Emissor para liberação do cartão e realização de nova transação.<br>- Esse código deve ser utilizado pelo Emissor para negar transações por ausência do AVISO VIAGEM que deve ser realizado pelo portador do cartão antes de viagens ao exterior ou em alguns casos antes de realizar transações em sites internacionais.|Reversível|
-|61|VALOR MÁXIMO SAQUE/COMPRAS EXCEDIDO|- Esse código deve ser utilizado pelo Emissor quando o valor do saque/compras exceder o limite permitido por ele.|Reversível|
-|62|BLOQUEIO TEMPORÁRIO DE COBRANÇA|- Esse código deve ser utilizado pelo Emissor para cartões com BLOQUEIO TEMPORÁRIO DE COBRANÇA.|Reversível| 
-|63|VIOLAÇÃO DE SEGURANÇA|- Esse código deve ser utilizado pelo Emissor quando o CÓDIGO DE SEGURANÇA DO CARTÃO (CVE2) estiver INCORRETO / INVÁLIDO ou MST inválido (token).|Irreversível|
-|64|VALOR MÍNIMO DA TRANSAÇÃO - INVÁLIDO|- Esse código deve ser utilizado pelo Emissor quando o VALOR DA TRANSAÇÃO ESTIVER ABAIXO DO MÍNIMO permitido pelo Emissor|Irreversível|
-|65|QUANTIDADE DE SAQUES EXCEDIDOS|- Esse código deve ser utilizado pelo Emissor quando o limite de quantidade de saques estiver excedido|Reversível|  
-|75|SAQUE/ EXCEDIDAS TENTATIVAS SENHA|- Esse código deve ser utilizado pelo Emissor quando for excedida a quantidade de tentativas de digitação de senha estipuladas pelo Emissor (utilizado apenas para SAQUES)|Reversível|
-|76|CONTA DESTINO INVÁLIDA OU INEXISTENTE|- Esse código deve ser utilizado pelo Emissor quando conta "PARA" (destino) no BIT 3 é inválida ou inexistente e exclusivamente para transações de Transferência de Fundos|Irreversível| 
-|77|CONTA ORIGEM INVÁLIDA OU INEXISTENTE|- Esse código deve ser utilizado pelo Emissor quando conta "DE" (origem) no BIT 3 é inválida ou inexistente e exclusivamente para transações de Transferência de Fundos.|Irreversível| 
-|78|CARTÃO NOVO SEM DESBLOQUEIO / CARTÃO BLOQUEADO|- Esse código deve ser utilizado pelo Emissor quando o cartão novo ainda não foi desbloqueado (ativado) pelo portador junto ao Emissor ou quando o Portador, mediante autonomia, desejar bloquear temporariamente o cartão através do aplicativo do Emissor.|Reversível| 
-|82|CARTÃO INVÁLIDO (dados internos)|- Esse código deve ser utilizado pelo Emissor quando dados internos do cartão não conferem (ex: criptograma inválido, ATC inválido etc.)|Irreversível|
-|83|NÃO É POSSÍVEL VALIDAR A SENHA|- Esse código deve ser utilizado pelo Emissor e será utilizado pela Elo quando não for possível validar ou descriptografar a senha.|Irreversível|
-|91|EMISSOR FORA DO AR|- Esse código será utilizado pela Bandeira quando o Emissor está temporariamente indisponível para autorizar a transação ou não foi recebida a resposta do Emissor no tempo estabelecido.|Reversível|
-|96|FALHA DO SISTEMA|- Esse código será utilizado pela Bandeira ou pelo Emissor por problemas no processamento da transação.|Reversível|  
-|AB|FUNÇÃO INCORRETA (DÉBITO)|- Esse código será utilizado pelo Emissor para sinalizar o estabelecimento que ele solicitou a autorização na função DÉBITO, mas o cartão não possui essa função ativa.|Irreversível|
-|AC|FUNÇÃO INCORRETA (CRÉDITO)|- Esse código será utilizado pelo Emissor para sinalizar o estabelecimento que ele solicitou a autorização na função CRÉDITO, mas o cartão não possui essa função ativa.|Irreversível|
-|FM|UTILIZAR O CHIP|- Esse código será utilizado pelo Emissor para informar ao estabelecimento que a transação contactless não terá sucesso e que o portador deve utilizar o chip (contato).|Irreversível|
-|P5|TROCA DE SENHA / FALHA NO DESBLOQUEIO|- Esse código será utilizado pelo Emissor quando ocorreu falha na troca de senha ou falha no desbloqueio.|Irreversível|  
-|P6|NOVA SENHA NÃO ACEITA|- Esse código será utilizado pelo Emissor quando a nova senha que o cliente escolheu não atende os critérios mínimos estabelecidos pelo Emissor.|Reversível|
+| CÓDIGOS | DESCRIÇÃO                                      | QUANDOO EMISSOR DEVE UTILIZAR O CÓDIGO DE RESPOSTA                                                                                                                                                                                                                                                                                                                                                                                                                                                           | RETENTATIVA  |
+| ------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ |
+| 4       | REFAZER A TRANSAÇÃO                            | Esse código deve ser usado pelo Emissor para solicitar que o portador/EC realize novamente a transação caso ele (Emissor) detecte falha na captura das informações da transação ou caso seja necessário atualização da senha negando a 1ª transação                                                                                                                                                                                                                                                          | Reversível   |
+| 5       | GENÉRICA                                       | A Bandeira poderá utilizar esse código para outras tratativas (genérica).                                                                                                                                                                                                                                                                                                                                                                                                                                    | Reversível   |
+| 6       | CONSULTAR CREDENCIADOR                         | Esse motivo deve ser utilizado pelo Credenciador quando ele identificar problemas internos que não necessitem de mudanças na mensageria para que a transação siga o fluxo correto.                                                                                                                                                                                                                                                                                                                           | Reversível   |
+| 12      | ERRO NO CARTÃO                                 | - Esse código deve ser usado pelo Emissor quando ele identificar falha na validação do CAVV de transações 3DS ou tokenizada.<br>- Esse código deve ser usado pelo Emissor quando identificar CÓDIGO DE SERVIÇO incorreto/inválido para cartões físicos.<br>- Esse código deve ser usado pelo Emissor para problemas identificados no TOKEN<br>- Este código deve ser utilizado para negar reversões e avisos de reversão onde a transação original não é localizada pelo Emissor.                            | Irreversível |
+| 13      | VALOR DA TRANSAÇÃO INVÁLIDA                    | - Esse código deve ser usado pelo Emissor quando identificar que o valor da transação é inválido de acordo com os parâmetros do Emissor.                                                                                                                                                                                                                                                                                                                                                                     | Irreversível |
+| 14      | NÚMERO DO CARTÃO INVÁLIDA                      | - Esse código deve ser utilizado pelo Emissor para Nº DO CARTÃO INVÁLIDO/INCORRETO.<br>- A Bandeira poderá utilizar esse código para outras tratativas.                                                                                                                                                                                                                                                                                                                                                      | Irreversível |
+| 19      | PROBLEMAS ADQUIRENTE                           | - Esse motivo deve ser utilizado pelo Credenciador quando ele identificar problemas internos que necessitem de mudanças na mensageria para que a transação siga o fluxo correto.                                                                                                                                                                                                                                                                                                                             | Irreversível |
+| 23      | VALOR DA PARCELA INVÁLIDO                      | - Esse código deve ser utilizado pelo Emissor quando o VALOR DA PARCELA ESTÁ FORA DOS LIMITES estabelecidos por ele. Esse código deve ser utilizado quando o emissor não aceitar o produto Elo Parcelado Loja (produto 072) com o número de parceladas menor que 12.                                                                                                                                                                                                                                         | Irreversível |
+| 30      | ERRO DE FORMATO DA MENSAGEM                    | - Esse código deve ser usado pelo Emissor quando ele identificar ERRO DE FORMATO NA MENSAGERIA (campo obrigatório, domínios, formatos, tamanho não presentes ou divergentes da especificação).                                                                                                                                                                                                                                                                                                               | Irreversível |
+| 38      | COMPRA/EXCEDIDAS TENTATIVAS SENHA              | - Esse código deve ser utilizado pelo Emissor quando for EXCEDIDO O Nº DE TENTATIVAS PERMITIDAS DE DIGITAÇÃO DA SENHA (utilizado apenas para compras).                                                                                                                                                                                                                                                                                                                                                       | Reversível   |
+| 41      | CARTÃO PERDIDO                                 | - Esse código deve ser utilizado pelo Emissor para CARTÃO COM BLOQUEIO DEFINITIVO pelo motivo "PERDA".                                                                                                                                                                                                                                                                                                                                                                                                       | Irreversível |
+| 43      | CARTÃO ROUBADO                                 | - Esse código deve ser utilizado pelo Emissor para CARTÃO COM BLOQUEIO DEFINITIVO pelo motivo "ROUBO".                                                                                                                                                                                                                                                                                                                                                                                                       | Irreversível |
+| 51      | LIMITE/SALDO INSUFICIENTE                      | - Esse código deve ser utilizado pelo Emissor para CARTÃO que está TEMPORARIAMENTE SEM SALDO OU LIMITE SUFICIENTE para realizar a transação.<br>- Saque/advance 2 sem trilha 2<br>- Compra com Troco não suportada.<br>- Verificação de endereço não suportada (somente quando o código de processo for "13" sem valor de compra). \* Verificação de conta de cartão não suportada (somente quando o código de processo for "18" sem valor de compra).                                                       | Reversível   |
+| 54      | DATA DE VALIDADE DO CARTÃO                     | - Esse código deve ser utilizado pelo Emissor para CARTÃO FÍSICO ou TOKEN COM VALIDADE / EXPIRAÇÃO VENCIDA ou INVÁLIDA.                                                                                                                                                                                                                                                                                                                                                                                      | Irreversível |
+| 55      | SENHA INVÁLIDA / NÃO ENVIADA                   | - Esse código deve ser utilizado pelo Emissor quando a SENHA DIGITADA PELO CLIENTE NÃO CONFERE, ESTÁ INVÁLIDA/INCORRETA.<br>- Esse código deve ser utilizado pelo Emissor quando a SENHA NÃO FOR ENVIADA NA MENSAGERIA E A MESMA É EXIGIDA PARA APROVAÇÃO DA TRANSAÇÃO.                                                                                                                                                                                                                                      | Reversível   |
+| 56      | SEM REGISTRO DO CARTÃO                         | <br>1. Nº do cartão não pertence ao Emissor<br>2. Nº do cartão não é válido                                                                                                                                                                                                                                                                                                                                                                                                                                  | Irreversível |
+| 57      | TRANSAÇÃO NÃO PERMITIDA PARA ESSE CARTÃO       | - Esse código deve ser utilizado pelo Emissor quando o cartão estiver com BLOQUEIO DEFINITIVO, exceto bloqueio perda e roubo que já possuem códigos específicos (ex: falecimento, fraude confirmada, cancelamento definitivo a pedido do cliente, etc).<br>- Esse código deve ser utilizado para PRODUTOS E SERVIÇOS NÃO SUPORTADOS pelo emissor do cartão.<br>- Esse código pode ser usado para TOKEN INVÁLIDO / SUSPENSO / INATIVO.<br>- Esse código deve ser usado para negar o modo de entrada FALLBACK. | Irreversível |
+| 58      | COMERCIANTE INVÁLIDO                           | - Esse código deve ser utilizado pelo Emissor quando o MCC do estabelecimento não estiver cadastrado para obtenção de token junto ao Emissor.                                                                                                                                                                                                                                                                                                                                                                | Irreversível |
+| 59      | SUSPEITA DE FRAUDE                             | - Esse código deve ser utilizado pelo Emissor quando regras de prevenção SUSPEITAM DE FRAUDE, sendo necessário o contato do portador com o Emissor para liberação do cartão e realização de nova transação.<br>- Esse código deve ser utilizado pelo Emissor para negar transações por ausência do AVISO VIAGEM que deve ser realizado pelo portador do cartão antes de viagens ao exterior ou em alguns casos antes de realizar transações em sites internacionais.                                         | Reversível   |
+| 61      | VALOR MÁXIMO SAQUE/COMPRAS EXCEDIDO            | - Esse código deve ser utilizado pelo Emissor quando o valor do saque/compras exceder o limite permitido por ele.                                                                                                                                                                                                                                                                                                                                                                                            | Reversível   |
+| 62      | BLOQUEIO TEMPORÁRIO DE COBRANÇA                | - Esse código deve ser utilizado pelo Emissor para cartões com BLOQUEIO TEMPORÁRIO DE COBRANÇA.                                                                                                                                                                                                                                                                                                                                                                                                              | Reversível   |
+| 63      | VIOLAÇÃO DE SEGURANÇA                          | - Esse código deve ser utilizado pelo Emissor quando o CÓDIGO DE SEGURANÇA DO CARTÃO (CVE2) estiver INCORRETO / INVÁLIDO ou MST inválido (token).                                                                                                                                                                                                                                                                                                                                                            | Irreversível |
+| 64      | VALOR MÍNIMO DA TRANSAÇÃO - INVÁLIDO           | - Esse código deve ser utilizado pelo Emissor quando o VALOR DA TRANSAÇÃO ESTIVER ABAIXO DO MÍNIMO permitido pelo Emissor                                                                                                                                                                                                                                                                                                                                                                                    | Irreversível |
+| 65      | QUANTIDADE DE SAQUES EXCEDIDOS                 | - Esse código deve ser utilizado pelo Emissor quando o limite de quantidade de saques estiver excedido                                                                                                                                                                                                                                                                                                                                                                                                       | Reversível   |
+| 75      | SAQUE/ EXCEDIDAS TENTATIVAS SENHA              | - Esse código deve ser utilizado pelo Emissor quando for excedida a quantidade de tentativas de digitação de senha estipuladas pelo Emissor (utilizado apenas para SAQUES)                                                                                                                                                                                                                                                                                                                                   | Reversível   |
+| 76      | CONTA DESTINO INVÁLIDA OU INEXISTENTE          | - Esse código deve ser utilizado pelo Emissor quando conta "PARA" (destino) no BIT 3 é inválida ou inexistente e exclusivamente para transações de Transferência de Fundos                                                                                                                                                                                                                                                                                                                                   | Irreversível |
+| 77      | CONTA ORIGEM INVÁLIDA OU INEXISTENTE           | - Esse código deve ser utilizado pelo Emissor quando conta "DE" (origem) no BIT 3 é inválida ou inexistente e exclusivamente para transações de Transferência de Fundos.                                                                                                                                                                                                                                                                                                                                     | Irreversível |
+| 78      | CARTÃO NOVO SEM DESBLOQUEIO / CARTÃO BLOQUEADO | - Esse código deve ser utilizado pelo Emissor quando o cartão novo ainda não foi desbloqueado (ativado) pelo portador junto ao Emissor ou quando o Portador, mediante autonomia, desejar bloquear temporariamente o cartão através do aplicativo do Emissor.                                                                                                                                                                                                                                                 | Reversível   |
+| 82      | CARTÃO INVÁLIDO (dados internos)               | - Esse código deve ser utilizado pelo Emissor quando dados internos do cartão não conferem (ex: criptograma inválido, ATC inválido etc.)                                                                                                                                                                                                                                                                                                                                                                     | Irreversível |
+| 83      | NÃO É POSSÍVEL VALIDAR A SENHA                 | - Esse código deve ser utilizado pelo Emissor e será utilizado pela Elo quando não for possível validar ou descriptografar a senha.                                                                                                                                                                                                                                                                                                                                                                          | Irreversível |
+| 91      | EMISSOR FORA DO AR                             | - Esse código será utilizado pela Bandeira quando o Emissor está temporariamente indisponível para autorizar a transação ou não foi recebida a resposta do Emissor no tempo estabelecido.                                                                                                                                                                                                                                                                                                                    | Reversível   |
+| 96      | FALHA DO SISTEMA                               | - Esse código será utilizado pela Bandeira ou pelo Emissor por problemas no processamento da transação.                                                                                                                                                                                                                                                                                                                                                                                                      | Reversível   |
+| AB      | FUNÇÃO INCORRETA (DÉBITO)                      | - Esse código será utilizado pelo Emissor para sinalizar o estabelecimento que ele solicitou a autorização na função DÉBITO, mas o cartão não possui essa função ativa.                                                                                                                                                                                                                                                                                                                                      | Irreversível |
+| AC      | FUNÇÃO INCORRETA (CRÉDITO)                     | - Esse código será utilizado pelo Emissor para sinalizar o estabelecimento que ele solicitou a autorização na função CRÉDITO, mas o cartão não possui essa função ativa.                                                                                                                                                                                                                                                                                                                                     | Irreversível |
+| FM      | UTILIZAR O CHIP                                | - Esse código será utilizado pelo Emissor para informar ao estabelecimento que a transação contactless não terá sucesso e que o portador deve utilizar o chip (contato).                                                                                                                                                                                                                                                                                                                                     | Irreversível |
+| P5      | TROCA DE SENHA / FALHA NO DESBLOQUEIO          | - Esse código será utilizado pelo Emissor quando ocorreu falha na troca de senha ou falha no desbloqueio.                                                                                                                                                                                                                                                                                                                                                                                                    | Irreversível |
+| P6      | NOVA SENHA NÃO ACEITA                          | - Esse código será utilizado pelo Emissor quando a nova senha que o cliente escolheu não atende os critérios mínimos estabelecidos pelo Emissor.                                                                                                                                                                                                                                                                                                                                                             | Reversível   |
 
 ## Hipercard
 
@@ -1753,29 +1752,29 @@ Os códigos de respostas abaixo estão listados conforme manual de autorização
 
 Cobranças efetuadas quando um Estabelecimento Comercial excede as regras de retentativas de transações negadas com um mesmo cartão, mesma data ou período mensal, mesmo valor e mesmo número de Estabelecimento Comercial, conforme abaixo:
 
-|Programa|Cartão Presente|Cartão não presente|
-|---|---|---|
-|Excesso de Retentativa|R$ 1,85 por retentativa a partir da 9ª resposta negada – mesmo cartão e mesmo dia (regra 2)|R$ 1,85 por Retentativas a partir da 9ª resposta negada – mesmo cartão e mesmo mês de referência (regra 3)|
-|Retentativa de transação **ASI** (Zero Auth)|R$ 0,15 por retentativa de transação ASI após negativa do emissor – mesmo cartão e mesmo dia (item 2)|R$ 0,15 por retentativa de transação ASI após negativa do emissor – mesmo cartão e mesmo mês de referência (regra 3)|
-|Retentativa de transação irreversível|0,03% do valor da transação por retentativa<br>Mínimo R$ 0,15<br>Máximo R$ 0,80<br>Mesmo cartão e mesmo dia após resposta com código irreversível|0,03% do valor da transação por retentativa<br>Mínimo R$ 0,15<br>Máximo R$ 0,80<br>Mesmo cartão e mesmo mês após resposta com código irreversível (regra 3)|
+| Programa                                     | Cartão Presente                                                                                                                                   | Cartão não presente                                                                                                                                         |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Excesso de Retentativa                       | R$ 1,85 por retentativa a partir da 9ª resposta negada – mesmo cartão e mesmo dia (regra 2)                                                       | R$ 1,85 por Retentativas a partir da 9ª resposta negada – mesmo cartão e mesmo mês de referência (regra 3)                                                  |
+| Retentativa de transação **ASI** (Zero Auth) | R$ 0,15 por retentativa de transação ASI após negativa do emissor – mesmo cartão e mesmo dia (item 2)                                             | R$ 0,15 por retentativa de transação ASI após negativa do emissor – mesmo cartão e mesmo mês de referência (regra 3)                                        |
+| Retentativa de transação irreversível        | 0,03% do valor da transação por retentativa<br>Mínimo R$ 0,15<br>Máximo R$ 0,80<br>Mesmo cartão e mesmo dia após resposta com código irreversível | 0,03% do valor da transação por retentativa<br>Mínimo R$ 0,15<br>Máximo R$ 0,80<br>Mesmo cartão e mesmo mês após resposta com código irreversível (regra 3) |
 
 **Regras:**
 
 1. **Transações ASI**: são transações Account Status Inquiry, ou seja, são as transações efetuadas para consultar o status de um cartão (verificar se está ativo). Para esse fim, não devem ser usadas transações financeiras e sim transações específicas;
 2. **Tentativas por dia**: considerar para efeito do programa de Retentativas da Hipercard de 00h00 a 23h59;
 3. **Mês de referência**: considerar para efeito do programa de Retentativas da Hipercard dia 01 a 30 ou 31 do mês em que ocorreu a transação. A cobrança será enviada após o fechamento do mês subsequente;
-4. **Os códigos de transações** consideradas **irreversíveis pelo emissor** foram categorizados pela indústria de pagamentos e autorregulação da ABECS, por meio do Normativo 21 vigente. Veja os [Códigos de retorno (ABECS)](https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-de-retorno-abecs){:target="_blank"};
+4. **Os códigos de transações** consideradas **irreversíveis pelo emissor** foram categorizados pela indústria de pagamentos e autorregulação da ABECS, por meio do Normativo 21 vigente. Veja os [Códigos de retorno (ABECS)](https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-de-retorno-abecs){:target="\_blank"};
 5. **Os códigos não citados no manual da ABECS são considerados como reversíveis**.
 
 <aside class="notice">Início de vigência: 15 de setembro de 2022.</aside>
 
 ## Demais bandeiras
 
-* **Códigos reversíveis:** serão permitidas novas retentativas para o mesmo cliente e cartão. Não há limite e período pré-estabelecido;
+- **Códigos reversíveis:** serão permitidas novas retentativas para o mesmo cliente e cartão. Não há limite e período pré-estabelecido;
 
 > **Importante**: antes de realizar uma nova tentativa, siga a orientação recebida na resposta da transação negada.
 
-* **Códigos Irreversíveis:** não serão permitidas autorizações para o mesmo cartão ou estabelecimento, depois de receber 1ª resposta de recusa do emissor.
+- **Códigos Irreversíveis:** não serão permitidas autorizações para o mesmo cartão ou estabelecimento, depois de receber 1ª resposta de recusa do emissor.
 
 # Códigos de retorno ABECS
 
@@ -1789,154 +1788,154 @@ A Cielo informa seus clientes que está preparada para processar as transações
 
 <aside class="notice">Os códigos da bandeira AMEX sofreram um de/para de modo a manter dois dígitos. Reforçamos que essa medida não altera os motivos de retorno.</aside>
 
-| Mensagem | Tipo de Código | ELO | VISA | MASTERCARD/HIPER | AMEX | AMEX - De/Para Cielo | Mensagem POS/Ecommerce | Houve alteração da ABECS em 2022? |
-|---|---|---|---|---|---|---|---|
-|GENÉRICA|REVERSÍVEL|5|5|5|100|FA|CONTATE A CENTRAL DO SEU CARTÃO|Não|
-|SALDO/LIMITE INSUFICIENTE|REVERSÍVEL|51|51|51|116|A5|NÃO AUTORIZADA|Não|
-|SALDO/LIMITE INSUFICIENTE|REVERSÍVEL|51|51|51|121|A5|NÃO AUTORIZADA|Somente na nossa Documentação|
-|SENHA INVÁLIDA|REVERSÍVEL|55|55 ou 86|55|117|A6|SENHA INVÁLIDA|Não|
-|TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO|REVERSÍVEL|-|57|57|200|FD|TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO|Sim|
-|TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO|IREVERSÍVEL|57|-|-|-|-|TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO - NÃO TENTE NOVAMENTE|Novo|
-|NÚMERO CARTÃO NÃO PERTENCE AO EMISSOR / NÚMERO CARTÃO INVÁLIDO|IRREVERSÍVEL|14 ou 56|14|14 ou 01|122|8|VERIFIQUE OS DADOS DO CARTÃO|Sim|
-|VIOLAÇÃO DE SEGURANÇA|IRREVERSÍVEL|63|63|-|122|8|VERIFIQUE OS DADOS DO CARTÃO|Sim|
-|VIOLAÇÃO DE SEGURANÇA|REVERSÍVEL|-|-|63|-|-|VERIFIQUE OS DADOS DO CARTÃO|Novo|
-|SUSPEITA DE FRAUDE|REVERSÍVEL|59|59|63|100|FA|CONTATE A CENTRAL DO SEU CARTÃO|Não|
-|COMERCIANTE INVÁLIDO|IRREVERSÍVEL|58|3|3|109|DA|TRANSAÇÃO NÃO PERMITIDA - NÃO TENTE NOVAMENTE|Sim|
-|REFAZER A TRANSAÇÃO (EMISSOR SOLICITA RETENTATIVA)|REVERSÍVEL|4|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|REFAZER A TRANSAÇÃO|Sim|
-|CONSULTAR CREDENCIADOR|REVERSÍVEL|6|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|LOJISTA, CONTATE O ADQUIRENTE|Sim|
-|PROBLEMA NO ADQUIRENTE|IRREVERSÍVEL|19|19|30|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|ERRO NO CARTÃO – NÃO TENTE NOVAMENTE|Não|
-|ERRO NO CARTÃO|IRREVERSÍVEL|12|6|SEM CÓDIGO CORRESPONDENTE|115|A2|VERIFIQUE OS DADOS DO CARTÃO|Não|
-|ERRO DE FORMATO (MENSAGERIA)|IRREVERSÍVEL|30|12|30|181|A3|ERRO NO CARTÃO - NÃO TENTE NOVAMENTE|Não|
-|VALOR DA TRANSAÇÃO INVÁLIDA|IRREVERSÍVEL|13|13|13|110|JB|VALOR DA TRANSAÇÃO NÃO PERMITIDO - NÃO TENTE NOVAMENTE|Não|
-|VALOR DA PARCELA INVÁLIDA|IRREVERSÍVEL|23|SEM CÓDIGO CORRESPONDENTE|12|115|A2|PARCELAMENTO INVÁLIDO - NÃO TENTE NOVAMENTE|Não|
-|EXCEDIDAS TENTATIVAS DE SENHA / COMPRAS|REVERSÍVEL|38|75|75|106|A4|EXCEDIDAS TENTATIVAS DE SENHA.CONTATE A CENTRAL DO SEU CARTÃO|Não|
-|CARTÃO PERDIDO|IRREVERSÍVEL|41|41|41|200|FD|TRANSAÇÃO NÃO PERMITIDA - NÃO TENTE NOVAMENTE|Não|
-|CARTÃO ROUBADO|IRREVERSÍVEL|43|43|43|200|FD|TRANSAÇÃO NÃO PERMITIDA - NÃO TENTE NOVAMENTE|Não|
-|CARTÃO VENCIDO / DT EXPIRAÇÃO INVÁLIDA|IRREVERSÍVEL|54|54|54|101|BV|VERIFIQUE OS DADOS DO CARTÃO|Sim|
-|TRANSAÇÃO NÃO PERMITIDA  CAPACIDADE DO TERMINAL|IRREVERSÍVEL|57|58|58|116|A5|TRANSAÇÃO NÃO PERMITIDA - NÃO TENTE NOVAMENTE|Não|
-|VALOR EXCESSO / SAQUE|REVERSÍVEL|61|61 ou N4|61|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|VALOR EXCEDIDO. CONTATE A CENTRAL DO SEU CARTÃO|Não|
-|BLOQUEIO TEMPORÁRIO (EX: INADIMPLÊNCIA)|REVERSÍVEL|62|62|57|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|CONTATE A CENTRAL DO SEU CARTÃO|Novo|
-|CARTÃO DOMÉSTICO - TRANSAÇÃO INTERNACIONAL|IRREVERSÍVEL|62|SEM CÓDIGO CORRESPONDENTE|62|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|CARTÃO NÃO PERMITE TRANSAÇÃO INTERNACIONAL|Somente na nossa Documentação|
-|CARTÃO DOMÉSTICO - TRANSAÇÃO INTERNACIONAL|REVERSÍVEL|SEM CÓDIGO CORRESPONDENTE|62|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|CARTÃO NÃO PERMITE TRANSAÇÃO INTERNACIONAL|Somente na nossa Documentação|
-|VALOR MÍNIMO DA TRANSAÇÃO INVÁLIDO|IRREVERSÍVEL|64|SEM CÓDIGO CORRESPONDENTE|13|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|VALOR DA TRANSAÇÃO NÃO PERMITIDO - NÃO TENTE NOVAMENTE|Sim|
-|QUANT. DE SAQUES EXCEDIDO|REVERSÍVEL|65|65|65|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|QUANTIDADE DE SAQUES EXCEDIDA. CONTATE A CENTRAL DO SEU CARTÃO|Não|
-|SENHA VENCIDA / ERRO DE CRIPTOGRAFIA DE SENHA|IRREVERSÍVEL|83|74 ou 81|88|180|A7|SENHA INVÁLIDA - NÃO TENTE NOVAMENTE|Sim|
-|EXCEDIDAS TENTATIVAS DE SENHA | SAQUE|REVERSÍVEL|75|75|75|106|A4|EXCEDIDAS TENTATIVAS DE SENHA.CONTATE A CENTRAL DO SEU CARTÃO|Não|
-|CONTA DESTINO INVÁLIDA OU INEXISTENTE|IRREVERSÍVEL|76|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|CONTA DESTINO INVÁLIDA - NÃO TENTE NOVAMENTE|Não|
-|CONTA ORIGEM INVÁLIDA OU INEXISTENTE|IRREVERSÍVEL|77|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|CONTA ORIGEM INVÁLIDA - NÃO TENTE NOVAMENTE|Não|
-|CARTÃO NOVO SEM DESBLOQUEIO|REVERSÍVEL|78|-|57|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|DESBLOQUEIE O CARTÃO|Sim|
-|CARTÃO NOVO SEM DESBLOQUEIO|IRREVERSÍVEL|-|78|-|-|-|DESBLOQUEIE O CARTÃO|Novo|
-|CARTÃO INVÁLIDO (criptograma)|IRREVERSÍVEL|82|82|88|180|A7|ERRO NO CARTÃO - NÃO TENTE NOVAMENTE|Não|
-|EMISSOR FORA DO AR|REVERSÍVEL|91|91|91|912|A1|FALHA DE COMUNICAÇÃO - TENTE MAIS TARDE|Não|
-|FALHA DO SISTEMA|REVERSÍVEL|96|96|96|911|AE|FALHA DE COMUNICAÇÃO - TENTE MAIS TARDE|Não|
-|DIFERENÇA - PRÉ AUTORIZAÇÃO|IRREVERSÍVEL|SEM CÓDIGO CORRESPONDENTE|N8|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|VALOR DIFERENTE DA PRÉ AUTORIZAÇÃO - NÃO TENTE NOVAMENTE|Sim|
-|FUNÇÃO INCORRETA (DÉBITO)|IRREVERSÍVEL|AB|52 ou 53|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|UTILIZE FUNÇÃO CRÉDITO|Não|
-|FUNÇÃO INCORRETA (CRÉDITO)|IRREVERSÍVEL|AC|39|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|UTILIZE FUNÇÃO DÉBITO|Não|
-|TROCA DE SENHA / DESBLOQUEIO|IRREVERSÍVEL|P5|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SENHA INVÁLIDA - NÃO TENTE NOVAMENTE|Não|
-|NOVA SENHA NÃO ACEITA|REVERSÍVEL|P6|SEM CÓDIGO CORRESPONDENTE|55|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SENHA INVÁLIDA UTILIZE A NOVA SENHA|Sim|
-|RECOLHER CARTÃO (NÃO HÁ FRAUDE)|IRREVERSÍVEL|SEM CÓDIGO CORRESPONDENTE|4|4|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE|Sim|
-|ERRO POR MUDANÇA DE CHAVE DINÂMICA|IRREVERSÍVEL|SEM CÓDIGO CORRESPONDENTE|N7|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|ERRO NO CARTÃO - NÃO TENTE NOVAMENTE|Sim|
-|FRAUDE CONFIRMADA|IRREVERSÍVEL|57|7|4|200|FD|TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO - NÃO TENTE NOVAMENTE|Não|
-|EMISSOR Ñ LOCALIZADO - BIN INCORRETO (negativa do adquirente)|IRREVERSÍVEL|SEM CÓDIGO CORRESPONDENTE|15|15|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|DADOS DO CARTÃO INVÁLIDO - NÃO TENTE NOVAMENTE|Não|
-|NÃO CUMPRIMENTO PELAS LEIS DE ANTE LAVAGEM DE DINHEIRO|IRREVERSÍVEL|SEM CÓDIGO CORRESPONDENTE|64|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE|Não|
-|REVERSÃO INVÁLIDA|IRREVERSÍVEL|SEM CÓDIGO CORRESPONDENTE|76|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE|Não|
-|NÃO LOCALIZADO PELO ROTEADOR|IRREVERSÍVEL|SEM CÓDIGO CORRESPONDENTE|92|92|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE|Não|
-|TRANSAÇÃO NEGADA POR INFRAÇÃO DE LEI|IRREVERSÍVEL|57|93|62|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO - NÃO TENTE NOVAMENTE|Sim|
-|VALOR DO TRACING DATA DUPLICADO|IRREVERSÍVEL|SEM CÓDIGO CORRESPONDENTE|94|94|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTENOVAMENTE|Não|
-|SURCHARGE NÃO SUPORTADO|REVERSÍVEL|SEM CÓDIGO CORRESPONDENTE|B1|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|CONTATE A CENTRAL DO SEU CARTÃO|Não|
-|SURCHARGE NÃO SUPORTADO PELA REDE DE DÉBITO|REVERSÍVEL|SEM CÓDIGO CORRESPONDENTE|B2|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|CONTATE A CENTRAL DO SEU CARTÃO|Não|
-|FORÇAR STIP|REVERSÍVEL|SEM CÓDIGO CORRESPONDENTE|N0|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|CONTATE A CENTRAL DO SEU CARTÃO|Não|
-|SAQUE NÃO DISPONÍVEL|IRREVERSÍVEL|SEM CÓDIGO CORRESPONDENTE|N3|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SAQUE NÃO DISPONÍVEL - NÃO TENTE NOVAMENTE|Não|
-|SUSPENSÃO DE PAGAMENTO RECORRENTE PARA UM SERVIÇO|IRREVERSÍVEL|SEM CÓDIGO CORRESPONDENTE|R0|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SUSPENSÃO DE PAGAMENTO RECORRENTE PARA SERVIÇO - NÃO TENTE NOVAMENTE|Não|
-|SUSPENSÃO DE PAGAMENTO RECORRENTE PARA TODOS SERVIÇO|IRREVERSÍVEL|SEM CÓDIGO CORRESPONDENTE|R1|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SUSPENSÃO DE PAGAMENTO RECORRENTE PARA SERVIÇO - NÃO TENTE NOVAMENTE|Não|
-|TRANSAÇÃO NÃO QUALIFICADA PARA VISA PIN|IRREVERSÍVEL|SEM CÓDIGO CORRESPONDENTE|R2|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO - NÃO TENTE NOVAMENTE|Não|
-|SUSPENSÃO DE TODAS AS ORDENS DE AUTORIZAÇÃO|IRREVERSÍVEL|SEM CÓDIGO CORRESPONDENTE|R3|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SUSPENSÃO DE PAGAMENTO RECORRENTE PARA SERVIÇO - NÃO TENTE NOVAMENTE|Não|
-|NÃO É POSSÍVEL LOCALIZAR O REGISTRO NO ARQUIVO|IRREVERSÍVEL|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE|Sim|
-|ARQUIVO NÃO DISPONÍVEL PARA ATUALIZAÇÃO|IRREVERSÍVEL|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE|Sim|
-|CONTA ENCERRADA|IRREVERSÍVEL|SEM CÓDIGO CORRESPONDENTE|46|62|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO - NÃO TENTE NOVAMENTE|Novo|
-|FALHA VALIDAÇÃO DE ID|IRREVERSÍVEL|SEM CÓDIGO CORRESPONDENTE|6P|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|FALHA NA VERIFICAÇÃO DO ID|Novo|
-|UTILIZAR O CHIP|IRREVERSÍVEL|FM|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|SEM CÓDIGO CORRESPONDENTE|UTILIZE O CHIP|Novo|
+| Mensagem                                                       | Tipo de Código | ELO                       | VISA                      | MASTERCARD/HIPER          | AMEX                      | AMEX - De/Para Cielo      | Mensagem POS/Ecommerce                                               | Houve alteração da ABECS em 2022?                             |
+| -------------------------------------------------------------- | -------------- | ------------------------- | ------------------------- | ------------------------- | ------------------------- | ------------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------- | --- |
+| GENÉRICA                                                       | REVERSÍVEL     | 5                         | 5                         | 5                         | 100                       | FA                        | CONTATE A CENTRAL DO SEU CARTÃO                                      | Não                                                           |
+| SALDO/LIMITE INSUFICIENTE                                      | REVERSÍVEL     | 51                        | 51                        | 51                        | 116                       | A5                        | NÃO AUTORIZADA                                                       | Não                                                           |
+| SALDO/LIMITE INSUFICIENTE                                      | REVERSÍVEL     | 51                        | 51                        | 51                        | 121                       | A5                        | NÃO AUTORIZADA                                                       | Somente na nossa Documentação                                 |
+| SENHA INVÁLIDA                                                 | REVERSÍVEL     | 55                        | 55 ou 86                  | 55                        | 117                       | A6                        | SENHA INVÁLIDA                                                       | Não                                                           |
+| TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO                          | REVERSÍVEL     | -                         | 57                        | 57                        | 200                       | FD                        | TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO                                | Sim                                                           |
+| TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO                          | IREVERSÍVEL    | 57                        | -                         | -                         | -                         | -                         | TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO - NÃO TENTE NOVAMENTE          | Novo                                                          |
+| NÚMERO CARTÃO NÃO PERTENCE AO EMISSOR / NÚMERO CARTÃO INVÁLIDO | IRREVERSÍVEL   | 14 ou 56                  | 14                        | 14 ou 01                  | 122                       | 8                         | VERIFIQUE OS DADOS DO CARTÃO                                         | Sim                                                           |
+| VIOLAÇÃO DE SEGURANÇA                                          | IRREVERSÍVEL   | 63                        | 63                        | -                         | 122                       | 8                         | VERIFIQUE OS DADOS DO CARTÃO                                         | Sim                                                           |
+| VIOLAÇÃO DE SEGURANÇA                                          | REVERSÍVEL     | -                         | -                         | 63                        | -                         | -                         | VERIFIQUE OS DADOS DO CARTÃO                                         | Novo                                                          |
+| SUSPEITA DE FRAUDE                                             | REVERSÍVEL     | 59                        | 59                        | 63                        | 100                       | FA                        | CONTATE A CENTRAL DO SEU CARTÃO                                      | Não                                                           |
+| COMERCIANTE INVÁLIDO                                           | IRREVERSÍVEL   | 58                        | 3                         | 3                         | 109                       | DA                        | TRANSAÇÃO NÃO PERMITIDA - NÃO TENTE NOVAMENTE                        | Sim                                                           |
+| REFAZER A TRANSAÇÃO (EMISSOR SOLICITA RETENTATIVA)             | REVERSÍVEL     | 4                         | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | REFAZER A TRANSAÇÃO                                                  | Sim                                                           |
+| CONSULTAR CREDENCIADOR                                         | REVERSÍVEL     | 6                         | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | LOJISTA, CONTATE O ADQUIRENTE                                        | Sim                                                           |
+| PROBLEMA NO ADQUIRENTE                                         | IRREVERSÍVEL   | 19                        | 19                        | 30                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | ERRO NO CARTÃO – NÃO TENTE NOVAMENTE                                 | Não                                                           |
+| ERRO NO CARTÃO                                                 | IRREVERSÍVEL   | 12                        | 6                         | SEM CÓDIGO CORRESPONDENTE | 115                       | A2                        | VERIFIQUE OS DADOS DO CARTÃO                                         | Não                                                           |
+| ERRO DE FORMATO (MENSAGERIA)                                   | IRREVERSÍVEL   | 30                        | 12                        | 30                        | 181                       | A3                        | ERRO NO CARTÃO - NÃO TENTE NOVAMENTE                                 | Não                                                           |
+| VALOR DA TRANSAÇÃO INVÁLIDA                                    | IRREVERSÍVEL   | 13                        | 13                        | 13                        | 110                       | JB                        | VALOR DA TRANSAÇÃO NÃO PERMITIDO - NÃO TENTE NOVAMENTE               | Não                                                           |
+| VALOR DA PARCELA INVÁLIDA                                      | IRREVERSÍVEL   | 23                        | SEM CÓDIGO CORRESPONDENTE | 12                        | 115                       | A2                        | PARCELAMENTO INVÁLIDO - NÃO TENTE NOVAMENTE                          | Não                                                           |
+| EXCEDIDAS TENTATIVAS DE SENHA / COMPRAS                        | REVERSÍVEL     | 38                        | 75                        | 75                        | 106                       | A4                        | EXCEDIDAS TENTATIVAS DE SENHA.CONTATE A CENTRAL DO SEU CARTÃO        | Não                                                           |
+| CARTÃO PERDIDO                                                 | IRREVERSÍVEL   | 41                        | 41                        | 41                        | 200                       | FD                        | TRANSAÇÃO NÃO PERMITIDA - NÃO TENTE NOVAMENTE                        | Não                                                           |
+| CARTÃO ROUBADO                                                 | IRREVERSÍVEL   | 43                        | 43                        | 43                        | 200                       | FD                        | TRANSAÇÃO NÃO PERMITIDA - NÃO TENTE NOVAMENTE                        | Não                                                           |
+| CARTÃO VENCIDO / DT EXPIRAÇÃO INVÁLIDA                         | IRREVERSÍVEL   | 54                        | 54                        | 54                        | 101                       | BV                        | VERIFIQUE OS DADOS DO CARTÃO                                         | Sim                                                           |
+| TRANSAÇÃO NÃO PERMITIDA CAPACIDADE DO TERMINAL                 | IRREVERSÍVEL   | 57                        | 58                        | 58                        | 116                       | A5                        | TRANSAÇÃO NÃO PERMITIDA - NÃO TENTE NOVAMENTE                        | Não                                                           |
+| VALOR EXCESSO / SAQUE                                          | REVERSÍVEL     | 61                        | 61 ou N4                  | 61                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | VALOR EXCEDIDO. CONTATE A CENTRAL DO SEU CARTÃO                      | Não                                                           |
+| BLOQUEIO TEMPORÁRIO (EX: INADIMPLÊNCIA)                        | REVERSÍVEL     | 62                        | 62                        | 57                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | CONTATE A CENTRAL DO SEU CARTÃO                                      | Novo                                                          |
+| CARTÃO DOMÉSTICO - TRANSAÇÃO INTERNACIONAL                     | IRREVERSÍVEL   | 62                        | SEM CÓDIGO CORRESPONDENTE | 62                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | CARTÃO NÃO PERMITE TRANSAÇÃO INTERNACIONAL                           | Somente na nossa Documentação                                 |
+| CARTÃO DOMÉSTICO - TRANSAÇÃO INTERNACIONAL                     | REVERSÍVEL     | SEM CÓDIGO CORRESPONDENTE | 62                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | CARTÃO NÃO PERMITE TRANSAÇÃO INTERNACIONAL                           | Somente na nossa Documentação                                 |
+| VALOR MÍNIMO DA TRANSAÇÃO INVÁLIDO                             | IRREVERSÍVEL   | 64                        | SEM CÓDIGO CORRESPONDENTE | 13                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | VALOR DA TRANSAÇÃO NÃO PERMITIDO - NÃO TENTE NOVAMENTE               | Sim                                                           |
+| QUANT. DE SAQUES EXCEDIDO                                      | REVERSÍVEL     | 65                        | 65                        | 65                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | QUANTIDADE DE SAQUES EXCEDIDA. CONTATE A CENTRAL DO SEU CARTÃO       | Não                                                           |
+| SENHA VENCIDA / ERRO DE CRIPTOGRAFIA DE SENHA                  | IRREVERSÍVEL   | 83                        | 74 ou 81                  | 88                        | 180                       | A7                        | SENHA INVÁLIDA - NÃO TENTE NOVAMENTE                                 | Sim                                                           |
+| EXCEDIDAS TENTATIVAS DE SENHA                                  | SAQUE          | REVERSÍVEL                | 75                        | 75                        | 75                        | 106                       | A4                                                                   | EXCEDIDAS TENTATIVAS DE SENHA.CONTATE A CENTRAL DO SEU CARTÃO | Não |
+| CONTA DESTINO INVÁLIDA OU INEXISTENTE                          | IRREVERSÍVEL   | 76                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | CONTA DESTINO INVÁLIDA - NÃO TENTE NOVAMENTE                         | Não                                                           |
+| CONTA ORIGEM INVÁLIDA OU INEXISTENTE                           | IRREVERSÍVEL   | 77                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | CONTA ORIGEM INVÁLIDA - NÃO TENTE NOVAMENTE                          | Não                                                           |
+| CARTÃO NOVO SEM DESBLOQUEIO                                    | REVERSÍVEL     | 78                        | -                         | 57                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | DESBLOQUEIE O CARTÃO                                                 | Sim                                                           |
+| CARTÃO NOVO SEM DESBLOQUEIO                                    | IRREVERSÍVEL   | -                         | 78                        | -                         | -                         | -                         | DESBLOQUEIE O CARTÃO                                                 | Novo                                                          |
+| CARTÃO INVÁLIDO (criptograma)                                  | IRREVERSÍVEL   | 82                        | 82                        | 88                        | 180                       | A7                        | ERRO NO CARTÃO - NÃO TENTE NOVAMENTE                                 | Não                                                           |
+| EMISSOR FORA DO AR                                             | REVERSÍVEL     | 91                        | 91                        | 91                        | 912                       | A1                        | FALHA DE COMUNICAÇÃO - TENTE MAIS TARDE                              | Não                                                           |
+| FALHA DO SISTEMA                                               | REVERSÍVEL     | 96                        | 96                        | 96                        | 911                       | AE                        | FALHA DE COMUNICAÇÃO - TENTE MAIS TARDE                              | Não                                                           |
+| DIFERENÇA - PRÉ AUTORIZAÇÃO                                    | IRREVERSÍVEL   | SEM CÓDIGO CORRESPONDENTE | N8                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | VALOR DIFERENTE DA PRÉ AUTORIZAÇÃO - NÃO TENTE NOVAMENTE             | Sim                                                           |
+| FUNÇÃO INCORRETA (DÉBITO)                                      | IRREVERSÍVEL   | AB                        | 52 ou 53                  | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | UTILIZE FUNÇÃO CRÉDITO                                               | Não                                                           |
+| FUNÇÃO INCORRETA (CRÉDITO)                                     | IRREVERSÍVEL   | AC                        | 39                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | UTILIZE FUNÇÃO DÉBITO                                                | Não                                                           |
+| TROCA DE SENHA / DESBLOQUEIO                                   | IRREVERSÍVEL   | P5                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SENHA INVÁLIDA - NÃO TENTE NOVAMENTE                                 | Não                                                           |
+| NOVA SENHA NÃO ACEITA                                          | REVERSÍVEL     | P6                        | SEM CÓDIGO CORRESPONDENTE | 55                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SENHA INVÁLIDA UTILIZE A NOVA SENHA                                  | Sim                                                           |
+| RECOLHER CARTÃO (NÃO HÁ FRAUDE)                                | IRREVERSÍVEL   | SEM CÓDIGO CORRESPONDENTE | 4                         | 4                         | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE                | Sim                                                           |
+| ERRO POR MUDANÇA DE CHAVE DINÂMICA                             | IRREVERSÍVEL   | SEM CÓDIGO CORRESPONDENTE | N7                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | ERRO NO CARTÃO - NÃO TENTE NOVAMENTE                                 | Sim                                                           |
+| FRAUDE CONFIRMADA                                              | IRREVERSÍVEL   | 57                        | 7                         | 4                         | 200                       | FD                        | TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO - NÃO TENTE NOVAMENTE          | Não                                                           |
+| EMISSOR Ñ LOCALIZADO - BIN INCORRETO (negativa do adquirente)  | IRREVERSÍVEL   | SEM CÓDIGO CORRESPONDENTE | 15                        | 15                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | DADOS DO CARTÃO INVÁLIDO - NÃO TENTE NOVAMENTE                       | Não                                                           |
+| NÃO CUMPRIMENTO PELAS LEIS DE ANTE LAVAGEM DE DINHEIRO         | IRREVERSÍVEL   | SEM CÓDIGO CORRESPONDENTE | 64                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE                | Não                                                           |
+| REVERSÃO INVÁLIDA                                              | IRREVERSÍVEL   | SEM CÓDIGO CORRESPONDENTE | 76                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE                | Não                                                           |
+| NÃO LOCALIZADO PELO ROTEADOR                                   | IRREVERSÍVEL   | SEM CÓDIGO CORRESPONDENTE | 92                        | 92                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE                | Não                                                           |
+| TRANSAÇÃO NEGADA POR INFRAÇÃO DE LEI                           | IRREVERSÍVEL   | 57                        | 93                        | 62                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO - NÃO TENTE NOVAMENTE          | Sim                                                           |
+| VALOR DO TRACING DATA DUPLICADO                                | IRREVERSÍVEL   | SEM CÓDIGO CORRESPONDENTE | 94                        | 94                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTENOVAMENTE                 | Não                                                           |
+| SURCHARGE NÃO SUPORTADO                                        | REVERSÍVEL     | SEM CÓDIGO CORRESPONDENTE | B1                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | CONTATE A CENTRAL DO SEU CARTÃO                                      | Não                                                           |
+| SURCHARGE NÃO SUPORTADO PELA REDE DE DÉBITO                    | REVERSÍVEL     | SEM CÓDIGO CORRESPONDENTE | B2                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | CONTATE A CENTRAL DO SEU CARTÃO                                      | Não                                                           |
+| FORÇAR STIP                                                    | REVERSÍVEL     | SEM CÓDIGO CORRESPONDENTE | N0                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | CONTATE A CENTRAL DO SEU CARTÃO                                      | Não                                                           |
+| SAQUE NÃO DISPONÍVEL                                           | IRREVERSÍVEL   | SEM CÓDIGO CORRESPONDENTE | N3                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SAQUE NÃO DISPONÍVEL - NÃO TENTE NOVAMENTE                           | Não                                                           |
+| SUSPENSÃO DE PAGAMENTO RECORRENTE PARA UM SERVIÇO              | IRREVERSÍVEL   | SEM CÓDIGO CORRESPONDENTE | R0                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SUSPENSÃO DE PAGAMENTO RECORRENTE PARA SERVIÇO - NÃO TENTE NOVAMENTE | Não                                                           |
+| SUSPENSÃO DE PAGAMENTO RECORRENTE PARA TODOS SERVIÇO           | IRREVERSÍVEL   | SEM CÓDIGO CORRESPONDENTE | R1                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SUSPENSÃO DE PAGAMENTO RECORRENTE PARA SERVIÇO - NÃO TENTE NOVAMENTE | Não                                                           |
+| TRANSAÇÃO NÃO QUALIFICADA PARA VISA PIN                        | IRREVERSÍVEL   | SEM CÓDIGO CORRESPONDENTE | R2                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO - NÃO TENTE NOVAMENTE          | Não                                                           |
+| SUSPENSÃO DE TODAS AS ORDENS DE AUTORIZAÇÃO                    | IRREVERSÍVEL   | SEM CÓDIGO CORRESPONDENTE | R3                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SUSPENSÃO DE PAGAMENTO RECORRENTE PARA SERVIÇO - NÃO TENTE NOVAMENTE | Não                                                           |
+| NÃO É POSSÍVEL LOCALIZAR O REGISTRO NO ARQUIVO                 | IRREVERSÍVEL   | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE                | Sim                                                           |
+| ARQUIVO NÃO DISPONÍVEL PARA ATUALIZAÇÃO                        | IRREVERSÍVEL   | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | CONTATE A CENTRAL DO SEU CARTÃO - NÃO TENTE NOVAMENTE                | Sim                                                           |
+| CONTA ENCERRADA                                                | IRREVERSÍVEL   | SEM CÓDIGO CORRESPONDENTE | 46                        | 62                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | TRANSAÇÃO NÃO PERMITIDA PARA O CARTÃO - NÃO TENTE NOVAMENTE          | Novo                                                          |
+| FALHA VALIDAÇÃO DE ID                                          | IRREVERSÍVEL   | SEM CÓDIGO CORRESPONDENTE | 6P                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | FALHA NA VERIFICAÇÃO DO ID                                           | Novo                                                          |
+| UTILIZAR O CHIP                                                | IRREVERSÍVEL   | FM                        | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | SEM CÓDIGO CORRESPONDENTE | UTILIZE O CHIP                                                       | Novo                                                          |
 
 ## Outros códigos de retorno
 
-| Código Resposta | Definição                                     | Significado                                                                 | Ação                                                              | Permite Retentativa |
-|-----------------|-----------------------------------------------|-----------------------------------------------------------------------------|-------------------------------------------------------------------|---------------------|
-|0|Transação autorizada com sucesso.|Transação autorizada com sucesso.|Transação autorizada com sucesso.|Não|
-|2|Transação não autorizada. Transação referida.|Transação não autorizada. Referida (suspeita de fraude) pelo banco emissor.|Transação não autorizada. Entre em contato com seu banco emissor.|Não|
-|9|Transação cancelada parcialmente com sucesso.|Transação cancelada parcialmente com sucesso|Transação cancelada parcialmente com sucesso|Não|
-|11|Transação autorizada com sucesso para cartão emitido no exterior|Transação autorizada com sucesso.|Transação autorizada com sucesso.|Não|
-|21|Cancelamento não efetuado. Transação não localizada.|Não foi possível processar o cancelamento. Se o erro persistir, entre em contato com a Cielo.|Não foi possível processar o cancelamento. Tente novamente mais tarde. Persistindo o erro, entrar em contato com a loja virtual.|Não|
-|22|Parcelamento inválido. Número de parcelas inválidas.|Não foi possível processar a transação. Número de parcelas inválidas. Se o erro persistir, entre em contato com a Cielo.|Não foi possível processar a transação. Valor inválido. Refazer a transação confirmando os dados informados. Persistindo o erro, entrar em contato com a loja virtual.|Não|
-|24|Quantidade de parcelas inválido.|Não foi possível processar a transação. Quantidade de parcelas inválido. Se o erro persistir, entre em contato com a Cielo.|Não foi possível processar a transação. Quantidade de parcelas inválido. Refazer a transação confirmando os dados informados. Persistindo o erro, entrar em contato com a loja virtual.|Não|
-|60|Transação não autorizada.|Transação não autorizada. Tente novamente. Se o erro persistir o portador deve entrar em contato com o banco emissor.|Não foi possível processar a transação. Tente novamente mais tarde. Se o erro persistir, entre em contato com seu banco emissor.|Apenas 4 vezes em 16 dias.|
-|67|Transação não autorizada. Cartão bloqueado para compras hoje.|Transação não autorizada. Cartão bloqueado para compras hoje. Bloqueio pode ter ocorrido por excesso de tentativas inválidas. O cartão será desbloqueado automaticamente à meia noite.|Transação não autorizada. Cartão bloqueado temporariamente. Entre em contato com seu banco emissor.|A partir do dia seguinte, apenas 4 vezes em 16 dias.|
-|70|Transação não autorizada. Limite excedido/sem saldo.|Transação não autorizada. Limite excedido/sem saldo.|Transação não autorizada. Entre em contato com seu banco emissor.|A partir do dia seguinte, apenas 4 vezes em 16 dias.|
-|72|Cancelamento não efetuado. Saldo disponível para cancelamento insuficiente.|Cancelamento não efetuado. Saldo disponível para cancelamento insuficiente. Se o erro persistir, entre em contato com a Cielo.|Cancelamento não efetuado. Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.|Não|
-|79|TRANSAÇÃO MASTERCARD NÃO PERMITIDA PARA O CARTÃO|Transação não autorizada. Não é possível processar a transação devido a erro relacionado ao cartão do portador. Solicite ao portador que entre em contato com o banco emissor.|Entre em contato com o seu banco|Não|
-|80|Transação não autorizada. Divergencia na data de transação/pagamento.|Transação não autorizada. Data da transação ou data do primeiro pagamento inválida.|Transação não autorizada. Refazer a transação confirmando os dados.|Não|
-|82|TRANSAÇÃO MASTERCARD NÃO AUTORIZADA. LIGUE PARA O EMISSOR|Transação não autorizada devido a regras do emissor. Oriente o portador a entrar em contato com o banco emissor.|Entre em contato com o seu banco|Não|
-|83|TRANSAÇÃO MASTERCARD SUSPEITA DE FRAUDE|Transação não autorizada. Suspeita de fraude pelo banco emissor.|Entre em contato com o seu banco|Não|
-|85|Transação não permitida. Falha da operação.|Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.|Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.|Não|
-|89|Erro na transação.|Transação não autorizada. Erro na transação. O portador deve tentar novamente e se o erro persistir, entrar em contato com o banco emissor.|Transação não autorizada. Erro na transação. Tente novamente e se o erro persistir, entre em contato com seu banco emissor.|Apenas 4 vezes em 16 dias.|
-|90|Transação não permitida. Falha da operação.|Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.|Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.|Não|
-|97|Valor não permitido para essa transação.|Transação não autorizada. Valor não permitido para essa transação.|Transação não autorizada. Valor não permitido para essa transação.|Não|
-|98|Sistema/comunicação indisponível.|Transação não autorizada. Sistema do emissor sem comunicação. Se for geral, verificar SITEF, GATEWAY e/ou Conectividade.|Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.|Apenas 4 vezes em 16 dias.|
-|475|Timeout de Cancelamento|A aplicação não respondeu dentro do tempo esperado.|Realizar uma nova tentativa após alguns segundos. Persistindo, entrar em contato com o Suporte.|Não|
-|999|Sistema/comunicação indisponível.|Transação não autorizada. Sistema do emissor sem comunicação. Tente mais tarde. Pode ser erro no SITEF, favor verificar !|Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.|A partir do dia seguinte, apenas 4 vezes em 16 dias.|
-|AA|Tempo Excedido|Tempo excedido na comunicação com o banco emissor. Oriente o portador a tentar novamente, se o erro persistir será necessário que o portador contate seu banco emissor.|Tempo excedido na sua comunicação com o banco emissor, tente novamente mais tarde. Se o erro persistir, entre em contato com seu banco.|Apenas 4 vezes em 16 dias.|
-|AF|Transação não permitida. Falha da operação.|Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.|Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.|Não|
-|AG|Transação não permitida. Falha da operação.|Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.|Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.|Não|
-|AH|Transação não permitida. Cartão de crédito sendo usado com débito. Use a função crédito.|Transação não permitida. Cartão de crédito sendo usado com débito. Solicite ao portador que selecione a opção de pagamento Cartão de Crédito.|Transação não autorizada. Tente novamente selecionando a opção de pagamento cartão de crédito.|Não|
-|AI|Transação não autorizada. Autenticação não foi realizada.|Transação não autorizada. Autenticação não foi realizada. O portador não concluiu a autenticação. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir, entre em contato com a Cielo informando o BIN (6 primeiros dígitos do cartão)|Transação não autorizada. Autenticação não foi realizada com sucesso. Tente novamente e informe corretamente os dados solicitado. Se o erro persistir, entre em contato com o lojista.|Não|
-|AJ|Transação não permitida. Transação de crédito ou débito em uma operação que permite apenas Private Label. Tente novamente selecionando a opção Private Label.|Transação não permitida. Transação de crédito ou débito em uma operação que permite apenas Private Label. Solicite ao portador que tente novamente selecionando a opção Private Label. Caso não disponibilize a opção Private Label verifique na Cielo se o seu estabelecimento permite essa operação.|Transação não permitida. Transação de crédito ou débito em uma operação que permite apenas Private Label. Tente novamente e selecione a opção Private Label. Em caso de um novo erro entre em contato com a loja virtual.|Não|
-|AV|Transação não autorizada. Dados Inválidos|Falha na validação dos dados da transação. Oriente o portador a rever os dados e tentar novamente.|Falha na validação dos dados. Reveja os dados informados e tente novamente.|Apenas 4 vezes em 16 dias.|
-|BD|Transação não permitida. Falha da operação.|Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.|Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.|Não|
-|BL|Transação não autorizada. Limite diário excedido.|Transação não autorizada. Limite diário excedido. Solicite ao portador que entre em contato com seu banco emissor.|Transação não autorizada. Limite diário excedido. Entre em contato com seu banco emissor.|A partir do dia seguinte, apenas 4 vezes em 16 dias.|
-|BM|Transação não autorizada. Cartão Inválido|Transação não autorizada. Cartão inválido. Pode ser bloqueio do cartão no banco emissor ou dados incorretos. Tente usar o Algoritmo de Lhum (Mod 10) para evitar transações não autorizadas por esse motivo.|Transação não autorizada. Cartão inválido. Refaça a transação confirmando os dados informados.|Não|
-|BN|Transação não autorizada. Cartão ou conta bloqueado.|Transação não autorizada. O cartão ou a conta do portador está bloqueada. Solicite ao portador que entre em contato com seu banco emissor.|Transação não autorizada. O cartão ou a conta do portador está bloqueada. Entre em contato com seu banco emissor.|Não|
-|BO|Transação não permitida. Falha da operação.|Transação não permitida. Houve um erro no processamento. Solicite ao portador que digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco emissor.|Transação não permitida. Houve um erro no processamento. Digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco emissor.|Apenas 4 vezes em 16 dias.|
-|BP|Transação não autorizada. Conta corrente inexistente.|Transação não autorizada. Não possível processar a transação por um erro relacionado ao cartão ou conta do portador. Solicite ao portador que entre em contato com o banco emissor.|Transação não autorizada. Não possível processar a transação por um erro relacionado ao cartão ou conta do portador. Entre em contato com o banco emissor.|Não|
-|BP176|Transação não permitida.|Parceiro deve checar se o processo de integração foi concluído com sucesso.|Parceiro deve checar se o processo de integração foi concluído com sucesso.|—|
-|BR|Transação não autorizada. Conta encerrada|A conta do portador está encerrada. Solicite ao portador que entre em contato com seu banco emissor.|A conta do portador está encerrada. Solicite ao portador que entre em contato com seu banco emissor.|Não|
-|C1|Transação não permitida. Cartão não pode processar transações de débito.|Troque a modalidade de pagamento ou o cartão utilizado.|Troque a modalidade de pagamento ou o cartão utilizado.|Não|
-|C2|Transação não permitida.|Dados incorretos. Favor rever os dados preenchidos na tela de pagamento.|Dados incorretos. Favor rever os dados preenchidos na tela de pagamento.|Não|
-|C3|Transação não permitida.|Período inválido para este tipo de transação.|Período inválido para este tipo de transação.|Não|
-|CF|Transação não autorizada.C79:J79 Falha na validação dos dados.|Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.|Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.|Não|
-|CG|Transação não autorizada. Falha na validação dos dados.|Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.|Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.|Não|
-|DF|Transação não permitida. Falha no cartão ou cartão inválido.|Transação não permitida. Falha no cartão ou cartão inválido. Solicite ao portador que digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco|Transação não permitida. Falha no cartão ou cartão inválido. Digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco|Apenas 4 vezes em 16 dias.|
-|DM|Transação não autorizada. Limite excedido/sem saldo.|Transação não autorizada. Limite excedido/sem saldo.|Transação não autorizada. Entre em contato com seu banco emissor.|A partir do dia seguinte, apenas 4 vezes em 16 dias.|
-|DQ|Transação não autorizada. Falha na validação dos dados.|Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.|Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.|Não|
-|DS|Transação não permitida para o cartão|Transação não autorizada. Transação não permitida para o cartão.|Transação não autorizada. Entre em contato com seu banco emissor.|Apenas 4 vezes em 16 dias.|
-|EB|Número de parcelas maior que o Permitido.|Transação não autorizada. Entre em contato com a Cielo e verifique se o cadastro possui parcelamento liberado.|Transação não autorizada. Entre em contato com a Cielo e verifique se o cadastro possui parcelamento liberado.|Sim|
-|EE|Transação não permitida. Valor da parcela inferior ao mínimo permitido.|Transação não permitida. Valor da parcela inferior ao mínimo permitido. Não é permitido parcelas inferiores a R$ 5,00. Necessário rever calculo para parcelas.|Transação não permitida. O valor da parcela está abaixo do mínimo permitido. Entre em contato com a loja virtual.|Não|
-|EK|Transação não permitida para o cartão|Transação não autorizada. Transação não permitida para o cartão.|Transação não autorizada. Entre em contato com seu banco emissor.|Apenas 4 vezes em 16 dias.|
-|FC|Transação não autorizada. Ligue Emissor|Transação não autorizada. Oriente o portador a entrar em contato com o banco emissor.|Transação não autorizada. Entre em contato com seu banco emissor.|Não|
-|FE|Transação não autorizada. Divergencia na data de transação/pagamento.|Transação não autorizada. Data da transação ou data do primeiro pagamento inválida.|Transação não autorizada. Refazer a transação confirmando os dados.|Não|
-|FF|Cancelamento OK|Transação de cancelamento autorizada com sucesso. ATENÇÂO: Esse retorno é para casos de cancelamentos e não para casos de autorizações.|Transação de cancelamento autorizada com sucesso|Não|
-|FG|Transação não autorizada. Ligue AmEx 08007285090.|Transação não autorizada. Oriente o portador a entrar em contato com a Central de Atendimento AmEx.|Transação não autorizada. Entre em contato com a Central de Atendimento AmEx no telefone 08007285090|Não|
-|GA|Aguarde Contato|Transação não autorizada. Referida pelo Lynx Online de forma preventiva.|Transação não autorizada. lojista deve aguardar contato por parte da Cielo|Não|
-|GF|Transação negada.|Transação não autorizada, verifique se o IP informado está liberado para processar a transação|Transação não permitida. Entre em contato com a Cielo.|Não|
-|GD|Transação não permitida.|Transação não permitida. Entre em contato com a Cielo.|Transação não permitida. Entre em contato com a Cielo.|—|
-|GT|Transação negada.|Ataque de força bruta.|Transação não permitida. Entre em contato com a Cielo.|Não|
-|GK|Transação negada.|Bloqueio temporário por ataque de força bruta.|Transação não permitida. Entre em contato com a Cielo.|Não|
-|HJ|Transação não permitida. Código da operação inválido.|Transação não permitida. Código da operação Coban inválido.|Transação não permitida. Código da operação Coban inválido. Entre em contato com o lojista.|Não|
-|IA|Transação não permitida. Indicador da operação inválido.|Transação não permitida. Indicador da operação Coban inválido.|Transação não permitida. Indicador da operação Coban inválido. Entre em contato com o lojista.|Não|
-|KA|Transação não permitida. Falha na validação dos dados.|Transação não permitida. Houve uma falha na validação dos dados. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir verifique a comunicação entre loja virtual e Cielo.|Transação não permitida. Houve uma falha na validação dos dados. reveja os dados informados e tente novamente. Se o erro persistir entre em contato com a Loja Virtual.|Não|
-|KB|Transação não permitida. Selecionado a opção incorrente.|Transação não permitida. Selecionado a opção incorreta. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir deve ser verificado a comunicação entre loja virtual e Cielo.|Transação não permitida. Selecionado a opção incorreta. Tente novamente. Se o erro persistir entre em contato com a Loja Virtual.|Não|
-|KE|Transação não autorizada. Falha na validação dos dados.|Transação não autorizada. Falha na validação dos dados. Opção selecionada não está habilitada. Verifique as opções disponíveis para o portador.|Transação não autorizada. Falha na validação dos dados. Opção selecionada não está habilitada. Entre em contato com a loja virtual.|Não|
-|NR|Transação não permitida.|Transação não permitida.|Transação não permitida. Retentar a transação após 30 dias|Retentar a transação após 30 dias.|
-|RP|Transação não permitida.|Transação não permitida.|Transação não permitida. Retentar a transação após 72h|Retentar a transação após 72 horas.|
-|SC|Transação não permitida.|Transação não permitida. Pagamento recorrente, serviço cancelado. Não retentar.|Transação não permitida. Pagamento recorrente, serviço cancelado. Não retentar.|Não.|
-|U3|Transação não permitida. Falha na validação dos dados.|Transação não permitida. Houve uma falha na validação dos dados. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir verifique a comunicação entre loja virtual e Cielo.|Transação não permitida. Houve uma falha na validação dos dados. reveja os dados informados e tente novamente. Se o erro persistir entre em contato com a Loja Virtual.|Não|
-|6P|Transação não autorizada. Dados Inválidos|Falha na validação dos dados da transação. Oriente o portador a rever os dados e tentar novamente.|Falha na validação dos dados. Reveja os dados informados e tente novamente.|Apenas 4 vezes em 16 dias.|
+| Código Resposta | Definição                                                                                                                                                     | Significado                                                                                                                                                                                                                                                                                            | Ação                                                                                                                                                                                                                      | Permite Retentativa                                  |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| 0               | Transação autorizada com sucesso.                                                                                                                             | Transação autorizada com sucesso.                                                                                                                                                                                                                                                                      | Transação autorizada com sucesso.                                                                                                                                                                                         | Não                                                  |
+| 2               | Transação não autorizada. Transação referida.                                                                                                                 | Transação não autorizada. Referida (suspeita de fraude) pelo banco emissor.                                                                                                                                                                                                                            | Transação não autorizada. Entre em contato com seu banco emissor.                                                                                                                                                         | Não                                                  |
+| 9               | Transação cancelada parcialmente com sucesso.                                                                                                                 | Transação cancelada parcialmente com sucesso                                                                                                                                                                                                                                                           | Transação cancelada parcialmente com sucesso                                                                                                                                                                              | Não                                                  |
+| 11              | Transação autorizada com sucesso para cartão emitido no exterior                                                                                              | Transação autorizada com sucesso.                                                                                                                                                                                                                                                                      | Transação autorizada com sucesso.                                                                                                                                                                                         | Não                                                  |
+| 21              | Cancelamento não efetuado. Transação não localizada.                                                                                                          | Não foi possível processar o cancelamento. Se o erro persistir, entre em contato com a Cielo.                                                                                                                                                                                                          | Não foi possível processar o cancelamento. Tente novamente mais tarde. Persistindo o erro, entrar em contato com a loja virtual.                                                                                          | Não                                                  |
+| 22              | Parcelamento inválido. Número de parcelas inválidas.                                                                                                          | Não foi possível processar a transação. Número de parcelas inválidas. Se o erro persistir, entre em contato com a Cielo.                                                                                                                                                                               | Não foi possível processar a transação. Valor inválido. Refazer a transação confirmando os dados informados. Persistindo o erro, entrar em contato com a loja virtual.                                                    | Não                                                  |
+| 24              | Quantidade de parcelas inválido.                                                                                                                              | Não foi possível processar a transação. Quantidade de parcelas inválido. Se o erro persistir, entre em contato com a Cielo.                                                                                                                                                                            | Não foi possível processar a transação. Quantidade de parcelas inválido. Refazer a transação confirmando os dados informados. Persistindo o erro, entrar em contato com a loja virtual.                                   | Não                                                  |
+| 60              | Transação não autorizada.                                                                                                                                     | Transação não autorizada. Tente novamente. Se o erro persistir o portador deve entrar em contato com o banco emissor.                                                                                                                                                                                  | Não foi possível processar a transação. Tente novamente mais tarde. Se o erro persistir, entre em contato com seu banco emissor.                                                                                          | Apenas 4 vezes em 16 dias.                           |
+| 67              | Transação não autorizada. Cartão bloqueado para compras hoje.                                                                                                 | Transação não autorizada. Cartão bloqueado para compras hoje. Bloqueio pode ter ocorrido por excesso de tentativas inválidas. O cartão será desbloqueado automaticamente à meia noite.                                                                                                                 | Transação não autorizada. Cartão bloqueado temporariamente. Entre em contato com seu banco emissor.                                                                                                                       | A partir do dia seguinte, apenas 4 vezes em 16 dias. |
+| 70              | Transação não autorizada. Limite excedido/sem saldo.                                                                                                          | Transação não autorizada. Limite excedido/sem saldo.                                                                                                                                                                                                                                                   | Transação não autorizada. Entre em contato com seu banco emissor.                                                                                                                                                         | A partir do dia seguinte, apenas 4 vezes em 16 dias. |
+| 72              | Cancelamento não efetuado. Saldo disponível para cancelamento insuficiente.                                                                                   | Cancelamento não efetuado. Saldo disponível para cancelamento insuficiente. Se o erro persistir, entre em contato com a Cielo.                                                                                                                                                                         | Cancelamento não efetuado. Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.                                                                                                          | Não                                                  |
+| 79              | TRANSAÇÃO MASTERCARD NÃO PERMITIDA PARA O CARTÃO                                                                                                              | Transação não autorizada. Não é possível processar a transação devido a erro relacionado ao cartão do portador. Solicite ao portador que entre em contato com o banco emissor.                                                                                                                         | Entre em contato com o seu banco                                                                                                                                                                                          | Não                                                  |
+| 80              | Transação não autorizada. Divergencia na data de transação/pagamento.                                                                                         | Transação não autorizada. Data da transação ou data do primeiro pagamento inválida.                                                                                                                                                                                                                    | Transação não autorizada. Refazer a transação confirmando os dados.                                                                                                                                                       | Não                                                  |
+| 82              | TRANSAÇÃO MASTERCARD NÃO AUTORIZADA. LIGUE PARA O EMISSOR                                                                                                     | Transação não autorizada devido a regras do emissor. Oriente o portador a entrar em contato com o banco emissor.                                                                                                                                                                                       | Entre em contato com o seu banco                                                                                                                                                                                          | Não                                                  |
+| 83              | TRANSAÇÃO MASTERCARD SUSPEITA DE FRAUDE                                                                                                                       | Transação não autorizada. Suspeita de fraude pelo banco emissor.                                                                                                                                                                                                                                       | Entre em contato com o seu banco                                                                                                                                                                                          | Não                                                  |
+| 85              | Transação não permitida. Falha da operação.                                                                                                                   | Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.                                                      | Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.                                                                                                  | Não                                                  |
+| 89              | Erro na transação.                                                                                                                                            | Transação não autorizada. Erro na transação. O portador deve tentar novamente e se o erro persistir, entrar em contato com o banco emissor.                                                                                                                                                            | Transação não autorizada. Erro na transação. Tente novamente e se o erro persistir, entre em contato com seu banco emissor.                                                                                               | Apenas 4 vezes em 16 dias.                           |
+| 90              | Transação não permitida. Falha da operação.                                                                                                                   | Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.                                                      | Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.                                                                                                  | Não                                                  |
+| 97              | Valor não permitido para essa transação.                                                                                                                      | Transação não autorizada. Valor não permitido para essa transação.                                                                                                                                                                                                                                     | Transação não autorizada. Valor não permitido para essa transação.                                                                                                                                                        | Não                                                  |
+| 98              | Sistema/comunicação indisponível.                                                                                                                             | Transação não autorizada. Sistema do emissor sem comunicação. Se for geral, verificar SITEF, GATEWAY e/ou Conectividade.                                                                                                                                                                               | Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.                                                                                              | Apenas 4 vezes em 16 dias.                           |
+| 475             | Timeout de Cancelamento                                                                                                                                       | A aplicação não respondeu dentro do tempo esperado.                                                                                                                                                                                                                                                    | Realizar uma nova tentativa após alguns segundos. Persistindo, entrar em contato com o Suporte.                                                                                                                           | Não                                                  |
+| 999             | Sistema/comunicação indisponível.                                                                                                                             | Transação não autorizada. Sistema do emissor sem comunicação. Tente mais tarde. Pode ser erro no SITEF, favor verificar !                                                                                                                                                                              | Sua Transação não pode ser processada, Tente novamente mais tarde. Se o erro persistir, entre em contato com a loja virtual.                                                                                              | A partir do dia seguinte, apenas 4 vezes em 16 dias. |
+| AA              | Tempo Excedido                                                                                                                                                | Tempo excedido na comunicação com o banco emissor. Oriente o portador a tentar novamente, se o erro persistir será necessário que o portador contate seu banco emissor.                                                                                                                                | Tempo excedido na sua comunicação com o banco emissor, tente novamente mais tarde. Se o erro persistir, entre em contato com seu banco.                                                                                   | Apenas 4 vezes em 16 dias.                           |
+| AF              | Transação não permitida. Falha da operação.                                                                                                                   | Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.                                                      | Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.                                                                                                  | Não                                                  |
+| AG              | Transação não permitida. Falha da operação.                                                                                                                   | Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.                                                      | Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.                                                                                                  | Não                                                  |
+| AH              | Transação não permitida. Cartão de crédito sendo usado com débito. Use a função crédito.                                                                      | Transação não permitida. Cartão de crédito sendo usado com débito. Solicite ao portador que selecione a opção de pagamento Cartão de Crédito.                                                                                                                                                          | Transação não autorizada. Tente novamente selecionando a opção de pagamento cartão de crédito.                                                                                                                            | Não                                                  |
+| AI              | Transação não autorizada. Autenticação não foi realizada.                                                                                                     | Transação não autorizada. Autenticação não foi realizada. O portador não concluiu a autenticação. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir, entre em contato com a Cielo informando o BIN (6 primeiros dígitos do cartão)                                       | Transação não autorizada. Autenticação não foi realizada com sucesso. Tente novamente e informe corretamente os dados solicitado. Se o erro persistir, entre em contato com o lojista.                                    | Não                                                  |
+| AJ              | Transação não permitida. Transação de crédito ou débito em uma operação que permite apenas Private Label. Tente novamente selecionando a opção Private Label. | Transação não permitida. Transação de crédito ou débito em uma operação que permite apenas Private Label. Solicite ao portador que tente novamente selecionando a opção Private Label. Caso não disponibilize a opção Private Label verifique na Cielo se o seu estabelecimento permite essa operação. | Transação não permitida. Transação de crédito ou débito em uma operação que permite apenas Private Label. Tente novamente e selecione a opção Private Label. Em caso de um novo erro entre em contato com a loja virtual. | Não                                                  |
+| AV              | Transação não autorizada. Dados Inválidos                                                                                                                     | Falha na validação dos dados da transação. Oriente o portador a rever os dados e tentar novamente.                                                                                                                                                                                                     | Falha na validação dos dados. Reveja os dados informados e tente novamente.                                                                                                                                               | Apenas 4 vezes em 16 dias.                           |
+| BD              | Transação não permitida. Falha da operação.                                                                                                                   | Transação não permitida. Houve um erro no processamento.Solicite ao portador que digite novamente os dados do cartão, se o erro persistir pode haver um problema no terminal do lojista, nesse caso o lojista deve entrar em contato com a Cielo.                                                      | Transação não permitida. Informe os dados do cartão novamente. Se o erro persistir, entre em contato com a loja virtual.                                                                                                  | Não                                                  |
+| BL              | Transação não autorizada. Limite diário excedido.                                                                                                             | Transação não autorizada. Limite diário excedido. Solicite ao portador que entre em contato com seu banco emissor.                                                                                                                                                                                     | Transação não autorizada. Limite diário excedido. Entre em contato com seu banco emissor.                                                                                                                                 | A partir do dia seguinte, apenas 4 vezes em 16 dias. |
+| BM              | Transação não autorizada. Cartão Inválido                                                                                                                     | Transação não autorizada. Cartão inválido. Pode ser bloqueio do cartão no banco emissor ou dados incorretos. Tente usar o Algoritmo de Lhum (Mod 10) para evitar transações não autorizadas por esse motivo.                                                                                           | Transação não autorizada. Cartão inválido. Refaça a transação confirmando os dados informados.                                                                                                                            | Não                                                  |
+| BN              | Transação não autorizada. Cartão ou conta bloqueado.                                                                                                          | Transação não autorizada. O cartão ou a conta do portador está bloqueada. Solicite ao portador que entre em contato com seu banco emissor.                                                                                                                                                             | Transação não autorizada. O cartão ou a conta do portador está bloqueada. Entre em contato com seu banco emissor.                                                                                                         | Não                                                  |
+| BO              | Transação não permitida. Falha da operação.                                                                                                                   | Transação não permitida. Houve um erro no processamento. Solicite ao portador que digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco emissor.                                                                                                                      | Transação não permitida. Houve um erro no processamento. Digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco emissor.                                                                  | Apenas 4 vezes em 16 dias.                           |
+| BP              | Transação não autorizada. Conta corrente inexistente.                                                                                                         | Transação não autorizada. Não possível processar a transação por um erro relacionado ao cartão ou conta do portador. Solicite ao portador que entre em contato com o banco emissor.                                                                                                                    | Transação não autorizada. Não possível processar a transação por um erro relacionado ao cartão ou conta do portador. Entre em contato com o banco emissor.                                                                | Não                                                  |
+| BP176           | Transação não permitida.                                                                                                                                      | Parceiro deve checar se o processo de integração foi concluído com sucesso.                                                                                                                                                                                                                            | Parceiro deve checar se o processo de integração foi concluído com sucesso.                                                                                                                                               | —                                                    |
+| BR              | Transação não autorizada. Conta encerrada                                                                                                                     | A conta do portador está encerrada. Solicite ao portador que entre em contato com seu banco emissor.                                                                                                                                                                                                   | A conta do portador está encerrada. Solicite ao portador que entre em contato com seu banco emissor.                                                                                                                      | Não                                                  |
+| C1              | Transação não permitida. Cartão não pode processar transações de débito.                                                                                      | Troque a modalidade de pagamento ou o cartão utilizado.                                                                                                                                                                                                                                                | Troque a modalidade de pagamento ou o cartão utilizado.                                                                                                                                                                   | Não                                                  |
+| C2              | Transação não permitida.                                                                                                                                      | Dados incorretos. Favor rever os dados preenchidos na tela de pagamento.                                                                                                                                                                                                                               | Dados incorretos. Favor rever os dados preenchidos na tela de pagamento.                                                                                                                                                  | Não                                                  |
+| C3              | Transação não permitida.                                                                                                                                      | Período inválido para este tipo de transação.                                                                                                                                                                                                                                                          | Período inválido para este tipo de transação.                                                                                                                                                                             | Não                                                  |
+| CF              | Transação não autorizada.C79:J79 Falha na validação dos dados.                                                                                                | Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.                                                                                                                                                                                 | Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.                                                                                                                             | Não                                                  |
+| CG              | Transação não autorizada. Falha na validação dos dados.                                                                                                       | Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.                                                                                                                                                                                 | Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.                                                                                                                             | Não                                                  |
+| DF              | Transação não permitida. Falha no cartão ou cartão inválido.                                                                                                  | Transação não permitida. Falha no cartão ou cartão inválido. Solicite ao portador que digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco                                                                                                                           | Transação não permitida. Falha no cartão ou cartão inválido. Digite novamente os dados do cartão, se o erro persistir, entre em contato com o banco                                                                       | Apenas 4 vezes em 16 dias.                           |
+| DM              | Transação não autorizada. Limite excedido/sem saldo.                                                                                                          | Transação não autorizada. Limite excedido/sem saldo.                                                                                                                                                                                                                                                   | Transação não autorizada. Entre em contato com seu banco emissor.                                                                                                                                                         | A partir do dia seguinte, apenas 4 vezes em 16 dias. |
+| DQ              | Transação não autorizada. Falha na validação dos dados.                                                                                                       | Transação não autorizada. Falha na validação dos dados. Solicite ao portador que entre em contato com o banco emissor.                                                                                                                                                                                 | Transação não autorizada. Falha na validação dos dados. Entre em contato com o banco emissor.                                                                                                                             | Não                                                  |
+| DS              | Transação não permitida para o cartão                                                                                                                         | Transação não autorizada. Transação não permitida para o cartão.                                                                                                                                                                                                                                       | Transação não autorizada. Entre em contato com seu banco emissor.                                                                                                                                                         | Apenas 4 vezes em 16 dias.                           |
+| EB              | Número de parcelas maior que o Permitido.                                                                                                                     | Transação não autorizada. Entre em contato com a Cielo e verifique se o cadastro possui parcelamento liberado.                                                                                                                                                                                         | Transação não autorizada. Entre em contato com a Cielo e verifique se o cadastro possui parcelamento liberado.                                                                                                            | Sim                                                  |
+| EE              | Transação não permitida. Valor da parcela inferior ao mínimo permitido.                                                                                       | Transação não permitida. Valor da parcela inferior ao mínimo permitido. Não é permitido parcelas inferiores a R$ 5,00. Necessário rever calculo para parcelas.                                                                                                                                         | Transação não permitida. O valor da parcela está abaixo do mínimo permitido. Entre em contato com a loja virtual.                                                                                                         | Não                                                  |
+| EK              | Transação não permitida para o cartão                                                                                                                         | Transação não autorizada. Transação não permitida para o cartão.                                                                                                                                                                                                                                       | Transação não autorizada. Entre em contato com seu banco emissor.                                                                                                                                                         | Apenas 4 vezes em 16 dias.                           |
+| FC              | Transação não autorizada. Ligue Emissor                                                                                                                       | Transação não autorizada. Oriente o portador a entrar em contato com o banco emissor.                                                                                                                                                                                                                  | Transação não autorizada. Entre em contato com seu banco emissor.                                                                                                                                                         | Não                                                  |
+| FE              | Transação não autorizada. Divergencia na data de transação/pagamento.                                                                                         | Transação não autorizada. Data da transação ou data do primeiro pagamento inválida.                                                                                                                                                                                                                    | Transação não autorizada. Refazer a transação confirmando os dados.                                                                                                                                                       | Não                                                  |
+| FF              | Cancelamento OK                                                                                                                                               | Transação de cancelamento autorizada com sucesso. ATENÇÂO: Esse retorno é para casos de cancelamentos e não para casos de autorizações.                                                                                                                                                                | Transação de cancelamento autorizada com sucesso                                                                                                                                                                          | Não                                                  |
+| FG              | Transação não autorizada. Ligue AmEx 08007285090.                                                                                                             | Transação não autorizada. Oriente o portador a entrar em contato com a Central de Atendimento AmEx.                                                                                                                                                                                                    | Transação não autorizada. Entre em contato com a Central de Atendimento AmEx no telefone 08007285090                                                                                                                      | Não                                                  |
+| GA              | Aguarde Contato                                                                                                                                               | Transação não autorizada. Referida pelo Lynx Online de forma preventiva.                                                                                                                                                                                                                               | Transação não autorizada. lojista deve aguardar contato por parte da Cielo                                                                                                                                                | Não                                                  |
+| GF              | Transação negada.                                                                                                                                             | Transação não autorizada, verifique se o IP informado está liberado para processar a transação                                                                                                                                                                                                         | Transação não permitida. Entre em contato com a Cielo.                                                                                                                                                                    | Não                                                  |
+| GD              | Transação não permitida.                                                                                                                                      | Transação não permitida. Entre em contato com a Cielo.                                                                                                                                                                                                                                                 | Transação não permitida. Entre em contato com a Cielo.                                                                                                                                                                    | —                                                    |
+| GT              | Transação negada.                                                                                                                                             | Ataque de força bruta.                                                                                                                                                                                                                                                                                 | Transação não permitida. Entre em contato com a Cielo.                                                                                                                                                                    | Não                                                  |
+| GK              | Transação negada.                                                                                                                                             | Bloqueio temporário por ataque de força bruta.                                                                                                                                                                                                                                                         | Transação não permitida. Entre em contato com a Cielo.                                                                                                                                                                    | Não                                                  |
+| HJ              | Transação não permitida. Código da operação inválido.                                                                                                         | Transação não permitida. Código da operação Coban inválido.                                                                                                                                                                                                                                            | Transação não permitida. Código da operação Coban inválido. Entre em contato com o lojista.                                                                                                                               | Não                                                  |
+| IA              | Transação não permitida. Indicador da operação inválido.                                                                                                      | Transação não permitida. Indicador da operação Coban inválido.                                                                                                                                                                                                                                         | Transação não permitida. Indicador da operação Coban inválido. Entre em contato com o lojista.                                                                                                                            | Não                                                  |
+| KA              | Transação não permitida. Falha na validação dos dados.                                                                                                        | Transação não permitida. Houve uma falha na validação dos dados. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir verifique a comunicação entre loja virtual e Cielo.                                                                                                   | Transação não permitida. Houve uma falha na validação dos dados. reveja os dados informados e tente novamente. Se o erro persistir entre em contato com a Loja Virtual.                                                   | Não                                                  |
+| KB              | Transação não permitida. Selecionado a opção incorrente.                                                                                                      | Transação não permitida. Selecionado a opção incorreta. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir deve ser verificado a comunicação entre loja virtual e Cielo.                                                                                                  | Transação não permitida. Selecionado a opção incorreta. Tente novamente. Se o erro persistir entre em contato com a Loja Virtual.                                                                                         | Não                                                  |
+| KE              | Transação não autorizada. Falha na validação dos dados.                                                                                                       | Transação não autorizada. Falha na validação dos dados. Opção selecionada não está habilitada. Verifique as opções disponíveis para o portador.                                                                                                                                                        | Transação não autorizada. Falha na validação dos dados. Opção selecionada não está habilitada. Entre em contato com a loja virtual.                                                                                       | Não                                                  |
+| NR              | Transação não permitida.                                                                                                                                      | Transação não permitida.                                                                                                                                                                                                                                                                               | Transação não permitida. Retentar a transação após 30 dias                                                                                                                                                                | Retentar a transação após 30 dias.                   |
+| RP              | Transação não permitida.                                                                                                                                      | Transação não permitida.                                                                                                                                                                                                                                                                               | Transação não permitida. Retentar a transação após 72h                                                                                                                                                                    | Retentar a transação após 72 horas.                  |
+| SC              | Transação não permitida.                                                                                                                                      | Transação não permitida. Pagamento recorrente, serviço cancelado. Não retentar.                                                                                                                                                                                                                        | Transação não permitida. Pagamento recorrente, serviço cancelado. Não retentar.                                                                                                                                           | Não.                                                 |
+| U3              | Transação não permitida. Falha na validação dos dados.                                                                                                        | Transação não permitida. Houve uma falha na validação dos dados. Solicite ao portador que reveja os dados e tente novamente. Se o erro persistir verifique a comunicação entre loja virtual e Cielo.                                                                                                   | Transação não permitida. Houve uma falha na validação dos dados. reveja os dados informados e tente novamente. Se o erro persistir entre em contato com a Loja Virtual.                                                   | Não                                                  |
+| 6P              | Transação não autorizada. Dados Inválidos                                                                                                                     | Falha na validação dos dados da transação. Oriente o portador a rever os dados e tentar novamente.                                                                                                                                                                                                     | Falha na validação dos dados. Reveja os dados informados e tente novamente.                                                                                                                                               | Apenas 4 vezes em 16 dias.                           |
 
 # Suporte Cielo
 
 Após a leitura deste manual, caso ainda persistam dúvidas (técnicas ou não), a Cielo disponibiliza o suporte técnico 24 horas por dia, 7 dias por semana em idiomas (Português e Inglês), nos seguintes contatos:
 
-* +55 4002-9700 – *Capitais e Regiões Metropolitanas*
-* +55 0800-570-1700 – *Demais Localidades*
-* +55 11 2860-1348 – *Internacionais*
-  * Opção 1 – *Suporte técnico;*
-  * Opção 2 – *Credenciamento E-commerce.*
-* Email: [cieloecommerce@cielo.com.br](mailto:cieloecommerce@cielo.com.br)
+- +55 4002-9700 – _Capitais e Regiões Metropolitanas_
+- +55 0800-570-1700 – _Demais Localidades_
+- +55 11 2860-1348 – _Internacionais_
+  - Opção 1 – _Suporte técnico;_
+  - Opção 2 – _Credenciamento E-commerce._
+- Email: [cieloecommerce@cielo.com.br](mailto:cieloecommerce@cielo.com.br)

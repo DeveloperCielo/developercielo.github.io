@@ -73,7 +73,7 @@ Nessa opção, o seu estabelecimento se integra com a funcionalidade de tokeniza
 **Essa solução tem custo adicional?** A solução não tem custos adicionais para clientes API E-commerce Cielo ou API 1.5, basta entrar em contato para solicitar a habilitação.
 
 > **Para saber mais sobre a Integração Facilitada** [Clique aqui](https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-
-bandeira)
+> bandeira)
 
 ### Opção 3 - Integração por fora
 

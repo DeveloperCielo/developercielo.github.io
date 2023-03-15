@@ -40,10 +40,10 @@ We have built a portal dedicated to developers to make the integration of your s
 
 In this portal, you are able to:
 
-* Access the complete APIs documentation
-* Use the SDKs to make the integration faster
-* Create your accounts to receive the access keys (tokens)
-* Perform the tests and development so that they can integrate with Cielo: using an emulator or sandbox.
+- Access the complete APIs documentation
+- Use the SDKs to make the integration faster
+- Create your accounts to receive the access keys (tokens)
+- Perform the tests and development so that they can integrate with Cielo: using an emulator or sandbox.
 
 ## Can I use printers to connect on Cielo LIO?
 
@@ -65,8 +65,8 @@ The Bluetooth from Cielo LIO can be used to perform the communication and exchan
 
 Contact the Call Center and check your Cielo LIO's delivery status.
 
-* 4002 5472 - All location
-* 0800 570 8472 - Except capitals and cell phone calls
+- 4002 5472 - All location
+- 0800 570 8472 - Except capitals and cell phone calls
 
 # Local Integration questions
 
@@ -133,8 +133,8 @@ To access and perform the upload of apps on Cielo Store, access:
 
 The developer will have to choose according to his app distribution purpose, between:
 
-* Private App or Private Store 
-* Public App on Cielo Store
+- Private App or Private Store
+- Public App on Cielo Store
 
 In case you opt for Private Apps on Private Store, send a ticket on the Developers Portal and choose on the subject: "Private Store Creation" and fill the required fields.
 In case you decide for Public App on Cielo Store, you'll be able to upload your app and sent it to Certification.
@@ -165,13 +165,13 @@ No! The integration to Cielo LIO is free.
 
 ## What are the existing phases on Cielo Store to publish my app?
 
-|Phases |Description |
-|-------|----------|
-|**Development Phase**| In this phase, the app integration to the Cielo LIO occurs and the developer is responsible for performing this integration so that the app consumes the Cielo LIO platform functionalities. In case your app doesn't need to be integrated to the platform's functionalities, just follow to the publishing phase.|
-|**Tests Phase**| Cielo provides an app that emulates the Cielo LIO environment in any Android device, allowing the developer to perform tests of the SDK methods and debug the application during the development and integration to Cielo LIO Order Manager SDK, without necessarily having a hardware from Cielo LIO. The Emulator download is made accessing the Local Integration documentation on the Developers Portal.|
-|**Publishing Phase**| Create your account on Cielo Store (Dev Console) and publish your app (apk file) on Cielo Store. Cielo recommends that the developer generates the apk file using Android Studio to ensure the upload success on Cielo Store.|
-|**Certification Phase**| On the Dev Console, the app published will be able to be promoted for certification. The certification team will perform security tests, functional, and business validations to ensure the integrity of the app fluxes.|
-|**Production Phase**| On the Dev Console, as soon as the certification is approved, the developer will be notified and will be able to promote the app to the production status.|
+| Phases                  | Description                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Development Phase**   | In this phase, the app integration to the Cielo LIO occurs and the developer is responsible for performing this integration so that the app consumes the Cielo LIO platform functionalities. In case your app doesn't need to be integrated to the platform's functionalities, just follow to the publishing phase.                                                                                          |
+| **Tests Phase**         | Cielo provides an app that emulates the Cielo LIO environment in any Android device, allowing the developer to perform tests of the SDK methods and debug the application during the development and integration to Cielo LIO Order Manager SDK, without necessarily having a hardware from Cielo LIO. The Emulator download is made accessing the Local Integration documentation on the Developers Portal. |
+| **Publishing Phase**    | Create your account on Cielo Store (Dev Console) and publish your app (apk file) on Cielo Store. Cielo recommends that the developer generates the apk file using Android Studio to ensure the upload success on Cielo Store.                                                                                                                                                                                |
+| **Certification Phase** | On the Dev Console, the app published will be able to be promoted for certification. The certification team will perform security tests, functional, and business validations to ensure the integrity of the app fluxes.                                                                                                                                                                                     |
+| **Production Phase**    | On the Dev Console, as soon as the certification is approved, the developer will be notified and will be able to promote the app to the production status.                                                                                                                                                                                                                                                   |
 
 ## How do I change my app name?
 

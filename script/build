@@ -31,6 +31,7 @@ done
 # restore system defaults
 export LANG=$lang && export LANGUAGE=$language && LC_ALL=$lc_all
 
+npx prettier --write "**/*.md"
 # lint for markdown
 bundle exec mdl --rules ${RULES} _i18n/
 

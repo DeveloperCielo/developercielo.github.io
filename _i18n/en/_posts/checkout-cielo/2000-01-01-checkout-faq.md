@@ -16,8 +16,8 @@ tags:
 
 CIELO CHECKOUT uses integration via POST and it is possible to configure it in two ways:
 
-* **Integration via Shopping Cart** - used when there’s a “shopping cart” to be sent, that is, in case the consumer navigates through the website and chooses 1 or more products to add to a cart and then finish the transaction.
-* **Integration via Button** - Always used when there`s no ”shopping cart” in your store or when it is desired to associate a fast/direct purchase to a product. Each registered product generates an unique ”buy button” that allows customization. Example: a hotsite, a promotion that takes the buyer directly to the payment stage (Cielo Checkout page).
+- **Integration via Shopping Cart** - used when there’s a “shopping cart” to be sent, that is, in case the consumer navigates through the website and chooses 1 or more products to add to a cart and then finish the transaction.
+- **Integration via Button** - Always used when there`s no ”shopping cart” in your store or when it is desired to associate a fast/direct purchase to a product. Each registered product generates an unique ”buy button” that allows customization. Example: a hotsite, a promotion that takes the buyer directly to the payment stage (Cielo Checkout page).
 
 ## How do I create the Button?
 
@@ -27,10 +27,10 @@ The Button is created at the inclusion moment of a new product. For that, access
 
 The data to be filled on the POST are:
 
-* Order Data
-* Shopping Cart
-* Freight Data
-* Consumer Data
+- Order Data
+- Shopping Cart
+- Freight Data
+- Consumer Data
 
 All the information to assist in this process, can be found on the Cielo Checkout Integration Manual.
 
@@ -62,11 +62,11 @@ At the [Backoffice Checkout Cielo]({{ site.baseurl_root }}{% post_url 2000-01-01
 
 **Before the Checkout screen exhibition** - it means that there was a wrong data on the transaction send. Mandatory data can be missing or the format is invalid. Here, the retailer will always receive an email informing the error reason..
 
-* To these, it's displayed a code (the same of the manuals) inside the order on the Cielo Checkout BackOffice.
+- To these, it's displayed a code (the same of the manuals) inside the order on the Cielo Checkout BackOffice.
 
 **After the Checkout screen exhibition (when the sale is finished)** - means that there’s a register impediment that limits the sale. Things like blocked affiliation, error on the saved data on the register or even problems on the own checkout.
 
-# Questions about Freight 
+# Questions about Freight
 
 ## What is the relation between the products kind and freight kind?
 
@@ -74,17 +74,17 @@ The kind of product to be sold on the Cielo Checkout influences directly on the 
 
 The kind of freight to be used will depend on the kind of product that your store markets. On Cielo Checkout you can market 3 kinds of products:
 
-* Physical Material
-* Digital Goods
-* Services
+- Physical Material
+- Digital Goods
+- Services
 
 The kinds of freight that can be used are:
 
-* Courier
-* Fixed freight 
-* No shipping 
-* No shipping (withdrawal in hands)
-* No shipping charge (used to Digital Goods or Services)
+- Courier
+- Fixed freight
+- No shipping
+- No shipping (withdrawal in hands)
+- No shipping charge (used to Digital Goods or Services)
 
 Products (Physical Material category) need the habilitation of some kind of freight in order to be sent. In this case, it is mandatory the inclusion of information such as product weight (CART_1_WEIGHT), origin zip code (CART_1_ZIPCODE) and addressee zip code (SHIPPING_ZIPCODE), for the freight calculation.
 
@@ -92,28 +92,28 @@ The “Digital Goods” or “Services” categories do not need this kind of in
 
 To understand the POST difference between these parameters in relation to the freight and kinds of products, compare the POST examples below. For more information, access the [Manual de Integração Checkout Cielo]({{ site.baseurl_root }}{% post_url 2000-01-01-checkout-cielo %}).
 
-### Mandatory parameters 
+### Mandatory parameters
 
-|Physical material|Digital Goods / Service|
-|---|---|
-|`MERCHANT_ID`|`MERCHANT_ID`|
-|`ORDER_NUMBER`|`ORDER_NUMBER`|
-|`SHIPPING_TYPE`: 1, 2 ou 3|`SHIPPING_TYPE`: 5|
-|`SOFT_DESCRIPTOR`|SOFT_DESCRIPTOR|
-|`CART_1_NAME`|`CART_1_NAME`|
-|`CART_1_UNITPRICE`|`CART_1_UNITPRICE`|
-|`CART_1_QUANTITY`|`CART_1_QUANTITY`|
-|`CART_1_WEIGHT`|`CART_1_TYPE`: 2 ou 3 **(Mandatory)**|
-|`CART_1_ZIPCODE`|`CART_1_TYPE`: 1 **(Mandatory)**|
-|`CUSTOMER_NAME`|`CUSTOMER_IDENTITY`|
-|`SHIPPING_1_NAME`|`CUSTOMER_EMAIL`|
-|`SHIPPING_1_PRICE`|`CUSTOMER_PHONE`|
+| Physical material          | Digital Goods / Service               |
+| -------------------------- | ------------------------------------- |
+| `MERCHANT_ID`              | `MERCHANT_ID`                         |
+| `ORDER_NUMBER`             | `ORDER_NUMBER`                        |
+| `SHIPPING_TYPE`: 1, 2 ou 3 | `SHIPPING_TYPE`: 5                    |
+| `SOFT_DESCRIPTOR`          | SOFT_DESCRIPTOR                       |
+| `CART_1_NAME`              | `CART_1_NAME`                         |
+| `CART_1_UNITPRICE`         | `CART_1_UNITPRICE`                    |
+| `CART_1_QUANTITY`          | `CART_1_QUANTITY`                     |
+| `CART_1_WEIGHT`            | `CART_1_TYPE`: 2 ou 3 **(Mandatory)** |
+| `CART_1_ZIPCODE`           | `CART_1_TYPE`: 1 **(Mandatory)**      |
+| `CUSTOMER_NAME`            | `CUSTOMER_IDENTITY`                   |
+| `SHIPPING_1_NAME`          | `CUSTOMER_EMAIL`                      |
+| `SHIPPING_1_PRICE`         | `CUSTOMER_PHONE`                      |
 
-# Questions about the Test Mode 
+# Questions about the Test Mode
 
 ## What is the CIELO CHECKOUT test mode?
 
-It’s a test environment, where it is possible to simulate all actions without needing to change your integration. It`s an environment where it is possible to simulate sales and other test actions  (like cancelling, captures and chargebacks).
+It’s a test environment, where it is possible to simulate all actions without needing to change your integration. It`s an environment where it is possible to simulate sales and other test actions (like cancelling, captures and chargebacks).
 
 ## How is the Test Mode activated on Cielo Checkout?
 

@@ -26,13 +26,13 @@ Sim, o Checkout funciona com pagamentos internacionais e cartões emitidos fora 
 
 ## Quais meios de pagamento o Checkout Cielo suporta?
 
-Veja o manual de integração para a [lista completa de meios de pagamento](https://developercielo.github.io/manual/checkout-cielo#meios-de-pagamento-do-checkout-cielo){:target="_blank"} 
+Veja o manual de integração para a [lista completa de meios de pagamento](https://developercielo.github.io/manual/checkout-cielo#meios-de-pagamento-do-checkout-cielo){:target="\_blank"}
 
 ## O Checkout Cielo suporta integrações mobile?
 
 O Checkout Cielo suporta pagamentos mobile, mas não suporte integrações usando Javascript.
 
------------------------------------
+---
 
 # Dúvidas de Integração
 
@@ -40,21 +40,21 @@ O Checkout Cielo suporta pagamentos mobile, mas não suporte integrações usand
 
 O CHECKOUT CIELO utiliza integração via POST e é possível configurá-la de duas formas:
 
-* **Integração via Carrinho de Compras** - usada quando houver um “carrinho de compras” a ser enviado, ou seja, no caso do consumidor navegar pelo site e escolher 1 ou mais produtos para adicionar a um carrinho e depois finalizar a transação.
-* **Integração via Link de pagamento** - usada sempre que não houver um “carrinho de compras” em sua loja ou quando se deseja associar uma compra rápida/direta a um produto. Cada produto cadastrado gera um “Link de pagamento de compra” único que permite personalização. Exemplo: um hotsite uma promoção que leva o comprador diretamente para a etapa de pagamento (página do Checkout Cielo).
+- **Integração via Carrinho de Compras** - usada quando houver um “carrinho de compras” a ser enviado, ou seja, no caso do consumidor navegar pelo site e escolher 1 ou mais produtos para adicionar a um carrinho e depois finalizar a transação.
+- **Integração via Link de pagamento** - usada sempre que não houver um “carrinho de compras” em sua loja ou quando se deseja associar uma compra rápida/direta a um produto. Cada produto cadastrado gera um “Link de pagamento de compra” único que permite personalização. Exemplo: um hotsite uma promoção que leva o comprador diretamente para a etapa de pagamento (página do Checkout Cielo).
 
 ## Como eu crio o Link de pagamento?
 
-O Link de pagamento é criado no momento de inclusão de um novo produto. Para isso, acesse o [Backoffice Checkout Cielo](https://developercielo.github.io/tutorial/checkout-tutoriais){:target="_blank"}, no menu Produtos/Cadastrar Produtos.
+O Link de pagamento é criado no momento de inclusão de um novo produto. Para isso, acesse o [Backoffice Checkout Cielo](https://developercielo.github.io/tutorial/checkout-tutoriais){:target="\_blank"}, no menu Produtos/Cadastrar Produtos.
 
 ## Quais informações eu preciso para montar o POST?
 
 Os dados a serem preenchidos no POST são:
 
-* Dados do Pedido
-* Carrinho de Compras
-* Dados de Frete
-* Dados do Consumidor
+- Dados do Pedido
+- Carrinho de Compras
+- Dados de Frete
+- Dados do Consumidor
 
 Todas as informações para auxiliar nesse processo, encontram-se no Manual de Integração Checkout Cielo.
 
@@ -64,7 +64,7 @@ Sim, por meio da Integração via Link de pagamento é possível enviar um e-mai
 
 ## Para que serve a URL de retorno?
 
-Ao finalizar a compra, o consumidor tem a opção de voltar ao site do lojista ou ser direcionado para a página que o lojista desejar.  A função dessas URL é conduzir automaticamente o consumidor para a página definida nesta opção.
+Ao finalizar a compra, o consumidor tem a opção de voltar ao site do lojista ou ser direcionado para a página que o lojista desejar. A função dessas URL é conduzir automaticamente o consumidor para a página definida nesta opção.
 
 ## Onde está a tela de finalização?
 
@@ -85,7 +85,7 @@ Pedidos "Não finalizados" são pedidos abandonados pelos compradores durante o 
 Alguns meios de pagamento, como Cartões de crédito Autenticados, Cartão de Débito e Boletos Registrados, exigem que o consumidor seja direcionado ao ambiente Bancario para verificação de identidade.
 Se o comprador abandonar a tela do banco, falhando no processo de autenticação, a transação é marcada como "não finalizada"
 
------------------------------------
+---
 
 # Dúvidas sobre Notificação
 
@@ -93,7 +93,7 @@ Se o comprador abandonar a tela do banco, falhando no processo de autenticação
 
 Ao finalizar uma transação, é enviado um POST com todos os dados da venda para a URL de Notificação, previamente cadastrada no BackOffice. O POST de notificação é enviado apenas no momento que a transação é finalizada, independentemente se houver alteração do status da transação.
 
-Dessa maneira os dados do pedido ficam atualizados no [Backoffice Checkout Cielo](https://developercielo.github.io/tutorial/checkout-tutoriais){:target="_blank"} e também no backoffice da loja/plataforma.
+Dessa maneira os dados do pedido ficam atualizados no [Backoffice Checkout Cielo](https://developercielo.github.io/tutorial/checkout-tutoriais){:target="\_blank"} e também no backoffice da loja/plataforma.
 
 ## Para que serve a URL de Mudança de Status?
 
@@ -101,13 +101,13 @@ Ela define para onde será enviado o POST indicando a alteração de status de u
 
 ## Onde é feito o cadastro dessas URLs?
 
-No [Backoffice Checkout Cielo](https://developercielo.github.io/tutorial/checkout-tutoriais){:target="_blank"}, no menu Configurações/Configurações da loja.
+No [Backoffice Checkout Cielo](https://developercielo.github.io/tutorial/checkout-tutoriais){:target="\_blank"}, no menu Configurações/Configurações da loja.
 
-## Qual a diferença entre o  Erro OPSSS antes e depois da exibição da tela do Checkout Cielo?
+## Qual a diferença entre o Erro OPSSS antes e depois da exibição da tela do Checkout Cielo?
 
 **Antes da exibição da tela de Checkout** - significa que houve algum dado errado no envio da transação. Dados obrigatórios podem estar faltando ou o formato é invalido. Aqui o lojista sempre vai receber um e-mail informando o motivo do erro.
 
-* Para esses, é exibido um código (os mesmos dos manuais) dentro do pedido no Backoffice Checkout Cielo.
+- Para esses, é exibido um código (os mesmos dos manuais) dentro do pedido no Backoffice Checkout Cielo.
 
 **Depois da Exibição da tela de Checkout (quando a venda é finalizada)** - significa que há algum impedimento de cadastro que limita a venda. Coisas como afiliação bloqueada, erro nos dados salvos no cadastro ou até problemas no próprio checkout.
 
@@ -115,7 +115,7 @@ No [Backoffice Checkout Cielo](https://developercielo.github.io/tutorial/checkou
 
 O manual tecnico do Checkout possui uma tabela descritiva de todos os Códigos de retorno possiveis
 
------------------------------------
+---
 
 # Dúvidas sobre Frete
 
@@ -125,42 +125,42 @@ O tipo de produto a ser vendido no Checkout Cielo influencia diretamente o tipo 
 
 O tipo de frete a ser utilizado dependerá do tipo de produto que a sua loja comercializa. No Checkout Cielo você pode comercializar 3 tipos de produtos:
 
-* Material Físico
-* Bens Digitais
-* Serviços
+- Material Físico
+- Bens Digitais
+- Serviços
 
 Os tipos de frete que podem ser usados são:
 
-* Correios
-* Frete Fixo
-* Frete Grátis
-* Sem Frete (Retirada em mãos)
-* Sem cobrança de frete (usado para Bens Digitais ou Serviços)
+- Correios
+- Frete Fixo
+- Frete Grátis
+- Sem Frete (Retirada em mãos)
+- Sem cobrança de frete (usado para Bens Digitais ou Serviços)
 
 Produtos (categoria Material Físico) necessitam da habilitação de algum tipo de frete para serem enviados. Nesse caso, é obrigatória a inclusão de informações como do peso do produto (CART_1_WEIGHT), CEP de origem (CART_1_ZIPCODE) e CEP de entrega (SHIPPING_ZIPCODE), para o cálculo do frete.
 
 As categorias “Bens digitais” ou “Serviços” não necessitam desse tipo de informação.
 
-Para compreender a diferença entre os parâmetros do POST em relação a frete e tipos de produtos, compare os exemplos de post abaixo. Para mais informações, acesse o [Manual de Integração Checkout Cielo](https://developercielo.github.io/manual/checkout-cielo){:target="_blank"} .
+Para compreender a diferença entre os parâmetros do POST em relação a frete e tipos de produtos, compare os exemplos de post abaixo. Para mais informações, acesse o [Manual de Integração Checkout Cielo](https://developercielo.github.io/manual/checkout-cielo){:target="\_blank"} .
 
 ### Parâmetros obrigatórios
 
-|Material físico|Bens Digitais / Serviço|
-|---|---|
-|`MERCHANT_ID`|`MERCHANT_ID`|
-|`ORDER_NUMBER`|`ORDER_NUMBER`|
-|`SHIPPING_TYPE`: 1, 2 ou 3|`SHIPPING_TYPE`: 5|
-|`SOFT_DESCRIPTOR`|SOFT_DESCRIPTOR|
-|`CART_1_NAME`|`CART_1_NAME`|
-|`CART_1_UNITPRICE`|`CART_1_UNITPRICE`|
-|`CART_1_QUANTITY`|`CART_1_QUANTITY`|
-|`CART_1_WEIGHT`|`CART_1_TYPE`: 2 ou 3 **(Obrigatorio)**|
-|`CART_1_ZIPCODE`|`CART_1_TYPE`: 1 **(Obrigatorio)**|
-|`CUSTOMER_NAME`|`CUSTOMER_IDENTITY`|
-|`SHIPPING_1_NAME`|`CUSTOMER_EMAIL`|
-|`SHIPPING_1_PRICE`|`CUSTOMER_PHONE`|
+| Material físico            | Bens Digitais / Serviço                 |
+| -------------------------- | --------------------------------------- |
+| `MERCHANT_ID`              | `MERCHANT_ID`                           |
+| `ORDER_NUMBER`             | `ORDER_NUMBER`                          |
+| `SHIPPING_TYPE`: 1, 2 ou 3 | `SHIPPING_TYPE`: 5                      |
+| `SOFT_DESCRIPTOR`          | SOFT_DESCRIPTOR                         |
+| `CART_1_NAME`              | `CART_1_NAME`                           |
+| `CART_1_UNITPRICE`         | `CART_1_UNITPRICE`                      |
+| `CART_1_QUANTITY`          | `CART_1_QUANTITY`                       |
+| `CART_1_WEIGHT`            | `CART_1_TYPE`: 2 ou 3 **(Obrigatorio)** |
+| `CART_1_ZIPCODE`           | `CART_1_TYPE`: 1 **(Obrigatorio)**      |
+| `CUSTOMER_NAME`            | `CUSTOMER_IDENTITY`                     |
+| `SHIPPING_1_NAME`          | `CUSTOMER_EMAIL`                        |
+| `SHIPPING_1_PRICE`         | `CUSTOMER_PHONE`                        |
 
------------------------------------
+---
 
 # Dúvidas sobre o Modo de teste
 

@@ -30,8 +30,7 @@ To create a sale that will use Alelo card, you need to make a `POST` for the Pay
 
 Production EndPoints
 
-> **Transaction requisition**: https://api.cieloecommerce.cielo.com.br/
-> **Transaction query**: https://apiquery.cieloecommerce.cielo.com.br/
+> **Transaction requisition**: https://api.cieloecommerce.cielo.com.br/ > **Transaction query**: https://apiquery.cieloecommerce.cielo.com.br/
 
 ```shell
 curl
@@ -41,17 +40,17 @@ curl
 --header "MerchantKey: 0123456789012345678901234567890123456789"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 --data-binary
-{  
+{
    "MerchantOrderId":"2014121201",
-   "Customer":{  
+   "Customer":{
       "Name":"Comprador Cartão de Alelo"
    },
-   "Payment":{  
+   "Payment":{
      "Type":"DebitCard",
      "Authenticate":false,
      "Amount":50,
      "ReturnUrl":"http://www.cielo.com.br",
-     "DebitCard":{  
+     "DebitCard":{
          "CardNumber":"5080540487508044",
          "Holder":"Comprador Cartão de Alelo",
          "ExpirationDate":"07/2029",
@@ -64,27 +63,27 @@ curl
 --verbose
 ```
 
-| Property          | Description                                                  | Type | Size | Mandatory |
-| ----------------- | ------------------------------------------------------------ | ---- | ---- | --------- |
-| `MerchantId`      | Store identifier in Cielo eCommerce API.                     | Guid | 36   | Yes       |
-| `MerchantKey`     | Public Key for Double Authentication on the Cielo eCommerce API. | Text | 40   | Yes       |
-| `RequestId`       | Request identifier, used when the merchant uses different servers for each GET/POST/PUT. | Guid | 36   | No        |
-| `MerchantOrderId` | Order ID number.            | Text | 50   | Yes       |
-| `Customer.Name`   | Buyer's name.                                           | Text | 255  | No        |
-| `Customer.Status` | Buyer registration status on the store (NEW / EXISTING) - Used by the fraud analysis. | Text | 255  | No        |
-| `Payment.Authenticate`     | Defines whether the buyer will be directed to the issuing bank for card authentication | Boolean |        |No (Default false) |
-| `Payment.Type`             | Payment method Type.                                                         | Text  | 100     | Yes      |
-| `Payment.Amount`           | Order value (sent in cents).                                                            | Number | 15      | Yes      |
-| `Payment.ReturnUrl`        | Merchant return URL.                                                                            | Text  | 1024    | Yes      |
-| `Payment.ReturnUrl`        | URI to where the user will be redirected after payment. | Text  | 1024    | Yes      |
-| `DebitCard.CardNumber`     | Buyer's Card Number.                                                     | Text  | 19      | Yes      |
-| `DebitCard.Holder`         | Buyer's name printed on the card.                                 | Text  | 25      | No         |
-| `DebitCard.ExpirationDate` | Expiration date printed on the card.                                                      | Text  | 7       | Yes         |
-| `DebitCard.SecurityCode`   | Security code printed on the back of the card.      | Text  | 4       | **Yes**         |
+| Property                   | Description                                                                              | Type    | Size | Mandatory          |
+| -------------------------- | ---------------------------------------------------------------------------------------- | ------- | ---- | ------------------ |
+| `MerchantId`               | Store identifier in Cielo eCommerce API.                                                 | Guid    | 36   | Yes                |
+| `MerchantKey`              | Public Key for Double Authentication on the Cielo eCommerce API.                         | Text    | 40   | Yes                |
+| `RequestId`                | Request identifier, used when the merchant uses different servers for each GET/POST/PUT. | Guid    | 36   | No                 |
+| `MerchantOrderId`          | Order ID number.                                                                         | Text    | 50   | Yes                |
+| `Customer.Name`            | Buyer's name.                                                                            | Text    | 255  | No                 |
+| `Customer.Status`          | Buyer registration status on the store (NEW / EXISTING) - Used by the fraud analysis.    | Text    | 255  | No                 |
+| `Payment.Authenticate`     | Defines whether the buyer will be directed to the issuing bank for card authentication   | Boolean |      | No (Default false) |
+| `Payment.Type`             | Payment method Type.                                                                     | Text    | 100  | Yes                |
+| `Payment.Amount`           | Order value (sent in cents).                                                             | Number  | 15   | Yes                |
+| `Payment.ReturnUrl`        | Merchant return URL.                                                                     | Text    | 1024 | Yes                |
+| `Payment.ReturnUrl`        | URI to where the user will be redirected after payment.                                  | Text    | 1024 | Yes                |
+| `DebitCard.CardNumber`     | Buyer's Card Number.                                                                     | Text    | 19   | Yes                |
+| `DebitCard.Holder`         | Buyer's name printed on the card.                                                        | Text    | 25   | No                 |
+| `DebitCard.ExpirationDate` | Expiration date printed on the card.                                                     | Text    | 7    | Yes                |
+| `DebitCard.SecurityCode`   | Security code printed on the back of the card.                                           | Text    | 4    | **Yes**            |
 
 ### Response
 
-``` shell
+```shell
 --header "Content-Type: application/json"
 --header "RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 {
@@ -131,11 +130,11 @@ curl
 }
 ```
 
-| Property            | Description                                                  | Type | Size | Format                               |
-| ------------------- | ------------------------------------------------------------ | ---- | ---- | ------------------------------------ |
-| `AuthenticationUrl` | URL to which the Merchant must redirect the Client for the Debit flow. | Text | 56   | Authentication Url                   |
-| `Tid`               | Transaction ID on the acquirer.                              | Text | 20   | Alphanumeric text                    |
-| `PaymentId`         | Order ID Field.                                              | Guid | 36   | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| Property            | Description                                                                               | Type | Size | Format                               |
+| ------------------- | ----------------------------------------------------------------------------------------- | ---- | ---- | ------------------------------------ |
+| `AuthenticationUrl` | URL to which the Merchant must redirect the Client for the Debit flow.                    | Text | 56   | Authentication Url                   |
+| `Tid`               | Transaction ID on the acquirer.                                                           | Text | 20   | Alphanumeric text                    |
+| `PaymentId`         | Order ID Field.                                                                           | Guid | 36   | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 | `ReturnUrl`         | Merchant return URL. URL to where the merchant will be redirected at the end of the flow. | Text | 1024 | http://www.urllogista.com.br         |
-| `Status`            | Transaction status.                                          | Byte | ---  | 0                                    |
-| `ReturnCode`        | Acquiring return code.                                       | Text | 32   | Alphanumeric text                    |
+| `Status`            | Transaction status.                                                                       | Byte | ---  | 0                                    |
+| `ReturnCode`        | Acquiring return code.                                                                    | Text | 32   | Alphanumeric text                    |

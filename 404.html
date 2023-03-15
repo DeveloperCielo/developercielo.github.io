@@ -5,40 +5,45 @@ permalink: 404.html
 ---
 
 <header class="logo">
-    <div class="home-header-container">
-        <a href="#" class="help">{% t global.support %}</a>
-        <a href="{{ site.baseurl }}/">
-            <img src="{{ site.baseurl }}/assets/images/logo.png" alt="{{ site.title }}">
-        </a>
-    </div>
+  <div class="home-header-container">
+    <a href="#" class="help">{% t global.support %}</a>
+    <a href="{{ site.baseurl }}/">
+      <img
+        src="{{ site.baseurl }}/assets/images/logo.png"
+        alt="{{ site.title }}"
+      />
+    </a>
+  </div>
 </header>
 
 <div class="page">
   <h1 class="page-title">404: Page not found</h1>
-  <p class="lead">Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. <a href="{{ site.baseurl }}">Head back home</a> to try finding it again.</p>
+  <p class="lead">
+    Sorry, we've misplaced that URL or it's pointing to something that doesn't
+    exist. <a href="{{ site.baseurl }}">Head back home</a> to try finding it
+    again.
+  </p>
 </div>
 
 {% assign sorted = site.tags | sort %}
 
 <div class="post-list home">
-    <ul class="product-list">
+  <ul class="product-list">
     {% for tag in sorted %}
-        <li class="product">
-            <h2>{{tag[0]}}</h2>
-            {% assign pages_list = tag[1] | sort: 'title' | sort: 'sort_order' %}
+    <li class="product">
+      <h2>{{tag[0]}}</h2>
+      {% assign pages_list = tag[1] | sort: 'title' | sort: 'sort_order' %}
 
-            <ul class="doc">
-            {% for post in pages_list %}
-                <li class="doc-title">
-                    <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-                </li>
-            {% endfor %}
-            </ul>
+      <ul class="doc">
+        {% for post in pages_list %}
+        <li class="doc-title">
+          <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
         </li>
+        {% endfor %}
+      </ul>
+    </li>
     {% endfor %}
-    </ul>
+  </ul>
 </div>
 
-<div class="home-footer">
-    {% include footer.html %}
-</div>
+<div class="home-footer">{% include footer.html %}</div>
