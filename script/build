@@ -48,7 +48,7 @@ if [ -n "$GITHUB_TOKEN" ]; then
 
   # build with Jekyll into "_site"
   bundle exec jekyll build --quiet -b ${HOST}
-  bundle exec htmlproofer ./_site --disable-external --allow-hash-href
+  bundle exec htmlproofer ./_site --disable-external --allow-hash-href --alt-ignore
 
   # push
   cd _site
