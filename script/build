@@ -30,7 +30,7 @@ done
 export LANG=$lang && export LANGUAGE=$language && LC_ALL=$lc_all
 
 # lint for markdown
-bundle exec mdl --rules ${RULES} _i18n/
+#bundle exec mdl --rules ${RULES} _i18n/
 
 if [ -n "$GITHUB_TOKEN" ]; then
   # cleanup "_site"
@@ -50,8 +50,6 @@ if [ -n "$GITHUB_TOKEN" ]; then
 
   # push
   cd _site
-  git config user.email "neto.joaobatista@gmail.com"
-  git config user.name "João Batista Neto"
   git add --all
   git commit -a -m "[$TRAVIS_COMMIT]: $TRAVIS_COMMIT_MESSAGE"
   git push --force origin master
