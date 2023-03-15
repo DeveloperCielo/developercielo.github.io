@@ -1,0 +1,2345 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="pt">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        Manual E-Wallets (Carteiras Digitais) &middot; Documentações e tutoriais
+        
+    </title>
+
+    <link rel="shortcut icon" href="https://developercielo.github.io/assets/favicon.ico">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+    <script async src="https://use.fontawesome.com/3ae06f1030.js"></script>
+
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/bundles/css/bundle.min.css">
+
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://developercielo.github.io/manual/e-wallets-ecommercecielo" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://developercielo.github.io/en/manual/e-wallets-ecommercecielo" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://developercielo.github.io/atom.xml">
+</head>
+
+    <body>
+        
+        <div class="content-container">
+            <div class="language-tabs">
+                <a class='hide-btn' id="hide-button" title="Comutar"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <ul class="language-buttons">
+                    
+                    <li><a data-language-name='json'>JSON</a></li>
+                    
+                    <li><a data-language-name='shell'>cURL</a></li>
+                    
+                </ul>
+            </div>
+            <div class="dark-box"></div>
+            <div class="overlay"></div>
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://devcielo.zendesk.com/hc/pt-br#suporte" class="help">Ajuda</a>
+
+                            
+                            <div class="lang">
+                                <span>Idiomas</span>
+
+                                
+                                    
+                                    <a href="https://developercielo.github.io/manual/e-wallets-ecommercecielo">
+                                    
+
+                                        <img alt="Português" src="https://developercielo.github.io/assets/images/pt.png"/>
+                                    </a>
+                                
+                                    
+                                    <a href="https://developercielo.github.io/en/manual/e-wallets-ecommercecielo">
+                                    
+
+                                        <img alt="English" src="https://developercielo.github.io/assets/images/en.png"/>
+                                    </a>
+                                
+                            </div>
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/manual/e-wallets-ecommercecielo">Manual E-Wallets (Carteiras Digitais)</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+  <h1 id="e-wallet-carteira-digital">E-Wallet (carteira digital)</h1>
+
+<p>E-wallets são cofres (repositórios) de cartões e dados de pagamento destinados a consumidores do e-commerce e do mundo físico. As carteiras digitais permitem que um consumidor realize o cadastro de seus dados de pagamento tornando o processo de compra mais conveniente e seguro.</p>
+
+<aside class="warning">Para utilizar carteiras na API E-commerce Cielo, o lojista deverá possuir as carteiras integradas em seu checkout.</aside>
+
+<p>Entre em contato com o provedor de sua preferência para maiores informações sobre como contratar o serviço.</p>
+
+<h2 id="e-wallets-disponíveis">E-Wallets Disponíveis</h2>
+
+<p>API Cielo E-commerce possui suporte para as seguintes carteiras digitais:</p>
+
+<ul>
+  <li><a href="https://www.apple.com/br/apple-pay/" target="_blank"><em>Apple Pay</em></a></li>
+  <li><a href="https://www.samsung.com.br/samsungpay/" target="_blank"><em>Samsung Pay</em></a></li>
+  <li><a href="https://pay.google.com/intl/pt-BR_br/about/" target="_blank"><em>Google Pay</em></a></li>
+  <li><a href="https://masterpass.com/pt-br/" target="_blank"><em>Masterpass</em></a></li>
+</ul>
+
+<aside class="warning">Quando o nó “Wallet” é enviado na requisição, o nó “CreditCard” passa a ser opcional.</aside>
+<aside class="warning">Quando o nó "Wallet" é enviado na requisição, para o cartão de débito é necessário o envio do nó “DebitCard” contendo a “ReturnUrl”.</aside>
+
+<h2 id="integração-da-e-wallet">Integração da E-Wallet</h2>
+
+<p>Veja abaixo a representação de um <strong>fluxo transacional</strong> padrão na integração de uma e-wallet:</p>
+
+<p><img src="https://developercielo.github.io/images/apicieloecommerce/e-wallets/e-wallets-cielo-100.png" alt="Fluxo E-wallets" /></p>
+
+<p>A seguir, um exemplo de requisição padrão para integração da e-wallet:</p>
+
+<h3 id="requisição">Requisição</h3>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Exemplo Wallet Padrão"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11225468954"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TIPO DE WALLET"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"WalletKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IDENTIFICADOR DA LOJA NA WALLET"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"AdditionalData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"EphemeralPublicKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TOKEN INFORMADO PELA WALLET"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+   <span class="s2">"MerchantOrderId"</span>: <span class="s2">"2014111708"</span>,
+   <span class="s2">"Customer"</span>: <span class="o">{</span>
+      <span class="s2">"Name"</span>: <span class="s2">"Exemplo Wallet Padrão"</span>,
+      <span class="s2">"Identity"</span>: <span class="s2">"11225468954"</span>,
+      <span class="s2">"IdentityType"</span>: <span class="s2">"CPF"</span>
+   <span class="o">}</span>,
+   <span class="s2">"Payment"</span>: <span class="o">{</span>
+      <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>,
+      <span class="s2">"Amount"</span>: 100,
+      <span class="s2">"Installments"</span>: 1,
+      <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
+      <span class="s2">"Wallet"</span>: <span class="o">{</span>
+         <span class="s2">"Type"</span>: <span class="s2">"TIPO DE WALLET"</span>,
+         <span class="s2">"WalletKey"</span>: <span class="s2">"IDENTIFICADOR DA LOJA NA WALLET"</span>,
+         <span class="s2">"AdditionalData"</span>: <span class="o">{</span>
+            <span class="s2">"EphemeralPublicKey"</span>: <span class="s2">"TOKEN INFORMADO PELA WALLET"</span>
+         <span class="o">}</span>
+      <span class="o">}</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Identificador da loja na Cielo.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Sim (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Chave pública para autenticação dupla na Cielo.</td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Identificador do request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Não (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Número de identificação do pedido.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>Nome do comprador.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
+      <td>Status de cadastro do comprador na loja (“NEW” / “EXISTING”).</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Tipo do meio de pagamento.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Valor do pedido, em centavos.</td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Número de parcelas.</td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.Type</code></td>
+      <td>Tipo de carteira: “ApplePay” / “SamsungPay” / “GooglePay” / “VisaCheckout” / “Masterpass”.</td>
+      <td>Texto</td>
+      <td>–</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.WalletKey</code></td>
+      <td>Chave criptográfica que identifica lojas nas wallets. Consultar a tabela <a href="https://developercielo.github.io/manual/e-wallets-ecommercecielo#walletkey">WalletKey</a> para mais informações.</td>
+      <td>Texto</td>
+      <td>–</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.AdditionalData.EphemeralPublicKey</code></td>
+      <td>Token retornado pela wallet. Deve ser enviado em integrações <strong>ApplePay</strong>.</td>
+      <td>Texto</td>
+      <td>–</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.AdditionalData.CaptureCode</code></td>
+      <td>Código informado pela <strong>Masterpass</strong> ao lojista.</td>
+      <td>Texto</td>
+      <td>–</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.AdditionalData.Signature</code></td>
+      <td>Token retornado pela wallet. Deve ser enviado em integrações <strong>GooglePay</strong>.</td>
+      <td>Texto</td>
+      <td>–</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="walletkey">WalletKey</h4>
+
+<p>WalletKey é o identificador utilizado pela Cielo para descriptografar payloads retornados pela wallet.</p>
+
+<p>Os formatos de <code class="language-plaintext highlighter-rouge">WalletKey</code> que devem ser repassados à API Cielo E-commerce são:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Carteira</th>
+      <th>Exemplo</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><em>Apple Pay</em></td>
+      <td>9zcCAciwoTS+qBx8jWb++64eHT2QZTWBs6qMVJ0GO+AqpcDVkxGPNpOR/D1bv5AZ62+5lKvucati0+eu7hdilwUYT3n5swkHuIzX2KO80Apx/SkhoVM5dqgyKrak5VD2/drcGh9xqEanWkyd7wl200sYj4QUMbeLhyaY7bCdnnpKDJgpOY6J883fX3TiHoZorb/QlEEOpvYcbcFYs3ELZ7QVtjxyrO2LmPsIkz2BgNm5f+JaJUSAOectahgLZnZR+easdhghrsa/E9A6DwjMd0fDYnxjj0bQDfaZpBPeGGPFLu5YYn1IDc</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><em>Samsung Pay</em></td>
+      <td>eyJhbGciOiJSU0ExXzUiLCJraWQiOiIvam1iMU9PL2hHdFRVSWxHNFpxY2VYclVEbmFOUFV1ZUR5M2FWeHBzYXVRPSIsInR5cCI6IkpPU0UiLCJjaGFubmVsU2VjdXJpdHlDb250ZXh0IjoiUlNBX1BLSSIsImVuYyI6IkExMjhHQ00ifQ.cCsGbqgFdzVb1jhXNR–gApzoXH-fdafddfa-Bo_utsmDN_DuGm69Kk2_nh6txa7ML9PCI59LFfOMniAf7ZwoZUBDCY7Oh8kx3wsZ0kxNBwfyLBCMEYzET0qcIYxePezQpkNcaZ4oogmdNSpYY-KbZGMcWpo1DKhWphDVp0lZcLxA6Q25K78e5AtarR5whN4HUAkurQ.CFjWpHkAVoLCG8q0.NcsTuauebemJXmos_mLMTyLhEHL-p5Wv6J88WkgzyjAt_DW7laiPMYw2sqRXkOiMJLwhifRzbSp8ZgJBM25IX05dKKSS4XfFjJQQjOBHw6PYtEF5pUDMLHML3jcddCrX07abfef_DuP41PqOQYsjwesLZ8XsRj-R0TH4diOZ_GQop8_oawjRIo9eJr9Wbtho0h8kAzHYpfuhamOPT718EaGAY6SSrR7t6nBkzGNkrKAmHkC7aRwe.AbZG53wRqgF0XRG3wUK_UQ</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><em>Google Pay</em></td>
+      <td>{"encryptedMessage":"0mXBb94Cy9JZhMuwtrBhMjXb8pDslrNsN5KhcEqnowOINqJgjXHD36KcCuzpQQ4cDAe64ZLmk2N3UBGXsN9hMMyeMakXlidVmteE+QMaNZIor048oJqlUIFPD54B/ic8zCdqq3xnefUmyKQe0I03x57TcEA9xAT/E4x3rYfyqLFUAEtu2lT0GwTdwgrsT8pKoTldHIgP+wVNTjrKvJrB4xM/Bhn6JfcSmOzFyI6w37mBU71/TK761nYOSxt7z1bNWSLZ4b8xBu1dlRgen2BSlqdafuQjV3UZjr6ubSvaJ8NiCh5FD/X013kAwLuLALMS2uAFS9j8cZ6R6zNIi13fK6Fe4ACbFTHwLzSNZjQiaRDb6MlMnY8/amncPIOXzpirb5ScIz8EZUL05xd+3YWVTVfpqgFo1eaaS+wZdUyRG0QEgOsr6eLBoH8d5lfV9Rx6XdioorUuT7s1Yqc0OJZO+fhBt6X0izE9hBGTexdZyg\u003d\u003d","ephemeralPublicKey":"BMdwrkJeEgCOtLevYsN3MbdP8xbOItXiTejoB6vXy0Kn0ZM10jy4Aasd6jTSxtoxoTpFydLhj5kzoOhbw2OzZu0\u003d","tag":"yAQIjWZ0VuCC7SWyYwc4eXOzpSUKhZduF9ip0Ji+Gj8\u003d"}</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><em>Masterpass</em></td>
+      <td>a561da1c18a89cfdafas875f9d43fc46cd9bf3e1</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="ephemeralpublickey">EphemeralPublicKey</h4>
+
+<p>Formato de <code class="language-plaintext highlighter-rouge">EphemeralPublicKey</code> que deve ser repassado à API Cielo E-commerce:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Carteira</th>
+      <th>Exemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><em>Apple Pay</em></td>
+      <td>MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEoedz1NqI6hs9hEO6dBsnn0X0xp5/DKj3gXirjEqxNIJ8JyhGxVB3ITd0E+6uG4W6Evt+kugG8gOhCBrdUU6JwQ==</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="signature">Signature</h4>
+
+<p>Formato de <code class="language-plaintext highlighter-rouge">Signature</code> que deve ser repassado à API Cielo E-commerce:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Carteira</th>
+      <th>Exemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><em>Google Pay</em></td>
+      <td>MEUCIQCGQLOmwxe5eFMSuTcr4EcwSZu35fB0KlCWcVop6ZxxhgIgbdtNHThSlynOopfxMIxkDs0cLh2NFh5es+J5uDmaViA\u003d</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="respostas">Respostas</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[Guest]"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"453211******1521"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BJORN IRONSIDE"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08/2020"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0319040817883"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"817883"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"027795"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TIPO DE WALLET"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"WalletKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IDENTIFICADOR DA LOJA NA WALLET"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Eci"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AdditionalData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"EphemeralPublicKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TOKEN INFORMADO PELA WALLET"</span><span class="w">
+            </span><span class="p">},</span><span class="w">                
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-19 16:08:16"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IsSplitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e57b09eb-475b-44b6-ac71-01b9b82f2491"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"capture"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/capture"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="s2">"MerchantOrderId"</span>: <span class="s2">"2014111703"</span>,
+    <span class="s2">"Customer"</span>: <span class="o">{</span>
+        <span class="s2">"Name"</span>: <span class="s2">"[Guest]"</span>
+    <span class="o">}</span>,
+    <span class="s2">"Payment"</span>: <span class="o">{</span>
+        <span class="s2">"ServiceTaxAmount"</span>: 0,
+        <span class="s2">"Installments"</span>: 1,
+        <span class="s2">"Interest"</span>: 0,
+        <span class="s2">"Capture"</span>: <span class="nb">false</span>,
+        <span class="s2">"Authenticate"</span>: <span class="nb">false</span>,
+        <span class="s2">"Recurrent"</span>: <span class="nb">false</span>,
+        <span class="s2">"CreditCard"</span>: <span class="o">{</span>
+            <span class="s2">"CardNumber"</span>: <span class="s2">"453211******1521"</span>,
+            <span class="s2">"Holder"</span>: <span class="s2">"BJORN IRONSIDE"</span>,
+            <span class="s2">"ExpirationDate"</span>: <span class="s2">"08/2020"</span>,
+            <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
+            <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
+        <span class="o">}</span>,
+        <span class="s2">"Tid"</span>: <span class="s2">"0319040817883"</span>,
+        <span class="s2">"ProofOfSale"</span>: <span class="s2">"817883"</span>,
+        <span class="s2">"AuthorizationCode"</span>: <span class="s2">"027795"</span>,
+        <span class="s2">"Wallet"</span>: <span class="o">{</span>
+            <span class="s2">"Type"</span>: <span class="s2">"TIPO DE WALLET"</span>,
+            <span class="s2">"WalletKey"</span>: <span class="s2">"IDENTIFICADOR DA LOJA NA WALLET"</span>,
+            <span class="s2">"Eci"</span>: 0,
+            <span class="s2">"AdditionalData"</span>: <span class="o">{</span>
+                <span class="s2">"EphemeralPublicKey"</span>: <span class="s2">"TOKEN INFORMADO PELA WALLET"</span>
+            <span class="o">}</span>,                
+        <span class="o">}</span>,
+        <span class="s2">"SoftDescriptor"</span>: <span class="s2">"123456789ABCD"</span>,
+        <span class="s2">"Amount"</span>: 100,
+        <span class="s2">"ReceivedDate"</span>: <span class="s2">"2018-03-19 16:08:16"</span>,
+        <span class="s2">"Status"</span>: 1,
+        <span class="s2">"IsSplitted"</span>: <span class="nb">false</span>,
+        <span class="s2">"ReturnMessage"</span>: <span class="s2">"Operation Successful"</span>,
+        <span class="s2">"ReturnCode"</span>: <span class="s2">"4"</span>,
+        <span class="s2">"PaymentId"</span>: <span class="s2">"e57b09eb-475b-44b6-ac71-01b9b82f2491"</span>,
+        <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>,
+        <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
+        <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+        <span class="s2">"Links"</span>: <span class="o">[</span>
+            <span class="o">{</span>
+                <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
+                <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
+                <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"</span>
+            <span class="o">}</span>,
+            <span class="o">{</span>
+                <span class="s2">"Method"</span>: <span class="s2">"PUT"</span>,
+                <span class="s2">"Rel"</span>: <span class="s2">"capture"</span>,
+                <span class="s2">"Href"</span>: <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/capture"</span>
+            <span class="o">}</span>,
+            <span class="o">{</span>
+                <span class="s2">"Method"</span>: <span class="s2">"PUT"</span>,
+                <span class="s2">"Rel"</span>: <span class="s2">"void"</span>,
+                <span class="s2">"Href"</span>: <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"</span>
+            <span class="o">}</span>
+        <span class="o">]</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
+      <td>Número da autorização, idêntico ao NSU.</td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
+      <td>Id da transação na adquirente.</td>
+      <td>Texto</td>
+      <td>20</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
+      <td>Código de autorização.</td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
+      <td>Texto que será impresso na fatura bancária do portador. Disponível apenas para VISA/MASTER - não permite caracteres especiais.</td>
+      <td>Texto</td>
+      <td>13</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
+      <td>Campo identificador do pedido.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ECI</code></td>
+      <td><em>Electronic Commerce Indicator</em>. Representa o quão segura é uma transação.</td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Ex.: 7</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Status da transação.</td>
+      <td>Byte</td>
+      <td>2</td>
+      <td>Ex.: 1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
+      <td>Código de retorno da adquirência.</td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
+      <td>Mensagem de retorno da adquirência.</td>
+      <td>Texto</td>
+      <td>–</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Type</code></td>
+      <td>Tipo de carteira: “ApplePay” / “SamsungPay” / “GooglePay” / “VisaCheckout” / “Masterpass”.</td>
+      <td>Texto</td>
+      <td>–</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">WalletKey</code></td>
+      <td>Chave criptográfica que identifica lojas nas wallets. Consulte a tabela <a href="https://developercielo.github.io/manual/e-wallets-ecommercecielo#walletkey">WalletKey</a> para mais informações.</td>
+      <td>Texto</td>
+      <td>–</td>
+      <td>Ver tabela <a href="https://developercielo.github.io/manual/e-wallets-ecommercecielo#walletkey">WalletKey</a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AdditionalData.EphemeralPublicKey</code></td>
+      <td>Token retornado pela wallet. Deve ser enviado em Integrações: “ApplePay”.</td>
+      <td>Texto</td>
+      <td>–</td>
+      <td>Ver tabela <a href="https://developercielo.github.io/manual/e-wallets-ecommercecielo#ephemeralpublickey">EphemeralPublicKey</a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AdditionalData.CaptureCode</code></td>
+      <td>Código informado pela <strong>Masterpass</strong> ao lojista.</td>
+      <td>Texto</td>
+      <td>–</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AdditionalData.Signature</code></td>
+      <td>Token retornado pela wallet. Deve ser enviado em Integrações: “GooglePay”.</td>
+      <td>Texto</td>
+      <td>–</td>
+      <td>Ver tabela <a href="https://developercielo.github.io/manual/e-wallets-ecommercecielo#signature">Signature</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="exemplos-de-integração">Exemplos de Integração</h1>
+
+<p>A seguir, veja alguns exemplos de integração com as principais e-wallets disponíveis no mercado.</p>
+
+<h1 id="apple-pay-">Apple Pay ™</h1>
+
+<p>O Apple Pay é uma carteira virtual. Ele permite que o comprador realize pagamentos em lojas virtuais e apps utilizando, de forma prática e segura, seus cartões de crédito e débito armazenados em suas contas e dispositivos Apple.</p>
+
+<h2 id="pré-requisitos">Pré-Requisitos</h2>
+
+<p>Para utilização do Apple Pay, é necessário que a loja já esteja cadastrada no programa AppleID. Além disso, você deve:</p>
+
+<ol>
+  <li>Realizar o cadastro, acessando <a href="https://developer.apple.com/programs/enroll/">esta URL</a> e seguindo todos os passos requeridos pela Apple;</li>
+  <li>Seguir os passos dessa documentação para completar a integração junto à Apple;</li>
+  <li>Contratar a API E-commerce Cielo;</li>
+  <li>Contratar a Cielo 3.0 como adquirência;</li>
+  <li>Integrar com a <a href="https://developercielo.github.io/manual/cielo-ecommerce">API E-commerce Cielo</a>.</li>
+</ol>
+
+<h2 id="etapa-1---configuração-do-merchant-identifier">ETAPA 1 - Configuração do Merchant Identifier</h2>
+
+<p>Nesta etapa inicial, você deverá criar um <strong>merchant identifier</strong> para sua loja. Após criado, o merchant identifier deverá ser enviado à Cielo em solicitação a um <strong>certificado “.CSR”</strong>. O certificado “.CSR” criado pela Cielo deverá ser utilizado na criação de um novo certificado junto à Apple, o <strong>certificado “.CER”</strong>, que irá servir no seguimento para a segunda etapa do processo.</p>
+
+<h3 id="passo-1---criar-o-merchant-identifier">Passo 1 - Criar o Merchant Identifier</h3>
+
+<p>A criação do merchant identifier deve ser feita através do <a href="https://developer.apple.com/account/resources">Portal de Desenvolvedores da Apple</a>, da seguinte maneira:</p>
+
+<ol>
+  <li>Na seção <strong>“Certificates, Identifiers &amp; Profiles”</strong>, selecione <strong>“Identifiers”</strong> no menu lateral, e então clique no botão <code class="language-plaintext highlighter-rouge">(+)</code> ao lado do título:
+<img src="https://developercielo.github.io/images/apicieloecommerce/e-wallets/applepay01.png" alt="Step1.1" /></li>
+  <li>Selecione a opção <strong>“Merchant IDs”</strong> e então clique em <code class="language-plaintext highlighter-rouge">Continue</code>:
+<img src="https://developercielo.github.io/images/apicieloecommerce/e-wallets/applepay02.png" alt="Step1.2" /></li>
+  <li>Coloque um valor nos campos <strong>“Description”</strong> e <strong>“Identifier”</strong>, seguindo suas especificações, e clique em <code class="language-plaintext highlighter-rouge">Continue</code>:
+<img src="https://developercielo.github.io/images/apicieloecommerce/e-wallets/applepay03.png" alt="Step1.3" /></li>
+  <li>Para finalizar, clique em <code class="language-plaintext highlighter-rouge">Register</code>:
+<img src="https://developercielo.github.io/images/apicieloecommerce/e-wallets/applepay04.png" alt="Step1.4" /></li>
+</ol>
+
+<h3 id="passo-2---solicitar-o-certificado-csr">Passo 2 - Solicitar o Certificado “.CSR”</h3>
+
+<p>Para solicitar à Cielo a geração do certificado no formato “.CSR”, entre em contato com o nosso <a href="https://devcielo.zendesk.com/hc/pt-br#suporte" target="_blank">Time de Atendimento</a> e informe:</p>
+
+<ol>
+  <li>O <strong>Merchant Identifier</strong> criado no “Passo 1”;</li>
+  <li>O <strong>Merchant ID</strong> de sua loja na Cielo em produção.</li>
+</ol>
+
+<p>Nossa equipe irá retornar com o arquivo “.CSR” em até 48 horas úteis.</p>
+
+<h3 id="passo-3---criar-o-certificado-cer">Passo 3 - Criar o Certificado “.CER”</h3>
+
+<p>Para criar um certificado de processamento de pagamento (“.CER”), que será utilizado em sua loja virtual ou aplicativo, é necessário acessar o <a href="https://developer.apple.com/account/resources" target="_blank">Portal de Desenvolvedores da Apple</a> e seguir os passos abaixo:</p>
+
+<ol>
+  <li>Na seção <strong>“Certificates, Identifiers &amp; Profiles”</strong>, selecione <strong>“Identifiers”</strong>, no menu lateral.</li>
+  <li>Utilizando o filtro localizado à direita superior (<strong>“App IDs”</strong>), encontre o item <strong>“Merchant IDs”</strong>:
+<img src="https://developercielo.github.io/images/apicieloecommerce/e-wallets/applepay05.png" alt="Step2.1" /></li>
+  <li>Selecione o identifier criado anteriormente:
+<img src="https://developercielo.github.io/images/apicieloecommerce/e-wallets/applepay06.png" alt="Step2.2" /></li>
+  <li>No bloco <strong>“Apple Pay Payment Processing Certificate”</strong>, clique no botão <code class="language-plaintext highlighter-rouge">Create Certificate</code> ao final do texto explicativo:
+<img src="https://developercielo.github.io/images/apicieloecommerce/e-wallets/applepay07.png" alt="Step2.3" /></li>
+  <li>Escolha a opção <strong>“No”</strong> em <strong>“Edit or Configure Merchant ID”</strong>:
+<img src="https://developercielo.github.io/images/apicieloecommerce/e-wallets/applepay08.png" alt="Step2.4" /></li>
+  <li>Na caixa de diálogo, clique em <code class="language-plaintext highlighter-rouge">Choose File</code> e escolha o certificado “.CSR” enviado pela Cielo:
+<img src="https://developercielo.github.io/images/apicieloecommerce/e-wallets/applepay09.png" alt="Step2.5" /></li>
+  <li>Clique em <code class="language-plaintext highlighter-rouge">Continue</code>:
+<img src="https://developercielo.github.io/images/apicieloecommerce/e-wallets/applepay10.png" alt="Step2.6" /></li>
+  <li>Clique em <code class="language-plaintext highlighter-rouge">Download</code> para baixar o arquivo “.CER”:
+<img src="https://developercielo.github.io/images/apicieloecommerce/e-wallets/applepay11.png" alt="Step2.7" /></li>
+</ol>
+
+<p>Para mais detalhes, acesse a <a href="https://help.apple.com/developer-account/#/devb2e62b839" target="_blank">Developer Account Help</a> da Apple.</p>
+
+<h2 id="etapa-2-integração-com-apple-pay">ETAPA 2. Integração com Apple Pay</h2>
+
+<p>Boa parte do processo para disponibilização do botão “Pagar com Apple Pay” no seu app ou site será realizado na sua integração junto à wallet. Por isso, recomendamos que siga as orientações disponíveis no site de <a href="https://developer.apple.com/documentation" target="_blank">Documentação da Apple</a> para a implementação, que é totalmente self-service.</p>
+
+<p>Ao final do processo realizado na API da Apple, você receberá um JSON contendo dois campos importantes que deverão ser utilizados na “ETAPA 3”. São os campos <code class="language-plaintext highlighter-rouge">paymentData.data</code> e <code class="language-plaintext highlighter-rouge">ephemeralPublicKey.header.EphemeralPublicKey</code>.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"applePayData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"paymentData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EC_v1"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"as01vRj+n9crY2vome7zc+u7Tz0+qg2La/8IUHpJIjFN6ThhUqLnSrskQHTrEbcYPiMksFK0+ddo9sZu70uJQJH1I+44N6PrVhilNDem97vOXq2VYDXiVJ27F/Q9wGQDgZBeGcZ6Pml9SIelHqUauBcQoOatrlnWPUL8kbdpT8WqgzXyaCh7oeTz=z6++rp/ofjvSjnGtOqAUsnrzvw4uzkcyKUSsfROdJ6B/Xzgu/T9fMIr5UxXD2DPF1SNh3ydEJABKz4HFjDW7ObvbQeua4GYxJdpQLpI3NgUbJy91E/LOyb/+PcCtO+0=a41tBrfnTTF9qsPuCIw8HWIEEKSRofn27NTofxev/i+nHEfqEtqNrN/epIvhzceD/gDiGetfiLKMzf94ARmpWUAMC=="</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(…)"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"ephemeralPublicKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MFkwEwZJKoZIzj0CAQYIKo12zj0DAQcDQgAEo+ReGClSmQ4hDJD1yh9nci3V4l7kPm2AQtKZMMvuNS0iK5sn/1A9l3kw1B1xCqOycZmnPSng7p5hpTvrei1BCA=="</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"publicKeyHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KXN06+BtJu6yEfF9zDhr7f4M/2HwVybnx0FGfC520gB="</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"transactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"71c5b61c3791546e94d2b4893a6c69aaac2ab86b5c113c83a7d89057906a9b5f"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"paymentMethod"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"displayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MasterCard 1212"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"network"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MasterCard"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"transactionIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81C5B61C3791646E94D2B4893A6C69BBBC2AB86B5C363C83A7D89057906A9BAC"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"x_document"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24562608994"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"x_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"João da Silva"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="nota-importante">Nota Importante</h3>
+
+<aside class="warning">Durante a implementação da Apple, haverá uma referência ao certificado ".CER", gerado durante a ETAPA 1, para criptografar os dados durante a comunicação com a Apple. No fluxo de integração NÃO implemente o processo de descriptografia dos dados retornados pela Apple pois esse trabalho é feito pela API E-commerce Cielo.</aside>
+
+<h2 id="etapa-3-integração-com-a-api-e-commerce-cielo-descriptografia-e-autorização">ETAPA 3. Integração com a API E-commerce Cielo (descriptografia e autorização)</h2>
+
+<p>A autorização com o token do Apple Pay acontece da mesma forma que a autorização padrão de um cartão de crédito. Porém, ao invés de se fornecer os dados do cartão abertamente, deverá ser fornecido o token recebido pelo Apple Pay, conforme o exemplo abaixo:</p>
+
+<h3 id="requisição-1">Requisição</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="err">(…)</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ApplePay"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"WalletKey"</span><span class="p">:</span><span class="s2">"['paymentData.data']"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"AdditionalData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"EphemeralPublicKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"['ephemeralPublicKey.header.EphemeralPublicKey']"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetros do Header</th>
+      <th>Descrição</th>
+      <th>Tipo e Tamanho</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>ID do estabelecimento na API E-commerce Cielo.</td>
+      <td>GUID (36)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Chave da API para a API E-commerce Cielo.</td>
+      <td>String (24)</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Descrição</th>
+      <th>Tipo e Tamanho</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Número de identificação do pedido.</td>
+      <td>String (50)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer</code></td>
+      <td>Nó com dados do comprador.</td>
+      <td>Consulte o manual da <a href="https://developercielo.github.io/manual/cielo-ecommerce#criando-uma-transa%C3%A7%C3%A3o-de-cr%C3%A9dito" target="_blank">API E-commerce Cielo</a>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Tipo do meio de pagamento. Possibilidades: “CreditCard” / “DebitCard”.</td>
+      <td>String (100)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Valor do pedido, em centavos.</td>
+      <td>Número (15)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Número de parcelas.</td>
+      <td>Número (2)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Wallet.Type</code></td>
+      <td>Nome do provedor do meio de pagamento. Para transações Apple Pay, utilize “ApplePay”.</td>
+      <td>String (15)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Wallet.WalletKey</code></td>
+      <td>Preencher com o valor do parâmetro <code class="language-plaintext highlighter-rouge">paymentData.data</code> retornado pelo Apple Pay.</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Wallet.AdditionalData.EphemeralPublicKey</code></td>
+      <td>Preencher com o valor do parâmetro <code class="language-plaintext highlighter-rouge">ephemeralPublicKey.header.EphemeralPublicKey</code> retornado pelo Apple Pay.</td>
+      <td>String</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="resposta">Resposta</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051002"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">(…)</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="err">(…)</span><span class="w">
+        </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">(…)</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">(…)</span><span class="w">
+        </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ApplePay"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"WalletKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"as01vRj+n9crY2vome7zc+u7Tz0+qg2La/8IUHpJIjFN6ThhUqLnSrskQHTrEbcYPiMksFK0+ddo9sZu70uJQJH1I+44N6PrVhilNDem97vOXq2VYDXiVJ27F/Q9wGQDgZBeGcZ6Pml9SIelHqUauBcQoOatrlnWPUL8kbdpT8WqgzXyaCh7oeTz=z6++rp/ofjvSjnGtOqAUsnrzvw4uzkcyKUSsfROdJ6B/Xzgu/T9fMIr5UxXD2DPF1SNh3ydEJABKz4HFjDW7ObvbQeua4GYxJdpQLpI3NgUbJy91E/LOyb/+PcCtO+0=a41tBrfnTTF9qsPuCIw8HWIEEKSRofn27NTofxev/i+nHEfqEtqNrN/epIvhzceD/gDiGetfiLKMzf94ARmpWUAMC=="</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"AdditionalData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"EphemeralPublicKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MFkwEwZJKoZIzj0CAQYIKo12zj0DAQcDQgAEo+ReGClSmQ4hDJD1yh9nci3V4l7kPm2AQtKZMMvuNS0iK5sn/1A9l3kw1B1xCqOycZmnPSng7p5hpTvrei1BCA=="</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">(…)</span><span class="w">
+        </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="err">(…)</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>A resposta de autorização da wallet terá os mesmos campos apresentados na documentação da <a href="https://developercielo.github.io/manual/cielo-ecommerce#resposta32" target="_blank">API E-commerce Cielo</a>, porém com a adição do nó <code class="language-plaintext highlighter-rouge">Payment.Wallet</code> repetindo os mesmos campos utilizados na autorização, como descrito acima.</p>
+
+<h1 id="google-pay-">Google Pay ™</h1>
+
+<p>O Google Pay é uma carteira virtual. Ele permite que os compradores realizem pagamentos em lojas virtuais e apps utilizando, de forma prática e segura, seus cartões de crédito e débito armazenados em suas contas “Google Account” e dispositivos Android.</p>
+
+<h2 id="pré-requisitos-1">Pré-Requisitos</h2>
+
+<p>Para utilização do Google Pay, é necessário que a loja já possua cadastro e integração Google Pay. Além disso, você deve:</p>
+
+<ol>
+  <li>Concordar com os termos de serviço do Google Pay;</li>
+  <li>Seguir os passos dessa documentação para completar a integração junto à <a href="https://developers.google.com/pay/api/android/overview" target="_blank">Google Pay</a>;</li>
+  <li>Contratar a API E-commerce Cielo;</li>
+  <li>Contratar o Cielo 3.0 como adquirência;</li>
+  <li>Integrar com a <a href="https://developercielo.github.io/manual/cielo-ecommerce" target="_blank">API E-commerce Cielo</a>.</li>
+</ol>
+
+<h2 id="etapa-1-integração-com-google-pay">ETAPA 1: Integração com Google Pay</h2>
+
+<p>Nesta etapa inicial, você deverá configurar seu projeto e implementar o Google Pay em seu aplicativo Android.</p>
+
+<h3 id="passo-1---configuração-do-projeto">Passo 1 - Configuração do Projeto</h3>
+
+<p>Para configurar seu projeto, siga as instruções descritas no <a href="https://developers.google.com/pay/api/android/guides/setup">Guia de Configuração</a> do Google Pay.<br />
+Neste passo, você deverá <strong>adicionar dependências</strong> importando a biblioteca do Google Play Services ou então escolhendo as APIs que deseja compilar. E então, para ativar o Google Pay no seu aplicativo Android, você deverá <strong>modificar o arquivo <em>“AndroidManifest.xml”</em></strong> do seu projeto de acordo com as instruções dadas na página.</p>
+
+<h3 id="passo-2---implementação-do-google-pay">Passo 2 - Implementação do Google Pay</h3>
+
+<p>Para integrar o Google Pay em seu aplicativo, siga todos os passos indicados no <a href="https://developers.google.com/pay/api/android/guides/tutorial">Tutorial de Implementação</a> do Google Pay.
+<br /><br />
+Para a correta integração do Google Pay via Cielo, é necessário se atentar aos pontos abaixo:</p>
+
+<h4 id="definição-do-gateway">Definição do Gateway</h4>
+
+<p>No passo <em>“Step 2: Request a payment token for your payment provider”</em>, siga o modelo indicado como “GATEWAY” e atribua o valor “PAYMENT_GATEWAY” ao parâmetro <code class="language-plaintext highlighter-rouge">type</code> e o valor “cielo” ao parâmetro <code class="language-plaintext highlighter-rouge">gateway</code>, conforme o exemplo dado:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">private</span><span class="w"> </span><span class="err">static</span><span class="w"> </span><span class="err">JSONObject</span><span class="w"> </span><span class="err">getTokenizationSpecification()</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="err">JSONObject</span><span class="w"> </span><span class="err">tokenizationSpecification</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">JSONObject();</span><span class="w">
+  </span><span class="err">tokenizationSpecification.put(</span><span class="s2">"type"</span><span class="p">,</span><span class="w"> </span><span class="s2">"PAYMENT_GATEWAY"</span><span class="err">);</span><span class="w">
+  </span><span class="err">tokenizationSpecification.put(</span><span class="w">
+      </span><span class="s2">"parameters"</span><span class="p">,</span><span class="w">
+      </span><span class="err">new</span><span class="w"> </span><span class="err">JSONObject()</span><span class="w">
+          </span><span class="err">.put(</span><span class="s2">"gateway"</span><span class="p">,</span><span class="w"> </span><span class="s2">"cielo"</span><span class="err">)</span><span class="w">
+          </span><span class="err">.put(</span><span class="s2">"gatewayMerchantId"</span><span class="p">,</span><span class="w"> </span><span class="s2">"exampleMerchantId"</span><span class="err">));</span><span class="w">
+  </span><span class="err">return</span><span class="w"> </span><span class="err">tokenizationSpecification;</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Preencha o parâmetro <code class="language-plaintext highlighter-rouge">gatewayMerchantId</code> com o identificador de sua loja, gerado pelo gateway. O identificador da loja segue o formato “XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX” (tipo <em>GUID</em> / tamanho <em>36</em>).</p>
+
+<h4 id="definição-das-bandeiras">Definição das Bandeiras</h4>
+
+<p>No passo <em>“Step 3: Define supported payment card networks”</em>, configure conforme as bandeiras aceitas pela <em>wallet</em>.</p>
+
+<h4 id="definição-do-ambiente">Definição do Ambiente</h4>
+
+<p>No passo <em>“Step 5: Create a PaymentsClient instance”</em>, utilize o valor “WalletConstants.ENVIRONMENT_TEST” para o ambiente de testes.</p>
+
+<h4 id="definição-dos-dados-de-compra">Definição dos Dados de Compra</h4>
+
+<p>No passo <em>“Step 7: Create a PaymentDataRequest object”</em>, utilize o valor “BRL” para o parâmetro <code class="language-plaintext highlighter-rouge">currencyCode</code>. O campo <code class="language-plaintext highlighter-rouge">merchantName</code> é o nome que o comprador visualizará durante o pagamento com Google Pay e recomenda-se, desta forma, colocar-se um nome amigável e reconhecido.</p>
+
+<h4 id="recuperação-dos-dados-de-pagamento">Recuperação dos Dados de Pagamento</h4>
+
+<p>No passo <em>“Step 9: Handle the response object”</em>, está descrito o evento <code class="language-plaintext highlighter-rouge">Activity.RESULT_OK</code>, onde é retornado um objeto com todos os dados referentes ao dados de pagamento, inclusive o token de pagamento.</p>
+
+<p>A partir do <code class="language-plaintext highlighter-rouge">PaymentData</code>, obtém-se o objeto <code class="language-plaintext highlighter-rouge">PaymentMethodToken</code>, através da chamada do método <code class="language-plaintext highlighter-rouge">getPaymentMethodToken()</code>. <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData">Clique aqui</a> para mais informações.</p>
+
+<p>Na sequência, deve-se obter a <em>string</em> que contém tokens de pagamento a partir do método <code class="language-plaintext highlighter-rouge">GetToken()</code> do objeto <code class="language-plaintext highlighter-rouge">PaymentMethodToken</code>. <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentMethodToken">Clique aqui</a> para mais informações.</p>
+
+<p>A <em>string</em> obtida no passo anterior possui uma estrutura como a mostrada a seguir. <a href="https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography">Clique aqui</a> para mais informações.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"protocolVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ECv1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"signedMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">encryptedMessage</span><span class="se">\"</span><span class="s2">:
+  </span><span class="se">\"</span><span class="s2">ZW5jcnlwdGVkTWVzc2FnZQ==</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ephemeralPublicKey</span><span class="se">\"</span><span class="s2">:
+  </span><span class="se">\"</span><span class="s2">ZXBoZW1lcmFsUHVibGljS2V5</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">tag</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">c2lnbmF0dXJl</span><span class="se">\"</span><span class="s2">}"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Type</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">signedMessage</code></td>
+      <td>string</td>
+      <td>Mensagem assinada.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">signature</code></td>
+      <td>string</td>
+      <td>Assinatura da mensagem.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Guarde os dados <code class="language-plaintext highlighter-rouge">signedMessage</code> e <code class="language-plaintext highlighter-rouge">signature</code>, que serão requisitados na autorização via API E-commerce Cielo na ETAPA 2, descrita a seguir.</p>
+
+<h2 id="etapa-2-autorização-com-token">ETAPA 2: Autorização com Token</h2>
+
+<p>A autorização com o token do Google Pay acontece da mesma forma que a autorização padrão de um cartão de crédito. Porém, ao invés de se fornecer os dados do cartão abertamente, deverá ser fornecido o token recebido pelo Google Pay, conforme o exemplo abaixo:</p>
+
+<h3 id="request">Request</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">(…)</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AndroidPay"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"WalletKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">encryptedMessage</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">ZW5jcnlwdGVkTWVzc2FnZQ==</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ephemeralPublicKey</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">ZXBoZW1lcmFsUHVibGljS2V5</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">tag</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">c2lnbmF0dXJl</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AdditionalData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZXBoZW1lcmFsUHVibGljS2V5"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetros do Header</th>
+      <th>Descrição</th>
+      <th>Tipo e tamanho</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>ID do estabelecimento na Cielo 3.0. Para ambiente Sandbox, utilize 63D6ACCB-2734-4236-AB5D-843A9DAC44C7.</td>
+      <td>GUID (36)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Chave da API para Cielo 3.0. Para ambiente Sandbox, utilize ZCVHDJWKTGOZXADDYJFURIDIKHEMRYQAQDYEJMQK.</td>
+      <td>String (24)</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Descrição</th>
+      <th>Tipo e tamanho</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Número de identificação do pedido.</td>
+      <td>String (50)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer</code></td>
+      <td>Nó com dados do comprador.</td>
+      <td>Consulte o manual da <a href="https://developercielo.github.io/manual/cielo-ecommerce#criando-uma-transa%C3%A7%C3%A3o-de-cr%C3%A9dito" target="_blank">API E-commerce Cielo</a>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Tipo do meio de pagamento. Possibilidades: “CreditCard” / “DebitCard”.</td>
+      <td>String (100)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Valor do pedido, em centavos.</td>
+      <td>Número (15)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Número de parcelas.</td>
+      <td>Número (2)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Wallet.Type</code></td>
+      <td>Nome do provedor de meio de pagamento. Para transações Google Pay, utilize “AndroidPay”.</td>
+      <td>String (15)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Wallet.WalletKey</code></td>
+      <td>Preencher com o valor do parâmetro <code class="language-plaintext highlighter-rouge">signedMessage</code> retornado pelo Google Pay.</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Wallet.AdditionalData.Signature</code></td>
+      <td>Preencher com o valor do parâmetro <code class="language-plaintext highlighter-rouge">signature</code> retornado pelo Google Pay.</td>
+      <td>String</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Para mais informações, consulte o manual da API E-commerce Cielo](https://developercielo.github.io/manual/cielo-ecommerce#criando-uma-transa%C3%A7%C3%A3o-de-cr%C3%A9dito){:target=”_blank”}.</p>
+
+<h3 id="resposta-1">Resposta</h3>
+
+<p>A resposta de autorização da wallet terá os mesmos campos apresentados em nossa documentação do API E-commerce Cielo](https://developercielo.github.io/manual/cielo-ecommerce#resposta32){:target=”_blank”}, porém com a adição do nó <code class="language-plaintext highlighter-rouge">Payment.Wallet</code> repetindo os mesmos campos utilizados na autorização, como descrito acima.</p>
+
+<h2 id="etapa-3-solicitação-de-dados-de-produção">ETAPA 3: Solicitação de Dados de Produção</h2>
+
+<p>Para finalizar o processo, é necessário <strong>validar os passos</strong> das etapas anteriores e então <strong>solicitar as credenciais de acesso</strong> para entrar em produção.</p>
+
+<h3 id="passo-1---branding-guideline">Passo 1 - Branding Guideline</h3>
+
+<p>Verifique se todas as diretrizes de branding foram seguidas conforme descrito no <a href="https://developers.google.com/pay/api/android/guides/brand-guidelines" target="_blank">Guia Diretrizes de Marca</a>.</p>
+
+<h3 id="passo-2---checklist-e-solicitação-de-credenciais">Passo 2 - Checklist e Solicitação de Credenciais</h3>
+
+<p>Verifique se todos os itens do <a href="https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist" target="_blank">checklist de integração</a> foram atendidos. Após tudo validado, solicite os dados de acesso produtivos.</p>
+
+<h1 id="masterpass">Masterpass™</h1>
+
+<p>Para utilizar o Masterpass é necessária a contratação do serviço através do contato diretamente com a Mastercard, selecionando a Cielo como <em>service provider</em>.</p>
+
+<h2 id="requisição-2">Requisição</h2>
+
+<p>Exemplo de requisição padrão Masterpass:</p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">  
+   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Comprador Masterpass"</span><span class="w">     
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">  
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">15700</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Wallet"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"Masterpass"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"WalletKey"</span><span class="p">:</span><span class="s2">"a561da1c18a89cfdafas875f9d43fc46cd9bf3e1"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"AdditionalData"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"CaptureCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"103"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>  
+   <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2014111708"</span>,
+   <span class="s2">"Customer"</span>:<span class="o">{</span>  
+      <span class="s2">"Name"</span>:<span class="s2">"Comprador Masterpass"</span>     
+   <span class="o">}</span>,
+   <span class="s2">"Payment"</span>:<span class="o">{</span>  
+      <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
+      <span class="s2">"Amount"</span>:15700,
+      <span class="s2">"Installments"</span>:1,
+      <span class="s2">"Wallet"</span>:<span class="o">{</span>
+         <span class="s2">"Type"</span>:<span class="s2">"Masterpass"</span>,
+         <span class="s2">"WalletKey"</span>:<span class="s2">"a561da1c18a89cfdafas875f9d43fc46cd9bf3e1"</span>,
+         <span class="s2">"AdditionalData"</span>:<span class="o">{</span>
+            <span class="s2">"CaptureCode"</span>: <span class="s2">"103"</span>
+         <span class="o">}</span>
+      <span class="o">}</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Identificador da loja na Cielo.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Sim (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Chave pública para autenticação dupla na Cielo.</td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Identificador do request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Não (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Número de identificação do pedido.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>Nome do comprador.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
+      <td>Status de cadastro do comprador na loja (“NEW” / “EXISTING”).</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Tipo do meio de pagamento.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Valor do pedido, em centavos.</td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Número de parcelas.</td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.Type</code></td>
+      <td>Tipo de carteira: “Masterpass”.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.WalletKey</code></td>
+      <td>Chave criptográfica que representa os dados do cartão. Consultar a tabela <a href="https://developercielo.github.io/manual/e-wallets-ecommercecielo#walletkey">WalletKey</a> para mais informações.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.AdditionalData</code></td>
+      <td>Instância para dados extras informados pela <strong>Masterpass</strong>. Obs.: Obrigatório apenas para <code class="language-plaintext highlighter-rouge">Wallet.Type</code> “Masterpass”</td>
+      <td>—</td>
+      <td>—</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.CaptureCode</code></td>
+      <td>Código informado pela <strong>Masterpass</strong> ao lojista.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="resposta-2">Resposta</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comprador Masterpass"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"453211******3703"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Teste Holder"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2016"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0915052536103"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Masterpass"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"Eci"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"AdditionalData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"CaptureCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"103"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"689da793-fc99-4900-89f1-9e7fdaa06ef8"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15700</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-09-15 17:25:35"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Card Expired"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+       </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+  <span class="s2">"MerchantOrderId"</span>: <span class="s2">"2014111708"</span>,
+  <span class="s2">"Customer"</span>: <span class="o">{</span>
+    <span class="s2">"Name"</span>: <span class="s2">"comprador Masterpass"</span>
+  <span class="o">}</span>,
+  <span class="s2">"Payment"</span>: <span class="o">{</span>
+    <span class="s2">"ServiceTaxAmount"</span>: 0,
+    <span class="s2">"Installments"</span>: 1,
+    <span class="s2">"Interest"</span>: 0,
+    <span class="s2">"Capture"</span>: <span class="nb">false</span>,
+    <span class="s2">"Authenticate"</span>: <span class="nb">false</span>,
+    <span class="s2">"Recurrent"</span>: <span class="nb">false</span>,
+    <span class="s2">"CreditCard"</span>: <span class="o">{</span>
+      <span class="s2">"CardNumber"</span>: <span class="s2">"453211******3703"</span>,
+      <span class="s2">"Holder"</span>: <span class="s2">"Teste Holder"</span>,
+      <span class="s2">"ExpirationDate"</span>: <span class="s2">"12/2016"</span>,
+      <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
+      <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
+    <span class="o">}</span>,
+    <span class="s2">"Tid"</span>: <span class="s2">"0915052536103"</span>,
+    <span class="s2">"Wallet"</span>: <span class="o">{</span>
+      <span class="s2">"Type"</span>: <span class="s2">"Masterpass"</span>,
+      <span class="s2">"Eci"</span>: 0,
+      <span class="s2">"AdditionalData"</span>: <span class="o">{</span>
+        <span class="s2">"CaptureCode"</span>: <span class="s2">"103"</span>
+      <span class="o">}</span>
+    <span class="o">}</span>,
+    <span class="s2">"PaymentId"</span>: <span class="s2">"689da793-fc99-4900-89f1-9e7fdaa06ef8"</span>,
+    <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>,
+    <span class="s2">"Amount"</span>: 15700,
+    <span class="s2">"ReceivedDate"</span>: <span class="s2">"2016-09-15 17:25:35"</span>,
+    <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
+    <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+    <span class="s2">"ReturnCode"</span>: <span class="s2">"57"</span>,
+    <span class="s2">"ReturnMessage"</span>: <span class="s2">"Card Expired"</span>,
+    <span class="s2">"Status"</span>: 3,
+    <span class="s2">"Links"</span>: <span class="o">[</span>
+      <span class="o">{</span>
+        <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
+        <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
+        <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"</span>
+      <span class="o">}</span>
+    <span class="o">]</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
+      <td>Número da autorização, idêntico ao NSU.</td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
+      <td>Identificador da transação na adquirente.</td>
+      <td>Texto</td>
+      <td>20</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
+      <td>Código de autorização.</td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
+      <td>Texto que será impresso na fatura bancária do portador. Obs.: Não permite caracteres especiais. Disponível apenas para VISA/MASTER.</td>
+      <td>Texto</td>
+      <td>13</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
+      <td>Campo identificador do pedido.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ECI</code></td>
+      <td><em>Electronic Commerce Indicator</em>. Representa o quão segura é uma transação.</td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Ex.: 7</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Status da transação.</td>
+      <td>Byte</td>
+      <td>2</td>
+      <td>Ex.: 1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
+      <td>Código de retorno da adquirência.</td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
+      <td>Mensagem de retorno da adquirência.</td>
+      <td>Texto</td>
+      <td>512</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Type</code></td>
+      <td>Tipo de carteira: “VisaCheckout” / “Masterpass”.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CaptureCode</code></td>
+      <td>Código informado pela <strong>Masterpass</strong> ao lojista.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="samsung-pay">Samsung Pay™</h1>
+
+<p>Abaixo segue o pré-requisito para utilizar o Samsung Pay e também um exemplo de requisição para disponibilizá-lo em sua loja.</p>
+
+<aside class="warning">É necessário que a loja já possua cadastro e integração Samsung Pay, caso contrário não será possível a integração com a API.</aside>
+
+<h2 id="requisição-3">Requisição</h2>
+
+<p>Exemplo de requisição padrão Samsung Pay:</p>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="s2">"6242-642-723"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"Customer"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"Name"</span><span class="p">:</span><span class="s2">"Exemplo Wallet Padrão"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Identity"</span><span class="p">:</span><span class="s2">"11225468954"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="s2">"CPF"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"Payment"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Amount"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Installments"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Currency"</span><span class="p">:</span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Wallet"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"Type"</span><span class="p">:</span><span class="s2">"SamsungPay"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"WalletKey"</span><span class="p">:</span><span class="s2">"IDENTIFICADOR DA LOJA NA WALLET"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> POST <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+   <span class="s2">"MerchantOrderId"</span>:<span class="s2">"6242-642-723"</span>,
+   <span class="s2">"Customer"</span>:<span class="o">{</span>
+      <span class="s2">"Name"</span>:<span class="s2">"Exemplo Wallet Padrão"</span>,
+      <span class="s2">"Identity"</span>:<span class="s2">"11225468954"</span>,
+      <span class="s2">"IdentityType"</span>:<span class="s2">"CPF"</span>
+   <span class="o">}</span>,
+   <span class="s2">"Payment"</span>:<span class="o">{</span>
+      <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
+      <span class="s2">"Amount"</span>:1,
+      <span class="s2">"Installments"</span>:1,
+      <span class="s2">"Currency"</span>:<span class="s2">"BRL"</span>,
+      <span class="s2">"Wallet"</span>:<span class="o">{</span>
+         <span class="s2">"Type"</span>:<span class="s2">"SamsungPay"</span>,
+         <span class="s2">"WalletKey"</span>:<span class="s2">"IDENTIFICADOR DA LOJA NA WALLET"</span>
+      <span class="o">}</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Identificador da loja na Cielo.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Sim (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Chave pública para autenticação dupla na Cielo.</td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Identificador do request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>Não (envio no <em>header</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Número de identificação do pedido.</td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>Nome do comprador.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
+      <td>Status de cadastro do comprador na loja (“NEW” / “EXISTING”).</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Tipo do meio de pagamento.</td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Valor do pedido, em centavos.</td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Número de parcelas.</td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.Type</code></td>
+      <td>Tipo de carteira: “ApplePay” / “SamsungPay” / “GooglePay” / “VisaCheckout” / “Masterpass”.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.WalletKey</code></td>
+      <td>Chave criptográfica que representa os dados do cartão. Consultar a tabela <a href="https://developercielo.github.io/manual/e-wallets-ecommercecielo#walletkey">WalletKey</a> para mais informações.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="resposta-3">Resposta</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[Guest]"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"453211******1521"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BJORN IRONSIDE"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08/2020"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0319040817883"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"817883"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"027795"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SamsungPay"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"WalletKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IDENTIFICADOR DA LOJA NA WALLET"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Eci"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-19 16:08:16"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IsSplitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e57b09eb-475b-44b6-ac71-01b9b82f2491"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"capture"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/capture"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+    <span class="s2">"MerchantOrderId"</span>: <span class="s2">"2014111703"</span>,
+    <span class="s2">"Customer"</span>: <span class="o">{</span>
+        <span class="s2">"Name"</span>: <span class="s2">"[Guest]"</span>
+    <span class="o">}</span>,
+    <span class="s2">"Payment"</span>: <span class="o">{</span>
+        <span class="s2">"ServiceTaxAmount"</span>: 0,
+        <span class="s2">"Installments"</span>: 1,
+        <span class="s2">"Interest"</span>: 0,
+        <span class="s2">"Capture"</span>: <span class="nb">false</span>,
+        <span class="s2">"Authenticate"</span>: <span class="nb">false</span>,
+        <span class="s2">"Recurrent"</span>: <span class="nb">false</span>,
+        <span class="s2">"CreditCard"</span>: <span class="o">{</span>
+            <span class="s2">"CardNumber"</span>: <span class="s2">"453211******1521"</span>,
+            <span class="s2">"Holder"</span>: <span class="s2">"BJORN IRONSIDE"</span>,
+            <span class="s2">"ExpirationDate"</span>: <span class="s2">"08/2020"</span>,
+            <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
+            <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
+        <span class="o">}</span>,
+        <span class="s2">"Tid"</span>: <span class="s2">"0319040817883"</span>,
+        <span class="s2">"ProofOfSale"</span>: <span class="s2">"817883"</span>,
+        <span class="s2">"AuthorizationCode"</span>: <span class="s2">"027795"</span>,
+        <span class="s2">"Wallet"</span>: <span class="o">{</span>
+            <span class="s2">"Type"</span>: <span class="s2">"SamsungPay"</span>,
+            <span class="s2">"WalletKey"</span>: <span class="s2">"IDENTIFICADOR DA LOJA NA WALLET"</span>,
+            <span class="s2">"Eci"</span>: 0
+        <span class="o">}</span>,
+        <span class="s2">"SoftDescriptor"</span>: <span class="s2">"123456789ABCD"</span>,
+        <span class="s2">"Amount"</span>: 100,
+        <span class="s2">"ReceivedDate"</span>: <span class="s2">"2018-03-19 16:08:16"</span>,
+        <span class="s2">"Status"</span>: 1,
+        <span class="s2">"IsSplitted"</span>: <span class="nb">false</span>,
+        <span class="s2">"ReturnMessage"</span>: <span class="s2">"Operation Successful"</span>,
+        <span class="s2">"ReturnCode"</span>: <span class="s2">"4"</span>,
+        <span class="s2">"PaymentId"</span>: <span class="s2">"e57b09eb-475b-44b6-ac71-01b9b82f2491"</span>,
+        <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>,
+        <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
+        <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+        <span class="s2">"Links"</span>: <span class="o">[</span>
+            <span class="o">{</span>
+                <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
+                <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
+                <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}"</span>
+            <span class="o">}</span>,
+            <span class="o">{</span>
+                <span class="s2">"Method"</span>: <span class="s2">"PUT"</span>,
+                <span class="s2">"Rel"</span>: <span class="s2">"capture"</span>,
+                <span class="s2">"Href"</span>: <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{paymentId}/capture"</span>
+            <span class="o">}</span>,
+            <span class="o">{</span>
+                <span class="s2">"Method"</span>: <span class="s2">"PUT"</span>,
+                <span class="s2">"Rel"</span>: <span class="s2">"void"</span>,
+                <span class="s2">"Href"</span>: <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/{PaymentId}/void"</span>
+            <span class="o">}</span>
+        <span class="o">]</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
+      <td>Número da autorização, idêntico ao NSU.</td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
+      <td>Identificador da transação na adquirente.</td>
+      <td>Texto</td>
+      <td>20</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
+      <td>Código de autorização.</td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
+      <td>Texto que será impresso na fatura bancária do portador. Obs.: Não permite caracteres especiais. Disponível apenas para VISA/MASTER.</td>
+      <td>Texto</td>
+      <td>13</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
+      <td>Campo identificador do pedido.</td>
+      <td>GUID</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ECI</code></td>
+      <td><em>Electronic Commerce Indicator</em>. Representa o quão segura é uma transação.</td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Ex.: 7</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Status da transação.</td>
+      <td>Byte</td>
+      <td>2</td>
+      <td>Ex.: 1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
+      <td>Código de retorno da adquirência.</td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
+      <td>Mensagem de retorno da adquirência.</td>
+      <td>Texto</td>
+      <td>512</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Type</code></td>
+      <td>Tipo de carteira: “ApplePay” / “SamsungPay” / “GooglePay” / “VisaCheckout” / “Masterpass.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">WalletKey</code></td>
+      <td>Chave criptográfica que representa os dados do cartão. Consulte a tabela <a href="https://developercielo.github.io/manual/cielo-ecommerce#walletkey" target="_blank">WalletKey</a> para mais informações.</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Consulte a tabela <a href="https://developercielo.github.io/manual/cielo-ecommerce#walletkey" target="_blank">WalletKey</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="autorização-com-cartão-descriptografado">Autorização com cartão descriptografado</h1>
+
+<p>Se o próprio lojista descriptografar o payload recebido da wallet e enviar por conta própria para a API Cielo E-commerce para processamento e autorização, deve usar o modelo de requisição a seguir:</p>
+
+<h2 id="requisição-4">Requisição</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">--</span><span class="w"> </span><span class="err">Envio</span><span class="w"> </span><span class="err">de</span><span class="w"> </span><span class="err">cartão</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6242-642-723"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Guilherme Gama"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11225468954"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"IdentityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CPF"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1100</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cielo"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"4532********6521"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Guilherme Gama"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Master"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tipo de wallet"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Eci"</span><span class="p">:</span><span class="s2">"7"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Cavv"</span><span class="p">:</span><span class="s2">"AM1mbqehL24XAAa0J04CAoABFA=="</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Sim</td>
+      <td>Identificador da loja na Cielo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Texto</td>
+      <td>40</td>
+      <td>Sim</td>
+      <td>Chave Pública para Autenticação Dupla na Cielo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Não</td>
+      <td>Identificador do Request, utilizado quando o lojista usa diferentes servidores para cada GET/POST/PUT.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Texto</td>
+      <td>50</td>
+      <td>Sim</td>
+      <td>Número de identificação do pedido.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Nome do comprador.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Não</td>
+      <td>Status de cadastro do comprador na loja (NEW / EXISTING)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Texto</td>
+      <td>100</td>
+      <td>Sim</td>
+      <td>Tipo do Meio de Pagamento.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Número</td>
+      <td>15</td>
+      <td>Sim</td>
+      <td>Valor do Pedido (ser enviado em centavos).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
+      <td>Número</td>
+      <td>2</td>
+      <td>Sim</td>
+      <td>Número de Parcelas.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber.</code></td>
+      <td>Texto</td>
+      <td>19</td>
+      <td>Sim</td>
+      <td>Número do Cartão do Comprador</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td>Texto</td>
+      <td>4</td>
+      <td>Não</td>
+      <td>Código de segurança impresso no verso do cartão - Ver Anexo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
+      <td>Texto</td>
+      <td>10</td>
+      <td>Sim</td>
+      <td>Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.Type</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+      <td>Indica qual o tipo de carteira: <code class="language-plaintext highlighter-rouge">AndroidPay</code> / <code class="language-plaintext highlighter-rouge">ApplePay</code> / <code class="language-plaintext highlighter-rouge">SamsungPay</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.Walletkey</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+      <td>Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.Eci</code></td>
+      <td>Texto</td>
+      <td>3</td>
+      <td>Sim</td>
+      <td>O ECI (Eletronic Commerce Indicator) representa o quão segura é uma transação. Esse valor deve ser levado em consideração pelo lojista para decidir sobre a captura da transação.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Wallet.Cavv</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Sim</td>
+      <td>Campo de validação retornado pela Wallet e utilizado como base de autorização</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="respostas-1">Respostas</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111703"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[Guest]"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"453211******1521"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gama Gama"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08/2020"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0319040817883"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"817883"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"027795"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TIPO DE WALLET"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Eci"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+                 </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789ABCD"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-19 16:08:16"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"IsSplitted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e57b09eb-475b-44b6-ac71-01b9b82f2491"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"capture"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491/capture"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/e57b09eb-475b-44b6-ac71-01b9b82f2491/void"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Propriedade</th>
+      <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Tamanho</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
+      <td>Número da autorização, idêntico ao NSU.</td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
+      <td>Id da transação na adquirente.</td>
+      <td>Texto</td>
+      <td>20</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
+      <td>Código de autorização.</td>
+      <td>Texto</td>
+      <td>6</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
+      <td>Texto que será impresso na fatura bancária do portador - Disponivel apenas para VISA/MASTER - não permite caracteres especiais</td>
+      <td>Texto</td>
+      <td>13</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
+      <td>Campo Identificador do Pedido.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ECI</code></td>
+      <td>Eletronic Commerce Indicator. Representa o quão segura é uma transação.</td>
+      <td>Texto</td>
+      <td>2</td>
+      <td>Exemplos: 7</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Status da Transação.</td>
+      <td>Byte</td>
+      <td>—</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
+      <td>Código de retorno da Adquirência.</td>
+      <td>Texto</td>
+      <td>32</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
+      <td>Mensagem de retorno da Adquirência.</td>
+      <td>Texto</td>
+      <td>512</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Type</code></td>
+      <td>Indica qual o tipo de carteira: <code class="language-plaintext highlighter-rouge">VisaCheckout</code>/ <code class="language-plaintext highlighter-rouge">Masterpass</code> / <code class="language-plaintext highlighter-rouge">ApplePay</code> / <code class="language-plaintext highlighter-rouge">SamsungPay</code></td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Texto alfanumérico</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Walletkey</code></td>
+      <td>Chave criptografica que identifica lojas nas Wallets - Ver tabela WalletKey para mais informações</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>Ver tabela <code class="language-plaintext highlighter-rouge">WalletKey</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AdditionalData.capturecode</code></td>
+      <td>Código informado pela <code class="language-plaintext highlighter-rouge">MasterPass</code> ao lojista</td>
+      <td>Texto</td>
+      <td>255</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="anexo">ANEXO</h1>
+
+<h2 id="lista-de-status-da-transação">Lista de Status da Transação</h2>
+
+<p>Lista de status retornados pela API:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Status do Pagamento</th>
+      <th>Meio de pagamento</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>NotFinished</td>
+      <td>Todos</td>
+      <td><strong>Falha ao processar o pagamento</strong>.<br />Possíveis causas: dados incorretos, erro na requisição, <em>timeout</em> da adquirente, alguma instabilidade no processamento.<br />Em caso de transação de débito, o comprador pode ter abandonado a compra.</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Authorized</td>
+      <td>Todos</td>
+      <td><strong>Meio de pagamento apto a ser capturado ou pago (boleto)</strong>.<br />Para transação de boleto, significa que o boleto foi gerado com sucesso.<br />Para transação com cartão, significa que houve a aprovação pelo banco emissor. Contudo, isso não significa que a transação foi concluída - para isso, é necessário uma segunda etapa, a captura da transação ou a efetivação do pagamento.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>PaymentConfirmed</td>
+      <td>Todos</td>
+      <td>Pagamento confirmado e finalizado.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Denied</td>
+      <td>Cartões de crédito e débito (transferência eletrônica) e e-wallets.</td>
+      <td><strong>Pagamento negado por autorizador</strong>. <br />Possíveis causas: limite insuficiente, falta de pagamento do cartão, bandeira indisponível, bloqueio por fraude, entre outros.<br />Para saber o real motivo da negação é necessário olhar o código de retorno gerado durante a transação.</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Voided</td>
+      <td>Todos, exceto boleto.</td>
+      <td><strong>Pagamento cancelado</strong>.<br />É a suspensão da transação, isentando de taxa ou valores cobrados. As transações pré-autorizadas podem ser canceladas mesmo após às 23h59 da data de autorização. Já as transações capturadas podem ser canceladas até às 23h59 do mesmo dia da autorização, após esse horário o valor será estornado.</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Refunded</td>
+      <td>Cartões de crédito e débito e e-wallets.</td>
+      <td><strong>Pagamento cancelado/estornado</strong>.<br />Significa que foi solicitado o cancelamento da transação, podendo ocorrer a partir das 0h00 do dia após a criação da transação. Independentemente do valor, só é possível realizar uma solicitação de estorno por transação. Isso pode acontecer por conta de dados incorretos ou por solicitação do comprador.</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Pending</td>
+      <td>Cartões de crédito e débito (transferência eletrônica), e-wallets e pix.</td>
+      <td><strong>Esperando retorno da instituição financeira</strong>. <br />Significa que a transação foi enviada para a Cielo em processo de pré-autorização, esperando uma resposta do banco emissor para validá-la.</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Aborted</td>
+      <td>Todos</td>
+      <td><strong>Pagamento cancelado por falha no processamento</strong>.<br />Significa que a transação foi cancelada por falha de processamento. Também pode ser abortada, caso o Antifraude negue a transação antes da autorização.</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Scheduled</td>
+      <td>Cartão de crédito e e-wallets.</td>
+      <td><strong>Recorrência agendada</strong>.<br />Significa que a transação terá uma recorrência agendada, ou seja, o valor da compra será recolhido no dia em que foi agendado pela loja.</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://developercielo.github.io/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Precisa de ajuda?</h2>
+        <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://devcielo.zendesk.com/hc/pt-br#suporte">entre em contato conosco</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Comutar a coluna da esquerda" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://desenvolvedores.cielo.com.br" target="_blank">
+        <img src="https://developercielo.github.io/assets/images/logo.png" alt="Documentações e tutoriais" style="width: 60%; margin-left: 20%">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+        <div class="toc-footer">
+            <h2 class="no-toc toc-footer-title">Materiais complementares</h2>
+            
+
+            
+            
+            
+
+            <ul class="toc-footer">
+            
+                
+                    
+                    <li><a href="https://developercielo.github.io/manual/cielo-ecommerce" title="Manual integração técnica via API">Manual de Integração API e-commerce Cielo</a></li>
+                
+            
+                
+                    
+                    <li><a href="https://developercielo.github.io/tutorial/tokenizacaobandeira" title="Tokenização de Bandeira – Regra Visa">Tokenização de Bandeira – Mandate Visa</a></li>
+                
+            
+                
+                    
+                    <li><a href="https://developercielo.github.io/tutorial/postman" title="O Postman é um API Client que facilita aos desenvolvedores criar, compartilhar, testar e documentar APIs.">Postman Cielo</a></li>
+                
+            
+                
+                    
+                    <li><a href="https://developercielo.github.io/manual/prevencao-fraudes" title="Manual de prevenção contra fraudes e chargebacks">Prevenção contra Fraudes e Chargeback</a></li>
+                
+            
+                
+            
+                
+            
+            </ul>
+        </div>
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contato" href="https://devcielo.zendesk.com/">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contato</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/developercielo">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/assets/bundles/js/bundle.min.js"></script>
+        <script>
+            
+            var selectors = 'h1,h2,h3,h4,h5,h6';
+            
+        </script>
+
+        
+        <script src="https://developercielo.github.io/assets/bundles/js/search.min.js"></script>
+        
+
+        
+        <script>
+            let langs = '';
+            let langsArray = [];
+
+            
+            langs += "<a data-language-name='json'>JSON</a>";
+            langsArray.push('json');
+            
+            langs += "<a data-language-name='shell'>cURL</a>";
+            langsArray.push('shell');
+            
+
+            var toggleCode = 'Comutar';
+        </script>
+
+        <script src='https://developercielo.github.io/assets/bundles/js/language_buttons.min.js'></script>
+        
+
+        <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:674586,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    </body>
+</html>

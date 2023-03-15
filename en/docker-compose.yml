@@ -1,0 +1,13 @@
+version: '3'
+services:
+  ruby:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: developer-cielo
+    command: bundle exec jekyll serve --host 0.0.0.0 --port 4000 --force_polling
+    working_dir: /app
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./:/app

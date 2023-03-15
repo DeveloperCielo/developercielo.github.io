@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="pt">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        Commercialization API &middot; Documentações e tutoriais
+        
+    </title>
+
+    <link rel="shortcut icon" href="https://developercielo.github.io/assets/favicon.ico">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+    <script async src="https://use.fontawesome.com/3ae06f1030.js"></script>
+
+    <link rel="stylesheet" href="https://developercielo.github.io/assets/bundles/css/bundle.min.css">
+
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://developercielo.github.io/tutorial/comercializacao" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://developercielo.github.io/en/tutorial/comercializacao" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://developercielo.github.io/atom.xml">
+</head>
+
+    <body>
+        
+        <div class="content-container no-dark-box">
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://devcielo.zendesk.com/hc/pt-br#suporte" class="help">Ajuda</a>
+
+                            
+                            <div class="lang">
+                                <span>Idiomas</span>
+
+                                
+                                    
+                                    <a href="https://developercielo.github.io/tutorial/comercializacao">
+                                    
+
+                                        <img alt="Português" src="https://developercielo.github.io/assets/images/pt.png"/>
+                                    </a>
+                                
+                                    
+                                    <a href="https://developercielo.github.io/en/tutorial/comercializacao">
+                                    
+
+                                        <img alt="English" src="https://developercielo.github.io/assets/images/en.png"/>
+                                    </a>
+                                
+                            </div>
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/tutorial/comercializacao">Commercialization API</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+    <h1 id="introdução">Introdução</h1>
+
+<p>O objetivo desta API é possibilitar e flexibilizar, aos parceiros e canais, a comercialização de quaisquer produtos e serviços da Cielo.
+Este manual irá guiar o desenvolvedor com o passo a passo da integração com a API de Comercialização da Cielo, além de possuir algumas dicas
+e pontos de atenção importantes.</p>
+
+<h1 id="funcionalidades-contempladas-atualmente-na-api">Funcionalidades contempladas atualmente na API:</h1>
+
+<ul>
+  <li><strong>1.Consulta de ramos de atividade permitidos (aplicável apenas a Pessoa Física)</strong>
+    <ul>
+      <li>No caso de PJ, consideraremos o ramo declarado na receita federal (CNAE Primário)</li>
+    </ul>
+  </li>
+  <li><strong>2.Consulta de bancos permitidos para liquidação</strong></li>
+  <li><strong>3.Consulta de tipos de negócio e respectivos filtros de oferta:</strong>
+    <ul>
+      <li>a.Exemplos de filtros de ofertas:
+        <ul>
+          <li>i.Faturamento Mensal</li>
+          <li>ii.Ramo de atividade (apenas PF)</li>
+          <li>iii.CEP Comercial</li>
+          <li>iv.Indicador de Receba Rápido (RR)
+            <ul>
+              <li>Caso seja escolhido receber ofertas com Receba Rápido, será necessário informar um indicador adicional:Indicador de Liquidação via Cartão Pré-Pago. Esse campo irá influenciar, principalmente, na geração de ofertas do tipo D0 ou D2.</li>
+            </ul>
+          </li>
+          <li>v.Indicador de meta de faturamento</li>
+          <li>vi.entre outros</li>
+        </ul>
+      </li>
+      <li>b.Exemplos de tipos de negócio:
+        <ul>
+          <li>i.Pagamentos com máquina de cartão</li>
+          <li>ii.Pagamentos por meios digitais
+            <ul>
+              <li>1.Pagamentos para vendas pontuais e através de redes sociais</li>
+              <li>2.Pagamentos para sua loja virtual</li>
+              <li>3.Pagamentos para seu e-commerce customizado</li>
+            </ul>
+          </li>
+          <li>iii.entre outros</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>4.Disponibilização de ofertas ao canal</strong>
+    <ul>
+      <li>a.O canal irá receber ofertas conforme filtros e tipo de negócio escolhido</li>
+      <li>b.Tipos de negócio:
+        <ul>
+          <li>i.Pagamentos com máquina de cartão
+            <ul>
+              <li>Disponibilizar uma máquina de cartão com cobrança de aluguel
+                <ul>
+                  <li>1.Catálogo com 3 ofertas, conforme perfil do cliente (p. exemplo faturamento e ramo de atividade),podendo envolver MDR, RR, valor do aluguel, meta de faturamento e modelo de maquina de cartão</li>
+                  <li>2.Aplicável apenas para clientes que não tenham nenhum cadastro na Cielo de maquina de cartão comcobrança de aluguel</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>ii.Pagamentos por meios digitais
+            <ul>
+              <li>1.Pagamentos para vendas pontuais e através de redes sociais
+                <ul>
+                  <li>Disponibilizar credenciais para geração de link de pagamento
+                    <ul>
+                      <li>a.Catálogo com planos de benefício (emissão de boleto e consulta antifraude): gratuito, inicial,mega e especial</li>
+                      <li>b.As condições comerciais serão aplicadas conforme o ramo de atividade do cliente, podendo envolver MDR e valor do plano de benefício</li>
+                      <li>c.Aplicável apenas para clientes que não tenham nenhum cadastro na Cielo de link de pagamento</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>2.Pagamentos para sua loja virtual
+                <ul>
+                  <li>Disponibilizar credenciais para API de checkout
+                    <ul>
+                      <li>a.Catálogo com planos de benefício (emissão de boleto e consulta antifraude): gratuito, inicial,mega e especial</li>
+                      <li>b. As condições comerciais serão aplicadas conforme o ramo de atividade do cliente, podendo envolver MDR e valor do plano de benefício</li>
+                      <li>c. Aplicável apenas para clientes que não tenham nenhum cadastro na Cielo de API Checkout</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>3.Pagamentos para seu e-commerce customizado
+                <ul>
+                  <li>Disponibilizar credenciais para API e-commerce 3.0
+                    <ul>
+                      <li>a.As condições comerciais serão aplicadas conforme o ramo de atividade do cliente, podendoenvolver MDR</li>
+                      <li>b.Aplicável apenas para clientes que não tenham nenhum cadastro na Cielo de API e-commerce 3.0</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>5.Criação de pedido com base em uma oferta escolhida</strong>
+    <ul>
+      <li>a.Deverão ser enviadas as informações cadastrais do cliente junto com a oferta escolhida</li>
+      <li>b.As informações passarão por validações cadastrais regulatórias e de negócio.</li>
+      <li>c.É preciso que algumas consistências sejam levadas em consideração no envio das informações para que o pedido possa ser criado com sucesso:
+        <ul>
+          <li>i.Geral:
+            <ul>
+              <li>É necessários que todos os campos obrigatórios sejam enviados e estejam com os formatos esperados.</li>
+            </ul>
+          </li>
+          <li>ii.Dados principais - CPF/CNPJ
+            <ul>
+              <li>Não serão aceitos pedidos com CPF/CNPJ distintos daqueles enviados no momento da consulta da oferta.</li>
+            </ul>
+          </li>
+          <li>iii.Oferta:
+            <ul>
+              <li>É necessário que o ID da oferta enviado seja equivalente aos IDs disponibilizados anteriormente.</li>
+            </ul>
+          </li>
+          <li>iv.Dados de Pagamento:
+            <ul>
+              <li>1.Se a oferta escolhida for com o tipo de recebimento em D0, a escolha para o método de pagamento das vendas deverá ser de Conta Digital.
+                <ul>
+                  <li>Para Conta Digital, existem restrições de Natureza Jurídica (clientes PJ).</li>
+                </ul>
+              </li>
+              <li>2.Se a oferta escolhida for com o tipo de recebimento em D2 ou sem antecipação de recebíveis, a escolha para o método de pagamento das vendas deverá ser de Domicílio Bancário.</li>
+            </ul>
+          </li>
+          <li>v.Endereços
+            <ul>
+              <li>1.O estabelecimento a ser credenciado poderá escolher por uma opção de entrega distinta do endereço comercial. Para isto, o endereço de entrega deverá ser contemplado no campo “deliveryData”.</li>
+              <li>2.Não serão aceitos pedidos com CEP comercial distinto daqueles enviados no momento da consulta da oferta.</li>
+            </ul>
+          </li>
+          <li>vi.Telefones
+            <ul>
+              <li>É obrigatório enviar pelo menos um telefone do tipo celular</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>6.Consulta de pedido</strong></li>
+  <li><strong>7.Tracking de pedido</strong></li>
+  <li><strong>8.Coleta de consentimento</strong>
+    <ul>
+      <li>a.Processo obrigatório para canais cadastrados como auto afiliação.</li>
+      <li>b.O momento ideal para realizar a consulta de documentos para opt-in é após o envio do pedido dado que todos os dadoscadastrais já estarão coletados.</li>
+    </ul>
+  </li>
+  <li><strong>9.Notificações de alterações de status do pedido via webhook</strong></li>
+</ul>
+
+<h1 id="glossário">Glossário</h1>
+
+<ul>
+  <li><strong>MDR (Merchant Discount Rate)</strong> é a taxa que os estabelecimentos pagam para as credenciadoras de cartão de crédito para que eles possam aceitar pagamentos via cartão de crédito ou débito;</li>
+  <li><strong>MCC (Merchant Category Code)</strong> é um número de quatro dígitos registrado na ISO 18245 para serviços financeiros de varejo. O MCC é utilizado para classificar o negócio pelo tipo fornecido de bens ou serviços;</li>
+  <li><strong>RR (Receba Rápido)</strong> é uma taxa que os estabelecimentos pagam para receber suas vendas antes do fluxo padrão de liquidação;</li>
+  <li><strong>Payout method (Método de liquidação)</strong> é o meio como o estabelecimento irá receber as vendas realizadas pela solução de captura contratada. Atualmente, o cliente pode optar entre recebimento em seu domicílio bancário ou em por meio de um cartão pré-pago/conta digital;</li>
+  <li><strong>Settlement timing (Prazo de liquidação)</strong> é a quantidade de dias para o recebimento das vendas com cartão de crédito realizadas pelo estabelecimento. O prazo padrão é de 30 dias para crédito a vista e para crédito parcelado conforme parcelamento, a redução deste prazo se dá através da contratação do serviço “Receba Rápido” (antecipationRate). Exemplos: a) se o prazo de liquidação for “D30”, o cliente receberá as vendas conforme parcelamento escolhido (prazo padrão); b) se o prazo de liquidação for “D0”, o cliente receberá as vendas de débito e crédito em até 1 dia a contar da data da transação; c) se o prazo de liquidação for “D2”, o cliente receberá as vendas de débito e crédito em até 2 dias a contar da data da transação;</li>
+  <li><strong>Total payment volume (Valor de faturamento mensal)</strong> é o valor mensal em reais que o estabelecimento estima transacionar por meio de uma solução de captura;</li>
+  <li><strong>Intermediary (Intermediário)</strong> é a pessoa que possui permissão prévia para negociar em nome do cliente ou prospect e que realizou a solicitação do produto ou serviço;</li>
+  <li><strong>Recurring Payments (Pagamentos recorrentes)</strong> é uma modalidade de cobrança, comumente associado à contratação de serviços, onde o cliente autoriza que o estabelecimento realize cobranças periódicas em seu cartão por um período de tempo pré-determinado;</li>
+  <li><strong>Payments Facilitators (Facilitadores de pagamentos ou Subadquirentes)</strong> são intermediários que fornecem os serviços de processamento e liquidação financeira, para receber os pagamentos em cartão. Utilizado principalmente por estabelecimento de e-commerce;</li>
+  <li><strong>Merchants ou ECs</strong> são os estabelecimentos comerciais cadastrados na Cielo; Canal de comercialização é a ferramenta pelo qual o estabelecimento poderá realizar a contratação de produtos e serviços na Cielo. Exemplos: Site da Cielo, App de clientes, App da área comercial;</li>
+  <li><strong>Parceiro</strong> é a entidade ou agente externo que está autorizado e facilita a comercialização de produtos e serviços da Cielo;</li>
+  <li><strong>Webhook</strong> é um recurso usado na internet para que uma ferramenta (ou aplicativo) se comunique com outra ferramenta, fornecendo dados em tempo real sempre que um evento acontecer. Desta forma os dois sistemas realizam troca de informações sem que nenhuma ação externa precise ser realizada.</li>
+</ul>
+
+<h1 id="característica-da-api">Característica da API</h1>
+
+<p>A solução API foi desenvolvida com a tecnologia REST, que é padrão de mercado e independe da tecnologia utilizada por nossos clientes. Dessa forma, é possível integrar-se utilizando as mais variadas linguagens de programação, tais como:</p>
+<ul>
+  <li>ASP</li>
+  <li>Net</li>
+  <li>Java</li>
+  <li>PHP</li>
+  <li>Ruby</li>
+  <li>Python</li>
+</ul>
+
+<blockquote>
+  <p>Não deve ser enviado no formato XML.</p>
+</blockquote>
+
+<p>Entre outras características, os atributos que mais se destacam na plataforma Cielo de Comercialização Unificada:</p>
+
+<ul>
+  <li><strong>Simplicidade:</strong> o protocolo utilizado é puramente o HTTPS.</li>
+  <li><strong>Credenciais de acesso:</strong> o parceiro e/ou canal receberá credenciais de acesso (cliente ID e client Secret), disponibilizado pela Cielo, e deverá informar em toda solicitação.
+Segurança: a troca de informações se dá sempre entre o Servidor do parceiro/canal e da Cielo.</li>
+  <li><strong>Segurança:</strong> a troca de informações se dá sempre entre o Servidor do parceiro/canal e da Cielo.</li>
+</ul>
+
+<h1 id="ambientes-disponíveis">Ambientes Disponíveis</h1>
+
+<p>Para utilizar as APIs, as requisições devem ser executadas utilizando as respectivas credenciais dos ambientes de Labs, Sandbox e Produção.</p>
+
+<p>Para solicitar credenciais, entre em contato com o ponto focal do time comercial da Cielo e informe para quais ambientes são necessárias credenciais. Será necessário informar o nome e e-mail da pessoa ou caixa de e-mail do grupo de pessoas que precisam receber essa credencial para o acesso à API. Esse mesmo e-mail deverá ser utilizado para a criação de uma nova conta em nosso portal de desenvolvedores (https://desenvolvedores.cielo.com.br/api-portal/ ). Para verificar qual foi a credencial gerada, acesse a conta criada e verifique o seu o Client-Id.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ambiente</th>
+      <th>Descrição</th>
+      <th>Endpoint</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Labs</strong></td>
+      <td>Destinado à realização de testes com parceiros e demais canais da Cielo. Utiliza mocks para simular o retorno das operações. As operações não são executadas em ambientes reais.</td>
+      <td>https://api2.cielo.com.br/labs/commercialization-api/v1</td>
+    </tr>
+    <tr>
+      <td><strong>Sandbox</strong></td>
+      <td>Destinado à realização de testes com parceiros e demais canaisda Cielo. As operações são executadas em ambiente real, porém não produtivo.</td>
+      <td>https://api2.cielo.com.br/sandbox/commercialization-api/v1</td>
+    </tr>
+    <tr>
+      <td><strong>Produção</strong></td>
+      <td>É o ambiente transacional integrado ao ambiente da Cielo. As operações realizadas nesse ambiente são reais e não podem ser desfeitas.</td>
+      <td>https://api2.cielo.com.br/commercialization-api/v1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="autenticação">Autenticação</h1>
+
+<p>Para realizar qualquer acesso às APIs será necessário obter um token de segurança a partir de autenticação oAuth, utilizando o <code class="language-plaintext highlighter-rouge">client_id</code> e <code class="language-plaintext highlighter-rouge">client_secret</code>. Este token de segurança deverá ser enviado no header das demais operações, e deve ser renovado periodicamente.</p>
+
+<p>Segue um exemplo de requisição de obtenção do token de segurança:</p>
+
+<h2 id="request">Request</h2>
+
+<p><strong>Authorization Basic Base64(<code class="language-plaintext highlighter-rouge">client_id</code> e <code class="language-plaintext highlighter-rouge">client_secret</code> concatenado com “:” e codificado em base64)</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">curl</span><span class="w"> </span><span class="err">--location</span><span class="w"> </span><span class="err">--request</span><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="err">'https://api</span><span class="mi">2</span><span class="err">.cielo.com.br/v</span><span class="mi">2</span><span class="err">/oauth/token'</span><span class="w">
+</span><span class="err">\</span><span class="w">
+</span><span class="err">--header</span><span class="w"> </span><span class="err">'Authorization:</span><span class="w"> </span><span class="err">Basic</span><span class="w"> </span><span class="err">base</span><span class="mi">64</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="err">--header</span><span class="w"> </span><span class="err">'Content-Type:</span><span class="w"> </span><span class="err">text/plain'</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="err">--data-raw</span><span class="w"> </span><span class="err">'</span><span class="p">{</span><span class="nl">"grant_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client_credentials"</span><span class="p">}</span><span class="err">'</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="respose">Respose</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"access_token"</span><span class="p">:</span><span class="s2">"{access_token}"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"refresh_token"</span><span class="p">:</span><span class="s2">"{refresh_token}"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"token_type"</span><span class="p">:</span><span class="s2">"access_token"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="s2">"{expiration_time}"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h1 id="utilização">Utilização</h1>
+
+<p>A API de comercialização foi modelada com base nos conceitos de ofertas e pedidos. Atendendo a esses conceitos básicos, é permitido que o canal seja flexível para oferecer uma experiência diferenciada ao usuário. As necessidades de interação com o cliente serão detalhadas a seguir:</p>
+
+<h2 id="1---consulta-e-apresentação-de-ofertas-para-um-cliente-ou-prospect">1 - Consulta e apresentação de ofertas para um cliente ou prospect</h2>
+
+<p>O canal deverá utilizar a operação <code class="language-plaintext highlighter-rouge">GET /offers</code> para obter as ofertas disponíveis para determinado estabelecimento. Uma oferta irá conter toda alista de serviços e produtos com suas respectivas condições. Caberá ao canal coletar as informações de entrada para a consulta e com o retorno,apresentar as condições de cada oferta para que o usuário possa escolher entre uma delas.</p>
+
+<h3 id="dados-de-entrada">Dados de entrada</h3>
+
+<p>Para que seja possível direcionar a melhor oferta para o cliente, alguns dados de entrada são obrigatórios para essa operação, e deverão serobtidos pelo canal junto ao cliente, prospect ou intermediador:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">taxId</code>: CPF ou CNPJ do estabelecimento;</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">businessTypeCode</code>: É o código do tipo de negócio pelo qual o estabelecimento está interessado. A lista completa de tipos de negócio pode ser consultada pela operação <code class="language-plaintext highlighter-rouge">GET /business-types</code></p>
+  </li>
+  <li>Exemplo de um tipo de negócio:</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"CARD_MACHINE_PAYMENTS"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Pagamento por meio de máquina de cartão"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"mandatoryFields"</span><span class="p">:[</span><span class="w">
+      </span><span class="s2">"taxId"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"dealTypeFilter"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"totalPaymentVolume"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"zipCode"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"merchantCategoryCode"</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nl">"filters"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"RECEBA_RAPIDO"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Ofertas com Receba Rápido"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"META_FATURAMENTO"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Ofertas com meta de faturamento mensal"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Cada tipo de negócio pode possuir campos específicos obrigatórios (mandatoryFields) que devem ser também coletados para possibilitar a consulta de ofertas. Segue abaixo a relação dos possíveis campos obrigatórios que podem ser solicitados de acordo com o tipo de negócio escolhido:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">dealType</code>: É o tipo de modalidade de negociação de um produto. Opções disponíveis:
+    <ul>
+      <li><strong>LENDING</strong> (comodato);</li>
+      <li><strong>RENT</strong>(aluguel);</li>
+      <li><strong>SALE</strong>(venda);</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">totalPaymentValue</code>: É o valor de faturamento mensal estimado em reais;</li>
+  <li><code class="language-plaintext highlighter-rouge">zipCode</code>: É o CEP do endereço do estabelecimento;</li>
+  <li><code class="language-plaintext highlighter-rouge">merchantCategoryCode</code>: É o código do ramo de atividade do estabelecimento. O canal poderá acessar a lista de todos os ramos de atividades permitidos para pessoas físicas pela operação <code class="language-plaintext highlighter-rouge">GET /merchant-category-codes</code>. Essa informação será obrigatória apenas para pessoa física, visto que para pessoa jurídica será coletada a informação cadastrada na Receita Federal (CNAE Primário);</li>
+</ul>
+
+<p>Cada tipo de negócio também possui filtros adicionais (<code class="language-plaintext highlighter-rouge">filters</code>). Caso sejam informados, poderão direcionar uma oferta mais personalizada para o cliente.</p>
+
+<p>Exemplo: Se enviarmos os query params abaixo, a API irá filtrar ofertas com o serviço “Receba Rápido” e com “Meta por faturamento”:
+/v1/offers?filter=<code class="language-plaintext highlighter-rouge">RECEBA_RAPIDO</code>&amp;filter=<code class="language-plaintext highlighter-rouge">META_POR_FATURAMENTO</code></p>
+
+<blockquote>
+  <p>Todos os campos são de preenchimento obrigatório para solicitações de pessoa jurídica (exceto o zipCode e merchantCategoryCode) e pessoa física vinculadas aos tipos de negócio pagamento com máquina de cartão e pagamento digital.</p>
+</blockquote>
+
+<h3 id="dados-saida">Dados saida</h3>
+
+<p>Ao executar a operação, deverá ser retornada uma lista de ofertas com os seguintes campos:</p>
+
+<aside class="warning">Consulte o ponto focal da Cielo para verificar qual o limite mínimo de faturamento de cada modalidade/dealtype para liberação/recebimento
+de oferta. Não serão todos os clientes, principalmente com faturamento baixo, que terão ofertas para qualquer modalidade/dealtype.</aside>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">offerId</code>: identificador da oferta</li>
+  <li><code class="language-plaintext highlighter-rouge">expirationDate</code>: data de expiração da oferta</li>
+  <li><code class="language-plaintext highlighter-rouge">description</code>: descrição da oferta</li>
+  <li><code class="language-plaintext highlighter-rouge">registrationRequired</code>: indica que o canal deverá solicitar os dados cadastrais ao cliente e submetê-los ao na criação do pedido (<code class="language-plaintext highlighter-rouge">POST
+/order</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">items</code>: listados os princiais produtos e serviços ofertados, com a seguinte estrutura:</li>
+  <li><code class="language-plaintext highlighter-rouge">itemId</code>: identificador do item</li>
+  <li><code class="language-plaintext highlighter-rouge">name</code>: nome do item</li>
+  <li><code class="language-plaintext highlighter-rouge">imageUrl</code>: url da imagem do produto ou serviço</li>
+  <li><code class="language-plaintext highlighter-rouge">allowedPayoutMethods</code>: tipos de domicílios permitidos para a liquidação</li>
+  <li><code class="language-plaintext highlighter-rouge">mandatoryConfiguration</code>: lista dos campos de configuração obrigatórias para o item (a serem informados no momento da criação
+do pedido)</li>
+  <li><code class="language-plaintext highlighter-rouge">dealStatus</code>: status de contratação de cada item (principais e adicionais). Essa informação poderá ser utilizada para comunicação mais assertiva ao cliente/agente credenciador.
+    <ul>
+      <li>Abaixo opções:
+        <ul>
+          <li>NEW (contratação de novo produto ou serviço)</li>
+          <li>UPDATE (cliente já possui o produto ou serviço e sofrerá alterações caso aceite a oferta)</li>
+          <li>REMOVAL (cliente já possui o produto ou serviço, mas será removido/substituido caso aceite a oferta)</li>
+          <li>NO_CHANGES (cliente já possui o produto ou serviço e não sofrerá alterações caso aceite a oferta)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">additionalItems</code>: lista de itens adicionais e complementares da oferta/item principal (herda a mesma estrutura de um item)</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">conditions</code>: lista de condições de contratação do item. Existem diferentes possibilidades de formato da condição, para informar a forma de cobrança, tempo de vigência, limites, etc. Seguem alguns Exemplos de condições:</p>
+  </li>
+  <li>Valor de faturamento mínimo (<code class="language-plaintext highlighter-rouge">minimumTotalPaymentVolume</code>): Para ofertas baseadas em meta de faturamento, esta condição pode informar o limite para que a condição seja aplicada:</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Cobrança de aluguel com atingimento de
+meta de faturamento"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"monthlyPayment"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+</span><span class="nl">"minimumTotalPaymentVolume"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Cobrança de aluguel sem atingimento de
+meta de faturamento"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"monthlyPayment"</span><span class="p">:</span><span class="w"> </span><span class="mf">123.45</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>Cobrança de taxa (<code class="language-plaintext highlighter-rouge">rate</code>): valor que será cobrado de forma unitária</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Cobrança de taxa de antecipação sobre
+vendas"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"rate"</span><span class="p">:</span><span class="mf">2.01</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>Cobrança mensal (<code class="language-plaintext highlighter-rouge">monthlyPayment</code>): valor que será cobrado mensalmente durante a validade do contrato/oferta</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Cobrança de aluguel"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"monthlyPayment"</span><span class="p">:</span><span class="mf">100.01</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>Pagamento único (<code class="language-plaintext highlighter-rouge">price</code>): valor que será cobrado uma única vez e após aceite da oferta</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Pagamento único"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"price"</span><span class="p">:</span><span class="mf">1234.01</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>Lista de taxas MDR (<code class="language-plaintext highlighter-rouge">mdr</code>): taxa/MDR, por bandeira e tipo de produto (débito, crédito a vista e crédito parcelado), que será cobrado em cada transação</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Cobrança de taxas sobre as vendas por
+bandeira e tipo de transação"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"mdr"</span><span class="p">:[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"brand"</span><span class="p">:{</span><span class="w">
+</span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"01"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"rates"</span><span class="p">:[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"transactionProfile"</span><span class="p">:</span><span class="s2">"DEBIT"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"rate"</span><span class="p">:</span><span class="mf">2.01</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"transactionProfile"</span><span class="p">:</span><span class="s2">"CREDIT_IN_CASH"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"rate"</span><span class="p">:</span><span class="mf">2.01</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"transactionProfile"</span><span class="p">:</span><span class="s2">"
+CREDIT_IN_INSTALLMENTS"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"installments"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+</span><span class="nl">"rate"</span><span class="p">:</span><span class="mf">2.22</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"transactionProfile"</span><span class="p">:</span><span class="s2">"
+CREDIT_IN_INSTALLMENTS"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"installments"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+</span><span class="nl">"rate"</span><span class="p">:</span><span class="mf">2.45</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"transactionProfile"</span><span class="p">:</span><span class="s2">"
+CREDIT_IN_INSTALLMENTS"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"installments"</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="w">
+</span><span class="nl">"rate"</span><span class="p">:</span><span class="mf">2.49</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"brand"</span><span class="p">:{</span><span class="w">
+</span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"02"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"MasterCard"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"rates"</span><span class="p">:[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"transactionProfile"</span><span class="p">:</span><span class="s2">"DEBIT"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"rate"</span><span class="p">:</span><span class="mf">2.01</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"transactionProfile"</span><span class="p">:</span><span class="s2">"CREDIT_IN_CASH"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"rate"</span><span class="p">:</span><span class="mf">2.01</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"transactionProfile"</span><span class="p">:</span><span class="s2">"
+CREDIT_IN_INSTALLMENTS"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"installments"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+</span><span class="nl">"rate"</span><span class="p">:</span><span class="mf">2.22</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"transactionProfile"</span><span class="p">:</span><span class="s2">"
+CREDIT_IN_INSTALLMENTS"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"installments"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+</span><span class="nl">"rate"</span><span class="p">:</span><span class="mf">2.45</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"transactionProfile"</span><span class="p">:</span><span class="s2">"
+CREDIT_IN_INSTALLMENTS"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"installments"</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="w">
+</span><span class="nl">"rate"</span><span class="p">:</span><span class="mf">2.49</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>Lista de taxas segmentadas de antecipação (<code class="language-plaintext highlighter-rouge">anticipationRates</code>): taxas, por bandeira/brand, produto/transactionProfile (crédito a vista e crédito parcelado) e número de parcela/installments, referente a antecipação do recebimento do cliente em seu domicílio</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Cobrança de taxas de antecipação sobre
+vendas"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"anticipationRates"</span><span class="p">:[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"brand"</span><span class="p">:{</span><span class="w">
+</span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"01"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"rates"</span><span class="p">:[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"transactionProfile"</span><span class="p">:</span><span class="s2">"DEBIT"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"rate"</span><span class="p">:</span><span class="mf">2.01</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"transactionProfile"</span><span class="p">:</span><span class="s2">"CREDIT_IN_CASH"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"rate"</span><span class="p">:</span><span class="mf">2.01</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"transactionProfile"</span><span class="p">:</span><span class="s2">"
+CREDIT_IN_INSTALLMENTS"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"installments"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+</span><span class="nl">"rate"</span><span class="p">:</span><span class="mf">2.22</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"transactionProfile"</span><span class="p">:</span><span class="s2">"
+CREDIT_IN_INSTALLMENTS"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"installments"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+</span><span class="nl">"rate"</span><span class="p">:</span><span class="mf">2.45</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"transactionProfile"</span><span class="p">:</span><span class="s2">"
+CREDIT_IN_INSTALLMENTS"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"installments"</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="w">
+</span><span class="nl">"rate"</span><span class="p">:</span><span class="mf">2.49</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"brand"</span><span class="p">:{</span><span class="w">
+</span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"02"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"MasterCard"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"rates"</span><span class="p">:[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"transactionProfile"</span><span class="p">:</span><span class="s2">"DEBIT"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"rate"</span><span class="p">:</span><span class="mf">2.01</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"transactionProfile"</span><span class="p">:</span><span class="s2">"CREDIT_IN_CASH"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"rate"</span><span class="p">:</span><span class="mf">2.01</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"transactionProfile"</span><span class="p">:</span><span class="s2">"
+CREDIT_IN_INSTALLMENTS"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"installments"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+</span><span class="nl">"rate"</span><span class="p">:</span><span class="mf">2.22</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"transactionProfile"</span><span class="p">:</span><span class="s2">"
+CREDIT_IN_INSTALLMENTS"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"installments"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+</span><span class="nl">"rate"</span><span class="p">:</span><span class="mf">2.45</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="p">{</span><span class="w">
+
+</span><span class="nl">"transactionProfile"</span><span class="p">:</span><span class="s2">"
+CREDIT_IN_INSTALLMENTS"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"installments"</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="w">
+</span><span class="nl">"rate"</span><span class="p">:</span><span class="mf">2.49</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>Quantidade de dias para liquidação (<code class="language-plaintext highlighter-rouge">settlementTiming</code>): quantidade de dias que o cliente receberá suas venda em seu domicílio</li>
+</ul>
+
+<blockquote>
+  <p>Sempre que o campo <code class="language-plaintext highlighter-rouge">settlementTiming</code> for retornado em uma oferta, será cobrada uma taxa referente a antecipação do prazo de
+recebimento (campo <code class="language-plaintext highlighter-rouge">anticipationRates</code>).</p>
+</blockquote>
+
+<aside class="warning">Quando o campo `settlementTiming` não constar na oferta, o cliente receberá no prazo padrão e conforme parcelamento, ou seja, venda
+parcelada em 3x, receberá em 30/60/90 dias.</aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Taxa de Receba Rápido"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.1</span><span class="p">,</span><span class="w">
+</span><span class="nl">"settlementTiming"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+</span><span class="nl">"conditionDuration"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>Quantidade em meses de duração da condição (<code class="language-plaintext highlighter-rouge">conditionDuration</code>): prazo de duração da oferta, em meses, após aceite e efetivação</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Taxa de Receba Rápido"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"settlementTiming"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+</span><span class="nl">"conditionDuration"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="2---criação-de-pedido-a-partir-de-uma-oferta">2 - Criação de pedido a partir de uma oferta</h2>
+
+<p>O canal precisará coletar a oferta escolhida pelo cliente e, também os dados cadastrais e configurações adicionais de cada serviço que consta na oferta.</p>
+
+<p>A operação <code class="language-plaintext highlighter-rouge">POST /orders</code> deverá ser utilizada para criar o pedido.</p>
+
+<h3 id="dados-de-entrada-1">Dados de Entrada:</h3>
+
+<p>Após a escolha da oferta, o canal precisará coletar as informações necessárias para a criação do pedido. Parte das informações que o canal deverá solicitar são informados no próprio payload da oferta.</p>
+
+<p>No header da requisição deverão ser informados os seguintes dados:</p>
+
+<p><code class="language-plaintext highlighter-rouge">externalId</code>: é o identificação da requisição de criação do pedido, deve ser um único para cada pedido, e gerado e controlado peloconsumidor da API. Será utilizado para controle de idempotência.
+<code class="language-plaintext highlighter-rouge">intermediaryId</code>: é o identificador da pessoa que negocia a comercialização em nome do prospect ou cliente.</p>
+
+<p>O body da requisição contém as seguintes informações</p>
+
+<p><code class="language-plaintext highlighter-rouge">offerId</code>: id da oferta escolhida (recebido na etapa 1 - consulta de ofertas);
+<code class="language-plaintext highlighter-rouge">itemsConfiguration</code>: lista de configurações dos itens da oferta escolhida. Verificar o campo <code class="language-plaintext highlighter-rouge">mandatoryConfiguration</code> da oferta para identificar quais informações são necessárias.</p>
+
+<p>Exemplo:</p>
+
+<p>No item abaixo que consta na oferta escolhida, é solicitado o campo <code class="language-plaintext highlighter-rouge">payoutData</code> (dados de liquidação):</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"itemId"</span><span class="p">:</span><span class="s2">"2d4e212f-545f-4d97-a07a-0bb01a9b3345"</span><span class="err">,</span><span class="w">
+</span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Vendas com máquina de cartão de crédito e débito"</span><span class="err">,</span><span class="w">
+</span><span class="nl">"mandatoryConfiguration"</span><span class="p">:[</span><span class="w">
+</span><span class="s2">"payoutData"</span><span class="w">
+</span><span class="p">]</span><span class="err">,</span><span class="w">
+</span><span class="err">...</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Dessa forma, devemos formatar o campo <code class="language-plaintext highlighter-rouge">itemsConfiguration</code> com o campo solicitado:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"itemsConfiguration"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"itemId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2d4e212f-545f-4d97-a07a-0bb01a9b3345"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"payoutData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"payoutMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BANK_ACCOUNT"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"targetBankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"bankNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"237"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"bankBranchNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12249"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"accountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14623-7"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"accountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHECKING"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Possíveis tipos de configuração:Possíveis tipos de configuração:</strong></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">websiteUrl</code>: URL do site (e-commerce)</li>
+  <li><code class="language-plaintext highlighter-rouge">isMerchantProcessRecurringPayments</code>: indica se o estabelecimento utilizará o serviço para processar pagamentos recorrentes com seus clientes</li>
+  <li><code class="language-plaintext highlighter-rouge">isMerchantPaymentsFacilitator</code>: indica se o estabelecimento utilizará o serviço para atuação como facilitador de pagamentos.</li>
+  <li><code class="language-plaintext highlighter-rouge">payoutData</code>: são os dados necessários para liquidação (recebimento das vendas) conforme tipo de domicílio identificado na ofertas (allowed <code class="language-plaintext highlighter-rouge">PayoutMethods</code>). Atualmente a Cielo permite o recebimento por meio de um domicílio bancário ou cartão pré-pago</li>
+</ul>
+
+<blockquote>
+  <p>Caso na oferta venha a opção <code class="language-plaintext highlighter-rouge">BANK_ACCOUNT</code>, deverá ser consumido o serviço <code class="language-plaintext highlighter-rouge">GET/payout-eligible-banks</code> para escolha do domicílio bancários mais adequado ao cliente.</p>
+</blockquote>
+
+<aside class="warning">Caso na oferta venha apenas a opção `PREPAID_CARD`, não será necessário consumir o serviço de domicílio bancário. Se enviado um domicílio bancário, o pedido será rejeitado pela Cielo.</aside>
+
+<aside class="warning">Caso na oferta venha apenas a opção `BANK_ACCOUNT`, não poderá ser enviado domicílio cartão pré-pago, caso contrário o pedido será
+rejeitado pela Cielo.</aside>
+
+<ul>
+  <li>Exemplo para recebimento em domicílio bancário:</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"payoutData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"payoutMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BANK_ACCOUNT"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"targetBankAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"bankNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"237"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"bankBranchNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12249"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"accountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14623-7"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"accountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CHECKING"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>Exemplo para recebimento em cartão pré-pago:</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"payoutData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"payoutMethod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PREPAID_CARD"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">deliveryData</code>: informações sobre entrega / logística
+    <ul>
+      <li>Existem 2 opções:
+        <ul>
+          <li>In Person: entrega da maquina de imediato pelo agente credenciador mediante aprovação do credenciamento. Neste cenário não teria necessidade de informa o endereço de entrega;</li>
+          <li>Courier Service: entrega da máquina no domicílio do cliente/lojista mediante aprovação do credenciamento. Neste cenário, é obrigatório informar o endereço de entrega.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>Consulte o ponto focal da Cielo para verificar quais perfis de entrega que serão utilizados</p>
+</blockquote>
+
+<ul>
+  <li>Exemplo In Person:</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"deliveryData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"deliveryType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IN_PERSON"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>Exemplo Courier Service:</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"deliveryData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"deliveryType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COURIER_SERVICE"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"deliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paulista"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Avenida"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1200"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"extraLine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apto 251"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jardins"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sao Paulo"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"zipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01539010"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">registrationData</code>: grupo de informações com os dados cadastrais do cliente. É obrigatório se na oferta escolhida o campo <code class="language-plaintext highlighter-rouge">registrationRequired</code> estiver como <code class="language-plaintext highlighter-rouge">true</code>.</li>
+</ul>
+
+<aside class="warning">O parceiro/canal deverá garantir que o formato/informações abaixo tenha validação no formulário/APP e que sejam enviadas corretamente (passível de rejeição):<br />
+  
+1. CPF/CNPJ Cliente: ser o mesmo informado na oferta;<br />
+2. CPF Proprietário (apenas PJ): ter obrigatoriamente 11 dígitos;<br />
+3. Inscrição estadual: apenas dado numérico e, em caso de isenção, deixar o campo em branco;<br />
+4. Nome Proprietário/Nome da Mãe: ter ao menos 2 nomes;<br />
+5. Data de nascimento: cliente deverá ser maior de 18 anos;<br />
+6. Email: deve ser um email válido e atendendo a expressão regular ^(("[\w-\s]+")|([\w-]+(?:.[\w-]+))|("[\w-\s]+")([\w-]+(?:.[\w-]+)))(@((?:[\w-]+.)*\w[\w-]{0,66}).([a-z]{2,6}(?:.[a-z]{2})?)$)|(@[?((25[0-5].|2[0-4][0-9].|1[0-9]{2}.|[0-9]{1,2}.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2}).){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})]?$)<br />
+a. Exemplo: teste@cielo.com.br ou teste@cielo.com<br />
+b. Email do proprietário: não tem preenchimento obrigatório, porém, se enviado, deverá seguir as validações acima<br />
+c. Email da companhia: tem preenchimento obrigatório e será validado conforme regras acima<br />
+7. Telefone: garantir o preenchimento de todas as informações (DDD e número) e atender às seguintes regras:<br />
+a. Será limitado a 1 número de telefone do tipo celular (mobilePhone = true) e 1 número de telefone do tipo comercial/fixo(mobilePhone = false);<br />
+b. É obrigatório o envio de número do tipo celular (mobilePhone = true), atendendo aos requisitos:<br />
+i. O número deverá conter 9 dígitos e iniciar com 9 | Expressão regular sugerida para validação do campo no formulário: ^[9]{1}[0-9]{8}$.</aside>
+
+<ul>
+  <li>Exemplo de Pessoa Física:</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"registrationData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"individual"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"taxId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34013415020"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"fullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joaquim Antônio da Cunha Pavão"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1976-09-09"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"motherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Maria Dolores Antônio da Cunha"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myname@company.com"</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"phones"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"countryCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">55</span><span class="p">,</span><span class="w">
+</span><span class="nl">"areaCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+</span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">918273645</span><span class="p">,</span><span class="w">
+</span><span class="nl">"mobilePhone"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paulista"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Avenida"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1200"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"extraLine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apto 251"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jardins"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sao Paulo"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"zipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01539010"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>Exemplo de Pessoa Jurídica:</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"registrationData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"taxId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60957392000103"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"companyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Green Burguers"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"stateRegistration"</span><span class="p">:</span><span class="w"> </span><span class="s2">"347213796222"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mycompany@company.com"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"companyOwners"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"taxId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"34013415020"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"fullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joaquim Antônio da Cunha Pavão"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1976-09-09"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"motherName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Maria Dolores Antônio da Cunha"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myname@company.com"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">},</span><span class="w">
+</span><span class="nl">"phones"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span><span class="nl">"countryCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">55</span><span class="p">,</span><span class="w">
+</span><span class="nl">"areaCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+</span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="mi">918273645</span><span class="p">,</span><span class="w">
+</span><span class="nl">"mobilePhone"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">],</span><span class="w">
+</span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paulista"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Avenida"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1200"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"extraLine"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apto 251"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"neighborhood"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jardins"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sao Paulo"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BR"</span><span class="p">,</span><span class="w">
+</span><span class="nl">"zipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01539010"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="3--coleta-e-registro-de-consentimento">3- Coleta e registro de consentimento</h2>
+
+<p>Para canais de autoatendimento, após a criação do pedido, será necessário realizar a coleta do consentimento do cliente nos termos e no contrato (p. exemplo: política de privacidade, termo de credenciamento, entre outros). Utilize a operação <code class="language-plaintext highlighter-rouge">GET /agreements</code> para listar todos os aceites e termos que devem ser coletados e utilize a operação <code class="language-plaintext highlighter-rouge">POST /agreements</code> para registrar.</p>
+
+<aside class="warning">Para canais de autoatendimento, o pedido não será concluído até o envio do consentimento.<br />Consulte seu ponto focal da Cielo para verificar qual o perfil do canal.</aside>
+
+<blockquote>
+  <p><strong>Observação:</strong> Nos canais operados por um intermediador, a coleta do consentimento será feita em um momento posterior, e diretamente pelo cliente, por meio de outro canal (como por exemplo a área logada do Site da Cielo).<br />Além disso, terá limitação no compartilhamento de informação após a conclusão do pedido, visto que não houve o OPTIN/consentimento nos termos e contratos. Por exemplo: não será compartilhado, via API, as chaves de acesso dos cadastros de e-commerce. Essa
+informação será enviada diretamente por email ao cliente.</p>
+</blockquote>
+
+<h2 id="4--tracking-e-informações-do-pedido">4- Tracking e informações do pedido</h2>
+
+<p>A API de comercialização provê 2 mecanismos para que o canal possa informar o cliente, prospect ou intermediador do andamento do pedido:</p>
+
+<h3 id="notificações-via-webhook">Notificações via webhook</h3>
+
+<p>O parceiro deverá implementar um webhook para receber notificações assíncronas de atualizações de status do pedido.</p>
+
+<ul>
+  <li><strong>Estrutura dos eventos</strong></li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Obrigatório</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">eventType</code></td>
+      <td>enum</td>
+      <td>S</td>
+      <td>Identificador do evento. Nesse caso os valores possíveis são: order-status-change. Caso o valor for healthcheck, o endpoint deverá responder HTTP 200 indicando que está on-line.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">eventCreateDate</code></td>
+      <td>datetime</td>
+      <td>S</td>
+      <td>Data de criação do evento</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">eventDetails</code></td>
+      <td>Objeto</td>
+      <td>N</td>
+      <td>Este objeto contém detalhes do evento.</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Exemplos de eventos:</li>
+</ul>
+
+<p>Após o canal enviar o pedido, será enviado um dos eventos abaixo:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">order-created</code>: informará se o pedido foi aceito pela Cielo</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"eventType"</span><span class="p">:</span><span class="s2">"order-created"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"eventCreateDate"</span><span class="p">:</span><span class="s2">"2019-04-25T09:27:54.783Z"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"eventDetails"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"eventId"</span><span class="p">:</span><span class="s2">"162d8827-ae23-471b-bfa6-2ec7064e40f"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"externalId"</span><span class="p">:</span><span class="s2">"uk4231y412hjh2134u12h"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"orderId"</span><span class="p">:</span><span class="s2">"194492435235"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"newStatus"</span><span class="p">:</span><span class="s2">"CRIADO"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">order-rejected</code>: informará se o pedido foi rejeitado pela Cielo e o(s) seu(s) respectivo(s) motivo(s)</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"eventType"</span><span class="p">:</span><span class="s2">"order-created"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"eventCreateDate"</span><span class="p">:</span><span class="s2">"2019-04-25T09:27:54.783Z"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"eventDetails"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"eventId"</span><span class="p">:</span><span class="s2">"162d8827-ae23-471b-bfa6-2ec7064e40f"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"externalId"</span><span class="p">:</span><span class="s2">"uk4231y412hjh2134u12h"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reasons"</span><span class="p">:[</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"code"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"message"</span><span class="p">:</span><span class="s2">"example reason"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Se o pedido for aceito (<code class="language-plaintext highlighter-rouge">order-created</code>), o canal poderá acompanhar o tracking do pedido através do evento:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">order-updated</code>: informará o andamento/detalhes das etapas do pedido</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"eventType"</span><span class="p">:</span><span class="s2">"order-updated"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"eventCreateDate"</span><span class="p">:</span><span class="s2">"2019-04-25T09:27:54.783Z"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"eventDetails"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"eventId"</span><span class="p">:</span><span class="s2">"162d8827-ae23-471b-bfa6-2ec7064e40f"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"externalId"</span><span class="p">:</span><span class="s2">"uk4231y412hjh2134u12h"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"orderId"</span><span class="p">:</span><span class="s2">"194492435235"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"newStatus"</span><span class="p">:</span><span class="s2">"INSUCESSO"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reasons"</span><span class="p">:[</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"code"</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Domicilio bancário inválido"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"merchantId"</span><span class="p">:</span><span class="s2">"2323232323"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"merchantKey"</span><span class="p">:</span><span class="s2">"kwfmkmfkmfkfw"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"clientId"</span><span class="p">:</span><span class="s2">"kwfmkmfkmfkfw"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"clientSecret"</span><span class="p">:</span><span class="s2">"afmladfm"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"logicalNumbers"</span><span class="p">:[</span><span class="w">
+         </span><span class="s2">"314431-1"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"314431-2"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">healthcheck</code>: utilizado para verificar a disponibilidade do serviço do canal para envio dos eventos. Em caso de falha, será suspenso o envio das
+notificações até estabilização; posterior a isso, serão enviadas todas as informações represadas.</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"eventType"</span><span class="p">:</span><span class="s2">"healthcheck"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"eventCreateDate"</span><span class="p">:</span><span class="s2">"2019-04-25T09:27:54.783Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Consulta de pedido</strong></p>
+
+<p>O canal poderá utilizar a operação GET /orders para consultar todas as informações do pedido como status, etapas, eventos, alterações de status e seus respectivos itens.</p>
+
+<h3 id="tracking-do-pedido-e-do-item">Tracking do pedido e do item</h3>
+
+<p>O tracking contém as informações de andamento do pedido ou do item do pedido. As informações retornadas no tracking são listadas abaixo:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">currentStatus</code>: Status atual do pedido ou do item</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"currentStatus"</span><span class="p">:{</span><span class="w">
+   </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Sucesso"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">events</code>: Lista de eventos relevantes que demarcam uma mudança de status e de etapa. Todo evento pode possuir uma data e hora de
+ocorrência (<code class="language-plaintext highlighter-rouge">occurrenceTime</code>), status anterior (<code class="language-plaintext highlighter-rouge">previousStatus</code>), status posterior (<code class="language-plaintext highlighter-rouge">nextStatus</code>), etapa anterior (<code class="language-plaintext highlighter-rouge">previousStep</code>) e etapa posterior (
+<code class="language-plaintext highlighter-rouge">nextStep</code>)</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"events"</span><span class="p">:[</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"occurenceTime"</span><span class="p">:</span><span class="s2">"2012-04-23T18:25:43.511Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Pedido criado"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"nextStatus"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Em validação"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"nextStep"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"stepId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Validação"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"occurenceTime"</span><span class="p">:</span><span class="s2">"2012-04-23T18:26:43.511Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Validação concluída"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"previousStatus"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Em validação"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"nextStatus"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Aguardando pagamento"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"previousStep"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"stepId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Validação"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"nextStep"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"stepId"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Pagamento"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"occurenceTime"</span><span class="p">:</span><span class="s2">"2012-04-23T18:26:43.511Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Pagamento realizado"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"previousStatus"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Aguardando pagamento"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"nextStatus"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Em atualização de cadastro"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"previousStep"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"stepId"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Pagamento"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"nextStep"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"stepId"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Cadastro"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"occurenceTime"</span><span class="p">:</span><span class="s2">"2012-04-23T18:27:43.511Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Cadastro concluído"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"previousStatus"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Em atualização de cadastro"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"nextStatus"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Em processamento"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"previousStep"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"stepId"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Cadastro"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"nextStep"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"stepId"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Processamento"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"occurenceTime"</span><span class="p">:</span><span class="s2">"2012-04-23T18:28:43.511Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Processamento concluído"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"previousStatus"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Em processamento"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"nextStatus"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Sucesso"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"previousStep"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"stepId"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Cadastro"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">steps</code>: Lista de etapas que o pedido ou item executou ou irá executar, com seus respectivos status atual (<code class="language-plaintext highlighter-rouge">status</code>) e sequência (<code class="language-plaintext highlighter-rouge">sequence</code>)</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"steps"</span><span class="p">:[</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"stepId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Validação"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sequence"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Sucesso"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"stepId"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Pagamento"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sequence"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Sucesso"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"stepId"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Cadastro"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sequence"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Sucesso"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"stepId"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Processamento"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sequence"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"statusMessage"</span><span class="p">:</span><span class="s2">"Sucesso"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://developercielo.github.io/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Precisa de ajuda?</h2>
+        <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://devcielo.zendesk.com/hc/pt-br#suporte">entre em contato conosco</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Comutar a coluna da esquerda" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://desenvolvedores.cielo.com.br" target="_blank">
+        <img src="https://developercielo.github.io/assets/images/logo.png" alt="Documentações e tutoriais" style="width: 60%; margin-left: 20%">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+        <div class="toc-footer">
+            <h2 class="no-toc toc-footer-title">Materiais complementares</h2>
+            
+
+            
+            
+            
+
+            <ul class="toc-footer">
+            
+                
+            
+            </ul>
+        </div>
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contato" href="https://devcielo.zendesk.com/">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contato</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/developercielo">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/assets/bundles/js/bundle.min.js"></script>
+        <script>
+            
+            var selectors = 'h1,h2,h3,h4,h5,h6';
+            
+        </script>
+
+        
+        <script src="https://developercielo.github.io/assets/bundles/js/search.min.js"></script>
+        
+
+        
+
+        <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:674586,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    </body>
+</html>

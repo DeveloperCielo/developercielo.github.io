@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="en">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        2.1. Javascript Integration &middot; Documentações e tutoriais
+        
+    </title>
+
+    <link rel="shortcut icon" href="https://developercielo.github.io/en/assets/favicon.ico">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+    <script async src="https://use.fontawesome.com/3ae06f1030.js"></script>
+
+    <link rel="stylesheet" href="https://developercielo.github.io/en/assets/bundles/css/bundle.min.css">
+
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://developercielo.github.io/en/manual/integracao-javascript" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://developercielo.github.io/en/en/manual/integracao-javascript" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://developercielo.github.io/en/atom.xml">
+</head>
+
+    <body>
+        
+        <div class="content-container">
+            <div class="language-tabs">
+                <a class='hide-btn' id="hide-button" title="Toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <ul class="language-buttons">
+                    
+                    <li><a data-language-name='json'>JSON</a></li>
+                    
+                    <li><a data-language-name='shell'>cURL</a></li>
+                    
+                </ul>
+            </div>
+            <div class="dark-box"></div>
+            <div class="overlay"></div>
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://devcielo.zendesk.com/hc/pt-br#suporte" class="help">Help</a>
+
+                            
+                            <div class="lang">
+                                <span>Languages</span>
+
+                                
+                                    
+                                    <a href="https://developercielo.github.io/manual/integracao-javascript">
+                                    
+
+                                        <img alt="Português" src="https://developercielo.github.io/en/assets/images/pt.png"/>
+                                    </a>
+                                
+                                    
+                                    <a href="https://developercielo.github.io/en/manual/integracao-javascript">
+                                    
+
+                                        <img alt="English" src="https://developercielo.github.io/en/assets/images/en.png"/>
+                                    </a>
+                                
+                            </div>
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="https://developercielo.github.io/en/">Home</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/en/manual/integracao-javascript">2.1. Javascript Integration</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+  <h1 id="what-is-3ds-20">What is 3DS 2.0?</h1>
+
+<p>For more details about the 3DS 2.0, see: <a href="https://developercielo.github.io/en/manual/3ds">https://developercielo.github.io/en/manual/3ds</a></p>
+
+<h1 id="step-1-access-token-request">STEP 1. Access Token Request</h1>
+
+<p>The solution is composed by the access token request via the API and authentication request via Java Script.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Environment</th>
+      <th>Endpoint</th>
+      <th>Authorization</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>SANDBOX</strong></td>
+      <td>https://mpisandbox.braspag.com.br</td>
+      <td><strong>Basic <em>(Authorization)</em></strong><br />The Authorization must be generated concatenating “ClientID”, colon character (“:”) and “ClientSecret”<br />Ex. dba3a8db-fa54-40e0-8bab-7bfb9b6f2e2e:D/ilRsfoqHlSUChwAMnlyKdDNd7FMsM7cU/vo02REag=<br />after this, encode the result in base 64. <br />Then, this will generate an alphanumeric code that will be used in the access token request. For test purposes, use the following data:<br />ClientID: <strong>dba3a8db-fa54-40e0-8bab-7bfb9b6f2e2e</strong><br />ClientSecret: <strong>D/ilRsfoqHlSUChwAMnlyKdDNd7FMsM7cU/vo02REag=</strong></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><strong>PRODUCTION</strong></td>
+      <td>https://mpi.braspag.com.br</td>
+      <td>Please contact our support team to generate the “ClientID” and “ClientSecret” after integrating on sandbox environment.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="request">Request</h2>
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/v2/auth/token</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+     </span><span class="nl">"EstablishmentCode"</span><span class="p">:</span><span class="s2">"1006993069"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"MerchantName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Loja Exemplo Ltda"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"MCC"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5912"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> POST <span class="s2">"https://mpisandbox.braspag.com.br/v2/auth/token"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"Authorization: Basic xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="nt">--verbose</span>
+<span class="o">{</span>
+     <span class="s2">"EstablishmentCode"</span>:<span class="s2">"1006993069"</span>,
+     <span class="s2">"MerchantName"</span>: <span class="s2">"Loja Exemplo Ltda"</span>,
+     <span class="s2">"MCC"</span>: <span class="s2">"5912"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Parameter</strong></th>
+      <th><strong>Description</strong></th>
+      <th><strong>Type</strong></th>
+      <th><strong>Size</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>EstablishmentCode</td>
+      <td>Cielo E-commerce 3.0 affiliation code</td>
+      <td>Numeric</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>MerchantName</td>
+      <td>Merchant Name as registered on Cielo</td>
+      <td>Alphanumeric</td>
+      <td>Max 25</td>
+    </tr>
+    <tr>
+      <td>MCC</td>
+      <td>Merchant category code</td>
+      <td>Numeric</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="response">Response</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+      </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"barear"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-07-23T11:29:32"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+      <span class="s2">"access_token"</span>: <span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6IlFBXzNEU19BdXRoZW50aWNhdG9yIiwiY2xpZW50X2lkIjoiZGJhM2E4ZGItZmE1NC00MGUwLThiYWItN2JmYjliNmYyZTJlIiwic2NvcGVzIjoie1wiU2NvcGVcIjpcIjNEU0F1dGhlbnRpY2F0b3JcIixcIkNsYWltc1wiOlt7XCJOYW1lXCI6XCJNZXJjaGFudE5hbWVcIixcIlZhbHVlc1wiOFwiVmFsdWVzXCI6W1wiNTU1NVwiXX0se1wiTmFtZVwiOlwiUmVmZXJlbmNlSWRcIixcIlZhbHVlc1wiOltcImY3MjE1YmQ3LWM0OTQtNGQ5Yi1NzEyfQ.daMqXko3dZOV0TzNFQ2vSsVSKqOsrwuswg7RB82ecAASSSSSSSSSSSSFFFFFFFFFFFFFGGGGGGGGGGGGGGGGGGGGGGGG"</span>,
+      <span class="s2">"token_type"</span>: <span class="s2">"barear"</span>,
+      <span class="s2">"expires_in"</span>: <span class="s2">"2018-07-23T11:29:32"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Parameter</strong></th>
+      <th><strong>Description</strong></th>
+      <th><strong>Type</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>access_token</td>
+      <td>Token required to continue with authentication</td>
+      <td>Alphanumeric</td>
+    </tr>
+    <tr>
+      <td>token_type</td>
+      <td>Fixed "Bearer"</td>
+      <td>Alphanumeric</td>
+    </tr>
+    <tr>
+      <td>expires_in</td>
+      <td>Token expiration time (minutes)</td>
+      <td>Numeric</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="step-2-script-implementation">STEP 2. Script implementation</h1>
+
+<p>This step contains the <em>script</em> and the mapping of <em>classes</em> implementation responsable to comunicate with the authentication platform from brands and issuers. The example below shows the basic implementation. It is recommended that the snippet is placed at the end of the checkout HTML code:</p>
+
+<blockquote>
+  <p>To download the code, <a href="https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/_i18n/pt/_posts/emv3ds/exemplo.html">Click here</a></p>
+</blockquote>
+
+<p><img src="https://developercielo.github.io/images/exemplo-html.jpg" alt="Script Example 3DS 2.0" /></p>
+
+<p>Events Description</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Event</strong></th>
+      <th><strong>Description</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>onReady</td>
+      <td>This is triggered when the script is completely loaded, which includes validation of the access token, indicating that the checkout is ready to initiate authentication process</td>
+    </tr>
+    <tr>
+      <td>onSuccess</td>
+      <td>It is triggered when the card is elegible and the authentication process is successfully finished. In this case, the variables CAVV, XID and ECI are returned. These data must be sent in together with the authorization request. In this scenario, if the transaction is authorized, the liability shift is transferred to the issuer.</td>
+    </tr>
+    <tr>
+      <td>onFailure</td>
+      <td>It is triggered when the card is elegible but the authentication process failed for some reason. In this case, only ECI variable is returned. If the merchant decide to proceed with the authorization, the ECI must also be sent in the request. In this scenario if the transaction is authorized, the liability shift remains with the merchant.</td>
+    </tr>
+    <tr>
+      <td>onUnenrolled</td>
+      <td>It is triggered when the card is not elegible, in other words, the cardholder and/or issuer does not support the authentication program. In this case, guide the shopper to check with the issuer if the card is enabled to perform authentication in e-commerce. Only the ECI variable is returned. If the merchant decides to proceed with the authorization, the ECI must be sent together with the authorization. If the transaction is authorized, the liability shift remains with the merchant.</td>
+    </tr>
+    <tr>
+      <td>onDisabled</td>
+      <td>It is triggered when the merchant chooses not to submit the cardholder to the authentication process. ("bpmpi_auth" class set as false). In this scenario, if the transaction is authorized, the liability shift remains with the merchant.</td>
+    </tr>
+    <tr>
+      <td>onError</td>
+      <td>It is triggered when the authentication process receives a systemic error. In this scenario, if the transaction is authorized, the liability shift remains with the merchant.</td>
+    </tr>
+    <tr>
+      <td>onUnsupportedBrand</td>
+      <td>It is triggered when the card scheme is not supported by 3DS 2.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Request Parameters Description</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Parameter</strong></th>
+      <th><strong>Description</strong></th>
+      <th><strong>Type</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Environment</td>
+      <td>Indicates the environment to be used (Sandbox or Production)</td>
+      <td>String <br /><strong>SDB</strong> – <em>Sandbox (test environment)</em> <strong>PRD</strong> – <em>Production (production environment)</em></td>
+    </tr>
+    <tr>
+      <td>Debug</td>
+      <td>Boolean that identifies if debug mode is activated. When sent as true, the platform will generate the report on the browser’s debug mechanism.</td>
+      <td>Boolean <br /><em>true<br />false</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>NOTE!</strong></p>
+
+<p>The JavaScript file must be saved in the server where the merchant application is hosted. To download the file on Sandbox environment, access:</p>
+
+<p><a href="https://bit.ly/2CSOp2n">https://bit.ly/2CSOp2n</a></p>
+
+<p>Output Description</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Output</strong></th>
+      <th><strong>Description</strong></th>
+      <th><strong>Type</strong></th>
+      <th><strong>Size</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cavv</td>
+      <td>Authentication signature</td>
+      <td>Text</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Xid</td>
+      <td>Authentication request ID</td>
+      <td>Text</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Eci</td>
+      <td>E-commerce indicator code, which represents the authentication result</td>
+      <td>Numeric</td>
+      <td>Max 2</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>3DS applied version</td>
+      <td>Numeric</td>
+      <td>1<br /> <strong>1.0</strong> = <em>3DS 1.0;</em> <br /><strong>2.0</strong> = <em>3DS 2.0;</em></td>
+    </tr>
+    <tr>
+      <td>ReferenceId</td>
+      <td>Authentication request ID</td>
+      <td>GUID</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <td>ReturnCode</td>
+      <td>Authentication return code</td>
+      <td>Alphanumeric</td>
+      <td>Max 5</td>
+    </tr>
+    <tr>
+      <td>ReturnMessage</td>
+      <td>Authentication result message</td>
+      <td>Alphanumeric</td>
+      <td>Variable</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="step-3-mapping-classes">STEP 3. Mapping Classes</h1>
+
+<p>Classes that must be mapped in your HTML code.</p>
+
+<p>Once the class is mapped to it’s given field, the script is able to retrieve the value contained in the field and submit it to compose the authentication request.</p>
+
+<aside class="warning">The higher amount of fields parametrized, the higher is the chance of having a transparent authentication, since the issuer will have more data for the risk analysis.</aside>
+
+<aside class="notice">The # character indicated in the field must be replaced by the number representing the item index. <br /> Example: bpmpi_item_1_productName' represents the first item of the cart.</aside>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Parameterization Data</strong></th>
+      <th><strong>Description</strong></th>
+      <th><strong>Type/Size</strong></th>
+      <th><strong>Mandatory</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bpmpi_auth</td>
+      <td>Boolean that indicates if the transaction will be submitted to authentication process</td>
+      <td>Boolean<br />true - authenticate;<br />false - not authenticate/1</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>bpmpi_auth_notifyonly</td>
+      <td>Boolean that indicates if the transaction will be submitted to notify mode. In this mode, the authentication process will not be performed. <strong>VALID JUST FOR MASTERCARD</strong></td>
+      <td>Boolean: <br />true – notify mode; <br />false – authentication mode</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>bpmpi_auth_suppresschallenge</td>
+      <td>Boolean that indicates if ignore or not the challenge. If the challenge is ignored, the liability will keep with the merchant.</td>
+      <td>Boolean: <br />true – ignore challenge <br />false – perform challenge</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>bpmpi_accesstoken</td>
+      <td>Token generated by Access Token API (step 1)</td>
+      <td>Alphanumeric/Variable</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Order data</strong></th>
+      <th><strong>Description</strong></th>
+      <th><strong>Type</strong></th>
+      <th><strong>Size</strong></th>
+      <th><strong>Mandatory</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bpmpi_ordernumber</td>
+      <td>Merchant order number</td>
+      <td>Alphanumeric</td>
+      <td>Max 50</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>bpmpi_currency</td>
+      <td>Currency code</td>
+      <td>Fixed "BRL"</td>
+      <td>3</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>bpmpi_totalamount</td>
+      <td>Total transaction amount (cents)</td>
+      <td>Numeric</td>
+      <td>Max 15</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>bpmpi_installments</td>
+      <td>Number of Installments</td>
+      <td>Numeric</td>
+      <td>Yes</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>bpmpi_paymentmethod</td>
+      <td>Card type to be authenticated. If the card has both functions, it is necessary to specify the transaction type.</td>
+      <td>String<br />Credit – <em>Credit card</em><br />Debit – <em>Debit card</em></td>
+      <td>Max 6</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>bpmpi_cardnumber</td>
+      <td>Card number</td>
+      <td>Numeric</td>
+      <td>Max 19</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>bpmpi_cardexpirationmonth</td>
+      <td>Card expiration month</td>
+      <td>Numeric</td>
+      <td>2</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>bpmpi_cardexpirationyear</td>
+      <td>Card expiration year</td>
+      <td>Numeric</td>
+      <td>4</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>bpmpi_cardalias</td>
+      <td>Card alias</td>
+      <td>Alphanumeric</td>
+      <td>Max 128</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_default_card</td>
+      <td>Customer default card</td>
+      <td>Boolean</td>
+      <td><br /><em>true</em><br /><em>false</em></td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_recurring_enddate</td>
+      <td>End date of recurrency</td>
+      <td>Text (AAAA-MM-DD)</td>
+      <td>No</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>bpmpi_recurring_frequency</td>
+      <td>Frequency of recurrency</td>
+      <td>Number<br />1 - Monthy<br />2 - Bimonthly<br />3 - Quarterly<br />4 - Four Monthly<br />6 - Semester<br />12 - Annual</td>
+      <td>No</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>bpmpi_recurring_originalpurchasedate</td>
+      <td>Date of first transaction that orignated the recurrency</td>
+      <td>Text (AAAA-MM-DD)</td>
+      <td>No</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Order Description Data</strong></th>
+      <th><strong>Description</strong></th>
+      <th><strong>Type</strong></th>
+      <th><strong>Size</strong></th>
+      <th><strong>Mandatory</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bpmpi_order_recurrence</td>
+      <td>Indicates if it is a recurrency order</td>
+      <td>Boolean</td>
+      <td><br /><em>true</em><br /><em>false</em></td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_order_productcode</td>
+      <td>Product Type</td>
+      <td><strong>PHY</strong>: purchase Goods<br /><strong>CHA</strong>: Check acceptance<br /><strong>ACF</strong>: Account financing<br /><strong>QCT</strong>: Quasi-Cash Transaction <br /><strong>PAL</strong>: Prepaid Activation and Load<br /></td>
+      <td>Yes</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>bpmpi_order_countlast24hours</td>
+      <td>Number of orders placed by same customer in the last 24 hours</td>
+      <td>Numeric</td>
+      <td>Max 3</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_order_countlast6months</td>
+      <td>Number of orders placed by same customer in the last 6 months</td>
+      <td>Numeric</td>
+      <td>Max 4</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_order_countlast1year</td>
+      <td>Number of orders placed by same customer in the last year</td>
+      <td>Numeric</td>
+      <td>Max 3</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_order_cardattemptslast24hours</td>
+      <td>Number of orders placed with the same card in the last 24 hours</td>
+      <td>Numeric</td>
+      <td>Max 3</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_order_marketingoptin</td>
+      <td>Indicates whether the buyer accepted to receive marketing offers</td>
+      <td>Boolean</td>
+      <td><br />true<br />false</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_order_marketingsource</td>
+      <td>Identifica a origem da campanha de marketing</td>
+      <td>Alphanumeric</td>
+      <td>Max 40</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_transaction_mode</td>
+      <td>Identifies the channel from which the transaction originates</td>
+      <td>M: MOTO<br />R: Varejo<br />S: E-Commerce<br />P: Mobile<br />T: Tablet</td>
+      <td>No</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>bpmpi_merchant_url</td>
+      <td>Address of your company’s web site</td>
+      <td>Alphanumeric [100] Ex: http://www.exemplo.com.br</td>
+      <td>No</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Gift Card (prepaid) Specific Data</strong></th>
+      <th><strong>Description</strong></th>
+      <th><strong>Type</strong></th>
+      <th><strong>Size</strong></th>
+      <th><strong>Mandatory</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bpmpi_giftcard_amount</td>
+      <td>The total value of the purchase for prepaid gift cards in rounded value</td>
+      <td>Numeric</td>
+      <td>Max 15<br /><em>Example: R$ 125,54 = 12554</em></td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_giftcard_currency</td>
+      <td>Transaction currency code paid with prepaid type card</td>
+      <td>String</td>
+      <td>Fixed "BRL"</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Billing Address Data</strong></th>
+      <th><strong>Description</strong></th>
+      <th><strong>Type</strong></th>
+      <th><strong>Size</strong></th>
+      <th><strong>Mandatory</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bpmpi_billto_customerid</td>
+      <td>Identifies the CPF/CNPJ of customer</td>
+      <td>Numeric [11 to 14]<br />99999999999999</td>
+      <td>No</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>bpmpi_billTo_contactname</td>
+      <td>Billing address contact name</td>
+      <td>Alphanumeric</td>
+      <td>Max 120</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billTo_phonenumber</td>
+      <td>Billing address phone number</td>
+      <td>Numeric</td>
+      <td>Max 15<br /><em>Format: 5511999999999</em></td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billTo_email</td>
+      <td>Billing address contact email</td>
+      <td>Alphanumeric</td>
+      <td>Max 255<br /><em>Format: <a href="mailto:nome@exemplo.com">nome@exemplo.com</a></em></td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billTo_street1</td>
+      <td>Street Address and Billing Address Number</td>
+      <td>Alphanumeric</td>
+      <td>Max 60</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billTo_street2</td>
+      <td>Neighborhood and complement billing address</td>
+      <td>Alphanumeric</td>
+      <td>Max 60</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billTo_city</td>
+      <td>Billing address city</td>
+      <td>Alphanumeric</td>
+      <td>Max 50</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billTo_state</td>
+      <td>Accuracy of billing address state</td>
+      <td>String</td>
+      <td>2</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billto_zipcode</td>
+      <td>Billing address zip code</td>
+      <td>Alphanumeric</td>
+      <td>Max 8<br /><em>Format: 99999999</em></td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_billto_country</td>
+      <td>Billing country for the account</td>
+      <td>String [2] Ex. BR</td>
+      <td>No</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Delivery Address Data</strong></th>
+      <th><strong>Description</strong></th>
+      <th><strong>Type</strong></th>
+      <th><strong>Size</strong></th>
+      <th><strong>Mandatory</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bpmpi_shipto_sameasbillto</td>
+      <td>Indicates it is the same address provided on the billing address</td>
+      <td>Boolean</td>
+      <td><br /><em>true<br />false</em></td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_shipTo_addressee</td>
+      <td>Shipping address contact name</td>
+      <td>Alphanumeric</td>
+      <td>Max 60</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_shipTo_phonenumber</td>
+      <td>Delivery address phone number</td>
+      <td>Numeric</td>
+      <td>Max 15<br /><em>Format: 5511999999999</em></td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_shipTo_email</td>
+      <td>Delivery address contact email</td>
+      <td>Alphanumeric</td>
+      <td>Max 255<br /><em>Format <a href="mailto:nome@exemplo.com">nome@exemplo.com</a></em></td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_shipTo_street1</td>
+      <td>Street Address and Delivery Address Number</td>
+      <td>Alphanumeric</td>
+      <td>Max 60</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_shipTo_street2</td>
+      <td>Neighborhood and complement delivery address</td>
+      <td>Alphanumeric</td>
+      <td>Max 60</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_shipTo_city</td>
+      <td>Delivery address city</td>
+      <td>Alphanumeric</td>
+      <td>Max 50</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_shipTo_state</td>
+      <td>Accuracy of delivery address state</td>
+      <td>String</td>
+      <td>2</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_shipto_zipcode</td>
+      <td>Delivery address zip code</td>
+      <td>Numeric</td>
+      <td>8<br /><em>Format: 99999999</em></td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_shipto_country</td>
+      <td>Shipping country for the account</td>
+      <td>String [2] Ex. BR</td>
+      <td>No</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>bpmpi_shipTo_shippingmethod</td>
+      <td>Shipping Method Type</td>
+      <td>String</td>
+      <td>lowcost<br />sameday<br />oneday<br />twoday<br />threeday<br />pickup<br />other</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_shipto_firstusagedate</td>
+      <td>Indicates the date of first use of the delivery address</td>
+      <td>String</td>
+      <td><br /><em>AAAA-MM-DD<br />Creation Date</em></td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Shopping Cart Data</strong></th>
+      <th><strong>Description</strong></th>
+      <th><strong>Type</strong></th>
+      <th><strong>Size</strong></th>
+      <th><strong>Mandatory</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bpmpi_cart_#_description</td>
+      <td>Item description</td>
+      <td>Alphanumeric</td>
+      <td>Max 255</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_cart_#_name</td>
+      <td>Item name</td>
+      <td>Alphanumeric</td>
+      <td>Max 255</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_cart_#_sku</td>
+      <td>Item SKU</td>
+      <td>Alphanumeric</td>
+      <td>Max 255</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_cart_#_quantity</td>
+      <td>Item quantity in cart</td>
+      <td>Numeric</td>
+      <td>Max 10</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_cart_#_unitprice</td>
+      <td>Unit value of the cart item (cents)</td>
+      <td>Numeric</td>
+      <td>Max 10</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>User Data</strong></th>
+      <th><strong>Description</strong></th>
+      <th><strong>Type</strong></th>
+      <th><strong>Size</strong></th>
+      <th><strong>Mandatory</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bpmpi_useraccount_guest</td>
+      <td>Indicates whether the customer is not logged (guest)</td>
+      <td>Boolean</td>
+      <td><em>true<br />false</em></td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_useraccount_createddate</td>
+      <td>Indicates the account creation date</td>
+      <td>String</td>
+      <td><em>AAAA-MM-DD</em></td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_useraccount_changeddate</td>
+      <td>Indicates the last chage date of customer’s account</td>
+      <td>String</td>
+      <td><em>AAAA-MM-DD</em></td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_useraccount_passwordchangeddate</td>
+      <td>Indicates the date when the customer’s account password changed</td>
+      <td>String</td>
+      <td><em>AAAA-MM-DD</em></td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_useraccount_authenticationmethod</td>
+      <td>Customer’s Authentication Method</td>
+      <td>String</td>
+      <td>01 - <em>No authentication</em><br />02 - <em>Store login</em><br />03 - <em>Login with federated ID</em><br />04 - <em>Login with FIDO authenticator</em></td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_useraccount_authenticationprotocol</td>
+      <td>In-store login protocol</td>
+      <td>Alphanumeric</td>
+      <td>Max 2048</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_useraccount_authenticationtimestamp</td>
+      <td>Date and time the store was logged in</td>
+      <td>String</td>
+      <td>19<br /><em>YYYY-MM-ddTHH:mm:ss</em></td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_merchant_newcustomer</td>
+      <td>Indicates whether the consumer is a new or existing customer with the merchant</td>
+      <td>Boolean<br />true – yes<br />false – no</td>
+      <td>No</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Device Data (from purchase)</strong></th>
+      <th><strong>Description</strong></th>
+      <th><strong>Type</strong></th>
+      <th><strong>Size</strong></th>
+      <th><strong>Mandatory</strong></th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bpmpi_device_ipaddress</td>
+      <td>Customer’s IP Address</td>
+      <td>Alphanumeric</td>
+      <td>Max 45</td>
+      <td>No</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>bpmpi_device_#_fingerprint</td>
+      <td>Id returned by Device Finger Print</td>
+      <td>Alphanumeric</td>
+      <td>[without limitation]</td>
+      <td>No</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>bpmpi_device_#_provider</td>
+      <td>Device Finger Print Provider Name</td>
+      <td>Alphanumeric</td>
+      <td>Max 32</td>
+      <td><em>cardinal<br />inauth<br />threatmetrix</em></td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Specific Airlines Data</strong></th>
+      <th><strong>Description</strong></th>
+      <th><strong>Type</strong></th>
+      <th><strong>Size</strong></th>
+      <th><strong>Mandatory</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bpmpi_airline_travelleg_#_carrier</td>
+      <td>IATA code for the stretch</td>
+      <td>Alphanumeric</td>
+      <td>2</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_airline_travelleg_#_departuredate</td>
+      <td>Departure date</td>
+      <td>String</td>
+      <td><em>AAAA-MM-DD</em></td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_airline_travelleg_#_origin</td>
+      <td>IATA code from origin airport</td>
+      <td>Alphanumeric</td>
+      <td>5</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_airline_travelleg_#_destination</td>
+      <td>IATA code from destination airport</td>
+      <td>Alphanumeric</td>
+      <td>5</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_airline_passenger_#_name</td>
+      <td>Passenger name</td>
+      <td>Alphanumeric</td>
+      <td>Max 60</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_airline_passenger_#_ticketprice</td>
+      <td>Ticket price (cents)</td>
+      <td>Numeric</td>
+      <td>Max 15<br /><em>Exemple: R$ 125,54 = 12554</em></td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_airline_numberofpassengers</td>
+      <td>Number of passengers</td>
+      <td>Numeric</td>
+      <td>3</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_airline_billto_passportcountry</td>
+      <td>Passport Issuer Country Code (ISO Standard Country Codes)</td>
+      <td>String</td>
+      <td>2</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_airline_billto_passportnumber</td>
+      <td>Passport number</td>
+      <td>Alphanumeric</td>
+      <td>40</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Merchant Extra Data (if necessary)</strong></th>
+      <th><strong>Description</strong></th>
+      <th><strong>Type</strong></th>
+      <th><strong>Size</strong></th>
+      <th><strong>Mandatory</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>bpmpi_mdd1</td>
+      <td>Extra data set by the merchant</td>
+      <td>Alphanumeric</td>
+      <td>Max 255</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_mdd2</td>
+      <td>Extra data set by the merchant</td>
+      <td>Alphanumeric</td>
+      <td>Max 255</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_mdd3</td>
+      <td>Extra data set by the merchant</td>
+      <td>Alphanumeric</td>
+      <td>Max 255</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_mdd4</td>
+      <td>Extra data set by the merchant</td>
+      <td>Alphanumeric</td>
+      <td>Max 255</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>bpmpi_mdd5</td>
+      <td>Extra data set by the merchant</td>
+      <td>Alphanumeric</td>
+      <td>Max 255</td>
+      <td>No</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="step-4-implementing-authentication-request">STEP 4. Implementing authentication request</h1>
+
+<p>The "<strong>bpmpi_Authenticate()</strong>" event must be requested when finishing the checkout(finishing the order). Example:</p>
+
+<p>&lt;input type="button"onclick="bpmpi_authenticate()" /&gt;</p>
+
+<h1 id="card-numbers-for-test-purpose">Card Numbers for test Purpose</h1>
+
+<p>Use the <strong>test</strong> cards below to simulate different scenarios in the <strong>SANDBOX</strong> environment</p>
+
+<h2 id="test-cards-with-challenge">Test Cards with Challenge</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>CARD</strong></th>
+      <th><strong>FLAG</strong></th>
+      <th><strong>RESULT</strong></th>
+      <th><strong>DESCRIPTION</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4000000000001091<br />5200000000001096<br />6505050000001091</td>
+      <td>VISA<br />MASTER<br />ELO</td>
+      <td>SUCCESS</td>
+      <td>Challenge authentication and bearer authenticated successfully</td>
+    </tr>
+    <tr>
+      <td>4000000000001109<br />5200000000001104<br />6505050000001109</td>
+      <td>VISA<br />MASTER<br />ELO</td>
+      <td>FAILURE</td>
+      <td>Challenged authentication and bearer authenticated failed</td>
+    </tr>
+    <tr>
+      <td>4000000000001117<br />5200000000001112<br />6505050000001117</td>
+      <td>VISA<br />MASTER<br />ELO</td>
+      <td>UNENROLLED</td>
+      <td>Challenge authentication currently unavailable</td>
+    </tr>
+    <tr>
+      <td>4000000000001125<br />5200000000001120<br />6505050000001125</td>
+      <td>VISA<br />MASTER<br />ELO</td>
+      <td>UNENROLLED</td>
+      <td>System error during authentication step</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="no-challenge-test-cards">No Challenge Test Cards</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>CARD</strong></th>
+      <th><strong>FLAG</strong></th>
+      <th><strong>RESULT</strong></th>
+      <th><strong>DESCRIPTION</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4000000000001000<br />5200000000001005<br />6505050000001000</td>
+      <td>VISA<br />MASTER<br />ELO</td>
+      <td>SUCCESS</td>
+      <td>Unchallenged authentication and bearer successfully authenticated</td>
+    </tr>
+    <tr>
+      <td>4000000000001018<br />5200000000001013<br />6505050000001018</td>
+      <td>VISA<br />MASTER<br />ELO</td>
+      <td>FAILURE</td>
+      <td>Unchallenged authentication and bearer authenticated failed</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="authorization-with-authentication">Authorization with Authentication</h2>
+
+<p>After authentication is completed, submit to the authorization procedure, sending the authentication data in the model of quot;external authentication" (node <strong>ExternalAuthentication</strong> ).
+See more details at: <a href="https://developercielo.github.io/en/manual/autorizacao-com-autenticacao">https://developercielo.github.io/en/manual/autorizacao-com-autenticacao</a></p>
+
+<h1 id="last-updates">Last updates</h1>
+
+<p>To view the latest manual updates, <a href="https://github.com/DeveloperCielo/developercielo.github.io/commits/docs/_i18n/en/_posts/3ds/2019-09-20-integracao-javascript.md">click here</a></p>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://developercielo.github.io/en/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Need Help?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Need Help?</h2>
+        <p>If you didn't find your answer, <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte">send us a message</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Toggle left column" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://desenvolvedores.cielo.com.br" target="_blank">
+        <img src="https://developercielo.github.io/en/assets/images/logo.png" alt="Documentações e tutoriais" style="width: 60%; margin-left: 20%">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contact" href="https://devcielo.zendesk.com/">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contact</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/developercielo">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/en/assets/bundles/js/bundle.min.js"></script>
+        <script>
+            
+            var selectors = 'h1,h2,h3,h4,h5,h6';
+            
+        </script>
+
+        
+        <script src="https://developercielo.github.io/en/assets/bundles/js/search.min.js"></script>
+        
+
+        
+        <script>
+            let langs = '';
+            let langsArray = [];
+
+            
+            langs += "<a data-language-name='json'>JSON</a>";
+            langsArray.push('json');
+            
+            langs += "<a data-language-name='shell'>cURL</a>";
+            langsArray.push('shell');
+            
+
+            var toggleCode = 'Toggle';
+        </script>
+
+        <script src='https://developercielo.github.io/en/assets/bundles/js/language_buttons.min.js'></script>
+        
+
+        <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:674586,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    </body>
+</html>
