@@ -1,0 +1,20 @@
+# Setup
+title:        Documentações e tutoriais
+tagline:      Documentações e tutoriais sobre a integração
+permalink:    /:categories/:slug
+baseurl:      ""
+author:
+  name:       João Batista Neto
+  email:      neto.joaobatista@gmail.com
+  url:        https://imasters.com.br/
+github:
+  repo:       https://github.com/developercielo
+plugins:
+  - jekyll-multiple-languages-plugin
+exclude:      ["vendor", "Gemfile*", "script", "node_modules", "tmp"]
+markdown:     kramdown
+languages:    ["pt", "en"]
+default_lang: "pt"
+language_names:
+  pt: Português
+  en: English

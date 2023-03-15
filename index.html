@@ -1,471 +1,61 @@
-<!DOCTYPE html>
-<html lang="pt">
-  <head>
-    <link href="http://gmpg.org/xfn/11" rel="profile">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="theme-color" content="#00aeef">
-    <meta http-equiv="Content-Language" content="pt">
-
-    <!-- Enable responsiveness on mobile devices-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-
-    <title>
-        
-        Documentações e tutoriais &middot; Documentações e tutoriais sobre a integração
-        
-    </title>
-
-    <link rel="shortcut icon" href="https://developercielo.github.io/assets/favicon.ico">
-
-    <!-- CSS -->
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
-    <script async src="https://use.fontawesome.com/3ae06f1030.js"></script>
-
-    <link rel="stylesheet" href="https://developercielo.github.io/assets/bundles/css/bundle.min.css">
-
-    
-        
-            <link rel="alternate" hreflang="pt" href="https://developercielo.github.io/" />
-        
-    
-        
-            <link rel="alternate" hreflang="en" href="https://developercielo.github.io/en/" />
-        
-    
-
-    <!-- RSS -->
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://developercielo.github.io/atom.xml">
-</head>
-
-  <body>
-    <div class="default">
-        <header class="logo">
+---
+layout: default
+title: Home
+---
+<header class="logo">
     <div class="home-header-container">
         <div class="help-lang">
-            <a href="https://devcielo.zendesk.com/hc/pt-br#suporte" class="help">Ajuda</a>
+            <a href="https://devcielo.zendesk.com/hc/pt-br#suporte" class="help">{% t global.support %}</a>
         <div class="lang">
-            <span>Idiomas</span>
+            <span>{% t global.languages %}</span>
 
-           
-                
-                <a href="https://developercielo.github.io/">
-                
+           {% for lang in site.language_names %}
+                {% if lang[0] == site.default_lang %}
+                <a href="{{ site.baseurl_root }}{{page.url}}">
+                {% else %}
+                <a href="{{ site.baseurl_root }}/{{ lang[0] }}{{page.url}}">
+                {% endif %}
 
-                   <img alt="Português" src="https://developercielo.github.io/assets/images/pt.png"/>
+                   <img alt="{{ lang[1] }}" src="{{ site.baseurl }}/assets/images/{{ lang[0] }}.png"/>
                 </a>
-            
-                
-                <a href="https://developercielo.github.io/en/">
-                
-
-                   <img alt="English" src="https://developercielo.github.io/assets/images/en.png"/>
-                </a>
-            
+            {% endfor %}
         </div>
         </div>
         <a href="https://desenvolvedores.cielo.com.br" target="_blank">
-            <img src="https://developercielo.github.io/assets/images/logo.png" alt="Documentações e tutoriais">
+            <img src="{{ site.baseurl }}/assets/images/logo.png" alt="{{ site.title }}">
         </a>
     </div>
 </header>
 
-
+{% assign sorted = site.tags | sort %}
 
 <div class="dev-hub-title">
     <div class="dev-hub-info">
-        <h2>Cielo Developers</h2>
-        <p>Portal de conteúdo Cielo. Documentos, artigos e tutoriais de todos os produtos Cielo estão disponíveis nesta página.</p>
+        <h2>{% t global.hub_title %}</h2>
+        <p>{% t global.hub_description %}</p>
     </div>
 </div>
 
 <div class="post-list home">
     <ul class="product-list">
-    
+    {% for tag in sorted %}
         <li class="product">
-            <h2>API Cielo Conecta</h2>
-            
+            <h2>{{tag[0]}}</h2>
+            {% assign pages_list = tag[1] | sort: 'title' | sort: 'sort_order' %}
 
             <ul class="doc">
-            
+            {% for post in pages_list %}
                 <li class="doc-title">
-                    <a href="https://developercielo.github.io/manual/cielo-conecta">Manual de Integração Cielo Conecta</a>
+                    <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
                 </li>
-            
+            {% endfor %}
             </ul>
         </li>
-    
-        <li class="product">
-            <h2>API Pagamento</h2>
-            
-
-            <ul class="doc">
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/manual/cielo-ecommerce">Manual de Integração API e-commerce Cielo</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/tutorial/tokenizacaobandeira">Tokenização de Bandeira – Mandate Visa</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/tutorial/postman">Postman Cielo</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/manual/prevencao-fraudes">Prevenção contra Fraudes e Chargeback</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/tutorial/tutoriais-3-0">Tutoriais</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/manual/e-wallets-ecommercecielo">Manual E-Wallets (Carteiras Digitais)</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-            </ul>
-        </li>
-    
-        <li class="product">
-            <h2>Autenticação 3DS 2.0</h2>
-            
-
-            <ul class="doc">
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/manual/3ds">1. Introdução a 3DS 2.0</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/manual/integracao-javascript">2.1. Integração via Javascript</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/manual/integracao-sdk-android">2.2. SDK Android</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/manual/integracao-sdk-ios">2.3. SDK IOS</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/manual/autorizacao-com-autenticacao">3. Autorização com Autenticação</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-            </ul>
-        </li>
-    
-        <li class="product">
-            <h2>Checkout</h2>
-            
-
-            <ul class="doc">
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/manual/checkout-cielo">Integração Checkout Cielo</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/tutorial/tokenizacaobandeira">Tokenização de Bandeira – Mandate Visa</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/manual/controletransacional4">Api de Controle Transacional</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/tutorial/postman">Postman Cielo</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/tutorial/tutoriais-3-0">Tutoriais</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-            </ul>
-        </li>
-    
-        <li class="product">
-            <h2>Checkout Cielo</h2>
-            
-
-            <ul class="doc">
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">Tutoriais</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/faq/checkout-faq">FAQ</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-            </ul>
-        </li>
-    
-        <li class="product">
-            <h2>Cielo LIO</h2>
-            
-
-            <ul class="doc">
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/manual/cielo-lio">Manual de integração</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/manual/cielo-lio-hibrida">Manual de Integração Hibrida</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/faq/faq-cielo-lio">FAQ</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-            </ul>
-        </li>
-    
-        <li class="product">
-            <h2>Cielo Promo</h2>
-            
-
-            <ul class="doc">
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/manual/promotions">Manual de Integração</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-            </ul>
-        </li>
-    
-        <li class="product">
-            <h2>Commercialization Cielo</h2>
-            
-
-            <ul class="doc">
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/tutorial/comercializacao">Commercialization API</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-            </ul>
-        </li>
-    
-        <li class="product">
-            <h2>Documentos Adicionais</h2>
-            
-
-            <ul class="doc">
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/tutorial/artigos">Artigos e informações</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/tutorial/habilitacao-meios-de-pagamento">Configurando Boletos e Débito Online</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/tutorial/manual-boleto">Manual Boletos</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-            </ul>
-        </li>
-    
-        <li class="product">
-            <h2>E-Wallet</h2>
-            
-
-            <ul class="doc">
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/manual/google-pay">Manual de integração Google Pay</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-            </ul>
-        </li>
-    
-        <li class="product">
-            <h2>EDI Cielo</h2>
-            
-
-            <ul class="doc">
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/tutorial/edi">EDI - Captura de Transações</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/tutorial/edi-extrato-eletronico">EDI - Extrato Eletrônico</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-            </ul>
-        </li>
-    
-        <li class="product">
-            <h2>Link de Pagamento</h2>
-            
-
-            <ul class="doc">
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/manual/linkdepagamentos5">API Super Link</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/tutorial/tokenizacaobandeira">Tokenização de Bandeira – Mandate Visa</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/tutorial/postman">Postman Cielo</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/tutorial/tutoriais-3-0">Tutoriais</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-            </ul>
-        </li>
-    
-        <li class="product">
-            <h2>PIX Cielo</h2>
-            
-
-            <ul class="doc">
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/manual/apipix">API PIX</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-            </ul>
-        </li>
-    
-        <li class="product">
-            <h2>Pagamento QR Code</h2>
-            
-
-            <ul class="doc">
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/manual/qrcode">Manual de Integração - v1</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/manual/qrcode-v2">Manual de Integração - v2</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/manual/qrcode-v4">Manual de Integração - v4</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-            </ul>
-        </li>
-    
-        <li class="product">
-            <h2>Tokenização Bandeira</h2>
-            
-
-            <ul class="doc">
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/tutorial/tokenizacaobandeira">Tokenização de Bandeira – Mandate Visa</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-            </ul>
-        </li>
-    
-        <li class="product">
-            <h2>Webservice 1.5</h2>
-            
-
-            <ul class="doc">
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/manual/webservice-1-5">Manual de Integração</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/tutorial/tokenizacaobandeira">Tokenização de Bandeira – Mandate Visa</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-                <li class="doc-title">
-                    <a href="https://developercielo.github.io/tutorial/guia-de-migracao">Tutorial - Guia de Migração</a>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </li>
-            
-            </ul>
-        </li>
-    
+    {% endfor %}
     </ul>
 </div>
 
 <div class="home-footer">
-    <div class="footer-conteudo">
-    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
-            <img src="https://developercielo.github.io/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Precisa de ajuda?">
-    </div>
-
-    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
-        <h2>Precisa de ajuda?</h2>
-        <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://devcielo.zendesk.com/hc/pt-br#suporte">entre em contato conosco</a>.</p>
-    </div>
+    {% include footer.html %}
 </div>
-
-</div>
-
-    </div>
-
-    <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
-<script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:674586,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
-
-  </body>
-</html>
