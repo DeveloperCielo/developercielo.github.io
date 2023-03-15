@@ -45,7 +45,6 @@ if [ -n "$GITHUB_TOKEN" ]; then
 
   yarn
   yarn gulp
-  yarn dist
 
   # build with Jekyll into "_site"
   echo "Rodando o jekyll"
