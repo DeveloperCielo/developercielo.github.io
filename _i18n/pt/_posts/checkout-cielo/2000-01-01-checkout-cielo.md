@@ -1643,8 +1643,7 @@ Um programa instituído pela bandeira Visa que gera cobranças quando o estabele
 >
 > - **Doméstico**: USD 0,10 + 13,83% de imposto;
 > - **Estrangeiro**: USD 0,25 + 13,83% de imposto
->   <br>
->   <br>
+>   <br> > <br>
 
 Regras de autorização já vigentes. A cobrança de tarifas é aplicada desde abril de 2021.
 

@@ -157,9 +157,9 @@ Para solicitar o Boleto Banco do Brasil, você precisa:
 
 - A afiliação será enviada pelo Bradesco no padrão:
   _ **Convênio de Produção**: 101xx1
-  _ **login**: dm_cm132
-  _ **senha**: 12345678
-  _ **URL para teste**: http://mup.comercioeletronico.com.br/sepsManager/senha.asp?loja=XXXX
+  _ **login**: dm*cm132
+  * **senha**: 12345678
+  \_ **URL para teste**: http://mup.comercioeletronico.com.br/sepsManager/senha.asp?loja=XXXX
 
 6. Cadastrar no MUP Produção, as mesmas informações do Passo 3.
 

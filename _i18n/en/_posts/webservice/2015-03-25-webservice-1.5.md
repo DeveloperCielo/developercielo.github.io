@@ -1201,8 +1201,7 @@ A program instituted by the Visa Brand that generates charges when the merchant 
 >
 > - **Domestic**: USD 0.10 + 13.83% Tax.<br>
 > - Foreign: USD 0.25 + 13.83% Tax.
->   <br>
->   <br>
+>   <br> > <br>
 
 Authorization rules already in force. Fee charges apply from April 2021.
 

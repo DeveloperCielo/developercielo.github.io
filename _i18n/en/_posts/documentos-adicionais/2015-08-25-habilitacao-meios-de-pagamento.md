@@ -157,9 +157,9 @@ To request the Branco do Brasil Boleto, you’ll have to:
 
 - The affiliation will be sent through Bradesco on the standard:
   _ **Production Agreement**: 101xx1
-  _ **login**: dm_cm132
-  _ **password**: 12345678
-  _ **URL for test**: http://mup.comercioeletronico.com.br/sepsManager/senha.asp?loja=XXXX
+  _ **login**: dm*cm132
+  * **password**: 12345678
+  \_ **URL for test**: http://mup.comercioeletronico.com.br/sepsManager/senha.asp?loja=XXXX
 
 6. Register on Production MUP, the same information of Step 3.
 
