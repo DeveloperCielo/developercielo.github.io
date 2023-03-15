@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="en">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        Google Pay integration spec &middot; Documentações e tutoriais
+        
+    </title>
+
+    <link rel="shortcut icon" href="https://developercielo.github.io/en/assets/favicon.ico">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+    <script async src="https://use.fontawesome.com/3ae06f1030.js"></script>
+
+    <link rel="stylesheet" href="https://developercielo.github.io/en/assets/bundles/css/bundle.min.css">
+
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://developercielo.github.io/en/manual/google-pay" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://developercielo.github.io/en/en/manual/google-pay" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://developercielo.github.io/en/atom.xml">
+</head>
+
+    <body>
+        
+        <div class="content-container">
+            <div class="language-tabs">
+                <a class='hide-btn' id="hide-button" title="Toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <ul class="language-buttons">
+                    
+                    <li><a data-language-name='json'>JSON</a></li>
+                    
+                </ul>
+            </div>
+            <div class="dark-box"></div>
+            <div class="overlay"></div>
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://devcielo.zendesk.com/hc/pt-br#suporte" class="help">Help</a>
+
+                            
+                            <div class="lang">
+                                <span>Languages</span>
+
+                                
+                                    
+                                    <a href="https://developercielo.github.io/manual/google-pay">
+                                    
+
+                                        <img alt="Português" src="https://developercielo.github.io/en/assets/images/pt.png"/>
+                                    </a>
+                                
+                                    
+                                    <a href="https://developercielo.github.io/en/manual/google-pay">
+                                    
+
+                                        <img alt="English" src="https://developercielo.github.io/en/assets/images/en.png"/>
+                                    </a>
+                                
+                            </div>
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="https://developercielo.github.io/en/">Home</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/en/manual/google-pay">Google Pay integration spec</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+  <h1 id="google-pay-">Google Pay ™</h1>
+
+<p>Google Pay is a e-wallet. It allows shoppers to make payments in e-commerce stores and apps using their credit and debit cards stored in their Google Account and Android devices in a safe and easy way.</p>
+
+<h1 id="requirements">Requirements</h1>
+
+<ol>
+  <li>Agree to Google’s terms of service</li>
+  <li>Integrate Google Pay into your app (<a href="https://developers.google.com/pay/api/android/overview">https://developers.google.com/pay/api/android/overview</a>)</li>
+  <li>Contrat the Cielo 3.0 as payment acquier</li>
+  <li>Integrate Cielo 3.0 API REST (<a href="https://developercielo.github.io/manual/cielo-ecommerce">https://developercielo.github.io/manual/cielo-ecommerce</a>)</li>
+</ol>
+
+<h1 id="step-1-integrating-google-pay-into-you-android-app">Step 1: Integrating Google Pay into you Android app</h1>
+
+<h2 id="action-1---configure-your-project">Action 1 - Configure your project</h2>
+
+<p><a href="https://developers.google.com/pay/api/android/guides/setup">https://developers.google.com/pay/api/android/guides/setup</a></p>
+
+<p>In these steps, the following points should be observed:</p>
+
+<ul>
+  <li>Project Configuration</li>
+  <li>Modify your <em>Manifest</em></li>
+</ul>
+
+<h2 id="action-2---google-pay-implementation">Action 2 - Google Pay Implementation</h2>
+
+<p>To integrate Google Play into your app, follow all the steps in the Google Pay documentation:</p>
+
+<p><a href="https://developers.google.com/pay/api/android/guides/tutorial">https://developers.google.com/pay/api/android/guides/tutorial</a></p>
+
+<p>For the correct integration of Google Play using Cielo’s payment API, it is necessary to observe the following points:</p>
+
+<h3 id="gateway-definition">Gateway Definition</h3>
+
+<p>In the “<em>Step 2: Choose a payment tokenization method</em>”, follow the “GATEWAY” integration model and send the “type” as “ <strong>PAYMENT_GATEWAY</strong>” and “ <strong>gateway</strong>” as “ <strong>cielo</strong>”, according to the example:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">private</span><span class="w"> </span><span class="err">static</span><span class="w"> </span><span class="err">JSONObject</span><span class="w"> </span><span class="err">getTokenizationSpecification()</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="err">JSONObject</span><span class="w"> </span><span class="err">tokenizationSpecification</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">JSONObject();</span><span class="w">
+  </span><span class="err">tokenizationSpecification.put(</span><span class="s2">"type"</span><span class="p">,</span><span class="w"> </span><span class="s2">"PAYMENT_GATEWAY"</span><span class="err">);</span><span class="w">
+  </span><span class="err">tokenizationSpecification.put(</span><span class="w">
+      </span><span class="s2">"parameters"</span><span class="p">,</span><span class="w">
+      </span><span class="err">new</span><span class="w"> </span><span class="err">JSONObject()</span><span class="w">
+          </span><span class="err">.put(</span><span class="s2">"gateway"</span><span class="p">,</span><span class="w"> </span><span class="s2">"cielo"</span><span class="err">)</span><span class="w">
+          </span><span class="err">.put(</span><span class="s2">"gatewayMerchantId"</span><span class="p">,</span><span class="w"> </span><span class="s2">"MerchantId"</span><span class="err">));</span><span class="w">
+  </span><span class="err">return</span><span class="w"> </span><span class="err">tokenizationSpecification;</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>To the field “ <strong>gatewayMerchantId</strong>”, send your merchant identification provided by Cielo. The merchant identification is formated as XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX (i.e. GUID(36)).</p>
+
+<h3 id="definition-of-brands">Definition of brands</h3>
+
+<p>In the “<em>Step 3: Define supported payment card networks</em>”, use these brands: “VISA”, “MASTERCARD”, “AMEX”, “DISCOVER” E “JCB”</p>
+
+<h3 id="definition-of-environment">Definition of environment</h3>
+
+<p>In the “<em>Step 5: Create a PaymentsClient instance</em>”, use the vaue “WalletConstants.ENVIRONMENT_TEST” for test purpose.</p>
+
+<h3 id="definition-of-shopping-data">Definition of shopping data</h3>
+
+<p>In the “<em>Step 7: Create a PaymentDataRequest object</em>”, use the value “BRL” for “ <strong>currencyCode</strong>”. The field “ <strong>merchantName</strong>” is the name that shopper will see during Google Pay payment process, then, the recomendation is the use of friendly name.</p>
+
+<h3 id="payment-data-recovery">Payment Data Recovery</h3>
+
+<p>In the “<em>Step 9: Handle the response object</em>”, the “Activity.RESULT_OK” event is described, which is returned a object with all the payment data, including payment tokens.</p>
+
+<p>The <em>PaymentData</em> contains the object <em>PaymentMethodToken</em>. To get this object, use the <strong>getPaymentMethodToken()</strong> method.</p>
+
+<p>(to see more details: <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData">https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData</a>)</p>
+
+<p>After getting the PaymentMethodToken, you shold get the <em>string</em> that contains the payment tokens. To get the string, use the <strong>GetToken()</strong> method from <em>PaymentMethodToken</em> object.</p>
+
+<p>(to see more details: <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentMethodToken">https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentMethodToken</a>)</p>
+
+<p>The string obtained will be similar as follows:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"protocolVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ECv1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"signedMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">encryptedMessage</span><span class="se">\"</span><span class="s2">:
+  </span><span class="se">\"</span><span class="s2">ZW5jcnlwdGVkTWVzc2FnZQ==</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ephemeralPublicKey</span><span class="se">\"</span><span class="s2">:
+  </span><span class="se">\"</span><span class="s2">ZXBoZW1lcmFsUHVibGljS2V5</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">tag</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">c2lnbmF0dXJl</span><span class="se">\"</span><span class="s2">}"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Body</strong></th>
+      <th><strong>Type</strong></th>
+      <th><strong>Description</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>signedMessage</td>
+      <td>string</td>
+      <td>Signed message.</td>
+    </tr>
+    <tr>
+      <td>signature</td>
+      <td>string</td>
+      <td>Signature.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>(to see more details: <a href="https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography">https://developers.google.com/pay/api/android/guides/resources/payment-data-cryptography</a>)</p>
+
+<p>Keep the values “<em>signedMessage</em>” and “<em>signature</em>”. They will be requested in the Cielo’s authorization process in the next step (Step 2: Authorization with Google Pay)</p>
+
+<h1 id="step-2-authorization-with-google-pay">Step 2: Authorization with Google Pay</h1>
+
+<p>The authorization with the Google Pay token must be performed as the same way as a standard authorization for a credit card, but providing token in place of the open card data, as following example:</p>
+
+<h2 id="request">Request</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111708"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">(…)</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AndroidPay"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"WalletKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">encryptedMessage</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">ZW5jcnlwdGVkTWVzc2FnZQ==</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">ephemeralPublicKey</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">ZXBoZW1lcmFsUHVibGljS2V5</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">tag</span><span class="se">\"</span><span class="s2">: </span><span class="se">\"</span><span class="s2">c2lnbmF0dXJl</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"AdditionalData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ZXBoZW1lcmFsUHVibGljS2V5"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Header</strong></th>
+      <th><strong>Type</strong></th>
+      <th><strong>Description</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MerchantID</td>
+      <td>GUID(36)</td>
+      <td>Merchant’s merchant ID. For Sandbox environment, use fecd2b61-3f0e-4e49-8b4f-eb382fa4da56</td>
+    </tr>
+    <tr>
+      <td>MerchantKey</td>
+      <td>String(24)</td>
+      <td>Merchant’s merchant API Key. For Sandbox environment, use WSCIKUJBVHFPPPAWFPJGRYXRDNGQTMZAGBJSZZBV</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Body</strong></th>
+      <th><strong>Type</strong></th>
+      <th><strong>Description</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MerchantOrderId</td>
+      <td>String (50)</td>
+      <td>Order identification number</td>
+    </tr>
+    <tr>
+      <td>Customer</td>
+      <td>Node with shopper data</td>
+      <td>See <a href="https://developercielo.github.io/manual/cielo-ecommerce#transa%C3%A7%C3%A3o-completa">https://developercielo.github.io/manual/cielo-ecommerce#transa%C3%A7%C3%A3o-completa</a></td>
+    </tr>
+    <tr>
+      <td>Payment.Type</td>
+      <td>String (100)</td>
+      <td>Payment method type. Possible values: “CreditCard” ou “DebitCard”</td>
+    </tr>
+    <tr>
+      <td>Payment.Amount</td>
+      <td>Número (15)</td>
+      <td>Transaction amount in cents</td>
+    </tr>
+    <tr>
+      <td>Payment.Installments</td>
+      <td>Número (2)</td>
+      <td>Number of installments</td>
+    </tr>
+    <tr>
+      <td>Payment.Wallet.Type</td>
+      <td>String (15)</td>
+      <td>Wallet provider name. For Google Pay, use “AndroidPay”</td>
+    </tr>
+    <tr>
+      <td>Payment.Wallet.WalletKey</td>
+      <td>String</td>
+      <td>Provide the “signedMessage” received from Google Pay</td>
+    </tr>
+    <tr>
+      <td>Payment.Wallet.AdditionalData.Signature</td>
+      <td>String</td>
+      <td>Provide the “signature” received from Google Pay</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For more information: <a href="https://developercielo.github.io/manual/cielo-ecommerce">https://developercielo.github.io/manual/cielo-ecommerce</a></p>
+
+<h2 id="response">Response</h2>
+
+<p>Vide <a href="https://developercielo.github.io/manual/cielo-ecommerce#resposta">https://developercielo.github.io/manual/cielo-ecommerce#resposta</a></p>
+
+<h1 id="step-3-requesting-production-access">Step 3: Requesting production access</h1>
+
+<h2 id="action-1---branding-guideline">Action 1 - Branding Guideline</h2>
+
+<p>Check the all the branding guidelines to help you implement Google Pay within your apps. The guideline is available at: <a href="https://developers.google.com/pay/api/android/guides/brand-guidelines">https://developers.google.com/pay/api/android/guides/brand-guidelines</a></p>
+
+<h2 id="action-2---checklist-and-request-production-access">Action 2 - Checklist and Request production access</h2>
+
+<p>Ensure if all the checklist item was completed. When you are ready, request the production access to deploy your app in production environment. The checklist is available at: <a href="https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist">https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist</a></p>
+
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://developercielo.github.io/en/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Need Help?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Need Help?</h2>
+        <p>If you didn't find your answer, <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte">send us a message</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Toggle left column" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://desenvolvedores.cielo.com.br" target="_blank">
+        <img src="https://developercielo.github.io/en/assets/images/logo.png" alt="Documentações e tutoriais" style="width: 60%; margin-left: 20%">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contact" href="https://devcielo.zendesk.com/">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contact</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/developercielo">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/en/assets/bundles/js/bundle.min.js"></script>
+        <script>
+            
+            var selectors = 'h1,h2,h3,h4,h5,h6';
+            
+        </script>
+
+        
+        <script src="https://developercielo.github.io/en/assets/bundles/js/search.min.js"></script>
+        
+
+        
+        <script>
+            let langs = '';
+            let langsArray = [];
+
+            
+            langs += "<a data-language-name='json'>JSON</a>";
+            langsArray.push('json');
+            
+
+            var toggleCode = 'Toggle';
+        </script>
+
+        <script src='https://developercielo.github.io/en/assets/bundles/js/language_buttons.min.js'></script>
+        
+
+        <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:674586,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    </body>
+</html>

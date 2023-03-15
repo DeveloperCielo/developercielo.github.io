@@ -1,0 +1,2951 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="en">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        EDI - Transaction Capture &middot; Documentações e tutoriais
+        
+    </title>
+
+    <link rel="shortcut icon" href="https://developercielo.github.io/en/assets/favicon.ico">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+    <script async src="https://use.fontawesome.com/3ae06f1030.js"></script>
+
+    <link rel="stylesheet" href="https://developercielo.github.io/en/assets/bundles/css/bundle.min.css">
+
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://developercielo.github.io/en/tutorial/edi" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://developercielo.github.io/en/en/tutorial/edi" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://developercielo.github.io/en/atom.xml">
+</head>
+
+    <body>
+        
+        <div class="content-container no-dark-box">
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://devcielo.zendesk.com/hc/pt-br#suporte" class="help">Help</a>
+
+                            
+                            <div class="lang">
+                                <span>Languages</span>
+
+                                
+                                    
+                                    <a href="https://developercielo.github.io/tutorial/edi">
+                                    
+
+                                        <img alt="Português" src="https://developercielo.github.io/en/assets/images/pt.png"/>
+                                    </a>
+                                
+                                    
+                                    <a href="https://developercielo.github.io/en/tutorial/edi">
+                                    
+
+                                        <img alt="English" src="https://developercielo.github.io/en/assets/images/en.png"/>
+                                    </a>
+                                
+                            </div>
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="https://developercielo.github.io/en/">Home</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/en/tutorial/edi">EDI - Transaction Capture</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+    <h1 id="introduction">Introduction</h1>
+
+<p>The EDI - Eletronic Data Interchange is a channel of capture and processing of large transactions volume in lot, through changing the files  between the client, the files transmission partner (VANs) and Cielo.</p>
+
+<p>This channel is indicated for:</p>
+
+<ul>
+  <li>Authorizing Credit and Installment transactions, mainly recurring transactions, ex.: Publishers, Insurers,Gyms, etc.</li>
+  <li>Cancelling Credit, Installment and Debit transactions, independently on the authorization channel: Machine / TEF / E-Commerce / Mobile or EDI.</li>
+  <li>Capture for the processing, in Base II, from the transactions of Airline companies, sent by IATA (International Air Transport Association).</li>
+  <li>Transmission of the electronic statement (specific integration manual)</li>
+</ul>
+
+<h2 id="target-audience">Target Audience</h2>
+
+<p>There is no restriction on the use of this Channel. However, the client’s business needs may or not make feasible the use of this capture channel.</p>
+
+<p>As described above, some characteristics are required:</p>
+
+<ul>
+  <li>Transactions authorization: indicated to clients with the need of authorizing large transactions volume, mainly recurring transactions (gyms, insurers, subscriptions, etc).</li>
+  <li>Transactions cancellation: Indicated to clients with the need of cancelling large transactions volume, in an automatized way.</li>
+  <li>IATA transactions: used by International airline companies that are part of the IATA and GDS system.</li>
+  <li>Electronic statement: indicated to clients with large transactions volume, with the purpose of making the financial conciliation easier.</li>
+</ul>
+
+<h2 id="edi-in-4-steps">EDI in 4 steps</h2>
+
+<p>To use the EDI capture channel, four steps are required:</p>
+
+<ol>
+  <li>Accreditation: the client has to be accredited to Cielo;</li>
+  <li>Integration: to perform the development according to the manual to integrate to the EDI. Note: the development size will depend on the desired integration level with your management systems (ERP, Commercial Automation, etc);</li>
+  <li>Homologation: A test file can be sent to the EDI Attendance Island for file estructure validation;</li>
+  <li>Production: send the file for processing.</li>
+</ol>
+
+<p><img src="https://developercielo.github.io/images/edi-passos.png" alt="" /></p>
+
+<h2 id="technical-support">Technical Support</h2>
+
+<p>The EDI capture solution counts on an Attendance Island for support, responsible for:</p>
+
+<ol>
+  <li>Support to the integration and homologation by the client;</li>
+  <li>Support of 1st level on the production stage;</li>
+  <li>Interface with the internal Cielo areas and with VANs partners (TIVIT and GXS), for support of 2nd and 3rd level.</li>
+</ol>
+
+<h2 id="products-and-card-brands-enabled-for-edi-channel">Products and Card Brands enabled for EDI CHANNEL:</h2>
+
+<p><img src="https://developercielo.github.io/images/edi-bandeiras.png" alt="" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product/Service</th>
+      <th>Authorization in lot</th>
+      <th>Cancellation in lot</th>
+      <th>Base 2 IATA Submission</th>
+      <th>IATA Cancellation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Debit</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes*</td>
+    </tr>
+    <tr>
+      <td>Credit in one lump sum</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Store installment</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="exceptions">Exceptions</h3>
+
+<ul>
+  <li>*Card brands on the VANs model (Amex, vouchers, etc.) are not enabled for EDI channel.</li>
+</ul>
+
+<h1 id="concepts">Concepts</h1>
+
+<h2 id="what-is-it">What is it?</h2>
+
+<p>The EDI - Eletronic Data Interchange is a channel of capture and processing of transactions in lot, through changing the files  between the client, the files transmission partner (VANs) and Cielo.</p>
+
+<h2 id="what-is-it-for">What is it for?</h2>
+
+<ul>
+  <li>To authorize transactions of a non-present card, mainly recurring transactions, example: Publishers, Insurers, Gyms, etc.</li>
+  <li>To cancel card transactions, present or not, independently on the channel where the authorization was performed: Machine, TEF, E-Commerce or EDI.</li>
+  <li>IATA Transactions: Used by International Airline Companies that are part of the IATA and GDS systems..</li>
+  <li>Electronic statement: indicated to clients with large transactions volume, with the purpose of making the financial conciliation easier.</li>
+</ul>
+
+<h2 id="how-does-it-work">How does it work?</h2>
+
+<ul>
+  <li>The client, after the accreditation on Cielo, requests the integration documents and the creation of a mailbox for the sending of the EDI files.</li>
+  <li>Develops an integration between his management systems, backoffice or commercial automation to format the transactions according to EDI layout (transactions file).</li>
+  <li>The EDI Attendance Island and the Cielo partner (VAN), prest the required support to the client during the integration stage.</li>
+  <li>The costumer sends the transaction files, on the specific format (layout) of the EDI, to the electronic mailbox. Excpetion: IATA transactions have their own layouts.</li>
+  <li>These transactions are sent to the Cielo systems, which will perform the monday to saturday processing and the sending of these transactions to the respective card brands, for their authorization or cancellation.</li>
+  <li>Cielo returns the costumer’s file in up to 2 days, with the processing result of all transactions (approved or denied with their reasons).</li>
+</ul>
+
+<h2 id="general-considerations">General Considerations</h2>
+
+<ul>
+  <li>The return file will be available to the Establishment in up to 48 hours, using the same layout.</li>
+  <li>The Remittance of Sales or cancellation submitted until 12h00 will be returned in D+1. Files submitted after 12h00, will be considered a move of the posterior day and its return will be in D+2.</li>
+  <li>The moves are processed from monday to saturday. There are no processings on sundays.</li>
+  <li>There can be sent credit card transactions from the brands: Visa, MasterCard, ELO (except on the IATA modality) and Diners.</li>
+  <li>Files transactions from Airline Companies are not contemplated in this manual. They have specific layout..</li>
+  <li><strong>We don’t have homologation environment for this service</strong>.</li>
+</ul>
+
+<h2 id="names-of-the-returns-from-the-files">Names of the returns from the files:</h2>
+
+<ul>
+  <li>When sending a Cancellation Submission, the system may return two types of files: “Retmov” or “Visa Error”.</li>
+  <li>“Retmov”: return file with all transactions (approved or denied).</li>
+  <li>“Visa Erro”: transactions that weren’t performed due to a structure problem from the sent file, having all transactions not submitted.</li>
+  <li>Possible typing erros, as well as on the file structure are the costumer’s responsability.</li>
+</ul>
+
+<h1 id="formatting-tips-of-the-edi-files">Formatting tips of the EDI files</h1>
+
+<h2 id="operation-summary-os">Operation Summary (OS)</h2>
+
+<p>Identifies the lot number, sales transaction group.</p>
+
+<h2 id="sale-receipt-sr">Sale Receipt (SR)</h2>
+
+<p>Each sale is registered in a sale receipt.</p>
+
+<ul>
+  <li>Each Operation Summary (OS) may have up to 9.999 Sale Receipts (SRs).</li>
+  <li>The transactions will have to be grouped by operation type (payment in one lump sum or store installment), having to create an OS specific for each one of them.</li>
+  <li>For each transaction group (lot/OS) it must be generated a move containing header, detail(s) and trailler..</li>
+  <li>For each card machine number, all rules above must be applied.</li>
+  <li>It must be submitted header, detail and trailler for each card machine and for each operation summary (OS).</li>
+  <li>The file must be formated with 1 single lot (OS) of intallment sales per card machine  and 1 sale lot (OS) in one lump sum per card machine.</li>
+</ul>
+
+<h1 id="files">Files</h1>
+
+<h2 id="files-to-remittance-andor-sales-return">Files to Remittance and/or Sales Return</h2>
+
+<p>Files Layout for Remittance and/or Sales Return</p>
+
+<h3 id="header-register">Header Register</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>SEQUENCE</th>
+      <th>DESCRIPTION</th>
+      <th>POSITION</th>
+      <th>SIZE</th>
+      <th>FORMAT</th>
+      <th>COMMENTS</th>
+      <th>EDI consistencies</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>Type of register</td>
+      <td>1</td>
+      <td>2</td>
+      <td>N</td>
+      <td>Identifies the type of header register</td>
+      <td>Mandatorily equal to “00”</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>Deposit date</td>
+      <td>3</td>
+      <td>8</td>
+      <td>N</td>
+      <td>Data de geração e transmissão do movimento</td>
+      <td>Mandatory field, the format must be DDMMYYYY</td>
+    </tr>
+    <tr>
+      <td>003</td>
+      <td>Operations Summary (OS) number</td>
+      <td>11</td>
+      <td>7</td>
+      <td>N</td>
+      <td>Informed by the establishment, identifies the transactions lot</td>
+      <td>Mandtory Field. Do not send the same lot in a 30 days period of the previous send</td>
+    </tr>
+    <tr>
+      <td>004</td>
+      <td>Reserved for the establishment</td>
+      <td>18</td>
+      <td>10</td>
+      <td>X</td>
+      <td>Exclusive establishment use, not used by CIELO</td>
+      <td>Nenhuma verificação</td>
+    </tr>
+    <tr>
+      <td>005</td>
+      <td>Do not use</td>
+      <td>28</td>
+      <td>3</td>
+      <td>N</td>
+      <td>Constant = Zeros</td>
+      <td>Not read</td>
+    </tr>
+    <tr>
+      <td>006</td>
+      <td>Cielo establishment number</td>
+      <td>31</td>
+      <td>10</td>
+      <td>N</td>
+      <td>Number of the card machine (CIELO contract)</td>
+      <td>Mandatory field. Rejection if &lt; than 0 or not numeric</td>
+    </tr>
+    <tr>
+      <td>007</td>
+      <td>Currency code</td>
+      <td>41</td>
+      <td>3</td>
+      <td>N</td>
+      <td>“986” - R$, “840” - US$</td>
+      <td>Rejected if different from 986 or 840</td>
+    </tr>
+    <tr>
+      <td>008</td>
+      <td>Process indicator</td>
+      <td>44</td>
+      <td>1</td>
+      <td>X</td>
+      <td>“P” – Production</td>
+      <td>Rejected if different than “P”</td>
+    </tr>
+    <tr>
+      <td>009</td>
+      <td>Sales cancellation indicator</td>
+      <td>45</td>
+      <td>1</td>
+      <td>X</td>
+      <td>“C” – Sales cancellation Cash credit<br />“P” – Sale cancellation Parceled Out<br />“D” – Sale cancellation Debit</td>
+      <td>If the field is different from “C” or “P” or “D” the batch will be refused.</td>
+    </tr>
+    <tr>
+      <td>010</td>
+      <td>Indication of special establishment</td>
+      <td>46</td>
+      <td>01</td>
+      <td>X</td>
+      <td>Constant = blanks</td>
+      <td>It will only have to be different from bank in case the system team determinate it.</td>
+    </tr>
+    <tr>
+      <td>011</td>
+      <td>Do not use</td>
+      <td>47</td>
+      <td>204</td>
+      <td>X</td>
+      <td>Constant = blanks</td>
+      <td>not read</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="caption">Caption</h4>
+
+<ul>
+  <li><strong>POSITION</strong> = Initial position of the Field on the File;</li>
+  <li><strong>SIZE</strong> = Field size</li>
+  <li><strong>FORMAT</strong> = Valid formats to the field content, being:</li>
+</ul>
+
+<blockquote>
+  <p><strong>N</strong> = Numeric / <strong>X</strong> = Alphanumeric</p>
+</blockquote>
+
+<h3 id="detail-register">Detail Register</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>SEQUENCE</th>
+      <th>DESCRIPTION</th>
+      <th>POSITION</th>
+      <th>SIZE</th>
+      <th>FORMAT</th>
+      <th>COMMENTS</th>
+      <th>EDI consistencies</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>Register type</td>
+      <td>1</td>
+      <td>2</td>
+      <td>N</td>
+      <td>Identifies the type of detail register</td>
+      <td>Only accepted if equal to “01”</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>Number of the sale receipt (SR)</td>
+      <td>3</td>
+      <td>7</td>
+      <td>N</td>
+      <td>It is a sequential number attributed by the establishment, identifies the transaction within the lot.</td>
+      <td>Mandatory Field; It must be numeric; it cannot be duplicated on the lot.</td>
+    </tr>
+    <tr>
+      <td>003</td>
+      <td>Card Number</td>
+      <td>10</td>
+      <td>19</td>
+      <td>N</td>
+      <td>Card number aligned to the right, with zeros to the left.</td>
+      <td>Mandatory Field; It has have from 16 to 19 digits.</td>
+    </tr>
+    <tr>
+      <td>004</td>
+      <td>Authorization code</td>
+      <td>29</td>
+      <td>6</td>
+      <td>X</td>
+      <td>On the remittance, fill with zeros. On the return, it will return with the authorization code.</td>
+      <td>No consistency at the moment of the sending.</td>
+    </tr>
+    <tr>
+      <td>005</td>
+      <td>Sale date</td>
+      <td>35</td>
+      <td>8</td>
+      <td>N</td>
+      <td>Format DDMMYYYY</td>
+      <td>Only accepted the specified format</td>
+    </tr>
+    <tr>
+      <td>006</td>
+      <td>Options of the sale</td>
+      <td>43</td>
+      <td>1</td>
+      <td>N</td>
+      <td>‘0’ – In one lump sum, ‘2’ - Installment retailer, ‘4’ – Installment retailer – Airline company</td>
+      <td>Mandatory Field. Within the same lot, all operations must have the same sale option.</td>
+    </tr>
+    <tr>
+      <td>007</td>
+      <td>Amount of the sale *</td>
+      <td>44</td>
+      <td>15</td>
+      <td>N</td>
+      <td>One lump sum sale =&gt; value of the sale. Intallment sale =&gt; Installments total amount + input amount + boarding tax</td>
+      <td>Mandatory Field - It must respect the “sale option” - Cannot be less than zero/non numeric</td>
+    </tr>
+    <tr>
+      <td>008</td>
+      <td>Installments amount</td>
+      <td>59</td>
+      <td>3</td>
+      <td>N</td>
+      <td>Sale in one lump sum =&gt; Fill with zeros. Installment sale =&gt; amount of sales</td>
+      <td>Mandatory Field - It must respect the “sale option” - Cannot be less than zero/non numeric.</td>
+    </tr>
+    <tr>
+      <td>009</td>
+      <td>Financed amount *</td>
+      <td>62</td>
+      <td>15</td>
+      <td>N</td>
+      <td>Sale in one lump sum =&gt; Fill with zeros. Installment sale =&gt; Original financed value</td>
+      <td>Cannot be less than zero  \ non numeric</td>
+    </tr>
+    <tr>
+      <td>010</td>
+      <td>Input value</td>
+      <td>77</td>
+      <td>15</td>
+      <td>N</td>
+      <td>Sale in one lump sum =&gt; Fill with zeros. Installment sale =&gt; Input value. <strong>Only Airline Companies</strong></td>
+      <td>Cannot be less than zero \ non numeric</td>
+    </tr>
+    <tr>
+      <td>011</td>
+      <td>Boarding tax</td>
+      <td>92</td>
+      <td>15</td>
+      <td>N</td>
+      <td><strong>Only fill for Airline Companies</strong>. Otherwise, fill with zeros</td>
+      <td>Cannot be less than zero  \ non numeric</td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>Installment amount</td>
+      <td>107</td>
+      <td>15</td>
+      <td>N</td>
+      <td>Sale in one lump sum =&gt; Fill with zeros. Installment sale =&gt; Installment amount (sem arredondar)</td>
+      <td>Mandatory Field. Cannot be less than 0 or non numeric</td>
+    </tr>
+    <tr>
+      <td>013</td>
+      <td>Operations summary (OS) number</td>
+      <td>122</td>
+      <td>7</td>
+      <td>N</td>
+      <td>Equal to the OS number informed on the header register</td>
+      <td>Mandatory to the use of the same header number</td>
+    </tr>
+    <tr>
+      <td>014</td>
+      <td>Do not use</td>
+      <td>129</td>
+      <td>3</td>
+      <td>N</td>
+      <td>Constant = zeros</td>
+      <td>Not read</td>
+    </tr>
+    <tr>
+      <td>015</td>
+      <td>Establishment number</td>
+      <td>132</td>
+      <td>10</td>
+      <td>N</td>
+      <td>Number of the card machine (CIELO contract)</td>
+      <td>It must be the same of the header</td>
+    </tr>
+    <tr>
+      <td>016</td>
+      <td>Reserved for the establishment</td>
+      <td>142</td>
+      <td>30</td>
+      <td>X</td>
+      <td>Exclusive establishment use, not used by CIELO</td>
+      <td>No verifications</td>
+    </tr>
+    <tr>
+      <td>017</td>
+      <td>Sale status (return code). Detail on the field 023</td>
+      <td>172</td>
+      <td>2</td>
+      <td>N</td>
+      <td>On the remittance, fill with zeros, On the return, it will be formated by CIELO containing status like on the ATTACHED I table</td>
+      <td>No verifications</td>
+    </tr>
+    <tr>
+      <td>018</td>
+      <td>Expected settlement date</td>
+      <td>174</td>
+      <td>8</td>
+      <td>N</td>
+      <td>On the remittance, fill with zeros, On the return, it will be formated by CIELO with the expected settlement date.</td>
+      <td>Not read</td>
+    </tr>
+    <tr>
+      <td>019</td>
+      <td>Card expiring date</td>
+      <td>182</td>
+      <td>4</td>
+      <td>X</td>
+      <td>Format = YYMM</td>
+      <td>Mandatory Field</td>
+    </tr>
+    <tr>
+      <td>020</td>
+      <td>Do not use</td>
+      <td>186</td>
+      <td>7</td>
+      <td>N</td>
+      <td>Constants = zero</td>
+      <td>Not read</td>
+    </tr>
+    <tr>
+      <td>021</td>
+      <td>Do not use</td>
+      <td>193</td>
+      <td>15</td>
+      <td>N</td>
+      <td>Constants = zero</td>
+      <td>Not read</td>
+    </tr>
+    <tr>
+      <td>022</td>
+      <td>Do not use</td>
+      <td>208</td>
+      <td>03</td>
+      <td>X</td>
+      <td>Inform blanks</td>
+      <td>No verifications</td>
+    </tr>
+    <tr>
+      <td>023</td>
+      <td>Código do Erro</td>
+      <td>211</td>
+      <td>04</td>
+      <td>X</td>
+      <td>On the remittance, fill with blanks. On the return, in case there’s an error, it will be returned by Cielo like on the ATTATCHMENT II</td>
+      <td>No verifications</td>
+    </tr>
+    <tr>
+      <td>024</td>
+      <td>Reference</td>
+      <td>215</td>
+      <td>11</td>
+      <td>X</td>
+      <td>Constant = blanks</td>
+      <td>It must be blank</td>
+    </tr>
+    <tr>
+      <td>025</td>
+      <td>New Card</td>
+      <td>226</td>
+      <td>19</td>
+      <td>X</td>
+      <td>On the remittance, fill with blanks. On the return, it case there’s a “renews easily” covenant, it will appear the number of the card aligned to the left with blanks on the right.</td>
+      <td>No verifications</td>
+    </tr>
+    <tr>
+      <td>026</td>
+      <td>New Expiration</td>
+      <td>245</td>
+      <td>04</td>
+      <td>N</td>
+      <td>On the remittance, fill with blanks. On the return, in case there’s a ‘‘renews easily” covenant, it will appear the expiration date. New card</td>
+      <td>No verifications</td>
+    </tr>
+    <tr>
+      <td>027</td>
+      <td>Do not use</td>
+      <td>249</td>
+      <td>02</td>
+      <td>X</td>
+      <td>Constant = blanks</td>
+      <td>Not read</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="trailler-register">Trailler Register</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>SEQUENCE</th>
+      <th>DESCRIPTION</th>
+      <th>POSITION</th>
+      <th>SIZE</th>
+      <th>FORMAT</th>
+      <th>COMMENTS</th>
+      <th>EDI consistencies</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>Type of register</td>
+      <td>1</td>
+      <td>2</td>
+      <td>N</td>
+      <td>Identifies the type of register traillers detail</td>
+      <td>Mandatory the use of the code “99”</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>Registers amount</td>
+      <td>3</td>
+      <td>7</td>
+      <td>N</td>
+      <td>Including header and trailler</td>
+      <td>Rejection if less than 0 or non numeric</td>
+    </tr>
+    <tr>
+      <td>003</td>
+      <td>Total gross value (*)</td>
+      <td>10</td>
+      <td>15</td>
+      <td>N</td>
+      <td>Informed by the establishment – Total value lot, sum of the field 007 from the register detail.</td>
+      <td>Rejection if less than 0 or non numeric. Rejects if the value different from sum of the 07 field</td>
+    </tr>
+    <tr>
+      <td>004</td>
+      <td>Total accepted value (*)</td>
+      <td>25</td>
+      <td>15</td>
+      <td>N</td>
+      <td>On the remittance, fill with zeros; On the return, it will be formatted by Cielo with the Total accepted value.</td>
+      <td>No verifications</td>
+    </tr>
+    <tr>
+      <td>005</td>
+      <td>Total net value (*)</td>
+      <td>40</td>
+      <td>15</td>
+      <td>N</td>
+      <td>On the remittance, fill with zeros; On the return, it will be formatted by Cielo with the Total net value.</td>
+      <td>No verifications</td>
+    </tr>
+    <tr>
+      <td>006</td>
+      <td>Credit expected date</td>
+      <td>55</td>
+      <td>8</td>
+      <td>N</td>
+      <td>On the remittance, fill with zeros; On the return, it will be formatted by Cielo with the expected payment date.</td>
+      <td>No verifications</td>
+    </tr>
+    <tr>
+      <td>007</td>
+      <td>Do not use</td>
+      <td>63</td>
+      <td>188</td>
+      <td>X</td>
+      <td>Constant = blanks</td>
+      <td>Not read</td>
+    </tr>
+  </tbody>
+</table>
+
+<aside class="notice">( * ) - These fields must be considered with 2 (two) decimal houses, without commas, dots or any other character to separate the numbers.</aside>
+
+<h2 id="remittance-files-and-cancellation-return">Remittance Files and Cancellation Return</h2>
+
+<p>Remittance Files layout and Cancellation Returns (Not PCI) used for the cancellation of transactions through an EDI channel, for example, recurring transactions.</p>
+
+<h2 id="key-without-pci-certification">Key without PCI certification:</h2>
+
+<ul>
+  <li>Card machine number;</li>
+  <li>Card number;</li>
+  <li>Date,</li>
+  <li>Value</li>
+  <li>Original transaction authorization;</li>
+</ul>
+
+<h3 id="header-register-1">Header Register</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>SEQUENCE</th>
+      <th>DESCRIPTION</th>
+      <th>POSITION</th>
+      <th>SIZE</th>
+      <th>FORMMAT</th>
+      <th>COMMENTS</th>
+      <th>EDI consistencies</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>Type of register</td>
+      <td>1</td>
+      <td>2</td>
+      <td>N</td>
+      <td>Identifies the type of header register</td>
+      <td>Mandatorily has to be “00”</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>Deposit date</td>
+      <td>3</td>
+      <td>8</td>
+      <td>N</td>
+      <td>Date of the generation and transmission of movement</td>
+      <td>Mandatory Field. Format must be DDMMYYYY</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>003</td>
+      <td>Number of operations summary (OS)</td>
+      <td>11</td>
+      <td>7</td>
+      <td>N</td>
+      <td>Informed by the establishment, identifies the transactions lot.</td>
+      <td>Mandatory Field. NDo not send the same lot in a 30 days period from the previous send.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>004</td>
+      <td>Reserved for the establishment</td>
+      <td>18</td>
+      <td>10</td>
+      <td>X</td>
+      <td>Exclusive establishment use, not used by CIELO</td>
+      <td>No verifications</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>005</td>
+      <td>Do not use</td>
+      <td>28</td>
+      <td>3</td>
+      <td>N</td>
+      <td>Constant = Zeros</td>
+      <td>Not read</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>006</td>
+      <td>Cielo establishment number</td>
+      <td>31</td>
+      <td>10</td>
+      <td>N</td>
+      <td>Number of the card machine (CIELO contract)</td>
+      <td>Mandatory field. Rejected if  sale value, Installment sale =&gt; sum of installments and input amount.</td>
+      <td>Mandatory Field. It must respect the “sale option”</td>
+    </tr>
+    <tr>
+      <td>008</td>
+      <td>Amount of installments</td>
+      <td>59</td>
+      <td>3</td>
+      <td>N</td>
+      <td>Sale in one lump sum =&gt; fill with zeros, Installment sale =&gt; amount of sales</td>
+      <td>Mandatory Field. It must respect the “sale option”</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>009</td>
+      <td>Financed amount *</td>
+      <td>62</td>
+      <td>15</td>
+      <td>N</td>
+      <td>Sale in one lump sum =&gt; fill with zeros, Venda parcelada =&gt; Original amount financed</td>
+      <td>Mandatory Field. It must respect the “sale option”</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>010</td>
+      <td>Input amount</td>
+      <td>77</td>
+      <td>15</td>
+      <td>N</td>
+      <td>Sale in one lump sum =&gt; fill with zeros, Installment sale =&gt; Input amount. <strong>Only Airline Companies</strong></td>
+      <td>Mandatory Field. It must respect the “sale option”</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>011</td>
+      <td>Tax value of boarding</td>
+      <td>92</td>
+      <td>15</td>
+      <td>N</td>
+      <td>Fill <strong>only for airline companies</strong>. Otherwise, fill with zeros</td>
+      <td>Rejected if different from zero or non numeric</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>Installment amount *</td>
+      <td>107</td>
+      <td>15</td>
+      <td>N</td>
+      <td>Sale in one lump sum =&gt; fill with zeros, Installment sale =&gt; Installment amount (do not round)</td>
+      <td>Mandatory Field. It must respect the “sale option”</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>013</td>
+      <td>Mumber of operations summary (OS)</td>
+      <td>122</td>
+      <td>7</td>
+      <td>N</td>
+      <td>Equal to the OS number informed on the header register</td>
+      <td>It is mandatory the use of the same header number</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>014</td>
+      <td>Do not use</td>
+      <td>129</td>
+      <td>3</td>
+      <td>N</td>
+      <td>Constant = zeros</td>
+      <td>Not read</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>015</td>
+      <td>Establishment number</td>
+      <td>132</td>
+      <td>10</td>
+      <td>N</td>
+      <td>Number of the card machine (CIELO contract)</td>
+      <td>It must be the same of the header</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>016</td>
+      <td>Reserved for the establishment</td>
+      <td>142</td>
+      <td>30</td>
+      <td>X</td>
+      <td>Exclusive establishment use, it is not used by CIELO</td>
+      <td>No verifications</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>017</td>
+      <td>Sale status (return code). Detail on the field 023</td>
+      <td>172</td>
+      <td>2</td>
+      <td>N</td>
+      <td>Na remessa preencher com zeros. On the return, it will be formated by CIELO containing the status as on the ATTATCHMENT I table</td>
+      <td>No verifications</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>018</td>
+      <td>Expected settlement date</td>
+      <td>174</td>
+      <td>8</td>
+      <td>N</td>
+      <td>On remittance, fill with zeros; On the return, it will be formated by CIELO with the expected settlement date.</td>
+      <td>Not read</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>019</td>
+      <td>Card expiration date</td>
+      <td>182</td>
+      <td>4</td>
+      <td>X</td>
+      <td>Format = YYMM. It can be filled with zeros</td>
+      <td>No verifications</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>020</td>
+      <td>Number of original operations summary (OS)</td>
+      <td>186</td>
+      <td>7</td>
+      <td>N</td>
+      <td>Inform the original OS sale number</td>
+      <td>Mandatory Field. Rejected if ( * ) - These fields must be considered with 2 (two) decimal houses, without commas, dots or any other character to separete the numbers.&lt;/aside&gt;</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="rules---sales-cancellation">Rules - sales cancellation</h1>
+
+<p>The cancellation of any transaction will only be accepted if there’s available balance on the Commercial Establishment Finantial Agenda to cover the amount of the requested cancellation..</p>
+
+<ul>
+  <li>The cancellation can be request in up to 365 days from the authorazion date.</li>
+  <li>For sales cancellations, the fields 004, 005, 006, 007 and 008 of the Detail line, must be filled with the same information of the sale, respecting the date and time of Brazil’s Authorization and Capture.</li>
+  <li>It is allowed the Total or Partial cancellation of the sale.</li>
+  <li>Partial cancellations can be sent until up to total transactions amount, respecting the following conditions:</li>
+</ul>
+
+<blockquote>
+  <p><strong>Transactions in One Lump Sum</strong>: there can be send more than one partial cancellation of the same transaction on the same day, as long as they are sent in different Lots / <strong>Installment Store Transaction</strong>: does not allow the partial cancellation of the same transaction on the same day.</p>
+</blockquote>
+
+<ul>
+  <li>Cancellation of transactions authorized through the EDI channel, can only be requested after receiving the return file of the authorization transaction (in up to 48 hours after the file sent).</li>
+</ul>
+
+<h1 id="attachments">Attachments</h1>
+
+<h2 id="attachment-i---table-of-return-codes">ATTACHMENT I - Table of Return Codes</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rejection Code</th>
+      <th>Descriptive of the Occurrence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>00</td>
+      <td>Transaction OK (Transaction Accepted)</td>
+    </tr>
+    <tr>
+      <td>01</td>
+      <td>Error on the file</td>
+    </tr>
+    <tr>
+      <td>02</td>
+      <td>Invalid authorization code</td>
+    </tr>
+    <tr>
+      <td>03</td>
+      <td>Invalid establishment</td>
+    </tr>
+    <tr>
+      <td>03</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>04</td>
+      <td>Mixed lot</td>
+    </tr>
+    <tr>
+      <td>05</td>
+      <td>Invalid installments number</td>
+    </tr>
+    <tr>
+      <td>06</td>
+      <td>Amount difference on the OS</td>
+    </tr>
+    <tr>
+      <td>07</td>
+      <td>Invalid OS number (BH register)</td>
+    </tr>
+    <tr>
+      <td>08</td>
+      <td>Invalid input value</td>
+    </tr>
+    <tr>
+      <td>09</td>
+      <td>Invalid board tax amount</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Invalid installment amount</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Invalid transaction code</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Invalid transaction</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Invalid amount</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Not Applicable</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Invalid cancellation amount</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Original transaction not located (for cancellation)</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>Number of items informed on the OS are not compatible to  the CVs</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>Invalid reference number</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Cancellation for installment of an already cancelled transaction</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>Cancellation amount greater than the sale’s</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>Cancellation amount greater than allowed (jurisdiction)</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>Invalid number of the original OS number (register I2)</td>
+    </tr>
+    <tr>
+      <td>42</td>
+      <td>Canceled card</td>
+    </tr>
+    <tr>
+      <td>42</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>54</td>
+      <td>It is not allowed the partial cancellation of an installment plan that is being contested by the holder.</td>
+    </tr>
+    <tr>
+      <td>55</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>56</td>
+      <td>Invalid card plan type</td>
+    </tr>
+    <tr>
+      <td>59</td>
+      <td>Invalid card type 60 Invalid date</td>
+    </tr>
+    <tr>
+      <td>59</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>71</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>72</td>
+      <td>Transaction declined by the issuing bank</td>
+    </tr>
+    <tr>
+      <td>73</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>74</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>75</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>76</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>77</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>78</td>
+      <td>Emiiter authorization not found</td>
+    </tr>
+    <tr>
+      <td>79</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>81</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>82</td>
+      <td>Expired card or wrong expiration date</td>
+    </tr>
+    <tr>
+      <td>82</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>83</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>86</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>87</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>88</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>89</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>90</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>91</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>92</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>93</td>
+      <td>Cancellation with more than 365 days</td>
+    </tr>
+    <tr>
+      <td>94</td>
+      <td>See file position 211 - error details (Attachment II)</td>
+    </tr>
+    <tr>
+      <td>95</td>
+      <td>No balance in open</td>
+    </tr>
+    <tr>
+      <td>99</td>
+      <td>Other reasons</td>
+    </tr>
+  </tbody>
+</table>
+
+<aside class="notice">(*) - In the case of an EC VAN that tries to transact AMEX or Hipercard the details will be 99.</aside>
+
+<h2 id="attachment-ii--detailing-of-the-error-to-the-sales-status-informed-on-the-field-23">ATTACHMENT II – Detailing of the error to the Sales Status informed on the field 23</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>CODE</th>
+      <th>BRANDS</th>
+      <th>ERROR COMPLEMENT</th>
+      <th>CE ACTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>E001</td>
+      <td>All</td>
+      <td>The Lot has exceeded the number of records</td>
+      <td>Review file structure</td>
+    </tr>
+    <tr>
+      <td>E001</td>
+      <td>All</td>
+      <td>Incorrect lot structure</td>
+      <td>Review file structure</td>
+    </tr>
+    <tr>
+      <td>E001</td>
+      <td>All</td>
+      <td>Invalid transmission means</td>
+      <td>Contact Cielo</td>
+    </tr>
+    <tr>
+      <td>E002</td>
+      <td>All</td>
+      <td>Review the card information</td>
+      <td>Repeat the transaction with valid inforation</td>
+    </tr>
+    <tr>
+      <td>E005</td>
+      <td>All</td>
+      <td>Establishment Number not found</td>
+      <td>Check the Cielo Establishment data</td>
+    </tr>
+    <tr>
+      <td>E005</td>
+      <td>All</td>
+      <td>Problem with your register on Cielo</td>
+      <td>Contact Cielo</td>
+    </tr>
+    <tr>
+      <td>E010</td>
+      <td>All</td>
+      <td>Problem with your register on Cielo</td>
+      <td>Contact Cielo</td>
+    </tr>
+    <tr>
+      <td>E023</td>
+      <td>All</td>
+      <td>Problem with your register on Cielo</td>
+      <td>Contact Cielo</td>
+    </tr>
+    <tr>
+      <td>E024</td>
+      <td>All</td>
+      <td>Card type not allowed in this channel</td>
+      <td>Contact your costumer</td>
+    </tr>
+    <tr>
+      <td>E044</td>
+      <td>All</td>
+      <td>Transaction date does not match</td>
+      <td>Review original transaction data</td>
+    </tr>
+    <tr>
+      <td>E045</td>
+      <td>All</td>
+      <td>Authorization code not found</td>
+      <td>Review transaction data</td>
+    </tr>
+    <tr>
+      <td>E048</td>
+      <td>All</td>
+      <td>Card expriration date is incorrect</td>
+      <td>Contact your costumer</td>
+    </tr>
+    <tr>
+      <td>E054</td>
+      <td>All</td>
+      <td>Incorrect lot estructure</td>
+      <td>Review your file</td>
+    </tr>
+    <tr>
+      <td>E055</td>
+      <td>All</td>
+      <td>Invalid installment amount</td>
+      <td>Review installments amount</td>
+    </tr>
+    <tr>
+      <td>E056</td>
+      <td>All</td>
+      <td>Transaction not allowed for your register</td>
+      <td>Don’t resend transaction</td>
+    </tr>
+    <tr>
+      <td>E057</td>
+      <td>All</td>
+      <td>Canceled card</td>
+      <td>Contact your costumer</td>
+    </tr>
+    <tr>
+      <td>E061</td>
+      <td>All</td>
+      <td>Review the card information</td>
+      <td>Redo the transaction with valid information</td>
+    </tr>
+    <tr>
+      <td>E094</td>
+      <td>All</td>
+      <td>Transaction not allowed for International cards</td>
+      <td>Don’t resend transaction</td>
+    </tr>
+    <tr>
+      <td>E095</td>
+      <td>All</td>
+      <td>Transaction not allowed for Debit cards</td>
+      <td>Don’t resend transaction</td>
+    </tr>
+    <tr>
+      <td>E097</td>
+      <td>All</td>
+      <td>Installment with the amount inferior to R$ 5,00</td>
+      <td>Redo adjusting the installments amount</td>
+    </tr>
+    <tr>
+      <td>E101</td>
+      <td>2</td>
+      <td>Transaction declined by the Issuing bank</td>
+      <td>Contact your costumer</td>
+    </tr>
+    <tr>
+      <td>E101</td>
+      <td>40</td>
+      <td>Transaction declined by the Issuing bank</td>
+      <td>Contact your costumer</td>
+    </tr>
+    <tr>
+      <td>E102</td>
+      <td>All</td>
+      <td>Transaction declined by the Issuing bank</td>
+      <td>Contact your costumer</td>
+    </tr>
+    <tr>
+      <td>E103</td>
+      <td>1</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E103</td>
+      <td>2</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E103</td>
+      <td>40</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E103</td>
+      <td>Other Brands</td>
+      <td>Problem with your register on Cielo</td>
+      <td>Contact Cielo</td>
+    </tr>
+    <tr>
+      <td>E104</td>
+      <td>1</td>
+      <td>Contact your card center - Don’t try again</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E104</td>
+      <td>2</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E104</td>
+      <td>7</td>
+      <td>Repeat the transaction</td>
+      <td>Repeat the transaction</td>
+    </tr>
+    <tr>
+      <td>E104</td>
+      <td>40</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E104</td>
+      <td>Other Brands</td>
+      <td>Canceled card</td>
+      <td>Contact your costumer</td>
+    </tr>
+    <tr>
+      <td>E105</td>
+      <td>1</td>
+      <td>Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E105</td>
+      <td>2</td>
+      <td>Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E105</td>
+      <td>7</td>
+      <td>Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E105</td>
+      <td>40</td>
+      <td>Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E105</td>
+      <td>Other Brands</td>
+      <td>Transaction declined by the Issuing bank</td>
+      <td>Contact your costumer</td>
+    </tr>
+    <tr>
+      <td>E106</td>
+      <td>1</td>
+      <td>Card error - Don’t try again</td>
+      <td>Don’t resend, I’ll inform the customer that the card is in error</td>
+    </tr>
+    <tr>
+      <td>E106</td>
+      <td>1</td>
+      <td>Check card data</td>
+      <td>Repeat the transaction with valid data</td>
+    </tr>
+    <tr>
+      <td>E106</td>
+      <td>7</td>
+      <td>Storekeeper, contact the buyer</td>
+      <td>Contact Cielo</td>
+    </tr>
+    <tr>
+      <td>E106</td>
+      <td>Other Brands</td>
+      <td>Transaction rejected by the Issuing bank</td>
+      <td>The holder must ask the issuer the reason for the rejection. For Bradesco cards, it means that the card is blocked by excessive password attempts.</td>
+    </tr>
+    <tr>
+      <td>E107</td>
+      <td>1</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E107</td>
+      <td>Other Brands</td>
+      <td>Transaction declined by the Issuing bank</td>
+      <td>Contact your costumer</td>
+    </tr>
+    <tr>
+      <td>E108</td>
+      <td>3</td>
+      <td>Check card data</td>
+      <td>Repeat the transaction with valid data</td>
+    </tr>
+    <tr>
+      <td>E112</td>
+      <td>1</td>
+      <td>Card error - Don’t try again</td>
+      <td>Don’t resend, inform the customer that the card is in error</td>
+    </tr>
+    <tr>
+      <td>E112</td>
+      <td>2</td>
+      <td>Invalid installment - Don’t try again</td>
+      <td>Don’t resubmit, invalid installments</td>
+    </tr>
+    <tr>
+      <td>E112</td>
+      <td>7</td>
+      <td>Check card data</td>
+      <td>Repeat the transaction with valid data</td>
+    </tr>
+    <tr>
+      <td>E112</td>
+      <td>40</td>
+      <td>Invalid installment - Don’t try again</td>
+      <td>Don’t resubmit, invalid installments</td>
+    </tr>
+    <tr>
+      <td>E112</td>
+      <td>Other Brands</td>
+      <td>Transaction not allowed in this channel</td>
+      <td>Contact Cielo</td>
+    </tr>
+    <tr>
+      <td>E112</td>
+      <td>Other Brands</td>
+      <td>Transaction in Dollar currency, not allowed</td>
+      <td>Don’t resent transaction</td>
+    </tr>
+    <tr>
+      <td>E112</td>
+      <td>Other Brands</td>
+      <td>Transaction with no authorization code</td>
+      <td>Redo including the authorization code</td>
+    </tr>
+    <tr>
+      <td>E112</td>
+      <td>Other Brands</td>
+      <td>Transaction not allowed for Recurring Register</td>
+      <td>Contact Cielo</td>
+    </tr>
+    <tr>
+      <td>E112</td>
+      <td>Other Brands</td>
+      <td>Transaction authorized previously</td>
+      <td>Don’t resent transaction</td>
+    </tr>
+    <tr>
+      <td>E112</td>
+      <td>Other Brands</td>
+      <td>Card not allowed for Dollar Register</td>
+      <td>Don’t resent transaction</td>
+    </tr>
+    <tr>
+      <td>E112</td>
+      <td>Other Brands</td>
+      <td>Installment Transaction not allowed</td>
+      <td>Don’t resent transaction</td>
+    </tr>
+    <tr>
+      <td>E112</td>
+      <td>Other Brands</td>
+      <td>Problem with your register on Cielo</td>
+      <td>Contact Cielo</td>
+    </tr>
+    <tr>
+      <td>E112</td>
+      <td>Other Brands</td>
+      <td>Transaction not allowed</td>
+      <td>Don’t resent transaction</td>
+    </tr>
+    <tr>
+      <td>E112</td>
+      <td>Other Brands</td>
+      <td>Transaction not allowed by your register</td>
+      <td>Don’t resent transaction</td>
+    </tr>
+    <tr>
+      <td>E112</td>
+      <td>Other Brands</td>
+      <td>International card transaction not allowed for your register</td>
+      <td>Don’t resent transaction</td>
+    </tr>
+    <tr>
+      <td>E112</td>
+      <td>Other Brands</td>
+      <td>Invalid transaction data</td>
+      <td>Review transaction data</td>
+    </tr>
+    <tr>
+      <td>E113</td>
+      <td>1</td>
+      <td>Transaction amount not allowed - Don’t try again</td>
+      <td>Don’t resubmit, value not allowed</td>
+    </tr>
+    <tr>
+      <td>E113</td>
+      <td>2</td>
+      <td>Transaction amount not allowed - Don’t try again</td>
+      <td>Don’t resubmit, value not allowed</td>
+    </tr>
+    <tr>
+      <td>E113</td>
+      <td>7</td>
+      <td>Transaction amount not allowed - Don’t try again</td>
+      <td>Don’t resubmit, value not allowed</td>
+    </tr>
+    <tr>
+      <td>E113</td>
+      <td>40</td>
+      <td>Transaction amount not allowed - Don’t try again</td>
+      <td>Don’t resubmit, value not allowed</td>
+    </tr>
+    <tr>
+      <td>E114</td>
+      <td>2</td>
+      <td>Check card data</td>
+      <td>Repeat the transaction with valid data</td>
+    </tr>
+    <tr>
+      <td>E114</td>
+      <td>7</td>
+      <td>Check card data</td>
+      <td>Repeat the transaction with valid data</td>
+    </tr>
+    <tr>
+      <td>E114</td>
+      <td>40</td>
+      <td>Check card data</td>
+      <td>Repeat the transaction with valid data</td>
+    </tr>
+    <tr>
+      <td>E114</td>
+      <td>Other Brands</td>
+      <td>Review the card information</td>
+      <td>Redo the transaction with valid information</td>
+    </tr>
+    <tr>
+      <td>E115</td>
+      <td>1</td>
+      <td>Invalid card data - Don’t try again</td>
+      <td>Don’t resend, review card data</td>
+    </tr>
+    <tr>
+      <td>E115</td>
+      <td>2</td>
+      <td>Invalid card data - Don’t try again</td>
+      <td>Don’t resend, review card data</td>
+    </tr>
+    <tr>
+      <td>E115</td>
+      <td>40</td>
+      <td>Invalid card data - Don’t try again</td>
+      <td>Don’t resend, review card data</td>
+    </tr>
+    <tr>
+      <td>E119</td>
+      <td>1</td>
+      <td>Card error - Don’t try again</td>
+      <td>Don’t resend, inform the customer that the card is in error</td>
+    </tr>
+    <tr>
+      <td>E119</td>
+      <td>7</td>
+      <td>Card error - Don’t try again</td>
+      <td>Don’t resend, inform the customer that the card is in error</td>
+    </tr>
+    <tr>
+      <td>E123</td>
+      <td>7</td>
+      <td>Invalid installment - Don’t try again</td>
+      <td>Don’t resubmit, invalid installments</td>
+    </tr>
+    <tr>
+      <td>E125</td>
+      <td>2</td>
+      <td>Contact your card center - Don’t try again</td>
+      <td>Don’t resend, ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E125</td>
+      <td>40</td>
+      <td>Contact your card center - Don’t try again</td>
+      <td>Don’t resend, ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E128</td>
+      <td>2</td>
+      <td>Contact your card center - Don’t try again</td>
+      <td>Don’t resend, ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E128</td>
+      <td>40</td>
+      <td>Contact your card center - Don’t try again</td>
+      <td>Don’t resend, ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E130</td>
+      <td>2</td>
+      <td>Card error - Don’t try again</td>
+      <td>Don’t resend, inform the customer that the card is in error</td>
+    </tr>
+    <tr>
+      <td>E130</td>
+      <td>7</td>
+      <td>Card error - Don’t try again</td>
+      <td>Don’t resend, inform the customer that the card is in error</td>
+    </tr>
+    <tr>
+      <td>E130</td>
+      <td>40</td>
+      <td>Card error - Don’t try again</td>
+      <td>Don’t resend, inform the customer that the card is in error</td>
+    </tr>
+    <tr>
+      <td>E138</td>
+      <td>7</td>
+      <td>Password attempts exceeded. Contact your card center</td>
+      <td>Inform the customer that Contact the card center, password attempts exceeded</td>
+    </tr>
+    <tr>
+      <td>E139</td>
+      <td>1</td>
+      <td>Use debit function</td>
+      <td>Send again using debit function</td>
+    </tr>
+    <tr>
+      <td>E141</td>
+      <td>1</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E141</td>
+      <td>2</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E141</td>
+      <td>7</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E141</td>
+      <td>40</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E141</td>
+      <td>Other Brands</td>
+      <td>Canceled card</td>
+      <td>Contact your costumer</td>
+    </tr>
+    <tr>
+      <td>E143</td>
+      <td>1</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E143</td>
+      <td>2</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E143</td>
+      <td>7</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E143</td>
+      <td>40</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E143</td>
+      <td>Other Brands</td>
+      <td>Canceled card</td>
+      <td>Contact your costumer</td>
+    </tr>
+    <tr>
+      <td>E151</td>
+      <td>1</td>
+      <td>Not allowed</td>
+      <td>Unauthorized transaction</td>
+    </tr>
+    <tr>
+      <td>E151</td>
+      <td>2</td>
+      <td>Not allowed</td>
+      <td>Unauthorized transaction</td>
+    </tr>
+    <tr>
+      <td>E151</td>
+      <td>7</td>
+      <td>Not allowed</td>
+      <td>Unauthorized transaction</td>
+    </tr>
+    <tr>
+      <td>E151</td>
+      <td>40</td>
+      <td>Not allowed</td>
+      <td>Unauthorized transaction</td>
+    </tr>
+    <tr>
+      <td>E151</td>
+      <td>Other Brands</td>
+      <td>Transaction not authorized by the Issuing bank</td>
+      <td>Contact your costumer</td>
+    </tr>
+    <tr>
+      <td>E152</td>
+      <td>1</td>
+      <td>Use credit function</td>
+      <td>Send again using credit function</td>
+    </tr>
+    <tr>
+      <td>E153</td>
+      <td>1</td>
+      <td>Use credit function</td>
+      <td>Send again using credit function</td>
+    </tr>
+    <tr>
+      <td>E154</td>
+      <td>2</td>
+      <td>Check card data</td>
+      <td>Repeat the transaction with valid data</td>
+    </tr>
+    <tr>
+      <td>E154</td>
+      <td>7</td>
+      <td>Check card data</td>
+      <td>Repeat the transaction with valid data</td>
+    </tr>
+    <tr>
+      <td>E154</td>
+      <td>40</td>
+      <td>Check card data</td>
+      <td>Repeat the transaction with valid data</td>
+    </tr>
+    <tr>
+      <td>E154</td>
+      <td>Other Brands</td>
+      <td>Incorrect card expiration date</td>
+      <td>Contact your costumer</td>
+    </tr>
+    <tr>
+      <td>E155</td>
+      <td>1</td>
+      <td>Invalid password</td>
+      <td>Inform the customer that the password is invalid</td>
+    </tr>
+    <tr>
+      <td>E155</td>
+      <td>2</td>
+      <td>Invalid password</td>
+      <td>Inform the customer that the password is invalid</td>
+    </tr>
+    <tr>
+      <td>E155</td>
+      <td>7</td>
+      <td>Invalid password</td>
+      <td>Inform the customer that the password is invalid</td>
+    </tr>
+    <tr>
+      <td>E155</td>
+      <td>40</td>
+      <td>Invalid password</td>
+      <td>Inform the customer that the password is invalid</td>
+    </tr>
+    <tr>
+      <td>E156</td>
+      <td>7</td>
+      <td>Check card data</td>
+      <td>Repeat the transaction with valid data</td>
+    </tr>
+    <tr>
+      <td>E157</td>
+      <td>1</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E157</td>
+      <td>2</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E157</td>
+      <td>7</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E157</td>
+      <td>40</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E157</td>
+      <td>Other Brands</td>
+      <td>Canceled card</td>
+      <td>Contact your costumer</td>
+    </tr>
+    <tr>
+      <td>E158</td>
+      <td>1</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E158</td>
+      <td>2</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E158</td>
+      <td>7</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E158</td>
+      <td>40</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E158</td>
+      <td>Other Brands</td>
+      <td>Card type not allowed in this channel</td>
+      <td>Contact Cielo</td>
+    </tr>
+    <tr>
+      <td>E159</td>
+      <td>1</td>
+      <td>Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E159</td>
+      <td>7</td>
+      <td>Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E161</td>
+      <td>1</td>
+      <td>Exceeded value. Contact your card center</td>
+      <td>Ask the customer to Contact your card center - valor excedido</td>
+    </tr>
+    <tr>
+      <td>E161</td>
+      <td>2</td>
+      <td>Exceeded value. Contact your card center</td>
+      <td>Ask the customer to Contact your card center - valor excedido</td>
+    </tr>
+    <tr>
+      <td>E161</td>
+      <td>7</td>
+      <td>Exceeded value. Contact your card center</td>
+      <td>Ask the customer to Contact your card center - valor excedido</td>
+    </tr>
+    <tr>
+      <td>E161</td>
+      <td>40</td>
+      <td>Exceeded value. Contact your card center</td>
+      <td>Ask the customer to Contact your card center - valor excedido</td>
+    </tr>
+    <tr>
+      <td>E162</td>
+      <td>1</td>
+      <td>Card not allowed for this transaction</td>
+      <td>Inform the customer that the card doesn’t allow international transactions, request a new payment method</td>
+    </tr>
+    <tr>
+      <td>E162</td>
+      <td>2</td>
+      <td>Card not allowed for this transaction</td>
+      <td>Inform the customer that the card doesn’t allow international transactions, request a new payment method</td>
+    </tr>
+    <tr>
+      <td>E162</td>
+      <td>7</td>
+      <td>Card not allowed for this transaction</td>
+      <td>Inform the customer that the card doesn’t allow international transactions, request a new payment method</td>
+    </tr>
+    <tr>
+      <td>E162</td>
+      <td>40</td>
+      <td>Card not allowed for this transaction</td>
+      <td>Inform the customer that the card doesn’t allow international transactions, request a new payment method</td>
+    </tr>
+    <tr>
+      <td>E162</td>
+      <td>Other Brands</td>
+      <td>Card not allowed in this transaction</td>
+      <td>Contact your costumer</td>
+    </tr>
+    <tr>
+      <td>E163</td>
+      <td>2</td>
+      <td>Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E163</td>
+      <td>7</td>
+      <td>Check card data</td>
+      <td>Repeat the transaction with valid data</td>
+    </tr>
+    <tr>
+      <td>E163</td>
+      <td>40</td>
+      <td>Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E164</td>
+      <td>1</td>
+      <td>Contact your card center - Don’t try again</td>
+      <td>Don’t resend, ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E164</td>
+      <td>7</td>
+      <td>Transaction amount not allowed - Don’t try again</td>
+      <td>Don’t resubmit, value not allowed</td>
+    </tr>
+    <tr>
+      <td>E165</td>
+      <td>1</td>
+      <td>Amount of withdrawals exceeded. Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E165</td>
+      <td>2</td>
+      <td>Amount of withdrawals exceeded. Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E165</td>
+      <td>7</td>
+      <td>Amount of withdrawals exceeded. Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E165</td>
+      <td>40</td>
+      <td>Amount of withdrawals exceeded. Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E174</td>
+      <td>1</td>
+      <td>Invalid password - Don’t try again</td>
+      <td>Don’t send again - Invalid password</td>
+    </tr>
+    <tr>
+      <td>E174</td>
+      <td>7</td>
+      <td>Invalid password - Don’t try again</td>
+      <td>Don’t send again - Invalid password</td>
+    </tr>
+    <tr>
+      <td>E175</td>
+      <td>1</td>
+      <td>Password attempts exceeded. Contact your card center</td>
+      <td>Inform the customer that Contact the card center, password attempts exceeded</td>
+    </tr>
+    <tr>
+      <td>E175</td>
+      <td>2</td>
+      <td>Password attempts exceeded. Contact your card center</td>
+      <td>Inform the customer that Contact the card center, password attempts exceeded</td>
+    </tr>
+    <tr>
+      <td>E175</td>
+      <td>7</td>
+      <td>Password attempts exceeded. Contact your card center</td>
+      <td>Inform the customer that Contact the card center, password attempts exceeded</td>
+    </tr>
+    <tr>
+      <td>E175</td>
+      <td>40</td>
+      <td>Password attempts exceeded. Contact your card center</td>
+      <td>Inform the customer that Contact the card center, password attempts exceeded</td>
+    </tr>
+    <tr>
+      <td>E176</td>
+      <td>1</td>
+      <td>Contact your card center - Don’t try again</td>
+      <td>Don’t resend, ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E176</td>
+      <td>7</td>
+      <td>Invalid destination account - Don’t try again</td>
+      <td>Don’t try again</td>
+    </tr>
+    <tr>
+      <td>E177</td>
+      <td>7</td>
+      <td>Invalid source account - Don’t try again</td>
+      <td>Don’t try again</td>
+    </tr>
+    <tr>
+      <td>E178</td>
+      <td>1</td>
+      <td>Unlock the card</td>
+      <td>Ask the customer to Unlock the card</td>
+    </tr>
+    <tr>
+      <td>E178</td>
+      <td>7</td>
+      <td>Unlock the card</td>
+      <td>Ask the customer to Unlock the card</td>
+    </tr>
+    <tr>
+      <td>E180</td>
+      <td>All</td>
+      <td>Transaction date does not match</td>
+      <td>Review original transaction data</td>
+    </tr>
+    <tr>
+      <td>E182</td>
+      <td>1</td>
+      <td>Card error - Don’t try again</td>
+      <td>Don’t resend, I’ll inform the customer that the card is in error</td>
+    </tr>
+    <tr>
+      <td>E182</td>
+      <td>7</td>
+      <td>Card error - Don’t try again</td>
+      <td>Don’t resend, I’ll inform the customer that the card is in error</td>
+    </tr>
+    <tr>
+      <td>E182</td>
+      <td>Other Brands</td>
+      <td>Invalid Card security code</td>
+      <td>Review transaction data / Contact your costumer</td>
+    </tr>
+    <tr>
+      <td>E186</td>
+      <td>1</td>
+      <td>Invalid password</td>
+      <td>Inform the customer that the password is invalid</td>
+    </tr>
+    <tr>
+      <td>E186</td>
+      <td>2</td>
+      <td>Invalid password</td>
+      <td>Inform the customer that the password is invalid</td>
+    </tr>
+    <tr>
+      <td>E186</td>
+      <td>40</td>
+      <td>Invalid password</td>
+      <td>Inform the customer that the password is invalid</td>
+    </tr>
+    <tr>
+      <td>E188</td>
+      <td>2</td>
+      <td>Invalid password - Don’t try again</td>
+      <td>Don’t send again - Invalid password</td>
+    </tr>
+    <tr>
+      <td>E188</td>
+      <td>40</td>
+      <td>Invalid password - Don’t try again</td>
+      <td>Don’t send again - Invalid password</td>
+    </tr>
+    <tr>
+      <td>E191</td>
+      <td>1</td>
+      <td>Communication failure - Try later</td>
+      <td>Try to send again later</td>
+    </tr>
+    <tr>
+      <td>E191</td>
+      <td>2</td>
+      <td>Communication failure - Try later</td>
+      <td>Try to send again later</td>
+    </tr>
+    <tr>
+      <td>E191</td>
+      <td>7</td>
+      <td>Communication failure - Try later</td>
+      <td>Try to send again later</td>
+    </tr>
+    <tr>
+      <td>E191</td>
+      <td>40</td>
+      <td>Communication failure - Try later</td>
+      <td>Try to send again later</td>
+    </tr>
+    <tr>
+      <td>E191</td>
+      <td>Other Brands</td>
+      <td>Issuing Bank with no communication</td>
+      <td>Contact Cielo</td>
+    </tr>
+    <tr>
+      <td>E192</td>
+      <td>1</td>
+      <td>Contact your card center - Don’t try again</td>
+      <td>Don’t resend, ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E192</td>
+      <td>2</td>
+      <td>Contact your card center - Don’t try again</td>
+      <td>Don’t resend, ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E192</td>
+      <td>40</td>
+      <td>Contact your card center - Don’t try again</td>
+      <td>Don’t resend, ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E192</td>
+      <td>Other Brands</td>
+      <td>Applicable for Airline companies</td>
+      <td>Applicable for Airline companies</td>
+    </tr>
+    <tr>
+      <td>E193</td>
+      <td>1</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E194</td>
+      <td>1</td>
+      <td>Contact your card center - Don’t try again</td>
+      <td>Don’t resend, ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E194</td>
+      <td>2</td>
+      <td>Contact your card center - Don’t try again</td>
+      <td>Don’t resend, ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E194</td>
+      <td>40</td>
+      <td>Contact your card center - Don’t try again</td>
+      <td>Don’t resend, ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E196</td>
+      <td>1</td>
+      <td>Communication failure - Try later</td>
+      <td>Try to send again later</td>
+    </tr>
+    <tr>
+      <td>E196</td>
+      <td>2</td>
+      <td>Communication failure - Try later</td>
+      <td>Try to send again later</td>
+    </tr>
+    <tr>
+      <td>E196</td>
+      <td>7</td>
+      <td>Communication failure - Try later</td>
+      <td>Try to send again later</td>
+    </tr>
+    <tr>
+      <td>E196</td>
+      <td>40</td>
+      <td>Communication failure - Try later</td>
+      <td>Try to send again later</td>
+    </tr>
+    <tr>
+      <td>E199</td>
+      <td>7</td>
+      <td>Value other than pre-authorization - Don’t try again</td>
+      <td>Don’t resubmit, value not allowed</td>
+    </tr>
+    <tr>
+      <td>E1A1</td>
+      <td>3</td>
+      <td>Communication failure - Try later</td>
+      <td>Try to send again later</td>
+    </tr>
+    <tr>
+      <td>E1A2</td>
+      <td>3</td>
+      <td>Invalid installment - Don’t try again</td>
+      <td>Don’t resubmit, invalid installments</td>
+    </tr>
+    <tr>
+      <td>E1A2</td>
+      <td>3</td>
+      <td>Check card data</td>
+      <td>Repeat the transaction with valid data</td>
+    </tr>
+    <tr>
+      <td>E1A3</td>
+      <td>3</td>
+      <td>Card error - Don’t try again</td>
+      <td>Don’t resend, I’ll inform the customer that the card is in error</td>
+    </tr>
+    <tr>
+      <td>E1A4</td>
+      <td>3</td>
+      <td>Password attempts exceeded. Contact your card center</td>
+      <td>Inform the customer that Contact the card center, password attempts exceeded</td>
+    </tr>
+    <tr>
+      <td>E1A5</td>
+      <td>3</td>
+      <td>Not allowed</td>
+      <td>Unauthorized transaction</td>
+    </tr>
+    <tr>
+      <td>E1A5</td>
+      <td>3</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E1A6</td>
+      <td>3</td>
+      <td>Invalid password</td>
+      <td>Inform the customer that the password is invalid</td>
+    </tr>
+    <tr>
+      <td>E1A7</td>
+      <td>3</td>
+      <td>Card error - Don’t try again</td>
+      <td>Don’t resend, I’ll inform the customer that the card is in error</td>
+    </tr>
+    <tr>
+      <td>E1A7</td>
+      <td>3</td>
+      <td>Invalid password - Don’t try again</td>
+      <td>Don’t send again - Invalid password</td>
+    </tr>
+    <tr>
+      <td>E1AB</td>
+      <td>7</td>
+      <td>Use credit function</td>
+      <td>Send again using credit function</td>
+    </tr>
+    <tr>
+      <td>E1AC</td>
+      <td>3</td>
+      <td>Use debit function</td>
+      <td>Send again using debit function</td>
+    </tr>
+    <tr>
+      <td>E1AE</td>
+      <td>3</td>
+      <td>Communication failure - Try later</td>
+      <td>Try to send again later</td>
+    </tr>
+    <tr>
+      <td>E1B1</td>
+      <td>1</td>
+      <td>Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E1B2</td>
+      <td>1</td>
+      <td>Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E1BV</td>
+      <td>3</td>
+      <td>Check card data</td>
+      <td>Repeat the transaction with valid data</td>
+    </tr>
+    <tr>
+      <td>E1DA</td>
+      <td>3</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E1FA</td>
+      <td>3</td>
+      <td>Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E1FD</td>
+      <td>3</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E1JB</td>
+      <td>3</td>
+      <td>Transaction amount not allowed - Don’t try again</td>
+      <td>Don’t resubmit, value not allowed</td>
+    </tr>
+    <tr>
+      <td>E1N0</td>
+      <td>1</td>
+      <td>Contact your card center</td>
+      <td>Ask the customer to Contact your card center</td>
+    </tr>
+    <tr>
+      <td>E1N3</td>
+      <td>1</td>
+      <td>Cashout not available - Don’t try again</td>
+      <td>Don’t resubmit - withdrawal not available</td>
+    </tr>
+    <tr>
+      <td>E1N4</td>
+      <td>1</td>
+      <td>Exceeded value. Contact your card center</td>
+      <td>Ask the customer to Contact your card center - valor excedido</td>
+    </tr>
+    <tr>
+      <td>E1N8</td>
+      <td>1</td>
+      <td>Value other than pre-authorization - Don’t try again</td>
+      <td>Don’t resubmit, value not allowed</td>
+    </tr>
+    <tr>
+      <td>E1P5</td>
+      <td>7</td>
+      <td>Invalid password - Don’t try again</td>
+      <td>Don’t send again - Invalid password</td>
+    </tr>
+    <tr>
+      <td>E1P6</td>
+      <td>7</td>
+      <td>Invalid password utilize nova senha</td>
+      <td>Inform the customer that the password is invalid</td>
+    </tr>
+    <tr>
+      <td>E1R0</td>
+      <td>1</td>
+      <td>Suspension of recurring payment for service - Don’t try again</td>
+      <td>Don’t resubmit, recurring payment suspension for service</td>
+    </tr>
+    <tr>
+      <td>E1R1</td>
+      <td>1</td>
+      <td>Suspension of recurring payment for service - Don’t try again</td>
+      <td>Don’t resubmit, recurring payment suspension for service</td>
+    </tr>
+    <tr>
+      <td>E1R2</td>
+      <td>1</td>
+      <td>Transaction not allowed for card - Don’t try again</td>
+      <td>Don’t resubmit, ask the customer for a new payment method</td>
+    </tr>
+    <tr>
+      <td>E1R3</td>
+      <td>1</td>
+      <td>Suspension of recurring payment for service - Don’t try again</td>
+      <td>Don’t resubmit, recurring payment suspension for service</td>
+    </tr>
+    <tr>
+      <td>E205</td>
+      <td>All</td>
+      <td>Review card data</td>
+      <td>Redo the transaction with valid information</td>
+    </tr>
+    <tr>
+      <td>E207</td>
+      <td>All</td>
+      <td>Invalid Lot number</td>
+      <td>Review Lot number</td>
+    </tr>
+    <tr>
+      <td>E207</td>
+      <td>All</td>
+      <td>Lot field is not numeric</td>
+      <td>Review Lot number</td>
+    </tr>
+    <tr>
+      <td>E207</td>
+      <td>All</td>
+      <td>Duplicate Lot number</td>
+      <td>Review Lot number</td>
+    </tr>
+    <tr>
+      <td>E209</td>
+      <td>All</td>
+      <td>Applicable for Airline companies</td>
+      <td>Review amount</td>
+    </tr>
+    <tr>
+      <td>E210</td>
+      <td>All</td>
+      <td>Invalid Installment amount</td>
+      <td>Field zeroed number of installments</td>
+    </tr>
+    <tr>
+      <td>E210</td>
+      <td>All</td>
+      <td>Invalid Installment amount</td>
+      <td>Contact Cielo</td>
+    </tr>
+    <tr>
+      <td>E210</td>
+      <td>All</td>
+      <td>Product not authorized for your Establishment</td>
+      <td>Contact Cielo</td>
+    </tr>
+    <tr>
+      <td>E210</td>
+      <td>All</td>
+      <td>Installment amount greater than the allowed</td>
+      <td>Contact Cielo to change installment register</td>
+    </tr>
+    <tr>
+      <td>E211</td>
+      <td>All</td>
+      <td>Applicable for Airline companies</td>
+      <td>Review amount</td>
+    </tr>
+    <tr>
+      <td>E212</td>
+      <td>All</td>
+      <td>Applicable for Airline companies</td>
+      <td>Review amount</td>
+    </tr>
+    <tr>
+      <td>E213</td>
+      <td>All</td>
+      <td>Cancellation amount not allowed</td>
+      <td>Review transaction data</td>
+    </tr>
+    <tr>
+      <td>E214</td>
+      <td>All</td>
+      <td>Transaction not found</td>
+      <td>Review transaction data</td>
+    </tr>
+    <tr>
+      <td>E215</td>
+      <td>All</td>
+      <td>Already canceled transaction</td>
+      <td>Contact Cielo</td>
+    </tr>
+    <tr>
+      <td>E216</td>
+      <td>All</td>
+      <td>Transaction canceled previously</td>
+      <td>Don’t resend transaction</td>
+    </tr>
+    <tr>
+      <td>E217</td>
+      <td>All</td>
+      <td>Cancellation amount greater than the sale</td>
+      <td>Review transaction data</td>
+    </tr>
+    <tr>
+      <td>E218</td>
+      <td>All</td>
+      <td>Cancellation not allowed in this channel</td>
+      <td>Contact Cielo</td>
+    </tr>
+    <tr>
+      <td>E219</td>
+      <td>All</td>
+      <td>OS number not found</td>
+      <td>Review transaction data</td>
+    </tr>
+    <tr>
+      <td>E220</td>
+      <td>All</td>
+      <td>Transaction cancellation timeout exceeded</td>
+      <td>Don’t resend transaction</td>
+    </tr>
+    <tr>
+      <td>E900</td>
+      <td>All</td>
+      <td>Invalid Register type</td>
+      <td>Review file estructure</td>
+    </tr>
+    <tr>
+      <td>E901</td>
+      <td>All</td>
+      <td>Invalid Header Deposit date</td>
+      <td>Review transaction data</td>
+    </tr>
+    <tr>
+      <td>E902</td>
+      <td>All</td>
+      <td>Invalid number of Operations Summary (OS) of the header</td>
+      <td>Review the number of Operations Summary (OS)</td>
+    </tr>
+    <tr>
+      <td>E903</td>
+      <td>All</td>
+      <td>Establishment Number of the Header invalid</td>
+      <td>Review the Establishment Number/Contact Cielo</td>
+    </tr>
+    <tr>
+      <td>E904</td>
+      <td>All</td>
+      <td>Invalid Header currency</td>
+      <td>Review the Header estructure</td>
+    </tr>
+    <tr>
+      <td>E905</td>
+      <td>All</td>
+      <td>Invalid Header test indicator</td>
+      <td>Review the Header estructure</td>
+    </tr>
+    <tr>
+      <td>E906</td>
+      <td>All</td>
+      <td>Invalid Header test indicator</td>
+      <td>Review the Header estructure</td>
+    </tr>
+    <tr>
+      <td>E911</td>
+      <td>All</td>
+      <td>Invalid sale receipt (SR) number</td>
+      <td>Review transaction data</td>
+    </tr>
+    <tr>
+      <td>E912</td>
+      <td>All</td>
+      <td>Invalid Sale Date</td>
+      <td>Review transaction data</td>
+    </tr>
+    <tr>
+      <td>E913</td>
+      <td>All</td>
+      <td>Invalid Sale Date</td>
+      <td>Review transaction data</td>
+    </tr>
+    <tr>
+      <td>E914</td>
+      <td>All</td>
+      <td>Invalid card number</td>
+      <td>Review transaction data/Contact your costumer</td>
+    </tr>
+    <tr>
+      <td>E915</td>
+      <td>All</td>
+      <td>Invalid sale amount</td>
+      <td>Review transaction data</td>
+    </tr>
+    <tr>
+      <td>E916</td>
+      <td>All</td>
+      <td>Invalid installments amount</td>
+      <td>Review transaction data</td>
+    </tr>
+    <tr>
+      <td>E917</td>
+      <td>All</td>
+      <td>Invalid funded amount</td>
+      <td>Review transaction data</td>
+    </tr>
+    <tr>
+      <td>E918</td>
+      <td>All</td>
+      <td>Invalid input amount</td>
+      <td>Review transaction data</td>
+    </tr>
+    <tr>
+      <td>E919</td>
+      <td>All</td>
+      <td>Invalid board tax amount</td>
+      <td>Applicable for Airline Companies</td>
+    </tr>
+    <tr>
+      <td>E920</td>
+      <td>All</td>
+      <td>Invalid installment amount</td>
+      <td>Review transaction data</td>
+    </tr>
+    <tr>
+      <td>E921</td>
+      <td>All</td>
+      <td>Invalid Operations Summary (OS) number</td>
+      <td>Review the Operations Summary (OS) numbe</td>
+    </tr>
+    <tr>
+      <td>E922</td>
+      <td>All</td>
+      <td>Invalid Establishment Number</td>
+      <td>Review the Establishment Number / Contact Cielo</td>
+    </tr>
+    <tr>
+      <td>E923</td>
+      <td>All</td>
+      <td>Invalid card expiration date</td>
+      <td>Contact your costumer</td>
+    </tr>
+    <tr>
+      <td>E924</td>
+      <td>All</td>
+      <td>Invalid Original Operations Summary (OS) number</td>
+      <td>Review the Operations Summary (OS) number</td>
+    </tr>
+    <tr>
+      <td>E925</td>
+      <td>All</td>
+      <td>Invalid refund amount</td>
+      <td>Review transaction data</td>
+    </tr>
+    <tr>
+      <td>E926</td>
+      <td>All</td>
+      <td>Invalid reference number</td>
+      <td>Review transaction data</td>
+    </tr>
+    <tr>
+      <td>E930</td>
+      <td>All</td>
+      <td>Amount of Trailer registers does not match</td>
+      <td>Review the registers amount</td>
+    </tr>
+    <tr>
+      <td>E931</td>
+      <td>All</td>
+      <td>Total gross amount does not match</td>
+      <td>Review transaction data</td>
+    </tr>
+  </tbody>
+</table>
+
+<aside class="notice">(*) - In the case of an EC VAN that tries to transact AMEX or Hipercard the details will be E023.</aside>
+
+<h2 id="attachment-iii---list-of-codes-and-brands">ATTACHMENT III - List of codes and brands</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>CODE</th>
+      <th>BRAND</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Visa</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>MasterCard</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Amex</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Sorocred</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Elo</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Diners</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Agiplan</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Banescard</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>Cabal</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>Credsystem</td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>Esplanada</td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>Hipercard</td>
+    </tr>
+    <tr>
+      <td>60</td>
+      <td>Jcb</td>
+    </tr>
+    <tr>
+      <td>64</td>
+      <td>Credz</td>
+    </tr>
+    <tr>
+      <td>72</td>
+      <td>Hiper</td>
+    </tr>
+    <tr>
+      <td>75</td>
+      <td>Ourocard</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://developercielo.github.io/en/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Need Help?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Need Help?</h2>
+        <p>If you didn't find your answer, <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte">send us a message</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Toggle left column" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://desenvolvedores.cielo.com.br" target="_blank">
+        <img src="https://developercielo.github.io/en/assets/images/logo.png" alt="Documentações e tutoriais" style="width: 60%; margin-left: 20%">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+        <div class="toc-footer">
+            <h2 class="no-toc toc-footer-title">Complementary materials</h2>
+            
+
+            
+            
+            
+
+            <ul class="toc-footer">
+            
+                
+            
+                
+                    
+                    <li><a href="https://developercielo.github.io/en/tutorial/edi-extrato-eletronico" title="Instruções EDI">EDI - Electronic Statement</a></li>
+                
+            
+            </ul>
+        </div>
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contact" href="https://devcielo.zendesk.com/">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contact</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/developercielo">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/en/assets/bundles/js/bundle.min.js"></script>
+        <script>
+            
+            var selectors = 'h1,h2,h3,h4,h5,h6';
+            
+        </script>
+
+        
+        <script src="https://developercielo.github.io/en/assets/bundles/js/search.min.js"></script>
+        
+
+        
+
+        <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:674586,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    </body>
+</html>

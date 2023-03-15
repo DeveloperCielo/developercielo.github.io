@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <link href="http://gmpg.org/xfn/11" rel="profile">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#00aeef">
+    <meta http-equiv="Content-Language" content="en">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <title>
+        
+        FAQ &middot; Documentações e tutoriais
+        
+    </title>
+
+    <link rel="shortcut icon" href="https://developercielo.github.io/en/assets/favicon.ico">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+    <script async src="https://use.fontawesome.com/3ae06f1030.js"></script>
+
+    <link rel="stylesheet" href="https://developercielo.github.io/en/assets/bundles/css/bundle.min.css">
+
+    
+        
+            <link rel="alternate" hreflang="pt" href="https://developercielo.github.io/en/faq/faq-api-3-0" />
+        
+    
+        
+            <link rel="alternate" hreflang="en" href="https://developercielo.github.io/en/en/faq/faq-api-3-0" />
+        
+    
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="https://developercielo.github.io/en/atom.xml">
+</head>
+
+    <body>
+        
+        <div class="content-container no-dark-box">
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://devcielo.zendesk.com/hc/pt-br#suporte" class="help">Help</a>
+
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="https://developercielo.github.io/en/">Home</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/en/faq/faq-api-3-0">FAQ</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post">
+  <h1 id="business-questions">Business questions</h1>
+
+<h2 id="1-what-is-the-cielo-e-commerce-api">1. What is the Cielo e-Commerce API?</h2>
+
+<p>The Cielo e-Commerce API is the evolution of the webservice 1.5 as a CIELO online transactional engine. It offers an API that allows the Cielo retailer to perform a modular and simplified integration.
+The Cielo e-Commerce API solution of the Cielo e-Commerce platform was developed with the technology REST, which is a market standard and does not depend on the technolgy used by our clients, therefore, it is possible to integrate yourself using the most varied programmming languages, such as: ASP, ASP .NET, Java, PHP, Ruby, Python, etc.</p>
+
+<h2 id="2-whats-the-difference-between-webservice-15-and-the-cielo-e-commerce-api">2. What’s the difference between Webservice 1.5 and the Cielo e-Commerce API?</h2>
+
+<p>The Cielo e-Commerce API offers new functionalities in addition to a simplified integration model</p>
+
+<ul>
+  <li>Simplified integration - Using a REST API, replacing the sending of XMLs to the payments authorization</li>
+  <li>New payment ways - In addition to credit and debit cards, the Cielo e-Commerce API allows the retailer to perform the payment by Boletos and electronic transfer on Banco do Brasil and Bradesco.</li>
+  <li>Scheduled recurrence - The Cielo e-Commerce API allows the retailer to create an automatic recurrence, without needing to store the card data. Just send the transaction and the execution interval</li>
+  <li>Cards tokenization - The Cielo e-Commerce API allows the retailer to save clients’ cards, being that for recurrence transactions or creation of wallets. The retailer receives tokens that can be used to perform new transactions. Therefore, Cielo ensures the safety and easiness of access to the retailer’s own base of cards and payment data.</li>
+  <li>Zero Auth - New feature that allows the retailer to test a card and verify if it finds itself fit to perform determined transaction - Availability subject to commercial approval.</li>
+  <li>Bins Query - Feature that allows the validation of the card type (credit/debit) - Availability subject to commercial approval.</li>
+  <li>Integration with the main Wallets - The Cielo e-Commerce API is already integrated with Visa Checkout and MasterPass, wallets with Visa and MasterCard flags, thus allowing the retailer to have access to a wider range of clients.</li>
+  <li>Anti fraud - it’s made available on the Cielo e-Commerce API, a risk analysis of the credit cards transactions, thus elevating the retailer’s security and decreasing the chargeback risks.</li>
+</ul>
+
+<h2 id="3-what-are-the-payment-methods-accepted-on-the-cielo-e-commerce-api">3. What are the payment methods accepted on the Cielo e-Commerce API?</h2>
+
+<p>The Cielo e-Commerce API accepts the following payment methods:</p>
+
+<ul>
+  <li>Credit Cards: Visa / Mastercard / American Express / ELO / Aura / Diners / Discovery / JCB</li>
+  <li>Debit Cards: Visa Eletron / MasterCard</li>
+  <li>Boletos: Banco do Brasil and Bradesco</li>
+  <li>Electronic transfer (Online debit): Banco do Brasil and Bradesco</li>
+</ul>
+
+<h2 id="4-can-i-maintain-an-integration-15-and-a-cielo-e-commerce-api-at-the-same-time">4. Can I maintain an integration 1.5 and a Cielo e-Commerce API at the same time?</h2>
+
+<p>It is not possible to maintain two simultaneous integrations of the webservice 1.5 and Cielo e-Commerce API
+When registering one of the integrations along with the Cielo e-Commerce, it will be required to chose between one of the platforms
+For more information, access: https://www.cielo.com.br/desenvolvedores</p>
+
+<h2 id="5-i-do-not-have-an-integration-15-can-i-use-the-cielo-e-commerce-api">5. I do not have an integration 1.5. Can I use the Cielo e-Commerce API?</h2>
+
+<p>Yes, the Cielo e-Commerce API integration does not depend on a previous webservice 1.5 integration.
+Just register along with Cielo, thus obtaining your credentials to transact
+Access https://www.cielo.com.br/desenvolvedores for more information.</p>
+
+<h2 id="6-can-i-perform-a-migration-from-15-to-cielo-e-commerce-api">6. Can I perform a migration from 1.5 to Cielo e-Commerce API?</h2>
+
+<p>Cielo provides a Sandbox environment (https://bit.ly/2cHdrzr), where the developer is able to start a learning process about the API integration.</p>
+
+<p>After understanding the integration, it’s required to contact the Cielo e-Commerce support and request the creation of new access credentials to the production environment, thus It’ll be possible to start the integration in production.</p>
+
+<p>For more information, access: https://developercielo.github.io/Guia-de-migracao-1.5x3.0</p>
+
+<h2 id="7-i-have-a-15-is-it-necessary-to-perform-a-new-homologation-to-use-the-cielo-e-commerce-api">7. I have a 1.5. Is it necessary to perform a new homologation to use the Cielo e-Commerce API?</h2>
+
+<p>Yes, it is necessary to perform a new homologation to validate the transactional capacity of your website.
+To integrate yourself to the Cielo e-Commerce API in production, it will be required to request new credentials and start a new homologation.</p>
+
+<h2 id="8-how-can-i-release-other-payment-methods-besides-the-credit-card">8. How can I release other payment methods besides the credit card?</h2>
+
+<p>To release new payment methods, you’ll have to contact Cielo e-Commerce support and request the activation through the desired method.
+Only boletos require additional data:</p>
+
+<ul>
+  <li>Emitting bank</li>
+  <li>Agency</li>
+  <li>Current account</li>
+  <li>Agreement</li>
+  <li>Assignor code</li>
+  <li>Validity</li>
+</ul>
+
+<h2 id="9-how-can-i-get-support-from-cielo">9. How can I get support from Cielo?</h2>
+
+<p>The support to the Cielo e-Commerce API integrated retailer is given by the following channels:</p>
+
+<ul>
+  <li>+55 4002-9700 – Capitals and Metropolitan Regions</li>
+  <li>+55 0800-570-1700 – Other locations</li>
+  <li>+55 11 2860-1348 – International (Option 1 – Technical support/Option 2 – e-Commerce accreditation)</li>
+  <li>E-mail: cieloeCommerce@cielo.com.br</li>
+</ul>
+
+<h2 id="10-where-can-i-follow-my-sales-through-the-cielo-e-commerce-api">10. Where can I follow my sales through the Cielo e-Commerce API?</h2>
+
+<p>Through the retailer area, on the website: https://minhaconta.cielo.com.br/wps/portal/est2/login</p>
+
+<h1 id="technique-questions--integration">Technique questions / Integration</h1>
+
+<h2 id="11-how-does-the-cielo-e-commerce-api-solution-from-cielo-work">11. How does the Cielo e-Commerce API solution from Cielo work?</h2>
+
+<p>The Cielo e-Commerce API solution of the Cielo e-Commerce platform was developed with REST technology, The used model is quite simple: There are two URLs (endpoint): one specific to the operations that cause side effects – such as authorization, capture and transactions cancelling, and the other URL specific for operations that do not cause side effects, such as transaction search.</p>
+
+<h2 id="12-are-there-changes-from-the-credentials-15-to-the-cielo-e-commerce-api">12. Are there changes from the credentials 1.5 to the Cielo e-Commerce API?</h2>
+
+<p>Yes, the credentials used in each platform are different:</p>
+
+<ul>
+  <li>1.5 - AFILIAÇÃO and CHAVE DE PRODUÇÃO are used. These credentials identify the store and destination account in which the amount of the transaction will be deposited according to the financial Cielo agenda. They must be send on the requisition body. Afiliação is the store’s register identification code on Cielo.</li>
+  <li>New credentials are used: MerchantId and MerchantKey. These credentials are used to identify the store. In case they are not sent on the Header requisition, the transaction will be blocked by the API, returning “Error”. In an integration with the Cielo e-Commerce API, it is not possible to send 1.5 credentials. The API will deny requests.</li>
+</ul>
+
+<h3 id="examples">Examples</h3>
+
+<h4 id="15"><strong>1.5</strong></h4>
+
+<ul>
+  <li><strong>Afiliação</strong>: <code class="language-plaintext highlighter-rouge">1000000000</code></li>
+  <li><strong>Chave de produção</strong>: <code class="language-plaintext highlighter-rouge">bf7001e4a4530004090d782b0b7d0a932d07fedffscb2332d7S3fc2b6S8f7c3c</code></li>
+</ul>
+
+<h4 id="cielo-e-commerce-api"><strong>Cielo e-Commerce API</strong></h4>
+
+<ul>
+  <li><strong>MerchantId</strong>: <code class="language-plaintext highlighter-rouge">0d8b08ab-26ea-400e-9a22-47e58057642b</code></li>
+  <li><strong>MerchantKey</strong>: <code class="language-plaintext highlighter-rouge">keR10a0P3R01T0h0C0a0T00U0vsoOy0X0p0Dqyib</code></li>
+</ul>
+
+<h2 id="13-how-do-i-get-the-credentials-for-each-environment">13. How do I get the credentials for each environment?</h2>
+
+<p>There are two environments on the Cielo e-Commerce API: Sandbox and Production.</p>
+
+<ul>
+  <li><strong>Sandbox</strong>: just access https://cadastrosandbox.cieloecommerce.cielo.com.br/ and register. Your credentials will be displayed after the registration.</li>
+  <li><strong>Production</strong>: it is required to contact the Cielo accreditation central and request your credentials. They are sent via e-mail. About the accreditation central, access: https://developercielo.github.io/Guia-de-migracao-1.5x3.0/#suporte-cielo</li>
+</ul>
+
+<h2 id="14-is-it-required-any-proprietary-software-such-as-dlls-to-perform-the-integration">14. Is it required any proprietary software, such as DLLs, to perform the integration?</h2>
+
+<p>No. The absence of proprietary applications is one of the solution’s characteristics: It is not required to install applications on the store’s environment under any circumstances.</p>
+
+<h2 id="15-do-i-have-to-make-an-affiliation-before-testing-the-integration">15. Do I have to make an affiliation before testing the integration?</h2>
+
+<p>It is not required an affiliation to use the Cielo Sandbox. Just access <a href="https://bit.ly/2cHdrzr">Sandbox registration</a> and create a test account. By the end of the registration, you will get a <code class="language-plaintext highlighter-rouge">MerchantId</code> and a <code class="language-plaintext highlighter-rouge">MerchantKey</code>, That will have to be used to authenticate all the requisitions made to the API endpoints.</p>
+
+<h2 id="16-what-kind-of-content-is-sent-on-the-integration">16. What kind of content is sent on the integration?</h2>
+
+<p>To simplify the Cielo e-Commerce API solution to the maximum, the integration is made through JSONs sending on a REST architecture. Each type of message must be sent to an identified feature through path and sent according the appropriate HTTP method:</p>
+
+<ul>
+  <li><strong>POST</strong> - The HTTP POST method is used on features creation or on sending of information that will be processed. For example, on the creation of a transaction.</li>
+  <li><strong>PUT</strong> - The HTTP PUT method is used to update an already existing feature. For example, capture or cancelling of a previously authorized transaction.</li>
+  <li><strong>GET</strong> - The HTTP GET method is used for querying already existing features. For example, transactions query.</li>
+</ul>
+
+<h2 id="17-how-to-test-transactions-with-simulated-payment-methods">17. How to test transactions with simulated payment methods?</h2>
+
+<p>To perform tests on the Cielo e-Commerce API, it is not required to use cards / real payment method.
+Each payment method (Credit, Debit, boleto and online transfer) has a simulated counterpart.</p>
+
+<ul>
+  <li>C. Credit – Just use the Provider “Simulado” and send one of the cards included here: https://developercielo.github.io/Webservice-3.0/#sandbox</li>
+  <li>Boleto - It will be generated an invalid boleto.</li>
+  <li>C. Debit – You will be redirected to a screen where you’ll be able to select the operation result</li>
+  <li>Online transfer – You will be redirected to a screen where you’ll be able to select the operation result</li>
+</ul>
+
+<h2 id="18-is-there-any-rule-for-card-reading">18. Is there any rule for card reading?</h2>
+
+<p>The reading of card data on the environment itself is controlled by rules defined by the security program imposed by the card flags</p>
+
+<ul>
+  <li>For Visa, this program is known as AIS (Account Information Security) PCI. For more information, access: www.cielo.com.br &gt; Serviços &gt; Serviços de Segurança &gt; AIS - Programa de Segurança da Informação, or contact us.</li>
+  <li>For MasterCard, the security program is SDP (Site Data Protection) PCI. For more information, access: http://www.mastercard.com/us/sdp/index.html, or contact us.</li>
+</ul>
+
+<p>Additionally, when meeting the requirements, while on the e-Commerce accreditation the choice by card reading on the store itself must be mentioned.</p>
+
+<h2 id="19-is-it-required-to-use-any-certificate-to-perform-the-connection-to-the-cielo-e-commerce-api">19. Is it required to use any certificate to perform the connection to the Cielo e-Commerce API?</h2>
+
+<p>Yes, it is required to perform the installation of the SSL EV certificate. More information at: https://developercielo.github.io/Webservice-3.0/#o-que-é-certificado-ev-ssl</p>
+
+<h2 id="20-is-it-required-any-security-protocol-for-the-cielo-e-commerce-api-usage">20. Is it required any security protocol for the Cielo e-Commerce API usage?</h2>
+
+<p><strong>It is mandatory the usage of TLS 1.2 on the communication with the API.</strong></p>
+
+<p>SSL, TLS 1.0 and 1.1 are not supported. Integrations using these protocols will not be able to perform transactions.</p>
+
+<h2 id="21-is-there-any-ip-restriction-to-consume-the-api">21. Is there any IP restriction to consume the API?</h2>
+
+<p>There are no IP restrictions or need of PROXY usage to integrate to the Cielo e-Commerce API.</p>
+
+<h2 id="22-how-to-query-sandbox-transactions">22. How to query Sandbox transactions?</h2>
+
+<p>The Sandbox environment does not have a report area, this being required a query via API to visualize transactions in this environment.
+Check how to perform this query in our integration manual: https://developercielo.github.io/Webservice-3.0/#consultando-vendas</p>
+
+<h2 id="23-the-cielo-e-commerce-api-has-sdks-for-what-languages">23. The Cielo e-Commerce API has SDKs for what languages?</h2>
+
+<p>The API has SDKs for the following languages:</p>
+
+<ul>
+  <li>iOS</li>
+  <li>Android</li>
+  <li>Java</li>
+  <li>.net</li>
+  <li>PHP</li>
+  <li>Python</li>
+</ul>
+
+<p>More information at: https://github.com/DeveloperCielo</p>
+
+<h2 id="24-does-the-cielo-e-commerce-api-accept-payments-with-different-currencies-and-international-cards">24. Does the Cielo e-Commerce API accept payments with different currencies and international cards?</h2>
+
+<ul>
+  <li><strong>Currencies</strong>: At the moment, Cielo e-Commerce API only accepts different transactions in Real (R$/BRL).</li>
+  <li><strong>International cards</strong>: Yes, the API accepts international cards, but the transactions are processed in Real (R$/BRL) and installment transactions are declined by the emitting card.</li>
+</ul>
+
+<p><strong>Note</strong>: International cards can not perform installments.</p>
+
+<h2 id="25-will-i-be-able-to-consult-information-about-my-contract-along-with-cielo-tax-amount-deposit-deadline">25. Will I be able to consult information about my contract along with Cielo (Tax, amount deposit deadline)?</h2>
+
+<p>No, data about taxes and charging amounts are not subject to consultation through Cielo e-Commerce API
+These data will be available for consulting through the retailer area on Cielo website or via Cielo support.</p>
+
+<h2 id="26-will-i-be-able-to-perform-advance-payments-through-cielo-e-commerce-api">26. Will I be able to perform advance payments through Cielo e-Commerce API?</h2>
+
+<p>No, Cielo e-Commerce API is only intended to the transaction authorization process and updating online orders data.
+Questions or issues regarding the financial agenda and receivables anticipation must be directed to Cielo support.</p>
+
+<h2 id="27-how-will-my-integration-be-notified-regarding-the-status-changes">27. How will my integration be notified regarding the status changes?</h2>
+
+<p>Status changes will be notified through a POST HTTP directed to the notification URL that must registered by Cielo support.</p>
+
+<h2 id="28-how-can-i-query-data-regarding-my-sales">28. How can I query data regarding my sales?</h2>
+
+<p>It will be possible to query through the API or via Cielo portal:</p>
+<ul>
+  <li>API: Every transaction sent through POST generates an URL where it’s possible to perform a GET, where order data will be returned. More information at: https://developercielo.github.io/Webservice-3.0/#criando-uma-transação-simples</li>
+  <li>Cielo Portal: It is possible to extract reports and search for orders from the Cielo website. More information at: www.cielo.com.br</li>
+</ul>
+
+<h2 id="29-what-is-a-transaction">29. What is a transaction?</h2>
+
+<p>The central element of Cielo e-Commerce is the transaction, created from an HTTP requisition to the Cielo Webservice. The unique identification of a transaction on Cielo is made though the TID field, that is present on the authorization messages return. This field is essential to perform queries, captures and cancelling.</p>
+
+<h2 id="30-what-is-the-deadline-for-an-authorization-to-expire">30. What is the deadline for an authorization to expire?</h2>
+
+<p>The deadline for the capture of a transaction is defined in your Cielo register and depends on your company line of business.
+In case a transaction is not captured within this limit, it ceases to be valid, not being able to captured anymore. The sale status will remain as authorized, but it won’t be subject to be changed.</p>
+
+<h2 id="31-is-it-possible-to-perform-a-capture-in-a-moment-after-the-authorization">31. Is it possible to perform a capture in a moment after the authorization?</h2>
+
+<p>An authorized transaction only generates the credit to the commercial establishment when captured. Therefore, every sale that the retailer wants to effect, It’ll be required for him to perform a transaction capture (or confirmation)</p>
+
+<p>For Credit modality sales, this confirmation may occur in two moments:</p>
+
+<ol>
+  <li>Immediately after the authorization (full capture) – it is not required to send a capture requisition, for it is made automatically by Cielo after the transaction authorization. Therefore, it is required to configure the transaction requisition defining the “true” amount to the TAG, as seen on the “Criando uma transação” section.</li>
+  <li>Posteriorly to the authorization (total or partial capture) – As for the second situation, it is required to perform a “posterior capture”, trough a new requisition to the Cielo Webservice to confirm the transaction and receive the sale amount.</li>
+</ol>
+
+<aside class="warning">Attention!<br /><br />On the debit modality there’s no capture option. Every authorized debit transaction is captured automatically.</aside>
+
+<h2 id="32-is-it-possible-to-cancel-a-transaction">32. Is it possible to cancel a transaction?</h2>
+
+<p>The cancelling is used when the retailer decides not to effect the purchase order, being that for stock shortage, withdrawal of consumer purchase, or any other reason. Its use is mainly required if the the transaction is captured, for there will be debit on the holder invoice, in case it isn’t canceled.</p>
+
+<p>If the transaction is only authorized and the store wants to cancel it, the cancelling request is not necessary, for after the capture deadline expires, the amount will not be charged of the buyer and the transaction will be invalidated.</p>
+
+<h2 id="33-what-is-the-difference-between-the-notifications-for-each-payment-method">33. What is the difference between the notifications for each payment method?</h2>
+
+<p>Every alteration on the order status will be notified via notification URL, that must be registered along with Cielo.
+Each payment method has different a status and it may vary depending on the returned information.</p>
+
+<p>Example: Boletos have no return for the payment confirmation. The payment method conciliation must be done by the retailer.</p>
+
+<h1 id="questions-about-features">Questions about features</h1>
+
+<h2 id="1-what-features-have-to-be-enabled-by-cielo-for-the-cielo-e-commerce-api-usage-in-production">1. What features have to be enabled by Cielo for the Cielo e-Commerce API usage in production?</h2>
+
+<p>By default, each retailer using the Cielo e-Commerce API must request Cielo Support the enabling of the following functionalities:</p>
+
+<ul>
+  <li>Recurrence</li>
+  <li>Anti fraud</li>
+  <li>Zero Auth</li>
+  <li>Bins Query</li>
+  <li>Velocity</li>
+  <li>Re attempt</li>
+</ul>
+
+<h2 id="2-what-features-are-available-in-sandbox">2. What features are available in Sandbox?</h2>
+
+<p>Available features in Sandbox:</p>
+
+<ul>
+  <li>Transactions with every payment method</li>
+  <li>Cards tokenization</li>
+  <li>Recurrence</li>
+  <li>Zero Auth</li>
+  <li>Bins Query</li>
+</ul>
+
+<p>Non-available features in Sandbox:</p>
+
+<ul>
+  <li>Anti fraud</li>
+  <li>Velocity</li>
+  <li>Recurrence</li>
+  <li>Registered Boletos</li>
+  <li>Backoffice</li>
+</ul>
+
+<h1 id="recurrence">Recurrence</h1>
+
+<h2 id="1-what-is-the-recurrence">1. What is the Recurrence?</h2>
+
+<p>Recurrence is a feature for establishments that have to regularly charge for your products/services. Recurrence is the periodical transaction execution and pre-scheduled by the retailer or buyer.
+It is a feature highly used for the magazines signatures, tuition, software license, among others.</p>
+
+<h2 id="2-what-are-the-cielo-e-commerce-api-recurrence-types">2. What are the Cielo e-Commerce API recurrence types?</h2>
+
+<p>The Cielo e-Commerce API provides two recurrence structures:</p>
+
+<p>Intelligent Recurrence: The retailer sends a schedule transaction, with the payment and recurrence behavior data the API will replicate the transaction content and will execute it automatically, without the interference of the seller. In this method, there will be made available different features to model the charge according to the business model adopted. Every parameterization is configurable , such as: periodicity, start and end date, attempts quantity and interval.</p>
+
+<p>Own recurrence: In this method, the retailer will have to automatize the transactions sending according to his/her need. The API only recognizes that it is a recurrence transaction, not requiring like the CVV, as mandatory. The entire recurrence periodic execution process becomes a retailer’s role.</p>
+
+<h2 id="3-when-is-a-recurrence-created">3. When is a recurrence created?</h2>
+
+<p>In the smart recurrence case, the recurrence is created on the moment that the first transaction (scheduling transaction) is “authorized”, that is, even if the sale is not captured, future transactions will occur based on the scheduling data.</p>
+
+<p>For own recurrence, the beginning of the recurrence and its scheduling is a retailer’s role.</p>
+
+<h2 id="4-can-i-customize-the-recurrence-interval">4. Can I customize the recurrence interval?</h2>
+
+<p>Yes, it is possible to update the smart recurrence interval, but only for one of the scheduling options available.</p>
+
+<ul>
+  <li>Monthly</li>
+  <li>Bimonthly</li>
+  <li>Quarterly</li>
+  <li>Semiannual</li>
+  <li>Annual</li>
+</ul>
+
+<aside class="notice">OBS: There are no intervals shorter than monthly.</aside>
+
+<h2 id="5-how-does-the-notification-of-new-recurrences-occur">5. How does the notification of new recurrences occur?</h2>
+
+<p>The smart recurrence transactions notification are the same sent to standard transactions. For more information about transactions notification, access: https://developercielo.github.io/Webservice-3.0/#autorizando-a-primeira-recorrência</p>
+
+<h2 id="6-is-it-possible-to-update-a-recurrence-data-if-so-what-data">6. Is it possible to update a recurrence data? If so, what data?</h2>
+
+<p>Yes, on the smart recurrence, it is possible to update a recurrence data via a PUT within the Cielo e-Commerce API. The data subject to modification are:</p>
+
+<ul>
+  <li>Buyer data.</li>
+  <li>Recurrence closure data.</li>
+  <li>Recurrence’s installments number.</li>
+  <li>Recurrence execution interval.</li>
+  <li>Recurrence day.</li>
+  <li>Recurrence Amount.</li>
+  <li>Recurrence payment method data</li>
+</ul>
+
+<h2 id="7-what-are-the-rules-to-update-the-recurrence-interval">7. What are the rules to update the recurrence interval?</h2>
+
+<p><strong>A</strong>.If the new informed day is after the current scheduling day, the recurrence day update will have effect on the next recurrence.</p>
+<ul>
+  <li>Ex.: Today is 5th, and the next occurrence is on 25/05. When I update to the 10th, the next recurrence date will be on 10/05.</li>
+</ul>
+
+<p><strong>B</strong>.If the new informed day is before the current scheduling day, the recurrence day update will only have effect after the next recurrence is successfully executed.</p>
+<ul>
+  <li>Ex.: Today is 5th, and the next recurrence is on 25/05. When I update to the 3rd, the next recurrence date will remain on 25/05, and after it is successfully executed, the next will be scheduled to 03/06.</li>
+</ul>
+
+<p><strong>C</strong>.If the new informed day is before the current scheduling day, but the next recurrence is on the next month, the recurrence day update will have effect on the next recurrence.</p>
+<ul>
+  <li>Ex.: Today is the 5th, and the next recurrence is on 25/09. When I update to the 3rd, the next recurrence date will be on 03/09.</li>
+</ul>
+
+<h1 id="tokenizationprotected-card">Tokenization/Protected card</h1>
+
+<h2 id="1what-is-the-cielo-e-commerce-api-tokenizationprotected-card">1.What is the Cielo e-Commerce API tokenization/protected card?</h2>
+
+<p>It is the platform that allows the secure storage of sensitive credit card data. These data are transformed into an encrypted code called “token”, that will be able to be stored in database. With the platform, the store will be able to offer features like “One click buy” and “Transaction send Re attempt”, always preserving the information integrity and confidentiality.</p>
+
+<h2 id="2when-is-it-possible-to-tokenize-a-card">2.When is it possible to tokenize a card?</h2>
+
+<p>It is possible to tokenize a card in 2 moments:</p>
+
+<ol>
+  <li>On a transaction sending: When scheduling a recurrence or in a standard transaction, but indicate on the technical contract that you wish to save the card.</li>
+  <li>Using a card saving contract available on the technical documentation.</li>
+</ol>
+
+<h2 id="3is-it-required-being-pci-to-store-the-tokens">3.Is it required being PCI to store the Tokens?</h2>
+
+<p>No, to store the tokens is not required being PCI certified.</p>
+
+<h2 id="4is-it-required-to-send-the-cvv-to-perform-a-transaction-only-with-the-token">4.Is it required to send the CVV to perform a transaction only with the token?</h2>
+
+<p>Yes, for a matter of security, the Cielo e-Commerce API demands the CVV sending in case a token is used to transact.</p>
+
+<h1 id="authentication">Authentication</h1>
+
+<h2 id="1what-is-the-authentication">1.What is the authentication?</h2>
+
+<p>The Authentication is a payment flow where the buyer is directed to the card issuing bank for the buyer to be identified as the real holder on the buying moment.</p>
+
+<h2 id="2is-the-authentication-mandatory">2.Is the Authentication mandatory?</h2>
+
+<p>The authentication is only mandatory to debit card, being that an option for retailers that wish to authenticate credit cards.</p>
+
+<h2 id="3is-the-redirecting-mandatory">3.Is the redirecting mandatory?</h2>
+
+<p>Yes, the authentication process requires the buyer to be directed to the bank environment.</p>
+
+<h2 id="4is-it-required-to-enable-the-authentication-in-my-cielo-register">4.Is it required to enable the authentication in my Cielo register?</h2>
+
+<p>Yes, it is required the retailer to contact the Cielo support and request that his/her Affiliation is fit to perform online authentications.</p>
+
+<h2 id="5what-card-brands-are-able-to-perform-the-authentication">5.What card brands are able to perform the authentication?</h2>
+
+<p>Visa and Mastercard</p>
+
+<h1 id="fraud-analysis">Fraud Analysis</h1>
+
+<h2 id="1what-is-the-cielo-fraud-analysis">1.What is the Cielo fraud analysis?</h2>
+
+<p>It is a fraud prevention platform that provides a detailed risk analysis of the on-line purchases. Each transaction is submitted to more than 200 rules, besides the specific rules for each segment, and generate a risk recommendation in approximately two seconds. This process is totally transparent to the card holder. According to pre-established criteria, the request can be automatically accepted, refused or forwarded to manual analysis.</p>
+
+<h2 id="2is-the-fraud-analysis-mandatory">2.Is the fraud analysis mandatory?</h2>
+
+<p>No, the fraud analysis occurs as an addendum to the debit cards authorization process. It’s only required that the Anti fraud is enabled in your Cielo register.
+For more information on how to perform a fraud analysis, access: https://developercielo.github.io/Webservice-3.0/#criando-uma-venda-com-analise-de-fraude</p>
+
+<h2 id="3in-case-there-is-a-chargeback-in-an-analyzed-sale-will-i-be-refunded">3.In case there is a chargeback in an analyzed sale, will I be refunded?</h2>
+
+<p>No, the fraud analysis offered by Cielo only informs what data fled the buy/buyer activities standard, indicating what points present bigger evidences/risk to a supposed fraud.
+The accept decision of the transaction and its capture are the sole responsibility of the retailer.
+In case the chargeback is performed, Cielo does not take responsibility on refunding the retailer.</p>
+
+<h2 id="4can-i-use-my-own-anti-fraud-along-with-cielo-e-commerce-api">4.Can I use my own Anti fraud along with Cielo e-Commerce API?</h2>
+
+<p>No, the retailer can only use Cielo’s own anti fraud as a mean of analysis within the Cielo e-Commerce API.</p>
+
+<h1 id="zero-auth">Zero Auth</h1>
+
+<h2 id="1what-is-zero-auth">1.What is Zero Auth?</h2>
+
+<p>Zero Auth is a Cielo API card validation tool. The validation allows the retailer to know if the card is valid or not before sending the transaction to authorization, anticipating the reason of a probable non-authorization.</p>
+
+<h2 id="2what-does-the-zero-auth-do">2.What does the Zero Auth do?</h2>
+
+<p>Zero auth simulates a Cielo authorization, validating data such as:</p>
+
+<ul>
+  <li>If the card is valid along with the issuing bank</li>
+  <li>If the card has available limit</li>
+  <li>If the card works in Brazil</li>
+  <li>If the card number is correct</li>
+  <li>If the CVV is valid</li>
+</ul>
+
+<h2 id="3what-does-zero-auth-not-do">3.What does Zero Auth not do?</h2>
+
+<p>Zero Auth does not inform:</p>
+
+<ul>
+  <li>Credit card limit</li>
+  <li>Information about the holder</li>
+  <li>Inform data about a specific card</li>
+</ul>
+
+<h2 id="4in-what-cards-does-zero-auth-work">4.In what cards does Zero Auth work?</h2>
+
+<p>Only in MasterCard and Visa credit cards.</p>
+
+<h2 id="5how-to-integrate-to-zero-auth">5.How to integrate to Zero Auth?</h2>
+
+<p>Zero Auth is a feature provided only to a few Cielo retailers. To know more about the integration mode, contact the Cielo e-Commerce Support.</p>
+
+<h1 id="gateways-integration">Gateways Integration</h1>
+
+<h2 id="1i-use-a-payment-gateway-can-i-use-the-cielo-e-commerce-api">1.I use a payment Gateway. Can I use the Cielo e-Commerce API?</h2>
+
+<p>Yes, but it is required that your Gateway is integrated to Cielo e-Commerce API and has your access credentials (MerchantKey and MerchantID)</p>
+
+<h2 id="2how-is-the-payment-gateway-able-to-integrate">2.How is the payment gateway able to integrate?</h2>
+
+<p>Using the same Cielo retailer standard integration, however the Gateway will need to have the retailer credentials to perform payment authorizations.</p>
+
+</div>
+
+
+            <div class="footer-conteudo">
+    <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+            <img src="https://developercielo.github.io/en/assets/images/icon-doubt.svg" width="55px" height="53px" alt="Need Help?">
+    </div>
+
+    <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+        <h2>Need Help?</h2>
+        <p>If you didn't find your answer, <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte">send us a message</a>.</p>
+    </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a title="Toggle left column" class="hamburger">
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://desenvolvedores.cielo.com.br" target="_blank">
+        <img src="https://developercielo.github.io/en/assets/images/logo.png" alt="Documentações e tutoriais" style="width: 60%; margin-left: 20%">
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+        
+        <div class="toc-footer">
+            <h2 class="no-toc toc-footer-title">Complementary materials</h2>
+            
+
+            
+            
+            
+
+            <ul class="toc-footer">
+            
+                
+                    
+                    <li><a href="https://developercielo.github.io/en/tutorial/tutoriais-3-0" title="The purpose of this document is to guide the retailer on how to access the Backoffice of the Cielo e-Commerce API. Describing the functionalities, the methods to be used, listing necessary information and providing examples.">Tutorials</a></li>
+                
+            
+                
+            
+                
+                    
+                    <li><a href="https://developercielo.github.io/en/tutorial/sdks-cielo" title="Cielo e-Commerce API SDKs list">SDKs</a></li>
+                
+            
+            </ul>
+        </div>
+        
+
+    <div class="toc-contact">
+      <div class="contact">
+        <a title="Contact" href="https://devcielo.zendesk.com/">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <span>Contact</span>
+        </a>
+      </div>
+      <div class="github">
+        <a title="GitHub" href="https://github.com/developercielo">
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/en/assets/bundles/js/bundle.min.js"></script>
+        <script>
+            
+            var selectors = 'h1';
+            
+        </script>
+
+        
+        <script src="https://developercielo.github.io/en/assets/bundles/js/search.min.js"></script>
+        
+
+        
+
+        <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:674586,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    </body>
+</html>
