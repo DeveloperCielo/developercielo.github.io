@@ -1,0 +1,4505 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="theme-color" content="#00aeef" />
+  <meta http-equiv="Content-Language" content="en" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     EDI - Electronic Statement &middot; Documentações e tutoriais 
+  </title>
+
+  <link rel="shortcut icon" href="https://developercielo.github.io/en/assets/favicon.ico" />
+
+  <!-- CSS -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500"
+    rel="stylesheet"
+    media="none"
+    onload="if(media!='all')media='all'"
+  />
+  <script async src="https://use.fontawesome.com/3ae06f1030.js"></script>
+
+  <link
+    rel="stylesheet"
+    href="https://developercielo.github.io/en/assets/bundles/css/bundle.min.css"
+  />
+
+   
+  <link
+    rel="alternate"
+    hreflang="pt"
+    href="https://developercielo.github.io/en/tutorial/edi-extrato-eletronico"
+  />
+    
+  <link
+    rel="alternate"
+    hreflang="en"
+    href="https://developercielo.github.io/en/en/tutorial/edi-extrato-eletronico"
+  />
+   
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="https://developercielo.github.io/en/atom.xml"
+  />
+</head>
+
+    <body>
+        
+        <div class="content-container no-dark-box">
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://devcielo.zendesk.com/hc/pt-br#suporte" class="help">Help</a>
+
+                            
+                            <div class="lang">
+                                <span>Languages</span>
+
+                                
+                                    
+                                    <a href="https://developercielo.github.io/tutorial/edi-extrato-eletronico">
+                                    
+
+                                        <img alt="Português" src="https://developercielo.github.io/en/assets/images/pt.png"/>
+                                    </a>
+                                
+                                    
+                                    <a href="https://developercielo.github.io/en/tutorial/edi-extrato-eletronico">
+                                    
+
+                                        <img alt="English" src="https://developercielo.github.io/en/assets/images/en.png"/>
+                                    </a>
+                                
+                            </div>
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="https://developercielo.github.io/en/">Home</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/en/tutorial/edi-extrato-eletronico">EDI - Electronic Statement</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post"><h1 id="introduction">Introduction</h1>
+
+<p>This API makes possible to register groups and maintain their registration to receive Electronic Data Interchange (EDI) files</p>
+
+<h1 id="description">Description</h1>
+
+<p>The Electronic Statement is a service provided by Cielo to merchants that need an automatic in the reconciliation process. Through it, information is transmitted in a standardized manner, with no manual intervention via SFG channel (sterling file gateway), enabling agile and secure traffic of information/data. The macro flow of the service is as follows:</p>
+
+<h2 id="benefits">Benefits</h2>
+
+<ul>
+  <li>Enables automated accounting and financial reconciliation</li>
+  <li>Increased agility and operational efficiency</li>
+  <li>Integration with the sales automation</li>
+  <li>Security in receiving information</li>
+  <li>Specialized support</li>
+</ul>
+
+<h1 id="consent-flow">Consent Flow</h1>
+
+<h2 id="step-1---login">Step 1 - Login</h2>
+
+<p>1 - The partner redirects the client to <code class="language-plaintext highlighter-rouge">{cielo-login-url}</code>. <br />
+2 - The customer enters with their credentials and clicks on ‘Login’. <br />
+3 - Cielo shows the authorization terms and the customer approves this access by clicking on ‘Allow Access<code class="language-plaintext highlighter-rouge">.
+4 - Cielo redirects the customer to the partner again at </code>{partner-call-back-url}`. <br /></p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/fluxo1_login1.jpg" alt="Login and Access Grant" /></p>
+
+<blockquote>
+  <p>What is cielo-login-url?</p>
+</blockquote>
+
+<p>https://<code class="language-plaintext highlighter-rouge">{base-login-url}</code>?response_type=code&amp;<code class="language-plaintext highlighter-rouge">client_id={client_id}</code>&amp;<code class="language-plaintext highlighter-rouge">redirect_uri={redirect_uri}</code>&amp;<code class="language-plaintext highlighter-rouge">scope={scope}&amp;</code>state={state}`</p>
+
+<ul>
+  <li><strong>base-login-url:</strong> Base URL that changes by the environment, will be sent at design time</li>
+  <li><strong>response_type:</strong> The value must be fixed “code”</li>
+  <li><strong>client_id:</strong> Customer identifier, will be sent by Cielo at project time</li>
+  <li><strong>redirect_uri:</strong> Partner URL for Cielo to redirect the user when the login process ends, or if there is an error in the process</li>
+  <li><strong>scope:</strong> A comma-separated list of the APIs that the partner wants to access, the possible scopes will be sent by API.</li>
+  <li><strong>state:</strong> A value that the customer wants to receive in return to maintain the state between the request and the return</li>
+</ul>
+
+<blockquote>
+  <p>What is partner-callback-url?</p>
+</blockquote>
+
+<p>https://<code class="language-plaintext highlighter-rouge">{partner-callback-url}</code>?code=<code class="language-plaintext highlighter-rouge">{code}</code>&amp;state=<code class="language-plaintext highlighter-rouge">{state}</code></p>
+
+<ul>
+  <li><strong>partner-callback-url:</strong> The partner URL will be redirected when the login process ends.</li>
+  <li><strong>code:</strong> The authorization code generated by Cielo. With this code the partner will be able to exchange for an access_token to make calls on behalf of the customer.</li>
+  <li><strong>state:</strong> The same amount that the partner sent in the requisition.</li>
+</ul>
+
+<h2 id="step-2---requesting-an-access-token">Step 2 - Requesting an Access Token</h2>
+
+<ul>
+  <li>The partner service requests an <code class="language-plaintext highlighter-rouge">access_token</code>.</li>
+  <li>Cielo returns an <code class="language-plaintext highlighter-rouge">acess_token</code>, a<code class="language-plaintext highlighter-rouge"> refresh_token</code> and an <code class="language-plaintext highlighter-rouge">expiration_time</code>.</li>
+</ul>
+
+<h3 id="request">Request</h3>
+
+<blockquote>
+  <p><strong>POST</strong> {cielo-api-base-url}/consent/v1/oauth/access-token</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Authorization</strong></td>
+        <td>Basic <em>Base64(client_id do parceiro concatenado com “:” e o client_secret codificado em base64)</em></td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/access-token' \
+--header 'Basic Base64'
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "grant_type": "authorization_code",
+    "code": "{}"
+}'
+
+</code></pre></div></div>
+
+<h3 id="response">Response</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+"access_token": "{access_token}",
+"refresh_token": "{refresh_token}",
+"token_type": "access_token",
+"expires_in": {expiration_time}
+}
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">access_token</code></td>
+      <td>The access_token to call Cielo’s APIs.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">refresh_token</code></td>
+      <td>When the access_token expires, the partner can request a new access_token using this refresh_token.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">expiration_time</code></td>
+      <td>O tempo de expiração do access_token em milisgundos.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="observações">Observações</h3>
+
+<ul>
+  <li>The authorization_code needs to be replaced with an access_token in less than 10 minutes.</li>
+  <li>This type of access_token is mandatory to call APIs that return sensitive customer data.</li>
+  <li>The partner needs to store access_token and refresh_token in a safe place.</li>
+  <li>When the access_token expires, the partner will no longer be able to call the APIs until they request a new acess_token using the refresh_token flow.</li>
+  <li>The acess_token generated in this flow will be unique per Cielo customer, as it must be approved by the customer.</li>
+  <li>The partner is NOT able to generate an access_token without the customer’s consent.</li>
+  <li>The partner is NOT able to use the authorization code, received in the first step, more than once.</li>
+</ul>
+
+<h2 id="step-3---requesting-the-apis">Step 3 - Requesting the APIs</h2>
+
+<p>At this point, the partner will be able to call Cielo’s APIs without the need for customer approval, as this has already been granted.</p>
+
+<p>The only requirement to call Cielo’s APIs is to send the following HTTP header:
+** Authorization: Bearer {access_token} ** In all calls to the APIs.</p>
+
+<ul>
+  <li>The access_token was obtained in the second step</li>
+</ul>
+
+<h3 id="step-31---updating-an-access-token">Step 3.1 - Updating an Access Token</h3>
+
+<blockquote>
+  <ol>
+    <li>The partner calls the service <code class="language-plaintext highlighter-rouge">refresh_token</code>.</li>
+    <li>Cielo returns a new <code class="language-plaintext highlighter-rouge">access_token</code>, a new<code class="language-plaintext highlighter-rouge"> refresh_token</code> and a new <code class="language-plaintext highlighter-rouge">expiration_time</code>.</li>
+  </ol>
+</blockquote>
+
+<p>The response data will be the same as in step 2 when the partner requests an acess_token, however all data returned is new and needs to be stored in place of the old ones.</p>
+
+<h4 id="request-1">Request</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/access-token' \
+--header 'Basic Base64'
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "grant_type": "refresh_token",
+    "refresh_token": "{}"
+}'
+
+</code></pre></div></div>
+
+<p>A point of attention in the request because now the partner needs to send <code class="language-plaintext highlighter-rouge">grant_type</code> as<code class="language-plaintext highlighter-rouge"> refresh_token</code> and in the <code class="language-plaintext highlighter-rouge">refresh_token</code> field a valid<code class="language-plaintext highlighter-rouge"> refresh_token</code> should be sent (and no longer an access_token).</p>
+
+<h4 id="response-1">Response</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+"access_token": "{access_token}",
+"refresh_token": "{refresh_token}",
+"token_type": "access_token",
+"expires_in": {expiration_time}
+}
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">access_token</code></td>
+      <td>The access_token to call Cielo’s APIs.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">refresh_token</code></td>
+      <td>When the access_token expires, the partner can request a new access_token using this refresh_token.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">expiration_time</code></td>
+      <td>O tempo de expiração do access_token em milisgundos.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="errors">Errors</h3>
+
+<p>If an error occurs on the Cielo side, the customer will be redirected to the partner’s call-back URL with the error parameter in the URL, for example https: // {partner-callback-url}? Error = {error}.</p>
+
+<p>Possible values for {error}:</p>
+
+<ul>
+  <li><strong>lid_request:</strong> The request is missing some mandatory parameter, or it has an invalid parameter, or any other possibility that makes the URL incorrect.</li>
+  <li><strong>unauthorized_client:</strong> The partner is not authorized to make a request using this method.</li>
+  <li><strong>access_denied:</strong> The resource owner or authorization server denied the request.</li>
+  <li><strong>unsupported_response_type:</strong> The authorization server does not support obtaining an authorization code using this method.</li>
+  <li><strong>invalid_scope:</strong> The scope is invalid, unknown or malformed.</li>
+  <li><strong>server_error:</strong> The authorization server encountered an unexpected condition and is unable to complete this request. (This error is necessary because it is not possible to return an HTTP status code 500 Internal Server Error via HTTP redirect)</li>
+  <li><strong>temporarily_unavailable:</strong> The authorization server is unable to handle the request due to temporary overhead or is undergoing maintenance. (This error is necessary as it is not possible to return an HTTP Status 503 Service Unavailable to the partner via HTTP redirect)</li>
+</ul>
+
+<blockquote>
+  <p>Optionally, another parameter <code class="language-plaintext highlighter-rouge">error_description</code> can be returned with a detail of the error, just plain text.</p>
+</blockquote>
+
+<h3 id="note">Note</h3>
+
+<ul>
+  <li>All tokens (access_token and refresh_token) must be stored in a safe place.</li>
+  <li>The partner needs to start a new concession flow if they lose the tokens or both expire (The refresh_token expires 90 days from generation).</li>
+  <li>If you generate a new refresh_token it has another 90 days from the generation to expire.</li>
+  <li>The partner needs to start a new concession flow for each Cielo client that the partner wants to consult the data.</li>
+</ul>
+
+<h1 id="environment">Environment</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Environment</th>
+      <th>URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Sandbox</td>
+      <td>https://api2.cielo.com.br/sandbox/edi-api/v2/</td>
+    </tr>
+    <tr>
+      <td>Homologation</td>
+      <td>https://apihom-cielo.sensedia.com/edi-api/v2/</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="collection">Collection</h1>
+
+<p>We make the Collections used to perform all API operations available. You only need to configure the URL and credentials.</p>
+
+<p><a href="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ONBOARDING_EDI_CIELO_PARA_CONCILIADORAS.postman_collection.zip">Collections Download</a></p>
+
+<h1 id="operations">Operations</h1>
+
+<h2 id="post-register-merchant-id"><strong>POST</strong> Register Merchant ID</h2>
+
+<p>Register Merchant ID (just one, a list or all), based on a Entity Number.</p>
+
+<h3 id="request-2">Request</h3>
+
+<blockquote>
+  <p><strong>POST</strong> /edi/registers</p>
+
+  <p><strong>Headers</strong></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Authorization</strong></td>
+        <td>Bearer + access_token</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+  "mainMerchantId": "9999111222",
+  "merchants": [
+    "9999111111",
+    "9999111333"
+  ],
+  "merchantEMail": "customer@customer.com",
+  "type": [
+    "SELL"
+  ]
+}
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">mainMerchantId</code></td>
+      <td>The most usual way to retrieve an EDI register in the company</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">merchants</code></td>
+      <td>List representing the merchant codes registered. Example: List [ “9999111111”, “9999111333” ]</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">status</code></td>
+      <td>Branch is available ou unavailable</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">type</code></td>
+      <td>List representing TO BE state of conciliation file type. At least one of these files are required: SELL, PAYMENT, ANTECIPATION_CIELO</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-2">Response</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+  "legalEntityNumber": 1234567890,
+  "mainMerchantId": 2008983,
+  "registerID": 12345,
+  "merchants": [
+    823958412384701,
+    679809436576210
+  ],
+  "type": [
+    "SELL"
+  ],
+  "status": "PROCESSING"
+}
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">legalEntityNumber</code></td>
+      <td>Brazilian entity number. CPF por person and CNPJ for legal person</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">mainMerchantId</code></td>
+      <td>The most usual way to retrieve an EDI register in the company</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">registerID</code></td>
+      <td>The same one provided by /edi/registers.</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">merchants</code></td>
+      <td>List representing the merchant codes registered. Example: List [ “9999111111”, “9999111333” ]</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">type</code></td>
+      <td>List representing TO BE state of conciliation file type. At least one of these files are required: SELL, PAYMENT, ANTECIPATION_CIELO</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">status</code></td>
+      <td>Branch is available ou unavailable</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="get-retrieve-status"><strong>GET</strong> Retrieve status</h2>
+
+<p>Retrieve the EDI registration status.</p>
+
+<h3 id="response-3">Response</h3>
+
+<blockquote>
+  <p><strong>GET</strong> /edi/registers/{registerID}</p>
+
+  <p><strong>Headers</strong></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Authorization</strong></td>
+        <td>Bearer + access_token</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+  "legalEntityNumber": "01234567890",
+  "registerID": 12345,
+  "merchants": [
+    9999222111,
+    9999222222
+  ],
+  "status": "PROCESSING"
+}
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">legalEntityNumber</code></td>
+      <td>Brazilian entity number. CPF por person and CNPJ for legal person</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">registerID</code></td>
+      <td>The same one provided by /edi/registers.</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">merchants</code></td>
+      <td>List representing the merchant codes registered. Example: List [ “9999111111”, “9999111333” ]</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">status</code></td>
+      <td>Branch is available ou unavailable</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="get-consult-register-merchant-id"><strong>GET</strong> Consult Register Merchant ID</h2>
+
+<p>Consult Merchant ID based on a Register ID or a Main Merchant ID.</p>
+
+<h3 id="response-4">Response</h3>
+
+<blockquote>
+  <p><strong>GET</strong> /edi</p>
+
+  <p><strong>Headers</strong></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Authorization</strong></td>
+        <td>Bearer + access_token</td>
+      </tr>
+      <tr>
+        <td><strong>registerID</strong></td>
+        <td>Registration ID provided by /edi/registers when registering. Can be used in place of mainMerchantID if preferred (only one needs to be informed).</td>
+      </tr>
+      <tr>
+        <td><strong>mainMerchantID</strong></td>
+        <td>Main Customer ID. The most usual way to retrieve an EDI register in the company. Can be used instead of registerID mainly in cases of registration not performed by /edi/registers.</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+  "legalEntityNumer": "12314314",
+  "mainMerchantId": 9999111222,
+  "registerID": 12345,
+  "merchants": [
+    9999111111,
+    9999111333
+  ],
+  "type": [
+    "SELL"
+  ],
+  "acknowledge": "COMPLETED"
+}
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">legalEntityNumber</code></td>
+      <td>Brazilian entity number. CPF por person and CNPJ for legal person</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">mainMerchantId</code></td>
+      <td>The most usual way to retrieve an EDI register in the company</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">registerID</code></td>
+      <td>The same one provided by /edi/registers.</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">merchants</code></td>
+      <td>List representing the merchant codes registered. Example: List [ “9999111111”, “9999111333” ]</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">type</code></td>
+      <td>List representing TO BE state of conciliation file type. At least one of these files are required: SELL, PAYMENT, ANTECIPATION_CIELO</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">acknowledge</code></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="put-update-register-merchant-id"><strong>PUT</strong> Update Register Merchant ID</h2>
+
+<p>Update Merchant ID based on a Register ID or a Main Merchant ID.</p>
+
+<h3 id="request-3">Request</h3>
+
+<blockquote>
+  <p><strong>PUT</strong> /edi</p>
+
+  <p><strong>Headers</strong></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Authorization</strong></td>
+        <td>Bearer + access_token</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+  "registerID": "string",
+  "mainMerchantId": "9999222333",
+  "merchants": [
+    "9999222111",
+    "9999222222"
+  ],
+  "type": [
+    "SELL"
+  ]
+}
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">registerID</code></td>
+      <td>The same one provided by /edi/registers.</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">mainMerchantId</code></td>
+      <td>The most usual way to retrieve an EDI register in the company</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">merchants</code></td>
+      <td>List representing the merchant codes registered. Example: List [ “9999111111”, “9999111333” ]</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">type</code></td>
+      <td>List representing TO BE state of conciliation file type. At least one of these files are required: SELL, PAYMENT, ANTECIPATION_CIELO</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response-5">Response</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+  "legalEntityNumber": "01234567890",
+  "mainMerchantId": 9999111222,
+  "registerID": 12345,
+  "merchants": [
+    9999222333,
+    9999111222
+  ],
+  "type": [
+    "SELL"
+  ]
+}
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">legalEntityNumber</code></td>
+      <td>Brazilian entity number. CPF por person and CNPJ for legal person</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">mainMerchantId</code></td>
+      <td>The most usual way to retrieve an EDI register in the company</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">registerID</code></td>
+      <td>The same one provided by /edi/registers.</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">merchants</code></td>
+      <td>List representing the merchant codes registered. Example: List [ “9999111111”, “9999111333” ]</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">type</code></td>
+      <td>List representing TO BE state of conciliation file type. At least one of these files are required: SELL, PAYMENT, ANTECIPATION_CIELO</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="delete-delete-register-merchant-id"><strong>DELETE</strong> Delete Register Merchant ID</h2>
+
+<p>Delete MerchantID based on a Register ID or a Main Merchant ID.</p>
+
+<h3 id="response-6">Response</h3>
+
+<blockquote>
+  <p><strong>DELETE</strong> /edi</p>
+
+  <p><strong>Headers</strong></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Authorization</strong></td>
+        <td>Bearer + access_token</td>
+      </tr>
+      <tr>
+        <td><strong>registerID</strong></td>
+        <td>Registration ID provided by /edi/registers when registering. Can be used in place of mainMerchantID if preferred (only one needs to be informed).</td>
+      </tr>
+      <tr>
+        <td><strong>mainMerchantID</strong></td>
+        <td>Main Customer ID. The most usual way to retrieve an EDI register in the company. Can be used instead of registerID mainly in cases of registration not performed by /edi/registers.</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+  "legalEntityNumer": "12314314",
+  "mainMerchantId": 9999111222,
+  "registerID": 12345,
+  "acknowledge": "COMPLETED"
+}
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">legalEntityNumber</code></td>
+      <td>Brazilian entity number. CPF por person and CNPJ for legal person</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">mainMerchantId</code></td>
+      <td>The most usual way to retrieve an EDI register in the company</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">registerID</code></td>
+      <td>The same one provided by /edi/registers.</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">acknowledge</code></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="get-list-of-branches"><strong>GET</strong> List of branches</h2>
+
+<p>Performs the list of customers below the informed access_token. The filter can be used to list only those available or unavailable. Unavailable means that the branch already participates in another register. In the register and editing services, there is validation to allow only those available to be informed.</p>
+
+<h3 id="response-7">Response</h3>
+
+<blockquote>
+  <p><strong>GET</strong> /edi/merchantgroup</p>
+
+  <p><strong>Headers</strong></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Authorization</strong></td>
+        <td>Bearer + access_token</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{
+  "legalEntityNumber": "string",
+  "branches": [
+    {
+      "merchantID": "9999111222",
+      "legalEntityNumber": "01234567890",
+      "businessName": "V",
+      "status": "UNAVAILABLE"
+    }
+  ]
+}
+
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">legalEntityNumber</code></td>
+      <td>Brazilian entity number. CPF por person and CNPJ for legal person</td>
+      <td>String</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">branches</code></td>
+      <td>List of branches</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">businessName</code></td>
+      <td>Legal business name</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">status</code></td>
+      <td>Branch is available ou unavailable</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="types-of-electronic-statements">Types Of Electronic Statements</h1>
+
+<h2 id="table-a---file-types">Table A - File Types</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>File Type</th>
+      <th>Information</th>
+      <th>Record Type</th>
+      <th>Objective</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>03 Detailed Sales With Future Installments</strong></td>
+      <td>Sales completed on the previous day, adjustments, and declined transactions, with payment schedule.<br /> All the first sales installments completed on the previous day.</td>
+      <td>0 - Header <br /> 1 - Sales Summary (with the first installment) <br /> 2 - Detailed Sales <br /> 1 - Sales Summary (payment schedule for the second and remaining installments) <br /> 9 - Trailer</td>
+      <td>Check whether all effective sales were received by Cielo and payment forecasts.</td>
+    </tr>
+    <tr>
+      <td><strong>04 Detailed Payments</strong></td>
+      <td>Amounts paid into the merchant bank account on the day the Electronic Statement is sent out. <br /> Transactions offset, as anticipated or transferred previously and payments of outstanding installments.</td>
+      <td>0 - Header <br />1 - Sales Summary <br />2 - Detailed Sales <br />9 - Trailer</td>
+      <td>Check the origin of the payment received (type of sale, card brand, and client/merchant that made the sale). <br />Reconciliation with Merchant Bank account.</td>
+    </tr>
+    <tr>
+      <td><strong>06 Detailed Prepayment Cielo</strong></td>
+      <td>Prepayment operation of the day before the file is sent out, with the respective summary and details.</td>
+      <td>0 - Header <br />5 - Prepayment Operation <br />6 - Sales Summary <br />2 - Prepayment Detailed Sales <br />7 - Withheld prepayment by debits - Sales Summary 2 - Detailed Sales and Debits <br />9 - Trailer <br />Note: Record type 5 will be displayed for each merchant bank account.</td>
+      <td>Prepare cash flow, considering the prepayment amounts received.</td>
+    </tr>
+    <tr>
+      <td><strong>07 Assignment Of Receivables</strong></td>
+      <td>Assignment operation conducted by the merchant bank account (only for Bradesco) on the day before the file is sent out. <br /> The commercial terms negotiated or the indicator of the installment assigned is not shown.</td>
+      <td>0 - Header <br /> 5 - Assignment of Receivables <br /> 6 - Assignment Sales Summary <br /> 9 - Trailer <br /> Note: Record type 5 will be displayed for each merchant bank account. <br />Prepare cash flow, considering the amounts received assignment operation.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>09 Remaining Balance</strong></td>
+      <td>Cielo’s future receivables, including the transactions conducted, captured, and processed, debit and credit sales, and installment transactions that were not settled in the previous month.<br /> The file is made available monthly.</td>
+      <td>0 - Header <br /> 1 - Sales Summary <br /> 9 - Trailer</td>
+      <td>Update the forward-receipts with appropriate rebates Prepayments and Adjustments. <br /> It should not be used for reconciliation.</td>
+    </tr>
+    <tr>
+      <td><strong>10 Detailed Prepayment Alelo</strong></td>
+      <td>Prepayment operation of the day before the file is sent out, with the respective summary and details.</td>
+      <td>0 - Header <br /> 5 - Prepayment Operation <br /> 6 - Sales Summary <br />2 - Prepayment Detailed Sales<br />7 - Withheld prepayment by debits - Sales Summary <br /> 2 - Detailed Sales and Debits <br /> 9 - Trailer <br /> Note: Record type 5 will be displayed for each merchant bank account.</td>
+      <td>Prepare cash flow, considering the prepayment amounts received.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="layout-for-the-types-of-records">Layout For The Types Of Records</h2>
+
+<h3 id="record-0---header">Record 0 - Header</h3>
+
+<p>It identifies the header of each file, by chain of electronic statement*.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Start</th>
+      <th>End</th>
+      <th>Size</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Data Editing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Record type</td>
+      <td>Constant 0 : it identifies record type header (beginning of the file)</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>011</td>
+      <td>10</td>
+      <td>Num.</td>
+      <td>Merchant’s head chain</td>
+      <td>Number of the Cielo merchant registered in the VAN to receive the file.</td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>019</td>
+      <td>8</td>
+      <td>Num.</td>
+      <td>Processing date</td>
+      <td>YYYYMMDD date on which the file was generated.</td>
+    </tr>
+    <tr>
+      <td>020</td>
+      <td>027</td>
+      <td>8</td>
+      <td>Num.</td>
+      <td>Initial period</td>
+      <td>YYYYMMDD initial period.</td>
+    </tr>
+    <tr>
+      <td>028</td>
+      <td>035</td>
+      <td>8</td>
+      <td>Num.</td>
+      <td>End period</td>
+      <td>YYYYMMDD end period.</td>
+    </tr>
+    <tr>
+      <td>036</td>
+      <td>042</td>
+      <td>7</td>
+      <td>Num.</td>
+      <td>Sequence</td>
+      <td>Sequential file number. In case of recovery, this data will be sent as 9999999.</td>
+    </tr>
+    <tr>
+      <td>043</td>
+      <td>047</td>
+      <td>5</td>
+      <td>Alpha.</td>
+      <td>Acquirer</td>
+      <td>Constant Cielo.</td>
+    </tr>
+    <tr>
+      <td>048</td>
+      <td>049</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Statement option</td>
+      <td>Table I (attachment)</td>
+    </tr>
+    <tr>
+      <td>050</td>
+      <td>050</td>
+      <td>1</td>
+      <td>Alpha.</td>
+      <td>Transmission</td>
+      <td>Cielo.</td>
+    </tr>
+    <tr>
+      <td>051</td>
+      <td>070</td>
+      <td>20</td>
+      <td>Alphanum.</td>
+      <td>Inbox</td>
+      <td>Inbox.</td>
+    </tr>
+    <tr>
+      <td>071</td>
+      <td>073</td>
+      <td>3</td>
+      <td>Num.</td>
+      <td>Layout version</td>
+      <td>Constant 013.</td>
+    </tr>
+    <tr>
+      <td>074</td>
+      <td>250</td>
+      <td>177</td>
+      <td>Alphanum.</td>
+      <td>Cielo use Unwritten.</td>
+      <td>Reserved for Cielo</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><strong>(*)</strong> register that allows the inclusion of all establishments controlled by the customer, regardless of the type of payment (centralized, decentralized, individual). All establishment numbers must be reported in the registration form.</li>
+</ul>
+
+<h3 id="record-1---sales-summary">Record 1 - Sales Summary</h3>
+
+<p>Group of sales, adjustments, or service charges. It enables the identification of the origin of the entries and the possible maintenance actions.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Start</th>
+      <th>End</th>
+      <th>Size</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Data Editing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Record type</td>
+      <td>Constant 1 - It identifies the type of sales summary record.</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>011</td>
+      <td>10</td>
+      <td>Num.</td>
+      <td>Submitting merchant</td>
+      <td>Number of the merchant or branch where the sale was made.</td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>018</td>
+      <td>7</td>
+      <td>Num.</td>
+      <td>Sales summary number</td>
+      <td>Number of the sales summary. It contains information that refers to a group of sales on a given date.</td>
+    </tr>
+    <tr>
+      <td>019</td>
+      <td>020</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Installment</td>
+      <td>For installment transactions, it will be formatted with the number of the installment being cleared on the date the file is sent out. For a non installment transaction, it will be left blank.</td>
+    </tr>
+    <tr>
+      <td>021</td>
+      <td>021</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Filler</td>
+      <td><code class="language-plaintext highlighter-rouge">"/"</code> - for installment transactions. <br /> <code class="language-plaintext highlighter-rouge">"a"</code> - acceleration of installments. <br /> <code class="language-plaintext highlighter-rouge">" "</code> - all other cases.</td>
+    </tr>
+    <tr>
+      <td>022</td>
+      <td>023</td>
+      <td>2</td>
+      <td>Alphanum.</td>
+      <td>Plan</td>
+      <td>For installment transactions, it will be formatted with the largest number of installments found for that group of sales. If the sales summary contains sales in 3, 4, or 6 installments, it will contain 6. In the case of acceleration of installments, it will be formatted with the largest accelerated installment. Example: (positions 019 to 023) <br /> <strong>02A02</strong> it shows acceleration from installment 02 to 02; that is, only one installment. <br /> <strong>03A08</strong> it shows acceleration from installment 03 to 08 in the sales plan; that is, 6 installments were accelerated. <br /> For a non installment transaction, it will be left blank.</td>
+    </tr>
+    <tr>
+      <td>024</td>
+      <td>025</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Transaction type</td>
+      <td>This code identifies the transaction - see Table II.</td>
+    </tr>
+    <tr>
+      <td>026</td>
+      <td>031</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Date of submission</td>
+      <td>YYMMDD Date on which the Sale was transmitted to Cielo</td>
+    </tr>
+    <tr>
+      <td>032</td>
+      <td>037</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Scheduled payment date</td>
+      <td>YYMMDD Scheduled payment date. During recovery, it can be updated after the transaction or adjustment is processed.</td>
+    </tr>
+    <tr>
+      <td>038</td>
+      <td>043</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Date on which it is sent out to the merchant bank account.</td>
+      <td>YYMMDD Date on which the payment file was sent out to the bank. During recovery, it can be updated after the transaction or adjustment is processed.</td>
+    </tr>
+    <tr>
+      <td>044</td>
+      <td>044</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the gross amount.</td>
+      <td><code class="language-plaintext highlighter-rouge">+</code> - identifies a credit amount. <br /> <code class="language-plaintext highlighter-rouge">-</code> - identifies a debit amount.</td>
+    </tr>
+    <tr>
+      <td>045</td>
+      <td>057</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Gross amount <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Summation of the sales amounts for Merchant/Sales Summary.</td>
+    </tr>
+    <tr>
+      <td>058</td>
+      <td>058</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign of the administrative fee</td>
+      <td><code class="language-plaintext highlighter-rouge">+</code> - identifies a credit amount. <br /> <code class="language-plaintext highlighter-rouge">-</code> - identifies a debit amount.</td>
+    </tr>
+    <tr>
+      <td>059</td>
+      <td>071</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Amount of the administrative fee <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Amount of the administrative fee deducted on sales.</td>
+    </tr>
+    <tr>
+      <td>072</td>
+      <td>072</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the amount declined</td>
+      <td><code class="language-plaintext highlighter-rouge">+</code> identifies a credit amount.<br /> <code class="language-plaintext highlighter-rouge">-</code> - identifies a debit amount.</td>
+    </tr>
+    <tr>
+      <td>073</td>
+      <td>085</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Amount declined <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>In the case of declines, it will contain the summation of the transactions declined.</td>
+    </tr>
+    <tr>
+      <td>086</td>
+      <td>086</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the net amount</td>
+      <td><code class="language-plaintext highlighter-rouge">+</code> identifies a credit amount. <br /> <code class="language-plaintext highlighter-rouge">-</code> - identifies a debit amount.</td>
+    </tr>
+    <tr>
+      <td>087</td>
+      <td>099</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Net amount<code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Amount of sales, less the amount for administration fee.</td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>103</td>
+      <td>4</td>
+      <td>Alphanum.</td>
+      <td>Bank</td>
+      <td>Code of the bank of the merchant bank account.</td>
+    </tr>
+    <tr>
+      <td>104</td>
+      <td>108</td>
+      <td>5</td>
+      <td>Alphanum.</td>
+      <td>Agency</td>
+      <td>Code of the agency of the merchant bank account.</td>
+    </tr>
+    <tr>
+      <td>109</td>
+      <td>122</td>
+      <td>14</td>
+      <td>Alphanum.</td>
+      <td>Merchant bank account</td>
+      <td>Code of the account of the merchant bank account.</td>
+    </tr>
+    <tr>
+      <td>123</td>
+      <td>124</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Payment status</td>
+      <td>It identifies the status of the credit sent to the merchant bank account on the date the file was generated - see Table III. In recovery, the status is updated according to the submission and the return of payment confirmation by the bank.</td>
+    </tr>
+    <tr>
+      <td>125</td>
+      <td>130</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Number of sales accepted</td>
+      <td>Number of sales accepted in the sales summary.</td>
+    </tr>
+    <tr>
+      <td>131</td>
+      <td>132</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Product Identifier (Disregard)</td>
+      <td>Starting on March 01, 2014, product identifiers are sent in positions 233-235 with three characters.</td>
+    </tr>
+    <tr>
+      <td>133</td>
+      <td>138</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Number of sales declined</td>
+      <td>Number of sales declined in the sales summary.</td>
+    </tr>
+    <tr>
+      <td>139</td>
+      <td>139</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Resale/acceleration identifier</td>
+      <td>It identifies the maintenance actions conducted for installment transactions made by merchant: <br /><code class="language-plaintext highlighter-rouge">R</code> - Resale <br /><code class="language-plaintext highlighter-rouge">A</code> - Acceleration <br /> <code class="language-plaintext highlighter-rouge">""</code> - Blank (no occurrence).</td>
+    </tr>
+    <tr>
+      <td>140</td>
+      <td>145</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Date on which the transaction was captured</td>
+      <td>YYMMDD - Date on which the transaction was captured in financial schedule. During recovery, it can be updated after the transaction or adjustment is processed.</td>
+    </tr>
+    <tr>
+      <td>146</td>
+      <td>147</td>
+      <td>2</td>
+      <td>Alphanum.</td>
+      <td>Origin of adjustment</td>
+      <td>It identifies the type of adjustment - Table V. Completed for the following transactions: <br /> 02 Credit adjustment <br /> 03 Debit adjustment <br /> 04 Cielo Plan</td>
+    </tr>
+    <tr>
+      <td>148</td>
+      <td>160</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Complementary amount</td>
+      <td>Amount withdrawn when product is 36 or amount of Agro Electron for transactions of products 22 23 or 25 presented in Table IV.</td>
+    </tr>
+    <tr>
+      <td>161</td>
+      <td>161</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Financial product identifier</td>
+      <td>Prepayment identifier of the sales summary: <code class="language-plaintext highlighter-rouge">" "</code> Prepayment didn’t happen; <code class="language-plaintext highlighter-rouge">"A"</code> Prepayment with Cielo or Alelo; <code class="language-plaintext highlighter-rouge">"C"</code>Assignment of Receivables with merchant bank.</td>
+    </tr>
+    <tr>
+      <td>162</td>
+      <td>170</td>
+      <td>9</td>
+      <td>Num.</td>
+      <td>Number of the financial operation</td>
+      <td>It identifies the number of the financial operation presented in record type 5 from field 12 to 20, associated with the prepayment sales summary/assigned at Cielo/Alelo or at the bank. It will contain zeros if the sales summary has not happen a prepayment.</td>
+    </tr>
+    <tr>
+      <td>171</td>
+      <td>171</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the prepayment gross amount</td>
+      <td><code class="language-plaintext highlighter-rouge">+</code> identifies a credit amount. <code class="language-plaintext highlighter-rouge">-</code> - identifies a debit amount.</td>
+    </tr>
+    <tr>
+      <td>172</td>
+      <td>184</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Prepayment gross amount <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Prepayment gross amount, provided when happens a prepayment operation. It will contain zero when happen a prepayment operation.</td>
+    </tr>
+    <tr>
+      <td>185</td>
+      <td>187</td>
+      <td>3</td>
+      <td>Num.</td>
+      <td>Card brand code</td>
+      <td>Card Brand Code - see Table VI.</td>
+    </tr>
+    <tr>
+      <td>188</td>
+      <td>209</td>
+      <td>22</td>
+      <td>Num.</td>
+      <td>Exclusive number of the sales summary</td>
+      <td>Exclusive identification number of the sales summary, formatted as follows: <br /> First part (fixed) - 15 fixed digits: it identifies the summary, maintaining its history at Cielo; <br /> Second part (variable) - 07 variable digits: It identifies the changes made in the sales summary</td>
+    </tr>
+    <tr>
+      <td>210</td>
+      <td>213</td>
+      <td>4</td>
+      <td>Num.</td>
+      <td>Administration fee <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Percentage of administration fee applied to the amount of the transaction.</td>
+    </tr>
+    <tr>
+      <td>214</td>
+      <td>218</td>
+      <td>5</td>
+      <td>Num.</td>
+      <td>Fee <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Fee charged per transaction.</td>
+    </tr>
+    <tr>
+      <td>219</td>
+      <td>222</td>
+      <td>4</td>
+      <td>Num.</td>
+      <td>Guarantee fee<code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Percentage of discount applied to Electron post-dated transactions.</td>
+    </tr>
+    <tr>
+      <td>223</td>
+      <td>224</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Capture method</td>
+      <td>See Table VII. If the sale is reprocessed for any reason, the system will send out capture method 06: Manual Capture Method; in this case, disregard the amount provided in the logical number of the terminal.</td>
+    </tr>
+    <tr>
+      <td>225</td>
+      <td>232</td>
+      <td>8</td>
+      <td>Alphanum.</td>
+      <td>Logical number of the terminal</td>
+      <td>Logical number of the terminal in which the sale was made. If the capture number is 06, disregard the logical number of the terminal, since it will be a number used internally by Cielo.</td>
+    </tr>
+    <tr>
+      <td>233</td>
+      <td>235</td>
+      <td>3</td>
+      <td>Num.</td>
+      <td>Product code</td>
+      <td>Code that identifies the product - see Table IV.</td>
+    </tr>
+    <tr>
+      <td>236</td>
+      <td>245</td>
+      <td>10</td>
+      <td>Num.</td>
+      <td>Payment matrix</td>
+      <td>Establishing payment matrix.</td>
+    </tr>
+    <tr>
+      <td>246</td>
+      <td>246</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Resend of payment</td>
+      <td><code class="language-plaintext highlighter-rouge">S</code> - Identifies that this summary is being forwarded in the statement. Disregard payment previously submitted. <code class="language-plaintext highlighter-rouge">N</code> - Does not refer to resend of payment.</td>
+    </tr>
+    <tr>
+      <td>247</td>
+      <td>247</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Concept applied</td>
+      <td>Identifies the concept applied in the summary presented: <br /><code class="language-plaintext highlighter-rouge">" "</code> - Old <br /> <code class="language-plaintext highlighter-rouge">"N"</code> - New</td>
+    </tr>
+    <tr>
+      <td>248</td>
+      <td>249</td>
+      <td>2</td>
+      <td>Alphanum.</td>
+      <td>Group of cards</td>
+      <td>”” - Whites. Service not assigned <br /> 01 - Card issued in Brazil <br /> 02 - Card issued abroad <br /> 03 - MDR by card type - Initial <br /> 04 - MDR by card type - Intermediary <br /> 05 - MDR by card type - Higher <br /></td>
+    </tr>
+    <tr>
+      <td>250</td>
+      <td>250</td>
+      <td>1</td>
+      <td>Alphanum.</td>
+      <td>Cielo use</td>
+      <td>Unwritten. Reserved for Cielo.</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><strong>(*)</strong> Only 2 decimal places should be considered, with no commas, periods, or any other characters.</li>
+</ul>
+
+<h3 id="record-2---detailed-sales">Record 2 - Detailed Sales</h3>
+
+<p>Sales or adjustments of sale summary available in the sales or payment file.
+Pursuant to the security rules, all records containing a card number will show it truncated.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>093</td>
+      <td>098</td>
+      <td>6</td>
+      <td>Alphanum.</td>
+      <td>NSU/DOC</td>
+      <td>Sequential number, also known as DOC (document number), generated at the PDV or POS, which identifies the transaction on the day it was made. This number is not unique and can be repeated. If the sale has been reprocessed, the NSU can be changed.</td>
+    </tr>
+    <tr>
+      <td>099</td>
+      <td>111</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Complementary amount <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Amount withdrawn using the Debit or Agro Electron card, according to the product indicator of the sales summary.</td>
+    </tr>
+    <tr>
+      <td>112</td>
+      <td>113</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Dig - Card</td>
+      <td>Number of digits on the card.</td>
+    </tr>
+    <tr>
+      <td>114</td>
+      <td>126</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Total amount of sale</td>
+      <td>The total amount of the installment transaction.</td>
+    </tr>
+    <tr>
+      <td>127</td>
+      <td>139</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Amount of next installment</td>
+      <td>The amount of the next installments.</td>
+    </tr>
+    <tr>
+      <td>140</td>
+      <td>148</td>
+      <td>9</td>
+      <td>Alphanum.</td>
+      <td>Invoice Number</td>
+      <td>Invoice number for merchants that capture this information in the POS. If not available, it will be left blank.</td>
+    </tr>
+    <tr>
+      <td>149</td>
+      <td>150</td>
+      <td>2</td>
+      <td>Alphanum.</td>
+      <td>Card type</td>
+      <td>Card type code see table XI.</td>
+    </tr>
+    <tr>
+      <td>151</td>
+      <td>152</td>
+      <td>2</td>
+      <td>Alphanum.</td>
+      <td>Group of cards</td>
+      <td>Group of cards code see table X.</td>
+    </tr>
+    <tr>
+      <td>153</td>
+      <td>160</td>
+      <td>8</td>
+      <td>Alphanum.</td>
+      <td>Logical number of the terminal</td>
+      <td>Logical number of the terminal in which the sale was made. When the capture method is 06, disregard this information.</td>
+    </tr>
+    <tr>
+      <td>161</td>
+      <td>162</td>
+      <td>2</td>
+      <td>Alpha.</td>
+      <td>Boarding fee or entrance fee indicator</td>
+      <td>Identification of the transaction referring to the boarding fee or entrance fee:<br /> TX - Boarding fee;<br /> VE - Entrance fee; <br /> Blanks for all other types of transactions.</td>
+    </tr>
+    <tr>
+      <td>163</td>
+      <td>182</td>
+      <td>20</td>
+      <td>Alphanum.</td>
+      <td>Order reference/code</td>
+      <td>Reference or code of the order provided in a electronic commerce transaction.<br /> If not available, it will be left blank</td>
+    </tr>
+    <tr>
+      <td>183</td>
+      <td>188</td>
+      <td>6</td>
+      <td>Num.</td>
+      <td>Transaction time</td>
+      <td>Time of the transaction, presented in HHMMSS format.<br /> This information will only be generated in the sales records of the sale file with the original detailed sales. <br /> For all other cases, this field will contain zeroes</td>
+    </tr>
+    <tr>
+      <td>189</td>
+      <td>217</td>
+      <td>29</td>
+      <td>Num.</td>
+      <td>Exclusive transaction number</td>
+      <td>Exclusive number that identifies each transaction.</td>
+    </tr>
+    <tr>
+      <td>218</td>
+      <td>218</td>
+      <td>1</td>
+      <td>Alpha.</td>
+      <td>Cielo Promo Indicator</td>
+      <td>Identifier for the Cielo Promo Product = “S” . It indicates that the sale is part of a campaign in the Promotions Platform. Otherwise, it will be left blank</td>
+    </tr>
+    <tr>
+      <td>219</td>
+      <td>220</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Entry mode</td>
+      <td>Card entry mode. See table IX.</td>
+    </tr>
+    <tr>
+      <td>221</td>
+      <td>235</td>
+      <td>15</td>
+      <td>Alphanum.</td>
+      <td>Sale code</td>
+      <td>Identifies the sale code. (only new concept).</td>
+    </tr>
+    <tr>
+      <td>236</td>
+      <td>250</td>
+      <td>15</td>
+      <td>Alphanum.</td>
+      <td>Internal Adjustment Code</td>
+      <td>Identifies the grouping code of the settings. (only new concept).</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><strong>(*)</strong> Only 2 decimal places should be considered, with no commas, periods, or any other characters.</li>
+</ul>
+
+<h3 id="record-5---prepayment-operation">Record 5 - Prepayment Operation</h3>
+
+<p>It displays the prepayment conducted at Cielo / Alelo or assignment of receivables (only for the Bradesco) on the day that precedes the generation of the file.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Start</th>
+      <th>End</th>
+      <th>Size</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Data Editing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Record type</td>
+      <td>Constant “5” It identifies the type of record that displays information on a prepayment operation.</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>011</td>
+      <td>10</td>
+      <td>Num.</td>
+      <td>Establishment of payment or submission</td>
+      <td>Number of the merchant or branch where the sale was made.</td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>020</td>
+      <td>9</td>
+      <td>Num.</td>
+      <td>Number of the financial operation</td>
+      <td>Number of the financial operation, also displayed in record type 1, on the date the sales summary is settled.</td>
+    </tr>
+    <tr>
+      <td>021</td>
+      <td>028</td>
+      <td>8</td>
+      <td>Num.</td>
+      <td>Date of credit of the operation</td>
+      <td>YYYYMMDD Payment date of the operation.</td>
+    </tr>
+    <tr>
+      <td>029</td>
+      <td>029</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the gross amount of credit transactions</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifies a credit amount. <br /> <code class="language-plaintext highlighter-rouge">"-"</code> - identifies a debit amount.</td>
+    </tr>
+    <tr>
+      <td>030</td>
+      <td>042</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Gross amount</td>
+      <td>Gross amount of the credit transactions schedule. The gross amount corresponds to the sum of the original net amounts of the sales summary in this schedule.</td>
+    </tr>
+    <tr>
+      <td>043</td>
+      <td>043</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the gross amount of installment transactions.</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifies a credit amount. <br /> <code class="language-plaintext highlighter-rouge">"-"</code> - identifies a debit amount.</td>
+    </tr>
+    <tr>
+      <td>044</td>
+      <td>056</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Gross amount of installment transactions</td>
+      <td>Gross amount of the installment transactions schedule. The amount corresponds to the sum of the original net amounts of the sales summary in this schedule.</td>
+    </tr>
+    <tr>
+      <td>057</td>
+      <td>057</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the gross amount of Post Dated Electron Transactions</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifies a credit amount. <br /><code class="language-plaintext highlighter-rouge">"-"</code> - identifies a debit amount.</td>
+    </tr>
+    <tr>
+      <td>058</td>
+      <td>070</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Gross amount of Post-Dated Electron transactions</td>
+      <td>Gross amount of the Post-Dated Electron transactions schedule. The gross amount corresponds to the sum of the original net amounts of the sales summary in this schedule.</td>
+    </tr>
+    <tr>
+      <td>071</td>
+      <td>071</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the gross amount of the prepayment</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifies a credit amount. <br /><code class="language-plaintext highlighter-rouge">"-"</code> - identifies a debit amount.</td>
+    </tr>
+    <tr>
+      <td>072</td>
+      <td>084</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Gross amount of the prepayment</td>
+      <td>Gross amount of the credit transactions schedules, installment, and PostDated Electron transactions. The gross amount corresponds to the sum of the original net amounts of the sales summary.</td>
+    </tr>
+    <tr>
+      <td>085</td>
+      <td>085</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the net amount of the credit transactions</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifies a credit amount. <br /><code class="language-plaintext highlighter-rouge">"-"</code> - identifies a debit amount.</td>
+    </tr>
+    <tr>
+      <td>086</td>
+      <td>098</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Net amount of the of credit transactions</td>
+      <td>Net amount of the sight transactions schedule.</td>
+    </tr>
+    <tr>
+      <td>099</td>
+      <td>099</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the net amount of installment transactions</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifies a credit amount. <br /><code class="language-plaintext highlighter-rouge">"-"</code> - identifies a debit amount.</td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>112</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Net amount of installment transactions</td>
+      <td>Net amount of the installment transactions.</td>
+    </tr>
+    <tr>
+      <td>113</td>
+      <td>113</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the net amount of Post-Dated transactions</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifies a credit amount. <br /><code class="language-plaintext highlighter-rouge">"-"</code> - identifies a debit amount.</td>
+    </tr>
+    <tr>
+      <td>114</td>
+      <td>126</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Net amount of Post-Dated transactions</td>
+      <td>Net amount of the Post-Dated Electron transactions schedule.</td>
+    </tr>
+    <tr>
+      <td>127</td>
+      <td>127</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the net amount of the prepayment</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifies a credit amount. <br /><code class="language-plaintext highlighter-rouge">"-"</code> - identifies a debit amount.</td>
+    </tr>
+    <tr>
+      <td>128</td>
+      <td>140</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Net amount of the prepayment</td>
+      <td>Net amount of the credit, installment, and Post-Dated Electron transactions schedule.</td>
+    </tr>
+    <tr>
+      <td>141</td>
+      <td>145</td>
+      <td>5</td>
+      <td>Num.</td>
+      <td>Discount rate of the prepayment <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Prepayment commercial discount.</td>
+    </tr>
+    <tr>
+      <td>146</td>
+      <td>149</td>
+      <td>4</td>
+      <td>Alphanum.</td>
+      <td>Code of the merchant bank account</td>
+      <td>Merchant bank account.</td>
+    </tr>
+    <tr>
+      <td>150</td>
+      <td>154</td>
+      <td>5</td>
+      <td>Alphanum.</td>
+      <td>Code of the preferred branch</td>
+      <td>Branch in which the amounts are settled.</td>
+    </tr>
+    <tr>
+      <td>155</td>
+      <td>168</td>
+      <td>14</td>
+      <td>Alphanum.</td>
+      <td>Code of the preferred account</td>
+      <td>Account in which the amounts are settled.</td>
+    </tr>
+    <tr>
+      <td>169</td>
+      <td>169</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the net amount of the total prepayment</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifies a credit amount. <br /><code class="language-plaintext highlighter-rouge">"-"</code> - identifies a debit amount.</td>
+    </tr>
+    <tr>
+      <td>170</td>
+      <td>182</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Net amount of the total prepayment</td>
+      <td>Net amount of the total prepayment referring to the amounts.</td>
+    </tr>
+    <tr>
+      <td>183</td>
+      <td>191</td>
+      <td>9</td>
+      <td>Num.</td>
+      <td>Fee</td>
+      <td>Fee charged per operation. If there is no charge for the field will be filled in blank</td>
+    </tr>
+    <tr>
+      <td>192</td>
+      <td>250</td>
+      <td>59</td>
+      <td>Alphanum.</td>
+      <td>Cielo Use</td>
+      <td>Unwritten. Reserved for Cielo.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>(*) Only 3 decimal places should be considered, with no commas, periods, or any other characters.</p>
+
+<h3 id="record-6---assignment-sales-summary">Record 6 - Assignment Sales Summary</h3>
+
+<p>It displays the sales summary of prepayment or assigned of receivables.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Start</th>
+      <th>End</th>
+      <th>Size</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Data Editing</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Record type</td>
+      <td>Constant 6 It identifies the type of record that displays the information on an sales summary that happened a prepayment/assigned.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>011</td>
+      <td>10</td>
+      <td>Num.</td>
+      <td>Submitting merchant</td>
+      <td>Number of the merchant and/or branch where the sale was made.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>020</td>
+      <td>9</td>
+      <td>Num.</td>
+      <td>Number of the operation</td>
+      <td>Number of the operation.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>021</td>
+      <td>028</td>
+      <td>8</td>
+      <td>Num.</td>
+      <td>Due date of the sales summary</td>
+      <td>YYYYMMDD Original due date of the sales summary.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>029</td>
+      <td>035</td>
+      <td>7</td>
+      <td>Num.</td>
+      <td>Number of the sales summary</td>
+      <td>Number of the sales summary.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>036</td>
+      <td>037</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Prepayment/assigned installment</td>
+      <td>Number of the installment for the sales summary of installment transactions; for sales summary of at sight transactions, it will contain zeroes.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>038</td>
+      <td>039</td>
+      <td>2</td>
+      <td>Num.</td>
+      <td>Total number of installments</td>
+      <td>Number of installments in the sales summary. For sales summary of at credit sales, it will contain zeroes.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>040</td>
+      <td>040</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the original gross amount of the sales summary</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifies a credit amount. <code class="language-plaintext highlighter-rouge">"-"</code> - identifies a debit amount.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>041</td>
+      <td>053</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Original gross amount of the sales summary <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Original gross amount of the sales summary.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>054</td>
+      <td>054</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the original net amount of the sales summary</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifies a credit amount. <code class="language-plaintext highlighter-rouge">"-"</code> - identifies a debit amount.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>055</td>
+      <td>067</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Original net amount of the sales summary <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Original net amount of the sales summary.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>068</td>
+      <td>068</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Sign for the gross amount of the prepayment/assigned of the sales summary</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifies a credit amount. <code class="language-plaintext highlighter-rouge">"-"</code> - identifies a debit amount.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>069</td>
+      <td>081</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Gross amount of the assigned of the sales summary<code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Original net amount of the sales summary, except for eventual debits.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>082</td>
+      <td>082</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the prepayment net amount of the sales summary</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifies a credit amount. <code class="language-plaintext highlighter-rouge">"-"</code> - identifies a debit amount.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>083</td>
+      <td>095</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Prepayment net amount of the sales summary <code class="language-plaintext highlighter-rouge">(*)</code></td>
+      <td>Net amount effectively paid to the merchant, less the prepayment discount rate.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>096</td>
+      <td>098</td>
+      <td>3</td>
+      <td>Num.</td>
+      <td>Card brand code</td>
+      <td>Card brand code - table VI.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>099</td>
+      <td>120</td>
+      <td>22</td>
+      <td>Num.</td>
+      <td>Exclusive number of the sales summary</td>
+      <td>Exclusive identification number of the sales summary, formatted as follows: <br />First part (fixed) - 15 fixed digits: it identifies the summary, maintaining its history at Cielo; <br /> Second part (variable) - 07 variable digits: Cielo Use. It identifies the changes made in the sales summary.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>121</td>
+      <td>121</td>
+      <td>1</td>
+      <td>Alphanum.</td>
+      <td>Prepayment adjustment sales summary identifier</td>
+      <td>“S” - Consider prepayment adjustment. <br /> Field filled only when adjustment sales summary are effectively anticipated. (only new concept).</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>122</td>
+      <td>250</td>
+      <td>130</td>
+      <td>Alphanum.</td>
+      <td>Cielo use</td>
+      <td>Unwritten. Reserved for Cielo.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><strong>(*)</strong> Only 2 decimal places should be considered, with no commas, periods, or any other characters.</li>
+</ul>
+
+<h3 id="record-7---withheld-prepayment-by-debits---sales-summary">Record 7 - Withheld Prepayment by Debits - Sales Summary</h3>
+
+<p>It displays the withheld prepayment by debits.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Start</th>
+      <th>End</th>
+      <th>Size</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Data Editing</th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Record type</td>
+      <td>Constant “7” It identifies the type of record that displays the information on an prepayment sales summary.</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>011</td>
+      <td>10</td>
+      <td>Num.</td>
+      <td>Submitting merchant</td>
+      <td>Number of the merchant and/or branch where the sale was made.</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>033</td>
+      <td>22</td>
+      <td>Num.</td>
+      <td>Exclusive number of the original sales summary of the sale</td>
+      <td>Exclusive number of the original sales summary of the sale</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>034</td>
+      <td>040</td>
+      <td>7</td>
+      <td>Num.</td>
+      <td>Number of the sales summary</td>
+      <td>Number of the sales summary of the original sale</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>041</td>
+      <td>048</td>
+      <td>8</td>
+      <td>Num.</td>
+      <td>Payment date of the sales summary</td>
+      <td>YYYYMMDD Payment date of the sales summary</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>049</td>
+      <td>049</td>
+      <td>1</td>
+      <td>AlphaSign for the amount of the sales summary</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifies a credit amount.<code class="language-plaintext highlighter-rouge">"-"</code> - identifies a debit amount.</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>050</td>
+      <td>062</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Amount of the sales summary</td>
+      <td>Amount of the sales summary.</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>063</td>
+      <td>084</td>
+      <td>22</td>
+      <td>Num.</td>
+      <td>Exclusive number of the sales summary of the sale that has originated the adjustment</td>
+      <td>Exclusive number of the sales summary of the sale that has originated the adjustment.</td>
+      <td> </td>
+      <td>085</td>
+      <td>091</td>
+      <td>7</td>
+      <td>Num.</td>
+      <td>Number of the sales summary of the debit adjustment</td>
+      <td>Number of the sales summary that displays the prepayment amounts withheld.</td>
+    </tr>
+    <tr>
+      <td>092</td>
+      <td>099</td>
+      <td>8</td>
+      <td>Num.</td>
+      <td>Payment date of the adjustment</td>
+      <td>YYYYMMDD.</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>100</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the amount of the debit adjustment</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifies a credit amount.<code class="language-plaintext highlighter-rouge">"-"</code> - identifies a debit amount.</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>101</td>
+      <td>113</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Amount of the debit adjustment</td>
+      <td>Total amount of the debit.</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>114</td>
+      <td>114</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the amount withheld</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifies a credit amount.<code class="language-plaintext highlighter-rouge">"-"</code> - identifies a debit amount.</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>115</td>
+      <td>127</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Amount withheld</td>
+      <td>Amount withheld for the prepayment sales summary.</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>128</td>
+      <td>128</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for the balance of the prepayment sales summary</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifies a credit amount.<code class="language-plaintext highlighter-rouge">"-"</code> - identifies a debit amount.</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>129</td>
+      <td>141</td>
+      <td>13</td>
+      <td>Num.</td>
+      <td>Amount of the balance of the prepayment sales summary</td>
+      <td>Result of the total debit amount withheld</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>142</td>
+      <td>250</td>
+      <td>109</td>
+      <td>Alphanum.</td>
+      <td>Cielo use</td>
+      <td>Unwritten. Reserved for Cielo</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="record-9---trailer">Record 9 - Trailer</h3>
+
+<p>It indicates the end of the file.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Start</th>
+      <th>End</th>
+      <th>Size</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Data Editing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Num.</td>
+      <td>Record type</td>
+      <td>Constant “9” It identifies the type of trailer record (end of file).</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>012</td>
+      <td>11</td>
+      <td>Num.</td>
+      <td>Total number of records</td>
+      <td>Total number of records that do not include header and trailer.</td>
+    </tr>
+    <tr>
+      <td>013</td>
+      <td>013</td>
+      <td>1</td>
+      <td>Alpha</td>
+      <td>Sign for amount of the sum of detailed sales</td>
+      <td><code class="language-plaintext highlighter-rouge">"+"</code> - identifies a credit amount. <code class="language-plaintext highlighter-rouge">"-"</code> - identifies a debit amount.</td>
+    </tr>
+    <tr>
+      <td>014</td>
+      <td>030</td>
+      <td>17</td>
+      <td>Num.</td>
+      <td>Amount of the sum of detailed sales</td>
+      <td>Amount of the sum of detailed sales</td>
+    </tr>
+    <tr>
+      <td>031</td>
+      <td>041</td>
+      <td>11</td>
+      <td>Num.</td>
+      <td>Total amount of detailed sales</td>
+      <td>Total amount of detailed sales</td>
+    </tr>
+    <tr>
+      <td>042</td>
+      <td>250</td>
+      <td>209</td>
+      <td>Alphanum.</td>
+      <td>Cielo use</td>
+      <td>Unwritten. Reserved for Cielo</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Note: The fields reserved for Cielo may be used to include new information. It may also be necessary to include new types of records. Therefore, we suggest that the reconciliation solution should disregard the records that are not listed in this specification.</p>
+
+<h2 id="tables">Tables</h2>
+
+<h3 id="table-i---file-types">Table I - File Types</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Table Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SELL</td>
+      <td>03</td>
+      <td>Sales with Installment Plan</td>
+    </tr>
+    <tr>
+      <td>PAYMENT</td>
+      <td>04</td>
+      <td>Payments</td>
+    </tr>
+    <tr>
+      <td>ANTECIPATION_CIELO</td>
+      <td>06</td>
+      <td>Anticipation of Cielo Receivables</td>
+    </tr>
+    <tr>
+      <td>ASSIGNMENT</td>
+      <td>07</td>
+      <td>Assignment of Receivables</td>
+    </tr>
+    <tr>
+      <td>BALANCE</td>
+      <td>09</td>
+      <td>Outstanding balance</td>
+    </tr>
+    <tr>
+      <td>ANTECIPATION_ALELO</td>
+      <td>10</td>
+      <td>Prepayment of Receivables Alelo</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="table-ii---type-of-statement">Table II - Type Of Statement</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>03</td>
+      <td>Detailed Sales with Future Installments</td>
+    </tr>
+    <tr>
+      <td>04</td>
+      <td>Detailed Payments</td>
+    </tr>
+    <tr>
+      <td>06</td>
+      <td>Detailed Prepayment Cielo</td>
+    </tr>
+    <tr>
+      <td>07</td>
+      <td>Assignment of Receivables</td>
+    </tr>
+    <tr>
+      <td>09</td>
+      <td>Remaining Balance</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Detailed Prepayment Alelo</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="table-iii---transaction-type">Table III - Transaction Type</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>01</td>
+      <td>Sale</td>
+    </tr>
+    <tr>
+      <td>02</td>
+      <td>Credit Adjustment</td>
+    </tr>
+    <tr>
+      <td>03</td>
+      <td>Debit Adjustment</td>
+    </tr>
+    <tr>
+      <td>04</td>
+      <td>Cielo Plan</td>
+    </tr>
+    <tr>
+      <td>05</td>
+      <td>Rescheduling</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="table-iv---payment-status">Table IV - Payment Status</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>00</td>
+      <td>**Scheduled: It identifies the capture of an entry and provides the date scheduled for payment of the entry. The date scheduled can be changed.</td>
+    </tr>
+    <tr>
+      <td>01</td>
+      <td><strong>Paid:</strong> It identifies that payment has been made by the merchant bank on the date provided.</td>
+    </tr>
+    <tr>
+      <td>02</td>
+      <td><strong>Sent to the bank:</strong> It identifies that the payment order has been sent by Cielo to the merchant bank and that payment has not been confirmed.</td>
+    </tr>
+    <tr>
+      <td>03</td>
+      <td><strong>To be confirmed:</strong> It identifies that the payment order has been sent by Cielo to the merchant bank and that payment has not been confirmed.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>When a credit amount is being offset against a debit amount, both will be sent in the payment file, on the offsetting date subsequent to the scheduled payment date. The status to the may appear again in the payment statement, when the merchant bank returns a credit transfer (resend of payment).</p>
+
+<h3 id="table-v---product-code">Table V - Product Code</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>Agiplan credit</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>Agiplan installment transaction</td>
+    </tr>
+    <tr>
+      <td>003</td>
+      <td>Banescard credit</td>
+    </tr>
+    <tr>
+      <td>004</td>
+      <td>Banescard installment transaction</td>
+    </tr>
+    <tr>
+      <td>005</td>
+      <td>Esplanada credit</td>
+    </tr>
+    <tr>
+      <td>006</td>
+      <td>Credz credit</td>
+    </tr>
+    <tr>
+      <td>007</td>
+      <td>Esplanada installment transaction</td>
+    </tr>
+    <tr>
+      <td>008</td>
+      <td>Credz installment transaction</td>
+    </tr>
+    <tr>
+      <td>009</td>
+      <td>Elo “Crédiario”</td>
+    </tr>
+    <tr>
+      <td>010</td>
+      <td>Mastercard credit</td>
+    </tr>
+    <tr>
+      <td>011</td>
+      <td>Maestro “debit”</td>
+    </tr>
+    <tr>
+      <td>012</td>
+      <td>Mastercard installment transaction</td>
+    </tr>
+    <tr>
+      <td>013</td>
+      <td>Elo Construcard</td>
+    </tr>
+    <tr>
+      <td>014</td>
+      <td>Elo Agro Debit</td>
+    </tr>
+    <tr>
+      <td>015</td>
+      <td>Elo Agro Costing</td>
+    </tr>
+    <tr>
+      <td>016</td>
+      <td>Elo Agro Investment</td>
+    </tr>
+    <tr>
+      <td>017</td>
+      <td>Elo Agro Costing with Debit</td>
+    </tr>
+    <tr>
+      <td>018</td>
+      <td>Elo Agro Investment with Debit</td>
+    </tr>
+    <tr>
+      <td>019</td>
+      <td>Discover credit</td>
+    </tr>
+    <tr>
+      <td>020</td>
+      <td>Diners credit</td>
+    </tr>
+    <tr>
+      <td>021</td>
+      <td>Diners installment transaction</td>
+    </tr>
+    <tr>
+      <td>022</td>
+      <td>Visa Agro Costing with Debit</td>
+    </tr>
+    <tr>
+      <td>023</td>
+      <td>Visa Agro Investment with Debit</td>
+    </tr>
+    <tr>
+      <td>024</td>
+      <td>FCO Investment</td>
+    </tr>
+    <tr>
+      <td>025</td>
+      <td>Agro Electron</td>
+    </tr>
+    <tr>
+      <td>026</td>
+      <td>Agro Costing</td>
+    </tr>
+    <tr>
+      <td>027</td>
+      <td>Agro Investment</td>
+    </tr>
+    <tr>
+      <td>028</td>
+      <td>Visa FCO Working Capital</td>
+    </tr>
+    <tr>
+      <td>029</td>
+      <td>Visa crediário in credit</td>
+    </tr>
+    <tr>
+      <td>030</td>
+      <td>Visa Installment “Cliente”</td>
+    </tr>
+    <tr>
+      <td>033</td>
+      <td>JCB credit</td>
+    </tr>
+    <tr>
+      <td>036</td>
+      <td>Withdrawal using VISA Debit card</td>
+    </tr>
+    <tr>
+      <td>037</td>
+      <td>Flex Car Visa Vale</td>
+    </tr>
+    <tr>
+      <td>038</td>
+      <td>Credsystem credit</td>
+    </tr>
+    <tr>
+      <td>039</td>
+      <td>Credsystem installment transaction</td>
+    </tr>
+    <tr>
+      <td>040</td>
+      <td>Visa credit</td>
+    </tr>
+    <tr>
+      <td>041</td>
+      <td>Visa Electron “Debit”</td>
+    </tr>
+    <tr>
+      <td>042</td>
+      <td>Visa Toll “Pedágio”</td>
+    </tr>
+    <tr>
+      <td>043</td>
+      <td>Visa installment transaction</td>
+    </tr>
+    <tr>
+      <td>044</td>
+      <td>Visa Electron Post-Dated</td>
+    </tr>
+    <tr>
+      <td>045</td>
+      <td>Alelo Meal</td>
+    </tr>
+    <tr>
+      <td>046</td>
+      <td>Alelo Food</td>
+    </tr>
+    <tr>
+      <td>058</td>
+      <td>Alelo Multibenefícios</td>
+    </tr>
+    <tr>
+      <td>059</td>
+      <td>Alelo Auto</td>
+    </tr>
+    <tr>
+      <td>060</td>
+      <td>Sorocred debit</td>
+    </tr>
+    <tr>
+      <td>061</td>
+      <td>Sorocred credit</td>
+    </tr>
+    <tr>
+      <td>062</td>
+      <td>Sorocred installment transaction</td>
+    </tr>
+    <tr>
+      <td>064</td>
+      <td>Visa “Crediário”</td>
+    </tr>
+    <tr>
+      <td>065</td>
+      <td>Alelo Meal</td>
+    </tr>
+    <tr>
+      <td>066</td>
+      <td>Alelo Food</td>
+    </tr>
+    <tr>
+      <td>067</td>
+      <td>Visa Working Capital</td>
+    </tr>
+    <tr>
+      <td>068</td>
+      <td>Visa Property Finance</td>
+    </tr>
+    <tr>
+      <td>069</td>
+      <td>Alelo Cultura</td>
+    </tr>
+    <tr>
+      <td>070</td>
+      <td>Elo credit</td>
+    </tr>
+    <tr>
+      <td>071</td>
+      <td>Elo debit</td>
+    </tr>
+    <tr>
+      <td>072</td>
+      <td>Elo installment transaction</td>
+    </tr>
+    <tr>
+      <td>079</td>
+      <td>Visa Payment Carnet “Carnê”</td>
+    </tr>
+    <tr>
+      <td>080</td>
+      <td>Visa Credit Currency Converter</td>
+    </tr>
+    <tr>
+      <td>081</td>
+      <td>Mastercard Specialized Credit (_)</td>
+    </tr>
+    <tr>
+      <td>082</td>
+      <td>Amex credit</td>
+    </tr>
+    <tr>
+      <td>083</td>
+      <td>Amex installment transaction</td>
+    </tr>
+    <tr>
+      <td>084</td>
+      <td>Amex installment bank</td>
+    </tr>
+    <tr>
+      <td>089</td>
+      <td>Elo Property Finance</td>
+    </tr>
+    <tr>
+      <td>091</td>
+      <td>Elo Specialized Credit (_)</td>
+    </tr>
+    <tr>
+      <td>094</td>
+      <td>Banescard Debit</td>
+    </tr>
+    <tr>
+      <td>096</td>
+      <td>Cabal credit</td>
+    </tr>
+    <tr>
+      <td>097</td>
+      <td>Cabal debit</td>
+    </tr>
+    <tr>
+      <td>098</td>
+      <td>Cabal installment transaction</td>
+    </tr>
+    <tr>
+      <td>161</td>
+      <td>Hiper credit</td>
+    </tr>
+    <tr>
+      <td>162</td>
+      <td>Hiper debit</td>
+    </tr>
+    <tr>
+      <td>163</td>
+      <td>Hiper installment transaction</td>
+    </tr>
+    <tr>
+      <td>164</td>
+      <td>Hipercard credit</td>
+    </tr>
+    <tr>
+      <td>165</td>
+      <td>Hipercard installment transaction</td>
+    </tr>
+    <tr>
+      <td>200</td>
+      <td>Verdecard credit</td>
+    </tr>
+    <tr>
+      <td>201</td>
+      <td>Verdecard installment transaction</td>
+    </tr>
+    <tr>
+      <td>202</td>
+      <td>Nutricash Meal</td>
+    </tr>
+    <tr>
+      <td>203</td>
+      <td>Nutricash Food</td>
+    </tr>
+    <tr>
+      <td>204</td>
+      <td>Nutricash Multibenefícios</td>
+    </tr>
+    <tr>
+      <td>205</td>
+      <td>Nutricash Fuel</td>
+    </tr>
+    <tr>
+      <td>206</td>
+      <td>Ben Meal</td>
+    </tr>
+    <tr>
+      <td>207</td>
+      <td>Ben Food</td>
+    </tr>
+    <tr>
+      <td>314</td>
+      <td>Ourocard Agro Debit</td>
+    </tr>
+    <tr>
+      <td>315</td>
+      <td>Ourocard Agro Costing</td>
+    </tr>
+    <tr>
+      <td>316</td>
+      <td>Ourocard Agro Investment</td>
+    </tr>
+    <tr>
+      <td>317</td>
+      <td>Ourocard Agro Costing with Debit</td>
+    </tr>
+    <tr>
+      <td>318</td>
+      <td>Ourocard Agro Investment with Debit</td>
+    </tr>
+    <tr>
+      <td>321</td>
+      <td>Mastercard crediário in credit</td>
+    </tr>
+    <tr>
+      <td>322</td>
+      <td>Mastercard installment Cliente</td>
+    </tr>
+    <tr>
+      <td>324</td>
+      <td>Elo installment Cliente</td>
+    </tr>
+    <tr>
+      <td>330</td>
+      <td>Elo crediário in credit</td>
+    </tr>
+    <tr>
+      <td>342</td>
+      <td>Mastercard Toll Pedágio</td>
+    </tr>
+    <tr>
+      <td>377</td>
+      <td>Elo Payment Carnet “Carnê”</td>
+    </tr>
+    <tr>
+      <td>378</td>
+      <td>Mastercard Carnê</td>
+    </tr>
+    <tr>
+      <td>380</td>
+      <td>Mastercard Credit Currency Converter</td>
+    </tr>
+    <tr>
+      <td>433</td>
+      <td>JCB installment transaction</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Codes referring to the following cards: Construcard, Minha Casa Melhor, Producard, and Moveiscard</li>
+</ul>
+
+<h3 id="table-vi---origin-of-adjustment">Table VI - Origin Of Adjustment</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Description</th>
+      <th>Type of Adjustment</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>01</td>
+      <td>Adjustment concerning monetary restatement</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>02</td>
+      <td>Adjustment to payment date</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>03</td>
+      <td>Adjustment to commission fee</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>04</td>
+      <td>Adjustment to unprocessed amounts</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>05</td>
+      <td>Adjustment to amounts not received</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>06</td>
+      <td>Adjustment to amounts not recognized</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>07</td>
+      <td>Adjustment to amounts negotiated</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>08</td>
+      <td>Adjustment to improperly processed amounts</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>09</td>
+      <td>Adjustment to entry not offset in checking account</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Adjustment referring to disputed amounts</td>
+      <td>Hit / Chargeback</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Miscellaneous adjustments</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Collection settlement</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Legal settlement</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Fine flag program</td>
+      <td>Hit / Chargeback</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Amount frozen by court order</td>
+      <td>Block</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>Refund</td>
+      <td>Refund</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>Collection of operational fee</td>
+      <td>Collection</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>Farol</td>
+      <td>Hit / Collection</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Charges Cielo Plan Collection 21 Escrow agreement</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>Credit concerning the return of the refund issuing bank</td>
+      <td>Hit / Refund</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>EC Credit - referring to claim filed by the cardholder</td>
+      <td>Hit / Chargeback</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>Credit for declined refund Cielo</td>
+      <td>Hit / Chargeback</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>Processing of double debit - Visa Toll Pedágio</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Debit for sale made without reading the card chip</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>Debit for sale declined in the system Cielo</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>Consumer does not recognize the purchase</td>
+      <td>Hit / Chargeback</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>Reversal due to legal settlement</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>Reversal of escrow agreement</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>Reversal due to collection settlement</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>Reversal of amount frozen by court order</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <td>Reversal of cancelled sale</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>34</td>
+      <td>Reversal of operational fee charged</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>Reversal of monthly charges Lynx Comércio</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>36</td>
+      <td>Reversal of Cielo Plan charges</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>37</td>
+      <td>Reversal of debit for sale made without reading card chip</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>38</td>
+      <td>Reversal of commercial incentive</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <td>Reversal of fine for Chargeback Monitoring Program</td>
+      <td>Hit / Chargeback</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>Reversal of Prepayment decline</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>Reversal of reversal of double payment Prepayment</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>42</td>
+      <td>Reversal of registration fee</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>43</td>
+      <td>Reversal of hard copy of statement</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>44</td>
+      <td>Reversal of double processing of debit Visa Toll Pedágio</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>45</td>
+      <td>Commercial incentive</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>46</td>
+      <td>Incentive for top-up sale</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>47</td>
+      <td>Regularization of Prepayment decline</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>48</td>
+      <td>Reversal of double payment Prepayment</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>49</td>
+      <td>Registration fee</td>
+      <td>Collection</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>50</td>
+      <td>Fee for hard copy of statement</td>
+      <td>Collection</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>51</td>
+      <td>Acceleration of prepayment debit</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>52</td>
+      <td>Breach of contract</td>
+      <td>Hit / Chargeback</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>53</td>
+      <td>Recurring sale canceled by the consumer</td>
+      <td>Hit / Chargeback</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>54</td>
+      <td>Consumer does not recognize the purchase</td>
+      <td>Hit / Chargeback</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>55</td>
+      <td>Card expired</td>
+      <td>Hit / Chargeback</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>57</td>
+      <td>Merchandise defective or different from description</td>
+      <td>Hit / Chargeback</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>58</td>
+      <td>Irregular transaction</td>
+      <td>Hit / Chargeback</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>59</td>
+      <td>Merchandise not delivered</td>
+      <td>Hit / Chargeback</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>60</td>
+      <td>Services not provided</td>
+      <td>Hit / Chargeback</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>61</td>
+      <td>Sale without authorization code</td>
+      <td>Hit / Chargeback</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>62</td>
+      <td>Invalid card number</td>
+      <td>Hit / Chargeback</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>63</td>
+      <td>Copy of invalid document / voucher</td>
+      <td>Hit / Chargeback</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>65</td>
+      <td>Unreadable document</td>
+      <td>Hit / Chargeback</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>66</td>
+      <td>Sale without chip reading</td>
+      <td>Hit / Chargeback</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>67</td>
+      <td>Sale in another currency</td>
+      <td>Hit / Chargeback</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>68</td>
+      <td>Sale Processed Incorrectly</td>
+      <td> </td>
+      <td>Hit / Chargeback</td>
+    </tr>
+    <tr>
+      <td>69</td>
+      <td>Sale canceled</td>
+      <td>Hit / Chargeback</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>70</td>
+      <td>Credit in duplicity</td>
+      <td>Hit / Chargeback</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>71</td>
+      <td>Documents not received</td>
+      <td>Hit / Chargeback</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>72</td>
+      <td>Payment made by other means</td>
+      <td>Hit / Chargeback</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>73</td>
+      <td>Equipment lost/stolen</td>
+      <td>Hit/Collection</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>77</td>
+      <td>Too much chargeback penalty</td>
+      <td>Hit / Chargeback</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>78</td>
+      <td>Score Services</td>
+      <td>Collection</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>79</td>
+      <td>Rescheduling of prepayment debit</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>Adjustment to assignment debit</td>
+      <td>Hit</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>81</td>
+      <td>Cielo e-Commerce</td>
+      <td>Hit/Collection</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>85</td>
+      <td>Cielo Controle (Excess)</td>
+      <td>Hit/Collection</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>86</td>
+      <td>Cielo Controle (Frank)</td>
+      <td>Hit/Collection</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>93</td>
+      <td>Meliuz</td>
+      <td>Hit/Collection</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="table-vii---card-brand">Table VII - Card Brand</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>001</td>
+      <td>VISA</td>
+    </tr>
+    <tr>
+      <td>002</td>
+      <td>Mastercard</td>
+    </tr>
+    <tr>
+      <td>003</td>
+      <td>Amex</td>
+    </tr>
+    <tr>
+      <td>006</td>
+      <td>Sorocred</td>
+    </tr>
+    <tr>
+      <td>007</td>
+      <td>ELO</td>
+    </tr>
+    <tr>
+      <td>009</td>
+      <td>Diners</td>
+    </tr>
+    <tr>
+      <td>011</td>
+      <td>Agiplan</td>
+    </tr>
+    <tr>
+      <td>015</td>
+      <td>Banescard</td>
+    </tr>
+    <tr>
+      <td>023</td>
+      <td>Cabal</td>
+    </tr>
+    <tr>
+      <td>029</td>
+      <td>Credsystem</td>
+    </tr>
+    <tr>
+      <td>035</td>
+      <td>Esplanada</td>
+    </tr>
+    <tr>
+      <td>040</td>
+      <td>Hipercard</td>
+    </tr>
+    <tr>
+      <td>060</td>
+      <td>JCB</td>
+    </tr>
+    <tr>
+      <td>064</td>
+      <td>Credz</td>
+    </tr>
+    <tr>
+      <td>072</td>
+      <td>Hiper</td>
+    </tr>
+    <tr>
+      <td>075</td>
+      <td>Ourocard</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="table-viii---capture-method">Table VIII - Capture Method</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>00</td>
+      <td>LIO</td>
+    </tr>
+    <tr>
+      <td>01</td>
+      <td>POS (Point of Sale)</td>
+    </tr>
+    <tr>
+      <td>02</td>
+      <td>PDV (Point of Sale) or TEF (Electronic Transfer of Funds)</td>
+    </tr>
+    <tr>
+      <td>03</td>
+      <td>e-Commerce (Electronic commerce)</td>
+    </tr>
+    <tr>
+      <td>04</td>
+      <td>EDI (Electronic Data Interchange)</td>
+    </tr>
+    <tr>
+      <td>05</td>
+      <td>ADP/BSP (Capturing Company) or Reprocessing</td>
+    </tr>
+    <tr>
+      <td>06</td>
+      <td>Manual</td>
+    </tr>
+    <tr>
+      <td>07</td>
+      <td>URA/CVA</td>
+    </tr>
+    <tr>
+      <td>08</td>
+      <td>Mobile</td>
+    </tr>
+    <tr>
+      <td>09</td>
+      <td>Online electronic purse</td>
+    </tr>
+    <tr>
+      <td>99</td>
+      <td>Not identified</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="table-ix---reason-for-decline">Table IX - Reason For Decline</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>002</td>
+      <td>Invalid Card</td>
+    </tr>
+    <tr>
+      <td>023</td>
+      <td>Other Errors</td>
+    </tr>
+    <tr>
+      <td>024</td>
+      <td>Invalid card type</td>
+    </tr>
+    <tr>
+      <td>031</td>
+      <td>Withdrawal transaction using an Electron card without funds</td>
+    </tr>
+    <tr>
+      <td>039</td>
+      <td>Invalid issuing bank</td>
+    </tr>
+    <tr>
+      <td>044</td>
+      <td>Invalid transaction date</td>
+    </tr>
+    <tr>
+      <td>045</td>
+      <td>Invalid authorization code</td>
+    </tr>
+    <tr>
+      <td>055</td>
+      <td>Invalid number of installments</td>
+    </tr>
+    <tr>
+      <td>056</td>
+      <td>Transaction financed for unauthorized merchant</td>
+    </tr>
+    <tr>
+      <td>057</td>
+      <td>Card listed in alert bulletin</td>
+    </tr>
+    <tr>
+      <td>061</td>
+      <td>Invalid card number</td>
+    </tr>
+    <tr>
+      <td>066</td>
+      <td>Unauthorized transaction</td>
+    </tr>
+    <tr>
+      <td>067</td>
+      <td>Unauthorized transaction</td>
+    </tr>
+    <tr>
+      <td>069</td>
+      <td>Unauthorized transaction</td>
+    </tr>
+    <tr>
+      <td>070</td>
+      <td>Unauthorized transaction</td>
+    </tr>
+    <tr>
+      <td>071</td>
+      <td>Unauthorized transaction</td>
+    </tr>
+    <tr>
+      <td>072</td>
+      <td>Unauthorized transaction</td>
+    </tr>
+    <tr>
+      <td>073</td>
+      <td>Invalid transaction</td>
+    </tr>
+    <tr>
+      <td>074</td>
+      <td>Invalid transaction amount</td>
+    </tr>
+    <tr>
+      <td>075</td>
+      <td>Invalid card number</td>
+    </tr>
+    <tr>
+      <td>077</td>
+      <td>Unauthorized transaction</td>
+    </tr>
+    <tr>
+      <td>078</td>
+      <td>Unauthorized transaction</td>
+    </tr>
+    <tr>
+      <td>079</td>
+      <td>Unauthorized transaction</td>
+    </tr>
+    <tr>
+      <td>080</td>
+      <td>Unauthorized transaction</td>
+    </tr>
+    <tr>
+      <td>081</td>
+      <td>Expired card</td>
+    </tr>
+    <tr>
+      <td>082</td>
+      <td>Unauthorized transaction</td>
+    </tr>
+    <tr>
+      <td>083</td>
+      <td>Unauthorized transaction 084 Unauthorized transaction 086 Unauthorized transaction</td>
+    </tr>
+    <tr>
+      <td>091</td>
+      <td>Unauthorized transaction</td>
+    </tr>
+    <tr>
+      <td>092</td>
+      <td>Expired card</td>
+    </tr>
+    <tr>
+      <td>093</td>
+      <td>Imbalance in the installment plan</td>
+    </tr>
+    <tr>
+      <td>094</td>
+      <td>Installment transaction made for a card issued abroad</td>
+    </tr>
+    <tr>
+      <td>097</td>
+      <td>Installment amount below minimum</td>
+    </tr>
+    <tr>
+      <td>099</td>
+      <td>Invalid issuing bank</td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>Unauthorized transaction</td>
+    </tr>
+    <tr>
+      <td>101</td>
+      <td>Double transaction</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>Double transaction</td>
+    </tr>
+    <tr>
+      <td>124</td>
+      <td>BIN not registered</td>
+    </tr>
+    <tr>
+      <td>126</td>
+      <td>Invalid withdrawal transaction using an Electron card</td>
+    </tr>
+    <tr>
+      <td>128</td>
+      <td>Invalid withdrawal transaction using an Electron card</td>
+    </tr>
+    <tr>
+      <td>129</td>
+      <td>Invalid withdrawal transaction using an Electron card</td>
+    </tr>
+    <tr>
+      <td>130</td>
+      <td>Invalid withdrawal transaction using an Electron card</td>
+    </tr>
+    <tr>
+      <td>133</td>
+      <td>Invalid withdrawal transaction using an Electron card</td>
+    </tr>
+    <tr>
+      <td>134</td>
+      <td>Invalid withdrawal transaction using an Electron card</td>
+    </tr>
+    <tr>
+      <td>140</td>
+      <td>Non-ecommerce establishment</td>
+    </tr>
+    <tr>
+      <td>141</td>
+      <td>Travel card - Invalid transaction</td>
+    </tr>
+    <tr>
+      <td>143</td>
+      <td>Sale in dollar invalid</td>
+    </tr>
+    <tr>
+      <td>145</td>
+      <td>Merchant invalid for distribution</td>
+    </tr>
+    <tr>
+      <td>147</td>
+      <td>Issued installment not enabled</td>
+    </tr>
+    <tr>
+      <td>150</td>
+      <td>Non-Financial Establishment</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="table-x---entry-mode">Table X - Entry Mode</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>00</td>
+      <td>Manual re-entry</td>
+    </tr>
+    <tr>
+      <td>01</td>
+      <td>Typed</td>
+    </tr>
+    <tr>
+      <td>02</td>
+      <td>Magnetic track</td>
+    </tr>
+    <tr>
+      <td>03</td>
+      <td>Bar code</td>
+    </tr>
+    <tr>
+      <td>04</td>
+      <td>OCR (Optical Character Recognition)</td>
+    </tr>
+    <tr>
+      <td>05</td>
+      <td>Online chip</td>
+    </tr>
+    <tr>
+      <td>06</td>
+      <td>Track</td>
+    </tr>
+    <tr>
+      <td>07</td>
+      <td>Contactless</td>
+    </tr>
+    <tr>
+      <td>81</td>
+      <td>Typed</td>
+    </tr>
+    <tr>
+      <td>90</td>
+      <td>Track</td>
+    </tr>
+    <tr>
+      <td>91</td>
+      <td>Contactless imitating stripe</td>
+    </tr>
+    <tr>
+      <td>95</td>
+      <td>Offline chip</td>
+    </tr>
+    <tr>
+      <td>99</td>
+      <td>Tap on Phone</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="table-xi---group-of-cards">Table XI - Group Of Cards</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>00</td>
+      <td>Service not assigned</td>
+    </tr>
+    <tr>
+      <td>01</td>
+      <td>Card issued in Brazil</td>
+    </tr>
+    <tr>
+      <td>02</td>
+      <td>Card issued abroad</td>
+    </tr>
+    <tr>
+      <td>03</td>
+      <td>MDR by card type - Initial</td>
+    </tr>
+    <tr>
+      <td>04</td>
+      <td>MDR by card type - Intermediary</td>
+    </tr>
+    <tr>
+      <td>05</td>
+      <td>MDR by card type - Higher</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="table-xii---card-type">Table XII - Card Type</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>00</td>
+      <td>Service not assigned</td>
+    </tr>
+    <tr>
+      <td>01</td>
+      <td>Visa Classic</td>
+    </tr>
+    <tr>
+      <td>02</td>
+      <td>Visa Empresarial</td>
+    </tr>
+    <tr>
+      <td>03</td>
+      <td>Visa Gold</td>
+    </tr>
+    <tr>
+      <td>04</td>
+      <td>Visa Platinum</td>
+    </tr>
+    <tr>
+      <td>05</td>
+      <td>Visa Infinite</td>
+    </tr>
+    <tr>
+      <td>06</td>
+      <td>Visa Corporate</td>
+    </tr>
+    <tr>
+      <td>07</td>
+      <td>Visa Electron</td>
+    </tr>
+    <tr>
+      <td>08</td>
+      <td>Visa Compras</td>
+    </tr>
+    <tr>
+      <td>09</td>
+      <td>Master Platinum</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Master Standard</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Master Gold</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Master Pré-Pago</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Master Black</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Master Corporativo</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Master Cartão Viagem</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Master Cartão Benefício</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>Master World</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>Master Agro</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>Elo Bndes</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Elo Classic</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>Elo Empresarial</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>Elo Insumos</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>Elo Corporativo</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>Elo Mais</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>Elo Grafite</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Elo Nanquim</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>Elo Pré Pagos Geral / Gift Card</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>Elo Vale Cultura</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>Elo Nacional PJ Empresarial</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>Elo Compras</td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>Elo Viagem</td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>Elo Premiação Inc de Vendas PJ</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="file-transmission-and-resending">File Transmission and Resending</h1>
+
+<p>In order to receive the Electronic Statement, the client must contact the EDI Service and complete the service acquisition form. The files will be made available in the Inbox daily, except for the remaining balance file, which will be sent monthly. In the absence of transactions, the file sent will contain only the and the . In the case of any inconsistency in the transmission of the file(s), the client should inform Cielo, contacting the EDI Service (edi@cielo.com.br).</p>
+
+<h2 id="file-resending">File Resending</h2>
+
+<p>In case of loss of the file or not receiving, the Cielo will make available in the Inbox the same file sent daily (backup file). The client may contact EDI Service to request resending of the file.</p>
+
+<h2 id="file-recovery">File Recovery</h2>
+
+<ul>
+  <li>Allows for the recovery of a previous transaction, updating the status of the entries.</li>
+  <li>The files will be made available separately from the daily file.</li>
+  <li>Recovery is not available for the Remaining Balance file (09).</li>
+  <li>The request can be made to EDI Service.</li>
+</ul>
+
+<h1 id="financial-conceptsglossary">Financial Concepts/Glossary</h1>
+
+<p><strong>Adjustment:</strong> debit or credit entry made by Cielo in order to settle undue charges, to refund a sale, or issue a reversal to the merchant.</p>
+
+<p><strong>Change in Installment Plan:</strong> it occurs when the cardholder requests the client to modify the original installment plan, such as the total or partial sale refund and the change in the number or amount of the installments.</p>
+
+<p><strong>Prepayment:</strong> service offered by Cielo or Alelo to clients that wish to prepayment their credit and installment transactions.</p>
+
+<p><strong>Chain Centralized Payment:</strong> is a group of customers with the same CNPJ root, rules locks and anticipation, bank address and the same commercial terms and commission term. A chain has only one matrix, chosen by the customer, where are registered all products and rates applied in the branches.</p>
+
+<p><strong>Assignment of Receivables:</strong> operation concerning the assignment of receivables, conducted at the merchant bank account, only available for Bradesco.</p>
+
+<p><strong>Chargeback:</strong> refund, made by the issuer bank, of a transaction disputed or challenged by the cardholder.</p>
+
+<p><strong>Assignment:</strong> advance payment operation carried out with Cielo or with the market. Counterpart records of operations carried out with the market within the sales files depend on the financier sending data to Cielo in a timely manner. Transactions sent late will not be
+demonstrated in the sales files, being necessary to request the reprocessing of the extracts to the service channels.</p>
+
+<p><strong>Date of Sale:</strong> day on which the sale was made by the Cielo client. For clients that operate using e-commerce solutions, this is the date on which the cardholder made a purchase on the website and not the date on which the sale was confirmed by the Cielo client.</p>
+
+<p><strong>Date of Submission:</strong> day on which the sale was submitted to Cielo for processing, which may be Saturdays, Sundays, or holidays. This is the reference date used in the calculation of the payment schedule and may differ from the date of sale, depending on the capture solution used.</p>
+
+<p><strong>Date of Capture:</strong> date on which the transaction was captured in the Cielo system. For Cielo clients that operate using ecommerce solutions, this is the date on which the transaction was confirmed by the client.</p>
+
+<p><strong>Date of Submission to the Bank:</strong> date on which the (credit or debit) payment file was submitted to the bank.</p>
+
+<p><strong>Payment Date:</strong> date on which payment is effectively credited to the bank account, considering the payment period agreed upon. If the date calculated is not a business day, payment will be made on the next business day. Initially, once the sale is captured, the scheduled payment date is provided; however, it may be postponed if the amount is used to offset any debit concerning the sale refund, reversal, or service charges. Payment may also be made in advance, if the client conducts a prepayment operation.</p>
+
+<p><strong>Chain of Electronic Statement:</strong> register that allows the inclusion of all establishments controlled by the customer, regardless of the type of payment (centralized, decentralized, individual).</p>
+
+<p><strong>Encumbrance</strong>: credit operation in the guarantee model carried out with a financing agent. It does not entail the anticipation of the date of payment of the amounts, only the exchange of ownership of the recipient.</p>
+
+<p><strong>Exclusive Transaction Number:</strong> it is assigned by Cielo and exclusively identifies each transaction, enabling the reconciliation of the adjustments, prepayment operations, and assignment of receivables conducted in the sales summary and in the detailed sales through this key. To this end, the reconciliation solution should only consider the fixed parts of the exclusive number, according to the following composition.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parts</th>
+      <th>Composition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>15 fixed digits that exclusively identify the sales summary, maintaining the history of maintenance actions conducted at Cielo.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>7 variable digits. They identify the changes made in the sales summary.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>4 fixed digits that identify the detailed sales in an sales summary, maintaining its history at Cielo.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>3 variable digits. They identify the changes made in the detailed sales.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Merchant Installment Transaction - Period:</strong> in the sales file with the option for future installments, all installments will be sent with the original presentation date. However, the payment file will display the clearance date of the respective installment. The payment date of all installments is calculated based on the date on which the first installment was submitted, and its logic differs for each card brand, as shown below:</p>
+
+<p>VISA, ELO, DINERS and other brands: the installments will be cleared monthly on the same day as the 1st installment, regardless of whether or not it is a business day. In this way, a sale in four installments submitted on 01/10/2015 will have the following clearance plan (payment term: 30 days):</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parts</th>
+      <th>Date of Submission (MM/DD/YYYY)</th>
+      <th>Deposit Date (portion release)</th>
+      <th>Payment Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>01/04</td>
+      <td>01/10/2015</td>
+      <td>01/10/2015</td>
+      <td>02/09/2015</td>
+    </tr>
+    <tr>
+      <td>02/04</td>
+      <td>01/10/2015</td>
+      <td>02/10/2015</td>
+      <td>03/12/2015</td>
+    </tr>
+    <tr>
+      <td>03/04</td>
+      <td>01/10/2015</td>
+      <td>03/10/2015</td>
+      <td>04/09/2015</td>
+    </tr>
+    <tr>
+      <td>04/04</td>
+      <td>01/10/2015</td>
+      <td>04/10/2015</td>
+      <td>05/11/2015</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The only exception to the rule above occurs whenever a date does not exist in the month in which the installment is cleared. For example: a sale whose 1st installment was presented on January 31, 2015. Since February 31 does not exist, the installment for this month will be submitted on the last day of the month; that is, on February 28, 2015.</p>
+
+<p>MASTERCARD: the date of submission of the 1st installment will be used as the reference date for clearance of all installments in the plan; however, the date of the future installments will always fall 30 days after the submission of the first installment, a logic that will be maintained until the end of the plan. In the example of the sale submitted on January 10, 2014 used previously, notice that the installments are cleared 30, 60, and 90 days after submission of the first installment (payment term: 30 days):</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parts</th>
+      <th>Date of Submission (MM/DD/YYYY)</th>
+      <th>Deposit Date (portion release)</th>
+      <th>Payment Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>01/04</td>
+      <td>01/10/2015</td>
+      <td>01/10/2015</td>
+      <td>02/09/2015</td>
+    </tr>
+    <tr>
+      <td>02/04</td>
+      <td>01/10/2015</td>
+      <td>02/09/2015</td>
+      <td>03/11/2015</td>
+    </tr>
+    <tr>
+      <td>03/04</td>
+      <td>01/10/2015</td>
+      <td>03/11/2015</td>
+      <td>04/10/2015</td>
+    </tr>
+    <tr>
+      <td>04/04</td>
+      <td>01/10/2015</td>
+      <td>04/10/2015</td>
+      <td>05/11/2015</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Declined Transaction:</strong> it occurs whenever the client or the sale does not match the attributes required for the proper processing and scheduling of payment data.
+<strong>Resale:</strong> it occurs whenever a change is made to the payment plan of an installment transaction, whether in relation to the number of installments or to the total amount of the transaction.
+<strong>Capture Solution:</strong> device and/or processing software (POS, PDV, E-commerce, mobile payment, EDI, etc.) that connects to the Cielo network to authorize and capture transactions.</p>
+
+<p><strong>Sales Summary:</strong> identifies a sales group on a certain date. It has 7 positions and will be formatted as follows.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Digit</td>
+      <td>Description</td>
+      <td>Data Editing</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Product type</td>
+      <td>0 - at sight credit<br /> 3 - installment transaction made by issuer bank<br /> 4 - merchant installment transaction<br /> 5 - debit card<br /> 6 - post-dated electron</td>
+    </tr>
+    <tr>
+      <td>2 and 3</td>
+      <td>Year in which the transaction was made</td>
+      <td>YY</td>
+    </tr>
+    <tr>
+      <td>4 and 5</td>
+      <td>Month in which the transaction was made</td>
+      <td>MM</td>
+    </tr>
+    <tr>
+      <td>6 and 7</td>
+      <td>Day on which the transaction was made</td>
+      <td>DD</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Remaining Balance:</strong> it comprises all releases to receive from Cielo. They should be considered Cielo payments not made in the past due to refund and chargeback.</p>
+
+<p><strong>Types of registration:</strong> with registration by the Commercial Group, which uses the CNPJ root, all new merchants from the root are automatically included in the electronic statement, avoiding the loss of information.</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/niveis_extrato_eletronico.png" alt="Electronic Extract Levels" /></p>
+
+<h1 id="important">Important</h1>
+
+<blockquote>
+  <p>Note: the updates mentioned below will be available from June 07, 2021.</p>
+</blockquote>
+
+<p><a href="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_.pdf">Electronic Statement Manual</a></p>
+
+<p><a href="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_-_English_-_Version_14_1.pdf">Electronic Statement Manual - Versão Portuguesa</a></p>
+
+<p><a href="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis_PIX_0.pdf">EE Layout Update - Receivables Registration + PIX</a></p>
+
+<p><a href="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Arquivos_de_teste_-_Comunicado_09122022.rar">Test files – Announcement 12/09/2022</a></p>
+</div>
+
+
+            <div class="footer-conteudo">
+  <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+    <img
+      src="https://developercielo.github.io/en/assets/images/icon-doubt.svg"
+      width="55px"
+      height="53px"
+      alt="Need Help?"
+    />
+  </div>
+
+  <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+    <h2>Need Help?</h2>
+    <p>If you didn't find your answer, <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte">send us a message</a>.</p>
+  </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a
+        title="Toggle left column"
+        class="hamburger"
+      >
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://desenvolvedores.cielo.com.br" target="_blank">
+        <img
+          src="https://developercielo.github.io/en/assets/images/logo.png"
+          alt="Documentações e tutoriais"
+          style="width: 60%; margin-left: 20%"
+        />
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+      
+      <div class="toc-footer">
+        <h2 class="no-toc toc-footer-title">Complementary materials</h2>
+           
+
+        <ul class="toc-footer">
+            
+          <li>
+            <a
+              href="https://developercielo.github.io/en/tutorial/edi"
+              title="Instruções EDI"
+              
+              >EDI - Transaction Capture</a
+            >
+          </li>
+             
+        </ul>
+      </div>
+      
+
+      <div class="toc-contact">
+        <div class="contact">
+          <a
+            title="Contact"
+            href="https://devcielo.zendesk.com/"
+          >
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            <span>Contact</span>
+          </a>
+        </div>
+        <div class="github">
+          <a title="GitHub" href="https://github.com/developercielo">
+            <i class="fa fa-github" aria-hidden="true"></i>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/en/assets/bundles/js/bundle.min.js"></script>
+        <script>
+            
+            var selectors = 'h1,h2,h3,h4,h5,h6';
+            
+        </script>
+
+        
+        <script src="https://developercielo.github.io/en/assets/bundles/js/search.min.js"></script>
+        
+
+        
+
+        <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+<script>
+  (function (h, o, t, j, a, r) {
+    h.hj =
+      h.hj ||
+      function () {
+        (h.hj.q = h.hj.q || []).push(arguments);
+      };
+    h._hjSettings = { hjid: 674586, hjsv: 6 };
+    a = o.getElementsByTagName("head")[0];
+    r = o.createElement("script");
+    r.async = 1;
+    r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+</script>
+
+    </body>
+</html>
