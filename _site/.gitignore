@@ -1,0 +1,9 @@
+.bundle
+.sass-cache
+Gemfile.lock
+.DS_Store
+node_modules
+tmp
+/.vs
+package-lock.json
+.jekyll-cache

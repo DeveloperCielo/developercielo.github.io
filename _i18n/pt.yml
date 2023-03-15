@@ -1,0 +1,21 @@
+global:
+  tagline: Português
+  github:  GitHub
+  contact: Contato
+  languages: Idiomas
+  support: Ajuda
+  toggle_code: Comutar
+  toggle_right: Comutar
+  toggle_left: Comutar
+  sidebar: a coluna da esquerda
+  darkbox: a coluna da direita
+  complementary: Materiais complementares
+  search: Busca
+  home: Início
+  need_help_title: Precisa de ajuda?
+  need_help_description: Se você não conseguiu encontrar sua resposta acima, <a href="https://devcielo.zendesk.com/hc/pt-br#suporte">entre em contato conosco</a>
+  hub_title: Cielo Developers
+  hub_description: Portal de conteúdo Cielo. Documentos, artigos e tutoriais de todos os produtos Cielo estão disponíveis nesta página.
+langs:
+  en: English
+  pt: Português
