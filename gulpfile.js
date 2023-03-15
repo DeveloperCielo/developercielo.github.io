@@ -95,7 +95,6 @@ gulp.task('scripts', gulp.series('main-scripts', 'search-scripts', 'language_but
 gulp.task('dist', gulp.series('styles', 'scripts', 'clean-tmp'));
 
 gulp.task('default', () => {
-  console.log('Gulp Running');
   gulp.watch('assets/css/**/*', gulp.series('styles'));
   gulp.watch(paths.js.main.files, gulp.series('main-scripts'));
   gulp.watch(paths.js.search.files, gulp.series('search-scripts'));

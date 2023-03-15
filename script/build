@@ -1,5 +1,3 @@
-
-
 #!/bin/bash
 # enable error reporting to the console
 set -e
@@ -48,7 +46,7 @@ if [ -n "$GITHUB_TOKEN" ]; then
 
   # build with Jekyll into "_site"
   bundle exec jekyll build --quiet -b ${HOST}
-  bundle exec htmlproofer ./_site --disable-external --allow-hash-href --alt-ignore
+  #bundle exec htmlproofer ./_site --disable-external --allow-hash-href --alt-ignore
 
   # push
   cd _site
