@@ -1,0 +1,56 @@
+#!/bin/bash
+# enable error reporting to the console
+set -e
+
+lang=$LANG
+language=$LANGUAGE
+lc_all=$LC_ALL
+
+# make the system case sensitive for find
+export LANG=C && export LANGUAGE=C && LC_ALL=C
+
+# skip if build is triggered by pull request
+if [ "$TRAVIS_PULL_REQUEST" == "true" ]; then
+  echo "this is PR, exiting"
+  exit 0
+fi
+
+# check filenames format
+for file in $(find _i18n/ -iname "*.md" -not -regex "_i18n/\w+/_posts/[a-z0-9\.\-]+\(/[a-z0-9\.\-]*\)*\(\.md\)?"); do
+  echo "Filenames must match [a-z0-9\.\-] expression. Filename '$file' is invalid"
+  exit 1
+done
+
+for file in $(find images -not -regex "images\(/[a-z0-9\.\-]+\(/[a-z0-9\.\-]*\)*\(\.(png|jpg|gif)\)?\)?"); do
+  echo "Filenames must match [a-z0-9\.\-] expression. Filename '$file' is invalid"
+  exit 1
+done
+
+# restore system defaults
+export LANG=$lang && export LANGUAGE=$language && LC_ALL=$lc_all
+
+# lint for markdown
+#bundle exec mdl --rules ${RULES} _i18n/
+
+if [ -n "$GITHUB_TOKEN" ]; then
+  # cleanup "_site"
+  rm -rf _site
+  mkdir _site
+
+  # clone remote repo to "_site"
+  git clone https://${GITHUB_TOKEN}@github.com/DeveloperCielo/developercielo.github.io.git --branch master _site
+
+  # compiles front-end stufff
+  yarn
+  yarn dist
+
+  # build with Jekyll into "_site"
+  bundle exec jekyll build --quiet -b ${HOST}
+  #bundle exec htmlproofer ./_site --disable-external --allow-hash-href --alt-ignore
+
+  # push
+  cd _site
+  git add --all
+  git commit -a -m "[$TRAVIS_COMMIT]: $TRAVIS_COMMIT_MESSAGE"
+  git push --force origin master
+fi
