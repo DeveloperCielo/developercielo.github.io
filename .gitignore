@@ -1,11 +1,10 @@
+_site
 .bundle
 .sass-cache
 Gemfile.lock
 .DS_Store
 node_modules
+assets/bundles
 tmp
 /.vs
 package-lock.json
-.jekyll-cache
-yarn.lock
-_site/
