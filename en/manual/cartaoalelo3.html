@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="theme-color" content="#00aeef" />
+  <meta http-equiv="Content-Language" content="en" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     Alelo Cards &middot; Documentações e tutoriais 
+  </title>
+
+  <link rel="shortcut icon" href="https://developercielo.github.io/en/assets/favicon.ico" />
+
+  <!-- CSS -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500"
+    rel="stylesheet"
+    media="none"
+    onload="if(media!='all')media='all'"
+  />
+  <script async src="https://use.fontawesome.com/3ae06f1030.js"></script>
+
+  <link
+    rel="stylesheet"
+    href="https://developercielo.github.io/en/assets/bundles/css/bundle.min.css"
+  />
+
+   
+  <link
+    rel="alternate"
+    hreflang="pt"
+    href="https://developercielo.github.io/en/manual/cartaoalelo3"
+  />
+    
+  <link
+    rel="alternate"
+    hreflang="en"
+    href="https://developercielo.github.io/en/en/manual/cartaoalelo3"
+  />
+   
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="https://developercielo.github.io/en/atom.xml"
+  />
+</head>
+
+    <body>
+        
+        <div class="content-container">
+            <div class="language-tabs">
+                <a class='hide-btn' id="hide-button" title="Toggle"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <ul class="language-buttons">
+                    
+                    <li><a data-language-name='json'>JSON</a></li>
+                    
+                    <li><a data-language-name='shell'>cURL</a></li>
+                    
+                </ul>
+            </div>
+            <div class="dark-box"></div>
+            <div class="overlay"></div>
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://devcielo.zendesk.com/hc/pt-br#suporte" class="help">Help</a>
+
+                            
+                            <div class="lang">
+                                <span>Languages</span>
+
+                                
+                                    
+                                    <a href="https://developercielo.github.io/manual/cartaoalelo3">
+                                    
+
+                                        <img alt="Português" src="https://developercielo.github.io/en/assets/images/pt.png"/>
+                                    </a>
+                                
+                                    
+                                    <a href="https://developercielo.github.io/en/manual/cartaoalelo3">
+                                    
+
+                                        <img alt="English" src="https://developercielo.github.io/en/assets/images/en.png"/>
+                                    </a>
+                                
+                            </div>
+                            
+                        </div>
+
+                        
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="https://developercielo.github.io/en/">Home</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/en/manual/cartaoalelo3">Alelo Cards</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post"><h1 id="alelo-cards">Alelo Cards</h1>
+
+<p>To create a sale that will use Alelo card, you need to make a <code class="language-plaintext highlighter-rouge">POST</code> for the Payment feature using the technical contract of a <code class="language-plaintext highlighter-rouge">Debit Card</code> sale.</p>
+
+<blockquote>
+  <p>For more information on debit card integration via the Cielo Ecommerce API, access the <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-simplified-sale">Integration Manual</a></p>
+</blockquote>
+
+<p><strong>OBS:</strong> In ALELO Card transactions, the following parameters must have static configurations</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>ALELO Standard</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
+      <td><strong>FALSE</strong> or not sent</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DebitCard.Brand</code></td>
+      <td>Must be sent as ELO</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="requisition">Requisition</h3>
+
+<p>Production EndPoints</p>
+
+<blockquote>
+  <p><strong>Transaction requisition</strong>: https://api.cieloecommerce.cielo.com.br/ &gt; <strong>Transaction query</strong>: https://apiquery.cieloecommerce.cielo.com.br/</p>
+</blockquote>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> POST <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="o">{</span>
+   <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2014121201"</span>,
+   <span class="s2">"Customer"</span>:<span class="o">{</span>
+      <span class="s2">"Name"</span>:<span class="s2">"Comprador Cartão de Alelo"</span>
+   <span class="o">}</span>,
+   <span class="s2">"Payment"</span>:<span class="o">{</span>
+     <span class="s2">"Type"</span>:<span class="s2">"DebitCard"</span>,
+     <span class="s2">"Authenticate"</span>:false,
+     <span class="s2">"Amount"</span>:50,
+     <span class="s2">"ReturnUrl"</span>:<span class="s2">"http://www.cielo.com.br"</span>,
+     <span class="s2">"DebitCard"</span>:<span class="o">{</span>
+         <span class="s2">"CardNumber"</span>:<span class="s2">"5080540487508044"</span>,
+         <span class="s2">"Holder"</span>:<span class="s2">"Comprador Cartão de Alelo"</span>,
+         <span class="s2">"ExpirationDate"</span>:<span class="s2">"07/2029"</span>,
+         <span class="s2">"SecurityCode"</span>:<span class="s2">"841"</span>,
+         <span class="s2">"brand"</span>: <span class="s2">"Elo"</span>
+     <span class="o">}</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Mandatory</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Store identifier in Cielo eCommerce API.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Public Key for Double Authentication on the Cielo eCommerce API.</td>
+      <td>Text</td>
+      <td>40</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Request identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
+      <td>Order ID number.</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
+      <td>Buyer’s name.</td>
+      <td>Text</td>
+      <td>255</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
+      <td>Buyer registration status on the store (NEW / EXISTING) - Used by the fraud analysis.</td>
+      <td>Text</td>
+      <td>255</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Authenticate</code></td>
+      <td>Defines whether the buyer will be directed to the issuing bank for card authentication</td>
+      <td>Boolean</td>
+      <td> </td>
+      <td>No (Default false)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
+      <td>Payment method Type.</td>
+      <td>Text</td>
+      <td>100</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
+      <td>Order value (sent in cents).</td>
+      <td>Number</td>
+      <td>15</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ReturnUrl</code></td>
+      <td>Merchant return URL.</td>
+      <td>Text</td>
+      <td>1024</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.ReturnUrl</code></td>
+      <td>URI to where the user will be redirected after payment.</td>
+      <td>Text</td>
+      <td>1024</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DebitCard.CardNumber</code></td>
+      <td>Buyer’s Card Number.</td>
+      <td>Text</td>
+      <td>19</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DebitCard.Holder</code></td>
+      <td>Buyer’s name printed on the card.</td>
+      <td>Text</td>
+      <td>25</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DebitCard.ExpirationDate</code></td>
+      <td>Expiration date printed on the card.</td>
+      <td>Text</td>
+      <td>7</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DebitCard.SecurityCode</code></td>
+      <td>Security code printed on the back of the card.</td>
+      <td>Text</td>
+      <td>4</td>
+      <td><strong>Yes</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="response">Response</h3>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="o">{</span>
+    <span class="s2">"MerchantOrderId"</span>: <span class="s2">"2014121201"</span>,
+    <span class="s2">"Customer"</span>: <span class="o">{</span>
+        <span class="s2">"Name"</span>: <span class="s2">"Comprador Cartão de Alelo"</span>
+    <span class="o">}</span>,
+    <span class="s2">"Payment"</span>: <span class="o">{</span>
+        <span class="s2">"DebitCard"</span>: <span class="o">{</span>
+            <span class="s2">"CardNumber"</span>: <span class="s2">"508054******8044"</span>,
+            <span class="s2">"Holder"</span>: <span class="s2">"Comprador Cartão de Alelo"</span>,
+            <span class="s2">"ExpirationDate"</span>: <span class="s2">"07/2029"</span>,
+            <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
+            <span class="s2">"Brand"</span>: <span class="s2">"Elo"</span>
+        <span class="o">}</span>,
+        <span class="s2">"Provider"</span>: <span class="s2">"Cielo"</span>,
+        <span class="s2">"AuthorizationCode"</span>: <span class="s2">"803247"</span>,
+        <span class="s2">"Eci"</span>: <span class="s2">"7"</span>,
+        <span class="s2">"Tid"</span>: <span class="s2">"107703563079N41O9DJB"</span>,
+        <span class="s2">"ProofOfSale"</span>: <span class="s2">"770857"</span>,
+        <span class="s2">"Authenticate"</span>: <span class="nb">false</span>,
+        <span class="s2">"Recurrent"</span>: <span class="nb">false</span>,
+        <span class="s2">"Amount"</span>: 50,
+        <span class="s2">"ReceivedDate"</span>: <span class="s2">"2018-01-30 15:00:24"</span>,
+        <span class="s2">"CapturedAmount"</span>: 50,
+        <span class="s2">"CapturedDate"</span>: <span class="s2">"2018-01-30 15:00:25"</span>,
+        <span class="s2">"ReturnUrl"</span>: <span class="s2">"http://www.cielo.com.br"</span>,
+        <span class="s2">"Status"</span>: 2,
+        <span class="s2">"IsSplitted"</span>: <span class="nb">false</span>,
+        <span class="s2">"ReturnMessage"</span>: <span class="s2">"Transacao capturada com sucesso"</span>,
+        <span class="s2">"ReturnCode"</span>: <span class="s2">"00"</span>,
+        <span class="s2">"PaymentId"</span>: <span class="s2">"f8504766-4ae4-4a1f-811f-035964b6c4ee"</span>,
+        <span class="s2">"Type"</span>: <span class="s2">"DebitCard"</span>,
+        <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
+        <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
+        <span class="s2">"Links"</span>: <span class="o">[</span>
+            <span class="o">{</span>
+                <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
+                <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
+                <span class="s2">"Href"</span>: <span class="s2">"https://apiquery.cieloecommerce.cielo.com.br/1/sales/f8504766-4ae4-4a1f-811f-035964b6c4ee"</span>
+            <span class="o">}</span>
+        <span class="o">]</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AuthenticationUrl</code></td>
+      <td>URL to which the Merchant must redirect the Client for the Debit flow.</td>
+      <td>Text</td>
+      <td>56</td>
+      <td>Authentication Url</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
+      <td>Transaction ID on the acquirer.</td>
+      <td>Text</td>
+      <td>20</td>
+      <td>Alphanumeric text</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
+      <td>Order ID Field.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnUrl</code></td>
+      <td>Merchant return URL. URL to where the merchant will be redirected at the end of the flow.</td>
+      <td>Text</td>
+      <td>1024</td>
+      <td>http://www.urllogista.com.br</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
+      <td>Transaction status.</td>
+      <td>Byte</td>
+      <td>—</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
+      <td>Acquiring return code.</td>
+      <td>Text</td>
+      <td>32</td>
+      <td>Alphanumeric text</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+            <div class="footer-conteudo">
+  <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+    <img
+      src="https://developercielo.github.io/en/assets/images/icon-doubt.svg"
+      width="55px"
+      height="53px"
+      alt="Need Help?"
+    />
+  </div>
+
+  <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+    <h2>Need Help?</h2>
+    <p>If you didn't find your answer, <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte">send us a message</a>.</p>
+  </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a
+        title="Toggle left column"
+        class="hamburger"
+      >
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://desenvolvedores.cielo.com.br" target="_blank">
+        <img
+          src="https://developercielo.github.io/en/assets/images/logo.png"
+          alt="Documentações e tutoriais"
+          style="width: 60%; margin-left: 20%"
+        />
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+      
+      <div class="toc-footer">
+        <h2 class="no-toc toc-footer-title">Complementary materials</h2>
+           
+
+        <ul class="toc-footer">
+            
+          <li>
+            <a
+              href="https://developercielo.github.io/en/manual/cielo-conecta"
+              title="API para integração de vendas no físico e OnLine"
+              
+              >Integration Manual Cielo Conecta</a
+            >
+          </li>
+             
+          <li>
+            <a
+              href="https://developercielo.github.io/en/manual/cielo-ecommerce"
+              title="The purpose of this documentation is to guide the developer on how to integrate with Cielo's API Cielo e-Commerce."
+              
+              >Integration Manual eCommerce Cielo</a
+            >
+          </li>
+               
+          <li>
+            <a
+              href="https://developercielo.github.io/en/manual/retentativas8"
+              title="Manual integração para Pilotos"
+              
+              >Retry</a
+            >
+          </li>
+             
+          <li>
+            <a
+              href="https://developercielo.github.io/en/manual/autenticacaoseletiva9"
+              title="Manual integração para Pilotos"
+              
+              >Selective Authentication</a
+            >
+          </li>
+             
+        </ul>
+      </div>
+      
+
+      <div class="toc-contact">
+        <div class="contact">
+          <a
+            title="Contact"
+            href="https://devcielo.zendesk.com/"
+          >
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            <span>Contact</span>
+          </a>
+        </div>
+        <div class="github">
+          <a title="GitHub" href="https://github.com/developercielo">
+            <i class="fa fa-github" aria-hidden="true"></i>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/en/assets/bundles/js/bundle.min.js"></script>
+        <script>
+            
+            var selectors = 'h1,h2,h3,h4,h5,h6';
+            
+        </script>
+
+        
+
+        
+        <script>
+            let langs = '';
+            let langsArray = [];
+
+            
+            langs += "<a data-language-name='json'>JSON</a>";
+            langsArray.push('json');
+            
+            langs += "<a data-language-name='shell'>cURL</a>";
+            langsArray.push('shell');
+            
+
+            var toggleCode = 'Toggle';
+        </script>
+
+        <script src='https://developercielo.github.io/en/assets/bundles/js/language_buttons.min.js'></script>
+        
+
+        <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+<script>
+  (function (h, o, t, j, a, r) {
+    h.hj =
+      h.hj ||
+      function () {
+        (h.hj.q = h.hj.q || []).push(arguments);
+      };
+    h._hjSettings = { hjid: 674586, hjsv: 6 };
+    a = o.getElementsByTagName("head")[0];
+    r = o.createElement("script");
+    r.async = 1;
+    r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+</script>
+
+    </body>
+</html>
