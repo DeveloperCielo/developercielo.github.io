@@ -931,7 +931,9 @@ Quando um valor a crédito estiver em processo de compensação com um valor a d
 | 028    | Visa FCO Giro                          |
 | 029    | Visa crediário no crédito              |
 | 030    | Visa parcelado cliente                 |
-| 033    | JCB crédito a vista                    |
+| 032    | Pré-pago Visa Crédito                  |
+| 033    | Pré-pago Visa Débito                   |
+| 035    | Pré-pago Visa Carnê                    |
 | 036    | Visa Saque com cartão de Débito        |
 | 037    | Flex Car Visa Vale                     |
 | 038    | Credsystem crédito à vista             |
@@ -957,6 +959,7 @@ Quando um valor a crédito estiver em processo de compensação com um valor a d
 | 070    | Elo crédito a vista                    |
 | 071    | Elo débito à vista                     |
 | 072    | Elo parcelado loja                     |
+| 073    | Pré-pago Visa Cash(Visa Vale Pedágio)  |
 | 079    | Pagamento Carnê Visa Electron          |
 | 080    | Visa Crédito Conversor de Moeda        |
 | 081    | Mastercard Crédito Especializado `(*)` |
@@ -969,6 +972,9 @@ Quando um valor a crédito estiver em processo de compensação com um valor a d
 | 096    | Cabal crédito à vista                  |
 | 097    | Cabal débito à vista                   |
 | 098    | Cabal parcelado loja                   |
+| 107    | Pré-pago Master Carnê                  |
+| 110    | Pré-pago Master Crédito                |
+| 111    | Pré-pago Master Débito                 |
 | 161    | Hiper crédito à vista                  |
 | 162    | Hiper débito à vista                   |
 | 163    | Hiper parcelado loja                   |
@@ -982,6 +988,9 @@ Quando um valor a crédito estiver em processo de compensação com um valor a d
 | 205    | Nutricash Combustível                  |
 | 206    | Ben Alimentação                        |
 | 207    | Ben Refeição                           |
+| 269    | Pré-pago Elo Carnê                     |
+| 270    | Pré-pago Elo Crédito                   |
+| 271    | Pré-pago Elo Débito                    |
 | 314    | Ourocard Agro débito                   |
 | 315    | Ourocard Agro custeio                  |
 | 316    | Ourocard Agro investimento             |
@@ -1357,9 +1366,9 @@ MASTERCARD: a data de apresentação da 1ª parcela também será a data base pa
 
 > Observação: as atualizações citadas abaixo, estarão disponíveis a partir do dia 07 de junho de 2021.
 
-[Manual de Extrato Eletrônico](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_.pdf)
+[Manual de Extrato Eletrônico](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_2.pdf)
 
-[Electronic Statement Manual - English version](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_-_English_-_Version_14_1.pdf)
+[Electronic Statement Manual - English version](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_English_Version_14.pdf)
 
 [Atualização de Layout EE - Registro de Recebíveis + PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis_PIX_0.pdf)
 
