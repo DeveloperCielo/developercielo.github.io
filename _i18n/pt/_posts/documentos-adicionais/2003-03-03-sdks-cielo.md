@@ -6,8 +6,7 @@ toc_footers: true
 categories: tutorial
 sort_order: 5
 tags:
-  - API e-Commerce Cielo
-  - Webservice 1.5
+  - Cielo LIO
 ---
 
 # SDKs Cielo LIO
