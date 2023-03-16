@@ -213,9 +213,9 @@ Uma vez que a classe é mapeada em determinado campo, o script é capaz de recup
 | bpmpi_shipto_firstusagedate      | Indica a data de quando houve a primeira utilização do endereço de entrega | Texto<br>AAAA-MM-DD – data da criação                                                                                                                                                                                 | Não             |
 
 | **Dados do carrinho de compras** | **Descrição**                                  | **Tipo/Tamanho**                | **Obrigatório** |
-| -------------------------------- | ---------------------------------------------- | ------------------------------- | --------------- | --- |
+| -------------------------------- | ---------------------------------------------- | ------------------------------- | --------------- |
 | bpmpi*cart*#\_description        | Descrição do item                              | Alfanumérico [até 255 posições] | Não             |
-| bpmpi*cart*#\_name               | Nome do item                                   | Alfanumérico [até 255 posições] | Não             | Sim |
+| bpmpi*cart*#\_name               | Nome do item                                   | Alfanumérico [até 255 posições] | Não             |
 | bpmpi*cart*#\_sku                | SKU do item                                    | Alfanumérico [até 255 posições] | Não             |
 | bpmpi*cart*#\_quantity           | Quantidade do item no carrinho                 | Numérico [até 10 posições]      | Não             |
 | bpmpi*cart*#\_unitprice          | Valor unitário do item do carrinho em centavos | Numérico [até 10 posições]      | Não             |
