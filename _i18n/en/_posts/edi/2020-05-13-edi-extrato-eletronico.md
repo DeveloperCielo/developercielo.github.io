@@ -775,7 +775,9 @@ When a credit amount is being offset against a debit amount, both will be sent i
 |028|Visa FCO Working Capital |
 |029|Visa crediário in credit |
 |030|Visa Installment "Cliente" |
-|033|JCB credit |
+|033|Pré-pago Visa Crédito |
+|033|Pré-pago Visa Débito |
+|035|Pré-pago Visa Carnê |
 |036|Withdrawal using VISA Debit card |
 |037|Flex Car Visa Vale |
 |038|Credsystem credit |
@@ -801,6 +803,7 @@ When a credit amount is being offset against a debit amount, both will be sent i
 |070|Elo credit |
 |071|Elo debit |
 |072|Elo installment transaction |
+|073|Pré-pago Visa Cash(Visa Vale Pedágio) |
 |079|Visa Payment Carnet "Carnê" |
 |080|Visa Credit Currency Converter |
 |081|Mastercard Specialized Credit (_) |
@@ -813,6 +816,9 @@ When a credit amount is being offset against a debit amount, both will be sent i
 |096|Cabal credit |
 |097|Cabal debit |
 |098|Cabal installment transaction |
+|107|Pré-pago Master Carnê |
+|110|Pré-pago Master Crédito |
+|111|Pré-pago Master Débito |
 |161|Hiper credit |
 |162|Hiper debit |
 |163|Hiper installment transaction |
@@ -826,6 +832,9 @@ When a credit amount is being offset against a debit amount, both will be sent i
 |205|Nutricash Fuel |
 |206|Ben Meal |
 |207|Ben Food |
+|269|Pré-pago Elo Carnê |
+|270|Pré-pago Elo Crédito |
+|271|Pré-pago Elo Débito |
 |314|Ourocard Agro Debit |
 |315|Ourocard Agro Costing |
 |316|Ourocard Agro Investment |
@@ -1182,9 +1191,9 @@ MASTERCARD: the date of submission of the 1st installment will be used as the re
 
 > Note: the updates mentioned below will be available from June 07, 2021.
 
-[Electronic Statement Manual](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_.pdf)
+[Electronic Statement Manual](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_English_Version_14.pdf)
 
-[Electronic Statement Manual - Versão Portuguesa](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_-_English_-_Version_14_1.pdf)
+[Electronic Statement Manual - Versão Portuguesa](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_2.pdf)
 
 [EE Layout Update - Receivables Registration + PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis_PIX_0.pdf)
 
