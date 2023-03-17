@@ -931,6 +931,7 @@ Quando um valor a crédito estiver em processo de compensação com um valor a d
 | 028    | Visa FCO Giro                          |
 | 029    | Visa crediário no crédito              |
 | 030    | Visa parcelado cliente                 |
+| 031    | Pré-pago Visa Débito                   |
 | 032    | Pré-pago Visa Crédito                  |
 | 033    | Pré-pago Visa Débito                   |
 | 035    | Pré-pago Visa Carnê                    |
@@ -1366,9 +1367,9 @@ MASTERCARD: a data de apresentação da 1ª parcela também será a data base pa
 
 > Observação: as atualizações citadas abaixo, estarão disponíveis a partir do dia 07 de junho de 2021.
 
-[Manual de Extrato Eletrônico](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_2.pdf)
+[Manual de Extrato Eletrônico](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_17.03.2023.pdf)
 
-[Electronic Statement Manual - English version](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_English_Version_14.pdf)
+[Electronic Statement Manual - English version](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_-_English_-_Version_14_17.03.2023.pdf)
 
 [Atualização de Layout EE - Registro de Recebíveis + PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis_PIX_0.pdf)
 
