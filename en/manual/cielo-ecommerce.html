@@ -9609,355 +9609,6 @@ In addition, you have to send some addictional data in the transaction, to that 
   </tbody>
 </table>
 
-<h2 id="creating-a-sale-with-tokenized-card-in-15">Creating a sale with Tokenized Card in 1.5</h2>
-
-<aside class="warning">This integration aims to serve customers who are migrating from API 1.5 to API 3.0.</aside>
-
-<p>To create a credit card sale with a 1.5 token, it is necessary to make a POST to the Payment resource as shown in the example.</p>
-
-<p>For use in Sandbox, it is possible to simulate authorized or denied transactions via test tokens:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Status</th>
-      <th>Token</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Authorized</td>
-      <td>6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA</td>
-    </tr>
-    <tr>
-      <td>Declined</td>
-      <td>6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeB</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="request-26">Request</h3>
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador token 1.5"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"CardToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> POST <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/"</span>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>
-   <span class="s2">"MerchantOrderId"</span>:<span class="s2">"2014111706"</span>,
-   <span class="s2">"Customer"</span>:<span class="o">{</span>
-      <span class="s2">"Name"</span>:<span class="s2">"Comprador token 1.5"</span>
-   <span class="o">}</span>,
-   <span class="s2">"Payment"</span>:<span class="o">{</span>
-     <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
-     <span class="s2">"Amount"</span>:100,
-     <span class="s2">"Installments"</span>:1,
-     <span class="s2">"CreditCard"</span>:<span class="o">{</span>
-        <span class="s2">"CardToken"</span>:<span class="s2">"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA"</span>,
-        <span class="s2">"Brand"</span>:<span class="s2">"Visa"</span>
-     <span class="o">}</span>
-   <span class="o">}</span>
-<span class="o">}</span>
-<span class="nt">--verbose</span>
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Required</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Merchant identifier in API E-commerce Cielo.</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Double Authentication in API E-commerce Cielo.</td>
-      <td>Text</td>
-      <td>40</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantOrderId</code></td>
-      <td>Order ID number.</td>
-      <td>Text</td>
-      <td>50</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Name</code></td>
-      <td>Shopper’s name.</td>
-      <td>Text</td>
-      <td>255</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Customer.Status</code></td>
-      <td>Shopper registration status in store (NEW / EXISTING) - Used by fraud analysis</td>
-      <td>Text</td>
-      <td>255</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Type</code></td>
-      <td>Type of payment method.</td>
-      <td>Text</td>
-      <td>100</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Amount</code></td>
-      <td>Order Amount (to be sent in cents).</td>
-      <td>Number</td>
-      <td>15</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.Installments</code></td>
-      <td>Number of Installments.</td>
-      <td>Number</td>
-      <td>2</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardToken</code></td>
-      <td>Card identification token.</td>
-      <td>Guid</td>
-      <td>300</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
-      <td>Card brand.</td>
-      <td>Text</td>
-      <td>10</td>
-      <td>Yes</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="response-22">Response</h3>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Comprador token 1.5"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"ServiceTaxAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Interest"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Capture"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Authenticate"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"CreditCard"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"CardToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"Tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0307050140148"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"140148"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"AuthorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"045189"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Simulado"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"PaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8c14cdcf-d5a9-46b0-b040-c0d054cd8f76"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-07 17:01:40"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRA"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Operation Successful"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/8c14cdcf-d5a9-46b0-b040-c0d054cd8f76"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"capture"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/8c14cdcf-d5a9-46b0-b040-c0d054cd8f76/capture"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/8c14cdcf-d5a9-46b0-b040-c0d054cd8f76/void"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="o">{</span>
-  <span class="s2">"MerchantOrderId"</span>: <span class="s2">"2014111706"</span>,
-  <span class="s2">"Customer"</span>: <span class="o">{</span>
-    <span class="s2">"Name"</span>: <span class="s2">"Comprador token 1.5"</span>
-  <span class="o">}</span>,
-  <span class="s2">"Payment"</span>: <span class="o">{</span>
-    <span class="s2">"ServiceTaxAmount"</span>: 0,
-    <span class="s2">"Installments"</span>: 1,
-    <span class="s2">"Interest"</span>: 0,
-    <span class="s2">"Capture"</span>: <span class="nb">false</span>,
-    <span class="s2">"Authenticate"</span>: <span class="nb">false</span>,
-    <span class="s2">"Recurrent"</span>: <span class="nb">false</span>,
-    <span class="s2">"CreditCard"</span>: <span class="o">{</span>
-      <span class="s2">"SaveCard"</span>: <span class="nb">false</span>,
-      <span class="s2">"CardToken"</span>: <span class="s2">"6fb7a669aca457a9e43009b3d66baef8bdefb49aa85434a5adb906d3f920bfeA"</span>,
-      <span class="s2">"Brand"</span>: <span class="s2">"Visa"</span>
-    <span class="o">}</span>,
-    <span class="s2">"Tid"</span>: <span class="s2">"0307050140148"</span>,
-    <span class="s2">"ProofOfSale"</span>: <span class="s2">"140148"</span>,
-    <span class="s2">"AuthorizationCode"</span>: <span class="s2">"045189"</span>,
-    <span class="s2">"Provider"</span>: <span class="s2">"Simulado"</span>,
-    <span class="s2">"PaymentId"</span>: <span class="s2">"8c14cdcf-d5a9-46b0-b040-c0d054cd8f76"</span>,
-    <span class="s2">"Type"</span>: <span class="s2">"CreditCard"</span>,
-    <span class="s2">"Amount"</span>: 100,
-    <span class="s2">"ReceivedDate"</span>: <span class="s2">"2017-03-07 17:01:40"</span>,
-    <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
-    <span class="s2">"Country"</span>: <span class="s2">"BRA"</span>,
-    <span class="s2">"ReturnCode"</span>: <span class="s2">"4"</span>,
-    <span class="s2">"ReturnMessage"</span>: <span class="s2">"Operation Successful"</span>,
-    <span class="s2">"Status"</span>: 1,
-    <span class="s2">"Links"</span>: <span class="o">[</span>
-      <span class="o">{</span>
-        <span class="s2">"Method"</span>: <span class="s2">"GET"</span>,
-        <span class="s2">"Rel"</span>: <span class="s2">"self"</span>,
-        <span class="s2">"Href"</span>: <span class="s2">"https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/8c14cdcf-d5a9-46b0-b040-c0d054cd8f76"</span>
-      <span class="o">}</span>,
-      <span class="o">{</span>
-        <span class="s2">"Method"</span>: <span class="s2">"PUT"</span>,
-        <span class="s2">"Rel"</span>: <span class="s2">"capture"</span>,
-        <span class="s2">"Href"</span>: <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/8c14cdcf-d5a9-46b0-b040-c0d054cd8f76/capture"</span>
-      <span class="o">}</span>,
-      <span class="o">{</span>
-        <span class="s2">"Method"</span>: <span class="s2">"PUT"</span>,
-        <span class="s2">"Rel"</span>: <span class="s2">"void"</span>,
-        <span class="s2">"Href"</span>: <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/sales/8c14cdcf-d5a9-46b0-b040-c0d054cd8f76/void"</span>
-      <span class="o">}</span>
-    <span class="o">]</span>
-  <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Format</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ProofOfSale</code></td>
-      <td>Authorization number, identical to NSU.</td>
-      <td>Text</td>
-      <td>6</td>
-      <td>Alphanumeric text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Tid</code></td>
-      <td>Transaction Id on the acquirer.</td>
-      <td>Text</td>
-      <td>20</td>
-      <td>Alphanumeric text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">AuthorizationCode</code></td>
-      <td>Authorization code.</td>
-      <td>Text</td>
-      <td>6</td>
-      <td>Alphanumeric text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
-      <td>Text that will be printed on the carrier’s bank invoice - Available only for VISA/MASTER - does not allow special characters</td>
-      <td>Text</td>
-      <td>13</td>
-      <td>Alphanumeric text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>Order Identifier Field.</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ECI</code></td>
-      <td>Eletronic Commerce Indicator. Represents how secure a transaction is.</td>
-      <td>Text</td>
-      <td>2</td>
-      <td>Examples: 7</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Transaction Status.</td>
-      <td>Byte</td>
-      <td>—</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
-      <td>Return code from acquirer.</td>
-      <td>Text</td>
-      <td>32</td>
-      <td>Alphanumeric text</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
-      <td>Return message from acquirer.</td>
-      <td>Text</td>
-      <td>512</td>
-      <td>Alphanumeric text</td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="recurring-payments">Recurring Payments</h1>
 
 <p>Recurring payments are credit card transactions that repeat themselves after a certain period of time.</p>
@@ -10211,7 +9862,7 @@ In addition, you have to send some addictional data in the transaction, to that 
 
 <p>The request follows the structure of a standard credit transaction, but the <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> parameter must be <code class="language-plaintext highlighter-rouge">true</code>; otherwise, the transaction will be denied.</p>
 
-<h4 id="request-27">Request</h4>
+<h4 id="request-26">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -10388,7 +10039,7 @@ In addition, you have to send some addictional data in the transaction, to that 
   </tbody>
 </table>
 
-<h4 id="response-23">Response</h4>
+<h4 id="response-22">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -10639,7 +10290,7 @@ In addition, you have to send some addictional data in the transaction, to that 
 
 <aside class="notice">Warning: In this recurrence mode, the first transaction must be captured (`AuthorizeNow` = "true"). All subsequent transactions will be captured automatically.</aside>
 
-<h4 id="request-28">Request</h4>
+<h4 id="request-27">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -10838,7 +10489,7 @@ In addition, you have to send some addictional data in the transaction, to that 
   </tbody>
 </table>
 
-<h4 id="response-24">Response</h4>
+<h4 id="response-23">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -11029,7 +10680,7 @@ In addition, you have to send some addictional data in the transaction, to that 
 
 <p>Unlike the previous recurrence, this example does not authorize immediately, it schedules a future authorization. To schedule the first transaction in the series of recurrences, send the <code class="language-plaintext highlighter-rouge">AuthorizeNow</code> parameter as “false” and add the <code class="language-plaintext highlighter-rouge">StartDate</code> parameter.</p>
 
-<h3 id="request-29">Request</h3>
+<h3 id="request-28">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -11286,7 +10937,7 @@ In addition, you have to send some addictional data in the transaction, to that 
   </tbody>
 </table>
 
-<h3 id="response-25">Response</h3>
+<h3 id="response-24">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -11440,7 +11091,7 @@ In addition, you have to send some addictional data in the transaction, to that 
 
 <p>To change the shopper’s data for the recurrent transactions, just do a PUT as in the example.</p>
 
-<h4 id="request-30">Request</h4>
+<h4 id="request-29">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Customer</span></aside>
 
@@ -11704,7 +11355,7 @@ In addition, you have to send some addictional data in the transaction, to that 
   </tbody>
 </table>
 
-<h4 id="response-26">Response</h4>
+<h4 id="response-25">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 HTTP Status 200
@@ -11717,7 +11368,7 @@ HTTP Status 200
 
 <p>To change the end date of the Recurrence, just do a PUT as in the example.</p>
 
-<h4 id="request-31">Request</h4>
+<h4 id="request-30">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/EndDate</span></aside>
 
@@ -11784,7 +11435,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h4 id="response-27">Response</h4>
+<h4 id="response-26">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -11795,7 +11446,7 @@ HTTP Status 200
 
 <p>To change the Recurrence Interval, just do a PUT as in the example.</p>
 
-<h4 id="request-32">Request</h4>
+<h4 id="request-31">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Interval</span></aside>
 
@@ -11862,7 +11513,7 @@ HTTP Status 200
   </tbody>
 </table>
 
-<h4 id="response-28">Response</h4>
+<h4 id="response-27">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -11890,7 +11541,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
   </li>
 </ol>
 
-<h4 id="request-33">Request</h4>
+<h4 id="request-32">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/RecurrencyDay</span></aside>
 
@@ -11957,7 +11608,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
   </tbody>
 </table>
 
-<h4 id="response-29">Response</h4>
+<h4 id="response-28">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -11968,7 +11619,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 <p>To modify the value of the recurrence, just do a PUT as in the example.</p>
 
-<h4 id="request-34">Request</h4>
+<h4 id="request-33">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Amount</span></aside>
 
@@ -12037,7 +11688,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 <aside class="warning">This change only affects the payment date of the next recurrence.</aside>
 
-<h4 id="response-30">Response</h4>
+<h4 id="response-29">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -12048,7 +11699,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 <p>To change the date of the next payment, just do a PUT as in the example.</p>
 
-<h4 id="request-35">Request</h4>
+<h4 id="request-34">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/NextPaymentDate</span></aside>
 
@@ -12115,7 +11766,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
   </tbody>
 </table>
 
-<h4 id="response-31">Response</h4>
+<h4 id="response-30">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -12128,7 +11779,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 <aside class="notice">Warning: This change affects all `Payment` node data. So to keep the previous data you must inform the fields that will not be changed with the same values ​​that were already saved.</aside>
 
-<h4 id="request-36">Request</h4>
+<h4 id="request-35">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Payment</span></aside>
 
@@ -12277,7 +11928,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
   </tbody>
 </table>
 
-<h4 id="response-32">Response</h4>
+<h4 id="response-31">Response</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
 </code></pre></div></div>
@@ -12288,12 +11939,79 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 <p>To disable a recurrent order, just do a PUT as in the example.</p>
 
-<h4 id="request-37">Request</h4>
+<h4 id="request-36">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Deactivate</span></aside>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
 <span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Deactivate"</span>
+<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
+<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
+<span class="nt">--data-binary</span>
+<span class="nt">--verbose</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Store identifier in API E-commerce Cielo.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
+      <td>Public Key for Double Authentication in API E-commerce Cielo.</td>
+      <td>Text</td>
+      <td>40</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
+      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
+      <td>Guid</td>
+      <td>36</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
+      <td>Recurrence identification number.</td>
+      <td>Text</td>
+      <td>50</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="response-32">Response</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
+</code></pre></div></div>
+
+<p>See <a href="#http-status-code">HTTP Status Code</a> for the list with all HTTP status codes possibly returned by the API.</p>
+
+<h3 id="rehabilitating-a-recurrent-order">Rehabilitating a Recurrent Order</h3>
+
+<p>To rehabilitate a recurring order, just do a PUT as in the example.</p>
+
+<h4 id="request-37">Request</h4>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
+<span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
 <span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
@@ -12351,73 +12069,6 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 <p>See <a href="#http-status-code">HTTP Status Code</a> for the list with all HTTP status codes possibly returned by the API.</p>
 
-<h3 id="rehabilitating-a-recurrent-order">Rehabilitating a Recurrent Order</h3>
-
-<p>To rehabilitate a recurring order, just do a PUT as in the example.</p>
-
-<h4 id="request-38">Request</h4>
-
-<aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate</span></aside>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> PUT <span class="s2">"https://apisandbox.cieloecommerce.cielo.com.br/1/RecurrentPayment/{RecurrentPaymentId}/Reactivate"</span>
-<span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--header</span> <span class="s2">"MerchantKey: 0123456789012345678901234567890123456789"</span>
-<span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
-<span class="nt">--data-binary</span>
-<span class="nt">--verbose</span>
-</code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Required</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Store identifier in API E-commerce Cielo.</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantKey</code></td>
-      <td>Public Key for Double Authentication in API E-commerce Cielo.</td>
-      <td>Text</td>
-      <td>40</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RequestId</code></td>
-      <td>Request Identifier, used when the merchant uses different servers for each GET/POST/PUT.</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">RecurrentPaymentId</code></td>
-      <td>Recurrence identification number.</td>
-      <td>Text</td>
-      <td>50</td>
-      <td>Yes</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="response-34">Response</h4>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP Status 200
-</code></pre></div></div>
-
-<p>See <a href="#http-status-code">HTTP Status Code</a> for the list with all HTTP status codes possibly returned by the API.</p>
-
 <h2 id="renova-fácil">Renova Fácil</h2>
 
 <p>Renova Fácil is a service developed by Cielo together with issuers. The objective of the service is to increase the conversion rate of recurring transactions with credit and debit cards.</p>
@@ -12428,7 +12079,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 <p>Below is an example of a response to a credit transaction.</p>
 
-<h3 id="request-39">Request</h3>
+<h3 id="request-38">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
 
@@ -12634,7 +12285,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
   </tbody>
 </table>
 
-<h3 id="response-35">Response</h3>
+<h3 id="response-34">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014113245231706"</span><span class="p">,</span><span class="w">
@@ -12911,7 +12562,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 <aside class="notice">Only transactions made within the last three months are eligible for queries.</aside>
 
-<h4 id="request-40">Request</h4>
+<h4 id="request-39">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/{PaymentId}</span></aside>
 
@@ -12967,7 +12618,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
   </tbody>
 </table>
 
-<h4 id="response-36">Response</h4>
+<h4 id="response-35">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">}</span><span class="w">
 </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="err">,</span><span class="w">
@@ -13281,7 +12932,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 <aside class="notice">Only transactions made within the last three months are eligible for queries.</aside>
 
-<h4 id="request-41">Request</h4>
+<h4 id="request-40">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales/acquirerTid/{TID}</span></aside>
 
@@ -13344,7 +12995,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
   </tbody>
 </table>
 
-<h4 id="response-37">Response</h4>
+<h4 id="response-36">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">}</span><span class="w">
 </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014111706"</span><span class="err">,</span><span class="w">
@@ -13658,7 +13309,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 <p>Considering this, it is possible to query details of each transaction by <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#searching-for-a-transaction-via-paymentid" target="\_blank">searching with <code class="language-plaintext highlighter-rouge">PaymentId</code></a></p>
 
-<h4 id="request-42">Request</h4>
+<h4 id="request-41">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/sales?merchantOrderId={merchantOrderId}</span></aside>
 
@@ -13714,7 +13365,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
   </tbody>
 </table>
 
-<h4 id="response-38">Response</h4>
+<h4 id="response-37">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -13774,7 +13425,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 <p>For information about each transaction, <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#searching-for-a-transaction-via-paymentid" target="\_blank">search via PaymentId</a></p>
 
-<h4 id="request-43">Request</h4>
+<h4 id="request-42">Request</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/RecurrentPayment/{RecurrentPaymentId}</span></aside>
 
@@ -13830,7 +13481,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
   </tbody>
 </table>
 
-<h4 id="response-39">Response</h4>
+<h4 id="response-38">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -14053,7 +13704,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 <p><strong>After capture, it is not possible to perform additional captures in the same order.</strong></p>
 
-<h4 id="request-44">Request</h4>
+<h4 id="request-43">Request</h4>
 
 <p>*For <strong>partial capture</strong>, send the <code class="language-plaintext highlighter-rouge">Amount</code> field in the capture request with the value you want to capture;
 *For <strong>total capture</strong>, do not send the <code class="language-plaintext highlighter-rouge">Amount</code> field. The total value of the authorization will be considered.</p>
@@ -14132,7 +13783,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
   </tbody>
 </table>
 
-<h4 id="response-40">Response</h4>
+<h4 id="response-39">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -14266,7 +13917,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 <aside class="notice">Attention: Cancellation by MerchantOrderId always affects the newest transaction, so if there are orders with a duplicate order number, only the current order will be cancelled. The previous order cannot be canceled by this method.</aside>
 
-<h4 id="request-45">Request</h4>
+<h4 id="request-44">Request</h4>
 
 <p><strong>Cancellation via PaymentId</strong></p>
 
@@ -14338,7 +13989,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
   </tbody>
 </table>
 
-<h4 id="response-41">Response</h4>
+<h4 id="response-40">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -14443,7 +14094,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 <aside class="notice">Attention: The API returns the sum of the total of partial cancellations, that is, if you make three partial cancellations of R$10.00, the API will present in the response a total of R$30.00 canceled.</aside>
 
-<h4 id="request-46">Request</h4>
+<h4 id="request-45">Request</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/1/sales/{PaymentId}/void?amount=XXX </span></aside>
 
@@ -14505,7 +14156,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
   </tbody>
 </table>
 
-<h4 id="response-42">Response</h4>
+<h4 id="response-41">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -14957,7 +14608,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 <h2 id="integration">Integration</h2>
 
-<h3 id="request-47">Request</h3>
+<h3 id="request-46">Request</h3>
 
 <p>A <code class="language-plaintext highlighter-rouge">GET</code> request must be sent containing the BIN to be checked:</p>
 
@@ -14981,7 +14632,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">https://apiquerysandbox.cieloecommerce.cielo.com.br/</span><span class="mi">1</span><span class="err">/cardBin/</span><span class="mi">420020</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="response-43">Response</h3>
+<h3 id="response-42">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
@@ -15249,7 +14900,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 <p>To perform a Zero Auth query, the merchant must send a <code class="language-plaintext highlighter-rouge">POST</code> request to the API E-commerce Cielo, simulating a transaction.</p>
 
-<h3 id="request-48">Request</h3>
+<h3 id="request-47">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/zeroauth</span></aside>
 
@@ -15392,7 +15043,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
   </tbody>
 </table>
 
-<h3 id="response-44">Response</h3>
+<h3 id="response-43">Response</h3>
 
 <p>The response always returns whether the card can currently be authorized. This information only means that the <em>card is valid for transactioning</em>, but does not indicate that a certain value will be authorized.</p>
 
@@ -15570,7 +15221,7 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
   <li>Describe that you need the credentials “ClientID” e o “ClientSecret” to use Silent Order Post.</li>
 </ul>
 
-<h4 id="request-49">Request</h4>
+<h4 id="request-48">Request</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
@@ -15607,7 +15258,7 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
   </tbody>
 </table>
 
-<h4 id="response-45">Response</h4>
+<h4 id="response-44">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw"</span><span class="p">,</span><span class="w">
@@ -15669,7 +15320,7 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
   </tbody>
 </table>
 
-<h4 id="request-50">Request</h4>
+<h4 id="request-49">Request</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--request</span> POST <span class="s2">"https://transactionsandbox.pagador.com.br/post/api/public/v2/accesstoken"</span>
 <span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
@@ -15707,7 +15358,7 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
   </tbody>
 </table>
 
-<h4 id="response-46">Response</h4>
+<h4 id="response-45">Response</h4>
 
 <p>As a response, you will receive a JSON (“HTTP 201 Created”) with the SOP AccessToken and some other data.</p>
 
@@ -15900,7 +15551,7 @@ The download can be made from the following URL:</p>
 
 <p>Example: https://transaction.cieloecommerce.cielo.com.br/post/api/public/v1/accesstoken?merchantid=00000000-0000-0000-0000-000000000000</p>
 
-<h3 id="request-51">Request</h3>
+<h3 id="request-50">Request</h3>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/v1/accesstoken?merchantid={mid_loja}</span></aside>
 
@@ -15932,7 +15583,7 @@ The download can be made from the following URL:</p>
   </tbody>
 </table>
 
-<h3 id="response-47">Response</h3>
+<h3 id="response-46">Response</h3>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">--header</span> <span class="s2">"Content-Type: application/json"</span>
 <span class="nt">--header</span> <span class="s2">"RequestId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"</span>
