@@ -2844,6 +2844,7 @@ Além disso, precisam enviar alguns dados adicionais na transação, para que as
       "PlatformOperator": "ABC",
       "AdditionalData": {
         "CashIn": "true"
+        "Mcc": "1234"
       }
     }
   }
@@ -2854,6 +2855,7 @@ Além disso, precisam enviar alguns dados adicionais na transação, para que as
 | --------------------------- | -------------- | ------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Wallet.PlatformOperator`     | String (texto) | 3       | Sim, para transações de Cash In | Sigla da carteira que está cadastrada aqui na Cielo como carteira digital (verificar sua sigla com seu gestor comercial)                                          |
 | `Wallet.AdditionalData.CashIn` | String (texto) | -       | Sim, para transações de Cash In | Enviar como “True” se for uma transação de Cash In                                                                                                                |
+| `Wallet.AdditionalData.Mcc` | String (numérico) | 4       | Sim, para transações de Cash In | MCC do varejista subjacente (para transações de compra); MCC da carteira digital (para transações de abastecimento de crédito na carteira caso aplicável - no qual é necessária a marcação de cash in também vista nessa sessão)               |
 | `Customer.Identity`         | Texto          | 14      | Sim, para transações de Cash In | Número do CPF ou CNPJ do comprador.                                                                                                                               |
 | `Customer.IdentityType`     | Texto          | 255     | Sim, para transações de Cash In | Tipo de documento de identificação do comprador (CPF/CNPJ).                                                                                                       |
 | `SoftDescriptor`            | Texto          | 13      | Sim, para transações de Cash In | Texto que será impresso na fatura bancária do portador.<br> Não permite caracteres especiais.<br>Necessário preencher com **Nome da carteira\*nome do portador**. |
