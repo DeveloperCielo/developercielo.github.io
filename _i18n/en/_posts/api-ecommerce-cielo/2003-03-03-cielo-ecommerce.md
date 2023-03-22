@@ -818,7 +818,7 @@ curl
         "Status": 2,
         "ReturnCode": "6",
         "ReturnMessage": "Operation Successful",
-        "Payment.MerchantAdviceCode":"1",
+        "MerchantAdviceCode":"1",
         "Links": [
             {
                 "Method": "GET",
@@ -846,7 +846,7 @@ curl
 | `Status`                             | Transaction status.                                                                                                                                                                                                                                                                                                                                                                       | Byte        | ---  | 2                                    |
 | `ReturnCode`                         | Acquiring return code.                                                                                                                                                                                                                                                                                                                                                                    | Text        | 32   | Alphanumeric text                    |
 | `ReturnMessage`                      | Acquiring return message.                                                                                                                                                                                                                                                                                                                                                                 | Text        | 512  | Alphanumeric text                    |
-| `Payment.MerchantAdviceCode`         | Card brand's return code that defines the period for transaction submission retry. _Valid only for Mastercard_.                                                                                                                                                                                                                                                                           | Text        | 2    | Number                               |
+| `MerchantAdviceCode`         | Card brand's return code that defines the period for transaction submission retry. _Valid only for Mastercard_. See more at [Mastercard retry program](https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard) | Text        | 2    | Number                               |
 | `TryAutomaticCancellation`           | In case of error during authorization (status “Not Finished - 0”), the response will include the “tryautomaticcancellation” field as “true”. In this case, the transaction will be automatically queried, and if it has been authorized successfully, it will be canceled automatically. This feature must be enabled for establishment. To enable, please contact our technical support. | Boolean     | -    | true ou false                        |
 | `CreditCard.PaymentAccountReference` | PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the card brand doesn’t send the information the field will not be returned.                                                                                                            | Alphanumber | 29   | ---                                  |
 
@@ -1071,10 +1071,10 @@ curl
 | `AuthenticationUrl`                 | URL to where the store should redirect the shopper for the debit flow.                                                                                                                                                                                                         | Text         | 56   | Authentication URL                   |
 | `Tid`                               | Transaction Id on the acquirer.                                                                                                                                                                                                                                                | Text         | 20   | Alphanumeric text                    |
 | `PaymentId`                         | Payment ID number, needed for future operations like Consulting, Capture and Cancellation.                                                                                                                                                                                     | Guid         | 36   | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-| `ReturnUrl`                         | Return URL for the store. URL where the store will be redirected after the flow.                                                                                                                                                                                               | Text         | 1024 | http://www.urllogista.com.br         |
+| `ReturnUrl`                         | Return URL for the store. URL where the store will be redirected after the flow.                                                                                                                                                                                               | Text         | 1024 | http://www.cielo.com.br         |
 | `Status`                            | Transaction status.                                                                                                                                                                                                                                                            | Byte         | ---  | 0                                    |
 | `ReturnCode`                        | Acquiring return code.                                                                                                                                                                                                                                                         | Text         | 32   | Alphanumeric text                    |
-| `Payment.MerchantAdviceCode`        | Brand's return code that defines the period for transaction submission retry._Válido only for Mastercard_                                                                                                                                                                      | Text         | 2    | Number                               |
+| `MerchantAdviceCode`        | Card brand's return code that defines the period for transaction submission retry._Valid only for Mastercard_. See more at [Mastercard Retry Program](https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard) | Text         | 2    | Number                               |
 | `DebitCard.PaymentAccountReference` | PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the card brand doesn’t send the information the field will not be returned. | Alphanumeric | 29   | -                                    |
 
 ### Authenticating a transaction
@@ -1364,7 +1364,7 @@ curl
     "Status": 2,
     "ReturnCode": "6",
     "ReturnMessage": "Operation Successful",
-    "Payment.MerchantAdviceCode": "1",
+    "MerchantAdviceCode": "1",
     "Links": [
       {
         "Method": "GET",
@@ -1455,7 +1455,7 @@ curl
         "Status": 2,
         "ReturnCode": "6",
         "ReturnMessage": "Operation Successful",
-        "Payment.MerchantAdviceCode":"1",
+        "MerchantAdviceCode":"1",
         "Links": [
             {
                 "Method": "GET",
@@ -1483,7 +1483,7 @@ curl
 | `Status`                             | Transaction status.                                                                                                                                                                                                                                                                                                                                                                       | Byte        | ---     | 2                                    |
 | `ReturnCode`                         | Acquiring return code.                                                                                                                                                                                                                                                                                                                                                                    | Text        | 32      | Alphanumeric text                    |
 | `ReturnMessage`                      | Acquiring return message.                                                                                                                                                                                                                                                                                                                                                                 | Text        | 512     | Alphanumeric text                    |
-| `Payment.MerchantAdviceCode`         | Card brand's return code that defines the period for transaction submission retry. _Valid only for Mastercard_.                                                                                                                                                                                                                                                                           | Text        | 2       | Number                               |
+| `MerchantAdviceCode`         | Card brand's return code that defines the period for transaction submission retry. _Valid only for Mastercard_. See more at [Mastercard retry program](https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard)| Text        | 2       | Number                               |
 | `TryAutomaticCancellation`           | In case of error during authorization (status “Not Finished - 0”), the response will include the “tryautomaticcancellation” field as “true”. In this case, the transaction will be automatically queried, and if it has been authorized successfully, it will be canceled automatically. This feature must be enabled for establishment. To enable, please contact our technical support. | Boolean     | -       | true ou false                        |
 | `CreditCard.PaymentAccountReference` | PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the card brand doesn’t send the information the field will not be returned.                                                                                                            | Alphanumber | 29      | ---                                  |
 
