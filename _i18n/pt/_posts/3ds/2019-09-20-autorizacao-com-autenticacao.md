@@ -192,54 +192,6 @@ curl
 
 Veja mais: [https://developercielo.github.io/manual/cielo-ecommerce#resposta](https://developercielo.github.io/manual/cielo-ecommerce#resposta)
 
-# Autorização com Autenticação (Webservice 1.5)
-
-Veja exemplo abaixo, descrito o envio dos dados de autenticação da requisição de autorização da API Cielo 1.5.
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/servicos/ecommwsec.do</span></aside>
-
-### Request
-
-```json
-<?xml version="1.0" encoding="UTF-8"?>
-<requisicao-transacao xmlns="http://ecommerce.cbmp.com.br" id="1" versao="1.2.1">
-   <dados-ec>
-   (...)
-   </dados-ec>
-   <dados-portador>
-   (...)
-   </dados-portador>
-   <dados-pedido>
-   (...)
-   </dados-pedido>
-   <forma-pagamento>
-   (...)
-   </forma-pagamento>
-   <autorizar>3</autorizar>
-   <capturar>true</capturar>
-   <gerar-token>false</gerar-token>
-   <dados-autenticacao-mpi-externa>
-      <cavv>A901234A5678A0123A567A90120=</cavv>
-      <xid>A90123A45678A0123A567A90123</xid>
-      <eci>3</eci>
-      <versao>1</versao>
-      <dstid>3</dstid>
-   </dados-autenticacao-mpi-externa>
-</requisicao-transacao>
-```
-
-| **Campo** | **Descrição**                                                      | **Tipo/Tamanho**         | **Obrigatório**                               |
-| --------- | ------------------------------------------------------------------ | ------------------------ | --------------------------------------------- |
-| cavv      | Assinatura que é retornada nos cenários de sucesso na autenticação | Texto                    | Sim, quando a autenticação foi um sucesso     |
-| xid       | XID retornado no processo de autenticação                          | Texto                    | Sim, quando a versão do 3DS for &quot;1&quot; |
-| eci       | E-Commerce Indicator retornado no processo de autenticação         | Numérico [1 posição]     | Sim                                           |
-| versao    | Versão do 3DS utilizado no processo de autenticação                | Alfanumérico [1 posição] | Sim, quando a versão do 3DS for &quot;2&quot; |
-| dstid     | RequestID retornado no processo de autenticação                    | GUID [36 posições]       | Sim, quando a versão do 3DS for &quot;2&quot; |
-
-### Response
-
-Veja mais: [https://developercielo.github.io/manual/webservice-1-5#tipos-de-retorno](https://developercielo.github.io/manual/webservice-1-5#tipos-de-retorno)
-
 # Tabela de ECI
 
 | Bandeira      | ECI                      | Significado da Transação                                                                                         |
