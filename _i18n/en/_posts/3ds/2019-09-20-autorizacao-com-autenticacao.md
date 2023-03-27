@@ -106,54 +106,6 @@ curl
 
 See more: [https://developercielo.github.io/en/manual/cielo-ecommerce#response](https://developercielo.github.io/en/manual/cielo-ecommerce#response)
 
-# Authorization with Authentication (Webservice 1.5)
-
-See example below, describing the submission of the Cielo 1.5 API authorization request authentication data.
-
-<aside class="request"><span class="method post">POST</span> <span class="endpoint">/servicos/ecommwsec.do</span></aside>
-
-### Request
-
-```json
-<?xml version="1.0" encoding="UTF-8"?>
-<requisicao-transacao xmlns="http://ecommerce.cbmp.com.br" id="1" versao="1.2.1">
-   <dados-ec>
-   (...)
-   </dados-ec>
-   <dados-portador>
-   (...)
-   </dados-portador>
-   <dados-pedido>
-   (...)
-   </dados-pedido>
-   <forma-pagamento>
-   (...)
-   </forma-pagamento>
-   <autorizar>3</autorizar>
-   <capturar>true</capturar>
-   <gerar-token>false</gerar-token>
-   <dados-autenticacao-mpi-externa>
-      <cavv>A901234A5678A0123A567A90120=</cavv>
-      <xid>A90123A45678A0123A567A90123</xid>
-      <eci>3</eci>
-      <versao>1</versao>
-      <dstid>3</dstid>
-   </dados-autenticacao-mpi-externa>
-</requisicao-transacao>
-```
-
-| **Field** | **Description**                                                | **Type/Size**              | **Required**                               |
-| --------- | -------------------------------------------------------------- | -------------------------- | ------------------------------------------ |
-| cavv      | Signature that is returned in authentication success scenarios | Text                       | Yes, when authentication was a success     |
-| xid       | XID returned in authentication process                         | Text                       | Yes, when the 3DS version is &quot;1&quot; |
-| eci       | E-Commerce Indicator returned in authentication process        | Numeric [1 character]      | Yes                                        |
-| versao    | 3DS version used in authentication process                     | Alphanumeric [1 character] | Yes, when the 3DS version is &quot;2&quot; |
-| dstid     | RequestID returned in authentication process                   | GUID [36 characters]       | Yes, when the 3DS version is &quot;2&quot; |
-
-### Response
-
-See more: [https://developercielo.github.io/en/manual/webservice-1-5#return-types](https://developercielo.github.io/en/manual/webservice-1-5#return-types)
-
 # ECI Table
 
 | **Brand**  | **ECI**                      | **Transaction Meaning**                                                                                       |
