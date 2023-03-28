@@ -5292,7 +5292,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 <p>No caso de transações de e-commerce de uma SDWO com cartão de crédito ou débito (não originadas por um QR Code), é necessário que a carteira mande alguns dados adicionais na transação, para que as bandeiras possam identificar e diferenciar esse tipo de transação. Veja abaixo as especificações:</p>
 
 <blockquote>
-  <p>Além dos campos específicos dessa modalidade, para transações SDWO também é obrigatório o envio do Soft Descriptor (campo <code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code>) e CPF ou CNPJ do portador (campo <code class="language-plaintext highlighter-rouge">Customer.Identity</code> e campo <code class="language-plaintext highlighter-rouge">Customer.IdentityType</code>). Confira mais detalhes desses campos na tabela de campos da requisição.</p>
+  <p>Além dos campos específicos dessa modalidade, para transações SDWO de compra também é obrigatório o envio do Soft Descriptor (campo <code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code>) e CNPJ do portador, caso seja pessoa jurídica (campos <code class="language-plaintext highlighter-rouge">Customer.Identity</code> e <code class="language-plaintext highlighter-rouge">Customer.IdentityType</code>). Confira mais detalhes desses campos na tabela de campos da requisição.</p>
 </blockquote>
 
 <p>Para efetuar testes, é necessário apenas seguir as orientações do menu <a href="https://developercielo.github.io/manual/cielo-ecommerce#sandbox-e-ferramentas">Sandbox e ferramentas</a></p>
@@ -5336,7 +5336,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <th>Propriedade</th>
       <th>Tipo</th>
       <th>Tamanho</th>
-      <th>Obrigatório</th>
+      <th>Obrigatório para transações de SDWO?</th>
       <th>Descrição</th>
     </tr>
   </thead>
@@ -5345,35 +5345,35 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td><code class="language-plaintext highlighter-rouge">Wallet.PlatformOperator</code></td>
       <td>String (texto)</td>
       <td>3</td>
-      <td>Sim, para transações de SDWO</td>
+      <td>Sim</td>
       <td>Sigla da carteira que está cadastrada aqui na Cielo como carteira digital (verificar sua sigla com seu gestor comercial)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.AdditionalData.Mcc</code></td>
       <td>String (numérico)</td>
       <td>4</td>
-      <td>Sim, para transações de SDWO</td>
+      <td>Sim</td>
       <td>MCC do varejista subjacente (pra transações de compra); MCC da carteira digital (para transações de abastecimento de crédito na carteira caso aplicável – no qual é necessária a marcação de cash in também vista nessa sessão)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
       <td>Texto</td>
       <td>14</td>
-      <td>Sim, para transações de SDWO</td>
+      <td>Sim, se o portador for pessoa jurídica (CNPJ)*</td>
       <td>Número do CPF ou CNPJ do comprador.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.IdentityType</code></td>
       <td>Texto</td>
       <td>255</td>
-      <td>Sim, para transações de SDWO</td>
+      <td>Sim, se o portador for pessoa jurídica (CNPJ)*</td>
       <td>Tipo de documento de identificação do comprador (CPF/CNPJ).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">SoftDescriptor</code></td>
       <td>Texto</td>
       <td>13</td>
-      <td>Sim, para transações de SDWO</td>
+      <td>Sim</td>
       <td>Texto que será impresso na fatura bancária do portador.<br /> Não permite caracteres especiais.<br />Necessário preencher com <strong>Nome da carteira*nome do lojista</strong>.</td>
     </tr>
   </tbody>
