@@ -827,7 +827,7 @@ Transações de cartão de crédito serão incluídas no [Backoffice Cielo Check
 
 **Atenção - TRANSAÇÕES EXPIRADAS:** Por padrão, lojas Checkout Cielo possuem 15 dias para realizarem a captura da transação de Crédito. Se não capturadas, essas transações serão PERDIDAs.
 
-### Análise de Fraude
+#### Análise de Fraude
 
 Transações de crédito **“AUTORIZADAS”** serão enviadas para análise da ferramenta de antifraude. Todas as transações classificadas como alto risco serão automaticamente canceladas, sem exceção.
 O Antifraude possui o conceito de `Status` e `SubStatus`, onde o primeiro representa o nível de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
@@ -882,7 +882,39 @@ Transações de cartão de débito serão incluídas no [Backoffice Cielo Checko
 3. **Pago** - Comprador finalizou o pagamento com o cartão de débito com sucesso.
 4. **Não Autorizado** - O Comprador não apresentava saldo em conta para finalizar a transação.
 
-**OBS**: A opção **Cancelar** dentro do backoffice, vai modificar o status da transação de PAGO/NÃO PAGO para CANCELADO, mas não terá efeito sobre a movimentação bancaria. Caberá ao lojista retornar o valor ao comprador
+**OBS**: A opção **Cancelar** dentro do backoffice, vai modificar o status da transação de PAGO/NÃO PAGO para CANCELADO, mas não terá efeito sobre a movimentação bancária. Caberá ao lojista retornar o valor ao comprador.
+
+### Pix
+
+**O que é o Pix?**
+
+O Pix é o pagamento instantâneo brasileiro, criado pelo Banco Central (BC), no qual os recursos são transferidos entre contas em poucos segundos, a qualquer hora ou dia (inclusive feriados e finais de semana).
+
+Além de aumentar a velocidade dos pagamentos, o Pix na Cielo oferece diversos benefícios:
+
+* Melhora o índice de conversão de vendas;
+* Aumenta a segurança nas transações;
+* É integrado ao Checkout Cielo, versátil e fácil.
+
+**Como usar o Pix no Checkout Cielo?**
+
+Você deve habilitar o meio de pagamento Pix no seu cadastro no portal Cielo e nas configurações da sua loja. Na integração por API não é necessário enviar parâmetros adicionais.
+
+#### Habilitando o Pix no portal Cielo
+
+Para usar o **Pix**, o seu **cadastro deve estar habilitado com o meio de pagamento Pix**. Para confirmar a habilitação, acesse o [portal Cielo](https://www.cielo.com.br/){:target="_blank"}  e clique em **Meu Cadastro** > **Autorizações** > **Pix**.
+
+Caso o Pix não esteja habilitado em seu cadastro, será apresentada a tela de adesão caso o seu estabelecimento (EC) seja elegível; após concluir o processo de adesão do Pix, já será possível usar o Pix no Checkout Cielo.
+
+![Adesão Pix]({{ site.baseurl_root }}/images/apicieloecommerce/adesao-pix.png)
+
+#### Habilitando o Pix nas configurações da loja
+
+Certifique-se também que o Pix está liberado nas configurações da sua loja. Para isso, acesse **E-commerce** > **Checkout Cielo** > **Acessar** > **Configurações** > **Configurações da Loja**. Ao rolar a página para baixo será apresentado os meios de pagamentos disponíveis em seu cadastro:
+
+![Adesão Pix]({{ site.baseurl_root }}/images/checkout/meiospgto-checkout.png)
+
+Feito isso, o seu e-commerce já poderá receber transações com Pix no Checkout Cielo.
 
 ### Boleto
 
