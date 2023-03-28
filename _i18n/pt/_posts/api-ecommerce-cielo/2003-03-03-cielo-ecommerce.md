@@ -2765,7 +2765,7 @@ Para transacionar como SDWO, o estabelecimento precisa se registrar junto as ban
 
 No caso de transações de e-commerce de uma SDWO com cartão de crédito ou débito (não originadas por um QR Code), é necessário que a carteira mande alguns dados adicionais na transação, para que as bandeiras possam identificar e diferenciar esse tipo de transação. Veja abaixo as especificações:
 
-> Além dos campos específicos dessa modalidade, para transações SDWO também é obrigatório o envio do Soft Descriptor (campo `Payment.SoftDescriptor`) e CPF ou CNPJ do portador (campo `Customer.Identity` e campo `Customer.IdentityType`). Confira mais detalhes desses campos na tabela de campos da requisição.
+> Além dos campos específicos dessa modalidade, para transações SDWO de compra também é obrigatório o envio do Soft Descriptor (campo `Payment.SoftDescriptor`) e CNPJ do portador, caso seja pessoa jurídica (campos `Customer.Identity` e `Customer.IdentityType`). Confira mais detalhes desses campos na tabela de campos da requisição.
 
 Para efetuar testes, é necessário apenas seguir as orientações do menu [Sandbox e ferramentas](https://developercielo.github.io/manual/cielo-ecommerce#sandbox-e-ferramentas)
 
@@ -2803,13 +2803,13 @@ Para enviar o MCC do varejista na transação de SDWO, a orientação do mercado
 }
 ```
 
-| Propriedade                 | Tipo              | Tamanho | Obrigatório                  | Descrição                                                                                                                                                                                                                       |
+| Propriedade                 | Tipo              | Tamanho | Obrigatório para transações de SDWO?| Descrição |
 | --------------------------- | ----------------- | ------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Wallet.PlatformOperator`   | String (texto)    | 3       | Sim, para transações de SDWO | Sigla da carteira que está cadastrada aqui na Cielo como carteira digital (verificar sua sigla com seu gestor comercial)                                                                                                        |
-| `Wallet.AdditionalData.Mcc` | String (numérico) | 4       | Sim, para transações de SDWO | MCC do varejista subjacente (pra transações de compra); MCC da carteira digital (para transações de abastecimento de crédito na carteira caso aplicável – no qual é necessária a marcação de cash in também vista nessa sessão) |
-| `Customer.Identity`         | Texto             | 14      | Sim, para transações de SDWO | Número do CPF ou CNPJ do comprador.                                                                                                                                                                                             |
-| `Customer.IdentityType`     | Texto             | 255     | Sim, para transações de SDWO | Tipo de documento de identificação do comprador (CPF/CNPJ).                                                                                                                                                                     |
-| `SoftDescriptor`            | Texto             | 13      | Sim, para transações de SDWO | Texto que será impresso na fatura bancária do portador.<br> Não permite caracteres especiais.<br>Necessário preencher com **Nome da carteira\*nome do lojista**.                                                                |
+| `Wallet.PlatformOperator`   | String (texto)    | 3       | Sim | Sigla da carteira que está cadastrada aqui na Cielo como carteira digital (verificar sua sigla com seu gestor comercial)                                                                                                        |
+| `Wallet.AdditionalData.Mcc` | String (numérico) | 4       | Sim | MCC do varejista subjacente (pra transações de compra); MCC da carteira digital (para transações de abastecimento de crédito na carteira caso aplicável – no qual é necessária a marcação de cash in também vista nessa sessão) |
+| `Customer.Identity`         | Texto             | 14      | Sim, se o portador for pessoa jurídica (CNPJ)* | Número do CPF ou CNPJ do comprador. |
+| `Customer.IdentityType`     | Texto             | 255     | Sim, se o portador for pessoa jurídica (CNPJ)* | Tipo de documento de identificação do comprador (CPF/CNPJ).                                                                                                                                                                     |
+| `SoftDescriptor`            | Texto             | 13      | Sim | Texto que será impresso na fatura bancária do portador.<br> Não permite caracteres especiais.<br>Necessário preencher com **Nome da carteira\*nome do lojista**.                                                                |
 
 ### Transações Cash In
 
