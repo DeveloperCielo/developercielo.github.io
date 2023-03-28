@@ -895,7 +895,8 @@ Além de aumentar a velocidade dos pagamentos, o Pix na Cielo oferece diversos b
 * Melhora o índice de conversão de vendas;
 * Aumenta a segurança nas transações;
 * É integrado ao Checkout Cielo, versátil e fácil.
-
+<br>
+<br>
 **Como usar o Pix no Checkout Cielo?**
 
 Você deve habilitar o meio de pagamento Pix no seu cadastro no portal Cielo e nas configurações da sua loja. Na integração por API não é necessário enviar parâmetros adicionais.
