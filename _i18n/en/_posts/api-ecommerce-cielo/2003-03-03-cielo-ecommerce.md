@@ -4003,6 +4003,172 @@ Like any other debit transaction on our E-commerce, the carnê transactions need
 
 ## Specific Implementations
 
+### Card On File
+
+**What's Card On File?**
+
+Card on File (COF) transactions are used by merchants to send financial and non financial (card validation) transactions with stored credentials.
+
+Most of these transactions do not contain CVV as PCI rules prevent the establishment from storing this information. However, it is important to consider that a merchant may have validated the CVV in a previous transaction, such as the first Card On File transaction.
+
+Examples of segments that use this type of modality are streaming services, education services, gyms and subscriptions, among others.
+
+**Why use Card On File?**
+
+Card On File allows for greater flexibility in online purchases, since it does not ask the cardholder to send all the data again (including the CVV); it is also possible to notice a better sales conversion rate since in the process for using the COF initiated by the merchant, necessarily, there is already a previous transaction initiated by the cardholder that already assists in the authorization of the transaction by the issuer.
+
+**Supported brands**
+
+Card On File supports the following brands:
+
+* **Mastercard**
+* **Visa**
+* **Elo**
+
+#### Request
+
+See an example of a Card on File credit transaction request.
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+```json
+{  
+   "MerchantOrderId":"2014111701",
+   "Customer":{  
+      "Name":"Comprador crédito completo",
+      "Email":"compradorteste@teste.com",
+      "Birthdate":"1991-01-02"
+   },
+   "Payment":{  
+     "Type":"CreditCard",
+     "Amount":15700,
+     "Currency":"BRL",
+     "Country":"BRA",
+     "Installments":1,
+     "Interest":"ByMerchant",
+     "Capture":true,
+     "Authenticate":"false",
+     "Recurrent":"false",
+     "SoftDescriptor":"123456789ABCD",
+     "CreditCard":{  
+         "CardNumber":"1234123412341231",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"123",
+         "SaveCard":"false",
+         "Brand":"Visa",
+         "CardOnFile":{
+            "Usage": "First",
+            "Reason":"Recurring"
+         }
+     }
+   }
+}
+```
+
+|PROPERTY|TYPE|SIZE|REQUIRED|DESCRIPTION|
+|-----------|----|-------|-----------|---------|
+|`MerchantOrderId`|Text|50|Yes|Order ID number.|
+|`Customer.Name`|Text|255|No|Customer's name.|
+|`Customer.Status`|Text|255|No|The customer’s registration status on the store. (NEW / EXISTING)|
+|`Customer.Email`|Text|255|No|Customer's email|
+|`Customer.Birthdate`|Date|10|No|Customer's birthdate|
+|`Payment.Type`|Text|100|Yes|Type of the Payment Method.|
+|`Payment.Amount`|Number|15|Yes|Order Amount (to be sent in cents).|
+|`Payment.Currency`|Text|3|No|Currency in which the payment will be made (BRL).|
+|`Payment.Country`|Text|3|No|Country in which the payment will be made.|
+|`Payment.SoftDescriptor`|Text|13|No|The store’s name that will be on the shopper’s bank invoice. Does not allow special characters.|
+|`Payment.Installments`|Number|2|Yes|Number of installments.|
+|`Payment.Interest`|Text|10|No|Type of installments - Store (ByMerchant) or Card (ByIssuer).|
+|`Payment.Capture`|Boolean|—|No (Default false)|Boolean that identifies if the authorization should be done by authomatic capture (true) or posterior capture (false).|
+|`Payment.Recurrent`|Boolean|-|No|Indicates if the transaction is recurring (“true”) or not (“false”). The value “true” won’t originate a new recurrence, it will only allow a transaction without the need to send the security code. Authenticate should be “false” if Recurrent is “true”.|
+|`CreditCard.CardNumber`|Text|19|Yes|Shopper’s card number.|
+|`CreditCard.Holder`|Text|25|No|Name of the shopper that’s printed on the card. Does not accept special characters.|
+|`CreditCard.ExpirationDate`|Text|7|Yes|Expiration date printed on the card. Example: MM/AAAA.|
+|`CreditCard.SecurityCode`|Text|4|No|Security code printed on the back of the card.|
+|`CreditCard.SaveCard`|Boolean|—|No (Default false)|Boolean that identifies if the card will be saved to generate a `CardToken`.|
+|`CreditCard.Brand`|Text|10|Yes|Card brand. Possible values: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper.|
+|`CreditCard.CardOnFile.Usage`|Text|-|No|"First" if the card was stored and it’s your first use. "Used" if the card was stored and has been used for another transaction before.|
+|`CreditCard.CardOnFile.Reason`|Text|-|Conditional|	Indicates the motive for card storage, if the `CardOnFile.Usage` field is “Used”.<br>**Recurring**: programmed recurring transaction (e.g. Subscriptions).<br>**Unscheduled**: recurring transaction with no fixed date (e.g. service apps).<br>**Installments**: installments through recurring transactions.|
+
+#### Response
+
+```json
+{
+    "MerchantOrderId": "2014111701",
+    "Customer": {
+        "Name": "Comprador crédito completo",
+        "Email": "compradorteste@teste.com",
+        "Birthdate": "1991-01-02"
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": 0,
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "123412******1231",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2030",
+            "SaveCard": false,
+            "Brand": "Visa",
+            "CardOnFile": {
+                "Usage": "First",
+                "Reason": "Recurring"
+            },
+            "PaymentAccountReference": "JZHOZJHNZH87KQXM3G60B9I21GVZN"
+        },
+        "Tid": "0928084922246",
+        "ProofOfSale": "652515",
+        "AuthorizationCode": "927181",
+        "SoftDescriptor": "123456789ABCD",
+        "Provider": "Simulado",
+        "IsQrCode": false,
+        "DynamicCurrencyConversion": false,
+        "Amount": 15700,
+        "ReceivedDate": "2022-09-28 08:49:22",
+        "CapturedAmount": 15700,
+        "CapturedDate": "2022-09-28 08:49:22",
+        "Status": 2,
+        "IsSplitted": false,
+        "ReturnMessage": "Operation Successful",
+        "ReturnCode": "6",
+        "PaymentId": "91bad53a-9198-4738-a280-f51dddc34988",
+        "Type": "CreditCard",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/91bad53a-9198-4738-a280-f51dddc34988"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/91bad53a-9198-4738-a280-f51dddc34988/void"
+            }
+        ]
+    }
+}
+```
+
+|PROPERTY|DESCRIPTION|TYPE|SIZE|FORMAT|
+|-----------|---------|----|-------|-------|
+|`ProofOfSale`|Authorization number, identical to NSU.|Text|6|Alphanumeric text|
+|`Tid`|Transaction Id on the acquirer.|Text|20|Alphanumeric text|
+|`AuthorizationCode`|Authorization code.|Text|6|Alphanumeric text|
+|`SoftDescriptor`|Text that will be printed on the carrier’s bank invoice. Does not allow special characters.|Text|13|Alphanumeric text|
+|`PaymentId`|Payment ID number, needed for future operations like Consulting, Capture and Cancellation.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ECI`|Eletronic Commerce Indicator. Indicates how safe a transaction is.|Text|2|Example: 7|
+|`Status`|Transaction status.|Byte|—|2|
+|`ReturnCode`|Acquiring return code.|Text|32|Alphanumeric text|
+|`ReturnMessage`|Acquiring return message.|Text|512|Alphanumeric text|
+|`Payment.MerchantAdviceCode`|Card brand’s return code that defines the period for transaction submission retry. Valid only for Mastercard.|Text|2|Numeric|
+|`CreditCard.PaymentAccountReference`|PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the card brand doesn’t send the information the field will not be returned. If it is a debit transaction, include inside the `DebitCard` node.|Alphanumeric|29|—|
+
 ### Quasi cash
 
 Quasi Cash transactions are refer to purchases of currencies in online gaming, lottery tickets and more. Only a few MCCs (Merchant Category Codes) can process this type of transaction. Contact the Cielo team to know if your business fits in this category.
