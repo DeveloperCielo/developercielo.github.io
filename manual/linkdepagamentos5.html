@@ -605,36 +605,38 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
   <p>O token retornado (<code class="language-plaintext highlighter-rouge">access_token</code>) deverá ser utilizado em toda requisição à API do Super link como uma chave de autorização. O <code class="language-plaintext highlighter-rouge">access_token</code> possui uma validade de 20 minutos (1200 segundos) e é necessário gerar um novo token toda vez que a validade expirar.</p>
 </blockquote>
 
-<h1 id="link-de-pagamento">Link de Pagamento</h1>
+<h1 id="link-de-pagamento">Link de pagamento</h1>
 
 <h2 id="criar-link">Criar Link</h2>
 
-<h3 id="request">Request</h3>
+<p>Para criar um link de pagamento, envie um POST com os dados do produto ou serviço.</p>
 
-<p>Para criar link de pagamentos Checkout, basta enviar realizar um POST com os dados do Link ao endpoint:</p>
+<h3 id="requisição-1">Requisição</h3>
 
-<aside class="request"><span class="method post">POST</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/</span></aside>
+<p>POST: &lt;aside class="request"&gt;<span class="method post">POST</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/</span>&lt;/aside&gt;</p>
 
-<blockquote>
-  <p>Header: <code class="language-plaintext highlighter-rouge">Authorization: Bearer {access_token}</code></p>
-</blockquote>
+<p>Header: <code class="language-plaintext highlighter-rouge">Authorization:</code> <code class="language-plaintext highlighter-rouge">Bearer {access_token}</code></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Digital"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Digital"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teste description"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000000</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2037-06-19"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2027-06-19"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"maxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teste"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teste"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WithoutShipping"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teste"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000000"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido1234"</span><span class="w">
+  </span><span class="nl">"recurrent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-02-06"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"softDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido1234"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -648,64 +650,81 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
       <th>TIPO</th>
       <th>TAMANHO</th>
       <th>OBRIGATÓRIO</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">type</code></td>
+      <td>Tipo de venda a ser realizada através do link de pagamento:<br />Asset – Material Físico<br />Digital – Produto Digital<br />Service – Serviço<br />Payment – Pagamentos Simples<br />Recurrent – Pagamento Recorrente</td>
+      <td>String</td>
+      <td>255</td>
+      <td>Sim</td>
+      <td> </td>
+    </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">name</code></td>
       <td>Nome do produto</td>
       <td>String</td>
       <td>128</td>
-      <td>SIM</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">description</code></td>
-      <td>Descrição do produto que será exibida na tela de Checkout caso a opção <code class="language-plaintext highlighter-rouge">show_description</code> seja verdadeira.</td>
-      <td>String</td>
-      <td>512</td>
+      <td>Sim</td>
       <td> </td>
     </tr>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">description</code></td>
+      <td>Descrição do produto que será exibida na tela de pagamento caso a opção show_description seja verdadeira. É permitido usar o caracter pipe “</td>
+      <td>” caso seja desejável quebrar a linha ao apresentar a descrição na tela de pagamento.</td>
+      <td>String</td>
+      <td>512</td>
+      <td>Não</td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">showDescription</code></td>
-      <td>Flag indicando se a descrição deve ou não ser exibida na tela de Checkout</td>
+      <td>Flag indicando se a descrição deve ou não ser exibida na tela de pagamento.</td>
       <td>String</td>
       <td>–</td>
       <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">price</code></td>
-      <td>Valor do produto em <strong>centavos</strong></td>
+      <td>Valor do produto em centavos</td>
       <td>Int</td>
       <td>1000000</td>
       <td>SIM</td>
+      <td> </td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">expirationDate</code></td>
-      <td>Data de expiração do link. Caso uma data senha informada, o link se torna indisponível na data informada. Se nenhuma data for informada, o link não expira.</td>
-      <td>String</td>
-      <td>YYYY-MM-DD</td>
+      <td>expirationDate</td>
+      <td>Data de expiração do link. Caso uma data seja informada, o link se torna indisponível na data informada. Se nenhuma data for informada, o link não expira.</td>
+      <td>String (YYYY-MM-DD)</td>
+      <td>10</td>
       <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">weight</code></td>
-      <td>Peso do produto em <strong>gramas</strong></td>
+      <td>Peso do produto em gramas</td>
       <td>String</td>
       <td>2000000</td>
       <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">softDescriptor</code></td>
+      <td>softDescriptor</td>
       <td>Descrição a ser apresentada na fatura do cartão de crédito do portador.</td>
       <td>String</td>
       <td>13</td>
       <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">maxNumberOfInstallments</code></td>
-      <td>Número máximo de parcelas que o comprador pode selecionar na tela de Checkout.Se não informado será utilizada as configurações da loja no Checkout Cielo.</td>
+      <td>Número máximo de parcelas que o comprador pode selecionar na tela de pagamento. Se não informado, será utilizada as configurações da loja. Atenção: não envie esse campo se o tipo de produto (<code class="language-plaintext highlighter-rouge">type</code>) for igual a “Recurrent”.</td>
       <td>int</td>
-      <td>2</td>
+      <td>até 2 caracteres (1 a 12 parcelas)</td>
       <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">quantity</code></td>
@@ -713,22 +732,33 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
       <td>int</td>
       <td>2</td>
       <td>Não</td>
+      <td> </td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">type</code></td>
-      <td>Tipo de venda a ser realizada através do link de pagamento: <br /><strong>Asset</strong> – Material Físico<br /><strong>Digital</strong> – Produto Digital<br /><strong>Service</strong> – Serviço<br /><strong>Payment</strong> – Pagamentos Simples<br /><strong>Recurrent</strong> – Pagamento Recorrente</td>
+      <td><code class="language-plaintext highlighter-rouge">sku</code></td>
+      <td>código de identificação do produto</td>
       <td>String</td>
-      <td>255</td>
-      <td>SIM</td>
+      <td>32</td>
+      <td>Não</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
 
 <blockquote>
-  <p>Dentro de <code class="language-plaintext highlighter-rouge">Description</code> Pode-se utilizar o caracter pipe <code class="language-plaintext highlighter-rouge">|</code> caso seja desejável quebrar a linha ao apresentar a descrição na tela de Checkout</p>
+  <table>
+    <tbody>
+      <tr>
+        <td>Dentro de <code class="language-plaintext highlighter-rouge">description</code> você pode usar o caracter pipe</td>
+        <td>caso precise quebrar a linha ao apresentar a descrição na tela do link de pagamento.</td>
+      </tr>
+    </tbody>
+  </table>
 </blockquote>
 
 <p><strong>Dados do Frete</strong></p>
+
+<p>Os dados que devem ser preenchidos com relação à frete estão no nó <code class="language-plaintext highlighter-rouge">shipping</code>.</p>
 
 <table>
   <thead>
@@ -742,36 +772,29 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
   </thead>
   <tbody>
     <tr>
-      <td><strong>shipping</strong></td>
-      <td>Nó contendo informações de entrega do produto</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
       <td><code class="language-plaintext highlighter-rouge">shipping.name</code></td>
-      <td>Nome do frete. <strong>Obrigatório para frete tipo “FixedAmount”</strong></td>
+      <td>Nome do frete. Obrigatório para frete tipo “FixedAmount”</td>
       <td>string</td>
       <td>128</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">shipping.price</code></td>
-      <td>O valor do frete. <strong>Obrigatório para frete tipo “FixedAmount”</strong></td>
+      <td>O valor do frete. Obrigatório para frete tipo “FixedAmount”</td>
       <td>int</td>
       <td>100000</td>
       <td>Sim</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">shipping.originZipCode</code></td>
-      <td>Cep de origem da encomenda. Obrigatório para frete tipo “Correios”. Deve conter apenas números</td>
+      <td>CEP de origem da encomenda. Obrigatório para frete tipo “Correios”. Deve conter apenas números.</td>
       <td>string</td>
       <td>8</td>
       <td>Não</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">shipping.type</code></td>
-      <td>Tipo de frete.<br /><strong>Correios</strong> – Entrega pelos correios<br /><strong>FixedAmount</strong> – Valor Fixo<br /><strong>Free</strong> - Grátis<br /><strong>WithoutShippingPickUp</strong> – Sem entrega com retirada na loja<br /><strong>WithoutShipping</strong> – Sem entrega<br />Se o tipo de produto escolhido for “<strong>Asset</strong>”, os tipos permitidos de frete são: <em><strong>“Correios, FixedAmount ou Free”</strong></em>.<br />Se o tipo produto escolhido for “<strong>Digital</strong>” ou “<strong>Service</strong>”, os tipos permitidos de frete são: <em><strong>“WithoutShipping, WithoutShippingPickUp”</strong></em>.<br />Se o tipo produto escolhido for “<strong>Recurrent</strong>” o tipo de frete permitido é: <em><strong>“WithoutShipping”</strong></em>.</td>
+      <td>Tipo de frete. Correios – Entrega pelos correios.<br />FixedAmount – Valor Fixo<br />Free - Grátis<br />WithoutShippingPickUp – Sem entrega com retirada na loja<br />WithoutShipping – Sem entrega<br />Se o tipo de produto escolhido for “Asset”, os tipos permitidos de frete são: “Correios, FixedAmount ou Free”.<br />Se o tipo produto escolhido for “Digital” ou “Service”, os tipos permitidos de frete são: “WithoutShipping, WithoutShippingPickUp”.<br />Se o tipo produto escolhido for “Recurrent” o tipo de frete permitido é: “WithoutShipping”.</td>
       <td>string</td>
       <td>255</td>
       <td>Sim</td>
@@ -781,6 +804,8 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
 
 <p><strong>Dados da Recorrência</strong></p>
 
+<p>O nó <code class="language-plaintext highlighter-rouge">recurrent</code> contém informações da recorrência do pagamento. Pode ser informado caso o tipo do produto (<code class="language-plaintext highlighter-rouge">type</code>) seja “Recurrent”.</p>
+
 <table>
   <thead>
     <tr>
@@ -789,38 +814,34 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
       <th>TIPO</th>
       <th>TAMANHO</th>
       <th>OBRIGATÓRIO</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>recurrent</strong></td>
-      <td>Nó contendo informações da recorrência do pagamento.Pode ser informado caso o tipo do produto seja “Recurrent”</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
       <td><code class="language-plaintext highlighter-rouge">recurrent.interval</code></td>
-      <td>Intervalo de cobrança da recorrência.<br /><strong>Monthly</strong> - Mensal<br /><strong>Bimonthly</strong> - Bimensal<br /><strong>Quarterly</strong> - Trimestral<br /><strong>SemiAnnual</strong> - Semestral<br /><strong>Annual</strong> – Anual<br /></td>
+      <td>Intervalo de cobrança da recorrência.<br />“Monthly” - Mensal<br />“Bimonthly” - Bimensal<br />“Quarterly” - Trimestral<br />“SemiAnnual” - Semestral<br />“Annual” - Anual</td>
       <td>string</td>
       <td>128</td>
-      <td>Não</td>
+      <td>Não*<br />Se não for enviado, será considerado o intervalo mensal.</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">recurrrent.endDate</code></td>
-      <td>Data de término da recorrência. Se não informado a recorrência não terá fim, a cobrança será realizada de acordo com o intervalo selecionado indefinidamente.</td>
+      <td>Data de encerramento da recorrência. Se não enviado, a recorrência se encerra somente se cancelada.</td>
+      <td>Formato YYYY-MM-DD.</td>
       <td>string</td>
-      <td>128</td>
+      <td>10</td>
       <td>Não</td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="response">Response</h3>
+<h3 id="resposta-1">Resposta</h3>
 
-<blockquote>
-  <p>“HTTP Status”: 201 – Created</p>
-</blockquote>
+<p>A resposta irá retornar o link de pagamento no campo <code class="language-plaintext highlighter-rouge">shortUrl</code> e o <code class="language-plaintext highlighter-rouge">id</code> do link, que pode ser usado para consultar, atualizar ou excluir o link.</p>
+
+<p><code class="language-plaintext highlighter-rouge">“HTTP Status”: 201 – Created</code></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="p">,</span><span class="w">
@@ -835,24 +856,31 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Correios"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"originZipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06455030"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"softDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido1234"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"expirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-30T00:00:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"recurrent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-02-06"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"softDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome da Loja"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-06-30T00:00:00"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"maxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
   </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/product/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+      </span><span class="nl">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/product/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/product/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+      </span><span class="nl">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/product/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"delete"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/product/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+      </span><span class="nl">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/product/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -872,7 +900,7 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
     <tr>
       <td><code class="language-plaintext highlighter-rouge">id</code></td>
       <td>guid</td>
-      <td>Identificador único do link de pagamento.Pode ser utilizado para consultar, atualizar ou excluir o link.</td>
+      <td>Identificador único do link de pagamento. Pode ser utilizado para consultar, atualizar ou excluir o link.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">shortUrl</code></td>
@@ -889,21 +917,23 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
 
 <h2 id="consultar-link">Consultar Link</h2>
 
-<h3 id="request-1">Request</h3>
-
-<p>Para consultar um link existente basta realizar um <code class="language-plaintext highlighter-rouge">GET</code> informando o <code class="language-plaintext highlighter-rouge">ID</code> do link.</p>
-
-<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}</span></aside>
+<p>Para consultar um link existente basta realizar um GET informando o <code class="language-plaintext highlighter-rouge">id</code> do link.</p>
 
 <blockquote>
-  <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
+  <p><strong>Importante</strong>: A resposta da consulta contém o link em si (<code class="language-plaintext highlighter-rouge">shortUrl</code>) e os mesmos dados retornados na criação do link.<br />
+O <strong>link ainda não é a transação</strong>. Uma transação só será iniciada quando o comprador fizer a tentativa de pagamento e pode ou não ser autorizada.<br />
+Para consultar uma transação, veja a seção Consulta de Transações.</p>
 </blockquote>
 
-<h3 id="response-1">Response</h3>
+<h3 id="requisição-2">Requisição</h3>
 
-<blockquote>
-  <p>HTTP Status: 200 – OK</p>
-</blockquote>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}</span></aside>
+
+<p>Header: <code class="language-plaintext highlighter-rouge">Authorization</code>: <code class="language-plaintext highlighter-rouge">Bearer {access_token}</code></p>
+
+<h3 id="resposta-2">Resposta</h3>
+
+<p><code class="language-plaintext highlighter-rouge">HTTP Status: 200 – OK</code></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="p">,</span><span class="w">
@@ -919,23 +949,26 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
     </span><span class="nl">"originZipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06455030"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"softDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido1234"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"expirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-30"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-06-30"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"maxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
   </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+      </span><span class="nl">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+      </span><span class="nl">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"delete"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">" https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+      </span><span class="nl">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">" https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -968,29 +1001,29 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
   </tbody>
 </table>
 
-<blockquote>
-  <p><strong>OBS</strong>: O Response da consulta contem os mesmos dados retornados na criação do link.</p>
-</blockquote>
-
 <h2 id="atualizar-link">Atualizar Link</h2>
 
-<h3 id="request-2">Request</h3>
-
-<p>Para Atualizar um link existente basta realizar um <code class="language-plaintext highlighter-rouge">GET</code> informando o <code class="language-plaintext highlighter-rouge">ID</code> do link.</p>
-
-<aside class="request"><span class="method put">PUT</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}</span></aside>
+<p>Para atualizar um link existente basta realizar uma chamada do tipo <code class="language-plaintext highlighter-rouge">PUT</code> informando o <code class="language-plaintext highlighter-rouge">id</code> do link.</p>
 
 <blockquote>
-  <p><strong>Header</strong>: Authorization: Bearer {access_token}</p>
+  <p>Você pode atualizar um link para alterar a forma de pagamento, inserir um novo item no pedido, alterar a descrição do pedido ou alterar o tipo de recorrência, por exemplo.</p>
 </blockquote>
+
+<h3 id="requisição-3">Requisição</h3>
+
+<aside class="request"><span class="method put">PUT</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}</span></aside>
+
+<p>Header: <code class="language-plaintext highlighter-rouge">Authorization</code>: <code class="language-plaintext highlighter-rouge">Bearer {access_token}</code></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido ABC"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50 canetas - R$30,00 | 10 cadernos - R$50,00 | 10 Borrachas - R$10,00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w">
+    </span><span class="s2">"50 canetas - R$30,00 | 10 cadernos - R$50,00 | 10 Borrachas - R$10,00"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">9000</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"expirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-30"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-06-30"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">4700</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123456"</span><span class="p">,</span><span class="w">  
   </span><span class="nl">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FixedAmount"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entrega Rápida"</span><span class="p">,</span><span class="w">
@@ -1001,19 +1034,19 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="response-2">Response</h3>
+<h3 id="resposta-3">Resposta</h3>
 
-<blockquote>
-  <p>HTTP Status: 200 – OK</p>
-</blockquote>
+<p><code class="language-plaintext highlighter-rouge">HTTP Status: 200 – OK</code></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"shortUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://bit.ly/2smqdhD"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido ABC"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50 canetas - R$30,00 | 10 cadernos - R$50,00 | 10 Borrachas - R$10,00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w">
+    </span><span class="s2">"50 canetas - R$30,00 | 10 cadernos - R$50,00 | 10 Borrachas - R$10,00"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"showDescription"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123456"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">9000</span><span class="p">,</span><span class="w">
   </span><span class="nl">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">4700</span><span class="p">,</span><span class="w">
   </span><span class="nl">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1022,23 +1055,26 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
     </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"softDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido1234"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"expirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-30"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-06-30"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"maxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
   </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+      </span><span class="nl">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+      </span><span class="nl">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"delete"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+      </span><span class="nl">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1056,7 +1092,7 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
     <tr>
       <td><code class="language-plaintext highlighter-rouge">id</code></td>
       <td>guid</td>
-      <td>Identificador único do link de pagamento.Pode ser utilizado para consultar, atualizar ou excluir o link.</td>
+      <td>Identificador único do link de pagamento. Pode ser utilizado para consultar, atualizar ou excluir o link.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">shortUrl</code></td>
@@ -1072,26 +1108,22 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
 </table>
 
 <blockquote>
-  <p><strong>OBS</strong>: O Response da consulta contem os mesmos dados retornados na criação do link.</p>
+  <p>Atenção: A resposta da consulta contém os mesmos dados retornados na criação do link.</p>
 </blockquote>
 
 <h2 id="excluir-link">Excluir Link</h2>
 
-<h3 id="request-3">Request</h3>
+<p>Para excluir um link existente basta realizar um DELETE informando o <code class="language-plaintext highlighter-rouge">Id</code> do link.</p>
 
-<p>Para excluir um link existente basta realizar um <code class="language-plaintext highlighter-rouge">DELETE</code> informando o <code class="language-plaintext highlighter-rouge">ID</code> do link.</p>
+<h3 id="requisição-4">Requisição</h3>
 
 <aside class="request"><span class="method delete">DELETE</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}</span></aside>
 
-<blockquote>
-  <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
-</blockquote>
+<p>Header: <code class="language-plaintext highlighter-rouge">Authorization</code>: <code class="language-plaintext highlighter-rouge">Bearer {access_token}</code></p>
 
-<h3 id="response-3">Response</h3>
+<h3 id="resposta-4">Resposta</h3>
 
-<blockquote>
-  <p>HTTP Status: 204 – No Content</p>
-</blockquote>
+<p><code class="language-plaintext highlighter-rouge">HTTP Status: 204 – No Content</code></p>
 
 <h1 id="notificações-de-pagamento">Notificações de Pagamento</h1>
 
@@ -1250,7 +1282,7 @@ Essa modalidade de notificação é baseada em um <code class="language-plaintex
 
 <p><strong>Exemplo de uma consulta:</strong></p>
 
-<h4 id="request-4">Request</h4>
+<h4 id="request">Request</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
 <span class="nt">--request</span> GET https://cieloecommerce.cielo.com.br/api/public/v1/orders/<span class="o">{</span>merchantId<span class="o">}</span>/<span class="o">{</span>merchantOrderNumber<span class="o">}</span><span class="s2">"
@@ -1281,7 +1313,7 @@ Essa modalidade de notificação é baseada em um <code class="language-plaintex
   </tbody>
 </table>
 
-<h4 id="response-4">Response</h4>
+<h4 id="response">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido01"</span><span class="p">,</span><span class="w">
@@ -1990,13 +2022,13 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
 <p>A consulta de transações por <code class="language-plaintext highlighter-rouge">Merchant_Order_Number</code> retorna uma lista de transações com o mesmo número de pedidos, isso ocorre pois o Checkout Cielo não impede a duplicação de OrderNumbers por parte do lojista.
 O response possuirá o <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code> que deverá ser usado na consulta de uma transação em especifico.</p>
 
-<h3 id="request-5">Request</h3>
+<h3 id="request-1">Request</h3>
 
 <p>Para consultar uma transação pelo <code class="language-plaintext highlighter-rouge">Merchant_Order_Number</code>, basta realizar um <code class="language-plaintext highlighter-rouge">GET</code>.</p>
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/merchantOrderNumber/{merchantordernumber}</span></aside>
 
-<h3 id="response-5">Response</h3>
+<h3 id="response-1">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
@@ -2093,7 +2125,7 @@ O response possuirá o <code class="language-plaintext highlighter-rouge">Checko
 
 <h2 id="por-checkout_cielo_order_number">Por Checkout_Cielo_Order_Number</h2>
 
-<h3 id="request-6">Request</h3>
+<h3 id="request-2">Request</h3>
 
 <p>Para consultar uma transação pelo <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code>, basta realizar um <code class="language-plaintext highlighter-rouge">GET</code>.</p>
 
@@ -2103,7 +2135,7 @@ O response possuirá o <code class="language-plaintext highlighter-rouge">Checko
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/{checkout_cielo_order_number}</span></aside>
 
-<h3 id="response-6">Response</h3>
+<h3 id="response-2">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c89fdfbb-dbe2-4e77-806a-6d75cd397dac"</span><span class="p">,</span><span class="w">
@@ -2429,7 +2461,7 @@ O response possuirá o <code class="language-plaintext highlighter-rouge">Checko
 
 <h2 id="por-id-do-link-de-pagamento">Por ID do link de pagamento</h2>
 
-<h3 id="request-7">Request</h3>
+<h3 id="request-3">Request</h3>
 
 <p>Para consultar uma transação pelo <code class="language-plaintext highlighter-rouge">id</code>, basta realizar um <code class="language-plaintext highlighter-rouge">GET</code>.</p>
 
@@ -2439,7 +2471,7 @@ O response possuirá o <code class="language-plaintext highlighter-rouge">Checko
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}/payments</span></aside>
 
-<h3 id="response-7">Response</h3>
+<h3 id="response-3">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
