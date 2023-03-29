@@ -252,38 +252,38 @@ Os endpoints para integração com o Super Link são apresentados na tabela a se
 
 As transações criadas com o Modo Teste ativado podem ser consultadas pela API de Controle Transacional.
 
-# Cielo OAUTH
+# Autenticação Cielo OAUTH
 
-O Cielo OAUTH é um processo de autenticação utilizado em APIs Cielo que são correlacionadas a produtos E-commerce. Ele utiliza como segurança o protocolo **[OAUTH2](https://oauth.net/2/)**, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API CieloOAuth
+O Cielo OAUTH é um processo de autenticação das APIs Cielo relacionadas ao e-commerce. O Cielo OAUTH utiliza como segurança o protocolo **[OAUTH2](https://oauth.net/2/){:target="_blank"} **, no qual é necessário primeiro obter um token de acesso utlizando suas credenciais e, posteriormente, enviá-lo à API do Super Link.
 
-> Para gerar o `ClientID` e o `ClientSecret`, consulte o tópico de Obter Credenciais.
-
-Para utilizar o Cielo Oauth são necessarias as seguintes credenciais:
+Para utilizar o Cielo OAUTH são necessarias as seguintes credenciais:
 
 | PROPRIEDADE    | DESCRIÇÃO                                                             | TIPO   |
 | -------------- | --------------------------------------------------------------------- | ------ |
 | `ClientId`     | Identificador chave fornecido pela CIELO                              | guid   |
 | `ClientSecret` | Chave que valida o ClientID. Fornecida pela Cielo junto ao `ClientID` | string |
 
-## Obter Credenciais
+> Para gerar o `ClientID` e o `ClientSecret`, consulte o tópico de Obtendo as Credenciais, a seguir.
 
-Para obter as credênciais no Checkout Cielo, basta seguir o fluxo abaixo:
+## Obtendo as credenciais
 
-1. Acessar o site Cielo
-2. Super Link
-3. Configurações
-4. Dados da loja
-5. Gerar chaves da API
+Para obter as credenciais `ClientId` e `ClientSecret` para autenticação na API do Super Link, siga os passos a seguir:
 
-## Token de acesso
+1. Após receber o nº de estabelecimento (EC) com a habilitação para o Super Link, acesse o [site Cielo](https://minhaconta2.cielo.com.br/login/){:target="_blank"} e faça o login;
+2. Vá para a aba **Ecommerce** > **Super Link** > **Configurações** > **Dados Cadastrais**;
+3. Na seção **Contato técnico**, preencha com os dados de contato da pessoa responsável por receber as chaves da sua loja. *ATENÇÃO: apenas coloque os dados da pessoa que realmente pode ter acesso às chaves da sua loja, que são informações sigilosas de cada estabelecimento*;
+4. Clique em **Gerar Credenciais de Acesso às APIs**;
+5. Você receberá um e-mail com as credenciais
 
-Para obter acesso a serviços Cielo que utilizam o `Cielo Oauth`, será necessário obter um token de acesso, conforme os passos abaixo:
+## Obtendo o token de acesso
 
-1. Concatenar o _ClientId_ e o _ClientSecret_, **ClientId:ClientSecret**
-2. Codificar o resultado em **Base64**
-3. Enviar uma requisição, utilizando o método HTTP POST
+Para obter acesso a serviços Cielo que utilizam o **Cielo Oauth**, será necessário obter um token de acesso, conforme os passos abaixo:
 
-### Concatenação
+1. Concatene o `ClientId` e o `ClientSecret`, `**ClientId:ClientSecret**`
+2. Codifique o resultado em **Base64**
+3. Envie a requisição de criação do token, utilizando o método HTTP POST.
+
+**Exemplo da Concatenação**
 
 | Campo                     | Formato                                                                                          |
 | ------------------------- | ------------------------------------------------------------------------------------------------ |
@@ -292,26 +292,27 @@ Para obter acesso a serviços Cielo que utilizam o `Cielo Oauth`, será necessá
 | **ClientId:ClientSecret** | _b521b6b2-b9b4-4a30-881d-3b63dece0006:08Qkje79NwWRx5BdgNJsIkBuITt5cIVO_                          |
 | **Base64**                | _YjUyMWI2YjItYjliNC00YTMwLTg4MWQtM2I2M2RlY2UwMDA2OiAwOFFramU3OU53V1J4NUJkZ05Kc0lrQnVJVHQ1Y0lWTw_ |
 
-### Request
+### Requisição
 
-O Request dever ser enviado apenas no Header da requisição.
+A requisição dever ser enviada apenas no header.
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/token</span></aside>
 
 ```json
 x-www-form-urlencoded
---header "Authorization: Basic {base64}"
---header "Content-Type: application/x-www-form-urlencoded"
+--header "Authorization: Basic {base64}"  
+--header "Content-Type: application/x-www-form-urlencoded"  
 grant_type=client_credentials
 ```
 
-### Response
+### Resposta
 
-O response possuirá o Token utilizado para novas requisições em Serviços Cielo
+A resposta retornará o `access_token`, que deverá ser usado nas requisições da API do Super Link.
 
 ```json
 {
-  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6Ik1ldUNoZWNrb3V0IE1hc3RlciBLZXkiLCJjbGllbnRfaWQiOiJjODlmZGasdasdasdmUyLTRlNzctODA2YS02ZDc1Y2QzOTdkYWMiLCJzY29wZXMiOiJ7XCJTY29wZVwiOlwiQ2hlY2tvdXRBcGlcIixcIkNsYWltc1wiOltdfSIsInJvbGUiOiJasdasdasd291dEFwaSIsImlzc47I6Imh0dHBzOi8vYXV0aGhvbasdasdnJhc3BhZy5jb20uYnIiLCJhdWQiOiJVVlF4Y1VBMmNTSjFma1EzSVVFbk9pSTNkbTl0ZmasdsadQjVKVVV1UVdnPSIsImV4cCI6MTQ5Nzk5NjY3NywibmJmIjoxNDk3OTEwMjc3fQ.ozj4xnH9PA3dji-ARPSbI7Nakn9dw5I8w6myBRkF-uA",
+  "access_token":
+    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6Ik1ldUNoZWNrb3V0IE1hc3RlciBLZXkiLCJjbGllbnRfaWQiOiJjODlmZGasdasdasdmUyLTRlNzctODA2YS02ZDc1Y2QzOTdkYWMiLCJzY29wZXMiOiJ7XCJTY29wZVwiOlwiQ2hlY2tvdXRBcGlcIixcIkNsYWltc1wiOltdfSIsInJvbGUiOiJasdasdasd291dEFwaSIsImlzc47I6Imh0dHBzOi8vYXV0aGhvbasdasdnJhc3BhZy5jb20uYnIiLCJhdWQiOiJVVlF4Y1VBMmNTSjFma1EzSVVFbk9pSTNkbTl0ZmasdsadQjVKVVV1UVdnPSIsImV4cCI6MTQ5Nzk5NjY3NywibmJmIjoxNDk3OTEwMjc3fQ.ozj4xnH9PA3dji-ARPSbI7Nakn9dw5I8w6myBRkF-uA",
   "token_type": "bearer",
   "expires_in": 1199
 }
@@ -323,7 +324,7 @@ O response possuirá o Token utilizado para novas requisições em Serviços Cie
 | `Token_type`   | Sempre será do tipo `bearer`                              | texto  |
 | `Expires_in`   | Validade do token em segundos. Aproximadamente 20 minutos | int    |
 
-> O token retornado (access_token) deverá ser utilizado em toda requisição como uma chave de autorização, destacando que este possui uma validade de 20 minutos (1200 segundos) e após esse intervalo, será necessário obter um novo token para acesso aos serviços Cielo.
+> O token retornado (`access_token`) deverá ser utilizado em toda requisição à API do Super link como uma chave de autorização. O `access_token` possui uma validade de 20 minutos (1200 segundos) e é necessário gerar um novo token toda vez que a validade expirar.
 
 # Link de Pagamento
 
