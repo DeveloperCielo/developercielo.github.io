@@ -47,6 +47,32 @@ Você pode criar um Super Link pelo site Cielo, app Cielo Gestão ou pela API Su
 
 Qualquer loja que deseje vender online pode criar um link de pagamento e compartilhar esse link pelas redes sociais. Você não precisa ter um e-commerce para usar o Super Link.
 
+# API do Super Link
+
+A **API do Super Link** é uma API REST que permite **criar, editar e consultar links de pagamentos**. A principal vantagem da API é permitir que lojas possam criar links de pagamento (por botões ou QR Codes) através de seus próprios sistemas e compartilhar o Super Link com seus clie ntes, sem a necessidade de acessar o site Cielo.
+
+A imagem a seguir representa o fluxo geral do funcionamento da API do Super Link:
+
+![Imagem Fluxo Geral Super Link]({{ site.baseurl_root }}/images/superlink/aparencia-pagina-pagamento.png)
+
+1. A loja envia requisição de criação do link de pagamento para a API do Super Link;
+2. A API do Super Link retorna a URL do link de pagamento e o ID do link;
+3. A loja compartilha o link de pagamento com o comprador;
+4. O comprador efetua o pagamento;
+5. A Cielo (como adquirência) autoriza o pagamento e envia confirmação para o Super Link;
+6. A API do Super Link envia a notificação de finalização da transação ou a notificação de mudança de status para a loja. Se desejar, a loja pode desenvolver um processo para disparo de e-mail de confirmação ao comprador (não disponível pela API do Super Link).
+
+## Meios de pagamento e bandeiras
+
+No Super Link você pode vender seus produtos e serviços pelos principais meios de pagamento, como cartões de crédito e débito, carteiras digitais ou cartão de auxílio emergencial.
+
+| MEIO DE PAGAMENTO | BANDEIRAS E PROVIDERS|
+|---|---|
+|Cartão de crédito (à vista e parcelado)| Visa, Mastercard, Elo, Diners, Hipercard, JCB, American Express, Aura e Discover|
+|Cartão de débito | Visa, Mastercard e Elo|
+|Carteiras digitais | QR Code Pay (crédito e débito)|
+|Pix | Cielo|
+
 # Modo teste
 
 ## Sandbox
