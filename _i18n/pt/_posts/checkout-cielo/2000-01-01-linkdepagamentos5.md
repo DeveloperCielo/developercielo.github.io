@@ -670,24 +670,24 @@ Contém todos os dados da transação, inclusive o `merchant_order_number` e o `
 **Exemplo:**
 
 ```json
-order_number 40e00eefbf094763a147af713fa07ece
-amount 5000 
-checkout_cielo_order_number b9ab1956738d45cc88edf51d7d03b13e 
-created_date 02/02/2023 17:01:35 
-customer_name nome do cliente 
-customer_phone 2222222222 
-customer_identity 12312312344 
-customer_email nome@email.com.br 
-shipping_type 5 
-shipping_price 0 
-payment_method_type 6 
-payment_installments 1 
-payment_status 1 
-test_transaction False 
-product_id 0f48e580-d0a2-4e3b-a748-6704927f1725 
-product_type 3 
-product_description 123 
-nsu 00339922
+order_number: 40e00eefbf094763a147af713fa07ece
+amount: 5000
+checkout_cielo_order_number: b9ab1956738d45cc88edf51d7d03b13e 
+created_date: 02/02/2023 17:01:35 
+customer_name: nome do cliente 
+customer_phone: 2222222222 
+customer_identity: 12312312344 
+customer_email: nome@email.com.br 
+shipping_type: 5 
+shipping_price: 0 
+payment_method_type: 6 
+payment_installments: 1 
+payment_status: 1 
+test_transaction: False 
+product_id: 0f48e580-d0a2-4e3b-a748-6704927f1725 
+product_type: 3 
+product_description: 123 
+nsu: 00339922
 ```
 
 Veja a descrição dos detalhes da transação na sessão [Conteúdo das notificações].
@@ -699,9 +699,9 @@ A notificação via JSON é um método mais seguro e flexível para realizar uma
 **Conteúdo da notificação via JSON**
 
 ```json
-MerchantId 799g0de8-89c3-5d17-c670-6b29d7f00175 
-MerchantOrderNumber 1db9226geg8b54e6b2972e9b745b89c7 
-Url https://cieloecommerce.cielo.com.br/api/public/v1/orders/799g0de8-89c3-5d17-c670-6b29d7f00175 /1db9226geg8b54e6b2972e9b745b89c7
+MerchantId: 799g0de8-89c3-5d17-c670-6b29d7f00175 
+MerchantOrderNumber: 1db9226geg8b54e6b2972e9b745b89c7 
+Url: https://cieloecommerce.cielo.com.br/api/public/v1/orders/799g0de8-89c3-5d17-c670-6b29d7f00175 /1db9226geg8b54e6b2972e9b745b89c7
 ```
 
 |PARÂMETRO|DESCRIÇÃO|TIPO DO CAMPO|
@@ -894,14 +894,14 @@ Para saber mais detalhes da transação, faça uma consulta usando o `checkout_c
 O formato da notificação de mudança de status é POST (form data).
 
 ```json
-checkout_cielo_order_number=b918afea483d4c6c8615d8a8e19803c1
-amount=134
-order_number=024f77ac98cb493b86d8c818eb6e79cd
-payment_status=3
-test_transaction=False
-brand=Visa
-nsu=000001
-authorization_code=01234567
+checkout_cielo_order_number: b918afea483d4c6c8615d8a8e19803c1
+amount: 134
+order_number: 024f77ac98cb493b86d8c818eb6e79cd
+payment_status: 3
+test_transaction: False
+brand: Visa
+nsu: 000001
+authorization_code: 01234567
 ```
 
 |PARÂMETRO|DESCRIÇÃO|TIPO DO CAMPO|TAMANHO MÁXIMO|
