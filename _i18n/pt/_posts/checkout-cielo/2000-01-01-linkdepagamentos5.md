@@ -53,7 +53,7 @@ A **API do Super Link** é uma API REST que permite **criar, editar e consultar 
 
 A imagem a seguir representa o fluxo geral do funcionamento da API do Super Link:
 
-![Imagem Fluxo Geral Super Link]({{ site.baseurl_root }}/images/superlink/aparencia-pagina-pagamento.png)
+![Imagem Fluxo Geral Super Link]({{ site.baseurl_root }}/images/checkout/superlink/aparencia-pagina-pagamento.png)
 
 1. A loja envia requisição de criação do link de pagamento para a API do Super Link;
 2. A API do Super Link retorna a URL do link de pagamento e o ID do link;
@@ -108,19 +108,19 @@ Vá para o [site Cielo](https://minhaconta2.cielo.com.br/login/){:target="_blank
 
 Insira a imagem do logo da sua loja e escolha uma cor de fundo. Clique em **Salvar**.
 
-![Aparência da Página de Pagemento]({{ site.baseurl_root }}/images/superlink/superlink-aparencia-pagina-pagamento.png)
+![Aparência da Página de Pagemento]({{ site.baseurl_root }}/images/checkout/superlink/superlink-aparencia-pagina-pagamento.png)
 
 **3. Configure o envio de e-mail de finalização para o comprador**
 
 Se não desejar que seu cliente final receba um e-mail de finalização do pedido após o pagamento, desabilite essa opção. Depois, clique em **Salvar**.
 
-![E-mail de finalização para o comprador]({{ site.baseurl_root }}/images/superlink/superlink-email-finalizacao.png)
+![E-mail de finalização para o comprador]({{ site.baseurl_root }}/images/checkout/superlink/superlink-email-finalizacao.png)
 
 **4. Defina os meios de pagamento desejados**
 
 Selecione os meios de pagamento que gostaria de disponibilizar aos seus clientes. Para cartão de crédito, escolha também a quantidade máxima de parcelas permitidas. Depois, clique em Salvar.
 
-![Meios de Pagamento Ativos]({{ site.baseurl_root }}/images/superlink/superlink-meios-de-pagamento.png)
+![Meios de Pagamento Ativos]({{ site.baseurl_root }}/images/checkout/superlink/superlink-meios-de-pagamento.png)
 
 <aside class="notice">Essas configurações servem para todos os links criados em sua loja.</aside>
 
@@ -140,7 +140,7 @@ Para mais detalhes veja o [tutorial Super Link e Checkout Cielo](https://develop
 
 Você deverá preencher as URLs de retorno, notificação e mudança de status. As URLs devem ser criadas e definidas pelo seu estabelecimento. Depois, clique em **Salvar**.
 
-![URLs de Notificação]({{ site.baseurl_root }}/images/superlink/superlink-urls-notificacao.png)
+![URLs de Notificação]({{ site.baseurl_root }}/images/checkout/superlink/superlink-urls-notificacao.png)
 
 * **URL de Retorno**: após finalizar o pagamento, o comprador pode ser redirecionado para uma página definida web pela loja. Nenhum dado é trocado ou enviado para essa URL e sua configuração é opcional;
 * **URL de Notificação**: é a URL pela qual a sua loja irá receber a notificação com todos os dados do carrinho quando a transação é finalizada; [linkar para a parte de notificação]
@@ -154,7 +154,7 @@ Ao acessar as configurações da sua loja, procure a sessão Antifraude e captur
 * *Sempre fazer Captura Automática*;
 * *Somente fazer captura Automática das transações de Baixo Risco no Antifraude.*
 
-![Configuração de captura e Antifraude]({{ site.baseurl_root }}/images/superlink/superlink-captura-e-antifraude.png)
+![Configuração de captura e Antifraude]({{ site.baseurl_root }}/images/checkout/superlink/superlink-captura-e-antifraude.png)
 
 **7. Configure as opções de frete dos Correios**
 
@@ -162,7 +162,7 @@ Se a sua loja trabalha com a entrega de **produtos físicos** (aqueles que preci
 
 Se a sua loja trabalha com materiais digitais, serviços ou pagamentos, ou seja, vendas que não precisam de frete, pule esta etapa.
 
-![Configuração do Frete Correios]({{ site.baseurl_root }}/images/superlink/superlink-configuracao-frete-correios.png)
+![Configuração do Frete Correios]({{ site.baseurl_root }}/images/checkout/superlink/superlink-configuracao-frete-correios.png)
 
 **Configurações padrão**
 
@@ -197,19 +197,19 @@ Os testes financeiros podem ser executados a partir da ativação do modo teste 
 
 O modo de teste pode ser ativado na aba Configurações, ao habilitar a caixa de seleção do Modo Teste. O modo teste somente se iniciará quando a seleção for salva.
 
-![Modo Teste Ativo selecionado]({{ site.baseurl_root }}/images/superlink/superlink-modotesteativo.png)
+![Modo Teste Ativo selecionado]({{ site.baseurl_root }}/images/checkout/superlink/superlink-modotesteativo.png)
 
 Quando a opção for salva, uma tarja vermelha será exibida na parte superior da tela. Ela será exibida em todas as telas do Backoffice Cielo.
 
 Essa tarja indica que a sua loja está agora operando em ambiente de teste, ou seja, toda a transação realizada nesse modo será considerada como teste.
 
-![Modo Teste Ativo Tarja Vermelha]({{ site.baseurl_root }}/images/superlink/superlink-modoteste-tarjavermelha.png)
+![Modo Teste Ativo Tarja Vermelha]({{ site.baseurl_root }}/images/checkout/superlink/superlink-modoteste-tarjavermelha.png)
 
 ## Transações de teste
 
 Todas as transações realizadas no modo de teste serão exibidas como transações normais na aba Pedidos do Checkout Cielo, entretanto, elas serão marcadas como transações de teste e não serão contabilizadas em conjunto com as transações realizadas fora do ambiente de teste.
 
-![Lista de Transações no Modo Teste]({{ site.baseurl_root }}/images/superlink/superlink-transacoes-modoteste.png)
+![Lista de Transações no Modo Teste]({{ site.baseurl_root }}/images/checkout/superlink/superlink-transacoes-modoteste.png)
 
 Essas transações terão o símbolo de teste as diferenciando de suas outras transações. Elas podem ser capturadas ou canceladas utilizando os mesmos procedimentos das transações reais.
 
