@@ -14,14 +14,18 @@ language_tabs:
   shell: cURL
 ---
 
-# Objetivo
+# Super Link
 
-Este manual irá guiar o desenvolvedor na integração com a **API Super Link** da Cielo. Após realizar as integrações descritas será possível:
+# Sobre esta documentação
 
-- Criar e editar Links de Pagamento via API;
-- Receber notificações de pagamentos;
-- Consultar pagamentos;
-- Configurar a sua loja da maneira adequada.
+Este manual irá guiar o desenvolvedor na integração com a API Super Link da Cielo. Ao integrar a API do Super Link, você vai conseguir:
+
+* Configurar a sua loja e personalizar seus links de pagamentos;
+* Criar e editar links de pagamento via API;
+* Receber notificações de pagamentos;
+* Consultar pagamentos.
+
+> Você também pode usar o Super Link pelo [site Cielo](https://www.cielo.com.br/){:target="_blank"} ou pelo app [Cielo Gestão](https://play.google.com/store/apps/details?id=br.com.mobicare.cielo&hl=pt_BR&gl=US){:target="_blank"}.
 
 # Sobre o Super Link
 
