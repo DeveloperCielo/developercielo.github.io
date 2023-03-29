@@ -623,310 +623,297 @@ Header: `Authorization`: `Bearer {access_token}`
 
 `HTTP Status: 204 – No Content`
 
-# Notificações de Pagamento
+# Notificações da transação
 
-O processo de notificação transacional no Checkout Cielo ocorre via a inclusão de uma URL para onde serão direcionados dados das transações realizadas na plataforma.
-Vale destacar que o Checkout realiza a notificação somente quando uma transação é considerada finalizada ou seja, o comprador preencheu todos os dados da tela de pagamento e clicou em "Finalizar".
+O processo de notificação transacional ocorre em duas etapas, que são a notificação de finalização da transação e a notificação de mudança de status.
 
-## Tipos de notificação
+|ETAPA|TIPO DE URL*|DESCRIÇÃO|CONTEÚDO|FORMATO|
+|---|---|---|---|---|
+|**Notificação de finalização da transação**|`URL de Notificação`|É enviada após o comprador clicar em Finalizar, gerando a transação.Essa notificação é enviada apenas no momento que a transação é finalizada, independentemente se houve alteração do status, ou seja, não significa que a transação foi paga.|Contém todos os dados da venda.|POST ou JSON|
+|**Notificação de mudança de status**|`URL de Mudança de Status`|É enviada quando há mudança de status na transação.<br>O status pode ser alterado de “Pendente” para “Pago”, “Cancelada” ou “Não Finalizada”, entre outros. Veja a lista completa de status na tabela [Payment_status].|Contém   os dados de identificação do pedido (não tem os dados do carrinho).|POST|
 
-O Checkout Cielo possui dois tipos de notificações que o lojista pode utilizar de acordo com suas necessidades:
+*As notificações são enviadas para as URLs definidas pelo estabelecimento nas [**Configurações da Loja**] e contêm os dados das transações realizadas no Super Link.
 
-| Tipo   | Descrição                                                                                                                                        |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `POST` | Notificação onde o lojista é passivo. Dois `POST HTTP` são disparados, um informando dados da venda e outra mudança de Status da transação       |
-| `JSON` | Notificação onde o lojista realiza uma consulta. Um `POST` contendo informações para a realização de uma consulta (`GET`) as transações checkout |
+Vale destacar que o Super Link realiza a notificação somente quando uma transação é considerada finalizada, ou seja, o comprador preencheu todos os dados da tela de pagamento e clicou em **Finalizar**.
 
-Para utilizar ambos os modelos, o lojista necessitará acessar o Backoffice cielo e configurar tanto a `URL de NOTIFICAÇÃO` quando a `URL de MUDANÇA de STATUS`.
+**Exemplo**: *O comprador acessa o link de pagamento e escolhe pagar via Pix. Ao clicar em Finalizar, o Super Link gera a chave Pix e envia para a loja a notificação de finalização da transação, que estará com o status “Pendente”. Quando o comprador fizer o pagamento via Pix, a transação ficará com o status “Pago” e o Super Link enviará a notificação de mudança de status.*
 
-### Tipos de URL de Notificação
+## Características das notificações
 
-O Checkout possui 3 tipos de URL que podem impactar o processo de notificação.
+As URLs para notificação são webhooks que podem receber uma notificação via POST ou via JSON:
 
-| Tipo                       | Descrição                                                                                                                                                                                                                                                    | Observação                                                                                                                                                                                                               |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `URL de Retorno`           | Página web na qual o comprador será redirecionado ao fim da compra. <br>Nenhum dado é trocado ou enviado para essa URL.<br> Essa URL apenas leva o comprador, após finalizar a compra, a uma página definida pela loja.                                      | Caso o Lojista deseje, ele pode configurar essa página para ser sensibilizada por tráfego, assim identificando que a transação foi finalizada no Checkout Cielo <br> Pode ser enviada via API - Ver "Integração por API" |
-| `URL de Notificação`       | Ao finalizar uma transação é enviado um POST HTTP com todos os dados da venda para a URL de Notificação.<br> O POST de notificação é enviado apenas no momento que a transação é finalizada, independentemente se houve alteração do **status da transação** | Utilizada na Notificação via `POST`e `JSON`                                                                                                                                                                              |
-| `URL de Mudança de Status` | Quando um pedido tiver seu status alterado, será enviando um post HTTP para a URL de Mudança de Status.<br> O POST de mudança de status não contem dados do carrinho, apenas dados de identificação do pedido                                                | Utilizada somente na Notificação via `POST`                                                                                                                                                                              |
+|TIPO|DESCRIÇÃO|
+|----|---|
+|**POST**|Notificação onde a loja é passiva.|
+|**JSON**|Notificação onde a loja realiza uma consulta.|
 
-**OBS:** Caso uma `URL de retorno` seja enviada vai API, ela terá prioridade sobre a URL cadastrada no Backoffice / Na integração Checkout Cielo `via Botão`, só é possível usar a opção de URL de retorno via backoffice.
+**Formato das notificações**
 
-**Características das URLs**
+Nas notificações suportadas pela API do Super Link o formato enviado é *Form Data*, discriminado pelo header `Content-Type` ‘x-www-form-urlencoded’.
 
-Todas as 3 URLs devem possuir as seguintes características:
+**Retorno esperado**
 
-- Devem ser URLs estáticas
-- Devem possuir menos de 255 caracteres
-- Caracteres especiais não são suportados
+O servidor da loja deve enviar o retorno `HTTPStatus = 200 (OK)` para a API do Super Link, indicando que a notificação foi recebida e processada com sucesso.
 
-**Configurando as URLs**
+> **IMPORTANTE**: Se a URL cadastrada retornar algum erro ou estiver indisponível, serão realizadas três novas tentativas, com intervalo de uma hora entre cada POST.
 
-1. Basta acessar dentro do **Backoffice** as Abas **Configurações**
-2. Em **Configurações da Loja**, Vá a sessão de **Pagamentos**
-3. Cadastre as URLS e escolhe o tipo de Notificação desejado
+Caso a notificação não seja recebida, é possível solicitar o reenvio manualmente   nos **Detalhes do pedido**, clicando no ícone da seta.
 
-![Cadastro de URLS]({{ site.baseurl_root }}/images/checkout/urls.png)
+## Notificação de finalização da transação
 
-### Notificação: POST
+É a notificação enviada para a URL de Notificação e pode ser no formato POST ou JSON.
 
-A notificação via POST é baseada no envio de um `POST HTTP` quando uma transação é realizada. Ela é realizada em duas etapas:
+### Notificação via POST
 
-1. `POST de NOTIFICAÇÃO` - Ocorre quando a transação é finalizada. Esse POST possui todos os dados do pedido, incluindo o STATUS inicial da transação.
-2. `POST de MUDANÇA DE STATUS` - Ocorre quando uma transação possui seu STATUS alterado - **EX:** "Autorizado" > > > "Pago"
+Contém todos os dados da transação, inclusive o `merchant_order_number` e o `checkout_cielo_order_number`, que poderão ser usados para a [consulta de transações] (linkar Consulta).
 
-Este fluxo é utilizado por lojas que ainda não realizam transações via API.
+**Exemplo:**
 
-Abaixo o Fluxo de uma Notificação POST
-
-![Fluxo N.POST]({{ site.baseurl_root }}/images/checkout/npost.png)
-
-**Retorno aguardado para o envio da notificação:** `HttpStatus = 200 (OK)` - Post recebido e processado com sucesso
-
-**IMPORTANTE** Se a `URL de Notificação` cadastrada retornar algum erro/estiver indisponível, serão realizadas \*_3 novas tentativas, com intervalo de 1 hora entre cada POST_.
-
-Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acessar o pedido em questão pelo Backoffice e clicar no Ícone de envio:
-
-![Reenvio de notificação]({{ site.baseurl_root }}/images/checkout/reenvipost.png)
-
-Veja a descrição dos itens de notificação na sessão **"Conteúdo do POST de NOTIFICAÇÃO"**
-
-### Notificação: JSON
-
-A notificação vai JSON é um método mais seguro e flexível para o lojista de realizar uma consulta no Chekcout Cielo.
-Essa modalidade de notificação é baseada em um `POST JSON`, onde o lojista recebe credenciais para que uma consulta (`GET`) possa ser realizado junto a base de dados Checkout Cielo.
-
-Ela é realizada em duas etapas:
-
-1. `POST de NOTIFICAÇÃO` - Ocorre quando a transação é finalizada. Possui as Credenciais necessárias consultas transacionais.
-2. `CONSULTA TRANSACIONAL` - Com as credenciais de consulta, o lojista busca dados da venda junto ao Checkout Cielo
-
-Na Notificação de JSON, não há diferença entre o `POST de Notificação` e `Mudança de Status`. Sempre que algo ocorrer na transação, o lojista receberá um `POST de Notificação`
-
-Abaixo o Fluxo de uma Notificação JSON (Criação da transação + Mudança de status)
-
-![Fluxo N.JSON]({{ site.baseurl_root }}/images/checkout/njson.png)
-
-#### Conteúdo do POST de NOTIFICAÇÃO JSON:
-
-| Parâmetro             | Descrição                                                                                                              | Tipo do Campo       |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `URL`                 | URL com os dados necessários para realizar a busca dos dados da transação.                                             | String              |
-| `MerchantId`          | Identificador da loja no Checkout Cielo; consta no Backoffice no menu Configuração/Dados Cadastrais.                   | Alfanumérico (GUID) |
-| `MerchantOrderNumber` | Número do pedido da loja; se não for enviado, o Checkout Cielo gerará um número, que será visualizado pelo Consumidor. | Alfanumérico        |
-
-**Exemplo de uma consulta:**
-
-#### Request
-
-```shell
-curl
---request GET https://cieloecommerce.cielo.com.br/api/public/v1/orders/{merchantId}/{merchantOrderNumber}"
---header "Content-Type: application/json"
---header "MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
---data-binary
---verbose
+```
+order_number 40e00eefbf094763a147af713fa07ece
+amount 5000 
+checkout_cielo_order_number b9ab1956738d45cc88edf51d7d03b13e 
+created_date 02/02/2023 17:01:35 
+customer_name nome do cliente 
+customer_phone 2222222222 
+customer_identity 12312312344 
+customer_email nome@email.com.br 
+shipping_type 5 
+shipping_price 0 
+payment_method_type 6 
+payment_installments 1 
+payment_status 1 
+test_transaction False 
+product_id 0f48e580-d0a2-4e3b-a748-6704927f1725 
+product_type 3 
+product_description 123 
+nsu 00339922
 ```
 
-| Propriedade  | Descrição             | Tipo | Tamanho | Obrigatório |
-| ------------ | --------------------- | ---- | ------- | ----------- |
-| `MerchantId` | Identificador da loja | Guid | 36      | Sim         |
+Veja a descrição dos detalhes da transação na sessão [Conteúdo das notificações].
 
-#### Response
+### Notificação via JSON
+
+A notificação via JSON é um método mais seguro e flexível para realizar uma consulta no Super Link Cielo. Nessa modalidade a loja recebe o `MerchantId` e o `MerchantOrderNumber` e uma URL para realizar uma consulta (GET) junto à base de dados do Super Link Cielo e acessar os detalhes da transação.
+
+**Conteúdo da notificação via JSON**
+
+```
+MerchantId 799g0de8-89c3-5d17-c670-6b29d7f00175 
+MerchantOrderNumber 1db9226geg8b54e6b2972e9b745b89c7 
+Url https://cieloecommerce.cielo.com.br/api/public/v1/orders/799g0de8-89c3-5d17-c670-6b29d7f00175 /1db9226geg8b54e6b2972e9b745b89c7
+```
+
+|PARÂMETRO|DESCRIÇÃO|TIPO DO CAMPO|
+|---|---|---|
+|`URL`|URL com os dados necessários para realizar a busca dos dados da transação.|String|
+|`MerchantId`|Identificador da loja no Super Link; consta no site Cielo no menu Configuração > Dados Cadastrais.|Alfanumérico (guid)|
+|`MerchantOrderNumber`|Número do pedido da loja; se não for enviado, o Checkout Cielo gerará um número, que será visualizado pelo Consumidor.|Alfanumérico|
+
+*O servidor da loja deve enviar o retorno `HTTP Status = 200 (OK)` para a API do Super Link, indicando que a notificação foi recebida e processada com sucesso.*
+
+**Exemplo de uma consulta à URL retornada via JSON**
+
+**Resposta**
 
 ```json
 {
-  "order_number": "Pedido01",
-  "amount": 101,
-  "discount_amount": 0,
-  "checkout_cielo_order_number": "65930e7460bd4a849502ed14d7be6c03",
-  "created_date": "12-09-2017 14:38:56",
-  "customer_name": "Test Test",
-  "customer_phone": "21987654321",
-  "customer_identity": "84261300206",
-  "customer_email": "test@cielo.com.br",
-  "shipping_type": 1,
-  "shipping_name": "Motoboy",
-  "shipping_price": 1,
-  "shipping_address_zipcode": "21911130",
-  "shipping_address_district": "Freguesia",
-  "shipping_address_city": "Rio de Janeiro",
-  "shipping_address_state": "RJ",
-  "shipping_address_line1": "Rua Cambui",
-  "shipping_address_line2": "Apto 201",
-  "shipping_address_number": "92",
-  "payment_method_type": 1,
-  "payment_method_brand": 1,
-  "payment_maskedcreditcard": "471612******7044",
-  "payment_installments": 1,
-  "payment_status": 3,
-  "tid": "10447480686J51OH8BPB",
-  "test_transaction": "False"
+    "order_number": "1db9226geg8b54e6b2972e9b745b89c7",
+    "amount": 101,
+    "discount_amount": 0,
+    "checkout_cielo_order_number": "65930e7460bd4a849502ed14d7be6c03",
+    "created_date": "10-03-2023 14:38:56",
+    "customer_name": "Test Test",
+    "customer_phone": "11987654321",
+    "customer_identity": "445556667",
+    "customer_email": "shopper@email.com.br",
+    "shipping_type": 1,
+    "shipping_name": "Motoboy",
+    "shipping_price": 1,
+    "shipping_address_zipcode": "06455-030",
+    "shipping_address_district": "Alphaville",
+    "shipping_address_city": "Barueri",
+    "shipping_address_state": "SP",
+    "shipping_address_line1": "Alameda Xingu",
+    "shipping_address_line2": "Apto 25",
+    "shipping_address_number": "512",
+    "payment_method_type": 1,
+    "payment_method_brand": 1,
+    "payment_maskedcreditcard": "482852******6856",
+    "payment_installments": 1,
+    "payment_status": 3,
+    "tid": "10558590697J62OH9BPB",
+    "test_transaction": "False"
 }
 ```
 
-Veja a descrição dos itens de notificação na sessão **"Conteúdo do POST de NOTIFICAÇÃO"**
+Veja a descrição dos detalhes da venda na sessão [Conteúdo das notificações].
 
-**Retorno aguardado para o envio da notificação:** `HttpStatus = 200 (OK)` - Post recebido e processado com sucesso
+### Conteúdo das notificações
 
-**IMPORTANTE** Se a `URL de Notificação` cadastrada retornar algum erro/estiver indisponível, serão realizadas \*_3 novas tentativas, com intervalo de 1 hora entre cada POST_.
+Tanto na notificação via POST ou via JSON, o conteúdo dos dados retornados é o mesmo. A seguir são descritos todos os campos retornados, assim como suas definições e tamanhos:
 
-Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acessar o pedido em questão pelo Backoffice e clicar no Ícone de envio:
-
-![Reenvio de notificação]({{ site.baseurl_root }}/images/checkout/reenvipost.png)
-
-### Conteúdo da Notificação
-
-Tanto na Notificação via POST HTTP ou POST JSON, o conteúdo dos dados retornados é o mesmo.
-Abaixo são descritos todos os campos retornados, assim como suas definições e tamanhos:
-
-#### Conteúdo do POST de NOTIFICAÇÃO:
-
-| Parâmetro                            | Descrição                                                                                                    | Tipo do campo | Tamanho máximo |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------- | -------------- |
-| `checkout_cielo_order_number`        | Identificador único gerado pelo CHECKOUT CIELO                                                               | Alfanumérico  | 32             |
-| `amount`                             | Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)                                                   | Numérico      | 10             |
-| `order_number`                       | Número do pedido enviado pela loja                                                                           | Alfanumérico  | 32             |
-| `created_date`                       | Data da criação do pedido - `dd-MM-yyyy HH:mm:ss`                                                            | Alfanumérico  | 20             |
-| `customer_name`                      | Nome do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO                       | Alfanumérico  | 289            |
-| `customer_identity`                  | Identificação do consumidor (CPF ou CNPJ) Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO | Alfanumérico  | 14             |
-| `customer_email`                     | E-mail do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO                     | Alfanumérico  | 64             |
-| `customer_phone`                     | Telefone do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO                   | Numérico      | 11             |
-| `discount_amount`                    | Valor do desconto fornecido (enviado somente se houver desconto)                                             | Numérico      | 10             |
-| `shipping_type`                      | Modalidade de frete                                                                                          | Numérico      | 1              |
-| `shipping_name`                      | Nome do frete                                                                                                | Alfanumérico  | 128            |
-| `shipping_price`                     | Valor do serviço de frete, em centavos (ex: R$ 10,00 = 1000)                                                 | Numérico      | 10             |
-| `shipping_address_zipcode`           | CEP do endereço de entrega                                                                                   | Numérico      | 8              |
-| `shipping_address_district`          | Bairro do endereço de entrega                                                                                | Texto         | 64             |
-| `shipping_address_city`              | Cidade do endereço de entrega                                                                                | Alfanumérico  | 64             |
-| `shipping_address_state`             | Estado de endereço de entrega                                                                                | Alfanumérico  | 64             |
-| `shipping_address_line1`             | Endereço de entrega                                                                                          | Alfanumérico  | 256            |
-| `shipping_address_line2`             | Complemento do endereço de entrega                                                                           | Alfanumérico  | 14             |
-| `shipping_address_number`            | Número do endereço de entrega                                                                                | Numérico      | 8              |
-| `payment_method_type`                | Cód. do tipo de meio de pagamento                                                                            | Numérico      | 1              |
-| `payment_method_brand`               | Bandeira (somente para transações com meio de pagamento cartão de crédito)                                   | Numérico      | 1              |
-| `payment_method_bank`                | Banco emissor (Para transações de Boleto e Débito Automático)                                                | Numérico      | 1              |
-| `payment_maskedcreditcard`           | Cartão Mascarado (Somente para transações com meio de pagamento cartão de crédito)                           | Alfanumérico  | 20             |
-| `payment_installments`               | Número de parcelas                                                                                           | Numérico      | 1              |
-| `payment_antifrauderesult`           | Status das transações de cartão de Crédito no Antifraude                                                     | Numérico      | 1              |
-| `payment_boletonumber`               | número do boleto gerado                                                                                      | String        | 1              |
-| `payment_boletoexpirationdate`       | Data de vencimento para transações realizadas com boleto bancário                                            | Numérico      | 10             |
-| `payment_status`                     | Status da transação                                                                                          | Numérico      | 1              |
-| `tid`                                | TID Cielo gerado no momento da autorização da transação                                                      | Alfanumérico  | 20             |
-| `test_transaction`                   | Indica se a transação foi gerada com o `Modo de teste` ativado                                               | Boolean       | 32             |
-| `product_id`                         | Identificador do Botão/Link de pagamento que gerou a transação                                               | Alfanumérico  | 32             |
-| `product_type`                       | Tipo de Botão que gerou o pedido (Ver tabela de ProductID)                                                   | Alfanumérico  | 32             |
-| `product_sku`                        | Identificador do produto cadastro no link de pagamento                                                       | texto         | 16             |
-| `product_max_number_of_installments` | Numero de parcelas liberado pelo lojistas para o link de pagamento                                           | Numérico      | 2              |
-| `product_expiration_date`            | Data de validade do botão/Link de pagamento                                                                  | Alfanumérico  | 12             |
-| `product_quantity`                   | Numero de transações restantes até que o link deixe de funcionar                                             | Alfanumérico  | 2              |
-| `product_description`                | Descrição do link de pagamentos registrada pelo lojista                                                      | texto         | 256            |
-| `nsu`                                | NSU - Número sequencial único da transação.                                                                  | Alfanumérico  | 6              |
-| `authorization_code`                 | Código de autorização.                                                                                       | Alfanumérico  | 8              |
+|PARÂMETRO|DESCRIÇÃO|TIPO DO CAMPO|TAMANHO MÁXIMO|
+|---|---|---|---|
+|`checkout_cielo_order_number`|Identificador único gerado pelo CHECKOUT CIELO|Alfanumérico|32|
+|`amount`|Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)|Número|10|
+|`order_number`|Número do pedido enviado pela loja|Alfanumérico|32|
+|`created_date`|Data da criação do pedido - dd-MM-yyyy HH:mm:ss|Alfanumérico|20|
+|`customer_name`|Nome do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO|Alfanumérico|289|
+|`customer_identity`|Identificação do consumidor (CPF ou CNPJ) Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO|Alfanumérico|14|
+|`customer_email`|E-mail do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO|Alfanumérico|64|
+|`customer_phone`|Telefone do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO|Número|11|
+|`discount_amount`|Valor do desconto fornecido (enviado somente se houver desconto)|Número|10|
+|`shipping_type`|Modalidade de frete|Número|1|
+|`shipping_name`|Nome do frete|Alfanumérico|128|
+|`shipping_price`|Valor do serviço de frete, em centavos (ex: R$ 10,00 = 1000)|Número|10|
+|`shipping_address_zipcode`|CEP do endereço de entrega|Número|8|
+|`shipping_address_district`|Bairro do endereço de entrega|Texto|64|
+|`shipping_address_city`|Cidade do endereço de entrega|Alfanumérico|64|
+|`shipping_address_state`|Estado de endereço de entrega|Alfanumérico|64|
+|`shipping_address_line1`|Endereço de entrega|Alfanumérico|256|
+|`shipping_address_line2`|Complemento do endereço de entrega|Alfanumérico|14
+|`shipping_address_number`|Número do endereço de entrega|Número|8
+|`payment_method_type`|Cód. do tipo de meio de pagamento|Número|1
+|`payment_method_brand`|Bandeira (somente para transações com meio de pagamento cartão de crédito)|Número|1|
+|`payment_method_bank`|Banco emissor (Para transações de Boleto e Débito Automático)|Número|1|
+|`payment_maskedcreditcard`|Cartão Mascarado (Somente para transações com meio de pagamento cartão de crédito)|Alfanumérico|20|
+|`payment_installments`|Número de parcelas|Número|1|
+|`payment_antifrauderesult`|Status das transações de cartão de Crédito no Antifraude|Número|1|
+|`payment_boletonumber`|número do boleto gerado|String|1|
+|`payment_boletoexpirationdate`|Data de vencimento para transações realizadas com boleto bancário|Número|10|
+|`payment_status`|Status da transação|Número|1|
+|`tid`|TransactionId Cielo gerado no momento da autorização da transação|Alfanumérico|20|
+|`test_transaction`|Indica se a transação foi gerada com o Modo de teste ativado|Boolean|32
+|`product_id`|Identificador do Botão/Link de pagamento que gerou a transação|Alfanumérico|32|
+|`product_type`|Tipo de Botão que gerou o pedido (Ver tabela de ProductID)|Alfanumérico|32|
+|`product_sku`|Identificador do produto cadastro no link de pagamento|texto|16|
+|`product_max_number_of_installments`|Número de parcelas liberado pelo lojistas para o link de pagamento|Número|2|
+|`product_expiration_date`|Data de validade do botão/Link de pagamento|Alfanumérico|12|
+|`product_quantity`|Número de transações restantes até que o link deixe de funcionar|Alfanumérico|2|
+|`product_description`|Descrição do link de pagamentos registrada pelo lojista|texto|256|
+|`nsu`|NSU - Número sequencial único da transação.|Alfanumérico|6|
+|`authorization_code`|Código de autorização.|Alfanumérico|8|
 
 #### Tipos de productID
 
-| Tipo de Link de pagamento | Enun |
-| ------------------------- | ---- |
-| Material físico           | 1    |
-| Digital                   | 2    |
-| Serviço                   | 3    |
-| Pagamento                 | 4    |
-| Recorrência               | 5    |
+|TIPO DE LINK DE PAGAMENTO|ENUN|
+|---|---|
+|Material físico|1|
+|Digital|2|
+|Serviço|3|
+|Pagamento|4|
+|Recorrência|5|
 
-#### Payment_status
+### Payment_status
 
-O Checkout possui um Status próprios, diferente do SITE CIELO ou da API Cielo ecommerce. Veja abaixo a lista completa.
+O Super Link possui status próprios, diferente do site Cielo ou da API E-commerce Cielo. Veja a seguir a lista completa.
 
-| Valor | Status de transação | Transaction Status | Meios de pagamento               | Descrição                                                                                                                     |
-| ----- | ------------------- | ------------------ | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| 1     | `Pendente`          | Pending            | Para todos os meios de pagamento | Indica que o pagamento ainda está sendo processado; OBS: Boleto - Indica que o boleto não teve o status alterado pelo lojista |
-| 2     | `Pago`              | Paid               | Para todos os meios de pagamento | Transação capturada e o dinheiro será depositado em conta.                                                                    |
-| 3     | `Negado`            | Denied             | Somente para Cartão Crédito      | Transação não autorizada pelo responsável do meio de pagamento                                                                |
-| 4     | `Expirado`          | Expired            | Cartões de Crédito e Boleto      | Transação deixa de ser válida para captura - **15 dias pós Autorização**                                                      |
-| 5     | `Cancelado`         | Voided             | Para cartões de crédito          | Transação foi cancelada pelo lojista                                                                                          |
-| 6     | `Não Finalizado`    | NotFinalized       | Todos os meios de pagamento      | Pagamento esperando Status - Pode indicar erro ou falha de processamento. Entre em contato com o Suporte cielo                |
-| 7     | `Autorizado`        | Authorized         | somente para Cartão de Crédito   | Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta                  |
-| 8     | `Chargeback`        | Chargeback         | somente para Cartão de Crédito   | Transação cancelada pelo consumidor junto ao emissor do cartão. O Dinheiro não será depositado em conta.                      |
+|VALOR|STATUS DA TRANSAÇÃO|TRANSACTION STATUS|MEIOS DE PAGAMENTO|DESCRIÇÃO|
+|---|---|---|---|---|
+|1|Pendente|Pending|Para todos os meios de pagamento|Indica que o pagamento ainda está sendo processado; OBS: Boleto - Indica que o boleto não teve o status alterado pelo lojista|
+|2|Pago|Paid|Para todos os meios de pagamento|Transação capturada e o dinheiro será depositado em conta.|
+|3|Negado|Denied|Somente para Cartão Crédito|Transação não autorizada pelo responsável do meio de pagamento|
+|4|Expirado|Expired|Cartões de Crédito e Boleto|Transação deixa de ser válida para captura - 15 dias pós Autorização|
+|5|Cancelado|Voided|Para cartões de crédito|Transação foi cancelada pelo lojista
+|6|Não Finalizado|NotFinalized|Todos os meios de pagamento|Pagamento esperando Status - Pode indicar erro ou falha de processamento. Entre em contato com o Suporte Cielo|
+|7|Autorizado|Authorized|Somente para Cartão de Crédito|Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta|
+|8|Chargeback|Chargeback|somente para Cartão de Crédito|Transação cancelada pelo consumidor junto ao emissor do cartão. O Dinheiro não será depositado em conta.|
 
-Obs: Para consultas de pedido, o campo payment.status será retornado no formato texto, sempre em inglês (coluna Transaction Status).
+> Obs: Para consultas de pedido, o campo `payment.status` será retornado no formato texto, sempre em inglês (coluna Transaction Status).
 
 #### Payment_antifrauderesult
 
-O Antifraude possui o conceito de `Status` e `SubStatus`, onde o primeiro representa o nível de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
+O Antifraude possui o conceito de Status e SubStatus, onde o primeiro representa o nível de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
 
-| Valor | Status 'raude    | Substatus                | Descrição                                                                                                       |
-| ----- | ---------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------- |
-| 1     | `Baixo Risco`    | Baixo Risco              | Baixo risco de ser uma transação fraudulenta                                                                    |
-| 3     | `Médio Risco`    | Médio Risco              | Médio risco de ser uma transação fraudulenta                                                                    |
-| 2     | `Alto Risco`     | Alto Risco               | Alto risco de ser uma transação fraudulenta                                                                     |
-| 4     | `Não finalizado` | Não finalizado           | Não foi possível finalizar a consulta                                                                           |
-| N/A   | `N/A`            | Autenticado              | Transações autenticadas pelo banco - **Não são analisaveis pelo AF**                                            |
-| N/A   | `N/A`            | AF Não contratado        | Antifraude não habilitado no plano do lojista - **Não são analisaveis pelo AF**                                 |
-| N/A   | `N/A`            | AF Dispensado            | Antifraude dispensado via contrato ou inferior ao valor mínimo de antifrade parametrizado backoffice no lojista |
-| N/A   | `N/A`            | Não aplicável            | Meio de pagamento não analisável como cartões de débito, boleto e débito online                                 |
-| N/A   | `N/A`            | Transação de recorrência | Transação de crédito seja posterior a transação de agendamento. **Somente o Agendamento é analisado**           |
-| N/A   | `N/A`            | Transação negada         | Venda a crédito foi negada - **Não são analisaveis pelo AF**                                                    |
+|VALOR|STATUS ANTIFRAUDE|SUBSTATUS|DESCRIÇÃO|
+|---|---|---|---|
+|1|Baixo Risco|Baixo Risco|Baixo risco de ser uma transação fraudulenta.|
+|2|Alto Risco|Alto Risco|Alto risco de ser uma transação fraudulenta. São canceladas automaticamente.|
+|4|Não finalizado|Não finalizado|Não foi possível finalizar a consulta.|
+|N/A|N/A|Não aplicável|Transação de cartão de débito que foi autenticada pelo 3ds 2.0, por isso não é elegível a análise de antifraude.|
+|N/A|N/A|N/A|Meio de pagamento não analisável como boleto, Pix, QR Code, e transação de cartão de crédito que foi negada pelo emissor.|
+|N/A|N/A|Transação de recorrência|Para casos de recorrência, após a primeira transação paga, as próximas transações de uma recorrência não são analisadas pelo antifraude. Somente a primeira transação é analisada.|
 
 #### Payment_method_type
 
-O Checkout permite apenas um tipo de `Boleto` ou `Débito Online` por lojista, sendo assim não é retornado se o método usado foi Bradesco ou Banco do Brasil, pois apenas um deles estará ativado na afiliação.
+O Super Link permite apenas um tipo de Boleto por estabelecimento, sendo assim a notificação não retorna se o provedor usado foi Bradesco ou Banco do Brasil, pois apenas um deles estará ativo na afiliação.
 
-| Valor | Descrição         | Description |
-| ----- | ----------------- | ----------- |
-| 1     | Cartão de Crédito | CreditCard  |
-| 2     | Boleto Bancário   | Boleto      |
-| 3     | Débito Online     | OnlineDebit |
-| 4     | Cartão de Débito  | DebitCard   |
-| 5     | QR Code           | QrCode      |
-| 6     | Pix               | Pix         |
+|VALOR|DESCRIÇÃO|DESCRIPTION|
+|---|---|---|
+|1|Cartão de Crédito|CreditCard|
+|2|Boleto Bancário|Boleto|
+|4|Cartão de Débito|DebitCard|
+|5|QR Code Crédito|QrCode|
+|6|Pix|Pix|
+|7|QRCode Débito|QrCodeDebit|
 
-OBS: Para consultas o Type é retornado no campo Payment.Type e vem preenchida com o valor literal (Description)
+> **Observação**: Para consultas o Type é retornado no campo `Payment.Type` e vem preenchida com o valor literal (`Description`).
 
 #### Payment_method_brand
 
-| Valor | Descrição       |
-| ----- | --------------- |
-| 1     | Visa            |
-| 2     | Master          |
-| 3     | AmericanExpress |
-| 4     | Diners          |
-| 5     | Elo             |
-| 6     | Aura            |
-| 7     | JCB             |
-| 8     | Discover        |
-| 9     | HiperCard       |
+É a bandeira do cartão.
 
-Para consultas a Brand é retornado no campo Payment.Brand e vem preenchida com o valor literal.
+|VALOR|DESCRIÇÃO|
+|---|---|
+|1|Visa|
+|2|Master|
+|3|AmericanExpress|
+|4|Diners|
+|5|Elo|
+|6|Aura|
+|7|JCB|
+|8|Discover|
+|9|HiperCard|
+
+Nas consultas a bandeira do cartão é retornada no campo `Payment.Brand` e vem preenchida com o valor literal.
 
 #### Payment_method_bank
 
-| Valor | Descrição       |
-| ----- | --------------- |
-| 1     | Banco do Brasil |
-| 2     | Bradesco        |
+|VALOR|DESCRIÇÃO|
+|---|---|
+|1|Banco do Brasil|
+|2|Bradesco|
 
 #### Shipping_type
 
-| Valor | Descrição                                             |
-| ----- | ----------------------------------------------------- |
-| 1     | Correios                                              |
-| 2     | Frete fixo                                            |
-| 3     | Frete grátis                                          |
-| 4     | Retirar em mãos/loja                                  |
-| 5     | Sem cobrança de frete (serviços ou produtos digitais) |
+|VALOR|DESCRIÇÃO|
+|---|---|
+|1|Correios|
+|2|Frete fixo|
+|3|Frete grátis|
+|4|Retirar em mãos/loja|
+|5|Sem cobrança de frete (serviços ou produtos digitais)|
 
-#### Mudança de status
+### Notificação de mudança de status
 
-| Parâmetro                     | Descrição                                                                                                                                                                  | Tipo do Campo | Tamanho Máximo |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | -------------- |
-| `checkout_cielo_order_number` | Identificador único gerado pelo CHECKOUT CIELO                                                                                                                             | Alfanumérico  | 32             |
-| `amount`                      | Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)                                                                                                                 | Numérico      | 10             |
-| `order_number`                | Número do pedido enviado pela loja                                                                                                                                         | Alfanumérico  | 32             |
-| `payment_method_brand`        | Bandeira- somente para transações com meio de pagamento cartão de crédito.[Lista Completa](https://developercielo.github.io/manual/linkdepagamentos5#payment_method_brand) | Numérico      | 1              |
-| `payment_status`              | Status da transação.[Lista Completa](https://developercielo.github.io/manual/linkdepagamentos5#payment_status)                                                             | Numérico      | 1              |
-| `test_transaction`            | Indica se a transação foi gerada com o Modo de teste ativado                                                                                                               | Boolean       | 32             |
-| `nsu`                         | NSU - Número sequencial único da transação.                                                                                                                                | Alfanumérico  | 6              |
-| `authorization_code`          | Código de autorização.                                                                                                                                                     | Alfanumérico  | 8              |
+É enviada para a URL de mudança de status e contém o `checkout_cielo_order_number`, o novo status e alguns dados da transação.
+
+Para saber mais detalhes da transação, faça uma consulta usando o `checkout_cielo_order_number`.
+
+O formato da notificação de mudança de status é POST (form data).
+
+```
+checkout_cielo_order_number=b918afea483d4c6c8615d8a8e19803c1
+amount=134
+order_number=024f77ac98cb493b86d8c818eb6e79cd
+payment_status=3
+test_transaction=False
+brand=Visa
+nsu=000001
+authorization_code=01234567
+```
+
+|PARÂMETRO|DESCRIÇÃO|TIPO DO CAMPO|TAMANHO MÁXIMO|
+|---|---|---|---|
+|`checkout_cielo_order_number`|Identificador único gerado pelo Super Link Cielo.|Alfanumérico|32|
+|`amount`|Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)|Número|10|
+|`order_number`|Número do pedido enviado pela loja.|Alfanumérico|32|
+|`payment_method_brand`|Bandeira- somente para transações com meio de pagamento cartão de crédito. Lista Completa|Número|20|
+|`payment_status`|Status da transação. Lista Completa|Número|1|
+|`test_transaction`|Indica se a transação foi gerada com o Modo de teste ativado|Boolean|32|
+|`nsu`|NSU - Número sequencial único da transação.|Alfanumérico|6|
+|`authorization_code`|Código de autorização.|Alfanumérico|8|
 
 # Controle Transacional
 
