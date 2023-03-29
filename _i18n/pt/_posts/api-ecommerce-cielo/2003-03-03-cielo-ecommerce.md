@@ -2469,6 +2469,173 @@ Como qualquer transação de débito no e-commerce, as transações de carnê pr
 
 ## Implementações específicas
 
+### Card On File
+
+**O que é o Card On File?**
+
+As transações de Card on File (COF) são utilizadas por estabelecimentos comerciais para enviar transações financeiras e não financeiras (validação de cartão) com credenciais armazenadas.
+
+A maioria dessas transações não contém um CVV pois as regras PCI impedem o estabelecimento de armazenar esse valor. Porém é importante considerar que um estabelecimento comercial pode ter validado o CVV em uma transação anterior, como no momento da primeira transação Card On File.
+
+São exemplos de segmentos que usam esse tipo de modalidade os serviços de streaming, serviços de educação, academias e assinaturas, entre outros.
+
+**Por que usar o Card On File?**
+
+O Card On File permite maior agilidade na compra online, uma vez que não solicita que o portador do cartão envie novamente todos os dados (inclusive o CVV); também é possível notar uma melhor taxa de conversão de vendas uma vez que no processo para utilização do COF iniciada pelo estabelecimento comercial, obrigatoriamente, já existe uma transação anterior iniciada pelo portador de cartão que já auxilia na autorização da transação pelo emissor.
+
+**Bandeiras Suportadas**
+
+O Card On File suporta as seguintes bandeiras:
+
+* **Mastercard**
+* **Visa**
+* **Elo**
+
+#### Requisição
+
+Veja um exemplo de requisição de transação de crédito de Card on File.
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+```json
+{  
+   "MerchantOrderId":"2014111701",
+   "Customer":{  
+      "Name":"Comprador crédito completo",
+      "Email":"compradorteste@teste.com",
+      "Birthdate":"1991-01-02"
+   },
+   "Payment":{  
+     "Type":"CreditCard",
+     "Amount":15700,
+     "Currency":"BRL",
+     "Country":"BRA",
+     "Installments":1,
+     "Interest":"ByMerchant",
+     "Capture":true,
+     "Authenticate":"false",
+     "Recurrent":"false",
+     "SoftDescriptor":"123456789ABCD",
+     "CreditCard":{  
+         "CardNumber":"1234123412341231",
+         "Holder":"Teste Holder",
+         "ExpirationDate":"12/2030",
+         "SecurityCode":"123",
+         "SaveCard":"false",
+         "Brand":"Visa",
+         "CardOnFile":{
+            "Usage": "First",
+            "Reason":"Recurring"
+         }
+     }
+   }
+}
+```
+
+|PROPRIEDADE|TIPO|TAMANHO|OBRIGATÓRIO|DESCRIÇÃO|
+|-----------|----|-------|-----------|---------|
+|`MerchantOrderId`|Texto|50|Sim|Número de identificação do pedido.|
+|`Customer.Name`|Texto|255|Não|Nome do comprador.|
+|`Customer.Status`|Texto|255|Não|Status de cadastro do comprador na loja (NEW / EXISTING)|
+|`Customer.Email`|Texto|255|Não|E-mail do comprador.|
+|`Customer.Birthdate`|Date|10|Não|Data de nascimento do comprador.|
+|`Payment.Type`|Texto|100|Sim|Tipo do meio de pagamento.|
+|`Payment.Amount`|Número|15|Sim|Valor do pedido (ser enviado em centavos).|
+|`Payment.Currency`|Texto|3|Não|Moeda na qual o pagamento será feito (BRL).|
+|`Payment.Country`|Texto|3|Não|País na qual o pagamento será feito.|
+|`Payment.SoftDescriptor`|Texto|13|Não|O complemento do nome da loja que aparecerá na fatura do cartão. Não permite caracteres especiais.|
+|`Payment.Installments`|Número|2|Sim|Número de Parcelas.|
+|`Payment.Interest`|Texto|10|Não|Tipo de parcelamento - Loja (ByMerchant) ou Cartão (ByIssuer).|
+|`Payment.Capture`|Booleano|—|Não (Default false)|Booleano que identifica que a autorização deve ser com captura automática (“true”) ou captura posterior (“false”).|
+|`Payment.Recurrent`|Booleano|-|Não|Indica se a transação é do tipo recorrente (“true”) ou não (“false”). O valor “true” não originará uma nova recorrência, apenas permitirá a realização de uma transação sem a necessidade de envio do CVV. Authenticate deve ser “false” quando Recurrent é “true”.|
+|`CreditCard.CardNumber`|Texto|19|Sim|Número do cartão do comprador.|
+|`CreditCard.Holder`|Texto|25|Não|Nome do comprador impresso no cartão. Não aceita caracteres especiais ou acentuação.|
+|`CreditCard.ExpirationDate`|Texto|7|Sim|Data de validade impressa no cartão. Ex. MM/AAAA.|
+|`CreditCard.SecurityCode`|Texto|4|Não|Código de segurança impresso no verso do cartão.|
+|`CreditCard.SaveCard`|Booleano|—|Não (Default false)|Booleano que identifica se o cartão será salvo para gerar o `CardToken`.|
+|`CreditCard.Brand`|Texto|10|Sim|Bandeira do cartão. Valores possíveis: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper.|
+|`CreditCard.CardOnFile.Usage`|Texto|-|Não|"First" se o cartão foi armazenado e é seu primeiro uso.<br>"Used" se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação|
+|`CreditCard.CardOnFile.Reason`|Texto|-|Condicional|Indica o propósito de armazenamento de cartões, caso o campo `CardOnFile.Usage` for “Used”.<br>**Recurring**: compra recorrente programada (ex. assinaturas).<br>**Unscheduled**: compra recorrente sem agendamento (ex. aplicativos de serviços).<br>**Installments**: parcelamento através da recorrência.|
+
+#### Resposta
+
+```json
+{
+    "MerchantOrderId": "2014111701",
+    "Customer": {
+        "Name": "Comprador crédito completo",
+        "Email": "compradorteste@teste.com",
+        "Birthdate": "1991-01-02"
+    },
+    "Payment": {
+        "ServiceTaxAmount": 0,
+        "Installments": 1,
+        "Interest": 0,
+        "Capture": true,
+        "Authenticate": false,
+        "Recurrent": false,
+        "CreditCard": {
+            "CardNumber": "123412******1231",
+            "Holder": "Teste Holder",
+            "ExpirationDate": "12/2030",
+            "SaveCard": false,
+            "Brand": "Visa",
+            "CardOnFile": {
+                "Usage": "First",
+                "Reason": "Recurring"
+            },
+            "PaymentAccountReference": "JZHOZJHNZH87KQXM3G60B9I21GVZN"
+        },
+        "Tid": "0928084922246",
+        "ProofOfSale": "652515",
+        "AuthorizationCode": "927181",
+        "SoftDescriptor": "123456789ABCD",
+        "Provider": "Simulado",
+        "IsQrCode": false,
+        "DynamicCurrencyConversion": false,
+        "Amount": 15700,
+        "ReceivedDate": "2022-09-28 08:49:22",
+        "CapturedAmount": 15700,
+        "CapturedDate": "2022-09-28 08:49:22",
+        "Status": 2,
+        "IsSplitted": false,
+        "ReturnMessage": "Operation Successful",
+        "ReturnCode": "6",
+        "PaymentId": "91bad53a-9198-4738-a280-f51dddc34988",
+        "Type": "CreditCard",
+        "Currency": "BRL",
+        "Country": "BRA",
+        "Links": [
+            {
+                "Method": "GET",
+                "Rel": "self",
+                "Href": "https://apiquerysandbox.cieloecommerce.cielo.com.br/1/sales/91bad53a-9198-4738-a280-f51dddc34988"
+            },
+            {
+                "Method": "PUT",
+                "Rel": "void",
+                "Href": "https://apisandbox.cieloecommerce.cielo.com.br/1/sales/91bad53a-9198-4738-a280-f51dddc34988/void"
+            }
+        ]
+    }
+}
+```
+
+|PROPRIEDADE|DESCRIÇÃO|TIPO|TAMANHO|FORMATO|
+|-----------|---------|----|-------|-------|
+|`ProofOfSale`|Número da autorização, identico ao NSU.|Texto|6|Texto alfanumérico|
+|`Tid`|Id da transação na adquirente.|Texto|20|Texto alfanumérico|
+|`AuthorizationCode`|Código de autorização.|Texto|6|Texto alfanumérico|
+|`SoftDescriptor`|Texto impresso na fatura bancária do portador. Não permite caracteres especiais.|Texto|13|Texto alfanumérico|
+|`PaymentId`|Número de identificação do pagamento, necessário para futuras operações como Consulta, Captura e Cancelamento.|Guid|36|xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`ECI`|Eletronic Commerce Indicator. Representa o quão segura é uma transação.|Texto|2|Exemplo: 7|
+|`Status`|Status da Transação.|Byte|—|2|
+|`ReturnCode`|Código de retorno da Adquirência.|Texto|32|Texto alfanumérico|
+|`ReturnMessage`|Mensagem de retorno da Adquirência.|Texto|512|Texto alfanumérico|
+|`Payment.MerchantAdviceCode`|Código de retorno da bandeira que define período para retentativa. Válido somente para bandeira Mastercard.|Texto|2|Numérico|
+|`CreditCard.PaymentAccountReference`|O PAR (Payment Account Reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado.Se for pra transação de débito, colocar o campo dentro do nó de DebitCard.|Alfanumérico|29|—|
+
+
 ### Quasi cash
 
 Transações Quasi Cash são aquelas transações referentes a compras de fichas para jogos online, compras de bilhete de lotéricas ou relacionados. Apenas alguns MCCs (Códigos de categoria de atuação) que podem processar transações desse modelo. Consulte o time Cielo para entender se o seu negócio entra nesse modelo.
