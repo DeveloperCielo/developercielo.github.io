@@ -128,10 +128,9 @@ Selecione os meios de pagamento que gostaria de disponibilizar aos seus clientes
 > * Para usar boleto, solicite a habilitação para o Suporte E-commerce;
 > * A quantidade de parcelas escolhida por meio de pagamento deve ser a mesma que consta em seu cadastro da Cielo. Consulte o Suporte E-commerce em caso de dúvidas.
 
->**Habilitando o Pix no portal Cielo**</br>
-> </br>
-> Para usar o **Pix**, o seu **cadastro deve estar habilitado com o meio de pagamento Pix**. Para confirmar a habilitação, acesse o [portal Cielo](https://www.cielo.com.br/){:target="_blank"}  e clique em **Meu Cadastro** > **Autorizações** > **Pix**.</br>
-> Caso o Pix não esteja habilitado em seu cadastro, será apresentada a tela de adesão caso o seu estabelecimento (EC) seja elegível; após concluir o processo de adesão do Pix, já será possível usar o Pix no Checkout Cielo.</br>
+>**Habilitando o Pix no portal Cielo**<br>
+> Para usar o **Pix**, o seu **cadastro deve estar habilitado com o meio de pagamento Pix**. Para confirmar a habilitação, acesse o [portal Cielo](https://www.cielo.com.br/){:target="_blank"}  e clique em **Meu Cadastro** > **Autorizações** > **Pix**.<br>
+> Caso o Pix não esteja habilitado em seu cadastro, será apresentada a tela de adesão caso o seu estabelecimento (EC) seja elegível; após concluir o processo de adesão do Pix, já será possível usar o Pix no Checkout Cielo.<br>
 > ![Adesão ao Pix]({{ site.baseurl_root }}/images/apicieloecommerce/adesao-pix.png)
 
 Para mais detalhes veja o [tutorial Super Link e Checkout Cielo](https://developercielo.github.io/tutorial/checkout-tutoriais){:target="_blank"}.
