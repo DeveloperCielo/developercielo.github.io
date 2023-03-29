@@ -233,6 +233,24 @@
   </tbody>
 </table>
 
+<h1 id="início-rápido">Início Rápido</h1>
+
+<p>Para iniciar a sua integração com a API do Super Link, você vai precisar:</p>
+
+<ol>
+  <li>Solicitar o nº de estabelecimento (EC) para o Super Link;</li>
+  <li>Definir as configurações da loja (personalização da página, escolha dos meios de pagamento e contrato com os Correios, se houver);</li>
+  <li>Configurar uma URL de notificação e de mudança de status para a sua loja;</li>
+  <li>Obter as credenciais de acesso à API (<code class="language-plaintext highlighter-rouge">ClientId</code> e <code class="language-plaintext highlighter-rouge">Client Secret</code>);</li>
+  <li>Solicitar um token de acesso via API usando as credenciais;</li>
+  <li>Com o token, criar um link de pagamento;</li>
+  <li>Quando houver uma tentativa de pagamento no link, você receberá uma notificação* com todos os dados preenchidos no checkout;</li>
+  <li>Se a transação mudar de status, você receberá uma notificação* de mudança de status;</li>
+  <li>Para efetuar testes, use o Modo de Teste do Super Link.</li>
+</ol>
+
+<p>*<em>Desde que tenha configurado a URL de notificação.</em></p>
+
 <h1 id="modo-teste">Modo teste</h1>
 
 <h2 id="sandbox">Sandbox</h2>
