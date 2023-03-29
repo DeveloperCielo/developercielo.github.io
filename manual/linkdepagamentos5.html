@@ -467,15 +467,11 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
 
 <p>As transações criadas com o Modo Teste ativado podem ser consultadas pela API de Controle Transacional.</p>
 
-<h1 id="cielo-oauth">Cielo OAUTH</h1>
+<h1 id="autenticação-cielo-oauth">Autenticação Cielo OAUTH</h1>
 
-<p>O Cielo OAUTH é um processo de autenticação utilizado em APIs Cielo que são correlacionadas a produtos E-commerce. Ele utiliza como segurança o protocolo <strong><a href="https://oauth.net/2/">OAUTH2</a></strong>, onde é necessário primeiramente obter um token de acesso, utlizando suas credenciais, que deverá posteriormente ser enviado à API CieloOAuth</p>
+<p>O Cielo OAUTH é um processo de autenticação das APIs Cielo relacionadas ao e-commerce. O Cielo OAUTH utiliza como segurança o protocolo <strong><a href="https://oauth.net/2/" target="_blank">OAUTH2</a> </strong>, no qual é necessário primeiro obter um token de acesso utlizando suas credenciais e, posteriormente, enviá-lo à API do Super Link.</p>
 
-<blockquote>
-  <p>Para gerar o <code class="language-plaintext highlighter-rouge">ClientID</code> e o <code class="language-plaintext highlighter-rouge">ClientSecret</code>, consulte o tópico de Obter Credenciais.</p>
-</blockquote>
-
-<p>Para utilizar o Cielo Oauth são necessarias as seguintes credenciais:</p>
+<p>Para utilizar o Cielo OAUTH são necessarias as seguintes credenciais:</p>
 
 <table>
   <thead>
@@ -499,29 +495,33 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
   </tbody>
 </table>
 
-<h2 id="obter-credenciais">Obter Credenciais</h2>
+<blockquote>
+  <p>Para gerar o <code class="language-plaintext highlighter-rouge">ClientID</code> e o <code class="language-plaintext highlighter-rouge">ClientSecret</code>, consulte o tópico de Obtendo as Credenciais, a seguir.</p>
+</blockquote>
 
-<p>Para obter as credênciais no Checkout Cielo, basta seguir o fluxo abaixo:</p>
+<h2 id="obtendo-as-credenciais">Obtendo as credenciais</h2>
 
-<ol>
-  <li>Acessar o site Cielo</li>
-  <li>Super Link</li>
-  <li>Configurações</li>
-  <li>Dados da loja</li>
-  <li>Gerar chaves da API</li>
-</ol>
-
-<h2 id="token-de-acesso">Token de acesso</h2>
-
-<p>Para obter acesso a serviços Cielo que utilizam o <code class="language-plaintext highlighter-rouge">Cielo Oauth</code>, será necessário obter um token de acesso, conforme os passos abaixo:</p>
+<p>Para obter as credenciais <code class="language-plaintext highlighter-rouge">ClientId</code> e <code class="language-plaintext highlighter-rouge">ClientSecret</code> para autenticação na API do Super Link, siga os passos a seguir:</p>
 
 <ol>
-  <li>Concatenar o <em>ClientId</em> e o <em>ClientSecret</em>, <strong>ClientId:ClientSecret</strong></li>
-  <li>Codificar o resultado em <strong>Base64</strong></li>
-  <li>Enviar uma requisição, utilizando o método HTTP POST</li>
+  <li>Após receber o nº de estabelecimento (EC) com a habilitação para o Super Link, acesse o <a href="https://minhaconta2.cielo.com.br/login/" target="_blank">site Cielo</a> e faça o login;</li>
+  <li>Vá para a aba <strong>Ecommerce</strong> &gt; <strong>Super Link</strong> &gt; <strong>Configurações</strong> &gt; <strong>Dados Cadastrais</strong>;</li>
+  <li>Na seção <strong>Contato técnico</strong>, preencha com os dados de contato da pessoa responsável por receber as chaves da sua loja. <em>ATENÇÃO: apenas coloque os dados da pessoa que realmente pode ter acesso às chaves da sua loja, que são informações sigilosas de cada estabelecimento</em>;</li>
+  <li>Clique em <strong>Gerar Credenciais de Acesso às APIs</strong>;</li>
+  <li>Você receberá um e-mail com as credenciais</li>
 </ol>
 
-<h3 id="concatenação">Concatenação</h3>
+<h2 id="obtendo-o-token-de-acesso">Obtendo o token de acesso</h2>
+
+<p>Para obter acesso a serviços Cielo que utilizam o <strong>Cielo Oauth</strong>, será necessário obter um token de acesso, conforme os passos abaixo:</p>
+
+<ol>
+  <li>Concatene o <code class="language-plaintext highlighter-rouge">ClientId</code> e o <code class="language-plaintext highlighter-rouge">ClientSecret</code>, <code class="language-plaintext highlighter-rouge">**ClientId:ClientSecret**</code></li>
+  <li>Codifique o resultado em <strong>Base64</strong></li>
+  <li>Envie a requisição de criação do token, utilizando o método HTTP POST.</li>
+</ol>
+
+<p><strong>Exemplo da Concatenação</strong></p>
 
 <table>
   <thead>
@@ -550,24 +550,25 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
   </tbody>
 </table>
 
-<h3 id="request">Request</h3>
+<h3 id="requisição">Requisição</h3>
 
-<p>O Request dever ser enviado apenas no Header da requisição.</p>
+<p>A requisição dever ser enviada apenas no header.</p>
 
 <aside class="request"><span class="method post">POST</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/token</span></aside>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">x-www-form-urlencoded</span><span class="w">
-</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Basic {base64}"</span><span class="w">
-</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Content-Type: application/x-www-form-urlencoded"</span><span class="w">
+</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Basic {base64}"</span><span class="w">  
+</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Content-Type: application/x-www-form-urlencoded"</span><span class="w">  
 </span><span class="err">grant_type=client_credentials</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="response">Response</h3>
+<h3 id="resposta">Resposta</h3>
 
-<p>O response possuirá o Token utilizado para novas requisições em Serviços Cielo</p>
+<p>A resposta retornará o <code class="language-plaintext highlighter-rouge">access_token</code>, que deverá ser usado nas requisições da API do Super Link.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6Ik1ldUNoZWNrb3V0IE1hc3RlciBLZXkiLCJjbGllbnRfaWQiOiJjODlmZGasdasdasdmUyLTRlNzctODA2YS02ZDc1Y2QzOTdkYWMiLCJzY29wZXMiOiJ7XCJTY29wZVwiOlwiQ2hlY2tvdXRBcGlcIixcIkNsYWltc1wiOltdfSIsInJvbGUiOiJasdasdasd291dEFwaSIsImlzc47I6Imh0dHBzOi8vYXV0aGhvbasdasdnJhc3BhZy5jb20uYnIiLCJhdWQiOiJVVlF4Y1VBMmNTSjFma1EzSVVFbk9pSTNkbTl0ZmasdsadQjVKVVV1UVdnPSIsImV4cCI6MTQ5Nzk5NjY3NywibmJmIjoxNDk3OTEwMjc3fQ.ozj4xnH9PA3dji-ARPSbI7Nakn9dw5I8w6myBRkF-uA"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w">
+    </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6Ik1ldUNoZWNrb3V0IE1hc3RlciBLZXkiLCJjbGllbnRfaWQiOiJjODlmZGasdasdasdmUyLTRlNzctODA2YS02ZDc1Y2QzOTdkYWMiLCJzY29wZXMiOiJ7XCJTY29wZVwiOlwiQ2hlY2tvdXRBcGlcIixcIkNsYWltc1wiOltdfSIsInJvbGUiOiJasdasdasd291dEFwaSIsImlzc47I6Imh0dHBzOi8vYXV0aGhvbasdasdnJhc3BhZy5jb20uYnIiLCJhdWQiOiJVVlF4Y1VBMmNTSjFma1EzSVVFbk9pSTNkbTl0ZmasdsadQjVKVVV1UVdnPSIsImV4cCI6MTQ5Nzk5NjY3NywibmJmIjoxNDk3OTEwMjc3fQ.ozj4xnH9PA3dji-ARPSbI7Nakn9dw5I8w6myBRkF-uA"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">1199</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -601,14 +602,14 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
 </table>
 
 <blockquote>
-  <p>O token retornado (access_token) deverá ser utilizado em toda requisição como uma chave de autorização, destacando que este possui uma validade de 20 minutos (1200 segundos) e após esse intervalo, será necessário obter um novo token para acesso aos serviços Cielo.</p>
+  <p>O token retornado (<code class="language-plaintext highlighter-rouge">access_token</code>) deverá ser utilizado em toda requisição à API do Super link como uma chave de autorização. O <code class="language-plaintext highlighter-rouge">access_token</code> possui uma validade de 20 minutos (1200 segundos) e é necessário gerar um novo token toda vez que a validade expirar.</p>
 </blockquote>
 
 <h1 id="link-de-pagamento">Link de Pagamento</h1>
 
 <h2 id="criar-link">Criar Link</h2>
 
-<h3 id="request-1">Request</h3>
+<h3 id="request">Request</h3>
 
 <p>Para criar link de pagamentos Checkout, basta enviar realizar um POST com os dados do Link ao endpoint:</p>
 
@@ -815,7 +816,7 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
   </tbody>
 </table>
 
-<h3 id="response-1">Response</h3>
+<h3 id="response">Response</h3>
 
 <blockquote>
   <p>“HTTP Status”: 201 – Created</p>
@@ -888,7 +889,7 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
 
 <h2 id="consultar-link">Consultar Link</h2>
 
-<h3 id="request-2">Request</h3>
+<h3 id="request-1">Request</h3>
 
 <p>Para consultar um link existente basta realizar um <code class="language-plaintext highlighter-rouge">GET</code> informando o <code class="language-plaintext highlighter-rouge">ID</code> do link.</p>
 
@@ -898,7 +899,7 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
   <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
 </blockquote>
 
-<h3 id="response-2">Response</h3>
+<h3 id="response-1">Response</h3>
 
 <blockquote>
   <p>HTTP Status: 200 – OK</p>
@@ -973,7 +974,7 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
 
 <h2 id="atualizar-link">Atualizar Link</h2>
 
-<h3 id="request-3">Request</h3>
+<h3 id="request-2">Request</h3>
 
 <p>Para Atualizar um link existente basta realizar um <code class="language-plaintext highlighter-rouge">GET</code> informando o <code class="language-plaintext highlighter-rouge">ID</code> do link.</p>
 
@@ -1000,7 +1001,7 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="response-3">Response</h3>
+<h3 id="response-2">Response</h3>
 
 <blockquote>
   <p>HTTP Status: 200 – OK</p>
@@ -1076,7 +1077,7 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
 
 <h2 id="excluir-link">Excluir Link</h2>
 
-<h3 id="request-4">Request</h3>
+<h3 id="request-3">Request</h3>
 
 <p>Para excluir um link existente basta realizar um <code class="language-plaintext highlighter-rouge">DELETE</code> informando o <code class="language-plaintext highlighter-rouge">ID</code> do link.</p>
 
@@ -1086,7 +1087,7 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
   <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
 </blockquote>
 
-<h3 id="response-4">Response</h3>
+<h3 id="response-3">Response</h3>
 
 <blockquote>
   <p>HTTP Status: 204 – No Content</p>
@@ -1249,7 +1250,7 @@ Essa modalidade de notificação é baseada em um <code class="language-plaintex
 
 <p><strong>Exemplo de uma consulta:</strong></p>
 
-<h4 id="request-5">Request</h4>
+<h4 id="request-4">Request</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
 <span class="nt">--request</span> GET https://cieloecommerce.cielo.com.br/api/public/v1/orders/<span class="o">{</span>merchantId<span class="o">}</span>/<span class="o">{</span>merchantOrderNumber<span class="o">}</span><span class="s2">"
@@ -1280,7 +1281,7 @@ Essa modalidade de notificação é baseada em um <code class="language-plaintex
   </tbody>
 </table>
 
-<h4 id="response-5">Response</h4>
+<h4 id="response-4">Response</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido01"</span><span class="p">,</span><span class="w">
@@ -1989,13 +1990,13 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
 <p>A consulta de transações por <code class="language-plaintext highlighter-rouge">Merchant_Order_Number</code> retorna uma lista de transações com o mesmo número de pedidos, isso ocorre pois o Checkout Cielo não impede a duplicação de OrderNumbers por parte do lojista.
 O response possuirá o <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code> que deverá ser usado na consulta de uma transação em especifico.</p>
 
-<h3 id="request-6">Request</h3>
+<h3 id="request-5">Request</h3>
 
 <p>Para consultar uma transação pelo <code class="language-plaintext highlighter-rouge">Merchant_Order_Number</code>, basta realizar um <code class="language-plaintext highlighter-rouge">GET</code>.</p>
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/merchantOrderNumber/{merchantordernumber}</span></aside>
 
-<h3 id="response-6">Response</h3>
+<h3 id="response-5">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
@@ -2092,7 +2093,7 @@ O response possuirá o <code class="language-plaintext highlighter-rouge">Checko
 
 <h2 id="por-checkout_cielo_order_number">Por Checkout_Cielo_Order_Number</h2>
 
-<h3 id="request-7">Request</h3>
+<h3 id="request-6">Request</h3>
 
 <p>Para consultar uma transação pelo <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code>, basta realizar um <code class="language-plaintext highlighter-rouge">GET</code>.</p>
 
@@ -2102,7 +2103,7 @@ O response possuirá o <code class="language-plaintext highlighter-rouge">Checko
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/{checkout_cielo_order_number}</span></aside>
 
-<h3 id="response-7">Response</h3>
+<h3 id="response-6">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c89fdfbb-dbe2-4e77-806a-6d75cd397dac"</span><span class="p">,</span><span class="w">
@@ -2428,7 +2429,7 @@ O response possuirá o <code class="language-plaintext highlighter-rouge">Checko
 
 <h2 id="por-id-do-link-de-pagamento">Por ID do link de pagamento</h2>
 
-<h3 id="request-8">Request</h3>
+<h3 id="request-7">Request</h3>
 
 <p>Para consultar uma transação pelo <code class="language-plaintext highlighter-rouge">id</code>, basta realizar um <code class="language-plaintext highlighter-rouge">GET</code>.</p>
 
@@ -2438,7 +2439,7 @@ O response possuirá o <code class="language-plaintext highlighter-rouge">Checko
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}/payments</span></aside>
 
-<h3 id="response-8">Response</h3>
+<h3 id="response-7">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
