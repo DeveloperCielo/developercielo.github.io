@@ -191,7 +191,7 @@
 
 <p>A imagem a seguir representa o fluxo geral do funcionamento da API do Super Link:</p>
 
-<p><img src="https://developercielo.github.io/images/checkout/superlink/aparencia-pagina-pagamento.png" alt="Imagem Fluxo Geral Super Link" /></p>
+<p><img src="https://developercielo.github.io/images/checkout/superlink/fluxo-superlink.png" alt="Imagem Fluxo Geral Super Link" /></p>
 
 <ol>
   <li>A loja envia requisição de criação do link de pagamento para a API do Super Link;</li>
@@ -289,9 +289,9 @@
 <aside class="notice">Essas configurações servem para todos os links criados em sua loja.</aside>
 
 <blockquote>
-  <p><strong>Atenção</strong>&lt;/br&gt;</p>
+  <p><strong>Atenção</strong><br /></p>
   <ul>
-    <li>Para usar boleto, solicite a habilitação para o Suporte E-commerce;&lt;/br&gt;</li>
+    <li>Para usar boleto, solicite a habilitação para o Suporte E-commerce;</li>
     <li>A quantidade de parcelas escolhida por meio de pagamento deve ser a mesma que consta em seu cadastro da Cielo. Consulte o Suporte E-commerce em caso de dúvidas.</li>
   </ul>
 </blockquote>
@@ -430,6 +430,43 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
 <h3 id="boleto-bancário">Boleto Bancário</h3>
 
 <p>Basta realizar o processo de compra normalmente sem nenhuma alteração no procedimento. O boleto gerado no modo de teste sempre será um boleto simulado.</p>
+
+<h1 id="endpoints">Endpoints</h1>
+
+<p>Os endpoints para integração com o Super Link são apresentados na tabela a seguir:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>API</th>
+      <th>URL</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cielo OAUTH2 Server</td>
+      <td>https://cieloecommerce.cielo.com.br/api/public/v2/token</td>
+      <td>Autenticação</td>
+    </tr>
+    <tr>
+      <td>API Super Link</td>
+      <td>https://cieloecommerce.cielo.com.br/api/public/v1/products/</td>
+      <td>Criação, consulta e exclusão de links de pagamento.</td>
+    </tr>
+    <tr>
+      <td>API de Controle Transacional</td>
+      <td>https://cieloecommerce.cielo.com.br/api/public/v2/orders/</td>
+      <td>Consulta de transações.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>Importante: A API do Super Link não possui sandbox, mas você pode criar links de teste ativando o Modo Teste no site Cielo.</p>
+</blockquote>
+
+<p>As transações criadas com o Modo Teste ativado podem ser consultadas pela API de Controle Transacional.</p>
 
 <h1 id="cielo-oauth">Cielo OAUTH</h1>
 
