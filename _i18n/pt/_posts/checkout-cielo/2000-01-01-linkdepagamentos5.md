@@ -29,13 +29,23 @@ Este manual irá guiar o desenvolvedor na integração com a API Super Link da C
 
 # Sobre o Super Link
 
-A API Link de Pagamentos permite ao lojista criar, editar e consultar links de pagamentos.
-Seu principal objetivo é permitir que lojas possam criar links de pagamento (Botões ou QR Codes), através de seus próprios sistemas, sem a necessidade de acessar o Backoffice e compartilhar com seus clientes.
+O **Super Link** permite que você envie um **link de pagamento de um pedido** para seus clientes pelas redes sociais ou pelo canal que preferir. Ao abrir o link de pagamento, a pessoa compradora vai ver uma página personalizada com o logo da sua loja e as opções de pagamento.
 
-> **Atenção**:
->
-> Para receber notificações sobre transações originadas de Links de pagamento é **OBRIGATÓRIO** o cadastro da **URL de Notificação** no site Cielo.<br>
-> A consulta de transações realizadas através do Super Link pode ser feita através da **API de controle transacional**.<br>
+Você pode vender diferentes tipos de produtos:
+
+* **Material físico**: qualquer produto físico que precise de entrega via frete, como roupas, eletrônicos, cosméticos, móveis etc;
+* **Digital**: qualquer produto digital que não precise de entrega via frete, como mídia ou jogo online, softwares etc.;
+* **Serviço**: qualquer serviço que não precise de entrega via frete, como serviços de manutenção e delivery ou consulta odontológica, entre outros;
+* **Pagamento**: pagamentos únicos;
+* **Recorrência**: vendas que se repetem dentro de uma determinada periodicidade, como mensalidade de academia ou aulas de idiomas.
+
+## Como criar um Super Link?
+
+Você pode criar um Super Link pelo site Cielo, app Cielo Gestão ou pela API Super Link. Neste manual, vamos tratar da integração da API do Super Link.
+
+## Quem pode usar o Super Link?
+
+Qualquer loja que deseje vender online pode criar um link de pagamento e compartilhar esse link pelas redes sociais. Você não precisa ter um e-commerce para usar o Super Link.
 
 # Modo teste
 
