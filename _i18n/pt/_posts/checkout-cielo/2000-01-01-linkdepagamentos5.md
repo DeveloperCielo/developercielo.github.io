@@ -73,6 +73,22 @@ No Super Link você pode vender seus produtos e serviços pelos principais meios
 |Carteiras digitais | QR Code Pay (crédito e débito)|
 |Pix | Cielo|
 
+# Início Rápido
+
+Para iniciar a sua integração com a API do Super Link, você vai precisar:
+
+1. Solicitar o nº de estabelecimento (EC) para o Super Link;<!--linkar para parte das configurações da loja-->
+2. Definir as configurações da loja (personalização da página, escolha dos meios de pagamento e contrato com os Correios, se houver);
+3. Configurar uma URL de notificação e de mudança de status para a sua loja;
+4. Obter as credenciais de acesso à API (`ClientId` e `Client Secret`);
+5. Solicitar um token de acesso via API usando as credenciais;
+6. Com o token, criar um link de pagamento;
+7. Quando houver uma tentativa de pagamento no link, você receberá uma notificação* com todos os dados preenchidos no checkout;
+8. Se a transação mudar de status, você receberá uma notificação* de mudança de status;
+9. Para efetuar testes, use o Modo de Teste do Super Link.
+
+*_Desde que tenha configurado a URL de notificação._
+
 # Modo teste
 
 ## Sandbox
