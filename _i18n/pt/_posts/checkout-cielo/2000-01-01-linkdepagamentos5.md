@@ -89,6 +89,94 @@ Para iniciar a sua integração com a API do Super Link, você vai precisar:
 
 *_Desde que tenha configurado a URL de notificação._
 
+# Configurações da loja
+
+Antes das configurações, você precisa habilitar o Super Link para a sua loja.
+
+## Habilitando o nº de estabelecimento (EC) para o Super Link
+
+* **Se você ainda não é cliente Cielo ou se só usa a maquininha**, acesse o [site Cielo](https://www.cielo.com.br/){:target="_blank"} para habilitar nº do estabelecimento (EC) para o Super Link;
+* **Se você já é cliente Cielo E-commerce**, entre em contato com seu gestor comercial ou com o Suporte Cielo.
+
+## Configurando a sua loja
+
+**1. Acesse as Configurações da loja no site Cielo**
+
+Vá para o [site Cielo](https://minhaconta2.cielo.com.br/login/){:target="_blank"} e faça login. Acesse **E-commerce** > **Super Link** > **Configurações** > **Configurações da loja**.
+
+**2. Personalize a aparência da página de pagamento**
+
+Insira a imagem do logo da sua loja e escolha uma cor de fundo. Clique em **Salvar**.
+
+![Aparência da Página de Pagemento]({{ site.baseurl_root }}/images/superlink/superlink-aparencia-pagina-pagamento.png)
+
+**3. Configure o envio de e-mail de finalização para o comprador**
+
+Se não desejar que seu cliente final receba um e-mail de finalização do pedido após o pagamento, desabilite essa opção. Depois, clique em **Salvar**.
+
+![E-mail de finalização para o comprador]({{ site.baseurl_root }}/images/superlink/superlink-email-finalizacao.png)
+
+**4. Defina os meios de pagamento desejados**
+
+Selecione os meios de pagamento que gostaria de disponibilizar aos seus clientes. Para cartão de crédito, escolha também a quantidade máxima de parcelas permitidas. Depois, clique em Salvar.
+
+![Meios de Pagamento Ativos]({{ site.baseurl_root }}/images/superlink/superlink-meios-de-pagamento.png)
+
+<aside class="notice">Essas configurações servem para todos os links criados em sua loja.</aside>
+
+> **Atenção**</br>
+> * Para usar boleto, solicite a habilitação para o Suporte E-commerce;</br>
+> * A quantidade de parcelas escolhida por meio de pagamento deve ser a mesma que consta em seu cadastro da Cielo. Consulte o Suporte E-commerce em caso de dúvidas.
+
+>**Habilitando o Pix no portal Cielo**</br>
+> </br>
+> Para usar o **Pix**, o seu **cadastro deve estar habilitado com o meio de pagamento Pix**. Para confirmar a habilitação, acesse o [portal Cielo](https://www.cielo.com.br/){:target="_blank"}  e clique em **Meu Cadastro** > **Autorizações** > **Pix**.</br>
+> Caso o Pix não esteja habilitado em seu cadastro, será apresentada a tela de adesão caso o seu estabelecimento (EC) seja elegível; após concluir o processo de adesão do Pix, já será possível usar o Pix no Checkout Cielo.</br>
+> ![Adesão ao Pix]({{ site.baseurl_root }}/images/apicieloecommerce/adesao-pix.png)
+
+Para mais detalhes veja o [tutorial Super Link e Checkout Cielo](https://developercielo.github.io/tutorial/checkout-tutoriais){:target="_blank"}.
+
+**5. Configure as URLs de retorno, notificação e mudança de status da sua loja**
+
+Você deverá preencher as URLs de retorno, notificação e mudança de status. As URLs devem ser criadas e definidas pelo seu estabelecimento. Depois, clique em **Salvar**.
+
+![URLs de Notificação]({{ site.baseurl_root }}/images/superlink/superlink-urls-notificacao.png)
+
+* **URL de Retorno**: após finalizar o pagamento, o comprador pode ser redirecionado para uma página definida web pela loja. Nenhum dado é trocado ou enviado para essa URL e sua configuração é opcional;
+* **URL de Notificação**: é a URL pela qual a sua loja irá receber a notificação com todos os dados do carrinho quando a transação é finalizada; [linkar para a parte de notificação]
+* **URL de Mudança de Status**: é a URL pela qual a sua loja irá receber a notificação quando um pedido tiver seu status alterado. A notificação de mudança de status não contém dados do carrinho, apenas dados de identificação do pedido. [linkar para a parte de notificação]
+
+**6. Configure a captura e Antifraude**
+
+Ao acessar as configurações da sua loja, procure a sessão Antifraude e captura automática. Selecione a opção desejada:
+
+* *Nunca fazer a Captura Automática*;
+* *Sempre fazer Captura Automática*;
+* *Somente fazer captura Automática das transações de Baixo Risco no Antifraude.*
+
+![Configuração de captura e Antifraude]({{ site.baseurl_root }}/images/superlink/superlink-captura-e-antifraude.png)
+
+**7. Configure as opções de frete dos Correios**
+
+Se a sua loja trabalha com a entrega de **produtos físicos** (aqueles que precisam de frete), informe seu login e senha dos Correios e selecione os serviços desejados, como os tipos de Sedex e PAC.
+
+Se a sua loja trabalha com materiais digitais, serviços ou pagamentos, ou seja, vendas que não precisam de frete, pule esta etapa.
+
+![Configuração do Frete Correios]({{ site.baseurl_root }}/images/superlink/superlink-configuracao-frete-correios.png)
+
+**Configurações padrão**
+
+Caso você não preencha as Configurações da Loja, o Super Link irá considerar o seguinte padrão:
+
+* A opção de envio de e-mail ao portador estará ligada;
+* A opção de aceitar cartões internacionais estará ligada;
+* O valor mínimo da parcela será de R$5,00;
+* Os meios de pagamento crédito e débito terão 12 parcelas habilitadas (se o seu cadastro Cielo permitir);
+* O meio de pagamento QR Code Crédito terá uma parcela habilitada;
+* O boleto não terá valor mínimo ou desconto definido (zerado);
+* A opção **Sempre fazer Captura Automática** só estará habilitada para transações que não são consideradas de alto risco;
+* O login de frete dos Correios estará desabilitado.
+
 # Modo teste
 
 ## Sandbox
@@ -1060,18 +1148,6 @@ Para realizar o controle transacional no Checkout Cielo é OBRIGATÓRIO que a lo
 A notificação é obrigatório pois todos os comandos da API (Consulta / Captura / Cancelamento) usam o identificador único da transação, chamado de `Checkout_Cielo_Order_Number`.
 
 O `Checkout_Cielo_Order_Number` é gerado apenas quando o pagamento é finalizado na tela transacional. Ele é enviado apenas pela URL de Notificação e não pelo Response da criação da tela transacional.
-
-# Configurações da loja
-
-As configurações de sua loja podem ser feitas dentro do site Cielo. Neste ambiente você tem acesso a diversas opções, dentre elas:
-
-- Geração das chaves para utilização da API;
-- Configuração de logo e cor de fundo da tela de pagamento;
-- Modificação dos métodos de pagamento;
-- Configuração de URL’s de retorno;
-- Outras ações;
-
-Para maiores detalhes veja o tutorial Super Link e Checkout Cielo.
 
 # Status e Códigos
 
