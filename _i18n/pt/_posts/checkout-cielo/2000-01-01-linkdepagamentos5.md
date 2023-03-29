@@ -53,7 +53,7 @@ A **API do Super Link** é uma API REST que permite **criar, editar e consultar 
 
 A imagem a seguir representa o fluxo geral do funcionamento da API do Super Link:
 
-![Imagem Fluxo Geral Super Link]({{ site.baseurl_root }}/images/checkout/superlink/aparencia-pagina-pagamento.png)
+![Imagem Fluxo Geral Super Link]({{ site.baseurl_root }}/images/checkout/superlink/fluxo-superlink.png)
 
 1. A loja envia requisição de criação do link de pagamento para a API do Super Link;
 2. A API do Super Link retorna a URL do link de pagamento e o ID do link;
@@ -124,8 +124,8 @@ Selecione os meios de pagamento que gostaria de disponibilizar aos seus clientes
 
 <aside class="notice">Essas configurações servem para todos os links criados em sua loja.</aside>
 
-> **Atenção**</br>
-> * Para usar boleto, solicite a habilitação para o Suporte E-commerce;</br>
+> **Atenção**<br>
+> * Para usar boleto, solicite a habilitação para o Suporte E-commerce;
 > * A quantidade de parcelas escolhida por meio de pagamento deve ser a mesma que consta em seu cadastro da Cielo. Consulte o Suporte E-commerce em caso de dúvidas.
 
 >**Habilitando o Pix no portal Cielo**</br>
@@ -238,6 +238,20 @@ Para testar cartões de crédito ou débito é necessário usar um cartão que s
 ### Boleto Bancário
 
 Basta realizar o processo de compra normalmente sem nenhuma alteração no procedimento. O boleto gerado no modo de teste sempre será um boleto simulado.
+
+# Endpoints
+
+Os endpoints para integração com o Super Link são apresentados na tabela a seguir:
+
+|API| URL | DESCRIÇÃO|
+|---|---|---|
+|Cielo OAUTH2 Server | https://cieloecommerce.cielo.com.br/api/public/v2/token | Autenticação|
+|API Super Link | https://cieloecommerce.cielo.com.br/api/public/v1/products/| Criação, consulta e exclusão de links de pagamento.|
+|API de Controle Transacional | https://cieloecommerce.cielo.com.br/api/public/v2/orders/ | Consulta de transações.|
+
+> Importante: A API do Super Link não possui sandbox, mas você pode criar links de teste ativando o Modo Teste no site Cielo.
+
+As transações criadas com o Modo Teste ativado podem ser consultadas pela API de Controle Transacional.
 
 # Cielo OAUTH
 
