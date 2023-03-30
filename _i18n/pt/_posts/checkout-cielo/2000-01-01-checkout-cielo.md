@@ -886,8 +886,6 @@ Transações de cartão de débito serão incluídas no [Backoffice Cielo Checko
 
 ### Pix
 
-**O que é o Pix?**
-
 O Pix é o pagamento instantâneo brasileiro, criado pelo Banco Central (BC), no qual os recursos são transferidos entre contas em poucos segundos, a qualquer hora ou dia (inclusive feriados e finais de semana).
 
 Além de aumentar a velocidade dos pagamentos, o Pix na Cielo oferece diversos benefícios:
@@ -896,9 +894,9 @@ Além de aumentar a velocidade dos pagamentos, o Pix na Cielo oferece diversos b
 * Aumenta a segurança nas transações;
 * É integrado ao Checkout Cielo, versátil e fácil.
 
-**Como usar o Pix no Checkout Cielo?**
+#### Como usar o Pix no Checkout Cielo?
 
-Você deve habilitar o meio de pagamento Pix no seu cadastro no portal Cielo e nas configurações da sua loja. Na integração por API não é necessário enviar parâmetros adicionais.
+Você deve **habilitar** o meio de pagamento Pix no seu cadastro no **site Cielo** e nas **configurações da sua loja**. Na integração por API não é necessário enviar parâmetros adicionais.
 
 #### Habilitando o Pix no portal Cielo
 
