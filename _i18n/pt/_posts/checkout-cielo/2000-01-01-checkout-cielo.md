@@ -894,8 +894,7 @@ Além de aumentar a velocidade dos pagamentos, o Pix na Cielo oferece diversos b
 
 * Melhora o índice de conversão de vendas;
 * Aumenta a segurança nas transações;
-* É integrado ao Checkout Cielo, versátil e fácil.
-<br>
+* É integrado ao Checkout Cielo, versátil e fácil.<br>
 <br>
 **Como usar o Pix no Checkout Cielo?**
 
