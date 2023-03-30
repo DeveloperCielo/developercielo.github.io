@@ -930,6 +930,38 @@ Debit card transactions will be included in the Backoffice Cielo Checkout as PEN
 
 **NOTE**: The **Cancell** option within the backoffice, will modify the status of the PAID/NOT PAID transaction to CANCELED, but will have no effect on the banking movement. It will be up to the merchant to return the value to the buyer
 
+### Pix
+
+**What is Pix?**
+
+Pix is a Brazilian instant payment method, created by Banco Central (BC), in which resources are transferred between accounts in a few seconds, at any time or day (including holidays and weekends).
+
+In addition to increasing the speed of payments, Pix in Cielo offers several benefits:
+
+* Improves the sales conversion rate;
+* Increases security in transactions;
+* It is integrated with Checkout Cielo, versatile and easy.
+
+**How to use Pix in Checkout Cielo?**
+
+You must enable the Pix payment method in your registration on the Cielo portal and in your store settings. In API integration, it is not necessary to send additional parameters.
+
+#### Enabling Pix on the Cielo portal
+
+To use **Pix**, your **registration must be enabled with the Pix payment method**. To confirm the qualification, access the [Cielo portal](https://www.cielo.com.br/){:target="_blank"} and click on **Meu Cadastro** > **Autorizações** > **Pix**.
+
+If Pix is not enabled in your registration, the accession screen will be displayed if your establishment (EC) is eligible; after completing the Pix accession process, it will be possible to use Pix at Checkout Cielo.
+
+![Adesão Pix]({{ site.baseurl_root }}/images/apicieloecommerce/adesao-pix.png)
+
+#### Enabling Pix in merchant settings
+
+Also make sure Pix is enabled in your store settings. To do so, go to **E-commerce** > **Checkout Cielo** > **Acessar** > **Configurações** > **Configurações da Loja**. Scrolling down the page will show the means of payment available in your registration:
+
+![Adesão Pix]({{ site.baseurl_root }}/images/checkout/meiospgto-checkout.png)
+
+Once this is done, your e-commerce can now receive transactions with Pix at Checkout Cielo.
+
 ### Bank slip
 
 Checkout Cielo allows the use of Bradesco (Wallet 26 and SPS) and Banco do Brasil Bank slips (Wallet 17).
