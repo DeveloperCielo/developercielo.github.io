@@ -650,7 +650,6 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
       <th>TIPO</th>
       <th>TAMANHO</th>
       <th>OBRIGATÓRIO</th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
@@ -660,7 +659,6 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
       <td>String</td>
       <td>255</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">name</code></td>
@@ -668,12 +666,10 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
       <td>String</td>
       <td>128</td>
       <td>Sim</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">description</code></td>
-      <td>Descrição do produto que será exibida na tela de pagamento caso a opção show_description seja verdadeira. É permitido usar o caracter pipe “</td>
-      <td>” caso seja desejável quebrar a linha ao apresentar a descrição na tela de pagamento.</td>
+      <td>Descrição do produto que será exibida na tela de pagamento caso a opção show_description seja verdadeira. É permitido usar o caracter pipe <code class="language-plaintext highlighter-rouge">|</code> caso seja desejável quebrar a linha ao apresentar a descrição na tela de pagamento.</td>
       <td>String</td>
       <td>512</td>
       <td>Não</td>
@@ -684,7 +680,6 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
       <td>String</td>
       <td>–</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">price</code></td>
@@ -692,7 +687,6 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
       <td>Int</td>
       <td>1000000</td>
       <td>SIM</td>
-      <td> </td>
     </tr>
     <tr>
       <td>expirationDate</td>
@@ -700,7 +694,6 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
       <td>String (YYYY-MM-DD)</td>
       <td>10</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">weight</code></td>
@@ -708,7 +701,6 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
       <td>String</td>
       <td>2000000</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td>softDescriptor</td>
@@ -716,7 +708,6 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
       <td>String</td>
       <td>13</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">maxNumberOfInstallments</code></td>
@@ -724,7 +715,6 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
       <td>int</td>
       <td>até 2 caracteres (1 a 12 parcelas)</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">quantity</code></td>
@@ -732,7 +722,6 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
       <td>int</td>
       <td>2</td>
       <td>Não</td>
-      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">sku</code></td>
@@ -740,7 +729,6 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
       <td>String</td>
       <td>32</td>
       <td>Não</td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -914,8 +902,8 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
 
 <blockquote>
   <p><strong>Importante</strong>: A resposta da consulta contém o link em si (<code class="language-plaintext highlighter-rouge">shortUrl</code>) e os mesmos dados retornados na criação do link.<br />
-O <strong>link ainda não é a transação</strong>. Uma transação só será iniciada quando o comprador fizer a tentativa de pagamento e pode ou não ser autorizada.<br />
-Para consultar uma transação, veja a seção Consulta de Transações.</p>
+<strong>O link ainda não é a transação</strong>. Uma transação só será iniciada quando o comprador fizer a tentativa de pagamento e pode ou não ser autorizada.<br />
+Para consultar uma transação, veja a seção <a href="https://developercielo.github.io/manual/linkdepagamentos5#consulta-de-transa%C3%A7%C3%B5es" target="_blank">Consulta de Transações</a>.</p>
 </blockquote>
 
 <h3 id="requisição-2">Requisição</h3>
@@ -1660,7 +1648,7 @@ Para consultar uma transação, veja a seção Consulta de Transações.</p>
 </table>
 
 <blockquote>
-  <p>Obs: Para consultas de pedido, o campo <code class="language-plaintext highlighter-rouge">payment.status</code> será retornado no formato texto, sempre em inglês (coluna Transaction Status).</p>
+  <p><strong>Observação</strong>: Para consultas de pedido, o campo <code class="language-plaintext highlighter-rouge">payment.status</code> será retornado no formato texto, sempre em inglês (coluna Transaction Status).</p>
 </blockquote>
 
 <h4 id="payment_antifrauderesult">Payment_antifrauderesult</h4>
@@ -2075,9 +2063,7 @@ Para consultar uma transação, veja a seção Consulta de Transações.</p>
 
 <p>Para consultar uma transação pelo <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code>, basta realizar um <code class="language-plaintext highlighter-rouge">GET</code>.</p>
 
-<blockquote>
-  <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
-</blockquote>
+<p>Header: <code class="language-plaintext highlighter-rouge">Authorization</code>: <code class="language-plaintext highlighter-rouge">Bearer {access_token}</code></p>
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/{checkout_cielo_order_number}</span></aside>
 
@@ -2453,9 +2439,7 @@ Para consultar uma transação, veja a seção Consulta de Transações.</p>
 
 <p>Para consultar uma transação pelo <code class="language-plaintext highlighter-rouge">id</code>, basta realizar um <code class="language-plaintext highlighter-rouge">GET</code>.</p>
 
-<blockquote>
-  <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
-</blockquote>
+<p>Header: <code class="language-plaintext highlighter-rouge">Authorization</code>: <code class="language-plaintext highlighter-rouge">Bearer {access_token}</code></p>
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}/payments</span></aside>
 
@@ -2622,65 +2606,65 @@ Para consultar uma transação, veja a seção Consulta de Transações.</p>
 
 <h1 id="status-e-códigos">Status e Códigos</h1>
 
-<p>O Checkout possui um Status próprios, diferente do SITE CIELO ou da API Cielo ecommerce. Veja abaixo a lista completa.</p>
+<p>O <strong>Super Link</strong> possui status próprios, diferente do site Cielo ou da API Cielo E-commerce. Veja abaixo a lista completa.</p>
 
 <table>
   <thead>
     <tr>
-      <th>Valor</th>
-      <th>Status de transação</th>
-      <th>Meios de pagamento</th>
-      <th>Descrição</th>
+      <th>VALOR</th>
+      <th>STATUS DE TRANSAÇÃO</th>
+      <th>MEIOS DE PAGAMENTO</th>
+      <th>DESCRIÇÃO</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>1</td>
-      <td><code class="language-plaintext highlighter-rouge">Pendente</code></td>
-      <td>Para todos os meios de pagamento</td>
-      <td>Indica que o pagamento ainda está sendo processado; OBS: Boleto - Indica que o boleto não teve o status alterado pelo lojista</td>
+      <td>Pendente</td>
+      <td>Boleto, Pix e QR Code</td>
+      <td>Indica que o pagamento ainda está sendo processado ou está pendente de alguma etapa por parte do portador.<br />Exemplo: uma transação de boleto com status <em>Pendente</em> indica que o boleto não teve o status alterado pelo comprador.</td>
     </tr>
     <tr>
       <td>2</td>
-      <td><code class="language-plaintext highlighter-rouge">Pago</code></td>
-      <td>Para todos os meios de pagamento</td>
-      <td>Transação capturada e o dinheiro será depositado em conta.</td>
+      <td>Pago</td>
+      <td>Todos os meios de pagamento</td>
+      <td>A transação foi capturada e o dinheiro será depositado em conta.</td>
     </tr>
     <tr>
       <td>3</td>
-      <td><code class="language-plaintext highlighter-rouge">Negado</code></td>
-      <td>Somente para Cartão Crédito</td>
-      <td>Transação não autorizada pelo responsável do meio de pagamento</td>
+      <td>Negado</td>
+      <td>Cartão de crédito e débito</td>
+      <td>Transação não autorizada pelo responsável do meio de pagamento.</td>
     </tr>
     <tr>
       <td>4</td>
-      <td><code class="language-plaintext highlighter-rouge">Expirado</code></td>
-      <td>Cartões de Crédito e Boleto</td>
-      <td>Transação deixa de ser válida para captura - <strong>15 dias pós Autorização</strong></td>
+      <td>Expirado</td>
+      <td>Cartão de crédito, débito e boleto</td>
+      <td><strong>Cartão de crédito e débito:</strong> a transação deixa de ser válida para captura 15 dias após autorização.<br /><strong>Boleto:</strong> o boleto expira após data de expiração configurada pelo time de Suporte Cielo E-commerce conforme solicitação do estabelecimento.</td>
     </tr>
     <tr>
       <td>5</td>
-      <td><code class="language-plaintext highlighter-rouge">Cancelado</code></td>
-      <td>Para cartões de crédito</td>
-      <td>Transação foi cancelada pelo lojista</td>
+      <td>Cancelado</td>
+      <td>Cartão de crédito e débito</td>
+      <td>Transação cancelada pela loja.</td>
     </tr>
     <tr>
       <td>6</td>
-      <td><code class="language-plaintext highlighter-rouge">Não Finalizado</code></td>
+      <td>Não Finalizado</td>
       <td>Todos os meios de pagamento</td>
-      <td>Pagamento esperando Status - Pode indicar erro ou falha de processamento. Entre em contato com o Suporte cielo</td>
+      <td>Pagamento esperando novo Status.</td>
+    </tr>
+    <tr>
+      <td>Pode indicar erro ou falha de processamento. Entre em contato com o Suporte Cielo E-commerce.</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
     </tr>
     <tr>
       <td>7</td>
-      <td><code class="language-plaintext highlighter-rouge">Autorizado</code></td>
-      <td>somente para Cartão de Crédito</td>
-      <td>Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta</td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td><code class="language-plaintext highlighter-rouge">Chargeback</code></td>
-      <td>somente para Cartão de Crédito</td>
-      <td>Transação cancelada pelo consumidor junto ao emissor do cartão. O Dinheiro não será depositado em conta.</td>
+      <td>Autorizado</td>
+      <td>Cartão de crédito e débito</td>
+      <td>Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta (por padrão, a transação pode ser capturada até 15 dias após autorização).</td>
     </tr>
   </tbody>
 </table>
@@ -2881,9 +2865,7 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
   <li>54 (Cartão Expirado)</li>
   <li>57 (Transação Não Permitida)</li>
   <li>62 (Cartão Restrito)</li>
-  <li>63 (Violação de Segurança)
-<br />
-<br /></li>
+  <li>63 (Violação de Segurança)</li>
 </ul>
 
 <p><strong>Categorização de retornos Mastercard</strong></p>
@@ -2893,9 +2875,7 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
 <ul>
   <li><strong>79</strong> (Ciclo de vida);</li>
   <li><strong>82</strong> (Política);</li>
-  <li><strong>83</strong> (Fraude/ Segurança).
-<br />
-<br /></li>
+  <li><strong>83</strong> (Fraude/ Segurança).</li>
 </ul>
 
 <p>Os códigos originais serão substituídos pelo Merchant Advice Code (MAC), que acompanharão os códigos 79, 82 e 83 para determinar se a transação pode ou não ser retentada.</p>
@@ -2931,9 +2911,7 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
   <li>O excesso contabilizado no programa ocorrerá a partir da 1ª retentativa dentro do mês de apuração;</li>
   <li>O contador é zerado após o período de 30 dias;</li>
   <li>As retentativas podem ser cobradas nos MACs 03/21 e no Excessive Attempts caso ultrapasse o limite de cada programa;</li>
-  <li>Atualmente é aplicado o valor de tarifa de R$1,25 e esse valor será alterado a partir de 01 de janeiro de 2023, como listado a seguir.
-<br />
-<br /></li>
+  <li>Atualmente é aplicado o valor de tarifa de R$1,25 e esse valor será alterado a partir de 01 de janeiro de 2023, como listado a seguir.</li>
 </ul>
 
 <p><strong>Tabela de valores:</strong></p>
@@ -2963,17 +2941,15 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
   <li>Válido para transações com cartão presente e cartão não presente;</li>
   <li><strong>Códigos reversíveis:</strong> são permitidas até 15 tentativas de aprovar uma mesma transação (mesmo cartão, mesmo estabelecimento e valor) no período de 30 dias. Após os 30 dias iniciais (a contar da primeira tentativa), qualquer retentativa será cobrada;</li>
   <li><strong>Códigos irreversíveis:</strong> é permitido apenas UMA tentativa de aprovar uma mesma transação (mesmo cartão, mesmo estabelecimento), na segunda tentativa será cobrado;</li>
-  <li>Após uma transação ser aprovada, o contador é zerado.
-<br /></li>
+  <li>Após uma transação ser aprovada, o contador é zerado.</li>
 </ul>
 
 <blockquote>
-  <p><strong>Tarifas</strong>: Ao ultrapassar os limites de tentativas estabelecidos pela bandeira, haverá uma cobrança de tarifa para cada transação excedente.<br /> &gt; <br /></p>
-
+  <p><strong>Tarifas</strong>: Ao ultrapassar os limites de tentativas estabelecidos pela bandeira, haverá uma cobrança de tarifa para cada transação excedente.<br />
+<br /></p>
   <ul>
     <li><strong>Doméstico</strong>: USD 0,10 + 13,83% de imposto;</li>
-    <li><strong>Estrangeiro</strong>: USD 0,25 + 13,83% de imposto
-<br /> &gt; <br /></li>
+    <li><strong>Estrangeiro</strong>: USD 0,25 + 13,83% de imposto</li>
   </ul>
 </blockquote>
 
@@ -3043,9 +3019,7 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
   <li><strong>Códigos contabilizados</strong>: todos de negativas​;</li>
   <li><strong>Excesso</strong>: a partir da 16ª retentativa no mês​*;</li>
   <li><strong>Tarifa</strong>: R$ 0,80 (oitenta centavos) por retentativa, a partir da 16ª;</li>
-  <li><strong>Contabilização do excesso</strong>: é baseada nos controles internos da Elo. 1º ao último dia corrido do mês.
-<br />
-<br /></li>
+  <li><strong>Contabilização do excesso</strong>: é baseada nos controles internos da Elo. 1º ao último dia corrido do mês.</li>
 </ul>
 
 <aside class="notice">Início de vigência: 1º de agosto de 2022.</aside>
@@ -3328,7 +3302,7 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
   <li><strong>Transações ASI</strong>: são transações Account Status Inquiry, ou seja, são as transações efetuadas para consultar o status de um cartão (verificar se está ativo). Para esse fim, não devem ser usadas transações financeiras e sim transações específicas;</li>
   <li><strong>Tentativas por dia</strong>: considerar para efeito do programa de Retentativas da Hipercard de 00h00 a 23h59;</li>
   <li><strong>Mês de referência</strong>: considerar para efeito do programa de Retentativas da Hipercard dia 01 a 30 ou 31 do mês em que ocorreu a transação. A cobrança será enviada após o fechamento do mês subsequente;</li>
-  <li><strong>Os códigos de transações</strong> consideradas <strong>irreversíveis pelo emissor</strong> foram categorizados pela indústria de pagamentos e autorregulação da ABECS, por meio do Normativo 21 vigente. Veja os <a href="https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-de-retorno-abecs" target="\_blank">Códigos de retorno (ABECS)</a>;</li>
+  <li><strong>Os códigos de transações</strong> consideradas <strong>irreversíveis pelo emissor</strong> foram categorizados pela indústria de pagamentos e autorregulação da ABECS, por meio do Normativo 21 vigente. Veja os <a href="https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-de-retorno-abecs" target="_blank">Códigos de retorno (ABECS)</a>;</li>
   <li><strong>Os códigos não citados no manual da ABECS são considerados como reversíveis</strong>.</li>
 </ol>
 
@@ -3641,7 +3615,7 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
       <td> </td>
     </tr>
     <tr>
-      <td>TRANSAÇÃO NÃO PERMITIDA CAPACIDADE DO TERMINAL</td>
+      <td>TRANSAÇÃO NÃO PERMITIDA  CAPACIDADE DO TERMINAL</td>
       <td>IRREVERSÍVEL</td>
       <td>57</td>
       <td>58</td>
@@ -4695,11 +4669,11 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
     </tr>
     <tr>
       <td style="text-align: center"><strong>8</strong></td>
-      <td>Não Aplicavel</td>
+      <td>Não Aplicável</td>
     </tr>
     <tr>
       <td style="text-align: center"><strong>9</strong></td>
-      <td>Transaçõe de Recorrência</td>
+      <td>Transações de Recorrência</td>
     </tr>
   </tbody>
 </table>
