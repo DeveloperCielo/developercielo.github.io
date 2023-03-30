@@ -315,8 +315,8 @@ Caso o Pix não esteja habilitado em seu cadastro, será apresentada a tela de a
 
 <ul>
   <li><strong>URL de Retorno</strong>: após finalizar o pagamento, o comprador pode ser redirecionado para uma página definida web pela loja. Nenhum dado é trocado ou enviado para essa URL e sua configuração é opcional;</li>
-  <li><strong>URL de Notificação</strong>: é a URL pela qual a sua loja irá receber a notificação com todos os dados do carrinho quando a transação é finalizada; [linkar para a parte de notificação]</li>
-  <li><strong>URL de Mudança de Status</strong>: é a URL pela qual a sua loja irá receber a notificação quando um pedido tiver seu status alterado. A notificação de mudança de status não contém dados do carrinho, apenas dados de identificação do pedido. [linkar para a parte de notificação]</li>
+  <li><strong><a href="https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o" target="_blank">URL de Notificação</a></strong>: é a URL pela qual a sua loja irá receber a notificação com todos os dados do carrinho quando a transação é finalizada;</li>
+  <li><strong><a href="https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o" target="_blank">URL de Mudança de Status</a></strong>: é a URL pela qual a sua loja irá receber a notificação quando um pedido tiver seu status alterado. A notificação de mudança de status não contém dados do carrinho, apenas dados de identificação do pedido.</li>
 </ul>
 
 <p><strong>6. Configure a captura e Antifraude</strong></p>
@@ -376,7 +376,7 @@ Caso o Pix não esteja habilitado em seu cadastro, será apresentada a tela de a
 
 <p><img src="https://developercielo.github.io/images/checkout/superlink/superlink-modotesteativo.png" alt="Modo Teste Ativo selecionado" /></p>
 
-<p>Quando a opção for salva, uma tarja vermelha será exibida na parte superior da tela. Ela será exibida em todas as telas do Backoffice Cielo.</p>
+<p>Quando a opção for salva, uma tarja vermelha será exibida na parte superior da tela. Ela será exibida em todas as telas do Super Link.</p>
 
 <p>Essa tarja indica que a sua loja está agora operando em ambiente de teste, ou seja, toda a transação realizada nesse modo será considerada como teste.</p>
 
@@ -1575,7 +1575,7 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
   </tbody>
 </table>
 
-<h3 id="payment_status">Payment_status</h3>
+<h4 id="payment_status">Payment_status</h4>
 
 <p>O Super Link possui status próprios, diferente do site Cielo ou da API E-commerce Cielo. Veja a seguir a lista completa.</p>
 
@@ -1863,7 +1863,7 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
   </tbody>
 </table>
 
-<h3 id="notificação-de-mudança-de-status">Notificação de mudança de status</h3>
+<h2 id="notificação-de-mudança-de-status">Notificação de mudança de status</h2>
 
 <p>É enviada para a URL de mudança de status e contém o <code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>, o novo status e alguns dados da transação.</p>
 
@@ -1911,13 +1911,13 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">payment_method_brand</code></td>
-      <td>Bandeira- somente para transações com meio de pagamento cartão de crédito. Lista Completa</td>
+      <td>Bandeira- somente para transações com meio de pagamento cartão de crédito. <a href="https://developercielo.github.io/manual/linkdepagamentos5#payment_method_brand" target="_blank">Lista Completa</a> </td>
       <td>Número</td>
       <td>20</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">payment_status</code></td>
-      <td>Status da transação. Lista Completa</td>
+      <td>Status da transação. <a href="https://developercielo.github.io/manual/linkdepagamentos5#status-e-c%C3%B3digos" target="_blank">Lista Completa</a></td>
       <td>Número</td>
       <td>1</td>
     </tr>
