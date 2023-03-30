@@ -893,15 +893,15 @@ Para saber mais detalhes da transação, faça uma consulta usando o `checkout_c
 
 O formato da notificação de mudança de status é POST (form data).
 
-```java
-checkout_cielo_order_number: b918afea483d4c6c8615d8a8e19803c1
-amount: 134
-order_number: 024f77ac98cb493b86d8c818eb6e79cd
-payment_status: 3
-test_transaction: False
-brand: Visa
-nsu: 000001
-authorization_code: 01234567
+```json
+checkout_cielo_order_number: "b918afea483d4c6c8615d8a8e19803c1",
+amount: "134",
+order_number: "024f77ac98cb493b86d8c818eb6e79cd",
+payment_status: "3",
+test_transaction: "False",
+brand: "Visa",
+nsu: "000001",
+authorization_code: "01234567"
 ```
 
 |PARÂMETRO|DESCRIÇÃO|TIPO DO CAMPO|TAMANHO MÁXIMO|
