@@ -368,7 +368,7 @@ Header: `Authorization:` `Bearer {access_token}`
 |---|---|---|---|---|
 |`type`|Tipo de venda a ser realizada através do link de pagamento:<br>Asset – Material Físico<br>Digital – Produto Digital<br>Service – Serviço<br>Payment – Pagamentos Simples<br>Recurrent – Pagamento Recorrente|String|255|Sim|
 |`name`|Nome do produto|String|128|Sim|
-|`description`|Descrição do produto que será exibida na tela de pagamento caso a opção show_description seja verdadeira. É permitido usar o caracter pipe "|" caso seja desejável quebrar a linha ao apresentar a descrição na tela de pagamento.|String|512|Não|
+|`description`|Descrição do produto que será exibida na tela de pagamento caso a opção show_description seja verdadeira. É permitido usar o caracter pipe `|` caso seja desejável quebrar a linha ao apresentar a descrição na tela de pagamento.|String|512|Não|
 |`showDescription`|Flag indicando se a descrição deve ou não ser exibida na tela de pagamento.|String|–|Não|
 |`price`|Valor do produto em centavos|Int|1000000|SIM|
 |expirationDate|Data de expiração do link. Caso uma data seja informada, o link se torna indisponível na data informada. Se nenhuma data for informada, o link não expira.|String (YYYY-MM-DD)|10|Não|
@@ -463,8 +463,8 @@ Os dados retornados na resposta contemplam todos os enviados na requisição e d
 Para consultar um link existente basta realizar um GET informando o `id` do link.
 
 > **Importante**: A resposta da consulta contém o link em si (`shortUrl`) e os mesmos dados retornados na criação do link.<br>
-> O **link ainda não é a transação**. Uma transação só será iniciada quando o comprador fizer a tentativa de pagamento e pode ou não ser autorizada.<br>
-> Para consultar uma transação, veja a seção Consulta de Transações.
+> **O link ainda não é a transação**. Uma transação só será iniciada quando o comprador fizer a tentativa de pagamento e pode ou não ser autorizada.<br>
+> Para consultar uma transação, veja a seção [Consulta de Transações](https://developercielo.github.io/manual/linkdepagamentos5#consulta-de-transa%C3%A7%C3%B5es){:target="_blank"}.
 
 ### Requisição
 
@@ -820,7 +820,7 @@ O Super Link possui status próprios, diferente do site Cielo ou da API E-commer
 |7|Autorizado|Authorized|Somente para Cartão de Crédito|Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta|
 |8|Chargeback|Chargeback|somente para Cartão de Crédito|Transação cancelada pelo consumidor junto ao emissor do cartão. O Dinheiro não será depositado em conta.|
 
-> Obs: Para consultas de pedido, o campo `payment.status` será retornado no formato texto, sempre em inglês (coluna Transaction Status).
+> **Observação**: Para consultas de pedido, o campo `payment.status` será retornado no formato texto, sempre em inglês (coluna Transaction Status).
 
 #### Payment_antifrauderesult
 
@@ -984,7 +984,7 @@ Para consultar uma transação pelo `order_number`, faça um `GET`.
 
 Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realizar um `GET`.
 
->**Header:** Authorization: Bearer {access_token}
+Header: `Authorization`: `Bearer {access_token}`
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/{checkout_cielo_order_number}</span></aside>
 
@@ -1110,7 +1110,7 @@ Para consultar uma transação pelo `Checkout_Cielo_Order_Number`, basta realiza
 
 Para consultar uma transação pelo `id`, basta realizar um `GET`.
 
->**Header:** Authorization: Bearer {access_token}
+Header: `Authorization`: `Bearer {access_token}`
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}/payments</span></aside>
 
