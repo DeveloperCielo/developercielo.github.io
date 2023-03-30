@@ -238,15 +238,17 @@
 <p>Para iniciar a sua integração com a API do Super Link, você vai precisar:</p>
 
 <ol>
-  <li>Solicitar o nº de estabelecimento (EC) para o Super Link;</li>
-  <li>Definir as configurações da loja (personalização da página, escolha dos meios de pagamento e contrato com os Correios, se houver);</li>
-  <li>Configurar uma URL de notificação e de mudança de status para a sua loja;</li>
-  <li>Obter as credenciais de acesso à API (<code class="language-plaintext highlighter-rouge">ClientId</code> e <code class="language-plaintext highlighter-rouge">Client Secret</code>);</li>
-  <li>Solicitar um token de acesso via API usando as credenciais;</li>
-  <li>Com o token, criar um link de pagamento;</li>
-  <li>Quando houver uma tentativa de pagamento no link, você receberá uma notificação* com todos os dados preenchidos no checkout;</li>
-  <li>Se a transação mudar de status, você receberá uma notificação* de mudança de status;</li>
-  <li>Para efetuar testes, use o Modo de Teste do Super Link.</li>
+  <li>Solicitar o <a href="https://developercielo.github.io/manual/linkdepagamentos5#configura%C3%A7%C3%B5es-da-loja" target="_blank">nº de estabelecimento (EC) para o Super Link</a>;</li>
+  <li>Definir as <a href="https://developercielo.github.io/manual/linkdepagamentos5#configura%C3%A7%C3%B5es-da-loja" target="_blank">configurações da loja</a> (personalização da página, escolha dos meios de pagamento e contrato com os Correios, se houver);</li>
+  <li>Configurar uma URL de notificação e de mudança de status <a href="https://developercielo.github.io/manual/linkdepagamentos5#configura%C3%A7%C3%B5es-da-loja" target="_blank">para a sua loja</a>;</li>
+  <li>Obter as <a href="https://developercielo.github.io/manual/linkdepagamentos5#autentica%C3%A7%C3%A3o-cielo-oauth">credenciais de acesso à API</a>
+{:target=”_blank”} (<code class="language-plaintext highlighter-rouge">ClientId</code> e <code class="language-plaintext highlighter-rouge">Client Secret</code>);</li>
+  <li>Solicitar um token de acesso via API usando as <a href="https://developercielo.github.io/manual/linkdepagamentos5#autentica%C3%A7%C3%A3o-cielo-oauth">credenciais</a>
+{:target=”_blank”};</li>
+  <li>Com o token, <a href="https://developercielo.github.io/manual/linkdepagamentos5#criar-link" target="_blank">criar um link de pagamento</a>;</li>
+  <li>Quando houver uma tentativa de pagamento no link, você receberá uma <a href="https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o" target="_blank">notificação</a>* com todos os dados preenchidos no checkout;</li>
+  <li>Se a transação mudar de status, você receberá uma <a href="https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o" target="_blank">notificação</a>* de mudança de status;</li>
+  <li>Para efetuar testes, use o <a href="https://developercielo.github.io/manual/linkdepagamentos5#modo-teste" target="_blank">Modo de Teste</a> do Super Link.</li>
 </ol>
 
 <p>*<em>Desde que tenha configurado a URL de notificação.</em></p>
