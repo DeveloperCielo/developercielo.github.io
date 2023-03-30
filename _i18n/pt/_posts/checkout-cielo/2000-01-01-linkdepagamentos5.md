@@ -334,7 +334,7 @@ Para criar um link de pagamento, envie um POST com os dados do produto ou servi�
 
 ### Requisição
 
-POST: <aside class="request"><span class="method post">POST</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/</span></aside>
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/</span></aside>
 
 Header: `Authorization:` `Bearer {access_token}`
 
@@ -378,7 +378,7 @@ Header: `Authorization:` `Bearer {access_token}`
 |`quantity`|Número de transações restantes até que o link deixe de funcionar|int|2|Não|
 |`sku`|código de identificação do produto|String|32|Não|
 
-> Dentro de `description` você pode usar o caracter pipe | caso precise quebrar a linha ao apresentar a descrição na tela do link de pagamento.
+> Dentro de `description` você pode usar o caracter pipe `|` caso precise quebrar a linha ao apresentar a descrição na tela do link de pagamento.
 
 **Dados do Frete**
 
