@@ -144,8 +144,8 @@ Você deverá preencher as URLs de retorno, notificação e mudança de status. 
 ![URLs de Notificação]({{ site.baseurl_root }}/images/checkout/superlink/superlink-urls-notificacao.png)
 
 * **URL de Retorno**: após finalizar o pagamento, o comprador pode ser redirecionado para uma página definida web pela loja. Nenhum dado é trocado ou enviado para essa URL e sua configuração é opcional;
-* **URL de Notificação**: é a URL pela qual a sua loja irá receber a notificação com todos os dados do carrinho quando a transação é finalizada; [linkar para a parte de notificação]
-* **URL de Mudança de Status**: é a URL pela qual a sua loja irá receber a notificação quando um pedido tiver seu status alterado. A notificação de mudança de status não contém dados do carrinho, apenas dados de identificação do pedido. [linkar para a parte de notificação]
+* **[URL de Notificação](https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o){:target="_blank"}**: é a URL pela qual a sua loja irá receber a notificação com todos os dados do carrinho quando a transação é finalizada;
+* **[URL de Mudança de Status](https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o){:target="_blank"}**: é a URL pela qual a sua loja irá receber a notificação quando um pedido tiver seu status alterado. A notificação de mudança de status não contém dados do carrinho, apenas dados de identificação do pedido.
 
 **6. Configure a captura e Antifraude**
 
@@ -200,7 +200,7 @@ O modo de teste pode ser ativado na aba Configurações, ao habilitar a caixa de
 
 ![Modo Teste Ativo selecionado]({{ site.baseurl_root }}/images/checkout/superlink/superlink-modotesteativo.png)
 
-Quando a opção for salva, uma tarja vermelha será exibida na parte superior da tela. Ela será exibida em todas as telas do Backoffice Cielo.
+Quando a opção for salva, uma tarja vermelha será exibida na parte superior da tela. Ela será exibida em todas as telas do Super Link.
 
 Essa tarja indica que a sua loja está agora operando em ambiente de teste, ou seja, toda a transação realizada nesse modo será considerada como teste.
 
@@ -807,7 +807,7 @@ Tanto na notificação via POST ou via JSON, o conteúdo dos dados retornados é
 |Pagamento|4|
 |Recorrência|5|
 
-### Payment_status
+#### Payment_status
 
 O Super Link possui status próprios, diferente do site Cielo ou da API E-commerce Cielo. Veja a seguir a lista completa.
 
@@ -887,7 +887,7 @@ Nas consultas a bandeira do cartão é retornada no campo `Payment.Brand` e vem 
 |4|Retirar em mãos/loja|
 |5|Sem cobrança de frete (serviços ou produtos digitais)|
 
-### Notificação de mudança de status
+## Notificação de mudança de status
 
 É enviada para a URL de mudança de status e contém o `checkout_cielo_order_number`, o novo status e alguns dados da transação.
 
@@ -911,8 +911,8 @@ authorization_code: "01234567"
 |`checkout_cielo_order_number`|Identificador único gerado pelo Super Link Cielo.|Alfanumérico|32|
 |`amount`|Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)|Número|10|
 |`order_number`|Número do pedido enviado pela loja.|Alfanumérico|32|
-|`payment_method_brand`|Bandeira- somente para transações com meio de pagamento cartão de crédito. Lista Completa|Número|20|
-|`payment_status`|Status da transação. Lista Completa|Número|1|
+|`payment_method_brand`|Bandeira- somente para transações com meio de pagamento cartão de crédito. [Lista Completa](https://developercielo.github.io/manual/linkdepagamentos5#payment_method_brand){:target="_blank"} |Número|20|
+|`payment_status`|Status da transação. [Lista Completa](https://developercielo.github.io/manual/linkdepagamentos5#status-e-c%C3%B3digos){:target="_blank"}|Número|1|
 |`test_transaction`|Indica se a transação foi gerada com o Modo de teste ativado|Boolean|32|
 |`nsu`|NSU - Número sequencial único da transação.|Alfanumérico|6|
 |`authorization_code`|Código de autorização.|Alfanumérico|8|
