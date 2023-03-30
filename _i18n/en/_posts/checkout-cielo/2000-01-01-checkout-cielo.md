@@ -940,8 +940,8 @@ In addition to increasing the speed of payments, Pix in Cielo offers several ben
 
 * Improves the sales conversion rate;
 * Increases security in transactions;
-* It is integrated with Checkout Cielo, versatile and easy.
-
+* It is integrated with Checkout Cielo, versatile and easy.<br>
+<br>
 **How to use Pix in Checkout Cielo?**
 
 You must enable the Pix payment method in your registration on the Cielo portal and in your store settings. In API integration, it is not necessary to send additional parameters.
