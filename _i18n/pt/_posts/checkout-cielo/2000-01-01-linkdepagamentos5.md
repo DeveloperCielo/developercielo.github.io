@@ -79,7 +79,7 @@ Para iniciar a sua integração com a API do Super Link, você vai precisar:
 
 1. Solicitar o [nº de estabelecimento (EC) para o Super Link](https://developercielo.github.io/manual/linkdepagamentos5#configura%C3%A7%C3%B5es-da-loja){:target="_blank"};<!--linkar para parte das configurações da loja-->
 2. Definir as [configurações da loja](https://developercielo.github.io/manual/linkdepagamentos5#configura%C3%A7%C3%B5es-da-loja){:target="_blank"} (personalização da página, escolha dos meios de pagamento e contrato com os Correios, se houver);
-3. Configurar uma URL de notificação e de mudança de status [para a sua loja](https://developercielo.github.io/manual/linkdepagamentos5#configura%C3%A7%C3%B5es-da-loja){:target="_blank"};
+3. Configurar uma [URL de notificação e de mudança de status](https://developercielo.github.io/manual/linkdepagamentos5#configura%C3%A7%C3%B5es-da-loja){:target="_blank"} para a sua loja;
 4. Obter as [credenciais de acesso à API](https://developercielo.github.io/manual/linkdepagamentos5#autentica%C3%A7%C3%A3o-cielo-oauth){:target="_blank"} (`ClientId` e `Client Secret`);
 5. Solicitar um token de acesso via API usando as [credenciais](https://developercielo.github.io/manual/linkdepagamentos5#autentica%C3%A7%C3%A3o-cielo-oauth){:target="_blank"};
 6. Com o token, [criar um link de pagamento](https://developercielo.github.io/manual/linkdepagamentos5#criar-link){:target="_blank"};
