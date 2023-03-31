@@ -15510,21 +15510,26 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
 
 <h2 id="authorization-flow">Authorization Flow</h2>
 
+<p>Below is how a standard authorization flow and an authorization flow with Silent Order Post.</p>
+
 <h3 id="standard-authorization-flow">Standard Authorization Flow</h3>
+
+<p>In the standard authorization flow, the online store receives payment data from the shopper and therefore needs to be PCI DSS compliant.</p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxo-padrao-de-autorizacao_2_en.png" alt="Authorization_Flow" /></p>
 
-<p>The establishment must be <strong>PCI Compliance</strong> (PCI = Security Rules to manipulate card data)</p>
-
 <h3 id="authorization-flow-with-silent-order-post">Authorization Flow with Silent Order POST</h3>
+
+<p>With Silent Order Post, the virtual store server <strong>does not transfer card data</strong> openly.</p>
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxo-de-autorizacao-com-sop_1_en.png" alt="Authorization_Flow_POST" /></p>
 
-<p>The server <strong>does not pass the card data</strong> openly.</p>
-
-<h2 id="transactional-flow">Transactional Flow</h2>
-
-<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxo-silent-order-post-cielo_-_3_en.png" alt="Transactional_Flow" /></p>
+<ol>
+  <li>The store configures JavaScript on the checkout screen. At checkout, the script sends payment data directly to API E-commerce Cielo, without going through the store’s server;</li>
+  <li>The API stores the card data for that purchase and creates an encrypted code (<code class="language-plaintext highlighter-rouge">PaymentToken</code>, valid only for one purchase) or stores the card data and creates an encrypted code for the card (<code class="language-plaintext highlighter-rouge">CardToken</code>, which can be used on other purchases);</li>
+  <li>The store sends the script token to the server itself;</li>
+  <li>The store, through its server, sends the authorization request with the token and the other mandatory fields for a transaction.</li>
+</ol>
 
 <h2 id="integration-2">Integration</h2>
 
