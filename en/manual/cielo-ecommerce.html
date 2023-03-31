@@ -15262,16 +15262,16 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 <h4 id="open-card">Open card</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alexsander Rosa"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"CardOnFile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"Usage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Recurring"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+    </span><span class="nl">"CardNumber"</span><span class="p">:</span><span class="s2">"1234123412341231"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Holder"</span><span class="p">:</span><span class="s2">"Alexsander Rosa"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="s2">"12/2021"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"SecurityCode"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"CardOnFile"</span><span class="p">:{</span><span class="w">
+       </span><span class="nl">"Usage"</span><span class="p">:</span><span class="s2">"First"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"Reason"</span><span class="p">:</span><span class="s2">"Recurring"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -15362,9 +15362,9 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 <h4 id="tokenized-cards">Tokenized cards</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"CardToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23712c39-bb08-4030-86b3-490a223a8cc9"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="w">
+  </span><span class="nl">"CardToken"</span><span class="p">:</span><span class="s2">"23712c39-bb08-4030-86b3-490a223a8cc9"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"SaveCard"</span><span class="p">:</span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Brand"</span><span class="p">:</span><span class="s2">"Visa"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -15408,7 +15408,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
       <th>Field</th>
       <th>Description</th>
       <th>Type</th>
-      <th style="text-align: center">Size</th>
+      <th>Size</th>
     </tr>
   </thead>
   <tbody>
@@ -15416,25 +15416,25 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
       <td><code class="language-plaintext highlighter-rouge">Valid</code></td>
       <td>Card Status: <br /> <strong>True ** - Valid Card <br /> **False</strong> - Invalid Card</td>
       <td>Boolean</td>
-      <td style="text-align: center">—</td>
+      <td>—</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
       <td>Return code</td>
       <td>Text</td>
-      <td style="text-align: center">2</td>
+      <td>2</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
       <td>Return message</td>
       <td>Text</td>
-      <td style="text-align: center">255</td>
+      <td>255</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">IssuerTransactionId</code></td>
       <td>Issuer authentication identifier for recurring debit transactions. This field must be sent in subsequent transactions of the first transaction in the self-recurrence model. In the programmed recurrence model, Cielo will be responsible for sending the field in subsequent transactions.</td>
       <td>Text</td>
-      <td style="text-align: center">15</td>
+      <td>15</td>
     </tr>
   </tbody>
 </table>
@@ -15450,34 +15450,34 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 </span></code></pre></div></div>
 
 <blockquote>
-  <p>See <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#api-codes" target="\_blank">Return codes</a> to see the return codes descriptions.
+  <p>See <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#api-codes" target="_blank">Return codes</a> to see the return codes descriptions. 
 The return code <strong>00 represents success in Zero Auth</strong>, the other codes are defined according to the documentation above.</p>
 </blockquote>
 
 <h4 id="negative---invalid-card">NEGATIVE - Invalid Card</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"Valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autorizacao negada"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"IssuerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"580027442382078"</span><span class="w">
+       </span><span class="nl">"Valid"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autorizacao negada"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"IssuerTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"580027442382078"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
 <h4 id="negative---invalid-card---brand-not-supported">NEGATIVE - Invalid Card - Brand not Supported</h4>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">57</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bandeira inválida"</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="p">{</span><span class="w">    
+      </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">57</span><span class="p">,</span><span class="w">     
+      </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bandeira inválida"</span><span class="w">   
+  </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
 <h4 id="negative---registration-restriction">NEGATIVE - Registration Restriction</h4>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">389</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Restrição Cadastral"</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="p">{</span><span class="w">    
+      </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">389</span><span class="p">,</span><span class="w">     
+      </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Restrição Cadastral"</span><span class="w">   
+  </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
 <p>If there is an error in the flow and it is not possible to validate the card, the service will return the following errors:</p>
