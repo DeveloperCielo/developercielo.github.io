@@ -15952,11 +15952,11 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
 
 <h2 id="legacy-authentication">Legacy Authentication</h2>
 
+<blockquote>
+  <p>We do not recommend this form of authentication as it will be discontinued.</p>
+</blockquote>
+
 <p><strong>STEP 1</strong></p>
-
-<p>The shopper finishes the checkout, and goes to the payment processing.</p>
-
-<p><strong>STEP 2</strong></p>
 
 <p>a) The merchant must request a ticket (server to server) sending a POST to the following URL:</p>
 
@@ -16055,17 +16055,15 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
   </tbody>
 </table>
 
-<p>b) In order to use this resource, for security reasons, it will be obligatory on the Cielo’s behalf, <strong>at least one valid IP of the establishment.</strong> Otherwise the request will not be authorized (HTTP 401 NotAuthorized).</p>
+<p>b) To use this resource, for security reasons, Cielo will obligatorily request, at least, <strong>a valid IP of the establishment</strong>. Otherwise, the request will not be authorized (<strong>HTTP 401 NotAuthorized</strong>).</p>
 
-<p><strong>STEP 3</strong></p>
+<p><strong>STEP 2</strong></p>
 
-<p>a) In response, the establishment will receive a json (HTTP 201 Created) containing among other information, the ticket (AccessToken), such as:</p>
+<p>a) In response, the merchant will receive a JSON (HTTP 201 Created) containing, among other information, the ticket (AccessToken), such as:</p>
 
 <p><img src="https://developercielo.github.io/images/response-ticket-silent-order-post-cielo.jpg" alt="Response Ticket" /></p>
 
-<p>For security reasons, this ticket will allow the establishment to save only 1 card within a deadline already stipulated in the response, using the ExpiresIn attribute (by default, 20 minutes). Whatever happens first will invalidate this same ticket for future use.</p>
-
-<p>Continue to STEP 4 above.</p>
+<p>For security reasons, this ticket will allow the store to save only <strong>one card</strong> within a period already stipulated in the answer, through the <code class="language-plaintext highlighter-rouge">ExpiresIn</code> attribute (by default, 20 minutes). Whichever happens first will invalidate the ticket for future use.</p>
 
 <h1 id="api-codes">API codes</h1>
 
