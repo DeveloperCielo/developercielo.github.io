@@ -7717,12 +7717,12 @@ curl
 
 **BIN Query** is a **card data search** service, whether credit or debit, which identifies card characteristics based on the first digits and returns information that allows you to validate the data filled in on the checkout screen.
 
-- **Card Brand:** brand name;
-- **Card Type:** credit, debit or multiple (credit and debit);
-- **Card Nationality:** foreign or national (Brazil);
-- **Card:** whether or not the card is corporate;
-- **Issuing Bank:** code and name;
-- **Prepaid card:** whether or not the card is prepaid.
+* **Card Brand:** brand name;
+* **Card Type:** credit, debit or multiple (credit and debit);
+* **Card Nationality:** foreign or national (Brazil);
+* **Card:** whether or not the card is corporate;
+* **Issuing Bank:** code and name;
+* **Prepaid card:** whether or not the card is prepaid.
 
 This information allows you to take actions at the time of payment to improve the store's conversion rates.
 
