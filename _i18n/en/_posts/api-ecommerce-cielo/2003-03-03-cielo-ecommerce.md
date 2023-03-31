@@ -7914,48 +7914,48 @@ Validating an open card requires a different technical contract than validating 
 
 #### Open card
 
-```json
+``` json
 {
-  "CardNumber": "1234123412341231",
-  "Holder": "Alexsander Rosa",
-  "ExpirationDate": "12/2021",
-  "SecurityCode": "123",
-  "SaveCard": "false",
-  "Brand": "Visa",
-  "CardOnFile": {
-    "Usage": "First",
-    "Reason": "Recurring"
-  }
+    "CardNumber":"1234123412341231",
+    "Holder":"Alexsander Rosa",
+    "ExpirationDate":"12/2021",
+    "SecurityCode":"123",
+    "SaveCard":"false",
+    "Brand":"Visa",
+    "CardOnFile":{
+       "Usage":"First",
+       "Reason":"Recurring"
+    }
 }
 ```
 
-| Field            | Description                                                                                                                                                                                                                                                                               | Type    | Contact Us | Required    |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ---------- | ----------- |
-| `CardType`       | Defines the type of card used: <br> <br> _CreditCard_ <br> _DebitCard_ <br> <br> If not sent, CreditCard as default                                                                                                                                                                       | Text    | 255        | Yes         |
-| `CardNumber`     | Card Number                                                                                                                                                                                                                                                                               | Text    | 16         | Yes         |
-| `Holder`         | Buyer's name, printed on the card.                                                                                                                                                                                                                                                        | Text    | 25         | Yes         |
-| `ExpirationDate` | Expiration date.                                                                                                                                                                                                                                                                          | Text    | 7          | Yes         |
-| `SecurityCode`   | Card Security code .                                                                                                                                                                                                                                                                      | Text    | 4          | Yes         |
-| `SaveCard`       | Defines if the card must be tokenized                                                                                                                                                                                                                                                     | Boolean | ---        | Yes         |
-| `Brand`          | Card Brand:<br> Visa <br> Master <br> ELO                                                                                                                                                                                                                                                 | Text    | 10         | Yes         |
-| `CardToken`      | Card Token 3.0                                                                                                                                                                                                                                                                            | GUID    | 36         | Conditional |
-| `Usage`          | **First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.                                                                                                                    | Text    | ---        | No          |
-| `Reason`         | Indicates the purpose of storing cards, if the "Usage" field is "Used".<BR>**Recurring** - Scheduled recurring purchase (eg subscriptions)<br>**Unscheduled** - Recurring purchase without scheduling (eg service applications)<br>**Installments** - Installment through recurrence<br>. | Text    | ---        | Conditional |
+| Field              | Description                                                                                                                                                                                                              | Type      | Contact Us | Required       |
+|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|------------|----------------|
+| `CardType`         | Defines the type of card used: <br> <br> *CreditCard* <br> *DebitCard* <br> <br> If not sent, CreditCard as default                                                                                                      | Text      | 255        | Yes            |
+| `CardNumber`       | Card Number                                                                                                                                                                                                              | Text      | 16         | Yes            |
+| `Holder`           | Buyer's name, printed on the card.                                                                                                                                                                                       | Text      | 25         | Yes            |
+| `ExpirationDate`   | Expiration date.                                                                                                                                                                                                         | Text      | 7          | Yes            |
+| `SecurityCode`     | Card Security code .                                                                                                                                                                                                     | Text      | 4          | Yes            |
+| `SaveCard`         | Defines if the card must be tokenized                                                                                                                                                                                    | Boolean   | ---        | Yes            |
+| `Brand`            | Card Brand:<br> Visa <br> Master <br> ELO                                                                                                                                                                                    | Text      | 10         | Yes            |
+| `CardToken`        | Card Token 3.0                                                                                                                                                                                                           | GUID      | 36         | Conditional    |
+| `Usage`            | **First** if the credentials have been stored and they will be used for the first time.<br>**Used** if the credentials have been stored and they were previously used.                                                   | Text   | ---     | No         |
+| `Reason`           | Indicates the purpose of storing cards, if the "Usage" field is "Used".<BR>**Recurring** - Scheduled recurring purchase (eg subscriptions)<br>**Unscheduled** - Recurring purchase without scheduling (eg service applications)<br>**Installments** - Installment through recurrence<br>.| Text   | ---     | Conditional |
 
 #### Tokenized cards
 
-```json
+``` json
 {
-  "CardToken": "23712c39-bb08-4030-86b3-490a223a8cc9",
-  "SaveCard": "false",
-  "Brand": "Visa"
+  "CardToken":"23712c39-bb08-4030-86b3-490a223a8cc9",
+  "SaveCard":"false",
+  "Brand":"Visa"
 }
 ```
 
-| Field       | Description                           | Type | Size | Required |
-| ----------- | ------------------------------------- | ---- | ---- | -------- |
-| `Brand`     | Card Brand: Visa <br> Master <br> ELO | Text | 10   | not      |
-| `CardToken` | Tokenized Card 3.0                    | GUID | 36   | yes      |
+| Field              | Description                                                                                                               | Type      | Size | Required       |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------|------------|----------------|
+| `Brand`            | Card Brand: Visa <br> Master <br> ELO                                                                                     | Text      | 10         | not            |
+| `CardToken`        | Tokenized Card 3.0                                                                                                            | GUID      | 36         | yes |
 
 ### Response
 
@@ -7963,16 +7963,16 @@ The response always returns whether the card can currently be authorized. This i
 
 The fields returned in the response depend on the validation result. The following table presents all possible fields; after the table, check out the examples of each type of response.
 
-| Field                 | Description                                                                                                                                                                                                                                                                                  | Type    | Size |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | :--: |
-| `Valid`               | Card Status: <br> **True ** - Valid Card <BR> **False** - Invalid Card                                                                                                                                                                                                                       | Boolean | ---  |
-| `ReturnCode`          | Return code                                                                                                                                                                                                                                                                                  | Text    |  2   |
-| `ReturnMessage`       | Return message                                                                                                                                                                                                                                                                               | Text    | 255  |
-| `IssuerTransactionId` | Issuer authentication identifier for recurring debit transactions. This field must be sent in subsequent transactions of the first transaction in the self-recurrence model. In the programmed recurrence model, Cielo will be responsible for sending the field in subsequent transactions. | Text    |  15  |
+| Field                 | Description                                                                        | Type      | Size |
+| --------------------- | ------------------------------- -------------------------------------------------- | --------- | : -------: |
+| `Valid`               | Card Status: <br> **True ** - Valid Card <BR> **False** - Invalid Card             | Boolean   | ---        |
+| `ReturnCode`          | Return code                                                                        | Text      | 2          |
+| `ReturnMessage`       | Return message                                                                     | Text      | 255        |
+| `IssuerTransactionId` | Issuer authentication identifier for recurring debit transactions. This field must be sent in subsequent transactions of the first transaction in the self-recurrence model. In the programmed recurrence model, Cielo will be responsible for sending the field in subsequent transactions. | Text   | 15      |
 
 #### POSITIVE - Valid Card
 
-```json
+``` json
 {
   "Valid": true,
   "ReturnCode": "00",
@@ -7981,42 +7981,42 @@ The fields returned in the response depend on the validation result. The followi
 }
 ```
 
-> See [Return codes](https://developercielo.github.io/en/manual/cielo-ecommerce#api-codes){:target="\_blank"} to see the return codes descriptions.
+> See [Return codes](https://developercielo.github.io/en/manual/cielo-ecommerce#api-codes){:target="_blank"} to see the return codes descriptions. 
 > The return code **00 represents success in Zero Auth**, the other codes are defined according to the documentation above.
 
 #### NEGATIVE - Invalid Card
 
-```json
+``` json
 {
-  "Valid": false,
-  "ReturnCode": "57",
-  "ReturnMessage": "Autorizacao negada",
-  "IssuerTransactionId": "580027442382078"
+       "Valid": false,
+       "ReturnCode": "57",
+       "ReturnMessage": "Autorizacao negada",
+       "IssuerTransactionId": "580027442382078"
 }
 ```
 
 #### NEGATIVE - Invalid Card - Brand not Supported
 
-```json
-{
-  "Code": 57,
-  "Message": "Bandeira inválida"
-}
+``` json
+  {    
+      "Code": 57,     
+      "Message": "Bandeira inválida"   
+  }
 ```
 
 #### NEGATIVE - Registration Restriction
 
-```json
-{
-  "Code": 389,
-  "Message": "Restrição Cadastral"
-}
+``` json
+  {    
+      "Code": 389,     
+      "Message": "Restrição Cadastral"   
+  }
 ```
 
-If there is an error in the flow and it is not possible to validate the card, the service will return the following errors:
+If there is an error in the flow and it is not possible to validate the card, the service will return the following errors: 
 
-- _500 – Internal Server Error_
-- _400 – Bad Request_
+* *500 – Internal Server Error*
+* *400 – Bad Request*
 
 # Silent Order Post
 
