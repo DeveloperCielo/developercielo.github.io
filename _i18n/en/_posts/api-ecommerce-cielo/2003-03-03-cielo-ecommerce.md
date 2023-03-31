@@ -8037,21 +8037,24 @@ It is ideal for merchants who require a high level of security without losing th
 
 ## Authorization Flow
 
+Below is how a standard authorization flow and an authorization flow with Silent Order Post.
+
 ### Standard Authorization Flow
 
-![Authorization_Flow](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxo-padrao-de-autorizacao_2_en.png)
+In the standard authorization flow, the online store receives payment data from the shopper and therefore needs to be PCI DSS compliant.
 
-The establishment must be **PCI Compliance** (PCI = Security Rules to manipulate card data)
+![Authorization_Flow]( https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxo-padrao-de-autorizacao_2_en.png)
 
 ### Authorization Flow with Silent Order POST
 
-![Authorization_Flow_POST](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxo-de-autorizacao-com-sop_1_en.png)
+With Silent Order Post, the virtual store server **does not transfer card data** openly.
 
-The server **does not pass the card data** openly.
+![Authorization_Flow_POST]( https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxo-de-autorizacao-com-sop_1_en.png)
 
-## Transactional Flow
-
-![Transactional_Flow](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxo-silent-order-post-cielo_-_3_en.png)
+1. The store configures JavaScript on the checkout screen. At checkout, the script sends payment data directly to API E-commerce Cielo, without going through the store's server;
+2. The API stores the card data for that purchase and creates an encrypted code (`PaymentToken`, valid only for one purchase) or stores the card data and creates an encrypted code for the card (`CardToken`, which can be used on other purchases);
+3. The store sends the script token to the server itself;
+4. The store, through its server, sends the authorization request with the token and the other mandatory fields for a transaction.
 
 ## Integration
 
