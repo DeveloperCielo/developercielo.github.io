@@ -7792,32 +7792,17 @@ https://apiquerysandbox.cieloecommerce.cielo.com.br/1/cardBin/420020
 
 # Velocity
 
-## What is Velocity
+**Velocity** is a type of fraud prevention mechanism, which analyzes the frequency that certain data is used in a transaction and if this data is included in a list of behaviors subject to security actions.
 
-Velocity is a type of fraud prevention mechanism that specifically analyzes the concept of **"speed x transactional data"**. It analyzes how often certain data is used and whether that data is inscribed in a list of behaviors succeptible to security actions.
+Velocity is an ally in the evaluation of suspicious purchasing behavior, as the calculations are based on **traceability elements**.
 
-For merchants operating in the e-commerce market and eventually receiving fraudulent transactions, Velocity is a product that will identify behaviors suspect of fraud. The tool is intended to assist in fraud analysis at a much lower cost than a more traditional market tool.
+> For your transactions to be analyzed by Velocity, request the inclusion of this service to Cielo Support.
 
-It is an ally in the evaluation of suspect buying behaviors, because the calculations will be based on `traceability elements`.
+Velocity works by analyzing data sent in the standard integration of the API E-commerce Cielo. Thus, it is not necessary to include any additional nodes in the transaction creation request.
 
-The Velocity offers 4 types of functionalities to validate transactional data:
+When Velocity is active, the transaction response will bring a specific node called `Velocity`, with the analysis details.
 
-| Functionality         | Description                                                                                                                                       |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Velocity safety rules | The Merchant defines a set of security rules that will evaluate if certain transactional data is repeated in a suspicious time interval           |
-| Quarantine            | Creation of a list of data that will be analyzed for a determined period of time before being considered valid or fraudulent                      |
-| BlackList             | Creation of a list of data that, when identified, prevents the transaction from being executed, avoiding the creation of a fraudulent transaction |
-| Whitelist             | Creation of a list of data that, when identified, allows the transaction to be executed, even if there are security rules in action               |
-
-The functionality must be contracted separately, and later enabled in your store by the Cielo Ecommerce Support team via Admin 3.0
-
-## Integration
-
-Velocity works by analyzing data sent in the standard Cielo Ecommerce API integration. It is not necessary to add any additional node to the store integration for the creation of the sale, but it will be necessary to change the way the data is received `Response`.
-
-When Velocity is active, the transaction response will bring a specific node called "Velocity" with the details of the analysis.
-
-```json
+``` json
 {
   "MerchantOrderId": "2017051202",
   "Customer": {
@@ -7865,7 +7850,7 @@ When Velocity is active, the transaction response will bring a specific node cal
       "RejectReasons": [
         {
           "RuleId": 49,
-          "Message": "Bloqueado pela regra CardNumber. Name: Máximo de 3 Hits de Cartão em 1 dia. HitsQuantity: 3. HitsTimeRangeInSeconds: 1440. ExpirationBlockTimeInSeconds: 1440"
+          "Message": "Bloqueado pela regra CardNumber. Name: Máximo de 3 Hits de Cartão em 1 dia. HitsQuantity: 3\. HitsTimeRangeInSeconds: 1440\. ExpirationBlockTimeInSeconds: 1440"
         }
       ]
     },
@@ -7897,7 +7882,7 @@ When Velocity is active, the transaction response will bring a specific node cal
 | `VelocityAnalysis.ResultMessage`         | Accept ou Reject                      | Text   | 25   |
 | `VelocityAnalysis.Score`                 | 100                                   | Number | 10   |
 | `VelocityAnalysis.RejectReasons.RuleId`  | Code of the rule that rejected        | Number | 10   |
-| `VelocityAnalysis.RejectReasons.Message` | Description of the rule that rejected | Text   | 512  |
+| `VelocityAnalysis.RejectReasons.Message` | Description of the rule that rejected | Text   | 512  | 
 
 # Zero Auth
 
