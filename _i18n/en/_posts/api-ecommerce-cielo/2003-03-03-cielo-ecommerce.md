@@ -8020,11 +8020,11 @@ If there is an error in the flow and it is not possible to validate the card, th
 
 # Silent Order Post
 
-Integration that Cielo offers to merchants, where the payment data is safely traced, while maintaining full control over the Ckeckout experience.
+With Silent Order Post, payment data is securely transferred, maintaining full control over the checkout experience.
 
-This method allows you to send payment data from your final customer securely directly to our system. Payment fields are stored on Cielo's side, that counts on with the PCI DSS 3.2 certified.
+This method makes it possible to send the shopper's payment data securely directly into our system. Payment fields are stored by Cielo, which is PCI DSS 3.2 certified.
 
-It is ideal for merchants who require a high level of security without losing the identity of your page. This method allows a high level of customization on your checkout page.
+It is ideal for merchants who require a high level of security without losing the identity of their page.
 
 ## Characteristics
 
