@@ -8292,11 +8292,9 @@ To see the required fields for the request and the response, see standard reques
 
 ## Legacy Authentication
 
+> We do not recommend this form of authentication as it will be discontinued.
+
 **STEP 1**
-
-The shopper finishes the checkout, and goes to the payment processing.
-
-**STEP 2**
 
 a) The merchant must request a ticket (server to server) sending a POST to the following URL:
 
@@ -8320,9 +8318,9 @@ curl
 --verbose
 ```
 
-| Property   | Description          | Type | Size | Required |
-| ---------- | -------------------- | ---- | ---- | -------- |
-| `mid_loja` | API store identifier | Guid | 36   | Yes      |
+|Property|Description|Type|Size|Required|
+|-----------|---------|----|-------|-----------|
+|`mid_loja`|API store identifier |Guid |36 |Yes|
 
 ### Response
 
@@ -8338,24 +8336,22 @@ curl
 }
 ```
 
-| Property      | Description                 | Type | Size | Format                                                           |
-| ------------- | --------------------------- | ---- | ---- | ---------------------------------------------------------------- |
-| `MerchantId`  | Store identifier in Cielo   | Guid | 36   | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx                             |
-| `AccessToken` | Access token                | Text | --   | NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ== |
-| `Issued`      | Date and time generation    | Text | --   | AAAA-MM-DDTHH:MM:SS                                              |
-| `ExpiresIn`   | Date and time of expiration | Text | --   | AAAA-MM-DDTHH:MM:SS                                              |
+|Property|Description|Type|Size|Format|
+|-----------|---------|----|-------|-------|
+|`MerchantId`|Store identifier in Cielo |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`AccessToken`|Access token |Text|--|NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==|
+|`Issued`|Date and time generation |Text|--|AAAA-MM-DDTHH:MM:SS|
+|`ExpiresIn`|Date and time of expiration |Text|--|AAAA-MM-DDTHH:MM:SS|
 
-b) In order to use this resource, for security reasons, it will be obligatory on the Cielo's behalf, **at least one valid IP of the establishment.** Otherwise the request will not be authorized (HTTP 401 NotAuthorized).
+b) To use this resource, for security reasons, Cielo will obligatorily request, at least, **a valid IP of the establishment**. Otherwise, the request will not be authorized (**HTTP 401 NotAuthorized**).
 
-**STEP 3**
+**STEP 2**
 
-a) In response, the establishment will receive a json (HTTP 201 Created) containing among other information, the ticket (AccessToken), such as:
+a) In response, the merchant will receive a JSON (HTTP 201 Created) containing, among other information, the ticket (AccessToken), such as:
 
 ![Response Ticket]({{ site.baseurl_root }}/images/response-ticket-silent-order-post-cielo.jpg)
 
-For security reasons, this ticket will allow the establishment to save only 1 card within a deadline already stipulated in the response, using the ExpiresIn attribute (by default, 20 minutes). Whatever happens first will invalidate this same ticket for future use.
-
-Continue to STEP 4 above.
+For security reasons, this ticket will allow the store to save only **one card** within a period already stipulated in the answer, through the `ExpiresIn` attribute (by default, 20 minutes). Whichever happens first will invalidate the ticket for future use.
 
 # API codes
 
