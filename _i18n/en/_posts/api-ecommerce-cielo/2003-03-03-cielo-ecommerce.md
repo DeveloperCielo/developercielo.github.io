@@ -7734,9 +7734,9 @@ Based on the result of the BIN Query, you can develop functionalities in your ch
 
 **1. Avoid errors related to the brand or the type of card**:
 
-- The BIN query returns the **correct** brand of the card once it is associated with the BINS base of the brands; this is a much safer method than relying on algorithms on forms;
+* The BIN query returns the **correct** brand of the card once it is associated with the BINS base of the brands; this is a much safer method than relying on algorithms on forms;
 
-- At your store checkout, you can create a message to let the customer know if they are using a debit card when they should actually be using a credit card.
+* At your store checkout, you can create a message to let the customer know if they are using a debit card when they should actually be using a credit card.
 
 **2. Offer online cart recovery**
 
