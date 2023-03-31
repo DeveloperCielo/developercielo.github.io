@@ -15099,50 +15099,17 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 <h1 id="velocity">Velocity</h1>
 
-<h2 id="what-is-velocity">What is Velocity</h2>
+<p><strong>Velocity</strong> is a type of fraud prevention mechanism, which analyzes the frequency that certain data is used in a transaction and if this data is included in a list of behaviors subject to security actions.</p>
 
-<p>Velocity is a type of fraud prevention mechanism that specifically analyzes the concept of <strong>“speed x transactional data”</strong>. It analyzes how often certain data is used and whether that data is inscribed in a list of behaviors succeptible to security actions.</p>
+<p>Velocity is an ally in the evaluation of suspicious purchasing behavior, as the calculations are based on <strong>traceability elements</strong>.</p>
 
-<p>For merchants operating in the e-commerce market and eventually receiving fraudulent transactions, Velocity is a product that will identify behaviors suspect of fraud. The tool is intended to assist in fraud analysis at a much lower cost than a more traditional market tool.</p>
+<blockquote>
+  <p>For your transactions to be analyzed by Velocity, request the inclusion of this service to Cielo Support.</p>
+</blockquote>
 
-<p>It is an ally in the evaluation of suspect buying behaviors, because the calculations will be based on <code class="language-plaintext highlighter-rouge">traceability elements</code>.</p>
+<p>Velocity works by analyzing data sent in the standard integration of the API E-commerce Cielo. Thus, it is not necessary to include any additional nodes in the transaction creation request.</p>
 
-<p>The Velocity offers 4 types of functionalities to validate transactional data:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Functionality</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Velocity safety rules</td>
-      <td>The Merchant defines a set of security rules that will evaluate if certain transactional data is repeated in a suspicious time interval</td>
-    </tr>
-    <tr>
-      <td>Quarantine</td>
-      <td>Creation of a list of data that will be analyzed for a determined period of time before being considered valid or fraudulent</td>
-    </tr>
-    <tr>
-      <td>BlackList</td>
-      <td>Creation of a list of data that, when identified, prevents the transaction from being executed, avoiding the creation of a fraudulent transaction</td>
-    </tr>
-    <tr>
-      <td>Whitelist</td>
-      <td>Creation of a list of data that, when identified, allows the transaction to be executed, even if there are security rules in action</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>The functionality must be contracted separately, and later enabled in your store by the Cielo Ecommerce Support team via Admin 3.0</p>
-
-<h2 id="integration-1">Integration</h2>
-
-<p>Velocity works by analyzing data sent in the standard Cielo Ecommerce API integration. It is not necessary to add any additional node to the store integration for the creation of the sale, but it will be necessary to change the way the data is received <code class="language-plaintext highlighter-rouge">Response</code>.</p>
-
-<p>When Velocity is active, the transaction response will bring a specific node called “Velocity” with the details of the analysis.</p>
+<p>When Velocity is active, the transaction response will bring a specific node called <code class="language-plaintext highlighter-rouge">Velocity</code>, with the analysis details.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"MerchantOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017051202"</span><span class="p">,</span><span class="w">
@@ -15191,7 +15158,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
       </span><span class="nl">"RejectReasons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nl">"RuleId"</span><span class="p">:</span><span class="w"> </span><span class="mi">49</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bloqueado pela regra CardNumber. Name: Máximo de 3 Hits de Cartão em 1 dia. HitsQuantity: 3. HitsTimeRangeInSeconds: 1440. ExpirationBlockTimeInSeconds: 1440"</span><span class="w">
+          </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bloqueado pela regra CardNumber. Name: Máximo de 3 Hits de Cartão em 1 dia. HitsQuantity: 3</span><span class="se">\.</span><span class="s2"> HitsTimeRangeInSeconds: 1440</span><span class="se">\.</span><span class="s2"> ExpirationBlockTimeInSeconds: 1440"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -15282,7 +15249,7 @@ Ex.: Today is May 5 and the next recurrence is September 25. When updated to the
 
 <p>If other brands are sent, there will be an error with the return “<strong>57-Invalid Brand</strong>”.</p>
 
-<h2 id="integration-2">Integration</h2>
+<h2 id="integration-1">Integration</h2>
 
 <p>To perform a Zero Auth query, the merchant must send a <code class="language-plaintext highlighter-rouge">POST</code> request to the API E-commerce Cielo, simulating a transaction.</p>
 
@@ -15556,7 +15523,7 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
 
 <p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/images/fluxo-silent-order-post-cielo_-_3_en.png" alt="Transactional_Flow" /></p>
 
-<h2 id="integration-3">Integration</h2>
+<h2 id="integration-2">Integration</h2>
 
 <h3 id="step-1">STEP 1</h3>
 
