@@ -8028,11 +8028,12 @@ It is ideal for merchants who require a high level of security without losing th
 
 ## Characteristics
 
-- It captures payment data directly to Cielo's systems through the fields hosted on your page through a script (javascript).
-- Compatibility with all payment methods available to the Gateway (National and International)
-- Buyer Authentication (available)
-- Reducing the scope of the PCI DSS
-- Keep the full control over the checkout experience and brand management elements.
+* It captures payment data directly to Cielo systems through fields hosted on your page through a script (JavaScript)).
+* Compatibility with all payment methods available to the Gateway (National and International)
+* Reducing the scope of the PCI DSS
+* Full control over your checkout experience and brand management elements
+
+> The **PCI Data Security Standard** (PCI DSS) is a global standard for card data security, and comprises a minimum set of requirements to protect cardholder data.
 
 ## Authorization Flow
 
