@@ -8058,52 +8058,52 @@ With Silent Order Post, the virtual store server **does not transfer card data**
 
 ## Integration
 
-### STEP 1
+### Step 1. Getting access tokens
 
-The shopper finishes the checkout, and goes to payment processing.
+In order to use Silent Order Post, you will need two tokens:
 
-### STEP 2. Getting Access Token OAuth2
+* OAuth2 authentication token (`access_token`);
+* Silent Order Post authentication token (`AccessToken`).
 
-When the shopper accesses the checkout, the merchant must generate the AccessToken from Cielo Authentication API (OAuth). On success, the API will return an AccessToken that must be populated in the script to load on the page.
+#### OAuth2 authentication token
 
-To request AccessToken, send a request (POST) to the following endpoint in the server-to-server template:
+Get the `access_token` from the Cielo authentication API (**OAuth2**). In case of success, the API will return an `access_token` that must be used in the next authentication layer of the tool.
 
-| Environment    | base URL + endpoint                             | Authorization      |
-| -------------- | ----------------------------------------------- | ------------------ |
-| **SANDBOX**    | https://authsandbox.braspag.com.br/oauth2/token | "Basic _{base64}_" |
-| **PRODUCTION** | https://auth.braspag.com.br/oauth2/token        | "Basic _{base64}_" |
+To get the `access_token` in the [OAuth 2.0](https://oauth.net/2/){:target="_blank"} standard, send a request using the HTTP VERB **POST** to the URL of the table below, formed by the "base URL of the environment + endpoint", according to the desired environment:
 
-How to obtain the Base64 value:
+|Environment | base URL + endpoint | Authorization |
+|---|---|---|
+| **SANDBOX** | https://authsandbox.braspag.com.br/oauth2/token | "Basic *{base64}*"|
+| **PRODUCTION** | https://auth.braspag.com.br/oauth2/token |"Basic *{base64}*"|
 
-1. Concatenate "ClientId" and "ClientSecret" (`ClientId:ClientSecret`).
-2. Code the result in base64.
-3. Send a request to the authorization server with the alphanumeric code you just created.
+**Note:** The "_{base64}_" value for the "Basic" type authorization must be obtained as follows:
 
-> To request your "ClientID" and "ClientSecret", please send an email to cieloecommerce@cielo.com.br with the following:
+1. Concatenate the "ClientId" and the "ClientSecret" (`ClientId:ClientSecret`);
+2. Encode the result of the concatenation in base64;
+3. Make a request to the authorization server using the generated alphanumeric code.
 
-- MerchantId;
-- Describe that you need the credentials "ClientID" e o "ClientSecret" to use Silent Order Post.
+To obtain the "ClientID" and "ClientSecret", send an email to *cieloecommerce@cielo.com.br* containing the `MerchantId` and informing that you want to obtain the "ClientID" and "ClientSecret" credentials for Silent Order Post.
 
-#### Request
+**Request**
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">oauth2/token</span></aside>
 
-```shell
+``` shell
 --request POST "https://authsandbox.braspag.com.br/oauth2/token"
 --header "Authorization: Basic {base64}"
---header "Content-Type: application/x-www-form-urlencoded"
+--header "Content-Type: application/x-www-form-urlencoded" 
 --data-binary "grant_type=client_credentials"
 ```
 
-| Parameters      | Format                              | Where to send |
-| --------------- | ----------------------------------- | ------------- |
-| `Authorization` | "Basic _{base64}_"                  | Header.       |
-| `Content-Type`  | "application/x-www-form-urlencoded" | Header.       |
-| `grant_type`    | "client_credentials"                | Body.         |
+|Parameters|Format|Where to send|
+|---|---|---|
+|`Authorization`|"Basic *{base64}*"|Header.|
+|`Content-Type`|"application/x-www-form-urlencoded"|Header.|
+|`grant_type`|"client_credentials"|Body.|
 
-#### Response
+**Response**
 
-```json
+``` json
 {
   "access_token": "faSYkjfiod8ddJxFTU3vti_ ... _xD0i0jqcw",
   "token_type": "bearer",
@@ -8119,22 +8119,24 @@ How to obtain the Base64 value:
 }
 ```
 
-| Response Properties | Description                                                                              |
-| ------------------- | ---------------------------------------------------------------------------------------- |
-| `access_token`      | The requested authentication token, that will be used in the next step.                  |
-| `token_type`        | Indicates the token type value.                                                          |
-| `expires_in`        | Access Token expiration, in seconds. When the token expires, you must request a new one. |
+|Response Properties|Description|
+|---|---|
+|`access_token`|The requested authentication token, that will be used in the next step.|
+|`token_type`|Indicates the token type value.|
+|`expires_in`|Access Token expiration, in seconds. When the token expires, you must request a new one.|
 
-### STEP 3. Getting the SOP AccessToken
+#### Silent Order Post Authentication Token
 
-After obtaining AccessToken OAuth2, you should send a new request (POST) to the following URL:
+After obtaining the OAuth2 authentication token, send a request using the HTTP VERB **POST** to the URL in the table below, depending on the desired environment:
 
-| Environment | base URL + endpoint                                                      |
-| ----------- | ------------------------------------------------------------------------ |
-| Sandbox     | https://transactionsandbox.pagador.com.br/post/api/public/v2/accesstoken |
-| Production  | https://transaction.pagador.com.br/post/api/public/v2/accesstoken        |
+| Environment | base URL + endpoint|
+| --- | --- |
+| Sandbox | https://transactionsandbox.pagador.com.br/post/api/public/v2/accesstoken|
+| Production | https://transaction.pagador.com.br/post/api/public/v2/accesstoken|
 
-#### Request
+**Request**
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">api/public/v2/accesstoken</span></aside>
 
 ```shell
 --request POST "https://transactionsandbox.pagador.com.br/post/api/public/v2/accesstoken"
@@ -8145,21 +8147,21 @@ After obtaining AccessToken OAuth2, you should send a new request (POST) to the 
 --verbose
 ```
 
-| Properties      | Description                     | Type | Size | Mandatory? |
-| --------------- | ------------------------------- | ---- | ---- | ---------- |
-| `MerchantId`    | Merchant identifier at Pagador. | GUID | 36   | Yes        |
-| `Authorization` | Bearer [AccessToken OAuth2]     | Text | 36   | Yes        |
+|Properties|Description|Type|Size|Required|
+|-----------|---------|----|-------|-----------|
+|`MerchantId`|Merchant identifier at Pagador.|GUID |36 |Yes|
+|`Authorization`|Bearer [AccessToken OAuth2]|Text |36 |Yes|
 
-#### Response
+**Response**
 
-As a response, you will receive a JSON ("HTTP 201 Created") with the SOP AccessToken and some other data.
+In response, the store will receive a json ("HTTP 201 Created") containing, among other information, the `AccessToken` from Silent Order Post.
 
 ```json
 {
-  "MerchantId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-  "AccessToken": "MzA5YWIxNmQtYWIzZi00YmM2LWEwN2QtYTg2OTZjZjQxN2NkMDIzODk5MjI3Mg==",
-  "Issued": "2021-05-05T08:50:04",
-  "ExpiresIn": "2021-05-05T09:10:04"
+    "MerchantId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+    "AccessToken": "MzA5YWIxNmQtYWIzZi00YmM2LWEwN2QtYTg2OTZjZjQxN2NkMDIzODk5MjI3Mg==",
+    "Issued": "2021-05-05T08:50:04",
+    "ExpiresIn": "2021-05-05T09:10:04"
 }
 ```
 
@@ -8175,59 +8177,74 @@ As a response, you will receive a JSON ("HTTP 201 Created") with the SOP AccessT
 }
 ```
 
-| Properties    | Description                                                                                                                                                                                                                                                                                        | Type  | Size | Format                                                           |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ---- | ---------------------------------------------------------------- |
-| `MerchantId`  | Merchant identifier at Pagador.                                                                                                                                                                                                                                                                    | Guid  | 36   | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx                             |
-| `AccessToken` | AccessToken SOP. For safety reasons, this token will allow the merchant to save only one card within the deadline determined in the response, through the attribute _Expires In_. The default is 20 minutes. Whatever happens first will invalidate the token to prevent it from being used again. | Texto | --   | NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ== |
-| `Issued`      | Token creation date and hour.                                                                                                                                                                                                                                                                      | Texto | --   | AAAA-MM-DDTHH:MM:SS                                              |
-| `ExpiresIn`   | Token expiration date and hour.                                                                                                                                                                                                                                                                    | Texto | --   | AAAA-MM-DDTHH:MM:SS                                              |
+|Properties|Description|Type|Size|Format|
+|-----------|---------|----|-------|-------|
+|`MerchantId`|Merchant identifier at aPI E-commerce Cielo. |Guid |36 |xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|
+|`AccessToken`|Access token (`AccessToken` from Silent Order Post). The `AccessToken` obtained will allow an authorization attempt to be made within 20 minutes.|Text|--|NjBhMjY1ODktNDk3YS00NGJkLWI5YTQtYmNmNTYxYzhlNjdiLTQwMzgxMjAzMQ==|
+|`Issued`|Token creation date and hour. |Text|--|AAAA-MM-DDTHH:MM:SS|
+|`ExpiresIn`|Token expiration date and hour. |Text|--|AAAA-MM-DDTHH:MM:SS|
 
-> To see the legacy authentication process, which used the MerchantId and shopper IP address to create the `AccessToken`, [click here](https://developercielo.github.io/en/manual/cielo-ecommerce#legacy-authentication).
+### Step 2. Implementing the script
 
-### STEP 4
+Download the script provided by Cielo, and attach the script to your checkout page. This script will allow Cielo to process all card information without the merchant's intervention.
 
-a) The establishment should download a script provided by Cielo, and attach it to its checkout page. This script will allow Cielo to process all the card information without intervention of the establishment.
-The download can be made from the following URL:
+Download the script corresponding to the desired environment, sandbox or production:
 
-**SANDBOX:**
-**https://transactionsandbox.pagador.com.br/post/scripts/silentorderpost-1.0.min.js**
+|Environment|Script URL|
+|---|---|
+|**SANDBOX**|[https://transactionsandbox.pagador.com.br/post/scripts/silentorderpost-1.0.min.js](https://transactionsandbox.pagador.com.br/post/scripts/silentorderpost-1.0.min.js){:target="_blank"}|
+|**PRODUCTION**|[https://transaction.cieloecommerce.cielo.com.br/post/scripts/silentorderpost-1.0.min.js](https://transaction.cieloecommerce.cielo.com.br/post/scripts/silentorderpost-1.0.min.js){:target="_blank"}|
 
-**PRODUCTION:**
-**https://transaction.cieloecommerce.cielo.com.br/post/scripts/silentorderpost-1.0.min.js**
+Then configure the form with the following classes:
 
-b) The establishment should customize its inputs of the form with the following classes:
+* For the credit/debit card holder: **bp-sop-cardholdername**
+* For credit/debit card number: **bp-sop-cardnumber**
+* For credit/debit card validity: **bp-sop-cardexpirationdate**
+* For credit/debit card security code: **bp-sop-cardcvvc**
 
-- For the credit/debit card holder: **bp-sop-cardholdername**
-- For credit/debit card number: **bp-sop-cardnumber**
-- For credit/debit card validity: **bp-sop-cardexpirationdate**
-- For credit/debit card security code: **bp-sop-cardcvvc**
-
-**SETTING PARAMETERS**
+Additionally, set the following parameters:
 
 **Script Parameters**
 
-| Property         | Description                                                                                                                                                    |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `accessToken`    | Access Token obtained via Authentication API                                                                                                                   |
-| `environment`    | **sandbox** or **production**                                                                                                                                  |
-| `language`       | **PT** or **EN** or **ES**                                                                                                                                     |
-| `enableTokenize` | **true** if you want to save the card directly on your vault in the Cartão Protegido (returns a 'cardToken' instead of a 'paymentToken'). **false** otherwise. |
-| `cvvRequired`    | "false" (sets CVV as not mandatory) / "true" (sets CVV as mandatory).                                                                                          |
+|Property|Description|
+|-----------|---------|
+|`accessToken`|Access token obtained via Braspag's authentication API (AccessToken SOP).|
+|`environment`|Type of environment: **sandbox** or **production**|
+|`language`|**PT** or **EN** or **ES**|
+|`enableTokenize`| "true" (saves the card directly to the Protected Card, returning a *cardToken* instead of a *paymentToken*) / "false" (otherwise).|
+|`cvvRequired`| "false" (sets CVV as not mandatory) / "true" (sets CVV as mandatory). |
+
+Example of setup to be performed by the virtual store on the checkout page:
+
+![Pagina Checkout]({{ site.baseurl_root }}/images/html-silent-order-post.jpg)
 
 **Script Response**
 
-| Property       | Description                                                                                                            |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `PaymentToken` | Payment Token in GUID format (36)                                                                                      |
-| `CardToken`    | Permanent token to be used on a payment request on a GUID format (36) Obs.: Only works if 'enableTokenize' is **true** |
+The script provided by Cielo provides three events for handling and treatment by the establishment. They are:
 
-c) The script provided by Cielo provides three events for manipulation and treatment on the establishment side. They are: **onSuccess** (where **PaymentToken** will be returned after processing the card data), **onError** (if there is any error in the consumption of Cielo services) and **onInvalid** (where the result of the validation of the inputs will be returned).
+* **onSuccess**, returns the **“PaymentToken”** after processing the card data;
+* **onError**, in case there is an error in the consumption of Cielo services;
+* **onInvalid**, returns the input validation result.
 
-- In the input validation, the establishment can use the entire layer of validation on the card data made by Cielo and then simplify the treatment on your checkout form. The messages returned in the validation result are available in the following languages: portuguese (default), english and spanish.
+When validating the inputs, the establishment will be able to use the entire validation layer on the card data carried out by Cielo and thus simplify the treatment in its checkout form. The messages returned in the validation result are available in Portuguese (default), English and Spanish.
 
-- The _PaymentToken_ will be the token that will represent all the card data provided by the buyer. The same will be used by the establishment so there is no need to process and process card data on its side.
+|Property|Description|Condition
+|-----------|---------|---------|
+|`PaymentToken`|Payment Token in GUID format (36)|
+|`CardToken`| Permanent token to be used on a payment request on a GUID format (36). | Only works if 'enableTokenize' is **true**.|
 
-```json
+> * The `PaymentToken` or `CardToken` will represent all the card data provided by the shopper. The token will be used by the establishment so that it does not need to treat and process card data on its server.<br/>
+> * For security reasons, the `PaymentToken` can only be used for authorization in the API E-commerce Cielo. After processing the token, it will be invalidated.
+
+### Step 3. Authorization request with token
+
+#### Request with PaymentToken
+
+Send the authorization request with the `PaymentToken` in the `CreditCard` node (for credit card transaction) or in the `DebitCard` node (for debit card transaction).
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+``` json
 },
     "Payment": {
     "Type": "CreditCard",
@@ -8241,11 +8258,37 @@ c) The script provided by Cielo provides three events for manipulation and treat
 }
 ```
 
-**For security reasons this PaymentToken can only be used for 1 authorization in Cielo 3.0. After processing, it will be invalidated.**
+To see the required fields for the request and the response, see standard requests for [credit](https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-credit-transaction){:target="_blank"} or [debit](https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-debit-transaction){:target="_blank"}.
 
-Example of setup to be performed by the establishment on the checkout page:
+**For security reasons, the `PaymentToken` can only be used for authorization in the API E-commerce Cielo. The token will be processed and then invalidated.**
 
-![Pagina Checkout]({{ site.baseurl_root }}/images/html-silent-order-post.jpg)
+#### Request with CardToken
+
+Submit the authorization request with the `CardToken` in the `CreditCard` node (for credit card transaction) or in the `DebitCard` node (for debit card transaction).
+
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">/1/sales/</span></aside>
+
+``` json
+{  
+   "MerchantOrderId":"2014111706",
+   "Customer":{  
+      "Name":"Comprador Teste"
+   },
+   "Payment":{  
+     "Type":"CreditCard",
+     "Amount":100,
+     "Installments":1,
+     "SoftDescriptor":"123456789ABCD",
+     "CreditCard":{  
+         "CardToken":"6e1bf77a-b28b-4660-b14f-455e2a1c95e9",
+         "SecurityCode":"262",
+         "Brand":"Visa"
+     }
+   }
+}
+```
+
+To see the required fields for the request and the response, see standard requests for [credit](https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-credit-transaction){:target="_blank"} or [debit](https://developercielo.github.io/en/manual/cielo-ecommerce#creating-a-debit-transaction){:target="_blank"}.
 
 ## Legacy Authentication
 
