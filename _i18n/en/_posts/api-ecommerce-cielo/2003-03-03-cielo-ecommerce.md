@@ -7892,7 +7892,7 @@ When Velocity is active, the transaction response will bring a specific node cal
 
 Zero Auth is the correct way to validate cards according to the recommendations of brands and banks. Before the creation of Zero Auth, stores used to create low-value transactions, such as one real or one dollar, and then cancel them; It is important to know that this practice is now penalized by the brands.
 
-> **Attention:** In the event of transactions with a value different from _zero_ and less than _one dollar_, followed by cancellation of the transaction, the brands will apply fees to Cielo, which will be passed on to the establishments that are in non-compliance. Mastercard, for example, is charging a fee of R$0.21 cents per transaction.
+> **Attention:** In the event of transactions with a value different from *zero* and less than *one dollar*, followed by cancellation of the transaction, the brands will apply fees to Cielo, which will be passed on to the establishments that are in non-compliance. Mastercard, for example, is charging a fee of R$0.21 cents per transaction.
 
 **Zero Auth** validates **open or tokenized cards** (sending the `CardToken` created in the API E-commerce Cielo).
 
