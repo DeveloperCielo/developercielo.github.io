@@ -16069,7 +16069,7 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
 
 <h2 id="about-codes">About codes</h2>
 
-<p>API Cielo e-commerce has 4 types of returned codes that represent different moments of the transaction.</p>
+<p>API E-commerce Cielo has 4 types of returned codes that represent different moments of the transaction.</p>
 
 <p>Below we explain them in the order in which they can occur:</p>
 
@@ -16087,20 +16087,22 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
     </tr>
     <tr>
       <td><strong>API Errors</strong></td>
-      <td>These codes are responses to <strong>content validation of sent data</strong>. If they are appearing, our API calls have been identified and are being validated. If this code is appearing, the request contains errors (e.g. size/conditions/registration errors) that prevent the creation of the transaction<br /><em>Returned at time of API request</em></td>
+      <td>These codes are responses to <strong>content validation of sent data</strong>. If they are being displayed, our API calls have been identified and are being validated. If this code is displayed, the request contains errors (EX: size/conditions/registration errors) that prevent the creation of the transaction<br /><em>Returned at the time of the request to the API</em></td>
     </tr>
     <tr>
       <td><strong>Status</strong></td>
-      <td>After the transaction is created, these codes will be returned, informing the transaction status at that moment (e.g. <code class="language-plaintext highlighter-rouge">Authorized</code> &gt;<code class="language-plaintext highlighter-rouge"> Captured</code> &gt; <code class="language-plaintext highlighter-rouge">Canceled</code>)<br />_Returned in the <code class="language-plaintext highlighter-rouge">Status</code> field _</td>
+      <td>After the transaction is created, these codes will be returned, informing how the transaction is at the moment (e.g. <code class="language-plaintext highlighter-rouge">Authorized</code> &gt; <code class="language-plaintext highlighter-rouge">Captured</code> &gt; <code class="language-plaintext highlighter-rouge">Cancelled</code>)<br />*Returned in the <code class="language-plaintext highlighter-rouge">Status</code> field *</td>
     </tr>
     <tr>
       <td><strong>Sales Return</strong></td>
-      <td>Formed by a <strong>Return code</strong> and a <strong>message</strong>, these codes indicate the <strong>reason</strong> of a given <code class="language-plaintext highlighter-rouge">Status</code> within a transaction. They indicate, for example, whether a transaction with declined <code class="language-plaintext highlighter-rouge">status</code> was not authorized because of a negative balance at the issuing bank. <br /><em>Returned in the <code class="language-plaintext highlighter-rouge">ReturnCode</code> and<code class="language-plaintext highlighter-rouge"> ReturnMessage</code> fields</em><br /> <em>They occur only in Credit and Debit cards</em></td>
+      <td>Formed by a <strong>Return code</strong> and a <strong>message</strong>, these codes indicate the <strong>reason</strong> for a certain <code class="language-plaintext highlighter-rouge">Status</code> within a transaction. They indicate, for example, if a transaction with <code class="language-plaintext highlighter-rouge">status</code> denied was not authorized due to a negative balance in the issuing bank. <br /><em>Returned in the <code class="language-plaintext highlighter-rouge">ReturnCode</code> and <code class="language-plaintext highlighter-rouge">ReturnMessage</code> fields</em><br /> <em>Occurs only in Credit and Debit Cards</em></td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>NOTE</strong>: In the old <strong>Webservice 1.5 Cielo</strong>, the <code class="language-plaintext highlighter-rouge">ReturnCode</code> was considered as <em>Transaction Status</em>. In the <strong>API CIELO ECOMMERCE</strong>, the <code class="language-plaintext highlighter-rouge">Status</code> field has its own codes, thus, the <strong>field to be considered as the basis for identifying the status of a transaction</strong></p>
+<blockquote>
+  <p><strong>Note</strong>: In the old <strong>Webservice 1.5 Cielo</strong>, the <code class="language-plaintext highlighter-rouge">ReturnCode</code> was considered <em>Transaction Status</em>. In the <strong>API E-commerce Cielo</strong>, the <code class="language-plaintext highlighter-rouge">Status</code> field has its own codes, therefore, the <strong>field to be considered as the basis for identifying the status of a transaction</strong>.</p>
+</blockquote>
 
 <h2 id="http-status-code">HTTP Status Code</h2>
 
