@@ -18191,17 +18191,38 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
 <h2 id="integration-errors">Integration errors</h2>
 
 <blockquote>
-  <p><strong>API Errors</strong> - These codes are the responses to <strong>validation of the content of the data sent</strong>. <br />
-If this code is displayed, the request contains errors (e.g: size/conditions/registration errors) which prevent the creation of the transaction <br /><em>Returned at the time of request to the API</em></p>
+  <p><strong>API Errors</strong> - These codes are responses to the <strong>content validation of the data sent at the time of the API request</strong>. <br />
+If an error code is displayed, the requisition contains errors (such as size, conditions or registration errors, etc.) that prevent the creation of the transaction<br /></p>
 </blockquote>
 
+<p><strong>Example</strong></p>
+
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">126</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit Card Expiration Date is invalid"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">126</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit Card Expiration Date is invalid"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Code</code></td>
+      <td>API error code. <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#api-error-codes">See the code list</a></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Message</code></td>
+      <td>Error description. <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#api-error-codes">See the code list</a></td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="api-error-codes">API Error Codes</h3>
 
