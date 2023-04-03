@@ -7924,100 +7924,6 @@ If there is an error in the flow and it is not possible to validate the card, th
 * *500 – Internal Server Error*
 * *400 – Bad Request*
 
-# Velocity
-
-**Velocity** is a type of fraud prevention mechanism, which analyzes the frequency that certain data is used in a transaction and if this data is included in a list of behaviors subject to security actions.
-
-Velocity is an ally in the evaluation of suspicious purchasing behavior, as the calculations are based on **traceability elements**.
-
-> For your transactions to be analyzed by Velocity, request the inclusion of this service to Cielo Support.
-
-Velocity works by analyzing data sent in the standard integration of the API E-commerce Cielo. Thus, it is not necessary to include any additional nodes in the transaction creation request.
-
-When Velocity is active, the transaction response will bring a specific node called `Velocity`, with the analysis details.
-
-``` json
-{
-  "MerchantOrderId": "2017051202",
-  "Customer": {
-    "Name": "Nome do Comprador",
-    "Identity": "12345678909",
-    "IdentityType": "CPF",
-    "Email": "comprador@cielo.com.br",
-    "Address": {
-      "Street": "Alameda Xingu",
-      "Number": "512",
-      "Complement": "27 andar",
-      "ZipCode": "12345987",
-      "City": "São Paulo",
-      "State": "SP",
-      "Country": "BRA"
-    },
-    "DeliveryAddress": {
-      "Street": "Alameda Xingu",
-      "Number": "512",
-      "Complement": "27 andar",
-      "ZipCode": "12345987",
-      "City": "São Paulo",
-      "State": "SP",
-      "Country": "BRA"
-    }
-  },
-  "Payment": {
-    "ServiceTaxAmount": 0,
-    "Installments": 1,
-    "Interest": "ByMerchant",
-    "Capture": true,
-    "Authenticate": false,
-    "Recurrent": false,
-    "CreditCard": {
-      "CardNumber": "455187******0181",
-      "Holder": "Nome do Portador",
-      "ExpirationDate": "12/2027",
-      "SaveCard": false,
-      "Brand": "Undefined"
-    },
-    "VelocityAnalysis": {
-      "Id": "2d5e0463-47be-4964-b8ac-622a16a2b6c4",
-      "ResultMessage": "Reject",
-      "Score": 100,
-      "RejectReasons": [
-        {
-          "RuleId": 49,
-          "Message": "Bloqueado pela regra CardNumber. Name: Máximo de 3 Hits de Cartão em 1 dia. HitsQuantity: 3\. HitsTimeRangeInSeconds: 1440\. ExpirationBlockTimeInSeconds: 1440"
-        }
-      ]
-    },
-    "PaymentId": "2d5e0463-47be-4964-b8ac-622a16a2b6c4",
-    "Type": "CreditCard",
-    "Amount": 10000,
-    "Currency": "BRL",
-    "Country": "BRA",
-    "Provider": "Simulado",
-    "ReasonCode": 16,
-    "ReasonMessage": "AbortedByFraud",
-    "Status": 0,
-    "ProviderReturnCode": "BP171",
-    "ProviderReturnMessage": "Rejected by fraud risk (velocity)",
-    "Links": [
-      {
-        "Method": "GET",
-        "Rel": "self",
-        "Href": "https://apiquery.cieloecommerce.cielo.com.br/1/sales/2d5e0463-47be-4964-b8ac-622a16a2b6c4"
-      }
-    ]
-  }
-}
-```
-
-| Property                                 | Description                           | Type   | Size |
-| ---------------------------------------- | ------------------------------------- | ------ | ---- |
-| `VelocityAnalysis.Id`                    | Performed analysis identifier         | GUID   | 36   |
-| `VelocityAnalysis.ResultMessage`         | Accept ou Reject                      | Text   | 25   |
-| `VelocityAnalysis.Score`                 | 100                                   | Number | 10   |
-| `VelocityAnalysis.RejectReasons.RuleId`  | Code of the rule that rejected        | Number | 10   |
-| `VelocityAnalysis.RejectReasons.Message` | Description of the rule that rejected | Text   | 512  | 
-
 # Silent Order Post
 
 With Silent Order Post, payment data is securely transferred, maintaining full control over the checkout experience.
@@ -8352,6 +8258,100 @@ a) In response, the merchant will receive a JSON (HTTP 201 Created) containing, 
 ![Response Ticket]({{ site.baseurl_root }}/images/response-ticket-silent-order-post-cielo.jpg)
 
 For security reasons, this ticket will allow the store to save only **one card** within a period already stipulated in the answer, through the `ExpiresIn` attribute (by default, 20 minutes). Whichever happens first will invalidate the ticket for future use.
+
+# Velocity
+
+**Velocity** is a type of fraud prevention mechanism, which analyzes the frequency that certain data is used in a transaction and if this data is included in a list of behaviors subject to security actions.
+
+Velocity is an ally in the evaluation of suspicious purchasing behavior, as the calculations are based on **traceability elements**.
+
+> For your transactions to be analyzed by Velocity, request the inclusion of this service to Cielo Support.
+
+Velocity works by analyzing data sent in the standard integration of the API E-commerce Cielo. Thus, it is not necessary to include any additional nodes in the transaction creation request.
+
+When Velocity is active, the transaction response will bring a specific node called `Velocity`, with the analysis details.
+
+``` json
+{
+  "MerchantOrderId": "2017051202",
+  "Customer": {
+    "Name": "Nome do Comprador",
+    "Identity": "12345678909",
+    "IdentityType": "CPF",
+    "Email": "comprador@cielo.com.br",
+    "Address": {
+      "Street": "Alameda Xingu",
+      "Number": "512",
+      "Complement": "27 andar",
+      "ZipCode": "12345987",
+      "City": "São Paulo",
+      "State": "SP",
+      "Country": "BRA"
+    },
+    "DeliveryAddress": {
+      "Street": "Alameda Xingu",
+      "Number": "512",
+      "Complement": "27 andar",
+      "ZipCode": "12345987",
+      "City": "São Paulo",
+      "State": "SP",
+      "Country": "BRA"
+    }
+  },
+  "Payment": {
+    "ServiceTaxAmount": 0,
+    "Installments": 1,
+    "Interest": "ByMerchant",
+    "Capture": true,
+    "Authenticate": false,
+    "Recurrent": false,
+    "CreditCard": {
+      "CardNumber": "455187******0181",
+      "Holder": "Nome do Portador",
+      "ExpirationDate": "12/2027",
+      "SaveCard": false,
+      "Brand": "Undefined"
+    },
+    "VelocityAnalysis": {
+      "Id": "2d5e0463-47be-4964-b8ac-622a16a2b6c4",
+      "ResultMessage": "Reject",
+      "Score": 100,
+      "RejectReasons": [
+        {
+          "RuleId": 49,
+          "Message": "Bloqueado pela regra CardNumber. Name: Máximo de 3 Hits de Cartão em 1 dia. HitsQuantity: 3\. HitsTimeRangeInSeconds: 1440\. ExpirationBlockTimeInSeconds: 1440"
+        }
+      ]
+    },
+    "PaymentId": "2d5e0463-47be-4964-b8ac-622a16a2b6c4",
+    "Type": "CreditCard",
+    "Amount": 10000,
+    "Currency": "BRL",
+    "Country": "BRA",
+    "Provider": "Simulado",
+    "ReasonCode": 16,
+    "ReasonMessage": "AbortedByFraud",
+    "Status": 0,
+    "ProviderReturnCode": "BP171",
+    "ProviderReturnMessage": "Rejected by fraud risk (velocity)",
+    "Links": [
+      {
+        "Method": "GET",
+        "Rel": "self",
+        "Href": "https://apiquery.cieloecommerce.cielo.com.br/1/sales/2d5e0463-47be-4964-b8ac-622a16a2b6c4"
+      }
+    ]
+  }
+}
+```
+
+| Property                                 | Description                           | Type   | Size |
+| ---------------------------------------- | ------------------------------------- | ------ | ---- |
+| `VelocityAnalysis.Id`                    | Performed analysis identifier         | GUID   | 36   |
+| `VelocityAnalysis.ResultMessage`         | Accept ou Reject                      | Text   | 25   |
+| `VelocityAnalysis.Score`                 | 100                                   | Number | 10   |
+| `VelocityAnalysis.RejectReasons.RuleId`  | Code of the rule that rejected        | Number | 10   |
+| `VelocityAnalysis.RejectReasons.Message` | Description of the rule that rejected | Text   | 512  | 
 
 # API codes
 
