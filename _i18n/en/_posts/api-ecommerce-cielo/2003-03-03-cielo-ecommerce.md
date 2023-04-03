@@ -8865,17 +8865,24 @@ Cielo informs its customers that it's prepared to process transactions following
 
 ## Integration errors
 
-> **API Errors** - These codes are the responses to **validation of the content of the data sent**. <br>
-> If this code is displayed, the request contains errors (e.g: size/conditions/registration errors) which prevent the creation of the transaction <BR><BR>_Returned at the time of request to the API_
+> **API Errors** - These codes are responses to the **content validation of the data sent at the time of the API request**. <br>
+> If an error code is displayed, the requisition contains errors (such as size, conditions or registration errors, etc.) that prevent the creation of the transaction<BR>
 
-```json
+**Example**
+
+``` json
 [
-  {
-    "Code": 126,
-    "Message": "Credit Card Expiration Date is invalid"
-  }
+    {
+        "Code": 126,
+        "Message": "Credit Card Expiration Date is invalid"
+    }
 ]
 ```
+
+| Property | Description                                                                                                                              |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| `Code`      | API error code. [See the code list](https://developercielo.github.io/en/manual/cielo-ecommerce#api-error-codes)|
+| `Message`   | Error description. [See the code list](https://developercielo.github.io/en/manual/cielo-ecommerce#api-error-codes)|
 
 ### API Error Codes
 
