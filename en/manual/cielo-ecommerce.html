@@ -18086,7 +18086,7 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
   </tbody>
 </table>
 
-<h2 id="status-transactional">Status transactional</h2>
+<h2 id="transactional-status">Transactional status</h2>
 
 <table>
   <thead>
@@ -18101,55 +18101,55 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
     <tr>
       <td>0</td>
       <td><strong>NotFinished</strong></td>
-      <td>ALL</td>
+      <td>All</td>
       <td>Waiting for status update</td>
     </tr>
     <tr>
       <td>1</td>
       <td><strong>Authorized</strong></td>
-      <td>ALL</td>
+      <td>All</td>
       <td>Payment apt to be captured or defined as paid</td>
     </tr>
     <tr>
       <td>2</td>
       <td><strong>PaymentConfirmed</strong></td>
-      <td>ALL</td>
+      <td>All</td>
       <td>Confirmed and finalized payment</td>
     </tr>
     <tr>
       <td>3</td>
       <td><strong>Declined</strong></td>
-      <td>CC + CD + TF</td>
+      <td>Credit and debit cards and e-wallets</td>
       <td>Payment declined by Authorizer</td>
     </tr>
     <tr>
       <td>10</td>
       <td><strong>Voided</strong></td>
-      <td>ALL</td>
+      <td>All, except boleto</td>
       <td>Canceled payment</td>
     </tr>
     <tr>
       <td>11</td>
       <td><strong>Refunded</strong></td>
-      <td>CC + CD</td>
+      <td>Credit and debit cards and e-wallets</td>
       <td>Payment canceled after 11:59 pm on the authorization day</td>
     </tr>
     <tr>
       <td>12</td>
       <td><strong>Pending</strong></td>
-      <td>ALL</td>
+      <td>Credit and debit cards, e-wallets and pix</td>
       <td>Waiting for financial institution status</td>
     </tr>
     <tr>
       <td>13</td>
       <td><strong>Aborted</strong></td>
-      <td>ALL</td>
+      <td>All</td>
       <td>Payment canceled due to processing failure</td>
     </tr>
     <tr>
       <td>20</td>
       <td><strong>Scheduled</strong></td>
-      <td>CC</td>
+      <td>Credit cards and e-wallets</td>
       <td>Scheduled recurrence</td>
     </tr>
   </tbody>
@@ -19121,7 +19121,7 @@ If this code is displayed, the request contains errors (e.g: size/conditions/reg
   <li><strong>Other Cities:</strong> 0800 570 1700</li>
 </ul>
 
-<h2 id="status-transactional-1">Status transactional</h2>
+<h2 id="status-transactional">Status transactional</h2>
 
 <table>
   <thead>
