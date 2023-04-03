@@ -9294,35 +9294,46 @@ Codes returned in case of error, identifying the reason for the error and its re
 
 ### Return Reason Codes
 
-| Reason Code | Reason Message               |
-| ----------- | ---------------------------- |
-| 0           | Successful                   |
-| 1           | AffiliationNotFound          |
-| 2           | IssuficientFunds             |
-| 3           | CouldNotGetCreditCard        |
-| 4           | ConnectionWithAcquirerFailed |
-| 5           | InvalidTransactionType       |
-| 6           | InvalidPaymentPlan           |
-| 7           | Denied                       |
-| 8           | Scheduled                    |
-| 9           | Waiting                      |
-| 10          | Authenticated                |
-| 11          | NotAuthenticated             |
-| 12          | ProblemsWithCreditCard       |
-| 13          | CardCanceled                 |
-| 14          | BlockedCreditCard            |
-| 15          | CardExpired                  |
-| 16          | AbortedByFraud               |
-| 17          | CouldNotAntifraud            |
-| 18          | TryAgain                     |
-| 19          | InvalidAmount                |
-| 20          | ProblemsWithIssuer           |
-| 21          | InvalidCardNumber            |
-| 22          | TimeOut                      |
-| 23          | CartaoProtegidoIsNotEnabled  |
-| 24          | PaymentMethodIsNotEnabled    |
-| 98          | InvalidRequest               |
-| 99          | InternalError                |
+|Reason Code|Reason Message|
+|---|---|
+|0|Successful|
+|1|AffiliationNotFound|
+|2|IssuficientFunds|
+|3|CouldNotGetCreditCard|
+|4|ConnectionWithAcquirerFailed|
+|5|InvalidTransactionType|
+|6|InvalidPaymentPlan|
+|7|Denied|
+|8|Scheduled|
+|9|Waiting|
+|10|Authenticated|
+|11|NotAuthenticated|
+|12|ProblemsWithCreditCard|
+|13|CardCanceled|
+|14|BlockedCreditCard|
+|15|CardExpired|
+|16|AbortedByFraud|
+|17|CouldNotAntifraud|
+|18|TryAgain|
+|19|InvalidAmount|
+|20|ProblemsWithIssuer|
+|21|InvalidCardNumber|
+|22|TimeOut|
+|23|CartaoProtegidoIsNotEnabled|
+|24|PaymentMethodIsNotEnabled|
+|98|InvalidRequest|
+|99|InternalError|
+
+### Error messages and codes - Pix
+
+| CODE | EVENT | MESSAGE | DESCRIPTION/ACTION |
+|---|---|---|---|
+|422|Authorization|Error on Merchant Integration|Verify that the Pix is enabled in your registration|
+|422|Authorization|Error on bki service integration for charge|Pix Banks Transaction Error, contact E-commerce Support|
+|BP904|Authorization|The json entered is not valid|Contact E-commerce Support to assess the reason.|
+|BP901|Authorization|Operation failed|Redo the payment, if it persists, contact e-commerce support|
+|422|Cancellation|Error on pix service integration for moneyback|It is not possible to cancel the transaction, The return will only occur if there is a balance.|
+|422|Cancellation|Merchant bank for moneyback is not Cielo|Pix Banco transaction does not allow cancellation operations|
 
 # Annexes
 
