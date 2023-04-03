@@ -16155,9 +16155,7 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
 
 <p>Merchants who do not follow the rules will be penalized by charging fees for exceeded transactions, in accordance with each brand program.</p>
 
-<p>Aiming to improve the shopping experience, the payment methods industry, together with ABECS, promoted the standardization of the response codes for rejected transactions made by card.</p>
-
-<p>Attempts are classified as:</p>
+<p>Aiming to improve the shopping experience, the payment methods industry, together with ABECS, promoted the standardization of the response codes for rejected transactions made by card. Attempts are classified as:</p>
 
 <ul>
   <li><strong>Irreversible: Never retry.</strong></li>
@@ -16169,8 +16167,9 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
   <li><strong>Reversible: Retry allowed.</strong></li>
 </ul>
 
-<p>It means that the issuer can approve, but cannot do so now, possibly due to a system issue (down) or lack of limit, suspected fraud or exceeded number of password attempts. These are temporary opt-out decisions made by the issuer that may change over time.
-The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the number of authorization attempts for a denied transaction. These changes provide for the charging of fees for excessive attempts. Below are the rules for each brand.</p>
+<p>It means that the issuer can approve, but cannot do so now, possibly due to a system issue (down) or lack of limit, suspected fraud or exceeded number of password attempts. These are temporary opt-out decisions made by the issuer that may change over time.</p>
+
+<p>The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the number of authorization attempts for a denied transaction. These changes provide for the charging of fees for excessive attempts. Below are the rules for each brand.</p>
 
 <h3 id="mastercard">Mastercard</h3>
 
@@ -16185,13 +16184,15 @@ The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the
   </li>
 </ul>
 
-<p><strong>1. Excessive Attempts</strong></p>
+<h4 id="1-excessive-attempts"><strong>1. Excessive Attempts</strong></h4>
 
 <p>These are charges made when the merchant exceeds the rules for retrying transactions.</p>
 
 <p>The brand also performs monitoring for any approved nominal value authorization, with subsequent reversal for transactions below 1 unit of whole currency or the equivalent of US$ 1.</p>
 
 <p>Monitoring is applied to retry transactions for denied and approved purchases, carried out in a present and non-present card environment.</p>
+
+<p><strong>Excessive Attempts Table</strong></p>
 
 <table>
   <thead>
@@ -16248,7 +16249,7 @@ The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the
   <p>Note: The current rule of the Excessive Attempts program is valid until 01/31/2023, where only 10 attempts to approve the same transaction are allowed (on the same card, and same merchant number), with retry allowed after 24 hours.</p>
 </blockquote>
 
-<p><strong>2. Merchant Advice Code Transaction Excellence (MAC)</strong></p>
+<h4 id="2-merchant-advice-code-transaction-excellence-mac">2. Merchant Advice Code Transaction Excellence (MAC)</h4>
 
 <p>These are charges made when the establishment re-attempts to send authorization for irreversible response codes with the same valid card for a card not present.</p>
 
@@ -16259,6 +16260,8 @@ The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the
 <p>The other MAC codes: 01, 02, 04, 24, 25, 26, 27, 28, 29 and 30 aren’t included the MAC billing program but are included in the Excessive Attempts program billing if you exceed the limits.</p>
 
 <p>Since <strong>10/14/2022</strong> Mastercard has introduced new MAC codes 24, 25, 26, 27, 28, 29 and 30, when an issuer declines a transaction with the response code 51 (Insufficient Funds) followed by one of the MACs below, for the merchant to take the best action.</p>
+
+<p><strong>MACs codes table</strong></p>
 
 <table>
   <thead>
@@ -16350,9 +16353,9 @@ The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the
 <p>Mastercard may consolidate some issuer response codes, which often may not indicate to the merchant whether or not to retry, into 3 codes for Mastercard exclusive use:</p>
 
 <ul>
-  <li>79 (Life cycle)</li>
-  <li>82 (Politics)</li>
-  <li>83 (Fraud/Security)</li>
+  <li><strong>79</strong> (Life cycle)</li>
+  <li><strong>82</strong> (Policy)</li>
+  <li><strong>83</strong> (Fraud/Security)</li>
 </ul>
 
 <p>The original codes will be replaced by the Merchant Advice Code (MAC), which will accompany codes 79, 82 and 83 to determine whether or not the transaction can be re-attempted.</p>
@@ -16378,7 +16381,7 @@ The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the
 
 <p><strong>MAC 03 and MAC 21 retry program</strong></p>
 
-<p>** Method of calculation: **</p>
+<p><strong>Method of calculation:</strong></p>
 
 <ul>
   <li>Card not present transactions will be considered;</li>
@@ -16421,34 +16424,44 @@ The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the
   <li>After an approved transaction, the counter is reset.</li>
 </ul>
 
-<p><strong>Fees</strong>: When you exceed the attempt limits established by the brand, a fee will be charged for each transaction that exceeds it.</p>
-
-<ul>
-  <li>Domestic: USD 0.10 + 13.83% Tax</li>
-  <li>Foreign: USD 0.25 + 13.83% Tax</li>
-</ul>
+<blockquote>
+  <p><strong>Fees</strong>: When you exceed the attempt limits established by the brand, a fee will be charged for each transaction that exceeds it.<br />
+<br /></p>
+  <ul>
+    <li><strong>Domestic</strong>: USD 0.10 + 13.83% Tax</li>
+    <li><strong>Foreign</strong>: USD 0.25 + 13.83% Tax</li>
+  </ul>
+</blockquote>
 
 <p>Authorization rules already in force. Fee charges apply from April 2021.</p>
 
 <p><strong>Visa has grouped return codes into 4 Categories.</strong></p>
 
-<p><strong>Category 1 - Issuer will never approve.</strong></p>
+<ul>
+  <li><strong>Category 1 - Issuer will never approve.</strong></li>
+</ul>
 
 <p>For this category, it indicates that the card was canceled or never existed or that the non-approval is the result of a permanent restriction or error condition that will prevent future approval.</p>
 
-<p><strong>Category 2 - Issuer cannot approve at this time.</strong></p>
+<ul>
+  <li><strong>Category 2 - Issuer cannot approve at this time.</strong></li>
+</ul>
 
 <p>Indicates that the denial is the result of a temporary condition such as credit risk, issuer speed controls, or other card restrictions that may allow a retry transaction to be approved. In some cases, denial requires action by the shopper or issuer to remove the restriction before an approval can be obtained.</p>
 
-<p><strong>Category 3 - Data Quality/Review Data.</strong></p>
+<ul>
+  <li><strong>Category 3 - Data Quality/Review Data.</strong></li>
+</ul>
 
 <p>When a data error is identified by the issuer, this transaction is declined accordingly. Merchants must revalidate payment data before retrying. Merchants and Acquirers should monitor these negative codes due to potential exposure to fraud.</p>
 
 <blockquote>
-  <p>Attention: Category 3 has, in addition to the limits considered in category 2, a different limit, where it is cumulative. An establishment can carry out up to 10,000 transactions in a period of 30 days (in this case, considering only the establishment number and denial codes). If you exceed the limit, all category 3 declined transactions will be charged.</p>
+  <p><strong>Attention</strong>: Category 3 has, in addition to the limits considered in category 2, a different limit, where it is cumulative. An establishment can carry out up to 10,000 transactions in a period of 30 days (in this case, considering only the establishment number and denial codes). If you exceed the limit, all category 3 declined transactions will be charged.</p>
 </blockquote>
 
-<p><strong>Category 4 - Generic Response Codes.</strong></p>
+<ul>
+  <li><strong>Category 4 - Generic Response Codes.</strong></li>
+</ul>
 
 <p>Category 4 includes all other decline response codes, many of which provide little or no value to Acquirers/Merchants as part of their retry strategy. Issuer usage should remain minimal.</p>
 
@@ -16468,7 +16481,7 @@ The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the
 
 <p><strong>Example:</strong> We had 10,000 transactions denied in a CE with category 3 codes, if transaction 10,001 is in code 14 or in any category 3 group code, it will be charged regardless of the card.</p>
 
-<h3 id="elo">ELO</h3>
+<h3 id="elo">Elo</h3>
 
 <p><strong>What is it?</strong></p>
 
@@ -16477,14 +16490,66 @@ The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the
 <p><strong>Forms of Calculation</strong></p>
 
 <ul>
-  <li>Retries: all payment transactions on the same card, validity, value, Merchant ID (MID) - within 30 days</li>
-  <li>Accounted codes: all negatives​</li>
-  <li>Excess: from the 16th retry in the month​*</li>
-  <li>Fee: BRL 0.80 (eighty cents) per retry, starting from the 16th</li>
-  <li>Excess accounting: It is based on Elo’s internal controls. 1st to last calendar day of the month</li>
+  <li><strong>Retries</strong>: all payment transactions on the same card, validity, value, Merchant ID (MID) - within 30 days</li>
+  <li><strong>Accounted codes</strong>: all negatives​</li>
+  <li><strong>Excess</strong>: from the 16th retry in the month​*</li>
+  <li><strong>Fee</strong>: BRL 0.80 (eighty cents) per retry, starting from the 16th</li>
+  <li><strong>Billing</strong>: The billing will only be done in cases of recurrence, therefore, the establishment must be at least 2 consecutive months in the program.</li>
+  <li><strong>Excess accounting</strong>: It is based on Elo’s internal controls. 1st to last calendar day of the month.</li>
 </ul>
 
-<p><strong>Effective date: August 1, 2022</strong></p>
+<p><strong>Table of retries for the Elo brand</strong></p>
+
+<p>The following table exemplifies how the brand will be charged:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Month</th>
+      <th>Scenario</th>
+      <th>Billing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1st (August)</td>
+      <td>EC exceeds limits</td>
+      <td>Warning</td>
+    </tr>
+    <tr>
+      <td>2nd (September)</td>
+      <td>EC does not exceed limits</td>
+      <td>Does not generate charges</td>
+    </tr>
+    <tr>
+      <td>3rd (October)</td>
+      <td>EC exceeds limits</td>
+      <td>In this case you will be warned again. The charge will only be made in case of recurrence.</td>
+    </tr>
+    <tr>
+      <td>4th (November)</td>
+      <td>EC exceeds limits</td>
+      <td>Application of the fine</td>
+    </tr>
+    <tr>
+      <td>5th (December)</td>
+      <td>EC exceeds limits</td>
+      <td>Application of the fine</td>
+    </tr>
+    <tr>
+      <td>6th (January)</td>
+      <td>EC does not exceed limits</td>
+      <td>Does not generate charges</td>
+    </tr>
+    <tr>
+      <td>7th (February)</td>
+      <td>EC exceeds limits</td>
+      <td>You will be warned again.</td>
+    </tr>
+  </tbody>
+</table>
+
+<aside class="notice">Effective date: August 1st 2022.</aside>
 
 <p><strong>List of refusal codes:</strong></p>
 
@@ -16574,7 +16639,7 @@ The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the
     </tr>
     <tr>
       <td>51</td>
-      <td>LIMIT/INSUFFICIENT BALANCE</td>
+      <td>INSUFFICIENT BALANCE/LIMIT</td>
       <td>- This code must be used by the issuer for a card that is temporarily without enough balance or limit to carry out the transaction.<br />- Withdrawal/advance 2 without track 2<br />- Purchase with change not supported.<br />- Address verification not supported (only when process code is “13” with no purchase value). * Card account verification not supported (only when process code is “18” with no purchase amount).</td>
       <td>Reversible</td>
     </tr>
@@ -16592,21 +16657,15 @@ The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the
     </tr>
     <tr>
       <td>56</td>
-      <td>WITHOUT CARD REGISTRATION</td>
+      <td>CARD WITHOUT REGISTRATION</td>
       <td><br />1. Card number does not belong to the issuer<br />2. Card number is not valid</td>
       <td>Irreversible</td>
     </tr>
     <tr>
       <td>57</td>
       <td>TRANSACTION NOT ALLOWED FOR THIS CARD</td>
-      <td>- This code must be used by the Issuer when the card is definitively blocked, except for blocking for loss and theft that already have specific codes (eg death, confirmed fraud, definitive cancellation at the customer’s request , etc).<br />- This code must be used for products and services not supported by the card issuer.<br />- This code can be used for invalid/suspended/inactive token.<br />- This code must be used to negate the fallback</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>input mode.</td>
+      <td>- This code must be used by the Issuer when the card is definitively blocked, except for blocking for loss and theft that already have specific codes (eg death, confirmed fraud, definitive cancellation at the customer’s request , etc).<br />- This code must be used for products and services not supported by the card issuer.<br />- This code can be used for invalid/suspended/inactive token.<br />- This code must be used to negate the fallback input mode.</td>
       <td>Irreversible</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td>58</td>
@@ -16766,35 +16825,29 @@ The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the
 
 <p><strong>Rules:</strong></p>
 
-<ul>
-  <li>
-    <p>ASI transactions: these are Account Status Inquiry transactions, that is, transactions carried out to query the status of a card (check that it is active). For this purpose, financial transactions should not be used, but specific transactions.​</p>
-  </li>
-  <li>
-    <p>Attempts per day (item 2): consider for purposes of Hipercard’s Retry program from 00:00 to 23:59​</p>
-  </li>
-  <li>
-    <p>Reference month (item 3): for purposes of the Hipercard Retry program, consider the 01st to the 30th or 31st of the month in which the transaction took place. The charge will be sent after the close of the subsequent month.​</p>
-  </li>
-  <li>
-    <p>Transaction codes considered irreversible by the issuer were categorized by the ABECS payments and self-regulation industry, through current Regulation 21. Return codes (ABECS)</p>
-  </li>
-  <li>
-    <p>Codes not mentioned in the ABECS manual are considered reversible.</p>
-  </li>
-</ul>
+<ol>
+  <li><strong>ASI transactions</strong>: these are Account Status Inquiry transactions, that is, transactions carried out to query the status of a card (check that it is active). For this purpose, financial transactions should not be used, but specific transactions.​</li>
+  <li><strong>Attempts per day (item 2)</strong>: consider for purposes of Hipercard’s Retry program from 00:00 to 23:59​</li>
+  <li><strong>Reference month (item 3)</strong>: for purposes of the Hipercard Retry program, consider the 01st to the 30th or 31st of the month in which the transaction took place. The charge will be sent after the close of the subsequent month.​</li>
+  <li><strong>Transaction codes</strong> considered <strong>irreversible by the issuer</strong> were categorized by the ABECS payments and self-regulation industry, through current Regulation 21. Return codes (ABECS)</li>
+  <li><strong>Codes not mentioned in the ABECS manual are considered reversible.</strong></li>
+</ol>
 
-<p><strong>Effective date: September 15, 2022</strong></p>
+<aside class="notice">Effective date: September 15th 2022.</aside>
 
 <h3 id="other-brands">Other brands</h3>
 
-<p><strong>Reversible codes:</strong> New attempts will be allowed for the same customer and card. There is no limit and pre-established period;</p>
+<ul>
+  <li><strong>Reversible codes:</strong> New attempts will be allowed for the same customer and card. There is no limit and pre-established period;</li>
+</ul>
 
 <blockquote>
   <p><strong>Important: you should follow the guidance received in the response to the transaction denied, before making a new attempt.</strong></p>
 </blockquote>
 
-<p><strong>Irreversible Codes:</strong> Authorizations will not be allowed for the same card or establishment, after receiving the 1st refusal response from the issuer.</p>
+<ul>
+  <li><strong>Irreversible Codes:</strong> Authorizations will not be allowed for the same card or establishment, after receiving the 1st refusal response from the issuer.</li>
+</ul>
 
 <h2 id="return-codes-abecs">Return codes ABECS</h2>
 
