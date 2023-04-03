@@ -8888,142 +8888,147 @@ Cielo informs its customers that it's prepared to process transactions following
 
 Codes returned in case of error, identifying the reason for the error and its respective messages.
 
-| Code | Message                                                                                                        | Description                                                                                      |
-| ---- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| 0    | Internal error                                                                                                 | Sent data exceeds field size                                                                     |
-| 100  | RequestId is required                                                                                          | Sent field is empty or invalid                                                                   |
-| 101  | MerchantId is required                                                                                         | Sent field is empty or invalid                                                                   |
-| 102  | Payment Type is required                                                                                       | Sent field is empty or invalid                                                                   |
-| 103  | Payment Type can only contain letters                                                                          | Special characters not allowed                                                                   |
-| 104  | Customer Identity is required                                                                                  | Sent field is empty or invalid                                                                   |
-| 105  | Customer Name is required                                                                                      | Sent field is empty or invalid                                                                   |
-| 106  | Transaction ID is required                                                                                     | Sent field is empty or invalid                                                                   |
-| 107  | OrderId is invalid or does not exists                                                                          | Sent field exceeds size or contains special characters                                           |
-| 108  | Amount must be greater or equal to zero                                                                        | Transaction value must be greater than "0"                                                       |
-| 109  | Payment Currency is required                                                                                   | Sent field is empty or invalid                                                                   |
-| 110  | Invalid Payment Currency                                                                                       | Sent field is empty or invalid                                                                   |
-| 111  | Payment Country is required                                                                                    | Sent field is empty or invalid                                                                   |
-| 112  | Invalid Payment Country                                                                                        | Sent field is empty or invalid                                                                   |
-| 113  | Invalid Payment Code                                                                                           | Sent field is empty or invalid                                                                   |
-| 114  | The provided MerchantId is not in correct format                                                               | The sent MerchantId is not a GUID                                                                |
-| 115  | The provided MerchantId was not found                                                                          | MerchantID does not exist or belongs to another environment (e.g. Sandbox)                       |
-| 116  | The provided MerchantId is blocked                                                                             | Locked store, contact Cielo support                                                              |
-| 117  | Credit Card Holder is required                                                                                 | Sent field is empty or invalid                                                                   |
-| 118  | Credit Card Number is required                                                                                 | Sent field is empty or invalid                                                                   |
-| 119  | At least one Payment is required                                                                               | "Payment" node not sent                                                                          |
-| 120  | Request IP not allowed. Check your IP White List                                                               | IP blocked for security reasons                                                                  |
-| 121  | Customer is required                                                                                           | "Customer" node not sent                                                                         |
-| 122  | MerchantOrderId is required                                                                                    | Sent field is empty or invalid                                                                   |
-| 123  | Installments must be greater or equal to one                                                                   | Number of installments must be greater than 1                                                    |
-| 124  | Credit Card is Required                                                                                        | Sent field is empty or invalid                                                                   |
-| 125  | Credit Card Expiration Date is required                                                                        | Sent field is empty or invalid                                                                   |
-| 126  | Credit Card Expiration Date is invalid                                                                         | Sent field is empty or invalid                                                                   |
-| 127  | You must provide CreditCard Number                                                                             | Credit card number is required                                                                   |
-| 128  | Card Number length exceeded                                                                                    | Card number greater than 16 digits                                                               |
-| 129  | Affiliation not found                                                                                          | Payment means not linked to store or invalid Provider                                            |
-| 130  | Could not get Credit Card                                                                                      | ---                                                                                              |
-| 131  | MerchantKey is required                                                                                        | Sent field is empty or invalid                                                                   |
-| 132  | MerchantKey is invalid                                                                                         | Sent Merchantkey is not a valid one                                                              |
-| 133  | Provider is not supported for this Payment Type                                                                | Sent Provider does not exist                                                                     |
-| 134  | FingerPrint length exceeded                                                                                    | Sent data exceeds field size                                                                     |
-| 135  | MerchantDefinedFieldValue length exceeded                                                                      | Sent data exceeds field size                                                                     |
-| 136  | ItemDataName length exceeded                                                                                   | Sent data exceeds field size                                                                     |
-| 137  | ItemDataSKU length exceeded                                                                                    | Sent data exceeds field size                                                                     |
-| 138  | PassengerDataName length exceeded                                                                              | Sent data exceeds field size                                                                     |
-| 139  | PassengerDataStatus length exceeded                                                                            | Sent data exceeds field size                                                                     |
-| 140  | PassengerDataEmail length exceeded                                                                             | Sent data exceeds field size                                                                     |
-| 141  | PassengerDataPhone length exceeded                                                                             | Sent data exceeds field size                                                                     |
-| 142  | TravelDataRoute length exceeded                                                                                | Sent data exceeds field size                                                                     |
-| 143  | TravelDataJourneyType length exceeded                                                                          | Sent data exceeds field size                                                                     |
-| 144  | TravelLegDataDestination length exceeded                                                                       | Sent data exceeds field size                                                                     |
-| 145  | TravelLegDataOrigin length exceeded                                                                            | Sent data exceeds field size                                                                     |
-| 146  | SecurityCode length exceeded                                                                                   | Sent data exceeds field size                                                                     |
-| 147  | Address Street length exceeded                                                                                 | Sent data exceeds field size                                                                     |
-| 148  | Address Number length exceeded                                                                                 | Sent data exceeds field size                                                                     |
-| 149  | Address Complement length exceeded                                                                             | Sent data exceeds field size                                                                     |
-| 150  | Address ZipCode length exceeded                                                                                | Sent data exceeds field size                                                                     |
-| 151  | Address City length exceeded                                                                                   | Sent data exceeds field size                                                                     |
-| 152  | Address State length exceeded                                                                                  | Sent data exceeds field size                                                                     |
-| 153  | Address Country length exceeded                                                                                | Sent data exceeds field size                                                                     |
-| 154  | Address District length exceeded                                                                               | Sent data exceeds field size                                                                     |
-| 155  | Customer Name length exceeded                                                                                  | Sent data exceeds field size                                                                     |
-| 156  | Customer Identity length exceeded                                                                              | Sent data exceeds field size                                                                     |
-| 157  | Customer IdentityType length exceeded                                                                          | Sent data exceeds field size                                                                     |
-| 158  | Customer Email length exceeded                                                                                 | Sent data exceeds field size                                                                     |
-| 159  | ExtraData Name length exceeded                                                                                 | Sent data exceeds field size                                                                     |
-| 160  | ExtraData Value length exceeded                                                                                | Sent data exceeds field size                                                                     |
-| 161  | Boleto Instructions length exceeded                                                                            | Sent data exceeds field size                                                                     |
-| 162  | Boleto Demostrative length exceeded                                                                            | Sent data exceeds field size                                                                     |
-| 163  | Return Url is required                                                                                         | Return URL is not valid - No pagination or extensions are accepted (e.g. .PHP) in the return URL |
-| 166  | AuthorizeNow is required                                                                                       | ---                                                                                              |
-| 167  | Antifraud not configured                                                                                       | Antifraud not linked to the merchant's registry                                                  |
-| 168  | Recurrent Payment not found                                                                                    | Recurrence not found                                                                             |
-| 169  | Recurrent Payment is not active                                                                                | Recurrence is not active. Paralyzed execution                                                    |
-| 170  | Protected Card not configured                                                                                  | Protected card not linked to merchant's registry                                                 |
-| 171  | Affiliation data not sent                                                                                      | Order processing failed - Contact Cielo support                                                  |
-| 172  | Credential Code is required                                                                                    | Failed to validate the sent credentials                                                          |
-| 173  | Payment method is not enabled                                                                                  | Means of payment not linked to the merchant's registry                                           |
-| 174  | Card Number is required                                                                                        | Sent field is empty or invalid                                                                   |
-| 175  | EAN is required                                                                                                | Sent field is empty or invalid                                                                   |
-| 176  | Payment Currency is not supported                                                                              | Sent field is empty or invalid                                                                   |
-| 177  | Card Number is invalid                                                                                         | Sent field is empty or invalid                                                                   |
-| 178  | EAN is invalid                                                                                                 | Sent field is empty or invalid                                                                   |
-| 179  | The max number of installments allowed for recurring payment is 1                                              | Sent field is empty or invalid                                                                   |
-| 180  | The provided Card PaymentToken was not found                                                                   | Protected Card Token not found                                                                   |
-| 181  | The MerchantIdJustClick is not configured                                                                      | Protected Card Token locked                                                                      |
-| 182  | Brand is required                                                                                              | Card issuer not sent                                                                             |
-| 183  | Invalid customer bithdate                                                                                      | Invalid or future date of birth                                                                  |
-| 184  | Request could not be empty                                                                                     | Failure of the request format. Check the sent code                                               |
-| 185  | Brand is not supported by selected provider                                                                    | Card issuer not supported by API Cielo                                                           |
-| 186  | The selected provider does not support the options provided (Capture, Authenticate, Recurrent or Installments) | Payment means does not support the sent command                                                  |
-| 187  | ExtraData Collection contains one or more duplicated names                                                     | ---                                                                                              |
-| 193  | Split Amount must be greater than zero                                                                         | Value for SPLIT realization must be greater than 0                                               |
-| 194  | Split Establishment is Required                                                                                | SPLIT not enabled for store registration                                                         |
-| 195  | The PlataformId is required                                                                                    | Platforms validated not sent                                                                     |
-| 196  | DeliveryAddress is required                                                                                    | Required field not sent                                                                          |
-| 197  | Street is required                                                                                             | Required field not sent                                                                          |
-| 198  | Number is required                                                                                             | Required field not sent                                                                          |
-| 199  | ZipCode is required                                                                                            | Required field not sent                                                                          |
-| 200  | City is required                                                                                               | Required field not sent                                                                          |
-| 201  | State is required                                                                                              | Required field not sent                                                                          |
-| 202  | District is required                                                                                           | Required field not sent                                                                          |
-| 203  | Cart item Name is required                                                                                     | Required field not sent                                                                          |
-| 204  | Cart item Quantity is required                                                                                 | Required field not sent                                                                          |
-| 205  | Cart item type is required                                                                                     | Required field not sent                                                                          |
-| 206  | Cart item name length exceeded                                                                                 | Sent data exceeds field size                                                                     |
-| 207  | Cart item description length exceeded                                                                          | Sent data exceeds field size                                                                     |
-| 208  | Cart item sku length exceeded                                                                                  | Sent data exceeds field size                                                                     |
-| 209  | Shipping addressee sku length exceeded                                                                         | Sent data exceeds field size                                                                     |
-| 210  | Shipping data cannot be null                                                                                   | Required field not sent                                                                          |
-| 211  | WalletKey is invalid                                                                                           | Invalid Visa Checkout data                                                                       |
-| 212  | Merchant Wallet Configuration not found                                                                        | Sent Wallet data is not valid                                                                    |
-| 213  | Credit Card Number is invalid                                                                                  | Sent credit card is invalid                                                                      |
-| 214  | Credit Card Holder Must Have Only Letters                                                                      | Card carrier must not contain special characters                                                 |
-| 215  | Agency is required in Boleto Credential                                                                        | Required field not sent                                                                          |
-| 216  | Customer IP address is invalid                                                                                 | IP blocked for security reasons                                                                  |
-| 300  | MerchantId was not found                                                                                       | ---                                                                                              |
-| 301  | Request IP is not allowed                                                                                      | ---                                                                                              |
-| 302  | Sent MerchantOrderId is duplicated                                                                             | ---                                                                                              |
-| 303  | Sent OrderId does not exist                                                                                    | ---                                                                                              |
-| 304  | Customer Identity is required                                                                                  | ---                                                                                              |
-| 306  | Merchant is blocked                                                                                            | ---                                                                                              |
-| 307  | Transaction not found                                                                                          | Transaction not found or does not exist in the environment.                                      |
-| 308  | Transaction not available to capture                                                                           | Transaction can not be captured - Contact Cielo support                                          |
-| 309  | Transaction not available to void                                                                              | Transaction can not be canceled - Contact Cielo support                                          |
-| 310  | Payment method doest not support this operation                                                                | Sent command not supported by payment means                                                      |
-| 311  | Refund is not enabled for this merchant                                                                        | Cancellation after 24 hours not released to the merchant                                         |
-| 312  | Transaction not available to refund                                                                            | Transaction does not allow cancellation after 24 hours                                           |
-| 313  | Recurrent Payment not found                                                                                    | Recurrent transaction not found or not available in the environment                              |
-| 314  | Invalid Integration                                                                                            | ---                                                                                              |
-| 315  | Cannot change NextRecurrency with pending payment                                                              | ---                                                                                              |
-| 316  | Cannot set NextRecurrency to past date                                                                         | It is not allowed to change the recurrence date to a past date                                   |
-| 317  | Invalid Recurrency Day                                                                                         | ---                                                                                              |
-| 318  | No transaction found                                                                                           | ---                                                                                              |
-| 319  | Smart recurrency is not enabled                                                                                | Recurrence not linked to the merchant's registration                                             |
-| 320  | Can not Update Affiliation Because this Recurrency not Affiliation saved                                       | ---                                                                                              |
-| 321  | Can not set EndDate to before next recurrency.                                                                 | ---                                                                                              |
-| 322  | Zero Dollar Auth is not enabled                                                                                | Zero Dollar not linked to the merchant's registration                                            |
-| 323  | Bin Query is not enabled                                                                                       | Bins query not linked to the merchant's registration                                             |
+|Code|Message|Description|
+|---|---|---|
+|0|Internal error|Sent data exceeds field size|
+|100|RequestId is required|Sent field is empty or invalid|
+|101|MerchantId is required|Sent field is empty or invalid|
+|102|Payment Type is required|Sent field is empty or invalid|
+|103|Payment Type can only contain letters|Special characters not allowed|
+|104|Customer Identity is required|Sent field is empty or invalid|
+|105|Customer Name is required|Sent field is empty or invalid|
+|106|Transaction ID is required|Sent field is empty or invalid|
+|107|OrderId is invalid or does not exists|Sent field exceeds size or contains special characters|
+|108|Amount must be greater or equal to zero|Transaction value must be greater than "0"|
+|109|Payment Currency is required|Sent field is empty or invalid|
+|110|Invalid Payment Currency|Sent field is empty or invalid|
+|111|Payment Country is required|Sent field is empty or invalid|
+|112|Invalid Payment Country|Sent field is empty or invalid|
+|113|Invalid Payment Code|Sent field is empty or invalid|
+|114|The provided MerchantId is not in correct format|The sent MerchantId is not a GUID|
+|115|The provided MerchantId was not found|MerchantID does not exist or belongs to another environment (e.g. Sandbox)|
+|116|The provided MerchantId is blocked|Locked store, contact Cielo support|
+|117|Credit Card Holder is required|Sent field is empty or invalid|
+|118|Credit Card Number is required|Sent field is empty or invalid|
+|119|At least one Payment is required|"Payment" node not sent|
+|120|Request IP not allowed. Check your IP White List|IP blocked for security reasons|
+|121|Customer is required|"Customer" node not sent|
+|122|MerchantOrderId is required|Sent field is empty or invalid|
+|123|Installments must be greater or equal to one|Number of installments must be greater than 1|
+|124|Credit Card is Required|Sent field is empty or invalid|
+|125|Credit Card Expiration Date is required|Sent field is empty or invalid|
+|126|Credit Card Expiration Date is invalid|Sent field is empty or invalid|
+|127|You must provide CreditCard Number|Credit card number is required|
+|128|Card Number length exceeded|Card number greater than 16 digits|
+|129|Affiliation not found|Payment means not linked to store or invalid Provider|
+|130|Could not get Credit Card|---|
+|131|MerchantKey is required|Sent field is empty or invalid|
+|132|MerchantKey is invalid|Sent Merchantkey is not a valid one|
+|133|Provider is not supported for this Payment Type|Sent Provider does not exist|
+|134|FingerPrint length exceeded|Sent data exceeds field size|
+|135|MerchantDefinedFieldValue length exceeded|Sent data exceeds field size|
+|136|ItemDataName length exceeded|Sent data exceeds field size|
+|137|ItemDataSKU length exceeded|Sent data exceeds field size|
+|138|PassengerDataName length exceeded|Sent data exceeds field size|
+|139|PassengerDataStatus length exceeded|Sent data exceeds field size|
+|140|PassengerDataEmail length exceeded|Sent data exceeds field size|
+|141|PassengerDataPhone length exceeded|Sent data exceeds field size|
+|142|TravelDataRoute length exceeded|Sent data exceeds field size|
+|143|TravelDataJourneyType length exceeded|Sent data exceeds field size|
+|144|TravelLegDataDestination length exceeded|Sent data exceeds field size|
+|145|TravelLegDataOrigin length exceeded|Sent data exceeds field size|
+|146|SecurityCode length exceeded|Sent data exceeds field size|
+|147|Address Street length exceeded|Sent data exceeds field size|
+|148|Address Number length exceeded|Sent data exceeds field size|
+|149|Address Complement length exceeded|Sent data exceeds field size|
+|150|Address ZipCode length exceeded|Sent data exceeds field size|
+|151|Address City length exceeded|Sent data exceeds field size|
+|152|Address State length exceeded|Sent data exceeds field size|
+|153|Address Country length exceeded|Sent data exceeds field size|
+|154|Address District length exceeded|Sent data exceeds field size|
+|155|Customer Name length exceeded|Sent data exceeds field size|
+|156|Customer Identity length exceeded|Sent data exceeds field size|
+|157|Customer IdentityType length exceeded|Sent data exceeds field size|
+|158|Customer Email length exceeded|Sent data exceeds field size|
+|159|ExtraData Name length exceeded|Sent data exceeds field size|
+|160|ExtraData Value length exceeded|Sent data exceeds field size|
+|161|Boleto Instructions length exceeded|Sent data exceeds field size|
+|162|Boleto Demostrative length exceeded|Sent data exceeds field size|
+|163|Return Url is required|Return URL is not valid - No pagination or extensions are accepted (e.g. .PHP) in the return URL|
+|166|AuthorizeNow is required|---|
+|167|Antifraud not configured|Antifraud not linked to the merchant's registry|
+|168|Recurrent Payment not found|Recurrence not found|
+|169|Recurrent Payment is not active|Recurrence is not active. Paralyzed execution|
+|170|Protected Card not configured|Protected card not linked to merchant's registry|
+|171|Affiliation data not sent|Order processing failed - Contact Cielo support|
+|172|Credential Code is required|Failed to validate the sent credentials|
+|173|Payment method is not enabled|Means of payment not linked to the merchant's registry|
+|174|Card Number is required|Sent field is empty or invalid|
+|175|EAN is required|Sent field is empty or invalid|
+|176|Payment Currency is not supported|Sent field is empty or invalid|
+|177|Card Number is invalid|Sent field is empty or invalid|
+|178|EAN is invalid|Sent field is empty or invalid|
+|179|The max number of installments allowed for recurring payment is 1|Sent field is empty or invalid|
+|180|The provided Card PaymentToken was not found|Protected Card Token not found|
+|181|The MerchantIdJustClick is not configured|Protected Card Token locked|
+|182|Brand is required|Card issuer not sent|
+|183|Invalid customer bithdate|Invalid or future date of birth|
+|184|Request could not be empty|Failure of the request format. Check the sent code|
+|185|Brand is not supported by selected provider|Card issuer not supported by API Cielo|
+|186|The selected provider does not support the options provided (Capture, Authenticate, Recurrent or Installments)|Payment means does not support the sent command|
+|187|ExtraData Collection contains one or more duplicated names|---|
+| 188    | Avs with CPF invalid                                                                                           |                                                                                               |
+| 189    | Avs with length of street exceeded                                                                             |                                                                                               |
+| 190    | Avs with length of number exceeded                                                                             |                                                                                               |
+| 191    | Avs with length of district exceeded                                                                           |                                                                                               |
+| 192    | Avs with zip code invalid                                                                                      |                                                                                               |
+|193|Split Amount must be greater than zero|Value for SPLIT realization must be greater than 0|
+|194|Split Establishment is Required|SPLIT not enabled for store registration|
+|195|The PlataformId is required|Platforms validated not sent|
+|196|DeliveryAddress is required|Required field not sent|
+|197|Street is required|Required field not sent|
+|198|Number is required|Required field not sent|
+|199|ZipCode is required|Required field not sent|
+|200|City is required|Required field not sent|
+|201|State is required|Required field not sent|
+|202|District is required|Required field not sent|
+|203|Cart item Name is required|Required field not sent|
+|204|Cart item Quantity is required|Required field not sent|
+|205|Cart item type is required|Required field not sent|
+|206|Cart item name length exceeded|Sent data exceeds field size|
+|207|Cart item description length exceeded|Sent data exceeds field size|
+|208|Cart item sku length exceeded|Sent data exceeds field size|
+|209|Shipping addressee sku length exceeded|Sent data exceeds field size|
+|210|Shipping data cannot be null|Required field not sent|
+|211|WalletKey is invalid|Invalid Visa Checkout data|
+|212|Merchant Wallet Configuration not found|Sent Wallet data is not valid|
+|213|Credit Card Number is invalid|Sent credit card is invalid|
+|214|Credit Card Holder Must Have Only Letters|Card carrier must not contain special characters|
+|215|Agency is required in Boleto Credential|Required field not sent|
+|216|Customer IP address is invalid|IP blocked for security reasons|
+|300|MerchantId was not found|---|
+|301|Request IP is not allowed|---|
+|302|Sent MerchantOrderId is duplicated|---|
+|303|Sent OrderId does not exist|---|
+|304|Customer Identity is required|---|
+|306|Merchant is blocked|---|
+|307|Transaction not found|Transaction not found or does not exist in the environment.|
+|308|Transaction not available to capture|Transaction can not be captured - Contact Cielo support|
+|309|Transaction not available to void|Transaction can not be canceled - Contact Cielo support|
+|310|Payment method doest not support this operation|Sent command not supported by payment means|
+|311|Refund is not enabled for this merchant|Cancellation after 24 hours not released to the merchant|
+|312|Transaction not available to refund|Transaction does not allow cancellation after 24 hours|
+|313|Recurrent Payment not found|Recurrent transaction not found or not available in the environment|
+|314|Invalid Integration|---|
+|315|Cannot change NextRecurrency with pending payment|---|
+|316|Cannot set NextRecurrency to past date|It is not allowed to change the recurrence date to a past date|
+|317|Invalid Recurrency Day|---|
+|318|No transaction found|---|
+|319|Smart recurrency is not enabled|Recurrence not linked to the merchant's registration|
+|320|Can not Update Affiliation Because this Recurrency not Affiliation saved|---|
+|321|Can not set EndDate to before next recurrency.|---|
+|322|Zero Dollar Auth is not enabled|Zero Dollar not linked to the merchant's registration|
+|323|Bin Query is not enabled|Bins query not linked to the merchant's registration|
 
 ### Return Reason Codes
 
