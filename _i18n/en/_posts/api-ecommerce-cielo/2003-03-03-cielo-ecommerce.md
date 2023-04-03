@@ -8839,19 +8839,19 @@ Cielo informs its customers that it's prepared to process transactions following
 |U3|Transaction not allowed. Data validation failed.|Transaction not allowed. There was a failure in data validation. Ask the carrier to review the data and try again. If the error persists, check the communication between virtual store and Cielo.|Transaction not allowed. There was a failure in data validation. Review the reported data and try again. If the error persists, contact the Virtual Store.|No|
 |6P|Transaction not authorized. Invalid Data|Failed to validate transaction data. Instruct the cardholder to review the data and try again.|Data validation failed. Review the entered data and try again.|Only 4 times in 16 days.|
 
-## Status transactional
+## Transactional status
 
-| Code | Status               | Means of payment | Description                                              |
-| ---- | -------------------- | ---------------- | -------------------------------------------------------- |
-| 0    | **NotFinished**      | ALL              | Waiting for status update                                |
-| 1    | **Authorized**       | ALL              | Payment apt to be captured or defined as paid            |
-| 2    | **PaymentConfirmed** | ALL              | Confirmed and finalized payment                          |
-| 3    | **Declined**         | CC + CD + TF     | Payment declined by Authorizer                           |
-| 10   | **Voided**           | ALL              | Canceled payment                                         |
-| 11   | **Refunded**         | CC + CD          | Payment canceled after 11:59 pm on the authorization day |
-| 12   | **Pending**          | ALL              | Waiting for financial institution status                 |
-| 13   | **Aborted**          | ALL              | Payment canceled due to processing failure               |
-| 20   | **Scheduled**        | CC               | Scheduled recurrence                                     |
+|Code|Status|Means of payment|Description|
+|---|---|---|---|
+|0|**NotFinished**|All|Waiting for status update|
+|1|**Authorized**|All|Payment apt to be captured or defined as paid|
+|2|**PaymentConfirmed**|All|Confirmed and finalized payment|
+|3|**Declined**|Credit and debit cards and e-wallets|Payment declined by Authorizer|
+|10|**Voided**|All, except boleto|Canceled payment|
+|11|**Refunded**|Credit and debit cards and e-wallets|Payment canceled after 11:59 pm on the authorization day|
+|12|**Pending**|Credit and debit cards, e-wallets and pix|Waiting for financial institution status|
+|13|**Aborted**|All|Payment canceled due to processing failure|
+|20|**Scheduled**|Credit cards and e-wallets|Scheduled recurrence|
 
 -
 
