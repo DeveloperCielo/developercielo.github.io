@@ -17608,21 +17608,21 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
   </thead>
   <tbody>
     <tr>
-      <td>00</td>
+      <td>0</td>
       <td>Successfully authorized transaction.</td>
       <td>Successfully authorized transaction.</td>
       <td>Successfully authorized transaction.</td>
       <td>No</td>
     </tr>
     <tr>
-      <td>02</td>
+      <td>2</td>
       <td>Unauthorized transaction. Referred transaction.</td>
       <td>Unauthorized transaction. Referred (suspected fraud) by the issuing bank.</td>
       <td>Unauthorized transaction. Contact your issuing bank.</td>
       <td>No</td>
     </tr>
     <tr>
-      <td>09</td>
+      <td>9</td>
       <td>Transaction partially canceled successfully.</td>
       <td>Transaction partially canceled successfully.</td>
       <td>Transaction partially canceled successfully.</td>
@@ -17860,6 +17860,13 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
       <td>—</td>
     </tr>
     <tr>
+      <td>BR</td>
+      <td>Transaction not authorized. Account closed</td>
+      <td>The carrier’s account is closed. Ask the carrier to contact his issuing bank.</td>
+      <td>The carrier’s account is closed. Ask the carrier to contact his issuing bank.</td>
+      <td>No</td>
+    </tr>
+    <tr>
       <td>C1</td>
       <td>Transaction not allowed. Card can’t process debit transactions.</td>
       <td>Change the payment method or card used.</td>
@@ -17979,10 +17986,31 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
       <td>No</td>
     </tr>
     <tr>
+      <td>GF</td>
+      <td>Transaction denied.</td>
+      <td>Transaction not authorized, check if the informed IP is released to process the transaction</td>
+      <td>Transaction not allowed. Contact Cielo.</td>
+      <td>No</td>
+    </tr>
+    <tr>
       <td>GD</td>
       <td>Transaction not allowed.</td>
       <td>Transaction can not be processed in the establishment. Contact Cielo for more details.</td>
       <td>Transaction not allowed. Contact the virtual store</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>GT</td>
+      <td>Transaction denied.</td>
+      <td>Brute force attack.</td>
+      <td>Transaction not allowed. Contact Cielo.</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>GK</td>
+      <td>Transaction denied.</td>
+      <td>Temporary blocking due to brute force attack.</td>
+      <td>Transaction not allowed. Contact Cielo.</td>
       <td>No</td>
     </tr>
     <tr>
@@ -18021,11 +18049,25 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
       <td>No</td>
     </tr>
     <tr>
-      <td>N7</td>
-      <td>Unauthorized transaction. Invalid security code.</td>
-      <td>Unauthorized transaction. Invalid security code. Guide the carrier to correct the data and try again.</td>
-      <td>Unauthorized transaction. Review the data and enter again.</td>
-      <td>No</td>
+      <td>NR</td>
+      <td>Transaction not allowed.</td>
+      <td>Transaction not allowed.</td>
+      <td>Transaction not allowed. Retry the transaction after 30 days</td>
+      <td>Retry the transaction after 30 days.</td>
+    </tr>
+    <tr>
+      <td>RP</td>
+      <td>Transaction not allowed.</td>
+      <td>Transaction not allowed.</td>
+      <td>Transaction not allowed. Retry the transaction after 72h</td>
+      <td>Retry the transaction after 72 hours.</td>
+    </tr>
+    <tr>
+      <td>SC</td>
+      <td>Transaction not allowed.</td>
+      <td>Transaction not allowed. Recurring payment, canceled service. Do not retry.</td>
+      <td>Transaction not allowed. Recurring payment, canceled service. Do not retry.</td>
+      <td>No.</td>
     </tr>
     <tr>
       <td>U3</td>
@@ -18035,24 +18077,10 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
       <td>No</td>
     </tr>
     <tr>
-      <td>BR</td>
-      <td>Unauthorized transaction. Account closed</td>
-      <td>The bearer’s account is closed. Ask the bearer to contact your issuing bank.</td>
-      <td>The bearer’s account is closed. Ask the bearer to contact your issuing bank.</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td>46</td>
-      <td>Unauthorized transaction. Account closed</td>
-      <td>The bearer’s account is closed. Ask the bearer to contact your issuing bank.</td>
-      <td>The bearer’s account is closed. Ask the bearer to contact your issuing bank.</td>
-      <td>No</td>
-    </tr>
-    <tr>
       <td>6P</td>
-      <td>Unauthorized transaction. Invalid data</td>
-      <td>Transaction data validation failed. Instruct the holder to review the data and try again.</td>
-      <td>Data validation failed. Review the data entered and try again.</td>
+      <td>Transaction not authorized. Invalid Data</td>
+      <td>Failed to validate transaction data. Instruct the cardholder to review the data and try again.</td>
+      <td>Data validation failed. Review the entered data and try again.</td>
       <td>Only 4 times in 16 days.</td>
     </tr>
   </tbody>
