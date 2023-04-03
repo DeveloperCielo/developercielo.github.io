@@ -8357,18 +8357,18 @@ For security reasons, this ticket will allow the store to save only **one card**
 
 ## About codes
 
-API Cielo e-commerce has 4 types of returned codes that represent different moments of the transaction.
+API E-commerce Cielo has 4 types of returned codes that represent different moments of the transaction.
 
 Below we explain them in the order in which they can occur:
 
-| Code                 | Description                                                                                                                                                                                                                                                                                                                                                                               |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **HTTP Status Code** | They are standard HTTP codes. It report if the information sent to the API is **actually being successful in reaching our ENDPOINTs**. If values other than 200 or 201 are appearing, there is some impediment with the comunication with the API<br> _Returned at time of API request_                                                                                                   |
-| **API Errors**       | These codes are responses to **content validation of sent data**. If they are appearing, our API calls have been identified and are being validated. If this code is appearing, the request contains errors (e.g. size/conditions/registration errors) that prevent the creation of the transaction<br>_Returned at time of API request_                                                  |
-| **Status**           | After the transaction is created, these codes will be returned, informing the transaction status at that moment (e.g. `Authorized` >` Captured` > `Canceled`)<br>_Returned in the `Status` field _                                                                                                                                                                                        |
-| **Sales Return**     | Formed by a **Return code** and a **message**, these codes indicate the **reason** of a given `Status` within a transaction. They indicate, for example, whether a transaction with declined `status` was not authorized because of a negative balance at the issuing bank. <br>_Returned in the `ReturnCode` and` ReturnMessage` fields_<br> _They occur only in Credit and Debit cards_ |
+|Code|Description|
+|---|---|
+|**HTTP Status Code**|They are standard HTTP codes. It report if the information sent to the API is **actually being successful in reaching our ENDPOINTs**. If values other than 200 or 201 are appearing, there is some impediment with the comunication with the API<br> *Returned at time of API request*|
+|**API Errors**|These codes are responses to **content validation of sent data**. If they are being displayed, our API calls have been identified and are being validated. If this code is displayed, the request contains errors (EX: size/conditions/registration errors) that prevent the creation of the transaction<BR><BR>*Returned at the time of the request to the API*|
+|**Status**|After the transaction is created, these codes will be returned, informing how the transaction is at the moment (e.g. `Authorized` > `Captured` > `Cancelled`)<BR><BR>*Returned in the `Status` field *|
+|**Sales Return**|Formed by a **Return code** and a **message**, these codes indicate the **reason** for a certain `Status` within a transaction. They indicate, for example, if a transaction with `status` denied was not authorized due to a negative balance in the issuing bank. <BR><BR>*Returned in the `ReturnCode` and `ReturnMessage` fields*<BR> *Occurs only in Credit and Debit Cards*|
 
-**NOTE**: In the old **Webservice 1.5 Cielo**, the `ReturnCode` was considered as _Transaction Status_. In the **API CIELO ECOMMERCE**, the `Status` field has its own codes, thus, the **field to be considered as the basis for identifying the status of a transaction**
+> **Note**: In the old **Webservice 1.5 Cielo**, the `ReturnCode` was considered *Transaction Status*. In the **API E-commerce Cielo**, the `Status` field has its own codes, therefore, the **field to be considered as the basis for identifying the status of a transaction**.
 
 ## HTTP Status Code
 
