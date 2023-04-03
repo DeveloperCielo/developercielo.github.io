@@ -16872,18 +16872,20 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
       <th>AMEX</th>
       <th>AMEX - From/To Cielo</th>
       <th>Message POS/Ecommerce</th>
+      <th>Did ABECS change anything in 2022?</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>GENERIC</td>
       <td>REVERSIBLE</td>
-      <td>05</td>
-      <td>05</td>
-      <td>05</td>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
       <td>100</td>
       <td>FA</td>
       <td>CONTACT YOUR CARD CENTER</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>INSUFFICIENT BALANCE/LIMIT</td>
@@ -16892,8 +16894,9 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
       <td>51</td>
       <td>51</td>
       <td>116</td>
-      <td>A5</td>
-      <td>NOT ALLOWED</td>
+      <td>5</td>
+      <td>NOT AUTHORIZED</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>INSUFFICIENT BALANCE/LIMIT</td>
@@ -16903,47 +16906,74 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
       <td>51</td>
       <td>121</td>
       <td>A5</td>
-      <td>NOT ALLOWED</td>
+      <td>NOT AUTHORIZED</td>
+      <td>Only in our documentation</td>
     </tr>
     <tr>
       <td>INVALID PASSWORD</td>
       <td>REVERSIBLE</td>
       <td>55</td>
-      <td>55 ou 86</td>
+      <td>55 or 86</td>
       <td>55</td>
       <td>117</td>
       <td>A6</td>
       <td>INVALID PASSWORD</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>TRANSACTION NOT ALLOWED FOR CARD</td>
       <td>REVERSIBLE</td>
-      <td>57</td>
+      <td>-</td>
       <td>57</td>
       <td>57</td>
       <td>200</td>
       <td>FD</td>
       <td>TRANSACTION NOT ALLOWED FOR CARD</td>
+      <td>Yes</td>
     </tr>
     <tr>
-      <td>CARD NUMBER DOESN’T BELONG TO THE ISSUER | INVALID CARD NUMBER</td>
+      <td>TRANSACTION NOT ALLOWED FOR CARD</td>
+      <td>IRREVERSIBLE</td>
+      <td>57</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>TRANSACTION NOT ALLOWED FOR CARD - DON’T TRY AGAIN</td>
+      <td>New</td>
+    </tr>
+    <tr>
+      <td>CARD NUMBER DOESN’T BELONG TO THE ISSUER / INVALID CARD NUMBER</td>
       <td>IRREVERSIBLE</td>
       <td>14 ou 56</td>
-      <td>06</td>
-      <td>14 ou 01</td>
+      <td>14</td>
+      <td>14 or 01</td>
       <td>122</td>
-      <td>08</td>
+      <td>8</td>
       <td>CHECK THE CARD DATA</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td>SECURITY BREACH</td>
       <td>IRREVERSIBLE</td>
       <td>63</td>
-      <td>06</td>
-      <td>14</td>
+      <td>63</td>
+      <td>-</td>
       <td>122</td>
-      <td>08</td>
+      <td>8</td>
       <td>CHECK THE CARD DATA</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>SECURITY BREACH</td>
+      <td>REVERSIBLE</td>
+      <td>-</td>
+      <td>-</td>
+      <td>63</td>
+      <td>-</td>
+      <td>-</td>
+      <td>CHECK THE CARD DATA</td>
+      <td>New</td>
     </tr>
     <tr>
       <td>SUSPECTED FRAUD</td>
@@ -16954,56 +16984,62 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
       <td>100</td>
       <td>FA</td>
       <td>CONTACT YOUR CARD CENTER</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>INVALID MERCHANT</td>
       <td>IRREVERSIBLE</td>
       <td>58</td>
-      <td>03</td>
-      <td>03</td>
+      <td>3</td>
+      <td>3</td>
       <td>109</td>
       <td>DA</td>
       <td>TRANSACTION NOT ALLOWED - DO NOT TRY AGAIN</td>
+      <td>Yes</td>
     </tr>
     <tr>
-      <td>REDOING THE TRANSACTION (ISSUER REQUESTS RETENTATIVE)</td>
+      <td>REDO THE TRANSACTION (ISSUER REQUESTS RETRY</td>
       <td>REVERSIBLE</td>
       <td>4</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>SE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>REDOING THE TRANSACTION</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>REDO THE TRANSACTION</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td>CONSULT ACCREDITATOR</td>
       <td>REVERSIBLE</td>
       <td>6</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>SE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>MERCHANT, CONTACT THE PURCHASER</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>MERCHANT, CONTACT THE ACQUIRER</td>
+      <td> </td>
     </tr>
     <tr>
-      <td>PROBLEM IN THE PURCHASER</td>
+      <td>PROBLEM IN THE ACQUIRER</td>
       <td>IRREVERSIBLE</td>
       <td>19</td>
       <td>19</td>
       <td>30</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>CARD ERROR - DON’T TRY AGAIN</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>CARD ERROR</td>
       <td>IRREVERSIBLE</td>
       <td>12</td>
-      <td>06</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>6</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>115</td>
       <td>A2</td>
       <td>CHECK THE CARD DATA</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>FORMAT ERROR (MESSAGE)</td>
@@ -17014,9 +17050,10 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
       <td>181</td>
       <td>A3</td>
       <td>CARD ERROR - DON’T TRY AGAIN</td>
+      <td>No</td>
     </tr>
     <tr>
-      <td>VALUE OF THE INVALID TRANSACTION</td>
+      <td>TRANSACTION AMOUNT INVALD</td>
       <td>IRREVERSIBLE</td>
       <td>13</td>
       <td>13</td>
@@ -17024,19 +17061,21 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
       <td>110</td>
       <td>JB</td>
       <td>TRANSACTION VALUE NOT ALLOWED - DON’T TRY AGAIN</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>VALUE OF INVALID PARCEL</td>
       <td>IRREVERSIBLE</td>
       <td>23</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>12</td>
       <td>115</td>
       <td>A2</td>
       <td>INVALID INSTALLMENT - DON’T TRY AGAIN</td>
+      <td>No</td>
     </tr>
     <tr>
-      <td>PASSWORD ATTEMPTS EXCEEDED | SHOPPING</td>
+      <td>PASSWORD ATTEMPTS EXCEEDED / SHOPPING</td>
       <td>REVERSIBLE</td>
       <td>38</td>
       <td>75</td>
@@ -17044,6 +17083,7 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
       <td>106</td>
       <td>A4</td>
       <td>PASSWORD TRYING EXCEEDED. CONTACT YOUR CARD CENTER</td>
+      <td> </td>
     </tr>
     <tr>
       <td>LOST CARD</td>
@@ -17054,6 +17094,7 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
       <td>200</td>
       <td>FD</td>
       <td>TRANSACTION NOT ALLOWED - DO NOT TRY AGAIN</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>STOLEN CARD</td>
@@ -17064,16 +17105,18 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
       <td>200</td>
       <td>FD</td>
       <td>TRANSACTION NOT ALLOWED - DO NOT TRY AGAIN</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>EXPIRED CARD / INVALID EXPIRATION DATE</td>
       <td>IRREVERSIBLE</td>
       <td>54</td>
-      <td>06</td>
+      <td>54</td>
       <td>54</td>
       <td>101</td>
       <td>BV</td>
       <td>CHECK THE CARD DATA</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td>TRANSACTION NOT ALLOWED | TERMINAL CAPACITY</td>
@@ -17084,36 +17127,62 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
       <td>116</td>
       <td>A5</td>
       <td>TRANSACTION NOT ALLOWED - DO NOT TRY AGAIN</td>
+      <td>No</td>
     </tr>
     <tr>
-      <td>EXCESS VALUE | WITHDRAW</td>
+      <td>EXCESS VALUE/WITHDRAW</td>
       <td>REVERSIBLE</td>
       <td>61</td>
-      <td>61 ou N4</td>
+      <td>61 or N4</td>
       <td>61</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>EXCEEDED VALUE. CONTACT YOUR CARD CENTER</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>TEMPORARY BLOCK (EX: NON-COMPLIANCE)</td>
+      <td>REVERSIBLE</td>
+      <td>62</td>
+      <td>62</td>
+      <td>57</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>CONTACT YOUR CARD CENTER</td>
+      <td>New</td>
     </tr>
     <tr>
       <td>DOMESTIC CARD - INTERNATIONAL TRANSACTION</td>
       <td>IRREVERSIBLE</td>
       <td>62</td>
-      <td>62</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>62</td>
       <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>CARD DOESN’T ALLOW INTERNATIONAL TRANSACTION</td>
+      <td>Only in our documentation</td>
+    </tr>
+    <tr>
+      <td>DOMESTIC CARD - INTERNATIONAL TRANSACTION</td>
+      <td>REVERSIBLE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>62</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>CARD DOESN’T ALLOW INTERNATIONAL TRANSACTION</td>
+      <td>Only in our documentation</td>
     </tr>
     <tr>
       <td>MINIMUM TRANSACTION VALUE INVALID</td>
       <td>IRREVERSIBLE</td>
       <td>64</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>13</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>TRANSACTION VALUE NOT ALLOWED - DON’T TRY AGAIN</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td>AMOUNT OF WITHDRAWALS EXCEEDED</td>
@@ -17121,59 +17190,76 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
       <td>65</td>
       <td>65</td>
       <td>65</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>AMOUNT OF WITHDRAWALS EXCEEDED. CONTACT YOUR CARD CENTER</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>PASSWORD EXPIRED / PASSWORD CRYPTOGRAPHY ERROR</td>
       <td>IRREVERSIBLE</td>
       <td>74</td>
-      <td>74 ou 81</td>
+      <td>74 or 81</td>
       <td>88</td>
       <td>180</td>
       <td>A7</td>
       <td>INVALID PASSWORD - DON’T TRY AGAIN</td>
+      <td>Yes</td>
     </tr>
     <tr>
-      <td>PASSWORD ATTEMPTS EXCEEDED | WITHDRAW</td>
+      <td>PASSWORD ATTEMPTS EXCEEDED/ WITHDRAW</td>
       <td>REVERSIBLE</td>
       <td>75</td>
       <td>75</td>
       <td>75</td>
       <td>106</td>
       <td>A4</td>
-      <td>PASSWORD TRYING EXCEEDED. CONTACT YOUR CARD CENTER</td>
+      <td>PASSWORD TRIES EXCEEDED. CONTACT YOUR CARD CENTER</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>INVALID OR NON-EXISTING DESTINATION ACCOUNT</td>
       <td>IRREVERSIBLE</td>
       <td>76</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>INVALID DESTINATION ACCOUNT - DON’T TRY AGAIN</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>ACCOUNT INVALID OR NON-EXISTING</td>
       <td>IRREVERSIBLE</td>
       <td>77</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>INVALID ORIGIN ACCOUNT - DON’T TRY AGAIN</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>NEW CARD WITHOUT UNLOCKING</td>
       <td>REVERSIBLE</td>
       <td>78</td>
       <td>78</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>UNLOCK THE CARD</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>NEW CARD WITHOUT UNLOCKING</td>
+      <td>IRREVERSIBLE</td>
+      <td>-</td>
+      <td>78</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>UNLOCK THE CARD</td>
+      <td>New</td>
     </tr>
     <tr>
       <td>INVALID CARD (cryptogram)</td>
@@ -17184,9 +17270,10 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
       <td>180</td>
       <td>A7</td>
       <td>CARD ERROR - DON’T TRY AGAIN</td>
+      <td>No</td>
     </tr>
     <tr>
-      <td>EMITTER OUT OF AIR</td>
+      <td>ISSUER DOWN</td>
       <td>REVERSIBLE</td>
       <td>91</td>
       <td>91</td>
@@ -17194,6 +17281,7 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
       <td>912</td>
       <td>A1</td>
       <td>COMMUNICATION FAILURE - TRY LATER</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>SYSTEM FAILURE</td>
@@ -17204,126 +17292,139 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
       <td>911</td>
       <td>AE</td>
       <td>COMMUNICATION FAILURE - TRY LATER</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>DIFFERENCE - PRE-AUTHORIZATION</td>
       <td>IRREVERSIBLE</td>
       <td>99</td>
       <td>N8</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>DIFFERENT VALUE OF PRE-AUTHORIZATION - DON’T TRY AGAIN</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td>INCORRECT FUNCTION (DEBIT)</td>
       <td>IRREVERSIBLE</td>
       <td>AB</td>
-      <td>52 ou 53</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>52 or 53</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>USE CREDIT FUNCTION</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>INCORRECT FUNCTION (CREDIT)</td>
       <td>IRREVERSIBLE</td>
       <td>AC</td>
       <td>39</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>USE DEBIT FUNCTION</td>
+      <td>No</td>
     </tr>
     <tr>
-      <td>PASSWORD EXCHANGE / UNLOCKING</td>
+      <td>PASSWORD CHANGE / UNLOCKING</td>
       <td>IRREVERSIBLE</td>
       <td>P5</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>INVALID PASSWORD - DON’T TRY AGAIN</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>NEW PASSWORD NOT ACCEPTED</td>
       <td>REVERSIBLE</td>
       <td>P6</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>INVALID PASSWORD USE THE NEW PASSWORD</td>
+      <td>Sim</td>
     </tr>
     <tr>
       <td>COLLECT CARD (THERE IS NO FRAUD)</td>
       <td>IRREVERSIBLE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>04</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>4</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>CONTACT YOUR CARD CENTER - DON’T TRY AGAIN</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td>DYNAMIC KEY CHANGE ERROR</td>
       <td>IRREVERSIBLE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>06</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>N7</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>CARD ERROR - DON’T TRY AGAIN</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td>CONFIRMED FRAUD</td>
       <td>IRREVERSIBLE</td>
       <td>57</td>
-      <td>07</td>
-      <td>04</td>
+      <td>7</td>
+      <td>4</td>
       <td>200</td>
       <td>FD</td>
       <td>TRANSACTION NOT ALLOWED FOR CARD - DON’T TRY AGAIN</td>
+      <td>No</td>
     </tr>
     <tr>
-      <td>ISSUER NOT LOCATED - INCORRECT BIN</td>
+      <td>ISSUER NOT LOCATED - INCORRECT BIN (acquirer negative)</td>
       <td>IRREVERSIBLE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>15</td>
       <td>15</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>INVALID CARD DATA - DON’T TRY AGAIN</td>
+      <td>No</td>
     </tr>
     <tr>
-      <td>(buyer’s negative) FAILURE TO COMPLY WITH THE LAWS OF ANTE MONEY LAUNDERING</td>
+      <td>FAILURE TO COMPLY WITH THE LAWS OF ANTI MONEY LAUNDERING</td>
       <td>IRREVERSIBLE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>64</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>CONTACT YOUR CARD CENTER - DON’T TRY AGAIN</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>INVALID REVERSION</td>
       <td>IRREVERSIBLE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>76</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>CONTACT YOUR CARD CENTER - DON’T TRY AGAIN</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>NOT LOCATED BY ROUTER</td>
       <td>IRREVERSIBLE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>92</td>
       <td>92</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>CONTACT YOUR CARD CENTER - DON’T TRY AGAIN</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>TRANSACTION DENIED FOR INFRINGEMENT OF LAW</td>
@@ -17331,129 +17432,142 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
       <td>57</td>
       <td>93</td>
       <td>57</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>TRANSACTION NOT ALLOWED FOR CARD - DON’T TRY AGAIN</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td>DUPLICATE DATE OF TRACING DATE</td>
       <td>IRREVERSIBLE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>94</td>
       <td>94</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>CONTACT YOUR CARD CENTER - DON’T TRY AGAIN</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>SURCHARGE NOT SUPPORTED</td>
       <td>REVERSIBLE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>B1</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>CONTACT YOUR CARD CENTER</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>SURCHARGE NOT SUPPORTED BY THE DEBIT NETWORK</td>
       <td>REVERSIBLE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>B2</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>CONTACT YOUR CARD CENTER</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>FORCE STIP</td>
       <td>REVERSIBLE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>N0</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>CONTACT YOUR CARD CENTER</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>WITHDRAWAL NOT AVAILABLE</td>
       <td>IRREVERSIBLE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>N3</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>WITHDRAWAL NOT AVAILABLE - DON’T TRY AGAIN</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>RECURRENT PAYMENT SUSPENSION FOR A SERVICE</td>
       <td>IRREVERSIBLE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>R0</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>RECURRING SERVICE PAYMENT SUSPENSION - DON’T TRY AGAIN</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>RECURRENT PAYMENT SUSPENSION FOR ALL SERVICES</td>
       <td>IRREVERSIBLE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>R1</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>RECURRING SERVICE PAYMENT SUSPENSION - DON’T TRY AGAIN</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>TRANSACTION NOT QUALIFIED FOR VISA PIN</td>
       <td>IRREVERSIBLE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>R2</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>TRANSACTION NOT ALLOWED FOR CARD - DON’T TRY AGAIN</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>SUSPENSION OF ALL AUTHORIZATION ORDERS</td>
       <td>IRREVERSIBLE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>R3</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>RECURRING SERVICE PAYMENT SUSPENSION - DON’T TRY AGAIN</td>
+      <td>No</td>
     </tr>
     <tr>
       <td>IT’S NOT POSSIBLE TO LOCATE THE REGISTRATION IN THE FILE</td>
       <td>IRREVERSIBLE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>25</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>CONTACT YOUR CARD CENTER - DON’T TRY AGAIN</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td>FILE NOT AVAILABLE FOR UPDATE</td>
       <td>IRREVERSIBLE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>28</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
-      <td>WITHOUT CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>CONTACT YOUR CARD CENTER - DON’T TRY AGAIN</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td>CLOSED ACCOUNT</td>
       <td>IRREVERSIBLE</td>
-      <td>46</td>
+      <td>NO CORRESPONDING CODE</td>
       <td>46</td>
       <td>62</td>
       <td>NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
-      <td>TRANSACTION NOT ALLOWED FOR THIS CARD - DO NOT RETRY</td>
+      <td>TRANSACTION NOT PERMITTED TO CARD - DO NOT TRY AGAIN</td>
+      <td>New</td>
     </tr>
     <tr>
       <td>ID VALIDATION FAILURE</td>
@@ -17463,17 +17577,19 @@ The return code <strong>00 represents success in Zero Auth</strong>, the other c
       <td>NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
-      <td>ID VERIFICATION FAILURE</td>
+      <td>ID VERIFICATION FAILED</td>
+      <td>New</td>
     </tr>
     <tr>
-      <td>USE CARD CHIP</td>
+      <td>USE THE CHIP</td>
       <td>IRREVERSIBLE</td>
       <td>FM</td>
       <td>NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
       <td>NO CORRESPONDING CODE</td>
-      <td>USE CARD CHIP</td>
+      <td>USE THE CHIP</td>
+      <td>New</td>
     </tr>
   </tbody>
 </table>
