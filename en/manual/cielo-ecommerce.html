@@ -19055,6 +19055,57 @@ If an error code is displayed, the requisition contains errors (such as size, co
     </tr>
   </tbody>
 </table>
+
+<h3 id="error-messages-and-codes---pix">Error messages and codes - Pix</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>CODE</th>
+      <th>EVENT</th>
+      <th>MESSAGE</th>
+      <th>DESCRIPTION/ACTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>422</td>
+      <td>Authorization</td>
+      <td>Error on Merchant Integration</td>
+      <td>Verify that the Pix is enabled in your registration</td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td>Authorization</td>
+      <td>Error on bki service integration for charge</td>
+      <td>Pix Banks Transaction Error, contact E-commerce Support</td>
+    </tr>
+    <tr>
+      <td>BP904</td>
+      <td>Authorization</td>
+      <td>The json entered is not valid</td>
+      <td>Contact E-commerce Support to assess the reason.</td>
+    </tr>
+    <tr>
+      <td>BP901</td>
+      <td>Authorization</td>
+      <td>Operation failed</td>
+      <td>Redo the payment, if it persists, contact e-commerce support</td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td>Cancellation</td>
+      <td>Error on pix service integration for moneyback</td>
+      <td>It is not possible to cancel the transaction, The return will only occur if there is a balance.</td>
+    </tr>
+    <tr>
+      <td>422</td>
+      <td>Cancellation</td>
+      <td>Merchant bank for moneyback is not Cielo</td>
+      <td>Pix Banco transaction does not allow cancellation operations</td>
+    </tr>
+  </tbody>
+</table>
 </div>
 
 
