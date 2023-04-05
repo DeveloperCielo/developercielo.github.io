@@ -3740,6 +3740,10 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 
 <p>Para tal, é necessário que o parceiro disponibilize um Backend RESTful, que irá receber as notificações seguindo o formato abaixo. Uma vez recebidas as informações, o Backend tem a liberdade de ser utilizado da forma mais adequada ao modelo de negócio.</p>
 
+<blockquote>
+  <p><strong>Atenção:</strong> Os campos podem sofrer alterações sem aviso prévio, recomendamos que o PARSE do json seja dinamico para aceitar novos valores em campos que ja enviamos hoje. Exemplo: O campo brand, caso surja novas bandeiras o seu backend precisa estar pronto para essa alteração.</p>
+</blockquote>
+
 <h4 id="post---notificação-de-mudança-de-status">POST - Notificação de Mudança de Status</h4>
 
 <p>A cada modificação de status em um pedido, o servidor do Order Manager envia, via comando, as informações para o Backend do parceiro.</p>
@@ -3757,102 +3761,101 @@ Em ambiente de produção, uma vez que o cancelamento for realizado na Cielo LIO
 <p>Exemplo de informação enviada pelo Order Manager</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f0f0f0f0-f0f0-f0f0-f0f0-f0f0f0f0f0f0"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido #547"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">2936</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-29T15:54:25Z"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-29T15:54:25Z"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0101010101</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AVULSO"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Valor Avulso"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Valor Avulso"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"unit_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">2936</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"unit_of_measure"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EACH"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"details"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Valor Avulso"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f0f0f0f0-f0f0-f0f0-f0f0-f0f0f0f0f0f0"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0101010101</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-29T15:54:25Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-29T15:54:25Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"sku_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nl">"transactions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">01010101</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f0f0f0f0-f0f0-f0f0-f0f0-f0f0f0f0f0f0"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"external_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f0f0f0f0-f0f0-f0f0-f0f0-f0f0f0f0f0f0"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"transaction_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"payment"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CONFIRMED"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"terminal_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01010101"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"010101"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"authorization_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"010101"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">2936</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0101010101</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-29T15:54:25Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-29T15:54:25Z"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"mask"</span><span class="p">:</span><span class="w"> </span><span class="s2">"424242-4242"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"payment_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"pan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"************4242"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"v40Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"typeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VENDA A DEBITO"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"cityState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SAO PEDRO DA ALDEIA RJ"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"clientName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"********"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"serviceTax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"boardingTax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"hasPassword"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"hasWarranty"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"productName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEBITO A VISTA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"requestDate"</span><span class="p">:</span><span class="w"> </span><span class="mi">1543506847000</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"changeAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"documentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"J"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"entranceMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"010101010101"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"hasSignature"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"merchantCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0101010101010101"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"merchantName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*********"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"applicationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cielo.launcher"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"totalizerCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">81</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"upFrontAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"creditAdminTax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"firstQuotaDate"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"interestAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"isExternalCall"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"numberOfQuotas"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"applicationName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cielo.launcher.DIRECT_SALE"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"avaiableBalance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"cardCaptureType"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"finalCryptogram"</span><span class="p">:</span><span class="w"> </span><span class="s2">"818E32AB68FE0A60"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"hasConnectivity"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"merchantAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R. TESTE"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"paymentTypeCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"firstQuotaAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"hasSentReference"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"isFinancialProduct"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"primaryProductCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"primaryProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEBITO"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"hasSentMerchantCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"cardLabelApplication"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debit"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"paymentTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f0f0f0f0-f0f0-f0f0-f0f0-f0f0f0f0f0f0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"secondaryProductCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"secondaryProductName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A VISTA"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"originalTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"receiptPrintPermission"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"hasPrintedClientReceipt"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"isDoubleFontPrintAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"isOnlyIntegrationCancelable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"access_key"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+	</span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"943f2276-5e2b-44bb-a68a-fd9b6418afa4"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"items"</span><span class="p">:[</span><span class="w">
+		</span><span class="p">{</span><span class="w">
+			</span><span class="nl">"id"</span><span class="p">:</span><span class="mi">4389</span><span class="err">df</span><span class="mi">04</span><span class="err">-ef</span><span class="mi">19-4217</span><span class="err">-a</span><span class="mi">969-22</span><span class="err">cb</span><span class="mi">6e86</span><span class="err">d</span><span class="mi">8</span><span class="err">cf</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"sku"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"TESTE CALLBACK"</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"uuid"</span><span class="p">:</span><span class="s2">"438232f04-ef19-4217-a969-22cb6e86d8cf"</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"details"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"order_id"</span><span class="p">:</span><span class="mi">943</span><span class="err">f</span><span class="mi">2276-5e2</span><span class="err">b</span><span class="mi">-44</span><span class="err">bb-a</span><span class="mi">68</span><span class="err">a-fd</span><span class="mi">9</span><span class="err">b</span><span class="mi">6418</span><span class="err">afa</span><span class="mi">4</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"sku_type"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"reference"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"created_at"</span><span class="p">:</span><span class="s2">"2023-01-04T14:20:28Z"</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"unit_price"</span><span class="p">:</span><span class="mi">2392</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"updated_at"</span><span class="p">:</span><span class="s2">"2023-01-04T14:20:24Z"</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"TESTE CALLBACK"</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"unit_of_measure"</span><span class="p">:</span><span class="s2">"EACH"</span><span class="w">
+		</span><span class="p">}</span><span class="w">
+	</span><span class="p">],</span><span class="w">
+	</span><span class="nl">"notes"</span><span class="p">:</span><span class="s2">"TESTE"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"price"</span><span class="p">:</span><span class="mi">2898</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"number"</span><span class="p">:</span><span class="s2">"1078069"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"status"</span><span class="p">:</span><span class="s2">"CLOSED"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"reference"</span><span class="p">:</span><span class="s2">"REFERENCIA DO PEDIDO"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"created_at"</span><span class="p">:</span><span class="s2">"2023-04-04T14:33:28Z"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"updated_at"</span><span class="p">:</span><span class="s2">"2023-04-04T16:19:37Z"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"transactions"</span><span class="p">:[</span><span class="w">
+		</span><span class="p">{</span><span class="w">
+			</span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"d7d5cab9-f5b0-4a14-8593-9793a0aae193"</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"card"</span><span class="p">:{</span><span class="w">
+				</span><span class="nl">"mask"</span><span class="p">:</span><span class="s2">"************3026"</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"brand"</span><span class="p">:</span><span class="s2">"MASTERCARD"</span><span class="w">
+			</span><span class="p">},</span><span class="w">
+			</span><span class="nl">"uuid"</span><span class="p">:</span><span class="s2">"d7d5cab9-f5b0-4a14-8593-9793a0aae193"</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"amount"</span><span class="p">:</span><span class="mi">2392</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"number"</span><span class="p">:</span><span class="s2">"044976"</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"status"</span><span class="p">:</span><span class="s2">"CONFIRMED"</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"created_at"</span><span class="p">:</span><span class="s2">"2023-04-04T14:34:24Z"</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"updated_at"</span><span class="p">:</span><span class="s2">"2023-04-04T16:19:37Z"</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"description"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"external_id"</span><span class="p">:</span><span class="s2">"7d7d5cab9-f5b0-4a14-8593-9793a0aae193"</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"payment_fields"</span><span class="p">:{</span><span class="w">
+				</span><span class="nl">"pan"</span><span class="p">:</span><span class="s2">"************3332"</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"v40Code"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"typeName"</span><span class="p">:</span><span class="s2">"VENDA A DEBITO"</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"cityState"</span><span class="p">:</span><span class="s2">"SAO PAULO SP"</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"serviceTax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"statusCode"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"boardingTax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"hasPassword"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"hasWarranty"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"productName"</span><span class="p">:</span><span class="s2">"DEBITO A VISTA"</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"requestDate"</span><span class="p">:</span><span class="mi">1680618831267</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"changeAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"documentType"</span><span class="p">:</span><span class="s2">"J"</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"entranceMode"</span><span class="p">:</span><span class="s2">"691010107080"</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"hasSignature"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"merchantCode"</span><span class="p">:</span><span class="s2">"0010225646149400"</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"merchantName"</span><span class="p">:</span><span class="s2">"NOME DO ESTABELECIMENTO"</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"applicationId"</span><span class="p">:</span><span class="s2">"cielo.launcher"</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"totalizerCode"</span><span class="p">:</span><span class="mi">92</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"upFrontAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"creditAdminTax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"firstQuotaDate"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"interestAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"isExternalCall"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"numberOfQuotas"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"applicationName"</span><span class="p">:</span><span class="s2">"cielo.launcher.ORDER"</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"avaiableBalance"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"cardCaptureType"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"finalCryptogram"</span><span class="p">:</span><span class="s2">"21FDEF2548665F36"</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"hasConnectivity"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"merchantAddress"</span><span class="p">:</span><span class="s2">"QNM 17 CJH LT28"</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"paymentTypeCode"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"firstQuotaAmount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"hasSentReference"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"isFinancialProduct"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"primaryProductCode"</span><span class="p">:</span><span class="mi">2000</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"primaryProductName"</span><span class="p">:</span><span class="s2">"DEBITO"</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"hasSentMerchantCode"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"cardLabelApplication"</span><span class="p">:</span><span class="s2">"Debito Nubank"</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"paymentTransactionId"</span><span class="p">:</span><span class="s2">"d7d5cab9-f5b0-4a14-8593-9793a0aae193"</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"secondaryProductCode"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"secondaryProductName"</span><span class="p">:</span><span class="s2">"A VISTA"</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"originalTransactionId"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"receiptPrintPermission"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"hasPrintedClientReceipt"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"isDoubleFontPrintAllowed"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+				</span><span class="nl">"isOnlyIntegrationCancelable"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+			</span><span class="p">},</span><span class="w">
+			</span><span class="nl">"terminal_number"</span><span class="p">:</span><span class="s2">"238232"</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"transaction_type"</span><span class="p">:</span><span class="s2">"PAYMENT"</span><span class="p">,</span><span class="w">
+			</span><span class="nl">"authorization_code"</span><span class="p">:</span><span class="s2">"123562"</span><span class="w">
+		</span><span class="p">}</span><span class="w">
+	</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
