@@ -149,14 +149,14 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
 <p>As bandeiras Visa, Mastercard, Elo e Hipercard ajustaram suas regras para limitar a quantidade de tentativas de autorização para uma transação negada. Essas mudanças preveem a cobrança de tarifas para o excesso de tentativas. Confira a seguir as regras de cada bandeira.</p>
 
 <ul>
-  <li>Mastercard [linkar];</li>
-  <li>Visa [linkar];</li>
-  <li>Elo [linkar];</li>
-  <li>Hipercard [linkar]</li>
-  <li>Demais bandeiras [linkar].</li>
+  <li><a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras#mastercard" target="_blank">Mastercard</a>;</li>
+  <li><a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras#visa" target="_blank">Visa</a>;</li>
+  <li><a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras#elo" target="_blank">Elo</a>;</li>
+  <li><a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras#hipercard" target="_blank">Hipercard</a>;</li>
+  <li><a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras#demais-bandeiras" target="_blank">Demais bandeiras</a>.</li>
 </ul>
 
-<h2 id="mastercard">Mastercard</h2>
+<h1 id="mastercard">Mastercard</h1>
 
 <p>A bandeira Mastercard possui o programa Transaction Processing Excellence (TPE), que engloba duas categorias:</p>
 
@@ -164,7 +164,7 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
 
 <p><strong>2. Merchant Advice Code Transaction Excellence (MAC)</strong>: monitora as retentativas de transações negadas, nos ambientes de cartão não presente e que são irreversíveis. Haverá cobrança somente nos MACs 03 e 21.</p>
 
-<h3 id="1-excessive-attempts">1. Excessive Attempts</h3>
+<h2 id="1-excessive-attempts">1. Excessive Attempts</h2>
 
 <p>São cobranças efetuadas quando o estabelecimento comercial excede as regras de retentativas de transações.</p>
 
@@ -222,7 +222,7 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
   <p>Obs: A regra vigente do programa Excessive Attempts é válida até 31/01/2023 (tabela Excessive Attempts), permitindo apenas 10 tentativas de aprovar uma mesma transação (no mesmo cartão, e mesmo número de estabelecimento), e é permitido retentar após 24h.</p>
 </blockquote>
 
-<h3 id="2-merchant-advice-code-transaction-excellence-mac">2. Merchant Advice Code Transaction Excellence (MAC)</h3>
+<h2 id="2-merchant-advice-code-transaction-excellence-mac">2. Merchant Advice Code Transaction Excellence (MAC)</h2>
 
 <p>São cobranças efetuadas quando o estabelecimento comercial realiza retentativa de envio de autorização para códigos de respostas irreversíveis com um mesmo cartão valido para cartão não presente.</p>
 
@@ -390,7 +390,7 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
   </tbody>
 </table>
 
-<h2 id="visa">Visa</h2>
+<h1 id="visa">Visa</h1>
 
 <p><strong>O que é?</strong></p>
 
@@ -467,7 +467,7 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
 
 <p><strong>Exemplo:</strong> Tivemos 10.000 transações negadas em um EC com os códigos de categoria 3, se a transação 10.001 for no código 14 ou em qualquer código do grupo de categoria 3 ele será tarifado independente do cartão.</p>
 
-<h2 id="elo">Elo</h2>
+<h1 id="elo">Elo</h1>
 
 <p><strong>O que é?</strong></p>
 
@@ -726,7 +726,7 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
   </tbody>
 </table>
 
-<h2 id="hipercard">Hipercard</h2>
+<h1 id="hipercard">Hipercard</h1>
 
 <p><strong>O que é?</strong></p>
 
