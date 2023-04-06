@@ -38,13 +38,13 @@ Visando melhorar a experiência de compra, o mercado de meios de pagamento, em c
 
 As bandeiras Visa, Mastercard, Elo e Hipercard ajustaram suas regras para limitar a quantidade de tentativas de autorização para uma transação negada. Essas mudanças preveem a cobrança de tarifas para o excesso de tentativas. Confira a seguir as regras de cada bandeira.
 
-* Mastercard [linkar];
-* Visa [linkar];
-* Elo [linkar];
-* Hipercard [linkar]
-* Demais bandeiras [linkar].
+* [Mastercard](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras#mastercard){:target="_blank"};
+* [Visa](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras#visa){:target="_blank"};
+* [Elo](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras#elo){:target="_blank"};
+* [Hipercard](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras#hipercard){:target="_blank"};
+* [Demais bandeiras](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras#demais-bandeiras){:target="_blank"}.
 
-## Mastercard
+# Mastercard
 
 A bandeira Mastercard possui o programa Transaction Processing Excellence (TPE), que engloba duas categorias:
 
@@ -52,7 +52,7 @@ A bandeira Mastercard possui o programa Transaction Processing Excellence (TPE),
 
 **2. Merchant Advice Code Transaction Excellence (MAC)**: monitora as retentativas de transações negadas, nos ambientes de cartão não presente e que são irreversíveis. Haverá cobrança somente nos MACs 03 e 21.
 
-### 1. Excessive Attempts
+## 1. Excessive Attempts
 
 São cobranças efetuadas quando o estabelecimento comercial excede as regras de retentativas de transações.
 
@@ -75,7 +75,7 @@ O monitoramento é aplicado para as retentativas de transações de compras nega
 
 > Obs: A regra vigente do programa Excessive Attempts é válida até 31/01/2023 (tabela Excessive Attempts), permitindo apenas 10 tentativas de aprovar uma mesma transação (no mesmo cartão, e mesmo número de estabelecimento), e é permitido retentar após 24h.
 
-### 2. Merchant Advice Code Transaction Excellence (MAC)
+## 2. Merchant Advice Code Transaction Excellence (MAC)
 
 São cobranças efetuadas quando o estabelecimento comercial realiza retentativa de envio de autorização para códigos de respostas irreversíveis com um mesmo cartão valido para cartão não presente.
 
@@ -156,7 +156,7 @@ Os códigos originais serão substituídos pelo Merchant Advice Code (MAC), que 
 | ------------------------ | -------------------------------------------------------------------------------------- |
 | A partir 1ª rententativa | R$ 2,50 (dois reais e cinquenta centavos) por retentativa, a partir da 1ª retentativa. |
 
-## Visa
+# Visa
 
 **O que é?**
 
@@ -212,7 +212,7 @@ Os emissores devem usar códigos de resposta que reflitam com mais precisão o m
 
 **Exemplo:** Tivemos 10.000 transações negadas em um EC com os códigos de categoria 3, se a transação 10.001 for no código 14 ou em qualquer código do grupo de categoria 3 ele será tarifado independente do cartão.
 
-## Elo
+# Elo
 
 **O que é?**
 
@@ -274,7 +274,7 @@ Os códigos de respostas abaixo estão listados conforme manual de autorização
 | P5      | TROCA DE SENHA / FALHA NO DESBLOQUEIO          | - Esse código será utilizado pelo Emissor quando ocorreu falha na troca de senha ou falha no desbloqueio.                                                                                                                                                                                                                                                                                                                                                                                                    | Irreversível |
 | P6      | NOVA SENHA NÃO ACEITA                          | - Esse código será utilizado pelo Emissor quando a nova senha que o cliente escolheu não atende os critérios mínimos estabelecidos pelo Emissor.                                                                                                                                                                                                                                                                                                                                                             | Reversível   |
 
-## Hipercard
+# Hipercard
 
 **O que é?**
 
