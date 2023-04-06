@@ -296,7 +296,7 @@ Cobranças efetuadas quando um Estabelecimento Comercial excede as regras de ret
 
 <aside class="notice">Início de vigência: 15 de setembro de 2022.</aside>
 
-## Demais bandeiras
+# Demais bandeiras
 
 - **Códigos reversíveis:** serão permitidas novas retentativas para o mesmo cliente e cartão. Não há limite e período pré-estabelecido;
 
