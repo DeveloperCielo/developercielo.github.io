@@ -8978,7 +8978,7 @@ aWvYpwra9kiVLR3742JWgF7P25rCdpwzXO9KiD9T8VxYnEZeFli+LQXb7c6UJjHl<br />
 <p>When the transactions at a SDWO e-commerce are made with a credit or debit card (not by QR Code), additional data is required so the card brands can identify this type of transaction. See the specifications below:</p>
 
 <blockquote>
-  <p>Besides the specific fields, for SDWO transactions it’s required for you to send the Soft Descriptor (<code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code>) and the shopper’s CPF or CNPJ (<code class="language-plaintext highlighter-rouge">Customer.Identity</code> and <code class="language-plaintext highlighter-rouge">Customer.IdentityType</code>). See more details on the request fields table.</p>
+  <p>Besides the specific fields, for buying SDWO transactions it’s required for you to send the Soft Descriptor (<code class="language-plaintext highlighter-rouge">Payment.SoftDescriptor</code>) and the shopper’s CNPJ, if the shopper is a legal entity (fields <code class="language-plaintext highlighter-rouge">Customer.Identity</code> and <code class="language-plaintext highlighter-rouge">Customer.IdentityType</code>). See more details on the request fields table.</p>
 </blockquote>
 
 <p>To run tests, you need to follow the <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#sandbox-and-tools" target="\_blank">Sandbox and tools</a>.</p>
