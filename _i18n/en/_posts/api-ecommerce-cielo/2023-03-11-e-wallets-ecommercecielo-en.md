@@ -307,7 +307,7 @@ In order to use Apple Pay, your store must be previously registered in the Apple
 4. Hire Cielo 3.0 as the acquirer;
 5. Integrate with [API E-commerce Cielo](https://developercielo.github.io/en/manual/cielo-ecommerce).
 
-## PART 1 - Configuring the Merchant Identifier
+## PART 1: Configuring the Merchant Identifier
 
 In this initial step, you will need to create a **merchant identifier** for your store. Once created, the merchant identifier must be sent to Cielo in a request for a **".CSR" certificate**. The ".CSR" certificate created by Cielo must be used to create a new certificate with Apple, the **".CER" certificate**, which will serve as a follow-up to the second stage of the process.
 
