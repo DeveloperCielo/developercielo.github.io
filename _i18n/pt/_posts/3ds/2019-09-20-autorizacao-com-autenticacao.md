@@ -194,12 +194,13 @@ Veja mais: [https://developercielo.github.io/manual/cielo-ecommerce#resposta](ht
 
 # Tabela de ECI
 
-| Bandeira      | ECI                      | Significado da Transação                                                                                         |
-| ------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------- |
-| Visa/Elo/Amex | 06                       | Autenticada pela bandeira – risco de chargeback passa a ser do emissor.                                          |
-| Visa/Elo/Amex | 05                       | Autenticada pelo emissor – risco de chargeback passa a ser do emissor.                                           |
-| Visa/Elo/Amex | Diferente de 05 e 06     | Não autenticada – risco de chargeback permanece com o estabelecimento.                                           |
-| Mastercard    | 01                       | Autenticada pela bandeira – risco de chargeback passa a ser do emissor.                                          |
-| Mastercard    | 02                       | Autenticada pelo emissor – risco de chargeback passa a ser do emissor.                                           |
-| Mastercard    | 04                       | Não autenticada, transação caracterizada como _Data Only_ – risco de chargeback permanece com o estabelecimento. |
-| Mastercard    | Diferente de 01, 02 e 04 | Não autenticada – risco de chargeback permanece com o estabelecimento.                                           |
+O ECI (Electronic Commerce Indicator) é um código retornado pelas bandeiras e indica o resultado da autenticação 3DS do portador do cartão junto ao emissor ou bandeira. Confira na tabela a seguir os ECIs correspondentes à cada bandeira e o resultado da autenticação.
+
+> Posteriormente, o valor do ECI deverá ser enviado na requisição da transação no campo `Payment.ExternalAuthentication.Eci`
+
+|Mastercard                 |Amex                |Elo                  |Visa                |Resultado da autenticação|A transação foi autenticada?|
+|---------------------------|--------------------|---------------------|--------------------|-------------------------|--------------------------|
+| 02                        |05                  |05                   |05                  |Autenticada pelo emissor – risco de chargeback passa a ser do emissor.|Sim|
+| 01                        |06                  |06                   |06                  |Autenticada pela bandeira – risco de chargeback passa a ser do emissor.|Sim|
+| Diferente de 01, 02 e 04  |Diferente de 05 e 06|Diferente de 05 e 06 |Diferente de 05 e 06|Não autenticada – risco de chargeback permanece com o estabelecimento.|Não|
+| 04                        |-                   |-                    |-                   |Não autenticada, transação caracterizada como *Data Only* – risco de chargeback permanece com o estabelecimento.|Não|
