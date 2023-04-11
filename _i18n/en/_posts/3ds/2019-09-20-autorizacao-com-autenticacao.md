@@ -192,12 +192,13 @@ See [Cielo E-commerce API](https://developercielo.github.io/manual/cielo-ecommer
 
 # ECI Table
 
-| **Brand**  | **ECI**                      | **Transaction Meaning**                                                                                       |
-| ---------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| Visa       | 06                           | Authenticated by the brand - risk of chargeback is from the issuer                                            |
-| Visa       | 05                           | Authenticated by the issuer – risk of chargeback is from the issuer                                           |
-| Visa       | Different from 05 and 06     | Not authenticated – risk of chargeback remains with the establishment                                         |
-| Mastercard | 01                           | Authenticated by the brand - risk of chargeback is from the issuer                                            |
-| Mastercard | 02                           | Authenticated by the issuer – risk of chargeback is from the issuer                                           |
-| Mastercard | 04                           | Not authenticated, transaction characterized as Data Only - risk of chargeback remains with the establishment |
-| Mastercard | Different from 01, 02 and 04 | Not authenticated – risk of chargeback remains with the establishment                                         |
+The Electronic Commerce Indicator (ECI) is a code returned by the card brands indicating the 3DS card holder authentication result. The table below presents the ECI codes corresponding to each brand and the authentication result.
+
+> The ECI value received during authentication must later be sent in the authorization request in the parameter `Payment.ExternalAuthentication.Eci`.
+
+|Mastercard                 |Visa                |Elo                  |Amex                |Authentication Result|Transaction was authenticated?|
+|---------------------------|--------------------|---------------------|--------------------|-------------------------|--------------------------|
+| 02                        |05                  |05                   |05                  |Authenticated by the issuer – chargeback liability is held by the issuer.|Yes|
+| 01                        |06                  |06                   |06                  |Authenticated by the card brand – chargeback liability is held by the issue.|Yes|
+| Different from 01, 02 or 04  |Different from 05 or 06|Different from 05 or 06 |Different from 05 or 06| Non-authenticated – chargeback liability is held by the merchant.|No|
+| 04                        |-                   |-                    |-                   |Non-authenticated, *Data Only* transaction – chargeback liability is held by the merchant|No|
