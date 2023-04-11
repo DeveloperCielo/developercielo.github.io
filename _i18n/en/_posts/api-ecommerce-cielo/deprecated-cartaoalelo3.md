@@ -5,7 +5,7 @@ description: Manual integração para Pilotos
 translated: true
 toc_footers: true
 categories: manual
-sort_order: 3
+sort_order: 6
 tags:
   - API Payment
 language_tabs:
