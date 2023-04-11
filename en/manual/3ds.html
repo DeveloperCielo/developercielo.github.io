@@ -267,69 +267,55 @@ See more details at <a href="https://developercielo.github.io/en/manual/autoriza
 
 <h2 id="eci-e-commerce-indicator">ECI (E-commerce Indicator)</h2>
 
-<p>E-Commerce Indicator (ECI) is returned in the authentication process.
-This code is an indicator of what exactly occurred in the transaction authentication process.
-Por meio do ECI, pode-se verificar se a transação foi autenticada e quem foi o agente responsável por aquela autenticação, conforme tabela abaixo:
-Through the ECI, it’s possible to verify if the transaction was authenticated and who was the agent responsible for that authentication, as shown in the table below:</p>
+<p>The Electronic Commerce Indicator (ECI) is a code returned by the card brands indicating the 3DS card holder authentication result. The table below presents the ECI codes corresponding to each brand and the authentication result.</p>
+
+<blockquote>
+  <p>The ECI value received during authentication must later be sent in the authorization request in the parameter <code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Eci</code>.</p>
+</blockquote>
 
 <table>
   <thead>
     <tr>
-      <th><strong>Brands</strong></th>
-      <th><strong>ECI</strong></th>
-      <th><strong>Transaction Meaning</strong></th>
+      <th>Mastercard</th>
+      <th>Visa</th>
+      <th>Elo</th>
+      <th>Amex</th>
+      <th>Authentication Result</th>
+      <th>Transaction was authenticated?</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Visa</td>
-      <td>05</td>
-      <td>Authenticated by the Issuing Bank – risk of chargeback becomes of the Issuing bank</td>
-    </tr>
-    <tr>
-      <td>Visa</td>
-      <td>06</td>
-      <td>Authenticated by the Brand – risk of chargeback becomes of the Issuing bank</td>
-    </tr>
-    <tr>
-      <td>Visa</td>
-      <td>Different from 05 and 06</td>
-      <td>Unauthenticated – risk of chargeback remains with the establishment</td>
-    </tr>
-    <tr>
-      <td>Mastercard</td>
-      <td>01</td>
-      <td>Authenticated by the Brand – risk of chargeback becomes of the Issuing bank</td>
-    </tr>
-    <tr>
-      <td>Mastercard</td>
       <td>02</td>
-      <td>Authenticated by the Issuing Bank – risk of chargeback becomes of the Issuing bank</td>
-    </tr>
-    <tr>
-      <td>Mastercard</td>
-      <td>04</td>
-      <td>Unauthenticated, transaction characterized as Data Only – risk of chargeback remains with the establishment</td>
-    </tr>
-    <tr>
-      <td>Mastercard</td>
-      <td>Different from 01, 02 and 04</td>
-      <td>Unauthenticated – risk of chargeback remains with the establishment</td>
-    </tr>
-    <tr>
-      <td>Elo</td>
       <td>05</td>
-      <td>Authenticated by the Issuing Bank – risk of chargeback becomes of the Issuing bank</td>
+      <td>05</td>
+      <td>05</td>
+      <td>Authenticated by the issuer – chargeback liability is held by the issuer.</td>
+      <td>Yes</td>
     </tr>
     <tr>
-      <td>Elo</td>
+      <td>01</td>
       <td>06</td>
-      <td>Authenticated by the Brand – risk of chargeback becomes of the Issuing bank</td>
+      <td>06</td>
+      <td>06</td>
+      <td>Authenticated by the card brand – chargeback liability is held by the issue.</td>
+      <td>Yes</td>
     </tr>
     <tr>
-      <td>Elo</td>
-      <td>07</td>
-      <td>Unauthenticated – risk of chargeback remains with the establishment</td>
+      <td>Different from 01, 02 or 04</td>
+      <td>Different from 05 or 06</td>
+      <td>Different from 05 or 06</td>
+      <td>Different from 05 or 06</td>
+      <td>Non-authenticated – chargeback liability is held by the merchant.</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>04</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>Non-authenticated, <em>Data Only</em> transaction – chargeback liability is held by the merchant</td>
+      <td>No</td>
     </tr>
   </tbody>
 </table>
