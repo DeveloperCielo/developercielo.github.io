@@ -729,7 +729,7 @@
 
 <p>For more details on the process, access Apple’s <a href="https://help.apple.com/developer-account/#/devb2e62b839" target="_blank">Developer Account Help</a>.</p>
 
-<h2 id="part-2-integrating-with-apple-pay">PART 2. Integrating with Apple Pay</h2>
+<h2 id="part-2-integrating-with-apple-pay">PART 2: Integrating with Apple Pay</h2>
 
 <p>Most of the process of enabling the “Pay with Apple Pay” button in your app or site is performed during your wallet integration. For that reason, we recommend you to follow the instructions available in the <a href="https://developer.apple.com/documentation" target="_blank">Apple Developer Documentation</a> website for Apple’s self-service implementation.</p>
 
@@ -763,7 +763,7 @@
 
 <aside class="warning">During Apple's implementation, there will be a reference to the ".CER" certificate, generated during STEP 1, to encrypt the data while communicating with Apple. In the integration flow DO NOT implement the process of decrypting the data returned by Apple as this work is done by the API E-commerce Cielo.</aside>
 
-<h2 id="step-3-integration-with-api-e-commerce-cielo-decryption-and-authorization">STEP 3. Integration with API E-commerce Cielo (decryption and authorization)</h2>
+<h2 id="part-3-integration-with-api-e-commerce-cielo-decryption-and-authorization">PART 3: Integration with API E-commerce Cielo (decryption and authorization)</h2>
 
 <p>Authorization with the Apple Pay token happens in the same way as standard credit card authorization. However, instead of providing card details openly, the token received by Apple Pay must be provided, as in the example below:</p>
 
