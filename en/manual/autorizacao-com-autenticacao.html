@@ -391,49 +391,55 @@ See example below, describing the submission of authentication data from the Pag
 
 <h1 id="eci-table">ECI Table</h1>
 
+<p>The Electronic Commerce Indicator (ECI) is a code returned by the card brands indicating the 3DS card holder authentication result. The table below presents the ECI codes corresponding to each brand and the authentication result.</p>
+
+<blockquote>
+  <p>The ECI value received during authentication must later be sent in the authorization request in the parameter <code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Eci</code>.</p>
+</blockquote>
+
 <table>
   <thead>
     <tr>
-      <th><strong>Brand</strong></th>
-      <th><strong>ECI</strong></th>
-      <th><strong>Transaction Meaning</strong></th>
+      <th>Mastercard</th>
+      <th>Visa</th>
+      <th>Elo</th>
+      <th>Amex</th>
+      <th>Authentication Result</th>
+      <th>Transaction was authenticated?</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Visa</td>
-      <td>06</td>
-      <td>Authenticated by the brand - risk of chargeback is from the issuer</td>
-    </tr>
-    <tr>
-      <td>Visa</td>
-      <td>05</td>
-      <td>Authenticated by the issuer – risk of chargeback is from the issuer</td>
-    </tr>
-    <tr>
-      <td>Visa</td>
-      <td>Different from 05 and 06</td>
-      <td>Not authenticated – risk of chargeback remains with the establishment</td>
-    </tr>
-    <tr>
-      <td>Mastercard</td>
-      <td>01</td>
-      <td>Authenticated by the brand - risk of chargeback is from the issuer</td>
-    </tr>
-    <tr>
-      <td>Mastercard</td>
       <td>02</td>
-      <td>Authenticated by the issuer – risk of chargeback is from the issuer</td>
+      <td>05</td>
+      <td>05</td>
+      <td>05</td>
+      <td>Authenticated by the issuer – chargeback liability is held by the issuer.</td>
+      <td>Yes</td>
     </tr>
     <tr>
-      <td>Mastercard</td>
+      <td>01</td>
+      <td>06</td>
+      <td>06</td>
+      <td>06</td>
+      <td>Authenticated by the card brand – chargeback liability is held by the issue.</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Different from 01, 02 or 04</td>
+      <td>Different from 05 or 06</td>
+      <td>Different from 05 or 06</td>
+      <td>Different from 05 or 06</td>
+      <td>Non-authenticated – chargeback liability is held by the merchant.</td>
+      <td>No</td>
+    </tr>
+    <tr>
       <td>04</td>
-      <td>Not authenticated, transaction characterized as Data Only - risk of chargeback remains with the establishment</td>
-    </tr>
-    <tr>
-      <td>Mastercard</td>
-      <td>Different from 01, 02 and 04</td>
-      <td>Not authenticated – risk of chargeback remains with the establishment</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>Non-authenticated, <em>Data Only</em> transaction – chargeback liability is held by the merchant</td>
+      <td>No</td>
     </tr>
   </tbody>
 </table>
