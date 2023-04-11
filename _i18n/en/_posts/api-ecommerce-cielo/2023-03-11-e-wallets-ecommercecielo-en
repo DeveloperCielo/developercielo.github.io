@@ -5,7 +5,7 @@ description: E-wallets integration
 search: true
 translated: true
 categories: manual
-sort_order: 3
+sort_order: 4
 tags:
   - API Payment
 language_tabs:
