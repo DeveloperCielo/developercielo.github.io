@@ -256,19 +256,19 @@
   <tbody>
     <tr>
       <td><strong>Autenticação</strong></td>
-      <td>processo para assegurar que o comprador é realmente aquele quem diz ser (portador legítimo), geralmente ocorre no banco emissor com uso de um token digital ou cartão com chaves de segurança.</td>
+      <td>Processo para assegurar que o comprador é realmente aquele quem diz ser (portador legítimo). A autenticação geralmente ocorre no banco emissor com uso de um token digital ou cartão com chaves de segurança.</td>
     </tr>
     <tr>
       <td><strong>Autorização</strong></td>
-      <td>processo para verificar se uma compra pode ou não ser realizada com um cartão. Nesse momento, são feitas diversas verificações com o cartão e com o portador (ex.: adimplência, bloqueios, etc.) É também neste momento que o limite do cartão é sensibilizado com o valor da transação.</td>
+      <td>Processo para verificar se uma compra pode ou não ser realizada com um cartão. Nesse momento, são feitas diversas verificações com o cartão e com o portador (ex.: adimplência, bloqueios etc.) É também neste momento que o limite do cartão é sensibilizado com o valor da transação.</td>
     </tr>
     <tr>
       <td><strong>Cancelamento</strong></td>
-      <td>processo para cancelar uma compra realizada com cartão.</td>
+      <td>Processo para cancelar uma compra realizada com cartão.</td>
     </tr>
     <tr>
       <td><strong>Captura</strong></td>
-      <td>processo que confirma uma autorização que foi realizada previamente. Somente após a captura, é que o portador do cartão poderá visualizá-la em seu extrato ou fatura.</td>
+      <td>Processo que confirma uma autorização que foi realizada previamente. Somente após a captura, é que o portador do cartão poderá visualizar a compra em seu extrato ou fatura.</td>
     </tr>
     <tr>
       <td><strong>Comprador</strong></td>
@@ -292,14 +292,14 @@
     </tr>
     <tr>
       <td><strong>TID (Transaction Identifier)</strong></td>
-      <td>código composto por 20 caracteres que identificada unicamente uma transação e-commerce Cielo.</td>
+      <td>Código composto por 20 caracteres que identifica unicamente uma transação e-commerce Cielo.</td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="produtos-e-bandeiras-suportadas">Produtos e bandeiras suportadas</h2>
 
-<p>A versão atual da API e-commerce Cielo possui suporte às seguintes bandeiras e produtos:</p>
+<p>A versão atual da API E-commerce Cielo possui suporte às seguintes bandeiras e produtos:</p>
 
 <table>
   <thead>
@@ -604,7 +604,7 @@
 
 <p>Faça download do arquivo <a href="https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/attachment/postman/apicielo2021.rar" target="\_blank"><strong>Environment Produção e Sandbox</strong></a> e substitua os MerchantIDs e MerchantKeys pelos os da sua Loja.</p>
 
-<h2 id="cartão-de-crédito---sandbox">Cartão de crédito - Sandbox</h2>
+<h2 id="cartão-de-crédito-em-sandbox">Cartão de crédito em sandbox</h2>
 
 <p>Com esse meio de pagamento é possível simular os fluxos de:</p>
 
@@ -694,7 +694,7 @@
 
 <p><strong>Para consultar os retornos em Produção</strong>, veja os <a href="https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-da-api">Códigos da API</a>.</p>
 
-<h2 id="cartão-de-débito---sandbox">Cartão de débito - Sandbox</h2>
+<h2 id="cartão-de-débito-em-sandbox">Cartão de débito em sandbox</h2>
 
 <p>Com esse meio de pagamento é possível simular os fluxos de:</p>
 
@@ -736,7 +736,7 @@ A transação de débito precisa passar por uma autenticação:</p>
 
 <aside class="notice">Transferência Online: O mesmo comportamento do Cartão de débito em Sandbox é valido para cartão de débito</aside>
 
-<h2 id="outros-meios-de-pagamento---sandbox">Outros meios de pagamento - Sandbox</h2>
+<h2 id="outros-meios-de-pagamento-em-sandbox">Outros meios de pagamento em sandbox</h2>
 
 <p>Outros meios de pagamento não possuem cartões ou dados específicos simulados, como no caso do cartão de crédito.
 Abaixo especificamos qualquer diferença existente:</p>
@@ -772,7 +772,7 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<h2 id="renova-fácil--sandbox">Renova Fácil – Sandbox</h2>
+<h2 id="renova-fácil-em-sandbox">Renova Fácil em sandbox</h2>
 
 <p>Para simular uma transação com retorno de um novo cartão, atualizado pelo nosso serviço <a href="https://developercielo.github.iohttps://developercielo.github.io/manual/cielo-ecommerce#renova-f%C3%A1cil" target="_blank">Renova Fácil</a>, siga as orientações abaixo. Para saber mais como funciona a funcionalidade, acesse o menu “Recorrência” e depois “Renova Fácil”.</p>
 
@@ -784,7 +784,7 @@ Abaixo especificamos qualquer diferença existente:</p>
   <li>Mandar o campo <code class="language-plaintext highlighter-rouge">Payment.Recurrent</code> preenchido como true, para marcar a transação como recorrente.</li>
 </ul>
 
-<h2 id="consulta-bin---sandbox">Consulta BIN - Sandbox</h2>
+<h2 id="consulta-bin-em-sandbox">Consulta BIN em sandbox</h2>
 
 <p>O BIN de um cartão é composto pelos seis primeiros dígitos. Na simulação da Consulta BIN em ambiente sandbox, cada um dos seis primeiros dígitos vai reger um resultado simulado.</p>
 
