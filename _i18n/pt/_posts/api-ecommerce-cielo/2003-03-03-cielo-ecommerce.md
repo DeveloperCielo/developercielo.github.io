@@ -75,20 +75,20 @@ Para facilitar o entendimento, listamos abaixo um pequeno glossário com os prin
 
 | Termo                               | Descrição                                                                                                                                                                                                                                                                                |
 | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Autenticação**                    | processo para assegurar que o comprador é realmente aquele quem diz ser (portador legítimo), geralmente ocorre no banco emissor com uso de um token digital ou cartão com chaves de segurança.                                                                                           |
-| **Autorização**                     | processo para verificar se uma compra pode ou não ser realizada com um cartão. Nesse momento, são feitas diversas verificações com o cartão e com o portador (ex.: adimplência, bloqueios, etc.) É também neste momento que o limite do cartão é sensibilizado com o valor da transação. |
-| **Cancelamento**                    | processo para cancelar uma compra realizada com cartão.                                                                                                                                                                                                                                  |
-| **Captura**                         | processo que confirma uma autorização que foi realizada previamente. Somente após a captura, é que o portador do cartão poderá visualizá-la em seu extrato ou fatura.                                                                                                                    |
+| **Autenticação**                    | Processo para assegurar que o comprador é realmente aquele quem diz ser (portador legítimo). A autenticação geralmente ocorre no banco emissor com uso de um token digital ou cartão com chaves de segurança.                                                                                           |
+| **Autorização**                     | Processo para verificar se uma compra pode ou não ser realizada com um cartão. Nesse momento, são feitas diversas verificações com o cartão e com o portador (ex.: adimplência, bloqueios etc.) É também neste momento que o limite do cartão é sensibilizado com o valor da transação. |
+| **Cancelamento**                    | Processo para cancelar uma compra realizada com cartão.                                                                                                                                                                                                                                  |
+| **Captura**                         | Processo que confirma uma autorização que foi realizada previamente. Somente após a captura, é que o portador do cartão poderá visualizar a compra em seu extrato ou fatura.                                                                                                                    |
 | **Comprador**                       | É aquele que efetua compra na loja virtual.                                                                                                                                                                                                                                              |
 | **Emissor (ou banco emissor)**      | É a instituição financeira que emite o cartão de crédito, débito ou voucher.                                                                                                                                                                                                             |
 | **Estabelecimento comercial ou EC** | É o número de dez posições que identifica o cadastro da loja na Cielo.                                                                                                                                                                                                                   |
 | **Gateway de pagamentos**           | Empresa responsável pelo integração técnica e processamento das transações.                                                                                                                                                                                                              |
 | **Portador**                        | É a pessoa que tem o porte do cartão no momento da venda.                                                                                                                                                                                                                                |
-| **TID (Transaction Identifier)**    | código composto por 20 caracteres que identificada unicamente uma transação e-commerce Cielo.                                                                                                                                                                                            |
+| **TID (Transaction Identifier)**    | Código composto por 20 caracteres que identifica unicamente uma transação e-commerce Cielo.                                                                                                                                                                                            |
 
 ## Produtos e bandeiras suportadas
 
-A versão atual da API e-commerce Cielo possui suporte às seguintes bandeiras e produtos:
+A versão atual da API E-commerce Cielo possui suporte às seguintes bandeiras e produtos:
 
 | Bandeira         | Crédito à vista | Crédito parcelado Loja | Débito | Voucher | Internacional |
 | ---------------- | --------------- | ---------------------- | ------ | ------- | ------------- |
@@ -277,7 +277,7 @@ Você pode usar o Postman para testar a sua integração, usando a collection da
 
 Faça download do arquivo [**Environment Produção e Sandbox**](https://github.com/DeveloperCielo/developercielo.github.io/blob/docs/attachment/postman/apicielo2021.rar){:target="\_blank"} e substitua os MerchantIDs e MerchantKeys pelos os da sua Loja.
 
-## Cartão de crédito - Sandbox
+## Cartão de crédito em sandbox
 
 Com esse meio de pagamento é possível simular os fluxos de:
 
@@ -315,7 +315,7 @@ O cartão de teste **4024.0071.5376.3191**, por exemplo, irá simular o status a
 
 **Para consultar os retornos em Produção**, veja os [Códigos da API](https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-da-api).
 
-## Cartão de débito - Sandbox
+## Cartão de débito em sandbox
 
 Com esse meio de pagamento é possível simular os fluxos de:
 
@@ -337,7 +337,7 @@ Com esse meio de pagamento é possível simular os fluxos de:
 
 <aside class="notice"><strong>Transferência Online:</strong> O mesmo comportamento do Cartão de débito em Sandbox é valido para cartão de débito</aside>
 
-## Outros meios de pagamento - Sandbox
+## Outros meios de pagamento em sandbox
 
 Outros meios de pagamento não possuem cartões ou dados específicos simulados, como no caso do cartão de crédito.
 Abaixo especificamos qualquer diferença existente:
@@ -350,7 +350,7 @@ Abaixo especificamos qualquer diferença existente:
 | Carnê                    | Use os mesmos valores da requisição do ambiente de produção para [Carnê](https://developercielo.github.io/manual/cielo-ecommerce#carn%C3%AA).                                               |
 | Transferência eletrônica | O `Provider` utilizado deve ser **"Simulado"** <br><br> A URL de redirecionamento para o ambiente do banco será uma tela para escolher o estado da autenticação.                            |
 
-## Renova Fácil – Sandbox
+## Renova Fácil em sandbox
 
 Para simular uma transação com retorno de um novo cartão, atualizado pelo nosso serviço [Renova Fácil]({{ site.baseurl }}https://developercielo.github.io/manual/cielo-ecommerce#renova-f%C3%A1cil){:target="_blank"}, siga as orientações abaixo. Para saber mais como funciona a funcionalidade, acesse o menu “Recorrência” e depois “Renova Fácil”.
 
@@ -360,7 +360,7 @@ Na requisição de autorização, além dos campos já previstos para o meio de 
 - No campo `CreditCard.ExpirationDate`: enviar uma data de validade já vencida.
 - Mandar o campo `Payment.Recurrent` preenchido como true, para marcar a transação como recorrente.
 
-## Consulta BIN - Sandbox
+## Consulta BIN em sandbox
 
 O BIN de um cartão é composto pelos seis primeiros dígitos. Na simulação da Consulta BIN em ambiente sandbox, cada um dos seis primeiros dígitos vai reger um resultado simulado.
 
