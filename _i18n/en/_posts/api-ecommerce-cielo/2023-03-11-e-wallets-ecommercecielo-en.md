@@ -56,6 +56,7 @@ See below the representation of a standard **transactional flow** in the integra
     "Amount": 100,
     "Installments": 1,
     "Currency": "BRL",
+    "Payment.Capture": "false",
     "Wallet": {
       "Type": "TIPO DE WALLET",
       "WalletKey": "IDENTIFICADOR DA LOJA NA WALLET",
@@ -86,6 +87,7 @@ See below the representation of a standard **transactional flow** in the integra
       "Amount": 100,
       "Installments": 1,
       "Currency": "BRL",
+      "Payment.Capture": "false",
       "Wallet": {
          "Type": "TIPO DE WALLET",
          "WalletKey": "IDENTIFICADOR DA LOJA NA WALLET",
@@ -108,6 +110,7 @@ See below the representation of a standard **transactional flow** in the integra
 | `Payment.Type`                             | Payment method type.                                                                                                                                                              | Text  | 100     | Yes                     |
 | `Payment.Amount`                           | Order amount in cents.                                                                                                                                                           | Number | 15      | Yes                     |
 | `Payment.Installments`                     | Number of installments.                                                                                                                                                                     | Number | 2       | Yes                     |
+|`Payment.Capture`|Indicates whether the authorization will use automatic capture (“true”) or not (“false”). If "false", a capture request must be sent - please, check with the acquirer if pre-authorization is available. |Booleano| - |Não (default “false”)|
 | `Wallet.Type`                              | Wallet type: "ApplePay" / "SamsungPay" / "GooglePay" / "Masterpass".                                                                                              | Text  | --      | Yes                     |
 | `Wallet.WalletKey`                         | Cryptographic key that identifies stores in wallets. Consult the table [WalletKey](https://developercielo.github.io/manual/e-wallets-ecommercecielo#walletkey) for more information. | Text  | --      | Yes                     |
 | `Wallet.AdditionalData.EphemeralPublicKey` | Token returned by wallet. Must be submitted in **ApplePay** integrations.                                                                                                              | Text  | --      | Yes                     |
