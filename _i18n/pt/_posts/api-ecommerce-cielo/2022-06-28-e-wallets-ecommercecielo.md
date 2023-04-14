@@ -90,6 +90,7 @@ A seguir, um exemplo de requisição padrão para integração da e-wallet:
       "Amount": 100,
       "Installments": 1,
       "Currency": "BRL",
+      "Capture": "false",
       "Wallet": {
          "Type": "TIPO DE WALLET",
          "WalletKey": "IDENTIFICADOR DA LOJA NA WALLET",
