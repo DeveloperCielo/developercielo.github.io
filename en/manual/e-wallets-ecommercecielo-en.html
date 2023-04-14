@@ -190,6 +190,7 @@
     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BRL"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Payment.Capture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Wallet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TIPO DE WALLET"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"WalletKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IDENTIFICADOR DA LOJA NA WALLET"</span><span class="p">,</span><span class="w">
@@ -219,6 +220,7 @@
       <span class="s2">"Amount"</span>: 100,
       <span class="s2">"Installments"</span>: 1,
       <span class="s2">"Currency"</span>: <span class="s2">"BRL"</span>,
+      <span class="s2">"Payment.Capture"</span>: <span class="s2">"false"</span>,
       <span class="s2">"Wallet"</span>: <span class="o">{</span>
          <span class="s2">"Type"</span>: <span class="s2">"TIPO DE WALLET"</span>,
          <span class="s2">"WalletKey"</span>: <span class="s2">"IDENTIFICADOR DA LOJA NA WALLET"</span>,
@@ -303,6 +305,13 @@
       <td>Number</td>
       <td>2</td>
       <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.Capture</code></td>
+      <td>Indicates whether the authorization will use automatic capture (“true”) or not (“false”). If “false”, a capture request must be sent - please, check with the acquirer if pre-authorization is available.</td>
+      <td>Booleano</td>
+      <td>-</td>
+      <td>Não (default “false”)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Wallet.Type</code></td>
