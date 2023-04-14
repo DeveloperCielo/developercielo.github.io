@@ -59,6 +59,7 @@ A seguir, um exemplo de requisição padrão para integração da e-wallet:
     "Amount": 100,
     "Installments": 1,
     "Currency": "BRL",
+    "Capture": "false",
     "Wallet": {
       "Type": "TIPO DE WALLET",
       "WalletKey": "IDENTIFICADOR DA LOJA NA WALLET",
@@ -111,6 +112,7 @@ A seguir, um exemplo de requisição padrão para integração da e-wallet:
 | `Payment.Type`                             | Tipo do meio de pagamento.                                                                                                                                                              | Texto  | 100     | Sim                     |
 | `Payment.Amount`                           | Valor do pedido, em centavos.                                                                                                                                                           | Número | 15      | Sim                     |
 | `Payment.Installments`                     | Número de parcelas.                                                                                                                                                                     | Número | 2       | Sim                     |
+|`Payment.Capture`|Indica se a autorização deve ser com captura automática (“true”) ou não (“false”). Se "false", será necessário realizar a captura posterior.|Booleano| - |Não (default “false”)|
 | `Wallet.Type`                              | Tipo de carteira: "ApplePay" / "SamsungPay" / "GooglePay" / "VisaCheckout" / "Masterpass".                                                                                              | Texto  | --      | Sim                     |
 | `Wallet.WalletKey`                         | Chave criptográfica que identifica lojas nas wallets. Consultar a tabela [WalletKey](https://developercielo.github.io/manual/e-wallets-ecommercecielo#walletkey) para mais informações. | Texto  | --      | Sim                     |
 | `Wallet.AdditionalData.EphemeralPublicKey` | Token retornado pela wallet. Deve ser enviado em integrações **ApplePay**.                                                                                                              | Texto  | --      | Sim                     |
