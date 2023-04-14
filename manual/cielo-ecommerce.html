@@ -9191,15 +9191,15 @@ Ex.: Hoje é dia 05/05 e a próxima recorrência é dia 25/09. Quando atualizado
 
 <p>Veja o Anexo <a href="#http-status-code">HTTP Status Code</a> para a lista com todos os códigos de status HTTP possivelmente retornados pela API.</p>
 
-<h2 id="renova-fácil">Renova Fácil</h2>
+<h2 id="transação-com-renova-fácil">Transação com Renova Fácil</h2>
 
-<p>O Renova Fácil é um serviço desenvolvido pela Cielo em conjunto com os emissores, cujo objetivo é aumentar a taxa de conversão de vendas recorrentes com cartão de crédito e débito.</p>
+<p>O Renova Fácil é um serviço desenvolvido pela Cielo em conjunto com os emissores, cujo objetivo é aumentar a taxa de conversão de vendas recorrentes com cartão de crédito.</p>
 
-<p>O uso desta funcionalidade permite a substituição automática de um cartão de crédito ou débito que foi substituído pelo banco emissor por algum motivo (vencimento atingido, troca etc). Dessa forma, quando uma transação com marcação de recorrência for submetida para a API e a Cielo identificar que o cartão enviado foi substituído, sua autorização será negada e a API retornará os dados do novo cartão nó <code class="language-plaintext highlighter-rouge">NewCard</code>.</p>
+<p>O uso desta funcionalidade permite a substituição automática de um cartão de crédito que foi substituído pelo banco emissor por algum motivo (vencimento atingido, troca etc). Dessa forma, quando uma transação com marcação de recorrência for submetida para a API e a Cielo identificar que o cartão enviado foi substituído, sua autorização será negada e a API retornará os dados do novo cartão no nó <code class="language-plaintext highlighter-rouge">NewCard</code>.</p>
 
-<aside class="notice">Para usar o Renova Fácil, é necessário habilitar o serviço na Cielo. Nenhuma informação extra é enviada na requisição de autorização, porém a resposta terá o nó `NewCard`, tanto para transação de crédito quanto para transação de débito.</aside>
+<aside class="notice">Para usar o Renova Fácil, é necessário habilitar o serviço na Cielo. Nenhuma informação extra é enviada na requisição de autorização, porém a resposta terá o nó `NewCard`.</aside>
 
-<p>Veja a seguir o exemplo de resposta de uma transação de crédito.</p>
+<p>Veja a seguir o exemplo de resposta de uma transação de crédito com o nó <code class="language-plaintext highlighter-rouge">NewCard</code>.</p>
 
 <h3 id="resposta-26">Resposta</h3>
 
