@@ -6426,13 +6426,13 @@ See [HTTP Status Code](#http-status-code) for the list with all HTTP status code
 
 ## Renova Fácil
 
-Renova Fácil is a service developed by Cielo together with issuers. The objective of the service is to increase the conversion rate of recurring transactions with credit and debit cards.
+Renova Fácil is a service developed by Cielo together with issuers. The objective of the service is to increase the conversion rate of recurring transactions with credit cards.
 
 By identifying expired cards at the time of the transaction, the transaction is authorized with the new card. The API then returns the updated card data so that the merchant stores the new card.
 
-<aside class="notice">To use Renova Fácil, you have to to enable the service at Cielo. No extra information is sent in the authorization request, however the response will include the `NewCard` node, both for credit and debit transactions.</aside>
+<aside class="notice">To use Renova Fácil, you have to to enable the service at Cielo. No extra information is sent in the authorization request, however the response will include the `NewCard` node.</aside>
 
-Below is an example of a response to a credit transaction.
+Below is an example of a response to a credit transaction with the node `NewCard`.
 
 ### Request
 
