@@ -298,6 +298,8 @@ This is the `EphemeralPublicKey` format to be sent to API E-commerce Cielo:
 
 Here are some examples of integration with the main e-wallets available on the market.
 
+# Apple Pay ™
+
 Apple Pay is a virtual wallet. It allows the shopper to make payments in e-commerce stores and apps using, in a practical and safe way, their credit and debit cards stored in their Apple accounts and devices.
 
 ## Prerequisites
