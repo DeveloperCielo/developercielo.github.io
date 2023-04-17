@@ -14,14 +14,18 @@ language_tabs:
   shell: cURL
 ---
 
+# Super Link
+
 # About this documentation
 
-This documentation will guide the developer in the integration with Cielo's Super Link API. After performing the described integrations, it will be possible to:
+This manual will guide the developer in the integration with Cielo's Super Link API. By integrating the Super Link API, you will be able to:
 
-1. Create and edit Payment Links via API
-2. Receive payment notifications
-3. Consult payments
-4. Set up your store properly
+* Set up your store and customize your payment links;
+* Create and edit payment links via API;
+* Receive payment notifications;
+* Consult payments.
+
+> You can also use Super Link through the [Cielo website](https://www.cielo.com.br/){:target="_blank"} or through the [Cielo Gestão](https://play.google.com/store/apps/details?id=br.com.mobicare.cielo&hl=pt_BR&gl=US){:target="_blank"} app.
 
 # About Super Link
 
