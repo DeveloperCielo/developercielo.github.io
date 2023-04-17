@@ -29,14 +29,23 @@ This manual will guide the developer in the integration with Cielo's Super Link 
 
 # About Super Link
 
-The Payment Link API allows the merchant to create, edit and consult payment links.
-Its main objective is to allow stores to create payment links (Buttons or QR Codes), through their own systems, without the need to access the Backoffice and share with their customers.
+**Super Link** allows you to send an **payment link for an order** to your customers via social media or any other channel you prefer. When opening the payment link, the buyer will see a page customized with your store logo and payment options.
 
-> **Attention**:
->
-> The payments link is not a **ORDER/TRANSACTION** URL. It is a "cart" that can be reused over and over again. <br>
-> To receive notifications about transactions originating from Payment Links, **MANDATORY** is required to register the **Notification URL** in the Checkout backoffice. <br>
-> The query of transactions carried out through Super Link can be done through the \*_Transactional Control API _. <br>
+You can sell different types of products:
+
+* **Physical Material**: Any physical product that needs delivery via shipping, such as clothing, electronics, cosmetics, furniture, etc;
+* **Digital**: any digital product that does not need to be shipped, such as online media or games, software, etc.;
+* **Service**: any service that does not require shipping, such as maintenance and delivery services or dental appointments, among others;
+* **Payment**: single payments;
+* **Recurrence**: sales that are repeated within a certain period, such as gym membership or language classes.
+
+## How to create a Super Link?
+
+You can create a Super Link through the Cielo website, the Cielo Gestão app or through the Super Link API. In this manual, we will talk about the integration of the Super Link API.
+
+## Who can use Super Link?
+
+Any store that wants to sell online can create a payment link and share this link through social media. You don't need to have an e-commerce to use Super Link.
 
 # Test Mode
 
