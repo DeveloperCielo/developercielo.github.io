@@ -165,7 +165,7 @@ Salvar os três arquivos abaixo em uma pasta nova, ou que relembre facilmente, p
 
 - [Certificado Raiz]({{ site.baseurl_root }}/attachment/Root.crt)
 - [Certificado Intermediária]({{ site.baseurl_root }}/attachment/intermediate1.crt)
-- [Certificado E-Commerce Cielo]({{ site.baseurl_root }}/attachment/intermediate2.cer)
+- [Certificado E-Commerce Cielo]({{ site.baseurl_root }}/attachment/cieloecommerce.cert-2023-2024.zip)
 
 **2o Passo:**
 
