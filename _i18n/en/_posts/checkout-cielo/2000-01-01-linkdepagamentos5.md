@@ -47,6 +47,32 @@ You can create a Super Link through the Cielo website, the Cielo Gestão app or 
 
 Any store that wants to sell online can create a payment link and share this link through social media. You don't need to have an e-commerce to use Super Link.
 
+# Super Link API
+
+The **Super Link API** is a REST API that allows **creating, editing and querying payment links**. The main advantage of the API is that it allows stores to create payment links (via buttons or QR Codes) through their own systems and share the Super Link with their customers, without the need to access the Cielo website.
+
+The following image represents the general flow of how the Super Link API works:
+
+![Imagem Fluxo Geral Super Link Ingles]({{ site.baseurl_root }}/images/checkout/superlink/fluxo-superlink-en.png)
+
+1. The merchant sends a payment link creation request to the Super Link API;
+2. Super Link API returns a payment link URL and a link ID;
+3. The merchant shares the payment link with the shopper;
+4. The shopper makes the payment;
+5. Cielo (as the acquirer) authorizes the payment and sends confirmation to Super Link;
+6. The Super Link API sends a transaction completion notification or status change notification to the store. If desired, the merchant can develop a process for sending a confirmation email to the shopper (not available through the Super Link API).
+
+## Payment methods and brands
+
+With Super Link you can sell your products and services using the main payment methods, such as credit and debit cards or digital wallets
+
+| PAYMENT METHOD | BRANDS AND PROVIDERS|
+|---|---|
+|Credit card (in cash or in installments)| Visa, Mastercard, Elo, Diners, Hipercard, JCB, American Express, Aura and Discover|
+|Debit card | Visa, Mastercard and Elo|
+|Digital wallets | QR Code Pay (credit and debit)|
+|Pix | Cielo|
+
 # Test Mode
 
 ## Sandbox
