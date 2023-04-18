@@ -64,7 +64,7 @@ A imagem a seguir representa o fluxo geral do funcionamento da API do Super Link
 
 ## Meios de pagamento e bandeiras
 
-No Super Link você pode vender seus produtos e serviços pelos principais meios de pagamento, como cartões de crédito e débito, carteiras digitais ou cartão de auxílio emergencial.
+No Super Link você pode vender seus produtos e serviços pelos principais meios de pagamento, como cartões de crédito e débito ou carteiras digitais.
 
 | MEIO DE PAGAMENTO | BANDEIRAS E PROVIDERS|
 |---|---|
