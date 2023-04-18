@@ -100,23 +100,23 @@ Antes das configurações, você precisa habilitar o Super Link para a sua loja.
 
 ## Configurando a sua loja
 
-**1. Acesse as Configurações da loja no site Cielo**
+**Acesse as Configurações da loja no site Cielo**
 
 Vá para o [site Cielo](https://minhaconta2.cielo.com.br/login/){:target="_blank"} e faça login. Acesse **E-commerce** > **Super Link** > **Configurações** > **Configurações da loja**.
 
-**2. Personalize a aparência da página de pagamento**
+### 1. Personalize a aparência da página de pagamento
 
 Insira a imagem do logo da sua loja e escolha uma cor de fundo. Clique em **Salvar**.
 
 ![Aparência da Página de Pagemento]({{ site.baseurl_root }}/images/checkout/superlink/superlink-aparencia-pagina-pagamento.png)
 
-**3. Configure o envio de e-mail de finalização para o comprador**
+### 2. Configure o envio de e-mail de finalização para o comprador
 
 Se não desejar que seu cliente final receba um e-mail de finalização do pedido após o pagamento, desabilite essa opção. Depois, clique em **Salvar**.
 
 ![E-mail de finalização para o comprador]({{ site.baseurl_root }}/images/checkout/superlink/superlink-email-finalizacao.png)
 
-**4. Defina os meios de pagamento desejados**
+### 3. Defina os meios de pagamento desejados
 
 Selecione os meios de pagamento que gostaria de disponibilizar aos seus clientes. Para cartão de crédito, escolha também a quantidade máxima de parcelas permitidas. Depois, clique em Salvar.
 
@@ -135,7 +135,7 @@ Selecione os meios de pagamento que gostaria de disponibilizar aos seus clientes
 
 Para mais detalhes veja o [tutorial Super Link e Checkout Cielo](https://developercielo.github.io/tutorial/checkout-tutoriais){:target="_blank"}.
 
-**5. Configure as URLs de retorno, notificação e mudança de status da sua loja**
+### 4. Configure as URLs de retorno, notificação e mudança de status da sua loja
 
 Você deverá preencher as URLs de retorno, notificação e mudança de status. As URLs devem ser criadas e definidas pelo seu estabelecimento. Depois, clique em **Salvar**.
 
@@ -145,7 +145,7 @@ Você deverá preencher as URLs de retorno, notificação e mudança de status. 
 * **[URL de Notificação](https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o){:target="_blank"}**: é a URL pela qual a sua loja irá receber a notificação com todos os dados do carrinho quando a transação é finalizada;
 * **[URL de Mudança de Status](https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o){:target="_blank"}**: é a URL pela qual a sua loja irá receber a notificação quando um pedido tiver seu status alterado. A notificação de mudança de status não contém dados do carrinho, apenas dados de identificação do pedido.
 
-**6. Configure a captura e Antifraude**
+### 5. Configure a captura e Antifraude
 
 Ao acessar as configurações da sua loja, procure a sessão Antifraude e captura automática. Selecione a opção desejada:
 
@@ -155,7 +155,7 @@ Ao acessar as configurações da sua loja, procure a sessão Antifraude e captur
 
 ![Configuração de captura e Antifraude]({{ site.baseurl_root }}/images/checkout/superlink/superlink-captura-e-antifraude.png)
 
-**7. Configure as opções de frete dos Correios**
+### 6. Configure as opções de frete dos Correios
 
 Se a sua loja trabalha com a entrega de **produtos físicos** (aqueles que precisam de frete), informe seu login e senha dos Correios e selecione os serviços desejados, como os tipos de Sedex e PAC.
 
@@ -163,7 +163,7 @@ Se a sua loja trabalha com materiais digitais, serviços ou pagamentos, ou seja,
 
 ![Configuração do Frete Correios]({{ site.baseurl_root }}/images/checkout/superlink/superlink-configuracao-frete-correios.png)
 
-**Configurações padrão**
+### Configurações padrão
 
 Caso você não preencha as Configurações da Loja, o Super Link irá considerar o seguinte padrão:
 
