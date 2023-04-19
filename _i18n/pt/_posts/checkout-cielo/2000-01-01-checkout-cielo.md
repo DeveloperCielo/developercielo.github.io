@@ -28,7 +28,7 @@ O _Checkout_ possui as seguintes Funcionalidades:
 | **Tela transacional**              | O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações.                                                                                                   |
 | **Recorrência**                    | O Checkout Cielo possui a Recorrência Programada disponível na API Cielo Ecommerce. <br> Basta que o lojista defina que uma transação deve se repetir, que o Checkout vai executa-la novamente no intervalo definido                    |
 | **Antifraude**                     | O Checkout já possui uma integração com o Antifraude da CyberSource, permitindo a análise de transações de crédito sem uma integração adicional                                                                                         |
-| **Meios de pagamentos**            | O Checkout Cielo possui uma variada gama de meios de pagamento: <br> **Cartões de crédito** <br> **Cartão de Débito**<br>**Débito Online**<br>**Boleto Bradesco e Banco do Brasil**                                                     |
+| **Meios de pagamentos**            | O Checkout Cielo possui uma variada gama de meios de pagamento: <br> **Cartões de crédito** <br> **Cartão de Débito**<br>**Débito Online**<br>**Boleto Bradesco e Banco do Brasil**<br>**Pix**                                   |
 | **Backoffice Simplificado**        | O Backoffice do Checkout Cielo possui um layout simplificado e dinâmico que permite uma navegação rápida e confortável para que o Lojista possa acompanhar as vendas sem dificuldade                                                    |
 | **Integração com Botão e QR Code** | Sem integração técnica ou o programação, o Checkout disponibiliza uma integração que torna possível realizar a criação de um link gerador de pedidos apenas com um cadastro de produtos dentro do Backoffice Checkout.                  |
 | **Relatórios transacionais**       | Dentro do Backoffice, é possível gerar relatórios transnacionais que facilitam a administração de suas vendas: <br> **Relatório de Recorrências** <br> **Relatório de compradores**<br>**Extrato de vendas**<br>**Relatório de vendas** |
@@ -40,7 +40,7 @@ O Checkout Cielo é uma funcionalidade indicada para:
 
 ## Meios de pagamento do Checkout Cielo
 
-A versão atual do Checkout Cielo possui suporte aos seguintes meios de pagamento:
+A versão atual do Checkout Cielo possui suporte às seguintes bandeiras e produtos:
 
 **Cartão de Crédito**
 
@@ -108,7 +108,7 @@ Abaixo listamos pontos que devem estar prontos antes da integração:
 
 **OBS**: Para que compradores e lojistas obtenham a melhor experiência do Checkout Cielo, recomendamos baixar a última versão dos navegadores mencionados acima.
 
-Confira este [**site**](http://browsehappy.com/) para visualizar as últimas versões dos navegadores.
+Confira este [**site**](http://browsehappy.com/){:target="_blank"} para visualizar as últimas versões dos navegadores.
 
 **Observação:** navegadores antigos podem negar acesso ao Checkout Cielo e alguns recursos não funcionarão como desejado. Navegadores mais recentes também oferecem melhores recursos de encriptação e privacidade.
 
@@ -119,9 +119,9 @@ Se um recurso ainda não funcionar como esperado:
 
 Se você já tentou essas soluções, mas continua a ter problemas, entre em contato conosco pelo [Suporte Cielo](#suporte-cielo) e forneça as seguintes informações:
 
-- Uma explicação geral do problema.
-- O navegador e a versão que estão sendo utilizados.
-- O sistema operacional e a versão utilizada no computador.
+- Uma explicação geral sobre o problema;
+- O navegador e a versão que estão sendo utilizados;
+- O sistema operacional e a versão utilizada no computador;
 - Uma captura de tela do problema.
 
 # Certificado Extended Validation
@@ -269,27 +269,27 @@ Existem duas maneiras de realizar a integração:
 
 ## Fluxo de integração
 
-Durante a integração com o Checkout Cielo, uma seguencia de troca de informações e redirecionamentos serão executados para que a uma transação seja criada e executada.
+Durante a integração com o Checkout Cielo, uma sequência de troca de informações e redirecionamentos serão executados para que a uma transação seja criada e executada.
 
 Veja o fluxo abaixo:
 
-**Fluxo de integração Checkout Cielo** - Diagrama sequêncial
+**Fluxo de integração Checkout Cielo** - Diagrama sequencial
 ![Fluxo de integração Checkout Cielo]({{ site.baseurl_root }}/images/checkout/fluxobasico.svg)
 
 **Fluxo de integração Checkout Cielo** - Fluxograma
 ![Fluxo de integração Checkout Cielo]({{ site.baseurl_root }}/images/checkout/fluxocheckoutbasico.png)
 
-Após o portador do cartão (consumidor) selecionar suas compras e apertar o botão “Comprar” de uma loja já integrada ao Checkout Cielo, o fluxo nesta ordem:
+Após o portador do cartão (consumidor) selecionar suas compras e apertar o botão “Comprar” de uma loja já integrada ao Checkout Cielo, o fluxo será:
 
-1. A API da Cielo retorna o **CheckoutURL**, que é a URL da tela transacional montada com base nos dados enviados pelo Lojista/Botão.
-2. A loja redireciona o cliente para a URL retornada pela Cielo. A tela apresentada é parte do **Ambiente de pagamento seguro Cielo**.
-3. O portador escolhe: Meio de pagamento, tipo de frete e endereço de entrega na tela transacional
-4. O Checkout Cielo redireciona o cliente para a **URL de Retorno** escolhida pela loja, configurada no [Backoffice Checkout Cielo]({{ site.baseurl_root }}{% post_url 2000-01-01-checkout-tutoriais%}) ou enviada pela integração via API.
-5. Se a loja possui uma **URL de notificação**, ela será notificada sobre a situação da transação.
-6. A loja avisa ao cliente que o processo foi concluído e que ele receberá mais informações sobre a compra e o pagamento por e-mail.e
+1. A API da Cielo retorna o **CheckoutURL**, que é a URL da tela transacional montada com base nos dados enviados pela loja;
+2. A loja redireciona o cliente para a URL retornada pela Cielo. A tela apresentada é parte do **Ambiente de pagamento seguro Cielo**;
+3. O portador escolhe o meio de pagamento, tipo de frete e endereço de entrega na tela transacional;
+4. O Checkout Cielo redireciona o cliente para a **URL de Retorno** escolhida pela loja, configurada no [site Cielo]({{ site.baseurl_root }}{% post_url 2000-01-01-checkout-tutoriais%}){:target="_blank"} ou enviada pela integração via API;
+5. A loja será notificada sobre a situação da transação (caso tenha uma **URL de notificação** configurada);
+6. A loja avisa ao cliente que o processo foi concluído e que ele receberá mais informações sobre a compra e o pagamento por e-mail;
 7. A loja processa o pedido de compra utilizando os dados do POST de notificação e, se a transação estiver autorizada, libera o pedido.
 
-**OBS:** O Checkout Cielo não notifica os compradores a respeito do status de compra, apenas ao lojista. Isso ocorre pois permite ao lojista decidir quando e como informar aos seus consumidores sobre o prazo de entrega e processo de envio
+> **Obersvação:** O Checkout Cielo não notifica os compradores a respeito do status de compra; o Checkout Cielo notifica apenas a loja. Isso ocorre pois permite que a loja decida quando e como informar aos seus consumidores sobre o prazo de entrega e processo de envio.
 
 ## Modo de teste do Checkout Cielo
 
@@ -297,11 +297,11 @@ O modo de teste Checkout Cielo é uma ferramenta que permite testar a integraç�
 
 ### Ativação do Modo de Teste
 
-O modo de teste pode ser ativado na aba **Configurações**, onde existe um caixa de seleção, que quando marcada, habilitará o modo de teste do Checkout Cielo. O modo somente se iniciará quando a seleção for salva.
+O modo de teste pode ser ativado na aba **Configurações**, onde existe um caixa de seleção que, quando marcada, habilitará o modo de teste do Checkout Cielo. O modo teste somente se iniciará quando a seleção for salva.
 
 ![Ativando Modo de teste]({{ site.baseurl_root }}/images/checkout/tm01.png)
 
-Quando a opção for salva, uma tarja vermelha será exibida na parte superior da tela. Ela será exibida em todas as telas do [Backoffice Cielo Checkout]({{ site.baseurl_root }}{% post_url 2000-01-01-checkout-tutoriais%}) e na tela transacional do Checkout Cielo.
+Quando a opção for salva, uma tarja vermelha será exibida na parte superior da tela. Ela será exibida em todas as telas do [Backoffice Cielo Checkout]({{ site.baseurl_root }}{% post_url 2000-01-01-checkout-tutoriais%}){:target="_blank"} e na tela transacional do Checkout Cielo.
 
 Essa tarja indica que a sua loja Checkout Cielo está agora operando em ambiente de teste, ou seja, toda a transação realizada nesse modo será considerada como teste.
 
@@ -315,9 +315,9 @@ A realização de transações no modo de teste ocorre de forma normal. As infor
 
 Para realizar transações de teste com diferentes meios de pagamento, siga as seguintes regras:
 
-**A - Transações com Cartão de crédito:**
+**A - Transações com cartão de crédito:**
 
-Para testar cartões de crédito é necessário que dois dados importantes sejam definidos, o status da autorização do cartão e o retorno da analise de fraude.
+Para testar cartões de crédito é necessário que dois dados importantes sejam definidos o status da autorização do cartão e o retorno da analise de fraude.
 
 **Status da Autorização do Cartão de Crédito**
 
@@ -328,7 +328,7 @@ Para testar cartões de crédito é necessário que dois dados importantes sejam
 
 **Exemplo:** 540443424293010**0** = **Autorizado**
 
-**B - Boleto Bancário**
+**B - Boleto bancário**
 
 Basta realizar o processo de compra normalmente sem nenhuma alteração no procedimento.
 O boleto gerado no modo de teste sempre será um boleto simulado.
