@@ -186,9 +186,9 @@ Por se tratar de uma chamada não financeira, a API do Super Link não possui um
 
 cieloecommerce@cielo.com.br
 
-+55 11 4002-9700
++55 11 4002-5472
 
-0800-570-1700
+0800 570 8472
 
 Os testes financeiros podem ser executados a partir da ativação do modo teste nas configurações da sua loja.
 
