@@ -1962,9 +1962,8 @@ A Cielo informa seus clientes que está preparada para processar as transações
 
 Após a leitura deste manual, caso ainda persistam dúvidas (técnicas ou não), a Cielo disponibiliza o suporte técnico 24 horas por dia, 7 dias por semana em idiomas (Português e Inglês), nos seguintes contatos:
 
-- +55 4002-9700 – _Capitais e Regiões Metropolitanas_
-- +55 0800-570-1700 – _Demais Localidades_
+- +55 4002-5472 – _Capitais e Regiões Metropolitanas_
+- +55 0800 570 8472 – _Demais Localidades_
 - +55 11 2860-1348 – _Internacionais_
-  - Opção 1 – _Suporte técnico;_
-  - Opção 2 – _Credenciamento E-commerce._
+  - Opção 5 – _Suporte E-commerce;_
 - Email: [cieloecommerce@cielo.com.br](mailto:cieloecommerce@cielo.com.br)
