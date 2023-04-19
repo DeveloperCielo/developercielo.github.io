@@ -254,36 +254,36 @@ Transactions created with Test Mode enabled can be queried by the Transactional 
 
 # Cielo OAUTH
 
-Cielo OAUTH is an authentication process used in Cielo APIs that are correlated to E-commerce products. It uses the **[OAUTH2](https://oauth.net/2/)** protocol, where it is first necessary to obtain an access token, using its credentials, which should then be sent to the CieloOAuth API
+Cielo OAUTH is an authentication process for Cielo APIs related to e-commerce. Cielo OAUTH uses the **[OAUTH2](https://oauth.net/2/){:target="_blank"}** protocol as security, in which it is first necessary to obtain an access token using your credentials and then send it to the Super Link API.
 
-> To get the `ClientID` and` ClientSecret`, see the topic of Obtaining Credentials.
+To use Cielo OAUTH the following credentials are required:
 
-To use Cielo Oauth you need the following credentials:
-
-| PROPERTY       | DESCRIPTION                                                        | TIPO   |
+| PROPERTY       | DESCRIPTION                                                        | TYPE   |
 | -------------- | ------------------------------------------------------------------ | ------ |
 | `ClientId`     | Key identifier provided by CIELO                                   | guid   |
 | `ClientSecret` | Key that validates the ClientID. Provided by Cielo with `ClientID` | string |
 
-## Get Credentials
+> To generate the `Client ID` and `Client Secret`, see Obtaining the Credentials topic below.
 
-To obtain the credentials in Checkout Cielo, just follow the flow below:
+## Obtaining the Credentials
 
-1. Access the Cielo website
-2. Super Link
-3. Configurações
-4. Dados da loja
-5. Gerar chaves da API
+To obtain the `ClientId` and `ClientSecret` credentials for authentication in the Super Link API, follow the steps below:
 
-## Access token
+1. After receiving the establishment number (EC) with Super Link enabled, access the [Cielo website](https://minhaconta2.cielo.com.br/login/){:target="_blank"} and log in;
+2. Go to the **Ecommerce** tab > **Super Link** > **Configurações** > **Dados Cadastrais**;
+3. In the **Contato técnico** section, fill in the contact details of the person responsible for receiving the keys to your store. *ATTENTION: only enter the data of the person who can actually have access to the keys to your store, which are confidential information for each establishment*;
+4. Click on **Gerar Credenciais de Acessos às APIs**;
+5. You will receive an email with the credentials
 
-To gain access to Cielo services that use `Cielo Oauth`, you will need to obtain an access token, according to the steps below:
+## Obtaining the access token
 
-1. Concatenate the _ClientId_ and _ClientSecret_, **ClientId: ClientSecret**
+To gain access to Cielo services that use **Cielo Oauth**, you will need to obtain an access token, as per the steps below:
+
+1. Concatenate the `Client Id` and `Client Secret`, `**ClientId:ClientSecret**`
 2. Encode the result in **Base64**
-3. Submit a request using the HTTP POST method
+3. Send the token creation request, using the HTTP POST method.
 
-### Concatenation
+**Concatenation Example**
 
 | Field                     | Format                                                                                           |
 | ------------------------- | ------------------------------------------------------------------------------------------------ |
@@ -307,7 +307,7 @@ grant_type=client_credentials
 
 ### Response
 
-The response will have the Token used for new requests in Cielo Services
+The response will contain the `access_token`, which should be used in Super Link API requests.
 
 ```json
 {
@@ -320,10 +320,10 @@ The response will have the Token used for new requests in Cielo Services
 | PROPERTY       | DESCRIPTION                                         | TYPE   |
 | -------------- | --------------------------------------------------- | ------ |
 | `Access_token` | Used to access API services                         | string |
-| `Token_type`   | Will always be `bearer` type                        | texto  |
+| `Token_type`   | Will always be `bearer` type                        | text  |
 | `Expires_in`   | Token lifetime in seconds. Approximately 20 minutes | int    |
 
-> The returned token (access_token) must be used in every request as an authorization key, emphasizing that it has a validity of 20 minutes (1200 seconds) and after this interval, it will be necessary to obtain a new token to access Cielo services.
+> The token returned (`access_token`) must be used in every request to the Super link API as an authorization key. The `access_token` has a validity of 20 minutes (1200 seconds) and it is necessary to generate a new token every time the validity expires.
 
 # Payment Link
 
