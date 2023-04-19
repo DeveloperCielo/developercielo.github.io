@@ -177,7 +177,7 @@ A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo
     </tr>
     <tr>
       <td><strong>Meios de pagamentos</strong></td>
-      <td>O Checkout Cielo possui uma variada gama de meios de pagamento: <br /> <strong>Cartões de crédito</strong> <br /> <strong>Cartão de Débito</strong><br /><strong>Débito Online</strong><br /><strong>Boleto Bradesco e Banco do Brasil</strong></td>
+      <td>O Checkout Cielo possui uma variada gama de meios de pagamento: <br /> <strong>Cartões de crédito</strong> <br /> <strong>Cartão de Débito</strong><br /><strong>Débito Online</strong><br /><strong>Boleto Bradesco e Banco do Brasil</strong><br /><strong>Pix</strong></td>
     </tr>
     <tr>
       <td><strong>Backoffice Simplificado</strong></td>
@@ -203,7 +203,7 @@ A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo
 
 <h2 id="meios-de-pagamento-do-checkout-cielo">Meios de pagamento do Checkout Cielo</h2>
 
-<p>A versão atual do Checkout Cielo possui suporte aos seguintes meios de pagamento:</p>
+<p>A versão atual do Checkout Cielo possui suporte às seguintes bandeiras e produtos:</p>
 
 <p><strong>Cartão de Crédito</strong></p>
 
@@ -411,7 +411,7 @@ Abaixo listamos pontos que devem estar prontos antes da integração:</p>
 
 <p><strong>OBS</strong>: Para que compradores e lojistas obtenham a melhor experiência do Checkout Cielo, recomendamos baixar a última versão dos navegadores mencionados acima.</p>
 
-<p>Confira este <a href="http://browsehappy.com/"><strong>site</strong></a> para visualizar as últimas versões dos navegadores.</p>
+<p>Confira este <a href="http://browsehappy.com/" target="_blank"><strong>site</strong></a> para visualizar as últimas versões dos navegadores.</p>
 
 <p><strong>Observação:</strong> navegadores antigos podem negar acesso ao Checkout Cielo e alguns recursos não funcionarão como desejado. Navegadores mais recentes também oferecem melhores recursos de encriptação e privacidade.</p>
 
@@ -425,9 +425,9 @@ Abaixo listamos pontos que devem estar prontos antes da integração:</p>
 <p>Se você já tentou essas soluções, mas continua a ter problemas, entre em contato conosco pelo <a href="#suporte-cielo">Suporte Cielo</a> e forneça as seguintes informações:</p>
 
 <ul>
-  <li>Uma explicação geral do problema.</li>
-  <li>O navegador e a versão que estão sendo utilizados.</li>
-  <li>O sistema operacional e a versão utilizada no computador.</li>
+  <li>Uma explicação geral sobre o problema;</li>
+  <li>O navegador e a versão que estão sendo utilizados;</li>
+  <li>O sistema operacional e a versão utilizada no computador;</li>
   <li>Uma captura de tela do problema.</li>
 </ul>
 
@@ -594,29 +594,31 @@ Abaixo listamos pontos que devem estar prontos antes da integração:</p>
 
 <h2 id="fluxo-de-integração">Fluxo de integração</h2>
 
-<p>Durante a integração com o Checkout Cielo, uma seguencia de troca de informações e redirecionamentos serão executados para que a uma transação seja criada e executada.</p>
+<p>Durante a integração com o Checkout Cielo, uma sequência de troca de informações e redirecionamentos serão executados para que a uma transação seja criada e executada.</p>
 
 <p>Veja o fluxo abaixo:</p>
 
-<p><strong>Fluxo de integração Checkout Cielo</strong> - Diagrama sequêncial
+<p><strong>Fluxo de integração Checkout Cielo</strong> - Diagrama sequencial
 <img src="https://developercielo.github.io/images/checkout/fluxobasico.svg" alt="Fluxo de integração Checkout Cielo" /></p>
 
 <p><strong>Fluxo de integração Checkout Cielo</strong> - Fluxograma
 <img src="https://developercielo.github.io/images/checkout/fluxocheckoutbasico.png" alt="Fluxo de integração Checkout Cielo" /></p>
 
-<p>Após o portador do cartão (consumidor) selecionar suas compras e apertar o botão “Comprar” de uma loja já integrada ao Checkout Cielo, o fluxo nesta ordem:</p>
+<p>Após o portador do cartão (consumidor) selecionar suas compras e apertar o botão “Comprar” de uma loja já integrada ao Checkout Cielo, o fluxo será:</p>
 
 <ol>
-  <li>A API da Cielo retorna o <strong>CheckoutURL</strong>, que é a URL da tela transacional montada com base nos dados enviados pelo Lojista/Botão.</li>
-  <li>A loja redireciona o cliente para a URL retornada pela Cielo. A tela apresentada é parte do <strong>Ambiente de pagamento seguro Cielo</strong>.</li>
-  <li>O portador escolhe: Meio de pagamento, tipo de frete e endereço de entrega na tela transacional</li>
-  <li>O Checkout Cielo redireciona o cliente para a <strong>URL de Retorno</strong> escolhida pela loja, configurada no <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">Backoffice Checkout Cielo</a> ou enviada pela integração via API.</li>
-  <li>Se a loja possui uma <strong>URL de notificação</strong>, ela será notificada sobre a situação da transação.</li>
-  <li>A loja avisa ao cliente que o processo foi concluído e que ele receberá mais informações sobre a compra e o pagamento por e-mail.e</li>
+  <li>A API da Cielo retorna o <strong>CheckoutURL</strong>, que é a URL da tela transacional montada com base nos dados enviados pela loja;</li>
+  <li>A loja redireciona o cliente para a URL retornada pela Cielo. A tela apresentada é parte do <strong>Ambiente de pagamento seguro Cielo</strong>;</li>
+  <li>O portador escolhe o meio de pagamento, tipo de frete e endereço de entrega na tela transacional;</li>
+  <li>O Checkout Cielo redireciona o cliente para a <strong>URL de Retorno</strong> escolhida pela loja, configurada no <a href="https://developercielo.github.io/tutorial/checkout-tutoriais" target="_blank">site Cielo</a> ou enviada pela integração via API;</li>
+  <li>A loja será notificada sobre a situação da transação (caso tenha uma <strong>URL de notificação</strong> configurada);</li>
+  <li>A loja avisa ao cliente que o processo foi concluído e que ele receberá mais informações sobre a compra e o pagamento por e-mail;</li>
   <li>A loja processa o pedido de compra utilizando os dados do POST de notificação e, se a transação estiver autorizada, libera o pedido.</li>
 </ol>
 
-<p><strong>OBS:</strong> O Checkout Cielo não notifica os compradores a respeito do status de compra, apenas ao lojista. Isso ocorre pois permite ao lojista decidir quando e como informar aos seus consumidores sobre o prazo de entrega e processo de envio</p>
+<blockquote>
+  <p><strong>Obersvação:</strong> O Checkout Cielo não notifica os compradores a respeito do status de compra; o Checkout Cielo notifica apenas a loja. Isso ocorre pois permite que a loja decida quando e como informar aos seus consumidores sobre o prazo de entrega e processo de envio.</p>
+</blockquote>
 
 <h2 id="modo-de-teste-do-checkout-cielo">Modo de teste do Checkout Cielo</h2>
 
@@ -624,11 +626,11 @@ Abaixo listamos pontos que devem estar prontos antes da integração:</p>
 
 <h3 id="ativação-do-modo-de-teste">Ativação do Modo de Teste</h3>
 
-<p>O modo de teste pode ser ativado na aba <strong>Configurações</strong>, onde existe um caixa de seleção, que quando marcada, habilitará o modo de teste do Checkout Cielo. O modo somente se iniciará quando a seleção for salva.</p>
+<p>O modo de teste pode ser ativado na aba <strong>Configurações</strong>, onde existe um caixa de seleção que, quando marcada, habilitará o modo de teste do Checkout Cielo. O modo teste somente se iniciará quando a seleção for salva.</p>
 
 <p><img src="https://developercielo.github.io/images/checkout/tm01.png" alt="Ativando Modo de teste" /></p>
 
-<p>Quando a opção for salva, uma tarja vermelha será exibida na parte superior da tela. Ela será exibida em todas as telas do <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">Backoffice Cielo Checkout</a> e na tela transacional do Checkout Cielo.</p>
+<p>Quando a opção for salva, uma tarja vermelha será exibida na parte superior da tela. Ela será exibida em todas as telas do <a href="https://developercielo.github.io/tutorial/checkout-tutoriais" target="_blank">Backoffice Cielo Checkout</a> e na tela transacional do Checkout Cielo.</p>
 
 <p>Essa tarja indica que a sua loja Checkout Cielo está agora operando em ambiente de teste, ou seja, toda a transação realizada nesse modo será considerada como teste.</p>
 
@@ -653,9 +655,9 @@ Abaixo listamos pontos que devem estar prontos antes da integração:</p>
 
 <p>Para realizar transações de teste com diferentes meios de pagamento, siga as seguintes regras:</p>
 
-<p><strong>A - Transações com Cartão de crédito:</strong></p>
+<p><strong>A - Transações com cartão de crédito:</strong></p>
 
-<p>Para testar cartões de crédito é necessário que dois dados importantes sejam definidos, o status da autorização do cartão e o retorno da analise de fraude.</p>
+<p>Para testar cartões de crédito é necessário que dois dados importantes sejam definidos o status da autorização do cartão e o retorno da analise de fraude.</p>
 
 <p><strong>Status da Autorização do Cartão de Crédito</strong></p>
 
@@ -680,7 +682,7 @@ Abaixo listamos pontos que devem estar prontos antes da integração:</p>
 
 <p><strong>Exemplo:</strong> 540443424293010<strong>0</strong> = <strong>Autorizado</strong></p>
 
-<p><strong>B - Boleto Bancário</strong></p>
+<p><strong>B - Boleto bancário</strong></p>
 
 <p>Basta realizar o processo de compra normalmente sem nenhuma alteração no procedimento.
 O boleto gerado no modo de teste sempre será um boleto simulado.</p>
