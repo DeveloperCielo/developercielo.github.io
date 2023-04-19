@@ -327,87 +327,153 @@ The response will contain the `access_token`, which should be used in Super Link
 
 # Payment Link
 
-The **Payment Link API** allows the merchant to create, edit and query payment links.
+## Creating a Link
 
-Its main goal is to allow stores to create payment links (Buttons or QR Codes) through their own systems, without the need to access Checkout Cielo's Backoffice and share with their customers.
-
-> **Attention**:
->
-> - The payments link is not a **REQUEST / TRANSACTION** URL. It is a "cart" that can be reused countless times.
-> - To receive notifications about transactions originating from Payment Links, the registration of the **Notification URL** in the Checkout backoffice is **REQUIRED**.
-
-## Authentication
-
-The Payment Link API Authentication Process is the **[Cielo OAUTH](https://docscielo.github.io/Pilots/manual/linkdepagamentos5#cielo-oauth)**
-
-## Create Link
+To create a payment link, send a POST with product or service data.
 
 ### Request
 
-To create Checkout payments link, simply send a POST with the Link data to the endpoint:
-
 <aside class="request"><span class="method post">POST</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/</span></aside>
 
-> Header: `Authorization: Bearer {access_token}`
+Header: `Authorization:` `Bearer {access_token}`
 
 ```json
 {
-  "Type": "Digital",
+  "type": "Digital",
   "name": "Pedido",
   "description": "teste description",
   "price": "1000000",
   "weight": 2000000,
-  "ExpirationDate": "2037-06-19",
+  "expirationDate": "2027-06-19",
   "maxNumberOfInstallments": "1",
   "quantity": 2,
-  "Sku": "teste",
+  "sku": "teste",
   "shipping": {
     "type": "WithoutShipping",
     "name": "teste",
     "price": "1000000000"
   },
-  "SoftDescriptor": "Pedido1234"
+  "recurrent": {
+    "interval": "Monthly",
+    "endDate": "2024-02-06"
+  },
+  "softDescriptor": "Pedido1234"
 }
 ```
 
-**Dados do produto**
+**Product data**
 
-| PROPERTY                  | DESCRIPTION                                                                                                                                                                                                            | TYPE   | SIZE       | REQUIRED |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ---------- | -------- |
-| `name`                    | Product name                                                                                                                                                                                                           | String | 128        | YES      |
-| `description`             | Description of the product that will be displayed on the Checkout screen if the `show_description` option is true.                                                                                                     | String | 512        |          |
-| `showDescription`         | Flag indicating whether or not the description should be displayed on the Checkout screen                                                                                                                              | String | --         | No       |
-| `price`                   | Product price in **cents**                                                                                                                                                                                             | Int    | 1000000    | YES      |
-| `expirationDate`          | Link expiration date. If a date is entered, the link becomes unavailable on the given date. If no date is entered, the link will not expire.                                                                           | String | YYYY-MM-DD | No       |
-| `weight`                  | Product weight in **grams**                                                                                                                                                                                            | String | 2000000    | No       |
-| `softDescriptor`          | Description to be displayed on the bearer's credit card invoice.                                                                                                                                                       | String | 13         | No       |
-| `maxNumberOfInstallments` | Maximum number of installments that the buyer can select on the Checkout screen. If not informed, the store settings in Checkout Cielo will be used.                                                                   | int    | 2          | No       |
-| `quantity`                | Number of transactions remaining until the link stops working                                                                                                                                                          | Int    | 2          | No       |
-| `type`                    | Type of sale to be made through the payment link:<br><br>**Asset** – Physical Material<br>**Digital** – Digital Product<br>**Service** – Service<br>**Payment** – Simple Payments<br>**Recurrent** – Recurrent Payment | String | 255        | YES      |
+|PROPERTY | DESCRIPTION | TYPE | SIZE | REQUIRED|
+|---|---|---|---|---|
+|`type`|Type of sale to be carried out through the payment link:<br>Asset – Physical Material<br>Digital – Digital Product<br>Service – Service<br>Payment – Simple Payments<br>Recurrent – Recurrent Payment|String|255|Yes|
+|`name`|Product name|String|128|Yes|
+|`description`|Product description that will be displayed on the payment screen if the show_description option is true. It is allowed to use the pipe character `|` if you want to break the line when presenting the description on the payment screen.|String|512|No|
+|`showDescription`|Flag indicating whether or not the description should be displayed on the payment screen.|String|–|No|
+|`price`|Product value in cents.|Int|1000000|Yes|
+|`expirationDate`|Link expiration date. If a date is informed, the link becomes unavailable on the informed date. If no date is informed, the link does not expire.|String (YYYY-MM-DD)|10|No|
+|`weight`|Product weight in grams.|String|2000000|No|
+|`softDescriptor`|Description to be presented on the cardholder's credit card statement.|String|13|No|
+|`maxNumberOfInstallments`|Maximum number of installments that the shopper can select on the payment screen. If not informed, the store settings will be used. Attention: do not send this field if the product type (`type`) is equal to “Recurrent”.|int|up to 2 characters (1 to 12 installments)|No|
+|`quantity`|Number of transactions remaining until the link stops working.|int|2|No|
+|`sku`|Product identification code.|String|32|No|
 
-> Within `Description` You can use the pipe character`|`if it is desirable to break the line when displaying the description on the Checkout screen
+> Inside `description` you can use the pipe character `|` if you need to break the line when presenting the description on the payment link screen.
 
-**Shipping Information**
+**Shipping data**
 
-| PROPERTY                 | DESCRIÇÃO                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | TYPE   | SIZE   | REQUIRED |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ------ | -------- |
-| **shipping**             | Node containing product delivery information                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |        |        |          |
-| `shipping.name`          | Shipping name. **Required for the shipping type “FixedAmount”**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | string | 128    | Yes      |
-| `shipping.price`         | Shipping price. **Required for the shipping type “FixedAmount”**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | int    | 100000 | Yes      |
-| `shipping.originZipCode` | Order origin zip code. Required for the shipping type “Correios”. Must contain only numbers                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | string | 8      | No       |
-| `shipping.type`          | Shipping type.<br>**Correios** – Deliver by correios<br>**FixedAmount** – Fixed amount<br>**Free** - Free<br>**WithoutShippingPickUp** – Without shipping pick up<br>**WithoutShipping** – Without shipping<br><br>If the chosen product type is “**Asset**”, the allowed shipping types are: _**“Correios, FixedAmount or Free”**_.<br><br>If the chosen product type is “**Digital**” ou “**Service**”, the allowed shipping types are: _**“WithoutShipping, WithoutShippingPickUp”**_.<br><br>If the chosen product type is “**Recurrent**” the allowed shipping type is: _**“WithoutShipping”**_. | string | 255    | Yes      |
+The data that must be filled in regarding shipping are in the `shipping` node.
 
-**Dados da Recorrência**
+|PROPERTY|DESCRIPTION|TYPE|SIZE|REQUIRED|
+|---|---|---|---|---|
+|`shipping.name`|Shipping name. Mandatory for shipping type “FixedAmount”.|string|128|Yes|
+|`shipping.price`|The shipping price. Mandatory for shipping type “FixedAmount”.|int|100000|Yes|
+|`shipping.originZipCode`|ZIP code of origin of the order. Mandatory for “Correios” shipping. It must only contain numbers.|string|8|No|
+|`shipping.type`|Shipping type. Correios – Delivery by courier.<br>FixedAmount – Fixed Amount<br>Free - Free<br>WithoutShippingPickUp – No delivery with pick up at the store<br>WithoutShipping – No delivery<br>If the type of product chosen is “Asset” , the allowed types of shipping are: “Correios, FixedAmount or Free”.<br>If the chosen product type is “Digital” or “Service”, the allowed types of shipping are: “WithoutShipping, WithoutShippingPickUp”.<br>If the type of product chosen is “Recurrent” the type of shipping allowed is: “WithoutShipping”.|string|255|Yes|
 
-| PROPERTY             | DESCRIPTION                                                                                                                                                                   | TYPE   | SIZE | REQUIRED |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ---- | -------- |
-| **recurrent**        | Node containing information on the recurrence of payment. May be informed if the product type is “Recurrent”                                                                  |        |      |          |
-| `recurrent.interval` | Recurrence Charge Interval.<br><br>**Monthly** - Monthly<br>**Bimonthly** - Bimonthly<br>**Quarterly** - Quarterly<br>**SemiAnnual** - Semi Annual<br>**Annual** – Annual<br> | string | 128  | No       |
-| `recurrrent.endDate` | Recurrence charge end date. If not informed the recurrence will not end, the charging will happen according to the interval selected indefinitely.                            | string | 128  | No       |
+**Recurrence data**
+
+The `recurrent` node contains payment recurrence information. It can be informed if the product type (`type`) is “Recurrent”.
+
+|PROPERTY|DESCRIPTION|TYPE|SIZE|REQUIRED|
+|---|---|---|---|---|
+|`recurrent.interval`|Recurrence billing interval.<br>“Monthly”<br>“Bimonthly”<br>“Quarterly”<br>“SemiAnnual”<br>“Annual”|string|128|No*<br>If not sent, the monthly interval will be considered.|
+|`recurrrent.endDate`|Recurrence end date. If not sent, the recurrence ends only if cancelled.|YYYY-MM-DD format.|string|10|No|
 
 ### Response
 
-> "HTTP Status": 201 – Created
+The response will return the payment link in the `shortUrl` field and the `id` of the link, which can be used to query, update or delete the link.
+
+`“HTTP Status”: 201 – Created`
+
+```json
+{
+  "id": "529aca91-2961-4976-8f7d-9e3f2fa8a0c9",
+  "shortUrl": "http://bit.ly/2smqdhD",
+  "type": "Asset",
+  "name": "Pedido ABC",
+  "description": "50 canetas - R$30,00 | 10 cadernos - R$50,00",
+  "showDescription": false,
+  "price": 8000,
+  "weight": 4500,
+  "shipping": {
+    "type": "Correios",
+    "originZipcode": "06455030"
+  },
+  "recurrent": {
+    "interval": "Monthly",
+    "endDate": "2024-02-06"
+  },
+  "softDescriptor": "Nome da Loja",
+  "expirationDate": "2024-06-30T00:00:00",
+  "maxNumberOfInstallments": 2,
+  "links": [
+    {
+      "method": "GET",
+      "rel": "self",
+      "href":
+        "https://cieloecommerce.cielo.com.br/Api/public/v1/product/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
+    },
+    {
+      "method": "PUT",
+      "rel": "update",
+      "href":
+        "https://cieloecommerce.cielo.com.br/Api/public/v1/product/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
+    },
+    {
+      "method": "DELETE",
+      "rel": "delete",
+      "href":
+        "https://cieloecommerce.cielo.com.br/Api/public/v1/product/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
+    }
+  ]
+}
+```
+
+The data returned in the response includes all data sent in the request and additional data regarding the creation of the link.
+
+|PROPERTY|TYPE|DESCRIPTION|
+|---|---|---|
+|`id`|guid|Unique identifier of the payment link. It can be used to query, update or delete the link.|
+|`shortUrl`|string|Represents the payment link that, when opened in a browser, will display the Cielo Checkout screen.|
+|`links`|object|It presents the available and possible operations (RESTful hypermedia) to be performed after creating or updating the link.|
+
+## Querying a Link
+
+To consult an existing link, just perform a GET informing the `id` of the link.
+
+> **Important**: The query response contains the link itself (`shortUrl`) and the same data returned when creating the link.<br>
+> **The link is not the transaction yet**. A transaction will only be initiated when the shopper attempts payment and may or may not be authorized.<br>
+> To query a transaction, see the section [Transaction Query](https://developercielo.github.io/manual/linkdepagamentos5#consulta-de-transa%C3%A7%C3%B5es){:target="_blank"}.
+
+### Request
+
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}</span></aside> 
+
+Header: `Authorization`: `Bearer {access_token}`
+
+### Response
+
+`HTTP Status: 200 – OK`
 
 ```json
 {
@@ -424,113 +490,59 @@ To create Checkout payments link, simply send a POST with the Link data to the e
     "originZipcode": "06455030"
   },
   "softDescriptor": "Pedido1234",
-  "expirationDate": "2017-06-30T00:00:00",
+  "expirationDate": "2024-06-30",
   "maxNumberOfInstallments": 2,
   "links": [
     {
       "method": "GET",
       "rel": "self",
-      "href": "https://cieloecommerce.cielo.com.br/Api/public/v1/product/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
+      "href":
+        "https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
     },
     {
       "method": "PUT",
       "rel": "update",
-      "href": "https://cieloecommerce.cielo.com.br/Api/public/v1/product/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
+      "href":
+        "https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
     },
     {
       "method": "DELETE",
       "rel": "delete",
-      "href": "https://cieloecommerce.cielo.com.br/Api/public/v1/product/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
+      "href":
+        " https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
     }
   ]
 }
 ```
 
-The data returned in the response includes all data sent in the request and additional data regarding link creation.
+|PROPERTY|TYPE|DESCRIPTION|
+|---|---|---|
+|`id`|guid|Unique identifier of the payment link. It can be used to consult, update or delete the link.|
+|`shortUrl`|string|Represents the payment link that, when opened in a browser, will display the Cielo Checkout screen.|
+|`links`|object|It presents the available and possible operations (RESTful hypermedia) to be performed after creating or updating the link.|
 
-| PROPERTY   | TYPE   | DESCRIPTION                                                                                                        |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------ |
-| `id`       | guid   | Unique identifier of the payment link. Can be used to query, update or delete the link.                            |
-| `shortUrl` | string | Represents the payment link that, when opened in a browser, will display the Checkout Cielo screen.                |
-| `links`    | object | Displays the available and possible operations (RESTful hypermedia) to be performed after link creation or update. |
+## Updating a Link
 
-## Query Link
+To update an existing link, just make a `PUT` request, informing the `id` of the link.
 
-### Request
-
-To query an existing link, simply perform a `GET` informing the link `ID`.
-
-<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}</span></aside>
-
-> **Header:** Authorization: Bearer {access_token}
-
-### Response
-
-> HTTP Status: 200 – OK
-
-```json
-{
-  "id": "529aca91-2961-4976-8f7d-9e3f2fa8a0c9",
-  "shortUrl": "http://bit.ly/2smqdhD",
-  "type": "Asset",
-  "name": "Pedido ABC",
-  "description": "50 canetas - R$30,00 | 10 cadernos - R$50,00",
-  "showDescription": false,
-  "price": 8000,
-  "weight": 4500,
-  "shipping": {
-    "type": "Correios",
-    "originZipcode": "06455030"
-  },
-  "softDescriptor": "Pedido1234",
-  "expirationDate": "2017-06-30",
-  "maxNumberOfInstallments": 2,
-  "links": [
-    {
-      "method": "GET",
-      "rel": "self",
-      "href": "https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
-    },
-    {
-      "method": "PUT",
-      "rel": "update",
-      "href": "https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
-    },
-    {
-      "method": "DELETE",
-      "rel": "delete",
-      "href": " https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
-    }
-  ]
-}
-```
-
-| PROPERTY   | TYPE   | DESCRIPTION                                                                                                        |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------ |
-| `id`       | guid   | Unique identifier of the payment link. Can be used to query, update, or delete the link.                           |
-| `shortUrl` | string | Represents the payment link that, when opened in a browser, will display the Checkout Cielo screen.                |
-| `links`    | object | Displays the available and possible operations (RESTful hypermedia) to be performed after link creation or update. |
-
-> **OBS**: The query Response contains the same data returned on link creation.
-
-## Update Link
+> You can update a link to change the payment method, insert a new item in the order, change the order description or change the type of recurrence, for example.
 
 ### Request
-
-To update an existing link, simply perform a `GET` informing the link `ID`.
 
 <aside class="request"><span class="method put">PUT</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}</span></aside>
 
-> **Header**: Authorization: Bearer {access_token}
+Header: `Authorization`: `Bearer {access_token}`
 
 ```json
 {
   "Type": "Asset",
   "name": "Pedido ABC",
-  "description": "50 canetas - R$30,00 | 10 cadernos - R$50,00 | 10 Borrachas - R$10,00",
+  "description":
+    "50 canetas - R$30,00 | 10 cadernos - R$50,00 | 10 Borrachas - R$10,00",
   "price": 9000,
-  "expirationDate": "2017-06-30",
+  "expirationDate": "2024-06-30",
   "weight": 4700,
+  "sku": "abc123456",  
   "shipping": {
     "type": "FixedAmount",
     "name": "Entrega Rápida",
@@ -543,7 +555,7 @@ To update an existing link, simply perform a `GET` informing the link `ID`.
 
 ### Response
 
-> HTTP Status: 200 – OK
+`HTTP Status: 200 – OK`
 
 ```json
 {
@@ -551,8 +563,10 @@ To update an existing link, simply perform a `GET` informing the link `ID`.
   "shortUrl": "http://bit.ly/2smqdhD",
   "type": "Asset",
   "name": "Pedido ABC",
-  "description": "50 canetas - R$30,00 | 10 cadernos - R$50,00 | 10 Borrachas - R$10,00",
+  "description":
+    "50 canetas - R$30,00 | 10 cadernos - R$50,00 | 10 Borrachas - R$10,00",
   "showDescription": false,
+  "sku": "abc123456",
   "price": 9000,
   "weight": 4700,
   "shipping": {
@@ -561,49 +575,52 @@ To update an existing link, simply perform a `GET` informing the link `ID`.
     "price": 1000
   },
   "softDescriptor": "Pedido1234",
-  "expirationDate": "2017-06-30",
+  "expirationDate": "2024-06-30",
   "maxNumberOfInstallments": 2,
   "links": [
     {
       "method": "GET",
       "rel": "self",
-      "href": "https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
+      "href":
+        "https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
     },
     {
       "method": "PUT",
       "rel": "update",
-      "href": "https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
+      "href":
+        "https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
     },
     {
       "method": "DELETE",
       "rel": "delete",
-      "href": "https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
+      "href":
+        "https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"
     }
   ]
 }
 ```
 
-| PROPRIEDADE | TIPO   | DESCRIÇÃO                                                                                                          |
-| ----------- | ------ | ------------------------------------------------------------------------------------------------------------------ |
-| `id`        | guid   | Unique identifier of the payment link. Can be used to query, update, or delete the link.                           |
-| `shortUrl`  | string | Represents the payment link that, when opened in a browser, will display the Checkout Cielo screen.                |
-| `links`     | object | Displays the available and possible operations (RESTful hypermedia) to be performed after link creation or update. |
+|PROPERTY|TYPE|DESCRIPTION|
+|---|---|---|
+|`id`|guid|Unique identifier of the payment link. It can be used to consult, update or delete the link.|
+|`shortUrl`|string|Represents the payment link that, when opened in a browser, will display the Cielo Checkout screen.|
+|`links`|object|It presents the available and possible operations (RESTful hypermedia) to be performed after creating or updating the link.|
 
-> **OBS**: The query Response contains the same data returned on link creation.
+> Attention: The query response contains the same data returned when creating the link.
 
-## Excluir Link
+## Deleting a Link
+
+To delete an existing link just perform a DELETE informing the `Id` of the link.
 
 ### Request
 
-To delete an existing link, simply perform a `GET` informing the link `ID`.
-
 <aside class="request"><span class="method delete">DELETE</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}</span></aside>
 
-> **Header:** Authorization: Bearer {access_token}
+Header: `Authorization`: `Bearer {access_token}`
 
 ### Response
 
-> HTTP Status: 204 – No Content
+`HTTP Status: 204 – No Content`
 
 # Payment Notifications
 
