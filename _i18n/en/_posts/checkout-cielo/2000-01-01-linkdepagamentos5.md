@@ -252,7 +252,7 @@ The endpoints for integration with Super Link are presented in the following tab
 
 Transactions created with Test Mode enabled can be queried by the Transactional Control API.
 
-# Cielo OAUTH
+# Cielo OAUTH Authentication
 
 Cielo OAUTH is an authentication process for Cielo APIs related to e-commerce. Cielo OAUTH uses the **[OAUTH2](https://oauth.net/2/){:target="_blank"}** protocol as security, in which it is first necessary to obtain an access token using your credentials and then send it to the Super Link API.
 
@@ -265,7 +265,7 @@ To use Cielo OAUTH the following credentials are required:
 
 > To generate the `Client ID` and `Client Secret`, see Obtaining the Credentials topic below.
 
-## Obtaining the Credentials
+## Obtaining the credentials
 
 To obtain the `ClientId` and `ClientSecret` credentials for authentication in the Super Link API, follow the steps below:
 
