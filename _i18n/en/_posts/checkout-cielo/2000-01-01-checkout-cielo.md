@@ -28,7 +28,7 @@ Checkout has the following Features:
 | **1-click buy**                           | With the registered buyer, Checkout allows the purchase to be completed quickly, using the buyer's preferred payment and address data                                                                                  |
 | **Recurrence**                            | Checkout Cielo has the Scheduled Recurrence available in the API Cielo Ecommerce. <br> The merchant just needs to define that a transaction must be repeated, that Checkout will run it again within the defined range |
 | **Anti fraud**                            | Checkout already has an integration with CyberSource Anti Fraud, enabling analysis of credit transactions without additional integration                                                                               |
-| **Means of payment**                      | Checkout Cielo has a wide range of payment means: <br> **Credit cards** <br> **Debit card**<br>**Online Debit**<br>**Bradesco e Banco do Brasil Bank slip**                                                            |
+| **Payment Methods**                      | Checkout Cielo has a wide range of payment means: <br> **Credit cards** <br> **Debit card**<br>**Online Debit**<br>**Bradesco e Banco do Brasil boleto**<br>**Pix**                                                 |
 | **Simplified Backoffice**                 | Checkout Cielo Backoffice has a simplified and dynamic layout that allows a fast and comfortable browsing so that the Merchant can follow the sales without difficulty                                                 |
 | **Integration with Button and QR Code**   | Without technical integration or programming, Checkout provides an integration that makes it possible to create an order generator link with only onde product registration inside the Backoffice Checkout.            |
 | **Integration with E-commerce Platforms** | . It has integration with Terra Virtual Store and other platforms, already present in the main e-commerce platforms of the Brazilian market                                                                            |
@@ -41,9 +41,7 @@ Checkout Cielo is a solution indicated for:
 
 ## Checkout Cielo Means of payment
 
-The current version of Checkout Cielo supports the following payment means:
-
-**Credit card**
+The current version of Checkout Cielo supports the following payment methods:
 
 | Issuer           | Credit card cash payment | Installment credit Store | Debit | Voucher |
 | ---------------- | ------------------------ | ------------------------ | ----- | ------- |
