@@ -606,55 +606,40 @@ Transactions carried out in Test Mode can be finalized normally, but will not be
 
 <h1 id="payment-link">Payment Link</h1>
 
-<p>The <strong>Payment Link API</strong> allows the merchant to create, edit and query payment links.</p>
+<h2 id="creating-a-link">Creating a Link</h2>
 
-<p>Its main goal is to allow stores to create payment links (Buttons or QR Codes) through their own systems, without the need to access Checkout Cielo’s Backoffice and share with their customers.</p>
-
-<blockquote>
-  <p><strong>Attention</strong>:</p>
-
-  <ul>
-    <li>The payments link is not a <strong>REQUEST / TRANSACTION</strong> URL. It is a “cart” that can be reused countless times.</li>
-    <li>To receive notifications about transactions originating from Payment Links, the registration of the <strong>Notification URL</strong> in the Checkout backoffice is <strong>REQUIRED</strong>.</li>
-  </ul>
-</blockquote>
-
-<h2 id="authentication">Authentication</h2>
-
-<p>The Payment Link API Authentication Process is the <strong><a href="https://docscielo.github.io/Pilots/manual/linkdepagamentos5#cielo-oauth">Cielo OAUTH</a></strong></p>
-
-<h2 id="create-link">Create Link</h2>
+<p>To create a payment link, send a POST with product or service data.</p>
 
 <h3 id="request-1">Request</h3>
 
-<p>To create Checkout payments link, simply send a POST with the Link data to the endpoint:</p>
-
 <aside class="request"><span class="method post">POST</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/</span></aside>
 
-<blockquote>
-  <p>Header: <code class="language-plaintext highlighter-rouge">Authorization: Bearer {access_token}</code></p>
-</blockquote>
+<p>Header: <code class="language-plaintext highlighter-rouge">Authorization:</code> <code class="language-plaintext highlighter-rouge">Bearer {access_token}</code></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Digital"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Digital"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teste description"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000000</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"ExpirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2037-06-19"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2027-06-19"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"maxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teste"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teste"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WithoutShipping"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teste"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000000"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido1234"</span><span class="w">
+  </span><span class="nl">"recurrent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-02-06"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"softDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido1234"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p><strong>Dados do produto</strong></p>
+<p><strong>Product data</strong></p>
 
 <table>
   <thead>
@@ -668,134 +653,92 @@ Transactions carried out in Test Mode can be finalized normally, but will not be
   </thead>
   <tbody>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">type</code></td>
+      <td>Type of sale to be carried out through the payment link:<br />Asset – Physical Material<br />Digital – Digital Product<br />Service – Service<br />Payment – Simple Payments<br />Recurrent – Recurrent Payment</td>
+      <td>String</td>
+      <td>255</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">name</code></td>
       <td>Product name</td>
       <td>String</td>
       <td>128</td>
-      <td>YES</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">description</code></td>
-      <td>Description of the product that will be displayed on the Checkout screen if the <code class="language-plaintext highlighter-rouge">show_description</code> option is true.</td>
+      <td>Product description that will be displayed on the payment screen if the show_description option is true. It is allowed to use the pipe character <code class="language-plaintext highlighter-rouge">|</code> if you want to break the line when presenting the description on the payment screen.</td>
       <td>String</td>
       <td>512</td>
-      <td> </td>
+      <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">showDescription</code></td>
-      <td>Flag indicating whether or not the description should be displayed on the Checkout screen</td>
+      <td>Flag indicating whether or not the description should be displayed on the payment screen.</td>
       <td>String</td>
       <td>–</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">price</code></td>
-      <td>Product price in <strong>cents</strong></td>
+      <td>Product value in cents.</td>
       <td>Int</td>
       <td>1000000</td>
-      <td>YES</td>
+      <td>Yes</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">expirationDate</code></td>
-      <td>Link expiration date. If a date is entered, the link becomes unavailable on the given date. If no date is entered, the link will not expire.</td>
-      <td>String</td>
-      <td>YYYY-MM-DD</td>
+      <td>Link expiration date. If a date is informed, the link becomes unavailable on the informed date. If no date is informed, the link does not expire.</td>
+      <td>String (YYYY-MM-DD)</td>
+      <td>10</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">weight</code></td>
-      <td>Product weight in <strong>grams</strong></td>
+      <td>Product weight in grams.</td>
       <td>String</td>
       <td>2000000</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">softDescriptor</code></td>
-      <td>Description to be displayed on the bearer’s credit card invoice.</td>
+      <td>Description to be presented on the cardholder’s credit card statement.</td>
       <td>String</td>
       <td>13</td>
       <td>No</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">maxNumberOfInstallments</code></td>
-      <td>Maximum number of installments that the buyer can select on the Checkout screen. If not informed, the store settings in Checkout Cielo will be used.</td>
+      <td>Maximum number of installments that the shopper can select on the payment screen. If not informed, the store settings will be used. Attention: do not send this field if the product type (<code class="language-plaintext highlighter-rouge">type</code>) is equal to “Recurrent”.</td>
+      <td>int</td>
+      <td>up to 2 characters (1 to 12 installments)</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">quantity</code></td>
+      <td>Number of transactions remaining until the link stops working.</td>
       <td>int</td>
       <td>2</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">quantity</code></td>
-      <td>Number of transactions remaining until the link stops working</td>
-      <td>Int</td>
-      <td>2</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">type</code></td>
-      <td>Type of sale to be made through the payment link:<br /><strong>Asset</strong> – Physical Material<br /><strong>Digital</strong> – Digital Product<br /><strong>Service</strong> – Service<br /><strong>Payment</strong> – Simple Payments<br /><strong>Recurrent</strong> – Recurrent Payment</td>
+      <td><code class="language-plaintext highlighter-rouge">sku</code></td>
+      <td>Product identification code.</td>
       <td>String</td>
-      <td>255</td>
-      <td>YES</td>
+      <td>32</td>
+      <td>No</td>
     </tr>
   </tbody>
 </table>
 
 <blockquote>
-  <p>Within <code class="language-plaintext highlighter-rouge">Description</code> You can use the pipe character<code class="language-plaintext highlighter-rouge">|</code>if it is desirable to break the line when displaying the description on the Checkout screen</p>
+  <p>Inside <code class="language-plaintext highlighter-rouge">description</code> you can use the pipe character <code class="language-plaintext highlighter-rouge">|</code> if you need to break the line when presenting the description on the payment link screen.</p>
 </blockquote>
 
-<p><strong>Shipping Information</strong></p>
+<p><strong>Shipping data</strong></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>PROPERTY</th>
-      <th>DESCRIÇÃO</th>
-      <th>TYPE</th>
-      <th>SIZE</th>
-      <th>REQUIRED</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>shipping</strong></td>
-      <td>Node containing product delivery information</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">shipping.name</code></td>
-      <td>Shipping name. <strong>Required for the shipping type “FixedAmount”</strong></td>
-      <td>string</td>
-      <td>128</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">shipping.price</code></td>
-      <td>Shipping price. <strong>Required for the shipping type “FixedAmount”</strong></td>
-      <td>int</td>
-      <td>100000</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">shipping.originZipCode</code></td>
-      <td>Order origin zip code. Required for the shipping type “Correios”. Must contain only numbers</td>
-      <td>string</td>
-      <td>8</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">shipping.type</code></td>
-      <td>Shipping type.<br /><strong>Correios</strong> – Deliver by correios<br /><strong>FixedAmount</strong> – Fixed amount<br /><strong>Free</strong> - Free<br /><strong>WithoutShippingPickUp</strong> – Without shipping pick up<br /><strong>WithoutShipping</strong> – Without shipping<br />If the chosen product type is “<strong>Asset</strong>”, the allowed shipping types are: <em><strong>“Correios, FixedAmount or Free”</strong></em>.<br />If the chosen product type is “<strong>Digital</strong>” ou “<strong>Service</strong>”, the allowed shipping types are: <em><strong>“WithoutShipping, WithoutShippingPickUp”</strong></em>.<br />If the chosen product type is “<strong>Recurrent</strong>” the allowed shipping type is: <em><strong>“WithoutShipping”</strong></em>.</td>
-      <td>string</td>
-      <td>255</td>
-      <td>Yes</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Dados da Recorrência</strong></p>
+<p>The data that must be filled in regarding shipping are in the <code class="language-plaintext highlighter-rouge">shipping</code> node.</p>
 
 <table>
   <thead>
@@ -809,24 +752,66 @@ Transactions carried out in Test Mode can be finalized normally, but will not be
   </thead>
   <tbody>
     <tr>
-      <td><strong>recurrent</strong></td>
-      <td>Node containing information on the recurrence of payment. May be informed if the product type is “Recurrent”</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">recurrent.interval</code></td>
-      <td>Recurrence Charge Interval.<br /><strong>Monthly</strong> - Monthly<br /><strong>Bimonthly</strong> - Bimonthly<br /><strong>Quarterly</strong> - Quarterly<br /><strong>SemiAnnual</strong> - Semi Annual<br /><strong>Annual</strong> – Annual<br /></td>
+      <td><code class="language-plaintext highlighter-rouge">shipping.name</code></td>
+      <td>Shipping name. Mandatory for shipping type “FixedAmount”.</td>
       <td>string</td>
       <td>128</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping.price</code></td>
+      <td>The shipping price. Mandatory for shipping type “FixedAmount”.</td>
+      <td>int</td>
+      <td>100000</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping.originZipCode</code></td>
+      <td>ZIP code of origin of the order. Mandatory for “Correios” shipping. It must only contain numbers.</td>
+      <td>string</td>
+      <td>8</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">recurrrent.endDate</code></td>
-      <td>Recurrence charge end date. If not informed the recurrence will not end, the charging will happen according to the interval selected indefinitely.</td>
+      <td><code class="language-plaintext highlighter-rouge">shipping.type</code></td>
+      <td>Shipping type. Correios – Delivery by courier.<br />FixedAmount – Fixed Amount<br />Free - Free<br />WithoutShippingPickUp – No delivery with pick up at the store<br />WithoutShipping – No delivery<br />If the type of product chosen is “Asset” , the allowed types of shipping are: “Correios, FixedAmount or Free”.<br />If the chosen product type is “Digital” or “Service”, the allowed types of shipping are: “WithoutShipping, WithoutShippingPickUp”.<br />If the type of product chosen is “Recurrent” the type of shipping allowed is: “WithoutShipping”.</td>
+      <td>string</td>
+      <td>255</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Recurrence data</strong></p>
+
+<p>The <code class="language-plaintext highlighter-rouge">recurrent</code> node contains payment recurrence information. It can be informed if the product type (<code class="language-plaintext highlighter-rouge">type</code>) is “Recurrent”.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPERTY</th>
+      <th>DESCRIPTION</th>
+      <th>TYPE</th>
+      <th>SIZE</th>
+      <th>REQUIRED</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">recurrent.interval</code></td>
+      <td>Recurrence billing interval.<br />“Monthly”<br />“Bimonthly”<br />“Quarterly”<br />“SemiAnnual”<br />“Annual”</td>
       <td>string</td>
       <td>128</td>
+      <td>No*<br />If not sent, the monthly interval will be considered.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">recurrrent.endDate</code></td>
+      <td>Recurrence end date. If not sent, the recurrence ends only if cancelled.</td>
+      <td>YYYY-MM-DD format.</td>
+      <td>string</td>
+      <td>10</td>
       <td>No</td>
     </tr>
   </tbody>
@@ -834,9 +819,9 @@ Transactions carried out in Test Mode can be finalized normally, but will not be
 
 <h3 id="response-1">Response</h3>
 
-<blockquote>
-  <p>“HTTP Status”: 201 – Created</p>
-</blockquote>
+<p>The response will return the payment link in the <code class="language-plaintext highlighter-rouge">shortUrl</code> field and the <code class="language-plaintext highlighter-rouge">id</code> of the link, which can be used to query, update or delete the link.</p>
+
+<p><code class="language-plaintext highlighter-rouge">“HTTP Status”: 201 – Created</code></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="p">,</span><span class="w">
@@ -851,30 +836,37 @@ Transactions carried out in Test Mode can be finalized normally, but will not be
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Correios"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"originZipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06455030"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"softDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido1234"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"expirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-30T00:00:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"recurrent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-02-06"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"softDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome da Loja"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-06-30T00:00:00"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"maxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
   </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/product/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+      </span><span class="nl">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/product/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/product/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+      </span><span class="nl">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/product/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"delete"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/product/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+      </span><span class="nl">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/product/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>The data returned in the response includes all data sent in the request and additional data regarding link creation.</p>
+<p>The data returned in the response includes all data sent in the request and additional data regarding the creation of the link.</p>
 
 <table>
   <thead>
@@ -888,38 +880,40 @@ Transactions carried out in Test Mode can be finalized normally, but will not be
     <tr>
       <td><code class="language-plaintext highlighter-rouge">id</code></td>
       <td>guid</td>
-      <td>Unique identifier of the payment link. Can be used to query, update or delete the link.</td>
+      <td>Unique identifier of the payment link. It can be used to query, update or delete the link.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">shortUrl</code></td>
       <td>string</td>
-      <td>Represents the payment link that, when opened in a browser, will display the Checkout Cielo screen.</td>
+      <td>Represents the payment link that, when opened in a browser, will display the Cielo Checkout screen.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">links</code></td>
       <td>object</td>
-      <td>Displays the available and possible operations (RESTful hypermedia) to be performed after link creation or update.</td>
+      <td>It presents the available and possible operations (RESTful hypermedia) to be performed after creating or updating the link.</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="query-link">Query Link</h2>
+<h2 id="querying-a-link">Querying a Link</h2>
+
+<p>To consult an existing link, just perform a GET informing the <code class="language-plaintext highlighter-rouge">id</code> of the link.</p>
+
+<blockquote>
+  <p><strong>Important</strong>: The query response contains the link itself (<code class="language-plaintext highlighter-rouge">shortUrl</code>) and the same data returned when creating the link.<br />
+<strong>The link is not the transaction yet</strong>. A transaction will only be initiated when the shopper attempts payment and may or may not be authorized.<br />
+To query a transaction, see the section <a href="https://developercielo.github.io/manual/linkdepagamentos5#consulta-de-transa%C3%A7%C3%B5es" target="_blank">Transaction Query</a>.</p>
+</blockquote>
 
 <h3 id="request-2">Request</h3>
 
-<p>To query an existing link, simply perform a <code class="language-plaintext highlighter-rouge">GET</code> informing the link <code class="language-plaintext highlighter-rouge">ID</code>.</p>
+<aside class="request"><span class="method get">GET</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}</span></aside>
 
-<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}</span></aside>
-
-<blockquote>
-  <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
-</blockquote>
+<p>Header: <code class="language-plaintext highlighter-rouge">Authorization</code>: <code class="language-plaintext highlighter-rouge">Bearer {access_token}</code></p>
 
 <h3 id="response-2">Response</h3>
 
-<blockquote>
-  <p>HTTP Status: 200 – OK</p>
-</blockquote>
+<p><code class="language-plaintext highlighter-rouge">HTTP Status: 200 – OK</code></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="p">,</span><span class="w">
@@ -935,23 +929,26 @@ Transactions carried out in Test Mode can be finalized normally, but will not be
     </span><span class="nl">"originZipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06455030"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"softDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido1234"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"expirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-30"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-06-30"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"maxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
   </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+      </span><span class="nl">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+      </span><span class="nl">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"delete"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">" https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+      </span><span class="nl">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">" https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -969,44 +966,44 @@ Transactions carried out in Test Mode can be finalized normally, but will not be
     <tr>
       <td><code class="language-plaintext highlighter-rouge">id</code></td>
       <td>guid</td>
-      <td>Unique identifier of the payment link. Can be used to query, update, or delete the link.</td>
+      <td>Unique identifier of the payment link. It can be used to consult, update or delete the link.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">shortUrl</code></td>
       <td>string</td>
-      <td>Represents the payment link that, when opened in a browser, will display the Checkout Cielo screen.</td>
+      <td>Represents the payment link that, when opened in a browser, will display the Cielo Checkout screen.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">links</code></td>
       <td>object</td>
-      <td>Displays the available and possible operations (RESTful hypermedia) to be performed after link creation or update.</td>
+      <td>It presents the available and possible operations (RESTful hypermedia) to be performed after creating or updating the link.</td>
     </tr>
   </tbody>
 </table>
 
-<blockquote>
-  <p><strong>OBS</strong>: The query Response contains the same data returned on link creation.</p>
-</blockquote>
+<h2 id="updating-a-link">Updating a Link</h2>
 
-<h2 id="update-link">Update Link</h2>
+<p>To update an existing link, just make a <code class="language-plaintext highlighter-rouge">PUT</code> request, informing the <code class="language-plaintext highlighter-rouge">id</code> of the link.</p>
+
+<blockquote>
+  <p>You can update a link to change the payment method, insert a new item in the order, change the order description or change the type of recurrence, for example.</p>
+</blockquote>
 
 <h3 id="request-3">Request</h3>
 
-<p>To update an existing link, simply perform a <code class="language-plaintext highlighter-rouge">GET</code> informing the link <code class="language-plaintext highlighter-rouge">ID</code>.</p>
-
 <aside class="request"><span class="method put">PUT</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}</span></aside>
 
-<blockquote>
-  <p><strong>Header</strong>: Authorization: Bearer {access_token}</p>
-</blockquote>
+<p>Header: <code class="language-plaintext highlighter-rouge">Authorization</code>: <code class="language-plaintext highlighter-rouge">Bearer {access_token}</code></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido ABC"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50 canetas - R$30,00 | 10 cadernos - R$50,00 | 10 Borrachas - R$10,00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w">
+    </span><span class="s2">"50 canetas - R$30,00 | 10 cadernos - R$50,00 | 10 Borrachas - R$10,00"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">9000</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"expirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-30"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-06-30"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">4700</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123456"</span><span class="p">,</span><span class="w">  
   </span><span class="nl">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FixedAmount"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entrega Rápida"</span><span class="p">,</span><span class="w">
@@ -1019,17 +1016,17 @@ Transactions carried out in Test Mode can be finalized normally, but will not be
 
 <h3 id="response-3">Response</h3>
 
-<blockquote>
-  <p>HTTP Status: 200 – OK</p>
-</blockquote>
+<p><code class="language-plaintext highlighter-rouge">HTTP Status: 200 – OK</code></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"shortUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://bit.ly/2smqdhD"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido ABC"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50 canetas - R$30,00 | 10 cadernos - R$50,00 | 10 Borrachas - R$10,00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w">
+    </span><span class="s2">"50 canetas - R$30,00 | 10 cadernos - R$50,00 | 10 Borrachas - R$10,00"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"showDescription"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123456"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">9000</span><span class="p">,</span><span class="w">
   </span><span class="nl">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">4700</span><span class="p">,</span><span class="w">
   </span><span class="nl">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1038,23 +1035,26 @@ Transactions carried out in Test Mode can be finalized normally, but will not be
     </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"softDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido1234"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"expirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-30"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expirationDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-06-30"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"maxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
   </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+      </span><span class="nl">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+      </span><span class="nl">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"delete"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
+      </span><span class="nl">"href"</span><span class="p">:</span><span class="w">
+        </span><span class="s2">"https://cieloecommerce.cielo.com.br/Api/public/v1/products/529aca91-2961-4976-8f7d-9e3f2fa8a0c9"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1063,51 +1063,47 @@ Transactions carried out in Test Mode can be finalized normally, but will not be
 <table>
   <thead>
     <tr>
-      <th>PROPRIEDADE</th>
-      <th>TIPO</th>
-      <th>DESCRIÇÃO</th>
+      <th>PROPERTY</th>
+      <th>TYPE</th>
+      <th>DESCRIPTION</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">id</code></td>
       <td>guid</td>
-      <td>Unique identifier of the payment link. Can be used to query, update, or delete the link.</td>
+      <td>Unique identifier of the payment link. It can be used to consult, update or delete the link.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">shortUrl</code></td>
       <td>string</td>
-      <td>Represents the payment link that, when opened in a browser, will display the Checkout Cielo screen.</td>
+      <td>Represents the payment link that, when opened in a browser, will display the Cielo Checkout screen.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">links</code></td>
       <td>object</td>
-      <td>Displays the available and possible operations (RESTful hypermedia) to be performed after link creation or update.</td>
+      <td>It presents the available and possible operations (RESTful hypermedia) to be performed after creating or updating the link.</td>
     </tr>
   </tbody>
 </table>
 
 <blockquote>
-  <p><strong>OBS</strong>: The query Response contains the same data returned on link creation.</p>
+  <p>Attention: The query response contains the same data returned when creating the link.</p>
 </blockquote>
 
-<h2 id="excluir-link">Excluir Link</h2>
+<h2 id="deleting-a-link">Deleting a Link</h2>
+
+<p>To delete an existing link just perform a DELETE informing the <code class="language-plaintext highlighter-rouge">Id</code> of the link.</p>
 
 <h3 id="request-4">Request</h3>
 
-<p>To delete an existing link, simply perform a <code class="language-plaintext highlighter-rouge">GET</code> informing the link <code class="language-plaintext highlighter-rouge">ID</code>.</p>
-
 <aside class="request"><span class="method delete">DELETE</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}</span></aside>
 
-<blockquote>
-  <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
-</blockquote>
+<p>Header: <code class="language-plaintext highlighter-rouge">Authorization</code>: <code class="language-plaintext highlighter-rouge">Bearer {access_token}</code></p>
 
 <h3 id="response-4">Response</h3>
 
-<blockquote>
-  <p>HTTP Status: 204 – No Content</p>
-</blockquote>
+<p><code class="language-plaintext highlighter-rouge">HTTP Status: 204 – No Content</code></p>
 
 <h1 id="payment-notifications">Payment Notifications</h1>
 
