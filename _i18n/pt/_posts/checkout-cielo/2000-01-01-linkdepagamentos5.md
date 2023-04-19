@@ -370,13 +370,13 @@ Header: `Authorization:` `Bearer {access_token}`
 |`name`|Nome do produto|String|128|Sim|
 |`description`|Descrição do produto que será exibida na tela de pagamento caso a opção show_description seja verdadeira. É permitido usar o caracter pipe `|` caso seja desejável quebrar a linha ao apresentar a descrição na tela de pagamento.|String|512|Não|
 |`showDescription`|Flag indicando se a descrição deve ou não ser exibida na tela de pagamento.|String|–|Não|
-|`price`|Valor do produto em centavos|Int|1000000|SIM|
-|expirationDate|Data de expiração do link. Caso uma data seja informada, o link se torna indisponível na data informada. Se nenhuma data for informada, o link não expira.|String (YYYY-MM-DD)|10|Não|
-|`weight`|Peso do produto em gramas|String|2000000|Não|
-|softDescriptor|Descrição a ser apresentada na fatura do cartão de crédito do portador.|String|13|Não|
+|`price`|Valor do produto em centavos.|Int|1000000|Sim|
+|`expirationDate`|Data de expiração do link. Caso uma data seja informada, o link se torna indisponível na data informada. Se nenhuma data for informada, o link não expira.|String (YYYY-MM-DD)|10|Não|
+|`weight`|Peso do produto em gramas.|String|2000000|Não|
+|`softDescriptor`|Descrição a ser apresentada na fatura do cartão de crédito do portador.|String|13|Não|
 |`maxNumberOfInstallments`|Número máximo de parcelas que o comprador pode selecionar na tela de pagamento. Se não informado, será utilizada as configurações da loja. Atenção: não envie esse campo se o tipo de produto (`type`) for igual a “Recurrent”.|int|até 2 caracteres (1 a 12 parcelas)|Não|
-|`quantity`|Número de transações restantes até que o link deixe de funcionar|int|2|Não|
-|`sku`|código de identificação do produto|String|32|Não|
+|`quantity`|Número de transações restantes até que o link deixe de funcionar.|int|2|Não|
+|`sku`|Código de identificação do produto.|String|32|Não|
 
 > Dentro de `description` você pode usar o caracter pipe `|` caso precise quebrar a linha ao apresentar a descrição na tela do link de pagamento.
 
