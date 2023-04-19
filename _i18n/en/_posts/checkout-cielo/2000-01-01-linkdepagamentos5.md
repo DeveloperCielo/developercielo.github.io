@@ -89,6 +89,93 @@ To start your integration with the Super Link API, you will need:
 
 *_If you have configured the notification URL._
 
+# Store settings
+
+Before setting up, you need to enable Super Link for your store.
+
+## Enabling the establishment number (EC) for the Super Link
+
+* **If you are not yet a Cielo client or if you only use the POS terminal**, go to the [Cielo website](https://www.cielo.com.br/){:target="_blank"} to enable the establishment number (EC) for the Super Link;
+* **If you are already a Cielo E-commerce client**, contact your commercial manager or Cielo Support.
+
+## Setting up your store
+
+**Access the Store Settings on the Cielo website**
+
+Go to the [Cielo website](https://minhaconta2.cielo.com.br/login/){:target="_blank"} and login. Go to **E-commerce** > **Super Link** > **Configurações** > **Configurações da loja**.
+
+### 1. Customize the appearance of the payment page
+
+Insert your store logo image and choose a background color. Click **Salvar**.
+
+![Aparência da Página de Pagemento]({{ site.baseurl_root }}/images/checkout/superlink/superlink-aparencia-pagina-pagamento.png)
+
+### 2. Set up sending the checkout confirmation email to the shopper
+
+If you don't want your end customer to receive an order completion email after payment, disable this option. Then click on **Salvar**.
+
+![E-mail de finalização para o comprador]({{ site.baseurl_root }}/images/checkout/superlink/superlink-email-finalizacao.png)
+
+### 3. Define the desired payment methods
+
+Select the payment methods you would like to make available to your customers. For credit card, also choose the maximum number of installments allowed. Then click **Salvar**.
+
+![Meios de Pagamento Ativos]({{ site.baseurl_root }}/images/checkout/superlink/superlink-meios-de-pagamento.png)
+
+<aside class="notice">These settings apply to all links created in your store.</aside>
+
+> **Warning**<br>
+> * To use boleto, request authorization to the E-commerce Support;
+> * The number of installments chosen by payment methods must be the same as that shown in your Cielo registration. Consult the E-commerce Support if you have any questions.
+
+>**Enabling Pix on the Cielo portal**<br>
+> To use **Pix**, your **registration must be enabled with the Pix payment method**. To confirm the qualification, access the [Cielo portal](https://www.cielo.com.br/){:target="_blank"} and click on **Meu Cadastro** > **Authorizações** > **Pix**.<br>
+> If Pix is not enabled in your registration, the adding screen will be displayed if your establishment (EC) is eligible; after completing the Pix adding process, it will be possible to use Pix at Checkout Cielo.<br>
+> ![Adesão ao Pix]({{ site.baseurl_root }}/images/apicieloecommerce/adesao-pix.png)
+
+For more details see the [Super Link and Checkout Cielo tutorial](https://developercielo.github.io/tutorial/checkout-tutoriais){:target="_blank"}.
+
+### ### 4. Configure your store's return, notification, and status change URLs
+
+You will be asked to fill in the return, notification, and status change URLs. URLs must be created and defined by the merchant. Then click on **Salvar**.
+
+![URLs de Notificação]({{ site.baseurl_root }}/images/checkout/superlink/superlink-urls-notificacao.png)
+
+* **Return URL**: after completing the payment, the shopper can be redirected to a web page defined by the store. No data is exchanged or sent to this URL and its configuration is optional;
+* **[Notification URL](https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o){:target="_blank"}**: is the URL through which you will receive the notification with all the cart data when the transaction is completed;
+* **[Status Change URL](https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o){:target ="_blank"}**: is the URL through which you will receive notification when an order has its status changed. The status change notification does not contain cart data, only order identification data.
+
+### 5. Configure Capture and Antifraude
+
+When accessing your store's settings, look for the Antifraude and automatic capture section. Select the desired option:
+
+* *Nunca fazer a Captura Automática* (Never do the Automatic Capture);
+* *Sempre fazer Captura Automática* (Always do Automatic Capture);
+* *Somente fazer captura Automática das transações de Baixo Risco no Antifraude.* (Only automatically capture Low Risk transactions in Antifraude)
+
+![Configuração de captura e Antifraude]({{ site.baseurl_root }}/images/checkout/superlink/superlink-captura-e-antifraude.png)
+
+### 6. Configure Correios shipping options
+
+If your store works with the delivery of **physical products** (those that need shipping), enter your Correios login and password and select the desired services, such as the types of Sedex and PAC.
+
+If your store works with digital materials, services or payments, that is, sales that do not require shipping, skip this step.
+
+![Configuração do Frete Correios]({{ site.baseurl_root }}/images/checkout/superlink/superlink-configuracao-frete-correios.png)
+
+### Default settings
+
+If you don't fill in the Store Settings, Super Link will default to the following:
+
+* The option of sending e-mail to the shopper will be turned on;
+* The option to accept international cards will be on;
+* The minimum installment amount will be R$5.00;
+* Credit and debit payment methods will have 12 installments enabled (if your Cielo registration allows it);
+* The QR Code Credit payment method will have an installment enabled;
+* The ticket will not have a defined minimum value or discount (zeroed);
+* The **Always do Automatic Capture** option will only be enabled for transactions that are not considered high risk;
+* Correios shipping login will be disabled.
+
 # Test Mode
 
 ## Sandbox
