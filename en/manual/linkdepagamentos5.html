@@ -469,20 +469,16 @@ Transactions carried out in Test Mode can be finalized normally, but will not be
 
 <h1 id="cielo-oauth">Cielo OAUTH</h1>
 
-<p>Cielo OAUTH is an authentication process used in Cielo APIs that are correlated to E-commerce products. It uses the <strong><a href="https://oauth.net/2/">OAUTH2</a></strong> protocol, where it is first necessary to obtain an access token, using its credentials, which should then be sent to the CieloOAuth API</p>
+<p>Cielo OAUTH is an authentication process for Cielo APIs related to e-commerce. Cielo OAUTH uses the <strong><a href="https://oauth.net/2/" target="_blank">OAUTH2</a></strong> protocol as security, in which it is first necessary to obtain an access token using your credentials and then send it to the Super Link API.</p>
 
-<blockquote>
-  <p>To get the <code class="language-plaintext highlighter-rouge">ClientID</code> and<code class="language-plaintext highlighter-rouge"> ClientSecret</code>, see the topic of Obtaining Credentials.</p>
-</blockquote>
-
-<p>To use Cielo Oauth you need the following credentials:</p>
+<p>To use Cielo OAUTH the following credentials are required:</p>
 
 <table>
   <thead>
     <tr>
       <th>PROPERTY</th>
       <th>DESCRIPTION</th>
-      <th>TIPO</th>
+      <th>TYPE</th>
     </tr>
   </thead>
   <tbody>
@@ -499,29 +495,33 @@ Transactions carried out in Test Mode can be finalized normally, but will not be
   </tbody>
 </table>
 
-<h2 id="get-credentials">Get Credentials</h2>
+<blockquote>
+  <p>To generate the <code class="language-plaintext highlighter-rouge">Client ID</code> and <code class="language-plaintext highlighter-rouge">Client Secret</code>, see Obtaining the Credentials topic below.</p>
+</blockquote>
 
-<p>To obtain the credentials in Checkout Cielo, just follow the flow below:</p>
+<h2 id="obtaining-the-credentials">Obtaining the Credentials</h2>
+
+<p>To obtain the <code class="language-plaintext highlighter-rouge">ClientId</code> and <code class="language-plaintext highlighter-rouge">ClientSecret</code> credentials for authentication in the Super Link API, follow the steps below:</p>
 
 <ol>
-  <li>Access the Cielo website</li>
-  <li>Super Link</li>
-  <li>Configurações</li>
-  <li>Dados da loja</li>
-  <li>Gerar chaves da API</li>
+  <li>After receiving the establishment number (EC) with Super Link enabled, access the <a href="https://minhaconta2.cielo.com.br/login/" target="_blank">Cielo website</a> and log in;</li>
+  <li>Go to the <strong>Ecommerce</strong> tab &gt; <strong>Super Link</strong> &gt; <strong>Configurações</strong> &gt; <strong>Dados Cadastrais</strong>;</li>
+  <li>In the <strong>Contato técnico</strong> section, fill in the contact details of the person responsible for receiving the keys to your store. <em>ATTENTION: only enter the data of the person who can actually have access to the keys to your store, which are confidential information for each establishment</em>;</li>
+  <li>Click on <strong>Gerar Credenciais de Acessos às APIs</strong>;</li>
+  <li>You will receive an email with the credentials</li>
 </ol>
 
-<h2 id="access-token">Access token</h2>
+<h2 id="obtaining-the-access-token">Obtaining the access token</h2>
 
-<p>To gain access to Cielo services that use <code class="language-plaintext highlighter-rouge">Cielo Oauth</code>, you will need to obtain an access token, according to the steps below:</p>
+<p>To gain access to Cielo services that use <strong>Cielo Oauth</strong>, you will need to obtain an access token, as per the steps below:</p>
 
 <ol>
-  <li>Concatenate the <em>ClientId</em> and <em>ClientSecret</em>, <strong>ClientId: ClientSecret</strong></li>
+  <li>Concatenate the <code class="language-plaintext highlighter-rouge">Client Id</code> and <code class="language-plaintext highlighter-rouge">Client Secret</code>, <code class="language-plaintext highlighter-rouge">**ClientId:ClientSecret**</code></li>
   <li>Encode the result in <strong>Base64</strong></li>
-  <li>Submit a request using the HTTP POST method</li>
+  <li>Send the token creation request, using the HTTP POST method.</li>
 </ol>
 
-<h3 id="concatenation">Concatenation</h3>
+<p><strong>Concatenation Example</strong></p>
 
 <table>
   <thead>
@@ -564,7 +564,7 @@ Transactions carried out in Test Mode can be finalized normally, but will not be
 
 <h3 id="response">Response</h3>
 
-<p>The response will have the Token used for new requests in Cielo Services</p>
+<p>The response will contain the <code class="language-plaintext highlighter-rouge">access_token</code>, which should be used in Super Link API requests.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6Ik1ldUNoZWNrb3V0IE1hc3RlciBLZXkiLCJjbGllbnRfaWQiOiJjODlmZGasdasdasdmUyLTRlNzctODA2YS02ZDc1Y2QzOTdkYWMiLCJzY29wZXMiOiJ7XCJTY29wZVwiOlwiQ2hlY2tvdXRBcGlcIixcIkNsYWltc1wiOltdfSIsInJvbGUiOiJasdasdasd291dEFwaSIsImlzc47I6Imh0dHBzOi8vYXV0aGhvbasdasdnJhc3BhZy5jb20uYnIiLCJhdWQiOiJVVlF4Y1VBMmNTSjFma1EzSVVFbk9pSTNkbTl0ZmasdsadQjVKVVV1UVdnPSIsImV4cCI6MTQ5Nzk5NjY3NywibmJmIjoxNDk3OTEwMjc3fQ.ozj4xnH9PA3dji-ARPSbI7Nakn9dw5I8w6myBRkF-uA"</span><span class="p">,</span><span class="w">
@@ -590,7 +590,7 @@ Transactions carried out in Test Mode can be finalized normally, but will not be
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Token_type</code></td>
       <td>Will always be <code class="language-plaintext highlighter-rouge">bearer</code> type</td>
-      <td>texto</td>
+      <td>text</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Expires_in</code></td>
@@ -601,7 +601,7 @@ Transactions carried out in Test Mode can be finalized normally, but will not be
 </table>
 
 <blockquote>
-  <p>The returned token (access_token) must be used in every request as an authorization key, emphasizing that it has a validity of 20 minutes (1200 seconds) and after this interval, it will be necessary to obtain a new token to access Cielo services.</p>
+  <p>The token returned (<code class="language-plaintext highlighter-rouge">access_token</code>) must be used in every request to the Super link API as an authorization key. The <code class="language-plaintext highlighter-rouge">access_token</code> has a validity of 20 minutes (1200 seconds) and it is necessary to generate a new token every time the validity expires.</p>
 </blockquote>
 
 <h1 id="payment-link">Payment Link</h1>
