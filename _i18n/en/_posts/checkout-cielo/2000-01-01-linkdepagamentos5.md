@@ -182,29 +182,61 @@ If you don't fill in the Store Settings, Super Link will default to the followin
 
 As it is a non-financial request, the Super Link API does not have a Sandbox to test the creation of links. Links must be created from the production environment. Accreditation can be done through the cielo website or through the ecommerce center.
 
-<aside class="warning"><b>Central Contacts:<br>
-credenciamentoecommerce@cielo.com.br<br>
-+55 11 4002-9700<br>
-0800-570-1700
-</b></aside>
+**Suporte Cielo E-commerce**
+
+cieloecommerce@cielo.com.br
+
++55 11 4002-5472
+
+0800 570 8472
 
 Financial tests can be performed by activating the test mode in your store settings.
 
 ## Enabling Test Mode
 
-The test mode can be activated in the **Settings** tab, where there is a checkbox, which, when checked, will enable the test mode of Checkout Cielo. The mode will only start when the selection is saved.
+Test mode can be activated in the Settings tab by enabling the Test Mode checkbox. Test mode will only start when the selection is saved.
 
-![Enabling Test Mode]({{ site.baseurl_root }}/images/checkout/tm01.png)
+![Modo Teste Ativo selecionado]({{ site.baseurl_root }}/images/checkout/superlink/superlink-modotesteativo.png)
 
-When the option is saved, a red stripe will appear at the top of the screen. It will be displayed on all Backoffice Cielo Checkout and on the transactional screen for Checkout Cielo.
+When the option is saved, a red stripe will appear at the top of the screen. It will be displayed on all Super Link screens.
 
-This label indicates that your Checkout Cielo store is now operating in a test environment, that is, the entire transaction carried out in this mode will be considered as a test.
+This stripe indicates that your store is now operating in a test environment, that is, all transactions carried out in this mode will be considered as a test.
 
-| Backoffice                                                                           | Transactional                                                                             |
-| ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------- |
-| ![Red stripe - Backoffice]({{ site.baseurl_root }}/images/checkout/tmbackoffice.png) | ![Red stripe - Transactional]({{ site.baseurl_root }}/images/checkout/tmtransacional.png) |
+![Modo Teste Ativo Tarja Vermelha]({{ site.baseurl_root }}/images/checkout/superlink/superlink-modoteste-tarjavermelha.png)
 
-## Transacting in Test Mode
+## Test Transactions
+
+All transactions carried out in test mode will be displayed as normal transactions on the Cielo Checkout Orders tab, however, they will be marked as test transactions and will not be counted together with transactions carried out outside the test environment.
+
+![Lista de Transações no Modo Teste]({{ site.baseurl_root }}/images/checkout/superlink/superlink-transacoes-modoteste.png)
+
+These transactions will have the test symbol differentiating them from your other transactions. They can be captured or canceled using the same procedures as for real transactions.
+
+> **WARNING**: When opening your store for sales to your customers, make sure Test Mode is disabled.<br>
+> Transactions carried out in Test Mode can be finalized normally, but will not be deducted from the customer's card and cannot be “transferred” to the standard sales environment.
+
+## How to make a transaction on test mode
+
+After activating test mode, transactions are carried out normally. The creation of the link can be done using the same parameters as in the production environment, however, the payment methods to be used will be simulated methods.
+
+To carry out test transactions with different payment methods, follow these rules:
+
+### Credit or debit card transactions
+
+To test credit or debit cards, it is necessary to use a card that follows the Luhn algorithm and has the final number corresponding to the desired authorization status of the card (see details in the table below).
+
+**Credit or debit card authorization status**
+
+|DESIRED STATUS OF THE TRANSACTION | CARDS FOR CARRYING OUT THE TESTS|
+|---|---|
+|Authorized |Cards ending from 0 to 4.<br>E.g.:<br>XXXXXXXXXXXXXXX0<br>XXXXXXXXXXXXXXX1<br>XXXXXXXXXXXXXXX2<br>XXXXXXXXXXXXXXX3<br>XXXXXXXXXXXXXXX4|
+|Not Authorized | Cards ending from 5 to 9.<br>E.g.:<br>XXXXXXXXXXXXXXX5<br>XXXXXXXXXXXXXXX6<br>XXXXXXXXXXXXXXX7<br>XXXXXXXXXXXXXXX8<br>XXXXXXXXXXXXXXX9|
+
+**Example**: 5404434242930100 = **Authorized**
+
+### Boleto
+
+Simply carry out the purchase process normally without any changes to the procedure. The boleto generated in test mode will always be a simulated boleto.
 
 # Cielo OAUTH
 
