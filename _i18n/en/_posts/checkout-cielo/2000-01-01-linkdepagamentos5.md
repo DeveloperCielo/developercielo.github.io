@@ -238,6 +238,20 @@ To test credit or debit cards, it is necessary to use a card that follows the Lu
 
 Simply carry out the purchase process normally without any changes to the procedure. The boleto generated in test mode will always be a simulated boleto.
 
+# Endpoints
+
+The endpoints for integration with Super Link are presented in the following table:
+
+|API| URL | DESCRIPTION|
+|---|---|---|
+|Cielo OAUTH2 Server | https://cieloecommerce.cielo.com.br/api/public/v2/token | Authentication|
+|Super Link API | https://cieloecommerce.cielo.com.br/api/public/v1/products/| Creation, consultation and deletion of payment links.|
+|Transactional Control API | https://cieloecommerce.cielo.com.br/api/public/v2/orders/ | Transaction querying.|
+
+> Important: The Super Link API does not have a sandbox, but you can create test links by activating Test Mode on the Cielo website.
+
+Transactions created with Test Mode enabled can be queried by the Transactional Control API.
+
 # Cielo OAUTH
 
 Cielo OAUTH is an authentication process used in Cielo APIs that are correlated to E-commerce products. It uses the **[OAUTH2](https://oauth.net/2/)** protocol, where it is first necessary to obtain an access token, using its credentials, which should then be sent to the CieloOAuth API
