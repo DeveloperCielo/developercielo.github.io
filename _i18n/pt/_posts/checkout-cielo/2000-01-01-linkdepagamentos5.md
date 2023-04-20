@@ -690,7 +690,7 @@ product_description: "123",
 nsu: "00339922"
 ```
 
-Veja a descrição dos detalhes da transação na sessão [Conteúdo das notificações].
+Veja a descrição dos detalhes da transação na sessão [Conteúdo das notificações](### Conteúdo das notificações).
 
 ### Notificação via JSON
 
