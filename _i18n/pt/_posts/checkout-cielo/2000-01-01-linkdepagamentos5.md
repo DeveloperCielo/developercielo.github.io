@@ -755,14 +755,14 @@ Tanto na notificação via POST ou via JSON, o conteúdo dos dados retornados é
 
 |PARÂMETRO|DESCRIÇÃO|TIPO DO CAMPO|TAMANHO MÁXIMO|
 |---|---|---|---|
-|`checkout_cielo_order_number`|Identificador único gerado pelo CHECKOUT CIELO|Alfanumérico|32|
+|`checkout_cielo_order_number`|Identificador único gerado pelo Super Link Cielo.|Alfanumérico|32|
 |`amount`|Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)|Número|10|
 |`order_number`|Número do pedido enviado pela loja|Alfanumérico|32|
 |`created_date`|Data da criação do pedido - dd-MM-yyyy HH:mm:ss|Alfanumérico|20|
-|`customer_name`|Nome do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO|Alfanumérico|289|
-|`customer_identity`|Identificação do consumidor (CPF ou CNPJ) Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO|Alfanumérico|14|
-|`customer_email`|E-mail do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO|Alfanumérico|64|
-|`customer_phone`|Telefone do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO|Número|11|
+|`customer_name`|Nome do consumidor. Se enviado, esse valor já vem preenchido na tela do Super Link Cielo.|Alfanumérico|289|
+|`customer_identity`|Identificação do consumidor (CPF ou CNPJ) Se enviado, esse valor já vem preenchido na tela do Super Link Cielo.|Alfanumérico|14|
+|`customer_email`|E-mail do consumidor. Se enviado, esse valor já vem preenchido na tela do Super Link Cielo.|Alfanumérico|64|
+|`customer_phone`|Telefone do consumidor. Se enviado, esse valor já vem preenchido na tela do Super Link Cielo.|Número|11|
 |`discount_amount`|Valor do desconto fornecido (enviado somente se houver desconto)|Número|10|
 |`shipping_type`|Modalidade de frete|Número|1|
 |`shipping_name`|Nome do frete|Alfanumérico|128|
