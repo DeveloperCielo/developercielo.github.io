@@ -299,7 +299,7 @@
 <blockquote>
   <p><strong>Habilitando o Pix no portal Cielo</strong><br />
 Para usar o <strong>Pix</strong>, o seu <strong>cadastro deve estar habilitado com o meio de pagamento Pix</strong>. Para confirmar a habilitação, acesse o <a href="https://www.cielo.com.br/" target="_blank">portal Cielo</a>  e clique em <strong>Meu Cadastro</strong> &gt; <strong>Autorizações</strong> &gt; <strong>Pix</strong>.<br />
-Caso o Pix não esteja habilitado em seu cadastro, será apresentada a tela de adesão caso o seu estabelecimento (EC) seja elegível; após concluir o processo de adesão do Pix, já será possível usar o Pix no Checkout Cielo.<br />
+Caso o Pix não esteja habilitado em seu cadastro, será apresentada a tela de adesão caso o seu estabelecimento (EC) seja elegível; após concluir o processo de adesão do Pix, já será possível usar o Pix no Super Link Cielo.<br />
 <img src="https://developercielo.github.io/images/apicieloecommerce/adesao-pix.png" alt="Adesão ao Pix" /></p>
 </blockquote>
 
@@ -382,7 +382,7 @@ Caso o Pix não esteja habilitado em seu cadastro, será apresentada a tela de a
 
 <h2 id="transações-de-teste">Transações de teste</h2>
 
-<p>Todas as transações realizadas no modo de teste serão exibidas como transações normais na aba Pedidos do Checkout Cielo, entretanto, elas serão marcadas como transações de teste e não serão contabilizadas em conjunto com as transações realizadas fora do ambiente de teste.</p>
+<p>Todas as transações realizadas no modo de teste serão exibidas como transações normais na aba <strong>Pedidos</strong>, entretanto, elas serão marcadas como transações de teste e não serão contabilizadas em conjunto com as transações realizadas fora do ambiente de teste.</p>
 
 <p><img src="https://developercielo.github.io/images/checkout/superlink/superlink-transacoes-modoteste.png" alt="Lista de Transações no Modo Teste" /></p>
 
@@ -1211,7 +1211,7 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
 </span><span class="err">nsu:</span><span class="w"> </span><span class="s2">"00339922"</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Veja a descrição dos detalhes da transação na sessão <a href="### Conteúdo das notificações">Conteúdo das notificações</a>.</p>
+<p>Veja a descrição dos detalhes da transação na sessão [Conteúdo das notificações].</p>
 
 <h3 id="notificação-via-json">Notificação via JSON</h3>
 
@@ -1245,7 +1245,7 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderNumber</code></td>
-      <td>Número do pedido da loja; se não for enviado, o Super Link gerará um número, que será visualizado pelo Consumidor.</td>
+      <td>Número do pedido da loja; se não for enviado, o Checkout Cielo gerará um número, que será visualizado pelo Consumidor.</td>
       <td>Alfanumérico</td>
     </tr>
   </tbody>
@@ -1305,7 +1305,7 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code></td>
-      <td>Identificador único gerado pelo Super Link Cielo.</td>
+      <td>Identificador único gerado pelo CHECKOUT CIELO</td>
       <td>Alfanumérico</td>
       <td>32</td>
     </tr>
@@ -1329,25 +1329,25 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">customer_name</code></td>
-      <td>Nome do consumidor. Se enviado, esse valor já vem preenchido na tela do Super Link Cielo.</td>
+      <td>Nome do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO</td>
       <td>Alfanumérico</td>
       <td>289</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">customer_identity</code></td>
-      <td>Identificação do consumidor (CPF ou CNPJ) Se enviado, esse valor já vem preenchido na tela do Super Link Cielo.</td>
+      <td>Identificação do consumidor (CPF ou CNPJ) Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO</td>
       <td>Alfanumérico</td>
       <td>14</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">customer_email</code></td>
-      <td>E-mail do consumidor. Se enviado, esse valor já vem preenchido na tela do Super Link Cielo.</td>
+      <td>E-mail do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO</td>
       <td>Alfanumérico</td>
       <td>64</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">customer_phone</code></td>
-      <td>Telefone do consumidor. Se enviado, esse valor já vem preenchido na tela do Super Link Cielo.</td>
+      <td>Telefone do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO</td>
       <td>Número</td>
       <td>11</td>
     </tr>
