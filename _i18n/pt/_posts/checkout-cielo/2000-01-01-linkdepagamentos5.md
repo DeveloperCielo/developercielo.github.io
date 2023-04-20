@@ -130,7 +130,7 @@ Selecione os meios de pagamento que gostaria de disponibilizar aos seus clientes
 
 >**Habilitando o Pix no portal Cielo**<br>
 > Para usar o **Pix**, o seu **cadastro deve estar habilitado com o meio de pagamento Pix**. Para confirmar a habilitação, acesse o [portal Cielo](https://www.cielo.com.br/){:target="_blank"}  e clique em **Meu Cadastro** > **Autorizações** > **Pix**.<br>
-> Caso o Pix não esteja habilitado em seu cadastro, será apresentada a tela de adesão caso o seu estabelecimento (EC) seja elegível; após concluir o processo de adesão do Pix, já será possível usar o Pix no Checkout Cielo.<br>
+> Caso o Pix não esteja habilitado em seu cadastro, será apresentada a tela de adesão caso o seu estabelecimento (EC) seja elegível; após concluir o processo de adesão do Pix, já será possível usar o Pix no Super Link Cielo.<br>
 > ![Adesão ao Pix]({{ site.baseurl_root }}/images/apicieloecommerce/adesao-pix.png)
 
 Para mais detalhes veja o [tutorial Super Link e Checkout Cielo](https://developercielo.github.io/tutorial/checkout-tutoriais){:target="_blank"}.
@@ -206,7 +206,7 @@ Essa tarja indica que a sua loja está agora operando em ambiente de teste, ou s
 
 ## Transações de teste
 
-Todas as transações realizadas no modo de teste serão exibidas como transações normais na aba Pedidos do Checkout Cielo, entretanto, elas serão marcadas como transações de teste e não serão contabilizadas em conjunto com as transações realizadas fora do ambiente de teste.
+Todas as transações realizadas no modo de teste serão exibidas como transações normais na aba **Pedidos**, entretanto, elas serão marcadas como transações de teste e não serão contabilizadas em conjunto com as transações realizadas fora do ambiente de teste.
 
 ![Lista de Transações no Modo Teste]({{ site.baseurl_root }}/images/checkout/superlink/superlink-transacoes-modoteste.png)
 
@@ -690,7 +690,7 @@ product_description: "123",
 nsu: "00339922"
 ```
 
-Veja a descrição dos detalhes da transação na sessão [Conteúdo das notificações](### Conteúdo das notificações).
+Veja a descrição dos detalhes da transação na sessão [Conteúdo das notificações].
 
 ### Notificação via JSON
 
@@ -708,7 +708,7 @@ Url: "https://cieloecommerce.cielo.com.br/api/public/v1/orders/799g0de8-89c3-5d1
 |---|---|---|
 |`URL`|URL com os dados necessários para realizar a busca dos dados da transação.|String|
 |`MerchantId`|Identificador da loja no Super Link; consta no site Cielo no menu Configuração > Dados Cadastrais.|Alfanumérico (guid)|
-|`MerchantOrderNumber`|Número do pedido da loja; se não for enviado, o Super Link gerará um número, que será visualizado pelo Consumidor.|Alfanumérico|
+|`MerchantOrderNumber`|Número do pedido da loja; se não for enviado, o Checkout Cielo gerará um número, que será visualizado pelo Consumidor.|Alfanumérico|
 
 *O servidor da loja deve enviar o retorno `HTTP Status = 200 (OK)` para a API do Super Link, indicando que a notificação foi recebida e processada com sucesso.*
 
@@ -755,14 +755,14 @@ Tanto na notificação via POST ou via JSON, o conteúdo dos dados retornados é
 
 |PARÂMETRO|DESCRIÇÃO|TIPO DO CAMPO|TAMANHO MÁXIMO|
 |---|---|---|---|
-|`checkout_cielo_order_number`|Identificador único gerado pelo Super Link Cielo.|Alfanumérico|32|
+|`checkout_cielo_order_number`|Identificador único gerado pelo CHECKOUT CIELO|Alfanumérico|32|
 |`amount`|Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)|Número|10|
 |`order_number`|Número do pedido enviado pela loja|Alfanumérico|32|
 |`created_date`|Data da criação do pedido - dd-MM-yyyy HH:mm:ss|Alfanumérico|20|
-|`customer_name`|Nome do consumidor. Se enviado, esse valor já vem preenchido na tela do Super Link Cielo.|Alfanumérico|289|
-|`customer_identity`|Identificação do consumidor (CPF ou CNPJ) Se enviado, esse valor já vem preenchido na tela do Super Link Cielo.|Alfanumérico|14|
-|`customer_email`|E-mail do consumidor. Se enviado, esse valor já vem preenchido na tela do Super Link Cielo.|Alfanumérico|64|
-|`customer_phone`|Telefone do consumidor. Se enviado, esse valor já vem preenchido na tela do Super Link Cielo.|Número|11|
+|`customer_name`|Nome do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO|Alfanumérico|289|
+|`customer_identity`|Identificação do consumidor (CPF ou CNPJ) Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO|Alfanumérico|14|
+|`customer_email`|E-mail do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO|Alfanumérico|64|
+|`customer_phone`|Telefone do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO|Número|11|
 |`discount_amount`|Valor do desconto fornecido (enviado somente se houver desconto)|Número|10|
 |`shipping_type`|Modalidade de frete|Número|1|
 |`shipping_name`|Nome do frete|Alfanumérico|128|
