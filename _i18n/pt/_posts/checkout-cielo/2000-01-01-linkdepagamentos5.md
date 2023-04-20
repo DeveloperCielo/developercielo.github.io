@@ -665,7 +665,7 @@ Caso a notificação não seja recebida, é possível solicitar o reenvio manual
 
 ### Notificação via POST
 
-Contém todos os dados da transação, inclusive o `merchant_order_number` e o `checkout_cielo_order_number`, que poderão ser usados para a [consulta de transações] (linkar Consulta).
+Contém todos os dados da transação, inclusive o `merchant_order_number` e o `checkout_cielo_order_number`, que poderão ser usados para a [consulta de transações](https://developercielo.github.io/manual/linkdepagamentos5#consulta-de-transa%C3%A7%C3%B5es){:target="_blank"}.
 
 **Exemplo:**
 
