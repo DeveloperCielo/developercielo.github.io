@@ -1965,5 +1965,5 @@ Após a leitura deste manual, caso ainda persistam dúvidas (técnicas ou não),
 - +55 4002-5472 – _Capitais e Regiões Metropolitanas_
 - +55 0800 570 8472 – _Demais Localidades_
 - +55 11 2860-1348 – _Internacionais_
-  - Opção 5 – _Suporte E-commerce;_
-- Email: [cieloecommerce@cielo.com.br](mailto:cieloecommerce@cielo.com.br)
+- Opção 5 – _Suporte E-commerce;_
+- E-mail: [cieloecommerce@cielo.com.br](mailto:cieloecommerce@cielo.com.br)
