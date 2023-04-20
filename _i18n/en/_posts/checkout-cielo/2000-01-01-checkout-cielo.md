@@ -1964,9 +1964,8 @@ Cielo informs its customers that it is prepared to process transactions followin
 
 After reading this manual, if any doubts remain (technical or not), Cielo provides technical support 24 hours a day, 7 days a week in languages (Portuguese and English), in the following contacts:
 
-- +55 4002-9700 – _Capitals and Metropolitan Regions_
-- +55 0800-570-1700 – _Other Locations_
+- +55 4002-5472 – _Capitals and Metropolitan Regions_
+- +55 0800 570 8472 – _Other Locations_
 - +55 11 2860-1348 – _International_
-  - Option 1 – _Technical support;_
-  - Option 2 – _E-commerce Accreditation._
+Option 5 – _E-commerce support;_
 - E-mail: [cieloecommerce@cielo.com.br](mailto:cieloecommerce@cielo.com.br)
