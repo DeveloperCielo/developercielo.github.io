@@ -251,7 +251,7 @@
 
 <p>*<em>If you have configured the notification URL.</em></p>
 
-<h1 id="store-settings">Store settings</h1>
+<h1 id="merchant-settings">Merchant settings</h1>
 
 <p>Before setting up, you need to enable Super Link for your store.</p>
 
@@ -1105,34 +1105,832 @@ To query a transaction, see the section <a href="https://developercielo.github.i
 
 <p><code class="language-plaintext highlighter-rouge">HTTP Status: 204 – No Content</code></p>
 
-<h1 id="payment-notifications">Payment Notifications</h1>
+<h1 id="transaction-notifications">Transaction notifications</h1>
 
-<p>The transactional notification process in Checkout Cielo takes place via the inclusion of a URL to which data from transactions carried out on the platform will be directed. It is worth mentioning that Checkout notifies you only when a transaction is considered finalized, that is, the buyer has filled in all the data on the payment screen and clicked on “Finalize”.</p>
-
-<h2 id="notification-types">Notification Types</h2>
-
-<p>Cielo Checkout has two types of notifications that the shopkeeper can use according to his needs:</p>
+<p>The transactional notification process takes place in two steps, which are transaction completion notification and status change notification.</p>
 
 <table>
   <thead>
     <tr>
-      <th>Type</th>
-      <th>Description</th>
+      <th>STEP</th>
+      <th>TYPE OF URL*</th>
+      <th>DESCRIPTION</th>
+      <th>CONTENT</th>
+      <th>FORMAT</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">POST</code></td>
-      <td>Notification where the merchant is passive. Two <code class="language-plaintext highlighter-rouge">HTTP POST</code> are triggered, one informing sales data and the other transaction status change</td>
+      <td><strong>Transaction completion notification</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">Notification URL</code></td>
+      <td>It is sent after the shopper clicks Finalize, generating the transaction. This notification is sent only when the transaction is completed, regardless of whether there has been a change in status, that is, it does not mean that the transaction has been paid.</td>
+      <td>Contains all sale data.</td>
+      <td>POST or JSON</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">JSON</code></td>
-      <td>Notification where the merchant makes an appointment. A <code class="language-plaintext highlighter-rouge">POST</code> containing information for making a query (<code class="language-plaintext highlighter-rouge">GET</code>) for the checkout transactions</td>
+      <td><strong>Status change notification</strong></td>
+      <td><code class="language-plaintext highlighter-rouge">Change Status URL</code></td>
+      <td>It is sent when the transaction status changes.<br />The status can be changed from “Pendente (Pending)” to “Pago (Paid)”, “Cancelada (Cancelled)” or “Não finalizada (Not Completed)”, among others. See the complete list of statuses in the [Payment_status] table.</td>
+      <td>Contains the order identification data (it does not have the cart data).</td>
+      <td>POST</td>
     </tr>
   </tbody>
 </table>
 
-<p>To use both models, the merchant will need to access the Cielo Backoffice and configure both the <code class="language-plaintext highlighter-rouge">NOTIFICATION URL</code> and the<code class="language-plaintext highlighter-rouge"> STATUS CHANGE URL</code>.</p>
+<p>*Notifications are sent to the URLs defined by the establishment in [<strong>Store Settings</strong>] and contain data on transactions carried out through the Super Link.</p>
+
+<p>It is worth noting that Super Link notifies only when a transaction is considered finalized, that is, the shopper has filled in all the details on the payment screen and clicked on <strong>Finalize</strong>.</p>
+
+<p><strong>Example</strong>: <em>The shopper accesses the payment link and chooses to pay via Pix. When you click Finalize, Super Link generates the Pix key and sends the transaction completion notification to the store, which will have the status “Pendente (Pending)”. When the shopper makes the payment via Pix, the transaction will have the status “Pago (Paid)” and Super Link will send the status change notification.</em></p>
+
+<h2 id="notification-features">Notification features</h2>
+
+<p>Notification URLs are webhooks that can receive a notification via POST or via JSON:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>TYPE</th>
+      <th>DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>POST</strong></td>
+      <td>Notification where the store is passive.</td>
+    </tr>
+    <tr>
+      <td><strong>JSON</strong></td>
+      <td>Notification where the store performs a query.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Format of notifications</strong></p>
+
+<p>In notifications supported by the Super Link API, the format sent is <em>Form Data</em>, broken down by the <code class="language-plaintext highlighter-rouge">Content-Type</code> header ‘x-www-form-urlencoded’.</p>
+
+<p><strong>Expected return</strong></p>
+
+<p>The store’s server must return <code class="language-plaintext highlighter-rouge">HTTPStatus = 200 (OK)</code> to the Super Link API, indicating that the notification was successfully received and processed.</p>
+
+<blockquote>
+  <p><strong>IMPORTANT</strong>: If the registered URL returns an error or is unavailable, three new attempts will be made, with an interval of one hour between each POST.</p>
+</blockquote>
+
+<p>If the notification is not received, it is possible to manually request a resend in <strong>Detalhes do Pedido</strong> (Order details), by clicking on the arrow icon.</p>
+
+<h2 id="transaction-completion-notification">Transaction completion notification</h2>
+
+<p>It is the notification sent to the Notification URL and can be in POST or JSON format.</p>
+
+<h3 id="notification-via-post">Notification via POST</h3>
+
+<p>Contains all transaction data, including <code class="language-plaintext highlighter-rouge">merchant_order_number</code> and <code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>, which can be used to <a href="https://developercielo.github.io/manual/linkdepagamentos5#consulta-de-transa%C3%A7%C3%B5es" target="_blank">query a transaction</a>.</p>
+
+<p><strong>Exemplo:</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">order_number:</span><span class="w"> </span><span class="s2">"40e00eefbf094763a147af713fa07ece"</span><span class="err">,</span><span class="w">
+</span><span class="err">amount:</span><span class="w"> </span><span class="s2">"5000"</span><span class="err">,</span><span class="w">
+</span><span class="err">checkout_cielo_order_number:</span><span class="w"> </span><span class="s2">"b9ab1956738d45cc88edf51d7d03b13e"</span><span class="err">,</span><span class="w">
+</span><span class="err">created_date:</span><span class="w"> </span><span class="s2">"02/02/2023 17:01:35"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">customer_name:</span><span class="w"> </span><span class="s2">"nome do cliente"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">customer_phone:</span><span class="w"> </span><span class="s2">"2222222222"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">customer_identity:</span><span class="w"> </span><span class="s2">"12312312344"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">customer_email:</span><span class="w"> </span><span class="s2">"nome@email.com.br"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">shipping_type:</span><span class="w"> </span><span class="s2">"5"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">shipping_price:</span><span class="w"> </span><span class="s2">"0"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">payment_method_type:</span><span class="w"> </span><span class="s2">"6"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">payment_installments:</span><span class="w"> </span><span class="s2">"1"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">payment_status:</span><span class="w"> </span><span class="s2">"1"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">test_transaction:</span><span class="w"> </span><span class="s2">"False"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">product_id:</span><span class="w"> </span><span class="s2">"0f48e580-d0a2-4e3b-a748-6704927f1725"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">product_type:</span><span class="w"> </span><span class="s2">"3"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">product_description:</span><span class="w"> </span><span class="s2">"123"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">nsu:</span><span class="w"> </span><span class="s2">"00339922"</span><span class="w">
+</span></code></pre></div></div>
+
+<p>See the description of transaction details in the <a href="### Notification Content">Notification Content</a> section.</p>
+
+<h3 id="notification-via-json">Notification via JSON</h3>
+
+<p>Notification via JSON is a safer and more flexible method to perform a query on Super Link Cielo. In this mode, the store receives the <code class="language-plaintext highlighter-rouge">MerchantId</code> and the <code class="language-plaintext highlighter-rouge">MerchantOrderNumber</code> and a URL to perform a query (GET) against the Super Link Cielo database and access transaction details.</p>
+
+<p><strong>Notification content via JSON</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">MerchantId:</span><span class="w"> </span><span class="s2">"799g0de8-89c3-5d17-c670-6b29d7f00175"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">MerchantOrderNumber:</span><span class="w"> </span><span class="s2">"1db9226geg8b54e6b2972e9b745b89c7"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">Url:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v1/orders/799g0de8-89c3-5d17-c670-6b29d7f00175 /1db9226geg8b54e6b2972e9b745b89c7"</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPERTY</th>
+      <th>DESCRIPTION</th>
+      <th>TYPE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">URL</code></td>
+      <td>URL with the necessary data to perform the transaction data search.</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
+      <td>Store identifier in Super Link; appears on the Cielo website in the menu Configuração &gt; Dados Cadastrais.</td>
+      <td>Alphanumeric (guid)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MerchantOrderNumber</code></td>
+      <td>Store order number; if not sent, Super link will generate a number, which will be viewed by the Consumer.</td>
+      <td>Alphanumeric</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>The store’s server must send the return <code class="language-plaintext highlighter-rouge">HTTP Status = 200 (OK)</code> to the Super Link API, indicating that the notification was received and processed successfully.</em></p>
+
+<p><strong>Example of a query to the URL returned via JSON</strong></p>
+
+<p><strong>Response</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1db9226geg8b54e6b2972e9b745b89c7"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"discount_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"checkout_cielo_order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65930e7460bd4a849502ed14d7be6c03"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10-03-2023 14:38:56"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Test"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"445556667"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shopper@email.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Motoboy"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_address_zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06455-030"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_address_district"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Barueri"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_address_line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_address_line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apto 25"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_address_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"payment_method_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"payment_method_brand"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"payment_maskedcreditcard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"482852******6856"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"payment_installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10558590697J62OH9BPB"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"test_transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>See the description of the sale details in the <a href="### Notification Content">Notification Content</a> section.</p>
+
+<h3 id="notification-content">Notification Content</h3>
+
+<p>Both in the notification via POST or via JSON, the content of the returned data is the same. All returned fields are described below, as well as their definitions and sizes:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPERTY</th>
+      <th>DESCRIPTION</th>
+      <th>TYPE</th>
+      <th>MAXIMUM SIZE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code></td>
+      <td>Unique identifier generated by Super Link.</td>
+      <td>Alphanumeric</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">amount</code></td>
+      <td>Unit price of the product, in cents (ex: R$ 1.00 = 100).</td>
+      <td>Number</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">order_number</code></td>
+      <td>Order number sent by the store.</td>
+      <td>Alphanumeric</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">created_date</code></td>
+      <td>Order creation date - dd-MM-yyyy HH:mm:ss</td>
+      <td>Alphanumeric</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">customer_name</code></td>
+      <td>Consumer name. If sent, this value is already filled in on the Super Link.</td>
+      <td>Alphanumeric</td>
+      <td>289</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">customer_identity</code></td>
+      <td>Consumer identification (CPF or CNPJ) If sent, this value is already filled in on the Super Link Cielo screen.</td>
+      <td>Alphanumeric</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">customer_email</code></td>
+      <td>Consumer email. If sent, this value is already filled in on the Super Link Cielo screen.</td>
+      <td>Alphanumeric</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">customer_phone</code></td>
+      <td>Consumer phone number. If sent, this value is already filled in on the Super Link Cielo screen.</td>
+      <td>Number</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">discount_amount</code></td>
+      <td>Discount amount provided (only sent if there is a discount).</td>
+      <td>Number</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping_type</code></td>
+      <td>Shipping method.</td>
+      <td>Number</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping_name</code></td>
+      <td>Shipping name.</td>
+      <td>Alphanumeric</td>
+      <td>128</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping_price</code></td>
+      <td>Value of the shipping service, in cents (ex: R$ 10.00 = 1000).</td>
+      <td>Number</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping_address_zipcode</code></td>
+      <td>Delivery address zip code.</td>
+      <td>Number</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping_address_district</code></td>
+      <td>Delivery address neighborhood.</td>
+      <td>Text</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping_address_city</code></td>
+      <td>Delivery address city.</td>
+      <td>Alphanumeric</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping_address_state</code></td>
+      <td>Delivery address state.</td>
+      <td>Alphanumeric</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping_address_line1</code></td>
+      <td>Delivery address.</td>
+      <td>Alphanumeric</td>
+      <td>256</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping_address_line2</code></td>
+      <td>Delivery address add-on.</td>
+      <td>Alphanumeric</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping_address_number</code></td>
+      <td>Delivery address number</td>
+      <td>Number</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">payment_method_type</code></td>
+      <td>Payment method type code.</td>
+      <td>Number</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">payment_method_brand</code></td>
+      <td>Brand (only for transactions with a credit card payment method).</td>
+      <td>Number</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">payment_method_bank</code></td>
+      <td>Issuing bank (For Boleto and Automatic Debit transactions).</td>
+      <td>Number</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">payment_maskedcreditcard</code></td>
+      <td>Masked Card (Only for transactions with a credit card payment method).</td>
+      <td>Alphanumeric</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">payment_installments</code></td>
+      <td>Number of installments.</td>
+      <td>Number</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">payment_antifrauderesult</code></td>
+      <td>Status of credit card transactions in Antifraude</td>
+      <td>Number</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">payment_boletonumber</code></td>
+      <td>Generated boleto number.</td>
+      <td>String</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">payment_boletoexpirationdate</code></td>
+      <td>Expiration date for transactions carried out with boleto.</td>
+      <td>Number</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">payment_status</code></td>
+      <td>Transaction status.</td>
+      <td>Number</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">tid</code></td>
+      <td>TransactionId Cielo generated at the time of transaction authorization.</td>
+      <td>Alphanumeric</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">test_transaction</code></td>
+      <td>Indicates whether the transaction was generated with Test Mode enabled.</td>
+      <td>Boolean</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">product_id</code></td>
+      <td>Payment Button/Link Identifier that generated the transaction.</td>
+      <td>Alphanumeric</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">product_type</code></td>
+      <td>Type of Button that generated the order (See ProductID table).</td>
+      <td>Alphanumeric</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">product_sku</code></td>
+      <td>Product identifier registration in the payment link.</td>
+      <td>Text</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">product_max_number_of_installments</code></td>
+      <td>Number of installments allowed by merchants for the payment link.</td>
+      <td>Number</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">product_expiration_date</code></td>
+      <td>Payment Button/Link Expiration Date.</td>
+      <td>Alphanumeric</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">product_quantity</code></td>
+      <td>Number of transactions remaining until the link stops working.</td>
+      <td>Alphanumeric</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">product_description</code></td>
+      <td>Payment link description registered by the merchant.</td>
+      <td>Text</td>
+      <td>256</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">nsu</code></td>
+      <td>NSU - Transaction unique sequential number.</td>
+      <td>Alphanumeric</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">authorization_code</code></td>
+      <td>Authorization code.</td>
+      <td>Alphanumeric</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="tipos-de-productid">Tipos de productID</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>TYPE OF PAYMENT LINK</th>
+      <th>ENUN</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Physical material</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Digital</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Service</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Payment</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>Recurrence</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="payment_status">Payment_status</h4>
+
+<p>Super Link has its own status, different from the Cielo website or the Cielo E-commerce API. See the complete list below.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>VALUE</th>
+      <th>STATUS DA TRANSAÇÃO</th>
+      <th>TRANSACTION STATUS</th>
+      <th>PAYMENT METHOD</th>
+      <th>DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Pendente</td>
+      <td>Pending</td>
+      <td>For all payment methods.</td>
+      <td>Indicates that the payment is still being processed; NOTE: Boleto - Indicates that the boleto status has not been changed by the merchant</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Pago</td>
+      <td>Paid</td>
+      <td>For all payment methods.</td>
+      <td>Transaction was captured and money will be deposited into account.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Negado</td>
+      <td>Denied</td>
+      <td>Credit card only.</td>
+      <td>Transaction not authorized by the person responsible for the payment method.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Expirado</td>
+      <td>Expired</td>
+      <td>Credit cards and boleto.</td>
+      <td>Transaction is no longer valid for capture - 15 days after Authorization.</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Cancelado</td>
+      <td>Voided</td>
+      <td>Credit cards only.</td>
+      <td>Transaction was canceled by the merchant</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Não Finalizado</td>
+      <td>NotFinalized</td>
+      <td>For all payment methods.</td>
+      <td>Payment Waiting Status - May indicate error or processing failure. Contact Cielo Support.</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Autorizado</td>
+      <td>Authorized</td>
+      <td>Credit card only.</td>
+      <td>Transaction authorized by the card issuer. It must be captured for the money to be deposited in an account.</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Chargeback</td>
+      <td>Chargeback</td>
+      <td>Credit card only.</td>
+      <td>Transaction canceled by the shopper with the card issuer. Money will not be deposited into an account.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>Note</strong>: For order inquiries, the <code class="language-plaintext highlighter-rouge">payment.status</code> field will be returned in text format, always in English (Transaction Status column).</p>
+</blockquote>
+
+<h4 id="payment_antifrauderesult">Payment_antifrauderesult</h4>
+
+<p>Antifraude has the concept of Status and SubStatus, where the first represents the risk level that a transaction has of being a fraud, and the second, additional information about the transaction.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>VALUE</th>
+      <th>ANTIFRAUDE STATUS</th>
+      <th>SUBSTATUS</th>
+      <th>DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Low Risk</td>
+      <td>Low Risk</td>
+      <td>Low risk of being a fraudulent transaction.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>High Risk</td>
+      <td>High Risk</td>
+      <td>High risk of being a fraudulent transaction. Canceled automatically.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Not finalized</td>
+      <td>Not finalized</td>
+      <td>It was not possible to finalize the query.</td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>Not applicable</td>
+      <td>Debit card transaction that was authenticated by 3DS 2.0, therefore not eligible for Antifraude review.</td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>Unanalyzable payment method such as boleto, Pix, QR Code, and credit card transaction that was denied by the issuer.</td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>Recurrence transaction</td>
+      <td>For recurrence cases, after the first paid transaction, the next transactions of a recurrence are not analyzed by the anti-fraud. Only the first transaction is analyzed.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="payment_method_type">Payment_method_type</h4>
+
+<p>Super Link allows only one type of Boleto per establishment, so the notification does not return if the provider used was Bradesco or Banco do Brasil, as only one of them will be active in the affiliation.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>VALUE</th>
+      <th>DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>CreditCard</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Boleto</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>DebitCard</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>QrCode</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Pix</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>QrCodeDebit</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>Note</strong>: For queries the Type is returned in the <code class="language-plaintext highlighter-rouge">Payment.Type</code> field and is filled with the literal value (<code class="language-plaintext highlighter-rouge">Description</code>).</p>
+</blockquote>
+
+<h4 id="payment_method_brand">Payment_method_brand</h4>
+
+<p>It’s the brand of the card.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>VALUE</th>
+      <th>DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Visa</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Master</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>AmericanExpress</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Diners</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Elo</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Aura</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>JCB</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Discover</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>HiperCard</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In queries, the card brand is returned in the <code class="language-plaintext highlighter-rouge">Payment.Brand</code> field and is filled with the literal value.</p>
+
+<h4 id="payment_method_bank">Payment_method_bank</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>VALUE</th>
+      <th>DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Banco do Brasil</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Bradesco</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="shipping_type">Shipping_type</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>VALOR</th>
+      <th>DESCRIPTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Correios</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Fixed shipping</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Free shipping</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Pick up at hand/store</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>No shipping charge (digital services or products)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="status-change-notification">Status change notification</h2>
+
+<p>It is sent to the status change URL and contains the <code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>, the new status and some transaction data.</p>
+
+<p>To find out more details about the transaction, make a query using <code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>.</p>
+
+<p>The status change notification format is POST (form data).</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">checkout_cielo_order_number:</span><span class="w"> </span><span class="s2">"b918afea483d4c6c8615d8a8e19803c1"</span><span class="err">,</span><span class="w">
+</span><span class="err">amount:</span><span class="w"> </span><span class="s2">"134"</span><span class="err">,</span><span class="w">
+</span><span class="err">order_number:</span><span class="w"> </span><span class="s2">"024f77ac98cb493b86d8c818eb6e79cd"</span><span class="err">,</span><span class="w">
+</span><span class="err">payment_status:</span><span class="w"> </span><span class="s2">"3"</span><span class="err">,</span><span class="w">
+</span><span class="err">test_transaction:</span><span class="w"> </span><span class="s2">"False"</span><span class="err">,</span><span class="w">
+</span><span class="err">brand:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="err">,</span><span class="w">
+</span><span class="err">nsu:</span><span class="w"> </span><span class="s2">"000001"</span><span class="err">,</span><span class="w">
+</span><span class="err">authorization_code:</span><span class="w"> </span><span class="s2">"01234567"</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PARAMETER</th>
+      <th>DESCRIPTION</th>
+      <th>FIELD TYPE</th>
+      <th>MAXIMUM SIZE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code></td>
+      <td>Unique identifier generated by Super Link Cielo.</td>
+      <td>Alphanumeric</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">amount</code></td>
+      <td>Unit price of the product, in cents (eg: R$ 1.00 = 100)</td>
+      <td>Number</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">order_number</code></td>
+      <td>Order number sent by the store.</td>
+      <td>Alphanumeric</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">payment_method_brand</code></td>
+      <td>Brand - only for transactions with a credit card payment method. <a href="https://developercielo.github.io/manual/linkdepagamentos5#payment_method_brand" target="_blank">Complete List</a></td>
+      <td>Number</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">payment_status</code></td>
+      <td>Status of the transaction. <a href="https://developercielo.github.io/manual/linkdepagamentos5#status-e-c%C3%B3digos" target="_blank">Complete List</a></td>
+      <td>Number</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">test_transaction</code></td>
+      <td>Indicates if the transaction was generated with Test Mode enabled.</td>
+      <td>Boolean</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">nsu</code></td>
+      <td>NSU - Transaction unique sequential number.</td>
+      <td>Alphanumeric</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">authorization_code</code></td>
+      <td>Authorization code.</td>
+      <td>Alphanumeric</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="transactional-control">Transactional Control</h1>
 
@@ -1754,7 +2552,7 @@ To query a transaction, see the section <a href="https://developercielo.github.i
 
 <p>The <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code> is generated only when the payment is finalized on the transactional screen. It is sent only by the Notification URL and not by the Response of creating the transactional screen.</p>
 
-<h1 id="merchant-settings">Merchant Settings</h1>
+<h1 id="merchant-settings-1">Merchant Settings</h1>
 
 <p>Your store settings can be made within the Cielo website. In this environment you have access to several options, among them:</p>
 
