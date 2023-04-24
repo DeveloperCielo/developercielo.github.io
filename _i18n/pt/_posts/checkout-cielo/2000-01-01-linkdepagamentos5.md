@@ -455,7 +455,7 @@ Os dados retornados na resposta contemplam todos os enviados na requisição e d
 |PROPRIEDADE|TIPO|DESCRIÇÃO|
 |---|---|---|
 |`id`|guid|Identificador único do link de pagamento. Pode ser utilizado para consultar, atualizar ou excluir o link.|
-|`shortUrl`|string|Representa o link de pagamento que ao ser aberto, em um browser, apresentará a tela do Checkout Cielo.|
+|`shortUrl`|string|Representa o link de pagamento que ao ser aberto, em um browser, apresentará a tela do Super Link Cielo.|
 |`links`|object|Apresenta as operações disponíveis e possíveis (RESTful hypermedia) de serem efetuadas após a criação ou atualização do link.|
 
 ## Consultar Link
@@ -519,7 +519,7 @@ Header: `Authorization`: `Bearer {access_token}`
 |PROPRIEDADE|TIPO|DESCRIÇÃO|
 |---|---|---|
 |`id`|guid|Identificador único do link de pagamento.Pode ser utilizado para consultar, atualizar ou excluir o link.|
-|`shortUrl`|string|Representa o link de pagamento que ao ser aberto, em um browser, apresentará a tela do Checkout Cielo.|
+|`shortUrl`|string|Representa o link de pagamento que ao ser aberto, em um browser, apresentará a tela do Super Link Cielo.|
 |`links`|object|Apresenta as operações disponíveis e possíveis (RESTful hypermedia) de serem efetuadas após a criação ou atualização do link.|
 
 ## Atualizar Link
@@ -604,7 +604,7 @@ Header: `Authorization`: `Bearer {access_token}`
 |PROPRIEDADE|TIPO|DESCRIÇÃO|
 |---|---|---|
 |`id`|guid|Identificador único do link de pagamento. Pode ser utilizado para consultar, atualizar ou excluir o link.|
-|`shortUrl`|string|Representa o link de pagamento que ao ser aberto, em um browser, apresentará a tela do Checkout Cielo.|
+|`shortUrl`|string|Representa o link de pagamento que ao ser aberto, em um browser, apresentará a tela do Super Link Cielo.|
 |`links`|object|Apresenta as operações disponíveis e possíveis (RESTful hypermedia) de serem efetuadas após a criação ou atualização do link.|
 
 > Atenção: A resposta da consulta contém os mesmos dados retornados na criação do link.
@@ -708,7 +708,7 @@ Url: "https://cieloecommerce.cielo.com.br/api/public/v1/orders/799g0de8-89c3-5d1
 |---|---|---|
 |`URL`|URL com os dados necessários para realizar a busca dos dados da transação.|String|
 |`MerchantId`|Identificador da loja no Super Link; consta no site Cielo no menu Configuração > Dados Cadastrais.|Alfanumérico (guid)|
-|`MerchantOrderNumber`|Número do pedido da loja; se não for enviado, o Checkout Cielo gerará um número, que será visualizado pelo Consumidor.|Alfanumérico|
+|`MerchantOrderNumber`|Número do pedido da loja; se não for enviado, o Super Link Cielo gerará um número, que será visualizado pelo Consumidor.|Alfanumérico|
 
 *O servidor da loja deve enviar o retorno `HTTP Status = 200 (OK)` para a API do Super Link, indicando que a notificação foi recebida e processada com sucesso.*
 
@@ -755,14 +755,14 @@ Tanto na notificação via POST ou via JSON, o conteúdo dos dados retornados é
 
 |PARÂMETRO|DESCRIÇÃO|TIPO DO CAMPO|TAMANHO MÁXIMO|
 |---|---|---|---|
-|`checkout_cielo_order_number`|Identificador único gerado pelo CHECKOUT CIELO|Alfanumérico|32|
+|`checkout_cielo_order_number`|Identificador único gerado pelo Super Link Cielo.|Alfanumérico|32|
 |`amount`|Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)|Número|10|
 |`order_number`|Número do pedido enviado pela loja|Alfanumérico|32|
 |`created_date`|Data da criação do pedido - dd-MM-yyyy HH:mm:ss|Alfanumérico|20|
-|`customer_name`|Nome do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO|Alfanumérico|289|
-|`customer_identity`|Identificação do consumidor (CPF ou CNPJ) Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO|Alfanumérico|14|
-|`customer_email`|E-mail do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO|Alfanumérico|64|
-|`customer_phone`|Telefone do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO|Número|11|
+|`customer_name`|Nome do consumidor. Se enviado, esse valor já vem preenchido na tela do Super Link Cielo|Alfanumérico|289|
+|`customer_identity`|Identificação do consumidor (CPF ou CNPJ) Se enviado, esse valor já vem preenchido na tela do Super Link Cielo|Alfanumérico|14|
+|`customer_email`|E-mail do consumidor. Se enviado, esse valor já vem preenchido na tela do Super Link Cielo|Alfanumérico|64|
+|`customer_phone`|Telefone do consumidor. Se enviado, esse valor já vem preenchido na tela do Super Link Cielo|Número|11|
 |`discount_amount`|Valor do desconto fornecido (enviado somente se houver desconto)|Número|10|
 |`shipping_type`|Modalidade de frete|Número|1|
 |`shipping_name`|Nome do frete|Alfanumérico|128|
