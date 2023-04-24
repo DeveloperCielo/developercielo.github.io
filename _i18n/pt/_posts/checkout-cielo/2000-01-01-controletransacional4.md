@@ -1,6 +1,6 @@
 ---
 layout: manual
-title: Api de Controle Transacional
+title: API de Controle Transacional
 description: Integração técnica via API
 search: true
 translated: true
