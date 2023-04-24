@@ -1932,51 +1932,57 @@ To query a transaction, see the section <a href="https://developercielo.github.i
   </tbody>
 </table>
 
-<h1 id="transactional-control">Transactional Control</h1>
+<h1 id="transaction-query">Transaction Query</h1>
 
-<p>Consultation of transactions via API can be done up to 45 days after the sale has been made.</p>
+<p>The query of transactions via API can be done up to 45 days after the sale has been made.</p>
 
-<p>The control of orders originating from a payment link can be done through the transactional control API. The order inquiry can be done in 3 different ways:</p>
+<p>The control of orders originating from a payment link can be done through the <strong>Transactional Control API</strong>. Querying orders can be done in three different ways:</p>
 
-<h2 id="por-merchant_order_number">Por Merchant_Order_Number</h2>
+<ul>
+  <li>By <code class="language-plaintext highlighter-rouge">order_number</code>;</li>
+  <li>By <code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>;</li>
+  <li>By <code class="language-plaintext highlighter-rouge">id</code> of the payment link.</li>
+</ul>
 
-<p>The query for transactions by <code class="language-plaintext highlighter-rouge">Merchant_Order_Number</code> returns a list of transactions with the same number of orders, this is because the Checkout Cielo does not prevent the duplication of OrderNumbers by the merchant. The response will have the <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code> that should be used to query a specific transaction.</p>
+<h2 id="by-order_number">By order_number</h2>
+
+<p>Querying transactions by <code class="language-plaintext highlighter-rouge">order_number</code> returns a list of transactions with the same number of orders; this occurs because the Super Link does not prevent the duplication of <code class="language-plaintext highlighter-rouge">order_number</code>s by the store. The response will return the <code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>, which should be used when querying a specific transaction.</p>
 
 <h3 id="request-5">Request</h3>
 
-<p>To consult a transaction through <code class="language-plaintext highlighter-rouge">Merchant_Order_Number</code>, just perform a<code class="language-plaintext highlighter-rouge"> GET</code>.</p>
+<p>To query a transaction by <code class="language-plaintext highlighter-rouge">order_number</code>, do a <code class="language-plaintext highlighter-rouge">GET</code>.</p>
 
-<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/merchantOrderNumber/{merchantordernumber}</span></aside>
+<aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/merchantOrderNumber/{ordernumber}</span></aside>
 
 <h3 id="response-5">Response</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"checkoutOrderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a58995ce24fd4f1cb025701e95a51478"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-30T12:09:33.57"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/a58995ce24fd4f1cb025701e95a51478"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"checkoutOrderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"438f3391860a4bedbae9a868180dda6e"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-30T12:05:41.317"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/438f3391860a4bedbae9a868180dda6e"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"checkoutOrderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a58995ce24fd4f1cb025701e95a51478"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-03-30T12:09:33.57"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/a58995ce24fd4f1cb025701e95a51478"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"checkoutOrderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"438f3391860a4bedbae9a868180dda6e"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-03-30T12:05:41.317"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/438f3391860a4bedbae9a868180dda6e"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
 
@@ -1993,14 +1999,14 @@ To query a transaction, see the section <a href="https://developercielo.github.i
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">$id</code></td>
-      <td>node id</td>
-      <td>Numeric</td>
+      <td>Node id.</td>
+      <td>Number</td>
       <td>-</td>
       <td>Example: 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">checkoutOrderNumber</code></td>
-      <td>Order code generated by Cielo Checkout</td>
+      <td>Order code generated by Super Link Cielo.</td>
       <td>Text</td>
       <td>32</td>
       <td>Example: a58995ce24fd4f1cb025701e95a51478</td>
@@ -2010,32 +2016,32 @@ To query a transaction, see the section <a href="https://developercielo.github.i
       <td>Order creation date</td>
       <td>Date</td>
       <td>-</td>
-      <td>AAAA-MM-DDTHH:mm:SS.ss</td>
+      <td>YYYY-MM-DDTHH:mm:SS.ss</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">links.$id</code></td>
-      <td>node id</td>
-      <td>Numeric</td>
+      <td>Node id.</td>
+      <td>Number</td>
       <td>-</td>
       <td>Example: 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">links.method</code></td>
-      <td>Operation method</td>
+      <td>Method for consuming the operation.</td>
       <td>Text</td>
       <td>10</td>
-      <td>Exmeples: GET, POST, PUT</td>
+      <td>Examples: GET, POST or PUT.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">links.rel</code></td>
-      <td>Operation consumption relation</td>
+      <td>Relationship for consumption of the operation.</td>
       <td>Text</td>
       <td>10</td>
       <td>Example: self</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">links.href</code></td>
-      <td>Endpoint for consumption of the operation</td>
+      <td>Endpoint for consumption of the operation.</td>
       <td>Text</td>
       <td>512</td>
       <td>Example: https://cieloecommerce.cielo.com.br/api/public/v2/orders/438f3391860a4bedbae9a868180dda6e</td>
@@ -2043,94 +2049,92 @@ To query a transaction, see the section <a href="https://developercielo.github.i
   </tbody>
 </table>
 
-<h2 id="por-checkout_cielo_order_number">Por Checkout_Cielo_Order_Number</h2>
+<h2 id="by-checkout_cielo_order_number">By Checkout_Cielo_Order_Number</h2>
 
 <h3 id="request-6">Request</h3>
 
-<p>To check a transaction through <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code>, just perform a<code class="language-plaintext highlighter-rouge"> GET</code>.</p>
+<p>To query a transaction via <code class="language-plaintext highlighter-rouge">Checkout Cielo Order_Number</code>, just do a <code class="language-plaintext highlighter-rouge">GET</code>.</p>
 
-<blockquote>
-  <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
-</blockquote>
+<p>Header: <code class="language-plaintext highlighter-rouge">Authorization</code>: <code class="language-plaintext highlighter-rouge">Bearer {access_token}</code></p>
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/orders/{checkout_cielo_order_number}</span></aside>
 
 <h3 id="response-6">Response</h3>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c89fdfbb-dbe2-4e77-806a-6d75cd397dac"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"orderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"054f5b509f7149d6aec3b4023a6a2957"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"softDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido1234"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"cart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido ABC"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50 canetas - R$30,00 | 10 cadernos - R$50,00 | 10 Borrachas - R$10,00"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"unitPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">9000</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FixedAmount"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entrega Rápida"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Estrada Caetano Monteiro"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"391A"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BL 10 AP 208"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"district"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Badu"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Niterói"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paid"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10127355487AK2C3EOTB"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"149111"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"authorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"294551"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"numberOfPayments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-02T14:29:43.767"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"finishedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-02T14:29:46.117"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cardMaskedNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456******2007"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"creditCard"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"errorcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"antifraud"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"antifraudeResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lojista optou não realizar a análise do antifraude."</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678911"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fulano da Silva"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exemplo@email.com.br"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11123456789"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/054f5b509f7149d6aec3b4023a6a2957"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/054f5b509f7149d6aec3b4023a6a2957/void"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> 
+    </span><span class="nl">"merchantId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c89fdfbb-dbe2-4e77-806a-6d75cd397dac"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"orderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"054f5b509f7149d6aec3b4023a6a2957"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"softDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido1234"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"cart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+        </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
+            </span><span class="p">{</span><span class="w"> 
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido ABC"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50 canetas - R$30,00 | 10 cadernos - R$50,00 | 10 Borrachas - R$10,00"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nl">"unitPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">9000</span><span class="p">,</span><span class="w"> 
+                </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+                </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w"> 
+            </span><span class="p">}</span><span class="w"> 
+        </span><span class="p">]</span><span class="w"> 
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="nl">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FixedAmount"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nl">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
+            </span><span class="p">{</span><span class="w"> 
+              </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entrega Rápida"</span><span class="p">,</span><span class="w"> 
+                </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="w"> 
+            </span><span class="p">}</span><span class="w"> 
+        </span><span class="p">],</span><span class="w"> 
+        </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+            </span><span class="nl">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21 andar"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"district"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Barueri"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="w"> 
+        </span><span class="p">}</span><span class="w"> 
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="nl">"payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paid"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nl">"tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10127355487AK2C3EOTB"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"nsu"</span><span class="p">:</span><span class="w"> </span><span class="s2">"149111"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"authorizationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"294551"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"numberOfPayments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-03-02T14:29:43.767"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"finishedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-03-02T14:29:46.117"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cardMaskedNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456******2007"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"creditCard"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"errorcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"antifraud"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+            </span><span class="nl">"antifraudeResult"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Risco Baixo"</span><span class="w"> 
+        </span><span class="p">}</span><span class="w"> 
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="nl">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+        </span><span class="nl">"identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678911"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nl">"fullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do comprador"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exemplo@email.com.br"</span><span class="p">,</span><span class="w"> 
+        </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11123456789"</span><span class="w"> 
+    </span><span class="p">},</span><span class="w"> 
+    </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
+        </span><span class="p">{</span><span class="w"> 
+            </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/054f5b509f7149d6aec3b4023a6a2957"</span><span class="w"> 
+        </span><span class="p">},</span><span class="w"> 
+        </span><span class="p">{</span><span class="w"> 
+            </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PUT"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w"> 
+            </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/054f5b509f7149d6aec3b4023a6a2957/void"</span><span class="w"> 
+        </span><span class="p">}</span><span class="w"> 
+    </span><span class="p">]</span><span class="w"> 
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
 <table>
   <thead>
     <tr>
-      <th>Field</th>
+      <th>PROPERTY</th>
       <th>Type</th>
       <th>Size</th>
       <th>Description</th>
@@ -2142,47 +2146,75 @@ To query a transaction, see the section <a href="https://developercielo.github.i
       <td><code class="language-plaintext highlighter-rouge">merchantId</code></td>
       <td>GUID</td>
       <td>36</td>
-      <td>Checkout merchant Id</td>
+      <td>Id of the Store at Super Link Cielo.</td>
       <td>Example: c89fdfbb-dbe2-4e77-806a-6d75cd397dac</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">orderNumber</code></td>
       <td>Text</td>
       <td>32</td>
-      <td>Merchant order number.</td>
+      <td>Store order number.</td>
       <td>Example: 123456</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">softDescriptor</code></td>
       <td>Text</td>
       <td>13</td>
-      <td>Text displayed on the buyer’s invoice. No special characters or spaces</td>
-      <td>Example: <code class="language-plaintext highlighter-rouge">Merchant_ABC_1234</code></td>
+      <td>Name of the store displayed on the shopper’s invoice. No special characters or spaces.</td>
+      <td>Example: <code class="language-plaintext highlighter-rouge">Store_ABC_1234</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cart.discount.type</code></td>
+      <td>Text</td>
+      <td>10</td>
+      <td>Type of discount applied.</td>
+      <td>Possible values: Amount or Percent</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cart.discount.value</code></td>
+      <td>Number</td>
+      <td>18</td>
+      <td>Amount or percentage of discount applied.</td>
+      <td>Example: If <code class="language-plaintext highlighter-rouge">discount.type</code> is Amount, then 1000 = R$10.00. If <code class="language-plaintext highlighter-rouge">discount.type</code> is Percent, the value will be between 0 and 100.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">cart.items.name</code></td>
       <td>Text</td>
       <td>128</td>
-      <td>Cart item name.</td>
-      <td>Example: Pedido ABC</td>
+      <td>Item name in cart.</td>
+      <td>Example: Order ABC</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cart.items.sku</code></td>
+      <td>Text</td>
+      <td>32</td>
+      <td>Product identifier.</td>
+      <td>Will exist if given, eg abc123456789</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cart.items.weight</code></td>
+      <td>Number</td>
+      <td>10</td>
+      <td>Product weight.</td>
+      <td>Will exist if given, eg 2</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">cart.items.description</code></td>
       <td>Text</td>
       <td>256</td>
-      <td>Cart item description.</td>
-      <td>Example: 50 canetas - R$30,00</td>
+      <td>Description of the item in the cart.</td>
+      <td>Example: 50 pens - R$30.00</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">cart.items.unitPrice</code></td>
-      <td>Numeric</td>
+      <td>Number</td>
       <td>18</td>
       <td>Unit price of the product in cents</td>
-      <td>Example: R$ 1,00 = 100</td>
+      <td>Example: R$ 1.00 = 100</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">cart.items.quantity</code></td>
-      <td>Numeric</td>
+      <td>Number</td>
       <td>9</td>
       <td>Quantity of the item in the cart.</td>
       <td>Example: 1</td>
@@ -2196,65 +2228,79 @@ To query a transaction, see the section <a href="https://developercielo.github.i
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">shipping.type</code></td>
-      <td>Numeric</td>
+      <td>Number</td>
       <td>36</td>
-      <td>Shipping type</td>
+      <td>Shipping method.</td>
       <td>Example: 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">shipping.services.name</code></td>
       <td>Text</td>
       <td>128</td>
-      <td>Shipping method</td>
-      <td>Example: Casa Principal</td>
+      <td>Shipping method.</td>
+      <td>Example: Main House</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">shipping.services.price</code></td>
+      <td>Number</td>
+      <td>10</td>
+      <td>Value of the shipping service, in cents.</td>
+      <td>Example: R$ 10.00 = 1000</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping.services.deadline</code></td>
       <td>Numeric</td>
       <td>10</td>
-      <td>Shipping service value, in cents</td>
-      <td>Example: R$ 10,00 = 1000</td>
+      <td>Delivery time for order in days</td>
+      <td>Example: 10</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">shipping.services.carrier</code></td>
+      <td>Numeric</td>
+      <td>1</td>
+      <td>Delivery type code, follows the Shipping_Type table</td>
+      <td>Example: 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">shipping.address.street</code></td>
       <td>Text</td>
       <td>256</td>
-      <td>Delivery address</td>
+      <td>Delivery address.</td>
       <td>Example: Rua João da Silva</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">shipping.address.number</code></td>
-      <td>Numeric</td>
+      <td>Number</td>
       <td>8</td>
-      <td>Delivery address number</td>
+      <td>Shipping address number.</td>
       <td>Example: 123</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">shipping.address.complement</code></td>
       <td>Text</td>
       <td>64</td>
-      <td>Complement of delivery address</td>
-      <td>Example: Casa</td>
+      <td>Shipping address complement.</td>
+      <td>Example: Home</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">shipping.address.district</code></td>
       <td>Text</td>
       <td>64</td>
-      <td>Neighborhood of delivery address</td>
+      <td>Delivery address district.</td>
       <td>Example: Alphaville</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">shipping.address.city</code></td>
       <td>Text</td>
       <td>64</td>
-      <td>City of delivery address</td>
+      <td>Shipping address city.</td>
       <td>Example: São Paulo</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">shipping.address.state</code></td>
       <td>Text</td>
       <td>2</td>
-      <td>Delivery address state</td>
+      <td>Shipping address state.</td>
       <td>Example: SP</td>
     </tr>
     <tr>
@@ -2262,20 +2308,20 @@ To query a transaction, see the section <a href="https://developercielo.github.i
       <td>Text</td>
       <td>10</td>
       <td>Transaction status</td>
-      <td>Example: Paid <a href="https://developercielo.github.io/manual/linkdepagamentos5#payment_status">Lista Completa</a></td>
+      <td>Example: Paid <a href="https://developercielo.github.io/manual/linkdepagamentos5#payment_status">Complete List</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.tid</code></td>
       <td>Text</td>
       <td>32</td>
-      <td>Cielo TID generated at the time of the transaction authorization</td>
+      <td>Cielo TID generated at the time of transaction authorization.</td>
       <td>Example: 10127355487AK2C3EOTB</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.nsu</code></td>
       <td>Text</td>
       <td>6</td>
-      <td>NSU Cielo generated at the time of authorization of the transaction</td>
+      <td>NSU Cielo generated at the time of transaction authorization.</td>
       <td>Example: 123456</td>
     </tr>
     <tr>
@@ -2287,138 +2333,136 @@ To query a transaction, see the section <a href="https://developercielo.github.i
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.numberOfPayments</code></td>
-      <td>Numeric</td>
+      <td>Number</td>
       <td>6</td>
-      <td>Number of installments.</td>
+      <td>Number of Installments.</td>
       <td>Example: 123456</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.createdDate</code></td>
       <td>Text</td>
       <td>22</td>
-      <td>Transaction creation date</td>
-      <td>Example: AAAA-MM-DDTHH:mm:SS.ss</td>
+      <td>Transaction creation date.</td>
+      <td>Example: YYYY-MM-DDTHH:mm:SS.ss</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.finishedDate</code></td>
       <td>Text</td>
       <td>22</td>
-      <td>Transaction end date</td>
-      <td>Example: AAAA-MM-DDTHH:mm:SS.ss</td>
+      <td>Transaction completion date.</td>
+      <td>Example: YYYY-MM-DDTHH:mm:SS.ss</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.cardMaskedNumber</code></td>
       <td>Text</td>
       <td>19</td>
-      <td>Masked card number</td>
-      <td>Example: 123456****2007</td>
+      <td>Masked card number.</td>
+      <td>Example: 123456<strong>**</strong>2007</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.brand</code></td>
       <td>Text</td>
       <td>10</td>
-      <td>Card brand</td>
-      <td>Example: Visa <a href="https://developercielo.github.io/manual/linkdepagamentos5#payment_method_brand">Lista Completa</a></td>
+      <td>Card’s brand.</td>
+      <td>Example: Visa <a href="https://developercielo.github.io/manual/linkdepagamentos5#payment_method_brand">Complete List</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.antifraud.antifraudeResult</code></td>
-      <td>Numeric</td>
+      <td>Number</td>
       <td>1</td>
-      <td>Anti-fraud status</td>
+      <td>Antifraude status</td>
       <td>Example: 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.antifraud.description</code></td>
       <td>Text</td>
       <td>256</td>
-      <td>Description of anti-fraud status</td>
-      <td>Example: Merchant chose not to perform anti-fraud analysis</td>
+      <td>Description of the Antifraude status</td>
+      <td>Example: Merchant chose not to perform the anti-fraud analysis</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.type</code></td>
       <td>Text</td>
       <td>11</td>
       <td>Type of payment method</td>
-      <td>Example: CreditCard <a href="https://developercielo.github.io/manual/linkdepagamentos5#payment_method_type">full list</a></td>
+      <td>Example: CreditCard <a href="https://developercielo.github.io/manual/linkdepagamentos5#payment_method_type">complete list</a></td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.errocode</code></td>
-      <td>Numeric</td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.errorcode</code></td>
+      <td>Number</td>
       <td>2</td>
       <td>Return code</td>
-      <td>Example: 00, 51, 57, etc <a href="https://developercielo.github.io/manual/linkdepagamentos5#c%C3%B3digos-de-retorno-abecs">full list</a></td>
+      <td>Example: 00, 51, 57, etc <a href="https://developercielo.github.io/manual/linkdepagamentos5#c%C3%B3digos-de -return-abecs">complete list</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
-      <td>Numeric</td>
+      <td>Number</td>
       <td>14</td>
-      <td>CPF or CNPJ of the buyer.</td>
-      <td>Example: 12345678909</td>
+      <td>CPF or CNPJ of shopper.Example: 12345678909</td>
+      <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.FullName</code></td>
       <td>Text</td>
       <td>256</td>
-      <td>Buyer’s full name.</td>
+      <td>Shopper’s full name.</td>
       <td>Example: Fulano da Silva</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Email</code></td>
       <td>Text</td>
       <td>64</td>
-      <td>Buyer’s email.</td>
+      <td>Shopper’s email.</td>
       <td>Example: example@email.com.br</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Phone</code></td>
-      <td>Numeric</td>
+      <td>Number</td>
       <td>11</td>
-      <td>Buyer’s phone.</td>
+      <td>Shopper’s phone.</td>
       <td>Example: 11123456789</td>
     </tr>
   </tbody>
 </table>
 
-<h2 id="por-id-do-link-de-pagamento">Por ID do link de pagamento</h2>
+<h2 id="by-id-of-the-payment-link">By id of the payment link.</h2>
 
 <h3 id="request-7">Request</h3>
 
-<p>To check a transaction through <code class="language-plaintext highlighter-rouge">id</code>, just perform a<code class="language-plaintext highlighter-rouge"> GET</code>.</p>
+<p>To query a transaction by <code class="language-plaintext highlighter-rouge">id</code>, just do a <code class="language-plaintext highlighter-rouge">GET</code>.</p>
 
-<blockquote>
-  <p><strong>Header:</strong> Authorization: Bearer {access_token}</p>
-</blockquote>
+<p>Header: <code class="language-plaintext highlighter-rouge">Authorization</code>: <code class="language-plaintext highlighter-rouge">Bearer {access_token}</code></p>
 
 <aside class="request"><span class="method get">GET</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/products/{id}/payments</span></aside>
 
-<h3 id="response-7">Response</h3>
+<h3 id="resposta">Resposta</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9487e3a9-f204-4188-96c5-a5a3013b2517"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-11T10:35:04.947"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"orderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b74df3e3c1ac49ccb7ad89fde2d787f7"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-11T10:37:23.447"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">11500</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"numberOfPayments"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-11T10:37:23.447"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Denied"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/b74df3e3c1ac49ccb7ad89fde2d787f7"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+   </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"productId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9487e3a9-f204-4188-96c5-a5a3013b2517"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-02-11T10:35:04.947"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+       </span><span class="p">{</span><span class="w">
+           </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"orderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b74df3e3c1ac49ccb7ad89fde2d787f7"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-02-11T10:37:23.447"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+               </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+               </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">11500</span><span class="p">,</span><span class="w">
+               </span><span class="nl">"numberOfPayments"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+               </span><span class="nl">"createdDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-02-11T10:37:23.447"</span><span class="p">,</span><span class="w">
+               </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Denied"</span><span class="w">
+           </span><span class="p">},</span><span class="w">
+           </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                   </span><span class="nl">"$id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+                   </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
+                   </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
+                   </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v2/orders/b74df3e3c1ac49ccb7ad89fde2d787f7"</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+           </span><span class="p">]</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
@@ -2435,173 +2479,122 @@ To query a transaction, see the section <a href="https://developercielo.github.i
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">$id</code></td>
-      <td>Node id</td>
-      <td>Numeric</td>
+      <td>Node id.</td>
+      <td>Number</td>
       <td>-</td>
       <td>Example: 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">productId</code></td>
-      <td>Payment link ID</td>
+      <td>Payment link id.</td>
       <td>GUID</td>
       <td>36</td>
       <td>Example: 9487e3a9-f204-4188-96c5-a5a3013b2517</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">createdDate</code></td>
-      <td>Payment link creation date</td>
-      <td>Data</td>
+      <td>Payment link creation date.</td>
+      <td>Date</td>
       <td>-</td>
-      <td>AAAA-MM-DDTHH:mm:SS.ss</td>
+      <td>YYYY-MM-DDTHH:mm:SS.ss</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">orders.$id</code></td>
-      <td>Node id</td>
-      <td>Numeric</td>
+      <td>Node id.</td>
+      <td>Number</td>
       <td>-</td>
       <td>Example: 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">orders.orderNumber</code></td>
-      <td>Order Id generated by Checkout Cielo</td>
-      <td>Texto</td>
+      <td>Order ID generated by Super Link Cielo.</td>
+      <td>Text</td>
       <td>32</td>
       <td>Example: b74df3e3c1ac49ccb7ad89fde2d787f7</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">orders.createdDate</code></td>
-      <td>Order creation date</td>
-      <td>Data</td>
+      <td>Order creation date.</td>
+      <td>Date</td>
       <td>-</td>
-      <td>AAAA-MM-DDTHH:mm:SS.ss</td>
+      <td>YYYY-MM-DDTHH:mm:SS.ss</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">orders.payment.$id</code></td>
-      <td>Node id</td>
-      <td>Numeric</td>
+      <td>Node id.</td>
+      <td>Number</td>
       <td>-</td>
       <td>Example: 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">orders.payment.price</code></td>
-      <td>Order amount, without punctuation</td>
-      <td>Numeric</td>
+      <td>Amount of the order, without punctuation.</td>
+      <td>Number</td>
       <td>-</td>
-      <td>Example: R$ 1,00 = 100</td>
+      <td>Example: BRL 1.00 = 100</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">orders.payment.numberOfPayments</code></td>
-      <td>Number of installments</td>
+      <td>Number of installments.</td>
       <td>-</td>
       <td>Example: 3</td>
       <td> </td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">orders.payment.createdDate</code></td>
-      <td>Transaction date (payment)</td>
-      <td>Data</td>
+      <td>Transaction (payment) date.</td>
+      <td>Date</td>
       <td>-</td>
-      <td>AAAA-MM-DDTHH:mm:SS.ss</td>
+      <td>YYYY-MM-DDTHH:mm:SS.ss</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">orders.payment.status</code></td>
-      <td>Transaction Status</td>
-      <td>Texto</td>
+      <td>Transaction Status.</td>
+      <td>Text</td>
       <td>-</td>
-      <td>Example: Denied <a href="https://developercielo.github.io/manual/linkdepagamentos5#payment_status">full list</a></td>
+      <td>Example: Denied <a href="https://developercielo.github.io/manual/linkdepagamentos5#payment_status">Complete List</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">links.$id</code></td>
-      <td>Node id</td>
-      <td>Numeric</td>
+      <td>Node id.</td>
+      <td>Number</td>
       <td>-</td>
       <td>Example: 1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">links.method</code></td>
-      <td>Operation consumption method</td>
-      <td>Texto</td>
+      <td>Method for consuming the operation.</td>
+      <td>Text</td>
       <td>10</td>
-      <td>Example: GET, POST, PUT</td>
+      <td>Examples: GET, POST, PUT</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">links.rel</code></td>
-      <td>Operation consumption relation</td>
-      <td>Texto</td>
+      <td>Relationship for consumption of the operation.</td>
+      <td>Text</td>
       <td>10</td>
       <td>Example: self</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">links.href</code></td>
-      <td>Endpoint for consumption of the operation</td>
-      <td>Texto</td>
+      <td>Endpoint for consumption of the operation.</td>
+      <td>Text</td>
       <td>512</td>
       <td>Example: https://cieloecommerce.cielo.com.br/api/public/v2/orders/438f3391860a4bedbae9a868180dda6e</td>
     </tr>
   </tbody>
 </table>
 
-<p>To perform transactional control at Checkout Cielo it is MANDATORY that the merchant has one of the two notification templates configured below:</p>
+<p>To carry out queries via the Transactional Control API on Super Link Cielo, it is required that the merchant has configured one of the two notification models:</p>
 
-<ol>
-  <li>Notification URL via <strong>POST</strong></li>
-  <li>Notification URL via <strong>JSON</strong></li>
-</ol>
+<ul>
+  <li>Transaction Notification URL via <strong>POST</strong> or</li>
+  <li>Transaction Notification URL via <strong>JSON</strong>.</li>
+</ul>
 
-<p>Notification is mandatory because all API commands (Consult / Capture / Cancel) use the unique transaction identifier, called <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code>.</p>
+<p>It is required to have provided a transaction notification URL as the transaction query data will be sent in the notification content.</p>
 
-<p>The <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code> is generated only when the payment is finalized on the transactional screen. It is sent only by the Notification URL and not by the Response of creating the transactional screen.</p>
-
-<h1 id="merchant-settings-1">Merchant Settings</h1>
-
-<p>Your store settings can be made within the Cielo website. In this environment you have access to several options, among them:</p>
-
-<ol>
-  <li>Key generation to use the API;</li>
-  <li>Configuration of logo and background color of the payment screen;</li>
-  <li>Modification of payment methods;</li>
-  <li>Return URL’s configuration;</li>
-  <li>Other actions;</li>
-</ol>
-
-<p>For more details see the tutorial Super Link and Checkout Cielo.</p>
-
-<h1 id="self-fraud">Self-fraud</h1>
-
-<p>This topic will teach you how to create an integration between Super Link Cielo and an own / third party anti-fraud.</p>
-
-<h2 id="prerequisites">Prerequisites</h2>
-
-<ol>
-  <li>Integration with Super Link APIs;</li>
-  <li>Subsequent capture of transactions;</li>
-  <li>Negotiation with Anti-Fraud provider;</li>
-</ol>
-
-<h2 id="simplified-flowchart">Simplified flowchart</h2>
-
-<p><img src="https://developercielo.github.io/images/checkout/fluxogramasimplificadoantifraude.png" alt="Fluxograma simplificado Antifraude próprios" /></p>
-
-<h3 id="integration-step-by-step">Integration step by step</h3>
-
-<ol>
-  <li>
-    <p>Create the links via the Super Link API. Links can be created directly via API calls. The default request and response are found in the manual payment link topic. <a href="https://developercielo.github.io/manual/linkdepagamentos5#link-de-pagamento">Click here</a> to learn more.</p>
-  </li>
-  <li>
-    <p>Send the link to the cardholder to make the payment. The payment link must be sent through social networks for the payment to be made. The sale/transaction only starts after filling in the payment screen.</p>
-  </li>
-  <li>
-    <p>Receive payment details via Notification Post. The payment confirmation is sent via Webhook to a URL of the merchant’s choice. See how to set up a URL to receive the notification <a href="https://developercielo.github.io/manual/linkdepagamentos5#tipos-de-url-de-notifica%C3%A7%C3%A3o">here</a>.
-The information returned via the Notification Post can be found in the topic <a href="https://developercielo.github.io/manual/linkdepagamentos5#conteúd-da-notificação">Content of the notification</a>.</p>
-  </li>
-  <li>
-    <p>Send the payment details to the contracted Anti-Fraud. The information returned in the Notification Post must be sent to your Anti-Fraud. If necessary you can enrich the information returned with registration information of the customer who is executing that payment. Consult your Anti-Fraud provider to find out which fields can be submitted for analysis. Cielo does not participate in sending this information. All questions related to the integration process between the Merchant and Anti-Fraud should be sent to the Support of the anti-fraud provider.</p>
-  </li>
-  <li>
-    <p>Capture or cancel sales. According to the return of your anti-fraud provider, capture or cancel the sale. Sales capture and cancellation can be done via the transactional control API. See how to make the transactional control of your sales <a href="https://developercielo.github.io/manual/controletransacional4#capturar-transa%C3%A7%C3%A3o">here</a>.</p>
-  </li>
-</ol>
+<p>The <code class="language-plaintext highlighter-rouge">Checkout_Cielo_Order_Number</code> is only generated when the payment is completed on the transactional screen. It is only sent by the Notification URL and not by the Transactional screen creation Response.</p>
 
 <h1 id="status-and-codes">Status and Codes</h1>
 
