@@ -89,7 +89,7 @@ To start your integration with the Super Link API, you will need:
 
 *_If you have configured the notification URL._
 
-# Store settings
+# Merchant settings
 
 Before setting up, you need to enable Super Link for your store.
 
@@ -622,20 +622,297 @@ Header: `Authorization`: `Bearer {access_token}`
 
 `HTTP Status: 204 – No Content`
 
-# Payment Notifications
+# Transaction notifications
 
-The transactional notification process in Checkout Cielo takes place via the inclusion of a URL to which data from transactions carried out on the platform will be directed. It is worth mentioning that Checkout notifies you only when a transaction is considered finalized, that is, the buyer has filled in all the data on the payment screen and clicked on “Finalize”.
+The transactional notification process takes place in two steps, which are transaction completion notification and status change notification.
 
-## Notification Types
+|STEP|TYPE OF URL*|DESCRIPTION|CONTENT|FORMAT|
+|---|---|---|---|---|
+|**Transaction completion notification**|`Notification URL`|It is sent after the shopper clicks Finalize, generating the transaction. This notification is sent only when the transaction is completed, regardless of whether there has been a change in status, that is, it does not mean that the transaction has been paid.|Contains all sale data.|POST or JSON|
+|**Status change notification**|`Change Status URL`|It is sent when the transaction status changes.<br>The status can be changed from “Pendente (Pending)” to “Pago (Paid)”, “Cancelada (Cancelled)” or “Não finalizada (Not Completed)”, among others. See the complete list of statuses in the [Payment_status] table.|Contains the order identification data (it does not have the cart data).|POST|
 
-Cielo Checkout has two types of notifications that the shopkeeper can use according to his needs:
+*Notifications are sent to the URLs defined by the establishment in [**Store Settings**] and contain data on transactions carried out through the Super Link.
 
-| Type   | Description                                                                                                                                    |
-| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| `POST` | Notification where the merchant is passive. Two `HTTP POST` are triggered, one informing sales data and the other transaction status change    |
-| `JSON` | Notification where the merchant makes an appointment. A `POST` containing information for making a query (`GET`) for the checkout transactions |
+It is worth noting that Super Link notifies only when a transaction is considered finalized, that is, the shopper has filled in all the details on the payment screen and clicked on **Finalize**.
 
-To use both models, the merchant will need to access the Cielo Backoffice and configure both the `NOTIFICATION URL` and the` STATUS CHANGE URL`.
+**Example**: *The shopper accesses the payment link and chooses to pay via Pix. When you click Finalize, Super Link generates the Pix key and sends the transaction completion notification to the store, which will have the status “Pendente (Pending)”. When the shopper makes the payment via Pix, the transaction will have the status “Pago (Paid)” and Super Link will send the status change notification.*
+
+## Notification features
+
+Notification URLs are webhooks that can receive a notification via POST or via JSON:
+
+|TYPE|DESCRIPTION|
+|----|---|
+|**POST**|Notification where the store is passive.|
+|**JSON**|Notification where the store performs a query.|
+
+**Format of notifications**
+
+In notifications supported by the Super Link API, the format sent is *Form Data*, broken down by the `Content-Type` header 'x-www-form-urlencoded'.
+
+**Expected return**
+
+The store's server must return `HTTPStatus = 200 (OK)` to the Super Link API, indicating that the notification was successfully received and processed.
+
+> **IMPORTANT**: If the registered URL returns an error or is unavailable, three new attempts will be made, with an interval of one hour between each POST.
+
+If the notification is not received, it is possible to manually request a resend in **Detalhes do Pedido** (Order details), by clicking on the arrow icon.
+
+## Transaction completion notification
+
+It is the notification sent to the Notification URL and can be in POST or JSON format.
+
+### Notification via POST
+
+Contains all transaction data, including `merchant_order_number` and `checkout_cielo_order_number`, which can be used to [query a transaction](https://developercielo.github.io/manual/linkdepagamentos5#consulta-de-transa%C3%A7%C3%B5es){:target="_blank"}.
+
+**Exemplo:**
+
+```json
+order_number: "40e00eefbf094763a147af713fa07ece",
+amount: "5000",
+checkout_cielo_order_number: "b9ab1956738d45cc88edf51d7d03b13e",
+created_date: "02/02/2023 17:01:35", 
+customer_name: "nome do cliente", 
+customer_phone: "2222222222", 
+customer_identity: "12312312344", 
+customer_email: "nome@email.com.br", 
+shipping_type: "5", 
+shipping_price: "0", 
+payment_method_type: "6", 
+payment_installments: "1", 
+payment_status: "1", 
+test_transaction: "False", 
+product_id: "0f48e580-d0a2-4e3b-a748-6704927f1725", 
+product_type: "3", 
+product_description: "123", 
+nsu: "00339922"
+```
+
+See the description of transaction details in the [Notification Content](### Notification Content) section.
+
+### Notification via JSON
+
+Notification via JSON is a safer and more flexible method to perform a query on Super Link Cielo. In this mode, the store receives the `MerchantId` and the `MerchantOrderNumber` and a URL to perform a query (GET) against the Super Link Cielo database and access transaction details.
+
+**Notification content via JSON**
+
+```json
+MerchantId: "799g0de8-89c3-5d17-c670-6b29d7f00175", 
+MerchantOrderNumber: "1db9226geg8b54e6b2972e9b745b89c7", 
+Url: "https://cieloecommerce.cielo.com.br/api/public/v1/orders/799g0de8-89c3-5d17-c670-6b29d7f00175 /1db9226geg8b54e6b2972e9b745b89c7"
+```
+
+|PROPERTY|DESCRIPTION|TYPE|
+|---|---|---|
+|`URL`|URL with the necessary data to perform the transaction data search.|String|
+|`MerchantId`|Store identifier in Super Link; appears on the Cielo website in the menu Configuração > Dados Cadastrais.|Alphanumeric (guid)|
+|`MerchantOrderNumber`|Store order number; if not sent, Super link will generate a number, which will be viewed by the Consumer.|Alphanumeric|
+
+*The store's server must send the return `HTTP Status = 200 (OK)` to the Super Link API, indicating that the notification was received and processed successfully.*
+
+**Example of a query to the URL returned via JSON**
+
+**Response**
+
+```json
+{
+    "order_number": "1db9226geg8b54e6b2972e9b745b89c7",
+    "amount": 101,
+    "discount_amount": 0,
+    "checkout_cielo_order_number": "65930e7460bd4a849502ed14d7be6c03",
+    "created_date": "10-03-2023 14:38:56",
+    "customer_name": "Test Test",
+    "customer_phone": "11987654321",
+    "customer_identity": "445556667",
+    "customer_email": "shopper@email.com.br",
+    "shipping_type": 1,
+    "shipping_name": "Motoboy",
+    "shipping_price": 1,
+    "shipping_address_zipcode": "06455-030",
+    "shipping_address_district": "Alphaville",
+    "shipping_address_city": "Barueri",
+    "shipping_address_state": "SP",
+    "shipping_address_line1": "Alameda Xingu",
+    "shipping_address_line2": "Apto 25",
+    "shipping_address_number": "512",
+    "payment_method_type": 1,
+    "payment_method_brand": 1,
+    "payment_maskedcreditcard": "482852******6856",
+    "payment_installments": 1,
+    "payment_status": 3,
+    "tid": "10558590697J62OH9BPB",
+    "test_transaction": "False"
+}
+```
+
+See the description of the sale details in the [Notification Content](### Notification Content) section.
+
+### Notification Content
+
+Both in the notification via POST or via JSON, the content of the returned data is the same. All returned fields are described below, as well as their definitions and sizes:
+
+|PROPERTY|DESCRIPTION|TYPE|MAXIMUM SIZE|
+|---|---|---|---|
+|`checkout_cielo_order_number`|Unique identifier generated by Super Link.|Alphanumeric|32|
+|`amount`|Unit price of the product, in cents (ex: R$ 1.00 = 100).|Number|10|
+|`order_number`|Order number sent by the store.|Alphanumeric|32|
+|`created_date`|Order creation date - dd-MM-yyyy HH:mm:ss|Alphanumeric|20|
+|`customer_name`|Consumer name. If sent, this value is already filled in on the Super Link.|Alphanumeric|289|
+|`customer_identity`|Consumer identification (CPF or CNPJ) If sent, this value is already filled in on the Super Link Cielo screen.|Alphanumeric|14|
+|`customer_email`|Consumer email. If sent, this value is already filled in on the Super Link Cielo screen.|Alphanumeric|64|
+|`customer_phone`|Consumer phone number. If sent, this value is already filled in on the Super Link Cielo screen.|Number|11|
+|`discount_amount`|Discount amount provided (only sent if there is a discount).|Number|10|
+|`shipping_type`|Shipping method.|Number|1|
+|`shipping_name`|Shipping name.|Alphanumeric|128|
+|`shipping_price`|Value of the shipping service, in cents (ex: R$ 10.00 = 1000).|Number|10|
+|`shipping_address_zipcode`|Delivery address zip code.|Number|8|
+|`shipping_address_district`|Delivery address neighborhood.|Text|64|
+|`shipping_address_city`|Delivery address city.|Alphanumeric|64|
+|`shipping_address_state`|Delivery address state.|Alphanumeric|64|
+|`shipping_address_line1`|Delivery address.|Alphanumeric|256|
+|`shipping_address_line2`|Delivery address add-on.|Alphanumeric|14
+|`shipping_address_number`|Delivery address number|Number|8
+|`payment_method_type`|Payment method type code.|Number|1
+|`payment_method_brand`|Brand (only for transactions with a credit card payment method).|Number|1|
+|`payment_method_bank`|Issuing bank (For Boleto and Automatic Debit transactions).|Number|1|
+|`payment_maskedcreditcard`|Masked Card (Only for transactions with a credit card payment method).|Alphanumeric|20|
+|`payment_installments`|Number of installments.|Number|1|
+|`payment_antifrauderesult`|Status of credit card transactions in Antifraude|Number|1|
+|`payment_boletonumber`|Generated boleto number.|String|1|
+|`payment_boletoexpirationdate`|Expiration date for transactions carried out with boleto.|Number|10|
+|`payment_status`|Transaction status.|Number|1|
+|`tid`|TransactionId Cielo generated at the time of transaction authorization.|Alphanumeric|20|
+|`test_transaction`|Indicates whether the transaction was generated with Test Mode enabled.|Boolean|32
+|`product_id`|Payment Button/Link Identifier that generated the transaction.|Alphanumeric|32|
+|`product_type`|Type of Button that generated the order (See ProductID table).|Alphanumeric|32|
+|`product_sku`|Product identifier registration in the payment link.|Text|16|
+|`product_max_number_of_installments`|Number of installments allowed by merchants for the payment link.|Number|2|
+|`product_expiration_date`|Payment Button/Link Expiration Date.|Alphanumeric|12|
+|`product_quantity`|Number of transactions remaining until the link stops working.|Alphanumeric|2|
+|`product_description`|Payment link description registered by the merchant.|Text|256|
+|`nsu`|NSU - Transaction unique sequential number.|Alphanumeric|6|
+|`authorization_code`|Authorization code.|Alphanumeric|8|
+
+#### Tipos de productID
+
+|TYPE OF PAYMENT LINK|ENUN|
+|---|---|
+|Physical material|1|
+|Digital|2|
+|Service|3|
+|Payment|4|
+|Recurrence|5|
+
+#### Payment_status
+
+Super Link has its own status, different from the Cielo website or the Cielo E-commerce API. See the complete list below.
+
+|VALUE|STATUS DA TRANSAÇÃO|TRANSACTION STATUS|PAYMENT METHOD|DESCRIPTION|
+|---|---|---|---|---|
+|1|Pendente|Pending|For all payment methods.|Indicates that the payment is still being processed; NOTE: Boleto - Indicates that the boleto status has not been changed by the merchant|
+|2|Pago|Paid|For all payment methods.|Transaction was captured and money will be deposited into account.|
+|3|Negado|Denied|Credit card only.|Transaction not authorized by the person responsible for the payment method.|
+|4|Expirado|Expired|Credit cards and boleto.|Transaction is no longer valid for capture - 15 days after Authorization.|
+|5|Cancelado|Voided|Credit cards only. |Transaction was canceled by the merchant|
+|6|Não Finalizado|NotFinalized|For all payment methods.|Payment Waiting Status - May indicate error or processing failure. Contact Cielo Support.|
+|7|Autorizado|Authorized|Credit card only.|Transaction authorized by the card issuer. It must be captured for the money to be deposited in an account.|
+|8|Chargeback|Chargeback|Credit card only.|Transaction canceled by the shopper with the card issuer. Money will not be deposited into an account.|
+
+> **Note**: For order inquiries, the `payment.status` field will be returned in text format, always in English (Transaction Status column).
+
+#### Payment_antifrauderesult
+
+Antifraude has the concept of Status and SubStatus, where the first represents the risk level that a transaction has of being a fraud, and the second, additional information about the transaction.
+
+|VALUE|ANTIFRAUDE STATUS|SUBSTATUS|DESCRIPTION|
+|---|---|---|---|
+|1|Low Risk|Low Risk|Low risk of being a fraudulent transaction.|
+|2|High Risk|High Risk|High risk of being a fraudulent transaction. Canceled automatically.|
+|4|Not finalized|Not finalized|It was not possible to finalize the query.|
+|N/A|N/A|Not applicable|Debit card transaction that was authenticated by 3DS 2.0, therefore not eligible for Antifraude review.|
+|N/A|N/A|N/A|Unanalyzable payment method such as boleto, Pix, QR Code, and credit card transaction that was denied by the issuer.|
+|N/A|N/A|Recurrence transaction|For recurrence cases, after the first paid transaction, the next transactions of a recurrence are not analyzed by the anti-fraud. Only the first transaction is analyzed.|
+
+#### Payment_method_type
+
+Super Link allows only one type of Boleto per establishment, so the notification does not return if the provider used was Bradesco or Banco do Brasil, as only one of them will be active in the affiliation.
+
+|VALUE|DESCRIPTION|
+|---|---|
+|1|CreditCard|
+|2|Boleto|
+|4|DebitCard|
+|5|QrCode|
+|6|Pix|
+|7|QrCodeDebit|
+
+> **Note**: For queries the Type is returned in the `Payment.Type` field and is filled with the literal value (`Description`).
+
+#### Payment_method_brand
+
+It's the brand of the card.
+
+|VALUE|DESCRIPTION|
+|---|---|
+|1|Visa|
+|2|Master|
+|3|AmericanExpress|
+|4|Diners|
+|5|Elo|
+|6|Aura|
+|7|JCB|
+|8|Discover|
+|9|HiperCard|
+
+In queries, the card brand is returned in the `Payment.Brand` field and is filled with the literal value.
+
+#### Payment_method_bank
+
+|VALUE|DESCRIPTION|
+|---|---|
+|1|Banco do Brasil|
+|2|Bradesco|
+
+#### Shipping_type
+
+|VALOR|DESCRIPTION|
+|---|---|
+|1|Correios|
+|2|Fixed shipping|
+|3|Free shipping|
+|4|Pick up at hand/store|
+|5|No shipping charge (digital services or products)|
+
+## Status change notification
+
+It is sent to the status change URL and contains the `checkout_cielo_order_number`, the new status and some transaction data.
+
+To find out more details about the transaction, make a query using `checkout_cielo_order_number`.
+
+The status change notification format is POST (form data).
+
+```json
+checkout_cielo_order_number: "b918afea483d4c6c8615d8a8e19803c1",
+amount: "134",
+order_number: "024f77ac98cb493b86d8c818eb6e79cd",
+payment_status: "3",
+test_transaction: "False",
+brand: "Visa",
+nsu: "000001",
+authorization_code: "01234567"
+```
+
+|PARAMETER|DESCRIPTION|FIELD TYPE|MAXIMUM SIZE|
+|---|---|---|---|
+|`checkout_cielo_order_number`| Unique identifier generated by Super Link Cielo. | Alphanumeric | 32 |
+|`amount`|Unit price of the product, in cents (eg: R$ 1.00 = 100)|Number|10|
+|`order_number`|Order number sent by the store.|Alphanumeric|32|
+|`payment_method_brand`|Brand - only for transactions with a credit card payment method. [Complete List](https://developercielo.github.io/manual/linkdepagamentos5#payment_method_brand){:target="_blank"}|Number|20|
+|`payment_status`|Status of the transaction. [Complete List](https://developercielo.github.io/manual/linkdepagamentos5#status-e-c%C3%B3digos){:target="_blank"}|Number|1|
+|`test_transaction`|Indicates if the transaction was generated with Test Mode enabled.|Boolean|32|
+|`nsu`|NSU - Transaction unique sequential number.|Alphanumeric|6|
+|`authorization_code`|Authorization code.|Alphanumeric|8|
 
 # Transactional Control
 
