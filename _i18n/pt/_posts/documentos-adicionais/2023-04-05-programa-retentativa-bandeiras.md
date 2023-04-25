@@ -4,6 +4,7 @@ title: Programa de Retentativa das Bandeiras
 search: true
 toc_footers: true
 categories: tutorial
+sort_order: 2
 tags:
   - Documentos Adicionais
 ---
