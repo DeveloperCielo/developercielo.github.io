@@ -1174,18 +1174,18 @@ The `Checkout_Cielo_Order_Number` is only generated when the payment is complete
 
 # Status and Codes
 
-Checkout has its own Status, different from CIELO SITE or Cielo ecommerce API. See the full list below.
+**Super Link** has its own status, different from the Cielo website or the API Cielo E-commerce. See the full list below.
 
-| Value | Transaction status | Payment method             | Description                                                                                                                                 |
-| ----- | ------------------ | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1     | `Pending`          | For all the payment method | Indicates that the payment is still being processed; OBS: Boleto - Indicates that the boleto has not had its status changed by the merchant |
-| 2     | `Paid`             | For all the payment method | Transaction captured and the money will be deposited in an account.                                                                         |
-| 3     | `Denied`           | Credit Card Only           | Transaction not authorized by the person responsible for the payment method                                                                 |
-| 4     | `Expired`          | Credit Cards and Boleto    | Transaction is no longer valid for capture - ** 15 days after Authorization **                                                              |
-| 5     | `Canceled`         | For credit cards           | Transaction was canceled by the merchant                                                                                                    |
-| 6     | `Not finished`     | For all the payment method | Payment waiting for Status - May indicate error or processing failure. Contact Cielo Support                                                |
-| 7     | `Authorized`       | Credit Card Only           | Transaction authorized by the card issuer. Must be captured in order for the money to be deposited in an account                            |
-| 8     | `Chargeback`       | Credit Card Only           | Transaction canceled by the consumer with the card issuer. Money will not be deposited into an account.                                     |
+|VALUE|TRANSACTION STATUS|PAYMENT METHOD|DESCRIPTION|
+|---|---|---|---|
+|1|Pending|Boleto, Pix and QR Code|Indicates that the payment is still being processed or is pending an action from the shopper.<br>Example: a boleto transaction with *Pending* status indicates that the boleto has not had its status changed by the shopper.|
+|2|Paid|All payment methods|The transaction has been captured and the money will be deposited into the account.|
+|3|Denied|Credit and debit cards|Transaction not authorized by the person responsible for the payment method.|
+|4|Expired|Credit and debit cards and boleto|**Credit and debit card:** the transaction is no longer valid for capture 15 days after authorization.<br>**Boleto:** the boleto expires after the expiration date set by the Cielo E-commerce Support team as requested by the establishment.|
+|5|Canceled|Credit and debit cards|Transaction canceled by the store.|
+|6|Not Finalized|All payment methods|Payment awaiting new Status.
+May indicate error or processing failure. Contact Cielo E-commerce Support.|
+|7|Authorized|Credit and debit cards|Transaction authorized by the card issuer. It must be captured for the money to be deposited into the account (by default, the transaction can be captured up to 15 days after authorization).|
 
 ## Card Brands Retry Program
 
