@@ -135,7 +135,7 @@ Select the payment methods you would like to make available to your customers. F
 
 For more details see the [Super Link and Checkout Cielo tutorial](https://developercielo.github.io/tutorial/checkout-tutoriais){:target="_blank"}.
 
-### ### 4. Configure your store's return, notification, and status change URLs
+### 4. Configure your store's return, notification, and status change URLs
 
 You will be asked to fill in the return, notification, and status change URLs. URLs must be created and defined by the merchant. Then click on **Salvar**.
 
