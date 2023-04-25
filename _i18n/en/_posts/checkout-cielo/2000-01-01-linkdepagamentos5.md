@@ -77,15 +77,15 @@ With Super Link you can sell your products and services using the main payment m
 
 To start your integration with the Super Link API, you will need:
 
-1. Request the [establishment number (EC) for the Super Link](https://developercielo.github.io/manual/linkdepagamentos5#configura%C3%A7%C3%B5es-da-loja){:target="_blank"};
-2. Configure the [store settings](https://developercielo.github.io/manual/linkdepagamentos5#configura%C3%A7%C3%B5es-da-loja){:target="_blank"} (personalization of the page, choosing payment methods and a contract with the Post Office, if there is one);
-3. Set up a [notification and status change URL](https://developercielo.github.io/manual/linkdepagamentos5#configura%C3%A7%C3%B5es-da-loja){:target="_blank"} for your store;
-4. Get the [API access credentials](https://developercielo.github.io/manual/linkdepagamentos5#autentica%C3%A7%C3%A3o-cielo-oauth){:target="_blank"} (`ClientId` and `Client Secret`);
-5. Request an access token via API using the [credentials](https://developercielo.github.io/manual/linkdepagamentos5#autentica%C3%A7%C3%A3o-cielo-oauth){:target="_blank"};
-6. With the token, [create a payment link](https://developercielo.github.io/manual/linkdepagamentos5#criar-link){:target="_blank"};
-7. When there is a payment attempt on the link, you will receive a [notification](https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o){:target="_blank"}* with all data filled in at checkout;
-8. If the transaction changes status, you will receive a [notification](https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o){:target="_blank"}* of the status change;
-9. To perform tests, use Super Link's [Test Mode](https://developercielo.github.io/manual/linkdepagamentos5#modo-teste){:target="_blank"}.
+1. Request the [establishment number (EC) for the Super Link](https://developercielo.github.io/en/manual/linkdepagamentos5#enabling-the-establishment-number-(ec)-for-the-super-link);
+2. Configure the [store settings](https://developercielo.github.io/en/manual/linkdepagamentos5#setting-up-your-store) (customization of the page, choosing payment methods and a contract with the Post Office, if there is one);
+3. Set up a [notification and status change URL](https://developercielo.github.io/en/manual/linkdepagamentos5#4.-configure-your-store%E2%80%99s-return,-notification,-and-status-change-urls) for your store;
+4. Get the [API access credentials](https://developercielo.github.io/en/manual/linkdepagamentos5#obtaining-the-credentials) (`ClientId` and `Client Secret`);
+5. Request an access token via API using the [credentials](https://developercielo.github.io/en/manual/linkdepagamentos5#obtaining-the-access-token);
+6. With the token, [create a payment link](https://developercielo.github.io/en/manual/linkdepagamentos5#creating-a-link);
+7. When there is a payment attempt on the link, you will receive a [notification](https://developercielo.github.io/en/manual/linkdepagamentos5#transaction-completion-notification)* with all data filled in at checkout;
+8. If the transaction changes status, you will receive a [notification](https://developercielo.github.io/en/manual/linkdepagamentos5#status-change-notification)* of the status change;
+9. To perform tests, use Super Link's [Test Mode](https://developercielo.github.io/en/manual/linkdepagamentos5#test-mode).
 
 *_If you have configured the notification URL._
 
