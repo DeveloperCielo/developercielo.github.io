@@ -1618,17 +1618,17 @@ Cielo informs its customers that it is prepared to process transactions followin
 | N7            | Unauthorized transaction. Invalid security code.                                                                                                             | Transaction not authorized. Security code is invalid. Direct the cardholder to correct the data and try again.                                                                                                                                                                      | Unauthorized transaction. Review the data and enter again.                                                                                                                                                   | No                                               |
 | U3            | Transaction not allowed. Data validation failed.                                                                                                             | Transaction not allowed. Data validation failed. Ask the carrier to review the data and try again. If the error persists, check the communication between the virtual store and Cielo.                                                                                              | Transaction not allowed. Data validation failed. review the data entered and try again. If the error persists, contact the Virtual Store.                                                                    | No                                               |
 
-## Anti-Fraud Status
+## Antifraude Status
 
 |  Field  | Definition             |
 | :-----: | ---------------------- |
-| ** 0 ** | N \ A                  |
-| ** 1 ** | Low risk               |
-| ** 2 ** | High Risk              |
-| ** 3 ** | Not finalized          |
-| ** 4 ** | Moderate risk          |
-| ** 5 ** | Authenticated          |
-| ** 6 ** | Not hired              |
-| ** 7 ** | Dismissed              |
-| ** 8 ** | Not Applicable         |
-| ** 9 ** | Recurrence Transaction |
+| **0** | N \ A                  |
+| **1** | Low risk               |
+| **2** | High Risk              |
+| **3** | Not finalized          |
+| **4** | Moderate risk          |
+| **5** | Authenticated          |
+| **6** | Not hired              |
+| **7** | Dismissed              |
+| **8** | Not Applicable         |
+| **9** | Recurrence Transaction |
