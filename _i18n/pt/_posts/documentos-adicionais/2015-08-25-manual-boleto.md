@@ -4,6 +4,7 @@ title: Manual Boletos
 search: true
 toc_footers: true
 categories: tutorial
+sort_order: 4
 tags:
   - Documentos Adicionais
 ---
