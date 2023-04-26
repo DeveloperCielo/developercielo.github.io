@@ -85,7 +85,7 @@ To start your integration with the Super Link API, you will need:
 6. With the token, [create a payment link](https://developercielo.github.io/en/manual/linkdepagamentos5#creating-a-link);
 7. When there is a payment attempt on the link, you will receive a [notification](https://developercielo.github.io/en/manual/linkdepagamentos5#transaction-completion-notification)* with all data filled in at checkout;
 8. If the transaction changes status, you will receive a [notification](https://developercielo.github.io/en/manual/linkdepagamentos5#status-change-notification)* of the status change;
-9. To perform tests, use Super Link's [Test Mode](https://developercielo.github.io/en/manual/linkdepagamentos5#test-mode).
+9. To perform tests, use Super Link's [Test Mode](#Test Mode).
 
 *_If you have configured the notification URL._
 
@@ -142,8 +142,8 @@ You will be asked to fill in the return, notification, and status change URLs. U
 ![URLs de Notificação]({{ site.baseurl_root }}/images/checkout/superlink/superlink-urls-notificacao.png)
 
 * **Return URL**: after completing the payment, the shopper can be redirected to a web page defined by the store. No data is exchanged or sent to this URL and its configuration is optional;
-* **[Notification URL](https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o){:target="_blank"}**: is the URL through which you will receive the notification with all the cart data when the transaction is completed;
-* **[Status Change URL](https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o){:target ="_blank"}**: is the URL through which you will receive notification when an order has its status changed. The status change notification does not contain cart data, only order identification data.
+* **[Notification URL](https://developercielo.github.io/en/manual/linkdepagamentos5#transaction-completion-notification)**: is the URL through which you will receive the notification with all the cart data when the transaction is completed;
+* **[Status Change URL](https://developercielo.github.io/en/manual/linkdepagamentos5#status-change-notification)**: is the URL through which you will receive notification when an order has its status changed. The status change notification does not contain cart data, only order identification data.
 
 ### 5. Configure Capture and Antifraude
 
