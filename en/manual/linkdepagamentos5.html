@@ -246,7 +246,7 @@
   <li>With the token, <a href="https://developercielo.github.io/en/manual/linkdepagamentos5#creating-a-link">create a payment link</a>;</li>
   <li>When there is a payment attempt on the link, you will receive a <a href="https://developercielo.github.io/en/manual/linkdepagamentos5#transaction-completion-notification">notification</a>* with all data filled in at checkout;</li>
   <li>If the transaction changes status, you will receive a <a href="https://developercielo.github.io/en/manual/linkdepagamentos5#status-change-notification">notification</a>* of the status change;</li>
-  <li>To perform tests, use Super Link’s <a href="# Test Mode">Test Mode</a>.</li>
+  <li>To perform tests, use Super Link’s <a href="https://developercielo.github.io/en/manual/linkdepagamentos5#test-mode">Test Mode</a>.</li>
 </ol>
 
 <p>*<em>If you have configured the notification URL.</em></p>
@@ -902,7 +902,7 @@ Transactions carried out in Test Mode can be finalized normally, but will not be
 <blockquote>
   <p><strong>Important</strong>: The query response contains the link itself (<code class="language-plaintext highlighter-rouge">shortUrl</code>) and the same data returned when creating the link.<br />
 <strong>The link is not the transaction yet</strong>. A transaction will only be initiated when the shopper attempts payment and may or may not be authorized.<br />
-To query a transaction, see the section <a href="https://developercielo.github.io/manual/linkdepagamentos5#consulta-de-transa%C3%A7%C3%B5es" target="_blank">Transaction Query</a>.</p>
+To query a transaction, see the section <a href="https://developercielo.github.io/en/manual/linkdepagamentos5#transaction-query">Transaction Query</a>.</p>
 </blockquote>
 
 <h3 id="request-2">Request</h3>
@@ -1186,7 +1186,7 @@ To query a transaction, see the section <a href="https://developercielo.github.i
 
 <h3 id="notification-via-post">Notification via POST</h3>
 
-<p>Contains all transaction data, including <code class="language-plaintext highlighter-rouge">merchant_order_number</code> and <code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>, which can be used to <a href="https://developercielo.github.io/manual/linkdepagamentos5#consulta-de-transa%C3%A7%C3%B5es" target="_blank">query a transaction</a>.</p>
+<p>Contains all transaction data, including <code class="language-plaintext highlighter-rouge">merchant_order_number</code> and <code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>, which can be used to <a href="https://developercielo.github.io/en/manual/linkdepagamentos5#transaction-query">query a transaction</a>.</p>
 
 <p><strong>Exemplo:</strong></p>
 
@@ -1210,7 +1210,7 @@ To query a transaction, see the section <a href="https://developercielo.github.i
 </span><span class="err">nsu:</span><span class="w"> </span><span class="s2">"00339922"</span><span class="w">
 </span></code></pre></div></div>
 
-<p>See the description of transaction details in the <a href="### Notification Content">Notification Content</a> section.</p>
+<p>See the description of transaction details in the <a href="https://developercielo.github.io/en/manual/linkdepagamentos5#notification-content">Notification Content</a> section.</p>
 
 <h3 id="notification-via-json">Notification via JSON</h3>
 
@@ -1286,7 +1286,7 @@ To query a transaction, see the section <a href="https://developercielo.github.i
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>See the description of the sale details in the <a href="### Notification Content">Notification Content</a> section.</p>
+<p>See the description of the sale details in the <a href="https://developercielo.github.io/en/manual/linkdepagamentos5#notification-content">Notification Content</a> section.</p>
 
 <h3 id="notification-content">Notification Content</h3>
 
@@ -1901,13 +1901,13 @@ To query a transaction, see the section <a href="https://developercielo.github.i
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">payment_method_brand</code></td>
-      <td>Brand - only for transactions with a credit card payment method. <a href="https://developercielo.github.io/manual/linkdepagamentos5#payment_method_brand" target="_blank">Complete List</a></td>
+      <td>Brand - only for transactions with a credit card payment method. <a href="https://developercielo.github.io/en/manual/linkdepagamentos5#payment_method_brand">Complete List</a></td>
       <td>Number</td>
       <td>20</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">payment_status</code></td>
-      <td>Status of the transaction. <a href="https://developercielo.github.io/manual/linkdepagamentos5#status-e-c%C3%B3digos" target="_blank">Complete List</a></td>
+      <td>Status of the transaction. <a href="https://developercielo.github.io/en/manual/linkdepagamentos5#status-and-codes">Complete List</a></td>
       <td>Number</td>
       <td>1</td>
     </tr>
@@ -2308,7 +2308,7 @@ To query a transaction, see the section <a href="https://developercielo.github.i
       <td>Text</td>
       <td>10</td>
       <td>Transaction status</td>
-      <td>Example: Paid <a href="https://developercielo.github.io/manual/linkdepagamentos5#payment_status">Complete List</a></td>
+      <td>Example: Paid <a href="https://developercielo.github.io/en/manual/linkdepagamentos5#payment_status">Complete List</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.tid</code></td>
@@ -2364,7 +2364,7 @@ To query a transaction, see the section <a href="https://developercielo.github.i
       <td>Text</td>
       <td>10</td>
       <td>Card’s brand.</td>
-      <td>Example: Visa <a href="https://developercielo.github.io/manual/linkdepagamentos5#payment_method_brand">Complete List</a></td>
+      <td>Example: Visa <a href="https://developercielo.github.io/en/manual/linkdepagamentos5#payment_method_brand">Complete List</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.antifraud.antifraudeResult</code></td>
@@ -2385,14 +2385,14 @@ To query a transaction, see the section <a href="https://developercielo.github.i
       <td>Text</td>
       <td>11</td>
       <td>Type of payment method</td>
-      <td>Example: CreditCard <a href="https://developercielo.github.io/manual/linkdepagamentos5#payment_method_type">complete list</a></td>
+      <td>Example: CreditCard <a href="https://developercielo.github.io/en/manual/linkdepagamentos5#payment_method_type">complete list</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.errorcode</code></td>
       <td>Number</td>
       <td>2</td>
       <td>Return code</td>
-      <td>Example: 00, 51, 57, etc <a href="https://developercielo.github.io/manual/linkdepagamentos5#c%C3%B3digos-de -return-abecs">complete list</a></td>
+      <td>Example: 00, 51, 57, etc <a href="https://developercielo.github.io/en/manual/linkdepagamentos5#abecs-return-codes">complete list</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Customer.Identity</code></td>
@@ -2552,7 +2552,7 @@ To query a transaction, see the section <a href="https://developercielo.github.i
       <td>Transaction Status.</td>
       <td>Text</td>
       <td>-</td>
-      <td>Example: Denied <a href="https://developercielo.github.io/manual/linkdepagamentos5#payment_status">Complete List</a></td>
+      <td>Example: Denied <a href="https://developercielo.github.io/en/manual/linkdepagamentos5#payment_status">Complete List</a></td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">links.$id</code></td>
