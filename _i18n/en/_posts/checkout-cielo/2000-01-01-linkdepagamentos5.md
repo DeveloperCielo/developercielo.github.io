@@ -85,7 +85,7 @@ To start your integration with the Super Link API, you will need:
 6. With the token, [create a payment link](https://developercielo.github.io/en/manual/linkdepagamentos5#creating-a-link);
 7. When there is a payment attempt on the link, you will receive a [notification](https://developercielo.github.io/en/manual/linkdepagamentos5#transaction-completion-notification)* with all data filled in at checkout;
 8. If the transaction changes status, you will receive a [notification](https://developercielo.github.io/en/manual/linkdepagamentos5#status-change-notification)* of the status change;
-9. To perform tests, use Super Link's [Test Mode](#Test Mode).
+9. To perform tests, use Super Link's [Test Mode](# Test Mode).
 
 *_If you have configured the notification URL._
 
