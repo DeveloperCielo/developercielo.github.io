@@ -313,8 +313,8 @@ Caso o Pix não esteja habilitado em seu cadastro, será apresentada a tela de a
 
 <ul>
   <li><strong>URL de Retorno</strong>: após finalizar o pagamento, o comprador pode ser redirecionado para uma página definida web pela loja. Nenhum dado é trocado ou enviado para essa URL e sua configuração é opcional;</li>
-  <li><strong><a href="https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o" target="_blank">URL de Notificação</a></strong>: é a URL pela qual a sua loja irá receber a notificação com todos os dados do carrinho quando a transação é finalizada;</li>
-  <li><strong><a href="https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o" target="_blank">URL de Mudança de Status</a></strong>: é a URL pela qual a sua loja irá receber a notificação quando um pedido tiver seu status alterado. A notificação de mudança de status não contém dados do carrinho, apenas dados de identificação do pedido.</li>
+  <li><strong><a href="https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o">URL de Notificação</a></strong>: é a URL pela qual a sua loja irá receber a notificação com todos os dados do carrinho quando a transação é finalizada;</li>
+  <li><strong><a href="https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o">URL de Mudança de Status</a></strong>: é a URL pela qual a sua loja irá receber a notificação quando um pedido tiver seu status alterado. A notificação de mudança de status não contém dados do carrinho, apenas dados de identificação do pedido.</li>
 </ul>
 
 <h3 id="5-configure-a-captura-e-antifraude">5. Configure a captura e Antifraude</h3>
@@ -903,7 +903,7 @@ As transações realizadas no Modo Teste poderão ser finalizadas normalmente, m
 <blockquote>
   <p><strong>Importante</strong>: A resposta da consulta contém o link em si (<code class="language-plaintext highlighter-rouge">shortUrl</code>) e os mesmos dados retornados na criação do link.<br />
 <strong>O link ainda não é a transação</strong>. Uma transação só será iniciada quando o comprador fizer a tentativa de pagamento e pode ou não ser autorizada.<br />
-Para consultar uma transação, veja a seção <a href="https://developercielo.github.io/manual/linkdepagamentos5#consulta-de-transa%C3%A7%C3%B5es" target="_blank">Consulta de Transações</a>.</p>
+Para consultar uma transação, veja a seção <a href="https://developercielo.github.io/manual/linkdepagamentos5#consulta-de-transa%C3%A7%C3%B5es">Consulta de Transações</a>.</p>
 </blockquote>
 
 <h3 id="requisição-2">Requisição</h3>
@@ -1187,7 +1187,7 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
 
 <h3 id="notificação-via-post">Notificação via POST</h3>
 
-<p>Contém todos os dados da transação, inclusive o <code class="language-plaintext highlighter-rouge">merchant_order_number</code> e o <code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>, que poderão ser usados para a <a href="https://developercielo.github.io/manual/linkdepagamentos5#consulta-de-transa%C3%A7%C3%B5es" target="_blank">consulta de transações</a>.</p>
+<p>Contém todos os dados da transação, inclusive o <code class="language-plaintext highlighter-rouge">merchant_order_number</code> e o <code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>, que poderão ser usados para a <a href="https://developercielo.github.io/manual/linkdepagamentos5#consulta-de-transa%C3%A7%C3%B5es">consulta de transações</a>.</p>
 
 <p><strong>Exemplo:</strong></p>
 
@@ -1211,7 +1211,7 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
 </span><span class="err">nsu:</span><span class="w"> </span><span class="s2">"00339922"</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Veja a descrição dos detalhes da transação na sessão [Conteúdo das notificações].</p>
+<p>Veja a descrição dos detalhes da transação na sessão <a href="https://developercielo.github.io/manual/linkdepagamentos5#conte%C3%BAdo-das-notifica%C3%A7%C3%B5es">Conteúdo das notificações</a>.</p>
 
 <h3 id="notificação-via-json">Notificação via JSON</h3>
 
@@ -1287,7 +1287,7 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Veja a descrição dos detalhes da venda na sessão [Conteúdo das notificações].</p>
+<p>Veja a descrição dos detalhes da venda na sessão <a href="https://developercielo.github.io/manual/linkdepagamentos5#conte%C3%BAdo-das-notifica%C3%A7%C3%B5es">Conteúdo das notificações</a>.</p>
 
 <h3 id="conteúdo-das-notificações">Conteúdo das notificações</h3>
 
@@ -1909,13 +1909,13 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">payment_method_brand</code></td>
-      <td>Bandeira- somente para transações com meio de pagamento cartão de crédito. <a href="https://developercielo.github.io/manual/linkdepagamentos5#payment_method_brand" target="_blank">Lista Completa</a> </td>
+      <td>Bandeira- somente para transações com meio de pagamento cartão de crédito. <a href="https://developercielo.github.io/manual/linkdepagamentos5#payment_method_brand">Lista Completa</a> </td>
       <td>Número</td>
       <td>20</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">payment_status</code></td>
-      <td>Status da transação. <a href="https://developercielo.github.io/manual/linkdepagamentos5#status-e-c%C3%B3digos" target="_blank">Lista Completa</a></td>
+      <td>Status da transação. <a href="https://developercielo.github.io/manual/linkdepagamentos5#status-e-c%C3%B3digos">Lista Completa</a></td>
       <td>Número</td>
       <td>1</td>
     </tr>
