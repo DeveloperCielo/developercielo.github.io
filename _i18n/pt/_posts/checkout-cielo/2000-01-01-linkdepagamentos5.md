@@ -142,8 +142,8 @@ Você deverá preencher as URLs de retorno, notificação e mudança de status. 
 ![URLs de Notificação]({{ site.baseurl_root }}/images/checkout/superlink/superlink-urls-notificacao.png)
 
 * **URL de Retorno**: após finalizar o pagamento, o comprador pode ser redirecionado para uma página definida web pela loja. Nenhum dado é trocado ou enviado para essa URL e sua configuração é opcional;
-* **[URL de Notificação](https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o){:target="_blank"}**: é a URL pela qual a sua loja irá receber a notificação com todos os dados do carrinho quando a transação é finalizada;
-* **[URL de Mudança de Status](https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o){:target="_blank"}**: é a URL pela qual a sua loja irá receber a notificação quando um pedido tiver seu status alterado. A notificação de mudança de status não contém dados do carrinho, apenas dados de identificação do pedido.
+* **[URL de Notificação](https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o)**: é a URL pela qual a sua loja irá receber a notificação com todos os dados do carrinho quando a transação é finalizada;
+* **[URL de Mudança de Status](https://developercielo.github.io/manual/linkdepagamentos5#notifica%C3%A7%C3%B5es-da-transa%C3%A7%C3%A3o)**: é a URL pela qual a sua loja irá receber a notificação quando um pedido tiver seu status alterado. A notificação de mudança de status não contém dados do carrinho, apenas dados de identificação do pedido.
 
 ### 5. Configure a captura e Antifraude
 
@@ -464,7 +464,7 @@ Para consultar um link existente basta realizar um GET informando o `id` do link
 
 > **Importante**: A resposta da consulta contém o link em si (`shortUrl`) e os mesmos dados retornados na criação do link.<br>
 > **O link ainda não é a transação**. Uma transação só será iniciada quando o comprador fizer a tentativa de pagamento e pode ou não ser autorizada.<br>
-> Para consultar uma transação, veja a seção [Consulta de Transações](https://developercielo.github.io/manual/linkdepagamentos5#consulta-de-transa%C3%A7%C3%B5es){:target="_blank"}.
+> Para consultar uma transação, veja a seção [Consulta de Transações](https://developercielo.github.io/manual/linkdepagamentos5#consulta-de-transa%C3%A7%C3%B5es).
 
 ### Requisição
 
@@ -665,7 +665,7 @@ Caso a notificação não seja recebida, é possível solicitar o reenvio manual
 
 ### Notificação via POST
 
-Contém todos os dados da transação, inclusive o `merchant_order_number` e o `checkout_cielo_order_number`, que poderão ser usados para a [consulta de transações](https://developercielo.github.io/manual/linkdepagamentos5#consulta-de-transa%C3%A7%C3%B5es){:target="_blank"}.
+Contém todos os dados da transação, inclusive o `merchant_order_number` e o `checkout_cielo_order_number`, que poderão ser usados para a [consulta de transações](https://developercielo.github.io/manual/linkdepagamentos5#consulta-de-transa%C3%A7%C3%B5es).
 
 **Exemplo:**
 
@@ -690,7 +690,7 @@ product_description: "123",
 nsu: "00339922"
 ```
 
-Veja a descrição dos detalhes da transação na sessão [Conteúdo das notificações].
+Veja a descrição dos detalhes da transação na sessão [Conteúdo das notificações](https://developercielo.github.io/manual/linkdepagamentos5#conte%C3%BAdo-das-notifica%C3%A7%C3%B5es).
 
 ### Notificação via JSON
 
@@ -747,7 +747,7 @@ Url: "https://cieloecommerce.cielo.com.br/api/public/v1/orders/799g0de8-89c3-5d1
 }
 ```
 
-Veja a descrição dos detalhes da venda na sessão [Conteúdo das notificações].
+Veja a descrição dos detalhes da venda na sessão [Conteúdo das notificações](https://developercielo.github.io/manual/linkdepagamentos5#conte%C3%BAdo-das-notifica%C3%A7%C3%B5es).
 
 ### Conteúdo das notificações
 
@@ -909,8 +909,8 @@ authorization_code: "01234567"
 |`checkout_cielo_order_number`|Identificador único gerado pelo Super Link Cielo.|Alfanumérico|32|
 |`amount`|Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)|Número|10|
 |`order_number`|Número do pedido enviado pela loja.|Alfanumérico|32|
-|`payment_method_brand`|Bandeira- somente para transações com meio de pagamento cartão de crédito. [Lista Completa](https://developercielo.github.io/manual/linkdepagamentos5#payment_method_brand){:target="_blank"} |Número|20|
-|`payment_status`|Status da transação. [Lista Completa](https://developercielo.github.io/manual/linkdepagamentos5#status-e-c%C3%B3digos){:target="_blank"}|Número|1|
+|`payment_method_brand`|Bandeira- somente para transações com meio de pagamento cartão de crédito. [Lista Completa](https://developercielo.github.io/manual/linkdepagamentos5#payment_method_brand) |Número|20|
+|`payment_status`|Status da transação. [Lista Completa](https://developercielo.github.io/manual/linkdepagamentos5#status-e-c%C3%B3digos)|Número|1|
 |`test_transaction`|Indica se a transação foi gerada com o Modo de teste ativado|Boolean|32|
 |`nsu`|NSU - Número sequencial único da transação.|Alfanumérico|6|
 |`authorization_code`|Código de autorização.|Alfanumérico|8|
