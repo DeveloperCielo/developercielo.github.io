@@ -73,7 +73,7 @@ With Super Link you can sell your products and services using the main payment m
 |Digital wallets | QR Code Pay (credit and debit)|
 |Pix | Cielo|
 
-# Quick start
+# Quick Start
 
 To start your integration with the Super Link API, you will need:
 
@@ -89,7 +89,7 @@ To start your integration with the Super Link API, you will need:
 
 *_If you have configured the notification URL._
 
-# Merchant settings
+# Merchant Settings
 
 Before setting up, you need to enable Super Link for your store.
 
@@ -794,7 +794,7 @@ Both in the notification via POST or via JSON, the content of the returned data 
 |`nsu`|NSU - Transaction unique sequential number.|Alphanumeric|6|
 |`authorization_code`|Authorization code.|Alphanumeric|8|
 
-#### Tipos de productID
+#### Types of productID
 
 |TYPE OF PAYMENT LINK|ENUN|
 |---|---|
@@ -1103,7 +1103,7 @@ Header: `Authorization`: `Bearer {access_token}`
 |`Customer.Email`|Text|64|Shopper's email.|Example: example@email.com.br|
 |`Customer.Phone`|Number|11|Shopper's phone.|Example: 11123456789|
 
-## By id of the payment link.
+## By id of the payment link
 
 ### Request
 
