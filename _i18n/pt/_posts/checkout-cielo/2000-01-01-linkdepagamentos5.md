@@ -1184,8 +1184,7 @@ O **Super Link** possui status próprios, diferente do site Cielo ou da API Ciel
 |3|Negado|Cartão de crédito e débito|Transação não autorizada pelo responsável do meio de pagamento.|
 |4|Expirado|Cartão de crédito, débito e boleto|**Cartão de crédito e débito:** a transação deixa de ser válida para captura 15 dias após autorização.<br>**Boleto:** o boleto expira após data de expiração configurada pelo time de Suporte Cielo E-commerce conforme solicitação do estabelecimento.|
 |5|Cancelado|Cartão de crédito e débito|Transação cancelada pela loja.|
-|6|Não Finalizado|Todos os meios de pagamento|Pagamento esperando novo Status.
-Pode indicar erro ou falha de processamento. Entre em contato com o Suporte Cielo E-commerce.|
+|6|Não Finalizado|Todos os meios de pagamento|Pagamento esperando novo Status.Pode indicar erro ou falha de processamento. Entre em contato com o Suporte Cielo E-commerce.|
 |7|Autorizado|Cartão de crédito e débito|Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta (por padrão, a transação pode ser capturada até 15 dias após autorização).|
 
 ## Programa de Retentativa das Bandeiras
