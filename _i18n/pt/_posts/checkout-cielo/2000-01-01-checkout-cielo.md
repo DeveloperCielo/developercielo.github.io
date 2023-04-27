@@ -154,10 +154,9 @@ Trata-se de um certificado de maior confiança e quando o https for acessado a b
 
 Basta instalar os três arquivos a seguir na Trustedstore do servidor. A Cielo não oferece suporte para a instalação do Certificado. Caso não esteja seguro sobre como realizar a instalação do Certificado EV, então você deverá ser contatado o suporte do fornecedor do seu servidor.
 
-- [Certificado Raiz]({{ site.baseurl }}/attachment/Root.crt)
-- [Certificado Intermediária 1]({{ site.baseurl }}/attachment/Intermediate1.crt)
-- [Certificado Intermediária 2]({{ site.baseurl }}/attachment/intermediate2.cer)
-- [Certificado E-Commerce Cielo]({{ site.baseurl }}/attachment/servercertificate.cer)
+- [Certificado Raiz]({{ site.baseurl }}/attachment/Root.cer)
+- [Certificado Intermediário]({{ site.baseurl }}/attachment/Intermediario.cer)
+- [Certificado E-Commerce Cielo]({{ site.baseurl }}/attachment/cieloecommerce.cert-2023-2024.zip)
 
 ## Passo a Passo para a Instalação
 
@@ -175,10 +174,9 @@ Normalmente, o browser faz a atualização do Certificado automaticamente, caso 
 
 Salvar os três arquivos abaixo em uma pasta nova, ou que relembre facilmente, pois será utilizada posteriormente:
 
-- [Certificado Raiz]({{ site.baseurl }}/attachment/Root.crt)
-- [Certificado Intermediária 1]({{ site.baseurl }}/attachment/intermediate1.crt)
-- [Certificado Intermediária 2]({{ site.baseurl }}/attachment/intermediate2.crt)
-- [Certificado E-Commerce Cielo]({{ site.baseurl }}/attachment/servercertificate.cer)
+- [Certificado Raiz]({{ site.baseurl }}/attachment/Root.cer)
+- [Certificado Intermediário]({{ site.baseurl }}/attachment/Intermediario.cer)
+- [Certificado E-Commerce Cielo]({{ site.baseurl }}/attachment/cieloecommerce.cert-2023-2024.zip)
 
 **2º Passo**
 
