@@ -1183,8 +1183,7 @@ The `Checkout_Cielo_Order_Number` is only generated when the payment is complete
 |3|Denied|Credit and debit cards|Transaction not authorized by the person responsible for the payment method.|
 |4|Expired|Credit and debit cards and boleto|**Credit and debit card:** the transaction is no longer valid for capture 15 days after authorization.<br>**Boleto:** the boleto expires after the expiration date set by the Cielo E-commerce Support team as requested by the establishment.|
 |5|Canceled|Credit and debit cards|Transaction canceled by the store.|
-|6|Not Finalized|All payment methods|Payment awaiting new Status.
-May indicate error or processing failure. Contact Cielo E-commerce Support.|
+|6|Not Finalized|All payment methods|Payment awaiting new Status. May indicate error or processing failure. Contact Cielo E-commerce Support.|
 |7|Authorized|Credit and debit cards|Transaction authorized by the card issuer. It must be captured for the money to be deposited into the account (by default, the transaction can be captured up to 15 days after authorization).|
 
 ## Card Brands Retry Program
