@@ -146,13 +146,12 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
   </ul>
 </blockquote>
 
-<p>As bandeiras Visa, Mastercard, Elo e Hipercard ajustaram suas regras para limitar a quantidade de tentativas de autorização para uma transação negada. Essas mudanças preveem a cobrança de tarifas para o excesso de tentativas. Confira a seguir as regras de cada bandeira.</p>
+<p>As bandeiras Visa, Mastercard e Elo ajustaram suas regras para limitar a quantidade de tentativas de autorização para uma transação negada. Essas mudanças preveem a cobrança de tarifas para o excesso de tentativas. Confira a seguir as regras de cada bandeira.</p>
 
 <ul>
   <li><a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras#mastercard" target="_blank">Mastercard</a>;</li>
   <li><a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras#visa" target="_blank">Visa</a>;</li>
   <li><a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras#elo" target="_blank">Elo</a>;</li>
-  <li><a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras#hipercard" target="_blank">Hipercard</a>;</li>
   <li><a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras#demais-bandeiras" target="_blank">Demais bandeiras</a>.</li>
 </ul>
 
@@ -725,51 +724,6 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
     </tr>
   </tbody>
 </table>
-
-<h1 id="hipercard">Hipercard</h1>
-
-<p><strong>O que é?</strong></p>
-
-<p>Cobranças efetuadas quando um Estabelecimento Comercial excede as regras de retentativas de transações negadas com um mesmo cartão, mesma data ou período mensal, mesmo valor e mesmo número de Estabelecimento Comercial, conforme abaixo:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Programa</th>
-      <th>Cartão Presente</th>
-      <th>Cartão não presente</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Excesso de Retentativa</td>
-      <td>R$ 1,85 por retentativa a partir da 9ª resposta negada – mesmo cartão e mesmo dia (regra 2)</td>
-      <td>R$ 1,85 por Retentativas a partir da 9ª resposta negada – mesmo cartão e mesmo mês de referência (regra 3)</td>
-    </tr>
-    <tr>
-      <td>Retentativa de transação <strong>ASI</strong> (Zero Auth)</td>
-      <td>R$ 0,15 por retentativa de transação ASI após negativa do emissor – mesmo cartão e mesmo dia (item 2)</td>
-      <td>R$ 0,15 por retentativa de transação ASI após negativa do emissor – mesmo cartão e mesmo mês de referência (regra 3)</td>
-    </tr>
-    <tr>
-      <td>Retentativa de transação irreversível</td>
-      <td>0,03% do valor da transação por retentativa<br />Mínimo R$ 0,15<br />Máximo R$ 0,80<br />Mesmo cartão e mesmo dia após resposta com código irreversível</td>
-      <td>0,03% do valor da transação por retentativa<br />Mínimo R$ 0,15<br />Máximo R$ 0,80<br />Mesmo cartão e mesmo mês após resposta com código irreversível (regra 3)</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Regras:</strong></p>
-
-<ol>
-  <li><strong>Transações ASI</strong>: são transações Account Status Inquiry, ou seja, são as transações efetuadas para consultar o status de um cartão (verificar se está ativo). Para esse fim, não devem ser usadas transações financeiras e sim transações específicas;</li>
-  <li><strong>Tentativas por dia</strong>: considerar para efeito do programa de Retentativas da Hipercard de 00h00 a 23h59;</li>
-  <li><strong>Mês de referência</strong>: considerar para efeito do programa de Retentativas da Hipercard dia 01 a 30 ou 31 do mês em que ocorreu a transação. A cobrança será enviada após o fechamento do mês subsequente;</li>
-  <li><strong>Os códigos de transações</strong> consideradas <strong>irreversíveis pelo emissor</strong> foram categorizados pela indústria de pagamentos e autorregulação da ABECS, por meio do Normativo 21 vigente. Veja os <a href="https://developercielo.github.io/manual/cielo-ecommerce#c%C3%B3digos-de-retorno-abecs" target="\_blank">Códigos de retorno (ABECS)</a>;</li>
-  <li><strong>Os códigos não citados no manual da ABECS são considerados como reversíveis</strong>.</li>
-</ol>
-
-<aside class="notice">Início de vigência: 15 de setembro de 2022.</aside>
 
 <h1 id="demais-bandeiras">Demais bandeiras</h1>
 
