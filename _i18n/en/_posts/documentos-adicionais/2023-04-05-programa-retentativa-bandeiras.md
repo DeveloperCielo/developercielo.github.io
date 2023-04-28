@@ -37,7 +37,12 @@ It means, for example, that the card was canceled for use, has been lost or stol
 
 It means that the issuer can approve, but cannot do so now, possibly due to a system issue (down) or lack of limit, suspected fraud or exceeded number of password attempts. These are temporary opt-out decisions made by the issuer that may change over time.
 
-The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the number of authorization attempts for a denied transaction. These changes provide for the charging of fees for excessive attempts. Below are the rules for each brand.
+The Visa, Mastercard and Elo brands adjusted their rules to limit the number of authorization attempts for a denied transaction. These changes provide for the charging of fees for excessive attempts. Below are the rules for each brand.
+
+* [Mastercard](https://developercielo.github.io/en/tutorial/programa-retentativa-bandeiras#mastercard){:target="_blank"};
+* [Visa](https://developercielo.github.io/en/tutorial/programa-retentativa-bandeiras#visa){:target="_blank"};
+* [Elo](https://developercielo.github.io/en/tutorial/programa-retentativa-bandeiras#elo){:target="_blank"};
+* [Demais bandeiras](https://developercielo.github.io/en/tutorial/programa-retentativa-bandeiras#other-brands){:target="_blank"}.
 
 ## Mastercard
 
@@ -284,28 +289,6 @@ The response codes below are listed according to the brand's authorization manua
 |FM|USE THE CHIP|- This code will be used by the issuer to inform the merchant that the contactless transaction will not be successful and that the cardholder must use the chip (contact).|Irreversible|
 |P5|PASSWORD CHANGE / UNLOCKING FAILURE|- This code will be used by the issuer when there is a password change or unlocking failure.|Irreversible|
 |P6|NEW PASSWORD NOT ACCEPTED|- This code will be used by the issuer when the new password chosen by the customer does not meet the minimum criteria established by the Issuer.|Reversible|
-
-## Hipercard
-
-**What is it?**
-
-Charges made when a merchant exceeds the Retry rules for denied transactions with the same card, same date or monthly period, same amount and same number of merchant, as follows:
-
-|Program|Gift Card – CP|Card not present – ​​CNP|
-|---|---|---|---|
-|Excessive Retries​|BRL 1.85 per retries from the 9th denied response - same card and same day (item 2)|R$ 1.85 per retries from the 9th denied response - same card and same month of reference (item 3)|
-| **ASI Transaction Retry** (Zero Auth) | BRL 0.15 per ASI Transaction Retry after issuer refusal - same card, same day (item 2) | BRL 0.15 per ASI Transaction Retry after negative from the issuer - same card and same reference month (item 3)|
-|Irreversible transaction retry|0.03% of the transaction value per retry​<br>Minimum BRL 0.15<br>Maximum BRL 0.80<br>Same card and same day after reply with irreversible code| 0.03% of the transaction amount per retry​<br>Minimum BRL 0.15<br>Maximum BRL 0.80<br>Same card and same month after response with irreversible code (item 3)|
-
-**Rules:**
-
-1. **ASI transactions**: these are Account Status Inquiry transactions, that is, transactions carried out to query the status of a card (check that it is active). For this purpose, financial transactions should not be used, but specific transactions.​
-2. **Attempts per day (item 2)**: consider for purposes of Hipercard's Retry program from 00:00 to 23:59​
-3. **Reference month (item 3)**: for purposes of the Hipercard Retry program, consider the 01st to the 30th or 31st of the month in which the transaction took place. The charge will be sent after the close of the subsequent month.​
-4. **Transaction codes** considered **irreversible by the issuer** were categorized by the ABECS payments and self-regulation industry, through current Regulation 21. Return codes (ABECS)
-5. **Codes not mentioned in the ABECS manual are considered reversible.**
-
-<aside class="notice">Effective date: September 15th 2022.</aside>
 
 ## Other brands
 
