@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-04-28T17:43:40+00:00</updated>
+    <updated>2023-04-28T17:52:27+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -50,7 +50,14 @@
 
 &lt;p&gt;It means that the issuer can approve, but cannot do so now, possibly due to a system issue (down) or lack of limit, suspected fraud or exceeded number of password attempts. These are temporary opt-out decisions made by the issuer that may change over time.&lt;/p&gt;
 
-&lt;p&gt;The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the number of authorization attempts for a denied transaction. These changes provide for the charging of fees for excessive attempts. Below are the rules for each brand.&lt;/p&gt;
+&lt;p&gt;The Visa, Mastercard and Elo brands adjusted their rules to limit the number of authorization attempts for a denied transaction. These changes provide for the charging of fees for excessive attempts. Below are the rules for each brand.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/tutorial/programa-retentativa-bandeiras#mastercard&quot; target=&quot;_blank&quot;&gt;Mastercard&lt;/a&gt;;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/tutorial/programa-retentativa-bandeiras#visa&quot; target=&quot;_blank&quot;&gt;Visa&lt;/a&gt;;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/tutorial/programa-retentativa-bandeiras#elo&quot; target=&quot;_blank&quot;&gt;Elo&lt;/a&gt;;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developercielo.github.io/en/tutorial/programa-retentativa-bandeiras#other-brands&quot; target=&quot;_blank&quot;&gt;Demais bandeiras&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;mastercard&quot;&gt;Mastercard&lt;/h2&gt;
 
@@ -670,51 +677,6 @@
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-
-&lt;h2 id=&quot;hipercard&quot;&gt;Hipercard&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;What is it?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Charges made when a merchant exceeds the Retry rules for denied transactions with the same card, same date or monthly period, same amount and same number of merchant, as follows:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Program&lt;/th&gt;
-      &lt;th&gt;Gift Card – CP&lt;/th&gt;
-      &lt;th&gt;Card not present – ​​CNP&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Excessive Retries​&lt;/td&gt;
-      &lt;td&gt;BRL 1.85 per retries from the 9th denied response - same card and same day (item 2)&lt;/td&gt;
-      &lt;td&gt;R$ 1.85 per retries from the 9th denied response - same card and same month of reference (item 3)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;ASI Transaction Retry&lt;/strong&gt; (Zero Auth)&lt;/td&gt;
-      &lt;td&gt;BRL 0.15 per ASI Transaction Retry after issuer refusal - same card, same day (item 2)&lt;/td&gt;
-      &lt;td&gt;BRL 0.15 per ASI Transaction Retry after negative from the issuer - same card and same reference month (item 3)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Irreversible transaction retry&lt;/td&gt;
-      &lt;td&gt;0.03% of the transaction value per retry​&lt;br /&gt;Minimum BRL 0.15&lt;br /&gt;Maximum BRL 0.80&lt;br /&gt;Same card and same day after reply with irreversible code&lt;/td&gt;
-      &lt;td&gt;0.03% of the transaction amount per retry​&lt;br /&gt;Minimum BRL 0.15&lt;br /&gt;Maximum BRL 0.80&lt;br /&gt;Same card and same month after response with irreversible code (item 3)&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;strong&gt;Rules:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;ASI transactions&lt;/strong&gt;: these are Account Status Inquiry transactions, that is, transactions carried out to query the status of a card (check that it is active). For this purpose, financial transactions should not be used, but specific transactions.​&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Attempts per day (item 2)&lt;/strong&gt;: consider for purposes of Hipercard’s Retry program from 00:00 to 23:59​&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Reference month (item 3)&lt;/strong&gt;: for purposes of the Hipercard Retry program, consider the 01st to the 30th or 31st of the month in which the transaction took place. The charge will be sent after the close of the subsequent month.​&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Transaction codes&lt;/strong&gt; considered &lt;strong&gt;irreversible by the issuer&lt;/strong&gt; were categorized by the ABECS payments and self-regulation industry, through current Regulation 21. Return codes (ABECS)&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Codes not mentioned in the ABECS manual are considered reversible.&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;aside class=&quot;notice&quot;&gt;Effective date: September 15th 2022.&lt;/aside&gt;
 
 &lt;h2 id=&quot;other-brands&quot;&gt;Other brands&lt;/h2&gt;
 

@@ -146,7 +146,14 @@
 
 <p>It means that the issuer can approve, but cannot do so now, possibly due to a system issue (down) or lack of limit, suspected fraud or exceeded number of password attempts. These are temporary opt-out decisions made by the issuer that may change over time.</p>
 
-<p>The Visa, Mastercard, Elo and Hipercard brands adjusted their rules to limit the number of authorization attempts for a denied transaction. These changes provide for the charging of fees for excessive attempts. Below are the rules for each brand.</p>
+<p>The Visa, Mastercard and Elo brands adjusted their rules to limit the number of authorization attempts for a denied transaction. These changes provide for the charging of fees for excessive attempts. Below are the rules for each brand.</p>
+
+<ul>
+  <li><a href="https://developercielo.github.io/en/tutorial/programa-retentativa-bandeiras#mastercard" target="_blank">Mastercard</a>;</li>
+  <li><a href="https://developercielo.github.io/en/tutorial/programa-retentativa-bandeiras#visa" target="_blank">Visa</a>;</li>
+  <li><a href="https://developercielo.github.io/en/tutorial/programa-retentativa-bandeiras#elo" target="_blank">Elo</a>;</li>
+  <li><a href="https://developercielo.github.io/en/tutorial/programa-retentativa-bandeiras#other-brands" target="_blank">Demais bandeiras</a>.</li>
+</ul>
 
 <h2 id="mastercard">Mastercard</h2>
 
@@ -766,51 +773,6 @@
     </tr>
   </tbody>
 </table>
-
-<h2 id="hipercard">Hipercard</h2>
-
-<p><strong>What is it?</strong></p>
-
-<p>Charges made when a merchant exceeds the Retry rules for denied transactions with the same card, same date or monthly period, same amount and same number of merchant, as follows:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Program</th>
-      <th>Gift Card – CP</th>
-      <th>Card not present – ​​CNP</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Excessive Retries​</td>
-      <td>BRL 1.85 per retries from the 9th denied response - same card and same day (item 2)</td>
-      <td>R$ 1.85 per retries from the 9th denied response - same card and same month of reference (item 3)</td>
-    </tr>
-    <tr>
-      <td><strong>ASI Transaction Retry</strong> (Zero Auth)</td>
-      <td>BRL 0.15 per ASI Transaction Retry after issuer refusal - same card, same day (item 2)</td>
-      <td>BRL 0.15 per ASI Transaction Retry after negative from the issuer - same card and same reference month (item 3)</td>
-    </tr>
-    <tr>
-      <td>Irreversible transaction retry</td>
-      <td>0.03% of the transaction value per retry​<br />Minimum BRL 0.15<br />Maximum BRL 0.80<br />Same card and same day after reply with irreversible code</td>
-      <td>0.03% of the transaction amount per retry​<br />Minimum BRL 0.15<br />Maximum BRL 0.80<br />Same card and same month after response with irreversible code (item 3)</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Rules:</strong></p>
-
-<ol>
-  <li><strong>ASI transactions</strong>: these are Account Status Inquiry transactions, that is, transactions carried out to query the status of a card (check that it is active). For this purpose, financial transactions should not be used, but specific transactions.​</li>
-  <li><strong>Attempts per day (item 2)</strong>: consider for purposes of Hipercard’s Retry program from 00:00 to 23:59​</li>
-  <li><strong>Reference month (item 3)</strong>: for purposes of the Hipercard Retry program, consider the 01st to the 30th or 31st of the month in which the transaction took place. The charge will be sent after the close of the subsequent month.​</li>
-  <li><strong>Transaction codes</strong> considered <strong>irreversible by the issuer</strong> were categorized by the ABECS payments and self-regulation industry, through current Regulation 21. Return codes (ABECS)</li>
-  <li><strong>Codes not mentioned in the ABECS manual are considered reversible.</strong></li>
-</ol>
-
-<aside class="notice">Effective date: September 15th 2022.</aside>
 
 <h2 id="other-brands">Other brands</h2>
 
