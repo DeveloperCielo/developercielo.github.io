@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-05-05T13:30:38+00:00</updated>
+    <updated>2023-05-05T13:36:59+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -35556,8 +35556,8 @@ You can import them directly into your POSTMAN and have all the examples ready t
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Provider&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;N/a&lt;/td&gt;
-      &lt;td&gt;BancoDoBrasil2&lt;/td&gt;
+      &lt;td&gt;BancoDoBrasil2, BancoDoBrasil3&lt;/td&gt;
+      &lt;td&gt;BancoDoBrasil2, BancoDoBrasil3&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantOrderId&lt;/code&gt;&lt;/td&gt;
