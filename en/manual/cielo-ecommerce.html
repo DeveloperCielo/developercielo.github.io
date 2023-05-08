@@ -1926,35 +1926,35 @@
       <td>No (default false)</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.CardNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DebitCard.CardNumber</code></td>
       <td>Customer’s card number.</td>
       <td>Text</td>
       <td>19</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.Holder</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DebitCard.Holder</code></td>
       <td>Customer’s name printed on the card.</td>
       <td>Text</td>
       <td>25</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.ExpirationDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DebitCard.ExpirationDate</code></td>
       <td>Expiration date printed on the card.</td>
       <td>Text</td>
       <td>7</td>
       <td>Yes</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.SecurityCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DebitCard.SecurityCode</code></td>
       <td>Security code printed on the back of the card.</td>
       <td>Text</td>
       <td>4</td>
       <td>No</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.Brand</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DebitCard.Brand</code></td>
       <td>Card brand.</td>
       <td>Text</td>
       <td>10</td>
@@ -2136,14 +2136,14 @@
       <td>Alphanumeric text</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantAdviceCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.MerchantAdviceCode</code></td>
       <td>Card brand’s return code that defines the period for transaction submission retry.<em>Valid only for Mastercard</em>. See more at <a href="https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard">Mastercard Retry Program</a></td>
       <td>Text</td>
       <td>2</td>
       <td>Number</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.PaymentAccountReference</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DebitCard.PaymentAccountReference</code></td>
       <td>PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the card brand doesn’t send the information the field will not be returned.</td>
       <td>Alphanumeric</td>
       <td>29</td>

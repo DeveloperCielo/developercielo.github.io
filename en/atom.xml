@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-05-08T12:24:01+00:00</updated>
+    <updated>2023-05-08T12:44:06+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -33116,35 +33116,35 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;No (default false)&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DebitCard.CardNumber&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.DebitCard.CardNumber&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Customer’s card number.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;19&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DebitCard.Holder&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.DebitCard.Holder&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Customer’s name printed on the card.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;25&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DebitCard.ExpirationDate&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.DebitCard.ExpirationDate&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Expiration date printed on the card.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;7&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DebitCard.SecurityCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.DebitCard.SecurityCode&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Security code printed on the back of the card.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;4&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DebitCard.Brand&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.DebitCard.Brand&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Card brand.&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;10&lt;/td&gt;
@@ -33326,14 +33326,14 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;Alphanumeric text&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MerchantAdviceCode&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.MerchantAdviceCode&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Card brand’s return code that defines the period for transaction submission retry.&lt;em&gt;Valid only for Mastercard&lt;/em&gt;. See more at &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard&quot;&gt;Mastercard Retry Program&lt;/a&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;2&lt;/td&gt;
       &lt;td&gt;Number&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DebitCard.PaymentAccountReference&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.DebitCard.PaymentAccountReference&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the card brand doesn’t send the information the field will not be returned.&lt;/td&gt;
       &lt;td&gt;Alphanumeric&lt;/td&gt;
       &lt;td&gt;29&lt;/td&gt;
