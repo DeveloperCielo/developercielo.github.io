@@ -1415,56 +1415,56 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Informar o número do principal bilhete aéreo da transação.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardNumber</code></td>
       <td>Texto</td>
       <td>19</td>
       <td>Sim</td>
       <td>Número do cartão do comprador.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Holder</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Holder</code></td>
       <td>Texto</td>
       <td>25</td>
       <td>Não</td>
       <td>Nome do comprador impresso no cartão. Não aceita caracteres especiais ou acentuação.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.ExpirationDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
       <td>Texto</td>
       <td>7</td>
       <td>Sim</td>
       <td>Data de validade impressa no cartão. Ex. MM/AAAA.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.SecurityCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SecurityCode</code></td>
       <td>Texto</td>
       <td>4</td>
       <td>Não</td>
       <td>Código de segurança impresso no verso do cartão.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.SaveCard</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.SaveCard</code></td>
       <td>Booleano</td>
       <td>—</td>
       <td>Não (Default false)</td>
       <td>Booleano que identifica se o cartão será salvo para gerar o <code class="language-plaintext highlighter-rouge">CardToken</code>.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.Brand</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Brand</code></td>
       <td>Texto</td>
       <td>10</td>
       <td>Sim</td>
       <td>Bandeira do cartão. Valores possíveis: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Usage</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardOnFile.Usage</code></td>
       <td>Texto</td>
       <td>-</td>
       <td>Não</td>
       <td><strong>First</strong> se o cartão foi armazenado e é seu primeiro uso.<br /><strong>Used</strong> se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.CardOnFile.Reason</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.CardOnFile.Reason</code></td>
       <td>Texto</td>
       <td>-</td>
       <td>Condicional</td>
@@ -1744,7 +1744,7 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>true ou false</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">CreditCard.PaymentAccountReference</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.PaymentAccountReference</code></td>
       <td>O PAR (Payment Account Reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado.Se for pra transação de débito, colocar o campo dentro do nó de <code class="language-plaintext highlighter-rouge">DebitCard</code>.</td>
       <td>Alfanumérico</td>
       <td>29</td>
