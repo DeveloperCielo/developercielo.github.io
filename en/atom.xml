@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-05-08T13:04:49+00:00</updated>
+    <updated>2023-05-08T19:17:37+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -32645,14 +32645,14 @@ You can import them directly into your POSTMAN and have all the examples ready t
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;No&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;First&lt;/strong&gt; if the card was stored and it’s your first use.&lt;br /&gt;&lt;strong&gt;Used&lt;/strong&gt; if the card was stored and has been used for another transaction before.&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;First&lt;/strong&gt; if the card was stored and it’s your first use.&lt;br /&gt;&lt;strong&gt;Used&lt;/strong&gt; if the card was stored and has been used for another transaction before.    Get more information on the topic &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#card-on-file&quot; target=&quot;_blank&quot;&gt;Card On File&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.CreditCard.CardOnFile.Reason&lt;/code&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;-&lt;/td&gt;
       &lt;td&gt;Conditional&lt;/td&gt;
-      &lt;td&gt;Indicates the motive for card storage, if the “Usage” field is “Used”. &lt;br /&gt; &lt;strong&gt;Recurring&lt;/strong&gt; - Programmed recurring transaction (e.g. Subscriptions). &lt;br /&gt; &lt;strong&gt;Unscheduled&lt;/strong&gt; - Recurring transaction with no fixed date (e.g. service apps) &lt;br /&gt;&lt;strong&gt;Installments&lt;/strong&gt; - Installments through recurring transactions.&lt;/td&gt;
+      &lt;td&gt;Indicates the motive for card storage, if the “Usage” field is “Used”. &lt;br /&gt; &lt;strong&gt;Recurring&lt;/strong&gt; - Programmed recurring transaction (e.g. Subscriptions). &lt;br /&gt; &lt;strong&gt;Unscheduled&lt;/strong&gt; - Recurring transaction with no fixed date (e.g. service apps) &lt;br /&gt;&lt;strong&gt;Installments&lt;/strong&gt; - Installments through recurring transactions. Get more information on the topic &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#card-on-file&quot; target=&quot;_blank&quot;&gt;Card On File&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
