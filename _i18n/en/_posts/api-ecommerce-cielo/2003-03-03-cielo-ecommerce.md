@@ -501,7 +501,7 @@ To create a credit card transaction, you need to send a request using the `POST`
       "ExpirationDate": "12/2030",
       "SecurityCode": "123",
       "SaveCard": "false",
-      "Brand": "Visa",
+      "Brand": "Master",
       "CardOnFile": {
         "Usage": "Used",
         "Reason": "Unscheduled"
@@ -576,7 +576,7 @@ curl
          "ExpirationDate":"12/2030",
          "SecurityCode":"123",
          "SaveCard":"false",
-         "Brand":"Visa",
+         "Brand":"Master",
          "CardOnFile":{
             "Usage": "Used",
             "Reason":"Unscheduled"
@@ -642,14 +642,14 @@ curl
 | `Payment.Recurrent`                   | Boolean      | -    | No                 | Indicates if the transaction is recurring ("true") or not ("false"). The value "true" won't originate a new recurrence, it will only allow a transaction without the need to send the security code. `Authenticate` should be "false" if `Recurrent` is "true".                                            |
 | `Payment.IsCryptocurrencyNegotiation` | Boolean      | -    | No (default false) | Should be send as "true" if the transaction is to sell or buy criptocurrency.                                                                                                                                                                                                                              |
 | `Payment.AirlineData.TicketNumber`    | Alphanumeric | 13   | No                 | Inform the number of the main airline ticket of the transaction.                                                                                                                                                                                                                                           |
-| `CreditCard.CardNumber`               | Text         | 19   | Yes                | Shopper's card number.                                                                                                                                                                                                                                                                                     |
-| `CreditCard.Holder`                   | Text         | 25   | No                 | Name of the shopper that's printed on the card. Does not accept special characters.                                                                                                                                                                                                                        |
-| `CreditCard.ExpirationDate`           | Text         | 7    | Yes                | Expiration date printed on the card. Example: MM/AAAA.                                                                                                                                                                                                                                                     |
-| `CreditCard.SecurityCode`             | Text         | 4    | No                 | Security code printed on the back of the card.                                                                                                                                                                                                                                                             |
-| `CreditCard.SaveCard`                 | Boolean      | ---  | No (Default false) | Boolean that identifies if the card will be saved to generate a `CardToken`.                                                                                                                                                                                                                               |
-| `CreditCard.Brand`                    | Text         | 10   | Yes                | Card brand. Possible values:Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper.                                                                                                                                                                                               |
-| `CreditCard.CardOnFile.Usage`         | Text         | -    | No                 | **First** if the card was stored and it's your first use.<br>**Used** if the card was stored and has been used for another transaction before.                                                                                                                                                             |
-| `CreditCard.CardOnFile.Reason`        | Text         | -    | Conditional        | Indicates the motive for card storage, if the "Usage" field is "Used". <br> **Recurring** - Programmed recurring transaction (e.g. Subscriptions). <br> **Unscheduled** - Recurring transaction with no fixed date (e.g. service apps) <br>**Installments** - Installments through recurring transactions. |
+| `Payment.CreditCard.CardNumber`               | Text         | 19   | Yes                | Shopper's card number.                                                                                                                                                                                                                                                                                     |
+| `Payment.CreditCard.Holder`                   | Text         | 25   | No                 | Name of the shopper that's printed on the card. Does not accept special characters.                                                                                                                                                                                                                        |
+| `Payment.CreditCard.ExpirationDate`           | Text         | 7    | Yes                | Expiration date printed on the card. Example: MM/AAAA.                                                                                                                                                                                                                                                     |
+| `Payment.CreditCard.SecurityCode`             | Text         | 4    | No                 | Security code printed on the back of the card.                                                                                                                                                                                                                                                             |
+| `Payment.CreditCard.SaveCard`                 | Boolean      | ---  | No (Default false) | Boolean that identifies if the card will be saved to generate a `CardToken`.                                                                                                                                                                                                                               |
+| `Payment.CreditCard.Brand`                    | Text         | 10   | Yes                | Card brand. Possible values:Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper.                                                                                                                                                                                               |
+| `Payment.CreditCard.CardOnFile.Usage`         | Text         | -    | No                 | **First** if the card was stored and it's your first use.<br>**Used** if the card was stored and has been used for another transaction before.                                                                                                                                                             |
+| `Payment.CreditCard.CardOnFile.Reason`        | Text         | -    | Conditional        | Indicates the motive for card storage, if the "Usage" field is "Used". <br> **Recurring** - Programmed recurring transaction (e.g. Subscriptions). <br> **Unscheduled** - Recurring transaction with no fixed date (e.g. service apps) <br>**Installments** - Installments through recurring transactions. |
 
 ##### Response
 
@@ -702,7 +702,7 @@ curl
       "Holder": "Teste Holder",
       "ExpirationDate": "12/2030",
       "SaveCard": false,
-      "Brand": "Visa",
+      "Brand": "Master",
       "PaymentAccountReference": "92745135160550440006111072222",
       "CardOnFile": {
         "Usage": "Used",
@@ -796,7 +796,7 @@ curl
             "Holder": "Teste Holder",
             "ExpirationDate": "12/2030",
             "SaveCard": false,
-            "Brand": "Visa",
+            "Brand": "Master",
             "PaymentAccountReference":"92745135160550440006111072222",
          "CardOnFile":{
             "Usage": "Used",
@@ -846,9 +846,9 @@ curl
 | `Status`                             | Transaction status.                                                                                                                                                                                                                                                                                                                                                                       | Byte        | ---  | 2                                    |
 | `ReturnCode`                         | Acquiring return code.                                                                                                                                                                                                                                                                                                                                                                    | Text        | 32   | Alphanumeric text                    |
 | `ReturnMessage`                      | Acquiring return message.                                                                                                                                                                                                                                                                                                                                                                 | Text        | 512  | Alphanumeric text                    |
-| `MerchantAdviceCode`         | Card brand's return code that defines the period for transaction submission retry. _Valid only for Mastercard_. See more at [Mastercard retry program](https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard) | Text        | 2    | Number                               |
+| `Payment.MerchantAdviceCode`         | Card brand's return code that defines the period for transaction submission retry. _Valid only for Mastercard_. See more at [Mastercard retry program](https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard) | Text        | 2    | Number                               |
 | `TryAutomaticCancellation`           | In case of error during authorization (status “Not Finished - 0”), the response will include the “tryautomaticcancellation” field as “true”. In this case, the transaction will be automatically queried, and if it has been authorized successfully, it will be canceled automatically. This feature must be enabled for establishment. To enable, please contact our technical support. | Boolean     | -    | true ou false                        |
-| `CreditCard.PaymentAccountReference` | PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the card brand doesn’t send the information the field will not be returned.                                                                                                            | Alphanumber | 29   | ---                                  |
+| `Payment.CreditCard.PaymentAccountReference` | PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the card brand doesn’t send the information the field will not be returned.                                                                                                            | Alphanumber | 29   | ---                                  |
 
 ### Debit cards
 
