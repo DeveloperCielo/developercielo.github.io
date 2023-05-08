@@ -951,11 +951,11 @@ curl
 | `Payment.Authenticate`                       | Defines if the shopper will be directed to the issuing bank for the authentication of the card. | Boolean | ---  | Yes                |
 | `Payment.ReturnUrl`                          | URL to where the user will be redirected after payment.                                         | Text    | 1024 | Yes                |
 | `Payment.IsCryptocurrencyNegotiation`        | Should be send as "true" if the transaction is to sell or buy criptocurrency.                   | Boolean | -    | No (default false) |
-| `DebitCard.CardNumber`                       | Customer's card number.                                                                         | Text    | 19   | Yes                |
-| `DebitCard.Holder`                           | Customer's name printed on the card.                                                            | Text    | 25   | No                 |
-| `DebitCard.ExpirationDate`                   | Expiration date printed on the card.                                                            | Text    | 7    | Yes                |
-| `DebitCard.SecurityCode`                     | Security code printed on the back of the card.                                                  | Text    | 4    | No                 |
-| `DebitCard.Brand`                            | Card brand.                                                                                     | Text    | 10   | Yes                |
+| `Payment.DebitCard.CardNumber`                       | Customer's card number.                                                                         | Text    | 19   | Yes                |
+| `Payment.DebitCard.Holder`                           | Customer's name printed on the card.                                                            | Text    | 25   | No                 |
+| `Payment.DebitCard.ExpirationDate`                   | Expiration date printed on the card.                                                            | Text    | 7    | Yes                |
+| `Payment.DebitCard.SecurityCode`                     | Security code printed on the back of the card.                                                  | Text    | 4    | No                 |
+| `Payment.DebitCard.Brand`                            | Card brand.                                                                                     | Text    | 10   | Yes                |
 | `Payment.ExternalAuthentication.Eci`         | E-Commerce Indicator returned on the authentication process.                                    | Number  | 1    | Yes                |
 | `Payment.ExternalAuthentication.ReferenceId` | `RequestID` returned on the authentication process.                                             | GUID    | 36   | Yes                |
 
@@ -1074,8 +1074,8 @@ curl
 | `ReturnUrl`                         | Return URL for the store. URL where the store will be redirected after the flow.                                                                                                                                                                                               | Text         | 1024 | http://www.cielo.com.br         |
 | `Status`                            | Transaction status.                                                                                                                                                                                                                                                            | Byte         | ---  | 0                                    |
 | `ReturnCode`                        | Acquiring return code.                                                                                                                                                                                                                                                         | Text         | 32   | Alphanumeric text                    |
-| `MerchantAdviceCode`        | Card brand's return code that defines the period for transaction submission retry._Valid only for Mastercard_. See more at [Mastercard Retry Program](https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard) | Text         | 2    | Number                               |
-| `DebitCard.PaymentAccountReference` | PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the card brand doesn’t send the information the field will not be returned. | Alphanumeric | 29   | -                                    |
+| `Payment.MerchantAdviceCode`        | Card brand's return code that defines the period for transaction submission retry._Valid only for Mastercard_. See more at [Mastercard Retry Program](https://developercielo.github.io/en/manual/cielo-ecommerce#mastercard) | Text         | 2    | Number                               |
+| `Payment.DebitCard.PaymentAccountReference` | PAR (payment account reference) is the number that associates different tokens to the same card. It will be returned by the Master and Visa brands and passed on to Cielo e-commerce customers. If the card brand doesn’t send the information the field will not be returned. | Alphanumeric | 29   | -                                    |
 
 ### Authenticating a transaction
 
