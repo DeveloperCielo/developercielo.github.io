@@ -1934,35 +1934,35 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Não (default false)</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.CardNumber</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DebitCard.CardNumber</code></td>
       <td>Número do Cartão do Comprador.</td>
       <td>Texto</td>
       <td>19</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.Holder</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DebitCard.Holder</code></td>
       <td>Nome do Comprador impresso no cartão.</td>
       <td>Texto</td>
       <td>25</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.ExpirationDate</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DebitCard.ExpirationDate</code></td>
       <td>Data de validade impresso no cartão.</td>
       <td>Texto</td>
       <td>7</td>
       <td>Sim</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.SecurityCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DebitCard.SecurityCode</code></td>
       <td>Código de segurança impresso no verso do cartão.</td>
       <td>Texto</td>
       <td>4</td>
       <td>Não</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.Brand</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DebitCard.Brand</code></td>
       <td>Bandeira do cartão.</td>
       <td>Texto</td>
       <td>10</td>
@@ -2144,14 +2144,14 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Texto alfanumérico</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantAdviceCode</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.MerchantAdviceCode</code></td>
       <td>Código de retorno da bandeira que define período para retentativa. <em>Válido somente para bandeira Mastercard</em>. Saiba mais <a href="https://developercielo.github.io/manual/cielo-ecommerce#mastercard" target="\_blank">Programa de retentativa das bandeiras para Mastercard</a>.</td>
       <td>Texto</td>
       <td>2</td>
       <td>Numérico</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">DebitCard.PaymentAccountReference</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Payment.DebitCard.PaymentAccountReference</code></td>
       <td>O PAR (Payment Account Reference) é o número que associa diferentes tokens a um mesmo cartão. Será retornado pelas bandeiras Master e Visa e repassado para os clientes do e-commerce Cielo. Caso a bandeira não envie a informação o campo não será retornado. Se for pra transação de crédito, colocar o campo dentro do nó de <code class="language-plaintext highlighter-rouge">CreditCard</code></td>
       <td>Alfanumérico</td>
       <td>29</td>
