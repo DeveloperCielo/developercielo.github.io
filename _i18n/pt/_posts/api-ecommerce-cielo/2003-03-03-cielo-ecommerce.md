@@ -1712,9 +1712,8 @@ Conheça o ciclo de vida de uma transação **pix**:
 | 8         | Loja        | Consulta ao status da transação.                                                              | 11 - Estornado      |
 
 > **ATENÇÃO**:</br>
-> </br>
 > - Para habilitar o pix no ambiente sandbox entre em contato com nosso canal de suporte e-commerce pelo e-mail *cieloecommerce@cielo.com.br*;</br>
-> - Antes de usar o Pix em produção, certifique-se de que o pix está liberado em seu cadastro. Para confirmar basta acessar o [portal Cielo](https://www.cielo.com.br/){:target="\_blank"} na área logada em **Meu Cadastro** > **Autorizações** > **PIX**</br> 
+> - Antes de usar o Pix em produção, certifique-se de que o pix está liberado em seu cadastro. Para confirmar basta acessar o [portal Cielo](https://www.cielo.com.br/){:target="\_blank"} na área logada em **Meu Cadastro** > **Autorizações** > **PIX**
 > ![Geração do QR Code Pix]({{ site.baseurl_root }}/images/apicieloecommerce/adesao-pix.png)
 
 ### Criando uma transação com QR Code Pix
