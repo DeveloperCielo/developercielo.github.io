@@ -1711,8 +1711,8 @@ Conheça o ciclo de vida de uma transação **pix**:
 | 7         | Loja        | Recebimento da notificação de confirmação de devolução.                                       | 11 - Estornado      |
 | 8         | Loja        | Consulta ao status da transação.                                                              | 11 - Estornado      |
 
-> **ATENÇÃO**:</br>
-> - Para habilitar o pix no ambiente sandbox entre em contato com nosso canal de suporte e-commerce pelo e-mail *cieloecommerce@cielo.com.br*;</br>
+> **ATENÇÃO**:
+> - Para habilitar o pix no ambiente sandbox entre em contato com nosso canal de suporte e-commerce pelo e-mail *cieloecommerce@cielo.com.br*;
 > - Antes de usar o Pix em produção, certifique-se de que o pix está liberado em seu cadastro. Para confirmar basta acessar o [portal Cielo](https://www.cielo.com.br/){:target="\_blank"} na área logada em **Meu Cadastro** > **Autorizações** > **PIX**
 > ![Geração do QR Code Pix]({{ site.baseurl_root }}/images/apicieloecommerce/adesao-pix.png)
 
@@ -2678,6 +2678,7 @@ Todos os clientes de E-Commerce que são **Facilitadores de Pagamento**, por **o
 Os campos específicos estão contidos dentro do nó `PaymentFacilitator`. Além dos campos deste nó, os facilitadores também precisam enviar obrigatoriamente o campo `SoftDescriptor` do nó `Payment`. Veja a seguir o exemplo do envio e da resposta.
 
 > **Atenção:** As bandeiras, ao identificarem inconformidade devido ao não envio dos dados obrigatórios na mensageria transacional, aplicarão multas à Cielo as quais serão repassadas ao Facilitador responsável pelo envio dos dados transacionais.
+> A bandeira **Visa**, desde 15 de abril de 2023, atualizou as regras para Marketplace e todos os clientes que atuam como Facilitadores de Pagamentos e que tenham clientes que operam como Marketplace Estrangeiro precisam, obrigatoriamente, **enviar o indicador de varejo estrangeiro para evitar multa pela bandeira**. O parâmetro específico é o `Payment.PaymentFacilitator.SubEstablishment.CountryCode`, que indica o codigo do país.
 
 #### Requisição
 
