@@ -3354,11 +3354,11 @@
 </table>
 
 <blockquote>
-  <p><strong>WARNING</strong>:<br /> &gt; <br /></p>
-
+  <p><strong>WARNING</strong>:</p>
   <ul>
-    <li>To enable Pix for the Sandbox environment, get in touch with our E-commerce support e-mail: <em>cieloecommerce@cielo.com.br</em>;<br /> &gt; <br /></li>
-    <li>Before using Pix in production, certify that Pix is allowed in your account. To confirm, you just have to access <a href="https://www.cielo.com.br/" target="\_blank">portal Cielo</a> in the logged in area go to <strong>Meu Cadastro</strong> &gt; <strong>Autorizações</strong> &gt; <strong>PIX</strong> &gt; <br /> &gt; <img src="https://developercielo.github.io/images/apicieloecommerce/adesao-pix.png" alt="Geração do QR Code Pix" /></li>
+    <li>To enable Pix for the Sandbox environment, get in touch with our E-commerce support e-mail: <em>cieloecommerce@cielo.com.br</em>;</li>
+    <li>Before using Pix in production, certify that Pix is allowed in your account. To confirm, you just have to access <a href="https://www.cielo.com.br/" target="\_blank">portal Cielo</a> in the logged in area go to <strong>Meu Cadastro</strong> &gt; <strong>Autorizações</strong> &gt; <strong>PIX</strong>
+<img src="https://developercielo.github.io/images/apicieloecommerce/adesao-pix.png" alt="Geração do QR Code Pix" /></li>
   </ul>
 </blockquote>
 
@@ -5239,7 +5239,8 @@
 <p>The new fields are contained within the Payment Facilitator node. In addition to the fields of this new node, facilitators will also have to send the <code class="language-plaintext highlighter-rouge">SoftDescriptor</code> field of the <code class="language-plaintext highlighter-rouge">Payment</code> node.</p>
 
 <blockquote>
-  <p><strong>Warning:</strong> If the card brands identify that the required data wasn’t sent in the transactional messaging, they will fine Cielo and these fines will be forwarded to the Facilitator responsible for sending the data.</p>
+  <p><strong>Warning:</strong> If the card brands identify that the required data wasn’t sent in the transactional messaging, they will fine Cielo and these fines will be forwarded to the Facilitator responsible for sending the data.
+As of April 15, 2023, <strong>Visa</strong> updated the rules for marketplace and every merchant who acts as Payment Facilitators and has clients (submerchants) who operate as foreigner marketplace <strong>must send the foreigner retail indicator</strong> to avoid charges from Visa. The specific parameter is <code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.CountryCode</code>, which indicates the country code.</p>
 </blockquote>
 
 <h4 id="request-11">Request</h4>

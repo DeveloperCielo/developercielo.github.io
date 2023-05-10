@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-05-10T12:43:10+00:00</updated>
+    <updated>2023-05-10T13:12:46+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -34544,11 +34544,11 @@ You can import them directly into your POSTMAN and have all the examples ready t
 &lt;/table&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;WARNING&lt;/strong&gt;:&lt;br /&gt; &amp;gt; &lt;br /&gt;&lt;/p&gt;
-
+  &lt;p&gt;&lt;strong&gt;WARNING&lt;/strong&gt;:&lt;/p&gt;
   &lt;ul&gt;
-    &lt;li&gt;To enable Pix for the Sandbox environment, get in touch with our E-commerce support e-mail: &lt;em&gt;cieloecommerce@cielo.com.br&lt;/em&gt;;&lt;br /&gt; &amp;gt; &lt;br /&gt;&lt;/li&gt;
-    &lt;li&gt;Before using Pix in production, certify that Pix is allowed in your account. To confirm, you just have to access &lt;a href=&quot;https://www.cielo.com.br/&quot; target=&quot;\_blank&quot;&gt;portal Cielo&lt;/a&gt; in the logged in area go to &lt;strong&gt;Meu Cadastro&lt;/strong&gt; &amp;gt; &lt;strong&gt;Autorizações&lt;/strong&gt; &amp;gt; &lt;strong&gt;PIX&lt;/strong&gt; &amp;gt; &lt;br /&gt; &amp;gt; &lt;img src=&quot;https://developercielo.github.io/images/apicieloecommerce/adesao-pix.png&quot; alt=&quot;Geração do QR Code Pix&quot; /&gt;&lt;/li&gt;
+    &lt;li&gt;To enable Pix for the Sandbox environment, get in touch with our E-commerce support e-mail: &lt;em&gt;cieloecommerce@cielo.com.br&lt;/em&gt;;&lt;/li&gt;
+    &lt;li&gt;Before using Pix in production, certify that Pix is allowed in your account. To confirm, you just have to access &lt;a href=&quot;https://www.cielo.com.br/&quot; target=&quot;\_blank&quot;&gt;portal Cielo&lt;/a&gt; in the logged in area go to &lt;strong&gt;Meu Cadastro&lt;/strong&gt; &amp;gt; &lt;strong&gt;Autorizações&lt;/strong&gt; &amp;gt; &lt;strong&gt;PIX&lt;/strong&gt;
+&lt;img src=&quot;https://developercielo.github.io/images/apicieloecommerce/adesao-pix.png&quot; alt=&quot;Geração do QR Code Pix&quot; /&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/blockquote&gt;
 
@@ -36429,7 +36429,8 @@ You can import them directly into your POSTMAN and have all the examples ready t
 &lt;p&gt;The new fields are contained within the Payment Facilitator node. In addition to the fields of this new node, facilitators will also have to send the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SoftDescriptor&lt;/code&gt; field of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment&lt;/code&gt; node.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Warning:&lt;/strong&gt; If the card brands identify that the required data wasn’t sent in the transactional messaging, they will fine Cielo and these fines will be forwarded to the Facilitator responsible for sending the data.&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;Warning:&lt;/strong&gt; If the card brands identify that the required data wasn’t sent in the transactional messaging, they will fine Cielo and these fines will be forwarded to the Facilitator responsible for sending the data.
+As of April 15, 2023, &lt;strong&gt;Visa&lt;/strong&gt; updated the rules for marketplace and every merchant who acts as Payment Facilitators and has clients (submerchants) who operate as foreigner marketplace &lt;strong&gt;must send the foreigner retail indicator&lt;/strong&gt; to avoid charges from Visa. The specific parameter is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.PaymentFacilitator.SubEstablishment.CountryCode&lt;/code&gt;, which indicates the country code.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h4 id=&quot;request-11&quot;&gt;Request&lt;/h4&gt;
