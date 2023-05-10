@@ -3355,9 +3355,9 @@ Abaixo especificamos qualquer diferença existente:</p>
 </table>
 
 <blockquote>
-  <p><strong>ATENÇÃO</strong>:&lt;/br&gt;</p>
+  <p><strong>ATENÇÃO</strong>:</p>
   <ul>
-    <li>Para habilitar o pix no ambiente sandbox entre em contato com nosso canal de suporte e-commerce pelo e-mail <em>cieloecommerce@cielo.com.br</em>;&lt;/br&gt;</li>
+    <li>Para habilitar o pix no ambiente sandbox entre em contato com nosso canal de suporte e-commerce pelo e-mail <em>cieloecommerce@cielo.com.br</em>;</li>
     <li>Antes de usar o Pix em produção, certifique-se de que o pix está liberado em seu cadastro. Para confirmar basta acessar o <a href="https://www.cielo.com.br/" target="\_blank">portal Cielo</a> na área logada em <strong>Meu Cadastro</strong> &gt; <strong>Autorizações</strong> &gt; <strong>PIX</strong>
 <img src="https://developercielo.github.io/images/apicieloecommerce/adesao-pix.png" alt="Geração do QR Code Pix" /></li>
   </ul>
@@ -5247,7 +5247,8 @@ Abaixo especificamos qualquer diferença existente:</p>
 <p>Os campos específicos estão contidos dentro do nó <code class="language-plaintext highlighter-rouge">PaymentFacilitator</code>. Além dos campos deste nó, os facilitadores também precisam enviar obrigatoriamente o campo <code class="language-plaintext highlighter-rouge">SoftDescriptor</code> do nó <code class="language-plaintext highlighter-rouge">Payment</code>. Veja a seguir o exemplo do envio e da resposta.</p>
 
 <blockquote>
-  <p><strong>Atenção:</strong> As bandeiras, ao identificarem inconformidade devido ao não envio dos dados obrigatórios na mensageria transacional, aplicarão multas à Cielo as quais serão repassadas ao Facilitador responsável pelo envio dos dados transacionais.</p>
+  <p><strong>Atenção:</strong> As bandeiras, ao identificarem inconformidade devido ao não envio dos dados obrigatórios na mensageria transacional, aplicarão multas à Cielo as quais serão repassadas ao Facilitador responsável pelo envio dos dados transacionais.
+A bandeira <strong>Visa</strong>, desde 15 de abril de 2023, atualizou as regras para Marketplace e todos os clientes que atuam como Facilitadores de Pagamentos e que tenham clientes que operam como Marketplace Estrangeiro precisam, obrigatoriamente, <strong>enviar o indicador de varejo estrangeiro para evitar multa pela bandeira</strong>. O parâmetro específico é o <code class="language-plaintext highlighter-rouge">Payment.PaymentFacilitator.SubEstablishment.CountryCode</code>, que indica o codigo do país.</p>
 </blockquote>
 
 <h4 id="requisição-11">Requisição</h4>
