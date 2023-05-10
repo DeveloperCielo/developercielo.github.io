@@ -1703,10 +1703,10 @@ Get to know the cycle of a **Pix** transaction:
 | 7     | Store          | Getting notified of the payment refund.                                                  | 11 - Refunded      |
 | 8     | Store          | Consulting the transaction status.                                                       | 11 - Refunded      |
 
-> **WARNING**:<br/> > <br/>
->
-> - To enable Pix for the Sandbox environment, get in touch with our E-commerce support e-mail: *cieloecommerce@cielo.com.br*;<br/> > <br/>
-> - Before using Pix in production, certify that Pix is allowed in your account. To confirm, you just have to access [portal Cielo](https://www.cielo.com.br/){:target="\_blank"} in the logged in area go to **Meu Cadastro** > **Autorizações** > **PIX** > <br/> > ![Geração do QR Code Pix]({{ site.baseurl_root }}/images/apicieloecommerce/adesao-pix.png)
+> **WARNING**:
+> - To enable Pix for the Sandbox environment, get in touch with our E-commerce support e-mail: *cieloecommerce@cielo.com.br*;
+> - Before using Pix in production, certify that Pix is allowed in your account. To confirm, you just have to access [portal Cielo](https://www.cielo.com.br/){:target="\_blank"} in the logged in area go to **Meu Cadastro** > **Autorizações** > **PIX**
+> ![Geração do QR Code Pix]({{ site.baseurl_root }}/images/apicieloecommerce/adesao-pix.png)
 
 ### Creating a transaction with Pix QR Code
 
@@ -2664,6 +2664,7 @@ All E-Commerce customers who are **Payment Facilitators, as required by the Card
 The new fields are contained within the Payment Facilitator node. In addition to the fields of this new node, facilitators will also have to send the `SoftDescriptor` field of the `Payment` node.
 
 > **Warning:** If the card brands identify that the required data wasn't sent in the transactional messaging, they will fine Cielo and these fines will be forwarded to the Facilitator responsible for sending the data.
+> As of April 15, 2023, **Visa** updated the rules for marketplace and every merchant who acts as Payment Facilitators and has clients (submerchants) who operate as foreigner marketplace **must send the foreigner retail indicator** to avoid charges from Visa. The specific parameter is `Payment.PaymentFacilitator.SubEstablishment.CountryCode`, which indicates the country code.
 
 #### Request
 
