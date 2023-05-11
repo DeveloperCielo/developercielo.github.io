@@ -2663,7 +2663,7 @@ All E-Commerce customers who are **Payment Facilitators, as required by the Card
 
 The new fields are contained within the Payment Facilitator node. In addition to the fields of this new node, facilitators will also have to send the `SoftDescriptor` field of the `Payment` node.
 
-> **Warning:** If the card brands identify that the required data wasn't sent in the transactional messaging, they will fine Cielo and these fines will be forwarded to the Facilitator responsible for sending the data.
+> **Warning:** If the card brands identify that the required data wasn't sent in the transactional messaging, they will fine Cielo and these fines will be forwarded to the Facilitator responsible for sending the data.</br>
 > As of April 15, 2023, **Visa** updated the rules for marketplace and every merchant who acts as Payment Facilitators and has clients (submerchants) who operate as foreigner marketplace **must send the foreigner retail indicator** to avoid charges from Visa. The specific parameter is `Payment.PaymentFacilitator.SubEstablishment.CountryCode`, which indicates the country code.
 
 #### Request
