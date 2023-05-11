@@ -2677,8 +2677,8 @@ Todos os clientes de E-Commerce que são **Facilitadores de Pagamento**, por **o
 
 Os campos específicos estão contidos dentro do nó `PaymentFacilitator`. Além dos campos deste nó, os facilitadores também precisam enviar obrigatoriamente o campo `SoftDescriptor` do nó `Payment`. Veja a seguir o exemplo do envio e da resposta.
 
-> **Atenção:** As bandeiras, ao identificarem inconformidade devido ao não envio dos dados obrigatórios na mensageria transacional, aplicarão multas à Cielo as quais serão repassadas ao Facilitador responsável pelo envio dos dados transacionais.
-> A bandeira **Visa**, desde 15 de abril de 2023, atualizou as regras para Marketplace e todos os clientes que atuam como Facilitadores de Pagamentos e que tenham clientes que operam como Marketplace Estrangeiro precisam, obrigatoriamente, **enviar o indicador de varejo estrangeiro para evitar multa pela bandeira**. O parâmetro específico é o `Payment.PaymentFacilitator.SubEstablishment.CountryCode`, que indica o codigo do país.
+> - **Atenção:** As bandeiras, ao identificarem inconformidade devido ao não envio dos dados obrigatórios na mensageria transacional, aplicarão multas à Cielo as quais serão repassadas ao Facilitador responsável pelo envio dos dados transacionais.
+> - A bandeira **Visa**, desde 15 de abril de 2023, atualizou as regras para marketplace e todos os merchants que atuam como Facilitadores de Pagamentos e que tenham clientes que operam como Marketplace Estrangeiro precisam, obrigatoriamente, **enviar o indicador de varejo estrangeiro para evitar multa pela bandeira**. O parâmetro específico é o `Payment.PaymentFacilitator.SubEstablishment.CountryCode`, que indica o codigo do país.
 
 #### Requisição
 
