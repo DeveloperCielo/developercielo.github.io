@@ -16,12 +16,12 @@ language_tabs:
 
 # Sobre o Checkout Cielo
 
-O Checkout Cielo é uma solução que agrega vários serviços de processamento de pagamento, no qual o consumidor é direcionado para uma página de pagamento online segura da _Cielo_.
+O Checkout Cielo é uma solução que agrega vários serviços de processamento de pagamento, no qual o consumidor é direcionado para uma página de pagamento online segura da Cielo.
 A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo as normas de segurança PCI.
 
-O grande diferencial do Checkout Cielo é a gama de serviços agregados em uma tela transacional segura e com apenas uma integração técnica via **API REST**.
+O grande diferencial do **Checkout Cielo** é a gama de serviços agregados em uma tela transacional segura e com apenas uma integração técnica via **API REST**.
 
-O _Checkout_ possui as seguintes Funcionalidades:
+O Checkout possui as seguintes Funcionalidades:
 
 | Funcionalidade                     | Descrição                                                                                                                                                                                                                               |
 | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -33,10 +33,10 @@ O _Checkout_ possui as seguintes Funcionalidades:
 | **Integração com Botão e QR Code** | Sem integração técnica ou o programação, o Checkout disponibiliza uma integração que torna possível realizar a criação de um link gerador de pedidos apenas com um cadastro de produtos dentro do Backoffice Checkout.                  |
 | **Relatórios transacionais**       | Dentro do Backoffice, é possível gerar relatórios transnacionais que facilitam a administração de suas vendas: <br> **Relatório de Recorrências** <br> **Relatório de compradores**<br>**Extrato de vendas**<br>**Relatório de vendas** |
 
-O Checkout Cielo é uma funcionalidade indicada para:
+O Checkout Cielo é indicado para:
 
-- **Sites com Carrinhos de compra**: quando houver um “carrinho de compras” a ser enviado, ou seja, no caso do consumidor navegar pelo site e escolher 1 ou mais produtos a fim de finalizar a compra.
-- **Vendas via Redes sociais**: Com a capacidade de gerar um link ou QR Code para levar o comprador a tela transacional, o Checkout é indicado para realizar vendas via redes sociais de modo simplificado, sem a necessidade de integração técnica.
+- **Sites com carrinhos de compra**: quando houver um “carrinho de compras” a ser enviado, ou seja, no caso do consumidor navegar pelo site e escolher um ou mais produtos a fim de finalizar a compra;
+- **Vendas via Redes sociais**: com a capacidade de gerar um link ou QR Code para levar o comprador a tela transacional, o Checkout é indicado para realizar vendas via redes sociais de modo simplificado, sem a necessidade de integração técnica.
 
 ## Meios de pagamento do Checkout Cielo
 
@@ -44,21 +44,19 @@ A versão atual do Checkout Cielo possui suporte às seguintes bandeiras e produ
 
 **Cartão de Crédito**
 
-| Bandeira         | Crédito à vista | Crédito parcelado Loja | Débito | Voucher |
-| ---------------- | --------------- | ---------------------- | ------ | ------- |
-| Visa             | Sim             | Sim                    | Sim    | Não     |
-| MasterCard       | Sim             | Sim                    | Sim    | Não     |
-| American Express | Sim             | Sim                    | Não    | Não     |
-| Elo              | Sim             | Sim                    | Sim\*  | Não     |
-| Diners Club      | Sim             | Sim                    | Não    | Não     |
-| Discover         | Sim             | Não                    | Não    | Não     |
-| JCB              | Sim             | Sim                    | Não    | Não     |
-| Aura             | Sim             | Sim                    | Não    | Não     |
-| Hipercard        | Sim             | Sim                    | Não    | Não     |
+| Bandeira         | Crédito à vista | Crédito parcelado Loja | Débito |
+| ---------------- | --------------- | ---------------------- | ------ |
+| Visa             | Sim             | Sim                    | Sim    |
+| MasterCard       | Sim             | Sim                    | Sim    |
+| American Express | Sim             | Sim                    | Não    |
+| Elo              | Sim             | Sim                    | Sim  |
+| Diners Club      | Sim             | Sim                    | Não    |
+| Discover         | Sim             | Não                    | Não    |
+| JCB              | Sim             | Sim                    | Não    |
+| Aura             | Sim             | Sim                    | Não    |
+| Hipercard        | Sim             | Sim                    | Não    |
 
-**OBS**: Limite máximo de parcelas do Checkout Cielo é 12X.
-
-<aside class="notice">* Apenas Auxílio Emergencial da Caixa Econômica Federal (Corona Voucher)</aside>
+**OBS**: Limite máximo de parcelas do Checkout Cielo é 12 parcelas.
 
 **Cartão de Débito**
 
@@ -66,9 +64,7 @@ A versão atual do Checkout Cielo possui suporte às seguintes bandeiras e produ
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Visa       | Bradesco<br>Banco do Brasil<br>HSBC<br>Santander<br>Itaú<br>BRB<br>Safra<br>Banco da Amazônia<br>Sicredi<br>Banco do Espirito Santo<br>Banco do Nordeste<br>Mercantil |
 | Mastercard | Banco do Brasil<br>Santander<br>Itaú<br>BRB<br>Sicredi<br>Bancoob<br>CitiBank                                                                                         |
-| Elo\*      | Caixa Ecônomica Federal                                                                                                                                               |
-
-<aside class="notice">* Apenas Auxílio Emergencial da Caixa Econômica Federal (Corona Voucher)</aside>
+| Elo      | Caixa Ecônomica Federal                                                                                                                                               |
 
 **Boleto**
 
@@ -85,14 +81,14 @@ A versão atual do Checkout Cielo possui suporte às seguintes bandeiras e produ
 | Bradesco        |
 | Banco do Brasil |
 
-## Pré-requisitos para Integração
+## Pré-requisitos para integração
 
 O Checkout Cielo possui uma lista de requisitos básicos para que o processo de integração seja bem sucedido.
 Abaixo listamos pontos que devem estar prontos antes da integração:
 
-1. O cadastro da loja deve estar **ativo** junto à Cielo, possuindo ao menos um tipo de **PLANO de pagamento** atrelado a conta.
+1. O cadastro da loja deve estar **ativo** junto à Cielo;
 
-2. Deve-se definir um **timeout** adequado nas requisições HTTP à Cielo; recomendamos 30 segundos.
+2. Deve-se definir um **timeout** adequado nas requisições HTTP à Cielo; recomendamos 30 segundos;
 
 3. O certificado Root da entidade certificadora (CA) de nosso Web Service deve estar cadastrado na Truststore a ser utilizada. Como nossa certificadora é de ampla aceitação no mercado, é provável que ela já esteja registrada na Truststore do próprio sistema operacional. Veja a seção [Certificado Extended Validation](#certificado-extended-validation) para mais informações.
 
@@ -262,7 +258,7 @@ Existem duas maneiras de realizar a integração:
 
 | Tipo                     | Descrição                                                                                                                                                                                                                                                                                                                                                                                  |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `API`                    | É utilizada uma Integração via API que permite o lojista enviar o **"Carrinho de compras"** do seu site com todos os dados que ele deseja apresentar na tela transacional. <br> Neste tipo de integração o lojista possui maior controle sobre como o pedido será gerado.                                                                                                                  |
+| `API`                    | É utilizada uma integração via API que permite o lojista enviar o **"carrinho de compras"** do seu site com todos os dados que ele deseja apresentar na tela transacional. <br> Neste tipo de integração o lojista possui maior controle sobre como o pedido será gerado.                                                                                                                  |
 | `Botão / QR Code / Link` | Dentro do Backoffice do Checkout Cielo, é possível registrar um produto ou grupo de produtos que vão gerar um Link capaz de criar várias telas de pagamento. Esse modelo é usado para pagamentos por redes sociais, campanhas promocionais ou Vendas via QR Code. Nessa categoria o lojista possui menos controle sobre como os pedidos serão apresentados ou gerados na tela transacional |
 
 ## Fluxo de integração
@@ -280,14 +276,14 @@ Veja o fluxo abaixo:
 Após o portador do cartão (consumidor) selecionar suas compras e apertar o botão “Comprar” de uma loja já integrada ao Checkout Cielo, o fluxo será:
 
 1. A API da Cielo retorna o **CheckoutURL**, que é a URL da tela transacional montada com base nos dados enviados pela loja;
-2. A loja redireciona o cliente para a URL retornada pela Cielo. A tela apresentada é parte do **Ambiente de pagamento seguro Cielo**;
+2. A loja redireciona o cliente para a URL retornada pela Cielo. A tela apresentada é parte do **ambiente de pagamento seguro Cielo**;
 3. O portador escolhe o meio de pagamento, tipo de frete e endereço de entrega na tela transacional;
 4. O Checkout Cielo redireciona o cliente para a **URL de Retorno** escolhida pela loja, configurada no [site Cielo]({{ site.baseurl_root }}{% post_url 2000-01-01-checkout-tutoriais%}){:target="_blank"} ou enviada pela integração via API;
 5. A loja será notificada sobre a situação da transação (caso tenha uma **URL de notificação** configurada);
 6. A loja avisa ao cliente que o processo foi concluído e que ele receberá mais informações sobre a compra e o pagamento por e-mail;
 7. A loja processa o pedido de compra utilizando os dados do POST de notificação e, se a transação estiver autorizada, libera o pedido.
 
-> **Obersvação:** O Checkout Cielo não notifica os compradores a respeito do status de compra; o Checkout Cielo notifica apenas a loja. Isso ocorre pois permite que a loja decida quando e como informar aos seus consumidores sobre o prazo de entrega e processo de envio.
+> **Observação:** O Checkout Cielo não notifica os compradores a respeito do status de compra; o Checkout Cielo notifica apenas a loja. Isso ocorre pois permite que a loja decida quando e como informar aos seus consumidores sobre o prazo de entrega e processo de envio.
 
 ## Modo de teste do Checkout Cielo
 
@@ -313,11 +309,11 @@ A realização de transações no modo de teste ocorre de forma normal. As infor
 
 Para realizar transações de teste com diferentes meios de pagamento, siga as seguintes regras:
 
-**A - Transações com cartão de crédito:**
+#### Transações com cartão de crédito
 
-Para testar cartões de crédito é necessário que dois dados importantes sejam definidos o status da autorização do cartão e o retorno da analise de fraude.
+Para testar cartões de crédito é necessário que dois dados importantes sejam definidos o status da autorização do cartão e o retorno da análise de fraude.
 
-**Status da Autorização do Cartão de Crédito**
+**Status da Autorização do cartão de crédito**
 
 | Status da Transação | Cartões para realização dos testes        |
 | ------------------- | ----------------------------------------- |
@@ -326,26 +322,26 @@ Para testar cartões de crédito é necessário que dois dados importantes sejam
 
 **Exemplo:** 540443424293010**0** = **Autorizado**
 
-**B - Boleto bancário**
+#### Boleto bancário
 
 Basta realizar o processo de compra normalmente sem nenhuma alteração no procedimento.
 O boleto gerado no modo de teste sempre será um boleto simulado.
 
-**C - Debito online**
+#### Débito online
 
-É necessário informa o status da transação de Debito online para que seja retornado o status desejado. Esse processo ocorre como no antifraude do cartão de crédito descrito acima, com a alteração do nome do comprador.
+É necessário informar o status da transação de Debito online para que seja retornado o status desejado. Esse processo ocorre com a alteração do nome do comprador.
 
 **Status do Débito**
 
-| Sobre nome do cliente | Status         |
+| Sobrenome do cliente  | Status         |
 | --------------------- | -------------- |
 | Pago                  | Pago           |
-| Qualquer nome.        | Não autorizado |
+| Qualquer nome        | Não autorizado |
 
 - **Exemplo:** Status não Autorizado.
 - **Nome do Cliente:** Maria Pereira
 
-**D - Transações de teste**
+#### Transações de teste
 
 Todas as transações realizadas no modo de teste serão exibidas como transações normais na aba Pedidos do Checkout Cielo, entretanto, elas serão marcadas como transações de teste e não serão contabilizadas em conjunto com as transações realizadas fora do ambiente de teste.
 
@@ -355,7 +351,7 @@ Essas transações terão o símbolo de teste as diferenciando de suas outras tr
 
 ![Transações de teste]({{ site.baseurl_root }}/images/checkout-cielo-modo-teste-transacoes-de-teste-cancelamento.png)
 
-<aside class="notice">É muito importante que ao liberar sua loja para a realização de vendas para seus clientes que **ela não esteja em modo de teste**. Transações realizadas nesse ambiente poderão ser finalizadas normalmente, mas **não serão descontadas do cartão do cliente** e não poderão ser “transferidas” para o ambiente de venda padrão.</aside>
+<aside class="notice">É muito importante que, ao liberar sua loja para a realização de vendas para seus clientes, **a loja não esteja em modo de teste**. Transações realizadas nesse ambiente poderão ser finalizadas normalmente, mas **não serão descontadas do cartão do cliente** e não poderão ser “transferidas” para o ambiente de venda padrão.</aside>
 
 ## SDKs e POSTMAN
 
@@ -381,30 +377,28 @@ Abaixo, é demonstrado como o fluxo de compra ocorre na integração via API:
 
 ![Integração Via API]({{site.baseurl_root}}/images/checkout/int-api.png)
 
-### Criando o Carrinho
+### Criando o carrinho
 
 Na integração via API, a tela transacional é "montada" com bases em dados enviados que formam um **Carrinho de compras**.
 Esses dados são separados nos seguintes "nós principais":
 
 | Nó         | Descrição                                                                                                                                                 |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Cart`     | Contem dados dos produtos a serem vendidos.                                                                                                               |
-| `Shipping` | Contem dados do tipo de frete a ser cobrado. É influenciado pelo nó `Cart`                                                                                |
-| `Payment`  | Contem informações que influenciam o valor cobrado. **Não contem informações sobre meios de pagamento**                                                   |
-| `Customer` | Possui dados o comprador. Não obrigatório na integração, mas exigido na tela de pagamentos. Sugerimos que seja enviado para acelerar o processo de compra |
-| `Options`  | Controla features opcionais do Checkout. Nó não obrigatório                                                                                               |
+| `Cart`     | Contém dados dos produtos a serem vendidos.                                                                                                               |
+| `Shipping` | Contém dados do tipo de frete a ser cobrado. É influenciado pelo nó `Cart`.                                                                                |
+| `Payment`  | Contém informações que influenciam o valor cobrado. **Não contém informações sobre meios de pagamento**.                                                   |
+| `Customer` | Contém os dados o comprador. Não obrigatório na integração, mas exigido na tela de pagamentos. Sugerimos que seja enviado para acelerar o processo de compra. |
+| `Options`  | Controla features opcionais do Checkout. Não é obrigatório.                                                                                               |
 
-Após o envio dos dados do carrinho, o Checkout enviará um Response contendo um **LINK para a tela de pagamento**
+Após o envio dos dados do carrinho, o Checkout enviará uma resposta contendo um **link para a tela de pagamento** no campo `CheckoutUrl`.
 
-**IMPORTANTE**: Uma chamada a API Checkout **NÃO CRIA UMA TRANSAÇÃO**. O Link retornado é apenas uma "pré-ordem" indicando que uma tela transacional está pronta para ser utilizada. A Transação é criada apenas quando o comprador clica em "FINALIZAR"
+**Importante**: A requisição de criação do carrinho **não cria uma transação**. A URL retornada (`CheckoutUrl`) é apenas uma "pré-ordem" indicando que uma tela transacional está pronta para ser utilizada. A transação é criada apenas quando o comprador clica em Finalizar na tela do **Checkout**.
 
-### Request
+### Requisição
 
-Endpoint é a URL para onde as requisições com os dados do carrinho serão enviadas. Todas as requisições deverão ser enviadas utilizando o método HTTP POST, para o endpoint:
+Confira um exemplo de requisição de criação do carrinho (tela transacional) no Checkout Cielo.
 
-**Produção** `https://cieloecommerce.cielo.com.br/api/public/v1/orders`.
-
-**Exemplo de uma requisição**
+<aside class="request"><span class="method post">POST</span> <span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v1/orders</span></aside>
 
 ```json
 {
@@ -477,7 +471,7 @@ Endpoint é a URL para onde as requisições com os dados do carrinho serão env
 | `MerchantId`   | Guid         | Sim         | 36      | Identificador único da loja. **Formato:** 00000000-0000-0000-0000-000000000000 |
 | `Content-type` | Alphanumeric | Sim         | n/a     | Tipo do conteúdo da mensagem a ser enviada. **Utilizar:** "application/json"   |
 
-**Cabeçalho e Autenticação** - Todas as requisições enviadas para a Cielo deverão ser autenticadas pela loja. A autenticação consiste no envio do `MerchantId`, que é o identificador único da loja fornecido pela Cielo após a afiliação da loja. A autenticação da loja deverá ser feita através do envio do campo de cabeçalho HTTP `MerchantId`, como ilustrado abaixo e ao lado:
+**Cabeçalho e Autenticação** - Todas as requisições enviadas para a Cielo deverão ser autenticadas pela loja. A autenticação consiste no envio do `MerchantId`, que é o identificador único da loja fornecido pela Cielo após a afiliação da loja. A autenticação da loja deverá ser feita através do envio do campo de cabeçalho HTTP `MerchantId`:
 
 **Body - Detalhado**
 
@@ -504,20 +498,20 @@ Endpoint é a URL para onde as requisições com os dados do carrinho serão env
 | `Customer.Phone`           | Numeric      | Condicional | 11      | Não obrigatório na API, mas obrigatório na tela transacional.   |
 | `Options.ReturnUrl`        | Strin        | Condicional | 255     | Uma URL fixa pode ser registrada no Backoffice Checkout.        |
 
-### Responses
+### Respostas
 
-Devido ao seu fluxo de venda ser dividido em duas etapas, sendo a primeira, a criação da tela transacional e a segunda, a finalização do pagamento; O Checkout possui duas respostas para uma transação:
+Devido ao seu fluxo de venda ser dividido em duas etapas, sendo a primeira, a criação da tela transacional e a segunda, a finalização do pagamento, o Checkout possui duas respostas para uma transação:
 
-- **Response - Tela transacional** - É o Response retornado com dados para enviar o comprador para a tela transacional
-- **Response - Transação Finalizada** - Contém dados sobre o resultado da transação, após o comprador clica em "Finalizar" na tela transacional. **É retornado apenas via Notificação**
+- **Response - Tela transacional** - é a resposta retornada com dados para enviar o comprador para a tela transacional;
+- **Response - Transação Finalizada** - contém dados sobre o resultado da transação, após o comprador clica em **Finalizar** na tela transacional. **É retornado apenas via Notificação**
 
 **Resultado/Status da transação:** Para obter o retorno do status da transação, é necessário definir uma URL de NOTIFICAÇÃO. Veja a sessão de notificação para maiores informações.
 
 **Response - Tela transacional**
 
-Existem apenas duas opções de resposta na integração da API: Sucesso / Erro
+Existem apenas duas opções de resposta na integração da API: sucesso ou erro.
 
-**Sucesso** - Em caso de sucesso, o response será o conteúdo do Request mais o Link que direciona a tela transacional
+**Sucesso**: em caso de sucesso, a resposta será o conteúdo da requisição mais o link que direciona a tela transacional (`CheckoutUrl`):
 
 ```json
 {
@@ -531,7 +525,7 @@ Existem apenas duas opções de resposta na integração da API: Sucesso / Erro
 
 | Campo         | Tipo   | Obrigatório | Tamanho | Descrição                                                                                                 |
 | ------------- | ------ | ----------- | ------- | --------------------------------------------------------------------------------------------------------- |
-| `CheckoutUrl` | String | Sim         | 255     | URL da tela transacional. O Comprador **deve ser direcionado a esse ambiente para finalizar a transação** |
+| `CheckoutUrl` | String | Sim         | 255     | URL da tela transacional. O Comprador **deve ser direcionado para esse ambiente para finalizar a transação** |
 | `Profile`     | String | Sim         | 16      | Perfil do lojista: fixo “CheckoutCielo”.                                                                  |
 | `Version`     | String | Sim         | 1       | Versão do serviço de criação de pedido (versão: 1).                                                       |
 
@@ -547,32 +541,32 @@ Existem apenas duas opções de resposta na integração da API: Sucesso / Erro
 | --------- | ------ | ----------- | ------- | --------------------------- |
 | `Message` | String | Sim         | 254     | Mensagem descritiva do erro |
 
-**Importante** - O Checkout Cielo não possui erros numerados, apenas uma mensagem genérica. Veja a sessão "Identificando erros de Integração" para maiores informações
+> **Importante**: O Checkout Cielo não possui erros numerados, apenas uma mensagem genérica. Veja a sessão "Identificando erros de Integração" para mais informações.
 
-### Funcionalidades Adicionais
+### Funcionalidades adicionais
 
-Nos itens a seguir, será explicado o comportamento de algumas das funcionalidades da integração via API. Essas funcionalidades possuem regras especificas para utilização e não estão disponíveis na integração via Botão.
+O Checkout Cielo possui funcionalidades adicionais que seguem regras específicas para utilização e não estão disponíveis na integração via botão.
 
-- **Tipos de "Desconto"**
-- **Tipos de "Frete"**
+- **Tipos de Desconto**
+- **Tipos de Frete**
 
-#### Tipos de "Desconto"
+#### Tipos de Desconto
 
 O Checkout Cielo permite que o lojista aplique descontos específicos tanto para o carrinho quanto para meios de pagamento.
 Os descontos disponíveis no Checkout Cielo são:
 
 | Desconto        | Aplicação        | Descrição                                                                                              |
 | --------------- | ---------------- | ------------------------------------------------------------------------------------------------------ |
-| `Carrinho`      | API              | Quando enviado, aplica o desconto sobre todo o carrinho, independente do meio de pagamento             |
-| `Boleto`        | API e Backoffice | Quando enviado, o desconto é aplicado somente caso o Boleto seja o meio de pagamento escolhido         |
-| `Débito Online` | API e Backoffice | Quando enviado, o desconto é aplicado somente caso o Débito online seja o meio de pagamento escolhido  |
-| `A vista`       | API              | Quando enviado, o desconto é aplicado quando Cartão de crédito a vista é o meio de pagamento escolhido |
+| **Carrinho**      | API              | Quando enviado, aplica o desconto sobre todo o carrinho, independente do meio de pagamento.             |
+| **Boleto**        | API e Backoffice | Quando enviado, o desconto é aplicado somente caso o boleto seja o meio de pagamento escolhido.         |
+| **Débito Online** | API e Backoffice | Quando enviado, o desconto é aplicado somente caso o débito online seja o meio de pagamento escolhido.  |
+| **À vista**       | API              | Quando enviado, o desconto é aplicado quando cartão de crédito à vista é o meio de pagamento escolhido. |
 
-> **OBS:** Descontos podem ser enviados na API ou definidos no Backoffice. Caso um Valor de desconto seja enviado na API, esse será o valor considerado, mesmo que o Backoffice possua outro valor registrado
+> **Observação**: Descontos podem ser enviados na API ou definidos no Backoffice. Caso um valor de desconto seja enviado na API, esse será o valor considerado, mesmo que o Backoffice possua outro valor registrado.
 
 **Carrinho**
 
-Para enviar um Desconto sobre o `Carrinho` basta enviar o nó abaixo dentro do nó `Cart`
+Para enviar um desconto sobre o **carrinho** basta enviar o nó `Discount` dentro do nó `Cart`:
 
 ```json
 {
@@ -588,15 +582,21 @@ Para enviar um Desconto sobre o `Carrinho` basta enviar o nó abaixo dentro do n
 | `Cart.Discount.Type`  | Alphanumeric | Condicional | 255     | Tipo do desconto a ser aplicado: `Amount` ou `Percent`. | Obrigatório caso Cart.Discount.Value for maior ou igual a zero. |
 | `Cart.Discount.Value` | Numeric      | Condicional | 18      | Valor do desconto a ser aplicado: Valor ou Percentual   | Obrigatório caso Cart.Discount.Type for `Amount` ou `Percent`.  |
 
-Abaixo, como o efeito do desconto são apresentados no Carrinho:
+Veja o desconto apresentado no carrinho:
 
 | Percentual                                                                           | Valor                                                                          |
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
 | ![Percentual]({{ site.baseurl_root }}/images/checkout/checkout-discount-percent.png) | ![Valor]({{ site.baseurl_root }}/images/checkout/checkout-discount-amount.png) |
 
-**Boleto & Débito Online**
+**Boleto, débito online e cartão de crédito**
 
-Para enviar um Desconto sobre o `Boleto` e `Débito online` basta enviar dentro do nó Payment os campos abaixo:
+Para enviar um desconto sobre o **boleto**, **débito online** e/ou **cartão de crédito à vista** envie dentro do nó Payment o campo correspondente:
+
+* `BoletoDiscount` para boleto;
+* `DebitDiscount` para débito online;
+* `FirstInstallmentDiscount` para cartão de crédito à vista.
+
+**Exemplo**
 
 ```json
 {
@@ -612,27 +612,27 @@ Para enviar um Desconto sobre o `Boleto` e `Débito online` basta enviar dentro 
 | ---------------------------------- | ------- | ----------- | ------- | ------------------------------------------------------------------------------- |
 | `Payment.BoletoDiscount`           | Numeric | Condicional | 3       | Desconto, em porcentagem, para pagamentos a serem realizados com boleto.        |
 | `Payment.DebitDiscount`            | Numeric | Condicional | 3       | Desconto, em porcentagem, para pagamentos a serem realizados com débito online. |
-| `Payment.FirstInstallmentDiscount` | Numeric | Condicional | 3       | Desconto, em porcentagem, para pagamentos a vista no Cartão de crédito          |
+| `Payment.FirstInstallmentDiscount` | Numeric | Condicional | 3       | Desconto, em porcentagem, para pagamentos à vista no cartão de crédito.          |
 
-Abaixo, como o efeito do desconto são apresentados no Carrinho:
+AVeja o desconto apresentado no carrinho:
 
 | Tela transacional                                                                       |
 | --------------------------------------------------------------------------------------- |
 | ![Meios de pagamento]({{ site.baseurl_root }}/images/checkout/checkout-discount-mp.png) |
 
-#### Tipos de "Frete"
+#### Tipos de Frete
 
 O Checkout cielo possui diferentes tipos de frete.
 
 | Campo                   | Descrição                                                                                                                                                                                                                               |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `FixedAmount`           | Valor fixo enviado pelo lojista. Utilizado caso o Lojista possua um método de entrega próprio                                                                                                                                           |
-| `Free`                  | Não realiza cálculo de frete e exibe na tela transacional "Frete Grátis"                                                                                                                                                                |
-| `WithoutShippingPickUp` | Considerado "Retirada na loja"                                                                                                                                                                                                          |
+| `FixedAmount`           | Valor fixo enviado pelo lojista. Utilizado caso o Lojista possua um método de entrega próprio.                                                                                                                                           |
+| `Free`                  | Não realiza cálculo de frete e exibe na tela transacional "Frete Grátis".                                                                                                                                                                |
+| `WithoutShippingPickUp` | Considerado **Retirada na loja**.                                                                                                                                                                                                          |
 | `WithoutShipping`       | Sem cobrança de frete (aplicável para serviços e produtos digitais).                                                                                                                                                                    |
-| `Correios`              | Utiliza a API dos correios para realizar o cálculo do custo. O valor do cálculo dependerá o contrato utilizado (Escolhido no Backoffice do checkout) e do tipo de integração para cálculo: **Frete com Volume** ou **Frete sem Volume** |
+| `Correios`              | Utiliza a API dos correios para realizar o cálculo do custo. O valor do cálculo dependerá o contrato utilizado (escolhido no Backoffice do checkout) e do tipo de integração para cálculo: **Frete com Volume** ou **Frete sem Volume** |
 
-Abaixo, como cada opção é demonstrada na tela transacional
+Abaixo, como cada opção é demonstrada na tela transacional:
 
 | Tipo de frete           | Transacional                                                                                |
 | ----------------------- | ------------------------------------------------------------------------------------------- |
@@ -642,7 +642,7 @@ Abaixo, como cada opção é demonstrada na tela transacional
 | `WithoutShipping`       | ![WithoutShipping]({{ site.baseurl_root }}/images/checkout/withoutshippingpickup.png)       |
 | `Correios`              | ![Correios]({{ site.baseurl_root }}/images/checkout/correios.png)                           |
 
-**OBS:** As opções para múltiplos fretes na categoria `Correios` devem ser selecionadas dentro do Backoffice Cielo.
+**Observação:** As opções para múltiplos fretes na categoria `Correios` devem ser selecionadas dentro do Backoffice Cielo.
 
 Os nós que formam as informações de frete abaixo:
 
@@ -654,7 +654,7 @@ Os nós que formam as informações de frete abaixo:
 | `Shipping.SourceZipCode` | Numeric      | Condicional | 8       | CEP de origem do carrinho de compras.                                                                    | Obrigatório caso Shipping.Type for "Correios". |
 | `Shipping.TargetZipCode` | Numeric      | Opcional    | 8       | CEP do endereço de entrega do comprador.                                                                 |                                                |
 
-**Shipping.Address** - Informações de endereço de entrega. **Não obrigatório no contrato da API, mas obrigatório na tela transacional**. Sugerimos que esses dados sejam enviados, se ja foram recolhidos dentro do ambiente da loja.
+**Shipping.Address** - Informações de endereço de entrega. **Não obrigatório no contrato da API, mas obrigatório na tela transacional**. Sugerimos que esses dados sejam enviados, se já foram recolhidos dentro do ambiente da loja.
 
 | Campo                         | Tipo         | Obrigatório | Tamanho | Descrição                                                         |
 | ----------------------------- | ------------ | ----------- | ------- | ----------------------------------------------------------------- |
