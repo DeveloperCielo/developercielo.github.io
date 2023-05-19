@@ -439,10 +439,12 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
 </blockquote>
 
 <ul>
-  <li><strong>Categoria 4: códigos de respostas genéricos</strong></li>
-</ul>
+  <li>
+    <p><strong>Categoria 4: códigos de respostas genéricos</strong></p>
 
-<p>A categoria 4 inclui todos os outros códigos de resposta de recusa, muitos dos quais fornecem pouco ou nenhum valor para Adquirentes/Comerciantes como parte de sua estratégia de nova tentativa. O uso do emissor deve permanecer mínimo.</p>
+    <p>A categoria 4 inclui todos os outros códigos de resposta de recusa, muitos dos quais fornecem pouco ou nenhum valor para Adquirentes/Comerciantes como parte de sua estratégia de nova tentativa. O uso do emissor deve permanecer mínimo.</p>
+  </li>
+</ul>
 
 <p>A maioria das condições de recusa tem códigos de resposta descritivos nas Categorias 1, 2 e 3 para indicar o motivo da recusa. No entanto, pode haver circunstâncias em que não haja valor de código de resposta para uma condição de declínio específica. Emissores pode usar outros valores de códigos de resposta definidos nas Especificações Técnicas VisaNet; no entanto, o uso deve permanecer mínimo.</p>
 
@@ -460,10 +462,10 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
   </li>
   <li>
     <p>Na categoria 3 compõe o grupo de códigos para contabilização das 10.001 transações, após o EC atingir 10.000 retentativas com o este grupo de códigos, qualquer transação será contabilizada independente do cartão.</p>
+
+    <p><strong>Exemplo:</strong> Tivemos 10.000 transações negadas em um EC com os códigos de categoria 3, se a transação 10.001 for no código 14 ou em qualquer código do grupo de categoria 3 ele será tarifado independente do cartão.</p>
   </li>
 </ul>
-
-<p><strong>Exemplo:</strong> Tivemos 10.000 transações negadas em um EC com os códigos de categoria 3, se a transação 10.001 for no código 14 ou em qualquer código do grupo de categoria 3 ele será tarifado independente do cartão.</p>
 
 <h1 id="elo">Elo</h1>
 
@@ -727,15 +729,16 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
 <h1 id="demais-bandeiras">Demais bandeiras</h1>
 
 <ul>
-  <li><strong>Códigos reversíveis:</strong> serão permitidas novas retentativas para o mesmo cliente e cartão. Não há limite e período pré-estabelecido;</li>
-</ul>
+  <li>
+    <p><strong>Códigos reversíveis:</strong> serão permitidas novas retentativas para o mesmo cliente e cartão. Não há limite e período pré-estabelecido;</p>
 
-<blockquote>
-  <p><strong>Importante</strong>: antes de realizar uma nova tentativa, siga a orientação recebida na resposta da transação negada.</p>
-</blockquote>
-
-<ul>
-  <li><strong>Códigos Irreversíveis:</strong> não serão permitidas autorizações para o mesmo cartão ou estabelecimento, depois de receber 1ª resposta de recusa do emissor.</li>
+    <blockquote>
+      <p><strong>Importante</strong>: antes de realizar uma nova tentativa, siga a orientação recebida na resposta da transação negada.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><strong>Códigos Irreversíveis:</strong> não serão permitidas autorizações para o mesmo cartão ou estabelecimento, depois de receber 1ª resposta de recusa do emissor.</p>
+  </li>
 </ul>
 </div>
 
