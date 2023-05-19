@@ -73,7 +73,7 @@ O monitoramento é aplicado para as retentativas de transações de compras nega
 1. O excesso considerado no programa ocorrerá a partir da oitava retentativa dentro do mês de apuração; os valores cobrados sofreram alteração.
 2. E a Mastercard também está introduzindo um limite de 35 tentativas negadas no mesmo cartão e mesmo número de estabelecimento por período contínuo de 30 dias. Mesmo se a loja não ultrapassar o limite de sete retentativas no período de 24h, mas ultrapassar a quantidade do limite mensal, a cobrança será aplicada.
 
-> Obs: A regra vigente do programa Excessive Attempts é válida até 31/01/2023 (tabela Excessive Attempts), permitindo apenas 10 tentativas de aprovar uma mesma transação (no mesmo cartão, e mesmo número de estabelecimento), e é permitido retentar após 24h.
+> **Observação**: A regra vigente do programa Excessive Attempts é válida até 31/01/2023 (tabela Excessive Attempts), permitindo apenas 10 tentativas de aprovar uma mesma transação (no mesmo cartão, e mesmo número de estabelecimento), e é permitido retentar após 24 horas.
 
 ## 2. Merchant Advice Code Transaction Excellence (MAC)
 
@@ -168,11 +168,10 @@ Um programa instituído pela bandeira Visa que gera cobranças quando o estabele
 - Após uma transação ser aprovada, o contador é zerado.
   <br>
 
-> **Tarifas**: Ao ultrapassar os limites de tentativas estabelecidos pela bandeira, haverá uma cobrança de tarifa para cada transação excedente.<br> > <br>
+> **Tarifas**: Ao ultrapassar os limites de tentativas estabelecidos pela bandeira, haverá uma cobrança de tarifa para cada transação excedente.
 >
 > - **Doméstico**: USD 0,10 + 13,83% de imposto;
-> - **Estrangeiro**: USD 0,25 + 13,83% de imposto
->   <br> > <br>
+> - **Estrangeiro**: USD 0,25 + 13,83% de imposto.
 
 Regras de autorização já vigentes. A cobrança de tarifas é aplicada desde abril de 2021.
 
