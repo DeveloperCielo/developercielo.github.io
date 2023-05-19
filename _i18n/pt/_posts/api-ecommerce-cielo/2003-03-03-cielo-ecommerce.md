@@ -6568,7 +6568,7 @@ Envie a requisição de autorização com o `PaymentToken` no nó `CreditCard` (
 }
 ```
 
-Para consultar os campos obrigatórios da requisição e a resposta, veja as requisições padrão das transações de [crédito](https://developercielo.github.io/manual/'?json#criando-uma-transa%C3%A7%C3%A3o-de-cr%C3%A9dito){:target="\_blank"} ou [débito](https://developercielo.github.io/manual/'?json#criando-uma-transa%C3%A7%C3%A3o-de-d%C3%A9bito){:target="\_blank"}.
+Para consultar os campos obrigatórios da requisição e a resposta, veja as requisições padrão das transações de [crédito](https://developercielo.github.io/manual/cielo-ecommerce#criando-uma-transa%C3%A7%C3%A3o-de-cr%C3%A9dito) ou [débito](https://developercielo.github.io/manual/cielo-ecommerce#cart%C3%A3o-de-d%C3%A9bito).
 
 **Por questões de segurança o `PaymentToken` poderá ser usado apenas para uma autorização na API E-commerce Cielo. O token será processado e, em seguida, invalidado.**
 
@@ -6598,7 +6598,7 @@ Envie a requisição de autorização com o `CardToken` no nó `CreditCard` (par
 }
 ```
 
-Para consultar os campos obrigatórios da requisição e a resposta, veja as requisições padrão das transações de [crédito](https://developercielo.github.io/manual/'?json#criando-uma-transa%C3%A7%C3%A3o-de-cr%C3%A9dito){:target="\_blank"} ou [débito](https://developercielo.github.io/manual/'?json#criando-uma-transa%C3%A7%C3%A3o-de-d%C3%A9bito){:target="\_blank"}.
+Para consultar os campos obrigatórios da requisição e a resposta, veja as requisições padrão das transações de [crédito](https://developercielo.github.io/manual/cielo-ecommerce#cart%C3%A3o-de-cr%C3%A9dito) ou [débito](https://developercielo.github.io/manual/cielo-ecommerce#cart%C3%A3o-de-d%C3%A9bito).
 
 ## Autenticação legada do SOP
 
