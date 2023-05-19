@@ -417,22 +417,22 @@ Significa que o emissor pode aprovar a transação, mas não pode fazê-lo agora
 <p><strong>A Visa agrupou os códigos de retorno em quatro categorias:</strong></p>
 
 <ul>
-  <li><strong>Categoria 1: emissor nunca aprovará</strong></li>
+  <li>
+    <p><strong>Categoria 1: emissor nunca aprovará</strong></p>
+
+    <p>Para essa categoria, indica que o cartão foi cancelado ou nunca existiu ou que a negativa é resultado de uma restrição permanente ou condição de erro que impedirá uma aprovação futura.</p>
+  </li>
+  <li>
+    <p><strong>Categoria 2: emissor não pode aprovar neste momento</strong></p>
+
+    <p>Indicam que a negativa é resultado de uma condição temporária tal como risco de crédito, controles de velocidade do emissor ou outras restrições do cartão que podem permitir uma retentativa da transação ser aprovada. Em alguns casos, a negativa requer uma ação do portador ou emissor para remover a restrição antes que uma aprovação possa ser obtida.</p>
+  </li>
+  <li>
+    <p><strong>Categoria 3: qualidade de dados/revisar dados</strong></p>
+
+    <p>Quando um erro de dados é identificado pelo emissor essa transação é declinada como consequência. Os estabelecimentos devem revalidar dados de pagamentos antes de retentar. Estabelecimentos e Credenciadores devem monitorar estes códigos de negativas devido a exposição potencial a fraudes.</p>
+  </li>
 </ul>
-
-<p>Para essa categoria, indica que o cartão foi cancelado ou nunca existiu ou que a negativa é resultado de uma restrição permanente ou condição de erro que impedirá uma aprovação futura.</p>
-
-<ul>
-  <li><strong>Categoria 2: emissor não pode aprovar neste momento</strong></li>
-</ul>
-
-<p>Indicam que a negativa é resultado de uma condição temporária tal como risco de crédito, controles de velocidade do emissor ou outras restrições do cartão que podem permitir uma retentativa da transação ser aprovada. Em alguns casos, a negativa requer uma ação do portador ou emissor para remover a restrição antes que uma aprovação possa ser obtida.</p>
-
-<ul>
-  <li><strong>Categoria 3: qualidade de dados/revisar dados</strong></li>
-</ul>
-
-<p>Quando um erro de dados é identificado pelo emissor essa transação é declinada como consequência. Os estabelecimentos devem revalidar dados de pagamentos antes de retentar. Estabelecimentos e Credenciadores devem monitorar estes códigos de negativas devido a exposição potencial a fraudes.</p>
 
 <blockquote>
   <p><strong>Atenção</strong>: A categoria 3 tem, além dos limites considerados na categoria 2, um limite diferente que é cumulativo. Um estabelecimento pode realizar até 10.000 transações em um período de 30 dias (neste caso considerando apenas o número do estabelecimento e códigos de negadas). Se ultrapassar o limite, todas as transações recusadas por categoria 3 serão tarifadas.</p>
