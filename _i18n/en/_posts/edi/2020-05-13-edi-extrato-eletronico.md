@@ -1191,9 +1191,9 @@ MASTERCARD: the date of submission of the 1st installment will be used as the re
 
 > Note: the updates mentioned below will be available from June 07, 2021.
 
-[Electronic Statement Manual](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_English_Version_14.pdf)
+[Electronic Statement Manual](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Electronic_Statement_-_English_-_Version_14_2.pdf)
 
-[Electronic Statement Manual - Versão Portuguesa](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_2.pdf)
+[Electronic Statement Manual - Versão Portuguesa](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/CIELO_Extrato_Eletronico_-_Manual_-_Versao_14_3.pdf)
 
 [EE Layout Update - Receivables Registration + PIX](https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/Atualizacao_layout_EE_-_Registro_de_Recebiveis_PIX_0.pdf)
 
