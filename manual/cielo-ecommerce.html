@@ -3289,9 +3289,9 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <h2 id="pix">Pix</h2>
 
-<p>No <strong>pix</strong>, a transmissão da ordem de pagamento e a disponibilidade de fundos para o recebedor ocorrem em tempo real, 24 horas por dia e sem a necessidade de intermediários. Sendo assim, é um meio que viabiliza pagamentos rápidos e com menores custos de transação.</p>
+<p>No <strong>Pix</strong>, a transmissão da ordem de pagamento e a disponibilidade de fundos para o recebedor ocorrem em tempo real, 24 horas por dia e sem a necessidade de intermediários. Sendo assim, é um meio que viabiliza pagamentos rápidos e com menores custos de transação.</p>
 
-<p>Conheça o ciclo de vida de uma transação <strong>pix</strong>:</p>
+<p>Conheça o ciclo de vida de uma transação <strong>Pix</strong>:</p>
 
 <table>
   <thead>
@@ -3357,7 +3357,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 <blockquote>
   <p><strong>ATENÇÃO</strong>:</p>
   <ul>
-    <li>Para habilitar o pix no ambiente sandbox entre em contato com nosso canal de suporte e-commerce pelo e-mail <em>cieloecommerce@cielo.com.br</em>;</li>
+    <li>Para habilitar o Pix no ambiente sandbox entre em contato com nosso canal de suporte e-commerce pelo e-mail <em>cieloecommerce@cielo.com.br</em>;</li>
     <li>Antes de usar o Pix em produção, certifique-se de que o pix está liberado em seu cadastro. Para confirmar basta acessar o <a href="https://www.cielo.com.br/" target="\_blank">portal Cielo</a> na área logada em <strong>Meu Cadastro</strong> &gt; <strong>Autorizações</strong> &gt; <strong>PIX</strong>
 <img src="https://developercielo.github.io/images/apicieloecommerce/adesao-pix.png" alt="Geração do QR Code Pix" /></li>
   </ul>
@@ -3367,17 +3367,19 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <p>Para gerar um QR code Pix através da API Cielo E-commerce, basta realizar a integração conforme a especificação a seguir.</p>
 
-<p>O campo obrigatório <code class="language-plaintext highlighter-rouge">Payment.Type</code> deve ser enviado como “Pix”. Na resposta da requisição será retornado o <em>código base64</em> da imagem do QR code Pix, que você deverá disponibilizar ao comprador.</p>
+<p>O campo obrigatório <code class="language-plaintext highlighter-rouge">Payment.Type</code> deve ser enviado como “Pix”. Na resposta da requisição será retornado o <em>código base64</em> da imagem do QR Code Pix, que você deverá disponibilizar ao comprador.</p>
 
-<p>Confira a representação do <strong>fluxo transacional</strong> na geração do QR code pix:</p>
+<p>Confira a representação do <strong>fluxo transacional</strong> na geração do QR Code Pix:</p>
 
 <p><img src="https://developercielo.github.io/images/apicieloecommerce/geracao-qr-code-pix-pt.png" alt="Geração do QR Code Pix" /></p>
 
-<p>O comprador então realiza a leitura do QR code através de um dos aplicativos habilitados para o pagamento pix e efetiva o pagamento. Nesta etapa não há participação da loja nem da API E-commerce Cielo, conforme demonstrado no fluxo:</p>
+<p>O comprador então realiza a leitura do QR code através de um dos aplicativos habilitados para o pagamento Pix e efetiva o pagamento. Nesta etapa não há participação da loja nem da API E-commerce Cielo, conforme demonstrado no fluxo:</p>
 
 <p><img src="https://developercielo.github.io/images/apicieloecommerce/pagamento-pix-pt.png" alt="Pagamento Pix" /></p>
 
-<p>Veja exemplos de envio de requisição e resposta para a geração do QR code pix:</p>
+<aside class="notice">O tempo de expiração do QRCode Pix Cielo é de 24 horas.</aside>
+
+<p>Veja exemplos de envio de requisição e resposta para a geração do QR Code Pix:</p>
 
 <h4 id="requisição-5">Requisição</h4>
 
@@ -3596,9 +3598,9 @@ Abaixo especificamos qualquer diferença existente:</p>
   </tbody>
 </table>
 
-<h3 id="solicitando-uma-devolução-pix">Solicitando uma devolução pix</h3>
+<h3 id="solicitando-uma-devolução-pix">Solicitando uma devolução Pix</h3>
 
-<p>Caso a sua loja precise cancelar uma transferência pix, é possível realizar uma operação chamada de <strong>devolução</strong>. É importante ressaltar que a devolução não é uma operação instantânea, podendo ser acatada ou não pelo provedor pix. Quando uma devolução é acatada, uma <a href="https://developercielo.github.io/manual/cielo-ecommerce#post-de-notifica%C3%A7%C3%A3o">notificação</a> será enviada para a sua loja.<br /></p>
+<p>Caso a sua loja precise cancelar uma transferência Pix, é possível realizar uma operação chamada de <strong>devolução</strong>. É importante ressaltar que a devolução não é uma operação instantânea, podendo ser acatada ou não pelo provedor Pix. Quando uma devolução é acatada, uma <a href="https://developercielo.github.io/manual/cielo-ecommerce#post-de-notifica%C3%A7%C3%A3o">notificação</a> será enviada para a sua loja.<br /></p>
 
 <blockquote>
   <p><strong>Importante:</strong><br /></p>
