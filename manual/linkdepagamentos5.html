@@ -2669,9 +2669,15 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
 
 <p><strong>Como funciona?</strong></p>
 
-<p>As transações negadas foram classificadas em <strong>irreversíveis</strong> (nunca realizar a retentativa) e <strong>reversíveis</strong> (permitido realizar retentativa).</p>
+<p>As transações negadas são classificadas como:</p>
 
-<p>As retentativas podem ser cobradas pela bandeira e a quantidade de vezes que uma transação pode ser retentada antes da cobrança também varia de acordo com a bandeira.</p>
+<ul>
+  <li><strong>Irreversíveis</strong>: quando a retentativa não é permitida;</li>
+  <li><strong>Reversíveis</strong>: quando a retentativa é permitida mediante as regras de cada bandeira.</li>
+</ul>
+
+<p><br />
+As retentativas podem ser cobradas pela bandeira e a quantidade de vezes que uma transação pode ser retentada antes da cobrança também varia de acordo com a bandeira.</p>
 
 <blockquote>
   <p>Para ver as regras de retentativa de cada bandeira, acesse o manual <a href="https://developercielo.github.io/tutorial/programa-retentativa-bandeiras" target="_blank">Programa de Retentativa das Bandeiras</a></p>
@@ -2679,10 +2685,10 @@ Para consultar uma transação, veja a seção <a href="https://developercielo.g
 
 <h2 id="códigos-de-retorno-abecs">Códigos de retorno ABECS</h2>
 
-<p>A Associação Brasileira das Empresas de Cartão de Crédito e Serviços (ABECS) estabeleceu, desde 15 de julho de 2020, a padronização do código de retorno das autorizações de vendas negadas tanto para as soluções pagamento do mundo físico e e-commerce do mercado brasileiro.</p>
+<p>A Associação Brasileira das Empresas de Cartão de Crédito e Serviços (ABECS) é responsável pela padronização do <strong>código de retorno das autorizações de vendas negadas</strong> tanto para as soluções pagamento do mundo físico quanto de e-commerce do mercado brasileiro.</p>
 
 <blockquote>
-  <p>Para ver a relação completa dos códigos de retorno, acesse a tabela <a href="https://developercielo.github.io/tutorial/abecs-e-outros-codigos" target="_blank">Códigos de retorno ABECS</a>.</p>
+  <p>Para ver a relação completa dos códigos de retorno das transações negadas, acesse a tabela <a href="https://developercielo.github.io/tutorial/abecs-e-outros-codigos" target="_blank">Códigos de retorno ABECS</a></p>
 </blockquote>
 
 <h2 id="status-do-antifraude">Status do Antifraude</h2>
