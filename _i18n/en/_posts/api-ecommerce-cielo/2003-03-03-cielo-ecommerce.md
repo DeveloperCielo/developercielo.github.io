@@ -54,7 +54,7 @@ The model employed for the integration is quite simple since there are two URLs 
 
 To execute an operation:
 
-1. Combine the base URL of the environment with the URL of the desired operation.
+1. Combine the base URL of the environment with the URL of the desired operation. Eg.: https://api.cieloecommerce.cielo.com.br/*1/sales/*
 2. Send the request to the URL using the adequate HTTP method.
 
 | Method   | Description                                                                                                                                          |
