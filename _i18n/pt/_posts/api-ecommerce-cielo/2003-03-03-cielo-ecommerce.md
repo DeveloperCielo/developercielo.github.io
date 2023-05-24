@@ -6789,15 +6789,19 @@ Quando uma pessoa tenta fazer uma compra com cartão no e-commerce a transação
 
 **Como funciona?**
 
-As transações negadas foram classificadas em **irreversíveis** (nunca realizar a retentativa) e **reversíveis** (permitido realizar retentativa).
+As transações negadas são classificadas como:
 
+* **Irreversíveis**: quando a retentativa não é permitida;
+* **Reversíveis**: quando a retentativa é permitida mediante as regras de cada bandeira.
+
+<br/>
 As retentativas podem ser cobradas pela bandeira e a quantidade de vezes que uma transação pode ser retentada antes da cobrança também varia de acordo com a bandeira.
 
-Para ver as regras de retentativa de cada bandeira, acesse o manual [Programa de Retentativa das Bandeiras](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras){:target="_blank"}
+> Para ver as regras de retentativa de cada bandeira, acesse o manual [Programa de Retentativa das Bandeiras](https://developercielo.github.io/tutorial/programa-retentativa-bandeiras){:target="_blank"}
 
 ## Códigos de retorno ABECS
 
-A Associação Brasileira das Empresas de Cartão de Crédito e Serviços (ABECS) estabeleceu, desde 15 de julho de 2020, a padronização do **código de retorno das autorizações de vendas negadas** tanto para as soluções pagamento do mundo físico quanto de e-commerce do mercado brasileiro.
+A Associação Brasileira das Empresas de Cartão de Crédito e Serviços (ABECS) é responsável pela padronização do **código de retorno das autorizações de vendas negadas** tanto para as soluções pagamento do mundo físico quanto de e-commerce do mercado brasileiro.
 
 > Para ver a relação completa dos códigos de retorno das transações negadas, acesse a tabela [Códigos de retorno ABECS](https://developercielo.github.io/tutorial/abecs-e-outros-codigos){:target="_blank"}
 
