@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-05-24T20:41:02+00:00</updated>
+    <updated>2023-05-24T20:47:11+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -34566,7 +34566,9 @@ You can import them directly into your POSTMAN and have all the examples ready t
 
 &lt;p&gt;&lt;img src=&quot;https://developercielo.github.io/images/apicieloecommerce/pagamento-pix-en.png&quot; alt=&quot;Pagamento Pix&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;See the request and response examples for Pix QR Code generating:&lt;/p&gt;
+&lt;aside class=&quot;notice&quot;&gt;The QRCode for Cielo Pix expires in 24 hours.&lt;/aside&gt;
+
+&lt;p&gt;See the request and response examples for generating Pix QR Code:&lt;/p&gt;
 
 &lt;h4 id=&quot;request-5&quot;&gt;Request&lt;/h4&gt;
 
