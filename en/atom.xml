@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-05-24T20:31:32+00:00</updated>
+    <updated>2023-05-24T20:41:02+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -31401,7 +31401,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
 &lt;p&gt;To execute an operation:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Combine the base URL of the environment with the URL of the desired operation.&lt;/li&gt;
+  &lt;li&gt;Combine the base URL of the environment with the URL of the desired operation. Eg.: https://api.cieloecommerce.cielo.com.br/&lt;em&gt;1/sales/&lt;/em&gt;&lt;/li&gt;
   &lt;li&gt;Send the request to the URL using the adequate HTTP method.&lt;/li&gt;
 &lt;/ol&gt;
 
