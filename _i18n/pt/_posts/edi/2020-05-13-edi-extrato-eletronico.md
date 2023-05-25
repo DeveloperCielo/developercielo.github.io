@@ -658,8 +658,8 @@ Conforme regras de segurança, todos os registros que possuírem número de cart
 |189|217|29|Num.|Número único da transação|Número Único que identifica cada transação.|
 |218|218|1|Alfa|Indicador Cielo Promo|Identificador do Produto Cielo Promo = "S". <br> Identifica que a venda participou de campanha na Plataforma Promocional. <br> Caso contrário, será formatado com brancos.|
 |219|220|2|Num.|Modo de Entrada do Cartão|Identifica o modo de entrada do cartão. Vide Tabela IX.|
-|221|235|15|Alfanum.|Código da Venda |dentifica o código da venda. (somente conceito novo).|
-|236|250|15|Alfanum.|Código Interno do Ajuste|Identifica o código de agrupamento dos ajustes. (somente conceito novo).|
+|221|235|15|Alfanum.|Código da transação recebida|Chave única de processamento do registro.|
+|236|250|15|Alfanum.|Número da transação processada|Para cenários de ajustes originados em vendas, carrega o "Código da transação recebida".|
 
 ### Registro 3 - Operação de recebíveis
 
