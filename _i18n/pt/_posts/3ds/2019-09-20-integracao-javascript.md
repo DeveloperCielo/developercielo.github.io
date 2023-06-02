@@ -214,11 +214,11 @@ Uma vez que a classe é mapeada em determinado campo, o script é capaz de recup
 
 | **Dados do carrinho de compras** | **Descrição**                                  | **Tipo/Tamanho**                | **Obrigatório** |
 | -------------------------------- | ---------------------------------------------- | ------------------------------- | --------------- |
-| bpmpi*cart*#\_description        | Descrição do item                              | Alfanumérico [até 255 posições] | Não             |
-| bpmpi*cart*#\_name               | Nome do item                                   | Alfanumérico [até 255 posições] | Não             |
-| bpmpi*cart*#\_sku                | SKU do item                                    | Alfanumérico [até 255 posições] | Não             |
-| bpmpi*cart*#\_quantity           | Quantidade do item no carrinho                 | Numérico [até 10 posições]      | Não             |
-| bpmpi*cart*#\_unitprice          | Valor unitário do item do carrinho em centavos | Numérico [até 10 posições]      | Não             |
+| bpmpi_cart_#_description        | Descrição do item                              | Alfanumérico [até 255 posições] | Não             |
+| bpmpi_cart_#_name               | Nome do item                                   | Alfanumérico [até 255 posições] | Não             |
+| bpmpi_cart_#_sku                | SKU do item                                    | Alfanumérico [até 255 posições] | Não             |
+| bpmpi_cart_#_quantity           | Quantidade do item no carrinho                 | Numérico [até 10 posições]      | Não             |
+| bpmpi_cart_#_unitprice          | Valor unitário do item do carrinho em centavos | Numérico [até 10 posições]      | Não             |
 
 | **Dados do usuário**                      | **Descrição**                                                            | **Tipo/Tamanho**                                                                                                        | **Obrigatório** |
 | ----------------------------------------- | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- | --------------- |
@@ -234,13 +234,14 @@ Uma vez que a classe é mapeada em determinado campo, o script é capaz de recup
 | **Dados do dispositivo utilizado para compra** | **Descrição**                           | **Tipo/Tamanho**                                                  | **Obrigatório** |
 | ---------------------------------------------- | --------------------------------------- | ----------------------------------------------------------------- | --------------- |
 | bpmpi_device_ipaddress                         | Endereço IP da máquina do comprador     | Alfanumérico [até 45]                                             | Não             |
-| bpmpi*device*#\_fingerprint                    | Id retornado pelo Device Finger Print   | Alfanumérico [sem limitação]                                      | Não             |
-| bpmpi*device*#\_provider                       | Nome do provedor do Device Finger Print | Alfanumérico [até 32 posições] cardinal<br>inauth<br>threatmetrix | Não             |
+| bpmpi_device_#_fingerprint                    | Id retornado pelo Device Finger Print   | Alfanumérico [sem limitação]                                      | Não             |
+| bpmpi_device_#_provider                       | Nome do provedor do Device Finger Print | Alfanumérico [até 32 posições] cardinal<br>inauth<br>threatmetrix | Não             |
+| bpmpi_device_channel | Canal por onde chegou a transação. Valores possíveis:<br>- Browser<br>- SDK<br>- 3RI | Alfanúmerico [até 7 posições] | Não |
 
 | **Dados específicos para companhias aéreas** | **Descrição**                                                                             | **Tipo/Tamanho**               | **Obrigatório** |
 | -------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------ | --------------- |
-| bpmpi*airline_travelleg*#\_carrier           | Código IATA para o trecho                                                                 | Alfanumérico [2 posições]      | Não             |
-| bpmpi*airline_travelleg*#\_departuredate     | Data de partida                                                                           | Texto<br>AAAA-MM-DD            | Não             |
+| bpmpi_airline_travelleg_#_carrier           | Código IATA para o trecho                                                                 | Alfanumérico [2 posições]      | Não             |
+| bpmpi_airline_travelleg_#_departuredate     | Data de partida                                                                           | Texto<br>AAAA-MM-DD            | Não             |
 | bpmpi*airline_travelleg*#\_origin            | Código IATA do aeroporto de origem                                                        | Alfanumérico [5 posições]      | Não             |
 | bpmpi*airline_travelleg*#\_destination       | Código IATA do aeroporto de destino                                                       | Alfanumérico [5 posições]      | Não             |
 | bpmpi*airline_passenger*#\_name              | Nome do passageiro                                                                        | Alfanumérico [até 60 posições] | Não             |
