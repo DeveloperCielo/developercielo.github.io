@@ -814,7 +814,7 @@ O Super Link possui status próprios, diferente do site Cielo ou da API E-commer
 |1|Pendente|Pending|Para todos os meios de pagamento|Indica que o pagamento ainda está sendo processado; OBS: Boleto - Indica que o boleto não teve o status alterado pelo lojista|
 |2|Pago|Paid|Para todos os meios de pagamento|Transação capturada e o dinheiro será depositado em conta.|
 |3|Negado|Denied|Somente para Cartão Crédito|Transação não autorizada pelo responsável do meio de pagamento|
-|4|Expirado|Expired|Cartões de Crédito e Boleto|Transação deixa de ser válida para captura - **28 dias após a autorização**|
+|4|Expirado|Expired|Cartões de Crédito e Boleto|Transação deixa de ser válida para captura - **15 dias após a autorização**|
 |5|Cancelado|Voided|Para cartões de crédito|Transação foi cancelada pelo lojista
 |6|Não Finalizado|NotFinalized|Todos os meios de pagamento|Pagamento esperando Status - Pode indicar erro ou falha de processamento. Entre em contato com o Suporte Cielo|
 |7|Autorizado|Authorized|Somente para Cartão de Crédito|Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta|
@@ -1182,7 +1182,7 @@ O **Super Link** possui status próprios, diferente do site Cielo ou da API Ciel
 |1|Pendente|Boleto, Pix e QR Code|Indica que o pagamento ainda está sendo processado ou está pendente de alguma etapa por parte do portador.<br>Exemplo: uma transação de boleto com status *Pendente* indica que o boleto não teve o status alterado pelo comprador.|
 |2|Pago|Todos os meios de pagamento|A transação foi capturada e o dinheiro será depositado em conta.|
 |3|Negado|Cartão de crédito e débito|Transação não autorizada pelo responsável do meio de pagamento.|
-|4|Expirado|Cartão de crédito, débito e boleto|**Cartão de crédito e débito:** a transação deixa de ser válida para captura 28 dias após autorização.<br>**Boleto:** o boleto expira após data de expiração configurada pelo time de Suporte Cielo E-commerce conforme solicitação do estabelecimento.|
+|4|Expirado|Cartão de crédito, débito e boleto|**Cartão de crédito e débito:** a transação deixa de ser válida para captura 15 dias após autorização.<br>**Boleto:** o boleto expira após data de expiração configurada pelo time de Suporte Cielo E-commerce conforme solicitação do estabelecimento.|
 |5|Cancelado|Cartão de crédito e débito|Transação cancelada pela loja.|
 |6|Não Finalizado|Todos os meios de pagamento|Pagamento esperando novo Status.Pode indicar erro ou falha de processamento. Entre em contato com o Suporte Cielo E-commerce.|
 |7|Autorizado|Cartão de crédito e débito|Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta (por padrão, a transação pode ser capturada até 15 dias após autorização).|
