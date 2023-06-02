@@ -818,12 +818,12 @@ Transações de cartão de crédito serão incluídas no [Backoffice Cielo Check
 | 1     | **PENDENTE**            | Status original. A transação está ocorrendo, esperando resposta do processo de autorização                                                                                                   |
 | 2     | **AUTORIZADO / NEGADO** | Resultado do processo de autorização. <br>**AUTORIZADO** - Crédito foi reservado para a compra <br> **NEGADO** - Cartão não autorizado pelo emissor a continuar a transação                  |
 | 3     | **PAGO**                | Ocorre pós captura. Indica que o crédito reservado no cartão será depositado na conta do lojista                                                                                             |
-| N/A   | **EXPIRADO**            | Ocorre caso a transação não seja capturada em 28 dias pós autorização. Nessa situação a transação é perdida.                                                                                 |
+| N/A   | **EXPIRADO**            | Ocorre caso a transação não seja capturada em 15 dias pós autorização. Nessa situação a transação é perdida.                                                                                 |
 | N/A   | **CHARGEBACK**          | Status não automático. Caso o lojista seja notificado de ChargeBack, ele pode marcar esta transação como perdida.<br> Este Status é apenas uma marcação, não afetando processos de pagamento |
 
 **Atenção - Cartões Internacionais:** O Checkout Cielo aceita cartões emitidos fora do Brasil, entretanto esses cartões não possuem a capacidade de pagar vendas parceladas. Essa é uma limitação imposta pelo banco emissor.
 
-**Atenção - TRANSAÇÕES EXPIRADAS:** Por padrão, lojas Checkout Cielo possuem 28 dias para realizarem a captura da transação de Crédito. Se não capturadas, essas transações serão PERDIDAs.
+**Atenção - TRANSAÇÕES EXPIRADAS:** Por padrão, lojas Checkout Cielo possuem 15 dias para realizarem a captura da transação de Crédito. Se não capturadas, essas transações serão PERDIDAs.
 
 #### Análise de Fraude
 
@@ -1173,7 +1173,7 @@ O Checkout possui um Status próprios, diferente do SITE CIELO ou da API Cielo e
 | 1     | `Pendente`          | Pending            | Para todos os meios de pagamento | Indica que o pagamento ainda está sendo processado; OBS: Boleto - Indica que o boleto não teve o status alterado pelo lojista |
 | 2     | `Pago`              | Paid               | Para todos os meios de pagamento | Transação capturada e o dinheiro será depositado em conta.                                                                    |
 | 3     | `Negado`            | Denied             | Somente para Cartão Crédito      | Transação não autorizada pelo responsável do meio de pagamento                                                                |
-| 4     | `Expirado`          | Expired            | Cartões de Crédito e Boleto      | Transação deixa de ser válida para captura - **28 dias pós Autorização**                                                      |
+| 4     | `Expirado`          | Expired            | Cartões de Crédito e Boleto      | Transação deixa de ser válida para captura - **15 dias pós Autorização**                                                      |
 | 5     | `Cancelado`         | Voided             | Para cartões de crédito          | Transação foi cancelada pelo lojista                                                                                          |
 | 6     | `Não Finalizado`    | NotFinalized       | Todos os meios de pagamento      | Pagamento esperando Status - Pode indicar erro ou falha de processamento. Entre em contato com o Suporte Cielo                |
 | 7     | `Autorizado`        | Authorized         | somente para Cartão de Crédito   | Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta                  |
