@@ -242,10 +242,10 @@ Uma vez que a classe é mapeada em determinado campo, o script é capaz de recup
 | -------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------ | --------------- |
 | bpmpi_airline_travelleg_#_carrier           | Código IATA para o trecho                                                                 | Alfanumérico [2 posições]      | Não             |
 | bpmpi_airline_travelleg_#_departuredate     | Data de partida                                                                           | Texto<br>AAAA-MM-DD            | Não             |
-| bpmpi*airline_travelleg*#\_origin            | Código IATA do aeroporto de origem                                                        | Alfanumérico [5 posições]      | Não             |
-| bpmpi*airline_travelleg*#\_destination       | Código IATA do aeroporto de destino                                                       | Alfanumérico [5 posições]      | Não             |
-| bpmpi*airline_passenger*#\_name              | Nome do passageiro                                                                        | Alfanumérico [até 60 posições] | Não             |
-| bpmpi*airline_passenger*#\_ticketprice       | O valor da passagem em centavos Numérico [até 15 posições],<br>exemplo: R$ 125,54 = 12554 | Não                            |
+| bpmpi_airline_travelleg_#_origin            | Código IATA do aeroporto de origem                                                        | Alfanumérico [5 posições]      | Não             |
+| bpmpi_airline_travelleg_#_destination       | Código IATA do aeroporto de destino                                                       | Alfanumérico [5 posições]      | Não             |
+| bpmpi_airline_passenger_#_name              | Nome do passageiro                                                                        | Alfanumérico [até 60 posições] | Não             |
+| bpmpi_airline_passenger_#_ticketprice       | O valor da passagem em centavos Numérico [até 15 posições],<br>exemplo: R$ 125,54 = 12554 | Não                            |
 | bpmpi_airline_numberofpassengers             | Número de passageiros                                                                     | Numérico [3 posições]          | Não             |
 | bpmpi_airline_billto_passportcountry         | Código do país que emitiu o passaporte (ISO Standard Country Codes)                       | Texto [2 posições]             | Não             |
 | bpmpi_airline_billto_passportnumber          | Número do passaporte                                                                      | Alfanumérico [40 posições]     | Não             |
