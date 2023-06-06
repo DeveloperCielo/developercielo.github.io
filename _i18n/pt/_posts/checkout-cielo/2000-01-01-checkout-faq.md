@@ -71,10 +71,6 @@ Ao finalizar a compra, o consumidor tem a opção de voltar ao site do lojista o
 O Checkout não possui uma tela de finalização, apenas uma mensagem em lightbox apresentando o numero do pedido e uma URL para que o comprador possa verificar o status do pedido.
 O Lojista Checkout pode criar a propria tela de finalização e incluir a URL no campo URL de Retorno.
 
-## Como integrar o Visa Checkout no Checkout Cielo?
-
-O Checkout Cielo já possui integração com o Visa Checkout. Para ativa-lo entre em contato com o Suporte Cielo e solicite a ativação.
-
 ## Quais certificados devo usar em meu Servidor?
 
 Os Certificados para uso do Checkout Cielo estão disponiveis no [manual de integração](https://developercielo.github.io/manual/checkout-cielo#certificado-extended-validation)
