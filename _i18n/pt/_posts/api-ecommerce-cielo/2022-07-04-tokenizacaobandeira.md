@@ -6,7 +6,7 @@ search: true
 translated: true
 toc_footers: true
 categories: tutorial
-sort_order: 2
+sort_order: 5
 tags:
   - API Pagamento
   - Tokenização Bandeira
