@@ -289,9 +289,9 @@
     "@babel/plugin-transform-optional-chaining" "^7.22.3"
 
 "@babel/plugin-proposal-private-property-in-object@^7.21.0":
-  version "7.21.0"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-private-property-in-object/-/plugin-proposal-private-property-in-object-7.21.0.tgz#19496bd9883dd83c23c7d7fc45dcd9ad02dfa1dc"
-  integrity sha512-ha4zfehbJjc5MmXBlHec1igel5TJXXLDDRbuJ4+XT2TJcyD9/V1919BA8gMvsdHcNMBy4WBUBiRb3nw/EQUtBw==
+  version "7.21.11"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-private-property-in-object/-/plugin-proposal-private-property-in-object-7.21.11.tgz#69d597086b6760c4126525cfa154f34631ff272c"
+  integrity sha512-0QZ8qP/3RLDVBwBFoWAwCtgcDZJVwA5LUJRZU8x2YFfKNuFq161wK3cuGrALu5yiPu+vzwTAg/sMWVNeWeNyaw==
   dependencies:
     "@babel/helper-annotate-as-pure" "^7.18.6"
     "@babel/helper-create-class-features-plugin" "^7.21.0"
@@ -1937,9 +1937,9 @@ caniuse-lite@^1.0.30000844:
   integrity sha512-ewtFBSfWjEmxUgNBSZItFSmVtvk9zkwkl1OfRZlKA8slltRN+/C/tuGVrF9styXkN36Yu3+SeJ1qkXxDEyNZ5w==
 
 caniuse-lite@^1.0.30001489:
-  version "1.0.30001492"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001492.tgz#4a06861788a52b4c81fd3344573b68cc87fe062b"
-  integrity sha512-2efF8SAZwgAX1FJr87KWhvuJxnGJKOnctQa8xLOskAXNXq8oiuqgl6u1kk3fFpsp3GgvzlRjiK1sl63hNtFADw==
+  version "1.0.30001495"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001495.tgz#64a0ccef1911a9dcff647115b4430f8eff1ef2d9"
+  integrity sha512-F6x5IEuigtUfU5ZMQK2jsy5JqUUlEFRVZq8bO2a+ysq5K7jD6PPc9YXZj78xDNS3uNchesp1Jw47YXEqr+Viyg==
 
 chalk@^1.1.3:
   version "1.1.3"
@@ -2299,9 +2299,9 @@ electron-to-chromium@^1.3.47:
   integrity sha512-PqyefhybrVdjAJ45HaPLtuVaehiSw7C3ya0aad+rvmV53IVyXmYRk3pwIOb2TxTDTnmgQdn46NjMMaysx79/6Q==
 
 electron-to-chromium@^1.4.411:
-  version "1.4.417"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.417.tgz#a0c7eb992e68287fa50c8da5a5238b01f20b9a82"
-  integrity sha512-8rY8HdCxuSVY8wku3i/eDac4g1b4cSbruzocenrqBlzqruAZYHjQCHIjC66dLR9DXhEHTojsC4EjhZ8KmzwXqA==
+  version "1.4.421"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.421.tgz#2b8c0ef98ba00d4aef4c664933d570922da52161"
+  integrity sha512-wZOyn3s/aQOtLGAwXMZfteQPN68kgls2wDAnYOA8kCjBvKVrW5RwmWVspxJYTqrcN7Y263XJVsC66VCIGzDO3g==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
