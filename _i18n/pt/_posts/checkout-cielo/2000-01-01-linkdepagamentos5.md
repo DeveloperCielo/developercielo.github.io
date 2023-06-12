@@ -632,7 +632,7 @@ O processo de notificação transacional ocorre em duas etapas, que são a notif
 |**Notificação de finalização da transação**|`URL de Notificação`|É enviada após o comprador clicar em Finalizar, gerando a transação.Essa notificação é enviada apenas no momento que a transação é finalizada, independentemente se houve alteração do status, ou seja, não significa que a transação foi paga.|Contém todos os dados da venda.|POST ou JSON|
 |**Notificação de mudança de status**|`URL de Mudança de Status`|É enviada quando há mudança de status na transação.<br>O status pode ser alterado de “Pendente” para “Pago”, “Cancelada” ou “Não Finalizada”, entre outros. Veja a lista completa de status na tabela [Payment_status].|Contém   os dados de identificação do pedido (não tem os dados do carrinho).|POST|
 
-*As notificações são enviadas para as URLs definidas pelo estabelecimento nas [**Configurações da Loja**] e contêm os dados das transações realizadas no Super Link.
+*As notificações são enviadas para as URLs definidas pelo estabelecimento nas [**Configurações da Loja**](https://developercielo.github.io/manual/linkdepagamentos5#configura%C3%A7%C3%B5es-da-loja){:target="_blank"} e contêm os dados das transações realizadas no Super Link.
 
 Vale destacar que o Super Link realiza a notificação somente quando uma transação é considerada finalizada, ou seja, o comprador preencheu todos os dados da tela de pagamento e clicou em **Finalizar**.
 
