@@ -454,7 +454,7 @@ aplicativo na plataforma Cielo LIO.</p>
 
 <p>Recomenda-se que o desenvolvedor utilize o APK target version 27 e versão mínima 22 (essa última para garantir compatibilidade).</p>
 
-<h2 id="app-padrão-de-vendas">App padrão de vendas</h2>
+<h2 id="bloqueando-pagamento-fora-do-aplicativo">Bloqueando pagamento fora do Aplicativo</h2>
 
 <p>Você poderá configurar seu App na Cielo LIO como um aplicativo padrão, ou seja, você pode deixar o pagamento disponivel apenas para o seu aplicativo, bloqueando pagamentos via interface da Cielo LIO. Para isso, deve submeter o seu app para a CieloStore, solicitando que seja definido como frente de caixa, informando qual Intent e qual nome do parâmetro receberá o valor.</p>
 
@@ -610,12 +610,6 @@ aplicativo na plataforma Cielo LIO.</p>
   </tbody>
 </table>
 
-<h2 id="frameworks-de-desenvolvimento">Frameworks de Desenvolvimento</h2>
-
-<p>Atualmente Cielo LIO ainda não dá suporte a aplicativos desenvolvidos em plataformas híbridas, como, por exemplo, Ionic, Titanium, Xamarin, CronApp e PhoneGap.</p>
-
-<hr />
-
 <h1 id="dev-console">Dev Console</h1>
 
 <h2 id="sobre-1">Sobre</h2>
@@ -624,7 +618,7 @@ aplicativo na plataforma Cielo LIO.</p>
 
 <p>No Dev Console o desenvolvedor consegue visualizar todos os seus aplicativos publicados sejam eles aplicativos próprios ou públicos.</p>
 
-<p>Acesse agora o Dev Console:</p>
+<p>Acesse agora o <a href="https://www.cieloliostore.com.br/">Dev Console</a> e faça o seu cadastro!</p>
 
 <h2 id="lio-para-desenvolvedores">LIO para Desenvolvedores</h2>
 
@@ -635,6 +629,8 @@ aplicativo na plataforma Cielo LIO.</p>
 <p><em>É preciso ter uma conta criado no Dev Console para fazer essa solicitação</em>.</p>
 
 <p>Nosso time irá realizar os procedimentos necessários e então, todos os aplicativos publicados pelo desenvolvedor que estejam no status de Desenvolvimento poderão ser baixados em sua Cielo LIO de desenvolvimento.</p>
+
+<p>A LIO não possui o modo debug. Esse cadastro do equipamento como Dev consiste em enviarmos um aplicativo ao seu equipamento com o nome “Test Your App” e atráves desse aplicativo você efetuará a leitura de um QRCode gerado ao submeter o seu app no DevConsole. Para mais info <a href="https://developercielo.github.io/manual/cielo-lio#promover-aplicativo-para-desenvolvimento">Clique Aqui</a></p>
 
 <p><a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte">Clique Aqui</a> para solicitar a habilitação de sua LIO para LIO de Dev.</p>
 
@@ -2491,7 +2487,7 @@ O método recebe como parâmetro o <code class="language-plaintext highlighter-r
 
 <h1 id="integração-híbrida">Integração Híbrida</h1>
 
-<aside class="warning">Atenção: O emulador utilizado na integração com SDK (Integração Local) não funciona para esse modelo de integração. Os testes são feitos diretamente no equipamento</aside>
+<aside class="warning">Atenção: O emulador utilizado na integração com SDK (Integração Local) não funciona para esse modelo de integração. Os testes devem ser feitos diretamente no equipamento.</aside>
 
 <p>O processo de integração híbrida é um pouco diferente da integração com o SDK (Integração Local). Para parceiros que não estão integrando com a linguagem nativa Java ou Kotlin a integração hibrida via deep link é uma opção.</p>
 
@@ -2731,7 +2727,7 @@ O método recebe como parâmetro o <code class="language-plaintext highlighter-r
 <span class="kt">var</span> <span class="n">checkoutUri</span> <span class="o">=</span><span class="s">"lio://payment-reversal?request=$base64&amp;urlCallback=order://response"</span>
 </code></pre></div></div>
 
-<p>Para recuperar os dados basta acessar a intent na activity de resposta e no parâmetro data, acessar a uri, da seguinte forma:</p>
+<p>Para recuperar os dados basta acessar a intent na activity de resposta cadastrada em sem Manifest e no parâmetro data, acessar a uri, da seguinte forma:</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">val</span> <span class="n">responseIntent</span> <span class="o">=</span> <span class="n">intent</span>
 <span class="nf">if</span> <span class="o">(</span><span class="nc">Intent</span><span class="o">.</span><span class="na">ACTION_VIEW</span> <span class="o">==</span> <span class="n">responseIntent</span><span class="o">.</span><span class="na">action</span><span class="o">)</span> <span class="o">{</span>
@@ -2800,11 +2796,11 @@ O método recebe como parâmetro o <code class="language-plaintext highlighter-r
 
 <h2 id="code-sample-1">Code Sample</h2>
 
-<p>Disponiblizamos 2 exemplos em diferentes linguagens:</p>
+<p>Disponiblizamos 2 exemplos em diferentes linguagens para auxiliar no desenvolvimento:</p>
 
-<p>Acesse o projeto em: <a href="https://github.com/DedoJr/cieloReturnPayments">React Native</a></p>
+<p>Acesse o nosso projeto de exemplo em: <a href="https://github.com/DedoJr/cieloReturnPayments">React Native</a></p>
 
-<p>Acesse o projeto em Flutter: <a href="https://desenvolvedores.cielo.com.br/api-portal/content/solicitar-tokens-para-producao">Flutter</a></p>
+<p>Acesse o nosso projeto de exemplo em: <a href="https://desenvolvedores.cielo.com.br/api-portal/content/solicitar-tokens-para-producao">Flutter</a></p>
 
 <h1 id="integração-remota">Integração Remota</h1>
 
