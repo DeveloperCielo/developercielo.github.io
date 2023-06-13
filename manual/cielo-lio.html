@@ -2491,9 +2491,19 @@ O método recebe como parâmetro o <code class="language-plaintext highlighter-r
 
 <h1 id="integração-híbrida">Integração Híbrida</h1>
 
+<aside class="warning">Atenção: O emulador utilizado na integração com SDK (Integração Local) não funciona para esse modelo de integração. Os testes são feitos diretamente no equipamento</aside>
+
+<p>O processo de integração híbrida é um pouco diferente da integração com o SDK (Integração Local). Para parceiros que não estão integrando com a linguagem nativa Java ou Kotlin a integração hibrida via deep link é uma opção.</p>
+
+<h2 id="credenciais-1">Credenciais</h2>
+
+<p>Você pode solicitar as credenciais (client-id/access-token) diretamente via <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/myapps/new">PORTAL DE DESENVOLVEDORES</a>.</p>
+
+<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/apis.png" alt="fluxo" /></p>
+
 <h2 id="integração-híbrida-pagamento">Integração Híbrida Pagamento</h2>
 
-<p>O processo de integração híbrida é um pouco diferente da integração com o SDK. É necessário definir um contrato de resposta com a LIO para que a mesma possa responder após o fluxo de pagamento/cancelamento/impressão. Esse contrato deve ser definido no manifest.xml da aplicação conforme o exemplo abaixo:</p>
+<p>É necessário definir um contrato de resposta com a LIO para que a mesma possa responder após o fluxo de pagamento/cancelamento/impressão. Esse contrato deve ser definido no manifest.xml da aplicação conforme o exemplo abaixo:</p>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">".ResponseActivity"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;intent-filter&gt;</span>
@@ -2524,6 +2534,44 @@ O método recebe como parâmetro o <code class="language-plaintext highlighter-r
   </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<p><strong>Lista de paymentCode</strong></p>
+
+<p>Disponibilizamos também a lista do campo “paymentCode”:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PaymentCode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DEBITO_AVISTA</td>
+    </tr>
+    <tr>
+      <td>DEBITO_PREDATADO</td>
+    </tr>
+    <tr>
+      <td>CREDITO_AVISTA</td>
+    </tr>
+    <tr>
+      <td>CREDITO_PARCELADO_LOJA</td>
+    </tr>
+    <tr>
+      <td>CREDITO_PARCELADO_ADM</td>
+    </tr>
+    <tr>
+      <td>PRE_AUTORIZACAO</td>
+    </tr>
+    <tr>
+      <td>VOUCHER_ALIMENTACAO</td>
+    </tr>
+    <tr>
+      <td>VOUCHER_REFEICAO</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>Como explicado anteriormente, é preciso definir o contrato de resposta <strong>(host</strong> e <strong>scheme</strong>), aqui será utilizado essa configuração no parâmetro <strong>urlCallback</strong>. A chamada de pagamento deve ser feita da seguinte forma:</p>
 
@@ -2750,51 +2798,13 @@ O método recebe como parâmetro o <code class="language-plaintext highlighter-r
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h2 id="observações">Observações</h2>
+<h2 id="code-sample-1">Code Sample</h2>
 
-<h3 id="credenciais-1">Credenciais</h3>
+<p>Disponiblizamos 2 exemplos em diferentes linguagens:</p>
 
-<p>Você pode solicitar as credenciais (client-id/access-token) diretamente via <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/myapps/new">PORTAL DE DESENVOLVEDORES</a>.</p>
+<p>Acesse o projeto em: <a href="https://github.com/DedoJr/cieloReturnPayments">React Native</a></p>
 
-<p><img src="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/apis.png" alt="fluxo" /></p>
-
-<h3 id="lista-de-paymentcode">Lista de paymentCode</h3>
-
-<p>Disponibilizamos também a lista do campo “paymentCode”:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>PaymentCode</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>DEBITO_AVISTA</td>
-    </tr>
-    <tr>
-      <td>DEBITO_PREDATADO</td>
-    </tr>
-    <tr>
-      <td>CREDITO_AVISTA</td>
-    </tr>
-    <tr>
-      <td>CREDITO_PARCELADO_LOJA</td>
-    </tr>
-    <tr>
-      <td>CREDITO_PARCELADO_ADM</td>
-    </tr>
-    <tr>
-      <td>PRE_AUTORIZACAO</td>
-    </tr>
-    <tr>
-      <td>VOUCHER_ALIMENTACAO</td>
-    </tr>
-    <tr>
-      <td>VOUCHER_REFEICAO</td>
-    </tr>
-  </tbody>
-</table>
+<p>Acesse o projeto em Flutter: <a href="https://desenvolvedores.cielo.com.br/api-portal/content/solicitar-tokens-para-producao">Flutter</a></p>
 
 <h1 id="integração-remota">Integração Remota</h1>
 
@@ -2823,7 +2833,7 @@ O método recebe como parâmetro o <code class="language-plaintext highlighter-r
 
 <p>Clique na imagem acima, para acessar o vídeo.</p>
 
-<h3 id="code-sample-1">Code Sample</h3>
+<h3 id="code-sample-2">Code Sample</h3>
 
 <p>O código do exemplo da Automação Comercial integrada com a API Order Manager da Cielo LIO encontra-se disponível no <a href="https://github.com/cielolabsbr/SampleAutomacaoComercial1.2">GitHub</a>.</p>
 
