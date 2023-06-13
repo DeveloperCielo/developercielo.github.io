@@ -248,6 +248,45 @@
   <li>Recomendamos o uso dos navegadores Chrome e Edge para web e Safari, Chrome e Samsung Internet para mobile, todos sempre em suas versões mais atualizadas.</li>
 </ol>
 
+<h1 id="fluxo-da-api-checkout-cielo">Fluxo da API Checkout Cielo</h1>
+
+<p>Na API do Checkout Cielo, a loja envia uma requisição de criação da tela de checkout e a API retorna uma URL para acesso à página de pagamento, chamada <code class="language-plaintext highlighter-rouge">CheckoutUrl</code>.
+Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/checkout-images/checkout-fluxo.png" alt="Imagem Fluxo Geral Checkout" /></p>
+
+<ol>
+  <li>A pessoa titular do cartão (comprador) escolhe os produtos na loja integrada ao Checkout Cielo e clica em <strong>Comprar</strong>;</li>
+  <li>A loja envia a requisição de criação da página de pagamento para a API Checkout Cielo;</li>
+  <li>A API Checkout Cielo retorna o <code class="language-plaintext highlighter-rouge">CheckoutUrl</code>, que é a URL da página de pagamento montada com base nos dados enviados pela loja (como dados do comprador, dos produtos, da entrega e outros);</li>
+  <li>A loja redireciona o comprador para a URL retornada pela Cielo (página de pagamento). A tela apresentada é parte do ambiente de pagamento seguro Cielo;</li>
+  <li>O comprador escolhe o meio de pagamento, tipo de frete e endereço de entrega na página de pagamento;</li>
+  <li>O Checkout Cielo redireciona o cliente para a URL de Retorno escolhida pela loja (caso a loja tenha configurado uma URL de Retorno no site Cielo);</li>
+  <li>A loja será notificada sobre a situação da transação (caso a loja tenha configurado uma URL de notificação no site Cielo);</li>
+  <li>A loja processa o pedido de compra utilizando os dados da notificação e, se a transação estiver autorizada, libera o pedido.</li>
+</ol>
+
+<blockquote>
+  <p><strong>Importante</strong>: O Checkout Cielo não notifica os compradores a respeito do status da compra. O Checkout Cielo notifica apenas a loja quando há alguma alteração no status do pagamento, permitindo assim que a loja decida quando e como informar aos seus compradores sobre o prazo de entrega e processo de envio. Para receber notificações, é necessário configurar ao menos um tipo de URL de notificação nas <strong>Configurações da Loja.</strong></p>
+</blockquote>
+
+<h1 id="início-rápido">Início Rápido</h1>
+
+<p>Para iniciar a sua integração com a API do Checkout Cielo, você vai precisar:</p>
+
+<ol>
+  <li>Solicitar o nº de estabelecimento (EC) para o Checkout Cielo;</li>
+  <li>Definir as configurações da loja (personalização da página, escolha dos meios de pagamento e contrato com os Correios, se houver);</li>
+  <li>Configurar uma URL de notificação e de mudança de status para a sua loja;</li>
+  <li>Instalar o certificado Extended Validation;</li>
+  <li>Enviar a primeira requisição de criação de página de pagamento;</li>
+  <li>Quando houver uma tentativa de pagamento no Checkout Cielo, você receberá uma notificação* com todos os dados preenchidos na página de pagamento;</li>
+  <li>Se a transação mudar de status, você receberá uma notificação* de mudança de status;</li>
+  <li>Para efetuar testes, use o Modo de Teste do Checkout Cielo.</li>
+</ol>
+
+<p>*Desde que tenha configurado a URL de notificação.</p>
+
 <h1 id="certificado-extended-validation">Certificado Extended Validation</h1>
 
 <h2 id="o-que-é-certificado-ssl">O que é Certificado SSL?</h2>
@@ -382,64 +421,11 @@
 
 <p>Repita o mesmo procedimento para os 3 arquivos enviados.</p>
 
-<h1 id="integrando-o-checkout-cielo">Integrando o Checkout Cielo</h1>
-
-<p>Nesta documentação estão descritas todas as funcionalidades da integração da API Checkout Cielo, os parâmetros técnicos e principalmente os códigos de exemplos para facilitar o seu desenvolvimento.</p>
-
-<p>Existem duas maneiras de realizar a integração:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Tipo</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">API</code></td>
-      <td>É utilizada uma integração via API que permite o lojista enviar o <strong>“carrinho de compras”</strong> do seu site com todos os dados que ele deseja apresentar na tela transacional. <br /> Neste tipo de integração o lojista possui maior controle sobre como o pedido será gerado.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Botão / QR Code / Link</code></td>
-      <td>Dentro do Backoffice do Checkout Cielo, é possível registrar um produto ou grupo de produtos que vão gerar um Link capaz de criar várias telas de pagamento. Esse modelo é usado para pagamentos por redes sociais, campanhas promocionais ou Vendas via QR Code. Nessa categoria o lojista possui menos controle sobre como os pedidos serão apresentados ou gerados na tela transacional</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="fluxo-de-integração">Fluxo de integração</h2>
-
-<p>Durante a integração com o Checkout Cielo, uma sequência de troca de informações e redirecionamentos serão executados para que a uma transação seja criada e executada.</p>
-
-<p>Veja o fluxo abaixo:</p>
-
-<p><strong>Fluxo de integração Checkout Cielo</strong> - Diagrama sequencial
-<img src="https://developercielo.github.io/images/checkout/fluxobasico.svg" alt="Fluxo de integração Checkout Cielo" /></p>
-
-<p><strong>Fluxo de integração Checkout Cielo</strong> - Fluxograma
-<img src="https://developercielo.github.io/images/checkout/fluxocheckoutbasico.png" alt="Fluxo de integração Checkout Cielo" /></p>
-
-<p>Após o portador do cartão (consumidor) selecionar suas compras e apertar o botão “Comprar” de uma loja já integrada ao Checkout Cielo, o fluxo será:</p>
-
-<ol>
-  <li>A API da Cielo retorna o <strong>CheckoutURL</strong>, que é a URL da tela transacional montada com base nos dados enviados pela loja;</li>
-  <li>A loja redireciona o cliente para a URL retornada pela Cielo. A tela apresentada é parte do <strong>ambiente de pagamento seguro Cielo</strong>;</li>
-  <li>O portador escolhe o meio de pagamento, tipo de frete e endereço de entrega na tela transacional;</li>
-  <li>O Checkout Cielo redireciona o cliente para a <strong>URL de Retorno</strong> escolhida pela loja, configurada no <a href="https://developercielo.github.io/tutorial/checkout-tutoriais" target="_blank">site Cielo</a> ou enviada pela integração via API;</li>
-  <li>A loja será notificada sobre a situação da transação (caso tenha uma <strong>URL de notificação</strong> configurada);</li>
-  <li>A loja avisa ao cliente que o processo foi concluído e que ele receberá mais informações sobre a compra e o pagamento por e-mail;</li>
-  <li>A loja processa o pedido de compra utilizando os dados do POST de notificação e, se a transação estiver autorizada, libera o pedido.</li>
-</ol>
-
-<blockquote>
-  <p><strong>Observação:</strong> O Checkout Cielo não notifica os compradores a respeito do status de compra; o Checkout Cielo notifica apenas a loja. Isso ocorre pois permite que a loja decida quando e como informar aos seus consumidores sobre o prazo de entrega e processo de envio.</p>
-</blockquote>
-
-<h2 id="modo-de-teste-do-checkout-cielo">Modo de teste do Checkout Cielo</h2>
+<h1 id="modo-de-teste-do-checkout-cielo">Modo de teste do Checkout Cielo</h1>
 
 <p>O modo de teste Checkout Cielo é uma ferramenta que permite testar a integração do seu site com a plataforma. Com o modo teste, você pode realizar transações a medida que evolui com a integração e consegue simular cenários para testar diferentes meios de pagamento.</p>
 
-<h3 id="ativação-do-modo-de-teste">Ativação do Modo de Teste</h3>
+<h2 id="ativação-do-modo-de-teste">Ativação do Modo de Teste</h2>
 
 <p>O modo de teste pode ser ativado na aba <strong>Configurações</strong>, onde existe um caixa de seleção que, quando marcada, habilitará o modo de teste do Checkout Cielo. O modo teste somente se iniciará quando a seleção for salva.</p>
 
@@ -464,13 +450,13 @@
   </tbody>
 </table>
 
-<h3 id="como-transacionar-no-modo-de-teste">Como transacionar no Modo de teste</h3>
+<h2 id="como-transacionar-no-modo-de-teste">Como transacionar no Modo de teste</h2>
 
 <p>A realização de transações no modo de teste ocorre de forma normal. As informações da transação são enviadas via POST ou API, utilizando os parâmetros como descrito no tópico <a href="#integração-por-api">Integração por API</a>, entretanto, os meios de pagamentos a serem usados serão meios simulados.</p>
 
 <p>Para realizar transações de teste com diferentes meios de pagamento, siga as seguintes regras:</p>
 
-<h4 id="transações-com-cartão-de-crédito">Transações com cartão de crédito</h4>
+<h3 id="transações-com-cartão-de-crédito">Transações com cartão de crédito</h3>
 
 <p>Para testar cartões de crédito é necessário que dois dados importantes sejam definidos o status da autorização do cartão e o retorno da análise de fraude.</p>
 
@@ -497,42 +483,12 @@
 
 <p><strong>Exemplo:</strong> 540443424293010<strong>0</strong> = <strong>Autorizado</strong></p>
 
-<h4 id="boleto-bancário">Boleto bancário</h4>
+<h3 id="boleto-bancário">Boleto bancário</h3>
 
 <p>Basta realizar o processo de compra normalmente sem nenhuma alteração no procedimento.
 O boleto gerado no modo de teste sempre será um boleto simulado.</p>
 
-<h4 id="débito-online">Débito online</h4>
-
-<p>É necessário informar o status da transação de Debito online para que seja retornado o status desejado. Esse processo ocorre com a alteração do nome do comprador.</p>
-
-<p><strong>Status do Débito</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Sobrenome do cliente</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Pago</td>
-      <td>Pago</td>
-    </tr>
-    <tr>
-      <td>Qualquer nome</td>
-      <td>Não autorizado</td>
-    </tr>
-  </tbody>
-</table>
-
-<ul>
-  <li><strong>Exemplo:</strong> Status não Autorizado.</li>
-  <li><strong>Nome do Cliente:</strong> Maria Pereira</li>
-</ul>
-
-<h4 id="transações-de-teste">Transações de teste</h4>
+<h3 id="transações-de-teste">Transações de teste</h3>
 
 <p>Todas as transações realizadas no modo de teste serão exibidas como transações normais na aba Pedidos do Checkout Cielo, entretanto, elas serão marcadas como transações de teste e não serão contabilizadas em conjunto com as transações realizadas fora do ambiente de teste.</p>
 
@@ -544,23 +500,7 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
 
 <aside class="notice">É muito importante que, ao liberar sua loja para a realização de vendas para seus clientes, **a loja não esteja em modo de teste**. Transações realizadas nesse ambiente poderão ser finalizadas normalmente, mas **não serão descontadas do cartão do cliente** e não poderão ser “transferidas” para o ambiente de venda padrão.</aside>
 
-<h2 id="sdks-e-postman">SDKs e POSTMAN</h2>
-
-<p>O Checkout Cielo possui uma coleção POSTMAN de testes exclusiva com todos os parâmetros e opções descritas neste manual.
-Basta acessar nosso <a href="https://developercielo.github.io/Tutorial/postman">Tutorial</a> para obter informações sobre a utilização da ferramenta.</p>
-
-<p>No postman é possível criar exemplos de sua integração em:</p>
-
-<ul>
-  <li>PHP</li>
-  <li>RUBY</li>
-  <li>C#</li>
-  <li>JAVA</li>
-  <li>PYTHON</li>
-  <li>SHELL</li>
-</ul>
-
-<h2 id="integração-por-api">Integração por API</h2>
+<h1 id="integração-por-api">Integração por API</h1>
 
 <p>Este tipo de integração deve ser usada sempre que houver um “carrinho de compras” a ser enviado, ou seja, no caso do consumidor navegar pelo site e escolher 1 ou mais produtos para adicionar a um carrinho e depois então finalizar a venda.</p>
 
@@ -570,7 +510,7 @@ Basta acessar nosso <a href="https://developercielo.github.io/Tutorial/postman">
 
 <p><img src="https://developercielo.github.io/images/checkout/int-api.png" alt="Integração Via API" /></p>
 
-<h3 id="criando-o-carrinho">Criando o carrinho</h3>
+<h2 id="criando-o-carrinho">Criando o carrinho</h2>
 
 <p>Na integração via API, a tela transacional é “montada” com bases em dados enviados que formam um <strong>Carrinho de compras</strong>.
 Esses dados são separados nos seguintes “nós principais”:</p>
@@ -1931,7 +1871,7 @@ Diferentemente de outros meios de pagamento, o boleto não possui atualização 
 
 <p><strong>OBS</strong>: A opção <strong>Cancelar</strong> dentro do backoffice, vai modificar o status da transação de PAGO/NÃO FINALIZADO para CANCELADO, mas não terá efeito sobre a movimentação bancaria. Caberá ao lojista retornar o valor ao comprador</p>
 
-<h3 id="débito-online-1">Débito Online</h3>
+<h3 id="débito-online">Débito Online</h3>
 
 <p>O Checkout Cielo permite a utilização de Débito Online (Transferência entre contas bancarias) para compradores que possuam contas nos bancos Bradesco e Banco do Brasil.
 Esse meio de pagamento é liberado via cadastro junto ao Suporte Cielo.</p>
