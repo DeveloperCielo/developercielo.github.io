@@ -281,6 +281,82 @@ Essas transações terão o símbolo de teste as diferenciando de suas outras tr
 
 <aside class="notice">É muito importante que, ao liberar sua loja para a realização de vendas para seus clientes, **a loja não esteja em modo de teste**. Transações realizadas nesse ambiente poderão ser finalizadas normalmente, mas **não serão descontadas do cartão do cliente** e não poderão ser “transferidas” para o ambiente de venda padrão.</aside>
 
+# Autenticação Cielo OAUTH
+
+O Cielo OAUTH é um processo de autenticação das APIs Cielo relacionadas ao e-commerce. O Cielo OAUTH utiliza como segurança o protocolo **[OAUTH2](https://oauth.net/2/){:target="_blank"} **, no qual é necessário primeiro obter um token de acesso utlizando suas credenciais e, posteriormente, enviá-lo à API de Controle Transacional. 
+
+> A autenticação só é necessária para as operações de consulta, captura e cancelamento.
+
+Para utilizar o Cielo OAUTH são necessárias as seguintes credenciais:
+
+| PROPRIEDADE    | DESCRIÇÃO                                                             | TIPO   |
+| -------------- | --------------------------------------------------------------------- | ------ |
+| `ClientId`     | Identificador chave fornecido pela CIELO                              | GUID   |
+| `ClientSecret` | Chave que valida o ClientID. Fornecida pela Cielo junto ao `ClientID` | string |
+
+> Para gerar o `ClientID` e o `ClientSecret`, consulte o tópico de Obtendo as Credenciais, a seguir.
+
+## Obtendo as credenciais
+
+Para obter as credenciais `ClientId` e `ClientSecret`, siga os passos a seguir:
+
+1. Após receber o nº de estabelecimento (EC) com a habilitação para o Checkout, acesse o [site Cielo](https://minhaconta2.cielo.com.br/login/){:target="_blank"} e faça o login;
+2. Vá para a aba **Ecommerce** > **Super Link** > **Configurações** > **Dados Cadastrais**;
+3. Na seção **Contato técnico**, preencha com os dados de contato da pessoa responsável por receber as chaves da sua loja. *ATENÇÃO: apenas coloque os dados da pessoa que realmente pode ter acesso às chaves da sua loja, que são informações sigilosas de cada estabelecimento*;
+4. Clique em **Gerar Credenciais de Acesso às APIs**;
+5. O contato técnico receberá um e-mail com as credenciais.
+
+## Obtendo o token de acesso
+
+Para obter acesso a serviços Cielo que utilizam o **Cielo Oauth**, será necessário obter um token de acesso, conforme os passos abaixo:
+
+1. Concatene o `ClientId` e o `ClientSecret`, `**ClientId:ClientSecret**`;
+2. Codifique o resultado em **Base64**;
+3. Envie a requisição de criação do token, utilizando o método HTTP POST.
+
+**Exemplo da Concatenação**
+
+| Campo                     | Formato                                                                                          |
+| ------------------------- | ------------------------------------------------------------------------------------------------ |
+| **ClientId**              | b521b6b2-b9b4-4a30-881d-3b63dece0006                                                             |
+| **ClientSecret**          | 08Qkje79NwWRx5BdgNJsIkBuITt5cIVO                                                                 |
+| **ClientId:ClientSecret** | _b521b6b2-b9b4-4a30-881d-3b63dece0006:08Qkje79NwWRx5BdgNJsIkBuITt5cIVO_                          |
+| **Base64**                | _YjUyMWI2YjItYjliNC00YTMwLTg4MWQtM2I2M2RlY2UwMDA2OiAwOFFramU3OU53V1J4NUJkZ05Kc0lrQnVJVHQ1Y0lWTw_ |
+
+### Requisição
+
+A requisição dever ser enviada apenas no header.
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/token</span></aside>
+
+```json
+x-www-form-urlencoded
+--header "Authorization: Basic {base64}"  
+--header "Content-Type: application/x-www-form-urlencoded"  
+grant_type=client_credentials
+```
+
+### Resposta
+
+A resposta retornará o `access_token`, que deverá ser usado nas requisições da API de Controle Transacional, para as operações de consulta, captura e cancelamento.
+
+```json
+{
+  "access_token":
+    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6Ik1ldUNoZWNrb3V0IE1hc3RlciBLZXkiLCJjbGllbnRfaWQiOiJjODlmZGasdasdasdmUyLTRlNzctODA2YS02ZDc1Y2QzOTdkYWMiLCJzY29wZXMiOiJ7XCJTY29wZVwiOlwiQ2hlY2tvdXRBcGlcIixcIkNsYWltc1wiOltdfSIsInJvbGUiOiJasdasdasd291dEFwaSIsImlzc47I6Imh0dHBzOi8vYXV0aGhvbasdasdnJhc3BhZy5jb20uYnIiLCJhdWQiOiJVVlF4Y1VBMmNTSjFma1EzSVVFbk9pSTNkbTl0ZmasdsadQjVKVVV1UVdnPSIsImV4cCI6MTQ5Nzk5NjY3NywibmJmIjoxNDk3OTEwMjc3fQ.ozj4xnH9PA3dji-ARPSbI7Nakn9dw5I8w6myBRkF-uA",
+  "token_type": "bearer",
+  "expires_in": 1199
+}
+```
+
+| PROPRIEDADE    | DESCRIÇÃO                                                 | TIPO   |
+| -------------- | --------------------------------------------------------- | ------ |
+| `Access_token` | Utilizado para acesso aos serviços da API                 | string |
+| `Token_type`   | Sempre será do tipo `bearer`                              | texto  |
+| `Expires_in`   | Validade do token em segundos. Aproximadamente 20 minutos | int    |
+
+> O token retornado (`access_token`) deverá ser utilizado em toda requisição de consulta, captura e cancelamento como uma chave de autorização. O `access_token` possui uma validade de 20 minutos (1200 segundos) e é necessário gerar um novo token toda vez que a validade expirar.
+
 # Criando o carrinho
 
 Na integração via API, a tela transacional é "montada" com bases em dados enviados que formam um **Carrinho de compras**.
