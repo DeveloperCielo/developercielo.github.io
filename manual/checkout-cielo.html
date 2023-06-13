@@ -500,6 +500,148 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
 
 <aside class="notice">É muito importante que, ao liberar sua loja para a realização de vendas para seus clientes, **a loja não esteja em modo de teste**. Transações realizadas nesse ambiente poderão ser finalizadas normalmente, mas **não serão descontadas do cartão do cliente** e não poderão ser “transferidas” para o ambiente de venda padrão.</aside>
 
+<h1 id="autenticação-cielo-oauth">Autenticação Cielo OAUTH</h1>
+
+<p>O Cielo OAUTH é um processo de autenticação das APIs Cielo relacionadas ao e-commerce. O Cielo OAUTH utiliza como segurança o protocolo <strong><a href="https://oauth.net/2/" target="_blank">OAUTH2</a> </strong>, no qual é necessário primeiro obter um token de acesso utlizando suas credenciais e, posteriormente, enviá-lo à API de Controle Transacional.</p>
+
+<blockquote>
+  <p>A autenticação só é necessária para as operações de consulta, captura e cancelamento.</p>
+</blockquote>
+
+<p>Para utilizar o Cielo OAUTH são necessárias as seguintes credenciais:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>DESCRIÇÃO</th>
+      <th>TIPO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ClientId</code></td>
+      <td>Identificador chave fornecido pela CIELO</td>
+      <td>GUID</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ClientSecret</code></td>
+      <td>Chave que valida o ClientID. Fornecida pela Cielo junto ao <code class="language-plaintext highlighter-rouge">ClientID</code></td>
+      <td>string</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>Para gerar o <code class="language-plaintext highlighter-rouge">ClientID</code> e o <code class="language-plaintext highlighter-rouge">ClientSecret</code>, consulte o tópico de Obtendo as Credenciais, a seguir.</p>
+</blockquote>
+
+<h2 id="obtendo-as-credenciais">Obtendo as credenciais</h2>
+
+<p>Para obter as credenciais <code class="language-plaintext highlighter-rouge">ClientId</code> e <code class="language-plaintext highlighter-rouge">ClientSecret</code>, siga os passos a seguir:</p>
+
+<ol>
+  <li>Após receber o nº de estabelecimento (EC) com a habilitação para o Checkout, acesse o <a href="https://minhaconta2.cielo.com.br/login/" target="_blank">site Cielo</a> e faça o login;</li>
+  <li>Vá para a aba <strong>Ecommerce</strong> &gt; <strong>Super Link</strong> &gt; <strong>Configurações</strong> &gt; <strong>Dados Cadastrais</strong>;</li>
+  <li>Na seção <strong>Contato técnico</strong>, preencha com os dados de contato da pessoa responsável por receber as chaves da sua loja. <em>ATENÇÃO: apenas coloque os dados da pessoa que realmente pode ter acesso às chaves da sua loja, que são informações sigilosas de cada estabelecimento</em>;</li>
+  <li>Clique em <strong>Gerar Credenciais de Acesso às APIs</strong>;</li>
+  <li>O contato técnico receberá um e-mail com as credenciais.</li>
+</ol>
+
+<h2 id="obtendo-o-token-de-acesso">Obtendo o token de acesso</h2>
+
+<p>Para obter acesso a serviços Cielo que utilizam o <strong>Cielo Oauth</strong>, será necessário obter um token de acesso, conforme os passos abaixo:</p>
+
+<ol>
+  <li>Concatene o <code class="language-plaintext highlighter-rouge">ClientId</code> e o <code class="language-plaintext highlighter-rouge">ClientSecret</code>, <code class="language-plaintext highlighter-rouge">**ClientId:ClientSecret**</code>;</li>
+  <li>Codifique o resultado em <strong>Base64</strong>;</li>
+  <li>Envie a requisição de criação do token, utilizando o método HTTP POST.</li>
+</ol>
+
+<p><strong>Exemplo da Concatenação</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ClientId</strong></td>
+      <td>b521b6b2-b9b4-4a30-881d-3b63dece0006</td>
+    </tr>
+    <tr>
+      <td><strong>ClientSecret</strong></td>
+      <td>08Qkje79NwWRx5BdgNJsIkBuITt5cIVO</td>
+    </tr>
+    <tr>
+      <td><strong>ClientId:ClientSecret</strong></td>
+      <td><em>b521b6b2-b9b4-4a30-881d-3b63dece0006:08Qkje79NwWRx5BdgNJsIkBuITt5cIVO</em></td>
+    </tr>
+    <tr>
+      <td><strong>Base64</strong></td>
+      <td><em>YjUyMWI2YjItYjliNC00YTMwLTg4MWQtM2I2M2RlY2UwMDA2OiAwOFFramU3OU53V1J4NUJkZ05Kc0lrQnVJVHQ1Y0lWTw</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="requisição">Requisição</h3>
+
+<p>A requisição dever ser enviada apenas no header.</p>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/token</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">x-www-form-urlencoded</span><span class="w">
+</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Basic {base64}"</span><span class="w">  
+</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Content-Type: application/x-www-form-urlencoded"</span><span class="w">  
+</span><span class="err">grant_type=client_credentials</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="resposta">Resposta</h3>
+
+<p>A resposta retornará o <code class="language-plaintext highlighter-rouge">access_token</code>, que deverá ser usado nas requisições da API de Controle Transacional, para as operações de consulta, captura e cancelamento.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w">
+    </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6Ik1ldUNoZWNrb3V0IE1hc3RlciBLZXkiLCJjbGllbnRfaWQiOiJjODlmZGasdasdasdmUyLTRlNzctODA2YS02ZDc1Y2QzOTdkYWMiLCJzY29wZXMiOiJ7XCJTY29wZVwiOlwiQ2hlY2tvdXRBcGlcIixcIkNsYWltc1wiOltdfSIsInJvbGUiOiJasdasdasd291dEFwaSIsImlzc47I6Imh0dHBzOi8vYXV0aGhvbasdasdnJhc3BhZy5jb20uYnIiLCJhdWQiOiJVVlF4Y1VBMmNTSjFma1EzSVVFbk9pSTNkbTl0ZmasdsadQjVKVVV1UVdnPSIsImV4cCI6MTQ5Nzk5NjY3NywibmJmIjoxNDk3OTEwMjc3fQ.ozj4xnH9PA3dji-ARPSbI7Nakn9dw5I8w6myBRkF-uA"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">1199</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>DESCRIÇÃO</th>
+      <th>TIPO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Access_token</code></td>
+      <td>Utilizado para acesso aos serviços da API</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Token_type</code></td>
+      <td>Sempre será do tipo <code class="language-plaintext highlighter-rouge">bearer</code></td>
+      <td>texto</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Expires_in</code></td>
+      <td>Validade do token em segundos. Aproximadamente 20 minutos</td>
+      <td>int</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>O token retornado (<code class="language-plaintext highlighter-rouge">access_token</code>) deverá ser utilizado em toda requisição de consulta, captura e cancelamento como uma chave de autorização. O <code class="language-plaintext highlighter-rouge">access_token</code> possui uma validade de 20 minutos (1200 segundos) e é necessário gerar um novo token toda vez que a validade expirar.</p>
+</blockquote>
+
 <h1 id="criando-o-carrinho">Criando o carrinho</h1>
 
 <p>Na integração via API, a tela transacional é “montada” com bases em dados enviados que formam um <strong>Carrinho de compras</strong>.
@@ -540,7 +682,7 @@ Esses dados são separados nos seguintes “nós principais”:</p>
 
 <p><strong>Importante</strong>: A requisição de criação do carrinho <strong>não cria uma transação</strong>. A URL retornada (<code class="language-plaintext highlighter-rouge">CheckoutUrl</code>) é apenas uma “pré-ordem” indicando que uma tela transacional está pronta para ser utilizada. A transação é criada apenas quando o comprador clica em Finalizar na tela do <strong>Checkout</strong>.</p>
 
-<h2 id="requisição">Requisição</h2>
+<h2 id="requisição-1">Requisição</h2>
 
 <p>Confira um exemplo de requisição de criação do carrinho (tela transacional) no Checkout Cielo.</p>
 
