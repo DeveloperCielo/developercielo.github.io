@@ -281,6 +281,18 @@ Essas transações terão o símbolo de teste as diferenciando de suas outras tr
 
 <aside class="notice">É muito importante que, ao liberar sua loja para a realização de vendas para seus clientes, **a loja não esteja em modo de teste**. Transações realizadas nesse ambiente poderão ser finalizadas normalmente, mas **não serão descontadas do cartão do cliente** e não poderão ser “transferidas” para o ambiente de venda padrão.</aside>
 
+# Endpoints
+
+Os endpoints para integração com o Checkout Cielo são apresentados na tabela a seguir:
+
+|API| URL | DESCRIÇÃO|
+|---|---|---|
+|**API Checkout Cielo** | https://cieloecommerce.cielo.com.br/api/public/v1/orders/| Criação da página de pagamento.|
+|**Cielo OAUTH2 Server** | https://cieloecommerce.cielo.com.br/api/public/v2/token | Autenticação para consulta, captura e cancelamento de transações.|
+|**API de Controle Transacional** | https://cieloecommerce.cielo.com.br/api/public/v2/ | Consulta de transações.|
+
+> **Importante**: A API do Checkout não possui sandbox, mas você pode criar páginas de pagamento de teste ativando o Modo Teste no site Cielo.
+
 # Autenticação Cielo OAUTH
 
 O Cielo OAUTH é um processo de autenticação das APIs Cielo relacionadas ao e-commerce. O Cielo OAUTH utiliza como segurança o protocolo **[OAUTH2](https://oauth.net/2/){:target="_blank"} **, no qual é necessário primeiro obter um token de acesso utlizando suas credenciais e, posteriormente, enviá-lo à API de Controle Transacional. 
