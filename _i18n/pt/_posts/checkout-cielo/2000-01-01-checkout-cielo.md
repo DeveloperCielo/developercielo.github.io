@@ -14,111 +14,55 @@ language_tabs:
   shell: cURL
 ---
 
+# Sobre essa documentação
+
+Este manual irá guiar o desenvolvedor na integração com a API do Checkout Cielo. Ao integrar a API do Checkout, você vai conseguir:
+
+* Configurar a sua loja e personalizar sua página de pagamento;
+* Criar uma página de pagamento via API;
+* Receber notificações de pagamentos;
+* Consultar, capturar e cancelar transações.
+
+> Você também pode usar o Checkout pelo site Cielo ou pelo app Cielo Gestão. Para usar o Checkout pelo site Cielo, consulte [este tutorial](https://developercielo.github.io/tutorial/checkout-tutoriais){:target="_blank"}.
+
 # Sobre o Checkout Cielo
 
-O Checkout Cielo é uma solução que agrega vários serviços de processamento de pagamento, no qual o consumidor é direcionado para uma página de pagamento online segura da Cielo.
-A página de pagamentos Cielo proporciona um alto nível de confiança, seguindo as normas de segurança PCI.
+O Checkout Cielo é indicado para sites com carrinhos de compra, ou seja, quando o consumidor navega pelo site e escolhe um ou mais produtos a fim de finalizar a compra. Ao clicar em **Comprar**, o consumidor é redirecionado para uma página de pagamento online segura da Cielo.
 
-O grande diferencial do **Checkout Cielo** é a gama de serviços agregados em uma tela transacional segura e com apenas uma integração técnica via **API REST**.
+O Checkout Cielo é uma solução que agrega vários serviços de processamento de pagamento e gera uma página de pagamentos que proporciona um alto nível de confiança, seguindo as normas de segurança PCI.
 
-O Checkout possui as seguintes Funcionalidades:
+O grande diferencial do Checkout Cielo é a gama de serviços agregados em uma página de pagamento segura e com apenas uma integração técnica via API REST.
 
-| Funcionalidade                     | Descrição                                                                                                                                                                                                                               |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Tela transacional**              | O Checkout Cielo possui uma tela transacional própria, com um layout otimizado, encurtando os passos no pagamento de suas transações.                                                                                                   |
-| **Recorrência**                    | O Checkout Cielo possui a Recorrência Programada disponível na API Cielo Ecommerce. <br> Basta que o lojista defina que uma transação deve se repetir, que o Checkout vai executa-la novamente no intervalo definido                    |
-| **Antifraude**                     | O Checkout já possui uma integração com o Antifraude da CyberSource, permitindo a análise de transações de crédito sem uma integração adicional                                                                                         |
-| **Meios de pagamentos**            | O Checkout Cielo possui uma variada gama de meios de pagamento: <br> **Cartões de crédito** <br> **Cartão de Débito**<br>**Débito Online**<br>**Boleto Bradesco e Banco do Brasil**<br>**Pix**                                   |
-| **Backoffice Simplificado**        | O Backoffice do Checkout Cielo possui um layout simplificado e dinâmico que permite uma navegação rápida e confortável para que o Lojista possa acompanhar as vendas sem dificuldade                                                    |
-| **Integração com Botão e QR Code** | Sem integração técnica ou o programação, o Checkout disponibiliza uma integração que torna possível realizar a criação de um link gerador de pedidos apenas com um cadastro de produtos dentro do Backoffice Checkout.                  |
-| **Relatórios transacionais**       | Dentro do Backoffice, é possível gerar relatórios transnacionais que facilitam a administração de suas vendas: <br> **Relatório de Recorrências** <br> **Relatório de compradores**<br>**Extrato de vendas**<br>**Relatório de vendas** |
+**O Checkout possui as seguintes funcionalidades:**
 
-O Checkout Cielo é indicado para:
+|FUNCIONALIDADE|DESCRIÇÃO|
+|---|---|
+|**Página de pagamento**|O Checkout Cielo possui uma página de pagamento própria, com um layout otimizado, encurtando os passos no pagamento de suas transações.|
+|**Recorrência**|O Checkout Cielo possui a Recorrência Programada. Basta que a loja defina que uma transação deve se repetir, que o Checkout vai executa-la novamente no intervalo definido.
+|**Análise de fraude**|O Checkout oferece análise de fraude de transações de crédito sem uma integração adicional.
+|**Diversos meios de pagamentos**|O Checkout Cielo possui uma variada gama de meios de pagamento:<br>Cartões de crédito<br>Cartão de débito<br>Boleto Bradesco e Banco do Brasil<br>Pix Cielo, Bradesco e Banco do Brasil|
+|**Integração com Botão e QR Code**|Sem integração técnica ou programação, o Checkout disponibiliza uma integração que torna possível realizar a criação de um botão para acesso à página de pagamento. Veja mais no [Tutorial Checkout](https://developercielo.github.io/tutorial/checkout-tutoriais){:target="_blank"}|
+|**Relatórios transacionais**|Dentro do site Cielo, é possível gerar relatórios transacionais que facilitam a administração de suas vendas:<br>Relatório de Recorrências<br>Relatório de compradores<br>Extrato de vendas<br>Relatório de vendas|
 
-- **Sites com carrinhos de compra**: quando houver um “carrinho de compras” a ser enviado, ou seja, no caso do consumidor navegar pelo site e escolher um ou mais produtos a fim de finalizar a compra;
-- **Vendas via Redes sociais**: com a capacidade de gerar um link ou QR Code para levar o comprador a tela transacional, o Checkout é indicado para realizar vendas via redes sociais de modo simplificado, sem a necessidade de integração técnica.
+**Os meios de pagamento e bandeiras aceitos no Checkout Cielo são:**
 
-## Meios de pagamento do Checkout Cielo
+|MEIO DE PAGAMENTO|BANDEIRAS E PROVEDORES|
+|---|---|
+|Cartão de crédito|Visa, Mastercard, American Express, Elo, Diners Club, Discover, JCB e Hipercard|
+|Cartão de débito|Visa, Mastercard e Elo|
+|Pix|Cielo, Bradesco e Banco do Brasil|
+|Boleto registrado|Bradesco e Banco do Brasil|
 
-A versão atual do Checkout Cielo possui suporte às seguintes bandeiras e produtos:
-
-**Cartão de Crédito**
-
-| Bandeira         | Crédito à vista | Crédito parcelado Loja | Débito |
-| ---------------- | --------------- | ---------------------- | ------ |
-| Visa             | Sim             | Sim                    | Sim    |
-| MasterCard       | Sim             | Sim                    | Sim    |
-| American Express | Sim             | Sim                    | Não    |
-| Elo              | Sim             | Sim                    | Sim  |
-| Diners Club      | Sim             | Sim                    | Não    |
-| Discover         | Sim             | Não                    | Não    |
-| JCB              | Sim             | Sim                    | Não    |
-| Aura             | Sim             | Sim                    | Não    |
-| Hipercard        | Sim             | Sim                    | Não    |
-
-**OBS**: Limite máximo de parcelas do Checkout Cielo é 12 parcelas.
-
-**Cartão de Débito**
-
-| Bandeira   | Banco                                                                                                                                                                 |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Visa       | Bradesco<br>Banco do Brasil<br>HSBC<br>Santander<br>Itaú<br>BRB<br>Safra<br>Banco da Amazônia<br>Sicredi<br>Banco do Espirito Santo<br>Banco do Nordeste<br>Mercantil |
-| Mastercard | Banco do Brasil<br>Santander<br>Itaú<br>BRB<br>Sicredi<br>Bancoob<br>CitiBank                                                                                         |
-| Elo      | Caixa Ecônomica Federal                                                                                                                                               |
-
-**Boleto**
-
-| Banco           | Tipo           |
-| --------------- | -------------- |
-| Bradesco        | Não registrado |
-| Bradesco        | Registrado SPS |
-| Banco do Brasil | Registrado     |
-
-**Débito Online**
-
-| Banco           |
-| --------------- |
-| Bradesco        |
-| Banco do Brasil |
+**Observação**: O limite máximo de parcelas do Checkout Cielo é 12 parcelas.
 
 ## Pré-requisitos para integração
 
-O Checkout Cielo possui uma lista de requisitos básicos para que o processo de integração seja bem sucedido.
-Abaixo listamos pontos que devem estar prontos antes da integração:
+O Checkout Cielo possui uma lista de requisitos básicos para que o processo de integração seja bem sucedido. A seguir listamos pontos que devem estar prontos antes da integração:
 
 1. O cadastro da loja deve estar **ativo** junto à Cielo;
-
-2. Deve-se definir um **timeout** adequado nas requisições HTTP à Cielo; recomendamos 30 segundos;
-
-3. O certificado Root da entidade certificadora (CA) de nosso Web Service deve estar cadastrado na Truststore a ser utilizada. Como nossa certificadora é de ampla aceitação no mercado, é provável que ela já esteja registrada na Truststore do próprio sistema operacional. Veja a seção [Certificado Extended Validation](#certificado-extended-validation) para mais informações.
-
-4. O Checkout funciona de forma eficiente apenas nos navegadores suportados:
-
-| Navegador         | Versão               |
-| ----------------- | -------------------- |
-| Chrome            | V40.0 ou posterior   |
-| FireFox           | V34.0.5 ou posterior |
-| Internet Explorer | 10 ou superior       |
-| Safari (MAC/iOS)  | 7 ou posterior       |
-| Opera             | V26 ou posterior     |
-
-**OBS**: Para que compradores e lojistas obtenham a melhor experiência do Checkout Cielo, recomendamos baixar a última versão dos navegadores mencionados acima.
-
-Confira este [**site**](http://browsehappy.com/){:target="_blank"} para visualizar as últimas versões dos navegadores.
-
-**Observação:** navegadores antigos podem negar acesso ao Checkout Cielo e alguns recursos não funcionarão como desejado. Navegadores mais recentes também oferecem melhores recursos de encriptação e privacidade.
-
-Se um recurso ainda não funcionar como esperado:
-
-- Tente utilizar outro navegador como solução temporária para o problema.
-- Se você utiliza o Internet Explorer, tente desativar o modo de compatibilidade.
-
-Se você já tentou essas soluções, mas continua a ter problemas, entre em contato conosco pelo [Suporte Cielo](#suporte-cielo) e forneça as seguintes informações:
-
-- Uma explicação geral sobre o problema;
-- O navegador e a versão que estão sendo utilizados;
-- O sistema operacional e a versão utilizada no computador;
-- Uma captura de tela do problema.
+2. Deve-se definir um **timeout** adequado nas requisições HTTP à Cielo. Recomendamos 30 segundos;
+3. O certificado Root da entidade certificadora (CA) de nosso Web Service deve estar cadastrado. Veja a seção [Certificado Extended Validation](#certificado-extended-validation) para mais informações;
+4. Recomendamos o uso dos navegadores Chrome e Edge para web e Safari, Chrome e Samsung Internet para mobile, todos sempre em suas versões mais atualizadas.
 
 # Certificado Extended Validation
 
