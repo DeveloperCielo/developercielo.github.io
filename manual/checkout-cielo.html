@@ -500,17 +500,7 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
 
 <aside class="notice">É muito importante que, ao liberar sua loja para a realização de vendas para seus clientes, **a loja não esteja em modo de teste**. Transações realizadas nesse ambiente poderão ser finalizadas normalmente, mas **não serão descontadas do cartão do cliente** e não poderão ser “transferidas” para o ambiente de venda padrão.</aside>
 
-<h1 id="integração-por-api">Integração por API</h1>
-
-<p>Este tipo de integração deve ser usada sempre que houver um “carrinho de compras” a ser enviado, ou seja, no caso do consumidor navegar pelo site e escolher 1 ou mais produtos para adicionar a um carrinho e depois então finalizar a venda.</p>
-
-<p>Se você não possui um carrinho de compras implementado, veja a seção de <strong>Integração via botão</strong> Checkout Cielo.</p>
-
-<p>Abaixo, é demonstrado como o fluxo de compra ocorre na integração via API:</p>
-
-<p><img src="https://developercielo.github.io/images/checkout/int-api.png" alt="Integração Via API" /></p>
-
-<h2 id="criando-o-carrinho">Criando o carrinho</h2>
+<h1 id="criando-o-carrinho">Criando o carrinho</h1>
 
 <p>Na integração via API, a tela transacional é “montada” com bases em dados enviados que formam um <strong>Carrinho de compras</strong>.
 Esses dados são separados nos seguintes “nós principais”:</p>
@@ -550,7 +540,7 @@ Esses dados são separados nos seguintes “nós principais”:</p>
 
 <p><strong>Importante</strong>: A requisição de criação do carrinho <strong>não cria uma transação</strong>. A URL retornada (<code class="language-plaintext highlighter-rouge">CheckoutUrl</code>) é apenas uma “pré-ordem” indicando que uma tela transacional está pronta para ser utilizada. A transação é criada apenas quando o comprador clica em Finalizar na tela do <strong>Checkout</strong>.</p>
 
-<h3 id="requisição">Requisição</h3>
+<h2 id="requisição">Requisição</h2>
 
 <p>Confira um exemplo de requisição de criação do carrinho (tela transacional) no Checkout Cielo.</p>
 
@@ -807,7 +797,7 @@ Esses dados são separados nos seguintes “nós principais”:</p>
   </tbody>
 </table>
 
-<h3 id="respostas">Respostas</h3>
+<h2 id="respostas">Respostas</h2>
 
 <p>Devido ao seu fluxo de venda ser dividido em duas etapas, sendo a primeira, a criação da tela transacional e a segunda, a finalização do pagamento, o Checkout possui duas respostas para uma transação:</p>
 
@@ -900,7 +890,7 @@ Esses dados são separados nos seguintes “nós principais”:</p>
   <p><strong>Importante</strong>: O Checkout Cielo não possui erros numerados, apenas uma mensagem genérica. Veja a sessão “Identificando erros de Integração” para mais informações.</p>
 </blockquote>
 
-<h3 id="funcionalidades-adicionais">Funcionalidades adicionais</h3>
+<h2 id="funcionalidades-adicionais">Funcionalidades adicionais</h2>
 
 <p>O Checkout Cielo possui funcionalidades adicionais que seguem regras específicas para utilização e não estão disponíveis na integração via botão.</p>
 
@@ -909,7 +899,7 @@ Esses dados são separados nos seguintes “nós principais”:</p>
   <li><strong>Tipos de Frete</strong></li>
 </ul>
 
-<h4 id="tipos-de-desconto">Tipos de Desconto</h4>
+<h3 id="tipos-de-desconto">Tipos de Desconto</h3>
 
 <p>O Checkout Cielo permite que o lojista aplique descontos específicos tanto para o carrinho quanto para meios de pagamento.
 Os descontos disponíveis no Checkout Cielo são:</p>
@@ -1010,13 +1000,12 @@ Os descontos disponíveis no Checkout Cielo são:</p>
   </tbody>
 </table>
 
-<p><strong>Boleto, débito online e cartão de crédito</strong></p>
+<p><strong>Boleto e cartão de crédito</strong></p>
 
 <p>Para enviar um desconto sobre o <strong>boleto</strong>, <strong>débito online</strong> e/ou <strong>cartão de crédito à vista</strong> envie dentro do nó Payment o campo correspondente:</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">BoletoDiscount</code> para boleto;</li>
-  <li><code class="language-plaintext highlighter-rouge">DebitDiscount</code> para débito online;</li>
   <li><code class="language-plaintext highlighter-rouge">FirstInstallmentDiscount</code> para cartão de crédito à vista.</li>
 </ul>
 
@@ -1050,13 +1039,6 @@ Os descontos disponíveis no Checkout Cielo são:</p>
       <td>Desconto, em porcentagem, para pagamentos a serem realizados com boleto.</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.DebitDiscount</code></td>
-      <td>Numeric</td>
-      <td>Condicional</td>
-      <td>3</td>
-      <td>Desconto, em porcentagem, para pagamentos a serem realizados com débito online.</td>
-    </tr>
-    <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.FirstInstallmentDiscount</code></td>
       <td>Numeric</td>
       <td>Condicional</td>
@@ -1081,7 +1063,7 @@ Os descontos disponíveis no Checkout Cielo são:</p>
   </tbody>
 </table>
 
-<h4 id="tipos-de-frete">Tipos de Frete</h4>
+<h3 id="tipos-de-frete">Tipos de Frete</h3>
 
 <p>O Checkout cielo possui diferentes tipos de frete.</p>
 
@@ -1388,237 +1370,6 @@ Há dois tipos de erro que poderão ocorrer durante o processo de integração c
 
 <p>Caso algum erro ocorra após a finalização da transação, entre em contato com o Suporte Cielo.</p>
 
-<h2 id="integração-por-botÃo">Integração por BOTÃO</h2>
-
-<p><strong>Integração via Botão, QR CODE ou LINK</strong> é um método de compra usada sempre que não houver um “carrinho de compras” em sua loja.
-Esse tipo de integração é realizado via o cadastro de um conjunto de itens a ser vendido on backoffice do Checkout Cielo.</p>
-
-<p>O botão gera um do 3 tipos diferentes de métodos de acesso a <strong>mesma tela transacional</strong>:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Método</th>
-      <th style="text-align: center">Nome</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><img src="https://developercielo.github.io/images/checkout/botao.png" alt="Botão" /></td>
-      <td style="text-align: center"><strong>Botão</strong></td>
-      <td>É um código HTML que ao ser colado em um site, vai direcionar o comprador a tela transacional - Ideal para uso em <strong>hotSites</strong> ou <strong>E-mail Marketing</strong></td>
-    </tr>
-    <tr>
-      <td><img src="https://developercielo.github.io/images/checkout/qrcode.png" alt="QRCODE" /></td>
-      <td style="text-align: center"><strong>QRCODE</strong></td>
-      <td>Código interpretável por Smartphones e Tablets - Ideal para uso em <strong>Marketing impressos</strong> ou <strong>Digital</strong></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">http://bit.ly/2tRkSxZ</code></td>
-      <td style="text-align: center"><strong>LINK</strong></td>
-      <td>é um link compartilhável, ideal para uso em <strong>Redes Sociais</strong> ou <strong>Messengers Mobile</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Este modelo de integração é utilizado para:</p>
-
-<ul>
-  <li>Associar uma compra rápida direta a um produto como uma promoção numa homepage pulando a etapa do carrinho.</li>
-  <li>Enviar um e-mail marketing, ou uma cobrança via e-mail.</li>
-  <li>Adicionar o botão (HTML) referente ao produto/serviço a ser comprado/pago.</li>
-  <li>Realizar envio de pagamentos por aplicativos mobile</li>
-  <li>Sempre que se deseja disponibilizar uma venda rápida.</li>
-</ul>
-
-<p>Para utilizar este recurso, é necessário cadastrar o produto que se deseja vender, suas informações, e depois simplesmente copiar o código fonte gerado para este botão. A inclusão dos produtos é feita dentro do <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">Backoffice Cielo Checkout</a>, no menu de Produtos/Cadastrar Produto.</p>
-
-<h3 id="características-do-botão">Características do Botão</h3>
-
-<p>Cada botão possui um código único que só permite comprar aquele determinado produto nas condições de preço e frete cadastrado. Portanto, um fraudador não consegue alterar nenhuma destas informações na hora de submeter à compra, pois o Checkout Cielo vai buscar todos os dados do produto no cadastro do <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">Backoffice Cielo Checkout</a>, e valerão os dados do cadastro.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Característica</th>
-      <th>Explicação</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Específico</strong></td>
-      <td>Cada botão gerado serve somente para um determinado produto ou grupo de produtos. A quantidade e volume de produtos vendido é definido no cadastro do Botão, não sendo possível altera a quantidade na tela transacional <br /><strong>Exemplo:</strong> Será necessário criar Um botão para vender 1 camisa. Se o comprador desejar 2 camisas, ele precisará usar o botão 2X ou O lojista deverá criar um botão com 2 camisas</td>
-    </tr>
-    <tr>
-      <td><strong>Número do Pedido do Checkout</strong></td>
-      <td>O botão não permite o cadastro do número de pedido do Lojista. Como será a Cielo a acionar o próprio Checkout, será gerado um número de pedido (um <code class="language-plaintext highlighter-rouge">GUID</code>) único. O Lojista receberá esse número de pedido como link a venda realizada</td>
-    </tr>
-    <tr>
-      <td><strong>Criação de pedidos</strong></td>
-      <td>Um botão gera vários pedidos independentes, ou seja, para limitar a quantidade de pedidos gerados por um botão, QRCODE ou Link criado, é necessário definir uma quantidade mínimas de itens em “estoque” no momento de cadastro. O Botão é um método de chamadas à API Checkout. Cada vez que ele é acionado, uma nova requisição é feita a API, criando assim um novo pedido</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Abaixo, o fluxo de pagamento via Botão:</strong></p>
-
-<p><img src="https://developercielo.github.io/images/checkout/intbt.png" alt="Fluxo de integração Checkout Cielo Botão" /></p>
-
-<h3 id="criando-o-botão">Criando o Botão</h3>
-
-<p>Para utilizar este recurso, é necessário cadastrar o produto que se deseja vender, suas informações, e depois simplesmente copiar o código fonte gerado para este botão. A inclusão dos produtos é feita dentro do <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">Backoffice Cielo Checkout</a>, no menu de Produtos/Cadastrar Produto.</p>
-
-<p><strong>Tela de Cadastro:</strong></p>
-
-<p><img src="https://developercielo.github.io/images/checkout/btcadastro.png" alt="Cadastro de Botão" /></p>
-
-<p><strong>Botão Cadastrado:</strong></p>
-
-<p><img src="https://developercielo.github.io/images/checkout/btcadastro2.png" alt="Cadastro de Botão" /></p>
-
-<p>Abaixo a listagem de itens que devem ser cadastrados para a criação do botão:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Campos</th>
-      <th>Descrição</th>
-      <th>Tamanho Min.</th>
-      <th>Tamanho Máx.</th>
-      <th>Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Tipo do Produto</code></td>
-      <td>Indique se está vendendo um bem Material, um Serviço ou um bem Digital. Para bens Digitais, não será apresentada a opção de tipo de Frete.</td>
-      <td>n/a</td>
-      <td>n/a</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">SKU</code></td>
-      <td>Código de identificação do produto</td>
-      <td>1</td>
-      <td>50</td>
-      <td>Não</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Título</code></td>
-      <td>Titulo do Produto</td>
-      <td>1</td>
-      <td>50</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Descrição</code></td>
-      <td>Descrição do Produto</td>
-      <td>1</td>
-      <td>255</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Preço</code></td>
-      <td>Valor total do pedido <strong>em centavos</strong> (ex.: R$1,00 =100).</td>
-      <td>11</td>
-      <td>14</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Frete</code></td>
-      <td>Escolher dentre uma das opções de Frete (Correios, Frete Fixo, Frete Grátis, Retirar na loja, Sem Cobrança).</td>
-      <td>n/a</td>
-      <td>n/a</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CEP de Origem</code></td>
-      <td>Esse campo só aparece para o frete tipo Correios, deve ser preenchido com o CEP de onde vai partir a mercadoria para fins de cálculo de frete.</td>
-      <td>9</td>
-      <td>9</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Peso(kg)</code></td>
-      <td>Esse campo só aparece para o frete tipo Correios, deve ser preenchido com o peso do produto em kg para fins de cálculo de frete</td>
-      <td>n/a</td>
-      <td>n/a</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Valor do Frete</code></td>
-      <td>Esse campo só aparece para o frete tipo Frete Fixo, e deve ser preenchido com o valor que o lojista especificar para seus produtos.</td>
-      <td>n/a</td>
-      <td>n/a</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Método de envio</code></td>
-      <td>Esse campo só aparece para Tipo Produto igual a Material Físico e Tipo de Frete igual a Frete Fixo.</td>
-      <td>n/a</td>
-      <td>n/a</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">URL</code></td>
-      <td>Esse campo só aparece para Tipo Produto igual a Digital.</td>
-      <td>n/a</td>
-      <td>n/a</td>
-      <td>Sim</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Quantidade</code></td>
-      <td>Define a quantidade máxima de pedidos que o Botão pode gerar. Se não definido, o botão poderá gerar um número infinito de pedidos</td>
-      <td>n/a</td>
-      <td>n/a</td>
-      <td>Não</td>
-    </tr>
-  </tbody>
-</table>
-
-<aside class="warning">**imitação de Pedidos Gerados** Durante o processo de cadastro do botão, o item "Quantidade" definirá quantos pedidos poderão ser gerados pelo Botão. Essa "quantidade" diz respeito ao número de Itens em estoque/vendas são desejadas pelo lojista. Uma vez esgotadas, o Checkout passará a apresentar uma tela de erro quando o Botão/Link de pagamentos for acionado. **A "quantidade" não está disponível para vendas Recorrentes.**</aside>
-
-<h3 id="exemplo-de-botão">Exemplo de Botão</h3>
-
-<p>Abaixo é possível ver como o cadastro de um botão gera os 3 métodos de para acesso a tela transacional.</p>
-
-<ul>
-  <li><strong>Botão</strong> - Será criado um código HTML como o abaixo:</li>
-</ul>
-
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">method=</span><span class="s">'post'</span> <span class="na">action=</span><span class="s">'https://cieloecommerce.cielo.com.br/transactional/Checkout/BuyNow'</span> <span class="na">target=</span><span class="s">'blank'</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">'hidden'</span> <span class="na">name=</span><span class="s">'id'</span> <span class="na">value=</span><span class="s">00000000-0000-0000-000000000000/</span><span class="nt">&gt;&lt;input</span> <span class="na">type=</span><span class="s">'image'</span> <span class="na">name=</span><span class="s">'submit'</span> <span class="na">alt=</span><span class="s">'Comprar'</span> <span class="na">src=</span><span class="s">'https://cieloecommerce.cielo.com.br /BackOffice/Contenthttps://developercielo.github.io/images/botao_comprar_3.jpg'</span> <span class="nt">/&gt;</span>
-<span class="nt">&lt;/form&gt;</span>
-</code></pre></div></div>
-
-<p><strong>Exemplo de um botão Funcional:</strong></p>
-
-<ul>
-  <li><strong>QR CODE E LINK</strong> - O link e o QRCODE tem o mesmo comportamento do botão, levando a mesma tela transacional.</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th>QR Code</th>
-      <th>Link</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td> </td>
-      <td><code class="language-plaintext highlighter-rouge">http://bit.ly/2tRkSxZ</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Adicionando o botão na sua página, você deve copiar o código HTML do botão criado e inclui-lo no HTML de seu site, conforme o exemplo abaixo.</p>
-
-<aside class="notice">O código deve ser inserido dentro da área adequada no seu HTML.</aside>
-
-<p>Cada botão possui um código único que só permite comprar aquele determinado produto nas condições de preço e frete cadastrado. Portanto, um fraudador não consegue alterar nenhuma destas informações na hora de submeter a compra, pois o Checkout Cielo vai buscar todos os dados do produto no cadastro do <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">Backoffice Cielo Checkout</a>, e valerão os dados do cadastro.</p>
-
 <h2 id="fluxos-meios-de-pagamento">Fluxos Meios de pagamento</h2>
 
 <h3 id="cartão-de-crédito">Cartão de Crédito</h3>
@@ -1870,26 +1621,6 @@ Diferentemente de outros meios de pagamento, o boleto não possui atualização 
 </ol>
 
 <p><strong>OBS</strong>: A opção <strong>Cancelar</strong> dentro do backoffice, vai modificar o status da transação de PAGO/NÃO FINALIZADO para CANCELADO, mas não terá efeito sobre a movimentação bancaria. Caberá ao lojista retornar o valor ao comprador</p>
-
-<h3 id="débito-online">Débito Online</h3>
-
-<p>O Checkout Cielo permite a utilização de Débito Online (Transferência entre contas bancarias) para compradores que possuam contas nos bancos Bradesco e Banco do Brasil.
-Esse meio de pagamento é liberado via cadastro junto ao Suporte Cielo.</p>
-
-<p>Ao acessar a tela transacional, o comprador obterá pelo pagamento via Débito online, e será redirecionado ao ambiente bancário para Autenticação e Autorização.</p>
-
-<p>Transações de Débito online serão incluídos no <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">Backoffice Cielo Checkout</a> como PENDENTE, PAGO, NÃO AUTORIZADO ou NÃO FINALIZADO, dependendo do resultado da autorização junto ao Banco.</p>
-
-<p><strong>Débito online</strong> - Ordem de Status</p>
-
-<ul>
-  <li><strong>Pendente</strong> - Status original. A transação está ocorrendo, esperando resposta do banco para envio do comprador ao ambiente de autenticação</li>
-  <li><strong>Não Finalizado</strong> - Status intermediário. Neste ponto o Checkout Cielo espera a confirmação do Banco sobre o status da autenticação e transação. Caso o comprador abandone o ambiente do banco, o status não se altera.</li>
-  <li><strong>Pago</strong> - Comprador finalizou o pagamento do débito com sucesso.</li>
-  <li><strong>Não Autorizado</strong> - O Comprador não apresentava saldo em conta para finalizar a transação.</li>
-</ul>
-
-<p><strong>OBS</strong>: A opção <strong>Cancelar</strong> dentro do backoffice, vai modificar o status da transação de PAGO/NÃO PAGO para CANCELADO, mas não terá efeito sobre a movimentação bancaria. Caberá ao lojista retornar o valor ao comprador</p>
 
 <h1 id="notificações-de-pagamento">Notificações de Pagamento</h1>
 
