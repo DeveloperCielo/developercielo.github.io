@@ -20,10 +20,9 @@ Este manual irá guiar o desenvolvedor na integração com a API do Checkout Cie
 
 * Configurar a sua loja e personalizar sua página de pagamento;
 * Criar uma página de pagamento via API;
-* Receber notificações de pagamentos;
-* Consultar, capturar e cancelar transações.
+* Receber notificações de pagamentos.
 
-> Você também pode usar o Checkout pelo site Cielo ou pelo app Cielo Gestão. Para usar o Checkout pelo site Cielo, consulte [este tutorial](https://developercielo.github.io/tutorial/checkout-tutoriais){:target="_blank"}.
+> Não é desenvolvedor? Você pode usar o Checkout pelo site Cielo ou pelo app Cielo Gestão. Saiba mais [neste tutorial](https://developercielo.github.io/tutorial/checkout-tutoriais){:target="_blank"}.
 
 # Sobre o Checkout Cielo
 
