@@ -68,7 +68,7 @@ O Checkout Cielo possui uma lista de requisitos básicos para que o processo de 
 Na API do Checkout Cielo, a loja envia uma requisição de criação da tela de checkout e a API retorna uma URL para acesso à página de pagamento, chamada `CheckoutUrl`.
 Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:
 
-![Imagem Fluxo Geral Checkout]({{ site.baseurl_root }}/images/checkout/checkout-images/checkout-fluxo.png)
+![Imagem Fluxo Geral Checkout]({{ site.baseurl_root }}/images/checkout/checkout-images/checkout-fluxo-cinza.png)
 
 1. A pessoa titular do cartão (comprador) escolhe os produtos na loja integrada ao Checkout Cielo e clica em **Comprar**;
 2. A loja envia a requisição de criação da página de pagamento para a API Checkout Cielo;
