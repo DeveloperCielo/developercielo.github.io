@@ -127,7 +127,7 @@ O link de pagamento pode ser compartilhado de três formas:
 
 Confira no vídeo o passo a passo da geração de um link:
 
-[![Gerar Super Link](https://github.com/DeveloperCielo/developercielo.github.io/blob/98b263c3738f248745008cedf50c2c4f66a2ff5e/images/checkout/tutoriais-checkout/video-superlink.png)](https://www.youtube.com/watch?v=GWKYSdgSko8){:target="_blank"}
+[![Gerar Super Link]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/video-superlink.png)](https://www.youtube.com/watch?v=GWKYSdgSko8){:target="_blank"}
 
 - **Botão** - Será criado um código HTML como o abaixo:
 
