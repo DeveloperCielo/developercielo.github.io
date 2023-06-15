@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-06-15T12:27:05+00:00</updated>
+    <updated>2023-06-15T20:01:45+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -25659,21 +25659,13 @@ See more details at &lt;a href=&quot;https://developercielo.github.io/en/manual/
 
 &lt;h1 id=&quot;platforms-overview&quot;&gt;Platform’s Overview&lt;/h1&gt;
 
-&lt;h2 id=&quot;about&quot;&gt;About&lt;/h2&gt;
+&lt;h3 id=&quot;cielo-lio&quot;&gt;Cielo LIO&lt;/h3&gt;
 
 &lt;p&gt;Cielo LIO is a platform that provides control and business management that goes beyond a traditional payment system. This platform supports applications developed for Android system, encouraging partner developers on creating especialized applications for several segments (restaurants, clothing, cosmetics, fuel and other) and, thus, allowing commercial establishments to chose the application that adapts better to their company business model.&lt;/p&gt;
 
-&lt;p&gt;Do you want to know more about the Cielo LIO product? Access: http://cielolio.com.br&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/NOVA_LIO_ON.png&quot; alt=&quot;NEW LIO ON&quot; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;cielo-lio-available-models&quot;&gt;Cielo LIO available models&lt;/h2&gt;
-
-&lt;p&gt;Currently, Cielo LIO is available in 2 models: LIO V1 and LIO V2&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/lio_v1_v2.png&quot; alt=&quot;Comparison - LIO V1 and LIO V2&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Both models were developed by Cielo thinking in attend to specific needs of some clients.&lt;/p&gt;
-
-&lt;p&gt;While the LIO v1 has a more compact design and allows more mobility, LIO v2 was conceived in a larger size and has some exclusive and additional functionalities, such as:&lt;/p&gt;
+&lt;p&gt;LIO v3 was conceived in a larger size and has some exclusive and additional functionalities, such as:&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Thermal printer&lt;/strong&gt;: the client will be able to have the 1st and 2nd hard copies after the performed payment. Besides, the partner applications will be able to use the printer available methods to print important or necessary data for the client’s business.&lt;/p&gt;
 
@@ -25684,19 +25676,705 @@ Blue Paper 48 grams, Length: 12 meters, Maximum diameter: 30 millimeters, Width:
 
 &lt;h2 id=&quot;architecture&quot;&gt;Architecture&lt;/h2&gt;
 
-&lt;h3 id=&quot;about-1&quot;&gt;About&lt;/h3&gt;
+&lt;h3 id=&quot;about&quot;&gt;About&lt;/h3&gt;
 
 &lt;p&gt;Cielo LIO platform is based on Android and consists in:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;An application store (Cielo Store) for developers to publish their applications and make them available for commercial establishments (retailers).&lt;/li&gt;
   &lt;li&gt;A platform with cloud architecture and REST APIs that allows the integration to partners’ commercial automation systems.
-Access Remote Integration Documentation&lt;/li&gt;
+Access &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-lio#remote-integration&quot;&gt;Remote Integration Documentation&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;An SDK for development on Android, in a way that partners’ applications are able to integrate with the Cielo LIO payment functionalities.
-Access Local Integration Documentation&lt;/li&gt;
+Access &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-lio#local-integration&quot;&gt;Local Integration Documentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;models-of-integration-with-the-cielo-lio-platform&quot;&gt;Models of integration with the Cielo LIO platform&lt;/h3&gt;
+
+&lt;h4 id=&quot;remote-integration--cielo-lio-order-manager&quot;&gt;Remote Integration | Cielo LIO Order Manager&lt;/h4&gt;
+
+&lt;p&gt;set of APIs that allow the client to continue using his PDV / Commercial Automation solution with all the functionalities. At the moment of performing the payment, the integration with the Cielo LIO Orders Manager occur (Order Manager), in a fast, simple and safe way.
+&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#integração-remota&quot;&gt;Go to remote integration&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;local-integration--cielo-lio-order-manager-sdk&quot;&gt;Local Integration | Cielo LIO Order Manager SDK&lt;/h4&gt;
+
+&lt;p&gt;Cielo provides an SDK based on Cielo Lio Order Manager API that allows the developer and Cielo LIO partner to integrate his application to the Cielo LIO functionalities.
+&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#integração-local&quot;&gt;Go to local integration&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;peripheral-services&quot;&gt;Peripheral services&lt;/h3&gt;
+
+&lt;p&gt;Cielo LIO also integrates to the following peripheral hardwares:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Bluetooth Printers&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;On the LIO V1 case, it is possible to connect Cielo with bluetooth printers to perform the printing of receipts and other important information.&lt;/p&gt;
+
+&lt;p&gt;There are partners that are already using Bluetooth printers from the brands Zebra, Datex, Leopardo integrated to Cielo LIO.&lt;/p&gt;
+
+&lt;p&gt;All communication protocols and pairing are under the partner’s application responsability.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;RFID Readers&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;There are partners already using RFID readers in their solutions..&lt;/p&gt;
+
+&lt;p&gt;All communication protocols and pairing are under the partner’s application responsability.&lt;/p&gt;
+
+&lt;h2 id=&quot;technical-especifications-of-the-cielo-lio-hardware&quot;&gt;Technical especifications of the Cielo LIO hardware&lt;/h2&gt;
+
+&lt;p&gt;The Cielo LIO platform had its own operational system based on Android.
+Check the table below with the technical especifications of the Cielo LIO:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/lio_v1_small.png&quot; alt=&quot;LIO V1&quot; /&gt;&lt;/th&gt;
+      &lt;th&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/lio_v2_small.png&quot; alt=&quot;LIO V2&quot; /&gt;&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Version&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;LIO V1&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;LIO V2&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Operatinal System&lt;/td&gt;
+      &lt;td&gt;Android OS Cielo 5.1.1&lt;/td&gt;
+      &lt;td&gt;Android OS Cielo 6.0 (Marshmallow)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Memmory&lt;/td&gt;
+      &lt;td&gt;2GB LPDDR3&lt;/td&gt;
+      &lt;td&gt;2GB LPDDR3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Dual Chip&lt;/td&gt;
+      &lt;td&gt;Dual SIM Stand-by&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SIM Card type&lt;/td&gt;
+      &lt;td&gt;micro SIM (3FF)&lt;/td&gt;
+      &lt;td&gt;micro SIM (3FF)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;GSM Frequency in Mhz&lt;/td&gt;
+      &lt;td&gt;Quad-Band 850/900/1800/1900&lt;/td&gt;
+      &lt;td&gt;Quad-Band 850/900/1800/1900&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Size in inches&lt;/td&gt;
+      &lt;td&gt;5”&lt;/td&gt;
+      &lt;td&gt;5.5”&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Screen type&lt;/td&gt;
+      &lt;td&gt;AMOLED&lt;/td&gt;
+      &lt;td&gt;AMOLED&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Screen resolution&lt;/td&gt;
+      &lt;td&gt;720 x 1280 pixels&lt;/td&gt;
+      &lt;td&gt;720 x 1280 pixels&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Pixel density&lt;/td&gt;
+      &lt;td&gt;293 ppi&lt;/td&gt;
+      &lt;td&gt;267 ppi&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Camera&lt;/td&gt;
+      &lt;td&gt;12.8 Mega Pixels&lt;/td&gt;
+      &lt;td&gt;13 Mega Pixels&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Camera resolution&lt;/td&gt;
+      &lt;td&gt;4128 x 3096 pixels&lt;/td&gt;
+      &lt;td&gt;4160 x 3120 pixels&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Flash&lt;/td&gt;
+      &lt;td&gt;Flash LED&lt;/td&gt;
+      &lt;td&gt;Flash LED&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;USB&lt;/td&gt;
+      &lt;td&gt;USB 2.0 Micro-B (Micro-USB) Energy only&lt;/td&gt;
+      &lt;td&gt;USB 2.0 Micro-B (Micro-USB) Energy only&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Bluetooth&lt;/td&gt;
+      &lt;td&gt;Version 4.0 com A2DP&lt;/td&gt;
+      &lt;td&gt;Version 4.0 com A2DP/LE&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;WiFi&lt;/td&gt;
+      &lt;td&gt;802.11 a/b/g/n&lt;/td&gt;
+      &lt;td&gt;802.11 b/g/n&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;GPS&lt;/td&gt;
+      &lt;td&gt;A-GPS. GeoTagging&lt;/td&gt;
+      &lt;td&gt;A-GPS&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Sensors&lt;/td&gt;
+      &lt;td&gt;Accelerometer, Proximity e Luminosity&lt;/td&gt;
+      &lt;td&gt;Accelerometer, Proximity e Luminosity&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Audio Output&lt;/td&gt;
+      &lt;td&gt;Audio Jack 3.5mm&lt;/td&gt;
+      &lt;td&gt;Audio Jack 3.5mm&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Weight&lt;/td&gt;
+      &lt;td&gt;363 g&lt;/td&gt;
+      &lt;td&gt;507 g&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Height&lt;/td&gt;
+      &lt;td&gt;34mm&lt;/td&gt;
+      &lt;td&gt;46mm&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Width&lt;/td&gt;
+      &lt;td&gt;84mm&lt;/td&gt;
+      &lt;td&gt;81mm&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Length&lt;/td&gt;
+      &lt;td&gt;168mm&lt;/td&gt;
+      &lt;td&gt;228mm&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;screen-rotation-on-cielo-lio&quot;&gt;Screen rotation on Cielo LIO&lt;/h2&gt;
+
+&lt;p&gt;The rotations on the displayed screen have different behavior between the Cielo LIO versions.&lt;/p&gt;
+
+&lt;p&gt;On LIO V1 the screen orientation is locked.&lt;/p&gt;
+
+&lt;p&gt;On LIO V2 it is possible to control the screen orientation. By standard, the displayed screen orientation is free and set according to the equipment accelerometer.&lt;/p&gt;
+
+&lt;p&gt;In case the developer wants to control and use in a customized way the Cielo LIO screen orientation, he’ll have to use it according to the Android documentation..&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developer.android.com/guide/topics/manifest/activity-element.html&quot;&gt;Official Android Documentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Access the item: android:screenOrientation for more information.&lt;/p&gt;
+
+&lt;h2 id=&quot;mobile-data-on-cielo-lio&quot;&gt;Mobile Data on Cielo LIO&lt;/h2&gt;
+
+&lt;p&gt;Cielo LIO already comes configured with a SIM Card. The SIM Card carrier is set according to the commercial establishment registered address.&lt;/p&gt;
+
+&lt;p&gt;Cielo sends the SIM Card of the best carrier according to the registered address of the LIO requested.&lt;/p&gt;
+
+&lt;p&gt;This SIM Card allows the connection with the 3G technology of Cielo LIO and has an unlimited data package.&lt;/p&gt;
+
+&lt;h1 id=&quot;tips-for-developers&quot;&gt;Tips for developers&lt;/h1&gt;
+
+&lt;p&gt;The guide below provides information necessary to help developers to integrate or develop their applications on Cielo Lio platform the best way possible, in a way to provide an excellent experience to the commercial establishments.&lt;/p&gt;
+
+&lt;p&gt;It is recommended the detailed reading of the Cielo LIO documentation present on the Developers Portal. This documentation gathers important information for moderate simplicity questions.&lt;/p&gt;
+
+&lt;h2 id=&quot;best-practices-with-the-cielo-lio-platform&quot;&gt;Best practices with the Cielo LIO platform&lt;/h2&gt;
+
+&lt;h3 id=&quot;data-security-and-privacy&quot;&gt;Data Security and Privacy&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Protect sensitive data from customers and employees. Do not expose names, addresses, or phone numbers publicly.&lt;/li&gt;
+  &lt;li&gt;Never expose authentication tokens or passwords of any kind.&lt;/li&gt;
+  &lt;li&gt;The partner must provide his support data so that the commercial establishments (retailers) contact in case of problems and/or questions.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;rate-limiting&quot;&gt;Rate Limiting&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The Commercial Automation solicitations or PDV must be scaled to the max in order to avoid high traffic bursts.&lt;/li&gt;
+  &lt;li&gt;“Cache” your own data when you need to store specialized values or quickly revise large data sets.&lt;/li&gt;
+  &lt;li&gt;Do not create multi-thread with POST layers, this behavior can create systemics delays due to deadlocks.&lt;/li&gt;
+  &lt;li&gt;Minimize data usage. The commercial establishments (retailers) may be using a connection with limited mobile data.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;quality-code&quot;&gt;Quality Code&lt;/h3&gt;
+
+&lt;p&gt;Your application has to be in conformity with the Android and Java programming conventional practices according to the guidelines for Android developers.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Object Oriented Design principles (S.O.L.I.D.).&lt;/li&gt;
+  &lt;li&gt;Java style guidelines.&lt;/li&gt;
+  &lt;li&gt;Understand the difference between &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;compileSdkVersion&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;targetSdkVersion&lt;/code&gt;, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minSdkVersion&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Enjoy the Android native buttons, like the “Back” and “Home” buttons.&lt;/li&gt;
+  &lt;li&gt;Optimize the operations seeking low battery consumption&lt;/li&gt;
+  &lt;li&gt;The application has to attend the Cielo commercial establishments (retailers) needs.&lt;/li&gt;
+  &lt;li&gt;Your application has to have a good end-to-end experience, assuring the correct communication between all fluxes, specially the Cielo LIO payment returns.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;image-features&quot;&gt;Image features&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The applications’ icons must be mimap features.&lt;/li&gt;
+  &lt;li&gt;The icons must be in conformity to the Android standard dimensioning (you can use third party icon generators to resize your logo): 192 × 192 (xxxhdpi).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;use-and-usability&quot;&gt;Use and Usability&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We recommend that the developers integrate some kind of fail report utility in their Android products. It will help you on maintaining the operational awareness of your product.&lt;/li&gt;
+  &lt;li&gt;Developers can collect metrics about the use of your application. It will help them on building better products and rising the awareness about any impacting questions..&lt;/li&gt;
+  &lt;li&gt;Ensure that the application works optimally, avoiding that crash and delay occurs on the answer for application processing.&lt;/li&gt;
+  &lt;li&gt;The design must emphasize clarity and accessibility - high contrast, readable fonts, large text and inputs.&lt;/li&gt;
+  &lt;li&gt;Make the application’s acceptance terms clear and provide the necessary support to the user regarding the service provided.&lt;/li&gt;
+  &lt;li&gt;If you are adapting a developed application for another platform, check if it only includes features and buttons relevant to the Cielo LIO user.&lt;/li&gt;
+  &lt;li&gt;If your application includes a component designed to the customer, your project will reflect on the business using your application. These interfaces have to be pleasant and professional.&lt;/li&gt;
+  &lt;li&gt;It is recommended the use of the &lt;a href=&quot;https://material.io&quot;&gt;Material Design&lt;/a&gt; for development of the applications for Cielo LIO. This recommendation has the purpose of facilitating the use of good design practices for development of mobile applications.&lt;/li&gt;
+  &lt;li&gt;Your application will be used in working conditions of fast and dynamic pace. Strive to get clear work fluxes, easy to use and robust, with as few steps as possible.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;develop-your-application-for-cielo-lio&quot;&gt;Develop your application for Cielo LIO&lt;/h1&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;With Cielo LIO it is possible that companies and partners have your application running on Cielo platform. These applications may or not be integrated to the payment, it all will depend on the company or partner purposes.&lt;/p&gt;
+
+&lt;p&gt;Below, you’ll find all necessary information to develop an application for Cielo LIO.&lt;/p&gt;
+
+&lt;h2 id=&quot;development-environment&quot;&gt;Development Environment&lt;/h2&gt;
+
+&lt;p&gt;It is required that you use an IDE (Integrated Development Environment) to develop your application. Cielo recommends that an IDE from Android Studio (version 2.2.2 or above) is used, seeking to assure the application operation on Cielo LIO platform.&lt;/p&gt;
+
+&lt;p&gt;For more details about the Android Studio instalation and configuration, &lt;a href=&quot;https://developer.android.com/index.html&quot;&gt;click here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For the creation of a new project on Android Studio, &lt;a href=&quot;https://developer.android.com/training/basics/firstapp/creating-project.html&quot;&gt;click here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;programming-language&quot;&gt;Programming Language&lt;/h2&gt;
+
+&lt;p&gt;Cielo LIO accepts applications developed in Java or Kotlin..&lt;/p&gt;
+
+&lt;p&gt;We recommend that these languages are used to ensure that it works and to ensure the ease of integration with Cielo LIO.&lt;/p&gt;
+
+&lt;h2 id=&quot;cielo-os&quot;&gt;Cielo OS&lt;/h2&gt;
+
+&lt;p&gt;O sistema operacional da plataforma Cielo LIO foi personalizado e, com isso, surgiu o Cielo OS, que é baseado em Android.&lt;/p&gt;
+
+&lt;h2 id=&quot;target-version-of-the-application&quot;&gt;Target version of the application&lt;/h2&gt;
+
+&lt;p&gt;It is recommended that the developer uses Android 5.1.1 (Lollipop) as the application target version.
+Thus, it is assured the working of the application on the LIO V1 hardware as well as on LIO V2 hardware.&lt;/p&gt;
+
+&lt;h2 id=&quot;unavailable-features&quot;&gt;Unavailable Features&lt;/h2&gt;
+
+&lt;p&gt;When customizing the Android of Cielo LIO, some features were removed to assure the peroformance and security of the platoform.&lt;/p&gt;
+
+&lt;p&gt;Below, the list of Cielo LIO removed features:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Google Play Services&lt;/strong&gt;: All services, APIs and apps from Google were removed from the operational system. Consequently, it won’t be possible to use the libraries that depend on these Google features.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Componente Webview&lt;/strong&gt;: This visual feature was removed with the purpose of ensuring the security on the platform and avoid that, from the installed applications on Cielo LIO, it is possible to access links and external contents.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Attention&lt;/strong&gt;: Cielo does not allow that the application from the client/partner be developed using the WebView feature. This visual feature makes the Cielo LIO platform vulnerable. In case the application is using WebView, it won’t attend the certification parameters and it won’t be made available on Cielo Store.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;substitutes-suggestions&quot;&gt;Substitutes suggestions&lt;/h2&gt;
+
+&lt;h3 id=&quot;push-notifications&quot;&gt;Push-Notifications&lt;/h3&gt;
+
+&lt;p&gt;Exclusive Google Services feature, therefore, it won’t be present on Cielo LIO.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Alternative&lt;/strong&gt;: JobScheduler&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Description&lt;/strong&gt;: It’s an API to schedule several kinds of jobs against the structure that will be executed in the process of your application itself. Allowing in each time cycle that the application perform a search in our Backend services.&lt;/p&gt;
+
+&lt;p&gt;JobScheduler is the most indicated due to battery performance, without mentioning other options that it provides (Example: Job only runs when the smartphone is charging).&lt;/p&gt;
+
+&lt;p&gt;Reference: &lt;a href=&quot;https://developer.android.com/reference/android/app/job/JobScheduler.html&quot;&gt;Click here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;location-services-gps&quot;&gt;Location Services (GPS)&lt;/h3&gt;
+
+&lt;p&gt;Exclusive Google Services feature, therefore it won’t be present on Cielo LIO.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Alternative&lt;/strong&gt;: Location Manager&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Description&lt;/strong&gt;: This class provides access to the location services of the system. These services allow that applications get geographic position periodic updates from the device or start an specific Intention by the application when the device gets inside the proximity of a certain geographic location.&lt;/p&gt;
+
+&lt;p&gt;Reference: &lt;a href=&quot;https://developer.android.com/reference/android/location/LocationManager.html&quot;&gt;Click here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;map-services&quot;&gt;Map Services&lt;/h3&gt;
+
+&lt;p&gt;Exclusive Google Services feature, therefore it won’t be present on Cielo LIO.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Alternative&lt;/strong&gt;: MapBox&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Description&lt;/strong&gt;: An open source mapping platform for customized maps. Our APIs and SDKs are the construction blocks to integrate the location in any mobile or web application.&lt;/p&gt;
+
+&lt;p&gt;Reference: &lt;a href=&quot;https://www.mapbox.com&quot;&gt;Click here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;apks-removed-from-cielo-os&quot;&gt;APKs Removed from Cielo OS&lt;/h2&gt;
+
+&lt;p&gt;Below, there is a table with all APKs that were removed from Cielo OS and that, consequently, are not available for Cielo LIO:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;BasicSmsReceiver&lt;/td&gt;
+      &lt;td&gt;FileManager&lt;/td&gt;
+      &lt;td&gt;PhaseBeam&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Browser&lt;/td&gt;
+      &lt;td&gt;Galaxy4&lt;/td&gt;
+      &lt;td&gt;QuickSearchBox&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Calculator&lt;/td&gt;
+      &lt;td&gt;Gallery&lt;/td&gt;
+      &lt;td&gt;SoundRecorder&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Calendar&lt;/td&gt;
+      &lt;td&gt;HoloSpiralWallpaper&lt;/td&gt;
+      &lt;td&gt;SpeechRecorder&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CalendarProvider&lt;/td&gt;
+      &lt;td&gt;LiveWallpapers&lt;/td&gt;
+      &lt;td&gt;Todos&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CBMessageWidget&lt;/td&gt;
+      &lt;td&gt;LiveWallpaperPicker&lt;/td&gt;
+      &lt;td&gt;Videos&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Contacts&lt;/td&gt;
+      &lt;td&gt;MagicSmokeWallpapers&lt;/td&gt;
+      &lt;td&gt;VisualizationWallpapers&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ContactsCommon&lt;/td&gt;
+      &lt;td&gt;MtkWeatherProvider&lt;/td&gt;
+      &lt;td&gt;VoiceCommand&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;DataTransfer&lt;/td&gt;
+      &lt;td&gt;Mms&lt;/td&gt;
+      &lt;td&gt;VoiceDialer&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Dialer&lt;/td&gt;
+      &lt;td&gt;Music&lt;/td&gt;
+      &lt;td&gt;VoiceExtension&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Email&lt;/td&gt;
+      &lt;td&gt;MusicFX&lt;/td&gt;
+      &lt;td&gt;VoiceUnlock&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Exchange2&lt;/td&gt;
+      &lt;td&gt;NlpService&lt;/td&gt;
+      &lt;td&gt;WallpaperCropper&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;FMRadio&lt;/td&gt;
+      &lt;td&gt;NoiseField&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;development-frameworks&quot;&gt;Development Frameworks&lt;/h2&gt;
+
+&lt;p&gt;Currently, Cielo LIO does not support applications developed in hybrid platforms, such as, Ionic, Titanium, Xamarin, CronApp and PhoneGap.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;dev-console&quot;&gt;Dev Console&lt;/h1&gt;
+
+&lt;h2 id=&quot;about-1&quot;&gt;About&lt;/h2&gt;
+
+&lt;p&gt;Dev Console is an exclusive environment for the developer to perform the upload and the management of applications developed for Cielo LIO.&lt;/p&gt;
+
+&lt;p&gt;On the Dev Console, the developer is able to view all of his published apps, whether they are own apps or public apps.&lt;/p&gt;
+
+&lt;p&gt;Access now the Dev Console: https://www.cieloliostore.com.br&lt;/p&gt;
+
+&lt;h2 id=&quot;lio-for-developers&quot;&gt;LIO for Developers&lt;/h2&gt;
+
+&lt;p&gt;Developers who wish to get a Cielo LIO, can perform the accreditation on Cielo and request the equipment. The procedure can be performed via &lt;a href=&quot;https://www.cielo.com.br/&quot;&gt;Cielo website&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;After getting the Cielo LIO, the developer will have to contact via Developers Portal channel and request the enabling of your LIO to the Dev LIO, filling the required information.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;An account on the Dev Console is required to perform this request&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Our team will perform the required procedures and then, all applications published by the developer that are on Developed status will be able to be downloaded on your Cielo LIO of development.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte&quot;&gt;Click here&lt;/a&gt; to request the enabling of your LIO to the Dev LIO.&lt;/p&gt;
+
+&lt;h2 id=&quot;public-store&quot;&gt;Public Store&lt;/h2&gt;
+
+&lt;p&gt;The Public Apps are indicated to the developers and partners that wish to scale and make their apps available, to allow the download in all Cielo LIO equipments distributed on the commercial establishments (retailers) in Brazil via Cielo Store app.&lt;/p&gt;
+
+&lt;p&gt;To learn more about Cielo Store, &lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#cielo-store&quot;&gt;Click here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;upload-of-new-public-apps-and-new-versions&quot;&gt;Upload of new Public Apps and new versions&lt;/h3&gt;
+
+&lt;p&gt;To perform the upload of new public apps, access the Dev Console and add a new app by selecting the public store option and after that, select the app file.&lt;/p&gt;
+
+&lt;p&gt;In case the developer is performing a change or update in a public app, the developer will have to perform the upload of a new app version. For that, click in Details of your app and start the procedure to add a new version.&lt;/p&gt;
+
+&lt;p&gt;To send a new app version, it is mandatory to:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Ensure that the most recent version has the same package name as the previous one;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Change the “version code” and the “version name” within the manifest file of the application.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;public-apps-on-cielo-store&quot;&gt;Public Apps on Cielo Store&lt;/h3&gt;
+
+&lt;p&gt;As soon as the public app is certified, the developer will have to promote his app for production and from that moment, the app will be added to the Cielo Store showcase and will be available for download via Cielo LIO.&lt;/p&gt;
+
+&lt;p&gt;That is, commercial establishments (retailers) will be able to access Cielo Store via Cielo LIO, download your app and then start using.&lt;/p&gt;
+
+&lt;h3 id=&quot;download-of-public-apps-on-cielo-lio&quot;&gt;Download of Public Apps on Cielo LIO&lt;/h3&gt;
+
+&lt;p&gt;To perform the download of Public Apps on Cielo LIO, perform the following procedure:
+Click on the Apps tab -&amp;gt; Click on the Cielo Store app -&amp;gt; Choose the app that you want to download&lt;/p&gt;
+
+&lt;h2 id=&quot;private-store&quot;&gt;Private Store&lt;/h2&gt;
+
+&lt;p&gt;The private store was a model created to allow the distribution of own applications developed by the partner. It is required to request the creation of the Private Store so that it is possible to upload an own app on the Dev Console.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte&quot;&gt;Click here&lt;/a&gt; to request the creation of the Private Store.&lt;/p&gt;
+
+&lt;p&gt;From the created Private Store, the developer will be able to publish his application on the Dev Console, selecting his private store.&lt;/p&gt;
+
+&lt;p&gt;The private store is essential for making the distribution of own apps to specific retailers.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#distribuição-de-aplicativos-próprios&quot;&gt;Learn more&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;apps-certification&quot;&gt;Apps Certification&lt;/h2&gt;
+
+&lt;p&gt;The purpose of the apps certification is to ensure that all the applications present on Cielo LIO platform, are own or public, and are in agreement to the rules and criteria established by Cielo.&lt;/p&gt;
+
+&lt;p&gt;The apps certification from Cielo LIO seeks to ensure that:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The payment flux works correctly&lt;/li&gt;
+  &lt;li&gt;The content on the applications do not violate Cielo rules&lt;/li&gt;
+  &lt;li&gt;The SKUs of the products are sent correctly&lt;/li&gt;
+  &lt;li&gt;The information to the Cielo Store showcase are filled correctly, exclusive for Public Apps&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;error-messages&quot;&gt;Error Messages&lt;/h2&gt;
+
+&lt;p&gt;The table represents the possible errors that the developer might find during the Dev Console utilization:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Reference&lt;/th&gt;
+      &lt;th&gt;Message&lt;/th&gt;
+      &lt;th&gt;Scenario&lt;/th&gt;
+      &lt;th&gt;What to do?&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;APP CREATED_ERROR&lt;/td&gt;
+      &lt;td&gt;App with that package name already exists&lt;/td&gt;
+      &lt;td&gt;The developer tried to send an application with a package name already existent on the store.&lt;/td&gt;
+      &lt;td&gt;Change on the Manifest file, the Package Name of the application.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;APP APK_PARSER_ERROR&lt;/td&gt;
+      &lt;td&gt;The .apk file is mandatory&lt;/td&gt;
+      &lt;td&gt;The developer tried to perform the upload of an application and didn’t attach the .apk file&lt;/td&gt;
+      &lt;td&gt;Click on the button “Add an APK” and make sure that the right file was chosen.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;APP APK_PARSER_ERROR&lt;/td&gt;
+      &lt;td&gt;It wasn’t possible to get the Name attribute / It wasn’t possible to get the Package Name attribute / It wasn’t possible to get the Version Name attribute / It wasn’t possible to get the Version Code attribute&lt;/td&gt;
+      &lt;td&gt;The developer tried to perform an upload of an app where the manifest file or apk file is corrupted or he has problems on the manifest file configuration&lt;/td&gt;
+      &lt;td&gt;Rebuild the apk and verify if there are no error on the Manifest file from Android&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SCREENSHOTS CREATED_WARNING&lt;/td&gt;
+      &lt;td&gt;App created, however the screenshots weren’t saved!&lt;/td&gt;
+      &lt;td&gt;On the app creation, the Developer sent screenshots where image files have unusual or unknowns extensions.&lt;/td&gt;
+      &lt;td&gt;Edit the app and send the image files with known extensions.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SCREENSHOTS UPDATED_WARNING&lt;/td&gt;
+      &lt;td&gt;App updated, however the the screenshots weren’t saved!&lt;/td&gt;
+      &lt;td&gt;On the app editing, the Developer sent the screenshots where the image file has unusual or unknown extensions.&lt;/td&gt;
+      &lt;td&gt;Edit the app again and send image files with known extensions.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;VERSION PROMOTE_ERROR (this scenario only occurs with public apps)&lt;/td&gt;
+      &lt;td&gt;It is required a registered CE to promote this version for production.&lt;/td&gt;
+      &lt;td&gt;After the application had its certification approved, the Developer tried to promote the app for production, however, still doesn’t have a CE.&lt;/td&gt;
+      &lt;td&gt;Request Cielo the creation of a CE to be able to promote the application for promotion.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;In case the developer doesn’t find the error in this table open a ticket to the support team, reporting the problem found and remember to list the evidences of the error with screenshots and error messages received.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte&quot;&gt;Click here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;promote-app-for-production&quot;&gt;Promote App for Production&lt;/h2&gt;
+
+&lt;p&gt;As soon as the application is approved on the certification, the developer will receive a notifying email and then, he’ll have to promote his app for production in a way that it gets:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Available for download on Cielo Store (Public App)&lt;/li&gt;
+  &lt;li&gt;Available for distribution to specific retailers (Own App)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;status-of-an-application&quot;&gt;Status of an application&lt;/h2&gt;
+
+&lt;p&gt;All applications published on the Dev Console have the following status:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1 - Development&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Nesse estágio o desenvolvedor consegue realizar testes do seu aplicativo em uma Cielo LIO. E caso precise fazer alguma correção, basta publicar uma nova versão do aplicativo pelo Dev Console e então atualizar na Cielo LIO.&lt;/p&gt;
+
+&lt;p&gt;In this stage, the developer is able to perform tests of his application in a Cielo LIO. In case he needs to correct something, just publish a new version of the application using the Dev Console, and then request the enabling to Dev LIO.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#lio-para-desenvolvedores&quot;&gt;Learn more&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2 - Certification&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Once the tests are finished, the developer sends the application for Certification. In this stage, the Cielo Certification team will take action and validate the functioning flux of the application, mainly on the steps integrated to the payment.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#promover-aplicativo-para-produção&quot;&gt;Learn more&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3 - Production&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;As soon as the application is approved on the certification, the developer will be able to promote for production.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#certificação-de-aplicativos&quot;&gt;Learn more&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;In case the Public Application in production, it will be available for download on Cielo Store.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#aplicativos-públicos&quot;&gt;Learn more&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;In case of Own Application, the developer will have to request the distribution to the LIOs that must receive your app.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#distribuição-de-aplicativos-póprios&quot;&gt;Learn more&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;cielo-app-data&quot;&gt;Cielo App Data&lt;/h2&gt;
+
+&lt;p&gt;With Cielo App Data API, the developer of an app will be able to have access to the purchase information of his apps in a given LIO terminal.&lt;/p&gt;
+
+&lt;h3 id=&quot;token-generation&quot;&gt;Token Generation&lt;/h3&gt;
+
+&lt;p&gt;For such, it is required, previously, to generate the Token API on the Dev Console, which will be used on the App Data API. To generate the token, follow the step by step below:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Access and log in on the Dev Console through the &lt;a href=&quot;https://www.cieloliostore.com.br&quot;&gt;link&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;On the &lt;strong&gt;Public apps&lt;/strong&gt; tab, select the desired App&lt;/li&gt;
+  &lt;li&gt;Click on the &lt;strong&gt;Token API&lt;/strong&gt; tab, and then on the &lt;strong&gt;Generate Token&lt;/strong&gt; button.&lt;/li&gt;
+  &lt;li&gt;Once generating the token, copy and save it.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Endpoint:&lt;/strong&gt; https://cieloliostore-api.m4u.com.br/api/v1/me&lt;/p&gt;
+
+&lt;h3 id=&quot;http-headers&quot;&gt;HTTP Headers&lt;/h3&gt;
+
+&lt;p&gt;All Cielo App Data API calls need that the Token API generated on the Dev Console is present on the requisitions Header:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Token:&lt;/strong&gt; Access-token identification, that stores information from the Public App that desires information.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;http-query-parameters&quot;&gt;HTTP Query Parameters&lt;/h3&gt;
+
+&lt;p&gt;Complementing the requisitions Header, the Cielo App Data API needs that all calls have the CE (Commercial Establishment Number) and the Logic Number (LIO terminal identifier) in its requisitions:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;ce:&lt;/strong&gt; Commercial Establishment Identification desired for query.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;logic_number:&lt;/strong&gt; LIO Terminal Identification desired for query.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;api&quot;&gt;API&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;GET&lt;/strong&gt; / Details of a product&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;ec&lt;/strong&gt; (required in query parameter) - “String”
+&lt;strong&gt;logic_number&lt;/strong&gt; (required in query parameter) - “String”
+&lt;strong&gt;token&lt;/strong&gt; (required in header) - “String”&lt;/p&gt;
+
+&lt;p&gt;Answer example:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+    &quot;app&quot;: {
+      &quot;name&quot;: &quot;string&quot;,
+      &quot;package_name&quot;: &quot;string&quot;
+    },
+    &quot;purchase&quot;: {
+        &quot;status&quot;: &quot;SUBSCRIBED&quot;,
+        &quot;plan&quot;: {
+            &quot;id&quot;: &quot;string&quot;,
+            &quot;name&quot;: &quot;string&quot;,
+            &quot;value&quot;: 0
+        },
+        &quot;created_at&quot;: &quot;string&quot;
+    },
+    &quot;payment&quot;: {
+        &quot;status&quot;: &quot;PENDING&quot;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;return-options-by-field&quot;&gt;Return options by field&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;purchase.status:&lt;/strong&gt; “SUBSCRIBED”&lt;/td&gt;
+      &lt;td&gt;“UNSUBSCRIBED”&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;payment.status:&lt;/strong&gt; “PENDING”&lt;/td&gt;
+      &lt;td&gt;“AT_RECURRENCE”&lt;/td&gt;
+      &lt;td&gt;“PAID”&lt;/td&gt;
+      &lt;td&gt;“OBLIGOR”&lt;/td&gt;
+      &lt;td&gt;“CANCELED”&lt;/td&gt;
+      &lt;td&gt;“CIELO_PURCHAASE”&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;purchase.status:&lt;/strong&gt; “SUBSCRIBED”
+&lt;strong&gt;purchase.status:&lt;/strong&gt; “UNSUBSCRIBED”&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;payment.status:&lt;/strong&gt; “PENDING” (Pagamentos com status pendente)
+&lt;strong&gt;payment.status:&lt;/strong&gt; “AT_RECURRENCE” (Pagamentos com status em recorrência)
+&lt;strong&gt;payment.status:&lt;/strong&gt; “PAID” (Pagamentos com status pago)
+&lt;strong&gt;payment.status:&lt;/strong&gt; “OBLIGOR” (Status do pagamento como inadimplente)
+&lt;strong&gt;payment.status:&lt;/strong&gt; “CANCELED” (Pagamentos cancelados)
+&lt;strong&gt;payment.status:&lt;/strong&gt; “CIELO_PURCHASE” (pagamentos isentos(compras de teste/desenvolvimento))&lt;/p&gt;
 
 &lt;h1 id=&quot;local-integration&quot;&gt;Local Integration&lt;/h1&gt;
 
@@ -27292,188 +27970,6 @@ The method receives as parameter the &lt;code class=&quot;language-plaintext hig
 
 &lt;p&gt;Click on the image above to access the video&lt;/p&gt;
 
-&lt;h4 id=&quot;remote-integration--cielo-lio-order-manager&quot;&gt;Remote Integration | Cielo LIO Order Manager&lt;/h4&gt;
-
-&lt;p&gt;set of APIs that allow the client to continue using his PDV / Commercial Automation solution with all the functionalities. At the moment of performing the payment, the integration with the Cielo LIO Orders Manager occur (Order Manager), in a fast, simple and safe way.
-&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#integração-remota&quot;&gt;Go to remote integration&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;local-integration--cielo-lio-order-manager-sdk&quot;&gt;Local Integration | Cielo LIO Order Manager SDK&lt;/h4&gt;
-
-&lt;p&gt;Cielo provides an SDK based on Cielo Lio Order Manager API that allows the developer and Cielo LIO partner to integrate his application to the Cielo LIO functionalities.
-&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#integração-local&quot;&gt;Go to local integration&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;peripheral-services&quot;&gt;Peripheral services&lt;/h3&gt;
-
-&lt;p&gt;Cielo LIO also integrates to the following peripheral hardwares:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Bluetooth Printers&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;On the LIO V1 case, it is possible to connect Cielo with bluetooth printers to perform the printing of receipts and other important information.&lt;/p&gt;
-
-&lt;p&gt;There are partners that are already using Bluetooth printers from the brands Zebra, Datex, Leopardo integrated to Cielo LIO.&lt;/p&gt;
-
-&lt;p&gt;All communication protocols and pairing are under the partner’s application responsability.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;RFID Readers&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;There are partners already using RFID readers in their solutions..&lt;/p&gt;
-
-&lt;p&gt;All communication protocols and pairing are under the partner’s application responsability.&lt;/p&gt;
-
-&lt;h2 id=&quot;technical-especifications-of-the-cielo-lio-hardware&quot;&gt;Technical especifications of the Cielo LIO hardware&lt;/h2&gt;
-
-&lt;p&gt;The Cielo LIO platform had its own operational system based on Android.
-Check the table below with the technical especifications of the Cielo LIO:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt; &lt;/th&gt;
-      &lt;th&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/lio_v1_small.png&quot; alt=&quot;LIO V1&quot; /&gt;&lt;/th&gt;
-      &lt;th&gt;&lt;img src=&quot;https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/lio_v2_small.png&quot; alt=&quot;LIO V2&quot; /&gt;&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Version&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;LIO V1&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;LIO V2&lt;/strong&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Operatinal System&lt;/td&gt;
-      &lt;td&gt;Android OS Cielo 5.1.1&lt;/td&gt;
-      &lt;td&gt;Android OS Cielo 6.0 (Marshmallow)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Memmory&lt;/td&gt;
-      &lt;td&gt;2GB LPDDR3&lt;/td&gt;
-      &lt;td&gt;2GB LPDDR3&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Dual Chip&lt;/td&gt;
-      &lt;td&gt;Dual SIM Stand-by&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;SIM Card type&lt;/td&gt;
-      &lt;td&gt;micro SIM (3FF)&lt;/td&gt;
-      &lt;td&gt;micro SIM (3FF)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;GSM Frequency in Mhz&lt;/td&gt;
-      &lt;td&gt;Quad-Band 850/900/1800/1900&lt;/td&gt;
-      &lt;td&gt;Quad-Band 850/900/1800/1900&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Size in inches&lt;/td&gt;
-      &lt;td&gt;5”&lt;/td&gt;
-      &lt;td&gt;5.5”&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Screen type&lt;/td&gt;
-      &lt;td&gt;AMOLED&lt;/td&gt;
-      &lt;td&gt;AMOLED&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Screen resolution&lt;/td&gt;
-      &lt;td&gt;720 x 1280 pixels&lt;/td&gt;
-      &lt;td&gt;720 x 1280 pixels&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Pixel density&lt;/td&gt;
-      &lt;td&gt;293 ppi&lt;/td&gt;
-      &lt;td&gt;267 ppi&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Camera&lt;/td&gt;
-      &lt;td&gt;12.8 Mega Pixels&lt;/td&gt;
-      &lt;td&gt;13 Mega Pixels&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Camera resolution&lt;/td&gt;
-      &lt;td&gt;4128 x 3096 pixels&lt;/td&gt;
-      &lt;td&gt;4160 x 3120 pixels&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Flash&lt;/td&gt;
-      &lt;td&gt;Flash LED&lt;/td&gt;
-      &lt;td&gt;Flash LED&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;USB&lt;/td&gt;
-      &lt;td&gt;USB 2.0 Micro-B (Micro-USB) Energy only&lt;/td&gt;
-      &lt;td&gt;USB 2.0 Micro-B (Micro-USB) Energy only&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Bluetooth&lt;/td&gt;
-      &lt;td&gt;Version 4.0 com A2DP&lt;/td&gt;
-      &lt;td&gt;Version 4.0 com A2DP/LE&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;WiFi&lt;/td&gt;
-      &lt;td&gt;802.11 a/b/g/n&lt;/td&gt;
-      &lt;td&gt;802.11 b/g/n&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;GPS&lt;/td&gt;
-      &lt;td&gt;A-GPS. GeoTagging&lt;/td&gt;
-      &lt;td&gt;A-GPS&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Sensors&lt;/td&gt;
-      &lt;td&gt;Accelerometer, Proximity e Luminosity&lt;/td&gt;
-      &lt;td&gt;Accelerometer, Proximity e Luminosity&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Audio Output&lt;/td&gt;
-      &lt;td&gt;Audio Jack 3.5mm&lt;/td&gt;
-      &lt;td&gt;Audio Jack 3.5mm&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Weight&lt;/td&gt;
-      &lt;td&gt;363 g&lt;/td&gt;
-      &lt;td&gt;507 g&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Height&lt;/td&gt;
-      &lt;td&gt;34mm&lt;/td&gt;
-      &lt;td&gt;46mm&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Width&lt;/td&gt;
-      &lt;td&gt;84mm&lt;/td&gt;
-      &lt;td&gt;81mm&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Length&lt;/td&gt;
-      &lt;td&gt;168mm&lt;/td&gt;
-      &lt;td&gt;228mm&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;screen-rotation-on-cielo-lio&quot;&gt;Screen rotation on Cielo LIO&lt;/h2&gt;
-
-&lt;p&gt;The rotations on the displayed screen have different behavior between the Cielo LIO versions.&lt;/p&gt;
-
-&lt;p&gt;On LIO V1 the screen orientation is locked.&lt;/p&gt;
-
-&lt;p&gt;On LIO V2 it is possible to control the screen orientation. By standard, the displayed screen orientation is free and set according to the equipment accelerometer.&lt;/p&gt;
-
-&lt;p&gt;In case the developer wants to control and use in a customized way the Cielo LIO screen orientation, he’ll have to use it according to the Android documentation..&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developer.android.com/guide/topics/manifest/activity-element.html&quot;&gt;Official Android Documentation&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Access the item: android:screenOrientation for more information.&lt;/p&gt;
-
-&lt;h2 id=&quot;mobile-data-on-cielo-lio&quot;&gt;Mobile Data on Cielo LIO&lt;/h2&gt;
-
-&lt;p&gt;Cielo LIO already comes configured with a SIM Card. The SIM Card carrier is set according to the commercial establishment registered address.&lt;/p&gt;
-
-&lt;p&gt;Cielo sends the SIM Card of the best carrier according to the registered address of the LIO requested.&lt;/p&gt;
-
-&lt;p&gt;This SIM Card allows the connection with the 3G technology of Cielo LIO and has an unlimited data package.&lt;/p&gt;
-
 &lt;h1 id=&quot;remote-integration&quot;&gt;Remote Integration&lt;/h1&gt;
 
 &lt;h2 id=&quot;presentation-1&quot;&gt;Presentation&lt;/h2&gt;
@@ -27549,7 +28045,7 @@ Check the table below with the technical especifications of the Cielo LIO:&lt;/p
 
 &lt;p&gt;You have to be logged in!&lt;/p&gt;
 
-&lt;h3 id=&quot;http-headers&quot;&gt;HTTP Headers&lt;/h3&gt;
+&lt;h3 id=&quot;http-headers-1&quot;&gt;HTTP Headers&lt;/h3&gt;
 
 &lt;p&gt;All Remote Integration Cielo LIO Order Manager API calls require that the information below are present on the requisition Header:&lt;/p&gt;
 
@@ -29069,238 +29565,6 @@ In production environment, once the cancellation is performed on Cielo Lio the t
   &lt;li&gt;&lt;a href=&quot;https://devcielo.zendesk.com/hc/en-us#support&quot;&gt;Contact us&lt;/a&gt; and submit an unlock request providing the merchant’s reference and the details you consider essential to solve the issue.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;tips-for-developers&quot;&gt;Tips for developers&lt;/h1&gt;
-
-&lt;p&gt;The guide below provides information necessary to help developers to integrate or develop their applications on Cielo Lio platform the best way possible, in a way to provide an excellent experience to the commercial establishments.&lt;/p&gt;
-
-&lt;p&gt;It is recommended the detailed reading of the Cielo LIO documentation present on the Developers Portal. This documentation gathers important information for moderate simplicity questions.&lt;/p&gt;
-
-&lt;h2 id=&quot;best-practices-with-the-cielo-lio-platform&quot;&gt;Best practices with the Cielo LIO platform&lt;/h2&gt;
-
-&lt;h3 id=&quot;data-security-and-privacy&quot;&gt;Data Security and Privacy&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Protect sensitive data from customers and employees. Do not expose names, addresses, or phone numbers publicly.&lt;/li&gt;
-  &lt;li&gt;Never expose authentication tokens or passwords of any kind.&lt;/li&gt;
-  &lt;li&gt;The partner must provide his support data so that the commercial establishments (retailers) contact in case of problems and/or questions.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;rate-limiting&quot;&gt;Rate Limiting&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The Commercial Automation solicitations or PDV must be scaled to the max in order to avoid high traffic bursts.&lt;/li&gt;
-  &lt;li&gt;“Cache” your own data when you need to store specialized values or quickly revise large data sets.&lt;/li&gt;
-  &lt;li&gt;Do not create multi-thread with POST layers, this behavior can create systemics delays due to deadlocks.&lt;/li&gt;
-  &lt;li&gt;Minimize data usage. The commercial establishments (retailers) may be using a connection with limited mobile data.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;quality-code&quot;&gt;Quality Code&lt;/h3&gt;
-
-&lt;p&gt;Your application has to be in conformity with the Android and Java programming conventional practices according to the guidelines for Android developers.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Object Oriented Design principles (S.O.L.I.D.).&lt;/li&gt;
-  &lt;li&gt;Java style guidelines.&lt;/li&gt;
-  &lt;li&gt;Understand the difference between &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;compileSdkVersion&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;targetSdkVersion&lt;/code&gt;, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minSdkVersion&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Enjoy the Android native buttons, like the “Back” and “Home” buttons.&lt;/li&gt;
-  &lt;li&gt;Optimize the operations seeking low battery consumption&lt;/li&gt;
-  &lt;li&gt;The application has to attend the Cielo commercial establishments (retailers) needs.&lt;/li&gt;
-  &lt;li&gt;Your application has to have a good end-to-end experience, assuring the correct communication between all fluxes, specially the Cielo LIO payment returns.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;image-features&quot;&gt;Image features&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The applications’ icons must be mimap features.&lt;/li&gt;
-  &lt;li&gt;The icons must be in conformity to the Android standard dimensioning (you can use third party icon generators to resize your logo): 192 × 192 (xxxhdpi).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;use-and-usability&quot;&gt;Use and Usability&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;We recommend that the developers integrate some kind of fail report utility in their Android products. It will help you on maintaining the operational awareness of your product.&lt;/li&gt;
-  &lt;li&gt;Developers can collect metrics about the use of your application. It will help them on building better products and rising the awareness about any impacting questions..&lt;/li&gt;
-  &lt;li&gt;Ensure that the application works optimally, avoiding that crash and delay occurs on the answer for application processing.&lt;/li&gt;
-  &lt;li&gt;The design must emphasize clarity and accessibility - high contrast, readable fonts, large text and inputs.&lt;/li&gt;
-  &lt;li&gt;Make the application’s acceptance terms clear and provide the necessary support to the user regarding the service provided.&lt;/li&gt;
-  &lt;li&gt;If you are adapting a developed application for another platform, check if it only includes features and buttons relevant to the Cielo LIO user.&lt;/li&gt;
-  &lt;li&gt;If your application includes a component designed to the customer, your project will reflect on the business using your application. These interfaces have to be pleasant and professional.&lt;/li&gt;
-  &lt;li&gt;It is recommended the use of the &lt;a href=&quot;https://material.io&quot;&gt;Material Design&lt;/a&gt; for development of the applications for Cielo LIO. This recommendation has the purpose of facilitating the use of good design practices for development of mobile applications.&lt;/li&gt;
-  &lt;li&gt;Your application will be used in working conditions of fast and dynamic pace. Strive to get clear work fluxes, easy to use and robust, with as few steps as possible.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;develop-your-application-for-cielo-lio&quot;&gt;Develop your application for Cielo LIO&lt;/h1&gt;
-
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-
-&lt;p&gt;With Cielo LIO it is possible that companies and partners have your application running on Cielo platform. These applications may or not be integrated to the payment, it all will depend on the company or partner purposes.&lt;/p&gt;
-
-&lt;p&gt;Below, you’ll find all necessary information to develop an application for Cielo LIO.&lt;/p&gt;
-
-&lt;h2 id=&quot;development-environment&quot;&gt;Development Environment&lt;/h2&gt;
-
-&lt;p&gt;It is required that you use an IDE (Integrated Development Environment) to develop your application. Cielo recommends that an IDE from Android Studio (version 2.2.2 or above) is used, seeking to assure the application operation on Cielo LIO platform.&lt;/p&gt;
-
-&lt;p&gt;For more details about the Android Studio instalation and configuration, &lt;a href=&quot;https://developer.android.com/index.html&quot;&gt;click here&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;For the creation of a new project on Android Studio, &lt;a href=&quot;https://developer.android.com/training/basics/firstapp/creating-project.html&quot;&gt;click here&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;programming-language&quot;&gt;Programming Language&lt;/h2&gt;
-
-&lt;p&gt;Cielo LIO accepts applications developed in Java or Kotlin..&lt;/p&gt;
-
-&lt;p&gt;We recommend that these languages are used to ensure that it works and to ensure the ease of integration with Cielo LIO.&lt;/p&gt;
-
-&lt;h2 id=&quot;cielo-os&quot;&gt;Cielo OS&lt;/h2&gt;
-
-&lt;p&gt;O sistema operacional da plataforma Cielo LIO foi personalizado e, com isso, surgiu o Cielo OS, que é baseado em Android.&lt;/p&gt;
-
-&lt;p&gt;At LIO V1, the Cielo platform operational system is based on Android 5.1.1 (API Level 23) and available on most of the APIs present on the Android framework.&lt;/p&gt;
-
-&lt;p&gt;At LIO V2, the Cielo platform operational system is based on Android 6.0 (API Level 23) and available on most of the APIs present on the Android framework.&lt;/p&gt;
-
-&lt;p&gt;In case you want to consult what APIs are available, access https://developer.android.com/reference/packages.html and select “API Level 22” or “API Level 23” on the left corner of the screen, according to your preference.&lt;/p&gt;
-
-&lt;h2 id=&quot;target-version-of-the-application&quot;&gt;Target version of the application&lt;/h2&gt;
-
-&lt;p&gt;It is recommended that the developer uses Android 5.1.1 (Lollipop) as the application target version.
-Thus, it is assured the working of the application on the LIO V1 hardware as well as on LIO V2 hardware.&lt;/p&gt;
-
-&lt;h2 id=&quot;unavailable-features&quot;&gt;Unavailable Features&lt;/h2&gt;
-
-&lt;p&gt;When customizing the Android of Cielo LIO, some features were removed to assure the peroformance and security of the platoform.&lt;/p&gt;
-
-&lt;p&gt;Below, the list of Cielo LIO removed features:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Google Play Services&lt;/strong&gt;: All services, APIs and apps from Google were removed from the operational system. Consequently, it won’t be possible to use the libraries that depend on these Google features.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Componente Webview&lt;/strong&gt;: This visual feature was removed with the purpose of ensuring the security on the platform and avoid that, from the installed applications on Cielo LIO, it is possible to access links and external contents.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Attention&lt;/strong&gt;: Cielo does not allow that the application from the client/partner be developed using the WebView feature. This visual feature makes the Cielo LIO platform vulnerable. In case the application is using WebView, it won’t attend the certification parameters and it won’t be made available on Cielo Store.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;substitutes-suggestions&quot;&gt;Substitutes suggestions&lt;/h2&gt;
-
-&lt;h3 id=&quot;push-notifications&quot;&gt;Push-Notifications&lt;/h3&gt;
-
-&lt;p&gt;Exclusive Google Services feature, therefore, it won’t be present on Cielo LIO.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Alternative&lt;/strong&gt;: JobScheduler&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Description&lt;/strong&gt;: It’s an API to schedule several kinds of jobs against the structure that will be executed in the process of your application itself. Allowing in each time cycle that the application perform a search in our Backend services.&lt;/p&gt;
-
-&lt;p&gt;JobScheduler is the most indicated due to battery performance, without mentioning other options that it provides (Example: Job only runs when the smartphone is charging).&lt;/p&gt;
-
-&lt;p&gt;Reference: &lt;a href=&quot;https://developer.android.com/reference/android/app/job/JobScheduler.html&quot;&gt;Click here&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;location-services-gps&quot;&gt;Location Services (GPS)&lt;/h3&gt;
-
-&lt;p&gt;Exclusive Google Services feature, therefore it won’t be present on Cielo LIO.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Alternative&lt;/strong&gt;: Location Manager&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Description&lt;/strong&gt;: This class provides access to the location services of the system. These services allow that applications get geographic position periodic updates from the device or start an specific Intention by the application when the device gets inside the proximity of a certain geographic location.&lt;/p&gt;
-
-&lt;p&gt;Reference: &lt;a href=&quot;https://developer.android.com/reference/android/location/LocationManager.html&quot;&gt;Click here&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;map-services&quot;&gt;Map Services&lt;/h3&gt;
-
-&lt;p&gt;Exclusive Google Services feature, therefore it won’t be present on Cielo LIO.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Alternative&lt;/strong&gt;: MapBox&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Description&lt;/strong&gt;: An open source mapping platform for customized maps. Our APIs and SDKs are the construction blocks to integrate the location in any mobile or web application.&lt;/p&gt;
-
-&lt;p&gt;Reference: &lt;a href=&quot;https://www.mapbox.com&quot;&gt;Click here&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;apks-removed-from-cielo-os&quot;&gt;APKs Removed from Cielo OS&lt;/h2&gt;
-
-&lt;p&gt;Below, there is a table with all APKs that were removed from Cielo OS and that, consequently, are not available for Cielo LIO:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt; &lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
-      &lt;th&gt; &lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;BasicSmsReceiver&lt;/td&gt;
-      &lt;td&gt;FileManager&lt;/td&gt;
-      &lt;td&gt;PhaseBeam&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Browser&lt;/td&gt;
-      &lt;td&gt;Galaxy4&lt;/td&gt;
-      &lt;td&gt;QuickSearchBox&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Calculator&lt;/td&gt;
-      &lt;td&gt;Gallery&lt;/td&gt;
-      &lt;td&gt;SoundRecorder&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Calendar&lt;/td&gt;
-      &lt;td&gt;HoloSpiralWallpaper&lt;/td&gt;
-      &lt;td&gt;SpeechRecorder&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;CalendarProvider&lt;/td&gt;
-      &lt;td&gt;LiveWallpapers&lt;/td&gt;
-      &lt;td&gt;Todos&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;CBMessageWidget&lt;/td&gt;
-      &lt;td&gt;LiveWallpaperPicker&lt;/td&gt;
-      &lt;td&gt;Videos&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Contacts&lt;/td&gt;
-      &lt;td&gt;MagicSmokeWallpapers&lt;/td&gt;
-      &lt;td&gt;VisualizationWallpapers&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;ContactsCommon&lt;/td&gt;
-      &lt;td&gt;MtkWeatherProvider&lt;/td&gt;
-      &lt;td&gt;VoiceCommand&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;DataTransfer&lt;/td&gt;
-      &lt;td&gt;Mms&lt;/td&gt;
-      &lt;td&gt;VoiceDialer&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Dialer&lt;/td&gt;
-      &lt;td&gt;Music&lt;/td&gt;
-      &lt;td&gt;VoiceExtension&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Email&lt;/td&gt;
-      &lt;td&gt;MusicFX&lt;/td&gt;
-      &lt;td&gt;VoiceUnlock&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Exchange2&lt;/td&gt;
-      &lt;td&gt;NlpService&lt;/td&gt;
-      &lt;td&gt;WallpaperCropper&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;FMRadio&lt;/td&gt;
-      &lt;td&gt;NoiseField&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;development-frameworks&quot;&gt;Development Frameworks&lt;/h2&gt;
-
-&lt;p&gt;Currently, Cielo LIO does not support applications developed in hybrid platforms, such as, Ionic, Titanium, Xamarin, CronApp and PhoneGap.&lt;/p&gt;
-
-&lt;hr /&gt;
-
 &lt;h1 id=&quot;cielo-store&quot;&gt;Cielo Store&lt;/h1&gt;
 
 &lt;h2 id=&quot;about-3&quot;&gt;About&lt;/h2&gt;
@@ -29339,319 +29603,6 @@ Applications developed to be available on the Cielo Store app store. These appli
 &lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#aplicativos-públicos&quot;&gt;Learn more&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h2 id=&quot;dev-console&quot;&gt;Dev Console&lt;/h2&gt;
-
-&lt;h3 id=&quot;about-4&quot;&gt;About&lt;/h3&gt;
-
-&lt;p&gt;Dev Console is an exclusive environment for the developer to perform the upload and the management of applications developed for Cielo LIO.&lt;/p&gt;
-
-&lt;p&gt;On the Dev Console, the developer is able to view all of his published apps, whether they are own apps or public apps.&lt;/p&gt;
-
-&lt;p&gt;Access now the Dev Console: https://www.cieloliostore.com.br&lt;/p&gt;
-
-&lt;h3 id=&quot;status-of-an-application&quot;&gt;Status of an application&lt;/h3&gt;
-
-&lt;p&gt;All applications published on the Dev Console have the following status:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;1 - Development&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Nesse estágio o desenvolvedor consegue realizar testes do seu aplicativo em uma Cielo LIO. E caso precise fazer alguma correção, basta publicar uma nova versão do aplicativo pelo Dev Console e então atualizar na Cielo LIO.&lt;/p&gt;
-
-&lt;p&gt;In this stage, the developer is able to perform tests of his application in a Cielo LIO. In case he needs to correct something, just publish a new version of the application using the Dev Console, and then request the enabling to Dev LIO.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#lio-para-desenvolvedores&quot;&gt;Learn more&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;2 - Certification&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Once the tests are finished, the developer sends the application for Certification. In this stage, the Cielo Certification team will take action and validate the functioning flux of the application, mainly on the steps integrated to the payment.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#promover-aplicativo-para-produção&quot;&gt;Learn more&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;3 - Production&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;As soon as the application is approved on the certification, the developer will be able to promote for production.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#certificação-de-aplicativos&quot;&gt;Learn more&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;In case the Public Application in production, it will be available for download on Cielo Store.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#aplicativos-públicos&quot;&gt;Learn more&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;In case of Own Application, the developer will have to request the distribution to the LIOs that must receive your app.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#distribuição-de-aplicativos-póprios&quot;&gt;Learn more&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;lio-for-developers&quot;&gt;LIO for Developers&lt;/h3&gt;
-
-&lt;p&gt;Developers who wish to get a Cielo LIO, can perform the accreditation on Cielo and request the equipment. The procedure can be performed via &lt;a href=&quot;https://www.cielo.com.br/&quot;&gt;Cielo website&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;After getting the Cielo LIO, the developer will have to contact via Developers Portal channel and request the enabling of your LIO to the Dev LIO, filling the required information.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;An account on the Dev Console is required to perform this request&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Our team will perform the required procedures and then, all applications published by the developer that are on Developed status will be able to be downloaded on your Cielo LIO of development.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte&quot;&gt;Click here&lt;/a&gt; to request the enabling of your LIO to the Dev LIO.&lt;/p&gt;
-
-&lt;h3 id=&quot;private-store&quot;&gt;Private Store&lt;/h3&gt;
-
-&lt;p&gt;The private store was a model created to allow the distribution of own applications developed by the partner. It is required to request the creation of the Private Store so that it is possible to upload an own app on the Dev Console.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte&quot;&gt;Click here&lt;/a&gt; to request the creation of the Private Store.&lt;/p&gt;
-
-&lt;p&gt;From the created Private Store, the developer will be able to publish his application on the Dev Console, selecting his private store.&lt;/p&gt;
-
-&lt;p&gt;The private store is essential for making the distribution of own apps to specific retailers.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#distribuição-de-aplicativos-próprios&quot;&gt;Learn more&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;apps-certification&quot;&gt;Apps Certification&lt;/h3&gt;
-
-&lt;p&gt;The purpose of the apps certification is to ensure that all the applications present on Cielo LIO platform, are own or public, and are in agreement to the rules and criteria established by Cielo.&lt;/p&gt;
-
-&lt;p&gt;The apps certification from Cielo LIO seeks to ensure that:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The payment flux works correctly&lt;/li&gt;
-  &lt;li&gt;The content on the applications do not violate Cielo rules&lt;/li&gt;
-  &lt;li&gt;The SKUs of the products are sent correctly&lt;/li&gt;
-  &lt;li&gt;The information to the Cielo Store showcase are filled correctly, exclusive for Public Apps&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;promote-app-for-production&quot;&gt;Promote App for Production&lt;/h3&gt;
-
-&lt;p&gt;As soon as the application is approved on the certification, the developer will receive a notifying email and then, he’ll have to promote his app for production in a way that it gets:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Available for download on Cielo Store (Public App)&lt;/li&gt;
-  &lt;li&gt;Available for distribution to specific retailers (Own App)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;error-messages&quot;&gt;Error Messages&lt;/h3&gt;
-
-&lt;p&gt;The table represents the possible errors that the developer might find during the Dev Console utilization:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Reference&lt;/th&gt;
-      &lt;th&gt;Message&lt;/th&gt;
-      &lt;th&gt;Scenario&lt;/th&gt;
-      &lt;th&gt;What to do?&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;APP CREATED_ERROR&lt;/td&gt;
-      &lt;td&gt;App with that package name already exists&lt;/td&gt;
-      &lt;td&gt;The developer tried to send an application with a package name already existent on the store.&lt;/td&gt;
-      &lt;td&gt;Change on the Manifest file, the Package Name of the application.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;APP APK_PARSER_ERROR&lt;/td&gt;
-      &lt;td&gt;The .apk file is mandatory&lt;/td&gt;
-      &lt;td&gt;The developer tried to perform the upload of an application and didn’t attach the .apk file&lt;/td&gt;
-      &lt;td&gt;Click on the button “Add an APK” and make sure that the right file was chosen.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;APP APK_PARSER_ERROR&lt;/td&gt;
-      &lt;td&gt;It wasn’t possible to get the Name attribute / It wasn’t possible to get the Package Name attribute / It wasn’t possible to get the Version Name attribute / It wasn’t possible to get the Version Code attribute&lt;/td&gt;
-      &lt;td&gt;The developer tried to perform an upload of an app where the manifest file or apk file is corrupted or he has problems on the manifest file configuration&lt;/td&gt;
-      &lt;td&gt;Rebuild the apk and verify if there are no error on the Manifest file from Android&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;SCREENSHOTS CREATED_WARNING&lt;/td&gt;
-      &lt;td&gt;App created, however the screenshots weren’t saved!&lt;/td&gt;
-      &lt;td&gt;On the app creation, the Developer sent screenshots where image files have unusual or unknowns extensions.&lt;/td&gt;
-      &lt;td&gt;Edit the app and send the image files with known extensions.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;SCREENSHOTS UPDATED_WARNING&lt;/td&gt;
-      &lt;td&gt;App updated, however the the screenshots weren’t saved!&lt;/td&gt;
-      &lt;td&gt;On the app editing, the Developer sent the screenshots where the image file has unusual or unknown extensions.&lt;/td&gt;
-      &lt;td&gt;Edit the app again and send image files with known extensions.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;VERSION PROMOTE_ERROR (this scenario only occurs with public apps)&lt;/td&gt;
-      &lt;td&gt;It is required a registered CE to promote this version for production.&lt;/td&gt;
-      &lt;td&gt;After the application had its certification approved, the Developer tried to promote the app for production, however, still doesn’t have a CE.&lt;/td&gt;
-      &lt;td&gt;Request Cielo the creation of a CE to be able to promote the application for promotion.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;In case the developer doesn’t find the error in this table open a ticket to the support team, reporting the problem found and remember to list the evidences of the error with screenshots and error messages received.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte&quot;&gt;Click here&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;cielo-app-data&quot;&gt;Cielo App Data&lt;/h3&gt;
-
-&lt;p&gt;With Cielo App Data API, the developer of an app will be able to have access to the purchase information of his apps in a given LIO terminal.&lt;/p&gt;
-
-&lt;h4 id=&quot;token-generation&quot;&gt;Token Generation&lt;/h4&gt;
-
-&lt;p&gt;For such, it is required, previously, to generate the Token API on the Dev Console, which will be used on the App Data API. To generate the token, follow the step by step below:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Access and log in on the Dev Console through the &lt;a href=&quot;https://www.cieloliostore.com.br&quot;&gt;link&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;On the &lt;strong&gt;Public apps&lt;/strong&gt; tab, select the desired App&lt;/li&gt;
-  &lt;li&gt;Click on the &lt;strong&gt;Token API&lt;/strong&gt; tab, and then on the &lt;strong&gt;Generate Token&lt;/strong&gt; button.&lt;/li&gt;
-  &lt;li&gt;Once generating the token, copy and save it.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;strong&gt;Endpoint:&lt;/strong&gt; https://cieloliostore-api.m4u.com.br/api/v1/me&lt;/p&gt;
-
-&lt;h4 id=&quot;http-headers-1&quot;&gt;HTTP Headers&lt;/h4&gt;
-
-&lt;p&gt;All Cielo App Data API calls need that the Token API generated on the Dev Console is present on the requisitions Header:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Token:&lt;/strong&gt; Access-token identification, that stores information from the Public App that desires information.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;http-query-parameters&quot;&gt;HTTP Query Parameters&lt;/h4&gt;
-
-&lt;p&gt;Complementing the requisitions Header, the Cielo App Data API needs that all calls have the CE (Commercial Establishment Number) and the Logic Number (LIO terminal identifier) in its requisitions:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;ce:&lt;/strong&gt; Commercial Establishment Identification desired for query.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;logic_number:&lt;/strong&gt; LIO Terminal Identification desired for query.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;api&quot;&gt;API&lt;/h4&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;GET&lt;/strong&gt; / Details of a product&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;ec&lt;/strong&gt; (required in query parameter) - “String”
-&lt;strong&gt;logic_number&lt;/strong&gt; (required in query parameter) - “String”
-&lt;strong&gt;token&lt;/strong&gt; (required in header) - “String”&lt;/p&gt;
-
-&lt;p&gt;Answer example:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
-    &quot;app&quot;: {
-      &quot;name&quot;: &quot;string&quot;,
-      &quot;package_name&quot;: &quot;string&quot;
-    },
-    &quot;purchase&quot;: {
-        &quot;status&quot;: &quot;SUBSCRIBED&quot;,
-        &quot;plan&quot;: {
-            &quot;id&quot;: &quot;string&quot;,
-            &quot;name&quot;: &quot;string&quot;,
-            &quot;value&quot;: 0
-        },
-        &quot;created_at&quot;: &quot;string&quot;
-    },
-    &quot;payment&quot;: {
-        &quot;status&quot;: &quot;PENDING&quot;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;return-options-by-field&quot;&gt;Return options by field&lt;/h4&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;purchase.status:&lt;/strong&gt; “SUBSCRIBED”&lt;/td&gt;
-      &lt;td&gt;“UNSUBSCRIBED”&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;payment.status:&lt;/strong&gt; “PENDING”&lt;/td&gt;
-      &lt;td&gt;“AT_RECURRENCE”&lt;/td&gt;
-      &lt;td&gt;“PAID”&lt;/td&gt;
-      &lt;td&gt;“OBLIGOR”&lt;/td&gt;
-      &lt;td&gt;“CANCELED”&lt;/td&gt;
-      &lt;td&gt;“CIELO_PURCHAASE”&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;strong&gt;purchase.status:&lt;/strong&gt; “SUBSCRIBED”
-&lt;strong&gt;purchase.status:&lt;/strong&gt; “UNSUBSCRIBED”&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;payment.status:&lt;/strong&gt; “PENDING” (Pagamentos com status pendente)
-&lt;strong&gt;payment.status:&lt;/strong&gt; “AT_RECURRENCE” (Pagamentos com status em recorrência)
-&lt;strong&gt;payment.status:&lt;/strong&gt; “PAID” (Pagamentos com status pago)
-&lt;strong&gt;payment.status:&lt;/strong&gt; “OBLIGOR” (Status do pagamento como inadimplente)
-&lt;strong&gt;payment.status:&lt;/strong&gt; “CANCELED” (Pagamentos cancelados)
-&lt;strong&gt;payment.status:&lt;/strong&gt; “CIELO_PURCHASE” (pagamentos isentos(compras de teste/desenvolvimento))&lt;/p&gt;
-
-&lt;h2 id=&quot;own-apps&quot;&gt;Own Apps&lt;/h2&gt;
-
-&lt;p&gt;Own Apps attend specifically those developers that want to make their apps available only to some specific retailers. The Own App isn’t made available on Cielo Store, nor used by other retailers that haven’t been requested by the developer.&lt;/p&gt;
-
-&lt;p&gt;To learn more about the distribution model of the Own Apps, &lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#distribuição-de-aplicativos-próprios&quot;&gt;CLICK HERE&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;upload-of-new-own-apps-and-new-versions&quot;&gt;Upload of new Own Apps and new versions&lt;/h3&gt;
-
-&lt;p&gt;To perform the upload of new Own Apps, access the Dev Console and add a new app by selecting the option private store, and afterwards select the private store referring to your company.&lt;/p&gt;
-
-&lt;p&gt;In case the developer is performing a change or update on the Own App, the developer will have to upload a new version of the app. For that, click in Details of your app and start the procedure to add a new version.&lt;/p&gt;
-
-&lt;p&gt;To send a new version of the app, it is mandatory to:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Ensure that the most recent version has the same package name as the previous one;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Change the “version code” and the “version name” within the manifest file of the application.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;own-apps-distribution&quot;&gt;Own Apps Distribution&lt;/h3&gt;
-
-&lt;p&gt;The Developers that opt for developing Own Apps and distribute only to specifc retailers, must request via Developers Portal channel, informing what CEs numbers (number with 16 digits) and logic from the LIOs must get the app.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/suporte&quot;&gt;Click here&lt;/a&gt; to request the distribution of your app.&lt;/p&gt;
-
-&lt;h3 id=&quot;download-of-own-apps-on-cielo-lio&quot;&gt;Download of Own Apps on Cielo LIO&lt;/h3&gt;
-
-&lt;p&gt;To perform the download of Own Apps on Cielo LIO, perform the following procedure:&lt;/p&gt;
-
-&lt;p&gt;Click on the Help tab -&amp;gt; My LIO -&amp;gt; Check for Updates&lt;/p&gt;
-
-&lt;h2 id=&quot;public-apps&quot;&gt;Public Apps&lt;/h2&gt;
-
-&lt;p&gt;The Public Apps are indicated to the developers and partners that wish to scale and make their apps available, to allow the download in all Cielo LIO equipments distributed on the commercial establishments (retailers) in Brazil via Cielo Store app.&lt;/p&gt;
-
-&lt;p&gt;To learn more about Cielo Store, &lt;a href=&quot;https://developercielo.github.io/manual/cielo-lio#cielo-store&quot;&gt;Click here&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;upload-of-new-public-apps-and-new-versions&quot;&gt;Upload of new Public Apps and new versions&lt;/h3&gt;
-
-&lt;p&gt;To perform the upload of new public apps, access the Dev Console and add a new app by selecting the public store option and after that, select the app file.&lt;/p&gt;
-
-&lt;p&gt;In case the developer is performing a change or update in a public app, the developer will have to perform the upload of a new app version. For that, click in Details of your app and start the procedure to add a new version.&lt;/p&gt;
-
-&lt;p&gt;To send a new app version, it is mandatory to:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Ensure that the most recent version has the same package name as the previous one;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Change the “version code” and the “version name” within the manifest file of the application.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;public-apps-on-cielo-store&quot;&gt;Public Apps on Cielo Store&lt;/h3&gt;
-
-&lt;p&gt;As soon as the public app is certified, the developer will have to promote his app for production and from that moment, the app will be added to the Cielo Store showcase and will be available for download via Cielo LIO.&lt;/p&gt;
-
-&lt;p&gt;That is, commercial establishments (retailers) will be able to access Cielo Store via Cielo LIO, download your app and then start using.&lt;/p&gt;
-
-&lt;h3 id=&quot;download-of-public-apps-on-cielo-lio&quot;&gt;Download of Public Apps on Cielo LIO&lt;/h3&gt;
-
-&lt;p&gt;To perform the download of Public Apps on Cielo LIO, perform the following procedure:
-Click on the Apps tab -&amp;gt; Click on the Cielo Store app -&amp;gt; Choose the app that you want to download&lt;/p&gt;
 </content>
     </entry>
     
