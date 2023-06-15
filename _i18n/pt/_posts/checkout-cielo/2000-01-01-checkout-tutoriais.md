@@ -119,7 +119,15 @@ Após realizar o cadastro do produto/Link de pagamento, a seguinte loja será ex
 
 ![Detalhes do produto]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-detalhes-link-de-pagamentos.png)
 
-O Link de pagamentos é exibido de **3 maneiras:**
+O link de pagamento pode ser compartilhado de três formas:
+
+1. Copiando a URL do link;
+2. Implementando o botão **Pague com segurança** em uma página da sua loja;
+3. Compartilhando o QR Code do link.
+
+Confira no vídeo o passo a passo da geração de um link:
+
+[![Gerar Super Link](https://github.com/DeveloperCielo/developercielo.github.io/blob/98b263c3738f248745008cedf50c2c4f66a2ff5e/images/checkout/tutoriais-checkout/video-superlink.png)](https://www.youtube.com/watch?v=GWKYSdgSko8){:target="_blank"}
 
 - **Botão** - Será criado um código HTML como o abaixo:
 
