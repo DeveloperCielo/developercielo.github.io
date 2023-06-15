@@ -20,7 +20,7 @@ Este tutorial tem como objetivo auxiliar o lojista na configuração de sua loja
 
 O acesso ao painel administrativo ou backoffice é feito através do site Cielo. O acesso pode ser feito por meio do CPF, N° do estabelecimento (EC) ou e-mail do seu cadastro de e-commerce na Cielo.
 
-![Login Backoffice Cielo]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/checkout-login-novo.png)
+![Login Backoffice Cielo]({{ site.baseurl_root }}/images/checkout/tutoriais-checkout/1login.png)
 
 Após o preenchimento do CPF/e-mail/N° do EC, o site irá solicitar a sua senha. Em caso de primeiro acesso, será enviada uma senha provisória por e-mail.
 
