@@ -26,13 +26,13 @@ Para mais informações, visite os artigos de suporte da VTEX: [Cadastrar afilia
 
 Acesse o painel **ADMIN VTEX** (https://*nomedaloja*.myvtex.com/admin) e comece a navegação por **Transações** > **Pagamentos** > **Configurações** > **Afiliações de gateways** > **+**
 
-![Afiliação]({{ site.baseurl_root }}/images/braspag/pagador/vtex/00-afiliacao.png)
+![Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/00-afiliacao.png)
 
 ### 2. Selecionando o Conector
 
 Selecione o conector **CieloEcommerce** e insira as informações conforme recebidas após a contratação das soluções desejadas. 
  
-![CieloEcommerce]({{ site.baseurl_root }}/images/braspag/pagador/vtex/01-cieloecommerce.jpeg)
+![CieloEcommerce]({{ site.baseurl_root }}/images/modulos/vtex/01-cieloecommerce.jpeg)
 
 É preciso configurar o mesmo conector quantas vezes necessárias de acordo com o tipo de pagamento desejado, por isso fique atento ao Nome da Afiliação utilizada. Sugerimos incluir no nome e o provedor configurado.
 
@@ -40,7 +40,7 @@ Selecione o conector **CieloEcommerce** e insira as informações conforme receb
 
 Insira o Nome da Afiliação:
 
-![Nome da Afiliação]({{ site.baseurl_root }}/images/braspag/pagador/vtex/02-nome-afiliacao-ticket.jpeg)
+![Nome da Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/02-nome-afiliacao-ticket.jpeg)
 
 #### Exemplos de Nome da Afiliação
 
@@ -53,8 +53,8 @@ Insira o Nome da Afiliação:
 
 Preencha os campos com os dados requisitados:
 
-![1Dados Afiliação]({{ site.baseurl_root }}/images/braspag/pagador/vtex/03a-dados.jpg)
-![2Dados Afiliação]({{ site.baseurl_root }}/images/braspag/pagador/vtex/03b-dados.jpg)
+![1Dados Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/03a-dados.jpg)
+![2Dados Afiliação]({{ site.baseurl_root }}/images/modulos/vtex/03b-dados.jpg)
 
 |Campo|Descrição|
 |-|-|
@@ -79,13 +79,13 @@ Após salvar o conector ele irá aparecer na lista **Processar com afiliação**
 
 Acesse **Transações** > **Configurações** > **Condições de Pagamento** > **+**
 
-![Condições de pagamento]({{ site.baseurl_root }}/images/braspag/pagador/vtex/04-condicao.jpeg)
+![Condições de pagamento]({{ site.baseurl_root }}/images/modulos/vtex/04-condicao.jpeg)
 
 ### 2. Configurando o Tipo de Pagamento
 
 Selecione o tipo de pagamento que deseja configurar e insira as informações necessárias:
 
-![Nome Condição]({{ site.baseurl_root }}/images/braspag/pagador/vtex/05-nome-condicao.jpeg)
+![Nome Condição]({{ site.baseurl_root }}/images/modulos/vtex/05-nome-condicao.jpeg)
  
 |Campo|Descrição|
 |-|-|
@@ -124,8 +124,8 @@ Para configurar pagamentos customizados, acesse **Transações** > **Configuraç
 
 Nesta seção configure os dados para Private Label e Ticket:
 
-![1Pagamento Customizado]({{ site.baseurl_root }}/images/braspag/pagador/vtex/06a-pagamento-customizado.jpg)
-![2Pagamento Customizado]({{ site.baseurl_root }}/images/braspag/pagador/vtex/06b-pagamento-customizado.jpg)
+![1Pagamento Customizado]({{ site.baseurl_root }}/images/modulos/vtex/06a-pagamento-customizado.jpg)
+![2Pagamento Customizado]({{ site.baseurl_root }}/images/modulos/vtex/06b-pagamento-customizado.jpg)
 
 |Campo|Descrição|
 |-|-|
@@ -152,8 +152,8 @@ Para que o Split seja utilizado corretamente, os sellers de um marketplace devem
 
 Para fazer o cadastro de um seller, acesse **Marketplace** > **Sellers** > **Gerenciamento**:
 
-![Split1]({{ site.baseurl_root }}/images/braspag/pagador/vtex/07a-split.jpg)
-![Split2]({{ site.baseurl_root }}/images/braspag/pagador/vtex/07b-split.jpg)
+![Split1]({{ site.baseurl_root }}/images/modulos/vtex/07a-split.jpg)
+![Split2]({{ site.baseurl_root }}/images/modulos/vtex/07b-split.jpg)
 
 ## Antifraude
 
@@ -163,7 +163,7 @@ Para configurar, acesse **Transações** > **Configurações** > **Afiliações 
 
 Selecione o conector **Braspag** (Soluções Antifraude) e insira as informações conforme recebidas após a contratação das soluções desejadas.
 
-![Antifraude]({{ site.baseurl_root }}/images/braspag/pagador/vtex/08-antifraude.jpg)
+![Antifraude]({{ site.baseurl_root }}/images/modulos/vtex/08-antifraude.jpg)
 
 |Campo|Descrição|
 |-|-|
