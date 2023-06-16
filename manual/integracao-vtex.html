@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="theme-color" content="#00aeef" />
+  <meta http-equiv="Content-Language" content="pt" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+
+  <title>
+     Integração VTEX &middot; Documentações e tutoriais 
+  </title>
+
+  <link rel="shortcut icon" href="https://developercielo.github.io/assets/favicon.ico" />
+
+  <!-- CSS -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500"
+    rel="stylesheet"
+    media="none"
+    onload="if(media!='all')media='all'"
+  />
+  <script async src="https://use.fontawesome.com/3ae06f1030.js"></script>
+
+  <link
+    rel="stylesheet"
+    href="https://developercielo.github.io/assets/bundles/css/bundle.min.css"
+  />
+
+   
+  <link
+    rel="alternate"
+    hreflang="pt"
+    href="https://developercielo.github.io/manual/integracao-vtex"
+  />
+    
+  <link
+    rel="alternate"
+    hreflang="en"
+    href="https://developercielo.github.io/en/manual/integracao-vtex"
+  />
+   
+
+  <!-- RSS -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="https://developercielo.github.io/atom.xml"
+  />
+</head>
+
+    <body>
+        
+        <div class="content-container no-dark-box">
+        
+            <div id="submenu">
+                <div class="submenu-container">
+                    <div class="submenu-row sub-items">
+                        <div class="submenu-itens">
+                            <a href="https://devcielo.zendesk.com/hc/pt-br#suporte" class="help">Ajuda</a>
+
+                            
+                            <div class="lang">
+                                <span>Idiomas</span>
+
+                                
+                                    
+                                    <a href="https://developercielo.github.io/manual/integracao-vtex">
+                                    
+
+                                        <img alt="Português" src="https://developercielo.github.io/assets/images/pt.png"/>
+                                    </a>
+                                
+                                    
+                                    <a href="https://developercielo.github.io/en/manual/integracao-vtex">
+                                    
+
+                                        <img alt="English" src="https://developercielo.github.io/assets/images/en.png"/>
+                                    </a>
+                                
+                            </div>
+                            
+                        </div>
+
+                        
+                        <div class="search">
+                            <input type="text" class="search" id="input-search">
+                        </div>
+                    </div>
+                    <div class="submenu-row results">
+                        <div class="search-results-container">
+                            <ul class="search-results"></ul>
+                        </div>
+                    </div>
+                        
+
+                    <div class="submenu-row breads">
+                        <ol class="breadcrumb">
+                            
+                            <li><a href="/">Início</a></li>
+                            
+                            
+                            
+                            
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                    
+                                
+                            
+                                
+                                    
+                                    <li class="active">&gt; <a href="https://developercielo.github.io/manual/integracao-vtex">Integração VTEX</a></li>
+                                    
+                                
+                            
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="post"><h1 id="integração-vtex">Integração VTEX</h1>
+
+<p>A Cielo desenvolveu um conector na plataforma de e-commerce VTEX para realização do pagamento através das APIs de pagamento online da Cielo.  A usabilidade da plataforma deve ser consultada no <a href="https://help.vtex.com/tutorial/" target="_blank">tutorial da VTEX</a>. Abaixo reforçaremos as informações necessárias para utilização do conector.</p>
+
+<h1 id="configuração">Configuração</h1>
+
+<p>Para a configuração estar completa é preciso cadastrar <strong>Afiliação de pagamento</strong> para posteriormente vincular a uma <strong>Condição de pagamento</strong>.</p>
+
+<p>Para mais informações, visite os artigos de suporte da VTEX: <a href="https://help.vtex.com/pt/tutorial/afiliacoes-de-gateway--tutorials_444" target="_blank">Cadastrar afiliações de gateway</a> e <a href="https://help.vtex.com/pt/tutorial/condicoes-de-pagamento--tutorials_455" target="_blank">Configurar condições de pagamento</a>.</p>
+
+<h2 id="afiliação-de-pagamento">Afiliação de Pagamento</h2>
+
+<h3 id="1-acessando-o-painel-vtex">1. Acessando o Painel VTEX</h3>
+
+<p>Acesse o painel <strong>ADMIN VTEX</strong> (https://<em>nomedaloja</em>.myvtex.com/admin) e comece a navegação por <strong>Transações</strong> &gt; <strong>Pagamentos</strong> &gt; <strong>Configurações</strong> &gt; <strong>Afiliações de gateways</strong> &gt; <strong>+</strong></p>
+
+<p><img src="https://developercielo.github.io/images/braspag/pagador/vtex/00-afiliacao.png" alt="Afiliação" /></p>
+
+<h3 id="2-selecionando-o-conector">2. Selecionando o Conector</h3>
+
+<p>Selecione o conector <strong>CieloEcommerce</strong> e insira as informações conforme recebidas após a contratação das soluções desejadas.</p>
+
+<p><img src="https://developercielo.github.io/images/braspag/pagador/vtex/01-cieloecommerce.jpeg" alt="CieloEcommerce" /></p>
+
+<p>É preciso configurar o mesmo conector quantas vezes necessárias de acordo com o tipo de pagamento desejado, por isso fique atento ao Nome da Afiliação utilizada. Sugerimos incluir no nome e o provedor configurado.</p>
+
+<h3 id="3-escolhendo-o-nome-da-afiliação">3. Escolhendo o Nome da Afiliação</h3>
+
+<p>Insira o Nome da Afiliação:</p>
+
+<p><img src="https://developercielo.github.io/images/braspag/pagador/vtex/02-nome-afiliacao-ticket.jpeg" alt="Nome da Afiliação" /></p>
+
+<h4 id="exemplos-de-nome-da-afiliação">Exemplos de Nome da Afiliação</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Exemplo</th>
+      <th>Definição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CieloEcommerce - Ticket</td>
+      <td>Nesse exemplo o título relembra que qualquer condição de pagamento que utilizar essa afiliação vai utilizar Ticket como o provider.</td>
+    </tr>
+    <tr>
+      <td>CieloEcommerce - Cielo30 c/ 3DS c/ SPLIT</td>
+      <td>Nesse exemplo o título relembra que qualquer condição de pagamento que utilizar essa afiliação vai utilizar Cielo30 como o provider, fazer a autenticação com 3DS (se compatível) e realizar SPLIT de pagamento (se compatível).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="4-preenchendo-dados-necessários">4. Preenchendo Dados Necessários</h3>
+
+<p>Preencha os campos com os dados requisitados:</p>
+
+<p><img src="https://developercielo.github.io/images/braspag/pagador/vtex/03a-dados.jpg" alt="1Dados Afiliação" />
+<img src="https://developercielo.github.io/images/braspag/pagador/vtex/03b-dados.jpg" alt="2Dados Afiliação" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Nome da Afiliação</strong></td>
+      <td>Insira nome identificador da afiliação.</td>
+    </tr>
+    <tr>
+      <td><strong>Application Key</strong></td>
+      <td>Insira o MerchantID.</td>
+    </tr>
+    <tr>
+      <td><strong>Application Token</strong></td>
+      <td>Insira o MerchantKey.</td>
+    </tr>
+    <tr>
+      <td><strong>Integration</strong></td>
+      <td>Selecione <strong>Adquirência</strong> se o seu contrato é somente com a adquirência Cielo. <br />Selecione <strong>Gateway</strong> se o seu contrato é para utilização de outros provedores.</td>
+    </tr>
+    <tr>
+      <td><strong>Provider</strong></td>
+      <td>Selecione o provedor  que deseja configurar a afiliação conforme o tipo de pagamento. <br />Exemplo: Se o seu provedor de Boleto é o Bradesco e o seu provedor de Crédito, Débito e Pix é o Cielo será necessário adicionar duas afiliações. <br />O provedor <strong>Simulado</strong> deve ser utilizado para transaçãoes de teste.<br />O provedor <strong>Cielo</strong> deve ser configurado para Integração <strong>Adquirência</strong>. <br />O provedor <strong>Cielo30</strong> deve ser configurado para Integração <strong>Gateway</strong>.</td>
+    </tr>
+    <tr>
+      <td><strong>UseSPLIT</strong></td>
+      <td>Insira “Sim” ou “Não” se deseja utilizar o SPLIT de pagamentos. Disponível para os tipos de pagamento Crédito, Débito e Boleto.</td>
+    </tr>
+    <tr>
+      <td><strong>UseMPI</strong></td>
+      <td>Insira “Sim” ou “Não” se deseja utilizar a Autenticação de 3DS2.0. Este campo é obrigatório para o tipo de pagamento Débito.</td>
+    </tr>
+    <tr>
+      <td><strong>MpiClientId</strong></td>
+      <td>ID do MPI, disponibilizado para o cliente pela Cielo.</td>
+    </tr>
+    <tr>
+      <td><strong>MpiClientSecret</strong></td>
+      <td>Chave secreta do MPI, disponibilizada para o cliente pela Cielo.</td>
+    </tr>
+    <tr>
+      <td><strong>MpiMerchantName</strong></td>
+      <td>Nome da loja, disponibilizado pela Cielo.</td>
+    </tr>
+    <tr>
+      <td><strong>MpiMCC</strong></td>
+      <td>Merchant Category Code da loja, disponibilizado pela Cielo.</td>
+    </tr>
+    <tr>
+      <td><strong>MpiEstablishmentCode</strong></td>
+      <td>Código de estabelecimento da loja, disponibilizado pela Cielo.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Após salvar o conector ele irá aparecer na lista <strong>Processar com afiliação</strong> da tela de configuração da <strong>Condição de Pagamento</strong>. </p>
+
+<h2 id="condição-de-pagamento">Condição de Pagamento</h2>
+
+<h3 id="1-adicionando-nova-condição-de-pagamento">1. Adicionando Nova Condição de Pagamento</h3>
+
+<p>Acesse <strong>Transações</strong> &gt; <strong>Configurações</strong> &gt; <strong>Condições de Pagamento</strong> &gt; <strong>+</strong></p>
+
+<p><img src="https://developercielo.github.io/images/braspag/pagador/vtex/04-condicao.jpeg" alt="Condições de pagamento" /></p>
+
+<h3 id="2-configurando-o-tipo-de-pagamento">2. Configurando o Tipo de Pagamento</h3>
+
+<p>Selecione o tipo de pagamento que deseja configurar e insira as informações necessárias:</p>
+
+<p><img src="https://developercielo.github.io/images/braspag/pagador/vtex/05-nome-condicao.jpeg" alt="Nome Condição" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Nome da Condição</td>
+      <td>Insira nome identificador da condição de pagamento.</td>
+    </tr>
+    <tr>
+      <td>Processar com a afiliação</td>
+      <td>Selecione a afiliação existente na lista conforme previamente cadastrada na seção Afiliação de Pagamento.</td>
+    </tr>
+    <tr>
+      <td>Usar solução antifraude</td>
+      <td>Esta opção apenas será exibida se houver Antifraude previamente cadastrado Afiliação de Pagamento.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Da mesma forma que a Afiliação de Pagamento, é preciso configurar a condição de pagamento quantas vezes necessárias de acordo com o tipo de pagamento desejado, por isso fique atento ao Nome da Condição utilizada. O nome do conector é exibido e o tipo de pagamento também. Então sugerimos inserir somente as soluções que foram configuradas na afiliação selecionada.</p>
+
+<h3 id="exemplos-de-nome-da-condição">Exemplos de Nome da Condição</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Exemplo</th>
+      <th>Definição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ticket</td>
+      <td>Nesse exemplo o título relembra que a condição de pagamento vai utilizar a afiliação configurada com Ticket como provider.</td>
+    </tr>
+    <tr>
+      <td>Cielo30 c/ 3DS c/ SPLIT</td>
+      <td>Nesse exemplo o título relembra que qualquer condição de pagamento vai utilizar a afiliação configurada com Cielo30 como provider, fazer a autenticação com 3DS (se compatível) e realizará SPLIT de Pagamento (se compatível)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Após essas duas etapas concluídas com todas as condições de pagamento criadas, as opções de pagamento serão exibidas na tela de checkout da loja.</p>
+
+<aside class="notice">A VTEX  agenda a solicitação de captura para 4 dias após a autorização para o tipo de pagamento ‘Crédito’, quando não há configuração do tempo de captura.</aside>
+
+<aside class="notice">A VTEX possui apenas cadastramento de seller do tipo pessoa ‘Jurídica’.</aside>
+
+<h2 id="meios-de-pagamento">Meios de Pagamento</h2>
+
+<h3 id="crédito-e-débito">Crédito e Débito</h3>
+
+<p>Selecione a Condição de Pagamento desejada e configure conforme o passo a passo em <a href="https://braspag.github.io//tutorial/integracao-vtex#condi%C3%A7%C3%A3o-de-pagamento">Condição de Pagamento</a>.</p>
+
+<h3 id="voucher">Voucher</h3>
+
+<p>Este meio de pagamento deve seguir a seção de <a href="https://braspag.github.io//tutorial/integracao-vtex#pagamentos-customizados">Pagamentos Customizados</a> para que a opção seja exibida na Condição de Pagamento. Posteriormente, selecione a Condição de Pagamento desejada e configure conforme o passo a passo em <a href="https://braspag.github.io//tutorial/integracao-vtex#condi%C3%A7%C3%A3o-de-pagamento">Condição de Pagamento</a>.</p>
+
+<h2 id="pagamentos-customizados">Pagamentos Customizados</h2>
+
+<p>Para configurar pagamentos customizados, acesse <strong>Transações</strong> &gt; <strong>Configurações</strong> &gt; <strong>Pagamentos Customizados</strong> &gt; <strong>Cartão da Loja – Bandeira Própria</strong> &gt; <strong>Configurar</strong></p>
+
+<p>Nesta seção configure os dados para Private Label e Ticket:</p>
+
+<p><img src="https://developercielo.github.io/images/braspag/pagador/vtex/06a-pagamento-customizado.jpg" alt="1Pagamento Customizado" />
+<img src="https://developercielo.github.io/images/braspag/pagador/vtex/06b-pagamento-customizado.jpg" alt="2Pagamento Customizado" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Name</strong></td>
+      <td><strong>Valores Possíveis:</strong> <br />Carrefour<br />Credz<br />CredSystem<br />DMCard<br />Ticket</td>
+    </tr>
+    <tr>
+      <td><strong>Descrição</strong></td>
+      <td><strong>Valores Possíveis:</strong> <br />Carrefour<br />Credz<br />CredSystem<br />DMCard<br />Ticket</td>
+    </tr>
+    <tr>
+      <td><strong>Intervalos de BIN</strong></td>
+      <td>100000-999999</td>
+    </tr>
+    <tr>
+      <td><strong>Código de pagamento do adquirente</strong></td>
+      <td><strong>Valores Possíveis:</strong> <br />580<br />565<br />550<br />564<br />634</td>
+    </tr>
+    <tr>
+      <td><strong>Usar nome do titular do cartão</strong></td>
+      <td>Sim</td>
+    </tr>
+    <tr>
+      <td><strong>Quantidade de dígitos do CVV</strong></td>
+      <td>[1]999</td>
+    </tr>
+    <tr>
+      <td><strong>Usar data de validade do cartão?</strong></td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><strong>Usar endereço de cobrança?</strong></td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><strong>Máscara do cartão</strong></td>
+      <td>9999 9999 9999 9999</td>
+    </tr>
+    <tr>
+      <td><strong>Validade do pagamento</strong></td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><strong>Autorizar automaticamente</strong></td>
+      <td>Não</td>
+    </tr>
+    <tr>
+      <td><strong>Ativar divisão de pagamento</strong></td>
+      <td>Não</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="3ds">3DS</h2>
+
+<p>As credenciais recebidas para utilização da solução devem ser inseridas conforme em <a href="https://braspag.github.io//tutorial/integracao-vtex#afilia%C3%A7%C3%A3o-de-pagamento">Afiliação de Pagamento</a></p>
+
+<h2 id="split-de-pagamentos">Split de Pagamentos</h2>
+
+<p>Para que o Split seja utilizado corretamente, os sellers de um marketplace devem estar previamente cadastrados na plataforma VTEX e deve ser informado ao time de implantação fielmente ao cadastro da VTEX juntamente com o CNPJ. Uma vez editada essa informação na VTEX, o time Cielo deve ser informado dos novos dados.</p>
+
+<p>Para fazer o cadastro de um seller, acesse <strong>Marketplace</strong> &gt; <strong>Sellers</strong> &gt; <strong>Gerenciamento</strong>:</p>
+
+<p><img src="https://developercielo.github.io/images/braspag/pagador/vtex/07a-split.jpg" alt="Split1" />
+<img src="https://developercielo.github.io/images/braspag/pagador/vtex/07b-split.jpg" alt="Split2" /></p>
+
+<h2 id="antifraude">Antifraude</h2>
+
+<p>Para que as transações sejam validadas pelo Antifraude é necessário que o conector de Antifraude <strong>Braspag</strong> esteja configurado previamente em Afiliação de Pagamento antes da etapa de Condição de Pagamento.</p>
+
+<p>Para configurar, acesse <strong>Transações</strong> &gt; <strong>Configurações</strong> &gt; <strong>Afiliações de gateways</strong> &gt; <strong>+</strong></p>
+
+<p>Selecione o conector <strong>Braspag</strong> (Soluções Antifraude) e insira as informações conforme recebidas após a contratação das soluções desejadas.</p>
+
+<p><img src="https://developercielo.github.io/images/braspag/pagador/vtex/08-antifraude.jpg" alt="Antifraude" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Id do Merchant</strong></td>
+      <td>Merchant ID do antifraude, disponibilizado pela Cielo.</td>
+    </tr>
+    <tr>
+      <td><strong>FingerPrint_OrgId</strong></td>
+      <td>Fingerprint Org ID, disponibilizado pela Cielo para validação na Cybersource.<br />Indica o ambiente na Threatmetrix: Sandbox ou Produção.</td>
+    </tr>
+    <tr>
+      <td><strong>FingerPrint_MerchantId</strong></td>
+      <td>Fingerprint Merchant ID, disponibilizado pela Cielo para validação na Cybersource.<br />Identificador da sua loja ou operação.<br /> <strong>É diferente do MerchantId</strong>.</td>
+    </tr>
+    <tr>
+      <td>É diferente do MerchantId.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>Moeda</strong></td>
+      <td>Selecionar a moeda da transação Brasil Real (BRL)</td>
+    </tr>
+    <tr>
+      <td><strong>Versão de dados definidos da loja</strong></td>
+      <td>Utilizar sempre Retail_V4</td>
+    </tr>
+    <tr>
+      <td><strong>Enviar transações autenticadas</strong></td>
+      <td>Sim</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+            <div class="footer-conteudo">
+  <div id="footer-conteudo-img" class="col-lg-1 col-md-1">
+    <img
+      src="https://developercielo.github.io/assets/images/icon-doubt.svg"
+      width="55px"
+      height="53px"
+      alt="Precisa de ajuda?"
+    />
+  </div>
+
+  <div id="footer-conteudo-texto" class="col-lg-11 col-md-11">
+    <h2>Precisa de ajuda?</h2>
+    <p>Se você não conseguiu encontrar sua resposta acima, <a href="https://devcielo.zendesk.com/hc/pt-br#suporte">entre em contato conosco</a>.</p>
+  </div>
+</div>
+
+        </div>
+
+        <div class="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a
+        title="Comutar a coluna da esquerda"
+        class="hamburger"
+      >
+        <i class="fa fa-bars hamb-menu" aria-hidden="true"></i>
+      </a>
+      <a href="https://desenvolvedores.cielo.com.br" target="_blank">
+        <img
+          src="https://developercielo.github.io/assets/images/logo.png"
+          alt="Documentações e tutoriais"
+          style="width: 60%; margin-left: 20%"
+        />
+      </a>
+      <div></div>
+    </div>
+
+    <div id="toc"></div>
+
+    <div class="fixed-footer">
+      
+
+      <div class="toc-contact">
+        <div class="contact">
+          <a
+            title="Contato"
+            href="https://devcielo.zendesk.com/"
+          >
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            <span>Contato</span>
+          </a>
+        </div>
+        <div class="github">
+          <a title="GitHub" href="https://github.com/developercielo">
+            <i class="fa fa-github" aria-hidden="true"></i>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        <script src="https://developercielo.github.io/assets/bundles/js/bundle.min.js"></script>
+        <script>
+            
+            var selectors = 'h1,h2,h3,h4,h5,h6';
+            
+        </script>
+
+        
+        <script src="https://developercielo.github.io/assets/bundles/js/search.min.js"></script>
+        
+
+        
+
+        <!-- Hotjar Tracking Code for https://developercielo.github.io/ -->
+<script>
+  (function (h, o, t, j, a, r) {
+    h.hj =
+      h.hj ||
+      function () {
+        (h.hj.q = h.hj.q || []).push(arguments);
+      };
+    h._hjSettings = { hjid: 674586, hjsv: 6 };
+    a = o.getElementsByTagName("head")[0];
+    r = o.createElement("script");
+    r.async = 1;
+    r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
+</script>
+
+    </body>
+</html>
