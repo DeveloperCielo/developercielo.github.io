@@ -42,8 +42,11 @@ O grande diferencial do Checkout Cielo é a gama de serviços agregados em uma p
 |**Diversos meios de pagamentos**|O Checkout Cielo possui uma variada gama de meios de pagamento:<br>Cartões de crédito<br>Cartão de débito<br>Boleto Bradesco e Banco do Brasil<br>Pix Cielo, Bradesco e Banco do Brasil|
 |**Integração com Botão e QR Code**|Sem integração técnica ou programação, o Checkout disponibiliza uma integração que torna possível realizar a criação de um botão para acesso à página de pagamento. Veja mais no [Tutorial Checkout](https://developercielo.github.io/tutorial/checkout-tutoriais){:target="_blank"}|
 |**Relatórios transacionais**|Dentro do site Cielo, é possível gerar relatórios transacionais que facilitam a administração de suas vendas:<br>Relatório de Recorrências<br>Relatório de compradores<br>Extrato de vendas<br>Relatório de vendas|
+|**Consulta BIN**| A Consulta BIN é um serviço de pesquisa de dados do cartão, seja ele de crédito ou débito, que identifica as características do cartão com base nos primeiros dígitos: bandeira, tipo, nacionalidade, se é cartão corporativo, emissor e se é cartão pré-pago|
 
-**Os meios de pagamento e bandeiras aceitos no Checkout Cielo são:**
+## Meios de pagamento aceitos no Checkout Cielo
+
+A versão atual do Checkout Cielo possui suporte aos seguintes meios de pagamento e bandeiras:
 
 |MEIO DE PAGAMENTO|BANDEIRAS E PROVEDORES|
 |---|---|
@@ -52,7 +55,7 @@ O grande diferencial do Checkout Cielo é a gama de serviços agregados em uma p
 |Pix|Cielo, Bradesco e Banco do Brasil|
 |Boleto registrado|Bradesco e Banco do Brasil|
 
-**Observação**: O limite máximo de parcelas do Checkout Cielo é 12 parcelas.
+> **Observação**: O limite máximo de parcelas do Checkout Cielo é 12 parcelas.
 
 ## Pré-requisitos para integração
 
