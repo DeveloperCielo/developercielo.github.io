@@ -169,8 +169,7 @@ Selecione o conector **Braspag** (Soluções Antifraude) e insira as informaçõ
 |-|-|
 |**Id do Merchant**|Merchant ID do antifraude, disponibilizado pela Cielo.|
 |**FingerPrint_OrgId**|Fingerprint Org ID, disponibilizado pela Cielo para validação na Cybersource.<br>Indica o ambiente na Threatmetrix: Sandbox ou Produção.|
-|**FingerPrint_MerchantId**|Fingerprint Merchant ID, disponibilizado pela Cielo para validação na Cybersource.<br>Identificador da sua loja ou operação.<br> **É diferente do MerchantId**.
-É diferente do MerchantId.|
+|**FingerPrint_MerchantId**|Fingerprint Merchant ID, disponibilizado pela Cielo para validação na Cybersource.<br>Identificador da sua loja ou operação.<br> **É diferente do MerchantId**.|
 |**Moeda**|Selecionar a moeda da transação Brasil Real (BRL)|
 |**Versão de dados definidos da loja**|Utilizar sempre Retail_V4|
 |**Enviar transações autenticadas**|Sim|
