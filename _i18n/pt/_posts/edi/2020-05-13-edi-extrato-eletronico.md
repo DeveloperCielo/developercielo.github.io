@@ -104,7 +104,7 @@ curl --location --request POST 'https://{cielo-api-base-url}/consent/v1/oauth/ac
 | ----------------- | ------------------------------------------------------------------------------------------------------- |
 | `access_token`    | O access_token para chamar as APIs da Cielo.                                                            |
 | `refresh_token`   | Quando o access_token expirar o parceiro pode solicitar um novo access_token usando este refresh_token. |
-| `expiration_time` | O tempo de expiração do access_token em milisgundos.                                                    |
+| `expiration_time` | O tempo de expiração do access_token em segundos.                                                    |
 
 ### Observações
 
@@ -163,7 +163,7 @@ Um ponto de atenção na requisição pois agora o parceiro precisa enviar o `gr
 | ----------------- | ------------------------------------------------------------------------------------------------------- |
 | `access_token`    | O access_token para chamar as APIs da Cielo.                                                            |
 | `refresh_token`   | Quando o access_token expirar o parceiro pode solicitar um novo access_token usando este refresh_token. |
-| `expiration_time` | O tempo de expiração do access_token em milisgundos.                                                    |
+| `expiration_time` | O tempo de expiração do access_token em segundos.                                                       |
 
 ## Erros
 
