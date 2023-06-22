@@ -3131,7 +3131,7 @@ Veja todos os benefícios:
 - **Maior segurança:** além da criação de um código (token ou DPAN) para substituir a informação do cartão, as bandeiras também emitem os criptogramas, que funcionam como uma senha ou assinatura da bandeira, única para aquele cartão naquele estabelecimento;
 - **Atualização automática de cartões:** quando um novo cartão é emitido no lugar do cartão anterior, ou quando a data de expiração de um cartão muda, os bancos enviam essas informações para a base da bandeira, e a bandeira automaticamente atualiza os tokens com as novas informações. Ou seja, não tem necessidade de nenhuma ação por parte do estabelecimento;
 - **Maior conversão de aprovação:** Por conta da maior segurança com os tokens das bandeiras, os bancos emissores se sentem mais seguros em aprovar as transações. Além disso, com os dados de cartão atualizados automaticamente, mais vendas que poderiam ser negadas por dados de cartão desatualizados podem ser aprovadas.
-
+<br
 **Como funciona?**
 
 As bandeiras participantes disponibilizam APIs para o recebimento e armazenamento do cartão de forma segura para adquirentes, gateways e parceiros, com a criação do token único e exclusivo para aquele cartão naquele estabelecimento.
@@ -3141,7 +3141,7 @@ A Cielo fornece esse serviço para os clientes de duas formas:
 * **Integração facilitada:** o estabelecimento se integra com a funcionalidade de tokenização convencional da Cielo, que por trás realiza a tokenização da bandeira, e relaciona esses dois tokens no cofre da Cielo. Dessa forma, os estabelecimentos sempre terão um único token para aquele cartão, mas a Cielo terá os tokens e criptogramas das bandeiras internamente. Para conferir como é a integração com a tokeniação convencional da Cielo, volte para o menu [Tokenização de cartões](https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-cart%C3%B5es).
   **Bandeiras disponíveis:** Visa.
 
- > Para obter essa funcionalidade, entre em contato com nosso canal de suporte ecommerce solicitando a habilitação: **cieloecommerce@cielo.com.br**
+    > Para obter essa funcionalidade, entre em contato com nosso canal de suporte ecommerce solicitando a habilitação: **cieloecommerce@cielo.com.br**
 
 * **Integração por fora:** se o estabelecimento usa um gateway ou outro parceiro que já oferece a solução de token de bandeira, a Cielo possui os campos para que sejam enviadas as informações do token na transação, para que no processamento a bandeira receba os dados do token. Veja mais detalhes na requisição a seguir.
   **Bandeiras disponíveis:** Visa, Master e Elo.
@@ -3270,7 +3270,7 @@ curl
 | `Payment.CreditCard.SaveCard`       | Booleano | ---     | Não (Default false) | Booleano que identifica se o cartão será salvo para gerar o CardToken.                                                                    |
 | `Payment.CreditCard.Brand`          | Texto    | 10      | Sim                 | Bandeira do cartão (Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper).                                     |
 
-* *
+**Deve ser enviado caso a tokenização seja feita na bandeira (integração por fora).*
 
 ### Resposta
 
