@@ -3038,9 +3038,9 @@ Além disso, precisam enviar alguns dados adicionais na transação, para que as
 
 # Tokenização de cartões
 
-**O que é a _tokenização_ de cartões?**
+**O que é a *tokenização* de cartões?**
 
-É uma criptografia que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografado chamado de _token_, que poderá ser armazenado em banco de dados. Com a tokenização, a loja poderá oferecer recursos como "Compra com um clique” e compras com **recorrência**, sempre preservando a integridade e a confidencialidade das informações.
+É uma criptografia que permite o armazenamento seguro de dados sensíveis de cartão de crédito. Estes dados são transformados em um código criptografado chamado de *token*, que poderá ser armazenado em banco de dados. Com a tokenização, a loja poderá oferecer recursos como "Compra com um clique” e compras com **recorrência**, sempre preservando a integridade e a confidencialidade das informações.
 
 ## Criando um cartão tokenizado antes da autorização
 
@@ -3114,7 +3114,7 @@ curl
 
 | Propriedade | Descrição                         | Tipo | Tamanho | Formato                              |
 | ----------- | --------------------------------- | ---- | ------- | ------------------------------------ |
-| `Cardtoken` | Token de identificação do cartão. | Guid | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
+| `PCardtoken` | Token de identificação do cartão. | Guid | 36      | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 
 ## Criando um cartão tokenizado durante uma autorização
 
@@ -3264,7 +3264,7 @@ curl
 | ----------------------------------- | -------- | ------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | `Payment.CreditCard.CardNumber`     | Texto    | 19      | Sim                 | Token gerado pela bandeira (DPAN). A indicação de que o `CardNumber` deve ser preenchido com o DPAN para caso de tokenização de bandeira. |
 | `Payment.CreditCard.Holder`         | Texto    | 25      | Não                 | Nome do Comprador impresso no cartão.                                                                                                     |
-| `Payment.CreditCard.Cryptogram`     | Texto    | 28      | Não                 | Criptograma gerado pela bandeira.                                                                                                         |
+| `Payment.CreditCard.Cryptogram`     | Texto    | 28      | Condicional           | Criptograma gerado pela bandeira.   |
 | `Payment.CreditCard.ExpirationDate` | Texto    | 7       | Sim                 | Data de validade do token gerado pela bandeira.                                                                                           |
 | `Payment.CreditCard.SecurityCode`   | Texto    | 4       | Não                 | Código de segurança impresso no verso do cartão - Ver Anexo.                                                                              |
 | `Payment.CreditCard.SaveCard`       | Booleano | ---     | Não (Default false) | Booleano que identifica se o cartão será salvo para gerar o CardToken.                                                                    |
