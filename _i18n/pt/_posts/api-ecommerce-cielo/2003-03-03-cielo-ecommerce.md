@@ -450,6 +450,8 @@ Para criar uma transação de cartão de crédito, envie uma requisição utiliz
 
 <aside class="notice"><strong>Atenção:</strong> No header da requisição, use o Content-Type application/json .</aside>
 
+> **Transações de crédito Mastercard com credenciais armazenadas**: a bandeira Mastercard exige o envio do **Indicador de Início da Transação** para compras de **cartão de crédito e débito** que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (titular do cartão) ou pela loja. Nesse cenário é obrigatório o envio do nó `InitiatedTransactionIndicator` com os parâmetros `Category` e `SubCategory` para transações Mastercard, dentro do nó `Payment`. Confira a lista de categorias na descrição do parâmetro `Category` e a tabela completa de subcategorias em Tabelas do Indicador de Início da Transação.
+
 Saiba como realizar uma transação de crédito com autenticação em [Autenticando uma Transação](https://developercielo.github.io/manual/cielo-ecommerce#cart%C3%A3o-de-cr%C3%A9dito-com-autentica%C3%A7%C3%A3o).
 
 ##### Requisição
@@ -514,6 +516,10 @@ Saiba como realizar uma transação de crédito com autenticação em [Autentica
         "Reason": "Unscheduled"
       }
     },
+      "InitiatedTransactionIndicator": {
+          "Category": "C1",
+          "Subcategory": "Standingorder"
+    },    
     "IsCryptoCurrencyNegotiation": true,
     "Type": "CreditCard",
     "Amount": 15700,
@@ -589,6 +595,10 @@ curl
             "Reason":"Unscheduled"
          }
      },
+      "InitiatedTransactionIndicator": {
+          "Category": "C1",
+          "Subcategory": "Standingorder"
+    },     
      "IsCryptoCurrencyNegotiation": true,
      "Type":"CreditCard",
      "Amount":15700,
@@ -657,6 +667,8 @@ curl
 | `Payment.CreditCard.Brand`                    | Texto        | 10      | Sim                 | Bandeira do cartão. Valores possíveis: Visa / Master / Amex / Elo / Aura / JCB / Diners / Discover / Hipercard / Hiper.                                                                                                                                                                            |
 | `Payment.CreditCard.CardOnFile.Usage`         | Texto        | -       | Não                 | **First** se o cartão foi armazenado e é seu primeiro uso.<br>**Used** se o cartão foi armazenado e ele já foi utilizado anteriormente em outra transação. Saiba mais em [Card On File](https://developercielo.github.io/manual/cielo-ecommerce#card-on-file){:target="_blank"}                                                                                                                                        |
 | `Payment.CreditCard.CardOnFile.Reason`        | Texto        | -       | Condicional         | Indica o propósito de armazenamento de cartões, caso o campo "Usage" for "Used".<BR>**Recurring** - Compra recorrente programada (ex. assinaturas)<br>**Unscheduled** - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br>**Installments** - Parcelamento através da recorrência. Saiba mais em [Card On File](https://developercielo.github.io/manual/cielo-ecommerce#card-on-file){:target="_blank"}|
+|`Payment.InitiatedTransactionIndicator.Category`|Categoria do indicador de início da transação. Válido apenas para bandeira Mastercard.<br>Valores possíveis:<br>- “C1”: transação inciada pelo portador do cartão;<br>- “M1”: transação recorrente ou parcelada iniciada pela loja;<br>- “M2”: transação iniciada pela loja.|string|2|Condicional. Obrigatório apenas para bandeira Mastercard|
+|`Payment.InitiatedTransactionIndicator.Subcategory`|Subcategoria do indicador. Válido apenas para bandeira Mastercard. Consulte a tabela completa com os possíveis valores em Tabelas do Indicador de Início da Transação.|string|-|Condicional. Obrigatório apenas para bandeira Mastercard|
 
 ##### Resposta
 
@@ -716,6 +728,10 @@ curl
         "Reason": "Unscheduled"
       }
     },
+      "InitiatedTransactionIndicator": {
+          "Category": "C1",
+          "Subcategory": "Standingorder"
+    },    
     "IsCryptoCurrencyNegotiation": true,
     "TryAutomaticCancellation": true,
     "ProofOfSale": "674532",
@@ -810,6 +826,10 @@ curl
             "Reason":"Unscheduled"
          }
         },
+        "InitiatedTransactionIndicator": {
+          "Category": "C1",
+          "Subcategory": "Standingorder"
+    },        
         "IsCryptoCurrencyNegotiation": true,
         "TryAutomaticCancellation":true,
         "ProofOfSale": "674532",
@@ -873,6 +893,8 @@ Para integrar o método de autenticação, consulte a [documentação do 3DS 2.0
 
 > **Débito sem autenticação**: ou “débito sem senha”, só pode ser realizada quando o e-commerce tem autorização do banco emissor para dispensa da autenticação. Caso você tenha essa permissão, envie o campo `Authenticate` como "false" na requisição padrão de cartão de débito.
 
+> **Transações de débito Mastercard com credenciais armazenadas**: a bandeira Mastercard exige o envio do **Indicador de Início da Transação** para compras de **cartão de crédito e débito** que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (titular do cartão) ou pela loja. Nesse cenário é obrigatório o envio do nó `InitiatedTransactionIndicator` com os parâmetros `Category` e `SubCategory` para transações Mastercard, dentro do nó `Payment`. Confira a lista de categorias na descrição do parâmetro `Category` e a tabela completa de subcategorias em Tabelas do Indicador de Início da Transação.
+
 #### Criando uma transação de débito
 
 Para criar uma venda com cartão de débito, chame o método POST conforme o exemplo a seguir. O exemplo contempla o mínimo de campos necessários que devem ser enviados para a autorização.
@@ -906,7 +928,11 @@ Para criar uma venda com cartão de débito, chame o método POST conforme o exe
       "Eci": "5",
       "Version": "2",
       "ReferenceID": "a24a5d87-b1a1-4aef-a37b-2f30b91274e6"
-    }
+    },
+    "InitiatedTransactionIndicator": {
+        "Category": "C1",
+        "Subcategory": "Standingorder"
+    },
   }
 }
 ```
@@ -941,7 +967,11 @@ curl
          "Eci":"5",
          "Version":"2",
          "ReferenceID":"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"
-      }
+      },
+    "InitiatedTransactionIndicator": {
+        "Category": "C1",
+        "Subcategory": "Standingorder"
+    },      
    }
 }
 --verbose
@@ -965,6 +995,8 @@ curl
 | `Payment.DebitCard.ExpirationDate`                   | Data de validade impresso no cartão.                                                                  | Texto    | 7       | Sim                 |
 | `Payment.DebitCard.SecurityCode`                     | Código de segurança impresso no verso do cartão.                                                      | Texto    | 4       | Não                 |
 | `Payment.DebitCard.Brand`                            | Bandeira do cartão.                                                                                   | Texto    | 10      | Sim                 |
+|`Payment.InitiatedTransactionIndicator.Category`|Categoria do indicador de início da transação. Válido apenas para bandeira Mastercard.<br>Valores possíveis:<br>- “C1”: transação inciada pelo portador do cartão;<br>- “M1”: transação recorrente ou parcelada iniciada pela loja;<br>- “M2”: transação iniciada pela loja.|string|2|Condicional. Obrigatório apenas para bandeira Mastercard|
+|`Payment.InitiatedTransactionIndicator.Subcategory`|Subcategoria do indicador. Válido apenas para bandeira Mastercard. Consulte a tabela completa com os possíveis valores em Tabelas do Indicador de Início da Transação.|string|-|Condicional. Obrigatório apenas para bandeira Mastercard|
 | `Payment.ExternalAuthentication.Eci`         | E-Commerce Indicator retornado no processo de autenticação.                                           | Numérico | 1       | Sim                 |
 | `Payment.ExternalAuthentication.ReferenceId` | `RequestID` retornado no processo de autenticação.                                                    | GUID     | 36      | Sim                 |
 
@@ -997,6 +1029,10 @@ curl
       "Version": "2",
       "ReferenceId": "a24a5d87-b1a1-4aef-a37b-2f30b91274e6"
     },
+    "InitiatedTransactionIndicator": {
+        "Category": "C1",
+        "Subcategory": "Standingorder"
+    },    
     "Recurrent": false,
     "Amount": 15700,
     "ReceivedDate": "2022-08-26 10:47:53",
@@ -1051,6 +1087,10 @@ curl
             "Version": "2",
             "ReferenceId": "a24a5d87-b1a1-4aef-a37b-2f30b91274e6"
         },
+        "InitiatedTransactionIndicator": {
+            "Category": "C1",
+            "Subcategory": "Standingorder"
+        },        
         "Recurrent": false,
         "Amount": 15700,
         "ReceivedDate": "2022-08-26 10:47:53",
@@ -1507,6 +1547,49 @@ O Merchant plug-in, conhecido por MPI, é um serviço que permite a realização
 - **MPI Interno**: serviço já integrado a solução de 3DS Cielo, sem necessidade de integração e/ou contratação adicional.
 
 - **MPI Externo**: usado quando o seu e-commerce contrata uma solução de MPI, sem participação da Cielo. Independente da versão do 3DS contratada, siga as orientações do manual [3. Autorização com Autenticação](https://developercielo.github.io/manual/autorizacao-com-autenticacao){:target="\_blank"} para a integração.
+
+### Tabelas do Indicador de Início da Transação Mastercard
+
+As tabelas a seguir se aplicam para transações de crédito e débito Mastercard com credenciais armazenadas. O objetivo é identificar se a transação foi iniciada pelo **titular do cartão** (Cardholder Initiated Transaction - CIT) ou pela **loja** (Merchant Initiated Transaction - MIT).
+
+Para indicar o iniciador de transação, é obrigatório enviar o nó `Payment.InitiatedTransactionIndicator`. Este nó tem dois parâmetros, categoria (`Category`) e subcategoria (`Subcategory`); confira a seguir os valores correspondentes:
+
+**Categoria C1 - transação iniciada pelo portador do cartão**
+
+`Payment.InitiatedTransactionIndicator.Category` = "C1"
+
+|Subcategoria do indicador|Significado|Descrição|
+|---|---|---|
+|`CredentialsOnFile`| Salvar dados do cartão para compras futuras.| O consumidor inicia uma compra e a loja solicita ao consumidor que salve os dados do cartão para futuras compras iniciadas pelo titular do cartão. |
+|`StandingOrder`| Salvar dados do cartão para compras recorrentes de valor variável e frequência fixa.  | Transação inicial para armazenar os dados do cartão para um pagamento mensal de serviços públicos.  |
+|`Subscription` |  Salvar dados do cartão para compras recorrentes de valor e frequência fixos. |  Transação inicial para armazenar os dados do cartão para uma assinatura mensal (exemplo: jornais e revistas). |
+|`Installment` | Salvar dados do cartão para compra parcelada | Transação inicial para armazenar os dados do cartão para uma compra a ser paga por meio de pagamentos parcelados. |
+
+**Categoria M1 - transação recorrente ou parcelada iniciada pela loja**
+
+`Payment.InitiatedTransactionIndicator.Category` = "M1"
+
+Nessa categoria, a transação é feita após um acordo com um acordo entre um titular de cartão e a loja, pelo qual o titular do cartão autoriza a loja a armazenar e usar os dados da conta do titular do cartão para iniciar uma ou mais transações futuras, conforme a subcategoria:
+
+|Subcategoria do indicador|Significado|Descrição|
+|---|---|---|
+|`CredentialsOnFile`| Salvar dados do cartão para compras futuras iniciadas pela loja, com valor fixou ou variável e sem intervalo fixo ou data programada.  | Exemplo: o consumidor concorda em permitir que uma concessionária inicie transações de cobrança de pedágio quando o saldo na conta do consumidor estiver abaixo de uma quantia estabelecida (auto recarga). |
+|`StandingOrder` | Salvar dados do cartão para compras futuras iniciadas pela loja, com valor variável e intervalo fixo.  | Exemplo: pagamentos mensais de serviços públicos.  |
+|`Subscription`| Salvar dados do cartão para compras futuras iniciadas pela loja, com valor e intervalo fixos.  | Exemplo: assinatura mensal ou pagamento de serviço mensal fixo. |
+|`Installment` | Salvar dados do cartão para compras futuras iniciadas pela loja, com valor conhecido e período definido.  | Exemplo: o consumidor compra uma televisão por R$2000,00 e faz o pagamento em quatro parcelas iguais de R$500,00; nesse cenário, a primeira transação é iniciada pelo titular do cartão e as três transações restantes são iniciadas pela loja. |
+
+**Categoria M2 - transação iniciada pela loja**
+
+`Payment.InitiatedTransactionIndicator.Category` = "M2"
+
+|Subcategoria do indicador|Significado|Descrição|
+|---|---|---|
+| `PartialShipment` | Salvar dados do cartão para compras futuras iniciadas pela loja, quando a compra será dividida em mais de uma remessa de entrega.  | Ocorre quando uma quantidade acordada de mercadorias encomendadas por e-commerce não está disponível para envio no momento da compra. Cada remessa é uma transação separada.  |
+|`RelatedOrDelayedCharge` | Salvar dados do cartão para compras futuras iniciadas pela loja para despesas adicionais.  |  Uma cobrança adicional da conta após a prestação dos serviços iniciais e o processamento do pagamento. Exemplo: cobrança do frigobar do hotel após o titular do cartão fazer check-out do hotel.  |
+|`NoShow`| Salvar dados do cartão para compras futuras iniciadas pela loja para cobrança de multas.  | Uma multa cobrada de acordo com a política de cancelamento do estabelecimento. Exemplo: O cancelamento de uma reserva pelo titular do cartão sem aviso prévio adequado ao estabelecimento.  | 
+| `Resubmission` | Salvar dados do cartão para retentativa de transações negadas anteriormente.  | A tentativa anterior de obter autorização para uma transação foi recusada, mas a resposta do emissor não proíbe a loja de tentar novamente mais tarde. Exemplo: fundos insuficientes/resposta acima do limite de crédito. |
+
+> **Atenção**: Os dados do cartão são armazenados de forma criptografada.
 
 ## Cartões Alelo
 
