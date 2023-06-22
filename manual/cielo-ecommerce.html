@@ -6045,8 +6045,8 @@ Abaixo especificamos qualquer diferença existente:</p>
 <p>Veja todos os benefícios:</p>
 
 <ul>
-  <li><strong>Maior segurança:</strong> Além da criação de um código (token ou DPAN) para substituir a informação do cartão, as bandeiras também emitem os criptogramas, que funcionam como uma senha ou assinatura da bandeira, única para aquele cartão naquele estabelecimento;</li>
-  <li><strong>Atualização automática de cartões:</strong> Quando um novo cartão é emitido no lugar do cartão anterior, ou quando a data de expiração de um cartão muda, os bancos enviam essas informações para a base da bandeira, e a bandeira automaticamente atualiza os tokens com as novas informações. Ou seja, não tem necessidade de nenhuma ação por parte do estabelecimento;</li>
+  <li><strong>Maior segurança:</strong> além da criação de um código (token ou DPAN) para substituir a informação do cartão, as bandeiras também emitem os criptogramas, que funcionam como uma senha ou assinatura da bandeira, única para aquele cartão naquele estabelecimento;</li>
+  <li><strong>Atualização automática de cartões:</strong> quando um novo cartão é emitido no lugar do cartão anterior, ou quando a data de expiração de um cartão muda, os bancos enviam essas informações para a base da bandeira, e a bandeira automaticamente atualiza os tokens com as novas informações. Ou seja, não tem necessidade de nenhuma ação por parte do estabelecimento;</li>
   <li><strong>Maior conversão de aprovação:</strong> Por conta da maior segurança com os tokens das bandeiras, os bancos emissores se sentem mais seguros em aprovar as transações. Além disso, com os dados de cartão atualizados automaticamente, mais vendas que poderiam ser negadas por dados de cartão desatualizados podem ser aprovadas.</li>
 </ul>
 
@@ -6057,8 +6057,8 @@ Abaixo especificamos qualquer diferença existente:</p>
 <p>A Cielo fornece esse serviço para os clientes de duas formas:</p>
 
 <ul>
-  <li><strong>Integração facilitada:</strong> O estabelecimento se integra com a funcionalidade de tokenização convencional da Cielo, que por trás realiza a tokenização da bandeira, e relaciona esses dois tokens no cofre da Cielo. Dessa forma, os estabelecimentos sempre terão um único token para aquele cartão, mas a Cielo terá os tokens e criptogramas da bandeiras internamente. Para conferir como é a integração com a tokeniação convencional da Cielo, volte para o menu <a href="https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-cart%C3%B5es">Tokenização de cartões</a>.
-<strong>Bandeiras disponíveis:</strong> Visa</li>
+  <li><strong>Integração facilitada:</strong> o estabelecimento se integra com a funcionalidade de tokenização convencional da Cielo, que por trás realiza a tokenização da bandeira, e relaciona esses dois tokens no cofre da Cielo. Dessa forma, os estabelecimentos sempre terão um único token para aquele cartão, mas a Cielo terá os tokens e criptogramas das bandeiras internamente. Para conferir como é a integração com a tokeniação convencional da Cielo, volte para o menu <a href="https://developercielo.github.io/manual/cielo-ecommerce#tokeniza%C3%A7%C3%A3o-de-cart%C3%B5es">Tokenização de cartões</a>.
+<strong>Bandeiras disponíveis:</strong> Visa.</li>
 </ul>
 
 <blockquote>
@@ -6066,7 +6066,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 </blockquote>
 
 <ul>
-  <li><strong>Integração por fora:</strong> Se o estabelecimento usa um gateway ou outro parceiro que já oferece a solução de token de bandeira, a Cielo possui os campos para que sejam enviadas as informações do token na transação, para que no processamento a bandeira receba os dados do token. Veja mais detalhes na requisição a seguir.
+  <li><strong>Integração por fora:</strong> se o estabelecimento usa um gateway ou outro parceiro que já oferece a solução de token de bandeira, a Cielo possui os campos para que sejam enviadas as informações do token na transação, para que no processamento a bandeira receba os dados do token. Veja mais detalhes na requisição a seguir.
 <strong>Bandeiras disponíveis:</strong> Visa, Master e Elo.</li>
 </ul>
 
@@ -6211,8 +6211,8 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.Cryptogram</code></td>
       <td>Texto</td>
       <td>28</td>
-      <td>Condicional</td>
-      <td>Criptograma gerado pela bandeira.</td>
+      <td>Condicional*</td>
+      <td>Criptograma gerado pela bandeira. Deve ser enviado caso a tokenização seja feita na bandeira (integração por fora).</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.CreditCard.ExpirationDate</code></td>
@@ -6244,6 +6244,10 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
   </tbody>
 </table>
+
+<ul>
+  <li>*</li>
+</ul>
 
 <h3 id="resposta-12">Resposta</h3>
 
