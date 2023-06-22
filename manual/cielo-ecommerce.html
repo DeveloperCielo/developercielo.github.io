@@ -926,6 +926,10 @@ Abaixo especificamos qualquer diferença existente:</p>
 
 <aside class="notice">Atenção: No header da requisição, use o Content-Type application/json .</aside>
 
+<blockquote>
+  <p><strong>Transações de crédito Mastercard com credenciais armazenadas</strong>: a bandeira Mastercard exige o envio do <strong>Indicador de Início da Transação</strong> para compras de <strong>cartão de crédito e débito</strong> que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (titular do cartão) ou pela loja. Nesse cenário é obrigatório o envio do nó <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> com os parâmetros <code class="language-plaintext highlighter-rouge">Category</code> e <code class="language-plaintext highlighter-rouge">SubCategory</code> para transações Mastercard, dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code>. Confira a lista de categorias na descrição do parâmetro <code class="language-plaintext highlighter-rouge">Category</code> e a tabela completa de subcategorias em Tabelas do Indicador de Início da Transação.</p>
+</blockquote>
+
 <p>Saiba como realizar uma transação de crédito com autenticação em <a href="https://developercielo.github.io/manual/cielo-ecommerce#cart%C3%A3o-de-cr%C3%A9dito-com-autentica%C3%A7%C3%A3o">Autenticando uma Transação</a>.</p>
 
 <h5 id="requisição-1">Requisição</h5>
@@ -989,6 +993,10 @@ Abaixo especificamos qualquer diferença existente:</p>
         </span><span class="nl">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"InitiatedTransactionIndicator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Subcategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Standingorder"</span><span class="w">
+    </span><span class="p">},</span><span class="w">    
     </span><span class="nl">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CreditCard"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15700</span><span class="p">,</span><span class="w">
@@ -1063,6 +1071,10 @@ Abaixo especificamos qualquer diferença existente:</p>
             <span class="s2">"Reason"</span>:<span class="s2">"Unscheduled"</span>
          <span class="o">}</span>
      <span class="o">}</span>,
+      <span class="s2">"InitiatedTransactionIndicator"</span>: <span class="o">{</span>
+          <span class="s2">"Category"</span>: <span class="s2">"C1"</span>,
+          <span class="s2">"Subcategory"</span>: <span class="s2">"Standingorder"</span>
+    <span class="o">}</span>,     
      <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>,
      <span class="s2">"Type"</span>:<span class="s2">"CreditCard"</span>,
      <span class="s2">"Amount"</span>:15700,
@@ -1470,6 +1482,20 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Condicional</td>
       <td>Indica o propósito de armazenamento de cartões, caso o campo “Usage” for “Used”.<br /><strong>Recurring</strong> - Compra recorrente programada (ex. assinaturas)<br /><strong>Unscheduled</strong> - Compra recorrente sem agendamento (ex. aplicativos de serviços)<br /><strong>Installments</strong> - Parcelamento através da recorrência. Saiba mais em <a href="https://developercielo.github.io/manual/cielo-ecommerce#card-on-file" target="_blank">Card On File</a></td>
     </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code></td>
+      <td>Categoria do indicador de início da transação. Válido apenas para bandeira Mastercard.<br />Valores possíveis:<br />- “C1”: transação inciada pelo portador do cartão;<br />- “M1”: transação recorrente ou parcelada iniciada pela loja;<br />- “M2”: transação iniciada pela loja.</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Condicional. Obrigatório apenas para bandeira Mastercard</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Subcategory</code></td>
+      <td>Subcategoria do indicador. Válido apenas para bandeira Mastercard. Consulte a tabela completa com os possíveis valores em Tabelas do Indicador de Início da Transação.</td>
+      <td>string</td>
+      <td>-</td>
+      <td>Condicional. Obrigatório apenas para bandeira Mastercard</td>
+    </tr>
   </tbody>
 </table>
 
@@ -1530,6 +1556,10 @@ Abaixo especificamos qualquer diferença existente:</p>
         </span><span class="nl">"Reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unscheduled"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"InitiatedTransactionIndicator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"Subcategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Standingorder"</span><span class="w">
+    </span><span class="p">},</span><span class="w">    
     </span><span class="nl">"IsCryptoCurrencyNegotiation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"TryAutomaticCancellation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ProofOfSale"</span><span class="p">:</span><span class="w"> </span><span class="s2">"674532"</span><span class="p">,</span><span class="w">
@@ -1623,6 +1653,10 @@ Abaixo especificamos qualquer diferença existente:</p>
             <span class="s2">"Reason"</span>:<span class="s2">"Unscheduled"</span>
          <span class="o">}</span>
         <span class="o">}</span>,
+        <span class="s2">"InitiatedTransactionIndicator"</span>: <span class="o">{</span>
+          <span class="s2">"Category"</span>: <span class="s2">"C1"</span>,
+          <span class="s2">"Subcategory"</span>: <span class="s2">"Standingorder"</span>
+    <span class="o">}</span>,        
         <span class="s2">"IsCryptoCurrencyNegotiation"</span>: <span class="nb">true</span>,
         <span class="s2">"TryAutomaticCancellation"</span>:true,
         <span class="s2">"ProofOfSale"</span>: <span class="s2">"674532"</span>,
@@ -1771,6 +1805,10 @@ Abaixo especificamos qualquer diferença existente:</p>
   <p><strong>Débito sem autenticação</strong>: ou “débito sem senha”, só pode ser realizada quando o e-commerce tem autorização do banco emissor para dispensa da autenticação. Caso você tenha essa permissão, envie o campo <code class="language-plaintext highlighter-rouge">Authenticate</code> como “false” na requisição padrão de cartão de débito.</p>
 </blockquote>
 
+<blockquote>
+  <p><strong>Transações de débito Mastercard com credenciais armazenadas</strong>: a bandeira Mastercard exige o envio do <strong>Indicador de Início da Transação</strong> para compras de <strong>cartão de crédito e débito</strong> que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (titular do cartão) ou pela loja. Nesse cenário é obrigatório o envio do nó <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> com os parâmetros <code class="language-plaintext highlighter-rouge">Category</code> e <code class="language-plaintext highlighter-rouge">SubCategory</code> para transações Mastercard, dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code>. Confira a lista de categorias na descrição do parâmetro <code class="language-plaintext highlighter-rouge">Category</code> e a tabela completa de subcategorias em Tabelas do Indicador de Início da Transação.</p>
+</blockquote>
+
 <h4 id="criando-uma-transação-de-débito">Criando uma transação de débito</h4>
 
 <p>Para criar uma venda com cartão de débito, chame o método POST conforme o exemplo a seguir. O exemplo contempla o mínimo de campos necessários que devem ser enviados para a autorização.</p>
@@ -1805,7 +1843,11 @@ Abaixo especificamos qualquer diferença existente:</p>
       </span><span class="nl">"Eci"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"ReferenceID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"InitiatedTransactionIndicator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Subcategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Standingorder"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -1839,7 +1881,11 @@ Abaixo especificamos qualquer diferença existente:</p>
          <span class="s2">"Eci"</span>:<span class="s2">"5"</span>,
          <span class="s2">"Version"</span>:<span class="s2">"2"</span>,
          <span class="s2">"ReferenceID"</span>:<span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span>
-      <span class="o">}</span>
+      <span class="o">}</span>,
+    <span class="s2">"InitiatedTransactionIndicator"</span>: <span class="o">{</span>
+        <span class="s2">"Category"</span>: <span class="s2">"C1"</span>,
+        <span class="s2">"Subcategory"</span>: <span class="s2">"Standingorder"</span>
+    <span class="o">}</span>,      
    <span class="o">}</span>
 <span class="o">}</span>
 <span class="nt">--verbose</span>
@@ -1969,6 +2015,20 @@ Abaixo especificamos qualquer diferença existente:</p>
       <td>Sim</td>
     </tr>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code></td>
+      <td>Categoria do indicador de início da transação. Válido apenas para bandeira Mastercard.<br />Valores possíveis:<br />- “C1”: transação inciada pelo portador do cartão;<br />- “M1”: transação recorrente ou parcelada iniciada pela loja;<br />- “M2”: transação iniciada pela loja.</td>
+      <td>string</td>
+      <td>2</td>
+      <td>Condicional. Obrigatório apenas para bandeira Mastercard</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Subcategory</code></td>
+      <td>Subcategoria do indicador. Válido apenas para bandeira Mastercard. Consulte a tabela completa com os possíveis valores em Tabelas do Indicador de Início da Transação.</td>
+      <td>string</td>
+      <td>-</td>
+      <td>Condicional. Obrigatório apenas para bandeira Mastercard</td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.ExternalAuthentication.Eci</code></td>
       <td>E-Commerce Indicator retornado no processo de autenticação.</td>
       <td>Numérico</td>
@@ -2013,6 +2073,10 @@ Abaixo especificamos qualquer diferença existente:</p>
       </span><span class="nl">"Version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"ReferenceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span><span class="w">
     </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"InitiatedTransactionIndicator"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Subcategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Standingorder"</span><span class="w">
+    </span><span class="p">},</span><span class="w">    
     </span><span class="nl">"Recurrent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">15700</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ReceivedDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-08-26 10:47:53"</span><span class="p">,</span><span class="w">
@@ -2066,6 +2130,10 @@ Abaixo especificamos qualquer diferença existente:</p>
             <span class="s2">"Version"</span>: <span class="s2">"2"</span>,
             <span class="s2">"ReferenceId"</span>: <span class="s2">"a24a5d87-b1a1-4aef-a37b-2f30b91274e6"</span>
         <span class="o">}</span>,
+        <span class="s2">"InitiatedTransactionIndicator"</span>: <span class="o">{</span>
+            <span class="s2">"Category"</span>: <span class="s2">"C1"</span>,
+            <span class="s2">"Subcategory"</span>: <span class="s2">"Standingorder"</span>
+        <span class="o">}</span>,        
         <span class="s2">"Recurrent"</span>: <span class="nb">false</span>,
         <span class="s2">"Amount"</span>: 15700,
         <span class="s2">"ReceivedDate"</span>: <span class="s2">"2022-08-26 10:47:53"</span>,
@@ -2960,6 +3028,126 @@ Abaixo especificamos qualquer diferença existente:</p>
     <p><strong>MPI Externo</strong>: usado quando o seu e-commerce contrata uma solução de MPI, sem participação da Cielo. Independente da versão do 3DS contratada, siga as orientações do manual <a href="https://developercielo.github.io/manual/autorizacao-com-autenticacao" target="\_blank">3. Autorização com Autenticação</a> para a integração.</p>
   </li>
 </ul>
+
+<h3 id="tabelas-do-indicador-de-início-da-transação-mastercard">Tabelas do Indicador de Início da Transação Mastercard</h3>
+
+<p>As tabelas a seguir se aplicam para transações de crédito e débito Mastercard com credenciais armazenadas. O objetivo é identificar se a transação foi iniciada pelo <strong>titular do cartão</strong> (Cardholder Initiated Transaction - CIT) ou pela <strong>loja</strong> (Merchant Initiated Transaction - MIT).</p>
+
+<p>Para indicar o iniciador de transação, é obrigatório enviar o nó <code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator</code>. Este nó tem dois parâmetros, categoria (<code class="language-plaintext highlighter-rouge">Category</code>) e subcategoria (<code class="language-plaintext highlighter-rouge">Subcategory</code>); confira a seguir os valores correspondentes:</p>
+
+<p><strong>Categoria C1 - transação iniciada pelo portador do cartão</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code> = “C1”</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Subcategoria do indicador</th>
+      <th>Significado</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CredentialsOnFile</code></td>
+      <td>Salvar dados do cartão para compras futuras.</td>
+      <td>O consumidor inicia uma compra e a loja solicita ao consumidor que salve os dados do cartão para futuras compras iniciadas pelo titular do cartão.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">StandingOrder</code></td>
+      <td>Salvar dados do cartão para compras recorrentes de valor variável e frequência fixa.</td>
+      <td>Transação inicial para armazenar os dados do cartão para um pagamento mensal de serviços públicos.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Subscription</code></td>
+      <td>Salvar dados do cartão para compras recorrentes de valor e frequência fixos.</td>
+      <td>Transação inicial para armazenar os dados do cartão para uma assinatura mensal (exemplo: jornais e revistas).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Installment</code></td>
+      <td>Salvar dados do cartão para compra parcelada</td>
+      <td>Transação inicial para armazenar os dados do cartão para uma compra a ser paga por meio de pagamentos parcelados.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Categoria M1 - transação recorrente ou parcelada iniciada pela loja</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code> = “M1”</p>
+
+<p>Nessa categoria, a transação é feita após um acordo com um acordo entre um titular de cartão e a loja, pelo qual o titular do cartão autoriza a loja a armazenar e usar os dados da conta do titular do cartão para iniciar uma ou mais transações futuras, conforme a subcategoria:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Subcategoria do indicador</th>
+      <th>Significado</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CredentialsOnFile</code></td>
+      <td>Salvar dados do cartão para compras futuras iniciadas pela loja, com valor fixou ou variável e sem intervalo fixo ou data programada.</td>
+      <td>Exemplo: o consumidor concorda em permitir que uma concessionária inicie transações de cobrança de pedágio quando o saldo na conta do consumidor estiver abaixo de uma quantia estabelecida (auto recarga).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">StandingOrder</code></td>
+      <td>Salvar dados do cartão para compras futuras iniciadas pela loja, com valor variável e intervalo fixo.</td>
+      <td>Exemplo: pagamentos mensais de serviços públicos.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Subscription</code></td>
+      <td>Salvar dados do cartão para compras futuras iniciadas pela loja, com valor e intervalo fixos.</td>
+      <td>Exemplo: assinatura mensal ou pagamento de serviço mensal fixo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Installment</code></td>
+      <td>Salvar dados do cartão para compras futuras iniciadas pela loja, com valor conhecido e período definido.</td>
+      <td>Exemplo: o consumidor compra uma televisão por R$2000,00 e faz o pagamento em quatro parcelas iguais de R$500,00; nesse cenário, a primeira transação é iniciada pelo titular do cartão e as três transações restantes são iniciadas pela loja.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Categoria M2 - transação iniciada pela loja</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Category</code> = “M2”</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Subcategoria do indicador</th>
+      <th>Significado</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PartialShipment</code></td>
+      <td>Salvar dados do cartão para compras futuras iniciadas pela loja, quando a compra será dividida em mais de uma remessa de entrega.</td>
+      <td>Ocorre quando uma quantidade acordada de mercadorias encomendadas por e-commerce não está disponível para envio no momento da compra. Cada remessa é uma transação separada.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RelatedOrDelayedCharge</code></td>
+      <td>Salvar dados do cartão para compras futuras iniciadas pela loja para despesas adicionais.</td>
+      <td>Uma cobrança adicional da conta após a prestação dos serviços iniciais e o processamento do pagamento. Exemplo: cobrança do frigobar do hotel após o titular do cartão fazer check-out do hotel.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NoShow</code></td>
+      <td>Salvar dados do cartão para compras futuras iniciadas pela loja para cobrança de multas.</td>
+      <td>Uma multa cobrada de acordo com a política de cancelamento do estabelecimento. Exemplo: O cancelamento de uma reserva pelo titular do cartão sem aviso prévio adequado ao estabelecimento.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Resubmission</code></td>
+      <td>Salvar dados do cartão para retentativa de transações negadas anteriormente.</td>
+      <td>A tentativa anterior de obter autorização para uma transação foi recusada, mas a resposta do emissor não proíbe a loja de tentar novamente mais tarde. Exemplo: fundos insuficientes/resposta acima do limite de crédito.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>Atenção</strong>: Os dados do cartão são armazenados de forma criptografada.</p>
+</blockquote>
 
 <h2 id="cartões-alelo">Cartões Alelo</h2>
 
