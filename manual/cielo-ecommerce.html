@@ -927,7 +927,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 <aside class="notice">Atenção: No header da requisição, use o Content-Type application/json .</aside>
 
 <blockquote>
-  <p><strong>Transações de crédito Mastercard com credenciais armazenadas</strong>: a bandeira Mastercard exige o envio do <strong>Indicador de Início da Transação</strong> para compras de <strong>cartão de crédito e débito</strong> que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (titular do cartão) ou pela loja. Nesse cenário é obrigatório o envio do nó <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> com os parâmetros <code class="language-plaintext highlighter-rouge">Category</code> e <code class="language-plaintext highlighter-rouge">SubCategory</code> para transações Mastercard, dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code>. Confira a lista de categorias na descrição do parâmetro <code class="language-plaintext highlighter-rouge">Category</code> e a tabela completa de subcategorias em Tabelas do Indicador de Início da Transação.</p>
+  <p><strong>Transações de crédito Mastercard com credenciais armazenadas</strong>: a bandeira Mastercard exige o envio do <strong>Indicador de Início da Transação</strong> para compras de <strong>cartão de crédito e débito</strong> que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (titular do cartão) ou pela loja. Nesse cenário é obrigatório o envio do nó <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> com os parâmetros <code class="language-plaintext highlighter-rouge">Category</code> e <code class="language-plaintext highlighter-rouge">SubCategory</code> para transações Mastercard, dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code>. Confira a lista de categorias na descrição do parâmetro <code class="language-plaintext highlighter-rouge">Category</code> e a tabela completa de subcategorias em <a href="https://developercielo.github.io/manual/cielo-ecommerce#tabelas-do-indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard">Tabelas do Indicador de Início da Transação</a>.</p>
 </blockquote>
 
 <p>Saiba como realizar uma transação de crédito com autenticação em <a href="https://developercielo.github.io/manual/cielo-ecommerce#cart%C3%A3o-de-cr%C3%A9dito-com-autentica%C3%A7%C3%A3o">Autenticando uma Transação</a>.</p>
@@ -1491,7 +1491,7 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Subcategory</code></td>
-      <td>Subcategoria do indicador. Válido apenas para bandeira Mastercard. Consulte a tabela completa com os possíveis valores em Tabelas do Indicador de Início da Transação.</td>
+      <td>Subcategoria do indicador. Válido apenas para bandeira Mastercard. Consulte a tabela completa com os possíveis valores em <a href="https://developercielo.github.io/manual/cielo-ecommerce#tabelas-do-indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard">Tabelas do Indicador de Início da Transação</a>.</td>
       <td>string</td>
       <td>-</td>
       <td>Condicional. Obrigatório apenas para bandeira Mastercard</td>
@@ -1806,7 +1806,7 @@ Abaixo especificamos qualquer diferença existente:</p>
 </blockquote>
 
 <blockquote>
-  <p><strong>Transações de débito Mastercard com credenciais armazenadas</strong>: a bandeira Mastercard exige o envio do <strong>Indicador de Início da Transação</strong> para compras de <strong>cartão de crédito e débito</strong> que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (titular do cartão) ou pela loja. Nesse cenário é obrigatório o envio do nó <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> com os parâmetros <code class="language-plaintext highlighter-rouge">Category</code> e <code class="language-plaintext highlighter-rouge">SubCategory</code> para transações Mastercard, dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code>. Confira a lista de categorias na descrição do parâmetro <code class="language-plaintext highlighter-rouge">Category</code> e a tabela completa de subcategorias em Tabelas do Indicador de Início da Transação.</p>
+  <p><strong>Transações de débito Mastercard com credenciais armazenadas</strong>: a bandeira Mastercard exige o envio do <strong>Indicador de Início da Transação</strong> para compras de <strong>cartão de crédito e débito</strong> que usam os dados armazenados de um cartão. O objetivo é indicar se a transação foi iniciada pelo comprador (titular do cartão) ou pela loja. Nesse cenário é obrigatório o envio do nó <code class="language-plaintext highlighter-rouge">InitiatedTransactionIndicator</code> com os parâmetros <code class="language-plaintext highlighter-rouge">Category</code> e <code class="language-plaintext highlighter-rouge">SubCategory</code> para transações Mastercard, dentro do nó <code class="language-plaintext highlighter-rouge">Payment</code>. Confira a lista de categorias na descrição do parâmetro <code class="language-plaintext highlighter-rouge">Category</code> e a tabela completa de subcategorias em <a href="https://developercielo.github.io/manual/cielo-ecommerce#tabelas-do-indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard">Tabelas do Indicador de Início da Transação</a>.</p>
 </blockquote>
 
 <h4 id="criando-uma-transação-de-débito">Criando uma transação de débito</h4>
@@ -2023,7 +2023,7 @@ Abaixo especificamos qualquer diferença existente:</p>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Payment.InitiatedTransactionIndicator.Subcategory</code></td>
-      <td>Subcategoria do indicador. Válido apenas para bandeira Mastercard. Consulte a tabela completa com os possíveis valores em Tabelas do Indicador de Início da Transação.</td>
+      <td>Subcategoria do indicador. Válido apenas para bandeira Mastercard. Consulte a tabela completa com os possíveis valores em <a href="https://developercielo.github.io/manual/cielo-ecommerce#tabelas-do-indicador-de-in%C3%ADcio-da-transa%C3%A7%C3%A3o-mastercard">Tabelas do Indicador de Início da Transação</a>.</td>
       <td>string</td>
       <td>-</td>
       <td>Condicional. Obrigatório apenas para bandeira Mastercard</td>
