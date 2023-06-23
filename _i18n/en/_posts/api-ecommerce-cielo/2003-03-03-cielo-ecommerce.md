@@ -1917,7 +1917,7 @@ If your store needs to cancel a pix transaction, it's possible to ask for a **re
 
 To make a Boleto transaction, you first need to hire this service at the bank. After you do that, you need to set it up according to our [Boleto guide](https://developercielo.github.io/tutorial/manual-boleto){:target="\_blank"}.
 
-> Banco do Brasil boletos don't have the automatic conciliation service.
+> Banco do Brasil boletos do not have the automatic conciliation service.
 
 ### Request
 
@@ -2043,7 +2043,7 @@ curl
 | `Customer.Billing.ZipCode`      | string                                                                                  | 9      | No                                  | Customer's billing address Zip Code.                                                                                                    |
 | `Payment.Type`                  | Type of the Payment Method.                                                             | Text   | 100                                 | Yes                                                                                                                                     |
 | `Payment.Amount`                | Order Amount (to be sent in cents).                                                     | Number | 15                                  | Yes                                                                                                                                     |
-| `Payment.Provider`              | Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.             | Text   | 15                                  | Yes                                                                                                                                     |
+| `Payment.Provider`              | Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT. Possible values: "Bradesco2", "BancoDoBrasil2" ou "BancoDoBrasil3" - see [Additional Rules](https://developercielo.github.io/en/manual/cielo-ecommerce#additional-rules)             | Text   | 15                                  | Yes                                                                                                                                     |
 | `Payment.Adress`                | Transferor's address.                                                                   | Text   | 255                                 | No                                                                                                                                      |
 | `Payment.BoletoNumber`          | Bank slip number sent by the merchant. Used to count issued bank slips ("OurNumber").   | Text   | Bradesco: 11<BR>Banco do Brasil: 9  | No                                                                                                                                      |
 | `Payment.Assignor`              | Transferor's name.                                                                      | Text   | 200                                 | No                                                                                                                                      |
