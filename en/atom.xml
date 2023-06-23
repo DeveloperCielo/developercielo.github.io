@@ -5,7 +5,7 @@
     <link href="https://developercielo.github.io/en/"/>
     <logo>https://developercielo.github.io/en/assets/images/logo.png</logo>
     <icon>https://developercielo.github.io/en/assets/favicon.ico</icon>
-    <updated>2023-06-23T18:19:18+00:00</updated>
+    <updated>2023-06-23T18:26:01+00:00</updated>
     <id>https://developercielo.github.io/en/</id>
     <author>
         <name>João Batista Neto</name>
@@ -34886,7 +34886,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
 &lt;p&gt;To make a Boleto transaction, you first need to hire this service at the bank. After you do that, you need to set it up according to our &lt;a href=&quot;https://developercielo.github.io/tutorial/manual-boleto&quot; target=&quot;\_blank&quot;&gt;Boleto guide&lt;/a&gt;.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;Banco do Brasil boletos don’t have the automatic conciliation service.&lt;/p&gt;
+  &lt;p&gt;Banco do Brasil boletos do not have the automatic conciliation service.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h3 id=&quot;request-7&quot;&gt;Request&lt;/h3&gt;
@@ -35160,7 +35160,7 @@ You can import them directly into your POSTMAN and have all the examples ready t
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Payment.Provider&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT.&lt;/td&gt;
+      &lt;td&gt;Defines behavior of the payment method (see Annex)/NOT REQUIRED FOR CREDIT. Possible values: “Bradesco2”, “BancoDoBrasil2” ou “BancoDoBrasil3” - see &lt;a href=&quot;https://developercielo.github.io/en/manual/cielo-ecommerce#additional-rules&quot;&gt;Additional Rules&lt;/a&gt;&lt;/td&gt;
       &lt;td&gt;Text&lt;/td&gt;
       &lt;td&gt;15&lt;/td&gt;
       &lt;td&gt;Yes&lt;/td&gt;
