@@ -32,6 +32,12 @@ API E-commerce Cielo supports the following digital wallets:
 <aside class="warning">When the “Wallet” node is sent in the request, the “CreditCard” node becomes optional.</aside>
 <aside class="warning">When the "Wallet" node is sent in the request, for the debit card it is necessary to send the "DebitCard" node containing the "ReturnUrl".</aside>
 
+> **Card brands supported by the wallets**
+> Vist the wallet website to know more about supported card brands:
+> [GooglePay](https://support.google.com/wallet/answer/12059326?visit_id=638217380303676306-1822163035&rd=1){:target="\_blank"}
+> [ApplePay](https://www.apple.com/br/apple-pay/){:target="\_blank"}
+> [SamsungPay](https://www.samsung.com.br/services/pay/){:target="\_blank"}
+
 ## E-wallet Integration
 
 See below the representation of a standard **transactional flow** in the integration of an e-wallet:
