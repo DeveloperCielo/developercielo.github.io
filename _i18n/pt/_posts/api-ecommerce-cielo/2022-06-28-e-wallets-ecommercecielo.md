@@ -26,12 +26,18 @@ Entre em contato com o provedor de sua preferência para maiores informações s
 
 API Cielo E-commerce possui suporte para as seguintes carteiras digitais:
 
-- [_Apple Pay_](https://www.apple.com/br/apple-pay/){:target="\_blank"}
-- [_Google Pay_](https://pay.google.com/intl/pt-BR_br/about/){:target="\_blank"}
-- [_Samsung Pay_](https://www.samsung.com.br/samsungpay/){:target="\_blank"}
+* [_Apple Pay_](https://www.apple.com/br/apple-pay/){:target="\_blank"}
+* [_Google Pay_](https://pay.google.com/intl/pt-BR_br/about/){:target="\_blank"}
+* [_Samsung Pay_](https://www.samsung.com.br/samsungpay/){:target="\_blank"}
 
 <aside class="warning">Quando o nó “Wallet” é enviado na requisição, o nó “CreditCard” passa a ser opcional.</aside>
 <aside class="warning">Quando o nó "Wallet" é enviado na requisição, para o cartão de débito é necessário o envio do nó “DebitCard” contendo a “ReturnUrl”.</aside>
+
+> **Bandeiras aceitas pelas wallets**
+> Para saber as bandeiras de cartão aceitas, visite o site de cada carteira:
+> [GooglePay](https://support.google.com/wallet/answer/12059326?visit_id=638217380303676306-1822163035&rd=1){:target="\_blank"}
+> [ApplePay](https://www.apple.com/br/apple-pay/){:target="\_blank"}
+> [SamsungPay](https://www.samsung.com.br/services/pay/){:target="\_blank"}
 
 ## Integração da E-Wallet
 
