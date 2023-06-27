@@ -1806,140 +1806,130 @@ Diferentemente de outros meios de pagamento, o boleto não possui atualização 
 
 <p><strong>OBS</strong>: A opção <strong>Cancelar</strong> dentro do backoffice, vai modificar o status da transação de PAGO/NÃO FINALIZADO para CANCELADO, mas não terá efeito sobre a movimentação bancaria. Caberá ao lojista retornar o valor ao comprador</p>
 
-<h1 id="notificações-de-pagamento">Notificações de Pagamento</h1>
+<h1 id="notificações-da-transação">Notificações da transação</h1>
 
-<p>O processo de notificação transacional no Checkout Cielo ocorre via a inclusão de uma URL para onde serão direcionados dados das transações realizadas na plataforma.
-Vale destacar que o Checkout realiza a notificação somente quando uma transação é considerada finalizada ou seja, o comprador preencheu todos os dados da tela de pagamento e clicou em “Finalizar”.</p>
-
-<h2 id="tipos-de-notificação">Tipos de notificação</h2>
-
-<p>O Checkout Cielo possui dois tipos de notificações que o lojista pode utilizar de acordo com suas necessidades:</p>
+<p>O processo de notificação transacional ocorre em duas etapas, que são a notificação de finalização da transação e a notificação de mudança de status.</p>
 
 <table>
   <thead>
     <tr>
-      <th>Tipo</th>
-      <th>Descrição</th>
+      <th>ETAPA</th>
+      <th>TIPO DE URL*</th>
+      <th>DESCRIÇÃO</th>
+      <th>CONTEÚDO</th>
+      <th>FORMATO</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">POST</code></td>
-      <td>Notificação onde o lojista é passivo. Dois <code class="language-plaintext highlighter-rouge">POST HTTP</code> são disparados, um informando dados da venda e outra mudança de Status da transação</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">JSON</code></td>
-      <td>Notificação onde o lojista realiza uma consulta. Um <code class="language-plaintext highlighter-rouge">POST</code> contendo informações para a realização de uma consulta (<code class="language-plaintext highlighter-rouge">GET</code>) as transações checkout</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Para utilizar ambos os modelos, o lojista necessitará acessar o Backoffice cielo e configurar tanto a <code class="language-plaintext highlighter-rouge">URL de NOTIFICAÇÃO</code> quando a <code class="language-plaintext highlighter-rouge">URL de MUDANÇA de STATUS</code>.</p>
-
-<h2 id="tipos-de-url-de-notificação">Tipos de URL de Notificação</h2>
-
-<p>O Checkout possui 3 tipos de URL que podem impactar o processo de notificação.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Tipo</th>
-      <th>Descrição</th>
-      <th>Observação</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">URL de Retorno</code></td>
-      <td>Página web na qual o comprador será redirecionado ao fim da compra. <br />Nenhum dado é trocado ou enviado para essa URL.<br /> Essa URL apenas leva o comprador, após finalizar a compra, a uma página definida pela loja.</td>
-      <td>Caso o Lojista deseje, ele pode configurar essa página para ser sensibilizada por tráfego, assim identificando que a transação foi finalizada no Checkout Cielo <br /> Pode ser enviada via API - Ver “Integração por API”</td>
-    </tr>
-    <tr>
+      <td><strong>Notificação de finalização da transação</strong></td>
       <td><code class="language-plaintext highlighter-rouge">URL de Notificação</code></td>
-      <td>Ao finalizar uma transação é enviado um POST HTTP com todos os dados da venda para a URL de Notificação.<br /> O POST de notificação é enviado apenas no momento que a transação é finalizada, independentemente se houve alteração do <strong>status da transação</strong></td>
-      <td>Utilizada na Notificação via <code class="language-plaintext highlighter-rouge">POST</code>e <code class="language-plaintext highlighter-rouge">JSON</code></td>
+      <td>É enviada após o comprador clicar em <strong>Finalizar</strong>, gerando a transação.Essa notificação é enviada apenas no momento que a transação é finalizada, independentemente se houve alteração do status, ou seja, não significa que a transação foi paga.</td>
+      <td>Contém todos os dados da venda.</td>
+      <td>POST ou JSON</td>
     </tr>
     <tr>
+      <td><strong>Notificação de mudança de status</strong></td>
       <td><code class="language-plaintext highlighter-rouge">URL de Mudança de Status</code></td>
-      <td>Quando um pedido tiver seu status alterado, será enviando um post HTTP para a URL de Mudança de Status.<br /> O POST de mudança de status não contem dados do carrinho, apenas dados de identificação do pedido</td>
-      <td>Utilizada somente na Notificação via <code class="language-plaintext highlighter-rouge">POST</code></td>
+      <td>É enviada quando há mudança de status na transação.<br />O status pode ser alterado de “Pendente” para “Pago”, “Cancelada” ou “Não Finalizada”, entre outros. Veja a lista completa de status na tabela [Payment_status].</td>
+      <td>Contém   os dados de identificação do pedido (não tem os dados do carrinho).</td>
+      <td>POST</td>
     </tr>
   </tbody>
 </table>
 
-<p><strong>OBS:</strong> Caso uma <code class="language-plaintext highlighter-rouge">URL de retorno</code> seja enviada vai API, ela terá prioridade sobre a URL cadastrada no Backoffice / Na integração Checkout Cielo <code class="language-plaintext highlighter-rouge">via Botão</code>, só é possível usar a opção de URL de retorno via backoffice.</p>
+<p>*As notificações são enviadas para as URLs definidas pelo estabelecimento nas <strong>Configurações da Loja</strong> e contêm os dados das transações realizadas no Checkout.</p>
 
-<p><strong>Características das URLs</strong></p>
+<p>Vale destacar que o Checkout realiza a notificação somente quando uma transação é considerada finalizada, ou seja, o comprador preencheu todos os dados da tela de pagamento e clicou em <strong>Finalizar</strong>.</p>
 
-<p>Todas as 3 URLs devem possuir as seguintes características:</p>
+<p><strong>Exemplo</strong>: <em>O comprador acessa o link de pagamento e escolhe pagar via Pix. Ao clicar em Finalizar, o Checkout gera a chave Pix e envia para a loja a notificação de finalização da transação, que estará com o status “Pendente”. Quando o comprador fizer o pagamento via Pix, a transação ficará com o status “Pago” e o Checkout enviará a notificação de mudança de status.</em></p>
 
-<ul>
-  <li>Devem ser URLs estáticas</li>
-  <li>Devem possuir menos de 255 caracteres</li>
-  <li>Caracteres especiais não são suportados</li>
-</ul>
+<h2 id="características-das-notificações">Características das notificações</h2>
 
-<p><strong>Configurando as URLs</strong></p>
-
-<ol>
-  <li>Basta acessar dentro do <strong>Backoffice</strong> as Abas <strong>Configurações</strong></li>
-  <li>Em <strong>Configurações da Loja</strong>, Vá a sessão de <strong>Pagamentos</strong></li>
-  <li>Cadastre as URLS e escolhe o tipo de Notificação desejado</li>
-</ol>
-
-<p><img src="https://developercielo.github.io/images/checkout/urls.png" alt="Cadastro de URLS" /></p>
-
-<h2 id="notificação-post">Notificação: POST</h2>
-
-<p>A notificação via POST é baseada no envio de um <code class="language-plaintext highlighter-rouge">POST HTTP</code> quando uma transação é realizada. Ela é realizada em duas etapas:</p>
-
-<ol>
-  <li><code class="language-plaintext highlighter-rouge">POST de NOTIFICAÇÃO</code> - Ocorre quando a transação é finalizada. Esse POST possui todos os dados do pedido, incluindo o STATUS inicial da transação.</li>
-  <li><code class="language-plaintext highlighter-rouge">POST de MUDANÇA DE STATUS</code> - Ocorre quando uma transação possui seu STATUS alterado - <strong>EX:</strong> “Autorizado” &gt; &gt; &gt; “Pago”</li>
-</ol>
-
-<p>Este fluxo é utilizado por lojas que ainda não realizam transações via API.</p>
-
-<p>Abaixo o Fluxo de uma Notificação POST</p>
-
-<p><img src="https://developercielo.github.io/images/checkout/npost.png" alt="Fluxo N.POST" /></p>
-
-<p><strong>Retorno aguardado para o envio da notificação:</strong> <code class="language-plaintext highlighter-rouge">HttpStatus = 200 (OK)</code> - Post recebido e processado com sucesso</p>
-
-<p><strong>IMPORTANTE</strong> Se a <code class="language-plaintext highlighter-rouge">URL de Notificação</code> cadastrada retornar algum erro/estiver indisponível, serão realizadas *<em>3 novas tentativas, com intervalo de 1 hora entre cada POST</em>.</p>
-
-<p>Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acessar o pedido em questão pelo Backoffice e clicar no Ícone de envio:</p>
-
-<p><img src="https://developercielo.github.io/images/checkout/reenvipost.png" alt="Reenvio de notificação" /></p>
-
-<p>Veja a descrição dos itens de notificação na sessão <strong>“Conteúdo do POST de NOTIFICAÇÃO”</strong></p>
-
-<h2 id="notificação-json">Notificação: JSON</h2>
-
-<p>A notificação vai JSON é um método mais seguro e flexível para o lojista de realizar uma consulta no Chekcout Cielo.
-Essa modalidade de notificação é baseada em um <code class="language-plaintext highlighter-rouge">POST JSON</code>, onde o lojista recebe credenciais para que uma consulta (<code class="language-plaintext highlighter-rouge">GET</code>) possa ser realizado junto a base de dados Checkout Cielo.</p>
-
-<p>Ela é realizada em duas etapas:</p>
-
-<ol>
-  <li><code class="language-plaintext highlighter-rouge">POST de NOTIFICAÇÃO</code> - Ocorre quando a transação é finalizada. Possui as Credenciais necessárias consultas transacionais.</li>
-  <li><code class="language-plaintext highlighter-rouge">CONSULTA TRANSACIONAL</code> - Com as credenciais de consulta, o lojista busca dados da venda junto ao Checkout Cielo</li>
-</ol>
-
-<p>Na Notificação de JSON, não há diferença entre o <code class="language-plaintext highlighter-rouge">POST de Notificação</code> e <code class="language-plaintext highlighter-rouge">Mudança de Status</code>. Sempre que algo ocorrer na transação, o lojista receberá um <code class="language-plaintext highlighter-rouge">POST de Notificação</code></p>
-
-<p>Abaixo o Fluxo de uma Notificação JSON (Criação da transação + Mudança de status)</p>
-
-<p><img src="https://developercielo.github.io/images/checkout/njson.png" alt="Fluxo N.JSON" /></p>
-
-<p><strong>Conteúdo do POST de NOTIFICAÇÃO JSON:</strong></p>
+<p>As URLs para notificação são webhooks que podem receber uma notificação via POST ou via JSON:</p>
 
 <table>
   <thead>
     <tr>
-      <th>Parâmetro</th>
-      <th>Descrição</th>
-      <th>Tipo do Campo</th>
+      <th>TIPO</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>POST</strong></td>
+      <td>Notificação onde a loja é passiva.</td>
+    </tr>
+    <tr>
+      <td><strong>JSON</strong></td>
+      <td>Notificação onde a loja realiza uma consulta.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Formato das notificações</strong></p>
+
+<p>Nas notificações suportadas pela API do Checkout o formato enviado é <em>Form Data</em>, discriminado pelo header <code class="language-plaintext highlighter-rouge">Content-Type</code> ‘x-www-form-urlencoded’.</p>
+
+<p><strong>Retorno esperado</strong></p>
+
+<p>O servidor da loja deve enviar o retorno <code class="language-plaintext highlighter-rouge">HTTPStatus = 200 (OK)</code> para a API do Checkout, indicando que a notificação foi recebida e processada com sucesso.</p>
+
+<blockquote>
+  <p><strong>IMPORTANTE</strong>: Se a URL cadastrada retornar algum erro ou estiver indisponível, serão realizadas três novas tentativas, com intervalo de uma hora entre cada POST.</p>
+</blockquote>
+
+<p>Caso a notificação não seja recebida, é possível solicitar o reenvio manualmente   nos <strong>Detalhes do pedido</strong>, clicando no ícone da seta.</p>
+
+<h2 id="notificação-de-finalização-da-transação">Notificação de finalização da transação</h2>
+
+<p>É a notificação enviada para a URL de Notificação e pode ser no formato POST ou JSON.</p>
+
+<h3 id="notificação-via-post">Notificação via POST</h3>
+
+<p>Contém todos os dados da transação, inclusive o <code class="language-plaintext highlighter-rouge">merchant_order_number</code> e o <code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>, que poderão ser usados para a <a href="https://developercielo.github.io/manual/linkdepagamentos5#consulta-de-transa%C3%A7%C3%B5es">consulta de transações</a>.</p>
+
+<p><strong>Exemplo:</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">order_number:</span><span class="w"> </span><span class="s2">"40e00eefbf094763a147af713fa07ece"</span><span class="err">,</span><span class="w">
+</span><span class="err">amount:</span><span class="w"> </span><span class="s2">"5000"</span><span class="err">,</span><span class="w">
+</span><span class="err">checkout_cielo_order_number:</span><span class="w"> </span><span class="s2">"b9ab1956738d45cc88edf51d7d03b13e"</span><span class="err">,</span><span class="w">
+</span><span class="err">created_date:</span><span class="w"> </span><span class="s2">"02/02/2023 17:01:35"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">customer_name:</span><span class="w"> </span><span class="s2">"nome do cliente"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">customer_phone:</span><span class="w"> </span><span class="s2">"2222222222"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">customer_identity:</span><span class="w"> </span><span class="s2">"12312312344"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">customer_email:</span><span class="w"> </span><span class="s2">"nome@email.com.br"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">shipping_type:</span><span class="w"> </span><span class="s2">"5"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">shipping_price:</span><span class="w"> </span><span class="s2">"0"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">payment_method_type:</span><span class="w"> </span><span class="s2">"6"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">payment_installments:</span><span class="w"> </span><span class="s2">"1"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">payment_status:</span><span class="w"> </span><span class="s2">"1"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">test_transaction:</span><span class="w"> </span><span class="s2">"False"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">product_id:</span><span class="w"> </span><span class="s2">"0f48e580-d0a2-4e3b-a748-6704927f1725"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">product_type:</span><span class="w"> </span><span class="s2">"3"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">product_description:</span><span class="w"> </span><span class="s2">"123"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">nsu:</span><span class="w"> </span><span class="s2">"00339922"</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Veja a descrição dos detalhes da transação na sessão <a href="https://developercielo.github.io/manual/linkdepagamentos5#conte%C3%BAdo-das-notifica%C3%A7%C3%B5es">Conteúdo das notificações</a>.</p>
+
+<h3 id="notificação-via-json">Notificação via JSON</h3>
+
+<p>A notificação via JSON é um método mais seguro e flexível para realizar uma consulta no Checkout Cielo. Nessa modalidade a loja recebe o <code class="language-plaintext highlighter-rouge">MerchantId</code> e o <code class="language-plaintext highlighter-rouge">MerchantOrderNumber</code> e uma URL para realizar uma consulta (GET) junto à base de dados do Checkout Cielo e acessar os detalhes da transação.</p>
+
+<p><strong>Conteúdo da notificação via JSON</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">MerchantId:</span><span class="w"> </span><span class="s2">"799g0de8-89c3-5d17-c670-6b29d7f00175"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">MerchantOrderNumber:</span><span class="w"> </span><span class="s2">"1db9226geg8b54e6b2972e9b745b89c7"</span><span class="err">,</span><span class="w"> 
+</span><span class="err">Url:</span><span class="w"> </span><span class="s2">"https://cieloecommerce.cielo.com.br/api/public/v1/orders/799g0de8-89c3-5d17-c670-6b29d7f00175 /1db9226geg8b54e6b2972e9b745b89c7"</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PARÂMETRO</th>
+      <th>DESCRIÇÃO</th>
+      <th>TIPO DO CAMPO</th>
     </tr>
   </thead>
   <tbody>
@@ -1950,8 +1940,8 @@ Essa modalidade de notificação é baseada em um <code class="language-plaintex
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Identificador da loja no Checkout Cielo; consta no Backoffice no menu Configuração/Dados Cadastrais.</td>
-      <td>Alfanumérico (GUID)</td>
+      <td>Identificador da loja no Checkout; consta no site Cielo no menu Configuração &gt; Dados Cadastrais.</td>
+      <td>Alfanumérico (guid)</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">MerchantOrderNumber</code></td>
@@ -1961,108 +1951,68 @@ Essa modalidade de notificação é baseada em um <code class="language-plaintex
   </tbody>
 </table>
 
-<p><strong>Exemplo de uma consulta:</strong></p>
+<p><em>O servidor da loja deve enviar o retorno <code class="language-plaintext highlighter-rouge">HTTP Status = 200 (OK)</code> para a API do Checkout, indicando que a notificação foi recebida e processada com sucesso.</em></p>
 
-<p><strong>REQUEST</strong></p>
+<p><strong>Exemplo de uma consulta à URL retornada via JSON</strong></p>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl
-<span class="nt">--request</span> GET https://cieloecommerce.cielo.com.br/api/public/v1/orders/<span class="o">{</span>merchantId<span class="o">}</span>/<span class="o">{</span>merchantOrderNumber<span class="o">}</span><span class="s2">"
---header "</span>Content-Type: application/json<span class="s2">"
---header "</span>MerchantId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx<span class="s2">"
---data-binary
---verbose
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Descrição</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantId</code></td>
-      <td>Identificador da loja</td>
-      <td>Guid</td>
-      <td>36</td>
-      <td>Sim</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>RESPONSE</strong></p>
+<p><strong>Resposta</strong></p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pedido01"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"discount_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"checkout_cielo_order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65930e7460bd4a849502ed14d7be6c03"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12-09-2017 14:38:56"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Test"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"customer_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21987654321"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"customer_identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84261300206"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"customer_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@cielo.com.br"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"shipping_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"shipping_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Motoboy"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"shipping_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"shipping_address_zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21911130"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"shipping_address_district"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Freguesia"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"shipping_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rio de Janeiro"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"shipping_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RJ"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"shipping_address_line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rua Cambui"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"shipping_address_line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apto 201"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"shipping_address_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"92"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"payment_method_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"payment_method_brand"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"payment_maskedcreditcard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"471612******7044"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"payment_installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10447480686J51OH8BPB"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"test_transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="w">
+    </span><span class="nl">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1db9226geg8b54e6b2972e9b745b89c7"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"discount_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"checkout_cielo_order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"65930e7460bd4a849502ed14d7be6c03"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10-03-2023 14:38:56"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Test"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11987654321"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"445556667"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shopper@email.com.br"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Motoboy"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_address_zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06455-030"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_address_district"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alphaville"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_address_city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Barueri"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_address_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_address_line1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alameda Xingu"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_address_line2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apto 25"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"shipping_address_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"payment_method_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"payment_method_brand"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"payment_maskedcreditcard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"482852******6856"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"payment_installments"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"tid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10558590697J62OH9BPB"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"test_transaction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"False"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Veja a descrição dos itens de notificação na sessão <strong>“Conteúdo do POST de NOTIFICAÇÃO”</strong></p>
+<p>Veja a descrição dos detalhes da venda na sessão <a href="https://developercielo.github.io/manual/linkdepagamentos5#conte%C3%BAdo-das-notifica%C3%A7%C3%B5es">Conteúdo das notificações</a>.</p>
 
-<p><strong>Retorno aguardado para o envio da notificação:</strong> <code class="language-plaintext highlighter-rouge">HttpStatus = 200 (OK)</code> - Post recebido e processado com sucesso</p>
+<h3 id="conteúdo-das-notificações">Conteúdo das notificações</h3>
 
-<p><strong>IMPORTANTE</strong> Se a <code class="language-plaintext highlighter-rouge">URL de Notificação</code> cadastrada retornar algum erro/estiver indisponível, serão realizadas *<em>3 novas tentativas, com intervalo de 1 hora entre cada POST</em>.</p>
-
-<p>Caso o POST não seja recebido, é possível reenvia-lo manualmente, basta acessar o pedido em questão pelo Backoffice e clicar no Ícone de envio:</p>
-
-<p><img src="https://developercielo.github.io/images/checkout/reenvipost.png" alt="Reenvio de notificação" /></p>
-
-<h2 id="conteúdo-da-notificação">Conteúdo da Notificação</h2>
-
-<p>Tanto na Notificação via POST HTTP ou POST JSON, o conteúdo dos dados retornados é o mesmo.
-Abaixo são descritos todos os campos retornados, assim como suas definições e tamanhos:</p>
-
-<h3 id="conteúdo-do-post-de-notificaÇÃo">Conteúdo do POST de NOTIFICAÇÃO</h3>
+<p>Tanto na notificação via POST ou via JSON, o conteúdo dos dados retornados é o mesmo. A seguir são descritos todos os campos retornados, assim como suas definições e tamanhos:</p>
 
 <table>
   <thead>
     <tr>
-      <th>Parâmetro</th>
-      <th>Descrição</th>
-      <th>Tipo do campo</th>
-      <th>Tamanho máximo</th>
+      <th>PARÂMETRO</th>
+      <th>DESCRIÇÃO</th>
+      <th>TIPO DO CAMPO</th>
+      <th>TAMANHO MÁXIMO</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code></td>
-      <td>Identificador único gerado pelo CHECKOUT CIELO</td>
+      <td>Identificador único gerado pelo Checkout Cielo.</td>
       <td>Alfanumérico</td>
       <td>32</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">amount</code></td>
       <td>Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)</td>
-      <td>Numérico</td>
+      <td>Número</td>
       <td>10</td>
     </tr>
     <tr>
@@ -2073,44 +2023,44 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">created_date</code></td>
-      <td>Data da criação do pedido - <code class="language-plaintext highlighter-rouge">dd-MM-yyyy HH:mm:ss</code></td>
+      <td>Data da criação do pedido - dd-MM-yyyy HH:mm:ss</td>
       <td>Alfanumérico</td>
       <td>20</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">customer_name</code></td>
-      <td>Nome do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO</td>
+      <td>Nome do consumidor. Se enviado, esse valor já vem preenchido na tela do Checkout Cielo</td>
       <td>Alfanumérico</td>
       <td>289</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">customer_identity</code></td>
-      <td>Identificação do consumidor (CPF ou CNPJ) Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO</td>
+      <td>Identificação do consumidor (CPF ou CNPJ) Se enviado, esse valor já vem preenchido na tela do Checkout Cielo</td>
       <td>Alfanumérico</td>
       <td>14</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">customer_email</code></td>
-      <td>E-mail do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO</td>
+      <td>E-mail do consumidor. Se enviado, esse valor já vem preenchido na tela do Checkout Cielo</td>
       <td>Alfanumérico</td>
       <td>64</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">customer_phone</code></td>
-      <td>Telefone do consumidor. Se enviado, esse valor já vem preenchido na tela do CHECKOUT CIELO</td>
-      <td>Numérico</td>
+      <td>Telefone do consumidor. Se enviado, esse valor já vem preenchido na tela do Checkout Cielo</td>
+      <td>Número</td>
       <td>11</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">discount_amount</code></td>
       <td>Valor do desconto fornecido (enviado somente se houver desconto)</td>
-      <td>Numérico</td>
+      <td>Número</td>
       <td>10</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">shipping_type</code></td>
       <td>Modalidade de frete</td>
-      <td>Numérico</td>
+      <td>Número</td>
       <td>1</td>
     </tr>
     <tr>
@@ -2122,13 +2072,13 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
     <tr>
       <td><code class="language-plaintext highlighter-rouge">shipping_price</code></td>
       <td>Valor do serviço de frete, em centavos (ex: R$ 10,00 = 1000)</td>
-      <td>Numérico</td>
+      <td>Número</td>
       <td>10</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">shipping_address_zipcode</code></td>
       <td>CEP do endereço de entrega</td>
-      <td>Numérico</td>
+      <td>Número</td>
       <td>8</td>
     </tr>
     <tr>
@@ -2164,25 +2114,25 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
     <tr>
       <td><code class="language-plaintext highlighter-rouge">shipping_address_number</code></td>
       <td>Número do endereço de entrega</td>
-      <td>Numérico</td>
+      <td>Número</td>
       <td>8</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">payment_method_type</code></td>
       <td>Cód. do tipo de meio de pagamento</td>
-      <td>Numérico</td>
+      <td>Número</td>
       <td>1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">payment_method_brand</code></td>
       <td>Bandeira (somente para transações com meio de pagamento cartão de crédito)</td>
-      <td>Numérico</td>
+      <td>Número</td>
       <td>1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">payment_method_bank</code></td>
       <td>Banco emissor (Para transações de Boleto e Débito Automático)</td>
-      <td>Numérico</td>
+      <td>Número</td>
       <td>1</td>
     </tr>
     <tr>
@@ -2194,13 +2144,13 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
     <tr>
       <td><code class="language-plaintext highlighter-rouge">payment_installments</code></td>
       <td>Número de parcelas</td>
-      <td>Numérico</td>
+      <td>Número</td>
       <td>1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">payment_antifrauderesult</code></td>
       <td>Status das transações de cartão de Crédito no Antifraude</td>
-      <td>Numérico</td>
+      <td>Número</td>
       <td>1</td>
     </tr>
     <tr>
@@ -2212,24 +2162,24 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
     <tr>
       <td><code class="language-plaintext highlighter-rouge">payment_boletoexpirationdate</code></td>
       <td>Data de vencimento para transações realizadas com boleto bancário</td>
-      <td>Numérico</td>
+      <td>Número</td>
       <td>10</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">payment_status</code></td>
       <td>Status da transação</td>
-      <td>Numérico</td>
+      <td>Número</td>
       <td>1</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">tid</code></td>
-      <td>TID Cielo gerado no momento da autorização da transação</td>
+      <td>TransactionId Cielo gerado no momento da autorização da transação</td>
       <td>Alfanumérico</td>
       <td>20</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">test_transaction</code></td>
-      <td>Indica se a transação foi gerada com o <code class="language-plaintext highlighter-rouge">Modo de teste</code> ativado</td>
+      <td>Indica se a transação foi gerada com o Modo de teste ativado</td>
       <td>Boolean</td>
       <td>32</td>
     </tr>
@@ -2253,8 +2203,8 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">product_max_number_of_installments</code></td>
-      <td>Numero de parcelas liberado pelo lojistas para o link de pagamento</td>
-      <td>Numérico</td>
+      <td>Número de parcelas liberado pelo lojistas para o link de pagamento</td>
+      <td>Número</td>
       <td>2</td>
     </tr>
     <tr>
@@ -2265,7 +2215,7 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">product_quantity</code></td>
-      <td>Numero de transações restantes até que o link deixe de funcionar</td>
+      <td>Número de transações restantes até que o link deixe de funcionar</td>
       <td>Alfanumérico</td>
       <td>2</td>
     </tr>
@@ -2290,13 +2240,13 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
   </tbody>
 </table>
 
-<h3 id="tipos-de-productid">Tipos de productID</h3>
+<h4 id="tipos-de-productid">Tipos de productID</h4>
 
 <table>
   <thead>
     <tr>
-      <th>Tipo de Link de pagamento</th>
-      <th>Enun</th>
+      <th>TIPO DE LINK DE PAGAMENTO</th>
+      <th>ENUN</th>
     </tr>
   </thead>
   <tbody>
@@ -2323,73 +2273,73 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
   </tbody>
 </table>
 
-<h3 id="payment_status">Payment_status</h3>
+<h4 id="payment_status">Payment_status</h4>
 
-<p>O Checkout possui um Status próprios, diferente do SITE CIELO ou da API Cielo ecommerce. Veja abaixo a lista completa.</p>
+<p>O Checkout possui status próprios, diferente do site Cielo ou da API E-commerce Cielo. Veja a seguir a lista completa.</p>
 
 <table>
   <thead>
     <tr>
-      <th>Valor</th>
-      <th>Status de transação</th>
-      <th>Transaction Status</th>
-      <th>Meios de pagamento</th>
-      <th>Descrição</th>
+      <th>VALOR</th>
+      <th>STATUS DA TRANSAÇÃO</th>
+      <th>TRANSACTION STATUS</th>
+      <th>MEIOS DE PAGAMENTO</th>
+      <th>DESCRIÇÃO</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>1</td>
-      <td><code class="language-plaintext highlighter-rouge">Pendente</code></td>
+      <td>Pendente</td>
       <td>Pending</td>
       <td>Para todos os meios de pagamento</td>
       <td>Indica que o pagamento ainda está sendo processado; OBS: Boleto - Indica que o boleto não teve o status alterado pelo lojista</td>
     </tr>
     <tr>
       <td>2</td>
-      <td><code class="language-plaintext highlighter-rouge">Pago</code></td>
+      <td>Pago</td>
       <td>Paid</td>
       <td>Para todos os meios de pagamento</td>
       <td>Transação capturada e o dinheiro será depositado em conta.</td>
     </tr>
     <tr>
       <td>3</td>
-      <td><code class="language-plaintext highlighter-rouge">Negado</code></td>
+      <td>Negado</td>
       <td>Denied</td>
       <td>Somente para Cartão Crédito</td>
       <td>Transação não autorizada pelo responsável do meio de pagamento</td>
     </tr>
     <tr>
       <td>4</td>
-      <td><code class="language-plaintext highlighter-rouge">Expirado</code></td>
+      <td>Expirado</td>
       <td>Expired</td>
       <td>Cartões de Crédito e Boleto</td>
-      <td>Transação deixa de ser válida para captura - <strong>15 dias pós Autorização</strong></td>
+      <td>Transação deixa de ser válida para captura - <strong>15 dias após a autorização</strong></td>
     </tr>
     <tr>
       <td>5</td>
-      <td><code class="language-plaintext highlighter-rouge">Cancelado</code></td>
+      <td>Cancelado</td>
       <td>Voided</td>
       <td>Para cartões de crédito</td>
       <td>Transação foi cancelada pelo lojista</td>
     </tr>
     <tr>
       <td>6</td>
-      <td><code class="language-plaintext highlighter-rouge">Não Finalizado</code></td>
+      <td>Não Finalizado</td>
       <td>NotFinalized</td>
       <td>Todos os meios de pagamento</td>
       <td>Pagamento esperando Status - Pode indicar erro ou falha de processamento. Entre em contato com o Suporte Cielo</td>
     </tr>
     <tr>
       <td>7</td>
-      <td><code class="language-plaintext highlighter-rouge">Autorizado</code></td>
+      <td>Autorizado</td>
       <td>Authorized</td>
-      <td>somente para Cartão de Crédito</td>
+      <td>Somente para Cartão de Crédito</td>
       <td>Transação autorizada pelo emissor do cartão. Deve ser capturada para que o dinheiro seja depositado em conta</td>
     </tr>
     <tr>
       <td>8</td>
-      <td><code class="language-plaintext highlighter-rouge">Chargeback</code></td>
+      <td>Chargeback</td>
       <td>Chargeback</td>
       <td>somente para Cartão de Crédito</td>
       <td>Transação cancelada pelo consumidor junto ao emissor do cartão. O Dinheiro não será depositado em conta.</td>
@@ -2397,83 +2347,73 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
   </tbody>
 </table>
 
-<p>Obs: Para consultas de pedido, o campo payment.status será retornado no formato texto, sempre em inglês (coluna Transaction Status).</p>
+<blockquote>
+  <p><strong>Observação</strong>: Para consultas de pedido, o campo <code class="language-plaintext highlighter-rouge">payment.status</code> será retornado no formato texto, sempre em inglês (coluna Transaction Status).</p>
+</blockquote>
 
-<h3 id="payment_antifrauderesult">Payment_antifrauderesult</h3>
+<h4 id="payment_antifrauderesult">Payment_antifrauderesult</h4>
 
-<p>O Antifraude possui o conceito de <code class="language-plaintext highlighter-rouge">Status</code> e <code class="language-plaintext highlighter-rouge">SubStatus</code>, onde o primeiro representa o nível de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.</p>
+<p>O Antifraude possui o conceito de Status e SubStatus, onde o primeiro representa o nível de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.</p>
 
 <table>
   <thead>
     <tr>
-      <th>Valor</th>
-      <th>Status Antifraude</th>
-      <th>Substatus</th>
-      <th>Descrição</th>
+      <th>VALOR</th>
+      <th>STATUS ANTIFRAUDE</th>
+      <th>SUBSTATUS</th>
+      <th>DESCRIÇÃO</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>1</td>
-      <td><code class="language-plaintext highlighter-rouge">Baixo Risco</code></td>
       <td>Baixo Risco</td>
-      <td>Baixo risco de ser uma transação fraudulenta</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td><code class="language-plaintext highlighter-rouge">Médio Risco</code></td>
-      <td>Médio Risco</td>
-      <td>Médio risco de ser uma transação fraudulenta</td>
+      <td>Baixo Risco</td>
+      <td>Baixo risco de ser uma transação fraudulenta.</td>
     </tr>
     <tr>
       <td>2</td>
-      <td><code class="language-plaintext highlighter-rouge">Alto Risco</code></td>
       <td>Alto Risco</td>
-      <td>Alto risco de ser uma transação fraudulenta</td>
+      <td>Alto Risco</td>
+      <td>Alto risco de ser uma transação fraudulenta. São canceladas automaticamente.</td>
     </tr>
     <tr>
       <td>4</td>
-      <td><code class="language-plaintext highlighter-rouge">Não finalizado</code></td>
       <td>Não finalizado</td>
-      <td>Não foi possível finalizar a consulta</td>
+      <td>Não finalizado</td>
+      <td>Não foi possível finalizar a consulta.</td>
     </tr>
     <tr>
       <td>N/A</td>
-      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
-      <td>Autenticado</td>
-      <td>Transações autenticadas pelo banco - <strong>Não são analisáveis pelo AF</strong></td>
-    </tr>
-    <tr>
       <td>N/A</td>
-      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
       <td>Não aplicável</td>
-      <td>Meio de pagamento não analisável como cartões de débito, boleto e débito online</td>
+      <td>Transação de cartão de débito que foi autenticada pelo 3ds 2.0, por isso não é elegível a análise de antifraude.</td>
     </tr>
     <tr>
       <td>N/A</td>
-      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>Meio de pagamento não analisável como boleto, Pix, QR Code, e transação de cartão de crédito que foi negada pelo emissor.</td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td>N/A</td>
       <td>Transação de recorrência</td>
-      <td>Transação de crédito seja posterior a transação de agendamento. <strong>Somente o Agendamento é analisado</strong></td>
-    </tr>
-    <tr>
-      <td>N/A</td>
-      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
-      <td>Transação negada</td>
-      <td>Venda a crédito foi negada - <strong>Não são analisáveis pelo AF</strong></td>
+      <td>Para casos de recorrência, após a primeira transação paga, as próximas transações de uma recorrência não são analisadas pelo antifraude. Somente a primeira transação é analisada.</td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="payment_method_type">Payment_method_type</h3>
+<h4 id="payment_method_type">Payment_method_type</h4>
 
-<p>O Checkout permite apenas um tipo de <code class="language-plaintext highlighter-rouge">Boleto</code> ou <code class="language-plaintext highlighter-rouge">Débito Online</code> por lojista, sendo assim não é retornado se o método usado foi Bradesco ou Banco do Brasil, pois apenas um deles estará ativado na afiliação.</p>
+<p>O Checkout permite apenas um tipo de Boleto por estabelecimento, sendo assim a notificação não retorna se o provedor usado foi Bradesco ou Banco do Brasil, pois apenas um deles estará ativo na afiliação.</p>
 
 <table>
   <thead>
     <tr>
-      <th>Valor</th>
-      <th>Descrição</th>
-      <th>Description</th>
+      <th>VALOR</th>
+      <th>DESCRIÇÃO</th>
+      <th>DESCRIPTION</th>
     </tr>
   </thead>
   <tbody>
@@ -2488,18 +2428,13 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
       <td>Boleto</td>
     </tr>
     <tr>
-      <td>3</td>
-      <td>Débito Online</td>
-      <td>OnlineDebit</td>
-    </tr>
-    <tr>
       <td>4</td>
       <td>Cartão de Débito</td>
       <td>DebitCard</td>
     </tr>
     <tr>
       <td>5</td>
-      <td>QR Code</td>
+      <td>QR Code Crédito</td>
       <td>QrCode</td>
     </tr>
     <tr>
@@ -2507,18 +2442,27 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
       <td>Pix</td>
       <td>Pix</td>
     </tr>
+    <tr>
+      <td>7</td>
+      <td>QRCode Débito</td>
+      <td>QrCodeDebit</td>
+    </tr>
   </tbody>
 </table>
 
-<p>OBS: Para consultas o Type é retornado no campo Payment.Type e vem preenchida com o valor literal (Description)</p>
+<blockquote>
+  <p><strong>Observação</strong>: Para consultas o Type é retornado no campo <code class="language-plaintext highlighter-rouge">Payment.Type</code> e vem preenchida com o valor literal (<code class="language-plaintext highlighter-rouge">Description</code>).</p>
+</blockquote>
 
-<h3 id="payment_method_brand">Payment_method_brand</h3>
+<h4 id="payment_method_brand">Payment_method_brand</h4>
+
+<p>É a bandeira do cartão.</p>
 
 <table>
   <thead>
     <tr>
-      <th>Valor</th>
-      <th>Descrição</th>
+      <th>VALOR</th>
+      <th>DESCRIÇÃO</th>
     </tr>
   </thead>
   <tbody>
@@ -2561,15 +2505,15 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
   </tbody>
 </table>
 
-<p>OBS: Para consultas a Brand é retornado no campo Payment.Brand e vem preenchida com o valor literal.</p>
+<p>Nas consultas a bandeira do cartão é retornada no campo <code class="language-plaintext highlighter-rouge">Payment.Brand</code> e vem preenchida com o valor literal.</p>
 
-<h3 id="payment_method_bank">Payment_method_bank</h3>
+<h4 id="payment_method_bank">Payment_method_bank</h4>
 
 <table>
   <thead>
     <tr>
-      <th>Valor</th>
-      <th>Descrição</th>
+      <th>VALOR</th>
+      <th>DESCRIÇÃO</th>
     </tr>
   </thead>
   <tbody>
@@ -2584,13 +2528,13 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
   </tbody>
 </table>
 
-<h3 id="shipping_type">Shipping_type</h3>
+<h4 id="shipping_type">Shipping_type</h4>
 
 <table>
   <thead>
     <tr>
-      <th>Valor</th>
-      <th>Descrição</th>
+      <th>VALOR</th>
+      <th>DESCRIÇÃO</th>
     </tr>
   </thead>
   <tbody>
@@ -2617,46 +2561,62 @@ Abaixo são descritos todos os campos retornados, assim como suas definições e
   </tbody>
 </table>
 
-<h3 id="mudança-de-status">Mudança de status</h3>
+<h2 id="notificação-de-mudança-de-status">Notificação de mudança de status</h2>
+
+<p>É enviada para a URL de mudança de status e contém o <code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>, o novo status e alguns dados da transação.</p>
+
+<p>Para saber mais detalhes da transação, faça uma consulta usando o <code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code>.</p>
+
+<p>O formato da notificação de mudança de status é POST (form data).</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">checkout_cielo_order_number:</span><span class="w"> </span><span class="s2">"b918afea483d4c6c8615d8a8e19803c1"</span><span class="err">,</span><span class="w">
+</span><span class="err">amount:</span><span class="w"> </span><span class="s2">"134"</span><span class="err">,</span><span class="w">
+</span><span class="err">order_number:</span><span class="w"> </span><span class="s2">"024f77ac98cb493b86d8c818eb6e79cd"</span><span class="err">,</span><span class="w">
+</span><span class="err">payment_status:</span><span class="w"> </span><span class="s2">"3"</span><span class="err">,</span><span class="w">
+</span><span class="err">test_transaction:</span><span class="w"> </span><span class="s2">"False"</span><span class="err">,</span><span class="w">
+</span><span class="err">brand:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="err">,</span><span class="w">
+</span><span class="err">nsu:</span><span class="w"> </span><span class="s2">"000001"</span><span class="err">,</span><span class="w">
+</span><span class="err">authorization_code:</span><span class="w"> </span><span class="s2">"01234567"</span><span class="w">
+</span></code></pre></div></div>
 
 <table>
   <thead>
     <tr>
-      <th>Parâmetro</th>
-      <th>Descrição</th>
-      <th>Tipo do Campo</th>
-      <th>Tamanho Máximo</th>
+      <th>PARÂMETRO</th>
+      <th>DESCRIÇÃO</th>
+      <th>TIPO DO CAMPO</th>
+      <th>TAMANHO MÁXIMO</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">checkout_cielo_order_number</code></td>
-      <td>Identificador único gerado pelo CHECKOUT CIELO</td>
+      <td>Identificador único gerado pelo Checkout Cielo.</td>
       <td>Alfanumérico</td>
       <td>32</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">amount</code></td>
       <td>Preço unitário do produto, em centavos (ex: R$ 1,00 = 100)</td>
-      <td>Numérico</td>
+      <td>Número</td>
       <td>10</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">order_number</code></td>
-      <td>Número do pedido enviado pela loja</td>
+      <td>Número do pedido enviado pela loja.</td>
       <td>Alfanumérico</td>
       <td>32</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">payment_method_brand</code></td>
-      <td>Bandeira- somente para transações com meio de pagamento cartão de crédito.<a href="https://developercielo.github.io/manual/checkout-cielo#payment_method_brand">Lista Completa</a></td>
-      <td>Numérico</td>
-      <td>1</td>
+      <td>Bandeira- somente para transações com meio de pagamento cartão de crédito. <a href="https://developercielo.github.io/manual/linkdepagamentos5#payment_method_brand">Lista Completa</a> </td>
+      <td>Número</td>
+      <td>20</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">payment_status</code></td>
-      <td>Status da transação.<a href="https://developercielo.github.io/manual/checkout-cielo#payment_status">Lista Completa</a></td>
-      <td>Numérico</td>
+      <td>Status da transação. <a href="https://developercielo.github.io/manual/linkdepagamentos5#status-e-c%C3%B3digos">Lista Completa</a></td>
+      <td>Número</td>
       <td>1</td>
     </tr>
     <tr>
