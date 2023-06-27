@@ -201,7 +201,7 @@ Os status de boleto são:
 
 |VALOR|STATUS|DESCRIÇÃO|
 |---|---|---|
-|6|**Não Finalizado**: status inicial. O boleto é gerado e ainda é valido. Como o Checkout não acessa o ambiente do banco para identificar o pagamento do boleto, esse status continuará efetivo até que o lojista entre no site Cielo e atualize o status manualmente.|
+|6|**Não Finalizado**| status inicial. O boleto é gerado e ainda é valido. Como o Checkout não acessa o ambiente do banco para identificar o pagamento do boleto, esse status continuará efetivo até que o lojista entre no site Cielo e atualize o status manualmente.|
 |2| **Pago**| O comprador finalizou o pagamento com sucesso.|
 
 #### QR Code Pay
