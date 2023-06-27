@@ -294,6 +294,350 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
 
 <p>*Desde que tenha configurado a URL de notificação.</p>
 
+<h1 id="configurações-da-loja">Configurações da loja</h1>
+
+<p>Antes das configurações, você precisa habilitar o Checkout Cielo para a sua loja.</p>
+
+<h2 id="habilitando-o-nº-de-estabelecimento-ec-para-o-checkout">Habilitando o nº de estabelecimento (EC) para o Checkout</h2>
+
+<ul>
+  <li><strong>Se você ainda não é cliente Cielo ou se só usa a maquininha</strong>, acesse o <a href="https://www.cielo.com.br/" target="_blank">site Cielo</a> para habilitar nº do estabelecimento (EC) para o Checkout;</li>
+  <li><strong>Se você já é cliente Cielo E-commerce</strong>, entre em contato com seu gestor comercial ou com o Suporte Cielo.</li>
+</ul>
+
+<h2 id="configurando-a-sua-loja">Configurando a sua loja</h2>
+
+<p><strong>Acesse as Configurações da loja no site Cielo</strong></p>
+
+<p>Vá para o <a href="https://minhaconta2.cielo.com.br/login/" target="_blank">site Cielo</a> e faça login. Acesse <strong>E-commerce</strong> &gt; <strong>Super Link</strong> &gt; <strong>Configurações</strong> &gt; <strong>Configurações da loja</strong>.</p>
+
+<h3 id="1-personalize-a-aparência-da-página-de-pagamento">1. Personalize a aparência da página de pagamento</h3>
+
+<p>Insira a imagem do logo da sua loja e escolha uma cor de fundo. Clique em <strong>Salvar</strong>.</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/superlink/superlink-aparencia-pagina-pagamento.png" alt="Aparência da Página de Pagemento" /></p>
+
+<h3 id="2-configure-o-envio-de-e-mail-de-finalização-para-o-comprador">2. Configure o envio de e-mail de finalização para o comprador</h3>
+
+<p>Se não desejar que seu cliente final receba um e-mail de finalização do pedido após o pagamento, desabilite essa opção. Depois, clique em <strong>Salvar</strong>.</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/superlink/superlink-email-finalizacao.png" alt="E-mail de finalização para o comprador" /></p>
+
+<h3 id="3-defina-os-meios-de-pagamento-desejados">3. Defina os meios de pagamento desejados</h3>
+
+<p>Selecione os meios de pagamento que gostaria de disponibilizar aos seus clientes. Para cartão de crédito, escolha também a quantidade máxima de parcelas permitidas. Depois, clique em Salvar.</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/superlink/superlink-meios-de-pagamento.png" alt="Meios de Pagamento Ativos" /></p>
+
+<aside class="notice">Essas configurações servem para todas as páginas de pagamentos criadas pela sua loja.</aside>
+
+<blockquote>
+  <p>A quantidade de parcelas escolhida por meio de pagamento deve ser a mesma que consta em seu cadastro da Cielo. Consulte o Suporte E-commerce em caso de dúvidas.</p>
+</blockquote>
+
+<h4 id="cartão-de-crédito">Cartão de crédito</h4>
+
+<p>O Checkout Cielo permite a utilização de Cartões de Crédito das principais bandeiras nacionais e internacionais. Esse meio de pagamento é liberado automaticamente junto a afiliação de Cielo, podendo ser utilizado inicialmente com a integração Checkout.</p>
+
+<p>Transações de cartão de crédito serão incluídas no Backoffice Cielo Checkout como PENDENTE, AUTORIZADO, PAGO, NEGADO, EXPIRADO OU CHARGEBACK dependendo do resultado da autorização junto ao Banco.</p>
+
+<p>Os status de cartão de crédito são:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>VALOR</th>
+      <th>STATUS</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Pendente</td>
+      <td>Status original. A transação está ocorrendo, esperando resposta do processo de autorização</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Autorizado / Negado</td>
+      <td>Resultado do processo de autorização.<br />Autorizado: crédito foi reservado para a compra<br />Negado: cartão não autorizado pelo emissor a continuar a transação</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Pago</td>
+      <td>Ocorre após a captura. Indica que o crédito reservado no cartão será depositado na conta do lojista.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Expirado</td>
+      <td>Ocorre caso a transação não seja capturada em até 15 dias após a autorização. Nessa situação a transação é perdida.</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Chargeback</td>
+      <td>Status não automático. Caso o lojista seja notificado de chargeback, ele pode marcar esta transação como perdida. Este Status é apenas uma marcação, não afetando processos de pagamento.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>As transações de cartão de crédito precisam ser capturadas de forma automática ou manual - depende do que escolher no passo 5. Configure a captura e Antifraude.</p>
+
+<blockquote>
+  <p><strong>Atenção</strong>
+<strong>Cartões Internacionais</strong>: O Checkout Cielo aceita cartões emitidos fora do Brasil, entretanto esses cartões não possuem a capacidade de pagar vendas parceladas. Essa é uma limitação imposta pelo banco emissor.</p>
+</blockquote>
+
+<h4 id="cartão-de-débito">Cartão de débito</h4>
+
+<p>O Checkout Cielo permite a utilização de cartões de débito MasterCard, Visa e Elo. Esse meio de pagamento é liberado automaticamente junto a afiliação de Cielo, podendo ser utilizado inicialmente com a integração Checkout.</p>
+
+<p>Transações de cartão de débito serão incluídas no site Cielo como <strong>Pago</strong>, <strong>Não Autorizado</strong> ou <strong>Não Finalizado</strong>, dependendo do resultado da autorização junto ao banco.</p>
+
+<p>Os status de cartão de débito são:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ORDEM</th>
+      <th>STATUS</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><strong>Não Finalizado</strong></td>
+      <td>Status intermediário. Neste ponto o Checkout Cielo espera a confirmação do banco sobre o status da autenticação e transação. Caso o comprador abandone o ambiente do banco, o status não se altera</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>Pago</strong></td>
+      <td>o comprador finalizou o pagamento com o cartão de débito com sucesso.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>Não Autorizado</strong></td>
+      <td>o comprador não apresentava saldo em conta para finalizar a transação.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="pix">Pix</h4>
+
+<p>O meio de pagamento Pix está disponível para estabelecimentos do tipo CNPJ por meio de dois provedores, Cielo ou Bradesco.</p>
+
+<p><strong>Habilitando o Pix no portal Cielo</strong></p>
+
+<p>Para usar o <strong>Pix</strong>, o seu <strong>cadastro deve estar habilitado com o meio de pagamento Pix</strong>. Para confirmar a habilitação, acesse o <a href="https://www.cielo.com.br/" target="_blank">portal Cielo</a>e clique em <strong>Meu Cadastro</strong> &gt; <strong>Autorizações</strong> &gt; <strong>Pix</strong>.</p>
+
+<p>Caso o Pix não esteja habilitado em seu cadastro, será apresentada a tela de adesão caso o seu estabelecimento (EC) seja elegível; após concluir o processo de adesão do Pix, já será possível usar o Pix no Super Link Cielo.</p>
+
+<p><img src="https://developercielo.github.io/images/apicieloecommerce/adesao-pix.png" alt="Adesão ao Pix" /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>VALOR</th>
+      <th>STATUS</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><strong>Pendente</strong></td>
+      <td>Indica que o pagamento ainda está sendo processado.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>Pago</strong></td>
+      <td>O comprador finalizou o pagamento com sucesso. A transação foi capturada e o dinheiro será depositado em conta.</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><strong>Não Finalizado</strong></td>
+      <td>Pagamento esperando Status - Pode indicar erro ou falha de processamento</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="boleto">Boleto</h4>
+
+<p>O Checkout Cielo permite a utilização de Boletos do Bradesco e Banco do Brasil. Para disponibilizar o boleto como meio de pagamento, solicite habilitação ao Suporte E-commerce.</p>
+
+<p>A quantidade de parcelas escolhida por meio de pagamento deve ser a mesma que consta em seu cadastro da Cielo. Consulte o Suporte E-commerce em caso de dúvidas.</p>
+
+<p>As transações de boleto serão incluídas no site Cielo como <strong>Não Finalizado</strong> ou <strong>Pago</strong>. Diferentemente de outros meios de pagamento, o boleto não possui atualização de status. A loja deverá acessar o Backoffice site Cielo e modificar o status do boleto manualmente.</p>
+
+<p>Os status de boleto são:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>VALOR</th>
+      <th>STATUS</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>6</td>
+      <td><strong>Não Finalizado</strong>: status inicial. O boleto é gerado e ainda é valido. Como o Checkout não acessa o ambiente do banco para identificar o pagamento do boleto, esse status continuará efetivo até que o lojista entre no site Cielo e atualize o status manualmente.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>Pago</strong></td>
+      <td>O comprador finalizou o pagamento com sucesso.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="qr-code-pay">QR Code Pay</h4>
+
+<p>O <a href="https://www.cielo.com.br/qrcode/?gad=1&amp;gclid=EAIaIQobChMIp9qVhvLZ_wIVKTHUAR0Akws8EAAYASAAEgIVjfD_BwE&amp;gclsrc=aw.ds" target="_blank">QR Code Pay Cielo</a> permite o pagamento através de qualquer carteira digital. Quando o comprador seleciona o QR Code Pay na página de pagamento do Checkout Cielo e clica em <strong>Finalizar compra</strong>, o Checkout apresenta um QR Code para ser escaneado pelo comprador usando a carteira digital de sua preferência.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>VALOR</th>
+      <th>STATUS</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><strong>Pendente</strong></td>
+      <td>O QR Code foi gerado com sucesso e aguarda pagamento.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>Pago</strong></td>
+      <td>Quando a transação foi paga.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="4-configure-as-urls-de-retorno-notificação-e-mudança-de-status-da-sua-loja">4. Configure as URLs de retorno, notificação e mudança de status da sua loja</h3>
+
+<p>Você deverá preencher as URLs de retorno, notificação e mudança de status. As URLs devem ser criadas e definidas pelo seu estabelecimento. Depois, clique em <strong>Salvar</strong>.</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/superlink/superlink-urls-notificacao.png" alt="URLs de Notificação" /></p>
+
+<ul>
+  <li><strong>URL de Retorno</strong>: após finalizar o pagamento, o comprador pode ser redirecionado para uma página definida web pela loja. Nenhum dado é trocado ou enviado para essa URL e sua configuração é opcional;</li>
+  <li><strong>[URL de Notificação]</strong>: corresponde à notificação de finalização da transação. É a URL pela qual a sua loja irá receber a notificação com todos os dados do carrinho quando a transação é finalizada;</li>
+  <li><strong>[URL de Mudança de Status]</strong>: corresponde à notificação de mudança de status. É a URL pela qual a sua loja irá receber a notificação quando um pedido tiver seu status alterado. A notificação de mudança de status não contém dados do carrinho, apenas dados de identificação do pedido.</li>
+</ul>
+
+<h3 id="5-configure-a-captura-e-antifraude">5. Configure a captura e Antifraude</h3>
+
+<p>Uma transação de cartão de crédito é enviada para a autorização da Cielo (adquirente) e, em seguida, será submetida à análise de fraude. Em seguida, de acordo com o resultado da análise de fraude, a transação poderá ser capturada automaticamente ou manualmente.</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/checkout-images/checkout-fluxo-captura-af.png" alt="Análise de risco" /></p>
+
+<p>Ao acessar as configurações da sua loja, procure a sessão Antifraude e captura automática. Selecione a opção desejada:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Opção de captura</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><em>Nunca fazer a Captura Automática</em></td>
+      <td>Para toda transação de cartão de crédito autorizada será necessário que o estabelecimento efetue a captura manual da transação (requisição de captura).</td>
+    </tr>
+    <tr>
+      <td><em>Sempre fazer Captura Automática</em></td>
+      <td>Toda transação de cartão de crédito autorizada de baixo ou médio risco será capturada automaticamente.</td>
+    </tr>
+    <tr>
+      <td><em>Somente fazer captura Automática das transações de Baixo Risco no Antifraude</em></td>
+      <td>Toda transação de cartão de crédito (autorizada) de baixo risco será capturada automaticamente – as transações de médio risco ficarão aguardando a captura manual.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>Se a análise de fraude classificar a transação como Alto Risco ela será cancelada automaticamente. Não será possível fazer a captura manual.</p>
+</blockquote>
+
+<p><img src="https://developercielo.github.io/images/checkout/superlink/superlink-captura-e-antifraude.png" alt="Configuração de captura e Antifraude" /></p>
+
+<p><strong>Análise de Fraude</strong></p>
+
+<p>Transações de crédito <strong>autorizadas</strong> serão enviadas para análise de fraude. Todas as transações classificadas como alto risco serão automaticamente canceladas, sem exceção.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>STATUS ANTIFRAUDE</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Baixo Risco</code></td>
+      <td>Baixo risco de ser uma transação fraudulenta.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Médio Risco</code></td>
+      <td>Médio risco de ser uma transação fraudulenta.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Alto Risco</code></td>
+      <td>Alto risco de ser uma transação fraudulenta.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Não finalizado</code></td>
+      <td>Não foi possível finalizar a consulta.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>Além dos status da tabela acima, é possível que o Antifraude retorne o status N/A. O status N/A pode retornar nas seguintes situações:</p>
+  <ul>
+    <li>Quando a transação é autenticada pelo banco - não é passível de análise pelo Antifraude;</li>
+    <li>Quando o meio de pagamento não é passível de análise pelo Antifraude como cartões de débito, boleto e Pix;</li>
+    <li>Quando é uma transação de crédito recorrente posterior a transação de agendamento. Somente o Agendamento é analisado;</li>
+    <li>Quando a venda de cartão de crédito foi negada - não é passível de análise pelo Antifraude.</li>
+  </ul>
+</blockquote>
+
+<p>No site Cielo, a análise será apresentada em <strong>Detalhes do Pedido</strong>:</p>
+
+<p><img src="https://developercielo.github.io/images/checkout-cielo-analise-risco.png" alt="Análise de risco" /></p>
+
+<p>Você pode visualizar o status do Antifraude acessando os detalhes da compra, na aba <strong>Pedidos</strong> e clicando em <strong>+</strong>.</p>
+
+<h3 id="6-configure-as-opções-de-frete-dos-correios">6. Configure as opções de frete dos Correios</h3>
+
+<p>Se a sua loja trabalha com a entrega de <strong>produtos físicos</strong> (aqueles que precisam de frete), informe seu login e senha dos Correios e selecione os serviços desejados, como os tipos de Sedex e PAC.</p>
+
+<p>Se a sua loja trabalha com materiais digitais, serviços ou pagamentos, ou seja, vendas que não precisam de frete, pule esta etapa.</p>
+
+<p><img src="https://developercielo.github.io/images/checkout/superlink/superlink-configuracao-frete-correios.png" alt="Configuração do Frete Correios" /></p>
+
+<h3 id="configurações-padrão">Configurações padrão</h3>
+
+<p>Caso você não preencha as Configurações da Loja, o Checkout irá considerar o seguinte padrão:</p>
+
+<ul>
+  <li>A opção de envio de e-mail ao portador estará ativada;</li>
+  <li>A opção de aceitar cartões internacionais estará ativada;</li>
+  <li>O valor mínimo da parcela será de R$5,00;</li>
+  <li>Os meios de pagamento crédito e débito terão 12 parcelas habilitadas (se o seu cadastro Cielo permitir);</li>
+  <li>O meio de pagamento QR Code Crédito terá uma parcela habilitada;</li>
+  <li>O boleto não terá valor mínimo ou desconto definido (zerado);</li>
+  <li>A opção <strong>Sempre fazer Captura Automática</strong> só estará habilitada para transações que não são consideradas de alto risco;</li>
+  <li>O login de frete dos Correios estará desabilitado.</li>
+</ul>
+
 <h1 id="certificado-extended-validation">Certificado Extended Validation</h1>
 
 <h2 id="o-que-é-certificado-ssl">O que é Certificado SSL?</h2>
@@ -1553,258 +1897,6 @@ Há dois tipos de erro que poderão ocorrer durante o processo de integração c
 </table>
 
 <p>Caso algum erro ocorra após a finalização da transação, entre em contato com o Suporte Cielo.</p>
-
-<h2 id="fluxos-meios-de-pagamento">Fluxos Meios de pagamento</h2>
-
-<h3 id="cartão-de-crédito">Cartão de Crédito</h3>
-
-<p>O Checkout Cielo permite a utilização de Cartões de Crédito das principais bandeiras nacionais e internacionais. Esse meio de pagamento é liberado automaticamente junto a afiliação de Cielo, podendo ser utilizado inicialmente com a integração Checkout.</p>
-
-<p>Transações de cartão de crédito serão incluídas no <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">Backoffice Cielo Checkout</a> como PENDENTE, AUTORIZADO, PAGO, NEGADO, EXPIRADO OU CHARGEBACK dependendo do resultado da autorização junto ao Banco.</p>
-
-<p><strong>Cartão de Crédito</strong> Ordem de Status:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Ordem</th>
-      <th>Status</th>
-      <th>Explicação</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td><strong>PENDENTE</strong></td>
-      <td>Status original. A transação está ocorrendo, esperando resposta do processo de autorização</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td><strong>AUTORIZADO / NEGADO</strong></td>
-      <td>Resultado do processo de autorização. <br /><strong>AUTORIZADO</strong> - Crédito foi reservado para a compra <br /> <strong>NEGADO</strong> - Cartão não autorizado pelo emissor a continuar a transação</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td><strong>PAGO</strong></td>
-      <td>Ocorre pós captura. Indica que o crédito reservado no cartão será depositado na conta do lojista</td>
-    </tr>
-    <tr>
-      <td>N/A</td>
-      <td><strong>EXPIRADO</strong></td>
-      <td>Ocorre caso a transação não seja capturada em 15 dias pós autorização. Nessa situação a transação é perdida.</td>
-    </tr>
-    <tr>
-      <td>N/A</td>
-      <td><strong>CHARGEBACK</strong></td>
-      <td>Status não automático. Caso o lojista seja notificado de ChargeBack, ele pode marcar esta transação como perdida.<br /> Este Status é apenas uma marcação, não afetando processos de pagamento</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Atenção - Cartões Internacionais:</strong> O Checkout Cielo aceita cartões emitidos fora do Brasil, entretanto esses cartões não possuem a capacidade de pagar vendas parceladas. Essa é uma limitação imposta pelo banco emissor.</p>
-
-<p><strong>Atenção - TRANSAÇÕES EXPIRADAS:</strong> Por padrão, lojas Checkout Cielo possuem 15 dias para realizarem a captura da transação de Crédito. Se não capturadas, essas transações serão PERDIDAs.</p>
-
-<h4 id="análise-de-fraude">Análise de Fraude</h4>
-
-<p>Transações de crédito <strong>“AUTORIZADAS”</strong> serão enviadas para análise da ferramenta de antifraude. Todas as transações classificadas como alto risco serão automaticamente canceladas, sem exceção.
-O Antifraude possui o conceito de <code class="language-plaintext highlighter-rouge">Status</code> e <code class="language-plaintext highlighter-rouge">SubStatus</code>, onde o primeiro representa o nível de risco que uma transação possui de ser uma fraude, e o segundo, uma informação adicional sobre a transação.
-A análise indicará um grau de <strong>RISCO</strong>, especificado pelo <code class="language-plaintext highlighter-rouge">Status</code>, para a venda em questão.</p>
-
-<p>Esse grau de risco é o que deve guiar a decisão do lojista de capturar ou cancelar a venda.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Status Antifraude</th>
-      <th>Substatus</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Baixo Risco</code></td>
-      <td>Baixo Risco</td>
-      <td>Baixo risco de ser uma transação fraudulenta</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Médio Risco</code></td>
-      <td>Médio Risco</td>
-      <td>Médio risco de ser uma transação fraudulenta</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Alto Risco</code></td>
-      <td>Alto Risco</td>
-      <td>Alto risco de ser uma transação fraudulenta</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Não finalizado</code></td>
-      <td>Não finalizado</td>
-      <td>Não foi possível finalizar a consulta</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
-      <td>Autenticado</td>
-      <td>Transações autenticadas pelo banco - <strong>Não são analisáveis pelo AF</strong></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
-      <td>Não aplicável</td>
-      <td>Meio de pagamento não analisável como cartões de débito, boleto e débito online</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
-      <td>Transação de recorrência</td>
-      <td>Transação de crédito seja posterior a transação de agendamento. <strong>Somente o Agendamento é analisado</strong></td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">N/A</code></td>
-      <td>Transação negada</td>
-      <td>Venda a crédito foi negada - <strong>Não são analisáveis pelo AF</strong></td>
-    </tr>
-  </tbody>
-</table>
-
-<p>A analise será apresentada no “Detalhes do Pedido”, como abaixo:</p>
-
-<p><img src="https://developercielo.github.io/images/checkout-cielo-analise-risco.png" alt="Análise de risco" /></p>
-
-<p>Você pode visualizar o status do antifraude acessando o detalhe da compra, na aba Pedidos e clicando no (+)</p>
-
-<p><img src="https://developercielo.github.io/images/checkout-status-antifraude.png" alt="Status Antifraude" /></p>
-
-<h3 id="cartão-de-débito">Cartão de Débito</h3>
-
-<p>O Checkout Cielo permite a utilização de Cartões de débito MasterCard e Visa. Esse meio de pagamento é liberado automaticamente junto a afiliação de Cielo, podendo ser utilizado inicialmente com a integração Checkout.</p>
-
-<p>Bancos Suportados:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Mastercard</th>
-      <th>Visa</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Bradesco</td>
-      <td>Bradesco</td>
-    </tr>
-    <tr>
-      <td>Banco do Brasil</td>
-      <td>Banco do Brasil</td>
-    </tr>
-    <tr>
-      <td>Santander</td>
-      <td>Santander</td>
-    </tr>
-    <tr>
-      <td>Itaú</td>
-      <td>Itaú</td>
-    </tr>
-    <tr>
-      <td>CitiBank</td>
-      <td>CitiBank</td>
-    </tr>
-    <tr>
-      <td>BRB</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <td>Caixa</td>
-      <td>N/A</td>
-    </tr>
-    <tr>
-      <td>BancooB</td>
-      <td>N/A</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Ao acessar a tela transacional, o comprador obterá pelo pagamento via Cartão de débito, e será redirecionado ao ambiente bancário para Autenticação e Autorização.</p>
-
-<p>Transações de cartão de débito serão incluídas no <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">Backoffice Cielo Checkout</a> como PENDENTE, PAGO, NÃO AUTORIZADO ou NÃO FINALIZADO, dependendo do resultado da autorização junto ao Banco.</p>
-
-<p><strong>Cartão de Débito</strong> - Ordem de Status</p>
-
-<ol>
-  <li><strong>Pendente</strong> - Status original. A transação está ocorrendo, esperando resposta do banco para envio do comprador ao ambiente de autenticação</li>
-  <li><strong>Não Finalizado</strong> - Status intermediário. Neste ponto o Checkout Cielo espera a confirmação do Banco sobre o status da autenticação e transação. Caso o comprador abandone o ambiente do banco, o status não se altera.</li>
-  <li><strong>Pago</strong> - Comprador finalizou o pagamento com o cartão de débito com sucesso.</li>
-  <li><strong>Não Autorizado</strong> - O Comprador não apresentava saldo em conta para finalizar a transação.</li>
-</ol>
-
-<p><strong>OBS</strong>: A opção <strong>Cancelar</strong> dentro do backoffice, vai modificar o status da transação de PAGO/NÃO PAGO para CANCELADO, mas não terá efeito sobre a movimentação bancária. Caberá ao lojista retornar o valor ao comprador.</p>
-
-<h3 id="pix">Pix</h3>
-
-<p>O Pix é o pagamento instantâneo brasileiro, criado pelo Banco Central (BC), no qual os recursos são transferidos entre contas em poucos segundos, a qualquer hora ou dia (inclusive feriados e finais de semana).</p>
-
-<p>Além de aumentar a velocidade dos pagamentos, o Pix na Cielo oferece diversos benefícios:</p>
-
-<ul>
-  <li>Melhora o índice de conversão de vendas;</li>
-  <li>Aumenta a segurança nas transações;</li>
-  <li>É integrado ao Checkout Cielo, versátil e fácil.</li>
-</ul>
-
-<h4 id="como-usar-o-pix-no-checkout-cielo">Como usar o Pix no Checkout Cielo?</h4>
-
-<p>Você deve <strong>habilitar</strong> o meio de pagamento Pix no seu cadastro no <strong>site Cielo</strong> e nas <strong>configurações da sua loja</strong>. Na integração por API não é necessário enviar parâmetros adicionais.</p>
-
-<h4 id="habilitando-o-pix-no-portal-cielo">Habilitando o Pix no portal Cielo</h4>
-
-<p>Para usar o <strong>Pix</strong>, o seu <strong>cadastro deve estar habilitado com o meio de pagamento Pix</strong>. Para confirmar a habilitação, acesse o <a href="https://www.cielo.com.br/" target="_blank">portal Cielo</a>  e clique em <strong>Meu Cadastro</strong> &gt; <strong>Autorizações</strong> &gt; <strong>Pix</strong>.</p>
-
-<p>Caso o Pix não esteja habilitado em seu cadastro, será apresentada a tela de adesão caso o seu estabelecimento (EC) seja elegível; após concluir o processo de adesão do Pix, já será possível usar o Pix no Checkout Cielo.</p>
-
-<p><img src="https://developercielo.github.io/images/apicieloecommerce/adesao-pix.png" alt="Adesão Pix" /></p>
-
-<h4 id="habilitando-o-pix-nas-configurações-da-loja">Habilitando o Pix nas configurações da loja</h4>
-
-<p>Certifique-se também que o Pix está liberado nas configurações da sua loja. Para isso, acesse <strong>E-commerce</strong> &gt; <strong>Checkout Cielo</strong> &gt; <strong>Acessar</strong> &gt; <strong>Configurações</strong> &gt; <strong>Configurações da Loja</strong>. Ao rolar a página para baixo será apresentado os meios de pagamentos disponíveis em seu cadastro:</p>
-
-<p><img src="https://developercielo.github.io/images/checkout/meiospgto-checkout.png" alt="Adesão Pix" /></p>
-
-<p>Feito isso, o seu e-commerce já poderá receber transações com Pix no Checkout Cielo.</p>
-
-<h3 id="boleto">Boleto</h3>
-
-<p>O Checkout Cielo permite a utilização de Boletos do Bradesco (Carteira 26 e SPS) e Banco do Brasil (Carteira 17).
-Esse meio de pagamento precisa ser cadastrado pelo Suporte Cielo para que seja disponibilizado no Backoffice Checkout.</p>
-
-<p>Bancos Suportados:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Bancos</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Bradesco</td>
-    </tr>
-    <tr>
-      <td>Banco do Brasil</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Ao acessar a tela transacional, o comprador obterá pelo pagamento via Boleto.</p>
-
-<p>Transações de boleto serão incluídas no <a href="https://developercielo.github.io/tutorial/checkout-tutoriais">Backoffice Cielo Checkout</a> como NÃO FINALIZADO ou PAGO.
-Diferentemente de outros meios de pagamento, o boleto não possui atualização de Status. Caberá ao Lojista acessar o Backoffice e modificar o status do boleto manualmente.</p>
-
-<p><strong>Boleto</strong> - Ordem de Status</p>
-
-<ol>
-  <li><strong>Não Finalizado</strong> - Status inicial. O Boleto é gerado, e ainda é valido. Como o Checkout <strong>não</strong> acessa o ambiente do banco para identificar o pagamento do boleto, esse status continuará efetivo até que o lojista entre no backoffice o atualize.</li>
-  <li><strong>Pago</strong> - Comprador finalizou o pagamento com o cartão de débito com sucesso.</li>
-</ol>
-
-<p><strong>OBS</strong>: A opção <strong>Cancelar</strong> dentro do backoffice, vai modificar o status da transação de PAGO/NÃO FINALIZADO para CANCELADO, mas não terá efeito sobre a movimentação bancaria. Caberá ao lojista retornar o valor ao comprador</p>
 
 <h1 id="notificações-da-transação">Notificações da transação</h1>
 
