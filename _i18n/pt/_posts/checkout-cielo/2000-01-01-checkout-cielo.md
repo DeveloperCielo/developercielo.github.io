@@ -66,7 +66,7 @@ O Checkout Cielo possui uma lista de requisitos básicos para que o processo de 
 3. O certificado Root da entidade certificadora (CA) de nosso Web Service deve estar cadastrado. Veja a seção [Certificado Extended Validation](#certificado-extended-validation) para mais informações;
 4. Recomendamos o uso dos navegadores Chrome e Edge para web e Safari, Chrome e Samsung Internet para mobile, todos sempre em suas versões mais atualizadas.
 
-# Fluxo da API Checkout Cielo
+## Fluxo da API Checkout Cielo
 
 Na API do Checkout Cielo, a loja envia uma requisição de criação da tela de checkout e a API retorna uma URL para acesso à página de pagamento, chamada `CheckoutUrl`.
 Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:
