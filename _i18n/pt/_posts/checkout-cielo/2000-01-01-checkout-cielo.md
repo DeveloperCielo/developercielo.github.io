@@ -84,6 +84,94 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:
 
 > **Importante**: O Checkout Cielo não notifica os compradores a respeito do status da compra. O Checkout Cielo notifica apenas a loja quando há alguma alteração no status do pagamento, permitindo assim que a loja decida quando e como informar aos seus compradores sobre o prazo de entrega e processo de envio. Para receber notificações, é necessário configurar ao menos um tipo de URL de notificação nas **Configurações da Loja.**
 
+## Endpoints
+
+Os endpoints para integração com o Checkout Cielo são apresentados na tabela a seguir:
+
+|API| URL | DESCRIÇÃO|
+|---|---|---|
+|**API Checkout Cielo** | https://cieloecommerce.cielo.com.br/api/public/v1/orders/| Criação da página de pagamento.|
+|**Cielo OAUTH2 Server** | https://cieloecommerce.cielo.com.br/api/public/v2/token | Autenticação para consulta, captura e cancelamento de transações.|
+|**API de Controle Transacional** | https://cieloecommerce.cielo.com.br/api/public/v2/ | Consulta de transações.|
+
+> **Importante**: A API do Checkout não possui sandbox, mas você pode criar páginas de pagamento de teste ativando o Modo Teste no site Cielo.
+
+## Autenticação Cielo OAUTH
+
+O Cielo OAUTH é um processo de autenticação das APIs Cielo relacionadas ao e-commerce. O Cielo OAUTH utiliza como segurança o protocolo **[OAUTH2](https://oauth.net/2/){:target="_blank"} **, no qual é necessário primeiro obter um token de acesso utlizando suas credenciais e, posteriormente, enviá-lo à API de Controle Transacional. 
+
+> A autenticação só é necessária para as operações de consulta, captura e cancelamento.
+
+Para utilizar o Cielo OAUTH são necessárias as seguintes credenciais:
+
+| PROPRIEDADE    | DESCRIÇÃO                                                             | TIPO   |
+| -------------- | --------------------------------------------------------------------- | ------ |
+| `ClientId`     | Identificador chave fornecido pela CIELO                              | GUID   |
+| `ClientSecret` | Chave que valida o ClientID. Fornecida pela Cielo junto ao `ClientID` | string |
+
+> Para gerar o `ClientID` e o `ClientSecret`, consulte o tópico de Obtendo as Credenciais, a seguir.
+
+## Obtendo as credenciais
+
+Para obter as credenciais `ClientId` e `ClientSecret`, siga os passos a seguir:
+
+1. Após receber o nº de estabelecimento (EC) com a habilitação para o Checkout, acesse o [site Cielo](https://minhaconta2.cielo.com.br/login/){:target="_blank"} e faça o login;
+2. Vá para a aba **Ecommerce** > **Super Link** > **Configurações** > **Dados Cadastrais**;
+3. Na seção **Contato técnico**, preencha com os dados de contato da pessoa responsável por receber as chaves da sua loja. *ATENÇÃO: apenas coloque os dados da pessoa que realmente pode ter acesso às chaves da sua loja, que são informações sigilosas de cada estabelecimento*;
+4. Clique em **Gerar Credenciais de Acesso às APIs**;
+5. O contato técnico receberá um e-mail com as credenciais.
+
+## Obtendo o token de acesso
+
+Para obter acesso a serviços Cielo que utilizam o **Cielo Oauth**, será necessário obter um token de acesso, conforme os passos abaixo:
+
+1. Concatene o `ClientId` e o `ClientSecret`, `**ClientId:ClientSecret**`;
+2. Codifique o resultado em **Base64**;
+3. Envie a requisição de criação do token, utilizando o método HTTP POST.
+
+**Exemplo da Concatenação**
+
+| Campo                     | Formato                                                                                          |
+| ------------------------- | ------------------------------------------------------------------------------------------------ |
+| **ClientId**              | b521b6b2-b9b4-4a30-881d-3b63dece0006                                                             |
+| **ClientSecret**          | 08Qkje79NwWRx5BdgNJsIkBuITt5cIVO                                                                 |
+| **ClientId:ClientSecret** | _b521b6b2-b9b4-4a30-881d-3b63dece0006:08Qkje79NwWRx5BdgNJsIkBuITt5cIVO_                          |
+| **Base64**                | _YjUyMWI2YjItYjliNC00YTMwLTg4MWQtM2I2M2RlY2UwMDA2OiAwOFFramU3OU53V1J4NUJkZ05Kc0lrQnVJVHQ1Y0lWTw_ |
+
+### Requisição
+
+A requisição dever ser enviada apenas no header.
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/token</span></aside>
+
+```json
+x-www-form-urlencoded
+--header "Authorization: Basic {base64}"  
+--header "Content-Type: application/x-www-form-urlencoded"  
+grant_type=client_credentials
+```
+
+### Resposta
+
+A resposta retornará o `access_token`, que deverá ser usado nas requisições da API de Controle Transacional, para as operações de consulta, captura e cancelamento.
+
+```json
+{
+  "access_token":
+    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6Ik1ldUNoZWNrb3V0IE1hc3RlciBLZXkiLCJjbGllbnRfaWQiOiJjODlmZGasdasdasdmUyLTRlNzctODA2YS02ZDc1Y2QzOTdkYWMiLCJzY29wZXMiOiJ7XCJTY29wZVwiOlwiQ2hlY2tvdXRBcGlcIixcIkNsYWltc1wiOltdfSIsInJvbGUiOiJasdasdasd291dEFwaSIsImlzc47I6Imh0dHBzOi8vYXV0aGhvbasdasdnJhc3BhZy5jb20uYnIiLCJhdWQiOiJVVlF4Y1VBMmNTSjFma1EzSVVFbk9pSTNkbTl0ZmasdsadQjVKVVV1UVdnPSIsImV4cCI6MTQ5Nzk5NjY3NywibmJmIjoxNDk3OTEwMjc3fQ.ozj4xnH9PA3dji-ARPSbI7Nakn9dw5I8w6myBRkF-uA",
+  "token_type": "bearer",
+  "expires_in": 1199
+}
+```
+
+| PROPRIEDADE    | DESCRIÇÃO                                                 | TIPO   |
+| -------------- | --------------------------------------------------------- | ------ |
+| `Access_token` | Utilizado para acesso aos serviços da API                 | string |
+| `Token_type`   | Sempre será do tipo `bearer`                              | texto  |
+| `Expires_in`   | Validade do token em segundos. Aproximadamente 20 minutos | int    |
+
+> O token retornado (`access_token`) deverá ser utilizado em toda requisição de consulta, captura e cancelamento como uma chave de autorização. O `access_token` possui uma validade de 20 minutos (1200 segundos) e é necessário gerar um novo token toda vez que a validade expirar.
+
 # Início Rápido
 
 Para iniciar a sua integração com a API do Checkout Cielo, você vai precisar:
@@ -469,94 +557,6 @@ Essas transações terão o símbolo de teste as diferenciando de suas outras tr
 
 <aside class="notice">É muito importante que, ao liberar sua loja para a realização de vendas para seus clientes, **a loja não esteja em modo de teste**. Transações realizadas nesse ambiente poderão ser finalizadas normalmente, mas **não serão descontadas do cartão do cliente** e não poderão ser “transferidas” para o ambiente de venda padrão.</aside>
 
-# Endpoints
-
-Os endpoints para integração com o Checkout Cielo são apresentados na tabela a seguir:
-
-|API| URL | DESCRIÇÃO|
-|---|---|---|
-|**API Checkout Cielo** | https://cieloecommerce.cielo.com.br/api/public/v1/orders/| Criação da página de pagamento.|
-|**Cielo OAUTH2 Server** | https://cieloecommerce.cielo.com.br/api/public/v2/token | Autenticação para consulta, captura e cancelamento de transações.|
-|**API de Controle Transacional** | https://cieloecommerce.cielo.com.br/api/public/v2/ | Consulta de transações.|
-
-> **Importante**: A API do Checkout não possui sandbox, mas você pode criar páginas de pagamento de teste ativando o Modo Teste no site Cielo.
-
-# Autenticação Cielo OAUTH
-
-O Cielo OAUTH é um processo de autenticação das APIs Cielo relacionadas ao e-commerce. O Cielo OAUTH utiliza como segurança o protocolo **[OAUTH2](https://oauth.net/2/){:target="_blank"} **, no qual é necessário primeiro obter um token de acesso utlizando suas credenciais e, posteriormente, enviá-lo à API de Controle Transacional. 
-
-> A autenticação só é necessária para as operações de consulta, captura e cancelamento.
-
-Para utilizar o Cielo OAUTH são necessárias as seguintes credenciais:
-
-| PROPRIEDADE    | DESCRIÇÃO                                                             | TIPO   |
-| -------------- | --------------------------------------------------------------------- | ------ |
-| `ClientId`     | Identificador chave fornecido pela CIELO                              | GUID   |
-| `ClientSecret` | Chave que valida o ClientID. Fornecida pela Cielo junto ao `ClientID` | string |
-
-> Para gerar o `ClientID` e o `ClientSecret`, consulte o tópico de Obtendo as Credenciais, a seguir.
-
-## Obtendo as credenciais
-
-Para obter as credenciais `ClientId` e `ClientSecret`, siga os passos a seguir:
-
-1. Após receber o nº de estabelecimento (EC) com a habilitação para o Checkout, acesse o [site Cielo](https://minhaconta2.cielo.com.br/login/){:target="_blank"} e faça o login;
-2. Vá para a aba **Ecommerce** > **Super Link** > **Configurações** > **Dados Cadastrais**;
-3. Na seção **Contato técnico**, preencha com os dados de contato da pessoa responsável por receber as chaves da sua loja. *ATENÇÃO: apenas coloque os dados da pessoa que realmente pode ter acesso às chaves da sua loja, que são informações sigilosas de cada estabelecimento*;
-4. Clique em **Gerar Credenciais de Acesso às APIs**;
-5. O contato técnico receberá um e-mail com as credenciais.
-
-## Obtendo o token de acesso
-
-Para obter acesso a serviços Cielo que utilizam o **Cielo Oauth**, será necessário obter um token de acesso, conforme os passos abaixo:
-
-1. Concatene o `ClientId` e o `ClientSecret`, `**ClientId:ClientSecret**`;
-2. Codifique o resultado em **Base64**;
-3. Envie a requisição de criação do token, utilizando o método HTTP POST.
-
-**Exemplo da Concatenação**
-
-| Campo                     | Formato                                                                                          |
-| ------------------------- | ------------------------------------------------------------------------------------------------ |
-| **ClientId**              | b521b6b2-b9b4-4a30-881d-3b63dece0006                                                             |
-| **ClientSecret**          | 08Qkje79NwWRx5BdgNJsIkBuITt5cIVO                                                                 |
-| **ClientId:ClientSecret** | _b521b6b2-b9b4-4a30-881d-3b63dece0006:08Qkje79NwWRx5BdgNJsIkBuITt5cIVO_                          |
-| **Base64**                | _YjUyMWI2YjItYjliNC00YTMwLTg4MWQtM2I2M2RlY2UwMDA2OiAwOFFramU3OU53V1J4NUJkZ05Kc0lrQnVJVHQ1Y0lWTw_ |
-
-### Requisição
-
-A requisição dever ser enviada apenas no header.
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/token</span></aside>
-
-```json
-x-www-form-urlencoded
---header "Authorization: Basic {base64}"  
---header "Content-Type: application/x-www-form-urlencoded"  
-grant_type=client_credentials
-```
-
-### Resposta
-
-A resposta retornará o `access_token`, que deverá ser usado nas requisições da API de Controle Transacional, para as operações de consulta, captura e cancelamento.
-
-```json
-{
-  "access_token":
-    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6Ik1ldUNoZWNrb3V0IE1hc3RlciBLZXkiLCJjbGllbnRfaWQiOiJjODlmZGasdasdasdmUyLTRlNzctODA2YS02ZDc1Y2QzOTdkYWMiLCJzY29wZXMiOiJ7XCJTY29wZVwiOlwiQ2hlY2tvdXRBcGlcIixcIkNsYWltc1wiOltdfSIsInJvbGUiOiJasdasdasd291dEFwaSIsImlzc47I6Imh0dHBzOi8vYXV0aGhvbasdasdnJhc3BhZy5jb20uYnIiLCJhdWQiOiJVVlF4Y1VBMmNTSjFma1EzSVVFbk9pSTNkbTl0ZmasdsadQjVKVVV1UVdnPSIsImV4cCI6MTQ5Nzk5NjY3NywibmJmIjoxNDk3OTEwMjc3fQ.ozj4xnH9PA3dji-ARPSbI7Nakn9dw5I8w6myBRkF-uA",
-  "token_type": "bearer",
-  "expires_in": 1199
-}
-```
-
-| PROPRIEDADE    | DESCRIÇÃO                                                 | TIPO   |
-| -------------- | --------------------------------------------------------- | ------ |
-| `Access_token` | Utilizado para acesso aos serviços da API                 | string |
-| `Token_type`   | Sempre será do tipo `bearer`                              | texto  |
-| `Expires_in`   | Validade do token em segundos. Aproximadamente 20 minutos | int    |
-
-> O token retornado (`access_token`) deverá ser utilizado em toda requisição de consulta, captura e cancelamento como uma chave de autorização. O `access_token` possui uma validade de 20 minutos (1200 segundos) e é necessário gerar um novo token toda vez que a validade expirar.
-
 # Criando o carrinho
 
 Na integração via API, a tela transacional é "montada" com bases em dados enviados que formam um **Carrinho de compras**.
@@ -885,6 +885,262 @@ Há dois tipos de erro que poderão ocorrer durante o processo de integração c
 
 Caso algum erro ocorra após a finalização da transação, entre em contato com o Suporte Cielo.
 
+# Parcelamentos do Checkout Cielo
+
+## Tipo de Parcelamento
+
+O Checkout Cielo permite que o lojista realize transações de crédito parceladas em até 12 vezes.
+Existem dois métodos de parcelamento:
+
+- **Parcelamento via backoffice** - é o método padrão de parcelamento do Checkout. Cada bandeira possui uma configuração de parcelamento até 12X. O Valor do Carrinho (Produtos + Frete) é dividido igualmente pelo número de parcelas.
+- **Parcelamento via API** - O Lojista limita o número de parcelas a serem apresentadas no backoffice
+
+**OBS:** O Checkout é limitado a parcelamentos de 12X, mesmo que sua afiliação Cielo suporte valores superiores. Caso o valor apresentando em seu backoffice seja menor que 12, entre em contato com o Suporte Cielo e verifique a configuração de sua Afiliação.
+
+## Parcelamento via backoffice
+
+Neste modo, o lojista controla o limite máximo de parcelas que a loja realizará pelo Backoffice Checkout. O Valor das parcelas é definido acessando a aba **Configurações** e alterando a sessão **Pagamentos**
+
+![Seleção de Parcelas]({{ site.baseurl_root }}/images/checkout/parcelamento.png)
+
+**OBS:** O Check Box deve estar marcado para que o meio de pagamento seja exibido na tela transacional.
+
+**Características**
+
+- Disponível nas integrações do Checkout Cielo via API ou Botão;
+- O valor total dos itens do carrinho é somado e dividido pela quantidade de parcelas do lojista;
+- O valor da compra é sempre o mesmo, independentemente da quantidade de parcelas escolhida pelo comprador (Não há cobrança de Juros);
+- O valor do frete é somado ao valor do parcelamento;
+- A opção “à vista” sempre está disponível ao comprador.
+- Todas as transações possuirão as mesmas opções de parcelamento.
+
+## Parcelamento via API
+
+Nesta opção, o lojista pode configurar a quantidade de parcelas por venda, especificado via request da API no momento de envio da transação.
+O Checkout realiza o cálculo das parcelas considerando valor total e limite parcelas enviadas via API.
+
+**ATENÇÃO:** Nesta opção de parcelamento, o número de parcelas desejadas deve ser inferior a quantidade que está cadastrada no backoffice Checkout.
+
+**Características**
+
+- O lojista envia a quantidade máxima de parcelas que deseja exibir ao comprador.
+- O valor do frete é somado ao valor do parcelamento.
+
+O Parcelamento via API é realizado enviando o campo `MaxNumberOfInstallments` dentro do nó Payment. Isso forçará o Checkout a recalcular o valor do parcelamento.
+Abaixo, um exemplo do Nó
+
+```json
+"Payment": {
+  "MaxNumberOfInstallments": 3
+}
+```
+
+| Campo                     | Tipo    | Obrigatório | Tamanho | Descrição                                                                                          |
+| ------------------------- | ------- | ----------- | ------- | -------------------------------------------------------------------------------------------------- |
+| `MaxNumberOfInstallments` | Numeric | Condicional | 2       | Define valor máximo de parcelas apresentadas no transacional, ignorando configuração do Backoffice |
+
+# Recorrência do Checkout Cielo
+
+A Recorrência é um processo de agendamento automático de transações de crédito, ou seja, é uma transação que se repetirá automaticamente, sem a necessidade do comprador acessar a tela transacional, de acordo com as regras definidas no momento do agendamento.
+
+<aside class="notice">Caso uma das transações não seja autorizada, o Checkout Cielo executa a retentativa automaticamente; para mais detalhes sobre a retentativa automática, veja a seção <a href="#retentativa-de-recorrências">Retentativa</a>.</aside>
+
+Transações recorrentes são ideais para modelos de negócios que envolvam o **conceito de assinatura, plano ou mensalidade** na sua forma de **cobrança**.
+Alguns exemplos de negócios são:
+
+- Escolas
+- Academias
+- Editoras
+- Serviços de hospedagem
+
+**Diferença entre transações recorrentes e parceladas:**
+
+| Tipo            | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Parceladas**  | Se trata de **uma transação dividida em vários meses**. <br>O valor total da venda compromete o limite do cartão de crédito do comprador independentemente do valor da parcela inicial.<br> O lojista recebe o valor da venda parceladamente e não corre o risco de uma das parcelas ser negada.<br> **EX**: Venda de R$1.000,00 parcelado em 2 vezes. Apesar de o comprador pagar apenas R$500,00 na primeira parcela, o valor do limite de crédito consumido é o integral, ou seja, R$1.000,00. Se o limite do cartão for inferior ou o montante não estiver liberado, a R$1.000,00 a transação será negada                                                |
+| **Recorrentes** | São **transações diferentes realizadas no mesmo cartão em momentos previamente agendados**.<br> A primeira venda agenda as futuras vendas a partir de um intervalo de tempo pré definido.<br> A cada intervalo haverá uma cobrança no cartão de crédito. <br> O pagamento recorrente bloqueia do limite do cartão apenas o valor debitado na data da primeira venda recorrente e do valor total da venda.<br> **EX**: Venda de R$ 1.000,00 em 15/01/2015, com recorrência mensal e data final em 01/06/2015. Todo dia 15 haverá uma nova cobrança de R$1.000,00 no cartão do comprador, se repetindo até 15/05/2015, última data válida antes da data final. |
+
+## Recorrência por API
+
+Uma transação de recorrência no Checkout Cielo possui duas configurações: `Intervalo` e `Data de encerramento`.
+
+- **Intervalo** – padrão de repetição e intervalo de tempo entre cada transação. Esse intervalo temporal entre as transações podem ser: Mensal, Bimestral, Trimestral, Semestral e Anual.
+- **Data de encerramento** – Data que o processo de recorrência deixa de ocorrer.
+
+```json
+"Payment": {
+        "RecurrentPayment": {
+            "Interval": "Monthly",
+            "EndDate": "2018-12-31"
+        }
+```
+
+**Payment.RecurrentPayment**
+
+| Campo                               | Tipo         | Obrigatório | Tamanho | Descrição                                                                                          |
+| ----------------------------------- | ------------ | ----------- | ------- | -------------------------------------------------------------------------------------------------- |
+| `Payment.RecurrentPayment.Interval` | Alphanumeric | Sim         | 10      | Intervalo entre cada transação da recorrência                                                      |
+| `Payment.RecurrentPayment.EndDate`  | YYYY-MM-DD   | Não         | 255     | Data onde a Recorrência se encerrará; Se não enviado a recorrência se encerra somente se cancelada |
+
+| Intervalo    | Descrição  |
+| ------------ | ---------- |
+| `Monthly`    | Mensal     |
+| `Bimonthly`  | Bimestral  |
+| `Quarterly`  | Trimestral |
+| `SemiAnnual` | Semestral  |
+| `Annual`     | Anual      |
+
+Os dados do cartão de crédito do comprador ficam armazenados de forma segura dentro do Checkout Cielo, permitindo sua reutilização em uma transação recorrente. Esses dados não são acessados pelo lojista e essa inteligência é controlada pelo Checkout Cielo.
+
+Exceto o objeto `Payment` que contém um novo elemento específico para a recorrência chamado `RecurrentPayment`, todos os outros objetos são iguais à integração com o Carrinho.
+
+### Request
+
+```json
+{
+  "OrderNumber": "12344",
+  "SoftDescriptor": "Nome que aparecerá na fatura",
+  "Cart": {
+    "Discount": {
+      "Type": "Percent",
+      "Value": 10
+    },
+    "Items": [
+      {
+        "Name": "Nome do produto",
+        "Description": "Descrição do produto",
+        "UnitPrice": 100,
+        "Quantity": 2,
+        "Type": "Asset",
+        "Sku": "Sku do item no carrinho",
+        "Weight": 200
+      }
+    ]
+  },
+  "Shipping": {
+    "Type": "Correios",
+    "SourceZipCode": "14400000",
+    "TargetZipCode": "11000000",
+    "Address": {
+      "Street": "Endereço de entrega",
+      "Number": "123",
+      "Complement": "",
+      "District": "Bairro da entrega",
+      "City": "Cidade de entrega",
+      "State": "SP"
+    },
+    "Services": [
+      {
+        "Name": "Serviço de frete",
+        "Price": 123,
+        "Deadline": 15
+      }
+    ]
+  },
+  "Payment": {
+    "BoletoDiscount": 0,
+    "DebitDiscount": 0,
+    "RecurrentPayment": {
+      "Interval": "Monthly",
+      "EndDate": "2015-12-31"
+    }
+  },
+  "Customer": {
+    "Identity": 11111111111,
+    "FullName": "Fulano Comprador da Silva",
+    "Email": "fulano@email.com",
+    "Phone": "11999999999"
+  }
+}
+```
+
+**Exemplo**: Bem Físico
+
+Se o tipo de produto for `Bem Físico`, a **API obriga o envio do tipo de frete**.
+Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo `WithoutShipping`, caso contrário, a seguinte resposta será apresentada:
+
+```json
+{
+  "message": "The request is invalid.",
+  "modelState": {
+    "[Shipping.Type]": [
+      "[Shipping.Type] pedidos com recorrência devem possuir o Shipping.Type 'WithoutShipping'."
+    ]
+  }
+}
+```
+
+**IMPORTANTE:** A Recorrência é criada apenas se a transação for **AUTORIZADA**. Independente de captura ou não, uma vez autorizada, o processo de recorrência se inicia.
+
+## Recorrência por Botão
+
+Uma maneira de realizar a recorrência dentro do Checkout é criar um botão recorrente.
+
+Basta cadastrar o produto, incluindo um intervalo de cobrança e uma data para encerramento (Opcional), como no exemplo abaixo:
+
+![Botão recorrência]({{ site.baseurl_root }}/images/checkout-botao-recorrencia.png)
+
+**ATENÇÃO:** Caso um botão seja utilizado após a “Data final” cadastrada, a transação apresentará um erro exibindo **Oppss** na tela transacional. A Data pode ser editada na tela de edição do botão dentro de “Detalhes do Produto”
+
+## Retentativa de Recorrências
+
+Caso uma das transações da recorrência não seja autorizada, o Checkout Cielo executa a retentativa automaticamente, o envio de uma nova transação, considerando:
+
+- **Intervalo de tempo entre as tentativas:** 4 dias
+- **Quantidade de retentativas:** 4 (quatro), uma por dia, por 4 dias corridos a partir do dia seguinte da transação original não autorizada.
+
+**OBS**: Esse processo visa manter obter uma resposta positiva do processo de autorização, impedindo o lojista de perder a venda. O Processo de retentativa gera pedidos duplicados dentro do Backoffice, pois o pedido original, negado, será apresentado na lista de Pedidos, junto com a nova transação autorizada
+
+**ATENÇÃO:** A regra da retentativa não pode ser modificada pelo lojista.
+
+## Consultando transações
+
+As transações de Recorrência ficam disponíveis no Backoffice Checkout Cielo como as outras vendas de sua loja na aba “PEDIDOS” (veja imagem abaixo).
+
+A primeira transação da recorrência é uma transação normal, seguindo as regras e preferências definidas pelo lojista no Backoffice.
+
+**ATENÇÃO:** O valor e data de cobrança das transações recorrentes serão sempre os mesmos da transação inicial. O agendamento passa a funcionar automaticamente a partir da data em que a primeira transação for autorizada.
+
+![Consultando transações]({{ site.baseurl_root }}/images/checkout-consulta-recorrencia.png)
+
+Esta tela mostra a data que a 1° transação da recorrência foi autorizada e deverá ser capturada manualmente. **As demais transações da recorrência sempre serão capturadas automaticamente**, independente se primeira transação foi capturada ou cancelada. Se o Cliente tiver configurado Captura automática, a captura da recorrência também será automática.
+
+**ATENÇÃO:** Somente a 1° transação é submetida a análise do antifraude
+
+## Cancelamento de Recorrência no Checkout Cielo
+
+O cancelamento da recorrência ocorre dentro do Backoffice do Checkout Cielo, também na aba “PEDIDOS”. Basta:
+
+1. Acessar uma transação de recorrência (marcada com o símbolo “Recorrente”)
+2. Entrar em Detalhes (o símbolo de “+”)
+
+![Pedido de recorrência]({{ site.baseurl_root }}/images/checkout-cancelar-recorrencia.png)
+
+![Cancelamento de recorrência]({{ site.baseurl_root }}/images/checkout/pedidoreccance.png)
+
+Tela de detalhes da Recorrência
+
+Na tela acima, há duas opções de Cancelamento pelos botões:
+
+- **Cancelar** – Cancela a transação, sem efetuar o cancelamento das futuras transações de recorrência.
+- **Cancelar Recorrência** - Cancela o agendamento de futuras transações, encerrando a recorrência. Não cancela a transação atual nem as que já ocorreram. Essas necessitam ser canceladas manualmente.
+
+**ATENÇÃO:**
+
+- A Recorrência ocorre somente para Cartões de crédito e para produtos tipo “SERVIÇO” e “BENS DIGITAIS”.
+- A Recorrência é iniciada no momento da AUTORIZAÇAO, NÃO NA CAPTURA. Se a recorrência não tiver uma data para ser finalizada, ela se repetirá automaticamente até ser cancelada manualmente.
+- Sua afiliação Cielo deve ser habilitada para transacionar sem CVV ou Em recorrência, do contrário, todas as transações recorrentes serão negadas.
+
+## Edição da Recorrência
+
+O Checkout Cielo permite que o lojista modifique 3 dados da recorrência:
+
+- **Ativação** - Uma recorrência pode ser ativada ou cancelada.
+- **Intervalo** - É possivel modificar o intervalo de execução.
+- **Dia de ocorrência** - É possivel modificar o dia de execução da transação recorrente.
+
+A atualização é feita exclusivamente via o Backoffice Cielo. Acesso o [**Tutorial do Backoffice Checkout Cielo**]({{ site.baseurl_root }}{% post_url 2000-01-01-checkout-tutoriais%}) para mais informações.
+
 # Notificações da transação
 
 O processo de notificação transacional ocorre em duas etapas, que são a notificação de finalização da transação e a notificação de mudança de status.
@@ -1176,262 +1432,6 @@ authorization_code: "01234567"
 |`test_transaction`|Indica se a transação foi gerada com o Modo de teste ativado|Boolean|32|
 |`nsu`|NSU - Número sequencial único da transação.|Alfanumérico|6|
 |`authorization_code`|Código de autorização.|Alfanumérico|8|
-
-# Parcelamentos do Checkout Cielo
-
-## Tipo de Parcelamento
-
-O Checkout Cielo permite que o lojista realize transações de crédito parceladas em até 12 vezes.
-Existem dois métodos de parcelamento:
-
-- **Parcelamento via backoffice** - é o método padrão de parcelamento do Checkout. Cada bandeira possui uma configuração de parcelamento até 12X. O Valor do Carrinho (Produtos + Frete) é dividido igualmente pelo número de parcelas.
-- **Parcelamento via API** - O Lojista limita o número de parcelas a serem apresentadas no backoffice
-
-**OBS:** O Checkout é limitado a parcelamentos de 12X, mesmo que sua afiliação Cielo suporte valores superiores. Caso o valor apresentando em seu backoffice seja menor que 12, entre em contato com o Suporte Cielo e verifique a configuração de sua Afiliação.
-
-## Parcelamento via backoffice
-
-Neste modo, o lojista controla o limite máximo de parcelas que a loja realizará pelo Backoffice Checkout. O Valor das parcelas é definido acessando a aba **Configurações** e alterando a sessão **Pagamentos**
-
-![Seleção de Parcelas]({{ site.baseurl_root }}/images/checkout/parcelamento.png)
-
-**OBS:** O Check Box deve estar marcado para que o meio de pagamento seja exibido na tela transacional.
-
-**Características**
-
-- Disponível nas integrações do Checkout Cielo via API ou Botão;
-- O valor total dos itens do carrinho é somado e dividido pela quantidade de parcelas do lojista;
-- O valor da compra é sempre o mesmo, independentemente da quantidade de parcelas escolhida pelo comprador (Não há cobrança de Juros);
-- O valor do frete é somado ao valor do parcelamento;
-- A opção “à vista” sempre está disponível ao comprador.
-- Todas as transações possuirão as mesmas opções de parcelamento.
-
-## Parcelamento via API
-
-Nesta opção, o lojista pode configurar a quantidade de parcelas por venda, especificado via request da API no momento de envio da transação.
-O Checkout realiza o cálculo das parcelas considerando valor total e limite parcelas enviadas via API.
-
-**ATENÇÃO:** Nesta opção de parcelamento, o número de parcelas desejadas deve ser inferior a quantidade que está cadastrada no backoffice Checkout.
-
-**Características**
-
-- O lojista envia a quantidade máxima de parcelas que deseja exibir ao comprador.
-- O valor do frete é somado ao valor do parcelamento.
-
-O Parcelamento via API é realizado enviando o campo `MaxNumberOfInstallments` dentro do nó Payment. Isso forçará o Checkout a recalcular o valor do parcelamento.
-Abaixo, um exemplo do Nó
-
-```json
-"Payment": {
-  "MaxNumberOfInstallments": 3
-}
-```
-
-| Campo                     | Tipo    | Obrigatório | Tamanho | Descrição                                                                                          |
-| ------------------------- | ------- | ----------- | ------- | -------------------------------------------------------------------------------------------------- |
-| `MaxNumberOfInstallments` | Numeric | Condicional | 2       | Define valor máximo de parcelas apresentadas no transacional, ignorando configuração do Backoffice |
-
-# Recorrência do Checkout Cielo
-
-A Recorrência é um processo de agendamento automático de transações de crédito, ou seja, é uma transação que se repetirá automaticamente, sem a necessidade do comprador acessar a tela transacional, de acordo com as regras definidas no momento do agendamento.
-
-<aside class="notice">Caso uma das transações não seja autorizada, o Checkout Cielo executa a retentativa automaticamente; para mais detalhes sobre a retentativa automática, veja a seção <a href="#retentativa-de-recorrências">Retentativa</a>.</aside>
-
-Transações recorrentes são ideais para modelos de negócios que envolvam o **conceito de assinatura, plano ou mensalidade** na sua forma de **cobrança**.
-Alguns exemplos de negócios são:
-
-- Escolas
-- Academias
-- Editoras
-- Serviços de hospedagem
-
-**Diferença entre transações recorrentes e parceladas:**
-
-| Tipo            | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Parceladas**  | Se trata de **uma transação dividida em vários meses**. <br>O valor total da venda compromete o limite do cartão de crédito do comprador independentemente do valor da parcela inicial.<br> O lojista recebe o valor da venda parceladamente e não corre o risco de uma das parcelas ser negada.<br> **EX**: Venda de R$1.000,00 parcelado em 2 vezes. Apesar de o comprador pagar apenas R$500,00 na primeira parcela, o valor do limite de crédito consumido é o integral, ou seja, R$1.000,00. Se o limite do cartão for inferior ou o montante não estiver liberado, a R$1.000,00 a transação será negada                                                |
-| **Recorrentes** | São **transações diferentes realizadas no mesmo cartão em momentos previamente agendados**.<br> A primeira venda agenda as futuras vendas a partir de um intervalo de tempo pré definido.<br> A cada intervalo haverá uma cobrança no cartão de crédito. <br> O pagamento recorrente bloqueia do limite do cartão apenas o valor debitado na data da primeira venda recorrente e do valor total da venda.<br> **EX**: Venda de R$ 1.000,00 em 15/01/2015, com recorrência mensal e data final em 01/06/2015. Todo dia 15 haverá uma nova cobrança de R$1.000,00 no cartão do comprador, se repetindo até 15/05/2015, última data válida antes da data final. |
-
-## Recorrência por API
-
-Uma transação de recorrência no Checkout Cielo possui duas configurações: `Intervalo` e `Data de encerramento`.
-
-- **Intervalo** – padrão de repetição e intervalo de tempo entre cada transação. Esse intervalo temporal entre as transações podem ser: Mensal, Bimestral, Trimestral, Semestral e Anual.
-- **Data de encerramento** – Data que o processo de recorrência deixa de ocorrer.
-
-```json
-"Payment": {
-        "RecurrentPayment": {
-            "Interval": "Monthly",
-            "EndDate": "2018-12-31"
-        }
-```
-
-**Payment.RecurrentPayment**
-
-| Campo                               | Tipo         | Obrigatório | Tamanho | Descrição                                                                                          |
-| ----------------------------------- | ------------ | ----------- | ------- | -------------------------------------------------------------------------------------------------- |
-| `Payment.RecurrentPayment.Interval` | Alphanumeric | Sim         | 10      | Intervalo entre cada transação da recorrência                                                      |
-| `Payment.RecurrentPayment.EndDate`  | YYYY-MM-DD   | Não         | 255     | Data onde a Recorrência se encerrará; Se não enviado a recorrência se encerra somente se cancelada |
-
-| Intervalo    | Descrição  |
-| ------------ | ---------- |
-| `Monthly`    | Mensal     |
-| `Bimonthly`  | Bimestral  |
-| `Quarterly`  | Trimestral |
-| `SemiAnnual` | Semestral  |
-| `Annual`     | Anual      |
-
-Os dados do cartão de crédito do comprador ficam armazenados de forma segura dentro do Checkout Cielo, permitindo sua reutilização em uma transação recorrente. Esses dados não são acessados pelo lojista e essa inteligência é controlada pelo Checkout Cielo.
-
-Exceto o objeto `Payment` que contém um novo elemento específico para a recorrência chamado `RecurrentPayment`, todos os outros objetos são iguais à integração com o Carrinho.
-
-### Request
-
-```json
-{
-  "OrderNumber": "12344",
-  "SoftDescriptor": "Nome que aparecerá na fatura",
-  "Cart": {
-    "Discount": {
-      "Type": "Percent",
-      "Value": 10
-    },
-    "Items": [
-      {
-        "Name": "Nome do produto",
-        "Description": "Descrição do produto",
-        "UnitPrice": 100,
-        "Quantity": 2,
-        "Type": "Asset",
-        "Sku": "Sku do item no carrinho",
-        "Weight": 200
-      }
-    ]
-  },
-  "Shipping": {
-    "Type": "Correios",
-    "SourceZipCode": "14400000",
-    "TargetZipCode": "11000000",
-    "Address": {
-      "Street": "Endereço de entrega",
-      "Number": "123",
-      "Complement": "",
-      "District": "Bairro da entrega",
-      "City": "Cidade de entrega",
-      "State": "SP"
-    },
-    "Services": [
-      {
-        "Name": "Serviço de frete",
-        "Price": 123,
-        "Deadline": 15
-      }
-    ]
-  },
-  "Payment": {
-    "BoletoDiscount": 0,
-    "DebitDiscount": 0,
-    "RecurrentPayment": {
-      "Interval": "Monthly",
-      "EndDate": "2015-12-31"
-    }
-  },
-  "Customer": {
-    "Identity": 11111111111,
-    "FullName": "Fulano Comprador da Silva",
-    "Email": "fulano@email.com",
-    "Phone": "11999999999"
-  }
-}
-```
-
-**Exemplo**: Bem Físico
-
-Se o tipo de produto for `Bem Físico`, a **API obriga o envio do tipo de frete**.
-Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo `WithoutShipping`, caso contrário, a seguinte resposta será apresentada:
-
-```json
-{
-  "message": "The request is invalid.",
-  "modelState": {
-    "[Shipping.Type]": [
-      "[Shipping.Type] pedidos com recorrência devem possuir o Shipping.Type 'WithoutShipping'."
-    ]
-  }
-}
-```
-
-**IMPORTANTE:** A Recorrência é criada apenas se a transação for **AUTORIZADA**. Independente de captura ou não, uma vez autorizada, o processo de recorrência se inicia.
-
-## Recorrência por Botão
-
-Uma maneira de realizar a recorrência dentro do Checkout é criar um botão recorrente.
-
-Basta cadastrar o produto, incluindo um intervalo de cobrança e uma data para encerramento (Opcional), como no exemplo abaixo:
-
-![Botão recorrência]({{ site.baseurl_root }}/images/checkout-botao-recorrencia.png)
-
-**ATENÇÃO:** Caso um botão seja utilizado após a “Data final” cadastrada, a transação apresentará um erro exibindo **Oppss** na tela transacional. A Data pode ser editada na tela de edição do botão dentro de “Detalhes do Produto”
-
-## Retentativa de Recorrências
-
-Caso uma das transações da recorrência não seja autorizada, o Checkout Cielo executa a retentativa automaticamente, o envio de uma nova transação, considerando:
-
-- **Intervalo de tempo entre as tentativas:** 4 dias
-- **Quantidade de retentativas:** 4 (quatro), uma por dia, por 4 dias corridos a partir do dia seguinte da transação original não autorizada.
-
-**OBS**: Esse processo visa manter obter uma resposta positiva do processo de autorização, impedindo o lojista de perder a venda. O Processo de retentativa gera pedidos duplicados dentro do Backoffice, pois o pedido original, negado, será apresentado na lista de Pedidos, junto com a nova transação autorizada
-
-**ATENÇÃO:** A regra da retentativa não pode ser modificada pelo lojista.
-
-## Consultando transações
-
-As transações de Recorrência ficam disponíveis no Backoffice Checkout Cielo como as outras vendas de sua loja na aba “PEDIDOS” (veja imagem abaixo).
-
-A primeira transação da recorrência é uma transação normal, seguindo as regras e preferências definidas pelo lojista no Backoffice.
-
-**ATENÇÃO:** O valor e data de cobrança das transações recorrentes serão sempre os mesmos da transação inicial. O agendamento passa a funcionar automaticamente a partir da data em que a primeira transação for autorizada.
-
-![Consultando transações]({{ site.baseurl_root }}/images/checkout-consulta-recorrencia.png)
-
-Esta tela mostra a data que a 1° transação da recorrência foi autorizada e deverá ser capturada manualmente. **As demais transações da recorrência sempre serão capturadas automaticamente**, independente se primeira transação foi capturada ou cancelada. Se o Cliente tiver configurado Captura automática, a captura da recorrência também será automática.
-
-**ATENÇÃO:** Somente a 1° transação é submetida a análise do antifraude
-
-## Cancelamento de Recorrência no Checkout Cielo
-
-O cancelamento da recorrência ocorre dentro do Backoffice do Checkout Cielo, também na aba “PEDIDOS”. Basta:
-
-1. Acessar uma transação de recorrência (marcada com o símbolo “Recorrente”)
-2. Entrar em Detalhes (o símbolo de “+”)
-
-![Pedido de recorrência]({{ site.baseurl_root }}/images/checkout-cancelar-recorrencia.png)
-
-![Cancelamento de recorrência]({{ site.baseurl_root }}/images/checkout/pedidoreccance.png)
-
-Tela de detalhes da Recorrência
-
-Na tela acima, há duas opções de Cancelamento pelos botões:
-
-- **Cancelar** – Cancela a transação, sem efetuar o cancelamento das futuras transações de recorrência.
-- **Cancelar Recorrência** - Cancela o agendamento de futuras transações, encerrando a recorrência. Não cancela a transação atual nem as que já ocorreram. Essas necessitam ser canceladas manualmente.
-
-**ATENÇÃO:**
-
-- A Recorrência ocorre somente para Cartões de crédito e para produtos tipo “SERVIÇO” e “BENS DIGITAIS”.
-- A Recorrência é iniciada no momento da AUTORIZAÇAO, NÃO NA CAPTURA. Se a recorrência não tiver uma data para ser finalizada, ela se repetirá automaticamente até ser cancelada manualmente.
-- Sua afiliação Cielo deve ser habilitada para transacionar sem CVV ou Em recorrência, do contrário, todas as transações recorrentes serão negadas.
-
-## Edição da Recorrência
-
-O Checkout Cielo permite que o lojista modifique 3 dados da recorrência:
-
-- **Ativação** - Uma recorrência pode ser ativada ou cancelada.
-- **Intervalo** - É possivel modificar o intervalo de execução.
-- **Dia de ocorrência** - É possivel modificar o dia de execução da transação recorrente.
-
-A atualização é feita exclusivamente via o Backoffice Cielo. Acesso o [**Tutorial do Backoffice Checkout Cielo**]({{ site.baseurl_root }}{% post_url 2000-01-01-checkout-tutoriais%}) para mais informações.
 
 # Programa de Retentativa das Bandeiras
 
