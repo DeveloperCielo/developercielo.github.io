@@ -277,6 +277,183 @@ Confira mais detalhes sobre o funcionamento da API no fluxo a seguir:</p>
   <p><strong>Importante</strong>: O Checkout Cielo não notifica os compradores a respeito do status da compra. O Checkout Cielo notifica apenas a loja quando há alguma alteração no status do pagamento, permitindo assim que a loja decida quando e como informar aos seus compradores sobre o prazo de entrega e processo de envio. Para receber notificações, é necessário configurar ao menos um tipo de URL de notificação nas <strong>Configurações da Loja.</strong></p>
 </blockquote>
 
+<h2 id="endpoints">Endpoints</h2>
+
+<p>Os endpoints para integração com o Checkout Cielo são apresentados na tabela a seguir:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>API</th>
+      <th>URL</th>
+      <th>DESCRIÇÃO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>API Checkout Cielo</strong></td>
+      <td>https://cieloecommerce.cielo.com.br/api/public/v1/orders/</td>
+      <td>Criação da página de pagamento.</td>
+    </tr>
+    <tr>
+      <td><strong>Cielo OAUTH2 Server</strong></td>
+      <td>https://cieloecommerce.cielo.com.br/api/public/v2/token</td>
+      <td>Autenticação para consulta, captura e cancelamento de transações.</td>
+    </tr>
+    <tr>
+      <td><strong>API de Controle Transacional</strong></td>
+      <td>https://cieloecommerce.cielo.com.br/api/public/v2/</td>
+      <td>Consulta de transações.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><strong>Importante</strong>: A API do Checkout não possui sandbox, mas você pode criar páginas de pagamento de teste ativando o Modo Teste no site Cielo.</p>
+</blockquote>
+
+<h2 id="autenticação-cielo-oauth">Autenticação Cielo OAUTH</h2>
+
+<p>O Cielo OAUTH é um processo de autenticação das APIs Cielo relacionadas ao e-commerce. O Cielo OAUTH utiliza como segurança o protocolo <strong><a href="https://oauth.net/2/" target="_blank">OAUTH2</a> </strong>, no qual é necessário primeiro obter um token de acesso utlizando suas credenciais e, posteriormente, enviá-lo à API de Controle Transacional.</p>
+
+<blockquote>
+  <p>A autenticação só é necessária para as operações de consulta, captura e cancelamento.</p>
+</blockquote>
+
+<p>Para utilizar o Cielo OAUTH são necessárias as seguintes credenciais:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>DESCRIÇÃO</th>
+      <th>TIPO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ClientId</code></td>
+      <td>Identificador chave fornecido pela CIELO</td>
+      <td>GUID</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ClientSecret</code></td>
+      <td>Chave que valida o ClientID. Fornecida pela Cielo junto ao <code class="language-plaintext highlighter-rouge">ClientID</code></td>
+      <td>string</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>Para gerar o <code class="language-plaintext highlighter-rouge">ClientID</code> e o <code class="language-plaintext highlighter-rouge">ClientSecret</code>, consulte o tópico de Obtendo as Credenciais, a seguir.</p>
+</blockquote>
+
+<h2 id="obtendo-as-credenciais">Obtendo as credenciais</h2>
+
+<p>Para obter as credenciais <code class="language-plaintext highlighter-rouge">ClientId</code> e <code class="language-plaintext highlighter-rouge">ClientSecret</code>, siga os passos a seguir:</p>
+
+<ol>
+  <li>Após receber o nº de estabelecimento (EC) com a habilitação para o Checkout, acesse o <a href="https://minhaconta2.cielo.com.br/login/" target="_blank">site Cielo</a> e faça o login;</li>
+  <li>Vá para a aba <strong>Ecommerce</strong> &gt; <strong>Super Link</strong> &gt; <strong>Configurações</strong> &gt; <strong>Dados Cadastrais</strong>;</li>
+  <li>Na seção <strong>Contato técnico</strong>, preencha com os dados de contato da pessoa responsável por receber as chaves da sua loja. <em>ATENÇÃO: apenas coloque os dados da pessoa que realmente pode ter acesso às chaves da sua loja, que são informações sigilosas de cada estabelecimento</em>;</li>
+  <li>Clique em <strong>Gerar Credenciais de Acesso às APIs</strong>;</li>
+  <li>O contato técnico receberá um e-mail com as credenciais.</li>
+</ol>
+
+<h2 id="obtendo-o-token-de-acesso">Obtendo o token de acesso</h2>
+
+<p>Para obter acesso a serviços Cielo que utilizam o <strong>Cielo Oauth</strong>, será necessário obter um token de acesso, conforme os passos abaixo:</p>
+
+<ol>
+  <li>Concatene o <code class="language-plaintext highlighter-rouge">ClientId</code> e o <code class="language-plaintext highlighter-rouge">ClientSecret</code>, <code class="language-plaintext highlighter-rouge">**ClientId:ClientSecret**</code>;</li>
+  <li>Codifique o resultado em <strong>Base64</strong>;</li>
+  <li>Envie a requisição de criação do token, utilizando o método HTTP POST.</li>
+</ol>
+
+<p><strong>Exemplo da Concatenação</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Formato</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ClientId</strong></td>
+      <td>b521b6b2-b9b4-4a30-881d-3b63dece0006</td>
+    </tr>
+    <tr>
+      <td><strong>ClientSecret</strong></td>
+      <td>08Qkje79NwWRx5BdgNJsIkBuITt5cIVO</td>
+    </tr>
+    <tr>
+      <td><strong>ClientId:ClientSecret</strong></td>
+      <td><em>b521b6b2-b9b4-4a30-881d-3b63dece0006:08Qkje79NwWRx5BdgNJsIkBuITt5cIVO</em></td>
+    </tr>
+    <tr>
+      <td><strong>Base64</strong></td>
+      <td><em>YjUyMWI2YjItYjliNC00YTMwLTg4MWQtM2I2M2RlY2UwMDA2OiAwOFFramU3OU53V1J4NUJkZ05Kc0lrQnVJVHQ1Y0lWTw</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="requisição">Requisição</h3>
+
+<p>A requisição dever ser enviada apenas no header.</p>
+
+<aside class="request"><span class="method post">POST</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/token</span></aside>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">x-www-form-urlencoded</span><span class="w">
+</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Basic {base64}"</span><span class="w">  
+</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Content-Type: application/x-www-form-urlencoded"</span><span class="w">  
+</span><span class="err">grant_type=client_credentials</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="resposta">Resposta</h3>
+
+<p>A resposta retornará o <code class="language-plaintext highlighter-rouge">access_token</code>, que deverá ser usado nas requisições da API de Controle Transacional, para as operações de consulta, captura e cancelamento.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w">
+    </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6Ik1ldUNoZWNrb3V0IE1hc3RlciBLZXkiLCJjbGllbnRfaWQiOiJjODlmZGasdasdasdmUyLTRlNzctODA2YS02ZDc1Y2QzOTdkYWMiLCJzY29wZXMiOiJ7XCJTY29wZVwiOlwiQ2hlY2tvdXRBcGlcIixcIkNsYWltc1wiOltdfSIsInJvbGUiOiJasdasdasd291dEFwaSIsImlzc47I6Imh0dHBzOi8vYXV0aGhvbasdasdnJhc3BhZy5jb20uYnIiLCJhdWQiOiJVVlF4Y1VBMmNTSjFma1EzSVVFbk9pSTNkbTl0ZmasdsadQjVKVVV1UVdnPSIsImV4cCI6MTQ5Nzk5NjY3NywibmJmIjoxNDk3OTEwMjc3fQ.ozj4xnH9PA3dji-ARPSbI7Nakn9dw5I8w6myBRkF-uA"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">1199</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <th>DESCRIÇÃO</th>
+      <th>TIPO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Access_token</code></td>
+      <td>Utilizado para acesso aos serviços da API</td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Token_type</code></td>
+      <td>Sempre será do tipo <code class="language-plaintext highlighter-rouge">bearer</code></td>
+      <td>texto</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Expires_in</code></td>
+      <td>Validade do token em segundos. Aproximadamente 20 minutos</td>
+      <td>int</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>O token retornado (<code class="language-plaintext highlighter-rouge">access_token</code>) deverá ser utilizado em toda requisição de consulta, captura e cancelamento como uma chave de autorização. O <code class="language-plaintext highlighter-rouge">access_token</code> possui uma validade de 20 minutos (1200 segundos) e é necessário gerar um novo token toda vez que a validade expirar.</p>
+</blockquote>
+
 <h1 id="início-rápido">Início Rápido</h1>
 
 <p>Para iniciar a sua integração com a API do Checkout Cielo, você vai precisar:</p>
@@ -850,183 +1027,6 @@ O boleto gerado no modo de teste sempre será um boleto simulado.</p>
 <p><img src="https://developercielo.github.io/images/checkout-cielo-modo-teste-transacoes-de-teste-cancelamento.png" alt="Transações de teste" /></p>
 
 <aside class="notice">É muito importante que, ao liberar sua loja para a realização de vendas para seus clientes, **a loja não esteja em modo de teste**. Transações realizadas nesse ambiente poderão ser finalizadas normalmente, mas **não serão descontadas do cartão do cliente** e não poderão ser “transferidas” para o ambiente de venda padrão.</aside>
-
-<h1 id="endpoints">Endpoints</h1>
-
-<p>Os endpoints para integração com o Checkout Cielo são apresentados na tabela a seguir:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>API</th>
-      <th>URL</th>
-      <th>DESCRIÇÃO</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>API Checkout Cielo</strong></td>
-      <td>https://cieloecommerce.cielo.com.br/api/public/v1/orders/</td>
-      <td>Criação da página de pagamento.</td>
-    </tr>
-    <tr>
-      <td><strong>Cielo OAUTH2 Server</strong></td>
-      <td>https://cieloecommerce.cielo.com.br/api/public/v2/token</td>
-      <td>Autenticação para consulta, captura e cancelamento de transações.</td>
-    </tr>
-    <tr>
-      <td><strong>API de Controle Transacional</strong></td>
-      <td>https://cieloecommerce.cielo.com.br/api/public/v2/</td>
-      <td>Consulta de transações.</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p><strong>Importante</strong>: A API do Checkout não possui sandbox, mas você pode criar páginas de pagamento de teste ativando o Modo Teste no site Cielo.</p>
-</blockquote>
-
-<h1 id="autenticação-cielo-oauth">Autenticação Cielo OAUTH</h1>
-
-<p>O Cielo OAUTH é um processo de autenticação das APIs Cielo relacionadas ao e-commerce. O Cielo OAUTH utiliza como segurança o protocolo <strong><a href="https://oauth.net/2/" target="_blank">OAUTH2</a> </strong>, no qual é necessário primeiro obter um token de acesso utlizando suas credenciais e, posteriormente, enviá-lo à API de Controle Transacional.</p>
-
-<blockquote>
-  <p>A autenticação só é necessária para as operações de consulta, captura e cancelamento.</p>
-</blockquote>
-
-<p>Para utilizar o Cielo OAUTH são necessárias as seguintes credenciais:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>PROPRIEDADE</th>
-      <th>DESCRIÇÃO</th>
-      <th>TIPO</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ClientId</code></td>
-      <td>Identificador chave fornecido pela CIELO</td>
-      <td>GUID</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ClientSecret</code></td>
-      <td>Chave que valida o ClientID. Fornecida pela Cielo junto ao <code class="language-plaintext highlighter-rouge">ClientID</code></td>
-      <td>string</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>Para gerar o <code class="language-plaintext highlighter-rouge">ClientID</code> e o <code class="language-plaintext highlighter-rouge">ClientSecret</code>, consulte o tópico de Obtendo as Credenciais, a seguir.</p>
-</blockquote>
-
-<h2 id="obtendo-as-credenciais">Obtendo as credenciais</h2>
-
-<p>Para obter as credenciais <code class="language-plaintext highlighter-rouge">ClientId</code> e <code class="language-plaintext highlighter-rouge">ClientSecret</code>, siga os passos a seguir:</p>
-
-<ol>
-  <li>Após receber o nº de estabelecimento (EC) com a habilitação para o Checkout, acesse o <a href="https://minhaconta2.cielo.com.br/login/" target="_blank">site Cielo</a> e faça o login;</li>
-  <li>Vá para a aba <strong>Ecommerce</strong> &gt; <strong>Super Link</strong> &gt; <strong>Configurações</strong> &gt; <strong>Dados Cadastrais</strong>;</li>
-  <li>Na seção <strong>Contato técnico</strong>, preencha com os dados de contato da pessoa responsável por receber as chaves da sua loja. <em>ATENÇÃO: apenas coloque os dados da pessoa que realmente pode ter acesso às chaves da sua loja, que são informações sigilosas de cada estabelecimento</em>;</li>
-  <li>Clique em <strong>Gerar Credenciais de Acesso às APIs</strong>;</li>
-  <li>O contato técnico receberá um e-mail com as credenciais.</li>
-</ol>
-
-<h2 id="obtendo-o-token-de-acesso">Obtendo o token de acesso</h2>
-
-<p>Para obter acesso a serviços Cielo que utilizam o <strong>Cielo Oauth</strong>, será necessário obter um token de acesso, conforme os passos abaixo:</p>
-
-<ol>
-  <li>Concatene o <code class="language-plaintext highlighter-rouge">ClientId</code> e o <code class="language-plaintext highlighter-rouge">ClientSecret</code>, <code class="language-plaintext highlighter-rouge">**ClientId:ClientSecret**</code>;</li>
-  <li>Codifique o resultado em <strong>Base64</strong>;</li>
-  <li>Envie a requisição de criação do token, utilizando o método HTTP POST.</li>
-</ol>
-
-<p><strong>Exemplo da Concatenação</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Formato</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>ClientId</strong></td>
-      <td>b521b6b2-b9b4-4a30-881d-3b63dece0006</td>
-    </tr>
-    <tr>
-      <td><strong>ClientSecret</strong></td>
-      <td>08Qkje79NwWRx5BdgNJsIkBuITt5cIVO</td>
-    </tr>
-    <tr>
-      <td><strong>ClientId:ClientSecret</strong></td>
-      <td><em>b521b6b2-b9b4-4a30-881d-3b63dece0006:08Qkje79NwWRx5BdgNJsIkBuITt5cIVO</em></td>
-    </tr>
-    <tr>
-      <td><strong>Base64</strong></td>
-      <td><em>YjUyMWI2YjItYjliNC00YTMwLTg4MWQtM2I2M2RlY2UwMDA2OiAwOFFramU3OU53V1J4NUJkZ05Kc0lrQnVJVHQ1Y0lWTw</em></td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="requisição">Requisição</h3>
-
-<p>A requisição dever ser enviada apenas no header.</p>
-
-<aside class="request"><span class="method post">POST</span><span class="endpoint">https://cieloecommerce.cielo.com.br/api/public/v2/token</span></aside>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">x-www-form-urlencoded</span><span class="w">
-</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Authorization: Basic {base64}"</span><span class="w">  
-</span><span class="err">--header</span><span class="w"> </span><span class="s2">"Content-Type: application/x-www-form-urlencoded"</span><span class="w">  
-</span><span class="err">grant_type=client_credentials</span><span class="w">
-</span></code></pre></div></div>
-
-<h3 id="resposta">Resposta</h3>
-
-<p>A resposta retornará o <code class="language-plaintext highlighter-rouge">access_token</code>, que deverá ser usado nas requisições da API de Controle Transacional, para as operações de consulta, captura e cancelamento.</p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w">
-    </span><span class="s2">"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjbGllbnRfbmFtZSI6Ik1ldUNoZWNrb3V0IE1hc3RlciBLZXkiLCJjbGllbnRfaWQiOiJjODlmZGasdasdasdmUyLTRlNzctODA2YS02ZDc1Y2QzOTdkYWMiLCJzY29wZXMiOiJ7XCJTY29wZVwiOlwiQ2hlY2tvdXRBcGlcIixcIkNsYWltc1wiOltdfSIsInJvbGUiOiJasdasdasd291dEFwaSIsImlzc47I6Imh0dHBzOi8vYXV0aGhvbasdasdnJhc3BhZy5jb20uYnIiLCJhdWQiOiJVVlF4Y1VBMmNTSjFma1EzSVVFbk9pSTNkbTl0ZmasdsadQjVKVVV1UVdnPSIsImV4cCI6MTQ5Nzk5NjY3NywibmJmIjoxNDk3OTEwMjc3fQ.ozj4xnH9PA3dji-ARPSbI7Nakn9dw5I8w6myBRkF-uA"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bearer"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">1199</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>PROPRIEDADE</th>
-      <th>DESCRIÇÃO</th>
-      <th>TIPO</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Access_token</code></td>
-      <td>Utilizado para acesso aos serviços da API</td>
-      <td>string</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Token_type</code></td>
-      <td>Sempre será do tipo <code class="language-plaintext highlighter-rouge">bearer</code></td>
-      <td>texto</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Expires_in</code></td>
-      <td>Validade do token em segundos. Aproximadamente 20 minutos</td>
-      <td>int</td>
-    </tr>
-  </tbody>
-</table>
-
-<blockquote>
-  <p>O token retornado (<code class="language-plaintext highlighter-rouge">access_token</code>) deverá ser utilizado em toda requisição de consulta, captura e cancelamento como uma chave de autorização. O <code class="language-plaintext highlighter-rouge">access_token</code> possui uma validade de 20 minutos (1200 segundos) e é necessário gerar um novo token toda vez que a validade expirar.</p>
-</blockquote>
 
 <h1 id="criando-o-carrinho">Criando o carrinho</h1>
 
@@ -1898,6 +1898,355 @@ Há dois tipos de erro que poderão ocorrer durante o processo de integração c
 
 <p>Caso algum erro ocorra após a finalização da transação, entre em contato com o Suporte Cielo.</p>
 
+<h1 id="parcelamentos-do-checkout-cielo">Parcelamentos do Checkout Cielo</h1>
+
+<h2 id="tipo-de-parcelamento">Tipo de Parcelamento</h2>
+
+<p>O Checkout Cielo permite que o lojista realize transações de crédito parceladas em até 12 vezes.
+Existem dois métodos de parcelamento:</p>
+
+<ul>
+  <li><strong>Parcelamento via backoffice</strong> - é o método padrão de parcelamento do Checkout. Cada bandeira possui uma configuração de parcelamento até 12X. O Valor do Carrinho (Produtos + Frete) é dividido igualmente pelo número de parcelas.</li>
+  <li><strong>Parcelamento via API</strong> - O Lojista limita o número de parcelas a serem apresentadas no backoffice</li>
+</ul>
+
+<p><strong>OBS:</strong> O Checkout é limitado a parcelamentos de 12X, mesmo que sua afiliação Cielo suporte valores superiores. Caso o valor apresentando em seu backoffice seja menor que 12, entre em contato com o Suporte Cielo e verifique a configuração de sua Afiliação.</p>
+
+<h2 id="parcelamento-via-backoffice">Parcelamento via backoffice</h2>
+
+<p>Neste modo, o lojista controla o limite máximo de parcelas que a loja realizará pelo Backoffice Checkout. O Valor das parcelas é definido acessando a aba <strong>Configurações</strong> e alterando a sessão <strong>Pagamentos</strong></p>
+
+<p><img src="https://developercielo.github.io/images/checkout/parcelamento.png" alt="Seleção de Parcelas" /></p>
+
+<p><strong>OBS:</strong> O Check Box deve estar marcado para que o meio de pagamento seja exibido na tela transacional.</p>
+
+<p><strong>Características</strong></p>
+
+<ul>
+  <li>Disponível nas integrações do Checkout Cielo via API ou Botão;</li>
+  <li>O valor total dos itens do carrinho é somado e dividido pela quantidade de parcelas do lojista;</li>
+  <li>O valor da compra é sempre o mesmo, independentemente da quantidade de parcelas escolhida pelo comprador (Não há cobrança de Juros);</li>
+  <li>O valor do frete é somado ao valor do parcelamento;</li>
+  <li>A opção “à vista” sempre está disponível ao comprador.</li>
+  <li>Todas as transações possuirão as mesmas opções de parcelamento.</li>
+</ul>
+
+<h2 id="parcelamento-via-api">Parcelamento via API</h2>
+
+<p>Nesta opção, o lojista pode configurar a quantidade de parcelas por venda, especificado via request da API no momento de envio da transação.
+O Checkout realiza o cálculo das parcelas considerando valor total e limite parcelas enviadas via API.</p>
+
+<p><strong>ATENÇÃO:</strong> Nesta opção de parcelamento, o número de parcelas desejadas deve ser inferior a quantidade que está cadastrada no backoffice Checkout.</p>
+
+<p><strong>Características</strong></p>
+
+<ul>
+  <li>O lojista envia a quantidade máxima de parcelas que deseja exibir ao comprador.</li>
+  <li>O valor do frete é somado ao valor do parcelamento.</li>
+</ul>
+
+<p>O Parcelamento via API é realizado enviando o campo <code class="language-plaintext highlighter-rouge">MaxNumberOfInstallments</code> dentro do nó Payment. Isso forçará o Checkout a recalcular o valor do parcelamento.
+Abaixo, um exemplo do Nó</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"MaxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Obrigatório</th>
+      <th>Tamanho</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MaxNumberOfInstallments</code></td>
+      <td>Numeric</td>
+      <td>Condicional</td>
+      <td>2</td>
+      <td>Define valor máximo de parcelas apresentadas no transacional, ignorando configuração do Backoffice</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="recorrência-do-checkout-cielo">Recorrência do Checkout Cielo</h1>
+
+<p>A Recorrência é um processo de agendamento automático de transações de crédito, ou seja, é uma transação que se repetirá automaticamente, sem a necessidade do comprador acessar a tela transacional, de acordo com as regras definidas no momento do agendamento.</p>
+
+<aside class="notice">Caso uma das transações não seja autorizada, o Checkout Cielo executa a retentativa automaticamente; para mais detalhes sobre a retentativa automática, veja a seção Retentativa.</aside>
+
+<p>Transações recorrentes são ideais para modelos de negócios que envolvam o <strong>conceito de assinatura, plano ou mensalidade</strong> na sua forma de <strong>cobrança</strong>.
+Alguns exemplos de negócios são:</p>
+
+<ul>
+  <li>Escolas</li>
+  <li>Academias</li>
+  <li>Editoras</li>
+  <li>Serviços de hospedagem</li>
+</ul>
+
+<p><strong>Diferença entre transações recorrentes e parceladas:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Parceladas</strong></td>
+      <td>Se trata de <strong>uma transação dividida em vários meses</strong>. <br />O valor total da venda compromete o limite do cartão de crédito do comprador independentemente do valor da parcela inicial.<br /> O lojista recebe o valor da venda parceladamente e não corre o risco de uma das parcelas ser negada.<br /> <strong>EX</strong>: Venda de R$1.000,00 parcelado em 2 vezes. Apesar de o comprador pagar apenas R$500,00 na primeira parcela, o valor do limite de crédito consumido é o integral, ou seja, R$1.000,00. Se o limite do cartão for inferior ou o montante não estiver liberado, a R$1.000,00 a transação será negada</td>
+    </tr>
+    <tr>
+      <td><strong>Recorrentes</strong></td>
+      <td>São <strong>transações diferentes realizadas no mesmo cartão em momentos previamente agendados</strong>.<br /> A primeira venda agenda as futuras vendas a partir de um intervalo de tempo pré definido.<br /> A cada intervalo haverá uma cobrança no cartão de crédito. <br /> O pagamento recorrente bloqueia do limite do cartão apenas o valor debitado na data da primeira venda recorrente e do valor total da venda.<br /> <strong>EX</strong>: Venda de R$ 1.000,00 em 15/01/2015, com recorrência mensal e data final em 01/06/2015. Todo dia 15 haverá uma nova cobrança de R$1.000,00 no cartão do comprador, se repetindo até 15/05/2015, última data válida antes da data final.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="recorrência-por-api">Recorrência por API</h2>
+
+<p>Uma transação de recorrência no Checkout Cielo possui duas configurações: <code class="language-plaintext highlighter-rouge">Intervalo</code> e <code class="language-plaintext highlighter-rouge">Data de encerramento</code>.</p>
+
+<ul>
+  <li><strong>Intervalo</strong> – padrão de repetição e intervalo de tempo entre cada transação. Esse intervalo temporal entre as transações podem ser: Mensal, Bimestral, Trimestral, Semestral e Anual.</li>
+  <li><strong>Data de encerramento</strong> – Data que o processo de recorrência deixa de ocorrer.</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"RecurrentPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-31"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Payment.RecurrentPayment</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Tipo</th>
+      <th>Obrigatório</th>
+      <th>Tamanho</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code></td>
+      <td>Alphanumeric</td>
+      <td>Sim</td>
+      <td>10</td>
+      <td>Intervalo entre cada transação da recorrência</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.EndDate</code></td>
+      <td>YYYY-MM-DD</td>
+      <td>Não</td>
+      <td>255</td>
+      <td>Data onde a Recorrência se encerrará; Se não enviado a recorrência se encerra somente se cancelada</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Intervalo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Monthly</code></td>
+      <td>Mensal</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Bimonthly</code></td>
+      <td>Bimestral</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Quarterly</code></td>
+      <td>Trimestral</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SemiAnnual</code></td>
+      <td>Semestral</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Annual</code></td>
+      <td>Anual</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Os dados do cartão de crédito do comprador ficam armazenados de forma segura dentro do Checkout Cielo, permitindo sua reutilização em uma transação recorrente. Esses dados não são acessados pelo lojista e essa inteligência é controlada pelo Checkout Cielo.</p>
+
+<p>Exceto o objeto <code class="language-plaintext highlighter-rouge">Payment</code> que contém um novo elemento específico para a recorrência chamado <code class="language-plaintext highlighter-rouge">RecurrentPayment</code>, todos os outros objetos são iguais à integração com o Carrinho.</p>
+
+<h3 id="request">Request</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"OrderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12344"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome que aparecerá na fatura"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"Cart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Discount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Percent"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do produto"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Descrição do produto"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sku do item no carrinho"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Correios"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"SourceZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14400000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"TargetZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Endereço de entrega"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bairro da entrega"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cidade de entrega"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"Services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Serviço de frete"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Price"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Deadline"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"BoletoDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"DebitDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"RecurrentPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-31"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="mi">11111111111</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"FullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fulano Comprador da Silva"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fulano@email.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11999999999"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Exemplo</strong>: Bem Físico</p>
+
+<p>Se o tipo de produto for <code class="language-plaintext highlighter-rouge">Bem Físico</code>, a <strong>API obriga o envio do tipo de frete</strong>.
+Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo <code class="language-plaintext highlighter-rouge">WithoutShipping</code>, caso contrário, a seguinte resposta será apresentada:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The request is invalid."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"modelState"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"[Shipping.Type]"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"[Shipping.Type] pedidos com recorrência devem possuir o Shipping.Type 'WithoutShipping'."</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>IMPORTANTE:</strong> A Recorrência é criada apenas se a transação for <strong>AUTORIZADA</strong>. Independente de captura ou não, uma vez autorizada, o processo de recorrência se inicia.</p>
+
+<h2 id="recorrência-por-botão">Recorrência por Botão</h2>
+
+<p>Uma maneira de realizar a recorrência dentro do Checkout é criar um botão recorrente.</p>
+
+<p>Basta cadastrar o produto, incluindo um intervalo de cobrança e uma data para encerramento (Opcional), como no exemplo abaixo:</p>
+
+<p><img src="https://developercielo.github.io/images/checkout-botao-recorrencia.png" alt="Botão recorrência" /></p>
+
+<p><strong>ATENÇÃO:</strong> Caso um botão seja utilizado após a “Data final” cadastrada, a transação apresentará um erro exibindo <strong>Oppss</strong> na tela transacional. A Data pode ser editada na tela de edição do botão dentro de “Detalhes do Produto”</p>
+
+<h2 id="retentativa-de-recorrências">Retentativa de Recorrências</h2>
+
+<p>Caso uma das transações da recorrência não seja autorizada, o Checkout Cielo executa a retentativa automaticamente, o envio de uma nova transação, considerando:</p>
+
+<ul>
+  <li><strong>Intervalo de tempo entre as tentativas:</strong> 4 dias</li>
+  <li><strong>Quantidade de retentativas:</strong> 4 (quatro), uma por dia, por 4 dias corridos a partir do dia seguinte da transação original não autorizada.</li>
+</ul>
+
+<p><strong>OBS</strong>: Esse processo visa manter obter uma resposta positiva do processo de autorização, impedindo o lojista de perder a venda. O Processo de retentativa gera pedidos duplicados dentro do Backoffice, pois o pedido original, negado, será apresentado na lista de Pedidos, junto com a nova transação autorizada</p>
+
+<p><strong>ATENÇÃO:</strong> A regra da retentativa não pode ser modificada pelo lojista.</p>
+
+<h2 id="consultando-transações">Consultando transações</h2>
+
+<p>As transações de Recorrência ficam disponíveis no Backoffice Checkout Cielo como as outras vendas de sua loja na aba “PEDIDOS” (veja imagem abaixo).</p>
+
+<p>A primeira transação da recorrência é uma transação normal, seguindo as regras e preferências definidas pelo lojista no Backoffice.</p>
+
+<p><strong>ATENÇÃO:</strong> O valor e data de cobrança das transações recorrentes serão sempre os mesmos da transação inicial. O agendamento passa a funcionar automaticamente a partir da data em que a primeira transação for autorizada.</p>
+
+<p><img src="https://developercielo.github.io/images/checkout-consulta-recorrencia.png" alt="Consultando transações" /></p>
+
+<p>Esta tela mostra a data que a 1° transação da recorrência foi autorizada e deverá ser capturada manualmente. <strong>As demais transações da recorrência sempre serão capturadas automaticamente</strong>, independente se primeira transação foi capturada ou cancelada. Se o Cliente tiver configurado Captura automática, a captura da recorrência também será automática.</p>
+
+<p><strong>ATENÇÃO:</strong> Somente a 1° transação é submetida a análise do antifraude</p>
+
+<h2 id="cancelamento-de-recorrência-no-checkout-cielo">Cancelamento de Recorrência no Checkout Cielo</h2>
+
+<p>O cancelamento da recorrência ocorre dentro do Backoffice do Checkout Cielo, também na aba “PEDIDOS”. Basta:</p>
+
+<ol>
+  <li>Acessar uma transação de recorrência (marcada com o símbolo “Recorrente”)</li>
+  <li>Entrar em Detalhes (o símbolo de “+”)</li>
+</ol>
+
+<p><img src="https://developercielo.github.io/images/checkout-cancelar-recorrencia.png" alt="Pedido de recorrência" /></p>
+
+<p><img src="https://developercielo.github.io/images/checkout/pedidoreccance.png" alt="Cancelamento de recorrência" /></p>
+
+<p>Tela de detalhes da Recorrência</p>
+
+<p>Na tela acima, há duas opções de Cancelamento pelos botões:</p>
+
+<ul>
+  <li><strong>Cancelar</strong> – Cancela a transação, sem efetuar o cancelamento das futuras transações de recorrência.</li>
+  <li><strong>Cancelar Recorrência</strong> - Cancela o agendamento de futuras transações, encerrando a recorrência. Não cancela a transação atual nem as que já ocorreram. Essas necessitam ser canceladas manualmente.</li>
+</ul>
+
+<p><strong>ATENÇÃO:</strong></p>
+
+<ul>
+  <li>A Recorrência ocorre somente para Cartões de crédito e para produtos tipo “SERVIÇO” e “BENS DIGITAIS”.</li>
+  <li>A Recorrência é iniciada no momento da AUTORIZAÇAO, NÃO NA CAPTURA. Se a recorrência não tiver uma data para ser finalizada, ela se repetirá automaticamente até ser cancelada manualmente.</li>
+  <li>Sua afiliação Cielo deve ser habilitada para transacionar sem CVV ou Em recorrência, do contrário, todas as transações recorrentes serão negadas.</li>
+</ul>
+
+<h2 id="edição-da-recorrência">Edição da Recorrência</h2>
+
+<p>O Checkout Cielo permite que o lojista modifique 3 dados da recorrência:</p>
+
+<ul>
+  <li><strong>Ativação</strong> - Uma recorrência pode ser ativada ou cancelada.</li>
+  <li><strong>Intervalo</strong> - É possivel modificar o intervalo de execução.</li>
+  <li><strong>Dia de ocorrência</strong> - É possivel modificar o dia de execução da transação recorrente.</li>
+</ul>
+
+<p>A atualização é feita exclusivamente via o Backoffice Cielo. Acesso o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais"><strong>Tutorial do Backoffice Checkout Cielo</strong></a> para mais informações.</p>
+
 <h1 id="notificações-da-transação">Notificações da transação</h1>
 
 <p>O processo de notificação transacional ocorre em duas etapas, que são a notificação de finalização da transação e a notificação de mudança de status.</p>
@@ -2731,355 +3080,6 @@ Há dois tipos de erro que poderão ocorrer durante o processo de integração c
     </tr>
   </tbody>
 </table>
-
-<h1 id="parcelamentos-do-checkout-cielo">Parcelamentos do Checkout Cielo</h1>
-
-<h2 id="tipo-de-parcelamento">Tipo de Parcelamento</h2>
-
-<p>O Checkout Cielo permite que o lojista realize transações de crédito parceladas em até 12 vezes.
-Existem dois métodos de parcelamento:</p>
-
-<ul>
-  <li><strong>Parcelamento via backoffice</strong> - é o método padrão de parcelamento do Checkout. Cada bandeira possui uma configuração de parcelamento até 12X. O Valor do Carrinho (Produtos + Frete) é dividido igualmente pelo número de parcelas.</li>
-  <li><strong>Parcelamento via API</strong> - O Lojista limita o número de parcelas a serem apresentadas no backoffice</li>
-</ul>
-
-<p><strong>OBS:</strong> O Checkout é limitado a parcelamentos de 12X, mesmo que sua afiliação Cielo suporte valores superiores. Caso o valor apresentando em seu backoffice seja menor que 12, entre em contato com o Suporte Cielo e verifique a configuração de sua Afiliação.</p>
-
-<h2 id="parcelamento-via-backoffice">Parcelamento via backoffice</h2>
-
-<p>Neste modo, o lojista controla o limite máximo de parcelas que a loja realizará pelo Backoffice Checkout. O Valor das parcelas é definido acessando a aba <strong>Configurações</strong> e alterando a sessão <strong>Pagamentos</strong></p>
-
-<p><img src="https://developercielo.github.io/images/checkout/parcelamento.png" alt="Seleção de Parcelas" /></p>
-
-<p><strong>OBS:</strong> O Check Box deve estar marcado para que o meio de pagamento seja exibido na tela transacional.</p>
-
-<p><strong>Características</strong></p>
-
-<ul>
-  <li>Disponível nas integrações do Checkout Cielo via API ou Botão;</li>
-  <li>O valor total dos itens do carrinho é somado e dividido pela quantidade de parcelas do lojista;</li>
-  <li>O valor da compra é sempre o mesmo, independentemente da quantidade de parcelas escolhida pelo comprador (Não há cobrança de Juros);</li>
-  <li>O valor do frete é somado ao valor do parcelamento;</li>
-  <li>A opção “à vista” sempre está disponível ao comprador.</li>
-  <li>Todas as transações possuirão as mesmas opções de parcelamento.</li>
-</ul>
-
-<h2 id="parcelamento-via-api">Parcelamento via API</h2>
-
-<p>Nesta opção, o lojista pode configurar a quantidade de parcelas por venda, especificado via request da API no momento de envio da transação.
-O Checkout realiza o cálculo das parcelas considerando valor total e limite parcelas enviadas via API.</p>
-
-<p><strong>ATENÇÃO:</strong> Nesta opção de parcelamento, o número de parcelas desejadas deve ser inferior a quantidade que está cadastrada no backoffice Checkout.</p>
-
-<p><strong>Características</strong></p>
-
-<ul>
-  <li>O lojista envia a quantidade máxima de parcelas que deseja exibir ao comprador.</li>
-  <li>O valor do frete é somado ao valor do parcelamento.</li>
-</ul>
-
-<p>O Parcelamento via API é realizado enviando o campo <code class="language-plaintext highlighter-rouge">MaxNumberOfInstallments</code> dentro do nó Payment. Isso forçará o Checkout a recalcular o valor do parcelamento.
-Abaixo, um exemplo do Nó</p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="nl">"MaxNumberOfInstallments"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Tipo</th>
-      <th>Obrigatório</th>
-      <th>Tamanho</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MaxNumberOfInstallments</code></td>
-      <td>Numeric</td>
-      <td>Condicional</td>
-      <td>2</td>
-      <td>Define valor máximo de parcelas apresentadas no transacional, ignorando configuração do Backoffice</td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="recorrência-do-checkout-cielo">Recorrência do Checkout Cielo</h1>
-
-<p>A Recorrência é um processo de agendamento automático de transações de crédito, ou seja, é uma transação que se repetirá automaticamente, sem a necessidade do comprador acessar a tela transacional, de acordo com as regras definidas no momento do agendamento.</p>
-
-<aside class="notice">Caso uma das transações não seja autorizada, o Checkout Cielo executa a retentativa automaticamente; para mais detalhes sobre a retentativa automática, veja a seção Retentativa.</aside>
-
-<p>Transações recorrentes são ideais para modelos de negócios que envolvam o <strong>conceito de assinatura, plano ou mensalidade</strong> na sua forma de <strong>cobrança</strong>.
-Alguns exemplos de negócios são:</p>
-
-<ul>
-  <li>Escolas</li>
-  <li>Academias</li>
-  <li>Editoras</li>
-  <li>Serviços de hospedagem</li>
-</ul>
-
-<p><strong>Diferença entre transações recorrentes e parceladas:</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Tipo</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Parceladas</strong></td>
-      <td>Se trata de <strong>uma transação dividida em vários meses</strong>. <br />O valor total da venda compromete o limite do cartão de crédito do comprador independentemente do valor da parcela inicial.<br /> O lojista recebe o valor da venda parceladamente e não corre o risco de uma das parcelas ser negada.<br /> <strong>EX</strong>: Venda de R$1.000,00 parcelado em 2 vezes. Apesar de o comprador pagar apenas R$500,00 na primeira parcela, o valor do limite de crédito consumido é o integral, ou seja, R$1.000,00. Se o limite do cartão for inferior ou o montante não estiver liberado, a R$1.000,00 a transação será negada</td>
-    </tr>
-    <tr>
-      <td><strong>Recorrentes</strong></td>
-      <td>São <strong>transações diferentes realizadas no mesmo cartão em momentos previamente agendados</strong>.<br /> A primeira venda agenda as futuras vendas a partir de um intervalo de tempo pré definido.<br /> A cada intervalo haverá uma cobrança no cartão de crédito. <br /> O pagamento recorrente bloqueia do limite do cartão apenas o valor debitado na data da primeira venda recorrente e do valor total da venda.<br /> <strong>EX</strong>: Venda de R$ 1.000,00 em 15/01/2015, com recorrência mensal e data final em 01/06/2015. Todo dia 15 haverá uma nova cobrança de R$1.000,00 no cartão do comprador, se repetindo até 15/05/2015, última data válida antes da data final.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="recorrência-por-api">Recorrência por API</h2>
-
-<p>Uma transação de recorrência no Checkout Cielo possui duas configurações: <code class="language-plaintext highlighter-rouge">Intervalo</code> e <code class="language-plaintext highlighter-rouge">Data de encerramento</code>.</p>
-
-<ul>
-  <li><strong>Intervalo</strong> – padrão de repetição e intervalo de tempo entre cada transação. Esse intervalo temporal entre as transações podem ser: Mensal, Bimestral, Trimestral, Semestral e Anual.</li>
-  <li><strong>Data de encerramento</strong> – Data que o processo de recorrência deixa de ocorrer.</li>
-</ul>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"RecurrentPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-31"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p><strong>Payment.RecurrentPayment</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Tipo</th>
-      <th>Obrigatório</th>
-      <th>Tamanho</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.Interval</code></td>
-      <td>Alphanumeric</td>
-      <td>Sim</td>
-      <td>10</td>
-      <td>Intervalo entre cada transação da recorrência</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Payment.RecurrentPayment.EndDate</code></td>
-      <td>YYYY-MM-DD</td>
-      <td>Não</td>
-      <td>255</td>
-      <td>Data onde a Recorrência se encerrará; Se não enviado a recorrência se encerra somente se cancelada</td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th>Intervalo</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Monthly</code></td>
-      <td>Mensal</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Bimonthly</code></td>
-      <td>Bimestral</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Quarterly</code></td>
-      <td>Trimestral</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">SemiAnnual</code></td>
-      <td>Semestral</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Annual</code></td>
-      <td>Anual</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Os dados do cartão de crédito do comprador ficam armazenados de forma segura dentro do Checkout Cielo, permitindo sua reutilização em uma transação recorrente. Esses dados não são acessados pelo lojista e essa inteligência é controlada pelo Checkout Cielo.</p>
-
-<p>Exceto o objeto <code class="language-plaintext highlighter-rouge">Payment</code> que contém um novo elemento específico para a recorrência chamado <code class="language-plaintext highlighter-rouge">RecurrentPayment</code>, todos os outros objetos são iguais à integração com o Carrinho.</p>
-
-<h3 id="request">Request</h3>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"OrderNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12344"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"SoftDescriptor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome que aparecerá na fatura"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Cart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"Discount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Percent"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nome do produto"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Descrição do produto"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"UnitPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asset"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sku do item no carrinho"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"Shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Correios"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"SourceZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14400000"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"TargetZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11000000"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"Street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Endereço de entrega"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Complement"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"District"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bairro da entrega"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"City"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cidade de entrega"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"State"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SP"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"Services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Serviço de frete"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Price"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"Deadline"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"Payment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"BoletoDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"DebitDiscount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"RecurrentPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"Interval"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"EndDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-31"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"Customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"Identity"</span><span class="p">:</span><span class="w"> </span><span class="mi">11111111111</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"FullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fulano Comprador da Silva"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fulano@email.com"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"Phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11999999999"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p><strong>Exemplo</strong>: Bem Físico</p>
-
-<p>Se o tipo de produto for <code class="language-plaintext highlighter-rouge">Bem Físico</code>, a <strong>API obriga o envio do tipo de frete</strong>.
-Se no contrato técnico existir o nó da recorrência, fica obrigatório o tipo <code class="language-plaintext highlighter-rouge">WithoutShipping</code>, caso contrário, a seguinte resposta será apresentada:</p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The request is invalid."</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"modelState"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"[Shipping.Type]"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"[Shipping.Type] pedidos com recorrência devem possuir o Shipping.Type 'WithoutShipping'."</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p><strong>IMPORTANTE:</strong> A Recorrência é criada apenas se a transação for <strong>AUTORIZADA</strong>. Independente de captura ou não, uma vez autorizada, o processo de recorrência se inicia.</p>
-
-<h2 id="recorrência-por-botão">Recorrência por Botão</h2>
-
-<p>Uma maneira de realizar a recorrência dentro do Checkout é criar um botão recorrente.</p>
-
-<p>Basta cadastrar o produto, incluindo um intervalo de cobrança e uma data para encerramento (Opcional), como no exemplo abaixo:</p>
-
-<p><img src="https://developercielo.github.io/images/checkout-botao-recorrencia.png" alt="Botão recorrência" /></p>
-
-<p><strong>ATENÇÃO:</strong> Caso um botão seja utilizado após a “Data final” cadastrada, a transação apresentará um erro exibindo <strong>Oppss</strong> na tela transacional. A Data pode ser editada na tela de edição do botão dentro de “Detalhes do Produto”</p>
-
-<h2 id="retentativa-de-recorrências">Retentativa de Recorrências</h2>
-
-<p>Caso uma das transações da recorrência não seja autorizada, o Checkout Cielo executa a retentativa automaticamente, o envio de uma nova transação, considerando:</p>
-
-<ul>
-  <li><strong>Intervalo de tempo entre as tentativas:</strong> 4 dias</li>
-  <li><strong>Quantidade de retentativas:</strong> 4 (quatro), uma por dia, por 4 dias corridos a partir do dia seguinte da transação original não autorizada.</li>
-</ul>
-
-<p><strong>OBS</strong>: Esse processo visa manter obter uma resposta positiva do processo de autorização, impedindo o lojista de perder a venda. O Processo de retentativa gera pedidos duplicados dentro do Backoffice, pois o pedido original, negado, será apresentado na lista de Pedidos, junto com a nova transação autorizada</p>
-
-<p><strong>ATENÇÃO:</strong> A regra da retentativa não pode ser modificada pelo lojista.</p>
-
-<h2 id="consultando-transações">Consultando transações</h2>
-
-<p>As transações de Recorrência ficam disponíveis no Backoffice Checkout Cielo como as outras vendas de sua loja na aba “PEDIDOS” (veja imagem abaixo).</p>
-
-<p>A primeira transação da recorrência é uma transação normal, seguindo as regras e preferências definidas pelo lojista no Backoffice.</p>
-
-<p><strong>ATENÇÃO:</strong> O valor e data de cobrança das transações recorrentes serão sempre os mesmos da transação inicial. O agendamento passa a funcionar automaticamente a partir da data em que a primeira transação for autorizada.</p>
-
-<p><img src="https://developercielo.github.io/images/checkout-consulta-recorrencia.png" alt="Consultando transações" /></p>
-
-<p>Esta tela mostra a data que a 1° transação da recorrência foi autorizada e deverá ser capturada manualmente. <strong>As demais transações da recorrência sempre serão capturadas automaticamente</strong>, independente se primeira transação foi capturada ou cancelada. Se o Cliente tiver configurado Captura automática, a captura da recorrência também será automática.</p>
-
-<p><strong>ATENÇÃO:</strong> Somente a 1° transação é submetida a análise do antifraude</p>
-
-<h2 id="cancelamento-de-recorrência-no-checkout-cielo">Cancelamento de Recorrência no Checkout Cielo</h2>
-
-<p>O cancelamento da recorrência ocorre dentro do Backoffice do Checkout Cielo, também na aba “PEDIDOS”. Basta:</p>
-
-<ol>
-  <li>Acessar uma transação de recorrência (marcada com o símbolo “Recorrente”)</li>
-  <li>Entrar em Detalhes (o símbolo de “+”)</li>
-</ol>
-
-<p><img src="https://developercielo.github.io/images/checkout-cancelar-recorrencia.png" alt="Pedido de recorrência" /></p>
-
-<p><img src="https://developercielo.github.io/images/checkout/pedidoreccance.png" alt="Cancelamento de recorrência" /></p>
-
-<p>Tela de detalhes da Recorrência</p>
-
-<p>Na tela acima, há duas opções de Cancelamento pelos botões:</p>
-
-<ul>
-  <li><strong>Cancelar</strong> – Cancela a transação, sem efetuar o cancelamento das futuras transações de recorrência.</li>
-  <li><strong>Cancelar Recorrência</strong> - Cancela o agendamento de futuras transações, encerrando a recorrência. Não cancela a transação atual nem as que já ocorreram. Essas necessitam ser canceladas manualmente.</li>
-</ul>
-
-<p><strong>ATENÇÃO:</strong></p>
-
-<ul>
-  <li>A Recorrência ocorre somente para Cartões de crédito e para produtos tipo “SERVIÇO” e “BENS DIGITAIS”.</li>
-  <li>A Recorrência é iniciada no momento da AUTORIZAÇAO, NÃO NA CAPTURA. Se a recorrência não tiver uma data para ser finalizada, ela se repetirá automaticamente até ser cancelada manualmente.</li>
-  <li>Sua afiliação Cielo deve ser habilitada para transacionar sem CVV ou Em recorrência, do contrário, todas as transações recorrentes serão negadas.</li>
-</ul>
-
-<h2 id="edição-da-recorrência">Edição da Recorrência</h2>
-
-<p>O Checkout Cielo permite que o lojista modifique 3 dados da recorrência:</p>
-
-<ul>
-  <li><strong>Ativação</strong> - Uma recorrência pode ser ativada ou cancelada.</li>
-  <li><strong>Intervalo</strong> - É possivel modificar o intervalo de execução.</li>
-  <li><strong>Dia de ocorrência</strong> - É possivel modificar o dia de execução da transação recorrente.</li>
-</ul>
-
-<p>A atualização é feita exclusivamente via o Backoffice Cielo. Acesso o <a href="https://developercielo.github.io/tutorial/checkout-tutoriais"><strong>Tutorial do Backoffice Checkout Cielo</strong></a> para mais informações.</p>
 
 <h1 id="programa-de-retentativa-das-bandeiras">Programa de Retentativa das Bandeiras</h1>
 
