@@ -111,7 +111,7 @@ Para utilizar o Cielo OAUTH são necessárias as seguintes credenciais:
 
 > Para gerar o `ClientID` e o `ClientSecret`, consulte o tópico de Obtendo as Credenciais, a seguir.
 
-## Obtendo as credenciais
+### Obtendo as credenciais
 
 Para obter as credenciais `ClientId` e `ClientSecret`, siga os passos a seguir:
 
@@ -121,7 +121,7 @@ Para obter as credenciais `ClientId` e `ClientSecret`, siga os passos a seguir:
 4. Clique em **Gerar Credenciais de Acesso às APIs**;
 5. O contato técnico receberá um e-mail com as credenciais.
 
-## Obtendo o token de acesso
+### Obtendo o token de acesso
 
 Para obter acesso a serviços Cielo que utilizam o **Cielo Oauth**, será necessário obter um token de acesso, conforme os passos abaixo:
 
