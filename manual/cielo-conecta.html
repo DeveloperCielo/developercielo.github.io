@@ -34771,558 +34771,47 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VoidId</code></td>
-      <td>String - uuid</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Identificador do cancelamento</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">InitializationVersion</code></td>
-      <td>Integer int16</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Número de versão dos parametros baixados na inicialização do equipamento.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PrintMessage.Position</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Default: “Top”<br />Enum: “Top”, “Middle”, “Bottom”<br />Posição da mensagem no comprovante:<br />Top - Início do comprovante, antes do código do estabelecimento<br />Middle - Meio do comprovante, após a descrição dos valores<br />Bottom - Final do comprovante</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PrintMessage.Message</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Indica a mensagem que deve ser impressa no comprovante de acordo com a posição indicada no campo Position</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Integerint16</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Status da transação.<br />0 = Não Finalizado<br />1 = Autorizado<br />2 = Pago<br />3 = Negado<br />10 = Cancelado<br />13 = Abortado</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CancellationStatus</code></td>
-      <td>Integer int16</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Status do cancelamento.<br />0 = Não Finalizado<br />1 = Autorizado<br />2 = Negado<br />3 = Confirmado<br />4 = Desfeito</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReasonCode</code></td>
-      <td>Integer int16</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Código de referência para análises.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReasonMessage</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Mensagem explicativa para análise.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Código de erro/resposta da transação da Adquirência.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Mensagem de erro/resposta da transação da Adquirência.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Receipt.MerchantName</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Receipt.MerchantAddress</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Receipt.MerchantCity</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Receipt.MerchantState</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Receipt.MerchantCode</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Receipt.Terminal</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Receipt.Nsu</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Receipt.Date</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Receipt.Hour</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Receipt.IssuerName</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Receipt.CardNumber</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Receipt.TransactionType</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Receipt.AuthorizationCode</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Receipt.TransactionMode</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Receipt.InputMethod</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Receipt.CancelValue</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactonData</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactonType</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactonNsu</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactonAuthCode</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactionDate</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactionHour</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Receipt.OrignalTransactionValue</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Receipt.OrignalTransactionCardHolder</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactionMode</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Receipt.OriginalInputMethod</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Links.Method</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Enum: “POST”, “GET”, “PUT”.<br />Método HTTP a ser utilizado na operação.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Links.Rel</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Enum: “self”, “cancel”, “confirm”.<br />Referência da operação.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Links.Href</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Endereço de URL de chamada da API</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="desfazimento-de-cancelamento">Desfazimento de cancelamento</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">SandBox</th>
-      <th style="text-align: center">Produção</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">https://apisandbox.cieloecommerce.cielo.com.br</td>
-      <td style="text-align: center">https://api.cieloecommerce.cielo.com.br/</td>
-    </tr>
-  </tbody>
-</table>
-
-<p><strong>Simular respostas:</strong></p>
-
-<p>Para simular alguma resposta especifica utilize o campo Amount, onde de acordo com o valor dos centavos informado nesse campo é possivel receber uma resposta conforme descrito na tabela abaixo:</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>Amount (valor dos centados)</td>
-      <td>Retorno simulado do Cancelamento</td>
-      <td>Exemplo de valor simulado</td>
-    </tr>
-    <tr>
-      <td>50</td>
-      <td>Aprovado</td>
-      <td>5050 = R$50,50</td>
-    </tr>
-    <tr>
-      <td>51</td>
-      <td>Negado</td>
-      <td>20051 = R$200,51</td>
-    </tr>
-    <tr>
-      <td>52</td>
-      <td>Timeout</td>
-      <td>3552 = R$35,52</td>
-    </tr>
-    <tr>
-      <td>59</td>
-      <td>Erro</td>
-      <td>1059 = R$10,59</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="desfaz-por-merchantvoidid">Desfaz por MerchantVoidId</h3>
-
-<h4 id="requisição-39">Requisição</h4>
-
-<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/merchantVoidId/{MerchantVoidId}</span></aside>
-
-<p><strong>Path Parameters:</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>String guid</td>
-      <td>36</td>
-      <td>Sim</td>
-      <td>Código do Pagamento</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">MerchantVoidId</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>Sim</td>
-      <td>Número do documento gerado automáticamente pelo terminal e incrementado de 1 a cada transação realizada no terminal</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="resposta-39">Resposta</h4>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"CancellationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde/voids"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CancellationStatus</code></td>
-      <td>Integer int16</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Status do cancelamento. <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Negado <br />3 = Confirmado <br />4 = Desfeito</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ConfirmationStatuss</code></td>
-      <td>Integer</td>
-      <td>2</td>
-      <td>Sim</td>
-      <td>Status do confirmação. <br />0 = Pendente <br />1 = Confirmado <br />2 = Desfeito</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Integer int16</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Status da transação <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Pago <br />3 = Negado <br />10 = Cancelado <br />13 = Abortado</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Código de erro/resposta da transação da Adquirência.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>Mensagem de erro/resposta da transação da Adquirência.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="desfaz-por-voidid">Desfaz por VoidId</h3>
-
-<h4 id="requisição-40">Requisição</h4>
-
-<aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/{VoidId}</span></aside>
-
-<p><strong>Path Parameters:</strong></p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">PaymentId</code></td>
-      <td>String guid</td>
-      <td>36</td>
-      <td>Sim</td>
-      <td>Código do Pagamento</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">VoidId</code></td>
-      <td>String guid</td>
-      <td>36</td>
-      <td>Sim</td>
-      <td>Identificador do cancelamento a ser desfeito</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="resposta-40">Resposta</h4>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"CancellationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Status"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"ReturnCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"ReturnMessage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GET"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"Method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"void"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"Href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.cieloecommerce.cielo.com.br/1/physicalSales/fffef2e6-15ef-4493-869f-62ea285fbfde/voids"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<table>
-  <thead>
-    <tr>
-      <th>Propriedade</th>
-      <th>Tipo</th>
-      <th>Tamanho</th>
-      <th>Obrigatório</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CancellationStatus</code></td>
-      <td>Integer</td>
-      <td>2</td>
-      <td>Sim</td>
-      <td>Status do cancelamento. <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Negado <br />3 = Confirmado <br />4 = Desfeito</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ConfirmationStatuss</code></td>
-      <td>Integer</td>
-      <td>2</td>
-      <td>Sim</td>
-      <td>Status do confirmação. <br />0 = Pendente <br />1 = Confirmado <br />2 = Desfeito</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">Status</code></td>
-      <td>Integer</td>
-      <td>2</td>
-      <td>Sim</td>
-      <td>Status da transação <br />0 = Não Finalizado <br />1 = Autorizado <br />2 = Pago <br />3 = Negado <br />10 = Cancelado <br />13 = Abortado</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnCode</code></td>
-      <td>String</td>
-      <td>3</td>
-      <td>Sim</td>
-      <td>Código de erro/resposta da transação da Adquirência.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">ReturnMessage</code></td>
-      <td>String</td>
-      <td>—</td>
-      <td>Sim</td>
-      <td>Mensagem de erro/resposta da transação da Adquirência.</td>
-    </tr>
-  </tbody>
-</table>
-
+<p>| Propriedade                            | Tipo          | Tamanho | Obrigatório | Descrição                                                                                                                                                                                                                                                                      |
+| ————————————– | ————- | ——- | ———– | —————————————————————————————————————————————————————————————————————————————————————————— |
+| <code class="language-plaintext highlighter-rouge">VoidId</code>                               | String - uuid | —     | —         | Identificador do cancelamento                                                                                                                                                                                                                                                  |
+| <code class="language-plaintext highlighter-rouge">InitializationVersion</code>                | Integer int16 | —     | —         | Número de versão dos parametros baixados na inicialização do equipamento.                                                                                                                                                                                                      |
+| <code class="language-plaintext highlighter-rouge">PrintMessage.Position</code>                | String        | —     | —         | Default: “Top”<br />Enum: “Top”, “Middle”, “Bottom”<br />Posição da mensagem no comprovante:<br />Top - Início do comprovante, antes do código do estabelecimento<br />Middle - Meio do comprovante, após a descrição dos valores<br />Bottom - Final do comprovante |
+| <code class="language-plaintext highlighter-rouge">PrintMessage.Message</code>                 | String        | —     | —         | Indica a mensagem que deve ser impressa no comprovante de acordo com a posição indicada no campo Position                                                                                                                                                                      |
+| <code class="language-plaintext highlighter-rouge">Status</code>                               | Integerint16  | —     | —         | Status da transação.<br />0 = Não Finalizado<br />1 = Autorizado<br />2 = Pago<br />3 = Negado<br />10 = Cancelado<br />13 = Abortado                                                                                                                              |
+| <code class="language-plaintext highlighter-rouge">CancellationStatus</code>                   | Integer int16 | —     | —         | Status do cancelamento.<br />0 = Não Finalizado<br />1 = Autorizado<br />2 = Negado<br />3 = Confirmado<br />4 = Desfeito                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">ReasonCode</code>                           | Integer int16 | —     | —         | Código de referência para análises.                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">ReasonMessage</code>                        | String        | —     | —         | Mensagem explicativa para análise.                                                                                                                                                                                                                                             |
+| <code class="language-plaintext highlighter-rouge">ReturnCode</code>                           | String        | —     | —         | Código de erro/resposta da transação da Adquirência.                                                                                                                                                                                                                           |
+| <code class="language-plaintext highlighter-rouge">ReturnMessage</code>                        | String        | —     | —         | Mensagem de erro/resposta da transação da Adquirência.                                                                                                                                                                                                                         |
+| <code class="language-plaintext highlighter-rouge">Receipt.MerchantName</code>                 | —           | —     | —         | —                                                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">Receipt.MerchantAddress</code>              | —           | —     | —         | —                                                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">Receipt.MerchantCity</code>                 | —           | —     | —         | —                                                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">Receipt.MerchantState</code>                | —           | —     | —         | —                                                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">Receipt.MerchantCode</code>                 | —           | —     | —         | —                                                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">Receipt.Terminal</code>                     | —           | —     | —         | —                                                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">Receipt.Nsu</code>                          | —           | —     | —         | —                                                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">Receipt.Date</code>                         | —           | —     | —         | —                                                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">Receipt.Hour</code>                         | —           | —     | —         | —                                                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">Receipt.IssuerName</code>                   | —           | —     | —         | —                                                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">Receipt.CardNumber</code>                   | —           | —     | —         | —                                                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">Receipt.TransactionType</code>              | —           | —     | —         | —                                                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">Receipt.AuthorizationCode</code>            | —           | —     | —         | —                                                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">Receipt.TransactionMode</code>              | —           | —     | —         | —                                                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">Receipt.InputMethod</code>                  | —           | —     | —         | —                                                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">Receipt.CancelValue</code>                  | —           | —     | —         | —                                                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactonData</code>       | —           | —     | —         | —                                                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactonType</code>       | —           | —     | —         | —                                                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactonNsu</code>        | —           | —     | —         | —                                                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactonAuthCode</code>   | —           | —     | —         | —                                                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactionDate</code>      | —           | —     | —         | —                                                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactionHour</code>      | —           | —     | —         | —                                                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">Receipt.OrignalTransactionValue</code>      | —           | —     | —         | —                                                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">Receipt.OrignalTransactionCardHolder</code> | —           | —     | —         | —                                                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">Receipt.OriginalTransactionMode</code>      | —           | —     | —         | —                                                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">Receipt.OriginalInputMethod</code>          | —           | —     | —         | —                                                                                                                                                                                                                                                                            |
+| <code class="language-plaintext highlighter-rouge">Links.Method</code>                         | String        | —     | —         | Enum: “POST”, “GET”, “PUT”.<br />Método HTTP a ser utilizado na operação.                                                                                                                                                                                                    |
+| <code class="language-plaintext highlighter-rouge">Links.Rel</code>                            | String        | —     | —         | Enum: “self”, “cancel”, “confirm”.<br />Referência da operação.                                                                                                                                                                                                              |
+| <code class="language-plaintext highlighter-rouge">Links.Href</code>                           | String        | —     | —         | Endereço de URL de chamada da API                                                                                                                                                                                                                                              |</p>
 <h2 id="confirmação-de-cancelamento">Confirmação de Cancelamento</h2>
 
 <table>
@@ -35376,7 +34865,7 @@
 
 <h3 id="confirma">Confirma</h3>
 
-<h4 id="requisição-41">Requisição</h4>
+<h4 id="requisição-39">Requisição</h4>
 
 <aside class="request"><span class="method delete">DELETE</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/{VoidId}/confirmation</span></aside>
 
@@ -35410,7 +34899,7 @@
   </tbody>
 </table>
 
-<h4 id="resposta-41">Resposta</h4>
+<h4 id="resposta-39">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"CancellationStatus"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
@@ -35503,7 +34992,7 @@
   </tbody>
 </table>
 
-<h4 id="requisição-42">Requisição</h4>
+<h4 id="requisição-40">Requisição</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/1/physicalSales/{PaymentId}/voids/{VoidId}</span></aside>
 
@@ -35537,7 +35026,7 @@
   </tbody>
 </table>
 
-<h4 id="resposta-42">Resposta</h4>
+<h4 id="resposta-40">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"VoidId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a4bc7892-b455-4cd1-b902-c791802cd72b"</span><span class="p">,</span><span class="w">
@@ -39027,7 +38516,7 @@
 
 <p>Cria um novo merchant.</p>
 
-<h4 id="requisição-43">Requisição</h4>
+<h4 id="requisição-41">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/merchants</span></aside>
 
@@ -39206,7 +38695,7 @@
   </tbody>
 </table>
 
-<h4 id="resposta-43">Resposta</h4>
+<h4 id="resposta-41">Resposta</h4>
 
 <table>
   <thead>
@@ -39345,7 +38834,7 @@
 
 <p>Encontra uma loja subordinada pelo seu ID.</p>
 
-<h4 id="resposta-44">Resposta</h4>
+<h4 id="resposta-42">Resposta</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/merchants/{subordinatedMerchantId}</span></aside>
 
@@ -39672,7 +39161,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="resposta-45">Resposta</h4>
+<h4 id="resposta-43">Resposta</h4>
 
 <table>
   <thead>
@@ -39909,7 +39398,7 @@
 
 <p>Salva alterações em na loja subordinado com o ID especificado.</p>
 
-<h4 id="requisição-44">Requisição</h4>
+<h4 id="requisição-42">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/merchants/{subordinatedMerchantId}</span></aside>
 
@@ -40032,7 +39521,7 @@
 
 <p>Atualização dos dados do tef config da loja.</p>
 
-<h4 id="requisição-45">Requisição</h4>
+<h4 id="requisição-43">Requisição</h4>
 
 <aside class="request"><span class="method put">PUT</span> <span class="endpoint">/merchants//tefconfig</span></aside>
 
@@ -40070,7 +39559,7 @@
   </tbody>
 </table>
 
-<h4 id="resposta-46">Resposta</h4>
+<h4 id="resposta-44">Resposta</h4>
 
 <p>Caso de sucesso: Status 200 ok</p>
 
@@ -40139,7 +39628,7 @@
 
 <p>Salva alterações em na loja subordinado com o ID especificado.</p>
 
-<h4 id="requisição-46">Requisição</h4>
+<h4 id="requisição-44">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals</span></aside>
 
@@ -40193,7 +39682,7 @@
   </tbody>
 </table>
 
-<h4 id="resposta-47">Resposta</h4>
+<h4 id="resposta-45">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Terminal"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -40283,7 +39772,7 @@
 
 <h3 id="criar-terminal-com-equipamento">Criar Terminal com Equipamento</h3>
 
-<h4 id="requisição-47">Requisição</h4>
+<h4 id="requisição-45">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals</span></aside>
 
@@ -40352,7 +39841,7 @@
   </tbody>
 </table>
 
-<h4 id="resposta-48">Resposta</h4>
+<h4 id="resposta-46">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Terminal"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -40434,7 +39923,7 @@
 
 <p>Desabilita um terminal removendo o vínculo com um equipamento físico.</p>
 
-<h4 id="requisição-48">Requisição</h4>
+<h4 id="requisição-46">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals/disable</span></aside>
 
@@ -40474,7 +39963,7 @@
 
 <h3 id="criar-token-de-ativação">Criar Token de ativação</h3>
 
-<h4 id="requisição-49">Requisição</h4>
+<h4 id="requisição-47">Requisição</h4>
 
 <aside class="request"><span class="method post">POST</span> <span class="endpoint">/terminals/token</span></aside>
 
@@ -40512,7 +40001,7 @@
   </tbody>
 </table>
 
-<h4 id="resposta-49">Resposta</h4>
+<h4 id="resposta-47">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"TerminalId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcd000j"</span><span class="p">,</span><span class="w">
@@ -40578,7 +40067,7 @@
 
 <p>Consulta terminais de forma paginada</p>
 
-<h4 id="requisição-50">Requisição</h4>
+<h4 id="requisição-48">Requisição</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/terminals?page=13&amp;pageSize=10&amp;subordinatedMerchantId={SubordinatedMerchantId}</span></aside>
 
@@ -40632,7 +40121,7 @@
   </tbody>
 </table>
 
-<h4 id="resposta-50">Resposta</h4>
+<h4 id="resposta-48">Resposta</h4>
 
 <table>
   <thead>
@@ -40795,7 +40284,7 @@
 
 <p>Fornece os dados de um equipamento, a partir do modelo do equipamento e de seu número serial.</p>
 
-<h4 id="requisição-51">Requisição</h4>
+<h4 id="requisição-49">Requisição</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/equipments/{modelId}/{serialNumber}</span></aside>
 
@@ -40835,7 +40324,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h4 id="resposta-51">Resposta</h4>
+<h4 id="resposta-49">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Model"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
@@ -40890,7 +40379,7 @@
 
 <p>Fornece os dados, de forma paginada, de equipamentos cadastrados no sistema</p>
 
-<h4 id="requisição-52">Requisição</h4>
+<h4 id="requisição-50">Requisição</h4>
 
 <aside class="request"><span class="method get">GET</span> <span class="endpoint">/equipments/paged?pageSize=10&amp;page=1</span></aside>
 
@@ -40924,7 +40413,7 @@
   </tbody>
 </table>
 
-<h4 id="resposta-52">Resposta</h4>
+<h4 id="resposta-50">Resposta</h4>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"Page"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
