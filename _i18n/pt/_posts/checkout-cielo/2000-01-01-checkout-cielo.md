@@ -945,6 +945,8 @@ A Recorrência é um processo de agendamento automático de transações de cré
 
 <aside class="notice">Caso uma das transações não seja autorizada, o Checkout Cielo executa a retentativa automaticamente; para mais detalhes sobre a retentativa automática, veja a seção <a href="#retentativa-de-recorrências">Retentativa</a>.</aside>
 
+<a href="#retentativa-de-recorrências">Retentativa</a>
+
 Transações recorrentes são ideais para modelos de negócios que envolvam o **conceito de assinatura, plano ou mensalidade** na sua forma de **cobrança**.
 Alguns exemplos de negócios são:
 
