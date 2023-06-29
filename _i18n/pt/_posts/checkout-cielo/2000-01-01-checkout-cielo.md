@@ -943,9 +943,9 @@ Abaixo, um exemplo do Nó
 
 A Recorrência é um processo de agendamento automático de transações de crédito, ou seja, é uma transação que se repetirá automaticamente, sem a necessidade do comprador acessar a tela transacional, de acordo com as regras definidas no momento do agendamento.
 
-<aside class="notice">Caso uma das transações não seja autorizada, o Checkout Cielo executa a retentativa automaticamente; para mais detalhes sobre a retentativa automática, veja a seção <a href="#retentativa-de-recorrências">Retentativa</a>.</aside>
+<aside class="notice">Caso uma das transações não seja autorizada, o Checkout Cielo executa a retentativa automaticamente; para mais detalhes sobre a retentativa automática, veja a seção <a href="(https://developercielo.github.io/manual/checkout-cielo#recorr%C3%AAncia-do-checkout-cielo)">Retentativa</a>.</aside>
 
-<a href="#retentativa-de-recorrências">Retentativa</a>
+<a href="(https://developercielo.github.io/manual/checkout-cielo#recorr%C3%AAncia-do-checkout-cielo)">Recorrência</a>
 
 Transações recorrentes são ideais para modelos de negócios que envolvam o **conceito de assinatura, plano ou mensalidade** na sua forma de **cobrança**.
 Alguns exemplos de negócios são:
