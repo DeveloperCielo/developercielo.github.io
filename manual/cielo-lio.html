@@ -1137,15 +1137,19 @@ Clique na aba Apps -&gt; Clique no aplicativo Cielo Store -&gt; Escolha o aplica
 
 <h3 id="configurar-módulos-e-dependências">Configurar módulos e dependências</h3>
 
-<p>Efetue o download da nossa SDK <a href="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/SDK-1.5.13.zip">CLIQUE AQUI</a></p>
+<p>Efetue o download da nossa SDK <a href="https://desenvolvedores.cielo.com.br/api-portal/pt-br/content/sdk-cielo-lio">CLIQUE AQUI</a></p>
 
-<p>Disponilizamos dois diretorios <code class="language-plaintext highlighter-rouge">com</code> e <code class="language-plaintext highlighter-rouge">cielo</code> basta copiá-los para o seu repositório <code class="language-plaintext highlighter-rouge">.m2/repository</code>, exemplos:</p>
+<p>Disponilizamos dois diretorios <code class="language-plaintext highlighter-rouge">com</code> e <code class="language-plaintext highlighter-rouge">cielo</code> basta copiá-los para o seu repositório <code class="language-plaintext highlighter-rouge">.m2/repository</code></p>
 
-<p>No Windows: <code class="language-plaintext highlighter-rouge">C:\Users\&lt;usuario&gt;\.m2</code>
-No Linux: <code class="language-plaintext highlighter-rouge">/home/&lt;usuario&gt;/.m2</code>
-No Mac: <code class="language-plaintext highlighter-rouge">/Users/&lt;usuario&gt;/.m2</code></p>
+<p>Exemplo:</p>
 
-<p>No <strong>build.gradle</strong> na raiz do seu projeto, adicione o <code class="language-plaintext highlighter-rouge">mavenLocal()</code> dentro da closure <strong>allprojects</strong> conforme abaixo:</p>
+<p>No Windows: <code class="language-plaintext highlighter-rouge">C:\Users\&lt;usuario&gt;\.m2</code></p>
+
+<p>No Linux: <code class="language-plaintext highlighter-rouge">/home/&lt;usuario&gt;/.m2</code></p>
+
+<p>No Mac: <code class="language-plaintext highlighter-rouge">/Users/&lt;usuario&gt;/.m2</code></p>
+
+<p>No <strong>build.gradle</strong> na raiz do seu projeto, adicionar o <code class="language-plaintext highlighter-rouge">mavenLocal()</code> dentro da closure <strong>allprojects</strong> conforme abaixo:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>allprojects {  
   repositories {  
