@@ -1137,14 +1137,34 @@ Clique na aba Apps -&gt; Clique no aplicativo Cielo Store -&gt; Escolha o aplica
 
 <h3 id="configurar-módulos-e-dependências">Configurar módulos e dependências</h3>
 
-<p>Após configurar um novo projeto no Android Studio, é necessário incluir a dependência abaixo no projeto.</p>
+<p>Efetue o download da nossa SDK <a href="https://desenvolvedores.cielo.com.br/api-portal/sites/default/files/ctools/SDK-1.5.13.zip">CLIQUE AQUI</a></p>
 
-<p>Para a versão release, adicione o módulo do Cielo LIO Order Manager SDK nas dependências do Gradle:</p>
+<p>Disponilizamos dois diretorios <code class="language-plaintext highlighter-rouge">com</code> e <code class="language-plaintext highlighter-rouge">cielo</code> basta copiá-los para o seu repositório <code class="language-plaintext highlighter-rouge">.m2/repository</code>, exemplos:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>compile 'com.cielo.lio:order-manager:1.4.0'
+<p>No Windows: <code class="language-plaintext highlighter-rouge">C:\Users\&lt;usuario&gt;\.m2</code>
+No Linux: <code class="language-plaintext highlighter-rouge">/home/&lt;usuario&gt;/.m2</code>
+No Mac: <code class="language-plaintext highlighter-rouge">/Users/&lt;usuario&gt;/.m2</code></p>
+
+<p>No <strong>build.gradle</strong> na raiz do seu projeto, adicione o <code class="language-plaintext highlighter-rouge">mavenLocal()</code> dentro da closure <strong>allprojects</strong> conforme abaixo:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>allprojects {  
+  repositories {  
+    mavenLocal()  
+	... 
+  }  
+}
 </code></pre></div></div>
 
-<p>última versão 1.4.0</p>
+<p>No <strong>build.gradle</strong> do app, adicionar a dependência dentro da closure <strong>dependencies</strong> conforme abaixo:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dependencies {    
+  implementation 'com.cielo.lio:order-manager:1.5.13'  
+}
+</code></pre></div></div>
+
+<p>Após essas configurações realize o build do projeto.</p>
+
+<p>última versão 1.5.13</p>
 
 <blockquote>
   <p>A partir da versão 1.17.7-beta do SDK se tornou necessária a permissão de INTERNET na aplicação cliente.
@@ -1785,6 +1805,9 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:</p>
       <td>DEBITO_PREDATADO</td>
     </tr>
     <tr>
+      <td>DEBITO_PAGTO_FATURA_DEBITO</td>
+    </tr>
+    <tr>
       <td>CREDITO_AVISTA</td>
     </tr>
     <tr>
@@ -1792,6 +1815,18 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:</p>
     </tr>
     <tr>
       <td>CREDITO_PARCELADO_ADM</td>
+    </tr>
+    <tr>
+      <td>CREDITO_PARCELADO_BNCO</td>
+    </tr>
+    <tr>
+      <td>CARTAO_LOJA_AVISTA</td>
+    </tr>
+    <tr>
+      <td>CARTAO_LOJA_PARCELADO_LOJA</td>
+    </tr>
+    <tr>
+      <td>CARTAO_LOJA_PARCELADO</td>
     </tr>
     <tr>
       <td>PRE_AUTORIZACAO</td>
@@ -1803,13 +1838,13 @@ Segue abaixo a tabela com os dados mais relevantes existentes nesse mapa:</p>
       <td>VOUCHER_REFEICAO</td>
     </tr>
     <tr>
-      <td>CARTAO_LOJA_AVISTA</td>
+      <td>VISAVALE_REFEICAO</td>
     </tr>
     <tr>
-      <td>CARTAO_LOJA_PARCELADO_LOJA</td>
+      <td>VISAVALE_ALIMENTACAO</td>
     </tr>
     <tr>
-      <td>CARTAO_LOJA_PARCELADO</td>
+      <td>FROTAS</td>
     </tr>
   </tbody>
 </table>
